@@ -3311,8 +3311,8 @@
                 "seodec18"
             ],
             "type": "example-workload",
-            "file_url": "example-scenario/apps/devops-dotnet-webapp.yml",
-            "http_url": "/azure/architecture/example-scenario/apps/devops-dotnet-webapp",
+            "file_url": "example-scenario/apps/devops-dotnet-baseline.yml",
+            "http_url": "/azure/architecture/example-scenario/apps/devops-dotnet-baseline",
             "word_count": 1127,
             "read_time": "5 min read",
             "Title": "Design a CI/CD pipeline using Azure DevOps",

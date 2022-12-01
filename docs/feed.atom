@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-11-21T22:58:08.689Z</updated>
+    <updated>2022-11-28T12:01:29.044Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://docs.microsoft.com/legal/termsofuse</rights>
@@ -22,6 +22,30 @@
         <link href="https://docs.microsoft.com/azure/architecture/guide/power-platform/eventual-consistency"/>
         <updated>2022-11-09T19:17:18.000Z</updated>
         <summary type="html"><![CDATA[Handle dependent data in a resilient way in Power Apps.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mission-critical baseline architecture in an Azure landing zone]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone"/>
+        <updated>2022-11-23T18:40:57.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a mission-critical workload that takes a dependency on Azure landing zones for connectivity resources, which allows integration with other applications and shared services of an enterprise.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Private Link to access applications on networks with overlapping address spaces]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/networking/private-link-ip-constraints</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/networking/private-link-ip-constraints"/>
+        <updated>2022-11-22T23:55:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Private Link to expose apps running in one virtual network to consumers in another virtual network that has an overlapping IP address space.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Measure Azure app sustainability by using the SCI score]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/measure-azure-app-sustainability-sci-score</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/measure-azure-app-sustainability-sci-score"/>
+        <updated>2022-11-22T20:17:15.000Z</updated>
+        <summary type="html"><![CDATA[Create a sustainability model based on available proxies that scores the carbon impact of an application.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -214,6 +238,126 @@
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region"/>
         <updated>2022-11-15T21:20:42.000Z</updated>
         <summary type="html"><![CDATA[Learn how to run an Azure App Service application in multiple regions to achieve high availability, by following this example architecture.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SQL Managed Instance with CMK]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/data/sql-managed-instance-cmk</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/data/sql-managed-instance-cmk"/>
+        <updated>2022-11-25T21:28:44.000Z</updated>
+        <summary type="html"><![CDATA[Create a highly available SQL Managed Instance design by using customer-managed keys stored in Azure Key Vault.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate master data services to Azure with CluedIn and Azure Purview]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/data/migrate-master-data-services-with-cluedin"/>
+        <updated>2022-11-25T21:19:05.000Z</updated>
+        <summary type="html"><![CDATA[Use CluedIn to migrate your master data services solution to Azure, by using CluedIn and Azure Purview.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IaaS: Web app with relational database]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/high-availability/ref-arch-iaas-web-and-db"/>
+        <updated>2022-11-25T21:09:48.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the best practices for applying Availability Zones to a web application and Microsoft SQL Server database hosted on virtual machines (VMs).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Optimized storage with logical data classification]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-logical-data-classification</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/optimized-storage-logical-data-classification"/>
+        <updated>2022-11-25T19:21:20.000Z</updated>
+        <summary type="html"><![CDATA[Architecture for a high-availability solution that handles massive amounts of data. It uses an optimized tiering strategy to reduce storage costs.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Files secured by AD DS]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/azure-files-on-premises-authentication"/>
+        <updated>2022-11-25T08:58:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to provide secure Azure Files that are secured by on-premises Windows Server Active Directory domain services (AD DS), and accessed on-premises.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cross-cloud scaling - on-premises data]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data"/>
+        <updated>2022-11-25T08:58:17.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build a hybrid app that spans Azure and Azure Stack Hub. The solution uses a single on-premises data source.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Jenkins server on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/jenkins</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/jenkins"/>
+        <updated>2022-11-25T08:27:10.000Z</updated>
+        <summary type="html"><![CDATA[This scenario explains the architecture and considerations to take into account when installing and configuring Jenkins.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Cosmos DB]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db</id>
+        <link href="https://docs.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-e-commerce-using-cosmos-db"/>
+        <updated>2022-11-25T08:16:06.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Cosmos DB for retail and e-commerce apps to support in-depth queries over diverse product catalogs, traffic spikes, and rapidly changing inventory.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Integrate on-premises AD domains with Azure AD]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad"/>
+        <updated>2022-11-25T02:13:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to implement a secure hybrid network architecture that integrates on-premises Active Directory domains with Azure Active Directory (Azure AD).]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Computer-aided engineering]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/hpc-saas</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/hpc-saas"/>
+        <updated>2022-11-23T20:32:48.000Z</updated>
+        <summary type="html"><![CDATA[This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Windows VM on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm"/>
+        <updated>2022-11-23T20:17:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn the best practices for running a Windows virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run a Linux VM on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm"/>
+        <updated>2022-11-23T19:47:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn the best practices for running a Linux virtual machine on Azure, which requires some additional components, including networking and storage resources.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAS on Azure architecture]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/guide/sas/sas-overview</id>
+        <link href="https://docs.microsoft.com/azure/architecture/guide/sas/sas-overview"/>
+        <updated>2022-11-23T19:16:30.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multicloud blockchain distributed ledger technology (DLT)]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain"/>
+        <updated>2022-11-23T19:14:20.000Z</updated>
+        <summary type="html"><![CDATA[See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multiparty DLTs to build a cross-cloud blockchain solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS regulated cluster for PCI-DSS 3.2.1 - Monitoring operations]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-monitor</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-pci/aks-pci-monitor"/>
+        <updated>2022-11-23T15:09:39.000Z</updated>
+        <summary type="html"><![CDATA[Best practices for monitoring a PCI-DSS 3.2.1 infrastructure as per Requirement 10, and 11.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -990,14 +1134,6 @@
         <link href="https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture"/>
         <updated>2022-11-01T01:17:47.000Z</updated>
         <summary type="html"><![CDATA[Get architectural guidance for industrial IoT (IIoT) analytics solutions that use Azure platform as a service (PaaS) components.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SAS on Azure architecture]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/guide/sas/sas-overview</id>
-        <link href="https://docs.microsoft.com/azure/architecture/guide/sas/sas-overview"/>
-        <updated>2022-11-01T01:16:44.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -3322,8 +3458,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Design a CI/CD pipeline using Azure DevOps]]></title>
-        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-webapp</id>
-        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-webapp"/>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-baseline</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-baseline"/>
         <updated>2022-09-10T01:01:03.000Z</updated>
         <summary type="html"><![CDATA[This architecture illustrates building a continuous integration and deployment pipeline using Azure Pipelines.]]></summary>
         <category label="updated" term="updated"/>
@@ -3777,6 +3913,30 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Rehost IMS DC and IMS DB on Azure by using Raincode IMSql]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/rehost-ims-raincode-imsql"/>
+        <updated>2022-08-01T21:36:02.000Z</updated>
+        <summary type="html"><![CDATA[Rehost IBM IMS DC and IMS DB on Azure by using Raincode IMSql. Rehost seamlessly without translating or changing your application.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rehost IMS workloads to virtual machines by using IMSql]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/imsql-rehost-ims</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/mainframe/imsql-rehost-ims"/>
+        <updated>2022-08-01T20:09:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use IMSql to rehost IMS DB and IMS TM systems on .NET and SQL Server by using virtual machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deployment and testing for mission-critical workloads on Azure]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test</id>
+        <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test"/>
+        <updated>2022-08-01T16:47:08.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a workload that is accessed over a public endpoint without extra dependencies to other company resources - Deployment and Testing.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Mission-critical baseline architecture on Azure]]></title>
         <id>https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro</id>
         <link href="https://docs.microsoft.com/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro"/>
@@ -3926,6 +4086,22 @@
         <link href="https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/machine-learning-operations-v2"/>
         <updated>2022-08-03T23:22:07.000Z</updated>
         <summary type="html"><![CDATA[Learn about a single  deployable set of repeatable, and maintainable patterns for creating machine learning CI/CD and retraining pipelines.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Real-time location sharing]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/signalr/index</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/signalr/index"/>
+        <updated>2022-08-01T18:51:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to architect a solution that processes changes to underlying data within a web view, without the need for a page refresh, by using real-time services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Secure your Microsoft Teams channel bot and web app behind a firewall]]></title>
+        <id>https://docs.microsoft.com/azure/architecture/example-scenario/teams/securing-bot-teams-channel</id>
+        <link href="https://docs.microsoft.com/azure/architecture/example-scenario/teams/securing-bot-teams-channel"/>
+        <updated>2022-08-01T18:51:09.000Z</updated>
+        <summary type="html"><![CDATA[Help secure the connection to a Microsoft Teams channel bot’s web app by using Azure Private Link and Azure Private Endpoint.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
 </feed>
