@@ -103,6 +103,8 @@ We recommend incorporating VM health checks into your orchestration to prepare f
 
 **(11) Use an application warmup period.** Most interruptible workloads run applications. Applications need time to install and time to boot. They need time to connect to external storage and gather information from checkpoints. We recommend having an application warmup period before allowing it to start processing. During the warmup period, the application should be booting, connecting, and preparing to contribute. You should only allow an application to start processing data after you've validated the health of the application.
 
+![Diagram of the workload lifecycle with an application warmup period](./media/lifecycle-spot-virtual-machine.png)
+
 **(12) Configure user-assigned managed identities.** We recommend using user-assigned managed identities to streamline the authentication and authorization process. User-assigned managed identities let avoid putting credentials in code and aren't tied to a single resource like system-assigned managed identities. The user-assigned managed identities contain permissions and access tokens from Azure Active Directory that can be reused and assigned to spot VMs during orchestration. Token consistency across spot VMs helps streamline orchestration and the access to workload resources the spot VMs have.
 
 With system-assigned managed identities, a new spot VM might get a different access token from Azure Active Directory. If you need to use system-assigned managed identities, we recommend making the workloads resilient to `403 Forbidden Error` responses. Your orchestration will need to get tokens from Azure Active Directory with the right permissions. For more information, see [managed identities](/azure/active-directory/managed-identities-azure-resources/overview).
@@ -112,7 +114,6 @@ With system-assigned managed identities, a new spot VM might get a different acc
 We built an example scenario for Spot VMs. It deploys a queue processing application that qualifies as an interruptible workload. The scripts in the scenario are illustrative. The scenario walks you through a one-time, manual push to deploy resources. We haven't provided a deployment pipeline with this implementation, but you should build a pipeline to automate the deployment process. Below we provide details on the architecture flow.
 
 ![Diagram of the example scenario architecture](./media/spot-vm-arch.png)
-
 
 1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM. The application version links to the source application package in the storage account.
 1. **Storage account:**  The storage account stores the source application package. In this architecture, it's a compressed tar file named `worker-0.1.0.tar.gz`. It contains two files. One file is the `orchestrate.sh` bash script that installs the .NET worker application.
