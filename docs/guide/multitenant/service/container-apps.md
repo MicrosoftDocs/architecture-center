@@ -73,7 +73,7 @@ Azure Container Apps has built-in support for Dapr, which uses a modular design 
 
 You might consider deploying a single Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed into its own virtual network, shared by all of the apps within the environment. Each environment has its own Dapr and monitoring configuration.
 
-This approach provides the strongest level of data and performance isolation, and it removes the need for your applications to be multitenancy-aware.
+This approach provides the strongest level of data and performance isolation since your tenants data and traffic will be isolated to their specific environment. This isolation model also removes the need for your applications to be multitenancy-aware.
 
 However, there are low [limits on how many environments you can deploy within a subscription per region](/azure/container-apps/quotas). In some situations, these [quotas can be increased by request by opening an Azure support case](https://azure.microsoft.com/support/create-ticket/).
 
