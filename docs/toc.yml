@@ -3602,7 +3602,7 @@ items:
                   - name: Red Hat JBoss EAP on Azure
                     href: /azure/developer/java/ee/jboss-on-azure
                     maintainContext: true
-              - name: Interruptible workloads using Spot VMs
+              - name: Building on spot VMs
                 href: guide/spot/spot-eviction.yml
           - name: Architectures
             items:
