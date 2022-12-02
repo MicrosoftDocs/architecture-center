@@ -33,6 +33,6 @@ products:
   - azure-language-understanding
   - azure-qna-maker
   - azure-application-insights
-thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model.png
+thumbnailUrl: /azure/architecture/browse/thumbs/faq-chatbot-with-data-champion-model-thumbnail.png
 content: |
   [!include[](faq-chatbot-with-data-champion-model-content.md)]

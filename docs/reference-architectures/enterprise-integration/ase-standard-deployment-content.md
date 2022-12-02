@@ -397,7 +397,7 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
 
