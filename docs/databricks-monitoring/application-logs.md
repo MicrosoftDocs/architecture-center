@@ -160,6 +160,10 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 > [!div class="nextstepaction"]
 > [Use dashboards to visualize Azure Databricks metrics](./dashboards.md)
 
+## Related resources
+
+- [Monitoring Azure Databricks](databricks-monitoring/index.)
+
 <!-- links -->
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
