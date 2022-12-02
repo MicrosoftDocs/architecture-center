@@ -63,8 +63,8 @@ The tables that follow identify the detailed characteristics for that level of p
 
 ## Related resources
 
-* [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
-* [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.yml)
+- [Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning](mlops-technical-paper.yml)
+- [Azure Machine Learning decision guide for optimal tool selection](aml-decision-tree.yml)
 - [Orchestrate MLOps by using Azure Databricks](../../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)
 - [Secure MLOps solutions with Azure network security](../../example-scenario/ai/network-security-mlops.yml)
 - [MLOps for Python models using Azure Machine Learning](../../reference-architectures/ai/mlops-python.yml)
