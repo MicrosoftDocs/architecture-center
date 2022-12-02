@@ -24,7 +24,7 @@ This solution idea demonstrates low-latency, high-throughput ingestion of large 
 
 You can use this solution to ingest large volumes of CDN logs for the purpose of creating near real-time analytics dashboards.
 
-## Potential use cases
+### Potential use cases
 
 * Log analytics
 * Time series analytics
@@ -45,4 +45,7 @@ For more information, see [Azure Data Explorer documentation](/azure/data-explor
 
 ## Related resources
 
-- []()
+- [Analytics architecture design](analytics-start-here.yml)
+- [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
+- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [Azure Data Explorer monitoring](monitor-azure-data-explorer.yml)
