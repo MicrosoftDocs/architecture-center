@@ -47,3 +47,7 @@ Principal author:
 For more information, see [Azure Data Explorer documentation](/azure/data-explorer).
 
 ## Related resources
+
+- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [Azure Data Explorer interactive analytics](interactive-azure-data-explorer.yml)
+- [IoT analytics with Azure Data Explorer](iot-azure-data-explorer.yml)
