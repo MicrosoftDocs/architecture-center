@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Event Grid connects your app with other services. For example, create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
-
-## Potential use cases
-
-Organizations can use Event Grid to assist with:
-
-* Serverless application architectures in the cloud.
-* Ops automation.
-* Application integration.
+Event Grid connects your app with other services. This article describes how to integrate your app with Azure Event Grid to take advantage of its reliable delivery, advanced routing, and direct integration.
 
 ## Architecture
 
@@ -38,11 +30,27 @@ Organizations can use Event Grid to assist with:
 * [Power Automate](https://flow.microsoft.com): Easily create automated workflows.
 * [Email](/azure/connectors/connectors-create-api-office365-outlook): Create automated task and workflows with Azure Logic Apps and O365 Outlook Connector to send an email.
 
+## Scenario details
+
+Event Grid connects your app with other services. For example, create an application topic to send your app's event data to Event Grid and take advantage of its delivery, advanced routing, and direct integration with Azure. Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code.
+
+### Potential use cases
+
+Organizations can use Event Grid to assist with:
+
+* Serverless application architectures in the cloud.
+* Ops automation.
+* Application integration.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Cost optimization
 
-* [Customize and get pricing estimates](https://azure.com/e/e146fd5535974f1dae5e32a06efb424d)
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure pricing calculator](https://azure.com/e/e146fd5535974f1dae5e32a06efb424d) to get customized pricing estimates. 
 
 ## Next steps
 
@@ -55,3 +63,9 @@ Organizations can use Event Grid to assist with:
 * [Azure Functions documentation](/azure/azure-functions)
 * [Azure Logic Apps documentation](/azure/logic-apps)
 * [Power Automate documentation](/power-automate)
+
+## Related resources
+
+- [Integration architecture design](../../integration/integration-start-here.yml)
+- [Serverless application architectures using Event Grid](../../solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)
+- [Asynchronous messaging options](../../guide/technology-choices/messaging.yml)

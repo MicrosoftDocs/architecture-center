@@ -45,3 +45,5 @@ Principal author:
 ## Next steps
 
 For more information, see [Azure Data Explorer documentation](/azure/data-explorer).
+
+## Related resources

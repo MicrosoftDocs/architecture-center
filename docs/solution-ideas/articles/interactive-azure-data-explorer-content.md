@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea demonstrates interactive analytics with Azure Data Explorer to explore data with improvised, interactive, and lightning fast queries over small to extremely large volumes of data. This data exploration can be done using native Azure Data Explorer tools or alternative tools of your choice. This solution focuses on the integration of Azure Data Explorer with rest of the data platform ecosystem.
-
-## Potential use cases
-
-This solution is already being used by Microsoft customers to track user activity, manage user profiles and user segmentation scenarios. For example, [global software company Episerver uses Azure Data Explorer to gain enhanced consumer insight](https://customers.microsoft.com/story/817285-episerver-professional-services-azure-sweden).
+This solution idea demonstrates how to use interactive analytics in Azure Data Explorer. It describes how you can examine structured, semi-structured, and unstructured data with improvised, interactive, fast queries.
 
 ## Architecture
 
@@ -32,6 +28,14 @@ This solution is already being used by Microsoft customers to track user activit
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Fully managed fast NoSQL database service for modern app development with open APIs for any scale.
 - [Azure SQL DB](https://azure.microsoft.com/services/sql-database): Build apps that scale with the pace of your business with managed and intelligent SQL in the cloud.
 
+## Scenario details
+
+This solution idea demonstrates how to use interactive analytics with Azure Data Explorer to explore data with improvised, interactive, and fast queries over small to extremely large volumes of data. This data exploration can be done using native Azure Data Explorer tools or alternative tools of your choice. This solution focuses on the integration of Azure Data Explorer with rest of the data platform ecosystem.
+
+### Potential use cases
+
+This solution is already being used by Microsoft customers to track user activity, manage user profiles and user segmentation scenarios. For example, [global software company Episerver uses Azure Data Explorer to gain enhanced consumer insight](https://customers.microsoft.com/story/817285-episerver-professional-services-azure-sweden).
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -43,3 +47,9 @@ Principal author:
 ## Next steps
 
 For more information, see [Azure Data Explorer documentation](/azure/data-explorer).
+
+## Related resources
+
+- [Big data analytics with Azure Data Explorer](big-data-azure-data-explorer.yml)
+- [IoT analytics with Azure Data Explorer](iot-azure-data-explorer.yml)
+- [Azure Data Explorer monitoring](monitor-azure-data-explorer.yml)

@@ -1,27 +1,4 @@
-This article presents an example of a streaming solution. Fully managed Azure data services that run open-source engines make up the solution:
-
-- Azure Event Hubs offers a [Kafka][Apache Kafka] implementation for stream ingestion.
-- Azure Cosmos DB supports event storage in [Cassandra][Apache Cassandra].
-- Azure Kubernetes Service (AKS) hosts [Kubernetes][Kubernetes] microservices for stream processing.
-- Azure Database for PostgreSQL manages relational data storage in [PostgreSQL][PostgreSQL].
-- Azure Cache for Redis manages [Redis][Redis] in-memory data stores.
-
-Open-source technologies offer many benefits. For instance, organizations can use open-source technologies to:
-
-- Migrate existing workloads.
-- Tap into the broad open-source community.
-- Limit vendor lock-in.
-
-By making open-source technologies accessible, Azure tools and services help organizations take advantage of these benefits and develop the solutions of their choice.
-
-This solution uses fully managed [platform as a service (PaaS)][What is PaaS?] services. As a result, Microsoft handles patching, service-level agreement (SLA) maintenance, and other management tasks. Another benefit is the native integration with Azure's security infrastructure.
-
-## Potential use cases
-
-This solution applies to various scenarios:
-
-- Using Azure PaaS services to build modern streaming solutions that use open-source technologies
-- Migrating open-source stream processing solutions to Azure
+This article presents an example of a streaming solution that uses fully managed Azure data services. 
 
 ## Architecture
 
@@ -76,7 +53,36 @@ Download a [Visio file][Visio version of architecture diagram] of this architect
 
 You can replace the open-source-compatible products and services in this solution with others. For details on open-source services available in Azure, see [Open source on Azure][Open source on Azure].
 
+## Scenario details
+
+Fully managed Azure data services that run open-source engines make up this streaming solution:
+
+- Azure Event Hubs offers a [Kafka][Apache Kafka] implementation for stream ingestion.
+- Azure Cosmos DB supports event storage in [Cassandra][Apache Cassandra].
+- Azure Kubernetes Service (AKS) hosts [Kubernetes][Kubernetes] microservices for stream processing.
+- Azure Database for PostgreSQL manages relational data storage in [PostgreSQL][PostgreSQL].
+- Azure Cache for Redis manages [Redis][Redis] in-memory data stores.
+
+Open-source technologies offer many benefits. For instance, organizations can use open-source technologies to:
+
+- Migrate existing workloads.
+- Tap into the broad open-source community.
+- Limit vendor lock-in.
+
+By making open-source technologies accessible, Azure tools and services help organizations take advantage of these benefits and develop the solutions of their choice.
+
+This solution uses fully managed [platform as a service (PaaS)][What is PaaS?] services. As a result, Microsoft handles patching, service-level agreement (SLA) maintenance, and other management tasks. Another benefit is the native integration with the Azure security infrastructure.
+
+### Potential use cases
+
+This solution applies to various scenarios:
+
+- Using Azure PaaS services to build modern streaming solutions that use open-source technologies
+- Migrating open-source stream processing solutions to Azure
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Design and implement each service with best practices in mind. For guidelines on each service, see the [Microsoft documentation site](/). Also review the information in the following sections:
 
@@ -97,6 +103,8 @@ Design and implement each service with best practices in mind. For guidelines on
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Use [Azure Private Link][What is Azure Private Link?] to make Azure services part of your virtual network. When you use Private Link, traffic between the services and your network flows over the Azure backbone without traversing the public internet. The Azure services in this solution support Private Link for selected SKUs.
 
 - Check your organization's security policies. With Azure Cosmos DB for Apache Cassandra, keys provide access to resources like key spaces and tables. The Azure Cosmos DB instance stores those keys. Your security policies might require you to [propagate those keys to a key management service][Secure Azure Cosmos keys using Azure Key Vault] such as [Azure Key Vault][About Azure Key Vault]. Also make sure to [rotate keys][Key rotation and regeneration] according to your organization's policies.
@@ -106,6 +114,8 @@ Design and implement each service with best practices in mind. For guidelines on
 Consider using [Availability zones][Availability Zones] to protect business-critical applications from datacenter failures. This solution's services support availability zones for selected SKUs in [availability zone–enabled regions][Azure regions with Availability Zones]. For up-to-date information, review the [list of services that support availability zones][Azure Services that support Availability Zones].
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of this solution, use the [Azure pricing calculator][Azure pricing calculator]. Also keep these points in mind:
 
