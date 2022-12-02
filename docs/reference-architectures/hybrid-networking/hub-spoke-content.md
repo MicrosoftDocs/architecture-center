@@ -77,6 +77,8 @@ Virtual network peering is a non-transitive relationship between two virtual net
 
 Suppose you have several spokes that need to connect with each other. In that case, you'll run out of possible peering connections quickly, because the number of virtual network peerings per virtual network is limited. For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits). In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or a network virtual appliance acting as a router at the hub. This change will allow the spokes to connect to each other.
 
+While Azure Firewall is primarily used for egress security, it can be used as an ingress point. The topology in this article is designed to facilitate egress flows. For additional ingress considerations to hub network virtual appliance and ingress routing, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, you must:
 
 - Configure the peering connection in the hub to **allow gateway transit**.
@@ -144,9 +146,9 @@ Consider the following cost-related items when deploying and managing hub and sp
 
 #### Azure Firewall
 
-An Azure Firewall is deployed in the hub network in this architecture. When used as a shared solution and consumed by multiple workloads, an Azure Firewall can save up to 30-50% over other network virtual appliance. For more information, see [Azure Firewall vs network virtual appliance](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
+An Azure Firewall is deployed in the hub network in this architecture. When used as a shared solution and consumed by multiple workloads, an Azure Firewall deployment can save on cloud spending significantly over other network virtual appliances. For more information, see [Azure Firewall vs. network virtual appliances](https://azure.microsoft.com/blog/azure-firewall-and-network-virtual-appliances).
 
-While Azure Firewall is primarily used for egress security, it can be used as an ingress point. The topology in this article is designed to facilitate egress flows. For additional ingress considerations to hub network virtual appliance and ingress routing, see []().
+Consider rightsizing the Azure Firewall to ensure you use all deployed resources effectively. Review what features you need and decide on what tier is the most suitable for your current set of workloads. See [What is Azure Firewall](/azure/firewall/overview) to learn about the available SKUs.
 
 #### Virtual network peering
 
