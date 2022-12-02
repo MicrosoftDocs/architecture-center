@@ -60,7 +60,7 @@ As a general rule of thumb, a recommendation is to have at least one hub per reg
 
 ### Virtual network and GatewaySubnet
 
-Create a subnet named *GatewaySubnet*, with an address range of at least /27. The /27 address range gives it enough scalability and additional configurations as needed to prevent reaching the gateway size limitations in the future. The virtual network gateway requires this subnet.
+Create a subnet named *GatewaySubnet*, with an address range of at least **/27**. The /27 address range gives it enough scalability and additional configurations as needed to prevent reaching the gateway size limitations in the future. The virtual network gateway requires this subnet.
 
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
@@ -77,7 +77,7 @@ Virtual network peering is a non-transitive relationship between two virtual net
 
 Suppose you have several spokes that need to connect with each other. In that case, you'll run out of possible peering connections quickly, because the number of virtual network peerings per virtual network is limited. For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits). In this scenario, consider using user-defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or a network virtual appliance acting as a router at the hub. This change will allow the spokes to connect to each other.
 
-While Azure Firewall is primarily used for egress security, it can be used as an ingress point. The topology in this article is designed to facilitate egress flows. For additional ingress considerations to hub network virtual appliance and ingress routing, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
+While Azure Firewall is primarily used for egress security, it can be used as an ingress point. The topology in this article is designed to facilitate egress flows. For more ingress considerations to hub network virtual appliance and ingress routing, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
 
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, you must:
 
@@ -132,11 +132,13 @@ For more information on how to get started, see [Create a hub and spoke topology
 
 Consider the following information when deploying and managing hub and spoke networks.
 
-#### Network monitoring
+### Network monitoring
 
-Use Azure Network Watcher to monitor and troubleshoot the network components. Tools like Traffic Analytics will show you the systems in your virtual networks that generate the most traffic. Then you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the right tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool that can help troubleshoot site-to-site VPN connections connecting your applications to users on-premises.
+Use Azure Network Watcher to monitor and troubleshoot the network components. Tools like Traffic Analytics will show you the systems in your virtual networks that generate the most traffic. Then you can visually identify bottlenecks before they degenerate into problems. Network Performance Manager is the right tool to monitor information about Microsoft ExpressRoute circuits. VPN diagnostics is another tool to help troubleshoot site-to-site VPN connections connecting your applications to users on-premises.
 
 For more information, see [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+
+You should also consider enabling the [Azure Firewall diagnostic logging](/azure/firewall/firewall-diagnostics) to better get insights into DNS requests and allow/deny results in the logs.
 
 ### Cost optimization
 
@@ -228,14 +230,9 @@ For detailed information and extra deployment options, see the Azure Resource Ma
 
 ## Next steps
 
-Learn more about the component technologies:
+Learn more about secured virtual hubs and the associated security and routing policies configured by Azure Firewall Manager.
 
-- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-- [What is Azure Bastion?](/azure/bastion/bastion-overview)
-- [What is Azure Firewall?](/azure/firewall/overview)
-- [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
-- [Azure Virtual Network Manager overview](/azure/virtual-network-manager/overview)
+- [What is a secured virtual hub?](/azure/firewall-manager/secured-virtual-hub)
 
 ## Related resources
 
