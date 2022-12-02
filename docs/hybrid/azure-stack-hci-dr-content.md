@@ -55,7 +55,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 - **Improved Storage Spaces Direct volume repair speed.** Storage Spaces Direct provides automatic resync following events that affect availability of disks within its storage pool, such as shutting down one of the cluster nodes or a localized hardware failure. Azure Stack HCI implements an [enhanced resync process][sr-resync] that operates at a much finer granularity than Windows Server 2019. This process significantly reduces the duration of the resync operation and minimizes the potential impact of multiple, overlapping hardware failures.
 
-- **Resiliency limits.** Azure Stack HCI provides multiple levels of resiliency, but because of its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum][cluster-quorum], but also by the [pool quorum][pool-quorum]. You can eliminate this limit by implementing [cluster sets][cluster-sets] in which you combine multiple Azure Stack HCI clusters to create an HCI platform consisting of hundreds of nodes.
+- **Resiliency limits.** Azure Stack HCI provides multiple levels of resiliency, but because of its hyper-converged architecture, that resiliency is subject to limits imposed not only by the [cluster quorum][cluster-quorum], but also by the [pool quorum][pool-quorum].
 
 - **Integration with a range of Azure services that provide additional resiliency advantages.** You can integrate virtualized workloads running on Azure Stack HCI clusters with such Azure services as [Azure Backup][azure-backup] and [Azure Site Recovery][azure-site-recovery].
 

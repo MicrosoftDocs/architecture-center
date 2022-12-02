@@ -300,7 +300,7 @@ Principal author:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 
 ## Next steps
 
