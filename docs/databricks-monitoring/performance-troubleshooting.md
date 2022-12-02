@@ -141,3 +141,8 @@ For example, the following graph shows that the memory used by shuffling on the 
 ![Graph showing that the memory used by shuffling on the first two executors is 90X bigger than the other executors.](./_images/grafana-shuffle-memory.png)
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
+
+## Next steps
+
+## Related resources 
+
