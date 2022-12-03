@@ -12,19 +12,12 @@ After the model is trained, it's registered with Azure Machine Learning, contain
 
 This solution uses the following components:
 
-| Layer | Component | Description |
-|----------|-----------|-------------|
-| Azure | Azure Machine Learning | [Azure Machine Learning](/azure/machine-learning/) orchestrates the training of the machine learning model. |
-| | Azure Container Registry | Machine Learning packages the model into a container and stores it in an [Azure Container Registry](/azure/container-registry/) for deployment.|
-| Azure Stack Hub | App Service | [Azure Stack Hub with App Service](/azure-stack/operator/azure-stack-app-service-overview) provides the base for the components at the edge. |
-| | Compute | An Azure Stack Hub VM running Ubuntu with Docker is used to train the machine learning model. |
-| | Storage | Private data can be hosted in Azure Stack Hub blob storage. |
-
-- [Azure Machine Learning](/azure/machine-learning/) orchestrates the training of the machine learning model.
-- [Azure Container Registry](/azure/container-registry/) stores the model that Azure Machine Learning produces and places in a container.
-- [Azure Stack Hub with App Service](/azure-stack/operator/azure-stack-app-service-overview) provides the base for the components at the edge.
-- An Azure Stack Hub VM running Ubuntu with Docker is used to train the machine learning model.
-- Private data can be hosted in Azure Stack Hub blob storage.
+- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/) orchestrates the training of the machine learning model.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) stores the model that Azure Machine Learning produces and places in a container for deployment.
+- [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub/) provides an on-premises Azure environment to run the following components:
+  - [App Service](/azure-stack/operator/azure-stack-app-service-overview) provides the base for the components at the edge.
+  - [Ubuntu](https://azure.microsoft.com//ubuntu/) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker/) runs in a VM to train the machine learning model.
+  - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) can store private data.
 
 
 ### Workflow
