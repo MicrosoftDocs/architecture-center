@@ -53,4 +53,7 @@ The following scenarios are ways an organization can utilize demand forecasting:
   
 ## Related resources
 
-- []()
+- [Use a demand forecasting model for price optimization](../../solution-ideas/articles/demand-forecasting-price-optimization-marketing.yml)
+- [Demand forecasting for shipping and distribution](../../solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Choose a real-time analytics and streaming processing technology on Azure](/azure/stream-analytics/streaming-technologies)

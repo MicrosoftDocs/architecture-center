@@ -20,14 +20,6 @@ Microsoft Purview can automatically discover, catalog, classify, and manage data
 - SQL Server Managed Instance
 - Power BI
 
-## Potential use cases
-
-The solution described here is appropriate for organizations that would benefit from the following outcomes of well-governed data:
-
-- Automatic discovery of data in the organization to accelerate cloud adoption.
-- Secure data for compliance with data laws and regulations.
-- Improved access, discovery, and quality of managed data to enhance analytics.
-
 ## Architecture
 
 [![Architecture diagram shows how Microsoft Purview scans and classifies data and data lake storage](../media/azure-purview-sql-estate-architecture.png)](../media/azure-purview-sql-estate-architecture.png#lightbox)
@@ -81,6 +73,16 @@ The solution uses the following components:
 - [Azure AD](https://azure.microsoft.com/services/active-directory) offers cloud-based identity and access management services. These features provide a way for users to sign in and access resources.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) collects and analyzes data on environments and Azure resources. This data includes app telemetry, such as performance metrics and activity logs.
+
+## Scenario details
+
+### Potential use cases
+
+The solution described here is appropriate for organizations that would benefit from the following outcomes of well-governed data:
+
+- Automatic discovery of data in the organization to accelerate cloud adoption.
+- Secure data for compliance with data laws and regulations.
+- Improved access, discovery, and quality of managed data to enhance analytics.
 
 ## Contributors
 

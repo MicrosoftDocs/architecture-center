@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
-
-## Potential use cases
-
-The integration of WANdisco Fusion with Azure HDInsight presents an enterprise solution that enables organizations to meet stringent data availability and compliance requirements while seamlessly moving production data at petabyte scale from on-premises big data deployments to Microsoft Azure.
+This solution idea describes how to extend your on-premises big data investments to the cloud and transform your business by using the advanced analytics capabilities of Azure HDInsight.
 
 ## Architecture
 
@@ -28,6 +24,14 @@ The integration of WANdisco Fusion with Azure HDInsight presents an enterprise s
 - Data replication (WANdisco's [LiveData Migrator for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma) and [LiveData Plane for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=PlansAndPrice))
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
+
+## Scenario details
+
+This solution idea describes how to extend your on-premises big data investments to the cloud.
+
+### Potential use cases
+
+The integration of WANdisco Fusion with Azure HDInsight presents an enterprise solution that enables organizations to meet stringent data availability and compliance requirements while seamlessly moving production data at petabyte scale from on-premises big data deployments to Microsoft Azure.
 
 ## Contributors
 
