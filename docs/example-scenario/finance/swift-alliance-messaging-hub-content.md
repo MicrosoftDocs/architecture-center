@@ -151,6 +151,8 @@ Principal author:
 
 * [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview)
