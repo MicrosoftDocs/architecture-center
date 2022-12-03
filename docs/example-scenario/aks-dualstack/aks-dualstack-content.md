@@ -19,17 +19,17 @@ There are two options in this example architecture:
 
 - **IPv4 traffic** (blue line): Azure Load Balancer directs IPv4 traffic to the corresponding services in the virtual network as follows:
 
-  1. Traffic from the public internet or external network reaches IPv4 on Azure Load Balancer.
+  1\. Traffic from the public internet or external network reaches IPv4 on Azure Load Balancer.
 
-  2. The load balancer forwards traffic to the AKS ingress dedicated for IPv4 traffic.
+  2\. The load balancer forwards traffic to the AKS ingress dedicated for IPv4 traffic.
 
-  3. The AKS ingress acts as a reverse proxy to direct traffic to a Kubernetes service.
+  3\. The AKS ingress acts as a reverse proxy to direct traffic to a Kubernetes service.
 
-  4. Each Kubernetes service distributes traffic to its application.
+  4\. Each Kubernetes service distributes traffic to its application.
 
-  5. Applications can securely store and retrieve data to and from Azure storage services in the Azure infrastructure.
+  5\. Applications can securely store and retrieve data to and from Azure storage services in the Azure infrastructure.
   
-  6. Azure Container Registry can quickly and securely deliver application images.
+  6\. Azure Container Registry can quickly and securely deliver application images.
 
 - **IPv6 traffic** (orange line): Load Balancer directs IPv6 traffic as follows:
 
@@ -166,6 +166,6 @@ Other contributor:
 
 - [AKS baseline cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
-- [Advanced microservices on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
+- [Advanced microservices on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [AKS baseline for multi-region cluster](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
 - [Build and deploy apps on AKS](../apps/devops-with-aks.yml)
