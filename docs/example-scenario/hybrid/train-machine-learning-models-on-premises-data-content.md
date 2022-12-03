@@ -23,24 +23,22 @@ This solution uses the following components:
 ### Workflow
 
 1. Deploy the Azure Stack Hub VM and register it with Azure Machine Learning as a compute target.
-2. Create an experiment in Machine Learning that uses the Azure Stack Hub VM as a compute target.
-3. Once the model is trained, it's registered and containerized.
-4. The model can now be deployed to locations that are either on-premises or in the cloud.
+2. Create an experiment in Machine Learning that uses the VM in Azure Stack Hub as a compute target.
+3. After the model is trained, it's registered and containerized.
+4. The model is ready for deployment to locations that are either on-premises or in the cloud.
 
 
 ## Scenario details
 
-Generate portable machine learning models from data that only exists on-premises.
+This scenario generates portable machine learning models from data that exists only on-premises. It uses a virtual machine (VM) running on Azure Stack Hub. The VM is registered as a compute target in Azure Machine Learning, which lets it access data that is only available on-premises. In this scenario, the data is stored in Azure Blob Storage running in the on-premises environment of Azure Stack Hub.
 
-The training at the edge pattern uses a virtual machine (VM) running on Azure Stack Hub. The VM is registered as a compute target in Azure Machine Learning, letting it access data only available on-premises. In this case, the data is stored in Azure Stack Hub's blob storage.
-
-Once the model is trained, it's registered with Azure Machine Learning, containerized, and added to an Azure Container Registry for deployment. For this iteration of the pattern, the Azure Stack Hub training VM must be reachable over the public internet.
+After Machine Learning trains the model, it's registered, containerized, and added to an Azure Container Registry for deployment. For this iteration of the pattern, the Azure Stack Hub training VM must be reachable over the public internet.
 
 ### Potential use cases
 
-Many organizations would like to unlock insights from their on-premises or legacy data using tools that their data scientists understand. [Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models.  
+Many organizations would like to unlock insights from their on-premises or legacy data by using tools that their data scientists understand. [Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models.  
 
-However, some data is too large send to the cloud or can't be sent to the cloud for regulatory reasons. Using this pattern, data scientists can use Azure Machine Learning to train models using on-premises data and compute.
+However, some data is too large to send to the cloud or can't be sent to the cloud for regulatory reasons. Using this pattern, data scientists can use Azure Machine Learning to train models by using on-premises data and compute.
 
 ## Considerations
 
@@ -83,3 +81,5 @@ When you're ready to test the solution example, continue with [Deploy an Edge Tr
 
 ## Related resources
 
+- [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge)
+- [Disconnected AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge-disconnected)
