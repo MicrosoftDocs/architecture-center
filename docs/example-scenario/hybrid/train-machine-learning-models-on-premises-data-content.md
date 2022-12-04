@@ -81,5 +81,5 @@ When you're ready to test the solution example, continue with [Deploy an Edge Tr
 
 ## Related resources
 
-- [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge)
-- [Disconnected AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge-disconnected)
+- [AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge.yml)
+- [Disconnected AI at the edge with Azure Stack Hub](../../solution-ideas/articles/ai-at-the-edge-disconnected.yml)
