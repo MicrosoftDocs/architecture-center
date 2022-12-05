@@ -132,7 +132,7 @@ Finally, to facilitate a controlled rollout of network groups, connectivity, and
 
 For more information on how to get started, see [Create a hub and spoke topology with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
 
-### Cost Optimization
+### Cost optimization
 
 Cost optimization is about ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
