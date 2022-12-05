@@ -1,12 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-[QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) enables you to create FAQ chatbots from existing data. This solution idea shows how to use QnA Maker to answer common employee questions. 
-
-## Potential use cases
-
-The bot responds using existing company knowledge bases (KB). The bot can choose from multiple knowledge bases based on the intent of the query. And, with [active learning](/azure/cognitive-services/qnamaker/how-to/use-active-learning), data champions in the company can improve the quality of the knowledge bases based on employee feedback.
-
-This solution is optimized for the retail industry.
+This solution idea shows how to use [QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) to answer common employee questions.
 
 ## Architecture
 
@@ -32,6 +26,14 @@ This solution is optimized for the retail industry.
 * [Azure Bot Services](https://azure.microsoft.com/services/bot-services)
 * [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
 * [QnA Maker](https://azure.microsoft.com/services/cognitive-services/qna-maker) with [active learning](/azure/cognitive-services/qnamaker/how-to/use-active-learning)
+
+## Scenario details
+
+QnA Maker enables you to create FAQ chatbots from existing data. The bot responds using existing company knowledge bases (KB). The bot can choose from multiple knowledge bases based on the intent of the query. And, with [active learning](/azure/cognitive-services/qnamaker/how-to/use-active-learning), data champions in the company can improve the quality of the knowledge bases based on employee feedback.
+
+### Potential use cases
+
+This solution is optimized for the retail industry.
 
 ## Next steps
 

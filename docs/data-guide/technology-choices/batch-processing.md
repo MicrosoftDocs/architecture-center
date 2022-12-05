@@ -115,6 +115,16 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [Create a lake database in Azure Synapse Analytics](/training/modules/create-metadata-objects-azure-synapse-serverless-sql-pools)
+- [Create an Azure Databricks workspace](/azure/databricks/getting-started)
+- [Explore Azure Databricks](/training/modules/explore-azure-databricks)
+- [Get started with Azure Data Lake Analytics using the Azure portal](/azure/data-lake-analytics/data-lake-analytics-get-started-portal)
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [What is Azure Databricks?](/azure/databricks/introduction)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
+
 ## Related resources
 
 - [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)

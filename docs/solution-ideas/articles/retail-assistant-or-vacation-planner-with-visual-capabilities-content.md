@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution features a bot assistant with search integration. The bot can help customers interact with a business application. It can also provide suggestions based on visual information.
-
-## Potential use cases
-
-This solution can be used broadly, but is ideal for the retail industry and the travel and hospitality industries.
+This solution idea uses Azure services with a bot assistant to improve interactions with customers and provide suggestions based on visual information.
 
 ## Architecture
 
@@ -30,6 +26,14 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 - [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Cognitive Service for Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use language understanding (LUIS) to predict the meaning of a conversation and pull out relevant, detailed information.
 - The [Bing Visual Search API](https://www.microsoft.com/bing/apis/bing-visual-search-api) returns data that's related to a given image, such as similar images, shopping sources for purchasing the item in the image, and webpages that include the image.
 - The [Bing Custom Search API](https://www.microsoft.com/bing/apis/bing-custom-search-api) provides a way to create tailored ad-free search experiences for topics.
+
+## Scenario details
+
+This solution features a bot assistant with search integration. The bot can help customers interact with a business application. It can also provide suggestions based on visual information.
+
+### Potential use cases
+
+This solution can be used broadly, but is ideal for the retail industry and the travel and hospitality industries.
 
 ## Next steps
 
