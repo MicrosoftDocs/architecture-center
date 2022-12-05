@@ -560,7 +560,7 @@ You can find the source code, deployment files, and instructions to test this sc
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal author: 
 
  - [Christian Dennig](https://www.linkedin.com/in/christian-dennig/) | Senior Software Engineer
 

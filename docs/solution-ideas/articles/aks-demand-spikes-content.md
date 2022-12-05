@@ -41,7 +41,7 @@ This scenario is implemented several Azure components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Stella Lin](https://www.linkedin.com/in/fengxiaoyuelin/) | Principal Product Manager
  
