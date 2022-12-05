@@ -57,7 +57,6 @@ Organizations utilize ERP to assist with:
 - [Azure Synapse Link](/azure/cosmos-db/synapse-link)
 - [Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases](/azure/cosmos-db/synapse-link-use-cases)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
-- [H&R Block customer story](https://customers.microsoft.com/story/724156-hr-block-professional-services-azure-sql-server)
 
 ## Related resources
 

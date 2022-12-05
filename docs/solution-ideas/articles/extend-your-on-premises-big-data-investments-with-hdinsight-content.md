@@ -41,6 +41,8 @@ Principal author:
 
  * [Aadi Manchanda](https://www.linkedin.com/in/aadi-manchanda) | Cloud Solution Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Learn more about the component technologies:
