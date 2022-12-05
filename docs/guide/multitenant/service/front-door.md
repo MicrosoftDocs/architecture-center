@@ -45,7 +45,7 @@ For more information, see [Add a custom domain to your Front Door](/azure/frontd
 
 #### Wildcard domains
 
-Wildcard domains simplify the configuration of DNS records and Front Door traffic routing configuration when you use a shared stem domain and tenant-specific subdomains. For example, suppose your tenants access your application by using subdomains like `tenant1.app.contoso.com`, `tenant2.app.contoso.com`, and so forth. You can configure a wildcard domain, `*.app.contoso.com`, instead of configuring each tenant-specific individually.
+Wildcard domains simplify the configuration of DNS records and Front Door traffic routing configuration when you use a shared stem domain and tenant-specific subdomains. For example, suppose your tenants access their application by using subdomains like `tenant1.app.contoso.com`, `tenant2.app.contoso.com`, and so forth, you can configure a wildcard domain, `*.app.contoso.com`, instead of configuring each tenant-specific individually.
 
 Azure Front Door provides support for creating custom domains that use wildcards. You can then configure a route for requests that arrive on the wildcard domain. When you onboard a new tenant, you don't need to reconfigure your DNS servers, issue new TLS certificates, or update your Front Door profile's configuration.
 
