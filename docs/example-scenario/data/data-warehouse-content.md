@@ -6,6 +6,8 @@ This example scenario demonstrates a data pipeline that integrates large amounts
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
 
+### Dataflow
+
 The data flows through the solution as follows:
 
 1. For each data source, any updates are exported periodically into a staging area in ADLS.
@@ -93,9 +95,11 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

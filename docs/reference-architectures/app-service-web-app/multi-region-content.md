@@ -217,7 +217,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - Arvind Boggaram Pandurangaiah Setty | Senior Consultant
  
