@@ -134,3 +134,4 @@ For more information on Spot Virtual Machines, see [Azure Spot Virtual Machines]
 ## Related resources
 
 - [Architectural approaches for cost management and allocation in a multitenant solution](../../guide/multitenant/approaches/cost-management-allocation.yml)
+- 
