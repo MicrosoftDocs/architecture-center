@@ -4,7 +4,7 @@ This architecture shows how legacy mainframe and midrange terminal-based applica
 
 :::image type="content" source="media/extend-mainframe-source-zos-architecture.png" alt-text="Diagram that shows the mainframe architecture before extending to Azure." lightbox="media/extend-mainframe-source-zos-architecture.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/extend-mainframe-application-to-azure-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/extend-mainframe-applications-to-azure-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
