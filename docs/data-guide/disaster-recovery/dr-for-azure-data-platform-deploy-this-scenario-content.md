@@ -245,3 +245,11 @@ There is strong guidance for:
 
 ## Next steps
 Now that you've learned how to deploy the scenario, you can read a [summary](../disaster-recovery/dr-for-azure-data-platform-summary.yml) of the DR for Azure data platform series.
+
+## Related resources 
+
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
+
