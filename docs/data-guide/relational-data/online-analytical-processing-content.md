@@ -141,3 +141,19 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Azure Analytics Services](https://azure.microsoft.com/products/category/analytics)
+- [What is Azure Analysis Services?](/azure/analysis-services/analysis-services-overview)
+- [SQL Server Analysis Services overview](/sql/analysis-services/ssas-overview)
+- [Get started with Columnstore for real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
+
+## Related resources
+
+- [Azure Data Architecture Guide](../index.md)
+- [Choose a data analytics and reporting technology in Azure](../technology-choices/analysis-visualizations-reporting.md)
+- [Databases architecture design](../databases-architecture-design.yml)
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
