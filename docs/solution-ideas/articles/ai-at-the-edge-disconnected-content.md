@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use edge AI when disconnected from the internet and move your AI models to the edge with this solution architecture that includes Azure Stack Hub.
+This solution architecture allows you to use edge AI when disconnected from the internet and move your AI models to the edge.
 
 ## Architecture
 
