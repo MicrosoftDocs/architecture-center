@@ -24,6 +24,6 @@ products:
   - azure-load-balancer
   - azure-virtual-network
   - azure-container-registry
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-dualstack.png
+thumbnailUrl: /azure/architecture/browse/thumbs/dual-stack.png
 content: |
    [!include[](aks-dualstack-content.md)]

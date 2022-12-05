@@ -2,7 +2,9 @@ This example baseline infrastructure deploys an Azure Kubernetes Service (AKS) c
 
 ## Architecture
 
-![Dual-stack network topology](images/dual-stack.svg)
+:::image type="content" source="media/dual-stack-inline.png" alt-text="Diagram shows a dual-stack configuration with IPv4 and IPv6 traffic." lightbox="media/dual-stack-expanded.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-dual-stack.vsdx) of this architecture.*
 
 ## Dataflow
 
@@ -17,7 +19,7 @@ There are two options in this example architecture:
 
 ### AKS Services running IPv4
 
-- **IPv4 traffic** (blue line): Azure Load Balancer directs IPv4 traffic to the corresponding services in the virtual network as follows:
+- **IPv4 traffic** (black line): Azure Load Balancer directs IPv4 traffic to the corresponding services in the virtual network as follows:
 
   1\. Traffic from the public internet or external network reaches IPv4 on Azure Load Balancer.
 
