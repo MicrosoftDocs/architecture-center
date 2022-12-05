@@ -133,4 +133,4 @@ Other contributor:
 ## Related resources
 
 - [Multiparty computing architecture design](/azure/architecture/guide/blockchain/multiparty-compute)
-- [Multi-cloud blockchain DLT](/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain)
+- [Multicloud blockchain DLT](/azure/architecture/example-scenario/blockchain/multi-cloud-blockchain)

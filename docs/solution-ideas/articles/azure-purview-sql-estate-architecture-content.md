@@ -38,7 +38,7 @@ The next four scenarios show the options available to you, to connect to Azure P
 
 The solution uses the following components:
 
-- [Azure Purview](https://azure.microsoft.com/services/purview) is a unified data catalog that manages on-premises, multi-cloud, and software as a service (SaaS) data. This data governance service maintains  data landscape maps. Features include automated data discovery, sensitive-data classification, and data lineage.
+- [Azure Purview](https://azure.microsoft.com/services/purview) is a unified data catalog that manages on-premises, multicloud, and software as a service (SaaS) data. This data governance service maintains  data landscape maps. Features include automated data discovery, sensitive-data classification, and data lineage.
 
 - [Microsoft SQL Server](/sql) is a family of relational database management systems, or RDBMS. The servers are deployed and managed by your organization.
 
@@ -62,7 +62,7 @@ As more of your organization's data is loaded into Azure, the need to properly g
 
 Without high-quality data in your Azure SQL estate, the business value can be diminished. The solution is to build a foundation for data governance and management that can produce and deliver trustworthy high-quality data.
 
-Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage. This management ensures compliance requirements are met around security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and quality—improving the use of data in applications and analytics.
+Data needs to be managed at scale across on-premises, cloud, and multicloud storage. This management ensures compliance requirements are met around security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and quality—improving the use of data in applications and analytics.
 
 With [Azure Purview](/azure/purview/overview), you can:
 

@@ -62,7 +62,7 @@ As you load more data into Azure, the need to properly govern and manage that da
 
 If you don't have high-quality data in your Azure data estate, the business value of Azure is diminished. The solution is to build a foundation for data governance and management that can produce and deliver high-quality, trusted data.
 
-Data needs to be managed at scale across on-premises, cloud, and multi-cloud storage to ensure it meets compliance requirements for security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and data quality, which improves the use of data in applications and analytics.
+Data needs to be managed at scale across on-premises, cloud, and multicloud storage to ensure it meets compliance requirements for security, privacy, and usage. Well-managed data can also improve self-discovery, data sharing, and data quality, which improves the use of data in applications and analytics.
 
 [Azure Purview](/azure/purview/overview) provides governance for finding, classifying, defining, and enforcing policies and standards across data. You can use it to apply definitions, classifications, and governance processes uniformly across data. It catalogs all data sources, identifies any sensitive information, and defines data lineage. It provides a central platform where you can apply definitions and ownership to data. With a single view on reports and insight, it can help you generate data standards that should be applied to your data.
 
