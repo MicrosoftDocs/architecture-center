@@ -247,7 +247,7 @@ You can find these values in the Azure portal by navigating to your Log Analytic
 
 Other options are also available for customizing and filtering the provenance events that the system sends.
 
-### Security considerations
+### Security 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
