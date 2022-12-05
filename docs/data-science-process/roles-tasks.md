@@ -143,3 +143,10 @@ Explore more detailed descriptions of the roles and tasks defined by the Team Da
 - [Team Lead tasks for a data science team](team-lead-tasks.md)
 - [Project Lead tasks for a data science team](project-lead-tasks.md)
 - [Project Individual Contributor tasks for a data science team](project-ic-tasks.md)
+
+## Related resources 
+
+- [Team Data Science Process group manager tasks](../data-science-process/group-manager-tasks.md)
+- [Tasks for the team lead on a Team Data Science Process team](../data-science-process/team-lead-tasks.md)
+- [Project lead tasks in the Team Data Science Process](../data-science-process/project-lead-tasks.md)
+- [Tasks for an individual contributor in the Team Data Science Process](../data-science-process/project-ic-tasks.md)
