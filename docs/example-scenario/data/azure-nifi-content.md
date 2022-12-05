@@ -979,7 +979,7 @@ For more information, see the following resources:
 [Log Analytics tutorial]: /azure/azure-monitor/logs/log-analytics-tutorial
 [Log Analytics virtual machine extension for Linux]: /azure/virtual-machines/extensions/oms-linux
 [Log queries in Azure Monitor]: /azure/azure-monitor/logs/log-query-overview
-[Monitoring considerations section of this article]: #monitoring-considerations
+[Monitoring considerations section of this article]: #monitoring
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Networking for Azure virtual machine scale sets - Accelerated Networking]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#accelerated-networking
 [NiFi on GitHub]: https://github.com/apache/nifi
@@ -997,7 +997,7 @@ For more information, see the following resources:
 [Overview of alerts in Microsoft Azure]: /azure/azure-monitor/alerts/alerts-overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Querying Azure Log Analytics section in this article]: #log-analytics-queries
-[Reporting considerations section of this article]: #reporting-considerations
+[Reporting considerations section of this article]: #reporting
 [Repository configuration section of this article]: #repository-configuration
 [Sample cost profile]: https://azure.com/e/97e2900e86eb4ce081f01ceedd85acbc
 [Secure your management ports with just-in-time access]: /azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc
