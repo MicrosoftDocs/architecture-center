@@ -130,3 +130,7 @@ The example scenario deploys a queue processing application that qualifies as an
 ## Next step
 
 For more information on Spot Virtual Machines, see [Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms).
+
+## Related resources
+
+- [Architectural approaches for cost management and allocation in a multitenant solution](../../guide/multitenant/approaches/cost-management-allocation.yml)
