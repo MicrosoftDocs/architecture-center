@@ -134,4 +134,5 @@ For more information on Spot Virtual Machines, see [Azure Spot Virtual Machines]
 ## Related resources
 
 - [Architectural approaches for cost management and allocation in a multitenant solution](../../guide/multitenant/approaches/cost-management-allocation.yml)
-- 
+- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
