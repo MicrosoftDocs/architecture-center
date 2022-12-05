@@ -10,7 +10,7 @@ Event Grid connects your app with other services. This article describes how to 
 
 ### Dataflow
 
-1. Configure different event sources (Blob Storage, Azure Cache for Redis, App Configuration, Event Hubs, Key Vault, Service Bus) to subscribe to an event grid topic.
+1. Configure different event sources (Blob Storage, Azure Cache for Redis, App Configuration, Event Hubs, Key Vault, Service Bus) to subscribe to an Event Grid topic.
 1. Triggers event sources from various scenarios, including different actions performed on the event sources.
 1. Use Event Grid to support the events coming from different Azure services.
 1. Leverages different event handlers (Azure Functions, Event Hubs, Logic Apps, Blob Storage, Web Hook, Power Automate) to handle different use cases.
@@ -28,7 +28,7 @@ Event Grid connects your app with other services. This article describes how to 
 * [Azure Logic Apps](https://azure.microsoft.com/services/service-bus): Quickly build powerful integration solutions.
 * [Web Hook](/azure/event-grid/handler-webhooks): Event handling.
 * [Power Automate](https://flow.microsoft.com): Easily create automated workflows.
-* [Email](/azure/connectors/connectors-create-api-office365-outlook): Create automated task and workflows with Azure Logic Apps and O365 Outlook Connector to send an email.
+* [Email](/azure/connectors/connectors-create-api-office365-outlook): Create automated task and workflows with Azure Logic Apps and Microsoft 365 Outlook Connector to send an email.
 
 ## Scenario details
 
