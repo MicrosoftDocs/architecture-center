@@ -255,7 +255,7 @@ It's a good practice to deploy your production Kubernetes cluster, and also the 
 
 Customers who have a single Kubernetes cluster typically connect to the service IP or DNS name of a given application. In a multi-cluster deployment, customers should connect to a Traffic Manager DNS name that points to the services/ingress on each Kubernetes cluster.
 
-:::image type="content" source="media/aks-azure-traffic-manager-on-premises.png" alt-text="[Diagram that shows how to use Traffic Manager to route traffic to on-premises clusters." lightbox="media/aks-azure-traffic-manager-on-premises.png" border="false":::
+:::image type="content" source="media/aks-azure-traffic-manager-on-premises.png" alt-text="Diagram that shows how to use Traffic Manager to route traffic to on-premises clusters." lightbox="media/aks-azure-traffic-manager-on-premises.png" border="false":::
 
 > [!NOTE]
 > This architecture is also a [best practice for managed AKS clusters on Azure](/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment).
@@ -280,7 +280,7 @@ Azure Stack Hub provides two identity provider choices. The provider you use dep
 
 The identity provider manages users and groups, including authentication and authorization for accessing resources. Access can be granted to Azure Stack Hub resources like subscriptions, resource groups, and individual resources like VMs and load balancers. For consistency, consider using the same groups, either direct or nested, for all Azure Stack Hub instances. Here's an example configuration:
 
-:::image type="content" source="media/azure-stack-azure-ad-nested-groups.png" alt-text="[Diagram that shows nested Azure AD groups with Azure Stack Hub." lightbox="media/azure-stack-azure-ad-nested-groups.png" border="false":::
+:::image type="content" source="media/azure-stack-azure-ad-nested-groups.png" alt-text="Diagram that shows nested Azure AD groups with Azure Stack Hub." lightbox="media/azure-stack-azure-ad-nested-groups.png" border="false":::
 
 This example contains a dedicated group (using Azure AD or AD FS) for a specific purpose, for example, to provide Contributor permissions for the resource group that contains the Kubernetes cluster infrastructure on a specific Azure Stack Hub instance (here, "Seattle K8s Cluster Contributor"). These groups are then nested into an overall group that contains the subgroups for each Azure Stack Hub instance.
 
@@ -318,7 +318,7 @@ AKS Engine helps with the two most important tasks:
 
 Newer base OS images contain the latest OS security fixes and kernel updates. 
 
-The [unattended upgrade](https://wiki.debian.org/UnattendedUpgrades) utility automatically installs security updates that are released before a new base OS image version is available in the Azure Stack Hub Marketplace. Unattended upgrade is enabled by default and installs security updates automatically, but it doesn't reboot the Kubernetes cluster nodes. You can automate the node reboot by using the open-source [Kubernetes Reboot Daemon (kured))](/azure/aks/node-updates-kured). The kured daemon watches for Linux nodes that require a reboot, and then automatically handles the rescheduling of running pods and the node reboot process.
+The [unattended upgrade](https://wiki.debian.org/UnattendedUpgrades) utility automatically installs security updates that are released before a new base OS image version is available in the Azure Stack Hub Marketplace. Unattended upgrade is enabled by default and installs security updates automatically, but it doesn't reboot the Kubernetes cluster nodes. You can automate the node reboot by using the open-source [Kubernetes Reboot Daemon (kured)](/azure/aks/node-updates-kured). The kured daemon watches for Linux nodes that require a reboot, and then automatically handles the rescheduling of running pods and the node reboot process.
 
 ### Deployment (CI/CD) 
 
@@ -373,8 +373,8 @@ As noted earlier, unlike Azure, Azure Stack Hub doesn't currently have a native 
 - [Azure Repos overview](/azure/devops/repos/get-started/what-is-repos)
 - [Azure Pipelines overview](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [Azure Monitor overview](/azure/azure-monitor/overview)
-- [Cross-cloud scaling in Azure Stack Hub](https://github.com/MicrosoftDocs/hybrid-pr/blob/main/hybrid/app-solutions/pattern-cross-cloud-scale.md)  
-- [Geo-distributed app patterns in Azure Stack Hub](https://github.com/MicrosoftDocs/hybrid-pr/blob/main/hybrid/app-solutions/pattern-geo-distributed.md) 
+- [Cross-cloud scaling in Azure Stack Hub](/hybrid/app-solutions/pattern-cross-cloud-scale-onprem-data)  
+- [Geo-distributed app patterns in Azure Stack Hub](/hybrid/app-solutions/pattern-geo-distributed) 
 - [Training: Azure Stack Hub](/training/modules/azure-stack-hub)
 
 ## Related resources
