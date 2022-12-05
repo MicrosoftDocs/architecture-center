@@ -4830,6 +4830,8 @@ items:
                     href: solution-ideas/articles/hybrid-continuous-integration.yml
                   - name: Disaster recovery for Stack Hub VMs
                     href: hybrid/azure-stack-vm-disaster-recovery.yml
+                  - name: High-availability Kubernetes cluster
+                    href: example-scenario/hybrid/high-availability-kubernetes.yml
                   - name: Hybrid geo-distributed architecture
                     href: example-scenario/hybrid/hybrid-geo-distributed.yml
                   - name: Hybrid relay connection
