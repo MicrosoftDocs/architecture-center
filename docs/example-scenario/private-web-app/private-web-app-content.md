@@ -1,4 +1,4 @@
-This example scenario describes how to securely connect a web app to a backend database over a fully private connection. The architectures ensures communication from the web app in Azure App Service and Azure SQL Database only traverses a virtual network.
+This example scenario describes how to securely connect a web app to a backend database over a fully private connection. The architecture ensures communication from the web app in Azure App Service and Azure SQL Database only traverses a virtual network.
 
 ## Architecture
 
@@ -10,13 +10,13 @@ This example scenario describes how to securely connect a web app to a backend d
 
 1. The web app receives an HTTP request from the internet that requires an API call to the Azure SQL Database.
 
-1. By default, web apps hosted in App Service can reach only [internet-hosted endpoints](/azure/app-service/networking-features). To communicate with resource in your virtual network that aren't internet facing, you need to enable [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration). Region virtual network integration gives the web app access to resources in the virtual network that aren't internet-hosted endpoint. Regional network integration mounts a virtual interface in the **AppSvcSubnet** that the App Service web app connects to.
+1. By default, web apps hosted in App Service can reach only [internet-hosted endpoints](/azure/app-service/networking-features). To communicate with the resources in your virtual network that aren't internet facing, you need to enable [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration). Region virtual network integration gives the web app access to resources in the virtual network that aren't internet-hosted endpoint. Regional network integration mounts a virtual interface in the **AppSvcSubnet** that the App Service web app connects to.
 
 1. The web app connects to the virtual network through a virtual interface mounted in the **AppSvcSubnet** of the [virtual network](/azure/virtual-network/).
 
 1. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the [Azure SQL Database](/azure/azure-sql/database/) in the **PrivateLinkSubnet** of the virtual network.
 
-1. The web app sends an query for the IP address of the Azure SQL Database. The query traverses the virtual interface in the **AppSvcSubnet**. The CNAME of the Azure SQL Database directs the query to the private DNS zone. The private DNS zone returns the private IP address of the private endpoint set up for the Azure SQL Database.
+1. The web app sends a query for the IP address of the Azure SQL Database. The query traverses the virtual interface in the **AppSvcSubnet**. The CNAME of the Azure SQL Database directs the query to the private DNS zone. The private DNS zone returns the private IP address of the private endpoint set up for the Azure SQL Database.
 
 1. The web app connects to the Azure SQL Database through the private endpoint in the **PrivateLinkSubnet**.
 
@@ -89,7 +89,7 @@ You can set [App Service access restrictions](/azure/app-service/app-service-ip-
 
 #### DNS configuration
 
-A configuration change is required to make the query to the public DNS (for example, `contoso.database.windows.net`) resolve to the IP address of the private endpoint. By configuring regional virtual network integration in App Service, the web app will resolve DNS queries using the virtual network's DNS service (including linked private DNS zones). This means the web app will not use the public IP address of the database server. It'll use the IP address of the private endpoint in the virtual network. Communication between the web app and the database will traverse through the virtual network.
+A configuration change is required to make the query to the public DNS (for example, `contoso.database.windows.net`) resolve to the IP address of the private endpoint. Regional virtual network integration allows the web app to resolve DNS queries using the virtual network's DNS service (including linked private DNS zones). The web app won't use the public IP address of the database server. It will use the IP address of the private endpoint in the virtual network. Communication between the web app and the database will traverse through the virtual network.
 
 #### SQL database firewall
 
