@@ -157,7 +157,7 @@ Consider [planning for IP addressing](/azure/cloud-adoption-framework/ready/azur
 
 ### Operational excellence
 
-Consider the following information when deploying and managing hub and spoke networks.
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 #### Network monitoring
 
