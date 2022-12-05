@@ -8,6 +8,8 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 *Download a [Visio file][Visio file of architecture diagram] of this architecture.*
 
+### Workflow
+
 - The NiFi application runs on VMs in NiFi cluster nodes. The VMs are in a virtual machine scale set that the configuration deploys across availability zones.
 
 - Apache ZooKeeper runs on VMs in a separate cluster. NiFi uses the ZooKeeper cluster for these purposes:
@@ -138,7 +140,7 @@ To meet the specific requirements of your data flow, it's important to adjust se
 
 After you adjust the OS to fit your expected use case, use Azure VM Image Builder to codify the generation of those tuned images. For guidance that's specific to NiFi, see [Configuration Best Practices][NiFi System Administrators Guide - Configuration Best Practices] in the Apache NiFi System Administrator's Guide.
 
-### Storage considerations
+### Storage
 
 Store the various NiFi repositories on data disks and not on the OS disk for three main reasons:
 
@@ -215,7 +217,7 @@ nifi.flowfile.repository.directory=/mnt/disk7/ flowfile_repository
 
 For more information about designing for high-performance storage, see [Azure premium storage: design for high performance][Azure premium storage: design for high performance].
 
-### Reporting considerations
+### Reporting
 
 NiFi includes a provenance reporting task for the [Log Analytics][Log Analytics agent overview] feature.
 
@@ -535,7 +537,7 @@ The following chart of the query results shows a time view of the health of the 
 
 :::image type="content" source="media/nifi-health-query-chart.png" alt-text="Screenshot of a bar chart. The bars show a constant number of healthy nodes over a 24-hour period and no unhealthy nodes." lightbox="./media/nifi-health-query-chart-lightbox.png":::
 
-### Availability considerations
+### Availability
 
 When you implement this solution, keep in mind the following points about availability:
 
@@ -555,7 +557,7 @@ Deploy both the NiFi virtual machine scale set and the ZooKeeper cluster in a cr
 
 We recommend deploying the NiFi nodes into a single virtual machine scale set that spans availability zones where available. For detailed information on using scale sets in this way, see [Create a virtual machine scale set that uses Availability Zones][Create a virtual machine scale set that uses Availability Zones].
 
-### Monitoring considerations
+### Monitoring
 
 Multiple options are available for monitoring the health and performance of a NiFi cluster:
 
@@ -906,9 +908,11 @@ If you have a large NiFi cluster, you might need to use a greater number of ZooK
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-* [Muazma Zahid](https://www.linkedin.com/in/muazmazahid) | Principal PM Manager
+- [Muazma Zahid](https://www.linkedin.com/in/muazmazahid) | Principal PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -975,7 +979,7 @@ For more information, see the following resources:
 [Log Analytics tutorial]: /azure/azure-monitor/logs/log-analytics-tutorial
 [Log Analytics virtual machine extension for Linux]: /azure/virtual-machines/extensions/oms-linux
 [Log queries in Azure Monitor]: /azure/azure-monitor/logs/log-query-overview
-[Monitoring considerations section of this article]: #monitoring-considerations
+[Monitoring considerations section of this article]: #monitoring
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Networking for Azure virtual machine scale sets - Accelerated Networking]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#accelerated-networking
 [NiFi on GitHub]: https://github.com/apache/nifi
@@ -993,7 +997,7 @@ For more information, see the following resources:
 [Overview of alerts in Microsoft Azure]: /azure/azure-monitor/alerts/alerts-overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Querying Azure Log Analytics section in this article]: #log-analytics-queries
-[Reporting considerations section of this article]: #reporting-considerations
+[Reporting considerations section of this article]: #reporting
 [Repository configuration section of this article]: #repository-configuration
 [Sample cost profile]: https://azure.com/e/97e2900e86eb4ce081f01ceedd85acbc
 [Secure your management ports with just-in-time access]: /azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc

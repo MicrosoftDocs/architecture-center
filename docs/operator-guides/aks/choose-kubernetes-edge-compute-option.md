@@ -160,7 +160,7 @@ Flexibility:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Prabhjot Kaur](https://www.linkedin.com/in/kaur-profile/) | Principal Cloud Solution Architect
  
