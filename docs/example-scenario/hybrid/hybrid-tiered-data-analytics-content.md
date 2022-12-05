@@ -87,7 +87,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 The manageability of this solution depends on the authoring tools that you're using and the use of source control.
 
-[Azure Arc](/azure/azure-arc/overview) simplifies governance and management by providing a consistent multi-cloud and on-premises management platform. Manage your entire environment, with a single pane of glass, by projecting your non-Azure and on-premises resources into Azure Resource Manager.
+[Azure Arc](/azure/azure-arc/overview) simplifies governance and management by providing a consistent multicloud and on-premises management platform. Manage your entire environment, with a single pane of glass, by projecting your non-Azure and on-premises resources into Azure Resource Manager.
 
 ### Performance efficiency
 
