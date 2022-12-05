@@ -186,7 +186,7 @@ The Copy-VmDigitalEvidence runbook performs the following actions:
 You can execute the code within a VM with the following configuration:
 
 - The VM must be hosted in the same subnet that grants access to the Storage account.
-- The VM must have a managed identity to which must be given access to target the VM's subscription.
+- The VM must have a managed identity to which must be given access to target VM's subscription.
 - Inside this VM, you can run the code without the associated 'if' statement.
 
 ### Evidence retrieval
