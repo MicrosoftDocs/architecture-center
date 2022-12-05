@@ -1,23 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical and sustainability requirements.
-
-The need for the blockchain technology started with organizations trying to understand more about the products like:
-
-- Where did the product originate from?
-- How was a product built?
-- What were the processes followed to build a product?
-
-Build and maintain the electronic data interface (EDI) across suppliers to track and trace parts of a product is not a worth for some organizations. Using ConsenSys Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Azure Cosmos DB, organizations can track and trace tokenized version of the product's physical assets and relevant metadata to meet requirements.
-
-## Potential use cases
-
-With QBS powered by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled component used.
-
-Blockchain technology allows the logical data flow model to use with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
-While this could be built using traditional centralized components, this is usually not the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
-
-This solution is ideal for the sustainability, manufacturing, and energy/environment industries.
+This article describes how to use Quorum Blockchain Service to track and trace physical assets, along with their metadata.
 
 ## Architecture
 
@@ -98,6 +81,27 @@ The ledger system of the QBS helps organizations get the history of low-level co
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. In this scenario Azure SQL Database is a data store used to house the output of events raised on the blockchain such as state changes that will ultimately be used by an analytics solution or simple reporting. Additionally, by utilizing the [ledger](/azure/azure-sql/database/ledger-landing) feature of Azure SQL Database, the integrity of output of events from the blockchain replicated to the SQL database can be maintained.
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. In this scenario Azure Monitor provides availability and performance data of the architecture components. QBS is integrated with Azure Monitor to provide additional telemetry data on blockchain nodes.
+
+## Scenario details
+
+Blockchain technology helps organizations track and trace the product life cycle and meet regulatory, financial, ethical, and sustainability requirements.
+
+The need for the blockchain technology started with organizations trying to understand more about the products, like:
+
+- Where did the product originate from?
+- How was a product built?
+- What were the processes followed to build a product?
+
+Building and maintaining the electronic data interface (EDI) across suppliers to track and trace parts of a product is not worthwhile for some organizations. By using ConsenSys Quorum Blockchain Service (QBS) with App Services, Azure Key Vault, Service Bus, and Azure Cosmos DB, organizations can track and trace a tokenized version of the product's physical assets and relevant metadata to meet requirements.
+
+### Potential use cases
+
+With QBS powered by Azure services, an organization can build solutions that can track and provide an immutable history of the product parts and their metadata, such as quality certificates. Through a shared ledger these certificates cover carbon footprint and percentage of recycled component used.
+
+Blockchain technology allows the logical data flow model to use with physical components deployed with each participant. This reduces the need for participants to trust a single partner.
+While this could be built using traditional centralized components, this is usually not the case with supply chain workloads. Supply chain workloads have their own systems that require isolation from others.
+
+This solution is ideal for the sustainability, manufacturing, and energy/environment industries.
 
 ## Contributors
 
