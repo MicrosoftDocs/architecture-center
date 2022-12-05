@@ -69,15 +69,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Next steps
 
-To learn more about topics introduced in this article:
+- [Deploy an Edge Training Solution](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-training). When you're ready to test the example solution, continue with this deployment guide.
+- [Azure Machine Learning documentation](/azure/machine-learning) provides an overview of machine learning and related topics.
+- [Azure Container Registry](/azure/container-registry/) describes how to build, store, and manage images for container deployments.
+- [App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) describes the resource provider and how to deploy it.
+- [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) describes best practices and how to get your questions answered.
+- [Azure Stack family of products and solutions](/azure-stack) provides an overview of the entire portfolio of products and solutions.
 
-- See the [Azure Machine Learning documentation](/azure/machine-learning) for an overview of machine learning and related topics.
-- See [Azure Container Registry](/azure/container-registry/) to learn how to build, store, and manage images for container deployments.
-- Refer to [App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview) to learn more about the resource provider and how to deploy.
-- See [Hybrid application design considerations](/hybrid/app-solutions/overview-app-design-considerations) to learn more about best practices and to get any additional questions answered.
-- See the [Azure Stack family of products and solutions](/azure-stack) to learn more about the entire portfolio of products and solutions.
-
-When you're ready to test the solution example, continue with [Deploy an Edge Training Solution](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-training). This deployment guide provides step-by-step instructions for deploying and testing its components.
 
 ## Related resources
 
