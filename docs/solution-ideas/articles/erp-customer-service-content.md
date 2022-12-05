@@ -29,10 +29,10 @@ First, the company must ingest data from various sources.
 
 ### Components
 
-- [Azure Data Lake Storage](/products/storage/data-lake-storage) provides massively scalable and secure data lake storage for high-performance analytics workloads.
-- [Azure Synapse Analytics](/products/synapse-analytics) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
-- [Azure SQL Database Hyperscale](/azure/azure-sql/database/service-tier-hyperscale) is a storage tier in [Azure SQL Database](/products/azure-sql/database) that uses Azure architecture to scale out storage and compute resources.  Hyperscale supports up to 100 TB of storage and provides nearly instantaneous backups and fast database restores in minutes – regardless of the size of data operation.
-- [Azure Cosmos DB](/products/cosmos-db) is a fully managed NoSQL database service for building and modernizing scalable, high-performance applications.
+- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) provides massively scalable and secure data lake storage for high-performance analytics workloads.
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
+- [Azure SQL Database Hyperscale](/azure/azure-sql/database/service-tier-hyperscale) is a storage tier in [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) that uses Azure architecture to scale out storage and compute resources.  Hyperscale supports up to 100 TB of storage and provides nearly instantaneous backups and fast database restores in minutes – regardless of the size of data operation.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database service for building and modernizing scalable, high-performance applications.
 - [Power BI](https://powerbi.microsoft.com) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it's used to analyze and visualize data.
 
 ## Scenario details

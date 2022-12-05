@@ -68,7 +68,7 @@ Data needs to be managed at scale across on-premises, cloud, and multi-cloud sto
 
 Working with other Azure services, Azure Purview can automatically discover, catalog, classify, and manage data across Azure Data Lake offerings and partner services.
 
-## Potential use cases
+### Potential use cases
 
 The requirements for data management differ across industries. For all industries, the need to govern data at scale has increased as the size and complexity of data and data architectures grow. This appropriate for organizations that would benefit from the following outcomes of well-governed data:
 

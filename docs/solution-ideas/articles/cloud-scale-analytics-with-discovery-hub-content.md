@@ -27,7 +27,7 @@ This solution idea describes how to use the TimeXtender graphical interface to d
 
 You can use TimeXtender to define a data estate via a graphical user interface. Definitions are stored in a metadata repository. Code for building the data estate is generated automatically while remaining fully customizable. The results are a modern data warehouse that is ready to support cloud scale analytics and AI.
 
-## Potential use cases
+### Potential use cases
 
 * No infrastructure issues or maintenance
 * Consistent performance
