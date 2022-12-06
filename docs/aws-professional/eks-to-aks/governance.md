@@ -107,7 +107,7 @@ For more information, see the official [Kyverno installation guide](https://kyve
 
 Unlike Azure Policy for Kubernetes, with Kyverno you can create policies not only to validate or mutate existing resources, but also policies to create new Kubernetes objects. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
 
-See [[Kyverno Policies Library](https://kyverno.io/policies/)](https://kyverno.io/policies/) for a list of more than 90 policies ready to use or customize. You can deploy policies individually using their YAML manifest or package and deploy them using a Helm chart.
+See [Kyverno Policies Library](https://kyverno.io/policies/) for a list of more than 90 policies ready to use or customize. You can deploy policies individually using their YAML manifest or package and deploy them using a Helm chart.
 
 Optionally, you can deploy the [Kyverno policies for Kubernetes Pod Security Standards](https://artifacthub.io/packages/helm/kyverno/kyverno-policies/) which provide a Kyverno's implementation of the [Kubernetes Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The Kubernetes Pod Security Standards (PSS) controls aim to provide a good starting point for general Kubernetes cluster operational security.
 
