@@ -6,7 +6,7 @@ This example baseline infrastructure deploys an Azure Kubernetes Service (AKS) c
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-dual-stack.vsdx) of this architecture.*
 
-## Dataflow
+### Dataflow
 
 This example uses a NAT64 proxy for the ingress controller to translate external traffic to either IPv4 or IPv6. It can be added to or removed from an existing infrastructure with minimal changes. Only one ingress needs to be changed.
 
@@ -17,7 +17,7 @@ There are two options in this example architecture:
 - AKS Services running IPv4
 - AKS Services running IPv6
 
-### AKS Services running IPv4
+#### AKS Services running IPv4
 
 - **IPv4 traffic** (black line): Azure Load Balancer directs IPv4 traffic to the corresponding services in the virtual network as follows:
 
@@ -43,11 +43,11 @@ There are two options in this example architecture:
   
   2-6. The dataflow from 2 to 6 is the same as in the IPv4 dataflow.
 
-### AKS Services running IPv6
+#### AKS Services running IPv6
 
 Alternatively, AKS main traffic can run on top of IPv6, and IPv4 ingress serves as the NAT46 proxy.
 
-# Components
+### Components
 
 The example consists of the following components:
 
@@ -65,23 +65,13 @@ The example consists of the following components:
 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault) stores and manages security keys for AKS services.
 
-## Alternatives
+### Alternatives
 
 Another approach is to separate each functional service. There's one AKS service listening for IPv6 ingress and one AKS service listening for IPv4 ingress. This approach helps avoid a NAT64 hop for IPv6 traffic and vice versa.
 
 This approach seems more like a natural Kubernetes approach that offers better performance. However, if you use this approach in a microservice architecture with lots of services, it doesn't support good code maintenance because each service is duplicated. The main approach can distribute the performance hit by using persistent connections.
 
 When AKS can fully support dual-stack deployment at the service layer, you can remap only IPv6 ingress in the main approach while the alternative approach needs more maintenance.
-
-## Potential use cases
-
-IPv6 enables direct node-to-node addressing, which improves connectivity, eases connection management, and reduces routing overhead. These capabilities are useful to enable Internet of Things in the following industries:
-
-- Automotive
-- Energy
-- Healthcare
-- Manufacturing
-- Telecommunications
 
 ## Scenario details
 
@@ -92,6 +82,16 @@ Due to current [limitations](/azure/aks/configure-kubenet-dual-stack#expose-the-
 After your [Azure Application Gateway](/azure/application-gateway/overview-v2) supports dual-stack networking, an HTTP client can use it in place of a standard load balancer. This configuration benefits from the gateway's [Azure Web Application Firewall](/azure/web-application-firewall/afds/waf-front-door-create-portal) and simplifies the deployment.
 
 This article focuses on enabling dual-stack IP addresses for your network infrastructure. You should be familiar with the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), a starting point for AKS infrastructure. The AKS baseline describes features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations.
+
+### Potential use cases
+
+IPv6 enables direct node-to-node addressing, which improves connectivity, eases connection management, and reduces routing overhead. These capabilities are useful to enable Internet of Things in the following industries:
+
+- Automotive
+- Energy
+- Healthcare
+- Manufacturing
+- Telecommunications
 
 ## Considerations
 
