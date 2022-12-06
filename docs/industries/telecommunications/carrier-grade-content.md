@@ -146,20 +146,17 @@ For Protocol B, Azure Traffic Manager has built-in polling capabilities that min
 
 ## Data consistency
 
-For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally.  Writing to the database is a critical process for this use case. If there's a failure, time taken to bring up an instance in  another region should be minimized.
+For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally. Writing to the database is a critical process for this use case. If there's a failure, time taken to bring up an instance in another region should be minimized. Write requests to the database should still be functional.
 
-- Data should be regionally replicated in an active-active configuration such as that it's instantly synchronized across regions. Also, all instances should be able to handle read and write requests. 
-- If there's a failure, write requests to the database should still be functional.
+In this architecture, Azure Cosmos DB was chosen because it supports multi-write region model. Data is regionally replicated in an active-active configuration and it's instantly synchronized across multiple regions. If there's a global outage, consistent data is available in all regions almost instantly. Also, zonal redundancy is guaranteed through availability zone redundancy support (AZRS).
 
-Azure Cosmos DB was chosen as the global database because it meets those requirements. The architecture uses the multi-write region model. If there's a global outage, consistent data is available in multiple regions almost instantly. Also, zonal redundancy is guaranteed through availability zone redundancy support (AZRS).
+This architecture also uses Azure Blob Storage to store supplementary data, such as long-term metrics data, application core dumps, and diagnostics packages. The resource is configured to use zone-redundant storage (ZRS) with [object replication](/azure/storage/blobs/object-replication-overview) between regions. This combination was chosen because it allows control of the secondary region and storage tier, that is, premium primary copy and hot-cool secondary copy. For this use case, it's also a cost-effective way of replicating data. 
 
-> Refer to [Well-Architected carrier-grade workloads](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-data-model).
-
-This architecture also uses Azure Blob Storage to store supplementary data, such as long-term metrics data,  application core dumps and diagnostics packages. The resource is configured to use zone-redundant storage (ZRS) with [object replication](/azure/storage/blobs/object-replication-overview) between regions. This combination was chosen because it allows control of the secondary region and storage tier, that is, premium primary copy and hot/cool secondary copy. For this use case, it's also a cost-effective way of replicating data. 
+> Refer to [Well-Architected carrier-grade workloads: Data model](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-data-model).
 
 ## Scalability considerations
 
-The overall solution is sized such that any single region can fail and the remaining regions will still be able to service the expected traffic load. Scale is achieved through the combination of individual service instance capacity and the total number of instances.  
+The overall solution is sized such that any single region can fail but the remaining regions can still service the expected traffic load. Scale is achieved through the combination of individual service instance capacity and the total number of instances.  
 
 The capacity of the individual service instance is adjusted based on load testing results that predict load variations. Autoscaling is enabled for the service and cluster by using AKS Cluster Autoscaler and Kubernetes Horizontal Pod Autoscaler. There are components that scale manually. For these components, scale limits are defined in the configuration and scaling is handled as an upgrade operation.  
 
@@ -169,11 +166,13 @@ Logs and metrics emitted by the workload that Azure resources are collected and 
 
 Alerts are set up by the application instances. Metric threshold events are replicated across all zones and regions so they're always available. 
 
+> Refer to [Well-Architected carrier-grade workloads: Health modeling](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-health-modeling).
+
 ## Operational considerations
 
 The operational aspect of the architecture is key to achieving high availability. This covers automation, deployment, secret management decisions of the architecture.
 
-### Deployment
+##### Deployment
 
 Application source code and configuration are stored in a Git repository in Azure DevOps. A GitOps approach is used for continuous integration/continuous deployment (CI/CD). 
 
@@ -181,17 +180,21 @@ Flux is the GitOps operator that responds to changes and triggers scripting tool
 
 Conversely, Flux also decommissions resources that are not required. For example, if a particular instance shouldn't receive traffic, Flux reacts to the configuration change. It triggers DNS updates to stop new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
 
-### Upgrade, patching, and configuration updates
+##### Upgrade, patching, and configuration updates
 
 When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and updates the DNS records. Traffic is reverted to the old instance if there are errors. Otherwise, the old instance is decommissioned. 
 
-### Automation
+##### Automation
 
-Various automation technologies are used in the operational flow, and automation is fundamental to the overall resiliency given the required reaction times. However, it's also critical that there are manual gates in the end-to-end process to ensure errors aren't introduced through automation.  The text below looks at the specific operational steps needed for various lifecycle events.
+Automation is fundamental to the overall resiliency given the required reaction times. Various automation technologies are used in the operational flow. However, it's also critical that there are manual gates in the end-to-end process to ensure errors aren't introduced through automation. 
+
+> Refer to [Well-Architected carrier-grade workloads: Fault tolerance](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance).
 
 ## Testing and validation
 
-From an availability perspective, what is important is that the failure mode analysis is extended to include all network segments between elements of the application, and between the application and the clients, since outages here will still impact availability of the application as perceived by the users. 
+From an availability perspective, failure mode analysis is extended to include all network segments between application components. Also, between the application and the clients because outages will still impact availability of the application as perceived by the users. 
+
+> Refer to [Well-Architected carrier-grade workloads: Testing and validation](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-testing).
 
 ## Alternatives
 
