@@ -60,7 +60,7 @@ This architecture lets Azure Machine Learning access possibly sensitive on-premi
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 
-### Performance
+### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
@@ -76,16 +76,16 @@ Ensure that models and experiments are appropriately registered, versioned, and 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: 
+Principal authors:
 
  - [Ronmia Bess](https://www.linkedin.com/in/ronmia-bess-8715625) | Content Developer 2
  - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
  - > Continue for each primary author (even if there are 10 of them).
 
-Other contributors: 
+Other contributors:
 
  - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
- 
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 
