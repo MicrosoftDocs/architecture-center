@@ -114,3 +114,15 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Power BI Desktop data sources](/power-bi/desktop-data-sources)
+- [Analysis and reporting with Microsoft business intelligence (BI) tools](/sql/reporting-services/choosing-microsoft-business-intelligence-bi-tools-for-analysis-and-reporting)
+- [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft)
+
+## Related resources
+
+- [Choose a data analytics and reporting technology in Azure](analysis-visualizations-reporting.md)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

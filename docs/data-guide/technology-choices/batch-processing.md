@@ -115,9 +115,18 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [What is Azure Data Lake Analytics?](/azure/data-lake-analytics/data-lake-analytics-overview)
+- [Tutorial: Set up a data product batch](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/tutorials/tutorial-set-up-data-product-batch)
+- [Tutorial: Do batch processing with .NET for Apache Spark](/dotnet/spark/tutorials/batch-processing)
+- [Spark Batch - Create Spark Batch Job](/rest/api/synapse/data-plane/spark-batch/create-spark-batch-job)
+- [What is Apache Hive and HiveQL on Azure HDInsight?](/azure/hdinsight/hadoop/hdinsight-use-hive)
+
 ## Related resources
 
-- [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)
-- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-- [Choose a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
-- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Choose an analytical data store in Azure](analytical-data-stores.md)
+- [Choose a data analytics technology in Azure](analysis-visualizations-reporting.md)
+- [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Batch processing](../big-data/batch-processing.yml)

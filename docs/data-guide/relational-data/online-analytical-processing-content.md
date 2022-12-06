@@ -152,8 +152,8 @@ Principal author:
 
 ## Related resources
 
-- [Azure Data Architecture Guide](../index.md)
-- [Choose a data analytics and reporting technology in Azure](../technology-choices/analysis-visualizations-reporting.md)
+- [Choose an analytical data store](../technology-choices/analytical-data-stores.md)
 - [Databases architecture design](../databases-architecture-design.yml)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)

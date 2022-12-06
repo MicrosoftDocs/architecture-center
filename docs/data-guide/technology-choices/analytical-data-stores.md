@@ -112,3 +112,16 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Azure Analytics Services](https://azure.microsoft.com/products/category/analytics)
+- [Azure Synapse SQL architecture](/azure/synapse-analytics/sql/overview-architecture)
+- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
+- [Microsoft Azure Data Fundamentals: Explore data analytics in Azure](/training/paths/azure-data-fundamentals-explore-data-warehouse-analytics)
+
+## Related resources
+
+- [Big data architectures](../big-data/index.yml)
+- [Non-relational data and NoSQL](../big-data/non-relational-data.yml)
+- [Online analytical processing (OLAP)](../relational-data/online-analytical-processing.yml)
