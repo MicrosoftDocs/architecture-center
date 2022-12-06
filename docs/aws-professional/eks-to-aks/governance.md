@@ -60,7 +60,7 @@ AWS customers usually rely on and use [Kyverno](https://kyverno.io), [Gatekeeper
 
 ## AKS Governance
 
-Azure customers can use [Azure Policy with OPA Gatekeeper](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes) or [Kyverno](https://kyverno.io) to implement a governance strategy and in their AKS clusters.
+Azure customers can use [Azure Policy with OPA Gatekeeper](/azure/governance/policy/concepts/policy-for-kubernetes) or [Kyverno](https://kyverno.io) to implement a governance strategy and in their AKS clusters.
 
 ### Azure Policy
 
@@ -101,7 +101,7 @@ helm install kyverno kyverno/kyverno --namespace kyverno --create-namespace
 
 # Install the Kyverno Pod Security Standard policies
 helm install kyverno-policies kyverno/kyverno-policies -n kyverno
-```console
+```
 
 For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation/).
 
