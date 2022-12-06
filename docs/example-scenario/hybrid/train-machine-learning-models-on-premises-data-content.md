@@ -45,7 +45,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Consider the following points when deciding how to implement this solution.
 
-### Scalability
+### Performance
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 To enable this solution to scale, you'll need to create an appropriately sized VM on Azure Stack Hub for training.
 
