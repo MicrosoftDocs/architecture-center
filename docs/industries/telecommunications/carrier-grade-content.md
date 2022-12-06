@@ -101,7 +101,7 @@ Both virtual machines and containers are used to host the workload. The technolo
 
 The application is part of the stamp and is therefore immutable. Application service instances (SIs) deliver the actual application function. Any application SI can serve a client request. They're deployed and monitored by the management service.
 
-##### Resiliency considerations
+#### Resiliency considerations
 
 The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The application is stateless and long-living state is stored in an external database. 
 
@@ -109,7 +109,7 @@ To build redundancy, SIs are deployed in multiple Availability Zones and regions
 
 The components within each SI use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special-case code to handle partial failure conditions. 
 
-##### Monitoring
+#### Monitoring
 
 This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management service probes the application SIs at regular intervals and maintains a health status. If the health state of a particular SI is degraded, the management service stops responding to the polling request and traffic isn't routed to that instance.  
 
@@ -126,7 +126,7 @@ The application is fronted by a traffic management layer, which provides load ba
 
 The internal load balancer distributes incoming requests to the SI pods. The services are reachable through their DNS names assigned by native Kubernetes objects.
 
-##### Reliability considerations 
+#### Reliability considerations 
 
 Traffic Manager is on the critical path when clients make their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
 
@@ -136,7 +136,7 @@ If a backend service is unavailable, Traffic Manager and gateway won't update th
 
 Both routers depend on Azure DNS to reduce complexity and higher Service Level Agreement (SLA). However, if that service is unavailable, expect a full outage. 
 
-##### Health monitoring
+#### Health monitoring
 
 The health model makes sure client requests aren't routed to unhealthy instances. The traffic management layer polls the backend management service before routing traffic. 
 
@@ -172,19 +172,19 @@ Alerts are set up by the application instances. Metric threshold events are repl
 
 The operational aspect of the architecture is key to achieving high availability. This covers automation, deployment, secret management decisions of the architecture.
 
-##### Deployment
+#### Deployment
 
 Application source code and configuration are stored in a Git repository in Azure DevOps. A GitOps approach is used for continuous integration/continuous deployment (CI/CD). 
 
 Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
-Conversely, Flux also decommissions resources that are not required. For example, if a particular instance shouldn't receive traffic, Flux reacts to the configuration change. It triggers DNS updates to stop new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
+Conversely, Flux also decommissions resources that aren't required. For example, if a particular instance shouldn't receive traffic, Flux reacts to the configuration change. It triggers DNS updates to stop new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
 
-##### Upgrade, patching, and configuration updates
+#### Upgrade, patching, and configuration updates
 
 When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and updates the DNS records. Traffic is reverted to the old instance if there are errors. Otherwise, the old instance is decommissioned. 
 
-##### Automation
+#### Automation
 
 Automation is fundamental to the overall resiliency given the required reaction times. Various automation technologies are used in the operational flow. However, it's also critical that there are manual gates in the end-to-end process to ensure errors aren't introduced through automation. 
 
