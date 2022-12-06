@@ -147,19 +147,19 @@ To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct
 
 #### CPU and GPU rendering times
 
-:::image type="content" source="media/VRED-2023-hd-image-render-time.png" alt-text="Graphs that show CPU and GPU rendering times for NCas_T4." lightbox="media/VRED-2023-4k-image-render-time.png" border="false":::
+:::image type="content" source="media/VRED-2023-hd-image-render-time.png" alt-text="Graphs that show CPU and GPU rendering times for VRED 2023.1 on NCasT4." lightbox="media/VRED-2023-4k-image-render-time.png" border="false":::
 
 #### Relative speed increases between CPU and GPU ray tracing
 
-:::image type="content" source="media/VRED-2023-hd-image-speedup.png" alt-text="Graphs that show the relative speed increases for NCas_T4." lightbox="media/VRED-2023-4k-image-speedup.png" border="false"::: 
+:::image type="content" source="media/VRED-2023-hd-image-speedup.png" alt-text="Graphs that show the relative speed for VRED 2023.1 on NCas_T4." lightbox="media/VRED-2023-4k-image-speedup.png" border="false"::: 
 
 ### VRED 2023.1 performance results on the NVv5 VM
 
 #### CPU and GPU rendering times
 
-:::image type="content" source="media/VRED-2023-HD-render-time-NVv5.png" alt-text="Graphs that show CPU and GPU rendering times for NV48s_v3." lightbox="media/VRED-2023-4k-render-time-NVv5.png" border="false":::
+:::image type="content" source="media/VRED-2023-HD-render-time-NVv5.png" alt-text="Graphs that show CPU and GPU rendering times for NVv5." lightbox="media/VRED-2023-4k-render-time-NVv5.png" border="false":::
 
-:::image type="content" source="media/VRED-2023-HD-speedup-NVv5.png" alt-text="Graphs that show the relative speed increases for NV48s_v3." lightbox="media/VRED-2023-4k-speedup-NVv5.png" border="false":::
+:::image type="content" source="media/VRED-2023-HD-speedup-NVv5.png" alt-text="Graphs that show the relative speed for VRED 2023.1 on NVv5." lightbox="media/VRED-2023-4k-speedup-NVv5.png" border="false":::
 
 ## Pricing
 
