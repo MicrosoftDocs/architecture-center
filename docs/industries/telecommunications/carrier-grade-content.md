@@ -10,6 +10,7 @@ This reference architecture is for a voicemail solution. It offers common functi
 Multiple clients can connect to the workload using various protocols. They can be HTTP or other protocols, such as Session Initiation Protocol (SIP). A connection will lead to persisted state, which can be client configuration, messages, and related metadata. 
 
 ## Workload requirements
+
 - The workload is expected to have a Service Level Object target of 99.999%, which equates to outage duration of less than 5 minutes per year.
 - Application requests for all the supported protocols must be load-balanced across all the active service instances (SIs).
 - Replication of write operations on subscriber data must be instantaneous across regions. Any service instance reading data always gets served the latest and most up to date version of the subscriber data.
@@ -17,7 +18,7 @@ Multiple clients can connect to the workload using various protocols. They can b
 
 ## Key design strategies
 
-- **Active-active muti-region deployment**. Deploy 12 application instances across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
+- **Active-active muti-region deployment**. Deploy atleast 12 application instances across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
 - **Replicated storage**. Keep the application itself is stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions. 
 - **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Implement application logic that uses conflict-free replicated data types (CRDTs) to handle eventual inconsistency.
 - **Avoid correlated failure modes**. Take independent elements and [combine them to reach a higher reliability target](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance#high-availability-through-combination). 
@@ -44,14 +45,14 @@ Stores application payload metadata and end-user provisioning data. Also used by
 
 **Gateway component** 
 
-A custom solution component that that exists outside of the cloud. The gateway serves as the single endpoint for clients using protocols different than Http. It monitors the health of the backend endpoints and routes traffic to the healthy instances. 
+A custom solution component that that exists outside of the cloud. The gateway serves as the single endpoint for clients using protocols different than HTTP. It monitors the health of the backend endpoints and routes traffic to the healthy instances. 
 
 > [!IMPORTANT] 
-> Global routing is handled through DNS. If any global service or a foundational service, such as DNS, identity platform isn't available, the entire system will be impacted. 
+> Global routing is handled through DNS. If any global service or a foundational service isn't available, the entire system will be impacted. 
 
 ### Regional resources
 
-This set of services that are deployed each region and their lifetime is tied to the region.  
+This set of services that are deployed each region and their lifetime is tied to that region.  
 
 **Management service**
 
@@ -59,22 +60,22 @@ Is a custom service that delivers the management, deployment, and monitoring asp
 
 **Azure Container Registry**
 
-Stores all Open Container Initiative (OCI) artifacts. Zone redundancy is enabled. 
+Stores all Open Container Initiative (OCI) artifacts. Zone redundancy is enabled to safeguard against zonal failures. 
 
 **Azure Key Vault**
 
 Stores global secrets such as connection strings to the global database and regional secrets.
 
 **Azure Monitor**
-Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Log Analytics Workspace. 
+Collects logs and metrics emitted by the workload and Azure resources. The data is stored in Azure Monitor Logs and Log Analytics Workspace. 
 
 **Virtual machine scale set**
 
-Run as jump box instances to run tools against the cluster, such as kubectl.
+Runs as jump box instances to run tools against the cluster, such as kubectl.
 
 **Azure Blob Storage**
 
-Premium SKU is used for large payload data, long-term metrics data, virtual machine images, application core dumps and diagnostics packages. Storage is configured for  zone-redundant storage (ZRS), object replication (OR) between regions, and application-level handling. 
+Stores large payload data, long-term metrics data, virtual machine images, application core dumps and diagnostics packages. Premium SKU is used. Storage is configured for zone-redundant storage (ZRS), object replication (OR) between regions, and application-level handling. 
 
 **Azure Functions**
 
@@ -82,14 +83,14 @@ Triggers application-specific functionality, such as  delivery of messages at th
 
 **Azure Queue Storage**
 
-All regional resources are stateless except for Queue Storage that stores messages temporarily as mitigation of write failures.
+Stores messages temporarily as mitigation of write failures. 
 
 > [!IMPORTANT] 
-> Regional resources are independent in that unavailability of a resource in one region shouldn't impact resources in another region. There might be simultaneous outages in multiple regions but the impact must be restricted to the individual region. The resources can be further categorized by their functional requirement. Azure Blob Storage, Functions, Queue Storage participate in processing a request. Other components, Key Vault, Monitor, and Container Registry are provisioned for management operations.
+> Regional resources are meant to be independent in that unavailability of a resource in one region shouldn't impact resources in another region. There might be simultaneous outages in multiple regions but the impact must be restricted to the individual region. The resources can be further categorized by their functional requirement. Azure Blob Storage, Functions, Queue Storage participate in processing a request. Other components, Key Vault, Monitor, and Container Registry are provisioned for management operations.
 
 ### Regional stamp resources
 
-Within each region, a set of resources are deployed as part of a deployment stamp to provide more resiliency, scale. The resources are expected to be ephemeral. They're created and destroyed dynamically while the preceding regional resources outside the stamp continue to persist. 
+Within each region, a set of resources are deployed as part of a deployment stamp to provide more resiliency and scale. The resources are expected to be ephemeral. They're created and destroyed dynamically while the preceding regional resources outside the stamp continue to persist. 
 
 **Workload compute**
 
@@ -98,17 +99,17 @@ Both virtual machines and containers are used to host the workload. The technolo
 
 ## Workload design
 
-The application is part of the stamp is immutable. Application service instances (SIs) deliver the actual application function. Any application SI can serve a client request. They're deployed and monitored by the management service.
+The application is part of the stamp and is therefore immutable. Application service instances (SIs) deliver the actual application function. Any application SI can serve a client request. They're deployed and monitored by the management service.
 
-### Resiliency considerations
+##### Resiliency considerations
 
 The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The application is stateless and long-living state is stored in an external database. 
 
 To build redundancy, SIs are deployed in multiple Availability Zones and regions in an active-active model. 
 
-The components within each SI use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special case code to handle partial failure conditions. 
+The components within each SI use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special-case code to handle partial failure conditions. 
 
-### Monitoring
+##### Monitoring
 
 This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management service probes the application SIs at regular intervals and maintains a health status. If the health state of a particular SI is degraded, the management service stops responding to the polling request and traffic isn't routed to that instance.  
 
@@ -119,29 +120,29 @@ This implementation has a health model in place to make sure client requests are
 
 The application is fronted by a traffic management layer, which provides load balancing. Incoming traffic can be categorized based on the type of protocol:
 
-- **Protocol A** accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) in which the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
+- **Protocol A** accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) and the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
 
 - **Protocol B** routes HTTP traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS. 
 
 The internal load balancer distributes incoming requests to the SI pods. The services are reachable through their DNS names assigned by native Kubernetes objects.
 
-### Reliability considerations 
+##### Reliability considerations 
 
-Traffic Manager is on the critical path for clients making their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
+Traffic Manager is on the critical path when clients make their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
 
 Like Traffic Manager, the gateway is also a single point of failure. Failure will impact new client connections and existing clients after the cached DNS entry expires.
 
-If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired. Clients will continue to reach the last-known address. Use Azure policies to enforce terminating long-running calls or connections that still exist.
+If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired. Clients will continue to reach the last-known address. Use Azure policies to enforce termination of long-running calls or connections that still exist.
 
-Because both routers depend on Azure DNS, as a foundational service, to reduce complexity and higher Service Level Agreement (SLA).  However, if that service is unavailable, expect a full outage. 
+Both routers depend on Azure DNS to reduce complexity and higher Service Level Agreement (SLA). However, if that service is unavailable, expect a full outage. 
 
-### Health monitoring
+##### Health monitoring
 
 The health model makes sure client requests aren't routed to unhealthy instances. The traffic management layer polls the backend management service before routing traffic. 
 
 For Protocol A, the gateway is responsible for endpoint monitoring. It receives a prioritized list of SI access points from a DNS server and uses active polling to determine SI liveness. 
 
-For Protocol B, Azure Traffic Manager has its own active polling that minimizes the chance of sending traffic to an unresponsive SI. Unhealthy endpoints are excluded in the DNS response to clients. This approach helps reliability because a client’s first attempt to reach a server will most likely be successful. 
+For Protocol B, Azure Traffic Manager has built-in polling capabilities that minimize the chance of sending traffic to an unresponsive SI. Unhealthy endpoints are excluded in the DNS response to clients. This approach helps reliability because a client’s first attempt to reach a server will most likely be successful. 
 
 ## Data consistency
 
@@ -178,7 +179,7 @@ Application source code and configuration are stored in a Git repository in Azur
 
 Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the service instances. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the service instance configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
-Conversely, Flux also decommissions resources that are not required. For example, if a particular instance shouldn't receive traffic, Flux reacts to the configuration change. It triggers DNS updates that stops new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
+Conversely, Flux also decommissions resources that are not required. For example, if a particular instance shouldn't receive traffic, Flux reacts to the configuration change. It triggers DNS updates to stop new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
 
 ### Upgrade, patching, and configuration updates
 
