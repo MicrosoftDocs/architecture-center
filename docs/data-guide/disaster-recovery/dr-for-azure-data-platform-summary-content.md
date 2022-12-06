@@ -67,3 +67,17 @@ Other contributors:
 - [Rolf Tesmer](https://www.linkedin.com/in/rolftesmer/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Azure Data Lake Storage training module](/training/modules/introduction-to-azure-data-lake-storage)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+- [Azure Synapse Analytics](/azure/synapse-analytics)
+
+## Related resources
+
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)

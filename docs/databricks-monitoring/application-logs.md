@@ -160,6 +160,13 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 > [!div class="nextstepaction"]
 > [Use dashboards to visualize Azure Databricks metrics](./dashboards.md)
 
+## Related resources
+
+- [Monitoring Azure Databricks](index.md)
+- [Troubleshoot performance bottlenecks in Azure Databricks](performance-troubleshooting.md)
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
+- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
+
 <!-- links -->
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md

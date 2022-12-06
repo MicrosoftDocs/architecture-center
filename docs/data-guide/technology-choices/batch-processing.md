@@ -117,11 +117,13 @@ Principal author:
 
 ## Next steps
 
-- [What is Azure Data Lake Analytics?](/azure/data-lake-analytics/data-lake-analytics-overview)
-- [Tutorial: Set up a data product batch](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/tutorials/tutorial-set-up-data-product-batch)
-- [Tutorial: Do batch processing with .NET for Apache Spark](/dotnet/spark/tutorials/batch-processing)
-- [Spark Batch - Create Spark Batch Job](/rest/api/synapse/data-plane/spark-batch/create-spark-batch-job)
-- [What is Apache Hive and HiveQL on Azure HDInsight?](/azure/hdinsight/hadoop/hdinsight-use-hive)
+- [Create a lake database in Azure Synapse Analytics](/training/modules/create-metadata-objects-azure-synapse-serverless-sql-pools)
+- [Create an Azure Databricks workspace](/azure/databricks/getting-started)
+- [Explore Azure Databricks](/training/modules/explore-azure-databricks)
+- [Get started with Azure Data Lake Analytics using the Azure portal](/azure/data-lake-analytics/data-lake-analytics-get-started-portal)
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [What is Azure Databricks?](/azure/databricks/introduction)
+- [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)
 
 ## Related resources
 

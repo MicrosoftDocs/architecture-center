@@ -39,3 +39,10 @@ Start by building the code library and deploying it to your Azure Databricks clu
 
 > [!div class="nextstepaction"]
 > [Send Azure Databricks application logs to Azure Monitor](./application-logs.md)
+
+## Related resources
+
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
+- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
+- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
+- [Orchestrate MLOps by using Azure Databricks](../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)

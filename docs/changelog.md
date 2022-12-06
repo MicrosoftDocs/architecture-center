@@ -1,10 +1,11 @@
 ---
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
-author: alexhart11
-ms.date: 11/28/2022
+author: martinekuan
+ms.date: 12/05/2022
 ms.topic: article
 ms.service: architecture-center
+ms.author: martinek
 categories: 
 - management-and-governance
 products:
@@ -22,12 +23,42 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
+## December 2022
+
+### Updated articles
+
+- [Computer forensics chain of custody in Azure](./example-scenario/forensics/index.yml)  ([#23e1f804a](https://github.com/MicrosoftDocs/architecture-center/commit/23e1f804a))
+- [Apache NiFi on Azure](./example-scenario/data/azure-nifi.yml)  ([#f3d9f5a1e](https://github.com/MicrosoftDocs/architecture-center/commit/f3d9f5a1e))
+- [Data governance with Profisee and Microsoft Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)  ([#6681678a0](https://github.com/MicrosoftDocs/architecture-center/commit/6681678a0))
+- [Azure Cosmos DB considerations for multitenancy](./guide/multitenant/service/cosmos-db.md)  ([#490da8335](https://github.com/MicrosoftDocs/architecture-center/commit/490da8335))
+- [Cross-cloud scaling with Traffic Manager](./example-scenario/hybrid/hybrid-cross-cloud-scaling.yml)  ([#7d6e5d9e2](https://github.com/MicrosoftDocs/architecture-center/commit/7d6e5d9e2))
+- [Hybrid geo-distributed architecture](./example-scenario/hybrid/hybrid-geo-distributed.yml)  ([#7d6e5d9e2](https://github.com/MicrosoftDocs/architecture-center/commit/7d6e5d9e2))
+- [Disaster recovery for Azure Stack Hub VMs](./hybrid/azure-stack-vm-disaster-recovery.yml)  ([#7d6e5d9e2](https://github.com/MicrosoftDocs/architecture-center/commit/7d6e5d9e2))
+- [DevOps with Azure Stack Hub](./solution-ideas/articles/hybrid-continuous-integration.yml)  ([#7d6e5d9e2](https://github.com/MicrosoftDocs/architecture-center/commit/7d6e5d9e2))
+- [Use Azure Firewall to help protect an AKS cluster](./example-scenario/aks-firewall/aks-firewall.yml)  ([#206e29618](https://github.com/MicrosoftDocs/architecture-center/commit/206e29618))
+- [Scalable and secure WordPress on Azure](./example-scenario/infrastructure/wordpress.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Enterprise deployment using Azure ASE](./reference-architectures/enterprise-integration/ase-standard-deployment.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Modernize mainframe and midrange data](./reference-architectures/migration/modernize-mainframe-data-to-azure.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Unisys mainframe migration with Asysco](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Run SAP BW/4HANA with Linux VMs](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Refactor IBM z/OS coupling facility](./reference-architectures/zos/refactor-zos-coupling-facility.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Homomorphic encryption with SEAL](./solution-ideas/articles/homomorphic-encryption-seal.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Scalable Umbraco CMS web app](./solution-ideas/articles/medium-umbraco-web-app.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Choose an Azure compute service](./guide/technology-choices/compute-decision-tree.yml)  ([#4c21c598a](https://github.com/MicrosoftDocs/architecture-center/commit/4c21c598a))
+- [Tiered data for analytics](./example-scenario/hybrid/hybrid-tiered-data-analytics.yml)  ([#8df1754b2](https://github.com/MicrosoftDocs/architecture-center/commit/8df1754b2))
+- [Azure file shares in a hybrid environment](./hybrid/azure-file-share.yml)  ([#8df1754b2](https://github.com/MicrosoftDocs/architecture-center/commit/8df1754b2))
+- [On-premises data gateway for Logic Apps](./hybrid/gateway-logic-apps.yml)  ([#8df1754b2](https://github.com/MicrosoftDocs/architecture-center/commit/8df1754b2))
+- [Cross-cloud scaling with Azure Functions](./solution-ideas/articles/cross-cloud-scaling.yml)  ([#8df1754b2](https://github.com/MicrosoftDocs/architecture-center/commit/8df1754b2))
+- [Hybrid connections](./solution-ideas/articles/hybrid-connectivity.yml)  ([#8df1754b2](https://github.com/MicrosoftDocs/architecture-center/commit/8df1754b2))
+- [Unlock legacy data with Azure Stack](./solution-ideas/articles/unlock-legacy-data.yml)  ([#8df1754b2](https://github.com/MicrosoftDocs/architecture-center/commit/8df1754b2))
+
 ## November 2022
 
 ### New articles
 
 - [Enterprise integration with message broker and events](./example-scenario/integration/queues-events.yml)
 - [Eventual consistency between multiple Power Apps instances](./guide/power-platform/eventual-consistency.yml)
+- [Build real-time monitoring and observable systems for media](./example-scenario/monitoring/monitoring-observable-systems-media.yml)
 - [Mission-critical baseline architecture in an Azure landing zone](./reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml)
 - [Use Private Link to access applications on networks with overlapping address spaces](./guide/networking/private-link-ip-constraints.yml)
 - [Measure Azure app sustainability by using the SCI score](./example-scenario/apps/measure-azure-app-sustainability-sci-score.yml)
@@ -58,6 +89,7 @@ The following new and updated articles have recently been published in the Azure
 ### Updated articles
 
 - [Highly available multi-region web app](./reference-architectures/app-service-web-app/multi-region.yml)  ([#035b9c0c8](https://github.com/MicrosoftDocs/architecture-center/commit/035b9c0c8))
+- [Personalization using Azure Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#89fd53303](https://github.com/MicrosoftDocs/architecture-center/commit/89fd53303))
 - [SQL Managed Instance with CMK](./example-scenario/data/sql-managed-instance-cmk.yml)  ([#672c83edb](https://github.com/MicrosoftDocs/architecture-center/commit/672c83edb))
 - [Migrate master data services to Azure with CluedIn and Azure Purview](./reference-architectures/data/migrate-master-data-services-with-cluedin.yml)  ([#b7ec0479c](https://github.com/MicrosoftDocs/architecture-center/commit/b7ec0479c))
 - [IaaS: Web app with relational database](./high-availability/ref-arch-iaas-web-and-db.yml)  ([#661983d44](https://github.com/MicrosoftDocs/architecture-center/commit/661983d44))
@@ -365,9 +397,6 @@ The following new and updated articles have recently been published in the Azure
 - [Troubleshoot virtual node problems in AKS clusters](./operator-guides/aks/troubleshoot-virtual-nodes-aks.md)
 - [Deploy Autodesk Civil 3D on an Azure virtual machine](./guide/hpc/civil-3d.yml)
 - [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml)
-- [Oracle on Azure architecture design](./solution-ideas/articles/oracle-on-azure-start-here.md)
-- [Media architecture design](./guide/media/start-here.md)
-- [Virtual desktop architecture design](./guide/virtual-desktop/start-here.md)
 
 ### Updated articles
 
@@ -476,7 +505,6 @@ The following new and updated articles have recently been published in the Azure
 - [Data analysis for regulated industries](./example-scenario/data/data-analysis-regulated-industries.yml)  ([#6118d6869](https://github.com/MicrosoftDocs/architecture-center/commit/6118d6869))
 - [IoT and data analytics](./example-scenario/data/big-data-with-iot.yml)  ([#bd56e78e8](https://github.com/MicrosoftDocs/architecture-center/commit/bd56e78e8))
 - [Quality assurance](./solution-ideas/articles/quality-assurance.yml)  ([#347e1edef](https://github.com/MicrosoftDocs/architecture-center/commit/347e1edef))
-- [Design a CI/CD pipeline using Azure DevOps](./example-scenario/apps/devops-dotnet-webapp.yml)  ([#70b2db642](https://github.com/MicrosoftDocs/architecture-center/commit/70b2db642))
 - [Magento e-commerce platform in Azure Kubernetes Service](./example-scenario/magento/magento-azure.yml)  ([#49c93d4b5](https://github.com/MicrosoftDocs/architecture-center/commit/49c93d4b5))
 - [Decentralized trust between banks](./example-scenario/apps/decentralized-trust.yml)  ([#43bc50b97](https://github.com/MicrosoftDocs/architecture-center/commit/43bc50b97))
 - [Modernize mainframe and midrange data](./reference-architectures/migration/modernize-mainframe-data-to-azure.yml)  ([#9a9825a48](https://github.com/MicrosoftDocs/architecture-center/commit/9a9825a48))
@@ -504,65 +532,4 @@ The following new and updated articles have recently been published in the Azure
 - [Build a real-time recommendation API on Azure](./reference-architectures/ai/real-time-recommendation.yml)  ([#1623f3178](https://github.com/MicrosoftDocs/architecture-center/commit/1623f3178))
 - [Run CFD simulations](./example-scenario/infrastructure/hpc-cfd.yml)  ([#635f32efd](https://github.com/MicrosoftDocs/architecture-center/commit/635f32efd))
 - [Azure landing zones - Bicep modules design considerations](./landing-zones/bicep/landing-zone-bicep.md)  ([#06b3c1255](https://github.com/MicrosoftDocs/architecture-center/commit/06b3c1255))
-- [Azure Cosmos DB considerations for multitenancy](./guide/multitenant/service/cosmos-db.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-- [Azure Key Vault considerations for multitenancy](./guide/multitenant/service/key-vault.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-- [Azure NAT Gateway considerations for multitenancy](./guide/multitenant/service/nat-gateway.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-- [Azure Database for PostgreSQL considerations for multitenancy](./guide/multitenant/service/postgresql.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-- [Azure Resource Manager considerations for multitenancy](./guide/multitenant/service/resource-manager.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-- [Azure SQL Database considerations for multitenancy](./guide/multitenant/service/sql-database.md)  ([#3be7c7ede](https://github.com/MicrosoftDocs/architecture-center/commit/3be7c7ede))
-
-## August 2022
-
-### New articles
-
-- [Run SAP NetWeaver in Windows on Azure](./guide/sap/sap-netweaver.yml)
-- [SAP S/4HANA in Linux on Azure](./guide/sap/sap-s4hana.yml)
-- [Build a content-based recommendation system](./solution-ideas/articles/build-content-based-recommendation-system-using-recommender.yml)
-- [Azure Virtual Machine Spot Eviction](./guide/spot/spot-eviction.yml)
-- [Industry solutions with Azure](./industries/overview.md)
-- [Inbound and outbound internet connections for SAP on Azure](./guide/sap/sap-internet-inbound-outbound.yml)
-- [Detect mobile bank fraud](./guide/ai/bank-fraud-solution.yml)
-- [Data analytics for automotive test fleets](./industries/automotive/automotive-telemetry-analytics.yml)
-- [Azure Private Link service considerations for multitenancy](./guide/multitenant/service/private-link.md)
-- [Azure Key Vault considerations for multitenancy](./guide/multitenant/service/key-vault.md)
-- [Data platform for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md)
-- [Architectural approaches for tenant integration and data access](./guide/multitenant/approaches/integration.md)
-- [Health modeling for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md)
-- [Microsoft mixed reality architecture overview](./guide/mixed-reality/mixed-reality-overview.md)
-- [Mobile architecture design](./guide/mobile/mobile-start-here.md)
-- [Apply the verify explicitly Zero Trust principle to your API implementation](./example-scenario/security/apps-zero-trust-identity.yml)
-- [Mission-critical baseline architecture with network controls](./reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml)
-- [Migration architecture design](./guide/migration/migration-start-here.md)
-- [Solutions for the aerospace industry](./industries/aerospace.md)
-- [Application design considerations for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md)
-- [Deploy Autodesk VRED for HPC on Azure](./guide/hpc/hpc-autodesk-vred.md)
-- [Deploy ADS CFD Code Leo for HPC on a virtual machine](./guide/hpc/hpc-ads-cfd.yml)
-- [Continuous validation with Azure Load Testing and Azure Chaos Studio](./guide/testing/mission-critical-deployment-testing.md)
-- [Rehost IMS DC and IMS DB on Azure by using Raincode IMSql](./example-scenario/mainframe/rehost-ims-raincode-imsql.yml)
-- [Rehost IMS workloads to virtual machines by using IMSql](./example-scenario/mainframe/imsql-rehost-ims.yml)
-- [Deployment and testing for mission-critical workloads on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md)
-
-### Updated articles
-
-- [Mission-critical baseline architecture on Azure](./reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml)  ([#a0357580f](https://github.com/MicrosoftDocs/architecture-center/commit/a0357580f))
-- [Web app private connectivity to Azure SQL Database](./example-scenario/private-web-app/private-web-app.yml)  ([#c14de7a08](https://github.com/MicrosoftDocs/architecture-center/commit/c14de7a08))
-- [SAS on Azure architecture](./guide/sas/sas-overview.yml)  ([#da0da6577](https://github.com/MicrosoftDocs/architecture-center/commit/da0da6577))
-- [Gateway Routing pattern](./patterns/gateway-routing.yml)  ([#0937e98c9](https://github.com/MicrosoftDocs/architecture-center/commit/0937e98c9))
-- [Firewall, App Gateway for virtual networks](./example-scenario/gateway/firewall-application-gateway.yml)  ([#9ec7eea85](https://github.com/MicrosoftDocs/architecture-center/commit/9ec7eea85))
-- [Security architecture design](./guide/security/security-start-here.yml)  ([#edbe3b3b4](https://github.com/MicrosoftDocs/architecture-center/commit/edbe3b3b4))
-- [Build a delta lake to support ad hoc queries in online leisure and travel booking](./solution-ideas/articles/build-data-lake-support-adhoc-queries-online.yml)  ([#b01a90953](https://github.com/MicrosoftDocs/architecture-center/commit/b01a90953))
-- [Patterns and implementations for a banking cloud transformation](./example-scenario/banking/patterns-and-implementations.yml)  ([#e9807b4eb](https://github.com/MicrosoftDocs/architecture-center/commit/e9807b4eb))
-- [Virtual network integrated serverless microservices](./example-scenario/integrated-multiservices/virtual-network-integration.yml)  ([#07f0cc72c](https://github.com/MicrosoftDocs/architecture-center/commit/07f0cc72c))
-- [Knowledge mining in business process management](./solution-ideas/articles/business-process-management.yml)  ([#21456e2b6](https://github.com/MicrosoftDocs/architecture-center/commit/21456e2b6))
-- [Loan credit risk with SQL Server](./solution-ideas/articles/loan-credit-risk-with-sql-server.yml)  ([#b85659c09](https://github.com/MicrosoftDocs/architecture-center/commit/b85659c09))
-- [Multiple forests with AD DS and Azure AD](./example-scenario/wvd/multi-forest.yml)  ([#52bf88024](https://github.com/MicrosoftDocs/architecture-center/commit/52bf88024))
-- [Azure Virtual Desktop for the enterprise](./example-scenario/wvd/windows-virtual-desktop.yml)  ([#52bf88024](https://github.com/MicrosoftDocs/architecture-center/commit/52bf88024))
-- [CI/CD for Azure VMs](./solution-ideas/articles/cicd-for-azure-vms.yml)  ([#39fa80883](https://github.com/MicrosoftDocs/architecture-center/commit/39fa80883))
-- [Integrate on-premises AD domains with Azure AD](./reference-architectures/identity/azure-ad.yml)  ([#bec86648c](https://github.com/MicrosoftDocs/architecture-center/commit/bec86648c))
-- [Large-scale custom natural language processing](./solution-ideas/articles/large-scale-custom-natural-language-processing.yml)  ([#3314a883d](https://github.com/MicrosoftDocs/architecture-center/commit/3314a883d))
-- [AI enrichment with image and text processing](./solution-ideas/articles/cognitive-search-with-skillsets.yml)  ([#d4bb74338](https://github.com/MicrosoftDocs/architecture-center/commit/d4bb74338))
-- [HPC cluster deployed in the cloud](./solution-ideas/articles/hpc-cluster.yml)  ([#714d98ef0](https://github.com/MicrosoftDocs/architecture-center/commit/714d98ef0))
-- [Machine learning operations (MLOps) v2](./data-guide/technology-choices/machine-learning-operations-v2.md)  ([#0a9f4cb28](https://github.com/MicrosoftDocs/architecture-center/commit/0a9f4cb28))
-- [Real-time location sharing](./example-scenario/signalr/index.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
-- [Secure your Microsoft Teams channel bot and web app behind a firewall](./example-scenario/teams/securing-bot-teams-channel.yml)  ([#c2f08c272](https://github.com/MicrosoftDocs/architecture-center/commit/c2f08c272))
 

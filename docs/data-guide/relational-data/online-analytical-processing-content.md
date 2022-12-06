@@ -144,16 +144,13 @@ Principal author:
 
 ## Next steps
 
-- [Azure Analytics Services](https://azure.microsoft.com/products/category/analytics)
-- [What is Azure Analysis Services?](/azure/analysis-services/analysis-services-overview)
-- [SQL Server Analysis Services overview](/sql/analysis-services/ssas-overview)
-- [Get started with Columnstore for real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
-- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
+- [Columnstore indexes: Overview](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Create an Analysis Services server](/azure/analysis-services/analysis-services-create-server)
+- [What is Azure Data Factory?](/azure/data-factory/introduction)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resources
 
-- [Choose an analytical data store](../technology-choices/analytical-data-stores.md)
-- [Databases architecture design](../databases-architecture-design.yml)
-- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml
-- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
-- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
+- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Data warehousing in Microsoft Azure](../../data-guide/relational-data/data-warehousing.yml)
+- [Online analytical processing (OLAP)](../../data-guide/relational-data/online-analytical-processing.yml)

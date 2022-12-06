@@ -117,12 +117,14 @@ Principal author:
 
 ## Next steps
 
-- [Power BI Desktop data sources](/power-bi/desktop-data-sources)
-- [Analysis and reporting with Microsoft business intelligence (BI) tools](/sql/reporting-services/choosing-microsoft-business-intelligence-bi-tools-for-analysis-and-reporting)
-- [Notebooks at Microsoft](https://visualstudio.microsoft.com/vs/features/notebooks-at-microsoft)
+- [Get started with Jupyter notebooks for Python](/training/modules/python-create-run-jupyter-notebook)
+- [Notebooks](/azure/databricks/notebooks)
+- [Run Azure Databricks Notebooks with Azure Data Factory](/training/modules/run-azure-databricks-notebooks-azure-data-factory)
+- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resources
 
-- [Choose a data analytics and reporting technology in Azure](analysis-visualizations-reporting.md)
-- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Data analysis and visualization in an Azure industrial IoT analytics solution](../../guide/iiot-guidance/iiot-data.yml)
+- [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)

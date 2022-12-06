@@ -281,3 +281,10 @@ The following sections present a breakdown of Contoso activity necessary across 
 
 ## Next steps
 Now that you've learned about the scenario details, you can learn about [recommendations related to this scenario](../disaster-recovery/dr-for-azure-data-platform-recommendations.yml)
+
+## Related resources
+
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Deploy this scenario](dr-for-azure-data-platform-deploy-this-scenario.yml)
+- [DR for Azure Data Platform - Summary](dr-for-azure-data-platform-summary.yml)

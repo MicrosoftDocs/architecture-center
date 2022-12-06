@@ -1,20 +1,7 @@
 > [!NOTE]
 > This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, see [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
-This article provides an overview of deploying Alliance Cloud connectivity stack in Azure. The solution requires two Azure subscriptions. One subscription contains the SWIFT Integration Layer (SIL) resources. The other subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
-
-This approach can be used for:
-
-* Migrating SWIFT connectivity from on-premises to Azure.
-
-* Establishing new SWIFT connectivity by using Azure.
-
-## Potential use cases
-
-This solution is targeted to:
-
-* Existing SWIFT customers who run SIL on premises and want to run Alliance Cloud in Azure.
-* New SWIFT customers who can benefit by deploying directly to Azure.
+This article provides an overview of deploying Alliance Cloud connectivity stack in Azure. 
 
 ## Architecture
 
@@ -71,7 +58,25 @@ The SWIFT customer uses one of the three methods of connectivity to connect to t
 
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 
+## Scenario details
+
+This article provides an overview of deploying Alliance Cloud connectivity stack in Azure. The solution requires two Azure subscriptions. One subscription contains the SWIFT Integration Layer (SIL) resources. The other subscription contains the resources to connect to SWIFT's network via Alliance Connect Virtual.
+
+This approach can be used for:
+
+* Migrating SWIFT connectivity from on-premises to Azure.
+* Establishing new SWIFT connectivity by using Azure.
+
+### Potential use cases
+
+This solution is targeted to:
+
+* Existing SWIFT customers who run SIL on premises and want to run Alliance Cloud in Azure.
+* New SWIFT customers who can benefit by deploying directly to Azure.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 You can engage your account team at Microsoft to help guide your Azure implementation for SWIFT.
 
@@ -97,6 +102,8 @@ Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 The traffic between the SIL and the Juniper vSRX is limited to specific and known traffic. You can use network security groups and the packet capture capabilities that are provided by Network Watcher, and combined with Azure Security Center and Azure Sentinel. Network security group flow logs in Azure Network Watcher can be used to send flow data to Azure Storage accounts. [Azure Sentinel](/azure/sentinel/overview) offers built-in orchestration and automation of common tasks. This functionality can collect the flow logs, detect and investigate threats, and respond to incidents.
 
 [Azure Bastion](/azure/bastion/bastion-overview) enables connectivity transparently from the Azure portal to a virtual machine via RDP or Secure Shell Protocol (SSH). Because Azure Bastion requires administrators to sign in to the Azure portal, you can use Conditional Access to enforce multi-factor authentication and other access restrictions. For example, you can specify the public IP address from which administrators can sign in.
@@ -114,6 +121,8 @@ We recommend deploying SWIFT components in a subscription that's separate from a
 Consider using the latest implementation of SWIFT CSP controls in Azure. But first consult with the Microsoft team that's working with you.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
 

@@ -85,9 +85,12 @@ Principal author:
 
 ## Next steps
 
-- [Real-time event processing with Azure Stream Analytics](/azure/stream-analytics/stream-analytics-real-time-event-processing-reference-architecture)
-- [Choose a real-time analytics and streaming processing technology on Azure](/azure/stream-analytics/streaming-technologies)
-- [Explore fundamentals of real-time analytics](/training/modules/explore-fundamentals-stream-processing)
+- [App Service overview](/azure/app-service/overview)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Get started with Azure Stream Analytics](/training/modules/introduction-to-data-streaming)
+- [Perform advanced streaming data transformations](/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka)
+- [Set up clusters in HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)
+- [Use Apache Spark in Azure Databricks](/training/modules/use-apache-spark-azure-databricks)
 
 ## Related resources
 

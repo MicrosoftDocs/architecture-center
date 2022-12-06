@@ -115,15 +115,18 @@ Principal author:
 
 ## Next steps
 
-- [Azure Analytics Services](https://azure.microsoft.com/products/category/analytics)
-- [Azure Synapse SQL architecture](/azure/synapse-analytics/sql/overview-architecture)
+- [Analyze data in a relational data warehouse](/training/modules/design-multidimensional-schema-to-optimize-analytical-workloads)
+- [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
+- [Create an Azure Databricks workspace](/azure/databricks/getting-started)
+- [Create Apache Spark cluster in Azure HDInsight using Azure portal](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
+- [Creating a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace)
+- [Explore Azure data services for modern analytics](/training/modules/explore-azure-data-services-for-modern-analytics)
 - [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
-- [Microsoft Azure Data Fundamentals: Explore data analytics in Azure](/training/paths/azure-data-fundamentals-explore-data-warehouse-analytics)
+- [Query Azure Cosmos DB by using the API for NoSQL](/azure/cosmos-db/nosql/tutorial-query)
 
 ## Related resources
 
-- [Choose an analytical data store](../technology-choices/analytical-data-stores.md)
-- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml
+- [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)
 - [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
-- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
-
+- [Analyze operational data on MongoDB Atlas using Azure Synapse Analytics](../../example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml)
+- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)

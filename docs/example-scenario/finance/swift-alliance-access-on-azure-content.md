@@ -1,13 +1,4 @@
-This article provides an overview of deploying SWIFT's Alliance Access on Azure. Alliance Access is one of the messaging interfaces that SWIFT offers for secure financial messaging.
-
-## Potential use cases
-
-These architectures are optimal for the finance industry.
-
-The following examples are intended for both existing and new SWIFT customers, and can be used for the following scenarios:
-
-* Migrating Alliance Access from on-premises to Azure
-* Creating a new Alliance Access environment in Azure
+This article provides a reference architecture for deploying and running SWIFT Alliance Access on Azure.
 
 ## Architecture
 
@@ -59,12 +50,29 @@ The SWIFT customer's business and application systems can connect with Alliance 
 
 This Azure architecture shows all SWIFT components running in Azure, except the HSM and Alliance Connect networking solution appliances. It's possible to run SWIFT's [Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml) networking solution in Azure.
 
+## Scenario details
+
+This architecture provides an overview of deploying SWIFT's Alliance Access on Azure. Alliance Access is one of the messaging interfaces that SWIFT offers for secure financial messaging.
+
+### Potential use cases
+
+These architectures are optimal for the finance industry.
+
+The following examples are intended for both existing and new SWIFT customers, and can be used for the following scenarios:
+
+* Migrating Alliance Access from on-premises to Azure
+* Creating a new Alliance Access environment in Azure
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 * Customers interested in deploying Alliance Access in Azure can contact SWIFT and Microsoft to get further assistance. A customer's Microsoft account team can be engaged to help guide the Azure implementation.
 * SWIFT customer resources on Azure should comply with the SWIFT Customer Security Programme-Customer Security Controls Framework. CSP-CSCF control 1.1 mandates separation between production, test, and development environments. The recommended approach is to deploy each environment in a separate subscription. This approach makes it easier to separate the environments.
 
 ### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 * Customers have the responsibility for operating both the Alliance Access software and the underlying Azure resources in the Alliance Access subscription.
 * Azure Monitor provides a comprehensive set of monitoring capabilities. These tools can monitor the Azure infrastructure, but not the SWIFT software. You can use a monitoring agent to collect event logs, performance counters, and other logs, and have these logs and metrics sent to Azure Monitor. For more information, see [Overview of the Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
@@ -76,12 +84,16 @@ This Azure architecture shows all SWIFT components running in Azure, except the 
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
 * Consider deploying an Azure virtual machine scale set to run web server VM instances in a [proximity placement group](/azure/virtual-machines/co-location). This approach colocates VM instances and reduces latency between VMs.
 * Consider using Azure VMs with accelerated networking for up to 30 Gbps of network throughput.
 * [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) with premium SSD allows for up to 20,000 IOPS and 900 Mbps of throughput.
 * Consider configuring Azure Disk host caching as **ReadOnly** for higher disk throughput.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 * [Azure network security groups](/azure/virtual-network/network-security-groups-overview) can be configured to collect flow logs and packet captures in [Azure Network Watcher](https://azure.microsoft.com/services/network-watcher). Security group flow logs in Network Watcher can be sent to Azure Storage accounts. [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) offers built-in orchestration and automation of common tasks. This functionality can collect the flow logs, detect and investigate threats, and respond to incidents.
 * [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud) protects your hybrid data, cloud-native services, and servers. It integrates with your existing security workflows, such as SIEM solutions and Microsoft threat intelligence, to streamline threat mitigation.
