@@ -8,6 +8,14 @@ This architecture uses a virtual machine (VM) running on Azure Stack Hub. The VM
 
 After the model is trained, it's registered with Azure Machine Learning, containerized, and added to an Azure Container Registry for deployment. For this iteration of the solution, the Azure Stack Hub training VM must be reachable over the public internet.
 
+### Workflow
+
+1. Deploy the Azure Stack Hub VM and register it with Azure Machine Learning as a compute target.
+2. Create an experiment in Machine Learning that uses the VM in Azure Stack Hub as a compute target.
+3. After the model is trained, it's registered and containerized.
+4. The model is ready for deployment to locations that are either on-premises or in the cloud.
+
+
 ### Components
 
 This solution uses the following components:
@@ -18,14 +26,6 @@ This solution uses the following components:
   - [App Service](/azure-stack/operator/azure-stack-app-service-overview) provides the base for the components at the edge.
   - [Ubuntu](https://azure.microsoft.com//ubuntu/) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker/) runs in a VM to train the machine learning model.
   - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) can store private data.
-
-
-### Workflow
-
-1. Deploy the Azure Stack Hub VM and register it with Azure Machine Learning as a compute target.
-2. Create an experiment in Machine Learning that uses the VM in Azure Stack Hub as a compute target.
-3. After the model is trained, it's registered and containerized.
-4. The model is ready for deployment to locations that are either on-premises or in the cloud.
 
 
 ## Scenario details
