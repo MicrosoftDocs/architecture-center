@@ -64,18 +64,18 @@ As a general rule of thumb, a recommendation is to have at least one hub per reg
 
 The following recommendations outline how the subnets on the virtual network should be configured.
 
+A hub-spoke topology can also be used without a gateway if you don't need cross-premises network connectivity.
+
+#### GatewaySubnet
+
+Create a subnet named *GatewaySubnet*, with an address range of at least **/27**. The /27 address range gives it enough scalability configuration options to prevent reaching the gateway size limitations in the future. The virtual network gateway requires this subnet.
+
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
 - [Hybrid network using ExpressRoute](./expressroute.yml)
 - [Hybrid network using a VPN gateway](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](./expressroute-vpn-failover.yml).
-
-A hub-spoke topology can also be used without a gateway if you don't need cross-premises network connectivity.
-
-#### GatewaySubnet
-
-Create a subnet named *GatewaySubnet*, with an address range of at least **/27**. The /27 address range gives it enough scalability configuration options to prevent reaching the gateway size limitations in the future. The virtual network gateway requires this subnet.
 
 #### AzureFirewallSubnet
 
