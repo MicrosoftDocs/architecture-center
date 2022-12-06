@@ -49,7 +49,9 @@ Consider the following points when deciding how to implement this solution.
 
 To enable this solution to scale, you'll need to create an appropriately sized VM on Azure Stack Hub for training.
 
-### Availability
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 Ensure that the training scripts and Azure Stack Hub VM have access to the on-premises data that's used for training.
 
