@@ -111,13 +111,7 @@ Consider what services are shared in the hub to ensure the hub scales for a larg
 
 For more in-depth information, see [spoke-to-spoke networking](/azure/architecture/networking/spoke-to-spoke-networking).
 
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-### Reliability
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+## Management
 
 Use [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) (AVNM) to create new (and onboard existing) hub and spoke virtual network topologies for the central management of connectivity and security controls.
 
@@ -134,11 +128,19 @@ Spoke VNets in the same network group can be connected with one another by enabl
 
 ![Diagram showing spoke direct connectivity.](/azure/virtual-network-manager/media/concept-configuration-types/hub-and-spoke.png)
 
-Further, to ensure a baseline set of security rules, VNets within the same network group can be associated with [security admin rules](/azure/virtual-network-manager/concept-security-admins). Security admin rules are evaluated before NSG rules and have the same nature as NSGs, with support for prioritization, service tags, and L3-L4 protocols.
+For more information on how to get started, see [Create a hub and spoke topology with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+To ensure a baseline set of security rules, VNets within the same network group can be associated with [security admin rules](/azure/virtual-network-manager/concept-security-admins). Security admin rules are evaluated before NSG rules and have the same nature as NSGs, with support for prioritization, service tags, and L3-L4 protocols.
 
 Finally, to facilitate a controlled rollout of network groups, connectivity, and security rules changes, AVNM's [deployments](/azure/virtual-network-manager/concept-deployments) feature allows you to safely release these configurations' breaking changes to the hub-and-spoke environments.
-
-For more information on how to get started, see [Create a hub and spoke topology with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
 
 ### Cost optimization
 
