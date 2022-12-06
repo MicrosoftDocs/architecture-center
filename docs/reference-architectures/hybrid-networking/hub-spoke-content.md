@@ -79,7 +79,7 @@ Create a subnet named *GatewaySubnet*, with an address range of at least **/27**
 
 #### AzureFirewallSubnet
 
-Create a subnet named *AzureFirewallSubnet*, with an address range of at least **/26**. Regardless of scale, the /26 address range is the recommended size and covers any size limitations in the future. This subnet doesn't support Network Security Groups (NSGs). The virtual network gateway requires this subnet.
+Create a subnet named *AzureFirewallSubnet*, with an address range of at least **/26**. Regardless of scale, the /26 address range is the recommended size and covers any size limitations in the future. This subnet doesn't support Network Security Groups (NSGs). Azure Firewall requires this subnet. If you use a partner NVA, follow its network requirements.
 
 ### Virtual network peering
 
