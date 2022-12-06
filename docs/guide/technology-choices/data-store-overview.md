@@ -358,15 +358,15 @@ Aided with this understanding of different data storage models, the next step is
 
 ## Next steps
 
-- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/en-us/products/category/storage)
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
 - [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
 
 ## Related resources
 
-- [Databases architecture design](../databases-architecture-design.yml)
-- [Big data architectures](../big-data/index.yml)
+- [Databases architecture design](../../data-guide/databases-architecture-design.yml)
+- [Big data architectures](../../data-guide/big-data/index.yml)
 - [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
 - [Data store decision tree](data-store-decision-tree.md)
 

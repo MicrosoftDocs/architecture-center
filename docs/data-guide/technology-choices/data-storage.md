@@ -165,7 +165,7 @@ Principal author:
 
 ## Next steps
 
-- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/en-us/products/category/storage)
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
 - [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)

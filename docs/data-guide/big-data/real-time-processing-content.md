@@ -80,6 +80,6 @@ Principal author:
 ## Related resources
 
 - [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
-- [Choose a real-time message ingestion technology in Azure](../data-guide/technology-choices/real-time-ingestion.md)
+- [Choose a real-time message ingestion technology in Azure](../technology-choices/real-time-ingestion.md)
 - [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
 - [Real-time asset tracking and management](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)

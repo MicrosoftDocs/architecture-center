@@ -35,7 +35,7 @@ Alternative database solutions often require specific storage solutions. For exa
 
 ## Next steps
 
-- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/en-us/products/category/storage)
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
 - [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 

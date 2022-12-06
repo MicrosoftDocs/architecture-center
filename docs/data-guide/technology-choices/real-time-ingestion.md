@@ -94,5 +94,4 @@ Principal author:
 
 - [Choose a stream processing technology](stream-processing.md)
 - [Real time processing](../big-data/real-time-processing.yml)
-- [Choose a real-time message ingestion technology in Azure](../data-guide/technology-choices/real-time-ingestion.md)
-
+- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
