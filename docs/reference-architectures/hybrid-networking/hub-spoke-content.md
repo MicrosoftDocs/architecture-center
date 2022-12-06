@@ -12,7 +12,7 @@ For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topo
 
 The architecture consists of the following aspects:
 
-- **Hub virtual network:** The hub virtual network is the central point of connectivity to your on-premises network. It's a place to host services that can be consumed by the different workloads hosted in the spoke virtual networks.
+- **Hub virtual network:** The hub virtual network is the central point of connectivity for your cross-premises networks. It's a place to host services in Azure that can be consumed by the different workloads hosted in the spoke virtual networks.
 
 - **Spoke virtual networks:** Spoke virtual networks are used to isolate workloads in their own virtual networks, managed separately from other spokes. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers.
 
@@ -22,13 +22,13 @@ The architecture consists of the following aspects:
 
 - **Azure Firewall:** Azure Firewall is a managed firewall service. The Firewall instance is placed in its own subnet.
 
-- **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide).
+- **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the virtual network to connect to the VPN device, or ExpressRoute circuit, for cross-premises network connectivity. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide).
 
-- **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device can be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server. For more information, see [Validated VPN devices and device configuration guides](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable).
+- **VPN device**. A device or service that provides external connectivity to the cross-premises network. The VPN device can be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server. For more information, see [Validated VPN devices and device configuration guides](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable).
 
 ### Components
 
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, your cross-premises network, and the internet.
 
 - [Azure Bastion](https://azure.microsoft.com/products/azure-bastion). Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs), without any exposure through public IP addresses.
 
@@ -36,7 +36,7 @@ The architecture consists of the following aspects:
 
 - [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway). VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway.
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor). Collect, analyze, and act on telemetry data from your Azure and on-premises environments. Azure Monitor helps you maximize the performance and availability of your applications and helps you proactively identify problems in seconds.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor). Collect, analyze, and act on telemetry data from your cross-premises environments, including Azure and on-premises. Azure Monitor helps you maximize the performance and availability of your applications and helps you proactively identify problems in seconds.
 
 ## Scenario details
 
@@ -71,7 +71,7 @@ For more information about setting up the gateway, see the following reference a
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](./expressroute-vpn-failover.yml).
 
-A hub-spoke topology can also be used without a gateway if you don't need connectivity with your on-premises network.
+A hub-spoke topology can also be used without a gateway if you don't need cross-premises network connectivity.
 
 ### Virtual network peering
 
