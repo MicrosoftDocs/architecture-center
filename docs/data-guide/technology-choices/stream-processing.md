@@ -83,11 +83,16 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [Real-time event processing with Azure Stream Analytics](/azure/stream-analytics/stream-analytics-real-time-event-processing-reference-architecture)
+- [Choose a real-time analytics and streaming processing technology on Azure](/azure/stream-analytics/streaming-technologies)
+- [Explore fundamentals of real-time analytics](/training/modules/explore-fundamentals-stream-processing)
+
 ## Related resources
 
-- [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
+- [Choose a real-time message ingestion technology](real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.yml)
-
-<!-- links -->
+- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
 [dotnet-spark]: https://github.com/dotnet/spark

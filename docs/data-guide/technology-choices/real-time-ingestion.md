@@ -86,4 +86,13 @@ Principal author:
 
 ## Next steps
 
-For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs).
+- [Comparison of Azure IoT Hub and Azure Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs)
+- [Choose a real-time analytics and streaming processing technology on Azure](/azure/stream-analytics/streaming-technologies)
+- [Explore fundamentals of real-time analytics](/training/modules/explore-fundamentals-stream-processing)
+
+## Related resources
+
+- [Choose a stream processing technology](stream-processing.md)
+- [Real time processing](../big-data/real-time-processing.yml)
+- [Choose a real-time message ingestion technology in Azure](../data-guide/technology-choices/real-time-ingestion.md)
+
