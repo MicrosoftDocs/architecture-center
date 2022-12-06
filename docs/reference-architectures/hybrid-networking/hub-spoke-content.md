@@ -60,9 +60,9 @@ The sample solution included in this document uses a single Azure resource group
 
 As a general rule of thumb, a recommendation is to have at least one hub per region. This configuration helps avoid a single point of failure. For example, to avoid Region A resources being affected at the network level because of an outage in Region B.
 
-### Virtual network and GatewaySubnet
+### Virtual network and subnets
 
-Create a subnet named *GatewaySubnet*, with an address range of at least **/27**. The /27 address range gives it enough scalability configuration options to prevent reaching the gateway size limitations in the future. The virtual network gateway requires this subnet.
+The following recommendations outline how the subnets on the virtual network should be configured.
 
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
@@ -72,6 +72,14 @@ For more information about setting up the gateway, see the following reference a
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover](./expressroute-vpn-failover.yml).
 
 A hub-spoke topology can also be used without a gateway if you don't need cross-premises network connectivity.
+
+#### GatewaySubnet
+
+Create a subnet named *GatewaySubnet*, with an address range of at least **/27**. The /27 address range gives it enough scalability configuration options to prevent reaching the gateway size limitations in the future. The virtual network gateway requires this subnet.
+
+#### AzureFirewallSubnet
+
+Create a subnet named *AzureFirewallSubnet*, with an address range of at least **/26**. Regardless of scale, the /26 address range is the recommended size and covers any size limitations in the future. This subnet doesn't support Network Security Groups (NSGs). The virtual network gateway requires this subnet.
 
 ### Virtual network peering
 
@@ -110,8 +118,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-#### Management
 
 Use [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) (AVNM) to create new (and onboard existing) hub and spoke virtual network topologies for the central management of connectivity and security controls.
 
