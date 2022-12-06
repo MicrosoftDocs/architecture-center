@@ -45,7 +45,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 - Instead of Key Vault, you can use a comparable service to store system secrets.
 - [Apache Airflow](https://airflow.apache.org). See [how Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
 
-## Scenario details
+## Scenario details 
 
 In this scenario, NiFi runs in a clustered configuration across Azure Virtual Machines in a scale set. But most of this article's recommendations also apply to scenarios that run NiFi in single-instance mode on a single virtual machine (VM). The best practices in this article demonstrate a scalable, high-availability, and secure deployment.
 
@@ -247,7 +247,7 @@ You can find these values in the Azure portal by navigating to your Log Analytic
 
 Other options are also available for customizing and filtering the provenance events that the system sends.
 
-### Security
+### Security 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 

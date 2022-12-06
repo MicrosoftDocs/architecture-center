@@ -80,6 +80,14 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [Training: Introduction to machine learning](/training/modules/introduction-to-machine-learning)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Azure Cognitive Services documentation](/azure/cognitive-services)
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+
 ## Related resources
 
 The following reference architectures show machine learning scenarios in Azure:

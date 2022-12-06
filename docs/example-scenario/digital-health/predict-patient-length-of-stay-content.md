@@ -4,7 +4,7 @@ This Azure solution helps hospital administrators use the power of machine learn
 
 :::image type="content" source="./images/predict-length-of-stay.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/predict-length-of-stay.png" border="false" :::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/predict-length-of-stay.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/predict-length-of-stay.vsdx) of this architecture.*
 
 ### Dataflow
 

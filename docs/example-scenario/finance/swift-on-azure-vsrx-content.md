@@ -87,6 +87,13 @@ Logic Apps is Microsoft Azure's [integration platform as a service](https://azur
 
 Customers can use a Logic Apps service to process payment transactions quickly, which can reduce the implementation time. For example, customers can integrate their backend SAP systems via Logic Apps to SWIFT, to process payment transactions and business acknowledgments. As part of this processing, Logic Apps validates the transactions and checks for duplicates and anomalies.
 
+## Scenario details
+
+The intended audiences for this article are program managers, architects, and engineers who are implementing SWIFT's components in Azure. The article is organized into the following structure:
+
+* A high-level overview of the Azure architecture to deploy SWIFT's components (this article).
+* A detailed reference architecture for each of the components (links below).
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*

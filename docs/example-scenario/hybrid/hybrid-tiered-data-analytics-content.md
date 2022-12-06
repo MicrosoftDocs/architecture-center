@@ -26,6 +26,11 @@ _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-an
   - [Azure Stack Hub storage](/azure-stack/user/azure-stack-storage-overview) is a set of cloud storage services that's consistent with the services provided by Azure Storage. Storage types include blob, table, and queue.
   - [Azure Functions](https://azure.microsoft.com/services/functions) is provided by the [Azure App Service on Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview). You can use Azure Functions to run your code in a simple serverless environment in response to a variety of events. Azure functions scale to meet demand, and you don't need to create a virtual machine (VM) or publish a web app.
 
+### Alternatives
+
+- You can use other storage solutions. For example, [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an intelligent, scalable relational database service that's built for the cloud. You can [use SQL databases on Azure Stack Hub](/azure-stack/operator/azure-stack-sql-resource-provider).
+- [Event Hubs on Azure Stack Hub](/azure-stack/operator/event-hubs-rp-overview) can be used instead of Queue Storage for cloud messaging. Streaming and event-based solutions are supported for both on-premises and Azure cloud processing.
+
 ## Scenario details
 
 When you design a solution for secure data storage, processing, and analysis, you need to take these considerations into account:
@@ -39,7 +44,7 @@ When you design a solution for secure data storage, processing, and analysis, yo
 
 Azure, together with Azure Stack Hub, addresses data concerns and provides low-cost solutions.
 
-The architecture described here is best exemplified by a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, secure, and flexible solution for collecting, processing, storing, and distributing local and remote data.
+The architecture described here is best exemplified by a distributed manufacturing or logistics company. Using both on-premises and public cloud environments meets the demands of multi-facility enterprises. Azure Stack Hub offers a rapid, highly secure, and flexible solution for collecting, processing, storing, and distributing local and remote data.
 
 This solution is especially useful when security, confidentiality, corporate policy, and regulatory requirements differ among locations and users.
 
@@ -49,11 +54,6 @@ This solution applies to large multi-branch manufacturing and logistics organiza
 
 - Rapid and secure data storage, processing, and distribution between global remote locations and central headquarters.
 - Security of employee and machinery activity, facility information, and business reporting data. The data must be distributed appropriately and meet regional compliance policies and industry regulations.
-
-### Alternatives
-
-- You can use other storage solutions. For example, [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an intelligent, scalable relational database service that's built for the cloud. You can [use SQL databases on Azure Stack Hub](/azure-stack/operator/azure-stack-sql-resource-provider).
-- [Event Hubs on Azure Stack Hub](/azure-stack/operator/event-hubs-rp-overview) can be used instead of Queue Storage for cloud messaging. Streaming and event-based solutions are supported for both on-premises and Azure cloud processing.
 
 ## Considerations
 
@@ -86,7 +86,8 @@ For guidance about security for serverless applications with functions, see [Ser
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 The manageability of this solution depends on the authoring tools that you're using and the use of source control.
-[Azure Arc](/azure/azure-arc/overview) simplifies governance and management by providing a consistent multi-cloud and on-premises management platform. Manage your entire environment, with a single pane of glass, by projecting your non-Azure and on-premises resources into Azure Resource Manager.
+
+[Azure Arc](/azure/azure-arc/overview) simplifies governance and management by providing a consistent multicloud and on-premises management platform. Manage your entire environment, with a single pane of glass, by projecting your non-Azure and on-premises resources into Azure Resource Manager.
 
 ### Performance efficiency
 

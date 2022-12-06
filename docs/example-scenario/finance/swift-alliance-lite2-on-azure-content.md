@@ -1,14 +1,7 @@
 > [!NOTE]
 > This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
-This article provides an overview of deploying SWIFT's Alliance Lite2 connectivity stack in Azure. The solution requires two Azure subscriptions. One subscription contains the Alliance Lite2 AutoClient resources. The other subscription contains the resources to connect to SWIFT's network.
-
-## Potential use cases
-
-This solution applies to:
-
-* Organizations that plan to migrate Alliance Lite2 (SIL, Direct Link, AutoClient) from on-premises to Azure, including connectivity to SWIFT's network.
-* New SWIFT customers that want to deploy directly to Azure.
+This article provides an overview of deploying SWIFT's Alliance Lite2 connectivity stack in Azure.
 
 ## Architecture
 
@@ -44,7 +37,20 @@ You use RDP, with one of the preceding three connectivity approaches, to connect
 * [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) provides cloud-native, intelligent network firewall security.
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) provides fast, reliable, and private connections to Azure.
 
+## Scenario details
+
+This solution requires two Azure subscriptions. One subscription contains the Alliance Lite2 AutoClient resources. The other subscription contains the resources to connect to SWIFT's network.
+
+### Potential use cases
+
+This solution applies to:
+
+* Organizations that plan to migrate Alliance Lite2 (SIL, Direct Link, AutoClient) from on-premises to Azure, including connectivity to SWIFT's network.
+* New SWIFT customers that want to deploy directly to Azure.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Your account team at Microsoft can help you with the Azure implementation.
 
@@ -73,6 +79,8 @@ Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. 
 You can use [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) to edit and run log queries with data in Azure Monitor Logs.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The traffic between Alliance Lite2 AutoClient and Alliance Connect Virtual is limited to specific and known traffic. To monitor the traffic, you can use network security groups with the packet capture capabilities that are available in Azure Network Watcher, combined with Microsoft Defender for Cloud and Microsoft Sentinel. By using Network Watcher, you can send the flow logs from the network security group to Azure Storage accounts. Doing so allows [Microsoft Sentinel](https://azure.microsoft.com/services/microsoft-sentinel) to collect the logs, detect and investigate threats, and respond to incidents with built-in orchestration and automation of common tasks.
 

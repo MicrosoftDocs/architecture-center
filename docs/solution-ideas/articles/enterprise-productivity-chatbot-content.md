@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) to build powerful enterprise bots for internal productivity. Enterprise bots streamline common employee tasks by bringing together data from external systems. Examples include data from Microsoft 365 calendar, customer cases stored in Dynamics CRM, and much more. This solution idea shows how you can architect an enterprise bot for employees tasks.
-
-## Potential use cases
-
-This solution is ideal for the HR, sales, and manufacturing industries. Some organizations utilize chatbots in these areas:
-
-- Human Resources (recruitment, on-boarding, and training)
-- Sales and Marketing (schedule meetings and provide contextual responses)
-- Supply Chain (real-time shipping updates and simplify logging claims)
+Use Azure Bot and Cognitive Services to build enterprise bots for internal productivity. Process natural language requests to streamline common employee tasks.
 
 ## Architecture
 
@@ -38,6 +30,18 @@ Key technologies used to implement this architecture:
 * [Azure Cognitive Services Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service)
 * [Microsoft Graph](https://developer.microsoft.com/graph)
 * [Microsoft Dynamics 365](https://dynamics.microsoft.com)
+
+## Scenario details
+
+Use [Azure Bot Service](/azure/bot-service/) with [Language Understanding](/azure/cognitive-services/luis/) to build powerful enterprise bots for internal productivity. Enterprise bots streamline common employee tasks by bringing together data from external systems. Examples include data from Microsoft 365 calendar, customer cases stored in Dynamics CRM, and much more. This solution idea shows how you can architect an enterprise bot for employees tasks.
+
+### Potential use cases
+
+This solution is ideal for the HR, sales, and manufacturing industries. Some organizations utilize chatbots in these areas:
+
+- Human Resources (recruitment, on-boarding, and training)
+- Sales and Marketing (schedule meetings and provide contextual responses)
+- Supply Chain (real-time shipping updates and simplify logging claims)
 
 ## Next steps
 
