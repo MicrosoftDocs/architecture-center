@@ -60,17 +60,17 @@ This architecture lets Azure Machine Learning access possibly sensitive on-premi
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-To enable this solution to scale, you'll need to create an appropriately sized VM on Azure Stack Hub for training.
-
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 Ensure that models and experiments are appropriately registered, versioned, and tagged to avoid confusion during deployment of the model.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+To enable this solution to scale, you'll need to create an appropriately sized VM on Azure Stack Hub for training.
 
 ## Contributors
 
