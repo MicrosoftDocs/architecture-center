@@ -4,6 +4,8 @@ Many organizations want to unlock insights from their on-premises or legacy data
 
 :::image type="content" alt-text="Diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-architecture.png":::
 
+<!-- *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.* -->
+
 This architecture uses a virtual machine (VM) running on Azure Stack Hub. The VM is registered as a compute target in Azure Machine Learning, which allows it to access data that is only available on premises. In this case, Azure Stack Hub's blob storage contains the data.
 
 After the model is trained, it's registered with Azure Machine Learning, containerized, and added to an Azure Container Registry for deployment. For this iteration of the solution, the Azure Stack Hub training VM must be reachable over the public internet.
