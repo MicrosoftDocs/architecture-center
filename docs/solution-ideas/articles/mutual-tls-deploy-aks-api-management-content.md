@@ -1,39 +1,25 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to integrate Azure Kubernetes Service,API Management with mTLS with end to end encryption.
-
-## Potential use cases
-
-*Azure Kubernetes Service (AKS) integration with API Management and Application Gateway with mTLS. 
-*End to end mutual TLS between Azure API management and Azure Kubernetes Service
-*Highly secure deployment for customers (ex: financial sector) demanding end to end TLS
-
-This approach can be used to manage the following scenarios:
-
-* Integrate API Management with Azure Kubernetes Service
-* Deploy API Management in internal mode and expose APIs using Application Gateway
-* Configure mTLS and end to end encryption for maximum security and traffic over Https  
-* Securely connect to Azure PaaS services over Private Endpoint
-* Microsoft Defender for Cloud for Container security
+This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS (mTLS), with end-to-end encryption.
 
 ## Architecture
 
-![Diagram of the .](../media/mutual-tls-deploy-aks-api-management.png)
+:::image type="content" source="../media/mutual-tls-deploy-aks-api-management.png" alt-text="[Diagram that shows an architecture for integrating AKS and API Management with mTLS." lightbox="../media/mutual-tls-deploy-aks-api-management.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/mutual-tls-for-deploying-aks-and-apim.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. User request to application endpoint from internet
-2. Application Gateway receive traffic as Https and presents PFX certificate from Azure Key Vault
-3. Decrypt traffic using private Keys ( SSL Offloaded),performs web application firewall inspections, and reEncrypt traffic using Public Key ( end-to-end encryption )
-4. Apply Application Gateway rules, backend Settings base on backend pool and send traffic to API management backend pool over Https
-5. API Management deployed as internal vNet mode (developer or premium tier only) with private IP address and receive traffic as Https with custom domain PFX certificates. 
-6. API Management policies and authentication using OAuth with Azure Active directory and client certificate validation. To receive and verify client certificates over HTTP/2 in Azure API management,  you must turn on the "Negotiate client certificate" setting on the "Custom domains" blade in API management
-7. Traffic send to AKS private cluster ( Azure Kubernetes Service) ingress controller over Https
-8. AKS ingress controller receive traffic as Https and verify PEM server certificate and private key. Most of the enterprise level ingress controller supports mTLS. Example : Nginx, AGIC
-9. Ingress controller TLS secret ( Kubernetes Secret) process with pem.cert and pem.key. Ingress controller decrypts traffic using private key (  Offloaded). CSI driver integration with AKS is available for secure secret management based on requirement.
-10. Ingress controller re-encrypt traffic using Private Key and send traffic to AKS service to Pods over Https. AKS Ingress can be configured as Https backend or Passthrough based on requirement
+1. A user requests the application endpoint from the internet.
+2. Azure Application Gateway receives traffic as HTTPS and presents a PFX certificate from Azure Key Vault.
+3. Application Gateway uses private keys to decrypt traffic (SSL offload), performs web application firewall inspections, and re-encrypts traffic by using public keys (end-to-end encryption).
+4. Application Gateway applies rules and backend settings based on the backend pool and sends traffic to the API Management backend pool over HTTPS.
+5. API Management is deployed in internal virtual network mode (developer or premium tier only) with a private IP address. It receives traffic as HTTPS with custom domain PFX certificates. 
+6. Azure Active Directory (Azure AD) provides authentication and applies API Management policies via OAuth and client certificate validation. To receive and verify client certificates over HTTP/2 in API Management, you need to enable **Negotiate client certificate** on the **Custom domains** blade in API Management.
+7. API Management sends traffic via HTTPS to an ingress controller for an AKS private cluster.
+8. The AKS ingress controller receives the HTTPS traffic and verifies the PEM server certificate and private key. Most enterprise-level ingress controllers support mTLS. Examples include NGINX and AGIC.
+9. The ingress controller processes TLS secrets (Kubernetes Secrets) by using cert.pem and key.pem. The ingress controller decrypts traffic by using a private key (offloaded). For enhanced-security secret management that's based on requirements, CSI driver integration with AKS is available.
+10. The ingress controller re-encrypts traffic by using private keys and sends traffic over HTTPS to AKS pods. Depending on your requirements, you can configure AKS ingress as HTTPS backend or passthrough.
 
 ### Components
 
@@ -54,6 +40,22 @@ This approach can be used to manage the following scenarios:
 * [Azure Bastion](https://azure.microsoft.com/en-us/products/azure-bastion) Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses. Provision the service directly in your local or peered virtual network to get support for all the VMs within it.
 * [Azure Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources) Managed identities eliminate the need to manage credentials, such as certificates,secrets and keys
 * [Azure Private DNS](https://learn.microsoft.com/en-us/azure/dns/private-dns-privatednszone) Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution
+
+## Scenario details
+
+## Potential use cases
+
+*Azure Kubernetes Service (AKS) integration with API Management and Application Gateway with mTLS. 
+*End to end mutual TLS between Azure API management and Azure Kubernetes Service
+*Highly secure deployment for customers (ex: financial sector) demanding end to end TLS
+
+This approach can be used to manage the following scenarios:
+
+* Integrate API Management with Azure Kubernetes Service
+* Deploy API Management in internal mode and expose APIs using Application Gateway
+* Configure mTLS and end to end encryption for maximum security and traffic over Https  
+* Securely connect to Azure PaaS services over Private Endpoint
+* Microsoft Defender for Cloud for Container security
 
 ## Next steps
 
