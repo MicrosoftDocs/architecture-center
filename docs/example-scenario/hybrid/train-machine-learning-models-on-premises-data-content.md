@@ -66,7 +66,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 To enable this solution to scale, you'll need to create an appropriately sized VM on Azure Stack Hub for training.
 
-### Manageability
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 Ensure that models and experiments are appropriately registered, versioned, and tagged to avoid confusion during deployment of the model.
 
