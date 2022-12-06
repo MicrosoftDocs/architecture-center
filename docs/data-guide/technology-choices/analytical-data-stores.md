@@ -122,6 +122,8 @@ Principal author:
 
 ## Related resources
 
-- [Big data architectures](../big-data/index.yml)
-- [Non-relational data and NoSQL](../big-data/non-relational-data.yml)
-- [Online analytical processing (OLAP)](../relational-data/online-analytical-processing.yml)
+- [Choose an analytical data store](../technology-choices/analytical-data-stores.md)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)
+
