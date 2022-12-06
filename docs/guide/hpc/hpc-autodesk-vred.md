@@ -21,7 +21,7 @@ By using VRED, users can create digital prototypes to gain insight into how vehi
 
 This article briefly describes the steps for running VRED on a virtual machine (VM) that's deployed on Azure. It also provides performance results. For more information about VRED, see the [Autodesk website](https://www.autodesk.com/products/vred/features/vred).
 
-VRED was successfully deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) Azure VMs.  
+VRED 2022.1 was successfully deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) Azure VMs. Similarly VRED 2023.1 was deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NVv5-series](/azure/virtual-machines/nva10v5-series) Azure VMs.
 
 ## Install VRED on a VM
 
@@ -117,9 +117,9 @@ In the **Raytracing Quality** settings, for the **Illumination Mode** for both i
 
 ## Benchmarking methodology for VRED performance analysis on VMs
 
-To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) VMs, we tested offline image rendering and calculated the rendering times for both CPU ray tracing and GPU ray tracing. For this analysis, we rendered 4k and HD images. We tested GPU ray tracing on both VMs by using 1, 2, 3, and 4 GPUs. For CPU ray rendering, the application uses all CPU cores on the VM. We then calculated the relative speed increase of GPU rendering as compared to CPU rendering. The results are presented in the following sections.
+To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) VMs, we tested offline image rendering and calculated the rendering times for both CPU ray tracing and GPU ray tracing. For this analysis, we rendered 4k and HD images. We tested GPU ray tracing on NcasT4, NVv3 VM by using 1, 2, 3, and 4 GPUs and on NVv5 by using 1& 2 GPUs. For CPU ray rendering, the application uses all CPU cores on the VM. We then calculated the relative speed increase of GPU rendering as compared to CPU rendering. The results are presented in the following sections.
 
-### VRED performance results on the NC64as_T4_v3 VM
+### VRED 2022.1 performance results on the NC64as_T4_v3 VM
 
 #### CPU and GPU rendering times
 
@@ -129,7 +129,7 @@ To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct
 
 :::image type="content" source="media/ncas-t4-speed-increase.png" alt-text="Graphs that show the relative speed increases for NCas_T4." lightbox="media/ncas-t4-speed-increase.png" border="false"::: 
 
-### VRED performance results on the NV48s_v3 VM
+### VRED 2022.1 performance results on the NV48s_v3 VM
 
 #### CPU and GPU rendering times
 
@@ -142,6 +142,25 @@ To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct
 
 :::image type="content" source="media/nv48s-v3-speed-increase.png" alt-text="Graphs that show the relative speed increases for NV48s_v3." lightbox="media/nv48s-v3-speed-increase.png" border="false"::: 
 
+
+### VRED 2023.1 performance results on the NC64as_T4_v3 VM
+
+#### CPU and GPU rendering times
+
+:::image type="content" source="media/VRED-2023-hd-image-render-time.png" alt-text="Graphs that show CPU and GPU rendering times for NCas_T4." lightbox="media/VRED-2023-4k-image-render-time.png" border="false":::
+
+#### Relative speed increases between CPU and GPU ray tracing
+
+:::image type="content" source="media/VRED-2023-hd-image-speedup.png" alt-text="Graphs that show the relative speed increases for NCas_T4." lightbox="media/VRED-2023-4k-image-speedup.png" border="false"::: 
+
+### VRED 2023.1 performance results on the NVv5 VM
+
+#### CPU and GPU rendering times
+
+:::image type="content" source="media/VRED-2023-HD-render-time-NVv5.png" alt-text="Graphs that show CPU and GPU rendering times for NV48s_v3." lightbox="media/VRED-2023-4k-render-time-NVv5.png" border="false":::
+
+:::image type="content" source="media/VRED-2023-HD-speedup-NVv5.png" alt-text="Graphs that show the relative speed increases for NV48s_v3." lightbox="media/VRED-2023-4k-speedup-NVv5.png" border="false":::
+
 ## Pricing
 
 Only model running time (wall clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
@@ -150,6 +169,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 
 You can use the rendering times provided in the following tables and the Azure hourly costs to compute rendering costs. For example, if the Azure VM hourly cost is $8.60 and the rendering time is 11 minutes and 47 seconds, the cost is $1.69. For current Azure hourly costs, see [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) or [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing). 
 
+## Azure Cost for VRED v2022.1
 ### GPU rendering costs 
 
 |VM  |Number of GPUs on VM  |  4K image render time  |HD image render time|
@@ -164,11 +184,27 @@ You can use the rendering times provided in the following tables and the Azure h
 |NC64as_T4_v3     |    64            |  21 minutes and 13 seconds       |5 minutes and 48 seconds|
 |NV48s_v3     |  48           | 55 minutes and 48 seconds  |14 minutes and 27 seconds|
 
+## Azure Cost for VRED v2023.1
+### GPU rendering costs 
+
+|VM  |Number of GPUs on VM  |  4K image render time  |HD image render time|
+|---------|---------|---------|---|
+|NC64as_T4_v3     |    4     |         11 min 20 sec       |2 min 57 sec|
+|NVv5     |    2     |         9 min 49 sec      |2 min 49 sec|
+
+### CPU rendering costs
+
+|VM   | Number of CPU cores  |4K image render time  |HD image render time|
+|---------|---------|---------|---|
+|NC64as_T4_v3     |    64            |  19 min 03 sec       |5 min 06 sec|
+|NVv5     |  72           | 19 min 34 sec  |5 min 03 sec|
+
+
 ## Results and recommendations
 
-- VRED was successfully deployed and tested on NCas_T4_v3 and NVv3 series VMs on Azure.
+- VRED was successfully deployed and tested on NCas_T4_v3, NVv3 and NVv5 series VMs on Azure.
 - On NC64as_T4, GPU rendering is 1.8 times faster than CPU rendering.
-- We recommend NC64as_T4 for VRED because it provides better performance for both CPU and GPU rendering.
+- On NVv5, GPU rendering is 1.94 times faster than CPU rendering.
 - On NVv3, GPU rendering doesn't significantly improve rendering time as compared to CPU rendering.
 
 ## Contributors
