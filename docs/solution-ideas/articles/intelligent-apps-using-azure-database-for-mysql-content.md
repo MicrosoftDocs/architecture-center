@@ -57,7 +57,7 @@ Azure Cognitive Services Text Analytics API has a maximum size of 5120 character
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Matt Cowen](https://www.linkedin.com/in/matthew-cowen-4815235/) | Senior Cloud Solution Architect
  
