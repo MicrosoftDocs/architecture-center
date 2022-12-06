@@ -8,23 +8,23 @@ This architecture shows how legacy mainframe and midrange terminal-based applica
 
 ### Workflow
 
-A. Data is input over TCP/IP, including TN3270 and HTTP(S).
+1. Data is input over TCP/IP, including TN3270 and HTTP(S).
 
-B. Data is input into the mainframe via standard mainframe protocols.
+1. Data is input into the mainframe via standard mainframe protocols.
 
-C. Receiving applications can be either batch or online systems.
+1. Receiving applications can be either batch or online systems.
 
-D. Business applications written in COBOL, PL/I, or Assembler (or compatible languages) run in environments enabled for batch and online.
+1. Business applications written in COBOL, PL/I, or Assembler (or compatible languages) run in environments enabled for batch and online.
 
-E. Data and database services commonly used are hierarchical and network database systems, data files, and relational database types enabled within the environment.
+1. Data and database services commonly used are hierarchical and network database systems, data files, and relational database types enabled within the environment.
 
-F. Common services enabled include program execution, I/O operations, error detection, and protection within the environment.
+1. Common services enabled include program execution, I/O operations, error detection, and protection within the environment.
 
-G. Middleware and utility services manage services like tape storage, queueing, output, and web services within the environment.
+1. Middleware and utility services manage services like tape storage, queueing, output, and web services within the environment.
 
-H. Operating systems provide the specific interface between the engine and the software it's running.
+1. Operating systems provide the specific interface between the engine and the software it's running.
 
-I. The partitions used are needed to run separate workloads or to segregate work types within the environment.
+1. The partitions used are needed to run separate workloads or to segregate work types within the environment.
 
 ## Mainframe architecture extended to Azure
 
