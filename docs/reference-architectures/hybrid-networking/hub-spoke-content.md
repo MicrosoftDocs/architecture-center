@@ -1,4 +1,6 @@
-This reference architecture details a hub-spoke topology in Azure. The hub virtual network acts as a central point of connectivity to many spoke virtual networks. You can also use the hub to connect to your on-premises networks. The spoke virtual networks peer with the hub and can be used to isolate workloads.
+This reference architecture is about implementing the hub-spoke network pattern with customer-managed hub infrastructure components. The hub virtual network acts as a central point of connectivity to many spoke virtual networks. You can also enable cross-premises scenarios by using the hub to connect to your on-premises networks. The spoke virtual networks peer with the hub and can be used to isolate workloads.
+
+For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
 
 ## Architecture
 
