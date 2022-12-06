@@ -45,21 +45,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Consider the following points when deciding how to implement this solution.
 
-### Performance
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-To enable this solution to scale, you'll need to create an appropriately sized VM on Azure Stack Hub for training.
-
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 Ensure that the training scripts and Azure Stack Hub VM have access to the on-premises data that's used for training.
-
-### Manageability
-
-Ensure that models and experiments are appropriately registered, versioned, and tagged to avoid confusion during deployment of the model.
 
 ### Security
 
@@ -69,6 +59,16 @@ This architecture lets Azure Machine Learning access possibly sensitive on-premi
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
+
+### Performance
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+To enable this solution to scale, you'll need to create an appropriately sized VM on Azure Stack Hub for training.
+
+### Manageability
+
+Ensure that models and experiments are appropriately registered, versioned, and tagged to avoid confusion during deployment of the model.
 
 ## Contributors
 
