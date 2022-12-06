@@ -163,7 +163,7 @@ Use the [Pricing calculator](https://azure.microsoft.com/pricing/calculator) to 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
  
