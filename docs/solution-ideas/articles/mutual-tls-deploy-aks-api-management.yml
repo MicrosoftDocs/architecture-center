@@ -26,4 +26,4 @@ name: Mutual TLS for deploying AKS and APIM
 summary: Deploy mTLS using AKS,APIM and Application Gateway. Use Azure Defender for container security solution.
 thumbnailUrl: /azure/architecture/browse/thumbs/mutual-tls-for-deploying-aks-and-apim.png
 content: |
-  [!include[](mutual-tls-for-deploying-aks-and-apim.md)]
+  [!include[](mutual-tls-deploy-aks-api-management-content.md)]

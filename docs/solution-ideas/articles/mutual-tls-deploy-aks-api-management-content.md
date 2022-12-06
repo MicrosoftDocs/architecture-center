@@ -18,7 +18,7 @@ This approach can be used to manage the following scenarios:
 
 ## Architecture
 
-![Diagram of the .](../media/mutual-tls-for-deploying-aks-and-apim.png)
+![Diagram of the .](../media/mutual-tls-deploy-aks-api-management.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/mutual-tls-for-deploying-aks-and-apim.vsdx) of this architecture.*
 
