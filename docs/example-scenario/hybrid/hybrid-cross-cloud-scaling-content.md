@@ -81,7 +81,7 @@ The key benefit of cross-cloud scaling is the ability to deliver on-demand scali
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
