@@ -66,6 +66,23 @@ This architecture lets Azure Machine Learning access possibly sensitive on-premi
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors: 
+
+ - [Ronmia Bess](https://www.linkedin.com/in/ronmia-bess-8715625) | Content Developer 2
+ - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
+ - > Continue for each primary author (even if there are 10 of them).
+
+Other contributors: 
+
+ - [Gary Moore](https://www.linkedin.com/in/gwmoore) | Programmer/Writer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+
 ## Next steps
 
 - [Deploy an Edge Training Solution](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/edge-training). When you're ready to test the example solution, continue with this deployment guide.
