@@ -262,7 +262,6 @@ Explore the following related architectures:
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.yml)
-- [Define an Azure network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
 - [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
