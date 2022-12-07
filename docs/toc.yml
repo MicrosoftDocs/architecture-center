@@ -5465,6 +5465,8 @@ items:
                 href: solution-ideas/articles/appconfig-key-vault.yml
               - name: Data sovereignty and data gravity
                 href: solution-ideas/articles/data-sovereignty-and-gravity.yml
+              - name: Deploy AKS and API Manager with mTLS
+                href: solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml
               - name: Enterprise-scale disaster recovery
                 href: solution-ideas/articles/disaster-recovery-enterprise-scale-dr.yml
               - name: High availability for BCDR

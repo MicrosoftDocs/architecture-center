@@ -34,7 +34,7 @@ This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and A
 * [API Management](https://azure.microsoft.com/products/api-management). You can use API Management to publish APIs to your developers, partners, and employees.
 * [Azure Private Link](https://azure.microsoft.com/products/private-link). Private Link provides access to PaaS services that are hosted on Azure, so you can keep your data on the Microsoft network.
 * [Key Vault](https://azure.microsoft.com/products/key-vault). Key Vault can provide enhanced security for keys and other secrets.
-* [Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud). Defender for Cloud is a solution for cloud security posture management and cloud workload protection that finds weak spots across your cloud configuration, helps strengthen the security of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats.
+* [Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud). Defender for Cloud is a solution for cloud security posture management and cloud workload protection. It finds weak spots across your cloud configuration, helps strengthen the security of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats.
 * [Azure Monitor](https://azure.microsoft.com/products/monitor). You can use Monitor to collect, analyze, and act on telemetry data from your Azure and on-premises environments. Monitor helps you maximize the performance and availability of your applications and proactively identify problems.
    * [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). You can use Log Analytics to edit and run log queries with data in Azure Monitor logs.
    * [Application Insights in Azure Monitor](/azure/azure-monitor/app/app-insights-overview) Application Insights is an extension of Azure Monitor. It provides application performance monitoring.
@@ -81,7 +81,7 @@ Other contributor:
 - [AKS Roadmap](https://github.com/Azure/AKS/projects/1)
 - [AKS documentation](/azure/aks/intro-kubernetes)
 - [AKS learning path](/training/paths/intro-to-kubernetes-on-azure)  
-- [API MAnagement learning path](/training/modules/explore-api-management)
+- [API Management learning path](/training/modules/explore-api-management)
 - [API Management landing zone accelerator](https://github.com/Azure/apim-landing-zone-accelerator)
 - [Microsoft Defender for Cloud Blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog)
 
