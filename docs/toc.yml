@@ -3754,6 +3754,8 @@ items:
                     href: reference-architectures/containers/aks-pci/aks-pci-summary.yml
               - name: AKS data protection on Azure NetApp Files
                 href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
+              - name: AKS dual-stack network traffic
+                href: example-scenario/aks-dualstack/aks-dual-stack.yml
               - name: Autonomous-driving simulation
                 href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
               - name: Blue-green deployment of AKS clusters
@@ -5291,6 +5293,8 @@ items:
                     href: example-scenario/unix-migration/migrate-aix-azure-linux.yml
                   - name: Batch transaction processing
                     href: example-scenario/mainframe/process-batch-transactions.yml
+                  - name: Extend mainframe applications with Verastream
+                    href: example-scenario/mainframe/extend-mainframe-applications.yml
                   - name: General mainframe refactor to Azure
                     href: example-scenario/mainframe/general-mainframe-refactor.yml
                   - name: IBM System i to Azure using Infinite i
