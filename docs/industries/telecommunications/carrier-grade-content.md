@@ -19,10 +19,10 @@ Multiple clients can connect to the workload using various protocols. They can b
 ## Key design strategies
 
 - **Active-active muti-region deployment**. Deploy atleast 12 application instances across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
-- **Replicated storage**. Keep the application itself is stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions. 
-- **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Implement application logic that uses conflict-free replicated data types (CRDTs) to handle eventual inconsistency.
+- **Replicated storage**. Keep the application stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions. 
+- **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Implement application logic that uses Conflict-free Replicated Data Types (CRDTs) to handle eventual inconsistency.
 - **Avoid correlated failure modes**. Take independent elements and [combine them to reach a higher reliability target](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance#high-availability-through-combination). 
-**Shared fate within each stamp**. Aggregate all the components of service instance in a stamp. This model removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
+- **Shared fate within each stamp**. Aggregate all the components of service instance in a stamp. This model removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ The workload is hosted in Azure infrastructure and several Azure services partic
 
 ### Global resources
 
-These resources provide functionality that's shared by resources deployed in regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the identity platform and DNS. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
+These resources provide functionality that's shared by resources deployed in all regions. For instance, the global load balancer that distributes traffic to multiple regions. Foundational services that other services depend on, such as the identity platform and DNS. Global resources also include services that maintain functional consistency across regions, such as shared state stores and databases. 
 
 **Azure Traffic Manager**
 
@@ -52,7 +52,7 @@ A custom solution component that that exists outside of the cloud. The gateway s
 
 ### Regional resources
 
-This set of services that are deployed each region and their lifetime is tied to that region.  
+This set of services that are deployed to each region and their lifetime is tied to that region.  
 
 **Management service**
 
