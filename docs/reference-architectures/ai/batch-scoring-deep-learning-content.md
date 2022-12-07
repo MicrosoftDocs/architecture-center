@@ -135,6 +135,16 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 You can also deploy a batch scoring architecture for deep learning models by using the Azure Kubernetes Service. Follow the steps described in this [GitHub repo][deployment2].
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jian Tang](https://www.linkedin.com/in/jian-tang-9739a814/) | Program Manager II
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Batch scoring of Spark models on Azure Databricks](batch-scoring-databricks.yml)

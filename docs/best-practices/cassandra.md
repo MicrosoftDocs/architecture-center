@@ -2,8 +2,8 @@
 title: Run Apache Cassandra on Azure VMs
 description: Examine performance considerations for running Apache Cassandra on Azure virtual machines. Use these recommendations as a baseline to test against your workload.
 author: arsenvlad
-categories: azure
 ms.author: arsenv
+categories: azure
 ms.date: 09/29/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -145,6 +145,20 @@ In a multiregion Cassandra ring, write workloads with consistency level of LOCAL
 
 For more information, see [Observations on hinted handoff in cross-region replication](https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments/blob/master/docs/cassandra-hinted-handoff-cross-region.md) (GitHub).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author: 
+
+ - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer
+ 
+ Other contributor:
+
+ - [Theo van Kraay](https://www.linkedin.com/in/theo-van-kraay-3388b130/) | Senior Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 For more information about these performance results, see [Cassandra on Azure VMs Performance Experiments][repo].
@@ -157,6 +171,8 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 - [Apache Cassandra Configuration File](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html)
 
+## Related resources
+
 The following reference architecture deploys Cassandra as part of an n-tier configuration:
 
 - [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
@@ -167,5 +183,4 @@ The following reference architecture deploys Cassandra as part of an n-tier conf
 [esv5]: /azure/virtual-machines/ev5-esv5-series
 [lsv2]: /azure/virtual-machines/lsv2-series
 [lsv3]: /azure/virtual-machines/lsv3-series
-
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments

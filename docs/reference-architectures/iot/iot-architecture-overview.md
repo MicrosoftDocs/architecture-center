@@ -6,8 +6,8 @@ author: falloutxay
 manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.topic: conceptual
-ms.date: 08/19/2022
+ms.topic: reference-architecture
+ms.date: 11/21/2022
 ms.author: ansyeo
 ms.custom:
   - internal-intro

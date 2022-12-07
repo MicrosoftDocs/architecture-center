@@ -4,7 +4,7 @@ description: Review storage technology differences between Azure and AWS. Compar
 author: EdPrice-MSFT
 ms.author: architectures
 ms.date: 07/25/2022
-ms.topic: reference
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 categories:

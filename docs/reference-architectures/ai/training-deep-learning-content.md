@@ -4,7 +4,9 @@ A reference implementation for this architecture is available on [GitHub][github
 
 ## Architecture
 
-![Architecture for distributed deep learning][0]
+:::image type="content" alt-text="Architecture diagram that shows distributed deep learning." source="./_images/distributed-dl-architecture.png" lightbox="./_images/distributed-dl-architecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/distributed-dl-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -32,7 +34,7 @@ There are several ways to train a deep learning model in a distributed fashion, 
 
 In data-parallel distributed training with synchronous updates, the model is replicated across *n* hardware devices. A mini-batch of training samples is divided into *n* micro-batches. Each device performs forward and backward passes for a micro-batch. When a device finishes the process, it shares the updates with the other devices. These values are used to calculate the updated weights of the entire mini-batch, and the weights are synchronized across the models. This scenario is covered in the associated [GitHub][github] repository.
 
-![Data-parallel distributed training][1]
+![Data-parallel distributed training.][1]
 
 This architecture can also be used for model-parallel and asynchronous updates. In model-parallel distributed training, the model is divided across *n* hardware devices, with each device holding a part of the model. In the simplest implementation, each device holds a layer of the network, and information is passed between devices during the forward and backward passes. Larger neural networks can be trained this way, but at the cost of performance, because devices are constantly waiting for each other to complete either the forward or backward pass. Some advanced techniques try to partially alleviate this issue by using synthetic gradients.
 
@@ -62,7 +64,7 @@ We recommend scaling up your training before scaling out. For example, try a sin
 
 The following graph shows the performance differences for different GPU types based on [benchmarking tests][benchmark] carried out using TensorFlow and Horovod. The graph shows throughput of 32 GPU clusters across various models, on different GPU types and MPI versions. Models were implemented in TensorFlow 1.9
 
-![Throughput results for TensorFlow models on GPU clusters][2]
+![Throughput results for TensorFlow models on GPU clusters.][2]
 
 Each VM series shown in the previous table includes a configuration with InfiniBand. Use the InfiniBand configurations when you run distributed training, for faster communication between nodes. InfiniBand also increases the scaling efficiency of the training for the frameworks that can take advantage of it. For details, see the Infiniband [benchmark comparison][benchmark].
 
@@ -149,6 +151,17 @@ One way to increase scaling efficiency is to increase the batch size. But make t
 
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to conduct distributed training of deep learning models across clusters of GPU-enabled VMs.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Ilia Karmanov](https://www.linkedin.com/in/ilia-karmanov-09aa588b) | Senior Applied Scientist
+- [Mathew Salvaris](https://www.linkedin.com/in/drmathewsalvaris) | Principal Data Scientist Lead
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure Machine Learning Cheat Sheet - distributed GPU training][distr-training]
@@ -173,7 +186,6 @@ For architectures that involve distributed training or deep learning, see the fo
 
 <!-- links -->
 
-[0]: ./_images/distributed_dl_architecture.png
 [1]: ./_images/distributed_dl_flow.png
 [2]: ./_images/distributed_dl_tests.png
 [acr]: /azure/container-registry/container-registry-intro
@@ -213,5 +225,5 @@ For architectures that involve distributed training or deep learning, see the fo
 [introduction-to-azure-blob-storage]: /azure/storage/blobs/storage-blobs-introduction
 [train-compute-intensive-models-with-azure-machine-learning]: /training/paths/train-compute-intensive-models-azure-machine-learning
 [train-and-evaluate-deep-learning-models]: /training/modules/train-evaluate-deep-learn-models
-[build-a-content-based-recommendation-system]: ../../example-scenario/ai/scalable-personalization-with-content-based-recommendation-system.yml
+[build-a-content-based-recommendation-system]: /azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender
 [suggest-content-tags-with-nlp-using-deep-learning]: ../../solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml

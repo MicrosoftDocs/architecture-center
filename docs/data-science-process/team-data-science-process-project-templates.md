@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2022
 ms.author: tdsp
 ms.custom:
@@ -33,9 +33,19 @@ The lifecycle outlines the major stages that projects typically execute, often i
 
 For descriptions of each of these stages, see [The Team Data Science Process lifecycle](./lifecycle.md).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-[Agile development of data science projects](agile-development.md) This document describes a data science project in a systematic, version controlled, and collaborative way by using the Team Data Science Process.
+See [Agile development of data science projects](agile-development.md). This document describes a data science project in a systematic, version controlled, and collaborative way by using the Team Data Science Process.
 
 ## Related resources
 

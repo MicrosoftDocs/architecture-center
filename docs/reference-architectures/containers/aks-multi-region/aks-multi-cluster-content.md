@@ -1,6 +1,6 @@
 This reference architecture details how to run multiple instances of an Azure Kubernetes Service (AKS) cluster across multiple regions in an active/active and highly available configuration.
 
-This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) pod identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
+This architecture builds on the [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), Microsoft's recommended starting point for AKS infrastructure. The AKS baseline details infrastructural features like Azure Active Directory (Azure AD) workload identity, ingress and egress restrictions, resource limits, and other secure AKS infrastructure configurations. These infrastructural details aren't covered in this document. It's recommended that you become familiar with the AKS baseline before proceeding with the multi-region content.
 
 ## Architecture
 
@@ -16,7 +16,7 @@ Many components and Azure services are used in the multi-region AKS reference ar
 
 - **Multiple clusters / multiple regions** Multiple AKS clusters are deployed, each in a separate Azure region. During normal operations, network traffic is routed between all regions. If one region becomes unavailable, traffic is routed to a region closest to the user who issued the request.
 - **hub-spoke network per region** A regional hub-spoke network pair are deployed for each regional AKS instance. Azure Firewall Manager policies are used to manage firewall policies across all regions.
-- **Regional Key store** Azure Key Vault is provisioned in each region for storing sensitive values and keys specific to the AKS instance and supporting services found in that region.
+- **Regional key store** Azure Key Vault is provisioned in each region for storing sensitive values and keys specific to the AKS instance and supporting services found in that region.
 - **Azure Front Door** Azure Front door is used to load balance and route traffic to a regional Azure Application Gateway instance, which sits in front of each AKS cluster. Azure Front Door allows for layer seven global routing, both of which are required for this reference architecture.
 - **Log Analytics** Regional Log Analytics instances are used for storing regional networking metrics and diagnostic logs. Additionally, a shared Log Analytics instance is used to store metrics and diagnostic logs for all AKS instances.
 - **Container registry** The container images for the workload are stored in a managed container registry. In this architecture, a single Azure Container Registry is used for all Kubernetes instances in the cluster. Geo-replication for Azure Container Registry enables replicating images to the selected Azure regions and providing continued access to images even if a region is experiencing an outage.
@@ -43,6 +43,10 @@ When managing a multi-region AKS cluster, multiple AKS instances are deployed ac
 - Consider how to gain visibility and/or monitor the collection of stamps as a single unit
 
 Each of these items is detailed with specific guidance in the following sections of this reference architecture.
+
+## Fleet management
+
+This solution represents a multi-cluster and multi-region topology, without the inclusion of an advanced orchestrator to treat all clusters as part of a unified fleet. When cluster count increases, consider enrolling the members in [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/) for better at-scale management of the particpating clusters. The infrastructure architecture presented here doesn't fundimentally change with the enrollment into Fleet Manager, but day-2 operations and similar activities will benefit from a control plane that can target multiple clusters simulatiously.
 
 ## Considerations
 
@@ -71,7 +75,7 @@ Once the cluster stamp definition has been defined, you have many options for de
 - Integration with code / deployment source control
 - Deployment history and logging
 
-As new stamps are added or removed from the global cluster, the deployment pipeline needs to be updated to reflect. In the reference implementation, each region is deployed as an individual step within a GitHub Action workflow [(example)](https://github.com/mspnp/aks-baseline-multi-region/blob/main/github-workflow/aks-deploy.yaml#L55). This configuration is simple in that each cluster instance is clearly defined within the deployment pipeline. This configuration does, however, carry some administrative overhead in adding and removing clusters from the deployment.
+As new stamps are added or removed from the global cluster, the deployment pipeline needs to be updated to reflect. In the reference implementation, each region is deployed as an individual step within a GitHub Action workflow [(example)](https://github.com/mspnp/aks-baseline-multi-region/blob/main/github-workflow/aks-deploy.yaml#L44). This configuration is simple in that each cluster instance is clearly defined within the deployment pipeline. This configuration does, however, carry some administrative overhead in adding and removing clusters from the deployment.
 
 Another option would be to utilize logic to create clusters based on a list of desired locations or other indicating data points. For instance, the deployment pipeline could contain a list of desired regions; a step within the pipeline could then loop through this list, deploying a cluster into each region found in the list. The disadvantage to this configuration is the complexity in deployment generalization and that each cluster stamp isn't explicitly detailed in the deployment pipeline. The positive benefit is that adding or removing cluster stamps from the pipeline becomes a simple update to the list of desired regions.
 
@@ -85,9 +89,9 @@ Similar to deployment, these configurations can become challenging to manage acr
 
 ##### GitOps
 
-Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD.
+Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. This implementation uses the Flux extension for AKS to enable bootstrapping the clusters automatically & immediately after the clusters are deployed.
 
-GitOps is detailed in more depth in the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-cicd). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance is configured similarly without bespoke effort.
+GitOps is detailed in more depth in the [AKS baseline reference architecture](./aks-multi-cluster.yml#cluster-bootstrapping). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance is configured similarly without bespoke effort. This becomes even more important as the size of your fleet grows.
 
 ##### Azure Policy
 
@@ -244,15 +248,16 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 ## Next steps
 
 - [AKS availability zones](/azure/aks/availability-zones)
-- [AKS Azure AD integration](/azure/aks/azure-ad-rbac)
-- [Azure Front Door documentation](/azure/frontdoor)
-- [Azure Cosmos DB documentation](/azure/cosmos-db)
+- [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/overview)
 - [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication)
 - [Azure paired regions](/azure/best-practices-availability-paired-regions)
 
 ## Related resources
 
+- [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/baseline-aks.yml)
-- [Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall)
-- [Application data protection for AKS workloads on Azure NetApp Files](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)
 - [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+- [AKS Azure AD integration](/azure/aks/azure-ad-rbac)
+- [Azure Front Door documentation](/azure/frontdoor)
+- [Azure Cosmos DB documentation](/azure/cosmos-db)
+

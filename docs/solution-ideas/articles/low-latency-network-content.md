@@ -32,7 +32,7 @@ The 5G Standalone network is deployed as a Non-Public Network (NPN), with all da
 
 ### Potential use cases
 
-Use this approach for scenarios like:
+This solution is ideal for the manufacturing, agriculture, energy, facilities, telecommunications, and robotics industries. Use this approach for scenarios like:
 
 - Picking shipments efficiently in a warehouse.
 - Dispersing seeds from an autonomous seed sprayer machines on a farm, based on information from soil sensors.

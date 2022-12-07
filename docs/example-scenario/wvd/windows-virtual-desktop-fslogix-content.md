@@ -58,6 +58,9 @@ Additionally, the following table gives an example of how many resources an FSLo
 
 Azure offers multiple storage solutions that you can use to store your FSLogix profile container. We recommend storing FSLogix profile containers on Azure Files or Azure NetApp Files for most customer scenarios. The article [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile) compares the different managed storage solutions Azure offers for Azure Virtual Desktop FSLogix user profile containers.
 
+> [!NOTE]
+> While the best practice is have the user profiles stored in Azure, you can also leverage any other storage solution you already have in place in your environment (for example **DFS Namespaces**), and that the sessions hosts can reach, to replicate the user profiles to those locations using **Cloud Cache** as explained below.
+
 [Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported with FSLogix and Azure Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Azure Virtual Desktop.
 
 ## Best practices
@@ -134,12 +137,19 @@ We recommend keeping native profile folder locations in the FSLogix profile cont
 
 ### Teams exclusions
 
-Exclude the following from the Teams caching folder, %appdata%\Microsoft\Teams. Excluding [these items](/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup.
+Excluding [these items](/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup) helps reduce the user caching size to further optimize your non-persistent setup. Exclude the following items from the Teams caching folder, %appdata%\Microsoft\Teams:
 
 - Media-stack folder
-- meeting-addin\Cache (%appdata%\Microsoft\Teams\meeting-addin\Cache)
+- meeting-addin\Cache folder 
 
-Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentation to learn how to configure the Teams-specific exclusions above within FSLogix Profile Container.
+by using the following exclusions:
+
+```xml
+<Exclude Copy="0">AppData\Roaming\Microsoft\Teams\media-stack</Exclude>
+<Exclude Copy="0">AppData\Roaming\Microsoft\Teams\meeting-addin\Cache</Exclude>
+```
+
+Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentation for more details on configuring the Teams-specific exclusions above within FSLogix Profile Container.
 
 ### Antivirus exclusions
 
@@ -277,9 +287,11 @@ Principal author:
 
  * [Christiaan Brinkhoff](https://www.linkedin.com/in/christiaanbrinkhoff) | Principal PM and Community Lead, Windows 365
 
-Other contributor:
+Other contributors:
 
   * [Sven Aelterman](https://www.linkedin.com/in/svenaelterman) | Senior Cloud Solution Architect, Education
+
+  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Senior Customer Engineer, Azure Core Infrastructure
 
 ## Next steps
 

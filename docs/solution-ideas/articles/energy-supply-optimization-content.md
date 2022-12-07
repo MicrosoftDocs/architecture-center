@@ -1,19 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-An energy grid consists of energy consumers, and various types of energy supplying, trading, and storage components: Substations accept power load or exports excessive power; Batteries may discharge energy or store it for future use; Windfarms and solar panel (self-scheduled generators), micro-turbines (dispatchable generators), and demand response bids can all be engaged to satisfying the demand from the consumers within the grid.
-
-The costs of soliciting different types of resources vary, while the capacities and the physical characteristics of each resource type limit the dispatch of the resource. Given all these constraints, a challenge the smart grid operator must face is how much energy each type of the resources should commit over a time frame. This allows the forecasted energy demand from the grid is satisfied.
-
-## Potential use cases
-
 This solution provides an Azure-based smart solution, applying external open-source tools, to determine the optimal energy unit commitments from various energy resources for an energy grid. The goal is to minimize the overall cost incurred by these commitments while satisfying the energy demand.
-
-This solution demonstrates the ability of Azure to accommodate external tools, such as Pyomo and CBC, to solve large-scale numerical optimization problems such as mixed integer-linear programming, parallelizing multiple optimization tasks over an Azure Batch of Azure Virtual Machines. (Other involved products include Azure Blob Storage, Azure Queue Storage, Azure Web App, Azure SQL Database, and Power BI.)
 
 ## Architecture
 
-![Architecture Diagram](../media/energy-supply-optimization.png)
-*Download an [SVG](../media/energy-supply-optimization.svg) of this architecture.*
+[ ![Architecture diagram that shows energy supply optimization.](../media/energy-supply-optimization.png)](../media/energy-supply-optimization.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/energy-supply-optimization.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -34,7 +27,17 @@ Key technologies used to implement this architecture:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
 - [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues)
 - [Power BI Dashboard](https://powerbi.microsoft.com)
-  
+
+## Scenario details
+
+An energy grid consists of energy consumers, and various types of energy supplying, trading, and storage components: Substations accept power load or exports excessive power; Batteries may discharge energy or store it for future use; Windfarms and solar panel (self-scheduled generators), micro-turbines (dispatchable generators), and demand response bids can all be engaged to satisfying the demand from the consumers within the grid.
+
+The costs of soliciting different types of resources vary, while the capacities and the physical characteristics of each resource type limit the dispatch of the resource. Given all these constraints, a challenge the smart grid operator must face is how much energy each type of the resources should commit over a time frame. This allows the forecasted energy demand from the grid is satisfied.
+
+### Potential use cases
+
+This solution demonstrates the ability of Azure to accommodate external tools, such as Pyomo and CBC, to solve large-scale numerical optimization problems such as mixed integer-linear programming, parallelizing multiple optimization tasks over an Azure Batch of Azure Virtual Machines. Other involved products include Azure Blob Storage, Azure Queue Storage, Azure Web App, Azure SQL Database, and Power BI.
+
 ## Deploy this scenario
 
 For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-energy-supply-optimization).

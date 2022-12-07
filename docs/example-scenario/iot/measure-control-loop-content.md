@@ -47,6 +47,16 @@ This solution is ideal for the energy and environment industries. Examples of me
 - Wind turbine: Apply brakes to slow down a rotor when it is about to reach the warning RPM threshold.
 - Solar panels: Adjust solar panel angle as the sun moves over the horizon to maximize the power generated.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Hanu Kommalapati](https://www.linkedin.com/in/hanuk/) | Principal Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 - [Analyze and optimize loops](analyze-optimize-loop.yml)

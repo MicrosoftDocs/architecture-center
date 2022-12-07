@@ -117,6 +117,17 @@ The following are the additional components that are created specifically for th
 1. Machine learning algorithms such as the machine-generated diagnostic findings
 1. Social determinants and satisfaction survey apps
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Slavica Frljanic](https://www.linkedin.com/in/slavica-frljanic-91007b103) | Principal Group Program Manager
+ - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr) | Senior Content PM - 
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Microsoft Cloud for Healthcare?](/industry/healthcare/overview)
@@ -135,11 +146,11 @@ The following are the additional components that are created specifically for th
 - [Confidential computing on a healthcare platform](../confidential/healthcare-inference.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Predict hospital readmissions with traditional and automated machine learning techniques](../ai/predict-hospital-readmissions-machine-learning.yml)
-- [Predict length of stay and patient flow](../../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+- [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Population health management for healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
 - [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)
 - [Medical data storage solutions](../../solution-ideas/articles/medical-data-storage.yml)
 - [Build a telehealth system on Azure](../apps/telehealth-system.yml)
 - [IoT Connected Platform for COVID-19 detection and prevention](../../solution-ideas/articles/iot-connected-platform.yml)
-- [Remote patient monitoring](../../solution-ideas/articles/remote-patient-monitoring.yml)
+- [Remote patient monitoring](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring)

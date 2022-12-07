@@ -104,6 +104,16 @@ Azure Batch and doAzureParallel support the use of low-priority VMs. These VMs c
 
 To deploy this reference architecture, follow the steps described in the [GitHub][github] repo.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Angus Taylor](https://www.linkedin.com/in/angus-taylor-99ab4a74) | Senior Data Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)

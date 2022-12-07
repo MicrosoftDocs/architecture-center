@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: tdsp
 ms.custom:
@@ -44,7 +44,7 @@ This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](/azure/storage/common/storage-account-create) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [Manage storage account access keys](/azure/storage/common/storage-account-keys-manage).
-* Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](/azure/machine-learning/data-science-virtual-machine/overview).
+* Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure virtual machine for SQL Server as an IPython Notebook server for advanced analytics](/azure/machine-learning/data-science-virtual-machine/overview).
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## <a name="filesource_to_sqlonazurevm"></a> Moving data from a flat file source to SQL Server on an Azure VM
@@ -217,11 +217,20 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 
 ![Screenshot of the SQL Server Import Tool.][1]
 
-## Resources
+## Contributors
 
-[Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-[SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)
+- [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
 
 [1]: ./media/move-sql-server-virtual-machine/sql-server-built-in-utilities.png
 [2]: ./media/move-sql-server-virtual-machine/addsql-aud.png

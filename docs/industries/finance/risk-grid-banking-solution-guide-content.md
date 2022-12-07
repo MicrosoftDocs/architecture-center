@@ -240,15 +240,15 @@ Several configurations may be applicable in your situation. To help with decisio
 
 ## Security considerations
 
-An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Azure Active Directory (AAD)](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). For more information, see [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr).
+An Azure [virtual network (VNet)](/azure/virtual-network/virtual-networks-overview?WT.mc_id=gridbanksg-docs-dastarr) may be created and the pool's compute nodes created within it. This provides an extra level of isolation for the Batch runs and allows authentication using [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-whatis?WT.mc_id=gridbanksg-docs-dastarr). For more information, see [Pool network configuration](/azure/batch/batch-api-basics#pool-network-configuration?WT.mc_id=gridbanksg-docs-dastarr).
 
-There are two ways to authenticate a Batch application using Azure Active Directory (AAD):
+There are two ways to authenticate a Batch application using Azure Active Directory (Azure AD):
 
-- **Integrated authentication**. A batch application using AAD accounts can use the account to gain resources to data stores and other resources.
+- **Integrated authentication**. A batch application using Azure AD accounts can use the account to gain resources to data stores and other resources.
 
-- **Service principal**. AAD Service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
+- **Service principal**. Azure AD Service principals define access policy and permissions for users and applications. A service principal provides authentication to users using a secret key tied to that application. This allows authenticating an unattended application with a secret key. A service principal defines the policy and permissions for an application to represent the application when accessing resources at runtime. [Learn more here](/azure/active-directory/develop/active-directory-application-objects?WT.mc_id=gridbanksg-docs-dastarr).
 
-For more information on security in batch processing with AAD, [see this article](/azure/batch/batch-aad-auth?WT.mc_id=gridbanksg-docs-dastarr).
+For more information on security in batch processing with Azure AD, [see this article](/azure/batch/batch-aad-auth?WT.mc_id=gridbanksg-docs-dastarr).
 
 The Batch service can also authenticate with a shared key. The authentication service requires two header values to be added to the HTTP request, data and authorization. [See here for more](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service?WT.mc_id=gridbanksg-docs-dastarr) on shared key authentication.
 

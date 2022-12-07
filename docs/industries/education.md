@@ -5,7 +5,7 @@ description: Discover architectures and ideas for using Azure services to build 
 author: EdPrice-MSFT
 ms.author: architectures
 ms.date: 07/26/2022
-ms.topic: article
+ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 ms.custom: fcp 

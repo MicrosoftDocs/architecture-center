@@ -57,7 +57,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
 **[Azure Service Bus](https://azure.microsoft.com/services/service-bus)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
@@ -78,6 +78,8 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
 Fabrikam, Inc. (a fictional company) has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time.  When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. The application is composed of containerized microservices and was originally deployed to Azure Kubernetes Service.
+
+This solution is ideal for the aircraft and aerospace industries.
 
 With Azure Container Apps, Fabrikam can run their containerized applications on a flexible, serverless platform purpose-built to support microservices. Azure Container Apps runs on Azure Kubernetes Service, and includes several open-source projects: Kubernetes Event Driven Autoscaling (KEDA), Distributed Application Runtime (Dapr), and Envoy. This open-source foundation enables teams to build and run portable applications powered by Kubernetes and open standards. With these built-in platform capabilities, teams can avoid the management complexity of working with the Kubernetes platform and APIs directly.
 
@@ -177,7 +179,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 Principal author:
 
- * [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy) | Technical Writer
+- [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy) | Technical Writer
 
 ## Next steps
 

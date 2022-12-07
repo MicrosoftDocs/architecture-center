@@ -36,7 +36,7 @@ There are several options for analysis, visualizations, and reporting in Azure, 
 
 [Power BI](/power-bi/) is a suite of business analytics tools. It can connect to hundreds of data sources, and can be used for ad hoc analysis. See [this list](/power-bi/desktop-data-sources) of the currently available data sources. Use [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) to integrate Power BI within your own applications without requiring any additional licensing.
 
-Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Azure Active Directory](/azure/active-directory/) (Azure AD) to authenticate users who log in to the Power BI service, and uses the Power BI login credentials whenever a user attempts to access resources that require authentication.
+Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Azure Active Directory (Azure AD)](/azure/active-directory/) to authenticate users who log in to the Power BI service, and uses the Power BI login credentials whenever a user attempts to access resources that require authentication.
 
 ### Jupyter Notebooks
 
@@ -114,3 +114,17 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Get started with Jupyter notebooks for Python](/training/modules/python-create-run-jupyter-notebook)
+- [Notebooks](/azure/databricks/notebooks)
+- [Run Azure Databricks Notebooks with Azure Data Factory](/training/modules/run-azure-databricks-notebooks-azure-data-factory)
+- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+
+## Related resources
+
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Data analysis and visualization in an Azure industrial IoT analytics solution](../../guide/iiot-guidance/iiot-data.yml)
+- [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)

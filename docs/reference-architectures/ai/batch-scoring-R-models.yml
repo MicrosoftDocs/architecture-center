@@ -3,10 +3,10 @@ metadata:
   title: Batch scoring with R models to forecast sales
   titleSuffix: Azure Reference Architectures
   description: Perform batch scoring with R models using Azure Batch and a data set based on retail store sales forecasting.
-  author: EdPrice-MSFT
-  ms.author: architectures
+  author: angusrtaylor
+  ms.author: anta
   ms.date: 09/29/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:

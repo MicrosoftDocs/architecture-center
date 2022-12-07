@@ -19,6 +19,9 @@ products:
 
 # Troubleshoot performance bottlenecks in Azure Databricks
 
+> [!NOTE]
+> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring. The library supports Azure Databricks 10.x (Spark 3.2.x) and earlier. Azure Databricks 11.0 includes [breaking changes](/azure/databricks/release-notes/runtime/11.0#log4j-is-upgraded-from-log4j-1-to-log4j-2) to the logging systems that the **spark-monitoring** library integrates with. The work required to update the **spark-monitoring** library to support Azure Databricks 11.0 (Spark 3.3.0) and newer is not currently planned.
+
 This article describes how to use monitoring dashboards to find performance bottlenecks in Spark jobs on Azure Databricks.
 
 [Azure Databricks](/azure/azure-databricks) is an [Apache Spark](https://spark.apache.org)–based analytics service that makes it easy to rapidly develop and deploy big data analytics. Monitoring and troubleshooting performance issues is a critical when operating production Azure Databricks workloads. To identify common performance issues, it's helpful to use monitoring visualizations based on telemetry data.
@@ -138,3 +141,18 @@ For example, the following graph shows that the memory used by shuffling on the 
 ![Graph showing that the memory used by shuffling on the first two executors is 90X bigger than the other executors.](./_images/grafana-shuffle-memory.png)
 
 [config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
+
+## Next steps
+
+- [Monitoring Azure Databricks in an Azure Log Analytics Workspace](https://github.com/mspnp/spark-monitoring/blob/main/README.md)
+- [Learning path: Build and operate machine learning solutions with Azure Databricks](/training/paths/build-operate-machine-learning-solutions-azure-databricks)
+- [Azure Databricks documentation](/azure/databricks)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+
+## Related resources
+
+- [Monitoring Azure Databricks](index.md)
+- [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
+- [Use dashboards to visualize Azure Databricks metrics](dashboards.md)
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
+- [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)

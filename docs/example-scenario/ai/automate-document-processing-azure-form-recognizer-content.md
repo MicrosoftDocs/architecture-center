@@ -152,7 +152,7 @@ The availability of the architecture depends on the Azure services that make up 
 
 * Azure Cognitive Service for Language is part of Azure Cognitive Services. For the availability guarantee for these services, see [SLA for Azure Cognitive Services][SLA for Azure Cognitive Services].
 
-* Azure Cosmos DB provides high availability by maintaining four replicas of data within each region and by replicating data across regions. The exact availability guarantee depends on whether you replicate within a single region or across multiple regions. For more information, see [Achieve high availability with Cosmos DB][Achieve high availability with Cosmos DB].
+* Azure Cosmos DB provides high availability by maintaining four replicas of data within each region and by replicating data across regions. The exact availability guarantee depends on whether you replicate within a single region or across multiple regions. For more information, see [Achieve high availability with Azure Cosmos DB][Achieve high availability with Azure Cosmos DB].
 
 * Blob Storage offers redundancy options that help ensure high availability. You can use either of these approaches to replicate data three times in a primary region:
 
@@ -275,7 +275,7 @@ Principal author:
 * [Knowledge mining in contract management][Knowledge mining in contract management]
 * [Knowledge mining for content research][Knowledge mining for content research]
 
-[Achieve high availability with Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
+[Achieve high availability with Azure Cosmos DB]: /azure/cosmos-db/high-availability#slas-for-availability
 [App Service]: https://azure.microsoft.com/services/app-service
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/windows
 [Application Gateway pricing]: https://azure.microsoft.com/pricing/details/application-gateway

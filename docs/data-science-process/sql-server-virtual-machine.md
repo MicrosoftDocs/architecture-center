@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom:
@@ -163,3 +163,13 @@ For an end-to-end walkthrough example of the Azure Data Science Process using a 
 
 <!-- Module References -->
 [import-data]: /azure/machine-learning/studio-module-reference/import-data
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

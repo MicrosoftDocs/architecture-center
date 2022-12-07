@@ -5,8 +5,8 @@ metadata:
   description: See how manufacturers can use Azure Network Function Manager with high-performance, low-latency, on-premises 5G Standalone networks for industrial automation and productivity.
   author: niravi-msft
   ms.author: niravi
-  ms.date: 08/30/2022
-  ms.topic: conceptual
+  ms.date: 11/30/2022
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:

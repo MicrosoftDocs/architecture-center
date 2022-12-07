@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/18/2022
 ms.author: tdsp
 ms.category:
@@ -212,6 +212,16 @@ You can use the data science process template to create TDSP projects and track 
 Here is an example of how the data science project work items should appear in **Backlogs** view:
 
 ![18](./media/agile-development/18-workitems-1.png)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

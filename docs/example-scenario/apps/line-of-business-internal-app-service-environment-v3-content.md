@@ -102,6 +102,17 @@ To get started and better understand the specifics of this implementation, revie
 - Consider the CI/CD service that you'll use to deploy the reference implementation. As this reference implementation is an internal ASE, you'll need a self-hosted agent to execute the deployment pipelines. You have the choice to use either a DevOps agent or a GitHub runner. Refer to the [user guide](https://github.com/Azure/appservice-landing-zone-accelerator/tree/docs-update/docs) on the specific configuration values that are required.
 - Consider the region(s) to which you intend to deploy this reference implementation. Consult the [ASEv3 Regions list](/azure/app-service/environment/overview#regions) to ensure the selected region(s) are enabled for deployment.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Pete Messina](https://www.linkedin.com/in/peter-messina-93512414/) | Senoir Cloud Solution Architect
+ - [Nabeel Prior](https://www.linkedin.com/in/nabeelprior/) | Senior Cloud Solution Architect
+
+ *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 * [Security in Azure App Service](/azure/app-service/overview-security)

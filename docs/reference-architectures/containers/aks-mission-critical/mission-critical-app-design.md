@@ -54,22 +54,22 @@ There are other supporting components running in the cluster:
 
 Due to the ephemeral nature of deployment stamps, avoid persisting state within the stamp as much as possible. State should be persisted in an externalized data store. To support the reliability SLO, that data store needs to be resilient. It's recommended that you use managed (PaaS) services combined with native SDK libraries that automatically handle timeouts, disconnects and other failure states.
 
-In the reference implementation **Azure Cosmos DB** serves as the main data store for the application. [Azure Cosmos DB](/azure/cosmos-db/) was chosen because it provides **multi-region writes**. Each stamp can write to the Cosmos DB replica in the same region with Cosmos DB internally handling data replication and synchronization between regions. **SQL API** is used because it supports all capabilities of the database engine.
+In the reference implementation, **Azure Cosmos DB** serves as the main data store for the application. [Azure Cosmos DB](/azure/cosmos-db/) was chosen because it provides **multi-region writes**. Each stamp can write to the Azure Cosmos DB replica in the same region with Azure Cosmos DB internally handling data replication and synchronization between regions. **Azure Cosmos DB for NoSQL** is used because it supports all capabilities of the database engine.
 
 For more information, see [Data platform for mission-critical workloads](./mission-critical-data-platform.md#database).
 
 > [!NOTE]
-> New applications should use the Cosmos DB **SQL API**. For legacy applications that use another NoSQL protocol, evaluate the migration path to Cosmos DB SQL API.
+> New applications should use Azure Cosmos DB for NoSQL. For legacy applications that use another NoSQL protocol, evaluate the migration path to Azure Cosmos DB.
 
 > [!TIP]
 > For mission-critical applications that prioritize availability over performance, **single-region write and multi-region read** with *Strong consistency* level are recommended.
 
 In this architecture, there's a need to store state temporarily in the stamp for Event Hubs checkpointing. **Azure Storage** is used for that purpose.
 
-All workload components use the Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Here are some key configuration settings:
+All workload components use the Azure Cosmos DB .NET Core SDK to communicate with the database. The SDK includes robust logic to maintain database connections and handle failures. Here are some key configuration settings:
 
 - Uses **Direct connectivity mode**. This is the default setting for .NET SDK v3 because it offers better performance. There are fewer network hops compared to Gateway mode which uses HTTP.
-- **Return content response on write** is disabled to prevent the Cosmos DB client from returning the document from Create, Upsert, Patch and Replace operations to reduce network traffic. Also, this is not needed for further processing on the client.
+- **Return content response on write** is disabled to prevent the Azure Cosmos DB client from returning the document from Create, Upsert, Patch and Replace operations to reduce network traffic. Also, this is not needed for further processing on the client.
 - **Custom serialization** is used to set the JSON property naming policy to `JsonNamingPolicy.CamelCase` to translate .NET-style properties to standard JSON-style and vice-versa. The default ignore condition ignores properties with null values during serialization (`JsonIgnoreCondition.WhenWritingNull`).
 - **Application region** is set to the region of the stamp, which enables the SDK to find the closest connection endpoint (preferably within the same region).
 
@@ -101,15 +101,15 @@ Key characteristics:
 - Services aren't constrained to use the same compute platform, programming language, or operating system.
 - Services scale independently.
 - Downstream failures don't affect client transactions.
-- Transactional integrity is more difficult to maintain, because data creation and persistence happens in separate services.
+- Transactional integrity is more difficult to maintain, because data creation and persistence happens in separate services. This is also a challenge across messaging and persistence services, as described in [this guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 - End-to-end tracing requires more complex orchestration.
 
 Using well-known design patterns, such as [Queue-Based Load leveling pattern](/azure/architecture/patterns/queue-based-load-leveling) and [Competing Consumers pattern](/azure/architecture/patterns/competing-consumers), is highly recommended. These patterns help in load distribution from the producer to the consumers and asynchronous processing by consumers. For example, the worker allows the API to accept the request and return to the caller quickly while processing a database write operation separately.
 
-**Azure Event Hubs** is used as the message broker between the API and worker. 
+**Azure Event Hubs** is used as the message broker between the API and worker.
 
 > [!IMPORTANT]
-> The message broker is not intended to be used as a persistent data store for an long periods of time. The Event Hubs service supports [capture feature](/azure/event-hubs/event-hubs-capture-enable-through-portal) which allows an event hub to automatically write a copy of messages to a linked Azure Storage account. This keeps utilization in-check but it also serves as a mechanism to backup messages.
+> The message broker is not intended to be used as a persistent data store for long periods of time. The Event Hubs service supports [capture feature](/azure/event-hubs/event-hubs-capture-enable-through-portal) which allows an event hub to automatically write a copy of messages to a linked Azure Storage account. This keeps utilization in-check but it also serves as a mechanism to backup messages.
 
 ### Implementation details for write operations
 
@@ -171,7 +171,7 @@ Individual workload components should scale out independently because each has d
 
 In the implementation, the services are packaged as Docker containers and deployed by using Helm charts to each stamp. They are configured to have the expected Kubernetes requests and limits and a pre-configured auto-scaling rule in place. The `CatalogService` and the `BackgroundProcessor` workload component can scale in and out individually, both services are stateless.
 
-End users interact directly with the `CatalogService`, so this part of the workload must respond under any load. There are at least 3 instances per cluster to spread across three Availability Zones in an Azure region. AKS horizontal pod autoscaler (HPA) takes care of automatically adding more pods if needed and Cosmos DB auto-scale is able to dynamically increase and reduce RUs available for the collection. Together, the `CatalogService` and Cosmos DB form a **scale unit** within a stamp.
+End users interact directly with the `CatalogService`, so this part of the workload must respond under any load. There are at least 3 instances per cluster to spread across three Availability Zones in an Azure region. AKS horizontal pod autoscaler (HPA) takes care of automatically adding more pods if needed and Azure Cosmos DB auto-scale is able to dynamically increase and reduce RUs available for the collection. Together, the `CatalogService` and Azure Cosmos DB form a **scale unit** within a stamp.
 
 HPA is deployed with a Helm chart with configurable maximum and minimum number of replicas. The values are configured as:
 
@@ -214,7 +214,7 @@ Instrumentation is an important mechanism in evaluating performance bottle necks
 -  Implement event correlation to ensure end-to-end transaction view. In the RI, every API response contains **Operation ID** as an HTTP header for traceability.
 - Don't rely only on *stdout* (console) logging. However, these logs can be used for immediate troubleshooting of a failing pod.
 
-This architecture implements distributed tracing with Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is used for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Cosmos DB.
+This architecture implements distributed tracing with Application Insights backed by Log Analytics Workspace for all application monitoring data. Azure Log Analytics is used for logs and metrics of all workload and infrastructure components. The workload implements **full end-to-end tracing** of requests coming from the API, through Event Hubs, to Azure Cosmos DB.
 
 
 > [!IMPORTANT]
@@ -304,7 +304,7 @@ In the architecture, health monitoring is applied at these levels:
 
 `HealthService` is a workload component that is running along other components (`CatalogService` and `BackgroundProcessor`) on the compute cluster. It provides a REST API that is called by Azure Front Door health check to determine the availability of a stamp. Unlike basic liveness probes, health service is a more complex component which adds the state of dependencies in addition to its own.
 
-![Diagram of the health service querying Cosmos DB, Event Hubs and Storage.](./images/application-design-health-service.png)
+![Diagram of the health service querying Azure Cosmos DB, Event Hubs and Storage.](./images/application-design-health-service.png)
 
 If the AKS cluster is down, the health service won't respond, rendering the workload unhealthy. When the service is running, it performs periodic checks against critical components of the solution. All checks are done **asynchronously and in parallel**. If any of them fail, the whole stamp will be considered unavailable.
 

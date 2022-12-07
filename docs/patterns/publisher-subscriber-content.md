@@ -66,9 +66,9 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Message priority.** Some solutions may require that messages are processed in a specific order. The [Priority Queue pattern](priority-queue.yml) provides a mechanism for ensuring specific messages are delivered before others.
 
-- **Poison messages.** A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue. Instead, capture and store the details of these messages elsewhere so that they can be analyzed if necessary.
+- **Poison messages.** A malformed message, or a task that requires access to resources that aren't available, can cause a service instance to fail. The system should prevent such messages being returned to the queue. Instead, capture and store the details of these messages elsewhere so that they can be analyzed if necessary. Some message brokers, like Azure Service Bus, support this via their [dead-letter queue functionality](/azure/service-bus-messaging/service-bus-dead-letter-queues).
 
-- **Repeated messages.** The same message might be sent more than once. For example, the sender might fail after posting a message. Then a new instance of the sender might start up and repeat the message. The messaging infrastructure should implement duplicate message detection and removal (also known as de-duping) based on message IDs in order to provide at-most-once delivery of messages.
+- **Repeated messages.** The same message might be sent more than once. For example, the sender might fail after posting a message. Then a new instance of the sender might start up and repeat the message. The messaging infrastructure should implement duplicate message detection and removal (also known as de-duping) based on message IDs in order to provide at-most-once delivery of messages. Alternatively, if using messaging infrastructure which doesn't de-duplicate messages, make sure the [message processing logic is idempotent](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 - **Message expiration.** A message might have a limited lifetime. If it isn't processed within this period, it might no longer be relevant and should be discarded. A sender can specify an expiration time as part of the data in the message. A receiver can examine this information before deciding whether to perform the business logic associated with the message.
 
@@ -96,7 +96,7 @@ This pattern might not be useful when:
 
 ## Example
 
-The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.yml).
+The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid to notify subsystems of events that occur. For more information, see [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml).
 
 ![Enterprise integration architecture](../reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)
 
@@ -114,6 +114,10 @@ The following patterns might be relevant when implementing this pattern:
 
 - [Message Broker pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
 
+[This blog post](https://particular.net/blog/you-dont-need-ordered-delivery) describes different ways of handling messages that arrive out of order.
+
 ## Related resources
 
 - The [Event-driven architecture style](../guide/architecture-styles/event-driven.yml) is an architecture style that uses pub/sub messaging.
+- [Idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing)
+- [Enterprise integration on Azure using message queues and events](../example-scenario/integration/queues-events.yml)

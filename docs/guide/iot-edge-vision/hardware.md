@@ -44,6 +44,16 @@ The usage of FGPAs in ML and IoT Edge workloads is still evolving. FPGAs tend to
 
 ASICs are manufactured to do a specific task. ASICs are by far the fastest accelerators available, but are the least configurable. ASIC chips are popular because of their small size, power per watt performance, and intellectual property (IP) protection. The IP is burned into ASIC chips, making it hard to reverse engineer proprietary algorithms.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -2,7 +2,9 @@ This reference architecture shows how to implement a real-time web service in R 
 
 ## Architecture
 
-![Diagram that shows the real-time scoring of R machine learning models on Azure.][0]
+[ ![Diagram that shows the real-time scoring of R machine learning models on Azure.](./_images/realtime-scoring-r.png) ](./_images/realtime-scoring-r.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/realtime-scoring-r.vsdx) of this architecture.*
 
 This reference architecture takes a container-based approach. A Docker image is built containing R, as well as the various artifacts needed to score new data. These include the model object itself and a scoring script. An image is created and pushed to the Azure Container Registry associated with the Azure Machine Learning workspace. This is then deployed to an inference cluster using Azure Kubernetes Service.
 
@@ -59,6 +61,16 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The main cost consideration in this architecture is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Hong Ooi](https://www.linkedin.com/in/hongooi) | Senior Data Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure Machine Learning Documentation][aml-docs].
@@ -76,4 +88,3 @@ The main cost consideration in this architecture is the Kubernetes cluster's com
 [aks-baseline]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
 [docker]: https://docs.docker.com/registry/spec/api
 [r-sdk]: https://azure.github.io/azureml-sdk-for-r/index.html
-[0]: ./_images/realtime-scoring-r.png

@@ -11,7 +11,7 @@ This article describes a typical architecture of a consumer health portal, that 
 - This solution uses the global footprint of Azure Front Door and edge security features of Azure Web Application Firewall (WAF) to authenticate the inbound data. 
 - The authenticated data is then routed by Azure API Management (APIM) to either the front-end interface for the users on the Azure App Service, or APIs hosted in Azure Functions.
 
-The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in Cosmos DB, and can negatively impact its cost and performance.
+The primary backend data service used in this architecture is Azure Cosmos DB. The multi-model abilities of Azure Cosmos DB, in addition to its scalability and security, allow flexibility for any type of consumer health portal. Any data that is not in a record format is stored in Azure Blob Storage as an object. This data could include medical images, photos taken by the consumer, uploaded documents, archived data, and so on. Blob storage provides an affordable storage for large volumes of unstructured data. Such type of data is not optimized for storage in Azure Cosmos DB, and can negatively impact its cost and performance.
 
 ### Components
 
@@ -27,7 +27,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure Function Apps](https://azure.microsoft.com/services/functions) is a serverless platform solution on Azure that allows developers to write *compute-on-demand* code, without having to maintain any of the underlying systems. In this architecture, Azure Functions can host APIs, and any work that needs to be done asynchronously, such as running periodic jobs and computing statistics over a certain period of time.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, multi-model, NoSQL database offering that offers single-digit response times, and guarantees performance at any scale. Each user in the consumer health system will have only data related to themselves, which justifies the use of a NoSQL data structure. Cosmos DB has nearly limitless scale, as well as multi-region read and write. With the drastic growth of the amount of data collected by these types of consumer health systems, Cosmos DB can provide appropriate security, speed, and scale, regardless of whether there are 100 or 1,000,000 active users.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed, multi-model, NoSQL database offering that offers single-digit response times, and guarantees performance at any scale. Each user in the consumer health system will have only data related to themselves, which justifies the use of a NoSQL data structure. Azure Cosmos DB has nearly limitless scale, as well as multi-region read and write. With the drastic growth of the amount of data collected by these types of consumer health systems, Azure Cosmos DB can provide appropriate security, speed, and scale, regardless of whether there are 100 or 1,000,000 active users.
 
 - [Azure Key Vault](/azure/azure-monitor/app/app-insights-overview) is an Azure native service used for securely storing and accessing secrets, keys, and certificates. Key Vault allows for HSM-backed security, and audited access through Azure Active Directory integrated role-based access controls. Applications should never store keys or secrets locally. This architecture uses Azure Key Vault to store all secrets such as API Keys, passwords, cryptographic keys, and certificates.
 
@@ -56,7 +56,7 @@ The primary backend data service used in this architecture is Azure Cosmos DB. T
 
 - [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir) might be used for interoperability of medical records, using HL7 or FHIR communication standards. This service should be used if your application needs to receive or transmit medical records from other systems. For example, if this solution were a portal for medical providers, Azure API for FHIR could integrate with the provider's electronic medical records system directly.
 
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a service fine-tuned for ingesting device data. If the portal is the front end for a solution that collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](../../solution-ideas/articles/remote-patient-monitoring.yml) architecture.
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) is a service fine-tuned for ingesting device data. If the portal is the front end for a solution that collects data from a wearable or any other medical device, IoT Hub should be used to ingest this data. For more information, read the *INGEST* process of the [Remote Patient Monitoring Solutions](/azure/architecture/example-scenario/digital-health/remote-patient-monitoring) architecture.
 
 ## Scenario details
 
@@ -77,7 +77,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 This solution is currently designed as a single-region deployment. If your scenario requires a multi-region deployment for high-availability, disaster recovery, or even proximity, you might need a [Paired Azure Region](/azure/best-practices-availability-paired-regions) with the following configurations.
 
-- Cosmos DB is extended to enable a [multi-region configuration](/azure/cosmos-db/high-availability).
+- Azure Cosmos DB is extended to enable a [multi-region configuration](/azure/cosmos-db/high-availability).
 
 - Azure API Management is [deployed using CI/CD](/azure/api-management/devops-api-development-templates) into a secondary region. You might also apply the [Multi-Region Deployment capability](/azure/cosmos-db/high-availability) of API Management.
 
@@ -117,7 +117,7 @@ Make sure to also use a [role-based access control](/azure/storage/common/storag
 
 #### Azure Cosmos DB
 
-[Role-based access controls](/azure/cosmos-db/role-based-access-control) should be enabled for Cosmos DB management. Access to the data in Cosmos DB should be [appropriately secured](/azure/cosmos-db/secure-access-to-data). You can configure Cosmos DB to [store diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations) and to [store resource logs](/azure/cosmos-db/cosmosdb-monitor-resource-logs). See further details at [Security practices for Azure Cosmos DB](/azure/cosmos-db/database-security).
+[Role-based access controls](/azure/cosmos-db/role-based-access-control) should be enabled for Azure Cosmos DB management. Access to the data in Azure Cosmos DB should be [appropriately secured](/azure/cosmos-db/secure-access-to-data). You can configure Azure Cosmos DB to [store diagnostic logs for control plane operations](/azure/cosmos-db/audit-control-plane-logs#enable-diagnostic-logs-for-control-plane-operations) and to [store resource logs](/azure/cosmos-db/cosmosdb-monitor-resource-logs). See further details at [Security practices for Azure Cosmos DB](/azure/cosmos-db/database-security).
 
 #### Azure Key Vault
 

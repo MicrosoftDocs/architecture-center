@@ -25,7 +25,7 @@ Other relevant use cases include:
 ### Workflow
 
 - Distribute the VMs in each tier across two availability zones in regions that support zones. In other regions, deploy the VMs in each tier within one availability set.
-- The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, allowing the application to remain available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
+- The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary read/write replica within an availability group is configured with up to eight secondary read-only replicas. If an issue occurs with the primary replica, the availability group fails over primary read/write activity to one of the secondary replicas, allowing the application to remain available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
 - For disaster recovery scenarios, you can configure SQL Always On asynchronous native replication to the target region used for disaster recovery. You can also configure Azure Site Recovery replication to the target region if the data change rate is within supported limits of Azure Site Recovery.
 - Users access the front-end ASP.NET web tier via the traffic manager endpoint.
 - The traffic manager redirects traffic to the primary public IP endpoint in the primary source region.
@@ -59,11 +59,11 @@ To route traffic between regions, you need a global load balancer. There are two
 - Azure Front Door
 - Azure Traffic Manager
 
-When choosing a load balancer, consider your requirements and the feature set of the two offerings. How quickly do you want to failover? Can you take on the overhead of TLS management? Are there any organizational cost constraints?
+When choosing a load balancer, consider your requirements and the feature set of the two offerings. How quickly do you want to fail over? Can you take on the overhead of TLS management? Are there any organizational cost constraints?
 
 Front Door has Layer 7 capabilities: SSL offload, path-based routing, fast failover, caching, and others to improve performance and high-availability of your applications. You might experience faster packet travel times because the infrastructure is onboarded on Azure network sooner.
 
-Because Front Door adds a new hop, there are added security operations. If the architecture complies to regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+Because Front Door adds a new hop, there are added security operations. If the architecture complies with regulatory requirements, there might be restrictions about the additional traffic TLS termination point. The TLS cipher suites selected by Front Door must meet your organization's security bar. Also, Front Door expects the backend services to use [certificates used by Microsoft](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 Another consideration is cost. The architecture should take advantage of the extensive feature set (not just failover) to justify the added cost.
 
@@ -95,7 +95,7 @@ Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur
 - Network egress costs to replicate data changes from the source VM disks to another Azure region. Azure Site Recovery uses built-in compression to reduce the data transfer requirements by approximately 50%.
 - Storage costs on the recovery site. This is typically the same as the source region storage plus any additional storage needed to maintain the recovery points as snapshots for recovery.
 
-We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
+We've provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
 ## Contributors
 

@@ -78,7 +78,7 @@ Additional CI/CD architectures:
 * [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
 * [CI/CD for containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
 * [Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service)
-* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)
 * [CI/CD for Azure Web Apps](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps)
 * [Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)
 * [Build a CI/CD pipeline for chatbots with ARM templates](/azure/architecture/example-scenario/apps/devops-cicd-chatbot)

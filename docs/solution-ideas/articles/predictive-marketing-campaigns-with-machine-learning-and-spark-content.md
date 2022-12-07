@@ -43,4 +43,4 @@ Read other Azure Architecture Center articles about predictive machine learning:
 
 * [Predictive aircraft engine monitoring](./aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.yml)
 * [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
-* [Predict length of stay and patient flow for healthcare](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+* [Predict length of stay and patient flow for healthcare](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

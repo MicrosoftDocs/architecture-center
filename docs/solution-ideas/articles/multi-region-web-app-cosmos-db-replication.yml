@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Multi-region web application with Cosmos DB replication
+  title: Multi-region web application with Azure Cosmos DB replication
   titleSuffix: Azure Solution Ideas
   description: Architecture for a high-availability solution that handles massive amounts of data. It uses Azure Cosmos DB and serves multiple regions.
   author: nabilshams
   ms.author: nasiddi
   ms.date: 06/17/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
@@ -19,7 +19,7 @@ products:
   - azure-functions
   - azure-cosmos-db
   - azure-cache-redis
-name: Multi-region web application with Cosmos DB replication
+name: Multi-region web application with Azure Cosmos DB replication
 summary: Architecture for a high-availability solution that handles massive amounts of data. It uses Azure Cosmos DB and serves multiple regions.
 thumbnailUrl: /azure/architecture/browse/thumbs/multi-region-web-app-cosmos-db-replication.png
 content: |

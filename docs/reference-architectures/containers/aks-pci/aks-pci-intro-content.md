@@ -6,7 +6,7 @@ It's _not_ our goal to replace your demonstration of your compliance with this s
 >
 > The reference architecture and implementation have not been certified by an official authority. By completing this series and deploying the code assets, you do not clear audit for PCI DSS. Acquire compliance attestations from third-party auditor.
 
-## Before you begin...
+## Before you begin
 
 **Microsoft Trust Center** provides specific principles for compliance-related cloud deployments. The security assurances&mdash;provided by Azure as the cloud platform and AKS as the host container&mdash;are regularly audited and attested by third-party Qualified Security Assessor (QSA) for PCI DSS compliance.
 
@@ -25,11 +25,13 @@ It's _not_ our goal to replace your demonstration of your compliance with this s
 	As a workload owner, you're ultimately responsible for your own PCI DSS compliance. Have a clear understanding of your responsibilities by reading the PCI requirements to understand the intent, studying the [matrix for Azure](https://servicetrust.microsoft.com), and completing this series to understand the AKS nuances. This process will make your implementation ready for a successful assessment.
 
 ### Recommended articles
+
 This series assumes:
+
 - You're familiar with Kubernetes concepts and workings of an [AKS cluster](/azure/aks).
 - You've read the [AKS baseline reference architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 - You've deployed the [AKS baseline reference implementation](https://github.com/mspnp/aks-secure-baseline).
-- You're well versed with the official [PCI DSS 3.2.1 specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
+- You're very familiar with the official [PCI DSS 3.2.1 specification](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 - You've read the [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
 
 ### In this series
@@ -45,7 +47,7 @@ This series is split into several articles. Each article outlines the high-level
 |[Monitoring operations](aks-pci-monitor.yml)|Maintain the security posture through monitoring operations and regularly test your security design and implementation.|
 |[Policy management](aks-pci-policy.yml)|Maintain thorough and updated documentation about your security processes and policies.|
 
-## Next
+## Next steps
 
 Start by understanding the regulated architecture and the design choices.
 

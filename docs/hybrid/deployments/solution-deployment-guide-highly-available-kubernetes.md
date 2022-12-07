@@ -4,7 +4,7 @@ description: Learn how to deploy a Kubernetes cluster solution for high availabi
 author: BryanLa
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: bryanla
 ms.reviewer: bryanla
@@ -228,7 +228,7 @@ The Operations Management Suite (OMS) Agent on your Kubernetes cluster will send
 [![Azure Monitor cluster details](media/solution-deployment-guide-highly-available-kubernetes/azure-monitor-on-stack-2.png)](media/solution-deployment-guide-highly-available-kubernetes/azure-monitor-on-stack-2.png#lightbox)
 
 > [!IMPORTANT]
-> If Azure Monitor does not show any Azure Stack Hub data, please make sure that you have followed the instructions on [how to add AzureMonitor-Containers solution to a Azure Log Analytics workspace](https://github.com/Microsoft/OMS-docker/blob/ci_feature_prod/docs/solution-onboarding.md) carefully.
+> If Azure Monitor does not show any Azure Stack Hub data, please make sure that you have followed the instructions on [how to add AzureMonitor-Containers solution to an Azure Log Analytics workspace](https://github.com/Microsoft/OMS-docker/blob/ci_feature_prod/docs/solution-onboarding.md) carefully.
 
 ## Deploy the application
 

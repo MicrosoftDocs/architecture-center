@@ -246,7 +246,7 @@ Principal author:
 - [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Autoscaling and Zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 - [Automatically scale a cluster to meet application demands on Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler)
-- [Create Azure Cosmos containers and databases with autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale)
+- [Create Azure Cosmos DB containers and databases with autoscale throughput](/azure/cosmos-db/provision-throughput-autoscale)
 - [Microsoft Dynamics 365 documentation](/dynamics365)
 - [Microsoft 365 documentation](/microsoft-365/?view=o365-worldwide)
 - [Site reliability engineering documentation](/azure/site-reliability-engineering)

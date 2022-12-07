@@ -4,9 +4,9 @@
 
 ## Architecture
 
-![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.svg)
+![Architectural diagram: example of e-commerce chatbot for customer service requests.](../media/commerce-chatbot-customer-service.png)
 
-*Download an [SVG](../media/commerce-chatbot-customer-service.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/commerce-chatbot-customer-service.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -65,7 +65,7 @@ Microsoft Learn modules:
 Azure Architecture Center overview articles:
 
 * [Artificial intelligence (AI) - Architectural overview](../../data-guide/big-data/ai-overview.md)
-* [Choosing a Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
+* [Choosing an Azure Cognitive Services technology](../../data-guide/technology-choices/cognitive-services.md)
 
 Azure Architecture Center articles describing chatbot architectures:
 
