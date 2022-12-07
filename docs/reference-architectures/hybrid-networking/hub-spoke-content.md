@@ -246,9 +246,13 @@ For detailed information and extra deployment options, see the Azure Resource Ma
 
 ## Next steps
 
-Learn more about secured virtual hubs and the associated security and routing policies configured by Azure Firewall Manager.
+Learn more about secured virtual hubs and the associated security and routing policies configured by Azure Firewall Manager. 
 
-- [What is a secured virtual hub?](/azure/firewall-manager/secured-virtual-hub)
+- See [What is a secured virtual hub?](/azure/firewall-manager/secured-virtual-hub)
+
+The hub in a hub-spoke network topology is the main component in a connectivity subscription in an [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/).
+
+- See [Define an Azure network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology) to expand your understanding of building secure large-scale networks in Azure with routing and security managed by the customer, or by Microsoft.
 
 ## Related resources
 
