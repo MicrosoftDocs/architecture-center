@@ -63,16 +63,16 @@ You can use this approach to manage the following scenarios:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors: 
+Principal author: 
 
- - [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
  - [Saswat Mohanty](https://www.linkedin.com/in/saswat-mohanty-97511315a) | Senior Cloud Solution Architect
- - [Raj Penchala](https://www.linkedin.com/in/rajpenchala) | Principal Cloud Solution Architect 
  
-Other contributor: 
+Other contributors: 
 
  - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-
+ -  [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
+ - [Raj Penchala](https://www.linkedin.com/in/rajpenchala) | Principal Cloud Solution Architect 
+ 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
