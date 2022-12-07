@@ -64,6 +64,7 @@ I agree to the above terms.
 ## More icon sets from Microsoft
 
 - [Build Azure icons and diagrams with Visio for Microsoft 365](https://aka.ms/AzureDiagrams)
+    - *Note that you must have a Visio license to access this diagram*
 - [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
 - [Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft Power Platform icons](/power-platform/guidance/icons)
