@@ -40,19 +40,19 @@ Consider using a hybrid solution in the following scenarios:
 
 - Creating a consistent environment in terms of security, management, and development, and avoiding duplication of work.
 
-- Creating a reliable, low latency and secure data connection between your on-premises and cloud environments.
+- Creating a reliable, low-latency, and secure data connection between your on-premises and cloud environments.
 
 - Replicating your data and modifying applications and tools to use the correct data stores within each environment.
 
-- Securing and encrypting data that is hosted in the cloud but accessed from on-premises, or vice versa.
+- Securing and encrypting data that's hosted in the cloud but accessed from on-premises systems, or vice versa.
 
 ## On-premises data stores
 
-On-premises data stores include databases and files. There may be several reasons to keep these data stores local. There may be regulations or policies that do not permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns may favor on-premises placement. During a migration, you may want to keep some data local to an application that hasn't been migrated yet.
+On-premises data stores include databases and files. There can be several reasons to keep these data stores local. There might be regulations or policies that don't permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns might favor on-premises placement. During a migration, you might want to keep some data local to an application that hasn't been migrated yet.
 
 Considerations in placing application data in a public cloud include:
 
-- **Cost**. The cost of storage in Azure can be significantly lower than the cost of maintaining storage with similar characteristics in an on-premises datacenter. Of course, many companies have existing investments in high-end SANs, so these cost advantages may not reach full fruition until existing hardware ages out.
+- **Cost**. The cost of storage in Azure can be significantly lower than the cost of maintaining storage with similar characteristics in an on-premises datacenter. Of course, many companies have existing investments in high-end SANs, so these cost advantages might not reach full fruition until existing hardware ages out.
 
 - **Elastic scale**. Planning and managing data capacity growth in an on-premises environment can be challenging, particularly when data growth is difficult to predict. These applications can take advantage of the capacity-on-demand and virtually unlimited storage available in the cloud. This consideration is less relevant for applications that consist of relatively static-sized datasets.
 
@@ -60,7 +60,7 @@ Considerations in placing application data in a public cloud include:
 
 ## Extending data stores to the cloud
 
-There are several options for extending on-premises data stores to the cloud. One option is to have on-premises and cloud replicas. This can help achieve a high level of fault tolerance, but may require making changes to applications to connect to the appropriate data store in the event of a failover.
+There are several options for extending on-premises data stores to the cloud. One option is to have on-premises and cloud replicas. This can help achieve a high level of fault tolerance, but might require making changes to applications to connect to the appropriate data store in the event of a failover.
 
 Another option is to move a portion of the data to cloud storage, while keeping the more current or more highly accessed data on-premises. This method can provide a more cost-effective option for long-term storage, as well as improve data access response times by reducing your operational data set.
 
@@ -92,7 +92,7 @@ For disaster recovery and business continuity, you can use [AlwaysOn Availabilit
 
 In a hybrid cloud architecture, it is common for an organization to keep newer files on-premises while archiving older files to the cloud. This is sometimes called file tiering, where there is seamless access to both sets of files, on-premises and cloud-hosted. This approach helps to minimize network bandwidth usage and access times for newer files, which are likely to be accessed the most often. At the same time, you get the benefits of cloud-based storage for archived data.
 
-Organizations may also wish to move their network shares entirely to the cloud. This would be desirable, for example, if the applications that access them are also located in the cloud. This procedure can be done using [data orchestration](../technology-choices/pipeline-orchestration-data-movement.md) tools.
+Organizations might also wish to move their network shares entirely to the cloud. This would be desirable, for example, if the applications that access them are also located in the cloud. This procedure can be done using [data orchestration](../technology-choices/pipeline-orchestration-data-movement.md) tools.
 
 [Azure StorSimple](/azure/storsimple/) offers the most complete integrated storage solution for managing storage tasks between your on-premises devices and Azure cloud storage. StorSimple is an efficient, cost-effective, and easily manageable storage area network (SAN) solution that eliminates many of the issues and expenses associated with enterprise storage and data protection. It uses the proprietary StorSimple 8000 series device, integrates with cloud services, and provides a set of integrated management tools.
 
