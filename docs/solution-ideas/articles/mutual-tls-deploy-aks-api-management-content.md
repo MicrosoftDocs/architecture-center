@@ -46,7 +46,7 @@ This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and A
 
 You can use this solution to integrate AKS and API Management with mTLS in an architecture that provides end-to-end encryption.
 
-## Potential use cases
+### Potential use cases
 
 - AKS integration with API Management and Application Gateway, via mTLS. 
 - End-to-end mTLS between Azure API management and AKS.
@@ -69,7 +69,7 @@ Principal authors:
  - [Saswat Mohanty](https://www.linkedin.com/in/saswat-mohanty-97511315a) | Senior Cloud Solution Architect
  - [Raj Penchala](https://www.linkedin.com/in/rajpenchala) | Principal Cloud Solution Architect 
  
-Other contributors: 
+Other contributor: 
 
  - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
