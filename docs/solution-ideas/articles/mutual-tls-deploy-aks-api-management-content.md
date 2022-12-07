@@ -70,7 +70,7 @@ Principal author:
 Other contributors: 
 
  - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
- -  [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
+ - [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
  - [Raj Penchala](https://www.linkedin.com/in/rajpenchala) | Principal Cloud Solution Architect 
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
