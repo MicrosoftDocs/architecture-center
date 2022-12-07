@@ -1,12 +1,13 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS (mTLS), with end-to-end encryption.
+This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS (mTLS) in an architecture that provides end-to-end encryption.
 
 ## Architecture
 
-:::image type="content" source="../media/mutual-tls-deploy-aks-api-management.png" alt-text="[Diagram that shows an architecture for integrating AKS and API Management with mTLS." lightbox="../media/mutual-tls-deploy-aks-api-management.png" border="false":::
+:::image type="content" source="../media/mutual-tls-deploy-aks-api-management.png" alt-text="Diagram that shows an architecture for integrating AKS and API Management with mTLS." lightbox="../media/mutual-tls-deploy-aks-api-management.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/mutual-tls-for-deploying-aks-and-apim.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/mutual-tls-for-deploying-aks-and-api-management.vsdx) of this architecture.*
+
 
 ### Dataflow
 
@@ -23,49 +24,69 @@ This solution demonstrates how to integrate Azure Kubernetes Service (AKS) and A
 
 ### Components
 
-* [Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview) Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to web applications
-* [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service) offers fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
-* [Azure Container Registry](https://azure.microsoft.com/services/container-registry) is a managed, private Docker registry service on Azure. Use Container Registry to store private Docker images, which are deployed to the cluster.
-* [Azure Active Directory](https://azure.microsoft.com/services/active-directory). When AKS is integrated with Azure Active Directory, it allows you to use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources securely.
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed and intelligent relational database service built for the cloud. With SQL Database, you can create a highly available and high-performance data storage layer for modern cloud applications.
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a fully managed NoSQL database service for building and modernizing scalable, high performance applications.
-* [Azure API Management](https://azure.microsoft.com/en-us/products/api-management) Publish APIs to developers, partners, and employees securely and at scale.
-* [Azure Private Endpoint](https://azure.microsoft.com/en-us/products/private-link) Private access to Azure PaaS services hosted on the Azure platform, keeping your data on the Microsoft network.
-* [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault) Safeguard and maintain control of keys and other secrets.
-* [Microsoft Defender for Cloud](https://azure.microsoft.com/en-us/products/defender-for-cloud) Microsoft Defender for Cloud is a solution for cloud security posture management (CSPM) and cloud workload protection (CWP) that finds weak spots across your cloud configuration, helps strengthen the overall security posture of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats.
-* [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor) Collect, analyze, and act on telemetry data from your Azure and on-premises environments. Azure Monitor helps you maximize performance and availability of your applications and proactively identify problems in seconds.
-* [Log Analytics in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) Log Analytics is a tool in the Azure portal that's used to edit and run log queries with data in Azure Monitor Logs.
-* [Application Insights in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) Application Insights is an extension of Azure Monitor and provides Application Performance Monitoring (also known as “APM”) features.
-* [Microsoft Sentinel](https://azure.microsoft.com/en-us/products/microsoft-sentinel) Microsoft Sentinel is a cloud-native security information and event manager (SIEM) platform that uses built-in AI to help analyze large volumes of data across an enterprise—fast.
-* [Azure Bastion](https://azure.microsoft.com/en-us/products/azure-bastion) Azure Bastion is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to virtual machines (VMs) without any exposure through public IP addresses. Provision the service directly in your local or peered virtual network to get support for all the VMs within it.
-* [Azure Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources) Managed identities eliminate the need to manage credentials, such as certificates,secrets and keys
-* [Azure Private DNS](https://learn.microsoft.com/en-us/azure/dns/private-dns-privatednszone) Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution
+* [Application Gateway](https://azure.microsoft.com/products/application-gateway). Application Gateway is a web traffic load balancer that you can use to manage traffic to web applications.
+* [AKS](https://azure.microsoft.com/services/kubernetes-service). AKS provides fully managed Kubernetes clusters for deployment, scaling, and management of containerized applications.
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry). Container Registry is a managed, private Docker registry service on Azure. You can use Container Registry to store private Docker images, which are deployed to the cluster.
+* [Azure AD](https://azure.microsoft.com/services/active-directory). When AKS is integrated with Azure AD, you can use Azure AD users, groups, or service principals as subjects in Kubernetes RBAC to manage AKS resources.
+   * [Managed Identities](/azure/active-directory/managed-identities-azure-resources). Azure AD managed identities eliminate the need to manage credentials like certificates, secrets, and keys.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database). SQL Database is a fully managed and intelligent relational database service that's built for the cloud. You can use SQL Database to create a high-availability, high-performance data storage layer for your modern cloud applications.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db). Azure Cosmos DB is a fully managed NoSQL database service for building and modernizing scalable, high-performance applications.
+* [API Management](https://azure.microsoft.com/products/api-management). You can use API Management to publish APIs to your developers, partners, and employees.
+* [Azure Private Link](https://azure.microsoft.com/products/private-link). Private Link provides access to PaaS services that are hosted on Azure, so you can keep your data on the Microsoft network.
+* [Key Vault](https://azure.microsoft.com/products/key-vault). Key Vault can provide enhanced security for keys and other secrets.
+* [Defender for Cloud](https://azure.microsoft.com/products/defender-for-cloud). Defender for Cloud is a solution for cloud security posture management and cloud workload protection that finds weak spots across your cloud configuration, helps strengthen the security of your environment, and can protect workloads across multicloud and hybrid environments from evolving threats.
+* [Azure Monitor](https://azure.microsoft.com/products/monitor). You can use Monitor to collect, analyze, and act on telemetry data from your Azure and on-premises environments. Monitor helps you maximize the performance and availability of your applications and proactively identify problems.
+   * [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). You can use Log Analytics to edit and run log queries with data in Azure Monitor logs.
+   * [Application Insights in Azure Monitor](/azure/azure-monitor/app/app-insights-overview) Application Insights is an extension of Azure Monitor. It provides application performance monitoring.
+* [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel) Microsoft Sentinel is a cloud-native security information and event manager platform that uses built-in AI to help you analyze large volumes of data.
+* [Azure Bastion](https://azure.microsoft.com/products/azure-bastion). Azure Bastion is a fully managed service that provides RDP and SSH access to VMs without any exposure through public IP addresses. You can provision the service directly in your local or peered virtual network to get support for all VMs in that network.
+* [Azure Private DNS](/azure/dns/private-dns-privatednszone). You can use Private DNS to manage and resolve domain names in a virtual network without adding a custom DNS solution.
 
 ## Scenario details
 
+You can use this solution to integrate AKS and API Management with mTLS in an architecture that provides end-to-end encryption.
+
 ## Potential use cases
 
-*Azure Kubernetes Service (AKS) integration with API Management and Application Gateway with mTLS. 
-*End to end mutual TLS between Azure API management and Azure Kubernetes Service
-*Highly secure deployment for customers (ex: financial sector) demanding end to end TLS
+- AKS integration with API Management and Application Gateway, via mTLS. 
+- End-to-end mTLS between Azure API management and AKS.
+- High security deployments for organizations that need end-to-end TLS. For example, organizations in the financial sector can benefit from this solution.
 
-This approach can be used to manage the following scenarios:
+You can use this approach to manage the following scenarios:
 
-* Integrate API Management with Azure Kubernetes Service
-* Deploy API Management in internal mode and expose APIs using Application Gateway
-* Configure mTLS and end to end encryption for maximum security and traffic over Https  
-* Securely connect to Azure PaaS services over Private Endpoint
-* Microsoft Defender for Cloud for Container security
+* Deploy API Management in internal mode and expose APIs by using Application Gateway.
+* Configure mTLS and end-to-end encryption for high security and traffic over HTTPS.  
+* Connect to Azure PaaS services by using an enhanced security private endpoint.
+* Implement Defender for Containers security.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors: 
+
+ - [Arshad Azeem](https://www.linkedin.com/in/arshadazeem) | Senior Cloud Solution Architect
+ - [Saswat Mohanty](https://www.linkedin.com/in/saswat-mohanty-97511315a) | Senior Cloud Solution Architect
+ - [Raj Penchala](https://www.linkedin.com/in/rajpenchala) | Principal Cloud Solution Architect 
+ 
+Other contributors: 
+
+ - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* To learn about the AKS product roadmap, see [Azure Kubernetes Service Roadmap on GitHub](https://github.com/Azure/AKS/projects/1).
-* Learn more about Azure Kubernetes Service (AKS), see [Azure Kubernetes Service (AKS) documentation](https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes).
-* Azure Kubernetes Service learning path [AKS Learning](https://learn.microsoft.com/en-us/training/paths/intro-to-kubernetes-on-azure).  
-* Learn about API management landing zone accelerator, see [Azure API Management on GitHub](https://github.com/Azure/apim-landing-zone-accelerator).
-* Microsoft Defender for Cloud Blog [Microsoft Defender for Cloud on Blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
+- [Application Gateway](/azure/application-gateway/overview)
+- [AKS Roadmap](https://github.com/Azure/AKS/projects/1)
+- [AKS documentation](/azure/aks/intro-kubernetes)
+- [AKS learning path](/training/paths/intro-to-kubernetes-on-azure)  
+- [API MAnagement learning path](/training/modules/explore-api-management)
+- [API Management landing zone accelerator](https://github.com/Azure/apim-landing-zone-accelerator)
+- [Microsoft Defender for Cloud Blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog)
 
 ## Related resources
 
-* Follow the [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md).
-* Explore API MAnagement learning path [Azure API Management training](https://learn.microsoft.com/en-us/training/modules/explore-api-management/).
+- [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
+- [AKS cluster best practices](/azure/aks/best-practices)
+- [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
