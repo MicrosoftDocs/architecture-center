@@ -207,7 +207,7 @@ For the Azure Quantum service, consider these points:
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributor.* 
 
 Principal author: 
 
