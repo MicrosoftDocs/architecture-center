@@ -34,10 +34,10 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Web application backends Retail scenario: Pick up online orders from a queue, process them, and store the resulting data in a database
+        Web application backends the retail scenario: Pick up online orders from a queue, process them, and store the resulting data in a database.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/web-app-backends.png" alt-text="Diagram shows a request made in a web app queued in Service Bus, then processed by a function and sent to Azure Cosmos DB.":::
+        :::image type="content" source="./images/web-app-backends.png" alt-text="Diagram shows a request made in a web app queued in Service Bus, which is then processed by a function and sent to Azure Cosmos DB.":::
     :::column-end:::
 :::row-end:::
 
@@ -45,10 +45,10 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Mobile application backends Financial services scenario: Colleagues use mobile banking to reimburse each other for lunch. Whoever paid for lunch requests payment through a mobile app, triggering a notification on colleagues' phones.
+        Mobile application backends the financial services scenario: Colleagues use mobile banking to reimburse each other for lunch. Whoever paid for lunch requests payment through a mobile app, which triggers a notification on the colleagues' phones.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/mobile-app-backends.png" alt-text="Diagram shows an H T T P A P I call, processed by a function and sent to Azure Cosmos DB which triggers another function to send notifications.":::
+        :::image type="content" source="./images/mobile-app-backends.png" alt-text="Diagram shows an H T T P A P I call, which is processed by a function and sent to Azure Cosmos DB. It triggers another function to send notifications.":::
     :::column-end:::
 :::row-end:::
 
@@ -56,10 +56,10 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### IoT-connected backends Manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and triggers a message to the service department when repair is required.
+        IoT-connected backends in the manufacturing scenario: A manufacturing company uses IoT to monitor its machines. Functions detects anomalous data and that triggers a message to the service department when a repair is required.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, then routed for processing by using Zendesk.":::
+        :::image type="content" source="./images/iot-connected-backends.png" alt-text="Diagram shows I o T devices that produce requests for repair, which are sent to the I o T Hub, and are then routed for processing by using Zendesk.":::
     :::column-end:::
 :::row-end:::
 
@@ -67,7 +67,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Conversational bot processing Hospitality scenario: Customers ask for available vacation accommodations on their smartphones. A serverless bot deciphers requests and returns vacation options.
+        Conversational bot processing for the hospitality scenario: Customers ask for available vacation accommodations on their phones. A serverless bot deciphers requests and returns vacation options.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/conversational-bot-processing.png" alt-text="Diagram shows a user request through a conversational interface that a bot deciphers for another function to process the request.":::
@@ -78,10 +78,10 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Real-time file processing Healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, processes it using OCR detection, and adds it to a database for easy queries.
+        Real-time file processing for the healthcare scenario: The solution securely uploads patient records as PDF files. The solution then decomposes the data, by processes it using OCR detection, and it adds the data to a database for easy queries.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/real-time-file-processing.png" alt-text="Diagram shows patient records uploaded, then decomposed and sent to Cognitive Services to be structured into a database.":::
+        :::image type="content" source="./images/real-time-file-processing.png" alt-text="Diagram shows patient records uploaded, which is then decomposed and sent to Cognitive Services to be structured into a database.":::
     :::column-end:::
 :::row-end:::
 
@@ -89,7 +89,7 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Real-time stream processing Independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.
+        Real-time stream processing for the independent software vendor (ISV) scenario: A massive cloud app collects huge amounts of telemetry data. The app processes that data in near real-time and stores it in a database for use in an analytics dashboard.
     :::column-end:::
     :::column span="2":::
         :::image type="content" source="./images/real-time-stream-processing.png" alt-text="Diagram shows an app that collects data, which is ingested by Event Hubs, processed by a function, and sent to Azure Cosmos DB.":::
@@ -100,10 +100,10 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Scheduled task automation Financial services scenario: The app analyzes a customer database for duplicate entries every 15 minutes, to avoid sending out multiple communications to the same customers.
+        Scheduled task automation for the financial services scenario: The app analyzes a customer database for duplicate entries every 15 minutes, to avoid sending out multiple communications to the same customers.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/automation-scheduled-tasks.png" alt-text="Diagram shows a database which is cleaned by a function every 15 minutes, which removes duplicate entries.":::
+        :::image type="content" source="./images/automation-scheduled-tasks.png" alt-text="Diagram shows a database that is cleaned by a function every 15 minutes, which removes duplicate entries.":::
     :::column-end:::
 :::row-end:::
 
@@ -111,10 +111,10 @@ Common serverless architecture patterns include:
 
 :::row:::
     :::column:::
-        ### Extending SaaS applications Professional services scenario: A SaaS solution provides extensibility through webhooks, which Functions can implement to automate certain workflows.
+        Extending SaaS applications in the professional services scenario: A SaaS solution provides extensibility through webhooks, which Azure Functions can implement to automate certain workflows.
     :::column-end:::
     :::column span="2":::
-        :::image type="content" source="./images/extending-saas-app.png" alt-text="Diagram shows an issue created in GitHub, which triggers a webhook call, which is processed by a function by posting the issue details to Slack.":::
+        :::image type="content" source="./images/extending-saas-app.png" alt-text="Diagram shows an issue created in GitHub, which triggers a webhook call. It's processed by a function that posts the issue details to Slack.":::
     :::column-end:::
 :::row-end:::
 
@@ -211,3 +211,11 @@ The following sections list other serverless and Azure Functions-related referen
 ### Automation
 
 - [Smart scaling for Azure Scale Set with Azure Functions](/samples/azure-samples/azure-scale-set-smart-downscale/smart-scaling-for-azure-scale-set-with-azure-functions/)
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Rogerio Halicki Cordeiro](https://www.linkedin.com/in/rogeriohalickicordeiro) | Senior Cloud Solution Architect
