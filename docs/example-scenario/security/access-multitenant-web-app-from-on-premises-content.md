@@ -2,7 +2,7 @@ This article shows how to set up improved-security private connectivity to a mul
 
 ## Potential use cases
 
-- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from an on-premises network or from within an Azure virtual network.
+- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from an on-premises network or from within Azure virtual networks.
 - Connect from a web app or function app to Azure platform as a service (PaaS) offerings:
    - Another web app
    - Azure SQL Database
@@ -19,18 +19,21 @@ This article shows how to set up improved-security private connectivity to a mul
 ### Dataflow
 
 - By using Azure App Service [regional virtual network integration](/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration), the web app connects to Azure services through delegated subnet *VNet Integration Subnet* in an Azure virtual network.
-   -	The *VNet Integration Subnet* and *Private Endpoint Subnet* networks are in separate virtual networks. Both of these networks are peered with *Hub Virtual Network* as part of a hub-and-spoke network configuration. For regional virtual network integration, the peered virtual networks must be located in the same Azure region.
-- [Azure Private Link](/azure/private-link/private-link-service-overview) sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the PaaS services, web apps, Azure SQL database, Azure storage account, and Azure key vault in *Private Endpoint Virtual Network*.
+   -	The *VNet Integration Subnet* and *Private Endpoint Subnet* networks are separate virtual networks in different subscriptions. Both networks are peered with *Hub Virtual Network* as part of a hub-and-spoke network configuration. For regional virtual network integration, the peered virtual networks must be in the same Azure region.
+- [Azure Private Link](/azure/private-link/private-link-service-overview) service sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the PaaS services, web apps, Azure SQL database, Azure storage account, and Azure key vault in *Private Endpoint Virtual Network*.
+   In this example, this virtual network is dedicated for deployment of private endpoints only. No other resource like a virtual machine will be deployed in this virtual network. The subnet size has been chosen keeping in mind the future demand to add private endpoints.
 - The on-premises network and Azure virtual networks can be connected via [Site-to-Site (S2S) VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) or [Azure ExpressRoute private peering](/azure/expressroute/expressroute-circuit-peerings#privatepeering). Users in the on-premises network access the app privately and with improved security over the private network only.
 
    In this example, the on-premises network and Azure virtual networks are connected via ExpressRoute private peering.
-- For an on-premises network that already has a Domain Name System (DNS) solution in place, the on-premises DNS solution is configured to forward DNS traffic to Azure DNS via a [conditional forwarder](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server). The conditional forwarder references the DNS forwarder deployed in Azure. This DNS forwarder in Azure resolves all the DNS queries via a server-level forwarder to the Azure-provided DNS service [168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16).
-
-   The resolution is done by a [private DNS zone linked to the virtual network](/azure/dns/private-dns-overview). 
+- For an on-premises network that already has a Domain Name System (DNS) solution in place, the on-premises DNS solution is configured to forward DNS traffic to an Azure private DNS record (for example, azurewebsites.net) via a [conditional forwarder](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) that forwards the request to the DNS Private Resolver service's inbound endpoint that's deployed in Azure. DNS Private Resolver queries Azure DNS and receives information about the Azure Private DNS virtual network link. Then the resolution is done by the [private DNS zone linked to the virtual network](/azure/dns/private-dns-overview). 
 
    Private DNS zones are also deployed in the same subscription as *Private Endpoint Virtual Network*.
 
-   In this example, a DNS forwarder machine in the on-premises network (192.168.0.254) forwards all DNS resolution requests to the hostname azurewebsites.net to the DNS forwarder VM in Azure (10.0.0.132). This VM forwards all requests to the Azure-provided DNS service IP address 168.63.129.16.
+   In this example, a DNS forwarder machine at IP address 192.168.0.254 in the on-premises network forwards all DNS resolution requests to the hostname azurewebsites.net to the DNS Private Resolver service's inbound endpoint in Azure at address 10.0.0.132. Then the requests are resolved by the Azure-provided DNS service, which has IP address 168.63.129.16, via the Azure Private DNS zone that's linked to the virtual network.
+
+   An outbound endpoint is required to enable conditional forwarding name resolution from Azure to on-premises, other cloud providers, or external DNS servers, using a DNS forwarding ruleset.
+ 
+   Configuring a DNS forwarding ruleset isn't required for this scenario.
 
    This app service configuration should be present:
 
@@ -59,6 +62,7 @@ The target fully qualified domain names (FQDNs) are:
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) private peering extends on-premises networks into the Microsoft cloud over a private connection. You could also establish Site-to-Site VPN between on-premises and the Azure network instead of using Azure ExpressRoute.
 -	[Azure Firewall](https://azure.microsoft.com/services/azure-firewall) is a managed, cloud-based network security service that helps protect Azure Virtual Network resources. 
 -	[Private DNS Zone](/azure/dns/private-dns-overview) provides a reliable and secure DNS service for managing and resolving domain names in the virtual network.
+- [DNS Private Resolver](/azure/dns/dns-private-resolver-overview) enables the querying of [Azure DNS](https://azure.microsoft.com/products/dns) private zones from an on-premises environment, and vice-versa, without deploying VM-based DNS servers.
 
 ### Alternatives
 
@@ -111,7 +115,7 @@ When you create a private endpoint, *VNet Integration Subnet* can access the ser
 
 ### Availability
 
-Azure Private Link support for App Service is available in all public regions. For Azure SQL Database, Azure Storage, and Azure Key Vault, the Private Link service is available in all public and government regions.
+Private Link support for App Service, SQL Database, Azure Storage, and Azure Key Vault is available in all public regions. To check availability in other regions, see [Azure Private Link availability](/azure/private-link/availability)
 
 Private Link introduces another component and availability consideration into the architecture. The Private Link service has a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/private-link). You need to take this SLA into account when you calculate the composite SLA of the entire solution.
 
@@ -135,7 +139,9 @@ You can also use the connection troubleshoot service in Azure [Network Watcher](
 
 ### Cost optimization
 
-There's no added cost for App Service regional VNet Integration in a supported pricing tier of Standard or higher. But Private Endpoints for Web Apps is supported only on Elastic Premium, Premium V2, and Premium V3 plans.
+There's no added cost for App Service regional VNet Integration in supported pricing tiers in Basic, Standard, Premium v2, Premium v3, Isolated v2 App Service, and Azure Functions Premium plans.
+
+Private endpoint is available for Windows web apps and Linux web apps, containerized or not, hosted on Basic, Standard, Premium v2, Premium v3, and Isolated v2 App Service plans, and also for function apps deployed to a Premium plan.
 
 The Azure Private Link service that enables the private endpoints for PaaS services has an associated cost that's based on an hourly fee plus a premium on bandwidth. See the [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link) page for details. Connections from a client virtual network to the Azure Firewall in the hub virtual network incur charges. You aren't charged for connections from Azure Firewall in the hub virtual network to private endpoints in a peered virtual network.
 
