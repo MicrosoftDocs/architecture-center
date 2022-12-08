@@ -83,3 +83,7 @@ The next step is to define the boundaries for each microservice.
 
 > [!div class="nextstepaction"]
 > [Identify microservice boundaries](./microservice-boundaries.yml)
+
+## Related resources
+
+- 

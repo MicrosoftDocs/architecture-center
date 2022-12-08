@@ -91,7 +91,7 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 ## Considerations
 
-The CluedIn platform has the following characteristics and considerations:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Resiliency
 
@@ -110,6 +110,8 @@ The CluedIn platform has the following characteristics and considerations:
 - Schemaless graph modeling automatically infers a data model from the source data. New data sources automatically connect to all other data sources, rather than having to be explicitly integrated. The number of data sources can scale infinitely without increasing integration complexity.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - CluedIn security grants permissions and controls access to different services through [Azure RBAC](/azure/role-based-access-control/overview), with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) security key control and [Azure Monitor](https://azure.microsoft.com/services/monitor/) access tracking and logging.
 
@@ -130,6 +132,8 @@ The CluedIn platform has the following characteristics and considerations:
 - For testing and production environments, CluedIn provides a [Helm package manager](https://helm.sh/) chart to install CluedIn quickly in a Kubernetes cluster. Fully scripted data deployment processes support setup, test, and rollout.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 The pricing for CluedIn is open and transparent. You can see the pricing on their [website](https://www.cluedin.com/).
 
