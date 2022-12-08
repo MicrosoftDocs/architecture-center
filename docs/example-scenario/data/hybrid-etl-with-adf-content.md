@@ -1,4 +1,4 @@
-This example scenario presents a hybrid solution for moving SQL Server databases to the cloud. The solution uses Azure Data Factory as the primary cloud-based extract, transform, and load (ETL) engine. By using the Data Factory integration runtime, the solution incorporates existing SQL Server Integration Services (SSIS) packages into the new cloud data workflow.
+This example scenario presents a hybrid solution for moving SQL Server databases to the cloud. The solution uses Azure Data Factory as the primary cloud-based extract, transform, and load (ETL) engine. To incorporate existing SQL Server Integration Services (SSIS) packages into the new cloud data workflow, the solution uses the Data Factory integration runtime.
 
 ## Architecture
 
@@ -52,7 +52,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-The integration runtime supports two models: a self-hosted integration runtime or an Azure-hosted integration runtime. You first must decide between these two options. Self-hosting is more cost effective but has more overhead for maintenance and management. For more information, see [Self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime). If you need help determining which integration runtime to use, see [Determining which IR to use](/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use).
+The integration runtime supports two models: a self-hosted integration runtime or an Azure-hosted integration runtime. You first must decide between these two options. Self-hosting is more cost effective but has more overhead for maintenance and management. For more information, see [Self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime). If you need help with determining which integration runtime to use, see [Determining which IR to use](/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use).
 
 For the Azure-hosted approach, you should decide how much power is required to process your data. The Azure-hosted configuration allows you to select the VM size as part of the configuration steps. To learn more about selecting VM sizes, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
 
@@ -64,12 +64,12 @@ Ultimately, the intent is to move the processed data into the cloud for further 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Data Factory is a cost-effective way to orchestrate data movement in the cloud. The cost is based on several factors:
+Data Factory is a cost-effective way to orchestrate data movement in the cloud. The cost is based on the number of:
 
-- Number of pipeline executions
-- Number of entities/activities used within the pipeline
-- Number of monitoring operations
-- Number of integration runtimes (Azure-hosted integration runtime or self-hosted integration runtime)
+- Pipeline executions.
+- Entities/activities used within the pipeline.
+- Monitoring operations.
+- Integration runtimes (Azure-hosted integration runtime or self-hosted integration runtime).
 
 Data Factory uses consumption-based billing. Therefore, cost is only incurred during pipeline executions and monitoring. The execution of a basic pipeline would cost as little as 50 cents and the monitoring as little as 25 cents. To create a more accurate estimate based on your specific workload, use the [Azure cost calculator](https://azure.microsoft.com/pricing/calculator).
 

@@ -61,7 +61,7 @@ Consider these options when you want scripted and programmatic data transfer:
 
 - [AdlCopy](/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) enables you to copy data from Blob Storage into Azure Data Lake Storage. It can also be used to copy data between two Data Lake Storage accounts. However, it can't be used to copy data from Data Lake Storage to Blob Storage.
 
-- [Distcp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is used to copy data to and from an HDInsights cluster storage (WASB) into a Data Lake Storage account.
+- [Distcp](/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp) is used to copy data to and from an HDInsight cluster storage (WASB) into a Data Lake Storage account.
 
 - [Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. It allows data transfer between an HDInsight cluster and relational databases such as SQL, Oracle, MySQL, and so on. Sqoop is a collection of related tools, including import and export tools. Sqoop works with HDInsight clusters by using either Blob Storage or Data Lake Storage attached storage.
 
