@@ -129,3 +129,10 @@ For microservices that talk directly to each other, it's important to create wel
 
 > [!div class="nextstepaction"]
 > [API design](./api-design.yml)
+
+## Related resources
+
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)
+- [Using tactical DDD to design microservices](../model/tactical-ddd.yml)
+- [Identify microservice boundaries](../model/microservice-boundaries.yml)

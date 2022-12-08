@@ -77,3 +77,10 @@ The previous articles have looked at the interfaces *between* microservices or b
 
 > [!div class="nextstepaction"]
 > [Data considerations for microservices](./data-considerations.yml)
+
+## Related resources
+
+- [Design APIs for microservices](api-design.yml)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)
+- [Microservices assessment and readiness](../../guide/technology-choices/microservices-assessment.md)

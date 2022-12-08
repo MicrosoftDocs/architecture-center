@@ -194,3 +194,10 @@ Learn about using an API gateway at the boundary between client applications and
 
 > [!div class="nextstepaction"]
 > [API gateways](./gateway.yml)
+
+## Related resources
+
+- [API design](../../best-practices/api-design.md)
+- [API implementation](../../best-practices/api-implementation.md)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)
