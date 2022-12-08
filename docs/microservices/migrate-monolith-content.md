@@ -108,3 +108,10 @@ Principal author:
 ## Next steps
 
 When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops/) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.yml).
+
+## Related resources
+
+- []()
+- []()
+- []()
+- []()
