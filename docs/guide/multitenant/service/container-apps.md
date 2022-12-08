@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Container Apps that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Container Apps in a multitenant solution.
 author: willvelida
 ms.author: willvelida
-ms.date: 10/26/2022
+ms.date: 12/09/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -93,7 +93,7 @@ Azure Container Apps enables you to use [wildcard DNS and to add your own wildca
 
 In Azure Container Apps, you manage certificates at the environment level. [Ingress](/azure/container-apps/ingress) must also be enabled for the container app before you can bind a custom domain to it.
 
-### Request Authentication and authorization
+### Request authentication and authorization
 
 Azure Container Apps can [validate authentication tokens on behalf of your app](/azure/container-apps/authentication#feature-architecture). If a request doesn't contain a token, the token is invalid, or if the request isn't authorized, Azure Container Apps can be configured to either block the request, or redirect it to your identity provider, so that the user can sign in.
 
@@ -109,15 +109,15 @@ More information:
 > [!NOTE]
 > The features for authentication and authorization in Azure Container Apps are similar those in Azure App Service. However, there are some differences. For more information, see [Considerations for using built-in authentication](/azure/container-apps/authentication#considerations-for-using-built-in-authentication).
 
-### Managed Identities
+### Managed identities
 
-You can use managed identities from Azure AD to allow your container app to access other Azure AD-protected resources. This removes the need for your container app to manage credentials, and gives you the advantage of providing specific permissions to your container app identity for role-based access control.
+You can use managed identities from Azure AD to enable your container app to access other Azure AD-protected resources. Managed identities remove the need for your container app to manage credentials for service-to-service communication. You can grant specific permissions to your container app's identity for role-based access control.
 
-Be mindful of which isolation model you choose when using managed identities. For example, if you share your container apps among all your tenants that interact to tenant-specific databases, you will need to ensure that one tenant can't access another tenant's database.
+Be mindful of which isolation model you choose when using managed identities. For example, suppose you share your container apps among all your tenants, and deploy tenant-specific databases. You need to ensure that one tenant's application can't access a different tenant's database.
 
 For more information:
 
-- [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity?tabs=portal%2Cdotnet)
+- [Managed identities in Azure Container Apps](/azure/container-apps/managed-identity)
 
 ## Contributors
 
