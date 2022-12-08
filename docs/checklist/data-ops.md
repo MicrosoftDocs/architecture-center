@@ -100,7 +100,7 @@ DataOps is a lifecycle approach to data analytics. It uses agile practices to or
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Katie Novotny](https://www.linkedin.com/in/katie-novotny/) | Senior Specialist GBB
  
