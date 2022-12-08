@@ -49,8 +49,8 @@ Our reference implementation uses Kubernetes with [Azure Kubernetes Service](/az
 
 ## Related resources
 
-- [Interservice communication](./interservice-communication.yml)
-- [API design](./api-design.yml)
-- [API gateways](./gateway.yml)
-- [Data considerations](./data-considerations.yml)
-- [Design patterns](./patterns.yml)
+- [Design interservice communication for microservices](./interservice-communication.yml)
+- [Design APIs for microservices](./api-design.yml)
+- [Use API gateways in microservices](./gateway.yml)
+- [Data considerations for microservices](./data-considerations.yml)
+- [Design patterns for microservices](./patterns.yml)
