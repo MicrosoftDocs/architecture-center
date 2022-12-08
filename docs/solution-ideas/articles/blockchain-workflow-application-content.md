@@ -1,6 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes how to use Azure blockchain solutions to digitize workflows and supply chains across organizations.
+Businesses use blockchain to digitize workflows they share with other organizations, such as moving physical assets across supply chains. The anatomy of blockchain apps is similar across use cases. Here, we use Azure Blockchain Service as the foundational managed blockchain network and build a consortium application that can ingest signals from relevant user interfaces and communicate ledger data to consuming apps across the consortium.
+
+## Potential use cases
+
+This solution is ideal for the manufacturing and healthcare industries, and it's optimized for the following scenarios:
+
+* Supply chain management
+* Medical data management
+* Smart contract platforms
 
 ## Architecture
 
@@ -18,7 +26,7 @@ This article describes how to use Azure blockchain solutions to digitize workflo
 
 ### Components
 
-* [Blockchain](https://azure.microsoft.com/services/blockchain-service): Build, govern, and expand consortium blockchain networks
+* [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service): Build, govern, and expand consortium blockchain networks
 * [Service Bus](https://azure.microsoft.com/services/service-bus): Connect across private and public cloud environments
 * [Azure IoT Central](https://azure.microsoft.com/services/iot-central): Accelerate the creation of IoT solutions
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
@@ -31,21 +39,9 @@ This article describes how to use Azure blockchain solutions to digitize workflo
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, optionally connect to on-premises datacenters
 * [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded): Embed fully interactive, stunning data visualizations in your applications
 
-## Scenario details
-
-Businesses use blockchain to digitize workflows they share with other organizations, such as moving physical assets across supply chains. The anatomy of blockchain apps is similar across use cases. Here, we use Azure blockchain solutions as the foundational managed blockchain network and build a consortium application that can ingest signals from relevant user interfaces and communicate ledger data to consuming apps across the consortium.
-
-### Potential use cases
-
-This solution is ideal for the manufacturing and healthcare industries. It's optimized for the following scenarios:
-
-* Supply chain management
-* Medical data management
-* Smart contract platforms
-
 ## Next steps
 
-* [Blockchain](/azure/blockchain/service)
+* [Azure Blockchain documentation](/azure/blockchain/service)
 * [Service Bus documentation](/azure/service-bus)
 * [Azure IoT Central documentation](/azure/iot-central)
 * [Application Insights documentation](/azure/azure-monitor/learn/tutorial-runtime-exceptions)
