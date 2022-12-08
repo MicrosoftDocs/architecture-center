@@ -53,7 +53,7 @@ You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you u
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
 

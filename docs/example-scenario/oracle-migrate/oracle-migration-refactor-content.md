@@ -100,7 +100,7 @@ Below you'll find a workaround list. It's useful when you're migrating Oracle da
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
 
