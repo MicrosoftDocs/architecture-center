@@ -41,7 +41,7 @@ CluedIn runs on [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/ser
 CluedIn uses and supports many database sources and services, including:
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/), a managed relational cloud database service that is always up to date and can automatically scale resources on demand.
-- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/), for broad SQL Server engine compatibility with existing SQL Server applications. Managed Instance provides on-premises database infrastructures with Azure cloud benefits like elastic scale, unified management, and a cloud billing model.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/), for broad SQL Server engine compatibility with existing SQL Server applications. SQL Managed Instance provides on-premises database infrastructures with Azure cloud benefits like elastic scale, unified management, and a cloud billing model.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), a fully managed, non-relational NoSQL serverless database for modern app development.
 - [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), a scalable data storage and analytics service.
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/), a fully managed, serverless data integration solution for ingesting, preparing, and transforming data at scale. CluedIn uses over 90 built-in Data Factory connectors to acquire data from sources like Amazon Redshift, Google BigQuery, HDFS, Oracle Exadata, Teradata, Salesforce, Marketo, ServiceNow, and all Azure data services.
