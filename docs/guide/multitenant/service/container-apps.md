@@ -21,7 +21,7 @@ ms.custom:
   - fcp
 ---
 
-# Multitenancy and Azure Container Apps
+# Azure Container Apps considerations for multitenancy
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. In this article, we describe some of the features of Azure Container Apps that are useful for multitenant solutions, and then we provide links to the guidance that can help you, when you're planning how you're going to use Azure Container Apps in multitenancy scenarios.
 
