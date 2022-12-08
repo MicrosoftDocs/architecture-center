@@ -1,15 +1,5 @@
 This article shows how to set up improved-security private connectivity to a multitenant web app or function app from an on-premises network or from within an Azure virtual network. It also shows how to set up improved-security connectivity between the app and other Azure PaaS services over Azure Private Link, without using the public internet. 
 
-## Potential use cases
-
-- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from an on-premises network or from within Azure virtual networks.
-- Connect from a web app or function app to Azure platform as a service (PaaS) offerings:
-   - Another web app
-   - Azure SQL Database
-   - Azure Storage
-   - Azure Key Vault
-   - Any other service that supports Azure private endpoints for inbound connectivity
-
 ## Architecture
 
 ![Diagram that shows the reference architecture for secure access to multitenant web apps from an on-premises network.](./media/multitenant-web-apps.png)
@@ -72,11 +62,23 @@ If you have an App Service Environment but aren't using SQL Managed Instance, yo
 
 For some other Azure services, like Key Vault or Storage, there's no alternative to using private endpoints for highly secure and private connections from Web Apps.
 
+## Potential use cases
+
+- Access a multitenant web app or function app privately with improved security over its [private endpoint](/azure/private-link/private-endpoint-overview) from an on-premises network or from within Azure virtual networks.
+- Connect from a web app or function app to Azure platform as a service (PaaS) offerings:
+   - Another web app
+   - SQL Database
+   - Azure Storage
+   - Key Vault
+   - Any other service that supports Azure private endpoints for inbound connectivity
+
 ## Considerations
 
-The following considerations apply to this scenario.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Using Private Endpoint for your web app enables you to:
 - Help secure your web app by configuring the private endpoint, eliminating public exposure.
@@ -139,6 +141,8 @@ You can also use the connection troubleshoot service in Azure [Network Watcher](
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 There's no added cost for App Service regional VNet Integration in supported pricing tiers in Basic, Standard, Premium v2, Premium v3, Isolated v2 App Service, and Azure Functions Premium plans.
 
 Private endpoint is available for Windows web apps and Linux web apps, containerized or not, hosted on Basic, Standard, Premium v2, Premium v3, and Isolated v2 App Service plans, and also for function apps deployed to a Premium plan.
@@ -155,7 +159,7 @@ To explore the cost of running this scenario, see the [Azure pricing calculator 
 
 Principal author:
 
- * [Ankit Singhal](https://www.linkedin.com/in/ankit-singhal-consultant-azure) | Consultant
+ * [Ankit Singhal](https://www.linkedin.com/in/ankit-singhal-microsoft) | Cloud Solution Architect
 
 ## Next steps
 
