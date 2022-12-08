@@ -156,7 +156,7 @@ Kubernetes containers are the basic units that run NiFi binaries. To configure a
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Muazma Zahid](https://www.linkedin.com/in/muazmazahid/) | Principal PM Manager
  
