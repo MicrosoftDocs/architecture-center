@@ -47,6 +47,8 @@ The following table summarizes the differences between the main tenancy isolatio
 
 You might want to consider deploying shared container apps in a single Container Apps environment, which is used for all your tenants.
 
+![Diagram showing a shared Container Apps isolation model where all tenants share the same Container App environment and Container Apps](./media/container-apps/sharedacaenv.png)
+
 This approach is generally cost-efficient and requires the least operational overhead since there are fewer resources to manage.
 
 However, to be able to use this isolation model, your application code must be multitenancy-aware. This isolation model doesn't guarantee any isolation at the network, compute, monitoring or data level. Tenant isolation must be handled by your application code. This model is not appropriate for hostile multitenancy workloads, where you don't trust the code that's running.
@@ -59,6 +61,8 @@ Additionally, this model is potentially subject to [nosiy neigbour concerns](../
 ### Container apps per tenant
 
 Another approach that you might consider is to isolate your tenants by deploying tenant-specific container apps within a shared environment.
+
+![Diagram showing a Container Apps isolation model where tenant specific Container Apps are deployed within a shared Container App Environment.](./media/container-apps/sharedacaenvtenantspecific.png)
 
 This isolation model provides you with logical isolation between each tenant and gives you the following advantages:
 
@@ -78,6 +82,8 @@ Azure Container Apps has built-in support for Dapr, which uses a modular design 
 ### Environment per tenant
 
 You might consider deploying a single Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed into its own virtual network, shared by all of the apps within the environment. Each environment has its own Dapr and monitoring configuration.
+
+![Diagram showing a Container Apps isolation model where each tenant gets their own specific Container App environment.](./media/container-apps/tenantspecificacaenv.png)
 
 This approach provides the strongest level of data and performance isolation since your tenants data and traffic will be isolated to their specific environment. This isolation model also removes the need for your applications to be multitenancy-aware. With this approach, you have more granular control over how you allocate resources to container apps within the environment, which can be determined according to your tenants requirements. For example, some tenants may require more CPU and memory resources than others, so you provide more resources to your tenant's applications while benefiting from the isolation that tenant-specific environments provide.
 
@@ -131,6 +137,9 @@ Principal authors:
 Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer, Microsoft
+ * [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer, FastTrack for Azure
+ * [Aarthi Murugan](https://www.linkedin.com/in/aarthimurugan/) | Senior Program Manager, CS Tech Strategy App Innovation
  * [Kendall Roden](https://www.linkedin.com/in/kendallroden/) | Senior Program Manager, Azure Container Apps
  * [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
