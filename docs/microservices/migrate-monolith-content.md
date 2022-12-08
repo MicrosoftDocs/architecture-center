@@ -81,7 +81,7 @@ The follow diagram shows the presentation layer (UI) split out from the applicat
 
 ![API gateway pattern](./images/monolith/figure5.png)
 
-This diagram also introduces another layer, the API gateway, that sits between the presentation layer and the application logic. The API gateway is a façade layer that provides a consistent and uniform interface for the presentation layer to interact with, while allowing downstream services to evolve independently, without affecting the application. The API Gateway may use a technology such as [Azure API Management](/azure/api-management/), and allows the application to interact in a RESTful manner.
+This diagram also introduces another layer, the API gateway, that sits between the presentation layer and the application logic. The API gateway is a façade layer that provides a consistent and uniform interface for the presentation layer to interact with, while allowing downstream services to evolve independently, without affecting the application. The API Gateway may use a technology such as [Azure API Management](/azure/api-management), and allows the application to interact in a RESTful manner.
 
 The presentation tier can be developed in any language or framework that the team has expertise in, such as a single page application or an MVC application. These applications interact with the microservices via the gateway, using standard HTTP calls. For more information about API Gateways, see [Using API gateways in microservices](./design/gateway.yml).
 
@@ -101,17 +101,17 @@ This approach is an example of the [Strangler Fig pattern](../patterns/strangler
 
 Principal author:
 
- - [Lavan Nallainathan](https://www.linkedin.com/in/lavan-nallainathan-8771b05b/) | Senior Cloud Solution Architect
+ - [Lavan Nallainathan](https://www.linkedin.com/in/lavan-nallainathan-8771b05b) | Senior Cloud Solution Architect
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops/) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.yml).
+When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.yml).
 
 ## Related resources
 
-- []()
-- []()
-- []()
-- []()
+- [Using tactical DDD to design microservices](model/tactical-ddd.yml)
+- [Microservices architecture design](index.yml)
+- [Microservices assessment and readiness](../guide/technology-choices/microservices-assessment.md)
+- [Design patterns for microservices](design/patterns.yml)
