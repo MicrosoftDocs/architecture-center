@@ -12,7 +12,7 @@ This article shows how to set up improved-security private connectivity to a mul
    -	The *VNet Integration Subnet* and *Private Endpoint Subnet* networks are separate virtual networks in different subscriptions. Both networks are peered with *Hub Virtual Network* as part of a hub-and-spoke network configuration. For regional virtual network integration, the peered virtual networks must be in the same Azure region.
 - [Azure Private Link](/azure/private-link/private-link-service-overview) service sets up a [private endpoint](/azure/private-link/private-endpoint-overview) for the PaaS services, web apps, Azure SQL database, Azure storage account, and Azure key vault in *Private Endpoint Virtual Network*.
    
-   In this example, this virtual network is dedicated to only the deployment of private endpoints. No other resources, like virtual machines (VMs), will be deployed in this virtual network. The future demand to add private endpoints was taken into account when the subnet size was selected.
+   In this example, this virtual network is dedicated for the deployment of private endpoints only. No other resources, like virtual machines (VMs), will be deployed in this virtual network. The future demand to add private endpoints was taken into account when the subnet size was selected.
 - The on-premises network and Azure virtual networks can be connected via [Site-to-Site (S2S) VPN](/azure/vpn-gateway/tutorial-site-to-site-portal) or [Azure ExpressRoute private peering](/azure/expressroute/expressroute-circuit-peerings#privatepeering). Users in the on-premises network access the app privately and with improved security over the private network only.
 
    In this example, the on-premises network and Azure virtual networks are connected via ExpressRoute private peering.
@@ -59,7 +59,7 @@ The target fully qualified domain names (FQDNs) are:
 
 For private connectivity, an alternative approach is to use [App Service Environment](/azure/app-service/environment/intro) to host the web application in an isolated environment. For the database, you can natively deploy [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) in a virtual network, so you don't need VNet Integration or private endpoints. These offerings are typically more expensive because they provide single-tenant isolated deployment and other features.
 
-If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to an SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
+If you have an App Service Environment but aren't using SQL Managed Instance, you can still use a private endpoint for private connectivity to an Azure SQL database. If you already have SQL Managed Instance but are using multitenant App Service, you can still use regional VNet Integration to connect to the SQL Managed Instance private address.
 
 For some other Azure services, like Key Vault or Storage, there's no alternative to using private endpoints for highly secure and private connections from Web Apps.
 
@@ -118,7 +118,7 @@ When you create a private endpoint, *VNet Integration Subnet* can access the ser
 
 ### Availability
 
-Private Link support for App Service, SQL Database, Azure Storage, and Azure Key Vault is available in all public regions. To check availability in other regions, see [Azure Private Link availability](/azure/private-link/availability)
+Private Link support for App Service, Azure SQL Database, Azure Storage, and Azure Key Vault is available in all public regions. To check availability in other regions, see [Azure Private Link availability](/azure/private-link/availability)
 
 Private Link introduces another component and availability consideration into the architecture. The Private Link service has a [high-availability SLA](https://azure.microsoft.com/support/legal/sla/private-link). You need to take this SLA into account when you calculate the composite SLA of the entire solution.
 
