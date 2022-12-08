@@ -64,7 +64,7 @@ This isolation model provides you with logical isolation between each tenant and
 
 - **Cost efficiency**: By sharing a Container Apps environment, virtual network, and other attached resources like a Log Analytics workspace, you can generally reduce your overall cost and management complexity per tenant.
 - **Separation of upgrades and deployments**: Each tenant's application binaries can be deployed and upgraded independently from other container apps in the same environment. This approach can be helpful if you need to upgrade tenants to specific versions of your code at different times to others.
-- **Resource isolation**: Each container app within your environment will be allocated with it's own CPU and memory resources. Should a tenant require more resources, you can allocate more CPU and memory to that tenant's specific container app. Be mindful that there are [limits on total CPU and memory allocations](/azure/container-apps/containers#configuration) on container apps.
+- **Resource isolation**: Each container app within your environment will be allocated its own CPU and memory resources. If a specific tenant requires more resources, you can allocate more CPU and memory to that tenant's specific container app. Be mindful that there are [limits on total CPU and memory allocations](/azure/container-apps/containers#configuration) on container apps.
 
 However, this approach provides no hardware or network isolation between tenants. All container apps in the same environment share the same virtual network. You need to trust the workloads deployed to the apps, to ensure that they don't cause misuse the shared resources.
 
