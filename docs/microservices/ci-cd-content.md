@@ -103,6 +103,14 @@ A canary release is more complex to manage than either blue-green or rolling upd
 
 ## Next steps
 
-Learn specific CI/CD practices for microservices running on Kubernetes.
+- [Learing path: Define and implement continuous integration](/training/paths/az-400-define-implement-continuous-integration)
+- [Training: Introduction to continuous delivery](/training/modules/introduction-to-continuous-delivery)
+- [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
+- [Why use a microservices approach to building applications](/azure/service-fabric/service-fabric-overview-microservices)
+
+## Related resources
 
 - [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](model/domain-analysis.md)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](../microservices/logging-monitoring.yml)
