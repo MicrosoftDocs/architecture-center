@@ -81,3 +81,16 @@ Keep the following considerations in mind when making your selection.
 - **Skill set**. Are there particular programming languages, operating systems, or other technology that your team is particularly adept at using? Are there others that would be difficult for your team to work with?
 
 - **Clients** Is there good client support for your development languages?
+
+## Next steps
+
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+
+## Related resources
+
+- [Data store decision tree](data-store-decision-tree.md)
+- [Understand data store models](data-store-overview.md)
+- [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
+

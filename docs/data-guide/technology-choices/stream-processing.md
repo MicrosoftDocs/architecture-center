@@ -94,9 +94,8 @@ Principal author:
 
 ## Related resources
 
-- [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
+- [Choose a real-time message ingestion technology](real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.yml)
-
-<!-- links -->
+- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
 [dotnet-spark]: https://github.com/dotnet/spark

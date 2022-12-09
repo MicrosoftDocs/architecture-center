@@ -1,16 +1,12 @@
-Spot virtual machines (VMs) provide access to compute capacity at significant discounts compared to regular VMs. They're an attractive solution for organizations looking to optimize costs, but there's a tradeoff. Spot VMs can lose their access to compute at any time. We call this process an eviction. Workloads running on spot VMs must be able to handle interruptions in compute and maintain reliability. The best candidates for spot VMs are what we call "interruptible workloads." Interruptible workloads run processes that can stop suddenly and resume anytime after without harming essential organizational processes.
-
-This article shows you how to pick the right workload for spot VMs and orchestrate reliability in the midst of evictions. We discuss how to handle compute interruptions and best practices for replacing lost compute capacity. At the end, you'll find a sample implementation of an interruptible workload that you can see how spot VMs work.
-
-Here are our recommendations for architecting reliably interruptible workloads on spot VMs.
+In this article, we outline the best practices for building on Azure spot virtual machines (VMs) and include a deployable example scenario. Spot VMs provide access to compute capacity at significant discounts to regular VMs. This discount makes them an attractive solution for organizations looking to optimize costs, but the savings comes with a condition. Spot VMs can lose access to compute at any time. We call this process an eviction. Workloads running on spot VMs must be able to handle these interruptions in compute. The right workload and a flexible orchestration mechanism are the keys to success. Here are our recommendations for building on spot VMs.
 
 ## Understand spot virtual machines
 
-At a technical level, spot VMs are the same as regular VMs. They use the same images, hardware, and disks that translate to the same performance. The difference between spot and regular VMs comes down to priority and availability. Spot VMs have a lower priority than regular VMs when it comes to accessing compute capacity and no availability guarantees after their creation. Let's discuss priority and availability in more detail.
+At a technical level, spot VMs are the same as regular VMs. They use the same images, hardware, and disks that translate to the same performance. The difference between spot and regular VMs comes down to priority and availability. Spot VMs have no priority to access compute capacity, and they have no availability guarantees after accessing that compute capacity. Let's discuss priority and availability in more detail.
 
-**Low priority.** Spot VMs have low-priority access to compute capacity. Regular VMs have high-priority access to compute capacity. High-priority access means regular VMs can get compute capacity whenever they need it. Low-priority access means spot VMs only deploy when there's spare compute capacity, and they only stay running when a higher-priority VM doesn't need the underlying hardware.
+**No priority access.** Regular VMs have priority access to compute capacity. They access compute capacity whenever they request it. Spot VMs, on the other hand, only deploy when there's spare compute capacity, and they only stay running when a regular VM doesn't need the underlying hardware.
 
-**No availability guarantee.** Spot VMs don't have any availability or up-time guarantees after you create them. They have no service-level agreements (SLAs). Spot VMs can lose access to compute capacity at any time (eviction). Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the compute capacity back, an eviction notice is sent and evicts the spot VM. Azure provides a minimum of 30-seconds advance notice before the actual eviction takes place. For more information, see continuously monitor for eviction below.
+**No availability guarantee.** Spot VMs don't have any availability guarantees. They have no service-level agreements (SLAs). Spot VMs can lose access to compute capacity immediately or at any time after deployment (eviction). Spot VMs are cheaper because of the eviction possibility. Whenever Azure needs the compute capacity back, an eviction notice is sent and evicts the spot VM. Azure provides a minimum of 30-seconds advance notice before the actual eviction takes place. For more information, see continuously monitor for eviction in this article.
 
 ## Understand spot virtual machine pricing
 
@@ -21,21 +17,19 @@ Spot VMs can be up to 90 percent cheaper than regular (pay-as-you-go) VMs. The d
 
 ## Understand interruptible workloads
 
-Interruptible workloads present the ideal use case for spot VMs. Interruptible workloads have a few common characteristics. They have minimal to no time constraints, low organizational priority, and short processing times. They run processes that can stop suddenly and resume later without harming essential organizational processes. Examples of interruptible workloads are batch processing applications, data analytics, and workloads that create a continuous integration-continuous deployment agent for a non-production environment. These features contrast with regular or mission-critical workloads that have service level agreements (SLAs), sticky sessions, and stateful data. The table provides examples for both workload types.
+Interruptible workloads are the best use case for spot VMs. Interruptible workloads have a few common characteristics. They have minimal to no time constraints, low organizational priority, and short processing times. They run processes that can stop suddenly and resume later without harming essential organizational processes. Examples of interruptible workloads are batch processing applications, data analytics, and workloads that create a continuous integration-continuous deployment agent for a non-production environment. These features contrast with regular or mission-critical workloads that have service level agreements (SLAs), sticky sessions, and stateful data. The table provides examples for both workload types.
 
 |     | Interruptible workload features | Regular workload features
 | --- | --- | --- |
 | **Features** | - Minimal to no time constraints <br> - Low organizational priority <br> - Short processing times | - Service level agreements (SLAs) <br>- Sticky sessions requirements <br>- Stateful workloads |
 
-You can use spot VM in non-interruptible workloads, but they shouldn’t be the single source of compute capacity. Use as many regular VMs as you need to meet your uptime requirements. Mixing spot and regular VMs can help optimize costs while meeting service level agreements.
-
-With a basic understanding of interruptible workloads, it's important to understand eviction before starting with spot VMs.
+You can use spot VM in non-interruptible workloads, but they shouldn’t be the single source of compute capacity. Use as many regular VMs as you need to meet your uptime requirements.
 
 ## Understand eviction
 
-Spot VMs have no service level agreements after they're created and can lose their access to hardware at any time. The loss of compute capacity is called eviction. Eviction is driven by supply and demand. When the demand for a specific piece of hardware exceeds a certain level, Azure evicts spot VMs to make this hardware available to regular, pay-as-you-go VMs. The demand for hardware is location specific. For example, a demand increase in region A won't affect spot VMs in region B.
+Spot VMs have no service level agreements (SLAs) after they're created and can lose access to compute at any time. We call this compute loss an eviction. Compute supply and demand drives eviction. When the demand for a specific VM size exceeds a certain level, Azure evicts spot VMs to make compute available to regular VMs. Demand is location specific. An increase in demand in region A won't affect spot VMs in region B.
 
-Spot VMs have two configuration options that affect eviction. These configurations are the "eviction type" and "eviction policy" of the spot VM. You set these configurations when you create the spot VM. The "eviction type" defines the conditions of an eviction. The "eviction policy" determines what eviction does to your spot VM. Let's address each in more detail.
+Spot VMs have two configuration options that affect eviction. These configurations are the "eviction type" and "eviction policy" of the spot VM. You set these configurations when you create the spot VM. The "eviction type" defines the conditions of an eviction. The "eviction policy" determines what eviction does to your spot VM. Let's address both configuration choices.
 
 **Eviction type.**  Eviction is caused by capacity changes or price changes. The way these affect spot VMs depends on the eviction type chosen when the VM was created. Eviction type defines the conditions of an eviction. The eviction types are "capacity only eviction" and "price or capacity eviction".
 
@@ -43,7 +37,7 @@ Spot VMs have two configuration options that affect eviction. These configuratio
 
 *Price or capacity eviction* - This eviction type has two triggers. Azure evicts a spot VM when excess compute capacity disappears or the cost of the VM exceeds the max price you set. This eviction type allows you to set a maximum price well below the pay-as-you-go price. Use this eviction type to set your own price cap.
 
-**Eviction policy.** The eviction policy chosen for a spot VM affects its orchestration. By orchestration, we mean the process of handling an eviction. We cover orchestration in detail below. The eviction policies are the "Stop/Deallocate policy" and "Delete policy".
+**Eviction policy.** The eviction policy chosen for a spot VM affects its orchestration. By orchestration, we mean the process of handling an eviction. We cover orchestration in detail later. The eviction policies are the "Stop/Deallocate policy" and "Delete policy".
 
 *Stop/Deallocate policy* - The Stop/Deallocate eviction policy is best when the workload can wait for release capacity within the same location and VM type. The Stop/Deallocate policy stops the VM and ends its lease with the underlying hardware. Stopping and deallocating a spot VM is the same as stopping and deallocating a regular VM. The VM remains accessible in Azure, and you can restart the same VM later. With the Stop/Deallocate policy, the VM loses compute capacity and non-static IP addresses. However, the VM data disks remain and still incur charges. The VM also occupies cores in the subscription. VMs can't be moved from their region or zone even when stopped/deallocated. For more information, see [VM power states and billing](/azure/virtual-machines/states-billing#power-states-and-billing).
 
@@ -51,7 +45,7 @@ Spot VMs have two configuration options that affect eviction. These configuratio
 
 ## Design flexible orchestration
 
-Orchestration is the process of replacing a spot VM after an eviction. It's the foundation of building a reliably interruptible workload. A good orchestration system has built-in flexibility. By flexibility, we mean designing your orchestration to have options, use multiple VM sizes, deploy to different regions, be eviction aware, and account for different eviction scenarios. to improve workload reliability and speed.
+Orchestration is the process of replacing a spot VM after an eviction. It's the foundation of building a reliably interruptible workload. A good orchestration system has built-in flexibility. By flexibility, we mean designing your orchestration to have options, use multiple VM sizes, deploy to different regions, be eviction aware, and account for different eviction scenarios to improve workload reliability and speed.
 
 Below we've outlined recommendations to help you create a flexible orchestration for your interruptible workload.
 
@@ -111,9 +105,11 @@ With system-assigned managed identities, a new spot VM might get a different acc
 
 ## Example scenario
 
-The example scenario deploys a queue processing application that qualifies as an interruptible workload. The scripts in the scenario are illustrative. The scenario walks you through a one-time, manual push to deploy resources. We haven't provided a deployment pipeline with this implementation. But a deployment pipeline is essential to automating the orchestrating process. Below is a diagram of the architecture and details about its components.
+The example scenario deploys a queue processing application that qualifies as an interruptible workload. The scripts in the scenario are illustrative. The scenario walks you through a one-time, manual push to deploy resources. We haven't provided a deployment pipeline with this implementation. But a deployment pipeline is essential to automating the orchestrating process. The diagram illustrates the architecture of the example scenario.
 
 :::image type="content" source="./media/spot-vm-arch.png" alt-text="Diagram of the example scenario architecture." border="false" lightbox="./media/spot-vm-arch.png":::
+
+The following notes explain key aspects of the architecture:
 
 1. **VM application definition:** The VM application definition is created in the Azure Compute Gallery. It defines the application name, location, operating system, and metadata. The application version is a numbered version of the VM application definition. The application version is an instantiation of the VM application. It needs to be in the same region as the spot VM. The application version links to the source application package in the storage account.
 1. **Storage account:**  The storage account stores the source application package. In this architecture, it's a compressed tar file named `worker-0.1.0.tar.gz`. It contains two files. One file is the `orchestrate.sh` bash script that installs the .NET worker application.
