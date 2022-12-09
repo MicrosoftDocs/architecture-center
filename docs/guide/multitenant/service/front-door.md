@@ -98,7 +98,7 @@ When you use Front Door as part of a multitenant solution, there are multiple as
 
 The following scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration.
 
-### Scenario 1: Provider-managed wildcard domains, single stamp
+### Scenario 1: Provider-managed wildcard domain, single stamp
 
 Contoso is building a small multitenant solution. They deploy a single stamp in a single region, and that stamp serves all of their tenants. All requests are routed to the same application server. They made a business decision to use wildcard domains for all of their tenants, such as `tenant1.contoso.com`, `tenant2.contoso.com`, and so forth.
 
