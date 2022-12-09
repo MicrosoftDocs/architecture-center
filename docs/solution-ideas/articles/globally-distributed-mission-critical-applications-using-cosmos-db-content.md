@@ -1,11 +1,4 @@
-Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft's global datacenters.
-
-## Potential use cases
-
-This solution is ideal for the media and entertainment industry and the travel and hospitality industry. It's best for organizations that need to have services offered in an area or region. Some scenarios that utilize globally distributed applications include:
-
-- Streaming video services (Netflix, Youtube, HBO, and so on)
-- Pickup and delivery services (Uber and Uber Eats, Lyft, Instacart, Doordash, and so on)
+Organizations that offer services globally need to provide applications that are highly responsive and always online. This article presents a solution for globally distributed applications. It uses the high-availability and low-latency capabilities that are built into Microsoft global datacenters.
 
 ## Architecture
 
@@ -41,6 +34,16 @@ You can extend this scenario with several compute and serverless options.
 
 * [Azure Functions](https://azure.microsoft.com/services/functions): More than just event-driven serverless compute.
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps): Quickly build powerful integration solutions.
+
+## Scenario details
+
+
+### Potential use cases
+
+This solution is ideal for the media and entertainment industry and the travel and hospitality industry. It's best for organizations that need to have services offered in an area or region. Some scenarios that utilize globally distributed applications include:
+
+- Streaming video services like Netflix, Youtube, and HBO.
+- Pickup and delivery services like Uber and Uber Eats, Lyft, Instacart, and Doordash.
 
 ## Considerations
 
