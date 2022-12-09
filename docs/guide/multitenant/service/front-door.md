@@ -22,14 +22,14 @@ ms.custom:
 
 # Azure Front Door considerations for multitenancy
 
-On this page, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
+Azure Front Door is Microsoft's modern cloud CDN (content delivery network), which provides fast, reliable, and secure access between users and applications' static and dynamic web content across the globe. In this article, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
 
 In a multitenant solution where you follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern), you might choose to deploy Front Door in two different ways:
 
 - Deploy a single Front Door profile, and use Front Door to route traffic to the appropriate stamp.
 - Deploy a Front Door profile in each stamp. If you have ten stamps, you deploy ten instances of Front Door.
 
-In this article, we focus on the first scenario - deploying a single, global Front Door profile, which routes traffic to the correct stamp for each tenant's requests.
+Front Door provides several features that are useful for multitenant solutions.
 
 ## Features of Front Door that support multitenancy
 
@@ -37,7 +37,7 @@ In this section, we consider several key features of Front Door that are useful 
 
 ### Custom domains
 
-Front Door provides a default hostname for each endpoint that you create, such as `contoso.z01.azurefd.net`. For most solutions, you instead provide your own domain names with your Front Door endpoint. Custom domain names enable you to use your own branding and configure routing based on the hostname provided in a client's request.
+Front Door provides a default hostname for each endpoint that you create, such as `contoso.z01.azurefd.net`. For most solutions, you instead associate your own domain name with the Front Door endpoint. Custom domain names enable you to use your own branding and configure routing based on the hostname provided in a client's request.
 
 In a multitenant solution, you might use tenant-specific domain names or subdomains, and configure Front Door to route the tenant's traffic to the correct origin group for that tenant's workload. For example, you might configure a custom domain name like `tenant1.app.contoso.com`. Front Door enables you to configure multiple custom domains on a single Front Door profile.
 
@@ -45,7 +45,7 @@ For more information, see [Add a custom domain to your Front Door](/azure/frontd
 
 #### Wildcard domains
 
-Wildcard domains simplify the configuration of DNS records and Front Door traffic routing configuration when you use a shared stem domain and tenant-specific subdomains. For example, suppose your tenants access their application by using subdomains like `tenant1.app.contoso.com`, `tenant2.app.contoso.com`, and so forth, you can configure a wildcard domain, `*.app.contoso.com`, instead of configuring each tenant-specific individually.
+Wildcard domains simplify the configuration of DNS records and Front Door traffic routing configuration when you use a shared stem domain and tenant-specific subdomains. For example, suppose your tenants access their application by using subdomains like `tenant1.app.contoso.com`, `tenant2.app.contoso.com`, and so forth, you can configure a wildcard domain, `*.app.contoso.com`, instead of configuring each tenant-specific domain individually.
 
 Azure Front Door provides support for creating custom domains that use wildcards. You can then configure a route for requests that arrive on the wildcard domain. When you onboard a new tenant, you don't need to reconfigure your DNS servers, issue new TLS certificates, or update your Front Door profile's configuration.
 
@@ -220,7 +220,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 ### Scenario 4: Vanity domains
 
-AdventureWorks is building a multitenant solution. They deploy stamps in multiple regions, such as Australia and the United States. All requests within a single region will be served by the stamp in that region. They made a business decision to allow their tenantsbring their own domain names. For example, Tenant 1 might configure a custom domain name like `tenant1app.tenant1.com`.
+AdventureWorks is building a multitenant solution. They deploy stamps in multiple regions, such as Australia and the United States. All requests within a single region will be served by the stamp in that region. They made a business decision to allow their tenants to bring their own domain names. For example, tenant 1 might configure a custom domain name like `tenant1app.tenant1.com`.
 
 They deploy Front Door by using a configuration similar to the diagram below:
 
@@ -239,7 +239,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 AdventureWorks and their tenants need to decide who issues TLS certificates:
 
-- The easiest option is for Front Door to issue and manage the certificates, but tenants must ensure not to configure a CCA record in their DNS server because this might Front Door's certification authority from issuing certificates.
+- The easiest option is for Front Door to issue and manage the certificates, but tenants must ensure not to configure a CCA record in their DNS server because this might prevent Front Door's certification authority from issuing certificates.
 - Alternately, tenants can provide their own certificate. They must work with AdventureWorks to upload the certificate to a key vault, and provide access to Front Door.
 
 #### Front Door configuration
