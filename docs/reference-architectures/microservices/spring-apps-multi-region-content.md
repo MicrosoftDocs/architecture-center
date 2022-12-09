@@ -12,7 +12,7 @@ Setting up [Azure Spring Apps](/azure/spring-apps/overview) clusters in multiple
 
 1. [Azure Front Door](/azure/frontdoor/front-door-overview) uses various load balancing configurations to forward the requests to specific regions. This example uses an equal-weight load balancing rule between the two regions. Azure Front Door is configured with:
 
-   - A custom domain and transport-layer security (TLS) certificate that are named the same as the application host name, for example `www.contoso.com`.
+   - A custom domain and a transport-layer security (TLS) certificate that are named the same as the application host name, for example `www.contoso.com`.
    
    - One origin per region where the application is deployed. Each origin is an [Azure Application Gateway](/azure/application-gateway/overview) instance.
 
