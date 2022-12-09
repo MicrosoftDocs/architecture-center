@@ -86,7 +86,8 @@ For more information, see [What is Rules Engine for Azure Front Door?](/azure/fr
 When you use Front Door as part of a multitenant solution, there are multiple aspects to the configuration. You need to make decisions based on your own solution's design and requirements, including the following factors:
 
 - How many tenants do you have, or plan to grow to?
-- Do you share your application tier between multiple tenants, do you deploy single-tenant application instances, or do you deploy many separate deployment stamps that are shared by multiple tenants?
+- Do you share your application tier between multiple tenants, do you deploy many single-tenant application instances, or do you deploy separate deployment stamps that are shared by multiple tenants?
+
 - Do your tenants want to bring their own domain names?
 - Will you use wildcard domains?
 - Do you need to use your own TLS certificates, or will Microsoft manage your TLS certificates?
