@@ -45,7 +45,7 @@ Spot VMs have two configuration options that affect eviction. These configuratio
 
 ## Design flexible orchestration
 
-Orchestration is the process of replacing a spot VM after an eviction. It's the foundation of building a reliably interruptible workload. A good orchestration system has built-in flexibility. By flexibility, we mean designing your orchestration to have options, use multiple VM sizes, deploy to different regions, be eviction aware, and account for different eviction scenarios. to improve workload reliability and speed.
+Orchestration is the process of replacing a spot VM after an eviction. It's the foundation of building a reliably interruptible workload. A good orchestration system has built-in flexibility. By flexibility, we mean designing your orchestration to have options, use multiple VM sizes, deploy to different regions, be eviction aware, and account for different eviction scenarios to improve workload reliability and speed.
 
 Below we've outlined recommendations to help you create a flexible orchestration for your interruptible workload.
 
