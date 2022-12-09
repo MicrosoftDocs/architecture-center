@@ -139,7 +139,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 - Contoso has to purchase a wildcard TLS certificate.
 - Contoso is responsible for renewing and installing the certificate when it expires.
 
-### Scenario 2: Individual provider-managed domains, multiple stamps
+### Scenario 2: Provider-managed wildcard domain, multiple stamps
 
 Prosware is building a multitenant solution across multiple stamps, which are deployed into both Australia and Europe. All requests within a single region are served by the stamp in that region. Similarly to Contoso, Prosware made a business decision to use wildcard domains for all of their tenants, such as `tenant1.prosware.com`, `tenant2.prosware.com`, and so forth.
 
