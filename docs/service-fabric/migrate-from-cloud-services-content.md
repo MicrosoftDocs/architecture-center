@@ -337,6 +337,12 @@ The Surveys application code is available on [GitHub][sample-code].
 
 If you are just getting started with [Azure Service Fabric][service-fabric], first set up your development environment then download the latest [Azure SDK][azure-sdk] and the [Azure Service Fabric SDK][service-fabric]. The SDK includes the OneBox cluster manager so you can deploy and test the Surveys application locally with full F5 debugging.
 
+## Related resources
+
+- [Migration architecture design](../guide/migration/migration-start-here.md)
+- [Build migration plan with Azure Migrate](/azure/migrate/concepts-migration-planning)
+- [Modernize enterprise applications with Azure Service Fabric](../service-fabric/modernize-app-azure-service-fabric.yml)
+
 <!-- links -->
 
 [application-gateway]: /azure/application-gateway

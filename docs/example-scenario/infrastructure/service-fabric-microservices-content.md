@@ -1,4 +1,4 @@
-In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
+In this example scenario, we walk through an approach using [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
 
 Moving from a monolithic architecture to a microservice architecture provides the following benefits:
 
@@ -30,6 +30,10 @@ In the picture above, we decomposed all the parts of a large IIS application int
 - Four ASP.NET Core applications that were formally virtual directories under the single IIS site running as ASP.NET applications. The applications were separated into their own independent microservices. The effect is that they can be changed, versioned, and upgraded separately. In this example, we rewrote each application using .NET Core and ASP.NET Core. These were written as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) so they can natively access the full Service Fabric platform capabilities and benefits (communication services, health reports, notifications, etc.).
 - A Windows service called *Indexing Service*, placed in a Windows container so that it no longer makes direct changes to registry of the underlying server, but can run self-contained and be deployed with all its dependencies as a single unit.
 - An Archive service, which is just an executable that runs according to a schedule and performs some tasks for the sites. It is hosted directly as a stand-alone executable because we determined it does what it needs to do without modification and it is not worth the investment to change.
+
+### Components
+
+- [Service Fabric](https://azure.microsoft.com/products/service-fabric) is an open source project that you can use to build and operate always-on, scalable, distributed apps.
 
 ## Considerations
 
@@ -76,6 +80,8 @@ To get an idea of cost, we have created an example using some default values for
 Principal author:
 
 * [Tim Omta](https://www.linkedin.com/in/tim-omta-b317056) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
