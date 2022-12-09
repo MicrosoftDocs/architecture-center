@@ -11,7 +11,9 @@ To implement the recommendations in this article, you should be familiar with Az
 
 We recommend that you set up a hub-and-spoke model network topology by creating a perimeter network. Host the WSUS server on an Azure virtual machine that's in the hub between the internet and the virtual networks. The hub should have open ports. WSUS uses port 80 for HTTP protocol and port 443 for HTTPS protocol to obtain updates from Microsoft. The spokes are all the other virtual networks, which will communicate with the hub and not with the internet. You can accomplish this by creating a subnet, network security groups (NSGs), and Azure virtual network peering that allows WSUS traffic while blocking other internet traffic. This image illustrates an example of hub-and-spoke topology:
 
-![Hub-and-spoke topology architecture diagram](./media/wsus-vnet.png)
+![Hub-and-spoke topology architecture diagram.](./media/wsus-vnet.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/wsus-vnet.vsdx) of this architecture.*
 
 In this image:
 
