@@ -32,8 +32,8 @@ Setting up [Azure Spring Apps](/azure/spring-apps/overview) clusters in multiple
 
 This reference architecture uses the following cloud design patterns:
 
-- [Geographical nodes (Geodes)](../../patterns/geodes.yml), where any region can service any request.
-- [Deployment Stamps](../../patterns/deployment-stamp.yml), where multiple independent copies of an application or component can deploy from a single template.
+- [Geographical nodes (Geodes)](../../patterns/geodes.yml), where any region can service any request
+- [Deployment Stamps](../../patterns/deployment-stamp.yml), where multiple independent copies of an application or component can deploy from a single template
 
 ### Components
 

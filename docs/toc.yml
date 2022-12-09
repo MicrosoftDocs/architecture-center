@@ -4332,6 +4332,8 @@ items:
                         maintainContext: true
               - name: Architectures
                 items:
+                   - name: Azure Spring Apps multiregion deployment
+                     href: reference-architectures/microservices/spring-apps-multi-region.yml
                    - name: Blue/green deployments
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Decompose apps with Service Fabric
@@ -4347,8 +4349,6 @@ items:
                      href: example-scenario/serverless/microservices-with-container-apps.yml
                    - name: Microservices with Dapr and KEDA
                      href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
-                   - name: Azure Spring Apps multiregion deployment
-                     href: reference-architectures/microservices/spring-apps-multi-region.yml
                    - name: Unified logging for microservices apps
                      href: example-scenario/logging/unified-logging.yml     
           - name: Serverless applications
