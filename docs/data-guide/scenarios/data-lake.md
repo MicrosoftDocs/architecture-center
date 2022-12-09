@@ -61,15 +61,15 @@ The following table compares data lakes and data warehouses:
 - By itself, a data lake does not provide integrated or holistic views across the organization.
 - A data lake may become a dumping ground for data that is never actually analyzed or mined for insights.
 
-## Technology Choices
+## Technology choices
 
 Build data lake solutions using the following services offered by Azure:
 
 ![A diagram that shows the key data lake services.](./images/data-lake-solution.png)
 
-- [Azure HD Insight](/azure/hdinsight/hdinsight-overview) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
-- [Azure Data Lake Store](/azure/data-lake-store) is a hyperscale, Hadoop-compatible repository.
-- [Azure Data Lake Analytics](/azure/data-lake-analytics) is an on-demand analytics job service to simplify big data analytics.
+- [Azure HD Insight](https://azure.microsoft.com/products/hdinsight) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. 
+- [Azure Data Lake Store](https://azure.microsoft.com/products/storage/data-lake-storage) is a hyperscale, Hadoop-compatible repository.
+- [Azure Data Lake Analytics](https://azure.microsoft.com/products/data-lake-analytics) is an on-demand analytics job service to simplify big data analytics.
 
 ## Contributors
 
@@ -79,10 +79,18 @@ Principal author:
 
  - [Avijit Prasad](https://www.linkedin.com/in/avijit-prasad%F0%9F%8C%90-96768a42) | Cloud Consultant
 
+## Next steps
+
+- [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
+- [Introduction to Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Data Lake Analytics Documentation](/azure/data-lake-analytics)
+- [Introduction to Azure Data Lake Storage (training module)](/training/modules/intro-to-azure-data-lake-storage)
+- [What is a Data Lake?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-a-data-lake)
+
 ## Related resources
 
-- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-- [Query a data lake or lakehouse by using Azure Synapse serverless](/azure/architecture/example-scenario/data/synapse-exploratory-data-analytics)
-- [Optimized storage – time based with Data Lake](/azure/architecture/solution-ideas/articles/optimized-storage-time-based-data-lake)
-- [Data management across Azure Data Lake with Microsoft Purview](/azure/architecture/solution-ideas/articles/azure-purview-data-lake-estate-architecture)
-- [Modern data warehouse for small and medium business](/azure/architecture/example-scenario/data/small-medium-data-warehouse)
+- [Choose an analytical data store in Azure](../technology-choices/analytical-data-stores.md)
+- [Query a data lake or lakehouse by using Azure Synapse serverless](../../example-scenario/data/synapse-exploratory-data-analytics.yml)
+- [Optimized storage – time based with Data Lake](../../solution-ideas/articles/optimized-storage-time-based-data-lake.yml)
+- [Data management across Azure Data Lake with Microsoft Purview](../../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
+- [Modern data warehouse for small and medium business](../../example-scenario/data/small-medium-data-warehouse.yml)

@@ -128,4 +128,10 @@ See the following relevant Azure services:
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
 - [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer)
 
-Learn more about IoT on Azure by reading the [Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).
+## Related resources
+
+- [Azure IoT reference architecture](../../reference-architectures/iot.yml)
+- [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
+- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+
