@@ -1,4 +1,4 @@
-This article provides an architecture of a sample SAP deployment, showing the best practices when it comes to multiple SAP systems and environments. It does not go into detail on individual SAP system, instead the focus is showing the interconnected requirements and deployment placement of a whole SAP landscape in Azure.
+This article provides best practices deploying multiple SAP systems and environments. It focuses on the connections between systems and the optimal placement of SAP in Azure without going into detail on individual SAP system.
 
 [Visio file]:https://arch-center.azureedge.net/sap-whole-landscape.vsdx
 
