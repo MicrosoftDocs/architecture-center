@@ -32,3 +32,15 @@ The output from this flowchart is a **starting point** for consideration. Next, 
 ## Choose specialized storage
 
 Alternative database solutions often require specific storage solutions. For example, SAP HANA on VMs often employs Azure NetApp Files as its underlying storage solution. Evaluate your vendor's requirements to find an appropriate storage solution to meet your database's requirements. For more information about selecting a storage solution, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options).
+
+## Next steps
+
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+
+## Related resources
+
+- [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
+- [Criteria for choosing a data store](data-store-considerations.md)
+- [Understand data store models](data-store-overview.md)

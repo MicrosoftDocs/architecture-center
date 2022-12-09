@@ -181,9 +181,13 @@ Principal author:
 Read more about securing your data warehouse:
 
 - [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
-
 - [Secure a database in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
-
 - [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
-
 - [Enterprise-level Hadoop security with domain-joined HDInsight clusters](/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+
+## Related resources
+
+- [Enterprise BI in Azure with Azure Synapse Analytics](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Logical data warehouse with Azure Synapse serverless SQL pools](../../solution-ideas/articles/logical-data-warehouse.yml)
+- [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)

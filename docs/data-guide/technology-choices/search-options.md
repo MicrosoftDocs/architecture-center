@@ -87,6 +87,14 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [What is Azure Cognitive Search?](/azure/search/search-what-is-azure-search)
+- [Full-Text Search in SQL Server and Azure SQL Database](/sql/relational-databases/search/full-text-search)
+- [Elastic Cloud (Elasticsearch Service)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp)
+
 ## Related resources
 
-- [Processing free-form text for search](../scenarios/search.yml)
+- [Process free-form text for search](../scenarios/search.yml)
+- [Choose a search data store in Azure](../technology-choices/search-options.md)
+- [Natural language processing technology](../technology-choices/natural-language-processing.yml)
