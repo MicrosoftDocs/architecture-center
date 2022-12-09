@@ -6,7 +6,7 @@ This article provides an architecture of a sample SAP deployment, showing the be
 
 [![Diagram that shows a sample overall SAP landscape in Azure](media/sap-whole-landscape.png)](media/sap-whole-landscape.png#lightbox)
 
-_You might be able to zoom-in multiple time to see full resolution and details. Download a [Visio file] of the architectures in this article._
+_Download a [Visio file] of the architectures in this article._
 
 This solution illustrates the SAP landscape of a typical large enterprise. You can reduce the size and scope of the configuration to fit your requirements. This reduction might apply to the SAP landscape: fewer subscriptions, fewer virtual machines (VMs), no high availability. It can also apply to alternatives to the network design, as described later in this article.
 
@@ -21,7 +21,7 @@ The following workflow corresponds to the above diagram:
 1. Virtual networks for the SAP workload, separated by environment, peered with central hub network.
 1. SAP workload infrastructure, showing one SAP system per environment / tier.
 1. Azure services connected to the SAP landscape.
-1. SAP Business Technology Platform, a PaaS platform by SAP, accessed through private link by the SAP environment.
+1. SAP Business Technology Platform, (BTP) a PaaS platform by SAP, accessed through private link by the SAP environment.
 
 ### Basic architectural principles
 
@@ -92,7 +92,7 @@ Azure Private Link for SAP BTP is now generally available. SAP Private Link Serv
 The example architecture depicts an SAP Private Link Service connection to BTP environments. SAP Private Link Service establishes a private connection between specific SAP BTP services and specific services in your infrastructure as service provider accounts. If you reuse the private link functionality, BTP services can access your S/4 HANA environment through private network connections, which avoids data transfer via the public internet.
 
 For more information about scenarios to connect to BTP services, see the SAP Community blog post about the [architecture effect of Private Link Service](https://blogs.sap.com/2021/07/27/btp-private-linky-swear-with-azure-how-many-pinkies-do-i-need/).  
-For architecture with connectivity to SAP BTP through the public endpoint and Internet, see [In- and outbound internet connection for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound).
+For architecture with connectivity to SAP BTP through the public endpoint and Internet, see [Inbound and outbound internet connections for SAP on Azure](/azure/architecture/guide/sap/sap-internet-inbound-outbound).
 
 #### Private endpoints
 
