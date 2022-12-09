@@ -12,17 +12,17 @@ Setting up [Azure Spring Apps](/azure/spring-apps/overview) clusters in multiple
 
 1. [Azure Front Door](/azure/frontdoor/front-door-overview) uses various load balancing configurations to forward the requests to specific regions. This example uses an equal-weight load balancing rule between the two regions. Azure Front Door is configured with:
 
-   - A custom domain name and transport-layer security (TLS) certificate that's named with the application host name, for example `www.contoso.com`.
+   - A custom domain and transport-layer security (TLS) certificate that are named the same as the application host name, for example `www.contoso.com`.
    
-   - One origin per region where the application is deployed. Each origin is an [Azure Application Gateway](/azure/application-gateway/overview).
+   - One origin per region where the application is deployed. Each origin is an [Azure Application Gateway](/azure/application-gateway/overview) instance.
 
-1. Each region has an Application Gateway deployed with [Azure Web Application Firewall](/azure/web-application-firewall/overview). Web Application Firewall allows incoming calls only from its corresponding Azure Front Door profile. The Application Gateway is configured with the same custom domain name and TLS certificate name as Azure Front Door.
+1. Application Gateway deploys with [Azure Web Application Firewall](/azure/web-application-firewall/overview) in each region. The Application Gateways are configured with the same custom domain name and TLS certificate name as Azure Front Door. Web Application Firewall allows incoming calls only from the specified Azure Front Door profile.
 
-1. Application Gateway forwards allowed traffic to the Azure Spring Apps load balancer. The Azure Spring Apps load balancer allows incoming calls only from the Application Gateway.
+1. Application Gateway forwards allowed traffic to the Azure Spring Apps load balancers, which allow incoming calls only from the Application Gateway.
 
-1. Azure Spring Apps deployed inside a virtual network in each region runs the application workload.
+1. Azure Spring Apps runs the application workload inside a virtual network in each region.
 
-1. The components inside the virtual network use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to the database and the key vault.
+1. The components inside the virtual networks use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to the databases and the key vaults.
 
    - The example uses [Azure Database for MySQL](/azure/mysql/single-server/overview) for data storage, but you can use any database. For alternatives, see [Backend database](#backend-database).
 
@@ -57,7 +57,7 @@ The following sections discuss alternatives for several aspects of this architec
 
 To increase application resilience and reliability, you can alternatively deploy the application to multiple [availability zones](/azure/availability-zones/az-overview#availability-zones) within a single region. The multiple zones spread the application workload across physically separate locations that can tolerate local failures within the Azure region.
 
-Azure availability zones are connected by a high-performance network with a roundtrip latency of less than 2 ms. An added benefit is that you don't have to rely on asynchronous replication for data workloads, which might present extra design concerns.
+Azure availability zones are connected by a high-performance network with a roundtrip latency of less than 2 ms. An added benefit is that you don't have to rely on asynchronous replication for data workloads, which often presents extra design challenges.
 
 To deploy your workload to multiple zones instead of multiple regions:
 
@@ -103,39 +103,39 @@ This architecture can apply not only to Azure Spring Apps, but to any Azure plat
 
 Azure Front Door does global load balancing between regions. This reverse proxy helps distribute the traffic if you deploy a workload to multiple regions. As an alternative, you can use [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview). Traffic Manager is a DNS-based traffic load balancer that load balances only at the domain level.
 
-The current solution uses two reverse proxies, Azure Front Door and Application Gateway. Application Gateway acts as a load balancer per region. Alternatively, you can remove Application Gateway from the setup if you address the following requirements:
+The current solution uses two reverse proxies: Azure Front Door and Application Gateway. Application Gateway acts as a load balancer per region. Alternatively, you can remove Application Gateway from the setup if you address the following requirements:
 
-- Since the Web Application Firewall is attached to the Application Gateway, you need to attach the firewall to the Azure Front Door service instead.
+- Because the Web Application Firewall is attached to the Application Gateway, you need to attach the firewall to the Azure Front Door service instead.
 
 - You need a way to ensure that incoming calls originate only from the Azure Front Door instance. You can add the X-FDID header check and the Azure Front Door IP ranges check in the Spring Cloud Gateway app. For more information, see [Use Azure Front Door as the reverse proxy](spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
 
-For information about different reverse proxy scenarios, how to set them up, and their security aspects, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
+For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
 
 ### Routing between regions
 
-This example configures Azure Front Door with equal routing between the two deployment regions. Azure Front Door has other [traffic routing methods to origin](/azure/frontdoor/routing-methods) available. If you want to route clients to their closest origin, latency-based routing makes the most sense. If you're designing for an active/passive solution, priority-based routing is more appropriate.
+This example configures Azure Front Door with equal routing between the two deployment regions. Azure Front Door also provides other [traffic routing methods to origin](/azure/frontdoor/routing-methods). If you want to route clients to their closest origin, latency-based routing makes the most sense. If you're designing for an active/passive solution, priority-based routing is more appropriate.
 
 ### High availability mode
 
 How you set up this architecture is dependent on your business case. For example, if you're designing for global presence, you might want to use more than two regions. If you're designing for high availability, you can set up this architecture in an *active/active*, *active/passive with hot standby*, or *active/passive with cold standby* mode.
 
-- **Active/active** mode is the current reference architecture setup. Two regions exist, and both are able to answer requests.
+- **Active/active** is the mode in the current example. Two regions exist, and both answer requests.
   - The biggest challenge with this mode is keeping the data between the regions in sync.
   - Active/active is a costly solution, because you pay twice for almost all components.
   
-- **Active/passive with hot standby** mode is similar to the current setup, but the secondary region doesn't receive any requests from Azure Front Door as long as the primary region is active. You make sure to properly replicate your application data from your primary to your secondary region. If a failure occurs in your primary region, you change the roles of your backend databases and fail over all traffic through Azure Front Door to your secondary region.
+- **Active/passive with hot standby** is similar to the current setup, but the secondary region doesn't receive any requests from Azure Front Door as long as the primary region is active. You make sure to properly replicate your application data from your primary to your secondary region. If a failure occurs in your primary region, you change the roles of your backend databases and fail over all traffic through Azure Front Door to your secondary region.
   - It's easier to keep all data in sync, because failover is expected to take some time.
-  - This mode is as costly as active-active mode.
+  - This mode is as costly as active/active mode.
   
-- **Active/passive with cold standby** mode might deploy fewer components, or components with lower compute resources, to the secondary region. Whether to use a more or less extended solution in your secondary region depends on how much downtime your business permits if there's a failure. The extent of your secondary region setup also affects costs. You should make sure that at least the application data is present in the secondary region.
+- **Active/passive with cold standby** might initially deploy fewer components, or components with lower compute resources, to the secondary region. Whether to use a more or less extended solution in your secondary region depends on how much downtime your business permits if there's a failure. The extent of your secondary region setup also affects costs. You should make sure that at least the application data is present in the secondary region.
   - It's easier to keep data in sync, because failover is expected to take some time.
   - This mode is the most cost effective, because you don't deploy all the resources to both regions.
 
-  If your entire solution setup uses templates, you can easily enable a cold standby secondary region by creating its resources on the fly. You can use Azure Resource Manager (ARM)/Bicep or Terraform templates, and automate infrastructure setup in a continuous integration/continuous deployment (CD/CD) pipeline. You should regularly test recreating your secondary region to make sure your templates are deployable in an emergency.
+  If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources on the fly. You can use Bicep/Azure Resource Manager (ARM) or Terraform templates, and automate infrastructure setup in a continuous integration/continuous deployment (CD/CD) pipeline. You should regularly test recreating your secondary region to make sure your templates are deployable in an emergency.
 
 ### Key vault
 
-This solution stores the application secrets and certificates in the same key vault. However, because application secrets and the certificates for host name preservation are different concerns, you might want to store them in separate key vaults. This alternative adds another key vault per region to your architecture.
+This solution stores the application secrets and certificates in a single key vault. However, because application secrets and the certificates for host name preservation are different concerns, you might want to store them in separate key vaults. This alternative adds another key vault per region to your architecture.
 
 ## Solution details
 
@@ -150,7 +150,7 @@ This architecture describes a multiregion design for Azure Spring Apps, and desc
 
 Private connectivity to a backend database and high availability in multiple regions make this solution applicable to the financial, healthcare, and defense industries. The following applications and use cases can also benefit from multiregion deployment:
 
-- Track customer spending habits and shopping behavior.
+- Track customer spending habits and retail shopping behavior.
 - Analyze manufacturing internet of things (IoT) data.
 - Use smart technology to monitor and display meter data.
 - Design a business continuity and disaster recovery plan for line-of-business (LoB) applications.
@@ -174,7 +174,7 @@ In this example:
 - Resources hosted in East US are hosted in the `Application-eus` resource group.
 - Resources hosted in Japan East are hosted in the `Application-jae` resource group.
 
-Resources split up in this way share the same lifecycle and can be easily created and deleted together. Each region has its own set of resources, with a naming convention based on the region's name. Azure Front Door is in its own resource group, since it must exist even if regions are added or removed.
+Resources split up in this way share the same lifecycle and can be easily created and deleted together. Each region has its own set of resources, with a naming convention based on the region's name. Azure Front Door is in its own resource group, because it must exist even if regions are added or removed.
 
 ### Automated deployment
 
@@ -232,7 +232,7 @@ This architecture addresses the same aspects of operational excellence as the [s
 
 This architecture also follows the multiregion deployment recommendation in the [Release Engineering: Deployment](/azure/architecture/framework/devops/release-engineering-cd#consider-deploying-across-multiple-regions) section of the operational excellence pillar.
 
-For operational excellence, integrate all components of this solution with Azure Monitor Logs to provide insight into your application end-to-end.
+For operational excellence, integrate all components of this solution with Azure Monitor Logs to provide end-to-end insight into your application.
 
 ### Performance efficiency
 
