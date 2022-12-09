@@ -96,7 +96,7 @@ When you use Front Door as part of a multitenant solution, there are multiple as
 
 ## Example scenarios
 
-The following scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration.
+The following scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration. Please note that the diagrams will be redrawn in standard format by a professional designer.
 
 ### Scenario 1: Provider-managed wildcard domain, single stamp
 
