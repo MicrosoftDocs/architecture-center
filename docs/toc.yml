@@ -4347,6 +4347,8 @@ items:
                      href: example-scenario/serverless/microservices-with-container-apps.yml
                    - name: Microservices with Dapr and KEDA
                      href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
+                   - name: Azure Spring Apps multiregion deployment
+                     href: reference-architectures/microservices/spring-apps-multi-region.yml
                    - name: Unified logging for microservices apps
                      href: example-scenario/logging/unified-logging.yml     
           - name: Serverless applications
