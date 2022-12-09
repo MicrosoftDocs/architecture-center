@@ -176,6 +176,10 @@ Principal author:
 ## Next steps
 
 - [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
+- [Training: Introduction to Event Hubs](/training/modules/intro-to-event-hubs)
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+- [Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
+- [What is Microsoft Sentinel?](/azure/sentinel/overview)
 
 ## Related resources
 

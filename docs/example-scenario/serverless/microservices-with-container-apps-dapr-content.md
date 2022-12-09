@@ -1,14 +1,6 @@
 This article describes a solution for running an order management system with 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 
-## Potential use cases
-
-This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
-
-These other solutions have similar designs:
-
-- Microservices architecture on Azure Kubernetes Service (AKS)
-- Microservices architecture on Azure Functions
-- Event-driven architectures
+*Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
 
 ## Architecture
 
@@ -93,7 +85,15 @@ To explore how Azure Container Apps compares to other container hosting platform
 
 This article describes a solution for running an order management system with 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 
-*Dapr and Traefik are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+## Potential use cases
+
+This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
+
+These other solutions have similar designs:
+
+- Microservices architecture on Azure Kubernetes Service (AKS)
+- Microservices architecture on Azure Functions
+- Event-driven architectures
 
 ## Considerations
 
@@ -150,6 +150,8 @@ Other contributors:
 
 - [Kendall Roden](https://www.linkedin.com/in/kendallroden) | Senior Program Manager
 - [Lynn Orrell](https://www.linkedin.com/in/lynn-orrell) | Principal Solution Specialist (GBB)
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

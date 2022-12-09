@@ -239,7 +239,7 @@ Tailspin sees other benefits in moving the Surveys application to a more granula
 
 - Each service can be packaged into independent projects with a scope small enough to be managed by a small team.
 - Each service can be independently versioned and deployed.
-- Each service can be implemented using the best technology for that service. For example, a service fabric cluster can include services built using different versions of the .Net Frameworks, Java, or other languages such as C or C++.
+- Each service can be implemented using the best technology for that service. For example, a service fabric cluster can include services built using different versions of the .NET Framework, Java, or other languages such as C or C++.
 - Each service can be independently scaled to respond to increases and decreases in load.
 
 The source code for the refactored version of the app is available on [GitHub](https://github.com/mspnp/cloud-services-to-service-fabric/tree/master/servicefabric-phase-2).

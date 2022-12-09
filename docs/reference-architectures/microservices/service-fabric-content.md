@@ -457,6 +457,13 @@ Principal author:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
+## Next steps
+
+- [Training: Introduction to Azure Service Fabric](/training/modules/intro-to-azure-service-fabric)
+- [Overview of Azure Service Fabric](/azure/service-fabric/service-fabric-overview)
+- [API Management documentation](/azure/api-management)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+
 ## Related resources
 
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
