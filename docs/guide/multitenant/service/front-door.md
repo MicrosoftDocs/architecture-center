@@ -67,7 +67,8 @@ For more information about TLS certificates, see [End-to-end TLS with Azure Fron
 
 ### Routing
 
-A multitenant application might have one or more application stamps serving the tenants. Stamps are frequently used to enable multi-region deployments, and to support scaling your solution to large numbers of tenants.
+A multitenant application might have one or more application stamps serving the tenants. Stamps are frequently used to enable multi-region deployments, and to support scaling your solution to a large number of tenants.
+
 
 Front Door has a powerful set of routing capabilities, which can support a number of different multitenant architectures. You can use routing to distribute traffic among origins within a stamp, or to send traffic to the correct stamp for a specific tenant. Routing can be configured based on domain names and URL paths, and by using the rules engine you can further customize routing behavior.
 
