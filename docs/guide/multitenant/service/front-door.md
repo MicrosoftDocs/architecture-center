@@ -49,7 +49,7 @@ Wildcard domains simplify the configuration of DNS records and Front Door traffi
 
 Azure Front Door provides support for creating custom domains that use wildcards. You can then configure a route for requests that arrive on the wildcard domain. When you onboard a new tenant, you don't need to reconfigure your DNS servers, issue new TLS certificates, or update your Front Door profile's configuration.
 
-Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, then a single-level wildcard domain isn't sufficient. You either need to use multi-level stem domains, or supply extra configuration, such as by overriding the routes to use for each tenant's subdomain. For more information, see [Subdomains](../considerations/domain-names.yml#subdomains).
+Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, then a single-level wildcard domain isn't sufficient. You either need to use multi-level stem domains, or supply extra configuration, such as by overriding the routes to use for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
 
 Additionally, Front Door does not issue managed TLS certificates for wildcard domains, so you need to purchase and supply your own certificate.
 
