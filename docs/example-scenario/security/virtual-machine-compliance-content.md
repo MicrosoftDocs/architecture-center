@@ -46,7 +46,7 @@ The process of tracking VM compliance contains these steps:
 
 - You can use a third-party tool to manage compliance. But with this type of tool, you usually need to install an agent on the target VM. You also may have to pay a licensing fee.
 
-- You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or virtual machine scale set can only have one custom script extension. And if you use custom script extensions, you prevent DevOps teams from customizing their applications.
+- You can use [custom script extensions][Custom Script Extensions] for installing software on VMs or configuring VMs after deployment. But each VM or Virtual Machine Scale Set can only have one custom script extension. And if you use custom script extensions, you prevent DevOps teams from customizing their applications.
 
 ## Scenario details
 
@@ -78,7 +78,7 @@ The following sections provide a detailed description of the solution's approach
 DevOps teams use an analogy called pets and cattle to define service models. To track a VM's compliance, first determine whether it's a pet or cattle server:
 
 - Pets require significant attention. They're not easy to dispense. Recovering a pet server requires investing a considerable amount of time and financial resources. For example, a server that runs SAP might be a pet. Besides the software that runs on the server, other considerations can also determine the service model. If you have a low failure tolerance, production servers in real-time and near real-time systems can also be pets.
-- Cattle servers are part of an identical group. You can replace them easily. For example, VMs that run in a virtual machine scale set are cattle. If there are enough VMs in the set, your system keeps running, and you don't need to know each VM's name. Testing environment servers that meet the following conditions provide another example of cattle:
+- Cattle servers are part of an identical group. You can replace them easily. For example, VMs that run in a Virtual Machine Scale Set are cattle. If there are enough VMs in the set, your system keeps running, and you don't need to know each VM's name. Testing environment servers that meet the following conditions provide another example of cattle:
 
   - You use an automated procedure to create the servers from scratch.
   - After you finish running the tests, you decommission the servers.
