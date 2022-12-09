@@ -678,14 +678,14 @@
 			<text x="14.93" y="461.3" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Bing speech</text>		</g>
 		<g id="shape1062-139" v:mID="1062" v:groupContext="shape" transform="translate(337.41,-84.895)">
 			<title>Sheet.1062</title>
-			<desc>Azure search</desc>
+			<desc>Azure Search</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(23000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="44.25" cy="458" width="88.5" height="20"/>
 			<rect x="0" y="448" width="88.5" height="20" class="st27"/>
-			<text x="13.23" y="461.3" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure search</text>		</g>
+			<text x="12.65" y="461.3" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Search</text>		</g>
 		<g id="shape1063-142" v:mID="1063" v:groupContext="shape" transform="translate(484.41,-84.895)">
 			<title>Sheet.1063</title>
 			<desc>Azure SQL database</desc>
