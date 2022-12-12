@@ -86,3 +86,15 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
+- [Provision the Azure-SSIS integration runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure)
+- [Oozie on HDInsight](/azure/hdinsight/hdinsight-use-oozie-linux-mac)
+
+## Related resources
+
+- [Move data from a SQL Server database to SQL Database with Azure Data Factory](../../data-science-process/move-sql-azure-adf.md)
+- [Data management patterns](../../patterns/category/data-management.md)
+- [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
