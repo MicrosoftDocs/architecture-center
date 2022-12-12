@@ -1,6 +1,6 @@
 Thanks for contributing to https://github.com/MicrosoftDocs/architecture-center-pr. 
 
-## Before you create your pull request
+## Things to know before you create your pull request
 
 1. If your pull request is associated with an Azure DevOps work item, enter the URL here: 
 
@@ -18,7 +18,7 @@ You should have initial feedback from CACT review within 1 business day. If you 
 
 ## Additional resources
 
-- [Authoring templates](https://review.learn.microsoft.com/help/contribute/architecture-center/templates/sample-solution-templates) for https://github.com/MicrosoftDocs/architecture-center-pr content
+- [Authoring templates](https://review.learn.microsoft.com/help/contribute/architecture-center/templates/sample-solution-templates) for architecture-center-pr content
 - [Learn.Microsoft.Com contributor guide](https://review.learn.microsoft.com/help/contribute/?branch=main)
 - CACT contact info:
   - [Teams channel](https://teams.microsoft.com/l/channel/19%3a10cb281036234ba39dd0582efe6e476f%40thread.tacv2/Content%2520Development?groupId=78b0a100-0f48-431b-90e7-74c5eb76693c&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)
