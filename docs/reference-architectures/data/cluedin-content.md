@@ -79,7 +79,7 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 #### Building a single view of data
 
- - Due to CluedIn's semantic modelling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralised repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases.
+ - Due to CluedIn's semantic modeling, it makes building a Single View of your Master Data a much easier thing to achieve compared to traditional approaches. CluedIn's customers are using CluedIn to build a connected, historical and high quality view of their most critical business data. CluedIn not only supports mastering of classic Master domains like People, Companies, Vendors and Products - it supports and endless number of different domains as well as unstructured domains like files, mail, events and more. If you require a centralized repository of master data that is clean, enriched, governed, quality-controlled and cataloged, then CluedIn is a good fit for your use cases.
 
 #### A data fabric
 
@@ -87,7 +87,7 @@ CluedIn includes enterprise-grade governance, for assurance that you can use you
 
 #### Sophisticated merging and linking of master data
 
- - CluedIn's unique data modelling approach utilizes a graph database, which allows for complex data to be merged and linked with simplicity. Unlike traditional approaches, to solve this challenge, CluedIn adds additional machine learning and graph analytics to merge, match, and link records with a very high precision.
+ - CluedIn's unique data modeling approach utilizes a graph database, which allows for complex data to be merged and linked with simplicity. Unlike traditional approaches, to solve this challenge, CluedIn adds additional machine learning and graph analytics to merge, match, and link records with a very high precision.
 
 ## Considerations
 
