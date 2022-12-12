@@ -131,7 +131,9 @@ Consider using the [Azure Monitor][azure-monitor] to Analyze and optimize the pe
 
 ## Related resources
 
-- For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml).
+- [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.yml)
+- [Azure Automation update management](../../hybrid/azure-update-mgmt.yml)
+- [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus)
 
 <!-- links -->
 

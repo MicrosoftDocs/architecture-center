@@ -16,9 +16,9 @@ You can further improve your availability by implementing zero-downtime deployme
 
 ## Architecture
 
-![Diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](media/blue-green-deployment.png)
+[ ![Architecture diagram that shows an architecture for blue/green deployment. It uses GitHub, GitHub Actions, and Azure Spring Apps.](media/blue-green-deployment.png)](media/blue-green-deployment.png#lightbox)
 
-_Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture._
+*Download a [Visio file](https://arch-center.azureedge.net/blue-green-deployment.vsdx) of this architecture.*
 
 ### Workflow
 
