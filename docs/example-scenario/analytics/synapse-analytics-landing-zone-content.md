@@ -32,26 +32,26 @@ Pic.1 Azure Synapse reference architecture
 ### Dataflow
 
 - The core component of this architecture is Azure Synapse, a unified service that provides a range of functions, from data ingestion and data processing to serving and analytics. Azure Synapse in a [Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) provides network isolation for the workspace. By enabling [data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection), you can limit outbound connectivity to only approved targets.
-- Azure Synapse resources, the Azure integration runtime, and Spark pools that are located in the Managed Virtual Network can connect to Azure Data Lake Storage, Azure Key Vault, and other Azure data stores with heightened security by using [Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints). Azure Synapse SQL pools that are hosted outside the Managed Virtual Network can connect to Azure services via private endpoint in the customer virtual network. 
-- Administrators can enforce private connectivity to the Synapse workspace, Azure Data Lake Storage, Key Vault, Log Analytics, and other data stores via Azure policies applied across data landing zones at a management group level. They can also enable data exfiltration protection to provide enhanced security for egress traffic.
-- Users access Synapse Studio by using a web browser from a restricted on-premise network via Azure Synapse [private link hubs](/azure/synapse-analytics/security/synapse-private-link-hubs#azure-private-link-hubs). Private link hubs are used to load Synapse Studio over private links with enhanced security. A single Azure Synapse private link hub resource is deployed in the Connectivity subscription with a private endpoint in Hub VNet that in turn is connected to the on-premises network via [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute). The private link hub resource can be used to privately connect to all Azure Synapse workspaces via Synapse Studio.
-- Data engineers use the Azure Synapse pipelines Copy activity, executed in a [self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime), to ingest data between a data store that's hosted in an on-premises environment and cloud data stores like Azure Data Lake Storage and SQL pools. The on-premises environment is connected via ExpressRoute to Hub VNet on Azure. 
-- Data engineers use the Azure Synapse Data Flow activity and Spark pools to transform data hosted on cloud data stores that are connected to Azure Synapse the Managed Virtual Network via managed private endpoint. For data located in the on-premises environment, transformation with Spark pools requires connectivity via custom private link service. The custom private link service uses Network Address Translation (NAT) VMs to connect to the on-premises data store. For information about setting up private link service to access on-premises data stores from managed virtual network, see [How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint](/azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server). 
+- Azure Synapse resources, the Azure integration runtime, and Spark pools that are located in the Managed Virtual Network can connect to Data Lake Storage, Azure Key Vault, and other Azure data stores with heightened security by using [Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints). Azure Synapse SQL pools that are hosted outside the Managed Virtual Network can connect to Azure services via private endpoint in the customer virtual network. 
+- Administrators can enforce private connectivity to the Synapse workspace, Data Lake Storage, Key Vault, Log Analytics, and other data stores via Azure policies applied across data landing zones at a management group level. They can also enable data exfiltration protection to provide enhanced security for egress traffic.
+- Users access Synapse Studio by using a web browser from a restricted on-premise network via Azure Synapse [Private Link Hubs](/azure/synapse-analytics/security/synapse-private-link-hubs#azure-private-link-hubs). Private Link Hubs are used to load Synapse Studio over private links with enhanced security. A single Azure Synapse private link hub resource is deployed in the Connectivity subscription with a private endpoint in Hub VNet that in turn is connected to the on-premises network via [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute). The private link hub resource can be used to privately connect to all Azure Synapse workspaces via Synapse Studio.
+- Data engineers use the Azure Synapse pipelines Copy activity, executed in a [self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime), to ingest data between a data store that's hosted in an on-premises environment and cloud data stores like Data Lake Storage and SQL pools. The on-premises environment is connected via ExpressRoute to Hub VNet on Azure. 
+- Data engineers use the Azure Synapse Data Flow activity and Spark pools to transform data hosted on cloud data stores that are connected to Azure Synapse the Managed Virtual Network via managed private endpoint. For data located in the on-premises environment, transformation with Spark pools requires connectivity via custom Private Link service. The custom Private Link service uses Network Address Translation (NAT) VMs to connect to the on-premises data store. For information about setting up Private Link service to access on-premises data stores from managed virtual network, see [How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint](/azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server). 
 - If data exfiltration protection is enabled in Azure Synapse, Spark application logging to the Log Analytics workspace is routed via [Azure Monitor Private Link Scope](/azure/azure-monitor/logs/private-link-security), connected to Azure Synapse Managed virtual network via managed private endpoint. As shown in the diagram, a single Azure Monitor Private Link Scope resource is hosted in a Connectivity subscription with private endpoint in Hub VNet. All Log Analytics workspaces and Application Insights resources can be reached privately via Azure Monitor Private Link Scope.
 
 ### Components
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. 
 - [Azure Synapse Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) provides network isolation to Azure Synapse workspaces from other workspaces.
-- [Synapse Managed Private Endpoint](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) - Managed private endpoints are private endpoints created in managed virtual network associated with Azure Synapse workspace. Managed private endpoints establishes private link connectivity to Azure resources outside managed VNet.
-- [Synapse Workspace with Data Exfiltration Protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) – data exfiltration protection enabled Synapse workspace prevents exfiltration of sensitive data to locations outside of an organization’s scope.
-- [Private Link Hubs](/azure/synapse-analytics/security/synapse-private-link-hubs) - Synapse Analytics private link hubs are Azure resources which act as connectors between your secured network and the Synapse Studio web experience.
-- [Integration Runtime](/azure/data-factory/concepts-integration-runtime) - Integration Runtime (IR) is the compute infrastructure used by Synapse pipelines to provide data integration capabilities across different network environments. Execute data flow in managed Azure compute IR or copy activity across networks using self-hosted compute IR (SHIR).
-- [Azure Private Link](https://azure.microsoft.com/products/private-link) - Azure Private Link service is the reference to your own service that is powered by Private Link. Your service that is running behind Azure Standard Load Balancer can be enabled for Private Link access. The private link service can then be extended to Synapse managed VNet via managed private endpoint. 
-- [Synapse Spark Pool](/azure/synapse-analytics/spark/apache-spark-overview) - Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Synapse makes it easy to create and configure Spark capabilities in Azure.
-- [Azure Data Lake Storage Gen2](https://azure.microsoft.com/products/storage/data-lake-storage) - Data Lake Storage Gen2 uses Azure Storage as the foundation for building enterprise data lakes on Azure.
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) – Key management solutions in Azure that allows you to safely store secrets, keys & certificates.
-- [Azure Landing Zone](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) - Azure landing zone is the output of a multi-subscription Azure environment that accounts for scale, security governance, networking, and identity. A landing zone enables migration, modernization, and innovation at enterprise-scale in Azure.
+- [Azure Synapse Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) are private endpoints that are created in a Managed Virtual Network that's associated with an Azure Synapse workspace. Managed private endpoints establishes private link connectivity to Azure resources outside of Managed Virtual Network.
+- [Azure Synapse workspace with data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) prevents exfiltration of sensitive data to locations that are outside of an organization's scope.
+- [Azure Private Link Hubs](/azure/synapse-analytics/security/synapse-private-link-hubs) are Azure resources that act as connectors between your secured network and the Synapse Studio web experience.
+- [Integration runtime](/azure/data-factory/concepts-integration-runtime) is the compute infrastructure that Azure Synapse pipelines use to provide data integration capabilities across different network environments. Run the Data Flow activity in the managed Azure compute integration runtime or the Copy activity across networks by using a self-hosted compute integration runtime.
+- [Azure Private Link](https://azure.microsoft.com/products/private-link) provides private access to services that are hosted on Azure. Azure Private Link service is the reference to your own service that's powered by Private Link. You can enable your service that's running behind Azure standard load balancer for Private Link access. You can then extend Private Link service to Azure Synapse Managed Virtual Network via managed private endpoint. 
+- [Apache Spark in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-overview) is one of the Microsoft implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure Spark capabilities in Azure.
+- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) uses Azure Storage as the foundation for building enterprise data lakes on Azure.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) allows you to store secrets, keys, and certificates with enhanced security.
+- [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) are the outputs of a multi-subscription Azure environment that accounts for scale, security governance, networking, and identity. A landing zone enables migration, modernization, and innovation at enterprise-scale on Azure.
 
 Design areas
 
@@ -59,94 +59,100 @@ These design areas provide considerations & guidance for deploying Synapse in a 
 
 Subscription topology
 
-Organizations building large scale data & analytics platforms are looking for ways to scale their efforts consistently and efficiently over time. 
-- Embracing "[subscription as scale-unit](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions)" for data landing zones allows organizations to overcome subscription-level limitations, ensures proper isolation & access management, provides flexible future growth of data platform footprint. Within a Data Landing Zone, Synapse Analytics and other data assets for specific analytics use case can be grouped within a resource group.
-- The management group and subscription setup are the responsibility of the Landing Zone platform owner who provides the required access to the data platform administrators to provision Synapse and other services.
-- All organization-wide data compliance policies are applied to the management group level to enforce compliance across the Data Landing zones. 
+Organizations building large scale data and analytics platforms look for ways to scale their efforts consistently and efficiently over time. 
+- By using [subscriptions as a scale unit](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) for data landing zones, organizations can overcome subscription-level limitations, ensure proper isolation and access management, and get flexible future growth for the data platform footprint. Within a data landing zone, you can group Azure Synapse and other data assets for specific analytics use cases within a resource group.
+- The management group and subscription setup are the responsibility of the landing zone platform owner who provides the required access to data platform administrators to provision Azure Synapse and other services.
+- All organization-wide data compliance policies are applied at the management-group level to enforce compliance across the data landing zones. 
 
 Networking topology
 
-Aligned with  [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview) best practices, recommendations for the landing zone using virtual WAN network topology (hub & spoke) are documented [here](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology). 
+ For recommendations for landing zones that use virtual WAN network topology (hub and spoke), see [Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology). These recommendations are aligned with  [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview) best practices.
 
-Synapse Analytics recommendations around networking topology are:
-- Network isolation for Synapse resources via Managed VNet. Data exfiltration protection by restricting outbound access to approved targets only.
-- Private connectivity to Azure services e.g., ADLS, Key Vault, Azure SQL etc. via managed private endpoint.
-- Private connectivity to on-premises data stores and applications over ExpressRoute using SHIR. Leverage custom private link service to connect Spark resources with on-premises data stores where SHIR is not an option.
-- Private connectivity to Synapse Studio via Azure Private Link Hubs deployed in Connectivity subscription.
-- Private connectivity to Log Analytics workspace via Azure Monitor Private Link Scope deployed in Connectivity subscription.
+Following are some recommendations for Azure Synapse networking topology:
 
-Identity and Access Management
+- Network isolation for Azure Synapse resources via Managed Virtual Network. Data exfiltration protection by restricting outbound access to approved targets only.
+- Private connectivity to Azure services like Data Lake Storage, Key Vault, and Azure SQL via managed private endpoint.
+- Private connectivity to on-premises data stores and applications over ExpressRoute via self-hosted integration runtime. Use custom Private Link service to connect Spark resources to on-premises data stores if you can't use self-hosted integration runtime.
+- Private connectivity to Synapse Studio via private link hubs that are deployed in a Connectivity subscription.
+- Private connectivity to the Log Analytics workspace via Azure Monitor Private Link Scope, deployed in a Connectivity subscription.
 
-Enterprise organizations typically follow a least-privileged approach to operational access designed through Azure AD, [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions. 
+Identity and access management
 
-- Use fine grained access controls in Synapse by leveraging Azure roles, Synapse roles, SQL roles & GIT permissions. Synapse workspace access control details are described [here](/azure/synapse-analytics/security/synapse-workspace-access-control-overview#overview).
-- Azure [Synapse roles](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac-roles) provide sets of permissions that can be applied at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
-- Access control can be simplified by using security groups that are aligned with people's job roles. You only need to add and remove users from appropriate security groups to manage access.
-- Communication between Synapse and other Azure services such as ADLS, Key Vault etc. can be secured using user-assigned managed identities eliminating the need to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.
+Enterprises typically use a least-privileged approach for operational access. They use Azure Active Directory (Azure AD), [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions for access management. 
 
-Application Automation and DevOps
+- Implement fine grained-access controls in Azure Synapse by using Azure roles, Azure Synapse roles, SQL roles, and Git permissions. For more information about Azure Synapse workspace access control, see [this overview](/azure/synapse-analytics/security/synapse-workspace-access-control-overview#overview).
+- [Azure Synapse roles](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac-roles) provide sets of permissions that you can apply at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
+- You can simplify access control by using security groups that are aligned with job roles. To manage access, you just need to add and remove users from appropriate security groups.
+- You can provide security for communication between Azure Synapse and other Azure services, like Data Lake Storage and Key Vault, by using user-assigned managed identities. Doing so eliminates the need to manage credentials. Managed identities provide an identity that applications can use when they connect to resources that support Azure AD authentication.
 
-- Continuous integration and delivery for an Azure Synapse Analytics workspace is achieved via Git integration and promotion of all entities from one environment (development, test, production) to another environment.
-- Build automation with Bicep/ARM template to create or update workspace resources (pools and workspace). Migrate artifacts like SQL scripts and notebooks, Spark job definitions, pipelines, datasets, and other artifacts by using Synapse Workspace Deployment tools in Azure DevOps or on GitHub as described [here](/azure/synapse-analytics/cicd/continuous-integration-delivery).
+Application automation and DevOps
+
+- Continuous integration and delivery for an Azure Synapse workspace is achieved via Git integration and promotion of all entities from one environment (development, test, production) to another environment.
+- Build automation with Bicep / Azure Resource Manager templates to create or update workspace resources (pools and workspace). Migrate artifacts like SQL scripts and notebooks, Spark job definitions, pipelines, datasets, and other artifacts by using Synapse Workspace Deployment tools in Azure DevOps or on GitHub, as described in [Continuous integration and delivery for an Azure Synapse Analytics workspace](/azure/synapse-analytics/cicd/continuous-integration-delivery).
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/resiliency/overview).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- Services included in the architecture are Synapse Analytics, ADLS Gen2 and Key Vault which are managed PaaS services that have built-in high availability & resiliency. SHIR & NAT VMs depicted in the architecture can be made highly available through redundant nodes.
-- Synapse Analytics provides an [SLA](https://www.azure.cn/support/sla/synapse-analytics) guarantee that, at least 99.9% of the time client operations executed on this service will succeed.
-- Business continuity & disaster recovery recommendations for Synapse Analytics are well described [here](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse).
+- Azure Synapse, Data Lake Storage, and Key Vault are managed platform as a service (PaaS) services that have built-in high availability and resiliency. You can use redundant nodes to make the self-hosted integration runtime and NAT VMs in the architecture highly available.
+- For SLA information, see [SLA for Azure Synapse Analytics](https://azure.microsoft.com/support/legal/sla/synapse-analytics/v1_1).
+- For business continuity and disaster recovery recommendations for Azure Synapse, see [Database-restore points for Azure Synapse Analytics](/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/azure-synapse).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- This [security baseline](/security/benchmark/azure/baselines/synapse-analytics-security-baseline) applies guidance from the Azure Security Benchmark version 2.0 to Synapse dedicated SQL pool.
-- Azure Policy driven security controls for Azure Synapse analytics are detailed [here](/azure/synapse-analytics/security-controls-policy).
-- Important built-in policies for Synapse Workspace are listed [here](/azure/synapse-analytics/policy-reference).
+- [This security baseline](/security/benchmark/azure/baselines/synapse-analytics-security-baseline) applies guidance from Azure Security Benchmark 2.0 to Azure Synapse dedicated SQL pools.
+- For information about Azure Policy security controls for Azure Synapse, see [Azure Policy Regulatory Compliance controls for Azure Synapse Analytics](/azure/synapse-analytics/security-controls-policy).
+- For important built-in policies for Azure Synapse workspace, see [Azure Policy built-in definitions for Azure Synapse Analytics](/azure/synapse-analytics/policy-reference).
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- The analytics resources are measured in Data Warehouse Units (DWUs), which tracks CPU, memory, and IO. It is recommended to start with smaller DWUs and measure performance for resource intensive operations, such as heavy data loading or transformation. This will help determine the number of units needed to optimize your workload.
-- Enjoy cost savings through pay-as-you-go prices using pre-purchase Azure Synapse Analytics Commit Units (SCUs).
-- Use Synapse Analytics [pricing link](https://azure.microsoft.com/pricing/details/synapse-analytics) to explore further pricing options & estimate the cost of implementing the service. 
-- This [pricing estimate](https://azure.com/e/2a113ea9dd97470f88bcd15d97ea91fc) contains cost for deploying services using the automation steps provided in the next section.
+- The analytics resources are measured in Data Warehouse Units (DWUs), which track CPU, memory, and IO. We recommend that you start with smaller DWUs and measure performance for resource-intensive operations, like heavy data loading or transformation. This process can help you determine how many units you need to optimize your workload.
+- Save money with pay-as-you-go prices by using pre-purchased Azure Synapse Commit Units (SCUs).
+- To explore pricing options and estimate the cost of implementing the Azure Synapse, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics).
+- [This pricing estimate](https://azure.com/e/2a113ea9dd97470f88bcd15d97ea91fc) contains the costs for deploying services by using the automation steps provided in the next section.
 
 ## Deploy this scenario
 
-**Prerequisites**: You must have an existing Azure account. If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+**Prerequisites**: You must have an Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
-All the code for this scenario is available in this [repository](https://github.com/Azure/SynapseEnterpriseCodebase/tree/main/SynapseEnterprise-BicepTemplate/SynapseEnterprise-BicepTemplate).
+All code for this scenario is available in [this repository](https://github.com/Azure/SynapseEnterpriseCodebase/tree/main/SynapseEnterprise-BicepTemplate/SynapseEnterprise-BicepTemplate).
 
-The automated deployment uses Bicep templates to deploy the following components of the architecture:
+The automated deployment uses Bicep templates to deploy the following components:
 
--	Resource group
--	VNet & subnets
+-	A resource group
+-	A virtual network and subnets
 -	Storage tiers (Bronze, Silver, and Gold) with private endpoints
--	Synapse workspace with managed VNet
--	Private link service & endpoints
--	Load balancer & Nat VMs
--	Self-hosted integration runtime resource
+-	An Azure Synapse workspace with Managed Virtual Network
+-	Private Link service and endpoints
+-	Load balancer and NAT VMs
+-	A self-hosted integration runtime resource
 
-A PowerShell script has been provided in the repository to orchestrate the deployment. You can choose to run the PowerShell script or use the pipeline.yml file to deploy it as a pipeline in Azure Devops.
+A PowerShell script for orchestrating the deployment is available in the repository. You can run the PowerShell script or use the *pipeline.yml* file to deploy it as a pipeline in Azure Devops.
 
-More details about the Bicep templates, deployment steps & assumptions are provided in the [README](https://github.com/Azure/SynapseEnterpriseCodebase/blob/main/SynapseEnterprise-BicepTemplate/SynapseEnterprise-BicepTemplate/readme.md) file. 
+For more information about the Bicep templates, deployment steps, and assumptions, see the [README](https://github.com/Azure/SynapseEnterpriseCodebase/blob/main/SynapseEnterprise-BicepTemplate/SynapseEnterprise-BicepTemplate/readme.md) file. 
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors: 
-•	[Vidya Narasimhan](https://www.linkedin.com/in/vidya-narasimhan-124ba393) | Principal Cloud Solution Architect
-•	[Sabyasachi Samaddar](https://www.linkedin.com/in/sabyasachi-samaddar-57060716) | Senior Cloud Solution Architect
 
-line 
+- [Vidya Narasimhan](https://www.linkedin.com/in/vidya-narasimhan-124ba393) | Principal Cloud Solution Architect
+- [Sabyasachi Samaddar](https://www.linkedin.com/in/sabyasachi-samaddar-57060716) | Senior Cloud Solution Architect
+
+Other contributor: 
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
