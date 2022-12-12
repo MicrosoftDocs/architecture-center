@@ -1,6 +1,4 @@
-This article provides best practices deploying multiple SAP systems and environments. It focuses on the connections between systems and the optimal placement of SAP in Azure without going into detail on individual SAP system. The architecture illustrates the SAP environment for a large enterprise and the design decisions needed. For individual guides and more targeted single SAP system view, follow the links at the end of this document.
-
-**I RECOMMEND ONE ARCHITECTURE. WE SHOULD REPLACE THIS DIAGRAM ONE WITH THE MORE SECURE ARCHITECTURE BELOW. AND JUST DESCRIBE THE DIFFERENCE OR GIVE READERS SHOT CLOSE UP OF THE SAP PRODUCTION SUBSCRIPTION, NOT THE FULL ARCHITECTURE.**
+This article provides best practices deploying multiple SAP systems and environments. It focuses on the connections between systems and the optimal placement of SAP in Azure without going into detail on individual SAP system.
 
 [Visio file]:https://arch-center.azureedge.net/sap-whole-landscape.vsdx
 
