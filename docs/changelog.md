@@ -2,8 +2,8 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 12/05/2022
-ms.topic: article
+ms.date: 12/12/2022
+ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
 categories: 
@@ -25,8 +25,93 @@ The following new and updated articles have recently been published in the Azure
 
 ## December 2022
 
+### New articles
+
+- [Deploy AKS and API Management with mTLS](./solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml)
+- [Enable dual-stack network traffic on AKS](./example-scenario/aks-dualstack/aks-dual-stack.yml)
+- [Extend mainframe applications to Azure by using Verastream Host Integrator](./example-scenario/mainframe/extend-mainframe-applications.yml)
+- [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)
+
 ### Updated articles
 
+- [Choose a data transfer technology](./data-guide/scenarios/data-transfer.md)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
+- [Extend on-premises data solutions to the cloud](./data-guide/scenarios/hybrid-on-premises-and-cloud.md)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
+- [Secure data solutions](./data-guide/scenarios/securing-data-solutions.md)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
+- [Hybrid ETL with Azure Data Factory](./example-scenario/data/hybrid-etl-with-adf.yml)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
+- [Use a suitable data store](./guide/design-principles/use-best-data-store.md)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
+- [Quantum computing integration with classical apps](./example-scenario/quantum/quantum-computing-integration-with-classical-apps.yml)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [Manage virtual machine compliance](./example-scenario/security/virtual-machine-compliance.yml)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [How to build workloads on spot virtual machines](./guide/spot/spot-eviction.yml)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [HPC system and big-compute solutions](./solution-ideas/articles/big-compute-with-azure-batch.yml)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [HPC risk analysis template](./solution-ideas/articles/hpc-risk-analysis.yml)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [Hybrid HPC in Azure with HPC Pack](./solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [Move Azure resources across regions](./solution-ideas/articles/move-azure-resources-across-regions.yml)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [High-performance computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#7e3f5a52d](https://github.com/MicrosoftDocs/architecture-center/commit/7e3f5a52d))
+- [Linux virtual desktops with Citrix](./example-scenario/infrastructure/linux-vdi-citrix.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Cloud scale analytics with TimeXtender](./solution-ideas/articles/cloud-scale-analytics-with-discovery-hub.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Content Delivery Network analytics](./solution-ideas/articles/content-delivery-network-azure-data-explorer.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Demand forecasting](./solution-ideas/articles/demand-forecasting.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Deliver highly scalable customer service and ERP applications](./solution-ideas/articles/erp-customer-service.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Extend your on-premises big data investments with HDInsight](./solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Extract, transform, and load (ETL) using HDInsight](./solution-ideas/articles/extract-transform-and-load-using-hdinsight.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Real-time analytics on big data architecture](./solution-ideas/articles/real-time-analytics.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Tier applications and data for analytics](./solution-ideas/articles/tiered-data-for-analytics.yml)  ([#51210cda4](https://github.com/MicrosoftDocs/architecture-center/commit/51210cda4))
+- [Batch processing](./data-guide/big-data/batch-processing.yml)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Big data architectures](./data-guide/big-data/index.yml)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Non-relational data and NoSQL](./data-guide/big-data/non-relational-data.yml)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Real-time processing](./data-guide/big-data/real-time-processing.yml)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Online transaction processing (OLTP)](./data-guide/relational-data/online-transaction-processing.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Processing CSV and JSON files](./data-guide/scenarios/csv-and-json.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Data lakes](./data-guide/scenarios/data-lake.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Choose a data storage technology](./data-guide/technology-choices/data-storage.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Choose a data pipeline orchestration technology](./data-guide/technology-choices/pipeline-orchestration-data-movement.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Choose a real-time message ingestion technology](./data-guide/technology-choices/real-time-ingestion.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Choose a search data store](./data-guide/technology-choices/search-options.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Criteria for data store choice](./guide/technology-choices/data-store-considerations.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Data store decision tree](./guide/technology-choices/data-store-decision-tree.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Understand data store models](./guide/technology-choices/data-store-overview.md)  ([#709f41268](https://github.com/MicrosoftDocs/architecture-center/commit/709f41268))
+- [Improved-security access to multitenant web apps from an on-premises network](./example-scenario/security/access-multitenant-web-app-from-on-premises.yml)  ([#56287211f](https://github.com/MicrosoftDocs/architecture-center/commit/56287211f))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#9eb704a65](https://github.com/MicrosoftDocs/architecture-center/commit/9eb704a65))
+- [Unified logging for microservices apps](./example-scenario/logging/unified-logging.yml)  ([#a68b91a84](https://github.com/MicrosoftDocs/architecture-center/commit/a68b91a84))
+- [Serverless Functions reference architectures](./serverless-quest/reference-architectures.md)  ([#258705f22](https://github.com/MicrosoftDocs/architecture-center/commit/258705f22))
+- [Extract, transform, and load (ETL)](./data-guide/relational-data/etl.yml)  ([#9c0e8a4c3](https://github.com/MicrosoftDocs/architecture-center/commit/9c0e8a4c3))
+- [Online analytical processing (OLAP)](./data-guide/relational-data/online-analytical-processing.yml)  ([#9c0e8a4c3](https://github.com/MicrosoftDocs/architecture-center/commit/9c0e8a4c3))
+- [Choose a data analytics and reporting technology](./data-guide/technology-choices/analysis-visualizations-reporting.md)  ([#9c0e8a4c3](https://github.com/MicrosoftDocs/architecture-center/commit/9c0e8a4c3))
+- [Choose an analytical data store](./data-guide/technology-choices/analytical-data-stores.md)  ([#9c0e8a4c3](https://github.com/MicrosoftDocs/architecture-center/commit/9c0e8a4c3))
+- [Choose a batch processing technology](./data-guide/technology-choices/batch-processing.md)  ([#9c0e8a4c3](https://github.com/MicrosoftDocs/architecture-center/commit/9c0e8a4c3))
+- [Choose a stream processing technology](./data-guide/technology-choices/stream-processing.md)  ([#9c0e8a4c3](https://github.com/MicrosoftDocs/architecture-center/commit/9c0e8a4c3))
+- [Forecast energy and power demand](./solution-ideas/articles/forecast-energy-power-demand.yml)  ([#9c0e8a4c3](https://github.com/MicrosoftDocs/architecture-center/commit/9c0e8a4c3))
+- [Stream processing with fully managed open-source data engines](./example-scenario/data/open-source-data-engine-stream-processing.yml)  ([#80986bb51](https://github.com/MicrosoftDocs/architecture-center/commit/80986bb51))
+- [Application integration using Azure Event Grid](./solution-ideas/articles/application-integration-using-event-grid.yml)  ([#80986bb51](https://github.com/MicrosoftDocs/architecture-center/commit/80986bb51))
+- [Azure Data Explorer interactive analytics](./solution-ideas/articles/interactive-azure-data-explorer.yml)  ([#80986bb51](https://github.com/MicrosoftDocs/architecture-center/commit/80986bb51))
+- [Azure Data Explorer monitoring](./solution-ideas/articles/monitor-azure-data-explorer.yml)  ([#80986bb51](https://github.com/MicrosoftDocs/architecture-center/commit/80986bb51))
+- [SWIFT&#x27;s Alliance Access in Azure](./example-scenario/finance/swift-alliance-access-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT&#x27;s Alliance Access with Alliance Connect Virtual in Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT Alliance Cloud in Azure](./example-scenario/finance/swift-alliance-cloud-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT Alliance Lite2 on Azure](./example-scenario/finance/swift-alliance-lite2-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect](./example-scenario/finance/swift-alliance-messaging-hub.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](./example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT&#x27;s Alliance Connect Virtual in Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [Design review powered by mixed reality](./solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [Training and procedural guidance powered by mixed reality](./solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [Machine learning at scale](./data-guide/big-data/machine-learning-at-scale.md)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [Choose a cognitive services technology](./data-guide/technology-choices/cognitive-services.md)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [Microsoft machine learning products](./data-guide/technology-choices/data-science-and-machine-learning.md)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [R developer&amp;apos;s guide - R programming](./data-guide/technology-choices/r-developers-guide.md)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [Create a CI/CD pipeline with Azure Pipelines](./data-science-process/ci-cd-flask.yml)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [Team Data Science Process roles and tasks](./data-science-process/roles-tasks.md)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [Azure Machine Learning decision guide for optimal tool selection](./example-scenario/mlops/aml-decision-tree.yml)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [Machine Learning operations maturity model](./example-scenario/mlops/mlops-maturity-model.yml)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
+- [DR for Azure Data Platform - Architecture](./data-guide/disaster-recovery/dr-for-azure-data-platform-architecture.yml)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [DR for Azure Data Platform - Deploy this scenario](./data-guide/disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [DR for Azure Data Platform - Overview](./data-guide/disaster-recovery/dr-for-azure-data-platform-overview.yml)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [DR for Azure Data Platform - Recommendations](./data-guide/disaster-recovery/dr-for-azure-data-platform-recommendations.yml)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [DR for Azure Data Platform - Scenario details](./data-guide/disaster-recovery/dr-for-azure-data-platform-scenario-details.yml)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [DR for Azure Data Platform - Summary](./data-guide/disaster-recovery/dr-for-azure-data-platform-summary.yml)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [Send Databricks app logs to Azure Monitor](./databricks-monitoring/application-logs.md)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [Dashboards to visualize Azure Databricks metrics](./databricks-monitoring/dashboards.md)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [Monitor Azure Databricks](./databricks-monitoring/index.md)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
+- [Troubleshoot Databricks performance issues](./databricks-monitoring/performance-troubleshooting.md)  ([#3e3a2a938](https://github.com/MicrosoftDocs/architecture-center/commit/3e3a2a938))
 - [Computer forensics chain of custody in Azure](./example-scenario/forensics/index.yml)  ([#23e1f804a](https://github.com/MicrosoftDocs/architecture-center/commit/23e1f804a))
 - [Apache NiFi on Azure](./example-scenario/data/azure-nifi.yml)  ([#f3d9f5a1e](https://github.com/MicrosoftDocs/architecture-center/commit/f3d9f5a1e))
 - [Data governance with Profisee and Microsoft Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)  ([#6681678a0](https://github.com/MicrosoftDocs/architecture-center/commit/6681678a0))
@@ -397,6 +482,7 @@ The following new and updated articles have recently been published in the Azure
 - [Troubleshoot virtual node problems in AKS clusters](./operator-guides/aks/troubleshoot-virtual-nodes-aks.md)
 - [Deploy Autodesk Civil 3D on an Azure virtual machine](./guide/hpc/civil-3d.yml)
 - [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml)
+- [Oracle on Azure architecture design](./solution-ideas/articles/oracle-on-azure-start-here.md)
 
 ### Updated articles
 
