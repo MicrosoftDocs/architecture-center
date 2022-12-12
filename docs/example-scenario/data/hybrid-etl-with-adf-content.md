@@ -77,11 +77,13 @@ When running a hybrid ETL workload, you must factor in the cost of the VM used t
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is being updated and maintained by Microsoft. It was originally written by the following contributor.*
 
-Principal authors:
+Principal author:
 
 - [Alex Hieng](https://www.linkedin.com/in/alex-hieng-8476352) | Senior Cloud Specialist
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

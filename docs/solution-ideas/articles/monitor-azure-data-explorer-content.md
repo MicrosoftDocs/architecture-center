@@ -42,9 +42,14 @@ Principal author:
 
  * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-For more information, see [Azure Data Explorer documentation](/azure/data-explorer).
+- [Azure Data Explorer documentation](/azure/data-explorer)
+- [Training: Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [What is Microsoft Sentinel?](/azure/sentinel/overview)
 
 ## Related resources
 

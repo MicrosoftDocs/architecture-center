@@ -68,3 +68,10 @@ At this point, you should have a clear understanding of the purpose and function
 
 > [!div class="nextstepaction"]
 > [Design a microservices architecture](../design/index.yml)
+
+## Related resources
+
+- [Microservices architecture design](../../microservices/index.yml)
+- [Using tactical DDD to design microservices](tactical-ddd.yml)
+- [Using domain analysis to model microservices](domain-analysis.md)
+- [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)

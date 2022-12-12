@@ -30,7 +30,7 @@ Following the microservices philosophy, there should never be a long release tra
 
 ![Diagram of a CI/CD monolith](./images/cicd-monolith.png)
 
-To achieve a high release velocity, your release pipeline must be automated and highly reliable to minimize risk. If you release to production one or more times daily , regressions or service disruptions must be rare. At the same time, if a bad update does get deployed, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
+To achieve a high release velocity, your release pipeline must be automated and highly reliable to minimize risk. If you release to production one or more times daily, regressions or service disruptions must be rare. At the same time, if a bad update does get deployed, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
 
 ## Challenges
 
@@ -103,6 +103,14 @@ A canary release is more complex to manage than either blue-green or rolling upd
 
 ## Next steps
 
-Learn specific CI/CD practices for microservices running on Kubernetes.
+- [Learning path: Define and implement continuous integration](/training/paths/az-400-define-implement-continuous-integration)
+- [Training: Introduction to continuous delivery](/training/modules/introduction-to-continuous-delivery)
+- [Microservices architecture](/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture)
+- [Why use a microservices approach to building applications](/azure/service-fabric/service-fabric-overview-microservices)
+
+## Related resources
 
 - [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.yml)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](model/domain-analysis.md)
+- [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](../microservices/logging-monitoring.yml)
