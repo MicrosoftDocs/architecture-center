@@ -19,7 +19,8 @@
           "**/includes/**",
           "**/_bread/**",
           "**/_themes/**",
-          "**/**/*-content.md"
+          "**/**/*-content.md",
+          "PULL_REQUEST_TEMPLATE.md"
         ]
       },
       {
