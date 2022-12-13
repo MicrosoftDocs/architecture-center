@@ -3288,6 +3288,8 @@ items:
                 href: reference-architectures/data/enterprise-bi-adf.yml
               - name: Automotive test data analytics
                 href: industries/automotive/automotive-telemetry-analytics.yml
+              - name: Azure Synapse for landing zones
+                href: example-scenario/analytics/synapse-analytics-landing-zone.yml
               - name: Big data on confidential computing
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
               - name: Customer 360 with Azure Synapse
