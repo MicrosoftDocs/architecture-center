@@ -68,7 +68,7 @@ You can use the options below to deploy and manage applications or workloads in 
 | Application | Description |
 | --- | --- |
 | [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) | An open-source collection of ARM, Bicep, and Terraform templates that represent the strategic design path and target technical state for an Azure Kubernetes Service (AKS) deployment. |
-| [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) | Build and deploy Azure App Service at scale. |
+| [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) | Proven recommendations and considerations across both multi-tenant and App Service Environment use cases with a reference implementation for ASEv3-based deployment  |
 | [Azure API Management landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator) | Build a scalable API Management infrastructure. |
 | [SAP on Azure landing zone accelerator](/azure/cloud-adoption-framework/scenarios/sap/enterprise-scale-landing-zone) | The SAP deployment automation framework on Azure is a collection of processes combined with a flexible workflow. The framework repository contains code to deploy SAP landscapes in Azure Cloud Services automatically. |
 | [Azure VMware Solution landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone) | Azure VMware Solution landing zone accelerator is an open-source collection of Azure Resource Manager and Bicep templates. |
