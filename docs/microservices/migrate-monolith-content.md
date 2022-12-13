@@ -77,7 +77,7 @@ For more information about anti-corruption layers, see [Anti-Corruption Layer pa
 
 The next step is to separate the presentation layer from the backend layer. In a traditional n-tier application, the application (business) layer tends to be the components that are core to the application and have domain logic within them. These coarse-grained APIs interact with the data access layer to retrieve persisted data from within a database. These APIs establish a natural boundary to the presentation tier, and help to decouple the presentation tier into a separate application space.
 
-The follow diagram shows the presentation layer (UI) split out from the application logic and data access layers.
+The following diagram shows the presentation layer (UI) split out from the application logic and data access layers.
 
 ![API gateway pattern](./images/monolith/figure5.png)
 
