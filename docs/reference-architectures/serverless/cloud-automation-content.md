@@ -247,10 +247,13 @@ To deploy the cost center scenario, see the [deployment steps on GitHub](https:/
 
 - [Training: Introduction to Azure Functions](/training/modules/intro-azure-functions)
 - [Documentation: Introduction to Azure Functions](/azure/azure-functions/functions-overview)
+- [What is Azure Event Grid?](/azure/event-grid/overview)
 
 ## Related resources
 
 - [Code walkthrough: Serverless application with Functions](../../serverless/code.yml)
+- [Serverless functions architecture design](../../serverless-quest/serverless-overview.md)
+- [Serverless functions reference architectures](../../serverless-quest/reference-architectures.md)
 
 <!-- links -->
 
