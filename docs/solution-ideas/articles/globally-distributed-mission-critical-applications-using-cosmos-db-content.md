@@ -28,7 +28,7 @@ You can extend this scenario with several compute and serverless options.
 #### Compute options
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources like Linux and Windows virtual machines (VMs).
-- [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a highly available, secure, and fully managed Kubernetes service for application and microservice base workloads.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a highly available, secure, and fully managed Kubernetes service for application and microservice base workloads.
 - [Azure App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling powerful cloud apps for web and mobile scenarios.
 
 #### Serverless options

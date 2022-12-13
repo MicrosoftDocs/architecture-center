@@ -119,7 +119,7 @@ For more information, see [Comparing relative performance of various replication
 
 ### Linux page caching
 
-When reading data files, Cassandra's Java code uses regular file I/O and benefits from Linux page caching. After parts of the file are read one time, the read content is stored in the OS page cache. Subsequent read access to the same data is much faster.
+When Cassandra's Java code reads data files, it uses regular file I/O and benefits from Linux page caching. After parts of the file are read one time, the read content is stored in the OS page cache. Subsequent read access to the same data is much faster.
 
 For this reason, when executing read performance tests against the same data, the second and subsequent reads will appear to be much faster than the original read, which needed to access data on the remote data disk or from the host cache when ReadOnly is enabled. To get similar performance measurements on subsequent runs, clear the Linux page cache and restart the Cassandra service to clear its internal memory. When ReadOnly caching is enabled, the data might be in the host cache, and subsequent reads will be faster even after clearing the OS page cache and restarting the Cassandra service.
 
@@ -133,7 +133,7 @@ For a multiregion deployment, use Azure Global VNet-peering to connect the virtu
 
 It's important to measure the baseline roundtrip latency between regions. Network latency between regions can be 10-100 times higher than latency within a region. Expect a lag between data appearing in the second region when using LOCAL_QUORUM write consistency, or significantly decreased performance of writes when using EACH_QUORUM.
 
-When running Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
+When you run Apache Cassandra at scale, and specifically in a multi-DC environment, [node repair](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) becomes challenging. Tools such as [Reaper](http://cassandra-reaper.io) can help to coordinate repairs at scale (for example, across all the nodes in a data center, one data center at a time, to limit the load on the whole cluster). However, node repair for large clusters isn't yet a fully solved problem and applies in all environments, whether on-premises or in the cloud.
 
 When nodes are added to a secondary region, performance doesn't scale linearly, because some bandwidth and CPU/disk resources are spent on receiving and sending replication traffic across regions.
 
@@ -175,7 +175,7 @@ For information on general Cassandra settings, not specific to Azure, see:
 
 - [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.yml)
 - [N-tier architecture style](../guide/architecture-styles/n-tier.yml)
-- [Data partitioning guidance](./best-practices/data-partitioning.yml)
+- [Data partitioning guidance](./data-partitioning.yml)
 
 
 [dsv2]: /azure/virtual-machines/dv2-dsv2-series-memory
