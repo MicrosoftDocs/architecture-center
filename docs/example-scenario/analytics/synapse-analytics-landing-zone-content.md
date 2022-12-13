@@ -1,6 +1,6 @@
 This article provides an architectural approach for preparing Azure landing zone subscriptions for a scalable, enhanced-security deployment of Azure Synapse Analytics. Azure Synapse, an enterprise analytics service, combines data warehousing, big data processing, data integration, and management. 
 
-The article is written based on the assumption that you've already implemented the platform foundation that's required to effectively construct and operationalize a [landing zone](/azure/cloud-adoption-framework/ready/landing-zone).
+The article assumes that you've already implemented the platform foundation that's required to effectively construct and operationalize a [landing zone](/azure/cloud-adoption-framework/ready/landing-zone).
 
 *Apache®, [Spark](https://spark.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -24,14 +24,14 @@ The article is written based on the assumption that you've already implemented t
 
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. 
 - [Azure Synapse Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet) provides network isolation to Azure Synapse workspaces from other workspaces.
-- [Azure Synapse Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) are private endpoints that are created in a Managed Virtual Network that's associated with an Azure Synapse workspace. Managed private endpoints establish private link connectivity to Azure resources outside of the Managed Virtual Network.
+- [Azure Synapse Managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints) are private endpoints that are created in a Managed Virtual Network that's associated with an Azure Synapse workspace. Managed private endpoints establish private link connectivity to Azure resources outside the Managed Virtual Network.
 - [Azure Synapse workspace with data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) prevents exfiltration of sensitive data to locations that are outside of an organization's scope.
 - [Azure Private Link Hubs](/azure/synapse-analytics/security/synapse-private-link-hubs) are Azure resources that act as connectors between your secured network and the Synapse Studio web experience.
 - [Integration runtime](/azure/data-factory/concepts-integration-runtime) is the compute infrastructure that Azure Synapse pipelines use to provide data integration capabilities across different network environments. Run the Data Flow activity in the managed Azure compute integration runtime or the Copy activity across networks by using a self-hosted compute integration runtime.
 - [Azure Private Link](https://azure.microsoft.com/products/private-link) provides private access to services that are hosted on Azure. Azure Private Link service is the reference to your own service that's powered by Private Link. You can enable your service that's running behind Azure standard load balancer for Private Link access. You can then extend Private Link service to the Azure Synapse Managed Virtual Network via Managed private endpoint. 
-- [Apache Spark in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-overview) is one of the Microsoft implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure Spark capabilities on Azure.
+- [Apache Spark in Azure Synapse](/azure/synapse-analytics/spark/apache-spark-overview) is one of several Microsoft implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure Spark capabilities on Azure.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) uses Azure Storage as the foundation for building enterprise data lakes on Azure.
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) allows you to store secrets, keys, and certificates with enhanced security.
+- [Key Vault](https://azure.microsoft.com/products/key-vault) allows you to store secrets, keys, and certificates with enhanced security.
 - [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions) are the outputs of a multi-subscription Azure environment that account for scale, security governance, networking, and identity. A landing zone enables migration, modernization, and innovation at enterprise scale on Azure.
 
 ## Scenario details
@@ -82,7 +82,7 @@ Following are some recommendations for Azure Synapse networking topology:
 
 Enterprises typically use a least-privileged approach for operational access. They use Azure Active Directory (Azure AD), [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions for access management. 
 
-- Implement fine grained-access controls in Azure Synapse by using Azure roles, Azure Synapse roles, SQL roles, and Git permissions. For more information about Azure Synapse workspace access control, see [this overview](/azure/synapse-analytics/security/synapse-workspace-access-control-overview#overview).
+- Implement fine-grained access controls in Azure Synapse by using Azure roles, Azure Synapse roles, SQL roles, and Git permissions. For more information about Azure Synapse workspace access control, see [this overview](/azure/synapse-analytics/security/synapse-workspace-access-control-overview#overview).
 - [Azure Synapse roles](/azure/synapse-analytics/security/synapse-workspace-synapse-rbac-roles) provide sets of permissions that you can apply at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
 - You can simplify access control by using security groups that are aligned with job roles. To manage access, you just need to add and remove users from appropriate security groups.
 - You can provide security for communication between Azure Synapse and other Azure services, like Data Lake Storage and Key Vault, by using user-assigned managed identities. Doing so eliminates the need to manage credentials. Managed identities provide an identity that applications can use when they connect to resources that support Azure AD authentication.
@@ -116,7 +116,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- The analytics resources are measured in Data Warehouse Units (DWUs), which track CPU, memory, and IO. We recommend that you start with smaller DWUs and measure performance for resource-intensive operations, like heavy data loading or transformation. Doing so can help you determine how many units you need to optimize your workload.
+- The analytics resources are measured in Data Warehouse Units (DWUs), which track CPU, memory, and IO. We recommend that you start with small DWUs and measure performance for resource-intensive operations, like heavy data loading or transformation. Doing so can help you determine how many units you need to optimize your workload.
 - Save money with pay-as-you-go prices by using pre-purchased Azure Synapse Commit Units (SCUs).
 - To explore pricing options and estimate the cost of implementing Azure Synapse, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics).
 - [This pricing estimate](https://azure.com/e/2a113ea9dd97470f88bcd15d97ea91fc) contains the costs for deploying services by using the automation steps described in the next section.
