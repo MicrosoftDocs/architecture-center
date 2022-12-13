@@ -15,7 +15,9 @@ Departments that use this solution include:
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for an IaaS application.](../media/dev-test-iaas.png)
+![Diagram showing the configuration of DevTest and DevOps for an IaaS application.](../media/dev-test-iaas.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-iaas.vsdx) of this architecture.*
 
 ### Dataflow
 
