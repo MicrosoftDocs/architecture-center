@@ -46,3 +46,11 @@ Our reference implementation uses Kubernetes with [Azure Kubernetes Service](/az
 
 > [!div class="nextstepaction"]
 > [Choose a compute option](./compute-options.md)
+
+## Related resources
+
+- [Design interservice communication for microservices](./interservice-communication.yml)
+- [Design APIs for microservices](./api-design.yml)
+- [Use API gateways in microservices](./gateway.yml)
+- [Data considerations for microservices](./data-considerations.yml)
+- [Design patterns for microservices](./patterns.yml)

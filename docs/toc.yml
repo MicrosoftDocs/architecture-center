@@ -4404,6 +4404,8 @@ items:
                         maintainContext: true
               - name: Architectures
                 items:
+                   - name: Azure Spring Apps multiregion deployment
+                     href: reference-architectures/microservices/spring-apps-multi-region.yml
                    - name: Blue/green deployments
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Decompose apps with Service Fabric

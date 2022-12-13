@@ -21,7 +21,7 @@ A gateway helps to address these issues by decoupling clients from services. Gat
 
 [Gateway Aggregation](../../patterns/gateway-aggregation.yml). Use the gateway to aggregate multiple individual requests into a single request. This pattern applies when a single operation requires calls to multiple backend services. The client sends one request to the gateway. The gateway dispatches requests to the various backend services, and then aggregates the results and sends them back to the client. This helps to reduce chattiness between the client and the backend.
 
-[Gateway Offloading](../../patterns/gateway-offloading.yml). Use the gateway to offload functionality from individual services to the gateway, particularly cross-cutting concerns. It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. This is particularly true for features that requires specialized skills to implement correctly, such as authentication and authorization.
+[Gateway Offloading](../../patterns/gateway-offloading.yml). Use the gateway to offload functionality from individual services to the gateway, particularly cross-cutting concerns. It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. This is particularly true for features that require specialized skills to implement correctly, such as authentication and authorization.
 
 Here are some examples of functionality that could be offloaded to a gateway:
 
@@ -41,7 +41,7 @@ Here are some options for implementing an API gateway in your application.
 
 - **Reverse proxy server**. Nginx and HAProxy are popular reverse proxy servers that support features such as load balancing, SSL, and layer 7 routing. They are both free, open-source products, with paid editions that provide additional features and support options. Nginx and HAProxy are both mature products with rich feature sets and high performance. You can extend them with third-party modules or by writing custom scripts in Lua. Nginx also supports a JavaScript-based scripting module referred to as [NGINX JavaScript](https://www.nginx.com/blog/introduction-nginscript/). This module was formally named nginScript.
 
-- **Service mesh ingress controller**. If you are using a service mesh such as linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
+- **Service mesh ingress controller**. If you are using a service mesh such as Linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 
 - [Azure Application Gateway](/azure/application-gateway/). Application Gateway is a managed load balancing service that can perform layer-7 routing and SSL termination. It also provides a web application firewall (WAF).
 
@@ -77,3 +77,10 @@ The previous articles have looked at the interfaces *between* microservices or b
 
 > [!div class="nextstepaction"]
 > [Data considerations for microservices](./data-considerations.yml)
+
+## Related resources
+
+- [Design APIs for microservices](api-design.yml)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)
+- [Microservices assessment and readiness](../../guide/technology-choices/microservices-assessment.md)
