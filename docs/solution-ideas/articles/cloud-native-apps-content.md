@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Web and mobile applications are a key part of a successful digital transformation strategy.
-
-## Potential use cases
-
-Organizations can build cloud-native applications using Azure managed databases, Azure Kubernetes Service, and analytics/ML for applications that are incredibly responsive to customer needs.
+This article presents a solution for using Azure services to build cloud-native applications.
 
 ## Architecture
 
@@ -37,6 +33,28 @@ Organizations can build cloud-native applications using Azure managed databases,
 - [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management service used to monitor live applications and continuously improve performance and usability.
 - [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) is an analytics service that brings together enterprise data warehousing and Big Data analytics within a unified experience.
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a suite of business tools for self-service and enterprise business intelligence (BI). Here, it's used to analyze and visualize data.
+
+## Scenario details
+
+Cloud-native applications are a key part of a successful digital transformation strategy. These applications use technologies like microservices, containers, managed services, and CI/CD. As a result, these apps offer advantages, such as agility, scalability, and reduced time to market, over other apps.
+
+This solution uses various cloud-native technologies:
+
+- containerized applications somehow mention AKS
+- A CI/CD experience
+- The Functions serverless compute platform
+- fully managed cloud services:
+  - database as a service for PostgreSQL
+  - a fully managed Azure Cosmos DB
+  - Azure Cache for Redis
+  - Synapse for analytics
+
+This solution also uses ML, Synapse for analytics to meet customer needs by responding to events in real time.
+
+
+### Potential use cases
+
+Organizations can build cloud-native applications using Azure managed databases, Azure Kubernetes Service, and analytics/ML for applications that are incredibly responsive to customer needs.
 
 ## Next steps
 
