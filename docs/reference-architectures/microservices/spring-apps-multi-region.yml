@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Azure Spring Apps to multiple regions
+  description: Deploy Azure Spring Apps instances in multiple regions for increased availability, resilience, and performance.
+  author: vermegi
+  ms.author: vermegi
+  ms.date: 12/12/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - networking
+  - security
+  - web
+products:
+  - azure-application-gateway
+  - azure-front-door
+  - azure-key-vault
+  - azure-spring-apps
+name: Deploy Azure Spring Apps to multiple regions
+summary: Deploy Azure Spring Apps instances in multiple regions for increased availability, resilience, and performance.
+thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-reference-architecture.png
+content: |
+  [!include[](spring-apps-multi-region-content.md)]
