@@ -85,7 +85,7 @@ To explore how Azure Container Apps compares to other container hosting platform
 
 This article describes a solution for running an order management system with 10 microservices on Azure Container Apps. The solution also uses microservices best practices through Dapr and event-driven scaling with KEDA.
 
-## Potential use cases
+### Potential use cases
 
 This solution applies to any organization that uses stateless and stateful microservices for distributed systems. The solution is best for consumer packaged goods and manufacturing industries that have an ordering and fulfillment system.
 

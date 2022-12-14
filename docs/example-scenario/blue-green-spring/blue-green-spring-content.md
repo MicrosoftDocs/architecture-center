@@ -54,7 +54,7 @@ There's another advantage to blue/green deployment: if a new deployment doesn't 
 
 This solution uses Azure Spring Apps to implement blue/green deployment and addresses automating the deployment of applications.
 
-## Potential use cases
+### Potential use cases
 
 This solution can benefit any organization that requires high availability. The solution is especially suitable for industries such as e-commerce and gaming, where downtime can lead to a loss of business and revenue.
 

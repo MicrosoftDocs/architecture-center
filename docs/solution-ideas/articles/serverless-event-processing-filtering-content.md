@@ -28,7 +28,7 @@ This solution idea describes a variation of a serverless event-driven architectu
 
 To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) reference architecture.
 
-## Potential use cases
+### Potential use cases
 
 A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
 
