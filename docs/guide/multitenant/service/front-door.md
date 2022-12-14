@@ -296,6 +296,7 @@ Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Harikrishnan M B (HARI)](http://linkedin.com/in/harikrishnanmb) Product Manager, Azure Networking 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
