@@ -112,7 +112,7 @@ You can reduce deployment risk by storing code under source control in a version
 | The organization hasn't yet configured Azure Active Directory (Azure AD), or hasn't configured Azure AD Connect to synchronize on-premises AD with Azure AD.| ✔ | |
 | The application requires access to on-premises resources, which will require VPN connectivity from Azure.| ✔ | |
 | The organization hasn't yet configured a VPN connection between Azure and their on-premises environment.| ✔ | ✔ |
-| The application requires a SSL certificate to run.| ✔ | ✔ |
+| The application requires an SSL certificate to run.| ✔ | ✔ |
 
 ### Results
 Count your application's **Complexity** and **Risk** checkmarks.
