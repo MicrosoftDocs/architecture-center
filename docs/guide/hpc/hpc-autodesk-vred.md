@@ -117,7 +117,7 @@ In the **Raytracing Quality** settings, for the **Illumination Mode** for both i
 
 ## Benchmarking methodology for VRED performance analysis on VMs
 
-To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) VMs, we tested offline image rendering and calculated the rendering times for both CPU ray tracing and GPU ray tracing. For this analysis, we rendered 4k and HD images. We tested GPU ray tracing on NcasT4, NVv3 VM by using 1, 2, 3, and 4 GPUs and on NVv5 by using 1& 2 GPUs. For CPU ray rendering, the application uses all CPU cores on the VM. We then calculated the relative speed increase of GPU rendering as compared to CPU rendering. The results are presented in the following sections.
+To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) VMs, we tested offline image rendering and calculated the rendering times for both CPU ray tracing and GPU ray tracing. For this analysis, we rendered 4k and HD images. We tested GPU ray tracing on NcasT4, NVv3 VM by using 1, 2, 3, and 4 GPUs and on NVv5 by using 1 and 2 GPUs. For CPU ray rendering, the application uses all CPU cores on the VM. We then calculated the relative speed increase of GPU rendering as compared to CPU rendering. The results are presented in the following sections.
 
 ### VRED 2022.1 performance results on the NC64as_T4_v3 VM
 
