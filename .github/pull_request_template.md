@@ -16,7 +16,7 @@
    - **Create draft pull request** if your PR is a work-in-progress, then select the **Draft pull request** button.
    - **Create pull request** if your PR will be ready for review/merge shortly after creation, then select the **Create pull request** button
 
-<details><summary>Click to expand the next section AFTER the pull request has been created</summary>
+<details><summary>4. Click to expand the next section AFTER the pull request has been created.</summary>
 
 ## Tips and additional instructions
 
@@ -46,3 +46,4 @@ Azure Architecture Center publishes to the live site once per (business) day, us
 - CACT contact info:
   - [E-mail](mailto:cloud-arch-content@microsoft.com?subject=Help%20with%20pull%20request)
   - GitHub team: @MicrosoftDocs/cloud-architecture-content-team-pr-reviewers
+</details>
