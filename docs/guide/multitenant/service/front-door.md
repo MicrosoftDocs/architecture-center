@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Front Door that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Front Door in a multitenant solution.
 author: rajnemani
 ms.author: ranema
-ms.date: 11/08/2022
+ms.date: 12/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -23,11 +23,6 @@ ms.custom:
 # Azure Front Door considerations for multitenancy
 
 Azure Front Door is Microsoft's modern cloud CDN (content delivery network), which provides fast, reliable, and secure access between users and applications' static and dynamic web content across the globe. In this article, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
-
-In a multitenant solution where you follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern), you might choose to deploy Front Door in two different ways:
-
-- Deploy a single Front Door profile, and use Front Door to route traffic to the appropriate stamp.
-- Deploy a Front Door profile in each stamp. If you have ten stamps, you deploy ten instances of Front Door.
 
 Front Door provides several features that are useful for multitenant solutions.
 
@@ -96,7 +91,14 @@ When you use Front Door as part of a multitenant solution, there are multiple as
 
 ## Example scenarios
 
-The following scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration. Please note that the diagrams will be redrawn in standard format by a professional designer.
+The following example scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration.
+
+Many multitenant solutions follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Front Door profile, and use Front Door to route incoming traffic to the appropriate stamp. This is the most common deployment model, and scenarios 1 through 4 below show how you can use this deployment model to meet a range of requirements.
+
+However, in some situations, you might deploy a Front Door profile in each stamp of your solution. [Scenario 5](TODO) describes this deployment model in more detail.
+
+> [!CAUTION]
+> Please note that the diagrams will be redrawn in standard format by a professional designer.
 
 ### Scenario 1: Provider-managed wildcard domain, single stamp
 
@@ -262,6 +264,26 @@ AdventureWorks and their tenants need to decide who issues TLS certificates:
 - The approach also requires that tenants are involved within the onboarding process, including making DNS changes and potentially issuing TLS certificates.
 - Tenants are in control of their DNS records, and changes to DNS records might render them unable to access the AdventureWorks solution.
 - AventureWorks has to pay attention to [Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes, custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
+
+### Scenario 5: Front Door profile per stamp
+
+You can deploy an AFD profile for each stamp. If you have ten stamps, you deploy ten instances of Front Door. This approach can be helpful if you need to restrict management access of each stamp's Front Door configuration, or if you need to spread across multiple Front Door profiles to avoid resource quotas or limits. 
+
+> [!TIP]
+> Front Door is a global resource. Even if you deploy regionally scoped stamps, each Front Door profile is globally distributed. This means that you should consider whether you really need to deploy multiple Front Door profiles, and what advantages you gain by doing so.
+
+If you have a stamp that serves multiple tenants, you need to consider how you route traffic to each tenant. Review the approaches described in the preceding scenarios, and consider combining the approaches together to suit your requirements.
+
+#### Benefits
+
+- By spreading your configuration across multiple profiles, you're less likely to reach the Front Door resource limits. For example, if you need to support large numbers of custom domains, you can spread those domains across multiple Front Door profiles and stay within the limits of each profile.
+- This approach enables you to scope your Front Door resource management permissions. By using Azure role-based access control (RBAC), you can grant administrators access to a single stamp's profile.
+
+#### Drawbacks
+
+- This approach typically incurs a high cost due to larger number of profiles that you deploy. For more information, see [Understand Front Door billing](/azure/frontdoor/billing).
+- There is a limit to the number of Front Door profiles you can deploy into a single Azure subscription. For more information, see [Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
+- Each stamp's Front Door profile needs to be configured separately, and you need to manage DNS configuration, TLS certificates, and TLS configuraton for each stamp.
 
 ## Contributors
 
