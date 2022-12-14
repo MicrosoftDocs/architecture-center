@@ -16,7 +16,7 @@
    - **Create draft pull request** if your PR is a work-in-progress, then select the **Draft pull request** button.
    - **Create pull request** if your PR will be ready for review/merge shortly after creation, then select the **Create pull request** button
 
-<details><summary>4. Click to expand the next section AFTER the pull request has been created.</summary>
+<details><summary>AFTER the pull request has been created, click here to expand the next section.</summary>
 
 ## Tips and additional instructions
 
