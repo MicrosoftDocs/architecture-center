@@ -94,7 +94,7 @@ The following example scenarios illustrate how different multitenant architectur
 
 Many multitenant solutions follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Front Door profile, and use Front Door to route incoming traffic to the appropriate stamp. This is the most common deployment model, and scenarios 1 through 4 below show how you can use this deployment model to meet a range of requirements.
 
-However, in some situations, you might deploy a Front Door profile in each stamp of your solution. [Scenario 5](TODO) describes this deployment model in more detail.
+However, in some situations, you might deploy a Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-front-door-profile-per-stamp) describes this deployment model in more detail.
 
 > [!CAUTION]
 > Please note that the diagrams will be redrawn in standard format by a professional designer.
