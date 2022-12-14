@@ -1,13 +1,7 @@
 <!-- cSpell:ignore KEDA deadletter -->
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution idea shows a variation of a serverless event-driven architecture using Azure Event Hubs and Azure Functions to ingest and process a stream of data. The results are written to a database for storage and future review once de-batched and filtered.
-
-To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) reference architecture.
-
-## Potential use cases
-
-A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
+This article describes a serverless event-driven architecture that uses Azure Event Hubs and Azure Functions to ingest and filter a stream of data for database storage.
 
 ## Architecture
 
@@ -27,6 +21,16 @@ A popular use case for implementing an end-to-end event stream processing patter
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests the data stream. Event Hubs is designed for high-throughput data streaming scenarios.
 - [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using the [Azure Cosmos DB for NoSQL](/azure/cosmos-db/introduction).
+
+## Scenario details
+
+This solution idea describes a variation of a serverless event-driven architecture that uses Event Hubs and Azure Functions to ingest and process a stream of data. The results are written to a database for storage and future review after they're de-batched and filtered.
+
+To learn more about the basic concepts, considerations, and approaches for serverless event processing, consult the [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) reference architecture.
+
+## Potential use cases
+
+A popular use case for implementing an end-to-end event stream processing pattern includes the Event Hubs streaming ingestion service to receive and process events per second using a de-batching and transformation logic implemented with highly scalable, event hub-triggered functions.
 
 ## Contributors
 
