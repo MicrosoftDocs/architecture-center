@@ -145,22 +145,24 @@ There is no single approach to authorization, and you should consider the needs 
 
 ## Maintenance
 
-When planning a multitenant deployment of Azure AD B2C, it's important to think about the long-term maintenance of your Azure AD B2C resources. This list is not exhaustive, but you should consider maintenance of elements including the following:  
+When planning a multitenant deployment of Azure AD B2C, it's important to think about the long-term maintenance of your Azure AD B2C resources. An Azure AD B2C tenant is a resource that you must create, maintain, operate, and secure in a similar fashion to your organizational Azure AD tenant. This list is not exhaustive, but you should consider maintenance of elements including the following:  
 
+- **Tenant governance.** Who will be maintaining the Azure AD B2C tenant? What elevated roles will they need? How will you configure your conditional access and MFA policies for these administrators? How will you monitor the Azure AD B2C tenant long term?
 - [**User journey configuration**](/azure/active-directory-b2c/user-flow-overview). How do you deploy changes to your Azure AD B2C tenant(s)? How do you test changes to your user flows or custom policies before deploying them?
 - [**Federated identity providers**](#identity-federation). Do you need to add or remove identity providers over time? If you're allowing each of your customers to bring their own identity provider, how do you manage that at scale?
 - **App registrations.** Many Azure AD app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate these when necessary?
 - [**Policy keys**](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy). If you use custom policies, how do you rotate the policy keys when necessary?
 - **User credentials.** How do you manage user information and credentials? What happens if one of your users is locked out or forgets their password and requires administrator intervention?
 
-Remember that these questions must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change when you have multiple Azure AD B2C tenants to maintain. For example, deploying custom policy changes to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually becomes time-consuming.
+Remember that these questions must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change when you have multiple Azure AD B2C tenants to maintain. For example, deploying custom policy changes to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually becomes time-consuming and risky.
 
 ### Deployments and DevOps
 
-A well-defined DevOps process helps to minimize the amount of overhead involved in maintaining your Azure AD B2C tenants. It's a good idea to implement a DevOps practice early in your development process. Ideally, you should aim to automate all or most of your maintenance tasks, including deploying changes to your custom policies or user flows. Your DevOps pipelines might perform these activities. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenant(s)](/azure/active-directory-b2c/microsoft-graph-operations).
+A well-defined DevOps process helps to minimize the amount of overhead involved in maintaining your Azure AD B2C tenants. It's a good idea to implement a DevOps practice early in your development process. Ideally, you should aim to automate all or most of your maintenance tasks, including deploying changes to your custom policies or user flows. You should also aim to create multiple Azure AD B2C tenants to progressively test changes in lower environments before deploying them to your production tenant(s). Your DevOps pipelines might perform these maintenance activities. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenant(s)](/azure/active-directory-b2c/microsoft-graph-operations).
 
 For more information on automated deployments and management of Azure AD B2C, see the following resources:
 
+- [Azure AD B2C operational best practices](/azure/active-directory-b2c/best-practices#operations)
 - [Deploy custom policies with Azure Pipelines](/azure/active-directory-b2c/deploy-custom-policies-devops)
 - [Deploy custom policies with GitHub Actions](/azure/active-directory-b2c/deploy-custom-policies-github-action)
 - [Custom policy DevOps pipeline sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/devops-pipeline)
@@ -171,7 +173,7 @@ For more information on automated deployments and management of Azure AD B2C, se
   - [Policy keys reference](/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)
 
 > [!IMPORTANT]
-> Some of the endpoints used to manage Azure AD B2C programmatically are not generally available. APIs under the `/beta` version in Microsoft Graph are subject to change at any time, and are subject to prerelease terms of service. 
+> Some of the endpoints used to manage Azure AD B2C programmatically are not generally available. APIs under the `/beta` version in Microsoft Graph are subject to change at any time, and are subject to prerelease terms of service.
 
 ## Compare Azure AD B2B to Azure AD B2C
 
@@ -183,7 +185,7 @@ Depending on your user personas and scenarios, you might need to use Azure AD B2
 
 Here are some additional resources to review for more information on this subject:
 
-- [Use Azure AD or Azure AD B2C](/architecture/guide/multitenant/approaches/identity#use-azure-ad-or-azure-ad-b2c)
+- [Use Azure AD or Azure AD B2C](../approaches/identity.md#use-azure-ad-or-azure-ad-b2c)
 - [Comparing External Identities feature sets](/azure/active-directory/external-identities/external-identities-overview#comparing-external-identities-feature-sets)
 - [Woodgrove Demo](https://aka.ms/CIAMdemo) - An example application that uses Azure AD B2B and Azure AD B2C.
 
