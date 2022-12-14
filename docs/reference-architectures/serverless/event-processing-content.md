@@ -15,7 +15,7 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ### Components
 
-- **Event Hubs** ingests the data stream. [Event Hubs][eh] is designed for high-throughput data streaming scenarios.
+- **Event Hubs** ingests the data stream. [Event Hubs](https://azure.microsoft.com/products/event-hubs) is designed for high-throughput data streaming scenarios.
 
    > [!NOTE]
    > For Internet of Things (IoT) scenarios, we recommend [Azure IoT Hub][iot-hub-product]. IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
