@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Front Door that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Front Door in a multitenant solution.
 author: rajnemani
 ms.author: ranema
-ms.date: 11/08/2022
+ms.date: 12/14/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,16 +24,11 @@ ms.custom:
 
 Azure Front Door is Microsoft's modern cloud CDN (content delivery network), which provides fast, reliable, and secure access between users and applications' static and dynamic web content across the globe. In this article, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
 
-In a multitenant solution where you follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern), you might choose to deploy Front Door in two different ways:
-
-- Deploy a single Front Door profile, and use Front Door to route traffic to the appropriate stamp.
-- Deploy a Front Door profile in each stamp. If you have ten stamps, you deploy ten instances of Front Door.
-
 Front Door provides several features that are useful for multitenant solutions.
 
 ## Features of Front Door that support multitenancy
 
-In this section, we consider several key features of Front Door that are useful for multitenant solutions. We discuss how Front Door helps to configure customs domains, including wildcard domains and TLS certificates. We also summarize how Front Door's routing capabilites can be used to support multitenancy.
+In this section, we consider several key features of Front Door that are useful for multitenant solutions. We discuss how Front Door helps to configure customs domains, including wildcard domains and TLS certificates. We also summarize how Front Door's routing capabilities can be used to support multitenancy.
 
 ### Custom domains
 
@@ -51,7 +46,7 @@ Azure Front Door provides support for creating custom domains that use wildcards
 
 Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, then a single-level wildcard domain isn't sufficient. You either need to use multi-level stem domains, or supply extra configuration, such as by overriding the routes to use for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
 
-Additionally, Front Door does not issue managed TLS certificates for wildcard domains, so you need to purchase and supply your own certificate.
+Additionally, Front Door doesn't issue managed TLS certificates for wildcard domains, so you need to purchase and supply your own certificate.
 
 For more information, see [Wildcard domains](/azure/frontdoor/front-door-wildcard-domain?pivots=front-door-standard-premium).
 
@@ -76,8 +71,7 @@ For more information, see [Routing architecture overview](/azure/frontdoor/front
 
 ### Rules engine
 
-The Front Door rules engine enables you customize how Front Door processes requests at the network edge. The rules engine enables you to run small blocks of logic within Front Door's request processing pipeline. You can use the rules engine to override the routing configuration for a request. The rules engine also enables you to modify elements of the request before it's sent to the origin, and to modify some parts of the response before it's returned to the client.
-
+The Front Door rules engine enables you to customize how Front Door processes requests at the network edge. The rules engine enables you to run small blocks of logic within Front Door's request processing pipeline. You can use the rules engine to override the routing configuration for a request. The rules engine also enables you to modify elements of the request before it's sent to the origin, and to modify some parts of the response before it's returned to the client.
 
 For more information, see [What is Rules Engine for Azure Front Door?](/azure/frontdoor/front-door-rules-engine).
 
@@ -91,12 +85,19 @@ When you use Front Door as part of a multitenant solution, there are multiple as
 - Do your tenants want to bring their own domain names?
 - Will you use wildcard domains?
 - Do you need to use your own TLS certificates, or will Microsoft manage your TLS certificates?
-- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Front Door, and do you understand which limits you'll approach as you grow? If you suspect that you are going to approach these limits, consider using multiple Front Door profiles, or whether you can change the way that you're using Front Door to avoid the limits.
+- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Front Door, and do you understand which limits you'll approach as you grow? If you suspect that you're going to approach these limits, consider using multiple Front Door profiles, or whether you can change the way that you're using Front Door to avoid the limits.
 - Do you, or your tenants, have requirements for IP address filtering, geo-blocking, or customizing WAF rules?
 
 ## Example scenarios
 
-The following scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration. Please note that the diagrams will be redrawn in standard format by a professional designer.
+The following example scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration.
+
+Many multitenant solutions follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Front Door profile, and use Front Door to route incoming traffic to the appropriate stamp. This is the most common deployment model, and scenarios 1 through 4 below show how you can use this deployment model to meet a range of requirements.
+
+However, in some situations, you might deploy a Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-front-door-profile-per-stamp) describes this deployment model in more detail.
+
+> [!CAUTION]
+> Please note that the diagrams will be redrawn in standard format by a professional designer.
 
 ### Scenario 1: Provider-managed wildcard domain, single stamp
 
@@ -218,7 +219,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 #### Drawbacks
 
 - Because URLs use a multipart stem domain structure, URLs can be more complex for users to work with.
-- Fabrikam has to purchase mulitiple wildcard TLS certificates.
+- Fabrikam has to purchase multiple wildcard TLS certificates.
 - Fabrikam is responsible for renewing and installing the TLS certificates when they expire.
 
 ### Scenario 4: Vanity domains
@@ -242,14 +243,14 @@ They deploy Front Door by using a configuration similar to the diagram below:
 
 AdventureWorks and their tenants need to decide who issues TLS certificates:
 
-- The easiest option is for Front Door to issue and manage the certificates, but tenants must ensure not to configure a CCA record in their DNS server because this might prevent Front Door's certification authority from issuing certificates.
+- The easiest option is for Front Door to issue and manage the certificates, but tenants must ensure not to configure a CCA record in their DNS server because this record might prevent Front Door's certification authority from issuing certificates.
 - Alternately, tenants can provide their own certificate. They must work with AdventureWorks to upload the certificate to a key vault, and provide access to Front Door.
 
 #### Front Door configuration
 
-**One-time configuration:** Fabrikam creates a Front Door profile and a single endpoint. They configure an origin group for each stamp. They do not create custom domain resources or routes.
+**One-time configuration:** Fabrikam creates a Front Door profile and a single endpoint. They configure an origin group for each stamp. They don't create custom domain resources or routes.
 
-**When a new tenant is onboarded:** AdventureWorks adds a custom domain resource to Front Door. They use the tenant-provided domain name, and they associate the appropiate TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the example diagram above, `tenant1app.tenant1.com` routes to the origin group in the Australia region, and `tenant2app.tenant2.com` routes to the origin group in the US region.
+**When a new tenant is onboarded:** AdventureWorks adds a custom domain resource to Front Door. They use the tenant-provided domain name, and they associate the appropriate TLS certificate with the custom domain resource. Then, they create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the preceding example diagram, `tenant1app.tenant1.com` routes to the origin group in the Australia region, and `tenant2app.tenant2.com` routes to the origin group in the US region.
 
 #### Benefits
 
@@ -262,6 +263,26 @@ AdventureWorks and their tenants need to decide who issues TLS certificates:
 - The approach also requires that tenants are involved within the onboarding process, including making DNS changes and potentially issuing TLS certificates.
 - Tenants are in control of their DNS records, and changes to DNS records might render them unable to access the AdventureWorks solution.
 - AventureWorks has to pay attention to [Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes, custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
+
+### Scenario 5: Front Door profile per stamp
+
+You can deploy an AFD profile for each stamp. If you have 10 stamps, you deploy 10 instances of Front Door. This approach can be helpful if you need to restrict management access of each stamp's Front Door configuration, or if you need to spread across multiple Front Door profiles to avoid resource quotas or limits. 
+
+> [!TIP]
+> Front Door is a global resource. Even if you deploy regionally scoped stamps, each Front Door profile is globally distributed. This means that you should consider whether you really need to deploy multiple Front Door profiles, and what advantages you gain by doing so.
+
+If you have a stamp that serves multiple tenants, you need to consider how you route traffic to each tenant. Review the approaches described in the preceding scenarios, and consider combining the approaches together to suit your requirements.
+
+#### Benefits
+
+- By spreading your configuration across multiple profiles, you're less likely to reach the Front Door resource limits. For example, if you need to support large numbers of custom domains, you can spread those domains across multiple Front Door profiles and stay within the limits of each profile.
+- This approach enables you to scope your Front Door resource management permissions. By using Azure role-based access control (RBAC), you can grant administrators access to a single stamp's profile.
+
+#### Drawbacks
+
+- This approach typically incurs a high cost due to larger number of profiles that you deploy. For more information, see [Understand Front Door billing](/azure/frontdoor/billing).
+- There's a limit to the number of Front Door profiles you can deploy into a single Azure subscription. For more information, see [Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits).
+- Each stamp's Front Door profile needs to be configured separately, and you need to manage DNS configuration, TLS certificates, and TLS configuration for each stamp.
 
 ## Contributors
 
