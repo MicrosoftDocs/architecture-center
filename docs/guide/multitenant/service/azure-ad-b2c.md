@@ -135,7 +135,7 @@ Additionally, you can also use identity federation as a tool for managing multip
 
 ## Data residency
 
-When provisioning an Azure AD B2C tenant, you select a region for your tenant to be deployed to for [data residency purposes](/azure/active-directory-b2c/data-residency). This selection is important, because this specifies the region that your customer data resides in. If you have any specific data residency requirements for a subset of your customers, consider using the vertically partitioned strategy.
+When provisioning an Azure AD B2C tenant, you select a region for your tenant to be deployed to for [data residency purposes](/azure/active-directory-b2c/data-residency). This selection is important, because this specifies the region that your customer data resides in while at rest. If you have any specific data residency requirements for a subset of your customers, consider using the vertically partitioned strategy.
 
 ## Authorization
 
