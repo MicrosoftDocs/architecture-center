@@ -35,18 +35,20 @@ A popular use case for implementing an end-to-end event stream processing patter
 Principal author:
 
 - [Rajasa Savant](https://www.linkedin.com/in/rajasa-savant-72645728) | Senior Software Development Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-
-- [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
-- [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md) provides an overview and guidance on monitoring serverless event-driven architectures like this one.
-- [Azure Kubernetes in event stream processing](./serverless-event-processing-aks.yml) describes a variation of a serverless event-driven architecture running on Azure Kubernetes with KEDA scaler.
-- [Private link scenario in event stream processing](./serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a virtual network (VNet) with private endpoints, in order to enhance security.
-
-## Related resources
 
 - [Azure Event Hubs documentation](/azure/event-hubs)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [Azure Functions documentation](/azure/azure-functions)
 - [Overview of Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [Choose an API in Azure Cosmos DB](/azure/cosmos-db/choose-api)
+
+## Related resources
+
+- [Serverless event processing](../../reference-architectures/serverless/event-processing.yml) is a reference architecture detailing a typical architecture of this type, with code samples and discussion of important considerations.
+- [Monitoring serverless event processing](../../serverless/guide/monitoring-serverless-event-processing.md) provides an overview and guidance on monitoring serverless event-driven architectures like this one.
+- [Azure Kubernetes in event stream processing](./serverless-event-processing-aks.yml) describes a variation of a serverless event-driven architecture running on Azure Kubernetes with KEDA scaler.
+- [Private link scenario in event stream processing](./serverless-event-processing-private-link.yml) is a solution idea for implementing a similar architecture in a virtual network with private endpoints, in order to enhance security.
