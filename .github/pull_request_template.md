@@ -1,50 +1,48 @@
-## Summary of change
+**If this is your first contribution, thanks for contributing to the Azure Architecture Center! If it's been a while, welcome back!**
 
-\[_Complete this section with a summary, scope, and intent of this PR._]
+## Complete the following steps FIRST:
 
-## Supporting work item links
+1. Enter meaningful text in the **Title** field (above), that expresses the result of this PR. Consider words like "New" or "Update" to indicate the nature of changes, and use appropriate title prefix(es) for PR classification:
+   - "[WIP]" - a work-in-progress draft for several days/weeks
+   - "Pipeline:" - new/updated content related to the contributor success pipeline process (including freshness updates)
+   - "Edit Pass:" - maintenance work related to contributor success content (edit passes, art improvements, template alignment)
 
-- C+E Skilling AzDO Backlog Item: None or \[Your AzDO Link]
-- Other Backlog Item: None or [Your Link]
+2. Provide responses to the following:
+   - Summary, scope, and intent of this PR: [REPLACE THIS TEXT]
+   - C+E Skilling Azure DevOps (AzDO) work item link: [DELETE OR REPLACE THIS TEXT]
+   - Other supporting work item link: [DELETE OR REPLACE THIS TEXT]
 
-_Read and delete the section below._
----
+3. To create your PR, select the downward arrow to the right of the **Create pull request** button, then select:
+   - **Create draft pull request** if your PR is a work-in-progress, then select the **Draft pull request** button.
+   - **Create pull request** if your PR will be ready for review/merge shortly after creation, then select the **Create pull request** button
 
-**If this is your first contribution or it's been a while, welcome!** Thanks for contributing to the [Azure Architecture Center](https://azure.com/architecture)!
+<details><summary>Click to expand the next section AFTER the pull request has been created</summary>
 
-### Things to know before you create this pull request
+## Tips and additional instructions
 
-#### Link work items
+### ms.date metadata considerations
 
-Please link all known work items related to this change from source systems like AzDO or GitHub in the designated section above.
+- Don't update an article's "ms.date" metadata property unless you've done a **full freshness review** of the content. A full freshness review includes changes required to correct or improve the **full** technical accuracy of the article. 
+- Don't update "ms.date" if you're doing targeted changes to improve non-technical aspects of the article, such as the editorial quality, art improvements, article template alignment, etc. 
+- If you've changed any "ms.date" properties for work that wasn't part of full review for freshness, please reset them to their previous value.
 
-#### PR Title
+### Signaling when you're ready for your changes to be reviewed and merged
 
-- While your PR is a work in progress, please include `[WIP]` in the title and set the PR to _Draft_ status
-- Provide a meaningful title that expresses the result of this PR.  Consider using words like "New" to indicate this is a new article, or "Update" to indciate an update to an existing.
-- If your pull request is related to a contributor success work item, please prefix the PR title accordingly. For work related to:
-   - new/updated content that originated from the contributor pipeline process (including freshness updates), use "Pipeline: "
-   - maintenance activities such as edit passes, art improvements, or template alignment, use "Edit Pass: "
+After you've completed your proposed changes, addressed build warnings, and had some peers review, congrats. That's a big milestone. You can now begin the sign-off process for review and merge:
 
-#### `ms.date`
+1. If your PR was in draft mode, remove "[WIP]" from the title and select the **Ready for review** button at the bottom of the PR.
+2. Enter "#sign-off" in a new comment. This comment indicates that **you're confident the work meets or exceeds Microsoft's standards for publication**, and will begin the review/merge process. 
+3. Your PR may be selected for initial review by the **Cloud Architecture Content Team (CACT)**. Following CACT review, you may receive questions or requests for additional changes. You should have initial feedback from CACT review within a few business days. If you have an urgent request or need to contact the team, please mention `@MicrosoftDocs/cloud-architecture-content-team-pr-reviewers` in your PR and someone will get back to you.
+4. Once the CACT review process is complete, a `CACT #sign-off` will be added which triggers the final review by the PR review team.
 
-Do not update an article's `ms.date` metadata property unless you've done a **full freshness review** of the content. A full freshness review includes changes required to correct or improve the _**full** technical accuracy_ of the article. Do not update `ms.date` if you're doing targeted changes to improve non-technical aspects of the article, such as the editorial quality, art improvements, article template alignment, etc. 
+### Viewing your published changes
 
-#### Siginaling you're ready for this to go live
+Azure Architecture Center publishes to the live site once per (business) day, usually around 10am Pacific.
 
-Once you've completed you've reviewed your proposed changes, addressed build warnings, and had some peers also review, congrats.  That's a big milestone.  Please remove `[WIP]` from the title and remove _Draft_ status; you can then type `#sign-off`. This indicates that **you're confident the work meets or exceed's Microsoft's standards for publication**. Your PR may be still be for review by the **Cloud Architecture Content Team (CACT)**. Following CACT review, you may receive questions or requests for additional changes. Once the CACT review process is complete, a `CACT #sign-off` will be added which triggers the final review by the PR review team.
-
-You should have initial feedback from CACT review within a few business days. If you have an urgent request or need to contact the team, please mention `@MicrosoftDocs/cloud-architecture-content-team-pr-reviewers` in your PR and someone will get back to you.
-
-#### Seeing your published changes
-
-Azure Architecture Center typically publishes to the production site about once a (business) day, usually by 11am PST.
-
-#### Additional resources
+### Additional resources
 
 - [Authoring templates](https://review.learn.microsoft.com/help/contribute/architecture-center/templates/sample-solution-templates?branch=main) for architecture-center-pr content
 - [Learn.Microsoft.Com contributor guide](https://review.learn.microsoft.com/help/contribute/?branch=main)
 - CACT contact info:
-  - [Teams channel](https://teams.microsoft.com/l/channel/19%3a10cb281036234ba39dd0582efe6e476f%40thread.tacv2/Content%2520Development?groupId=78b0a100-0f48-431b-90e7-74c5eb76693c&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47)
   - [E-mail](mailto:cloud-arch-content@microsoft.com)
   - GitHub team: @MicrosoftDocs/cloud-architecture-content-team-pr-reviewers
