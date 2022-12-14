@@ -2,21 +2,36 @@
 
 ## Complete the following steps FIRST:
 
-1. Enter meaningful text in the **Title** field (above), that expresses the result of this PR. Consider words like "New" or "Update" to indicate the nature of changes, and use appropriate title prefix(es) for PR classification:
+1. Enter meaningful text in the **Title** field (above), that expresses the result of this pull request (PR). Consider words like "New" or "Update" to indicate the nature of changes, and use appropriate title prefix(es) if necessary:
    - [WIP] - a work-in-progress draft for several days/weeks
    - [Pipeline] - new/updated content related to the contributor success pipeline process (including freshness updates)
    - [Edit Pass] - maintenance work related to contributor success content (edit passes, art improvements, template alignment)
 
 2. Provide responses to the following:
-   - Summary, scope, and intent of this PR: [REPLACE THIS TEXT]
-   - C+E Skilling Azure DevOps (AzDO) work item link: [DELETE OR REPLACE THIS TEXT]
-   - Other supporting work item link: [DELETE OR REPLACE THIS TEXT]
+   - Summary, scope, and intent of this PR:  {REPLACE-THIS-TEXT}
+   - C+E Skilling Azure DevOps work item link:  {DELETE-OR-REPLACE-THIS-TEXT}
+   - Other supporting work item link:  {DELETE-OR-REPLACE-THIS-TEXT}
 
-3. To create your PR, select the downward arrow to the right of the **Create pull request** button, then select:
+3. Finally, create your PR by selecting the downward arrow to the right of the **Create pull request** button (below), then select:
+   - **Create pull request** if your PR will be ready for review/merge shortly after creation, then select the **Create pull request** button.
    - **Create draft pull request** if your PR is a work-in-progress, then select the **Draft pull request** button.
-   - **Create pull request** if your PR will be ready for review/merge shortly after creation, then select the **Create pull request** button
 
-<details><summary>AFTER the pull request has been created, click here to expand the next section.</summary>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+AFTER your PR has been created, click the arrow below for tips and additional instructions.
+  
+<details><summary></summary>
 
 ## Tips and additional instructions
 
