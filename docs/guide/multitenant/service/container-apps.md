@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
  - azure-container-apps
 categories:
  - management-and-governance
