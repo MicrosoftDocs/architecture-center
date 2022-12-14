@@ -30,7 +30,7 @@ When you work with a multitenant system that uses Container Apps, you need to de
 - You can implement *trusted multitenancy* by using a shared environment. For example, this model might be appropriate when your tenants are all from within your organization.
 - You can implement *hostile multitenancy* by deploying separate environments for each tenant. For example, this model might be appropriate when you don't trust the code that your tenants run.
 
-This table summarizes the differences between the main tenancy isolation models for Container Apps:
+The following table summarizes the differences between the main tenancy isolation models for Container Apps. The models are described later in this article.
 
 | **Consideration** | **One environment per tenant** | **Tenant-specific container apps** | **Shared container apps** |
 | --- | --- | --- | --- |
@@ -68,18 +68,18 @@ This isolation model provides logical isolation between each tenant. It provides
 - **Separation of upgrades and deployments**. Each tenant's application binaries can be deployed and upgraded independently from those of other container apps in the same environment. This approach can be helpful if you need to upgrade different tenants to specific versions of your code at different times.
 - **Resource isolation**. Each container app within your environment is allocated its own CPU and memory resources. If a specific tenant requires more resources, you can allocate more CPU and memory to that tenant's specific container app. Keep in mind that there are [limits on total CPU and memory allocations](/azure/container-apps/containers#configuration) on container apps.
 
-However, this approach provides no hardware or network isolation between tenants. All container apps in a single environment share the same virtual network. You need to trust the workloads deployed to the apps to ensure that they don't misuse the shared resources.
+However, this approach provides no hardware or network isolation between tenants. All container apps in a single environment share the same virtual network. You need to be able to trust that the workloads deployed to the apps won't misuse the shared resources.
 
 There are also [limits on how many container apps you can deploy into a single environment](/azure/container-apps/quotas). Take into account the expected growth in the number of tenants before you implement this isolation model.
 
 Container Apps has built-in support for Dapr, which uses a modular design to deliver functionality as [components](/azure/container-apps/dapr-overview). In Container Apps, Dapr components are environment-level resources. When you share a single environment across multiple tenants, ensure that you properly scope the Dapr components to the correct tenant-specific container app to guarantee isolation and avoid the risk of data leakage.
 
 > [!NOTE]
-> Don't use [revisions](/azure/container-apps/revisions) for different tenants. Revisions don't provide resource isolation. They're designed for deployment scenarios in which you need to have multiple versions of your app running as part of an update rollout process, as in blue/green deployments and A/B testing.
+> Don't use [revisions](/azure/container-apps/revisions) to create different versions of your app for different tenants. Revisions don't provide resource isolation. They're designed for deployment scenarios in which you need to have multiple versions of your app running as part of an update rollout process, as in blue/green deployments and A/B testing.
 
 ### One environment per tenant
 
-You might consider deploying a single Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed into its own virtual network, which is shared by all apps within the environment. Each environment has its own Dapr and monitoring configuration.
+You might consider deploying one Container Apps environment for each of your tenants. A [Container Apps environment](/azure/container-apps/environment) is the isolation boundary around a group of container apps. An environment provides compute and network isolation on the data plane. Each environment is deployed into its own virtual network, which is shared by all apps within the environment. Each environment has its own Dapr and monitoring configuration.
 
 ![Diagram that shows a Container Apps isolation model in which each tenant gets its own Container App environment.](./media/container-apps/environments-tenant.png)
 
@@ -93,7 +93,7 @@ Be sure to know the expected growth in the number of tenants before you implemen
 
 ### Custom domain names
 
-Container Apps enables you to use [wildcard DNS and to add your own wildcard TLS certificates](/azure/container-apps/custom-domains-certificates#add-a-custom-domain-and-certificate). When you use tenant-specific subdomains, wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants, without requiring a manual reconfiguration of each new tenant.
+Container Apps enables you to use [wildcard DNS and to add your own wildcard TLS certificates](/azure/container-apps/custom-domains-certificates#add-a-custom-domain-and-certificate). When you use tenant-specific subdomains, wildcard DNS and TLS certificates enable you to easily scale your solution to a large number of tenants without needing to manually reconfigure each new tenant.
 
 In Container Apps, you manage certificates at the environment level. [Ingress](/azure/container-apps/ingress) must also be enabled for the container app before you can bind a custom domain to it.
 
@@ -115,7 +115,7 @@ For more information, see these resources:
 
 ### Managed identities
 
-You can use managed identities from Azure AD to enable your container app to access other resources that are authenticated by Azure AD. Managed identities remove the need for your container app to manage credentials for service-to-service communication. You can grant specific permissions to your container app's identity for role-based access control.
+You can use managed identities from Azure AD to enable your container app to access other resources that are authenticated by Azure AD. When you use managed identities, your container app doesn't need to manage credentials for service-to-service communication. You can grant specific permissions to your container app's identity for role-based access control.
 
 When you use managed identities, keep your choice of isolation model in mind. For example, suppose you share your container apps among all your tenants and deploy tenant-specific databases. You need to ensure that one tenant's application can't access a different tenant's database.
 
