@@ -44,5 +44,5 @@ Azure Architecture Center publishes to the live site once per (business) day, us
 - [Authoring templates](https://review.learn.microsoft.com/help/contribute/architecture-center/templates/sample-solution-templates?branch=main) for architecture-center-pr content
 - [Learn.Microsoft.Com contributor guide](https://review.learn.microsoft.com/help/contribute/?branch=main)
 - CACT contact info:
-  - [E-mail](mailto:cloud-arch-content@microsoft.com?subject=Help with pull request)
+  - [E-mail](mailto:cloud-arch-content@microsoft.com?subject=Help%20with%20pull%20request)
   - GitHub team: @MicrosoftDocs/cloud-architecture-content-team-pr-reviewers
