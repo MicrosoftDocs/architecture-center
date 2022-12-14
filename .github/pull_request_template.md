@@ -3,9 +3,9 @@
 ## Complete the following steps FIRST:
 
 1. Enter meaningful text in the **Title** field (above), that expresses the result of this PR. Consider words like "New" or "Update" to indicate the nature of changes, and use appropriate title prefix(es) for PR classification:
-   - "[WIP]" - a work-in-progress draft for several days/weeks
-   - "Pipeline:" - new/updated content related to the contributor success pipeline process (including freshness updates)
-   - "Edit Pass:" - maintenance work related to contributor success content (edit passes, art improvements, template alignment)
+   - [WIP] - a work-in-progress draft for several days/weeks
+   - [Pipeline] - new/updated content related to the contributor success pipeline process (including freshness updates)
+   - [Edit Pass] - maintenance work related to contributor success content (edit passes, art improvements, template alignment)
 
 2. Provide responses to the following:
    - Summary, scope, and intent of this PR: [REPLACE THIS TEXT]
@@ -31,9 +31,9 @@
 After you've completed your proposed changes, addressed build warnings, and had some peers review, congrats. That's a big milestone. You can now begin the sign-off process for review and merge:
 
 1. If your PR was in draft mode, remove "[WIP]" from the title and select the **Ready for review** button at the bottom of the PR.
-2. Enter "#sign-off" in a new comment. This comment indicates that **you're confident the work meets or exceeds Microsoft's standards for publication**, and will begin the review/merge process. 
+2. Enter "#sign-off" in a new comment. This comment indicates that **you're confident the work meets or exceeds Microsoft's standards for publication**, and will trigger the review process. 
 3. Your PR may be selected for initial review by the **Cloud Architecture Content Team (CACT)**. Following CACT review, you may receive questions or requests for additional changes. You should have initial feedback from CACT review within a few business days. If you have an urgent request or need to contact the team, please mention `@MicrosoftDocs/cloud-architecture-content-team-pr-reviewers` in your PR and someone will get back to you.
-4. Once the CACT review process is complete, a `CACT #sign-off` will be added which triggers the final review by the PR review team.
+4. Once the CACT review process is complete, a `CACT #sign-off` will be added which triggers the final review/merge by the PR review team.
 
 ### Viewing your published changes
 
@@ -44,5 +44,5 @@ Azure Architecture Center publishes to the live site once per (business) day, us
 - [Authoring templates](https://review.learn.microsoft.com/help/contribute/architecture-center/templates/sample-solution-templates?branch=main) for architecture-center-pr content
 - [Learn.Microsoft.Com contributor guide](https://review.learn.microsoft.com/help/contribute/?branch=main)
 - CACT contact info:
-  - [E-mail](mailto:cloud-arch-content@microsoft.com)
+  - [E-mail](mailto:cloud-arch-content@microsoft.com?subject=Help with pull request)
   - GitHub team: @MicrosoftDocs/cloud-architecture-content-team-pr-reviewers
