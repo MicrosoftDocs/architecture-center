@@ -20,6 +20,8 @@ ms.custom:
   - fcp
 ---
 
+<!-- cSpell:ignore prosware -->
+
 # Azure Front Door considerations for multitenancy
 
 Azure Front Door is Microsoft's modern cloud CDN (content delivery network), which provides fast, reliable, and secure access between users and applications' static and dynamic web content across the globe. In this article, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
@@ -95,9 +97,6 @@ The following example scenarios illustrate how different multitenant architectur
 Many multitenant solutions follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Front Door profile, and use Front Door to route incoming traffic to the appropriate stamp. This is the most common deployment model, and scenarios 1 through 4 below show how you can use this deployment model to meet a range of requirements.
 
 However, in some situations, you might deploy a Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-front-door-profile-per-stamp) describes this deployment model in more detail.
-
-> [!CAUTION]
-> Please note that the diagrams will be redrawn in standard format by a professional designer.
 
 ### Scenario 1: Provider-managed wildcard domain, single stamp
 
