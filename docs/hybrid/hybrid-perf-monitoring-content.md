@@ -18,7 +18,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 - **On-premises branch office - Gateway**. This gateway connects the branch office to the on-premises main office via a Virtual Private Network (VPN).
 - **Third-party cloud provider - VM 5**. This component is a web application with internet access, a public-facing webpage, and both Log Analytics and Dependency agents installed.
 - **Third-party cloud provider - VM 6**. This component is a datastore environment without internet access, but with both Log Analytics and Dependency agents installed. There is no direct connectivity from the third-party cloud provider environments to the on-premises environments.
-- **Azure - Virtual Machine Scale Sets**. The Azure Virtual Machine Scale Sets is a scale set running a business application with the Log Analytics and diagnostic agents installed.
+- **Azure - VMSS**. This is a scale set that's created by using Azure Virtual Machine Scale Sets. It runs a business application with the log analytics and diagnostic agents installed.
 - **Azure - Application server**. This server has a single VM running a business application, with Log Analytics and diagnostic agents installed.
 - **Azure Monitor metrics**. Data collected by Azure Monitor metrics is stored in a time series database that's optimized for analyzing timestamped data. It also stores metrics sent from on-premises VMs and Azure VMs.
 - **Azure Monitor - Log Analytics workspace**. This workspace stores logs sent from on-premises VMs, Azure VMs, and VMs on third-party cloud providers. The workspace is an Azure resource where data is aggregated, and it serves as an administrative boundary for accessing this data. Other Azure Monitor services then connect to the Log Analytics workspace and use the data for various purposes. For more information, see [Designing your Azure Monitor Logs deployment][design-deployment].
@@ -148,7 +148,7 @@ The following are considerations for making your environment more manageable.
 - Azure Workbooks. Use workbooks to help perform further analysis, and create rich reports. Workbooks combine text, log queries, metrics, and parameters into interactive reports. Team members with access to the same Azure resources can edit workbooks. For more information, see [Create interactive reports Azure Monitor for VMs with workbooks][interactive-workbooks].
 - Partner integrations. Integrate Azure Monitor with partner and third-party tools to assist with analysis, visualization, alerts, or Service Management and Azure Pipelines. For more information, see [Azure Monitor partner integrations][partner-integrations].
 - Integrate Azure Monitor with Microsoft System Center. Integrate Azure Monitor with the System Center product suite. For more information, see [Connect Operations Manager to Azure Monitor][ops-manager].
-- Send data to Azure Event Hub. For integrating Azure Monitor with visualization and external monitoring tools, refer to [Stream Azure monitoring data to an event hub or external partner][event-hub].
+- Send data to Azure Event Hubs. For integrating Azure Monitor with visualization and external monitoring tools, refer to [Stream Azure monitoring data to an event hub or external partner][event-hub].
 - Log Analytics gateway. For smaller environments such as the branch office, use the agent to transfer data into the Log Analytics workspace, rather than into a gateway. For more information, see [Establish connectivity to Azure Log Analytics][connect-to-la].
 
 #### DevOps
@@ -159,7 +159,7 @@ The following are considerations for integrating your environment with DevOps pr
 - Application Instrumentation. *Instrument* applications by modifying application code to enable telemetry with Application Insights. The following methods are ways to instrument applications:
   - At runtime. Instrumenting your web application on the server at runtime is ideal for applications that are deployed already, as it avoids having to update code. Suitable scenarios include:
     - Microsoft ASP.NET or ASP.NET Core applications hosted on Azure Web Apps
-    - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on an Azure Virtual Machine or Azure Virtual Machine Scale Set
+    - ASP.NET applications hosted in Microsoft Internet Information Services (IIS) on a virtual machine or virtual machine scale set
     - ASP.NET applications hosted in IIS on an on-premises VM
     - Java-based Azure Functions
     - Node.JS apps on Linux App Services

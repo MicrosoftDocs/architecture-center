@@ -45,13 +45,13 @@ In this architecture, we divide the solution into two areas, describing security
 1. The user completes multi-factor authentication. AD FS redirects the authenticated web session to Exchange on-premises.
 1. The user can access Outlook.
 
-To implement this scenario for an on-premises user, you need to complete some additional configuration on Exchange and AD FS to configure AD FS use for pre-authentication of web access requests. For more information, see [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019).
+To implement this scenario for an on-premises user, you need to configure Exchange and AD FS to set up AD FS to pre-authenticate web access requests. For more information, see [Use AD FS claims-based authentication with Outlook on the web](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019). 
 
 You also need to enable integration of AD FS and Azure AD Multi-Factor Authentication. For more information, see [Configure Azure MFA as authentication provider with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa). (This integration requires AD FS 2016 or 2019.) Finally, you need to synchronize users to Azure AD and assign them licenses for Azure AD Multi-Factor Authentication.
 
 ### Components
 
-- [Azure AD](https://azure.microsoft.com/products/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's essentially based on EvoSTS (a Security Token Service used by Azure AD). It's used as an authentication server for Exchange Server on-premises.
+- [Azure AD](https://azure.microsoft.com/products/active-directory). Azure AD is a Microsoft cloud-based identity and access management service. It provides modern authentication that's based on EvoSTS (a Security Token Service used by Azure AD). It's used as an authentication server for Exchange Server on-premises.
 
 - [Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted). Multi-factor authentication is a process in which users are prompted during the sign-in process for another form of identification, like a code on their cellphone or a fingerprint scan.
 
