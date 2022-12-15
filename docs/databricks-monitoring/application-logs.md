@@ -1,7 +1,7 @@
 ---
 title: Send Databricks app logs to Azure Monitor
 description: Learn how to send application logs and metrics from Azure Databricks to a Log Analytics workspace using the Azure Databricks Monitoring Library.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.author: architectures
 ms.date: 07/25/2022

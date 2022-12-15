@@ -1,5 +1,5 @@
 ---
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: edprice
 ms.topic: include
 ms.service: architecture-center
