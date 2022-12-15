@@ -1,8 +1,8 @@
-[Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models. However, some data is too large send to the cloud or can't be sent to the cloud for regulatory reasons. By using this architecture, data scientists can use Machine Learning to train models by using on-premises data and compute resources.
+[Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models. However, some data is too large send to the cloud or can't be sent to the cloud for regulatory reasons. By using this solution, data scientists can use Machine Learning to train models by using on-premises data and compute resources.
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-architecture.png":::
+:::image type="content" alt-text="Diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-architecture.png" lightbox="media/train-machine-learning-on-premises-data-architecture.png":::
 
 <!-- *Download a [Visio file](https://arch-center.azureedge.net/train-machine-learning-on-premises-data.vsdx) of this architecture.* -->
 
@@ -20,10 +20,10 @@
 This solution uses the following components:
 
 - [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) orchestrates the training of the machine learning model.
-- [Azure Container Registry](https://azure.microsoft.com/products/container-registry) stores the model that Azure Machine Learning produces and places in a container for deployment.
+- [Azure Container Registry](https://azure.microsoft.com/products/container-registry) stores the model that Machine Learning produces and places in a container for deployment.
 - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) provides an on-premises Azure environment to run the following components:
   - [Azure App Service](/azure-stack/operator/azure-stack-app-service-overview) provides the base for the components at the edge.
-  - [Ubuntu](https://azure.microsoft.com/ubuntu) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker) runs in a VM to train the machine learning model.
+  - [VM](/products/virtual-machines/) running [Ubuntu](https://azure.microsoft.com/ubuntu) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker) trains the machine learning model.
   - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) stores private data.
 
 
@@ -35,7 +35,7 @@ After Machine Learning trains the model, it's registered, containerized, and add
 
 ### Potential use cases
 
-Many organizations would like to unlock insights from their on-premises or legacy data by using tools that their data scientists understand. Machine Learning provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models.  
+An organization that has on-premises or legacy data can use this solution to support their data scientists in unlocking insights by using tools that they understand. Machine Learning provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models.  
 
 However, some data is too large to send to the cloud or can't be sent to the cloud for regulatory reasons. Using this pattern, data scientists can use Azure Machine Learning to train models by using on-premises data and compute.
 
@@ -98,7 +98,7 @@ Other contributors:
 - [Azure Container Registry documentation](/azure/container-registry/) describes how to build, store, and manage images for container deployments.
 - [Azure App Service and Azure Functions on Azure Stack Hub overview](/azure-stack/operator/azure-stack-app-service-overview) describes the resource provider and how to deploy it.
 - [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations) describes best practices and how to get your questions answered.
-- [Azure Stack documentation](/azure-stack) provides an overview of the entire portfolio of products and solutions.
+- [Azure Stack documentation](/azure-stack) provides an overview of the entire portfolio of Azure Stack products and solutions.
 
 
 ## Related resources
