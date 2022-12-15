@@ -5064,21 +5064,37 @@ items:
             href: integration/integration-start-here.yml
           - name: Guides
             items:
-              - name: Connectors in Azure Logic Apps
-                href: /azure/connectors/apis-list
-                maintainContext: true
-              - name: Access to virtual networks from Logic Apps
-                href: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
-                maintainContext: true
-              - name: BCDR for Logic Apps
-                href: /azure/logic-apps/business-continuity-disaster-recovery-guidance
-                maintainContext: true
-              - name: Azure Policy controls for Logic Apps
-                href: /azure/logic-apps/security-controls-policy
-                maintainContext: true
-              - name: Security baseline for Logic Apps
-                href: /security/benchmark/azure/baselines/logic-apps-security-baseline
-                maintainContext: true
+              - name: Azure Logic Apps
+                items:
+                  - name: Overview
+                    href: /azure/logic-apps/logic-apps-overview
+                    maintainContext: true
+                  - name: Connectors overview
+                    href: /azure/connectors/apis-list
+                    maintainContext: true
+                  - name: Access to virtual networks
+                    href: /azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
+                    maintainContext: true
+                  - name: Business disaster and recovery
+                    href: /azure/logic-apps/business-continuity-disaster-recovery-guidance
+                    maintainContext: true
+                  - name: Azure Policy controls
+                    href: /azure/logic-apps/security-controls-policy
+                    maintainContext: true
+                  - name: Security baseline
+                    href: /security/benchmark/azure/baselines/logic-apps-security-baseline
+                    maintainContext: true
+              - name: BizTalk Server to Azure Integration Services
+                items:
+                  - name: Migration overview
+                    href: /azure/logic-apps/biztalk-server-to-azure-integration-services-overview
+                    maintainContext: true
+                  - name: Which integration services to choose?
+                    href: /azure/logic-apps/azure-integration-services-choose-capabilities
+                    maintainContext: true
+                  - name: Migration options and best practices
+                    href: /azure/logic-apps/biztalk-server-azure-integration-services-migration-approaches
+                    maintainContext: true
           - name: Architectures
             items:
               - name: API Management landing zone accelerator
@@ -5592,6 +5608,17 @@ items:
                     href: guide/hadoop/apache-sqoop-migration.yml 
                   - name: Apache Storm migration to Azure
                     href: guide/hadoop/apache-storm-migration.yml 
+              - name: BizTalk Server to Azure Integration Services
+                items:
+                  - name: Migration overview
+                    href: /azure/logic-apps/biztalk-server-to-azure-integration-services-overview
+                    maintainContext: true
+                  - name: Which integration services to choose?
+                    href: /azure/logic-apps/azure-integration-services-choose-capabilities
+                    maintainContext: true
+                  - name: Migration options and best practices
+                    href: /azure/logic-apps/biztalk-server-azure-integration-services-migration-approaches
+                    maintainContext: true
               - name: Migration deployments
                 items:
                   - name: Migrate Cloud Services to Service Fabric
