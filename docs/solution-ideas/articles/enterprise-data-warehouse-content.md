@@ -16,7 +16,7 @@ This article presents a solution for an enterprise data warehouse in Azure that:
 ### Dataflow
 
 1. Azure Synapse Analytics pipelines bring together structured, unstructured, and semi-structured data, such as logs, files, and media. The pipelines store the data in Azure Data Lake Storage.
-1. Azure Synapse Analytics Apache Spark pools clean and transform the Data Lake Storage data.
+1. Apache Spark pools in Azure Synapse Analytics clean and transform the Data Lake Storage data.
 1. Azure Synapse Analytics combines the processed data with existing structured data, creating one unified data hub.
 1. A dedicated SQL pool makes the data available for operational reports and analytical dashboards that derive insights. Azure Analysis Services serves the reports and dashboards to thousands of end users.
 
@@ -50,7 +50,7 @@ A dedicated SQL pool makes the processed data available for high-performance ana
 
 ### Potential use cases
 
-You can use this solution in the following scenarios and others that involve large volumes of data:
+You can use this solution in scenarios like the following ones that involve large volumes of data:
 
 - IoT device integration
 - Customer data platforms
@@ -59,7 +59,7 @@ You can use this solution in the following scenarios and others that involve lar
 
 ## Pricing
 
-To view an estimate of the cost of this solution, see a [pricing sample in the Pricing calculator](https://azure.com/e/4269bfbeee564d3cb88348a033e022e8).
+To view an estimate of the cost of this solution, see a [pricing sample in the pricing calculator](https://azure.com/e/4269bfbeee564d3cb88348a033e022e8).
 
 ## Next steps
 

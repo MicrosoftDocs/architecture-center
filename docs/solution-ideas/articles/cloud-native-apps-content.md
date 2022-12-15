@@ -12,7 +12,7 @@ This article presents a solution for using Azure services to build cloud-native 
 
 ### Dataflow
 
-1. Azure Kubernetes Service (AKS) is used to deploy and manage containerized applications. The orchestration uses continuous integration and delivery (CI/CD) and enterprise grade security and governance.
+1. Azure Kubernetes Service (AKS) is used to deploy and manage containerized applications. The orchestration uses continuous integration and delivery (CI/CD) and enterprise-grade security and governance.
 1. Azure Database for PostgreSQL provides a fully managed database as a service for PostgreSQL. This service offers built-in high availability and the rich feature set of Postgres.
 1. Azure Cache for Redis offloads database activity by managing session state and asset caching.
 1. Events like user movement or activity trigger functions in the Azure Functions serverless compute platform. The functions generate alerts.
@@ -31,7 +31,6 @@ This article presents a solution for using Azure services to build cloud-native 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a fully managed NoSQL database service for building and modernizing scalable, high-performance applications.
 - [Notification Hubs](https://azure.microsoft.com/products/notification-hubs) sends push notifications from any back end to any mobile device.
 - [Functions](https://azure.microsoft.com/products/functions) is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure.
-- [Azure Databricks](https://azure.microsoft.com/products/databricks) is an Apache Spark–based analytics service for big data analytics and AI.
 - [Application Insights](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights) is an extensible application performance management service that's a feature of [Monitor](https://azure.microsoft.com/products/monitor). You can use Application Insights to monitor live applications and continuously improve performance and usability.
 - [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) is an analytics service that brings together enterprise data warehousing and big data analytics within a unified experience.
 - [Power BI](https://powerbi.microsoft.com) is a suite of business tools for self-service and enterprise business intelligence. Here, it's used to analyze and visualize data.
@@ -84,7 +83,6 @@ Because the cloud-native applications in this solution use Azure managed service
   - [Azure Cosmos DB](/azure/cosmos-db/introduction)
   - [Notification Hubs](/azure/notification-hubs/notification-hubs-push-notification-overview)
   - [Functions](/azure/azure-functions/functions-overview)
-  - [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
   - [Application Insights](/azure/azure-monitor/app/app-insights-overview)
   - [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)
   - [Power BI](/power-bi/fundamentals/power-bi-overview)
