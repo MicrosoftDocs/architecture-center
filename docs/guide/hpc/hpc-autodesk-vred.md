@@ -21,7 +21,7 @@ By using VRED, users can create digital prototypes to gain insight into how vehi
 
 This article briefly describes the steps for running VRED on a virtual machine (VM) that's deployed on Azure. It also provides performance results. For more information about VRED, see the [Autodesk website](https://www.autodesk.com/products/vred/features/vred).
 
-VRED 2022.1 was successfully deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) Azure VMs. Similarly VRED 2023.1 was deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NVv5-series](/azure/virtual-machines/nva10v5-series) Azure VMs.
+VRED 2022.1 was successfully deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NV48s_v3](/azure/virtual-machines/nvv3-series) Azure VMs. VRED 2023.1 was deployed and tested on [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) and [NVadsA10 v5](/azure/virtual-machines/nva10v5-series) VMs.
 
 ## Install VRED on a VM
 
