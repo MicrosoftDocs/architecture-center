@@ -154,7 +154,7 @@ We don't recommend that you do an air-gapped installation unless that's a securi
 For more information about air-gapped installations, see the following OpenShift documentation:
 - [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.8/installing/installing-mirroring-installation-images.html)
 - [Installing a private cluster on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-private.html)
-- [Air-gapped installation](https://examples.openshift.pub/cluster-installation/air-gapped)
+- [Air-gapped installation](https://kubesphere.io/docs/v3.3/installing-on-linux/introduction/air-gapped-installation/)
 
 After you've installed OpenShift, see the MAS documentation for similar guidance.
 
