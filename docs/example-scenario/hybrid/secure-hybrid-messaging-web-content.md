@@ -22,7 +22,7 @@ In this architecture, we divide the solution into two areas, describing security
 
 ### Exchange Online user's flow
 
-1. A user tries to access Outlook on the web service via [https:\//outlook.office.com/owa](https:\//outlook.office.com/owa).
+1. A user tries to access Outlook on the web service via [https://outlook.office.com/owa](https://outlook.office.com/owa).
 1. Exchange Online redirects the user to Azure AD for authentication.
 
     If the domain is federated, Azure AD redirects the user to the local AD FS instance for authentication. If authentication succeeds, the user is redirected back to Azure AD. (To keep the diagram simple, we left out this federated scenario.)
@@ -33,7 +33,7 @@ In this architecture, we divide the solution into two areas, describing security
 
 ### Exchange on-premises user's flow
 
-1. A user tries to access the Outlook on the web service via a [https:\//mail.contoso.com/owa](https:\//mail.contoso.com/owa) URL that points to an Exchange server for internal access or to a Web Application Proxy server for external access.
+1. A user tries to access the Outlook on the web service via an `https://mail.contoso.com/owa` URL that points to an Exchange server for internal access or to a Web Application Proxy server for external access.
 1. Exchange on-premises (for internal access) or Web Application Proxy (for external access) redirects the user to AD FS for authentication.
 1. AD FS uses Integrated Windows authentication for internal access or provides a web form in which the user can enter credentials for external access.
 1. Responding to an AF DS access control policy, AD FS calls Azure AD Multi-Factor Authentication to complete authentication. Here's an example of that type of AD FS access control policy:

@@ -141,7 +141,7 @@ The following items are considerations for controlling and managing costs in you
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-### Manageability
+#### Manageability
 
 The following are considerations for making your environment more manageable.
 
@@ -151,7 +151,7 @@ The following are considerations for making your environment more manageable.
 - Send data to Azure Event Hub. For integrating Azure Monitor with visualization and external monitoring tools, refer to [Stream Azure monitoring data to an event hub or external partner][event-hub].
 - Log Analytics gateway. For smaller environments such as the branch office, use the agent to transfer data into the Log Analytics workspace, rather than into a gateway. For more information, see [Establish connectivity to Azure Log Analytics][connect-to-la].
 
-### DevOps
+#### DevOps
 
 The following are considerations for integrating your environment with DevOps processes and solutions.
 
