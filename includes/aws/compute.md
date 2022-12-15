@@ -1,6 +1,6 @@
 ---
 author: EdPrice-MSFT
-ms.author: edprice
+ms.author: martinek
 ms.topic: include
 ms.service: architecture-center
 ---
