@@ -105,7 +105,7 @@ Contoso is building a small multitenant solution. They deploy a single stamp in 
 
 They deploy Front Door by using a configuration similar to the diagram below:
 
-![Diagram showing Front Door configuration, with a single custom domain, route, and origin group, and a wildcard TLS certificate in Key Vault.](media/front-door/provider-managed-wildcard-domain-single-stamp.png)
+![Diagram showing Front Door configuration, with a single custom domain, route, and origin group, and a wildcard TLS certificate in Key Vault.](media/front-door/provider-wildcard-single-stamp.png)
 
 ##### DNS configuration
 
@@ -146,7 +146,7 @@ Prosware is building a multitenant solution across multiple stamps, which are de
 
 They deploy Front Door by using a configuration similar to the diagram below:
 
-![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stamps.png)
+![Diagram showing Front Door configuration, with multiple custom domains, routes, and origin groups, and a wildcard TLS certificate in Key Vault](media/front-door/provider-wildcard-multiple-stamps.png)
 
 ##### DNS configuration
 
@@ -187,7 +187,7 @@ Fabrikam is building a multitenant solution. They deploy stamps in Australia and
 
 They deploy Front Door by using a configuration similar to the diagram below:
 
-![Diagram showing Front Door configuration, with multiple custom stamp-based stem domains, routes, origin groups, and wildcard TLS certificate in Key Vault](media/front-door/provider-managed-wildcard-domains-multiple-stem-stamps.png)
+![Diagram showing Front Door configuration, with multiple custom stamp-based stem domains, routes, origin groups, and wildcard TLS certificate in Key Vault](media/front-door/provider-wildcard-stem.png)
 
 #### DNS configuration
 
@@ -228,7 +228,7 @@ AdventureWorks is building a multitenant solution. They deploy stamps in multipl
 
 They deploy Front Door by using a configuration similar to the diagram below:
 
-![Diagram showing Front Door configuration, with multiple custom vanity domains, routes, and origin groups, and a combination of TLS certificates in Key Vault and Front door managed TLS certificates](media/front-door/provider-and-AFD-managed-vanity-domains-multiple-stamps.png)
+![Diagram showing Front Door configuration, with multiple custom vanity domains, routes, and origin groups, and a combination of TLS certificates in Key Vault and Front door managed TLS certificates](media/front-door/vanity-domains.png)
 
 #### DNS configuration
 
