@@ -21,7 +21,7 @@ ms.custom:
 
 # Considerations for using Container Apps in a multitenant solution
 
-You can use Azure Container Apps to run microservices and containerized applications on a serverless platform. This article describes some of the features of Azure Container Apps that are useful for multitenant solutions. It also provides links to guidance that can help you during your planning phase.
+You can use Azure Container Apps to run microservices and containerized applications on a serverless platform. This article describes some of the features of Container Apps that are useful for multitenant solutions. It also provides links to guidance that can help you during your planning phase.
 
 ## Isolation models
 
@@ -111,7 +111,7 @@ For more information, see these resources:
 - [Enable authentication and authorization in Azure Container Apps with Azure Active Directory](/azure/container-apps/authentication-azure-active-directory)
 
 > [!NOTE]
-> The authentication and authorization features in Container Apps are similar those in Azure App Service. However, there are some differences. For more information, see [Considerations for using built-in authentication](/azure/container-apps/authentication#considerations-for-using-built-in-authentication).
+> The authentication and authorization features in Container Apps are similar to those in Azure App Service. However, there are some differences. For more information, see [Considerations for using built-in authentication](/azure/container-apps/authentication#considerations-for-using-built-in-authentication).
 
 ### Managed identities
 
