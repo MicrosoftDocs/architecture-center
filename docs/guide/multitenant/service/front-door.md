@@ -290,12 +290,13 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 
 Principal author:
 
- * [Raj Nemani](http://linkedin.com/in/rajnemani) | Partner Technology Strategist
+ * [Raj Nemani](http://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist
 
 Other contributors:
 
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ * [Harikrishnan M B (HARI)](http://linkedin.com/in/harikrishnanmb) Product Manager 2, Azure Networking 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
