@@ -20,7 +20,7 @@ ms.custom:
   - fcp
 ---
 
-<!-- cSpell:ignore Prosware -->
+<!-- cSpell:ignore prosware -->
 
 # Azure Front Door considerations for multitenancy
 
