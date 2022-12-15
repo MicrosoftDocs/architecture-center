@@ -176,5 +176,5 @@ To decide between rearchitecting or rebuilding, assess the following factors. Th
 
 - [Migration architecture design](../guide/migration/migration-start-here.md)
 - [Build migration plan with Azure Migrate](/azure/migrate/concepts-migration-planning)
-- [Modernize enterprise applications with Azure Service Fabric](../service-fabric/modernize-app-azure-service-fabric.yml)
+
 

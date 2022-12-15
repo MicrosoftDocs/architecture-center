@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article describes an elastic, flexible publish-subscribe model for data producers and consumers to create and consume validated, curated content or data.
+This article describes an elastic, flexible [publish-subscribe model](../../patterns/publisher-subscriber.yml) for data producers and consumers to create and consume validated, curated content or data.
 
 ## Architecture
 
