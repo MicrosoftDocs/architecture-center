@@ -142,7 +142,6 @@ To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct
 
 :::image type="content" source="media/nv48s-v3-speed-increase.png" alt-text="Graphs that show the relative speed increases for NV48s_v3." lightbox="media/nv48s-v3-speed-increase.png" border="false"::: 
 
-
 ### VRED 2023.1 performance results on the NC64as_T4_v3 VM
 
 #### CPU and GPU rendering times
@@ -158,6 +157,8 @@ To analyze the performance of VRED on [NC64as_T4_v3](/azure/virtual-machines/nct
 #### CPU and GPU rendering times
 
 :::image type="content" source="media/vred-2023-render-time-nvv5.png" alt-text="Graphs that show CPU and GPU rendering times for NVadsA10_v5." lightbox="media/vred-2023-render-time-nvv5.png" border="false":::
+
+#### Relative speed increases between CPU and GPU ray tracing
 
 :::image type="content" source="media/vred-2023-increase-nvv5.png" alt-text="Graphs that show the relative speed increases for VRED 2023.1 on NVadsA10_v5." lightbox="media/vred-2023-increase-nvv5.png" border="false":::
 
