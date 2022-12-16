@@ -14,7 +14,7 @@ This article about a whole SAP landscape is intentionally high-level on some det
 
 ## Differences
 
-As noted in the introduction, this architecture is an extended version of the [Holistic SAP landscape architecture](./sap-whole-landscape-secured). This section assumes you are familiar with the [Holistic SAP landscape architecture](./sap-whole-landscape-secured) and lists only differences. Skip this chapter and [start with next if you aren't](#components-of-this-architecture).
+As noted in the introduction, this architecture is an extended version of the [Holistic SAP landscape architecture](./sap-whole-landscape-secured.yml). This section assumes you are familiar with the [Holistic SAP landscape architecture](./sap-whole-landscape-secured.yml) and lists only differences. Skip this chapter and [start with next if you aren't](#components-of-this-architecture).
 
 The following changes show the differences:
 
