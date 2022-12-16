@@ -1,7 +1,7 @@
 ---
 title: Open-source scenarios on Azure
 description: Review a list of architectures and solutions that use open-source technologies.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: martinek
 ms.date: 07/26/2022
 ms.topic: conceptual

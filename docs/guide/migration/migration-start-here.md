@@ -1,7 +1,7 @@
 ---
 title: Migration architecture design
 description: Get an overview of Azure migration technologies, guidance offerings, solution ideas, and reference architectures.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 08/11/2022
 ms.topic: conceptual

@@ -2,7 +2,7 @@
 metadata:
   title: Circuit Breaker pattern
   description: Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

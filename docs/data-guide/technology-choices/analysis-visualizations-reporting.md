@@ -1,7 +1,7 @@
 ---
 title: Choose a data analytics and reporting technology
 description: Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022

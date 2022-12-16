@@ -2,7 +2,7 @@
 metadata:
   title: Sidecar pattern
   description: Deploy components of an application into a separate process or container to provide isolation and encapsulation.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual
