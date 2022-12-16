@@ -1,16 +1,38 @@
-This article provides best practices deploying multiple SAP systems and environments. It focuses on the connections between systems and the optimal placement of SAP in Azure without going into detail on individual SAP system.
+This article is an extension of the exiting best practices deploying multiple SAP systems and environments. It focuses on further securing the SAP landscape.
 
 [Visio file]:https://arch-center.azureedge.net/sap-whole-landscape.vsdx
 
 ## Architecture
 
-[![Diagram that shows a sample overall SAP landscape in Azure](media/sap-whole-landscape.png)](media/sap-whole-landscape.png#lightbox)
+[![Diagram that shows a sample overall SAP landscape in Azure with a dedicated SAP perimeter vnet](media/sap-whole-landscape-secured-perimeter.png)](media/sap-whole-landscape-secured-perimeter.png#lightbox)
 
 _Download a [Visio file] of the architectures in this article._
 
 This solution illustrates the SAP landscape of a typical large enterprise. You can reduce the size and scope of the configuration to fit your requirements. This reduction might apply to the SAP landscape: fewer subscriptions, fewer virtual machines (VMs), no high availability. Business policies might also necessitate adaptations to the architecture, particularly to the network design. When possible, we've included alternatives. Choose an approach that's right for your business.
 
 This article about a whole SAP landscape is intentionally high-level on some details such as compute, storage, network components and others. This article intentionally doesn'tprovide architecture on a single SAP system in detail. Many existing guides and designs are focused precisely on these details, however omit the bigger picture. For individual guides and more targeted single SAP system view, follow the links at the end of this document.
+
+## Differences
+
+As noted in the introduction, this architecture is an extended version of the [Holistic SAP landscape architecture](./sap-whole-landscape-secured). This section assumes you are familiar with the [Holistic SAP landscape architecture](./sap-whole-landscape-secured) and lists only differences. Skip this chapter and [start with next if you aren't](#components-of-this-architecture).
+
+The following changes show the differences:
+
+- **SAP perimeter network as spoke VNet** Separated from the SAP production virtual network (VNet), the SAP perimeter VNet retains the subnets but places them in a dedicated SAP perimeter VNet.
+
+[![Diagram showing network flow between VNet spokes through the Hub VNet](media/sap-whole-landscape-secured-perimeter-peering.png)](media/sap-whole-landscape-secured-perimeter-peering.png#lightbox)
+
+- **Better incident response**: Quick and immediate isolation of compromised services if a breach is detected. Removing virtual network peering from the SAP perimeter to the hub immediately isolates the SAP perimeter workloads and SAP application virtual network applications from the internet. Changing or removing an NSG rule that permits access only affects new connections and doesn't cut existing connections.
+
+- **Fine-grained network access control**: The "SAP Perimeter" VNet provides more stringent network access control to and from the "SAP production" network.
+
+- **Increased complexity, latency, and cost**: The architecture increases management complexity, cost, and latency. Internet-bound communication from the SAP production virtual network is peered twice, once to the Hub virtual network and again to the SAP perimeter virtual network out to the internet. The firewall in the Hub virtual network has the greatest affect on latency. We recommend measure the latency to see if your use case can support it.
+
+For more information, see [perimeter network best practices](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks).
+
+The architecture doesn'tshow a non-production SAP perimeter network. Non-production SAP workload uses SAP production perimeter services and network. The decision to create a non-production environment for shared SAP services (SAProuter, Cloud Connector) depends on your company policies and the size of your SAP landscape. One major driver to use a dedicated non-production SAP perimeter is the business criticality of processes depending on this connectivity path and the degree of change you foresee for these applications. A dedicated non-production SAP perimeter will be helpful during testing and new feature deployment. Should the applications be mostly served for less critical and secondary business processes with little change, the need for such additional non-production SAP perimeter is likely low.
+
+## Components of this architecture
 
 ### Azure subscriptions
 
@@ -51,6 +73,8 @@ Network traffic inside an SAP spoke VNet shouldn't pass through firewall. This a
 
 Spoke-to-spoke VNet peering allows spoke-to-spoke communication to bypass the hub VNet firewall. You should only configure spoke-to-spoke VNet peering when you have high-bandwidth requirements. Examples include database replication between SAP environments or production to disaster recovery virtual network. All other network traffic should run through the hub VNet and firewall.
 
+**Dedicate VNet spoke for SAP perimeter services** With SAP applications allowing internet facing communication, a dedicated VNet for such perimeter services. An own VNet allows immediate isolation of any compromised service if a breach is detected. Removing virtual network peering from the SAP perimeter to the hub immediately isolates the SAP perimeter workloads and SAP application virtual network applications from the internet. Changing or removing an NSG rule that permits access only affects new connections and doesn't cut existing connections. Additionally, an own VNet provides more stringent network access control to and from the "SAP production" network. This comes at the price of increased complexity, latency incurred due to passing through firewall and additional cost with double spoke-hub peering for any internet facing traffic.
+
 **Internet in- and outbound traffic** For details on internet ingress and egress network traffic, follow a dedicated architecture on this topic at [Inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml)
 
 #### Subnets
@@ -61,15 +85,15 @@ It's a best practice to divide each SAP environment's own VNet (production, pre-
 
 - **Database subnet**: The database subnet holds virtual machines running databases. In the diagram a pair of VMs for a highly available setup in synchronous replication are a representation for all database VMs of one SAP environment.
 
+- **Azure NetApp Files subnet**: [A delegated subnet](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) if using NetApp Files to provide NFS / SMB file shares for different SAP on Azure scenarios. A /24 subnet is the default. Use your requirements to determine the proper sizing.
+
 - **SAP perimeter subnet**: This subnet is a demilitarized zone (DMZ) that contains internet-facing applications such as SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. These services have dependencies on SAP systems that an SAP team should deploy, manage, and configure, not a central IT team. For this reason, you should place these service in the SAP spoke VNet and not the Hub VNet.
 
-The architecture doesn'tshow a non-production SAP perimeter subnet. Non-production SAP workload uses SAP production perimeter services and network. The decision to create a non-production environment for shared SAP services (SAProuter, Cloud Connector) depends on your company policies and the size of your SAP landscape. One major driver to use a dedicated non-production SAP perimeter is the business criticality of processes depending on this connectivity path and the degree of change you foresee for these applications. A dedicated non-production SAP perimeter will be helpful during testing and new feature deployment. Should the applications be mostly served for less critical and secondary business processes with little change, the need for such extra non-production SAP perimeter is likely low.
+The architecture doesn'tshow a non-production SAP perimeter subnet. Non-production SAP workload uses SAP production perimeter services and network. The decision to create a non-production environment for shared SAP services (SAProuter, Cloud Connector) depends on your company policies and the size of your SAP landscape. One major driver to use a dedicated non-production SAP perimeter is the business criticality of processes depending on this connectivity path and the degree of change you foresee for these applications. A dedicated non-production SAP perimeter will be helpful during testing and new feature deployment. Should the applications be mostly served for less critical and secondary business processes with little change, the need for such additional non-production SAP perimeter is likely low.
 
 - **Application Gateway subnet**: Azure Application Gateway requires its own subnet. Use it to allow traffic from the Internet that SAP services, such as SAP Fiori, can use. An Azure Application Gateway requires at least a /29 size subnet. We recommend size /27 or larger. You can't use both versions of Application Gateway (v1 and v2) in the same subnet. For more information, see [subnet for Azure Application Gateway](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet).
 
-- **Azure NetApp Files subnet**: [A delegated subnet](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) if using NetApp Files to provide NFS / SMB file shares for different SAP on Azure scenarios. A /24 subnet is the default. Use your requirements to determine the proper sizing.
-
-We have a few more notes on subnet design. Ensure sufficient network address space is provided for the subnets.  If you use SAP virtual host names, you need more address space in your SAP subnets, including the SAP perimeter. Often 2-3 IPs are required for each SAP instance including the physical VM hostname. Other Azure services might require their own dedicated subnet, when deployed in the SAP workload VNets.
+We have a few more notes on subnet design. Ensure sufficient network address space is provided for the subnets. If you use SAP virtual host names, you need more address space in your SAP subnets, including the SAP perimeter. Often 2-3 IPs are required for each SAP instance including the physical VM hostname. Other Azure services might require their own dedicated subnet, when deployed in the SAP workload VNets.
 
 #### Network security groups (NSG)
 
@@ -156,7 +180,7 @@ Alternatively to one load balancer for (A)SCS and ERS and second for SAP HANA, a
 Disaster recovery addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective, the main decisions to make are:
 
 - **Use different IP address ranges** A virtual network doesn'tspan beyond a single Azure region, a different virtual network is required in secondary region. The virtual network in the DR environment needs different IP address range to enable database synchronization through database native technology.
-- **Ensure file share availability**: SAP important aspects are availability of the SMB or NFS service and data replication, together with backup infrastructure and backup data.
+- **Ensure file share availability**: For SAP important aspects are availability of the SMB or NFS service and data replication, together with backup infrastructure and backup data.
 - **Central services and connectivity from on-premises**: With SAP depending on key central services like DNS, availability and change configuration on SAP side during DR failover needs to be established.
 
 For detailed disaster recovery guidance for SAP, see details in article [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/virtual-machines/workloads/sap/disaster-recovery-overview-guide).
@@ -182,7 +206,7 @@ The following diagram is the same architecture, but with as an example of a thre
   
 _This article is maintained by Microsoft. It was originally written by the following contributors._
 
-**Principal authors:**
+**Principal authors:** 
 
  * [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect  
  * [Pankaj Meshram](https://ww.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager

@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Holistic SAP landscape architecture with secured perimeter
+  description: Best practices large SAP environments deployment in Azure. Alternative architecture with secured network perimeter. Overall architecture for deployment and communication pathways between SAP tiers and integrating Azure services.
+  author: msftrobiro
+  ms.date: 12/16/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - databases
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-linux-vm
+  - azure-virtual-network
+  - azure-files
+  - azure-load-balancer
+name: Holistic SAP landscape architecture with secured perimeter
+summary: Best practices large SAP environments deployment in Azure. Alternative architecture with secured network perimeter. Overall architecture for deployment and communication pathways between SAP tiers and integrating Azure services.
+thumbnailUrl: /azure/architecture/browse/thumbs/sap-whole-landscape-secured-architecture.png
+content: |
+  [!include[](sap-whole-landscape-secured-content.md)]
