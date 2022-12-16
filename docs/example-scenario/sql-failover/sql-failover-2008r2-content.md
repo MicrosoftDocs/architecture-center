@@ -321,7 +321,7 @@ To learn more about solution components, see these resources:
 [Azure shared disks]: /azure/virtual-machines/windows/disks-shared
 [Azure shared disk limits disk types]: /azure/virtual-machines/windows/disks-shared#limitations
 [Azure shared disk limits disk size]: /azure/virtual-machines/windows/disks-shared#disk-sizes
-[Azure virtual machines]: /azure/virtual-machines/overview
+[Azure virtual machines]: https://azure.microsoft.com/overview/what-is-a-virtual-machine
 [Cluster Name Object]: /windows-server/failover-clustering/configure-ad-accounts#overview-of-active-directory-accounts-needed-by-a-failover-cluster
 [Configure multiple virtual machines in an availability set for redundancy]: /azure/virtual-machines/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configure the Windows Firewall to Allow SQL Server Access]: /sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access
@@ -350,7 +350,6 @@ To learn more about solution components, see these resources:
 [SQL Log Shipping]: /sql/database-engine/log-shipping/configure-log-shipping-sql-server
 [SQL Server 2008 R2 SP3 on Windows Server 2008 R2]: https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2008r2sp3-ws2008r2sp1-byol?tab=Overview
 [Upgrade SQL Server]: /sql/sql-server/end-of-support/sql-server-end-of-life-overview#upgrade-sql-server
-[Upgrading from Windows Server 2008 R2 or Windows Server 2008]: /windows-server/get-started/installation-and-upgrade#upgrading-from-windows-server-2008-r2-or-windows-server-2008
 [Upload a generalized VHD and use it to create new VMs in Azure]: /azure/virtual-machines/windows/upload-generalized-managed
 [Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1778662-PR-1852-windows-server-2008-r2-failover-cluster-with-azure-shared-disk.vsdx
 [What is Azure SQL?]: /azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview
