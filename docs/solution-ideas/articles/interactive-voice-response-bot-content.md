@@ -4,9 +4,9 @@ This solution idea shows how to architect an interactive voice response (IVR) ap
 
 ## Architecture
 
-![Architectural diagram: interactive voice response (IVR) application with bot built in Azure.](../media/interactive-voice-response-app-bot.png)
+[ ![Architectural diagram: interactive voice response (IVR) application with bot built in Azure.](../media/interactive-voice-response-app-bot.svg)](../media/interactive-voice-response-app-bot.svg#lightbox)
 
-*Download an [SVG file](../media/interactive-voice-response-app-bot.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/interactive-voice-response-app-bot.vsdx) of this architecture.*
 
 ### Dataflow
 

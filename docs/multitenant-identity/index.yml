@@ -2,7 +2,7 @@
 metadata:
   title: Multitenancy and identity management
   description: Learn the best practices for multitenant applications, in terms of authentication, authorization, and identity management.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

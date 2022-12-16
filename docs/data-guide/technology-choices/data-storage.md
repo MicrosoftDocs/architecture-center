@@ -1,7 +1,7 @@
 ---
 title: Choose a data storage technology
 description: Compare big data storage technology options in Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 mas.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -162,3 +162,17 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
+
+## Related resources
+
+- [Big data architectures](../big-data/index.yml)
+- [Big data architecture style](../../guide/architecture-styles/big-data.yml)
+- [Understand data store models](../../guide/technology-choices/data-store-overview.md)
+- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)

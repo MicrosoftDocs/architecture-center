@@ -6,7 +6,9 @@ Use digital asset management to mine knowledge and find information. Ingest unst
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture diagram that shows knowledge mining used in digital asset management to make assets discoverable.](../media/knowledge-mining-digital-asset-management.png)
+[ ![Architecture diagram that shows knowledge mining used in digital asset management to make assets discoverable.](../media/knowledge-mining-digital-asset-management.svg)](../media/knowledge-mining-digital-asset-management.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-digital-asset-management.vsdx) of this architecture.*
 
 - **Ingest**
 

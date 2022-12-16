@@ -1,7 +1,7 @@
 ---
 title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -94,9 +94,8 @@ Principal author:
 
 ## Related resources
 
-- [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
+- [Choose a real-time message ingestion technology](real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.yml)
-
-<!-- links -->
+- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
 [dotnet-spark]: https://github.com/dotnet/spark

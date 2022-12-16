@@ -2,7 +2,7 @@
 metadata:
   title: Performance tuning - Multiple backend services
   description: Use load testing to tune the performance of an application with multiple backend services. Increase resource units, run parallel queries, and optimize the query.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

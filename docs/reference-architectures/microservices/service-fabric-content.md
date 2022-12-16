@@ -369,7 +369,7 @@ To view the data, configure Log Analytics to view the data collected through WAD
 
 You can also view performance logs and telemetry data related to a Service Fabric cluster, workloads, network traffic, pending updates, and more. See [Performance Monitoring with Log Analytics](/azure/service-fabric/service-fabric-diagnostics-oms-agent).
 
-[Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about the topology of the cluster (that is, the processes running in each node). Send the data in the storage account to [Application Insights](/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights). There might be some delay in getting data into Application Insights. If you want to see the data real time, consider configuring [Event Hub](/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs) using sinks and channels. For more information, see [Event aggregation and collection using Windows Azure Diagnostics](/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad).
+[Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about the topology of the cluster (that is, the processes running in each node). Send the data in the storage account to [Application Insights](/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights). There might be some delay in getting data into Application Insights. If you want to see the data real time, consider configuring [Event Hubs](/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs) using sinks and channels. For more information, see [Event aggregation and collection using Windows Azure Diagnostics](/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad).
 
 #### Dependent service metrics
 
@@ -456,6 +456,13 @@ Principal author:
  - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Training: Introduction to Azure Service Fabric](/training/modules/intro-to-azure-service-fabric)
+- [Overview of Azure Service Fabric](/azure/service-fabric/service-fabric-overview)
+- [API Management documentation](/azure/api-management)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 ## Related resources
 

@@ -1,7 +1,7 @@
 ---
 title: Choose a batch processing technology
 description: Compare technology choices for big data batch processing in Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.author: architectures
 ms.reviewer: tozimmergren
@@ -127,7 +127,8 @@ Principal author:
 
 ## Related resources
 
-- [Analytics architecture design](/azure/architecture/solution-ideas/articles/analytics-start-here)
-- [Choose an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-- [Choose a data analytics technology in Azure](/azure/architecture/data-guide/technology-choices/analysis-visualizations-reporting)
-- [Analytics end-to-end with Azure Synapse](/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end)
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Choose an analytical data store in Azure](analytical-data-stores.md)
+- [Choose a data analytics technology in Azure](analysis-visualizations-reporting.md)
+- [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Batch processing](../big-data/batch-processing.yml)

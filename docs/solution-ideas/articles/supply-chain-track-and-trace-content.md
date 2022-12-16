@@ -48,7 +48,7 @@ At any point, if the device takes a temperature or humidity measurement that is 
 
 ## Deploy this scenario
 
-* [Deploy to Azure](https://aka.ms/tryworkbench)
+* [Deploy to Azure](https://azuremarketplace.microsoft.com/marketplace/consulting-services/akvelon.azure_blockchain_workbench)
 
 ## Next steps
 
