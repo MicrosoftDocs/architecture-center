@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Migrate Cloud workloads across security tenants
+  titleSuffix: Azure Architecture Center
+  description: Modern cloud workloads use cloud native security standards and policy driven governance to develop repetitive patterns and maximize the TCO.  To meet business transformation like acquisition or divesture the organizational team must strategize the separation or joining of their cloud workloads from existing to a new security tenant.  This ensures all data and application services relying on IaaS or PaaS cloud components are migrated and secured efficiently.
+  author: lapate22
+  ms.author: lapate
+  ms.date: 12/02/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - "migration"
+  - "management-and-governance"
+  - "security"
+products:
+  - "azure-active-directory"
+  - "azure-devops"
+  - "azure-resource-manager"
+  - "azure-backup"
+name: Migrate Cloud workloads across security tenants
+summary: Modern cloud workloads use cloud native security standards and policy driven governance to develop repetitive patterns and maximize the TCO.  To meet business transformation like acquisition or divesture the organizational team must strategize the separation or joining of their cloud workloads from existing to a new security tenant.  This ensures all data and application services relying on IaaS or PaaS cloud components are migrated and secured efficiently.
+thumbnail URL: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [! include[](Cross-TenantMigrationStrategy-content.md)]
