@@ -152,7 +152,7 @@ In some cases, such as for regulatory compliance, you might require an air-gappe
 We don't recommend that you do an air-gapped installation unless that's a security requirement. An air gap adds significant complexity to the operations of your solution. Activities such as installing software, mirroring containers, updating a mirror to protect against security vulnerabilities, and managing a firewall can become very time consuming.
 
 For more information about air-gapped installations, see the following OpenShift documentation:
-- [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.8/installing/installing-mirroring-installation-images.html)
+- [Mirroring images for a disconnected installation](https://docs.openshift.com/container-platform/4.11/installing/disconnected_install/installing-mirroring-installation-images.html)
 - [Installing a private cluster on Azure](https://docs.openshift.com/container-platform/4.8/installing/installing_azure/installing-azure-private.html)
 
 After you've installed OpenShift, see the MAS documentation for similar guidance.
