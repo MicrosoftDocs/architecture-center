@@ -79,7 +79,7 @@ You can install Azure Policy on new and existing AKS clusters by installing the 
 
 To improve the security posture of your Azure Kubernetes Service (AKS) cluster, you can apply and enforce built-in security policies on your cluster using Azure Policy. [Azure Policy](/azure/governance/policy/overview) helps to enforce organizational standards and to assess compliance at scale. 
 
-After installing the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks), you can apply individual policy definitions or groups of policy definitions called initiatives to your AKS cluster. You can [create and assign your own custom policy definitions] (azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition) or see [Azure Policy built-in definitions for AKS(/azure/aks/policy-reference) for a complete list of AKS built-in policy and initiative definitions that you can use from the outset.
+After installing the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks), you can apply individual policy definitions or groups of policy definitions called initiatives to your AKS cluster. You can [create and assign your own custom policy definitions](azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition) or see [Azure Policy built-in definitions for AKS](/azure/aks/policy-reference) for a complete list of AKS built-in policy and initiative definitions that you can use from the outset.
 
 ### Kyverno
 
