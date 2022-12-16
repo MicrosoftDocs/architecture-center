@@ -16,24 +16,24 @@ PostgreSQL's support for unstructured data and ability to execute parallel queri
 ### Dataflow
 
 1. A function that's hosted by Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run the function in the Data Factory pipeline.
-1. Data can come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. The Azure Function App is triggered as new data is received as part of the pipeline.
-1. The Azure Function App calls the Azure Cognitive Services API to analyze the data (for example, for Sentiment Analysis).
-1. The results of the analysis are returned in JSON format from the Cognitive Services API (Text Analytics in this example).
-1. The Azure Function App stores the data and results from the Cognitive Services API (Text Analytics in this example) in Azure Database for PostgreSQL.
-1. Azure Machine Learning Studio is used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
-    * If you're approaching the machine learning component of this architecture with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector, and n-gram extraction. Instead, you can use your favorite open-source NLP model, if you prefer a code-first approach and run your model as an experiment in Azure Machine Learning.
-    * Results from this further ML analysis are saved back to PostgreSQL.
-1. Finally, human-interpretable insights can be explored in Power BI, through the PostgreSQL connector or a custom web application.
+1. Data comes from various sources, such as Azure Blob Storage and Azure Event Hubs. Data is uploaded to Blob Storage, while Event Hubs ingests a high volume of data. When the system receives new data, the function in the pipeline is triggered.
+1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses the Text analytics API.
+1. The results of the analysis are returned in JSON format from the Cognitive Services API.
+1. The function stores the data and results from the Cognitive Services API in Azure Database for PostgreSQL.
+1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide other insights into the data. Results from this analysis are stored in Azure Database for PostgreSQL.
+   - If you're approaching the machine learning step with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector, and n-gram extraction.
+   - If you prefer a code-first approach, you can use an open-source natural language processing (NLP) model. You can run this model as an experiment in Azure Machine Learning.
+1. The PostgreSQL connector for Power BI makes it possible to explore human-interpretable insights in Power BI or a custom web application.
 
 ### Components
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service): A fully managed platform for quickly building, deploying, and scaling web apps and APIs.
-* [Azure Functions](https://azure.microsoft.com/services/functions): See [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity).
-* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs)
-* [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services): Build intelligent application with a suite of AI services and APIs.
-* [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql): With high availability up to 99.99% SLA and agile scalability, Azure Database for PostgreSQL allows you to focus on innovation.
-* [Azure Machine Learning Studio](/azure/machine-learning/overview-what-is-machine-learning-studio): Train, deploy, and automate ML models in this web portal, covering both code-first and no-code perspectives.
-* [Power BI](https://powerbi.microsoft.com): Create beautiful visualizations and discover hidden insights in your data with Power BI.
+- [Azure App Service](https://azure.microsoft.com/services/app-service) provides a fully managed platform for quickly building, deploying, and scaling web apps and APIs.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. For information about how to use an activity to run a function as part of a Data Factory pipeline, see [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity).
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform.
+- [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) provides a suite of AI services and APIs that you can use to build cognitive intelligence into apps.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service. It provides [high availability](https://www.azure.cn/support/sla/postgresql), elastic scaling, patching, and other management capabilities for PostgreSQL.
+- [Azure Machine Learning studio](/azure/machine-learning/overview-what-is-machine-learning-studio) is a cloud service that you can use to train, deploy, and automate machine learning models. The studio supports code-first and no-code approaches.
+- [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information and help you derive insights from data.
 
 ## Considerations
 
@@ -63,16 +63,16 @@ Azure Cognitive Services Text Analytics API pricing is determined by the instanc
 
 ## Next steps
 
-* [Azure Functions overview](/azure/azure-functions/functions-overview)
-* [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
-* [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
-* Call the [Text Analytics REST API using Postman](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) synchronously and asynchronously
-* [Explore and test the Text Analytics API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
-* [Use DirectQuery to link PostgreSQL to Power BI](/power-bi/connect-data/desktop-directquery-about)
-* How to create an [Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-hyperscale-server-group)
-* How to link your [Azure Machine Learning Models in Power BI](/power-bi/connect-data/service-aml-integrate)
+- [Azure Functions overview](/azure/azure-functions/functions-overview)
+- [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
+- [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+- Call the [Text Analytics REST API using Postman](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) synchronously and asynchronously
+- [Explore and test the Text Analytics API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
+- [Use DirectQuery to link PostgreSQL to Power BI](/power-bi/connect-data/desktop-directquery-about)
+- How to create an [Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-hyperscale-server-group)
+- How to link your [Azure Machine Learning Models in Power BI](/power-bi/connect-data/service-aml-integrate)
 
 ## Related resources
 
-* Follow along with this Learn Module and apply the [Text Analytics API](/training/modules/classify-user-feedback-with-the-text-analytics-api)
-* Expand your Azure Cognitive Services knowledge and [become a Microsoft Certified Azure AI Engineer](/certifications/azure-ai-engineer)
+- Follow along with this Learn Module and apply the [Text Analytics API](/training/modules/classify-user-feedback-with-the-text-analytics-api)
+- Expand your Azure Cognitive Services knowledge and [become a Microsoft Certified Azure AI Engineer](/certifications/azure-ai-engineer)
