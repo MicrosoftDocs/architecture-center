@@ -46,13 +46,13 @@ You can leverage one of the following leading CNCF projects to enforce policies 
 
 ### Open Policy Agent (OPA) & Gatekeeper
 
-[Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is an open-source project and collaboration between organizations, including Google and Microsoft, later donated to the CNCF. Gatekeeper is a Kubernetes admission controller that enforces policies created with [Open Policy Agent (OPA)](https://www.openpolicyagent.org/), a general-purpose policy engine. With OPA you can create a policy that runs pods from tenants on separate instances or at a higher priority than other tenants. OPA policies are expressed in a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego). A collection of common OPA policies can be found in the GitHub [repository](https://github.com/aws/aws-eks-best-practices/tree/master/policies/opa) for this project.
+[Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is an open-source CNCF project. Gatekeeper is a Kubernetes admission controller that enforces policies created with [Open Policy Agent (OPA)](https://www.openpolicyagent.org/), a general-purpose policy engine. With OPA you can create a policy that runs pods from tenants on separate instances or at a higher priority than other tenants. OPA policies are expressed in a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego). A collection of common OPA policies can be found in the GitHub [repository](https://github.com/aws/aws-eks-best-practices/tree/master/policies/opa) for this project.
 
 ### Kyverno
 
-[Kyverno](https://kyverno.io) is a Kubernetes native policy engine that can validate, mutate, and generate configurations with policies as Kubernetes resources. Kyverno uses Kustomize-style overlays for validation, supports JSON Patch and strategic merge patch for mutation, and can clone resources across namespaces based on flexible triggers. Unlike Gatekeeper, Kyverno is a policy engine uniquely designed for Kubernetes. With Kyverno, you can manage policies as Kubernetes resources without requiring a new language to define policies. This approach allows using familiar tools such as [kubectl](https://kubernetes.io/docs/tasks/tools/), [git](https://git-scm.com/), and [customize](https://kustomize.io/) to manage policies. You can use Kyverno policies to validate, mutate, and generate Kubernetes resources. 
+[Kyverno](https://kyverno.io) is a Kubernetes native policy engine that can validate, mutate, and generate configurations with policies as Kubernetes resources. Kyverno uses Kustomize-style overlays for validation, supports JSON Patch and strategic merge patch for mutation, and can clone resources across namespaces based on flexible triggers. With Kyverno, you can manage policies as Kubernetes resources without requiring a new language to define policies. This approach allows using familiar tools such as [kubectl](https://kubernetes.io/docs/tasks/tools/), [git](https://git-scm.com/), and [customize](https://kustomize.io/) to manage policies. You can use Kyverno policies to validate, mutate, and generate Kubernetes resources. 
 
-You can use Kyverno to isolate namespaces, enforce pod security and other best practices, and generate default configurations such as network policies. Several examples are included in the GitHub [repository](https://github.com/aws/aws-eks-best-practices/tree/master/policies/kyverno) for this project.  
+You can use Kyverno to isolate namespaces, enforce pod security and other best practices, and generate default configurations such as network policies. Several examples are included in the GitHub [repository](https://github.com/aws/aws-eks-best-practices/tree/master/policies/kyverno) for this project.
 
 ## EKS Governance
 
@@ -64,7 +64,7 @@ Azure customers can use [Azure Policy with OPA Gatekeeper](/azure/governance/pol
 
 ### Azure Policy
 
-[Azure Policy](/azure/governance/policy/overview) extends [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
+[Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
 The add-on enacts the following functions:
 
 - Checks with Azure Policy service for policy assignments to the cluster.
@@ -107,7 +107,7 @@ For more information, see the official [Kyverno installation guide](https://kyve
 
 Unlike Azure Policy for Kubernetes, with Kyverno you can create policies not only to validate or mutate existing resources, but also policies to create new Kubernetes objects. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
 
-See [Kyverno Policies Library](https://kyverno.io/policies/) for a list of more than 90 policies ready to use or customize. You can deploy policies individually using their YAML manifest or package and deploy them using a Helm chart.
+See [Kyverno Policies Library](https://kyverno.io/policies/) for a large list of policies ready to use or customize. You can deploy policies individually using their YAML manifest or package and deploy them using a Helm chart.
 
 Optionally, you can deploy the [Kyverno policies for Kubernetes Pod Security Standards](https://artifacthub.io/packages/helm/kyverno/kyverno-policies/) which provide a Kyverno's implementation of the [Kubernetes Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The Kubernetes Pod Security Standards (PSS) controls aim to provide a good starting point for general Kubernetes cluster operational security.
 
