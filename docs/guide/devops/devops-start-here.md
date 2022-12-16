@@ -3,7 +3,7 @@ title: DevOps architecture design
 titleSuffix: Azure Architecture Center
 description: Learn about DevOps and how to implements DevOps solutions on Azure by using services such as Azure DevOps, Azure Pipelines, Azure Monitor, and Azure DevTest Labs.
 author: martinekuan
-ms.author: edprice
+ms.author: martinek
 ms.date: 07/25/2022
 ms.topic: reference-architecture
 ms.service: architecture-center
