@@ -15,15 +15,15 @@ PostgreSQL's support for unstructured data and ability to execute parallel queri
 
 ### Dataflow
 
-1. An Azure Function App instance is triggered as a part of an Azure Data Factory pipeline, by creating an Azure Function Activity.
-2. Data can come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. The Azure Function App is triggered as new data is received as part of the pipeline.
-3. The Azure Function App calls the Azure Cognitive Services API to analyze the data (for example, for Sentiment Analysis).
-4. The results of the analysis are returned in JSON format from the Cognitive Services API (Text Analytics in this example).
-5. The Azure Function App stores the data and results from the Cognitive Services API (Text Analytics in this example) in Azure Database for PostgreSQL.
-6. Azure Machine Learning Studio is used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
+1. A function that's hosted by Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run the function in the Data Factory pipeline.
+1. Data can come from various sources, such as Event Hubs for high volumes of data ingestion, or data that's uploaded to Blob Storage. The Azure Function App is triggered as new data is received as part of the pipeline.
+1. The Azure Function App calls the Azure Cognitive Services API to analyze the data (for example, for Sentiment Analysis).
+1. The results of the analysis are returned in JSON format from the Cognitive Services API (Text Analytics in this example).
+1. The Azure Function App stores the data and results from the Cognitive Services API (Text Analytics in this example) in Azure Database for PostgreSQL.
+1. Azure Machine Learning Studio is used to further analyze the data, using custom Machine Learning algorithms to gain further insights.
     * If you're approaching the machine learning component of this architecture with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector, and n-gram extraction. Instead, you can use your favorite open-source NLP model, if you prefer a code-first approach and run your model as an experiment in Azure Machine Learning.
     * Results from this further ML analysis are saved back to PostgreSQL.
-7. Finally, human-interpretable insights can be explored in Power BI, through the PostgreSQL connector or a custom web application.
+1. Finally, human-interpretable insights can be explored in Power BI, through the PostgreSQL connector or a custom web application.
 
 ### Components
 
