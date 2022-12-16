@@ -21,7 +21,7 @@ Interruptible workloads are the best use case for spot VMs. Interruptible worklo
 
 |     | Interruptible workload features | Regular workload features
 | --- | --- | --- |
-| **Features** | - Minimal to no time constraints <br> - Low organizational priority <br> - Short processing times | - Service level agreements (SLAs) <br>- Sticky sessions requirements <br>- Stateful workloads |
+| **Features** | Minimal to no time constraints <br>Low organizational priority <br>Short processing times | Service level agreements (SLAs) <br>Sticky sessions requirements <br>Stateful workloads |
 
 You can use spot VM in non-interruptible workloads, but they shouldn’t be the single source of compute capacity. Use as many regular VMs as you need to meet your uptime requirements.
 
@@ -47,7 +47,7 @@ Spot VMs have two configuration options that affect eviction. These configuratio
 
 Orchestration is the process of replacing a spot VM after an eviction. It's the foundation of building a reliably interruptible workload. A good orchestration system has built-in flexibility. By flexibility, we mean designing your orchestration to have options, use multiple VM sizes, deploy to different regions, be eviction aware, and account for different eviction scenarios to improve workload reliability and speed.
 
-Below we've outlined recommendations to help you create a flexible orchestration for your interruptible workload.
+Below we've outlined recommendations to help you design flexible orchestration for your interruptible workload.
 
 **Design for speed.** For a workload running on spot VMs, compute capacity is a treasure. The imminent potential for eviction should elevate your appreciation for compute time allotted and should translate to meaningful design decisions that prioritize workload speed. In general, we recommend optimizing the compute time you have. You should build a VM image with all the required software pre-installed. Pre-installed software will help minimize the time between eviction and a fully running application. You want to avoid using compute time on processes that don't contribute to workload purpose. A workload for data analytics, for example, should focus most compute time on data processing and as little as possible on gathering eviction metadata. Eliminate non-essential processes from your application.
 
@@ -56,9 +56,9 @@ Below we've outlined recommendations to help you create a flexible orchestration
 - [Eviction rates](/azure/virtual-machines/spot-vms#portal)
 - [Azure Resource Graph](/azure/virtual-machines/spot-vms#azure-resource-graph)
 
-**Use the most flexible eviction policy.** The eviction policy of the evicted spot VM affects the replacement process. A delete eviction policy is more flexible than a stopped/deallocated eviction policy. We recommend considering a delete policy first to see if it fits your workload needs.
+**Use the most flexible eviction policy.** The eviction policy of the evicted spot VM affects the replacement process. A delete eviction policy is more flexible than a stopped/deallocated eviction policy.
 
-*Consider the delete policy first* - We recommend using a delete eviction policy if your workload can handle it. Deletion allows the orchestration to deploy replacement spot VMs to new zones and regions. This deployment flexibility could help your workload find spare compute capacity faster than a stopped/deallocated VM. Stopped/deallocated VMs have to wait for spare compute capacity in the same zone it was created in. You'll need a process to monitor for evictions external to the application and initiative remediation by deploying to alternative regions or SKUs.
+*Consider the delete policy first* - We recommend using a delete eviction policy if your workload can handle it. Deletion allows the orchestration to deploy replacement spot VMs to new zones and regions. This deployment flexibility could help your workload find spare compute capacity faster than a stopped/deallocated VM. Stopped/deallocated VMs have to wait for spare compute capacity in the same zone it was created in. For the delete policy, you'll need a process to monitor for evictions that is external to the application and orchestrates deployments to different regions and/or with different VM SKUs.
 
 *Understand the stopped/deallocated policy* - The stopped/deallocated policy has less flexibility than the delete policy. The spot VMs must stay in the same region and zone. You can't move a stopped/deallocated VM to another location. Because the VMs have a fixed location, you'll need something in place to reallocate the VM when compute capacity becomes available. There's no way to predict when compute capacity will be available. So we recommend using an automated schedule pipeline to attempt a redeployment after an eviction. An eviction should trigger the schedule pipeline, and the redeployment attempts should continuously check for compute capacity until it becomes available.
 
@@ -69,9 +69,9 @@ Below we've outlined recommendations to help you create a flexible orchestration
 
 **Continuously monitor for eviction.** Monitoring is the key to workload reliability on spot VMs. Spot VMs have no SLA after creation and can be evicted at any time. The best way to improve workload reliability on spot VMs is to anticipate when they're going to be evicted. With this information, you could attempt a workload graceful shutdown and trigger automation that orchestrates the replacement.
 
-*Use Scheduled Events* - We recommend using the Scheduled Events service for each VM. Azure has different infrastructure maintenance types, and each type generates a distinct signal. Evictions qualify as infrastructure maintenance and send out the `Preempt` signal to all affected VMs. A service called Schedule Events allows you to capture the `Preempt` signal for VM. The Scheduled Events service provides a queryable endpoint at a static, non-routable IP address `169.254.169.254`. Azure infrastructure generates the `Preempt` signal for affected VMs at a minimum 30 seconds before an eviction. You might not query the endpoint the second `Preempt` signal arrives, so you need to build your orchestration around these constraints.
+*Use Scheduled Events* - We recommend using the Scheduled Events service for each VM. Azure sends out signals to VMs when they're going to be affected by infrastructure maintenance. Evictions qualify as infrastructure maintenance. Azure send out the `Preempt` signal to all VMs at a minimum 30 seconds before they're evicted. A service called Schedule Events allows you to capture this `Preempt` signal by querying an endpoint at a static, non-routable IP address `169.254.169.254`. 
 
-*Use frequent queries* - We recommend querying the endpoint often enough to orchestrate a graceful shutdown. You can query the Scheduled Events endpoint up to every second for the most, but one-second frequency might not be necessary for all use cases. Queries must come from an application running on the spot VM. The query can't come from an external source. As a result, the queries will consume VM compute capacity and steal processing power from the main workload. You'll need to balance those competing priorities to meet your specific situation.
+*Use frequent queries* - We recommend querying the Schedule Events endpoint often enough to orchestrate a graceful shutdown. You can query the Scheduled Events endpoint up to every second, but one-second frequency might not be necessary for all use cases. These queries must come from an application running on the spot VM. The query can't come from an external source. As a result, the queries will consume VM compute capacity and steal processing power from the main workload. You'll need to balance those competing priorities to meet your specific situation.
 
 *Automate orchestration* - Once you collect the `Preempt` signal, your orchestration should act on that signal. Given the time constraints, the `Preempt` signal should attempt a graceful shutdown of your workload and start an automated process that replaces the spot VM. For more information, see:
 
