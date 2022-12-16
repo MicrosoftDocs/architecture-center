@@ -91,13 +91,21 @@ You also need to take steps to achieve consistency and allow access only from th
 
 - Block other mobile device clients:
 
-  `Set-ActiveSyncOrganizationSettings -DefaultAccessLevel Block`
+  ```powershell
+  Set-ActiveSyncOrganizationSettings -DefaultAccessLevel Block
+  ```  
+
 - Allow Exchange Online to connect to on-premises:
 
-  `If ((Get-ActiveSyncOrganizationSettings).DefaultAccessLevel -ne "Allow") {New-ActiveSyncDeviceAccessRule -Characteristic DeviceType -QueryString "OutlookService" -AccessLevel Allow}`
+  ```powershell
+  If ((Get-ActiveSyncOrganizationSettings).DefaultAccessLevel -ne "Allow") {New-ActiveSyncDeviceAccessRule -Characteristic DeviceType -QueryString "OutlookService" -AccessLevel Allow}
+  ```
+
 - Block basic authentication for Outlook for iOS and Android:
 
-  `New-ActiveSyncDeviceAccessRule -Characteristic DeviceModel -QueryString "Outlook for iOS and Android" -AccessLevel Block`
+  ```powershell
+  New-ActiveSyncDeviceAccessRule -Characteristic DeviceModel -QueryString "Outlook for iOS and Android" -AccessLevel Block
+  ```
 
 For more information about these steps, see [Using hybrid Modern Authentication with Outlook for iOS and Android](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#implementation-steps).
 

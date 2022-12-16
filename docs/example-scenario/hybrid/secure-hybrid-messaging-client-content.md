@@ -5,6 +5,9 @@ The article shows how to implement multi-factor authentication for Outlook deskt
 - [Exchange on-premises](#architecture-exchange-on-premises)
 - [Exchange on-premises, AD FS](#architecture-exchange-on-premises-ad-fs)
 
+> [!NOTE]
+> In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
+
 ## Architecture (Exchange Online)
 
 :::image type="content" border="false" source="./media/desktop-online-option-1.png" alt-text="Diagram that shows an architecture for enhanced security in an Outlook client access scenario. The user's mailbox is in Exchange Online." lightbox="./media/desktop-online-option-1.png":::
@@ -200,7 +203,7 @@ To block attempts to access Exchange on-premises via legacy authentication (the 
 >
 > BlockLegacyAuthWebServices        : True
 
-RPC protocol doesn't support modern authentication, so it doesn't support Azure AD Multi-Factor Authentication. Microsoft recommends[MAPI](/exchange/clients/mapi-over-http/mapi-over-http?view=exchserver-2019) protocol for Outlook for Windows clients.
+RPC protocol doesn't support modern authentication, so it doesn't support Azure AD Multi-Factor Authentication. Microsoft recommends [MAPI](/exchange/clients/mapi-over-http/mapi-over-http?view=exchserver-2019) protocol for Outlook for Windows clients.
 
 Here's an example of a command for creating this authentication policy:
 
@@ -247,7 +250,6 @@ This article doesn't discuss other protocols, like IMAP or POP. Typically, these
 ### General notes
 
 - These architectures use the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and Pass-through Authentication models, the logic and flow are the same. The only difference is related to the fact that Azure AD doesn't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
-- In the diagrams, black dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates and a Mailbox role.
 - In a real environment, you won't have just one server. You'll have a load-balanced array of Exchange servers for high availability. The scenarios described here are suited for that configuration.
 
