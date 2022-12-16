@@ -14,7 +14,7 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ![Flow chart depicting the steps you have to take to convert your Oracle Database to a SQL or PostgreSQL database in Azure.](media/oracle-migration-process-to-sql-pg.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-overview) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-overview.vsdx) of this architecture.*
 
 ### Workflow
 

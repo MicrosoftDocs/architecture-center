@@ -2,7 +2,7 @@
 metadata:
   title: Scheduler Agent Supervisor pattern
   description: Explore the Scheduler Agent Supervisor pattern, which coordinates a set of actions across a distributed set of services and other remote resources.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

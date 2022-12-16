@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Databricks
 description: Learn how to extend the core monitoring functionality of Azure Databricks to send Apache Spark metrics, events, and logging information to Azure Monitor.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual

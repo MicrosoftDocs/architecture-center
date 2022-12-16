@@ -2,7 +2,7 @@
 metadata:
   title: Index Table pattern
   description: Learn about the Index Table pattern. Create indexes over the fields in data stores that are frequently referenced by queries.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

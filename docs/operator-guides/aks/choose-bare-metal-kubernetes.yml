@@ -2,7 +2,7 @@
 metadata:
   title: Choose a bare-metal Kubernetes at the edge platform option
   description: Find the best available option for your use case when configuring Kubernetes clusters at the edge.
-  author: edprice-msft
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual
