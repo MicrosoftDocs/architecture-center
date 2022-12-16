@@ -4,8 +4,9 @@ Azure services can extract insights from social media for you to use in big data
 
 ## Architecture
 
-![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage.][architecture-png]
-*Download an [SVG file][architecture-svg] of this architecture.*
+[ ![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage.](../media/optimize-marketing-with-machine-learning.svg)](../media/optimize-marketing-with-machine-learning.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/optimize-marketing-with-machine-learning.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -93,8 +94,6 @@ For information about solution components, see these resources:
 
 
 <!-- links -->
-[architecture-png]: ../media/optimize-marketing-with-machine-learning.png
-[architecture-svg]: ../media/optimize-marketing-with-machine-learning.png
 [synapse-docs]: /azure/synapse-analytics
 [aml-docs]: /azure/machine-learning
 [pbi-docs]: /power-bi
