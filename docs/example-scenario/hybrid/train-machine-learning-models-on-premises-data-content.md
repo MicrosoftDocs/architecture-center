@@ -1,4 +1,4 @@
-[Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models. However, some data is too large send to the cloud or can't be sent to the cloud for regulatory reasons. By using this solution, data scientists can use Machine Learning to train models by using on-premises data and compute resources.
+[Azure Machine Learning](/azure/machine-learning/) provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models. However, some data sets can't be sent to the cloud. By using this solution, data scientists can use Machine Learning to train portable models with on-premises data and compute resources.
 
 ## Architecture
 
@@ -6,14 +6,12 @@
 
 <!-- *Download a [Visio file](https://arch-center.azureedge.net/train-machine-learning-on-premises-data.vsdx) of this architecture.* -->
 
-
 ### Workflow
 
 1. Deploy the Azure Stack Hub virtual machine (VM) and register it with Azure Machine Learning as a compute target.
 2. Create an experiment in Machine Learning that uses the VM in Azure Stack Hub as a compute target.
 3. After the model is trained, it's registered and containerized.
 4. The model is ready for deployment to locations that are either on-premises or in the cloud.
-
 
 ### Components
 
@@ -35,9 +33,7 @@ After Machine Learning trains the model, it's registered, containerized, and add
 
 ### Potential use cases
 
-An organization that has on-premises or legacy data can use this solution to support their data scientists in unlocking insights by using tools that they understand. Machine Learning provides cloud-native tooling to train, tune, and deploy machine-learning and deep-learning models.  
-
-However, some data is too large to send to the cloud or can't be sent to the cloud for regulatory reasons. Using this pattern, data scientists can use Azure Machine Learning to train models by using on-premises data and compute.
+An organization that has on-premises or legacy data can use this solution to support their data scientists in unlocking insights by using tools that they understand. This solution also supports scenarios in which the data for training can't be stored in the cloud due to regulations or due to the size of the data set.
 
 ## Considerations
 
