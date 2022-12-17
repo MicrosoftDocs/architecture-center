@@ -1,19 +1,18 @@
-[! INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Modern cloud workloads use cloud native security standards and policy driven governance to establish standardization across all environments and maximize the TCO by reducing non-standard operations management.  To meet business transformation like acquisition or divesture the organizational      team including developers, architects, operations, and Technical Business Decision (TDM)s must strategize the separation or joining       of their cloud workloads from existing to a new security (AAD (Azure Active Directory)) tenant     . This ensures all data and application services relying on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries.  The built-in subscription move capability allows you to move the entire subscription under new AAD tenant, however in practice most divesture organization workloads are mixed with the retaining organization workloads before the split and the complete isolation requires surgical workload migrations.
+Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across all environments and maximize TCO by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers need to plan for the separation or joining of their cloud workloads from an existing to a new security (Azure Active Directory) tenant. This planning can help ensure that all data and application services that rely on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries. You can use the built-in subscription-move capability to move the entire subscription under new Azure Active Directory (Azure AD) tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
 
 ## Architecture
 
-![Diagram of the cross-tenant migration architecture.](./images/Cross-TenantMigrationStrategy.png)
+:::image type="content" source="./images/Cross-TenantMigrationStrategy.png" alt-text="Diagram that shows a cross-tenant migration architecture." lightbox="./images/Cross-TenantMigrationStrategy.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/Cross-TenantMigrationStrategy.vsdx) of this architecture.* 
 
 ### Dataflow
 
-1.
-   a Extract the ARM (Azure Resource Manager) template and Configuration artifacts and store it in Source Code/Configuration repository. This step ensures the migrated resources have the same resource deployment definition - Infrastructure as a Code (IaaC). In addition, it facilitates the automation for deployment using devops process
+1. a. Extract the Azure Resource Manager (ARM) template and configuration artifacts and store them in a source code / configuration repository. This step conforms with Infrastructure as Code (IaC) practices and ensures that the migrated resources have the same resource deployment definition. It also facilitates deployment automation.
 
-   b Deploy the artifacts (infrastructure, configuration) to the target resource group (s) in the new tenant subscription
+1. b. Deploy the artifacts (infrastructure and configuration) to the target resource group or groups in the new tenant subscription.
 
 2. Create side car subscription in the existing tenant to host cloned data service resources and backups of virtual machines. This step requires “Global Administrator” permissions. Most organizations have an admin team who can take care of creating this subscription and hand it over to developers/architects.
 
