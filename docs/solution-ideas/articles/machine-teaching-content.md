@@ -392,3 +392,7 @@ Learn more about machine teaching:
 ## Related resources
 
 - [Machine teaching for autonomous systems](autonomous-systems.yml)
+- [Artificial intelligence (AI) architecture design](../../data-guide/big-data/ai-overview.md)
+- [Compare Microsoft machine learning products and technologies](../../data-guide/technology-choices/data-science-and-machine-learning.md)
+- [How Azure Machine Learning works: resources and assets](/azure/machine-learning/concept-azure-machine-learning-v2)
+- [Machine learning at scale](../../data-guide/big-data/machine-learning-at-scale.md)

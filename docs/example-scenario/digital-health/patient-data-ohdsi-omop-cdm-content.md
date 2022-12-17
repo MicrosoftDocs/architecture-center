@@ -24,7 +24,7 @@ This article is primarily intended for DevOps engineering teams. If you plan to 
 1. Deploy the OMOP resource group for the OHDSI-specific Azure resources. This step should complete your infrastructure-related setup.
 1. Provision the OMOP CDM and vocabularies to deploy the data model and populate the [OMOP controlled vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html) into the CDM in Azure SQL.
 1. Deploy the OHDSI applications:
-   1. Set up the Atlas UI and WebAPI by using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/atlas-a-unified-interface-for-the-ohdsi-tools) is a web UI that integrates features from various OHDSI applications. It's supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
+   1. Set up the Atlas UI and WebAPI by using the BroadSea WebTools image. [Atlas](https://www.ohdsi.org/software-tools/) is a web UI that integrates features from various OHDSI applications. It's supported by the [WebAPI](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:webapi) layer.
    1. Set up Achilles and Synthea by using the BroadSea Methods image. [Achilles](https://www.ohdsi.org/web/wiki/doku.php?id=documentation:software:achilles) is an R-based script that runs data characterization and quality assessments on the OMOP CDM. The [Synthea ETL](https://github.com/OHDSI/ETL-Synthea) script is an optional tool that enables users to load synthetic patient data into the OMOP CDM.
    
 ### Components

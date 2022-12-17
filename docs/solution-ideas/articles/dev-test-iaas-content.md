@@ -17,6 +17,8 @@ Departments that use this solution include:
 
 ![Diagram showing the configuration of DevTest and DevOps for an IaaS application.](../media/dev-test-iaas.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-iaas.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. Instead of manually configuring development environments, developers can use [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) images, pre-configured with the libraries, tools, and runtimes they need for their projects. Adding a developer to an [Azure DevTest Subscription](https://azure.microsoft.com/pricing/dev-test) makes the appropriate Azure Virtual Desktop image available to them from the DevTest environment.

@@ -1,18 +1,7 @@
 > [!Note]
 > This article provides an overview with reference architecture for deploying SWIFT's Alliance Connect Virtual solution on Azure. Please note that the new Alliance Connect Virtual solution is not yet available for SWIFT production traffic. The solution is currently being tested with SWIFT customers and will become generally available throughout 2022 as part of a phased launch. For more information about the general availability of the product, refer to [SWIFT.com](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
-SWIFT's Alliance Messaging Hub (AMH) is one of the key messaging solutions in the SWIFT product portfolio. AMH is customizable and meets the messaging needs of financial institutions. With [AMH](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-messaging-hub), financial institutions can introduce new services and products in the market quickly and efficiently. SWIFT's AMH meets security and compliance standards that financial messaging requires.
-
-This article outlines a solution for hosting AMH on Azure.
-
-## Potential use cases
-
-This solution is optimal for the finance industry.
-
-The solution can benefit existing and new SWIFT customers. You can use it for the following scenarios:
-
-- Migrating AMH from on-premises systems to Azure
-- Establishing a new AMH environment in Azure
+This article outlines a solution for hosting SWIFT's Alliance Messaging Hub (AMH) on Azure.
 
 ## Architecture
 
@@ -86,7 +75,22 @@ The following Azure infrastructure services are also part of this solution:
 
 This solution runs Alliance Connect Virtual in Azure for SWIFT's AMH. It's also possible to use SWIFT's [Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml) instead of Alliance Connect Virtual. With this alternative, you deploy Alliance Connect at an on-premises or colocation site.
 
+## Scenario details
+
+SWIFT's AMH is one of the key messaging solutions in the SWIFT product portfolio. AMH is customizable and meets the messaging needs of financial institutions. With [AMH](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-messaging-hub), financial institutions can introduce new services and products in the market quickly and efficiently. SWIFT's AMH meets security and compliance standards that financial messaging requires.
+
+### Potential use cases
+
+This solution is optimal for the finance industry.
+
+The solution can benefit existing and new SWIFT customers. You can use it for the following scenarios:
+
+- Migrating AMH from on-premises systems to Azure
+- Establishing a new AMH environment in Azure
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Consider these guidelines for best performance when you run SWIFT's AMH on Azure.
 
@@ -115,6 +119,8 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Use the latest implementation of SWIFT content security policy (CSP) controls in Azure. But consult your Microsoft team first.
 - Use Microsoft Defender for Cloud for protection from threats that exploit server and application vulnerabilities. Defender for Cloud helps to quickly identify threats, streamline threat investigation, and automate remediation.
 - Use Azure Active Directory (Azure AD) and role-based access control (RBAC) to limit access to application components.
@@ -133,6 +139,8 @@ Consider these guidelines for best performance when you run SWIFT's AMH on Azure
 - Use Virtual Machines extensions to configure any other solution components on top of Azure infrastructure.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of the Azure resources that you need to run a SWIFT AMH, see [a sample cost profile](https://azure.com/e/d2e12d232edb49db85cf330f70ffd636).
 

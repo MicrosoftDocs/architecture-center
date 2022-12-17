@@ -85,7 +85,7 @@ A *service mesh* is a software layer that handles service-to-service communicati
 > [!NOTE]
 > Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.yml) &mdash; a helper service that sends network requests on behalf of the application.
 
-Right now, the main options for a service mesh in Kubernetes are [linkerd](https://linkerd.io/) and [Istio](https://istio.io/). Both of these technologies are evolving rapidly. However, some features that both linkerd and Istio have in common include:
+Right now, the main options for a service mesh in Kubernetes are [Linkerd](https://linkerd.io/) and [Istio](https://istio.io/). Both of these technologies are evolving rapidly. However, some features that both Linkerd and Istio have in common include:
 
 - Load balancing at the session level, based on observed latencies or number of outstanding requests. This can improve performance over the layer-4 load balancing that is provided by Kubernetes.
 
@@ -129,3 +129,10 @@ For microservices that talk directly to each other, it's important to create wel
 
 > [!div class="nextstepaction"]
 > [API design](./api-design.yml)
+
+## Related resources
+
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)
+- [Using tactical DDD to design microservices](../model/tactical-ddd.yml)
+- [Identify microservice boundaries](../model/microservice-boundaries.yml)

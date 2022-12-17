@@ -24,7 +24,7 @@ To support a [multicloud experience](/azure/virtual-machines/workloads/oracle/or
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
  

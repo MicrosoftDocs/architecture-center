@@ -1,7 +1,7 @@
 ---
 title: Online transaction processing (OLTP)
 description: Learn about atomicity, consistency, and other features of online transaction processing (OLTP), which manages transactional data while supporting querying.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -159,3 +159,17 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Introduction to Memory-Optimized Tables](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)
+- [In-Memory OLTP overview and usage scenarios](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios}
+- [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](/azure-sql/in-memory-oltp-overview)
+- [Distributed transactions across cloud databases](/azure/azure-sql/database/elastic-transactions-overview)
+
+## Related resources
+
+- [Azure Data Architecture Guide](../index.md)
+- [Databases architecture design](../databases-architecture-design.yml)
+- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml))
+- [IBM z/OS online transaction processing on Azure](../../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)

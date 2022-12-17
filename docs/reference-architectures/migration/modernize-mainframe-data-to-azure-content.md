@@ -149,11 +149,6 @@ The solution uses the following components.
 
 - [Azure Services][Azure Services overview] provide environments, tools, and processes for developing and scaling new applications in the public cloud.
 
-## Recommendations
-
-- When you use the Data Provider for Host Files client to convert data, [turn on connection pooling][Configure HIS component for performance] to reduce connection startup time.
-- When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
-
 ## Scenario details
 
 Present-day data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
@@ -167,13 +162,18 @@ The solution uses Azure data platform components in a data-first approach. Speci
 - **Data transformation**: Transforming extracted data into appropriate target data store structures.
 - **Data storage**: Loading data from the source data store to the target data store, both initially and continually.
 
-## Potential use cases
+### Potential use cases
 
 Mainframe and midrange customers can benefit from this solution, especially when targeting these goals:
 
 - Modernize mission-critical workloads.
 - Acquire business intelligence to improve operations and gain a competitive advantage.
 - Escape the high costs and rigidity associated with mainframe and midrange data stores.
+
+## Recommendations
+
+- When you use the Data Provider for Host Files client to convert data, [turn on connection pooling][Configure HIS component for performance] to reduce connection startup time.
+- When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
 
 ## Considerations
 

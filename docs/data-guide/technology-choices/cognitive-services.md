@@ -1,7 +1,7 @@
 ---
 title: Choose a cognitive services technology
 description: Learn about Microsoft cognitive services that you can use in artificial intelligence applications and data flows.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -108,3 +108,17 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
+- [Azure Cognitive Services documentation](/azure/cognitive-services)
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+
+## Related resources
+
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
+- [Enterprise bot for employee productivity](../../solution-ideas/articles/enterprise-productivity-chatbot.yml)
+- [Analyze video content with Computer Vision and Azure Machine Learning](../../example-scenario/ai/analyze-video-computer-vision-machine-learning.yml)
+- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)

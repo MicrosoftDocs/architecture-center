@@ -2,7 +2,7 @@
 metadata:
   title: Big data architecture style
   description: Explore the benefits, challenges, and best practices for Big Data architectures on Azure. Examine IoT architecture, a specialized subset of big data solutions.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

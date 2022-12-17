@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy AKS and API Management with mTLS
+  titleSuffix: Azure Architecture Center
+  description: Learn how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS in an architecture that provides end-to-end encryption.
+  author: saswatmohanty01
+  ms.author: samohant, rapencha, arazeem
+  ms.date: 12/08/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  
+azureCategories:
+  - containers
+  - security
+  - identity
+  - integration
+
+products:
+  - azure-active-directory
+  - azure-kubernetes-service
+  - azure-api-management
+  - azure-container-registry
+  - azure-defender
+name: Deploy AKS and API Management with mTLS
+summary: Learn how to integrate Azure Kubernetes Service (AKS) and Azure API Management with mutual TLS in an architecture that provides end-to-end encryption.
+thumbnailUrl: /azure/architecture/browse/thumbs/mutual-tls-deploy-aks-api-management-thumb.png
+content: |
+  [!include[](mutual-tls-deploy-aks-api-management-content.md)]

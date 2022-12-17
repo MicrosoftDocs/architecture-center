@@ -71,7 +71,7 @@ After the whole migration, uninstall the client components to remove the **ssma_
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
 

@@ -50,7 +50,7 @@ JBoss EAP is suitable for these uses:
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) automatically builds and tests code projects. It combines continuous integration (CI) and continuous delivery (CD). By using these practices, Azure Pipelines constantly and consistently tests and builds code and ships it to any target. For more information, see [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) VMs are on-demand, scalable computing resources that give you the flexibility of virtualization but eliminate the maintenance demands of physical hardware. The operating system choices include Windows and Linux.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is a secure private network in the cloud. It connects VMs to one another, to the internet, and to on-premises networks.
-- [Red Hat on Azure](https://azure.microsoft.com/overview/linux-on-azure/red-hat) is a set of secure, reliable, flexible hybrid cloud environments on Azure, supported by a global user support service from Azure and Red Hat. The environments include [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift), [Red Hat Enterprise Linux 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM), and [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel).
+- [Red Hat on Azure](https://azure.microsoft.com/overview/linux-on-azure/red-hat) is a set of secure, reliable, flexible hybrid cloud environments on Azure, supported by a global user support service from Azure and Red Hat. The environments include [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift) and [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel).
 - [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat. Kubernetes is at the core of Red Hat OpenShift. OpenShift brings added-value features to complement Kubernetes, making it a turnkey container platform as a service (PaaS) with a significantly improved developer and operator experience.
 - [Red Hat JBoss Enterprise Application Platform (JBoss EAP)](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.jboss-eap-rhel) is an application platform that delivers enterprise-grade security, performance, and scalability. It can run on-premises, virtual, or in private, public, or hybrid clouds.
 
@@ -73,7 +73,6 @@ Principal author:
 ### Red Hat on Azure
 
 - [CDEPLOYING A RED HAT ENTERPRISE LINUX 8 IMAGE AS A VIRTUAL MACHINE ON MICROSOFT AZURE](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index)
-- [Red Hat Enterprise Linux 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM?tab=Overview)
 - [Azure Red Hat OpenShift documentation](/azure/openshift)
 
 ### JBoss

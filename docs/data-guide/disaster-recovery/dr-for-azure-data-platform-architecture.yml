@@ -17,6 +17,6 @@ products:
   - azure-active-directory
   - azure-analysis-services
   - azure-sql-database
-thumbnailUrl: /azure/architecture/browse/thumbs/AzureAnalyticsEndToEnd.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |
    [!include[](dr-for-azure-data-platform-architecture-content.md)]

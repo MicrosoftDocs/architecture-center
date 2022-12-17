@@ -74,7 +74,7 @@ Here are some options for implementing microservices container orchestration in 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Veerash Ayyagari](https://www.linkedin.com/in/veerash-ayyagari/) | Principal Software Engineer
  

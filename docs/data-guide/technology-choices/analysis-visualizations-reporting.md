@@ -1,7 +1,7 @@
 ---
 title: Choose a data analytics and reporting technology
 description: Evaluate big data analytics technology options for Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -114,3 +114,17 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Get started with Jupyter notebooks for Python](/training/modules/python-create-run-jupyter-notebook)
+- [Notebooks](/azure/databricks/notebooks)
+- [Run Azure Databricks Notebooks with Azure Data Factory](/training/modules/run-azure-databricks-notebooks-azure-data-factory)
+- [Run Jupyter notebooks in your workspace](/azure/machine-learning/how-to-run-jupyter-notebooks)
+- [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
+
+## Related resources
+
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Data analysis and visualization in an Azure industrial IoT analytics solution](../../guide/iiot-guidance/iiot-data.yml)
+- [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)
