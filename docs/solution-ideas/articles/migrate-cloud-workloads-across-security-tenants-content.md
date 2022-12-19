@@ -4,7 +4,7 @@ Modern cloud workloads use cloud-native security standards and policy-driven gov
 
 ## Architecture
 
-:::image type="content" source="../media/cross-tenant-migration.png" alt-text="Diagram that shows a cross-tenant migration architecture." lightbox="../media/cross-tenant-migration.png" border="false":::
+:::image type="content" source="../media/cross-tenant-migration-strategy.png" alt-text="Diagram that shows a cross-tenant migration architecture." lightbox="../media/cross-tenant-migration-strategy.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.* 
 
@@ -60,35 +60,25 @@ To start, the company needs to categorize workload resources as PaaS (compute), 
 
    ![Diagram that shows the components of the PaaS and IaaS solution.](../media/paas-iaas.png)
 
-   **Solution:** Azure subscriptions can be re-located from one Azure AD tenant to another. Move these resources by using a sidecar subscription move to the new tenant. This strategy involves careful evaluation of resources before the move e.g., Azure SQL databases with Azure AD authentication integration enabled cannot be moved as they are. Use backup and restore instead. This process removes all Role-Based Access Control (RBAC) assignments. After the resource is moved to the new tenant those RBAC assignments need to be restored.
+   **Solution:** Azure subscriptions can be re-located from one Azure AD tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, Azure SQL databases with Azure AD authentication integration enabled can't be moved as they are. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
 
-- IaaS (compute) resources that provide hosting for customized logic, for example, VMs
+- IaaS (compute) resources that provide hosting for customized logic (for example, VMs)
 
-   ![Diagram of the cross-tenant migration architecture.](./images/Cross-TenantMigrationStrategy-IaaS-Compute.png)
+   ![Diagram that shows the components of the IaaS solution.](../media/iaas-compute.png)
 
-   Solution: For this type of resource, take backups and restore it in the target environment
+   **Solution:** For this type of resource, take backups and restore the resources in the target environment.
 
 ### Potential use cases
 
-1. Organizational Divesture and Acquisition
-2. Internal Organization spin-off
-3. Customers looking to invest natively in Azure away from a Service Provider model
+- Organizational divesture and acquisition
+- Internal organization spin-offs
+- Invest natively in Azure and move away from a service provider model
 
 ## Next steps
 
 - [Azure RBAC documentation](/azure/role-based-access-control)
-- [Migrate Azure Subscription](/azure/cost-management-billing/manage/billing-subscription-transfer#transfer-a-subscription-to-another-azure-ad-tenant-account)
-- [List impacted resources when transferring an Azure subscription](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-impacted-resources-when-transferring-an-azure-subscription)
-- [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
-- [Azure Backup](/azure/backup)
-- [Azure App Service](/azure/app-service/overview)
-- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-- [Azure Storage](/azure/storage/common/storage-introduction)
-- [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) 
-- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
-- [Azure Databricks](/azure/databricks/introduction)
-- [Azure Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
-- [Azure Cosmos DB](/azure/cosmos-db/introduction)
-- [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
-- [Azure Key vault](/azure/key-vault/general/basic-concepts)
-- [Azure Virtual Machines](/azure/virtual-machines/overview)
+- [Migrate an Azure subscription](/azure/cost-management-billing/manage/billing-subscription-transfer#transfer-a-subscription-to-another-azure-ad-tenant-account)
+- [Query to list affected resources when transferring an Azure subscription](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-impacted-resources-when-transferring-an-azure-subscription)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [Azure Backup documentation](/azure/backup)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
