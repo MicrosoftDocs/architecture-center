@@ -81,7 +81,7 @@ When running Cassandra on Azure, it's common to create an mdadm stripe set (that
 
 Our tests found no significant difference between chunk sizes of 64k, 128k, and 256k for Cassandra read workloads. There seems to be a small, slightly noticeable, advantage to the 128k chunk size. Therefore, we recommend the following:
 
-- If you're already using a chunk size of 64 K or 256 K, it doesn't make sense rebuild the disk array to use 128-K size.
+- If you're already using a chunk size of 64 K or 256 K, it doesn't make sense to rebuild the disk array to use 128-K size.
 
 - For a new configuration, it makes senses to use 128 K from the beginning.
 
