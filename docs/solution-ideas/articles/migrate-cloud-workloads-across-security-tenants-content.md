@@ -4,7 +4,7 @@ To address business transformations like acquisitions or divesture, teams need t
 
 ## Architecture
 
-:::image type="content" source="../media/cross-tenant-migration-strategy.png" alt-text="Diagram that shows a cross-tenant migration architecture." lightbox="../media/cross-tenant-migration-strategy.png" border="false":::
+:::image type="content" source="../media/cross-tenant-migration-strategy.png" alt-text="Diagram that shows a cross-tenant migration architecture." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.* 
 
@@ -46,7 +46,9 @@ To address business transformations like acquisitions or divesture, teams need t
 
 ## Scenario details
 
-Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize TCO by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, need to plan for the separation or joining of their cloud workloads from an existing to a new security (Azure AD) tenant. This planning can help ensure that all data and application services that rely on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries. You can use the built-in subscription-move capability to move the entire subscription under new Azure Active Directory (Azure AD) tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
+Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize TCO by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, need to plan for the separation or joining of their cloud workloads from an existing to a new security (Azure AD) tenant. This planning can help ensure that all data and application services that rely on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries. 
+
+You can use the built-in subscription-move capability to move the entire subscription under a new Azure Active Directory (Azure AD) tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
 
 In this scenario, a healthcare company with multiple global business units wants to divest a business. To do that, they need to define and implement a cross-tenant workload migration strategy.
 
@@ -74,7 +76,7 @@ To start, the company needs to categorize workload resources as PaaS (compute), 
 
 - Organizational divesture and acquisition
 - Internal organization spin-offs
-- Invest natively in Azure and move away from a service provider model
+- Investing natively in Azure and moving away from a service provider model
 
 ## Contributors
 
