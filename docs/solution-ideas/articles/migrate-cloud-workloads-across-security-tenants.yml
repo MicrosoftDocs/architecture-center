@@ -20,6 +20,6 @@ products:
   - "azure-backup"
 name: Migrate cloud workloads across security tenants
 summary: Learn how to define and implement a cross-tenant workload migration strategy.
-thumbnail URL: /azure/architecture/browse/thumbs/migrate-across-security-tenants-thumb.png
+thumbnailURL: /azure/architecture/browse/thumbs/migrate-across-security-tenants-thumb.png
 content: |
   [! include[](migrate-cloud-workloads-across-security-tenants-content.md)]
