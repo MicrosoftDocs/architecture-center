@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for automating the process of using AI to analyze data from various sources, for example to do social media text analysis. Core components in the automation are Azure Functions, Azure Cognitive Services, and Azure Database for PostgreSQL. The solution uses integrated visualization tools to presents results to users.
+This article presents a solution for automating the process of using AI to analyze data from various sources. For example, you can use the solution for social media text analysis. Core components in the automation are Azure Functions, Azure Cognitive Services, and Azure Database for PostgreSQL.
 
 ## Architecture
 
@@ -11,7 +11,7 @@ This article presents a solution for automating the process of using AI to analy
 
 1. A function that's hosted by Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run the function in the Data Factory pipeline.
 1. Data comes from various sources, such as Azure Blob Storage and Azure Event Hubs. Data is uploaded to Blob Storage, while Event Hubs ingests a high volume of data. When the system receives new data, the function in the pipeline is triggered.
-1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses the Text analytics API.
+1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.
 1. The function stores the data and results from the Cognitive Services API in Azure Database for PostgreSQL.
 1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide other insights into the data. Results from this analysis are stored in Azure Database for PostgreSQL.
@@ -42,7 +42,7 @@ The solution also automates the delivery of results from the analysis. A connect
 
 For automation, this architecture uses Functions. This serverless solution offers many benefits:
 
-- Infrastructure maintenance. As an Azure managed service, Functions provides the cloud environment and resources that keep the apps running. Instead of managing infrastructure requirements, developers can focus on innovative work that delivers value to the business.
+- Infrastructure maintenance. As an Azure managed service, Functions provides the cloud environment and resources that keep apps running. Instead of managing infrastructure requirements, developers can focus on innovative work that delivers value to the business.
 - Scalability. Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
 
 ### Potential use cases
@@ -59,14 +59,15 @@ Azure Database for PostgreSQL is a cloud-based solution. As a result, this solut
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-The Text analytics API in Cognitive Services has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. For data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+- For most features, the Cognitive Service for Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
 
-In Azure Database for PostgreSQL, your ingress volume and velocity determine your selection of service and deployment mode. Two services are available:
+- In Azure Database for PostgreSQL, your ingress volume and velocity determine your selection of service and deployment mode. Two services are available:
+  - Azure Database for PostgreSQL
+  - Azure Cosmos DB for PostgreSQL, which was formerly known as Hyperscale (Citus) mode
 
-- Azure Database for PostgreSQL
-- Azure Cosmos DB for PostgreSQL, which was formerly known as Hyperscale (Citus) mode
+  If you mine large workloads of customer opinions and reviews, use Azure Cosmos DB for PostgreSQL. Within Azure Database for PostgreSQL, two modes are available: single server and flexible server. To understand when to use each deployment mode, see [What is Azure Database for PostgreSQL?](/training/modules/intro-to-postgres/2-what-is-azure-database-postgresql).
 
-If you mine large workloads of customer opinions and reviews, use Azure Cosmos DB for PostgreSQL. Within Azure Database for PostgreSQL, two modes are available: single server and flexible server. To understand when to use each deployment mode, see [What is Azure Database for PostgreSQL?](https://learn.microsoft.com/en-us/training/modules/intro-to-postgres/2-what-is-azure-database-postgresql).
+- Previous versions of this solution used the Cognitive Services Text Analytics API. Azure Cognitive Service for Language now unifies three individual language services in Cognitive Services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Cognitive Service for Language API. For instructions, see [Migrate to the latest version of Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/migrate-language-service-latest).
 
 ### Security
 
@@ -84,22 +85,24 @@ You can also automate your machine learning lifecycle by using [Azure Pipelines]
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Pricing for the Text analytics API in Cognitive Services is determined by the instance that you select and the number of transactions per month. For further details, see the [pricing calculator](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics).
+Cognitive Service for Language offers various pricing tiers. The number of text records that you process affects your cost. For more information, see [Cognitive Service for Language pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service).
 
 ## Next steps
 
 - [Azure Functions overview](/azure/azure-functions/functions-overview)
 - [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
-- [Azure Event Hubs — A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
-- Call the [Text analytics REST API using Postman](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) synchronously and asynchronously
+- [Azure Event Hubs—A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
+- [How to use Language service features asynchronously](/azure/cognitive-services/language-service/concepts/use-asynchronously)
 - [Azure Cognitive Services for Language API testing console](https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-01/operations/ConversationAnalysis_AnalyzeConversations)
 - [Use DirectQuery to link PostgreSQL to Power BI](/power-bi/connect-data/desktop-directquery-about)
-- How to create an [Azure Database for PostgreSQL Hyperscale](/azure/postgresql/tutorial-hyperscale-server-group)
-- How to link your [Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate)
+- [Create an Azure Cosmos DB for PostgreSQL cluster in the Azure portal](/azure/cosmos-db/postgresql/quickstart-create-portal?tabs=direct)
+- [Tutorial: Consume Azure Machine Learning models in Power BI](/power-bi/connect-data/service-aml-integrate)
 - [Extract insights from text with the Language service](/training/modules/extract-insights-text-with-text-analytics-service)
 - [Microsoft Certified: Azure AI Engineer Associate](/certifications/azure-ai-engineer)
 
 ## Related resources
 
-
-
+- [Intelligent apps using Azure Database for MySQL](./intelligent-apps-using-azure-database-for-mysql.yml)
+- [Retail and e-commerce using Azure Database for PostgreSQL](./retail-and-ecommerce-using-azure-database-for-postgresql.yml)

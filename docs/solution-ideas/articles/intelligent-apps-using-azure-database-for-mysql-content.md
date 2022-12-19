@@ -12,7 +12,7 @@ This article presents a solution for automating the process of using AI to analy
 
 1. A function that's hosted by Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run the function in the Data Factory pipeline.
 1. Data comes from various sources, such as Azure Blob Storage and Azure Event Hubs. Data is uploaded to Blob Storage, while Event Hubs ingests a high volume of data. When the system receives new data, the function in the pipeline is triggered.
-1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses the Text analytics API.
+1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.
 1. The function stores the data and results from the Cognitive Services API in Azure Database for MySQL.
 1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide other insights into the data.
@@ -25,7 +25,7 @@ This article presents a solution for automating the process of using AI to analy
 - [Event Hubs](https://azure.microsoft.com/products/event-hubs)
 - [Blob Storage](https://azure.microsoft.com/products/storage/blobs)
 - [Cognitive Services](https://azure.microsoft.com/products/cognitive-services)
-- [Text analytics API](https://azure.microsoft.com/products/cognitive-services/text-analytics)
+- [Cognitive Service for Language](https://azure.microsoft.com/products/cognitive-services/language-service/)
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql)
 - [Machine Learning studio](https://azure.microsoft.com/products/machine-learning/#faq)
 - [Power BI](https://powerbi.microsoft.com)
@@ -63,7 +63,9 @@ This solution is ideal for organizations that run predictive analytics on data f
 
 ## Considerations
 
-Cognitive Services Text analytics API has a maximum size of 5120 characters for a single document and a maximum request size of 1 MB. For data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+- For most features, the Cognitive Service for Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+
+- Previous versions of this solution used the Cognitive Services Text Analytics API. Azure Cognitive Service for Language now unifies three individual language services in Cognitive Services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Cognitive Service for Language API. For instructions, see [Migrate to the latest version of Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/migrate-language-service-latest).
 
 ## Contributors
 
@@ -82,7 +84,8 @@ Principal author:
 - [Data Factory](/azure/data-factory/control-flow-azure-function-activity)
 - [Event Hubs](/azure/event-hubs)
 - [Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
-- [Text analytics API](/azure/cognitive-services/text-analytics)
+- [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
+- [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
 - [Azure Database for MySQL](/azure/mysql)
 - [Machine Learning studio](/azure/machine-learning)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
