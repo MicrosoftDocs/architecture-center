@@ -2,7 +2,7 @@
 title: Autoscaling guidance
 titleSuffix: Best practices for cloud applications
 description: Review autoscaling guidance. Autoscaling is the process of dynamically allocating resources to match performance requirements.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 10/11/2022
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Enable the financial services risk lifecycle with Azure and R
 description: Learn about risk calculations, which are pivotal at several stages in the lifecycle of key financial services operations.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: damocelj
 categories: 
   - azure

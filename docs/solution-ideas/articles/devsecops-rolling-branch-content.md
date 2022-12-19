@@ -66,7 +66,6 @@ Principal author:
 
 * [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
 * [Security strategy essentials](https://github.com/githubtraining/security-strategy-essentials)
-* [CodeQL U-Boot Challenge (C/C++)](https://lab.github.com/githubtraining/codeql-u-boot-challenge-(cc++))
 * [Learn GitHub Actions](https://docs.github.com/actions/learn-github-actions)
 * [Azure Boards documentation](/azure/devops/boards)
 * [Azure Container Registry documentation](/azure/container-registry)

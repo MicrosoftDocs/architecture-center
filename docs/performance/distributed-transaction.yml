@@ -2,7 +2,7 @@
 metadata:
   title: Distributed business transaction performance tuning
   description: Use load testing to tune the performance of a distributed business transaction. Tests include increasing the cache size, parallelism, and lock duration.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

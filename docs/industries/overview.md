@@ -1,7 +1,7 @@
 ---
 title: Industry solutions with Azure
 description: Get an overview of opportunities that Azure provides, organized to various industries, including retail, financial, healthcare, manufacturing, and many more.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 11/01/2022
 ms.topic: conceptual
