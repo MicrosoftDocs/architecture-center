@@ -22,4 +22,4 @@ name: Migrate cloud workloads across security tenants
 summary: Learn how to define and implement a cross-tenant workload migration strategy.
 thumbnailUrl: /azure/architecture/browse/thumbs/migrate-across-security-tenants-thumb.png
 content: |
-  [! include[](migrate-cloud-workloads-across-security-tenants-content.md)]
+  [!include[](migrate-cloud-workloads-across-security-tenants-content.md)]
