@@ -2,7 +2,7 @@
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-architecture.png" lightbox="media/train-machine-learning-on-premises-data-architecture.png":::
+:::image type="content" alt-text="Diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-architecture.svg" lightbox="media/train-machine-learning-on-premises-data-architecture.svg":::
 
 <!-- *Download a [Visio file](https://arch-center.azureedge.net/train-machine-learning-on-premises-data.vsdx) of this architecture.* -->
 
