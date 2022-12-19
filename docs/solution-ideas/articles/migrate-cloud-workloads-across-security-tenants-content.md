@@ -62,7 +62,7 @@ To start, the company needs to categorize workload resources as PaaS (compute), 
 
    ![Diagram that shows the components of the PaaS and IaaS solution.](../media/paas-iaas.png)
 
-   **Solution:** Azure subscriptions can be re-located from one Azure AD tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, Azure SQL databases with Azure AD authentication integration enabled can't be moved as they are. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
+   **Solution:** Azure subscriptions can be relocated from one Azure AD tenant to another. Move these resources to the new tenant via a sidecar subscription. You need to carefully evaluate the resources before you move them. For example, Azure SQL databases with Azure AD authentication integration enabled can't be moved as they are. Use backup and restore instead. This process removes all role-based access control (RBAC) assignments. After the resource is moved to the new tenant, you need to restore those RBAC assignments.
 
 - IaaS (compute) resources that provide hosting for customized logic (for example, VMs)
 
