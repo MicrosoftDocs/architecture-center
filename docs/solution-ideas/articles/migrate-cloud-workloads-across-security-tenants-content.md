@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across all environments and maximize TCO by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers need to plan for the separation or joining of their cloud workloads from an existing to a new security (Azure Active Directory) tenant. This planning can help ensure that all data and application services that rely on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries. You can use the built-in subscription-move capability to move the entire subscription under new Azure Active Directory (Azure AD) tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
+To address business transformations like acquisitions or divesture, teams need to plan for the separation or joining of their cloud workloads from an existing security tenant (Azure Active Directory) to a new one. This article describes how to define and implement a cross-tenant workload migration strategy.
 
 ## Architecture
 
@@ -45,6 +45,8 @@ Modern cloud workloads use cloud-native security standards and policy-driven gov
 * [Resource groups](/azure/azure-resource-manager/management/manage-resource-groups-cli) are logical containers for Azure resources. Resource groups are used to organize all resources that are related to this project.
 
 ## Scenario details
+
+Modern cloud workloads use cloud-native security standards and policy-driven governance to establish standardization across environments and maximize TCO by reducing non-standard operations management. To address business transformations like acquisitions or divesture, the organizational team, including developers, architects, operations, and technical decision makers, need to plan for the separation or joining of their cloud workloads from an existing to a new security (Azure AD) tenant. This planning can help ensure that all data and application services that rely on IaaS or PaaS cloud components are migrated, secured, and isolated to their respective business boundaries. You can use the built-in subscription-move capability to move the entire subscription under new Azure Active Directory (Azure AD) tenant. However, in practice, most divesture organization workloads are mixed with the retaining organization workloads before the split, so the complete isolation requires more granular workload migrations.
 
 In this scenario, a healthcare company with multiple global business units wants to divest a business. To do that, they need to define and implement a cross-tenant workload migration strategy.
 
