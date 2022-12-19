@@ -76,6 +76,18 @@ To start, the company needs to categorize workload resources as PaaS (compute), 
 - Internal organization spin-offs
 - Invest natively in Azure and move away from a service provider model
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Lalit Patel](https://www.linkedin.com/in/lalit-r-patel-5108a) | Principal Cloud Solution Architect
+
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+
 ## Next steps
 
 - [Azure RBAC documentation](/azure/role-based-access-control)
@@ -84,3 +96,9 @@ To start, the company needs to categorize workload resources as PaaS (compute), 
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [Azure Backup documentation](/azure/backup)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
+
+## Related resources
+
+- [Microsoft security best practices for identity and access management](/security/compass/identity)
+- [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
+- [Back up on-premises applications and data to the cloud](../../solution-ideas/articles/backup-archive-on-premises-applications.yml)
