@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy a DFS Namespaces failover cluster
+  titleSuffix: Azure Architecture Center
+  description: Learn how to deploy a Distributed File System (DFS) Namespaces failover cluster that uses Azure virtual machines.
+  author: martinekuan
+  ms.author: tommasosacco
+  ms.date: 12/22/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-disk-storage
+  - azure-virtual-network
+  - azure-load-balancer
+name: Deploy a DFS Namespaces failover cluster
+summary: Learn how to deploy a DFS Namespaces failover cluster that uses Azure virtual machines.
+thumbnailUrl: /azure/architecture/browse/thumbs/dfs-failover-cluster-thumb.png
+content: |
+  [!include[](dfs-failover-cluster-vms-content.md)]

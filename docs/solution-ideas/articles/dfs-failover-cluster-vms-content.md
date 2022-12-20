@@ -1,64 +1,62 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
  
-This article describes how to deploy a Distributed File System (DFS) Namespaces failover cluster by using Azure virtual machines (VMs).
+This article describes how to deploy a Distributed File System (DFS) Namespaces failover cluster that uses Azure virtual machines (VMs).
 
 ## Architecture
 
-image
+![Diagram that shows how to deploy a DFS Namespaces failover cluster.](../media/dfs-azure-vms.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/dfs-azure-vms.vsdx) of this architecture.*
 
 ### Dataflow
  
-1. The client sends a request to DNS in order to reach the destination path.
-1. The DNS have the authority to resolve the request.
-1. DNS response was sent back to the client.
-1. The client sends the request to the destination IP received from the DNS.
-1. The load balancer, in according to the health probe availability, expose the requested resource.
+1. The client sends a request to the Domain Name System (DNS) in order to reach the destination path.
+1. The DNS has the authority to resolve the request.
+1. The DNS sends the response back to the client.
+1. The client sends the request to the destination IP that it received from the DNS.
+1. The load balancer, taking into account health probe results, exposes the requested resource.
 
 ### Components
  
-* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) runs as workers, performing the compute tasks. Creation of three Azure VMs in a virtual network, 2 of those are involved as failover cluster vms, the other one is dedicated for the cluster management.The Azure Virtual Machines will use 2 shared disks. one as a quorum disk, the other one is dedicated for the DFS Namespaces share.
-* [Azure Disks](https://azure.microsoft.com/products/storage/disks) Designed for use with Azure Virtual Machines and VMware's Azure Solution (premiere), Azure Disk Storage delivers high-performance, high durability block storage for your mission-critical applications.
-* [Virtual Network](https://azure.microsoft.com/services/virtual-network) provides IP connectivity between the compute resources and the other cloud services, above and beyond any native Infiniband or RDMA communication.
-* [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer/#overview) Load balancing refers to evenly distributing load (incoming network traffic) across a group of backend resources or servers. This Load Balancer Standard is entry point for the clients request.
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). VMs run as workers, performing compute tasks. In this architecture, there are three VMs in a virtual network. Two of them are failover cluster VMs. The other one is dedicated to cluster management. The VMs use two shared disks. One as a quorum disk, and the other one is dedicated to the DFS Namespaces share.
+* [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks). Designed for use with Azure Virtual Machines and Azure VMware Solution, Azure Disk Storage delivers high-performance, high-durability block storage for mission-critical applications.
+* [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Virtual Network provides IP connectivity between the compute resources and the other cloud services, beyond what any native InfiniBand or RDMA communication provides.
+* [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer). Load balancing is the process of evenly distributing incoming network traffic across a group of back-end resources or servers. This Standard Load Balancer is the entry point for client requests.
  
 ## Scenario details
- 
-The goal of this proposed solution is to **replicate** with Azure Services the behavior of a DFS Namespace failover cluster on-premises using all the **classic components of a failover system**. DFS (Distributed File System) Namespaces is a role service in Windows Server that enables you to group shared folders located on different servers into one or more logically structured namespaces. Is useful to give users a virtual view of shared folders. Here's a description of the elements that make up a DFS namespace:
 
-- **Namespace server** - A namespace server hosts a namespace. You can place the Namespace server as a member server or a domain controller in your organization.
-- **Namespace root** - The namespace root is the starting point of the namespace, for example \\\\contoso.com\\documentation.
-- **Folder** - Thanks to folder you can create the structure and hierarchy for the namespace. When users browse a folder that has folder targets in the namespace, the client computer receives a referral that transparently redirects the client computer to the folder targets.
-- **Folder targets** - A folder target is the UNC path of a shared folder or another namespace that is associated with a folder in a namespace.
+This solution uses Azure services to replicate the behavior of an on-premises DFS Namespace failover cluster. It provides all the traditional components of a failover system. DFS Namespaces is a role service in Windows Server that you can use to group shared folders that are located on different servers into one or more logically structured namespaces. You can use it to give users a virtual view of shared folders. These elements make up a DFS namespace:
+
+- **Namespace server.** A namespace server hosts a namespace. The namespace server can be a member server or a domain controller.
+- **Namespace root.** The namespace root is the starting point of the namespace, for example, `\\contoso.com\documentation`.
+- **Folder.** Folders enable you to create the structure and hierarchy for a namespace. When users browse a folder that has folder targets in the namespace, the client computer receives a referral that transparently redirects the client computer to the folder targets.
+- **Folder targets.** A folder target is the UNC path of a shared folder or another namespace that's associated with a folder in a namespace.
  
-Servers that are running the following operating systems can host multiple domain-based namespaces in addition to a single stand-alone namespace.
+Servers that run the following operating systems can host multiple domain-based namespaces in addition to a single standalone namespace:
 
 - Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 Datacenter and Enterprise Editions
-- Windows Server (Semi-Annual Channel)
+- Windows Server 2008 R2 Datacenter and Enterprise editions
+- Windows Server Semi-Annual Channel
+
+There are various ways to create a high-availability environment. One possibility is to add a [second namespace server](/windows-server/storage/dfs-namespaces/add-namespace-servers-to-a-domain-based-dfs-namespace) in another availability zone or region. You can [deploy the second namespace server on Azure](/azure/virtual-machines/windows/quick-create-portal). 
+
+For disaster recovery, another approach is to provide protection for your instances by using [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). With Azure Site Recovery, you can provide protection for your workloads to help ensure business continuity by using a native disaster recovery strategy.
+
+Failover clusters use a voting system with a quorum to determine failover and to prevent split-brain conditions, in which the system can't determine which hosts should run which workloads. In the cluster, the quorum is defined as half the total nodes. After a fault, the nodes vote on whether to stay online. If fewer nodes than the number defined by the quorum vote yes, the nodes are removed. This solution uses a quorum system that's based on a quorum disk. Another approach is to use a [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness), a quorum witness that uses Azure to provide a vote on cluster quorum. A cloud witness solution uses Azure Blob Storage to read or write to a blob file in the same way that quorum disks are used for split-brain resolution. 
+
+Azure assigns IP addresses to VMs dynamically when they're created. For a failover cluster, you need to assign an IP address for the cluster DFS namespace shared roles. Running a DHCP service on in a virtual network [isn't supported](/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-within-vnets). The DHCP service is automatically provided by Azure for each subnet, so you don't need to run a DHCP service on a VM. Therefore, you need to assign an IP address for the role. This IP address is the public IP address for the load balancer that's used in the solution. In this solution, when a client attempts to reach the share, the next hop is the load balancer.
 
 ### Potential use cases
  
-Thanks to the DFS Namespace we can distribute in easiest way shared folders in our organization with a single centralized point of management. More information about use cases [here](https://learn.microsoft.com/openspecs/windows_protocols/ms-fsmod/b9527bb7-5280-4901-bc9b-97513996955a).
+You can use DFS Namespaces to easily distribute shared folders in your organization via a centralized point of management. For more information, see [2.5.2 DFS Use Cases](/openspecs/windows_protocols/ms-fsmod/b9527bb7-5280-4901-bc9b-97513996955a).
 
-## Considerations
- 
-In order to obtain an **High Availability** Environment we can achieve this goal in different way. One possibility is to add a [second namespace server][https://learn.microsoft.com/windows-server/storage/dfs-namespaces/add-namespace-servers-to-a-domain-based-dfs-namespace] in another availability zone or region. You can deploy the **second namespace server** in [azure][https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal]. 
-
-For disaster recovery purpose another approach is to protect our instances with [Azure Site Recovery][https://learn.microsoft.com/azure/site-recovery/site-recovery-overview]. With our **Azure Site Recovery** solution, we can protect our workload in Azure to ensure business continuity with a native disaster recovery strategy supported in Azure.
-
-Failover clusters works with **vote**. uses a voting system with quorum to determine failover and to prevent a split-brain condition. In the cluster, the quorum is defined as half of the total nodes. **After a fault, the nodes vote to stay online. If less than the quorum amount votes yes, those nodes are removed**. In the proposed solution is used a quorum system based on **quorum disk**. Another approach following is to use a [Cloud Witness][https://learn.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness] for a Failover Cluster, a Microsoft native services as arbitration point. **Cloud Witness** solution uses Azure Blob Storage to read/write a blob file in the same way how quorum disk are used in case of split-brain resolution. 
-
-Azure assigns IP to virtual machines dynamically during the creation.  For failover purpose the cluster, need to assign an IP for the cluster DFS Namespace shared roles. Running a DHCP Service in Azure [isn't supported](https://learn.microsoft.com/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-within-vnets). The DHCP service is provided by Azure for each subnet automatically. There's no need to run a DHCP service on a VM. Therefore, it's necessary to assign an IP for the role and this IP will be the public IP for the load balancer used in the solution. Following this solution, when a client try to reach the share the next hope will be the load balancer that dynamically.
- 
 ## Recommendations
  
-If you are ready to migrate our services in Azure with the purpose to **modernize the infrastructure** with all the new Azure services we can move our [DFS Namespaces using Azure Files][https://learn.microsoft.com/azure/storage/files/files-manage-namespaces?tabs=azure-portal].
+If you're ready to migrate your services to modernize your infrastructure, you can move your [DFS Namespaces by using Azure Files](/azure/storage/files/files-manage-namespaces?tabs=azure-portal).
 
 ## Contributors
  
@@ -66,16 +64,23 @@ If you are ready to migrate our services in Azure with the purpose to **moderniz
  
 Principal author:
  
- * [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit/) | CSA-E Azure Core
+ * [Tommaso Sacco](https://www.linkedin.com/in/tommasosaccoit) | CSA-E Azure Core
 
-line 
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 
 ## Next steps
  
-* Learn more about [DFS Namespaces overview](https://learn.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)
+- [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview)
+- [Virtual machines in Azure](/azure/virtual-machines/overview)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
  
 ## Related resources
  
-* [Networking](/docs/guide/networking/networking-start-here.md)
-* [Microsoft Cloud](/docs/guide/microsoft-cloud/overview.md)
-* [Storage](/docs/guide/storage/storage-start-here.md)
+* [Networking architecture design](../../guide/networking/networking-start-here.md)
+* [Build applications on the Microsoft Cloud](../../guide/microsoft-cloud/overview.md)
+* [Storage architecture design](../../guide/storage/storage-start-here.md)
+* [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
