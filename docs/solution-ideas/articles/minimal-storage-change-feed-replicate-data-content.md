@@ -11,7 +11,7 @@ This article presents a high-availability solution for a web application that us
 1. The client authenticates with Azure Active Directory (Azure AD) and is granted access to web applications hosted on Azure App Service.
 1. Azure Front Door, a firewall and layer-7 load balancer, switches user traffic to the standby region if there's a regional outage.
 1. App Service hosts websites and RESTful web APIs. Browser clients run AJAX applications that use the APIs.
-1. Web APIs delegate functions that are hosted by Functions to handle background tasks. The tasks are queued in Azure Queue Storage queues.
+1. Web APIs delegate responsibility to code hosted by Functions to handle background tasks. The tasks are queued in Azure Queue Storage queues.
 1. The queued messages trigger the functions, which perform the background tasks.
 1. Azure Cache for Redis caches database data for the functions. By using the cache, the solution offloads database activity and speeds up the function apps and web apps.
 1. Azure Cosmos DB holds recently generated data.

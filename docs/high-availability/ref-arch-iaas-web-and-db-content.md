@@ -207,7 +207,6 @@ The Azure platform provides basic DDoS protection by default. This basic protect
 
 ## Related resources
 
-- [Build solutions for high availability using availability zones
-Azure](./building-solutions-for-high-availability.yml)
+- [Build solutions for high availability using availability zones on Azure](./building-solutions-for-high-availability.yml)
 - [High availability and disaster recovery scenarios for IaaS apps](../example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml)
 - [Multi-tier web application built for HA/DR](../example-scenario/infrastructure/multi-tier-app-disaster-recovery.yml)

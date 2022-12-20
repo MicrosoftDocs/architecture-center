@@ -1,4 +1,4 @@
-Applications need to be highly responsive and always online, even when organizations offer globally available services. This article presents a solution that uses globally distributed applications to meet these requirements. It takes advantage of the high-availability and low-latency capabilities that are built into Azure Cosmos DB and Azure global datacenters.
+Applications need to be highly responsive and always online. This article presents a solution that uses globally distributed applications to meet these requirements. It takes advantage of the high-availability and low-latency capabilities that are built into Azure Cosmos DB and Azure global datacenters.
 
 ## Architecture
 
@@ -17,7 +17,7 @@ Applications need to be highly responsive and always online, even when organizat
 
 ### Components
 
-- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): is a DNS-based traffic load balancer. You can use Traffic Manager to create load balancing options for your applications by using six types of DNS-based traffic routing options that can be nested.
+- [Traffic Manager](https://azure.microsoft.com/services/traffic-manager): is a DNS-based traffic load balancer. You can use Traffic Manager to create load balancing options for your applications by using various DNS-based traffic routing options that can be nested.
 - [Azure AD](https://azure.microsoft.com/services/active-directory): is a multi-tenant, cloud-based identity and access management service. You can use Azure AD to synchronize on-premises directories and enable single sign-on.
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is a globally distributed, multi-model database for any scale.
 
@@ -48,8 +48,8 @@ Besides offering low latency, the solution also benefits from the high availabil
 
 This solution is a good fit for industries that operate globally and need to keep data close to their users. Examples include the media, entertainment, travel, and hospitality industries. Some scenarios that utilize globally distributed applications include:
 
-- Streaming video services like Netflix, YouTube, and HBO.
-- Pickup and delivery services like Uber and Uber Eats, Lyft, Instacart, and DoorDash.
+- Streaming consumer video services.
+- App-based pickup and delivery services for people and goods.
 
 ## Considerations
 
