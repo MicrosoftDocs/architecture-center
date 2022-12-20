@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for automating the process of using AI to analyze data from various sources. For example, you can use the solution for social media text analysis. Core components in the automation are Azure Functions, Azure Cognitive Services, and Azure Database for PostgreSQL.
+This article presents a solution for automating the process of using AI to analyze data from various sources. For example, you can use the solution for social media text analysis. Core components in the solution are Azure Functions, Azure Cognitive Services, and Azure Database for PostgreSQL.
 
 ## Architecture
 
@@ -9,7 +9,7 @@ This article presents a solution for automating the process of using AI to analy
 
 ### Dataflow
 
-1. A function that's hosted by Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run the function in the Data Factory pipeline.
+1. Azure Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run a function in the Data Factory pipeline.
 1. Data comes from various sources, such as Azure Blob Storage and Azure Event Hubs. Data is uploaded to Blob Storage, while Event Hubs ingests a high volume of data. When the system receives new data, the function in the pipeline is triggered.
 1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.

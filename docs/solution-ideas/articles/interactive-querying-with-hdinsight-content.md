@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for performing fast, interactive, SQL-like queries over a large volume of data from disparate sources. Key components include Azure HDInsight and Apache Hive low latency analytical processing (LLAP).
+This article presents a solution for performing fast, interactive, SQL-like queries over a large volume of data. The data comes from disparate sources and includes structured app data but also unstructured logs, files, and media data. Key solution components include Azure HDInsight and Apache Hive low latency analytical processing (LLAP).
 
 *Apache®, [Apache Hive](https://hive.apache.org), and [Apache Hadoop](https://hadoop.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -11,7 +11,7 @@ This article presents a solution for performing fast, interactive, SQL-like quer
 
 ### Dataflow
 
-1. Azure Data Factory moves data from various sources into Azure Data Lake Storage. The data comes from Azure and non-Azure sources.
+1. Azure Data Factory moves data into Azure Data Lake Storage. The data comes from various sources, including Azure and non-Azure sources.
 1. Data Lake Storage serves as the solution's landing zone. An Apache Hadoop cluster in HDInsight processes the Data Lake Storage data.
 1. Data Factory and Hive are used to run extract, load, transfer (ELT) procedures on the data. These procedures transform the data as it enters the Hadoop distributed file system (HDFS).
 1. External tables that use the HDFS data are created in Hive.
@@ -30,13 +30,13 @@ This solution brings together disparate sources of data that can be structured o
 
 The pipelines store the data in Data Lake Storage, which is built on Blob Storage. This storage service can handle large volumes of unstructured data.
 
-An HDInsight Hadoop cluster forms a key part of the solution. By using distributed processing, a Hadoop cluster efficiently processes a large volume of data. Hadoop clusters are tuned for batch processing workloads. HDInsight provides a scalable, secure platform for creating optimized Hadoop clusters.
+An HDInsight Hadoop cluster forms a key part of the solution. By using distributed processing, a Hadoop cluster can efficiently process a large volume of data. Hadoop clusters are tuned for batch processing workloads. HDInsight provides a scalable, secure platform for creating optimized Hadoop clusters.
 
 The solution also uses Hive, which provides a way to run fast, interactive queries on the data, so you can gain insights through analytical dashboards and reports. The Hive data warehouse system projects structure on largely unstructured data. The data is then usable from BI tools that expect rows and columns with defined data types. As a result, Hive works well for querying and analyzing large datasets that are stored in Hadoop files. To query the data, you use HiveQL, which is a query language that's similar to SQL. LLAP enhances the performance of the Hive execution engine.
 
 ### Potential use cases
 
-This solution applies to a wide variety of industries:
+Use cases for this solution range from ETL workloads and data warehousing to machine learning and Internet of Things (IoT) scenarios. You can use this architecture in a wide variety of industries:
 
 - Manufacturing
 - Retail
@@ -49,8 +49,6 @@ This solution applies to a wide variety of industries:
 - Telecommunications
 - Insurance
 - Finance
-
-Use cases range from ETL workloads and data warehousing to machine learning and Internet of Things (IoT) scenarios.
 
 ## Next steps
 

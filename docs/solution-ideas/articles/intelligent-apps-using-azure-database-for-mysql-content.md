@@ -4,13 +4,13 @@ This article presents a solution for automating the process of using AI to analy
 
 ## Architecture
 
-![Architecture diagram that shows data flows of an intelligent app that stores data in Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.png)
+![Architecture diagram that shows the data flow of an intelligent app that stores data in Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-using-azure-database-for-mysql.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. A function that's hosted by Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run the function in the Data Factory pipeline.
+1. Azure Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run a function in the Data Factory pipeline.
 1. Data comes from various sources, such as Azure Blob Storage and Azure Event Hubs. Data is uploaded to Blob Storage, while Event Hubs ingests a high volume of data. When the system receives new data, the function in the pipeline is triggered.
 1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.
@@ -48,7 +48,7 @@ The automated pipelines in this solution use state-of-the-art machine learning a
 
 The solution also automates the delivery of results from the analysis. A connector links Azure Database for MySQL, where the solution stores results, with visualization tools like Power BI. These tools display insights from the data in meaningful ways.
 
-For automation, this architecture uses Functions. This serverless solution offers many benefits:
+For automation in the data ingestion stage, this architecture uses Functions. This serverless solution offers many benefits:
 
 - Infrastructure maintenance. As an Azure managed service, Functions provides the cloud environment and resources that keep the apps running. Instead of managing infrastructure requirements, developers can focus on innovative work that delivers value to the business.
 - Scalability. Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
