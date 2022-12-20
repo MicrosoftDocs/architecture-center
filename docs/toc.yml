@@ -4885,6 +4885,8 @@ items:
                 href: example-scenario/hybrid/multi-access-edge-compute-ha.yml
               - name: Run containers in a hybrid environment
                 href: hybrid/hybrid-containers.yml
+              - name: Train machine learning at the edge
+                href: example-scenario/hybrid/train-machine-learning-models-on-premises-data.yml
               - name: Use file shares in a hybrid environment
                 href: hybrid/azure-file-share.yml
           - name: Solution ideas
