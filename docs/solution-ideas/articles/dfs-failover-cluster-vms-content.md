@@ -18,7 +18,7 @@ This article describes how to deploy a Distributed File System (DFS) Namespaces 
 
 ### Components
  
-* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). VMs run as workers, performing compute tasks. In this architecture, there are three VMs in a virtual network. Two of them are failover cluster VMs. The other one is dedicated to cluster management. The VMs use two shared disks. One as a quorum disk, and the other one is dedicated to the DFS Namespaces share.
+* [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). VMs run as workers, performing compute tasks. In this architecture, there are three VMs in a virtual network. Two of them are failover cluster VMs. The other one is dedicated to cluster management. The VMs use two shared disks. One is a quorum disk, and the other one is dedicated to the DFS Namespaces share.
 * [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks). Designed for use with Azure Virtual Machines and Azure VMware Solution, Azure Disk Storage delivers high-performance, high-durability block storage for mission-critical applications.
 * [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Virtual Network provides IP connectivity between the compute resources and the other cloud services, beyond what any native InfiniBand or RDMA communication provides.
 * [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer). Load balancing is the process of evenly distributing incoming network traffic across a group of back-end resources or servers. This Standard Load Balancer is the entry point for client requests.
