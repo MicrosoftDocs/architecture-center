@@ -78,7 +78,7 @@ A shared Azure AD B2C tenant should be considered if the following apply to your
 
 The diagram below illustrates the shared Azure AD B2C tenant model:
 
-![A diagram showing three applications connecting to a single, shared Azure A D B 2 C tenant.](media/azure-ad-b2c/SharedTenantDiagram.drawio.png)
+![A diagram showing three applications connecting to a single, shared Azure A D B 2 C tenant.](media/azure-ad-b2c/shared-tenant-diagram.png)
 
 ### Vertically partitioned Azure AD B2C tenants
 
@@ -99,7 +99,7 @@ You should consider provisioning your Azure AD B2C tenants using a vertically pa
 
 The diagram below illustrates the vertically partitioned Azure AD B2C tenant model:
 
-![A diagram showing three applications, with two of them connected to a shared Azure A D B 2 C tenant, and the third connected to its own dedicated Azure A D B 2 C tenant.](media/azure-ad-b2c/VerticallyPartitionedDiagram.drawio.png)
+![A diagram showing three applications, with two of them connected to a shared Azure A D B 2 C tenant, and the third connected to its own dedicated Azure A D B 2 C tenant.](media/azure-ad-b2c/vertically-partitioned-tenant.png)
 
 ### Azure AD B2C tenant per application tenant
 
@@ -123,7 +123,7 @@ You should only consider provisioning an Azure AD B2C tenant for every applicati
 
 The diagram below illustrates the Azure AD B2C tenant per application tenant model:
 
-![A diagram showing three applications, each connecting to their own Azure A D B 2 C tenant.](media/azure-ad-b2c/TenantPerCustomerDiagram.drawio.png)
+![A diagram showing three applications, each connecting to their own Azure A D B 2 C tenant.](media/azure-ad-b2c/tenant-per-tenant-diagram.png)
 
 ## Identity federation
 
