@@ -183,7 +183,7 @@ The following sections present a breakdown of Contoso activity necessary across 
         - Availability Zone Failure: N/A
         - Azure Regional Failure: Contoso would need to redeploy the IoT Hub into the secondary region
     - Notes
-        - A key feature of Stream Analytics is its ability to recover from[Node failure](/azure/analytics-dr/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade)
+        - A key feature of Stream Analytics is its ability to recover from[Node failure](/azure/stream-analytics/stream-analytics-concepts-checkpoint-replay#job-recovery-from-node-failure-including-os-upgrade)
 - **Azure Cognitive Services**
     - Contoso SKU selection: Pay As You Go
     - DR Impact

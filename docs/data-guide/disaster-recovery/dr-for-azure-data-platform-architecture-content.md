@@ -341,7 +341,7 @@ This section contains HA/DR guidance for other key Azure Data components and ser
     - Flexible Server HA guidance can be found in the [product documentation](/azure/mysql/flexible-server/concepts-business-continuity)
     - Single Server HA guidance can be found in the [product documentation](/azure/mysql/single-server/concepts-business-continuity)
 - SQL
-    - SQL on Azure VMs guidance can be found in the [product documentation](/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview?view=azuresql-vm)
+    - SQL on Azure VMs guidance can be found in the [product documentation](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview)
     - Azure SQL and Azure SQL Managed Instance guidance can be found in the [product documentation](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql)
 
 ## Next steps

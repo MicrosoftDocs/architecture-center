@@ -2,7 +2,7 @@
 metadata:
   title: Tenancy models to consider for a multitenant solution
   description: This article describes the considerations you need to give to different models of multitenancy.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 09/04/2022
   ms.topic: conceptual

@@ -185,7 +185,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ## Related resources
 
-- [All retail architectures](/architecture/browse?terms=retail)
+- [All retail architectures](/azure/architecture/browse/?terms=retail)
 - [Elastic Workplace Search on Azure](../../solution-ideas/articles/elastic-workplace-search.yml)
 - [Buy online, pick up in store (retail)](../iot/vertical-buy-online-pickup-in-store.yml)
 - [Scalable order processing](../data/ecommerce-order-processing.yml)
