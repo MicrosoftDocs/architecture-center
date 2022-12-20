@@ -6,7 +6,7 @@ This article describes how to deploy a Distributed File System (DFS) Namespaces 
 
 image
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/dfs-azure-vms.vsdx) of this architecture.*
 
 ### Dataflow
  
@@ -52,7 +52,7 @@ In order to obtain an **High Availability** Environment we can achieve this goal
 
 For disaster recovery purpose another approach is to protect our instances with [Azure Site Recovery][https://learn.microsoft.com/azure/site-recovery/site-recovery-overview]. With our **Azure Site Recovery** solution, we can protect our workload in Azure to ensure business continuity with a native disaster recovery strategy supported in Azure.
 
-Failover clusters works with **vote**. uses a voting system with quorum to determine failover and to prevent a split-brain condition. In the cluster, the quorum is defined as half of the total nodes. **After a fault, the nodes vote to stay online. If less than the quorum amount votes yes, those nodes are removed**. In the proposed solution is used a quorum system based on **quorum disk**. Another approach following is to use a [Cloud Witness][https://learn.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness] for a Failover Cluster, a Microsoft native services as arbitration point. **Cloud Witness**solution uses Azure Blob Storage to read/write a blob file in the same way how quorum disk are used in case of split-brain resolution. 
+Failover clusters works with **vote**. uses a voting system with quorum to determine failover and to prevent a split-brain condition. In the cluster, the quorum is defined as half of the total nodes. **After a fault, the nodes vote to stay online. If less than the quorum amount votes yes, those nodes are removed**. In the proposed solution is used a quorum system based on **quorum disk**. Another approach following is to use a [Cloud Witness][https://learn.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness] for a Failover Cluster, a Microsoft native services as arbitration point. **Cloud Witness** solution uses Azure Blob Storage to read/write a blob file in the same way how quorum disk are used in case of split-brain resolution. 
 
 Azure assigns IP to virtual machines dynamically during the creation.  For failover purpose the cluster, need to assign an IP for the cluster DFS Namespace shared roles. Running a DHCP Service in Azure [isn't supported](https://learn.microsoft.com/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-within-vnets). The DHCP service is provided by Azure for each subnet automatically. There's no need to run a DHCP service on a VM. Therefore, it's necessary to assign an IP for the role and this IP will be the public IP for the load balancer used in the solution. Following this solution, when a client try to reach the share the next hope will be the load balancer that dynamically.
  
