@@ -1,4 +1,4 @@
-This article provides best practices for architecting multiple SAP systems across several environments (hub, production, non-production, disaster recovery). It focuses on network design without detailing design decisions for specific SAP system. For individual guides and more targeted single.
+This article provides best practices for architecting multiple SAP systems across several environments (hub, production, non-production, disaster recovery). It focuses on network design without detailing specific SAP system. The goal is to situate guidance for specific SAP systems in a broader architecture. For individual guides, see the links at the end of the article.
 
 [Visio file]:https://arch-center.azureedge.net/sap-whole-landscape.vsdx
 
@@ -19,15 +19,8 @@ _Download a [Visio file] of the architectures in this article._
 1. **SAP DR vritual network**:
 1. **SAP non-production subscription**:
 1. **SAP non-production virtual networks**:
-1. **Azure Services**:
-1. **SAP BTP**:
-
-Old content
-1. Azure subscriptions containing the SAP workload within a region pair
-1. Virtual networks for the SAP workload separated by environment. They are peered with the central hub network.
-1. SAP workload infrastructure showing one SAP system per environment tier
-1. Azure services connected to the SAP landscape
-1. SAP Business Technology Platform (BTP) accessed through private link by the SAP environment
+1. **Azure Services**: Azure services connected to the SAP landscape
+1. **SAP BTP**: SAP Business Technology Platform (BTP) accessed through private link by the SAP environment
 
 ### Azure subscriptions
 
@@ -88,7 +81,7 @@ The architecture doesn't show a non-production SAP perimeter subnet. Non-product
 
 - **Azure NetApp Files subnet**: [A delegated subnet](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) if using NetApp Files to provide NFS / SMB file shares for different SAP on Azure scenarios. A /24 subnet is the default. Use your requirements to determine the proper sizing.
 
-We have a few more notes on subnet design. Ensure sufficient network address space is provided for the subnets.  If you use SAP virtual host names, you need more address space in your SAP subnets, including the SAP perimeter. Often 2-3 IPs are required for each SAP instance including the physical VM hostname. Other Azure services might require their own dedicated subnet, when deployed in the SAP workload VNets.
+We have a few more notes on subnet design. Ensure sufficient network address space is provided for the subnets. If you use SAP virtual host names, you need more address space in your SAP subnets, including the SAP perimeter. Often 2-3 IPs are required for each SAP instance including the physical VM hostname. Other Azure services might require their own dedicated subnet, when deployed in the SAP workload VNets.
 
 #### Network security groups (NSG)
 
@@ -174,7 +167,7 @@ Alternatively to one load balancer for (A)SCS and ERS and second for SAP HANA, a
 
 Disaster recovery addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective, the main decisions to make are:
 
-- **Use different IP address ranges** A virtual network doesn'tspan beyond a single Azure region, a different virtual network is required in secondary region. The virtual network in the DR environment needs different IP address range to enable database synchronization through database native technology.
+- **Use different IP address ranges** A virtual network doesn't span beyond a single Azure region, a different virtual network is required in secondary region. The virtual network in the DR environment needs different IP address range to enable database synchronization through database native technology.
 - **Ensure file share availability**: SAP important aspects are availability of the SMB or NFS service and data replication, together with backup infrastructure and backup data.
 - **Central services and connectivity from on-premises**: With SAP depending on key central services like DNS, availability and change configuration on SAP side during DR failover needs to be established.
 
