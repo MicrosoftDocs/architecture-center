@@ -19,6 +19,6 @@ products:
   - azure-virtual-machines
 name: Train machine learning models at the edge
 summary: Learn how to use on-premises data to train machine learning models by using Azure and Azure Stack Hub.
-thumbnailUrl: /azure/architecture/browse/thumbs/train-machine-learning-on-premises-data-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/train-machine-learning-on-premises-data-at-edge-thumbnail.png
 content: |
   [!include[](train-machine-learning-models-on-premises-data-content.md)]
