@@ -1,17 +1,19 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
  
-This solution shows you how to deploy a DFS Namespaces failover cluster with Azure VMs.
+This article describes how to deploy a Distributed File System (DFS) Namespaces failover cluster by using Azure virtual machines (VMs).
 
 ## Architecture
 
-*Download an [SVG](../media/dfs-namespaces-azure-vms.svg) of this architecture.*
+image
+
+*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
 ### Dataflow
  
-1. The Client sends the request to DNS in order to reach the destination path.
+1. The client sends a request to DNS in order to reach the destination path.
 1. The DNS have the authority to resolve the request.
 1. DNS response was sent back to the client.
-1. The Client sends the request to the destination IP received from the DNS.
+1. The client sends the request to the destination IP received from the DNS.
 1. The load balancer, in according to the health probe availability, expose the requested resource.
 
 ### Components
