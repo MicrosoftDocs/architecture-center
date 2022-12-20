@@ -10,21 +10,21 @@ _Download a [Visio file] of the architectures in this article._
 
 ### Workflow
 
-1. **On-premises**:
-1. **Hub subscription**:
-1. **Hub virtual network**:
-1. **Hub DR virtual network**:
-1. **SAP production subscription**:
-1. **SAP production virtual network**:
-1. **SAP DR vritual network**:
-1. **SAP non-production subscription**:
-1. **SAP non-production virtual networks**:
-1. **Azure Services**: Azure services connected to the SAP landscape
-1. **SAP BTP**: SAP Business Technology Platform (BTP) accessed through private link by the SAP environment
+1. **On-premises**: ExpressRoute connection from on-premises network to connected Azure regions.
+1. **Hub subscription**: Azure subscription containing central services for the whole enterprise, not just SAP. Acting as hub in hub-spoke model, provides connectivity through peering to workload specific spoke virtual networks.
+1. **Hub virtual network**: Virtual network spoke for the central hub, in primary region or region A.
+1. **Hub DR virtual network**: Virtual network spoke for the central hub in disaster recovery region, or region B. It mirrors the subnet design of the production virtual network in primary region.
+1. **SAP non-production subscription**: Azure subscription for all non-productive SAP workloads. This includes pre-production, quality assurance, development and sandbox environments.
+1. **SAP non-production virtual networks**: Virtual network for SAP non-product workloads in primary region or region A. Each SAP environment with own virtual network and subnets.
+1. **SAP production subscription**: Azure subscription for all productive SAP workloads.
+1. **SAP production virtual network**: Virtual network for SAP productive environment, with multiple subnets. This is located in primary region or region A.
+1. **SAP DR virtual network**: Virtual network for SAP production, in the disaster recovery region or region B. It mirrors the subnet design of the production virtual network in primary region.
+1. **Azure Services**: Azure services connected to the SAP landscape.
+1. **SAP BTP**: SAP Business Technology Platform (BTP) accessed through private link by the SAP environment.
 
 ### Azure subscriptions
 
-We recommendation using a hub-spoke network design. With a hub-spoke design, you need at least three subscriptions to divide your SAP environments. You should have a subscription for the (1) hub virtual network, (2) non-production virtual networks, and (3) production virtual networks. Subscriptions provide a billing, policy, and security boundary. There's no correct number of subscriptions. The number of subscriptions you use depends on your billing, policy, and security needs. In general, you want to avoid using too many subscriptions. Too many subscriptions can add unneeded management overhead and networking complexity. For example, you don't need a subscription for each SAP system.
+We recommend using a hub-spoke network design. With a hub-spoke design, you need at least three subscriptions to divide your SAP environments. You should have a subscription for the (1) hub virtual network, (2) non-production virtual networks, and (3) production virtual networks. Subscriptions provide a billing, policy, and security boundary. There's no correct number of subscriptions. The number of subscriptions you use depends on your billing, policy, and security needs. In general, you want to avoid using too many subscriptions. Too many subscriptions can add unneeded management overhead and networking complexity. For example, you don't need a subscription for each SAP system.
 
 Our architecture uses three subscriptions:
 
@@ -90,6 +90,24 @@ Using subnets to divide makes it easier to implement and manage the security. It
  NSG rules in place affect network traffic in- and out of the subnet, and also [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). For more information on NSGs, see [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
 **Application security groups (ASG)**: We recommend using application security groups to group VM network interfaces and reference the ASGs in NSG rules. This allows easier rule creation and management, instead of IP ranges only, and are recommended for SAP deployments. Each network interface can belong to multiple application security groups, with different NSG rules. For more information, see [application security groups](/azure/virtual-network/application-security-groups).
+
+#### SAP perimeter as own VNet for increased security
+
+To further improve security, the SAP perimeter and Azure Application Gateway subnet can be in own spoke VNet. All network traffic to public networks flow through the perimeter VNET. Full diagram of this solution can be found in the [Visio file]. Modifications to the overall architecture are:
+
+- **SAP perimeter network as spoke VNet** Separated from the SAP production virtual network (VNet), the SAP perimeter VNet retains the subnets but places them in a dedicated SAP perimeter VNet.
+
+[![Diagram showing network flow between VNet spokes through the Hub VNet](media/sap-whole-landscape-secured-perimeter-peering.png)](media/sap-whole-landscape-secured-perimeter-peering.png#lightbox)
+
+- **Better incident response**: Quick and immediate isolation of compromised services if a breach is detected. Removing virtual network peering from the SAP perimeter to the hub immediately isolates the SAP perimeter workloads and SAP application virtual network applications from the internet. Changing or removing an NSG rule that permits access only affects new connections and doesn't cut existing connections.
+
+- **Fine-grained network access control**: The "SAP Perimeter" VNet provides more stringent network access control to and from the "SAP production" network.
+
+- **Increased complexity, latency, and cost**: The architecture increases management complexity, cost, and latency. Internet-bound communication from the SAP production virtual network is peered twice, once to the Hub virtual network and again to the SAP perimeter virtual network out to the internet. The firewall in the Hub virtual network has the greatest affect on latency. We recommend measure the latency to see if your use case can support it.
+
+For more information, see [perimeter network best practices](/azure/cloud-adoption-framework/ready/azure-best-practices/perimeter-networks).
+
+The architecture doesn't show a non-production SAP perimeter network. Non-production SAP workload uses SAP production perimeter services and network. The decision to create a non-production environment for shared SAP services (SAProuter, Cloud Connector) depends on your company policies and the size of your SAP landscape. One major driver to use a dedicated non-production SAP perimeter is the business criticality of processes depending on this connectivity path and the degree of change you foresee for these applications. A dedicated non-production SAP perimeter will be helpful during testing and new feature deployment. Should the perimeter apps be mostly served for less critical and secondary business processes with only few modifications over time, the need for such additional non-production SAP perimeter is likely low.
 
 #### Azure Private Link
 
@@ -165,22 +183,26 @@ Alternatively to one load balancer for (A)SCS and ERS and second for SAP HANA, a
 
 ## Disaster recovery considerations
 
-Disaster recovery addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective, the main decisions to make are:
+Disaster recovery (DR) addresses the requirement for business continuity in case the primary Azure region is unavailable or compromised. From an overall SAP landscape perspective and shown in the diagram, the requirements for cross-region DR are:
 
 - **Use different IP address ranges** A virtual network doesn't span beyond a single Azure region, a different virtual network is required in secondary region. The virtual network in the DR environment needs different IP address range to enable database synchronization through database native technology.
-- **Ensure file share availability**: SAP important aspects are availability of the SMB or NFS service and data replication, together with backup infrastructure and backup data.
-- **Central services and connectivity from on-premises**: With SAP depending on key central services like DNS, availability and change configuration on SAP side during DR failover needs to be established.
+- **Central services and connectivity to on-premises**: Connectivity to on-premises and key central services like DNS or firewalls must be available in the DR region. As key component for functioning SAP environment, availability and change configuration of the central IT services need to be part any DR plans.
+- **Protecting SAP applications through ASR** Azure Site Recovery (ASR) enables protection of SAP application VMs and replication of all managed disks and VM configuration to the DR region. 
+- **Ensure file share availability**: SAP depends on availability of key SMB or NFS file shares. Backup or continuos file share replication is necessary to provide data on these file shares with minimal data loss in DR scenario.
+- **Database replication** Database servers for SAP can't be protected by ASR due to high change rate and lack of database support by the service, unlike SAP application servers. A continuos and asynchronous database native replication to DR region, with round the clock operation of database VMs in DR region is needed.
 
-For detailed disaster recovery guidance for SAP, see details in article [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/virtual-machines/workloads/sap/disaster-recovery-overview-guide).
+For details on disaster recovery guidance for SAP, see article [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/virtual-machines/workloads/sap/disaster-recovery-overview-guide).
 
 ## Consolidating SAP subnets and virtual networks
 
-To address any requirement to decrease the number of required virtual networks and subnets for smaller SAP deployments, some changes to the main architecture design are possible. Ensure any modification to simplify and flatten the architecture are done only after careful consideration. These would be:
+The architecture in this document represents proven best practices from successful SAP deployments in Azure. Driven by corporate policies and different requirements , this section contains alternatives for some design principles. Additionally, any requirement to decrease the number of required virtual networks and subnets for smaller SAP deployments, some changes to the main architecture design can be made. Ensure any modification to simplify and flatten the architecture are done only after careful consideration. These would be:
 
 - **Combine the SAP application and database subnets into one**
   By combining the two subnets you simplify the overall network design and mirror what is often deployed in many SAP landscapes on-premises, one large network for SAP. By combining the subnets, an even higher attention needs to be placed on subnet security and your NSG rules. NSG rules in place affect network traffic in- and out of the subnet, and also [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). Use of ASGs is recommended always, but particularly when using a single subnet for SAP application and database subnets.
+
 - **Combine SAP perimeter subnet into application subnet**
   Another simplification possible on network level, is to place VMs from the perimeter subnet into SAP application subnet, eliminating the SAP perimeter subnet. Similarly to the point above with joint SAP app and DB subnet, a heightened attention must be placed on NSG rules and ASG use. Due to the typically small SAP perimeter subnet or virtual network, we only recommend this simplification approach for small SAP estates.
+
 - **Combine SAP spoke VNets between different SAP environments / tiers**
   The architecture shown uses different virtual networks for each SAP environment / tier - production, development, etc. Depending on the size of your SAP landscape, you can combine the SAP spoke virtual networks into fewer or even only one SAP spoke. Each SAP environment's VNet would then be a subnet inside such combined virtual network - SAP development application subnet, SAP development database subnet, SAP pre-production application subnet, etc. Recommendation even for SAP landscapes with few VMs and SAP systems is to keep at least a production and non-production division of subnets. This alternative design goes together with having more or fewer Azure subscriptions for SAP workloads, from chapter [subscriptions](#azure-subscriptions) within this document.
 
