@@ -1,4 +1,4 @@
-This article provides best practices deploying multiple SAP systems and environments. It focuses on the connections between systems and the optimal placement of SAP in Azure without going into detail on individual SAP system.
+This article provides best practices for architecting multiple SAP systems across several environments (hub, production, non-production, disaster recovery). It focuses on network design without detailing design decisions for specific SAP system. For individual guides and more targeted single.
 
 [Visio file]:https://arch-center.azureedge.net/sap-whole-landscape.vsdx
 
@@ -8,19 +8,36 @@ This article provides best practices deploying multiple SAP systems and environm
 
 _Download a [Visio file] of the architectures in this article._
 
-This solution illustrates the SAP landscape of a typical large enterprise. You can reduce the size and scope of the configuration to fit your requirements. This reduction might apply to the SAP landscape: fewer subscriptions, fewer virtual machines (VMs), no high availability. Business policies might also necessitate adaptations to the architecture, particularly to the network design. When possible, we've included alternatives. Choose an approach that's right for your business.
+### Workflow
 
-This article about a whole SAP landscape is intentionally high-level on some details such as compute, storage, network components and others. This article intentionally doesn'tprovide architecture on a single SAP system in detail. Many existing guides and designs are focused precisely on these details, however omit the bigger picture. For individual guides and more targeted single SAP system view, follow the links at the end of this document.
+1. **On-premises**:
+1. **Hub subscription**:
+1. **Hub virtual network**:
+1. **Hub DR virtual network**:
+1. **SAP production subscription**:
+1. **SAP production virtual network**:
+1. **SAP DR vritual network**:
+1. **SAP non-production subscription**:
+1. **SAP non-production virtual networks**:
+1. **Azure Services**:
+1. **SAP BTP**:
+
+Old content
+1. Azure subscriptions containing the SAP workload within a region pair
+1. Virtual networks for the SAP workload separated by environment. They are peered with the central hub network.
+1. SAP workload infrastructure showing one SAP system per environment tier
+1. Azure services connected to the SAP landscape
+1. SAP Business Technology Platform (BTP) accessed through private link by the SAP environment
 
 ### Azure subscriptions
 
-This architecture uses three subscriptions:
+We recommendation using a hub-spoke network design. With a hub-spoke design, you need at least three subscriptions to divide your SAP environments. You should have a subscription for the (1) hub virtual network, (2) non-production virtual networks, and (3) production virtual networks. Subscriptions provide a billing, policy, and security boundary. There's no correct number of subscriptions. The number of subscriptions you use depends on your billing, policy, and security needs. In general, you want to avoid using too many subscriptions. Too many subscriptions can add unneeded management overhead and networking complexity. For example, you don't need a subscription for each SAP system.
 
-- An Azure virtual hub subscription where the hub virtual network (VNet) exists for the primary and secondary regions. This subscription is for all central services and not just SAP.
-- An Azure SAP production subscription where the production and disaster recovery systems are configured.
-- An Azure SAP non-production subscription where non-production systems, including sandbox, development, quality assurance, or pre-production systems, reside.
+Our architecture uses three subscriptions:
 
-This configuration is optional and depends on size of your SAP landscape. You can use a subscription for each environment / tier / workload zone. You can use a dedicated subscription for sandbox or project SAP environment only, isolating on network and Azure level the resources to limit blast radius of such crash-and-burn environment. One recommendation is to not use too many subscriptions, such as one per SAP system or all SAP BW systems. The overhead of multiple subscriptions and implicit different spoke networks becomes too difficult to manage.
+- **Hub subscription**: An Azure virtual hub subscription where the hub virtual network (VNet) exists for the primary and secondary regions. This subscription is for all central services and not just SAP.
+- **SAP production subscription**: An Azure SAP production subscription where the production and disaster recovery systems are configured.
+- **SAP non-produciton subscription**: An Azure SAP non-production subscription where non-production systems, including sandbox, development, quality assurance, or pre-production systems, reside.
 
 For more information on resource management, see:
 
@@ -32,14 +49,16 @@ For more information on resource management, see:
 
 The architecture uses a hub-spoke topology. The hub VNet acts as a central point of connectivity. It connects to the on-premises network and the various spoke VNets, enabling user and application access to the SAP workload.
 
-**On-premises connection** For SAP workloads we recommend using ExpressRoute to connect the hub on-premises network. You could use [Azure virtual WAN](/azure/virtual-wan/virtual-wan-about) topology if you have global locations. Consider setting up a site-to-site (S2S) VPN as a backup to Azure ExpressRoute or any third-party route requirements. As on-premises connection is assumed already in place for SAP use in this architecture, see any details and decision help between available options in the following documents:
+**Use ExpressRoute for on-premises connection.** For SAP workloads we recommend using ExpressRoute to connect the hub on-premises network. You could use [Azure virtual WAN](/azure/virtual-wan/virtual-wan-about) topology if you have global locations. Consider setting up a site-to-site (S2S) VPN as a backup to Azure ExpressRoute or any third-party route requirements. As on-premises connection is assumed already in place for SAP use in this architecture, see any details and decision help between available options in the following documents:
 
 - [Network topology and connectivity for an SAP migration](/azure/cloud-adoption-framework/scenarios/sap/eslz-network-topology-and-connectivity)
 - [Hub and spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 - [Azure virtual WAN](/azure/virtual-wan/virtual-wan-about)
 - [S2S VPN as a backup for ExpressRoute private peering](/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
 
-**Virtual network use** We recommend using one VNet per environment, often called SAP deployment tier. The architecture uses a different VNet for production, development, quality assurance, and sandbox. However, depending on the size of your SAP landscape, you can combine the SAP spoke virtual networks into fewer or even only one SAP spoke VNet. Each SAP environment's VNet would then be subnets inside such combined virtual network - SAP development subnets, SAP pre-production subnets, etc. For small SAP landscapes with few VMs and SAP systems, we recommend keeping at minimum a production and non-production division of subnets.
+**Use one virtual network per environment.** We recommend using one VNet per environment, often called SAP deployment tier. The architecture uses a different VNet for production, development, quality assurance, and sandbox.
+
+However, depending on the size of your SAP landscape, you can combine the SAP spoke virtual networks into fewer or even only one SAP spoke VNet. Each SAP environment's VNet would then be subnets inside such combined virtual network - SAP development subnets, SAP pre-production subnets, etc. For small SAP landscapes with few VMs and SAP systems, we recommend keeping at minimum a production and non-production division of subnets.
 
 Any simplification and change of the network and subscription design needs to reevaluate the security impact on network routing, access to and from public networks, access of shared services like NFS / SMB file shares and other Azure services.
 
@@ -171,12 +190,6 @@ To address any requirement to decrease the number of required virtual networks a
   Another simplification possible on network level, is to place VMs from the perimeter subnet into SAP application subnet, eliminating the SAP perimeter subnet. Similarly to the point above with joint SAP app and DB subnet, a heightened attention must be placed on NSG rules and ASG use. Due to the typically small SAP perimeter subnet or virtual network, we only recommend this simplification approach for small SAP estates.
 - **Combine SAP spoke VNets between different SAP environments / tiers**
   The architecture shown uses different virtual networks for each SAP environment / tier - production, development, etc. Depending on the size of your SAP landscape, you can combine the SAP spoke virtual networks into fewer or even only one SAP spoke. Each SAP environment's VNet would then be a subnet inside such combined virtual network - SAP development application subnet, SAP development database subnet, SAP pre-production application subnet, etc. Recommendation even for SAP landscapes with few VMs and SAP systems is to keep at least a production and non-production division of subnets. This alternative design goes together with having more or fewer Azure subscriptions for SAP workloads, from chapter [subscriptions](#azure-subscriptions) within this document.
-
-## Example SAP landscape of three SAP environments
-
-The following diagram is the same architecture, but with as an example of a three SAP environments -  SAP S/4HANA, SAP BW and SAP PI/PO. Its aim is to show this architecture with simplified view for VM and other details, and to ensure placement of different SAP systems is understood on a whole landscape level. It shows a 4-tier S/4HANA environment, including sandbox workload zone, a 3-tier BW and SAP PI/PO is a 2-tier deployment with production and development only.
-
-[![Diagram that shows a sample overall SAP landscape in Azure with a dedicated perimeter VNet](media/sap-whole-landscape-three-sap-example.png)](media/sap-whole-landscape-three-sap-example.png#lightbox)
 
 ## Contributors
   
