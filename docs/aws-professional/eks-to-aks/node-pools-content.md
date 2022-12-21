@@ -1,11 +1,10 @@
 Kubernetes architecture is based on two layers: The [control plane](/azure/aks/concepts-clusters-workloads#control-plane) and one or more [nodes in node pools](/azure/aks/concepts-clusters-workloads#nodes-and-node-pools). This article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage agent or worker nodes.
 
+[!INCLUDE [eks-aks](eks-aks-include.md)]
+
 In both Amazon EKS and AKS, the cloud platform provides and manages the control plane layer, and the customer manages the node layer. The following diagram shows the relationship between the control plane and nodes in AKS Kubernetes architecture.
 
 ![Diagram that shows the control plane and nodes in AKS architecture.](./media/control-plane-and-nodes.png)
-
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
 ## Amazon EKS managed node groups
 

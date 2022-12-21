@@ -5,8 +5,7 @@ This article describes how Amazon Elastic Kubernetes Service (Amazon EKS) and Az
 
 This guide explains how AKS clusters, built-in services, and add-ons use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) to access Azure resources like load balancers and managed disks. The article also demonstrates how to use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs) so AKS workloads can access Azure resources without needing a connection string, access key, or user credentials.
 
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+[!INCLUDE [eks-aks](eks-aks-include.md)]
 
 ## Amazon EKS identity and access management
 
