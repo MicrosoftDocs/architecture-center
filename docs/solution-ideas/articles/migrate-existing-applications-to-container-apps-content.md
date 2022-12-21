@@ -38,7 +38,7 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 ## Scenario details
 
-Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Containers easily other Azure resources like storage and database services.
+Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Your containers can easily integrate other Azure resources like storage and database services.
 
 ### Potential use cases
 

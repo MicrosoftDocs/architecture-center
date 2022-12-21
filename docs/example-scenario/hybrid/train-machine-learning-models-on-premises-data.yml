@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Train machine learning models at the edge
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use on-premises data to train machine learning models by using Azure and Azure Stack Hub.
+  author: ronmiab
+  ms.author: robess
+  ms.date: 12/19/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+  - hybrid
+products:
+  - azure-container-registry
+  - azure-machine-learning
+  - azure-stack-hub
+  - azure-virtual-machines
+name: Train machine learning models at the edge
+summary: Learn how to use on-premises data to train machine learning models by using Azure and Azure Stack Hub.
+thumbnailUrl: /azure/architecture/browse/thumbs/train-machine-learning-on-premises-data-at-edge-thumbnail.png
+content: |
+  [!include[](train-machine-learning-models-on-premises-data-content.md)]
