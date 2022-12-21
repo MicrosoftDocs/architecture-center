@@ -1,36 +1,38 @@
 Background
 
-One of the most popular Edge scenarios is the artificial intelligence (AI) on Edge scenario (Image Classification, Object Detection, Body, Face & Gesture Analysis, Image Manipulation, ETC ...). Azure IoT Edge can certainly support these scenarios. This AI ability can also be improved over the model update step, but in some scenarios the Edge device network environment is not good, especially for some manufacturing equipment such as wind power or oil exploitation which are equipped in the desert or in the sea.
+AI on the edge is one of the most popular edge scenarios. Implementations of this scenario include image classification, object detection, body, face and, gesture analysis, and image manipulation. This architecture guide describes how to use Azure IoT Edge to support these scenarios. You can improve AI accuracy by updating the AI model, but in some scenarios the edge device network environment isn't good. For example, in the wind power and oil industries, equipment might be located in the desert or the ocean.
 
-However, as you know, Azure IoT Edge Module is the basis on docker. In general, an Edge module image with the AI environment which size will be around GB level at least, so how to incremental updates the AI model in a narrow bandwidth network it becomes more meaningful. That's why this document was written. The idea is to make an Edge AI loader module which can load Object Detection TensorFlow or ONNX AI models and enable this AI module as a Web API. So that in this way Edge module can benefit other application or module.
+IoT Edge modules are based on Docker. An IoT Edge module image for an AI environment is typically sized at least at the GB level, so incremental updates to the AI model in a narrow-bandwidth network are important. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow or Open Neural Network Exchange (ONNX) object detection models and enable this module as a web API. Doing so enables the IoT Edge module to benefit other applications or modules.
 
-So, the solutions in this article can help you from 4 different ways
-- Enables the AI Inference capability on Edge devices
-- Minimize the network cost of deploying and updating AI models on the Edge. Especially in the narrow bandwidth network environment, it can greatly save resources for you or your customers.
-- You can create and manage AI model repository in IoT edge device local storage.
-- When edge device switches AI models, you can achieve almost zero down time.
+The solution described in this article can help you in these ways:
+
+- Enable AI inference on edge devices.
+- Minimize the network cost of deploying and updating AI models on the edge. The solution can save money for you or your customers, especially in a narrow-bandwidth network environment.
+- Create and manage an AI model repository in an IoT edge device's local storage.
+- Achieve almost zero downtime when the edge device switches AI models.
 
 Overview
 
-This document can help you build an Azure IoT Edge Module that can download AI model then enable Inference ability. support TensorFlow *.tflite format model or *.onnx (Open Neural Network Exchange) format model.
+This article describes how to build an IoT Edge module that can download an AI model and then enable machine learning inference. It describes the TensorFlow **.tflite* format model and the **.onnx* format model.
 
-So, for ML Inference Modules have some Key concepts that need to be clarified first (If you are not familiar with AI, you can learn the basics knowledge of TensorFlow lite and ONNX in the following two sections).
+The next two sections clarify some concepts about machine learning inference modules, TensorFlow Lite, and ONNX.
 
 TensorFlow
 
-1.	AI Model File: *.tflite its pre-trained AI model which download from [TensorFlow.org - Download starter model with Metadata](https://www.tensorflow.org/lite/examples/object_detection/overview) and it is a generic AI model format that can be used in cross-platform applications such as iOS and Android. Fore more information about Metadata and associated fields (eg: labels.txt) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models)
-2.	Model description： An object detection model is trained to detect the presence and location of multiple classes of objects. For example, a model might be trained with images that contain various pieces of fruit, along with a label that specifies the class of fruit they represent (e.g. an apple, a banana, or a strawberry), and data specifying where each object appears in the image.
-When an image is subsequently provided to the model, it will output a list of the objects it detects, the location of a bounding box that contains each object, and a score that indicates the confidence that detection was correct.
-3.	In case of if you want to build or custome tune an AI Model, please see [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker)
-4.	More free pre-trained detection models with a variety of latency and precision characteristics can be found in the [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each one of them follows the input and output signatures described in the following sections.
+- **.tflite* is a pre-trained AI model. You can download it from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model format that you can use in cross-platform applications like iOS and Android. For more information about metadata and associated fields (for example, *labels.txt*) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
+- An object detection model is trained to detect the presence and location of multiple classes of objects. For example, a model might be trained with images that contain various pieces of fruit, along with a label that specifies the class of fruit that they represent (for example, apple) and data that specifies where each object appears in the image.
 
-Open Neural Network Exchange (ONNX)
+  When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box that contains each object, and a score that indicates the confidence in the detection.
+- If you want to build or custom-tune an AI model, see [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker).
+- You can get more free pre-trained detection models, with a variety of latency and precision characteristics, at [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each model uses the input and output signatures described in the following sections.
 
-Open Neural Network Exchange (ONNX) is an open standard format for representing machine learning models. ONNX is supported by a community of partners who have implemented it in many frameworks and tools.
+ONNX
 
-1.	ONNX supports a variety of tools to Build and deploy models and Frameworks & Converters [Build / Deploy Model](https://onnx.ai/supported-tools.html)
-2.	You can use ONNX runtime run ONNX Pre-Trained Models [ONNX Model Zoo](https://github.com/onnx/models) for implementation Vision Language Other AI features
-3.	In this case you can use model of [Object Detection & Image Segmentation - Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3)
+ONNX is an open-standard format for representing machine learning models. It's supported by a community of partners who have implemented it in many frameworks and tools.
+
+- ONNX supports a variety of tools to build and deploy models, and frameworks and converters. For more information see, [Build / Deploy Model](https://onnx.ai/supported-tools.html).
+- You can use ONNX runtime run ONNX Pre-Trained Models [ONNX Model Zoo](https://github.com/onnx/models) for implementation Vision Language Other AI features
+- In this case you can use model of [Object Detection & Image Segmentation - Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3)
 
 The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to assist with creating and deploying your next deep learning model.
 
@@ -260,10 +262,10 @@ Learn more about [Flask: Flask Tutorial in Visual Studio Code](https://code.visu
 
 Reference
 
-•	Understand and use module twins in IoT Hub
-•	Learn how to deploy modules and establish routes in IoT Edge
-•	Give modules access to a device's local storage 
-•	Understand IoT Edge automatic deployments for single devices or at scale
-•	Open Neural Network Exchange
-•	ONNX Tutorials
-•	Deploy ML model on IoT and edge devices
+- Understand and use module twins in IoT Hub
+- Learn how to deploy modules and establish routes in IoT Edge
+- Give modules access to a device's local storage 
+- Understand IoT Edge automatic deployments for single devices or at scale
+- Open Neural Network Exchange
+- ONNX Tutorials
+- Deploy ML model on IoT and edge devices
