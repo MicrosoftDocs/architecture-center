@@ -96,6 +96,20 @@ The SSIS feature pack allows for more complex flows to be handled by packaging t
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Copy and move blobs from one container or storage account to another](/training/modules/copy-blobs-from-command-line-and-code/)
+- [Execute existing SSIS packages in Azure Data Factory or Azure Synapse Pipeline](/training/modules/execute-existing-ssis-packages-azure-data-factory/)
+- [What is the Team Data Science Process (TDSP)?](overview.yml)
+
+## Related resources
+
+- [Explore data in Azure Blob storage](explore-data-blob.md)
+- [Process Azure Blob Storage data with advanced analytics](data-blob.md)
+- [Move data to and from Azure Blob Storage using Azure Storage Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
+- [Load data into storage environments for analytics](ingest-data.md)

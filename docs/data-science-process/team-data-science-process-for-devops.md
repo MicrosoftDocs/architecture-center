@@ -91,10 +91,18 @@ The following table provides level-based guidance to help complete the DevOps ob
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 See [Team Data Science Process for data scientists](team-data-science-process-for-data-scientists.md). This article provides guidance for implementing data science solutions with Azure.
+
+## Related resources
+
+- [Execute data science tasks: exploration, modeling, and deployment](execute-data-science-tasks.md)
+- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
+- [Platforms and tools for data science projects](platforms-and-tools.md)
+- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
+- [What is the Team Data Science Process?](overview.yml)
