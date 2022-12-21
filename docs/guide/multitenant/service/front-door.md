@@ -292,6 +292,8 @@ Other contributors:
  * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
  * [Harikrishnan M B (HARI)](http://linkedin.com/in/harikrishnanmb) Product Manager 2, Azure Networking 
+ * [Fernando Antivero](http://linkedin.com/in/fernandoantivero) Fullstack Developer & Cloud Platform Engineer, Clarius Consulting
+ * [Duong Au](http://linkedin.com/in/duong-au-32427b46) Senior Content Developer, C+E Skilling Content R&D
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
