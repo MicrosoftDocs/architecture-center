@@ -26,7 +26,16 @@ ms.custom:
 
 Azure Front Door is Microsoft's modern cloud CDN (content delivery network), which provides fast, reliable, and secure access between users and applications' static and dynamic web content across the globe. In this article, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
 
-Front Door provides several features that are useful for multitenant solutions.
+When you use Front Door as part of a multitenant solution, there are multiple aspects to the configuration. You need to make decisions based on your own solution's design and requirements, including the following factors:
+
+- How many tenants do you have, or plan to grow to?
+- Do you share your application tier between multiple tenants, do you deploy many single-tenant application instances, or do you deploy separate deployment stamps that are shared by multiple tenants?
+- Do your tenants want to bring their own domain names?
+- Will you use wildcard domains?
+- Do you need to use your own TLS certificates, or will Microsoft manage your TLS certificates?
+- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Front Door? Do you understand which limits you'll approach as you grow? If you suspect that you're going to approach these limits, consider using multiple Front Door profiles, or whether you can change the way that you're using Front Door to avoid the limits. Also be aware that higher limits apply to the premium SKU than for Front Door standard.
+- Do you, or your tenants, have requirements for IP address filtering, geo-blocking, or customizing WAF rules?
+- Are all of your tenants' application servers internet-facing?
 
 ## Features of Front Door that support multitenancy
 
@@ -66,8 +75,7 @@ For more information about TLS certificates, see [End-to-end TLS with Azure Fron
 
 A multitenant application might have one or more application stamps serving the tenants. Stamps are frequently used to enable multi-region deployments, and to support scaling your solution to a large number of tenants.
 
-
-Front Door has a powerful set of routing capabilities, which can support a number of different multitenant architectures. You can use routing to distribute traffic among origins within a stamp, or to send traffic to the correct stamp for a specific tenant. Routing can be configured based on domain names and URL paths, and by using the rules engine you can further customize routing behavior.
+Front Door has a powerful set of routing capabilities, which can support a number of different multitenant architectures. You can use routing to distribute traffic among origins within a stamp, or to send traffic to the correct stamp for a specific tenant. Routing can be configured based on individual domain names, wildcard domain names, and URL paths, and by using the rules engine you can further customize routing behavior.
 
 For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
 
@@ -75,26 +83,15 @@ For more information, see [Routing architecture overview](/azure/frontdoor/front
 
 The Front Door rules engine enables you to customize how Front Door processes requests at the network edge. The rules engine enables you to run small blocks of logic within Front Door's request processing pipeline. You can use the rules engine to override the routing configuration for a request. The rules engine also enables you to modify elements of the request before it's sent to the origin, and to modify some parts of the response before it's returned to the client.
 
+For example, suppose you have deployed a multitenant application tier where you also use tenant-specific wildcard subdomains. You might use the rules engine to extract the tenant identifier from the request subdomain and add it to a request header. This rule could help the application tier to know which tenant the request came from.
+
 For more information, see [What is Rules Engine for Azure Front Door?](/azure/frontdoor/front-door-rules-engine).
-
-## Configure Front Door for your solution
-
-When you use Front Door as part of a multitenant solution, there are multiple aspects to the configuration. You need to make decisions based on your own solution's design and requirements, including the following factors:
-
-- How many tenants do you have, or plan to grow to?
-- Do you share your application tier between multiple tenants, do you deploy many single-tenant application instances, or do you deploy separate deployment stamps that are shared by multiple tenants?
-
-- Do your tenants want to bring their own domain names?
-- Will you use wildcard domains?
-- Do you need to use your own TLS certificates, or will Microsoft manage your TLS certificates?
-- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Front Door, and do you understand which limits you'll approach as you grow? If you suspect that you're going to approach these limits, consider using multiple Front Door profiles, or whether you can change the way that you're using Front Door to avoid the limits.
-- Do you, or your tenants, have requirements for IP address filtering, geo-blocking, or customizing WAF rules?
 
 ## Example scenarios
 
 The following example scenarios illustrate how different multitenant architectures can be configured in Front Door, and how the decisions you make can affect your DNS and TLS configuration.
 
-Many multitenant solutions follow the [Deployment Stamps](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Front Door profile, and use Front Door to route incoming traffic to the appropriate stamp. This is the most common deployment model, and scenarios 1 through 4 below show how you can use this deployment model to meet a range of requirements.
+Many multitenant solutions follow the [Deployment Stamps pattern](../approaches/overview.yml#deployment-stamps-pattern). When you use this deployment approach, you typically deploy a single shared Front Door profile, and use Front Door to route incoming traffic to the appropriate stamp. This is the most common deployment model, and scenarios 1 through 4 below show how you can use this deployment model to meet a range of requirements.
 
 However, in some situations, you might deploy a Front Door profile in each stamp of your solution. [Scenario 5](#scenario-5-front-door-profile-per-stamp) describes this deployment model in more detail.
 
@@ -136,8 +133,7 @@ They deploy Front Door by using a configuration similar to the diagram below:
 ##### Drawbacks
 
 - This approach doesn't easily scale beyond a single application stamp or region.
-- Contoso has to purchase a wildcard TLS certificate.
-- Contoso is responsible for renewing and installing the certificate when it expires.
+- Contoso has to purchase a wildcard TLS certificate, and to renew and install the certificate when it expires.
 
 ### Scenario 2: Provider-managed wildcard domain, multiple stamps
 
