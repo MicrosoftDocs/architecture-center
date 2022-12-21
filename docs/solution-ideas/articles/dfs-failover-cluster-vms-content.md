@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
  
-This article describes how to deploy a Distributed File System (DFS) Namespaces failover cluster that uses Azure virtual machines (VMs).
+This solution uses Azure virtual machines (VMs) to replicate the behavior of an on-premises Distributed File System (DFS) Namespace failover cluster. 
 
 ## Architecture
 
@@ -21,11 +21,11 @@ This article describes how to deploy a Distributed File System (DFS) Namespaces 
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). VMs run as workers, performing compute tasks. In this architecture, there are three VMs in a virtual network. Two of them are failover cluster VMs. The other one is dedicated to cluster management. The VMs use two shared disks. One is a quorum disk, and the other one is dedicated to the DFS Namespaces share.
 * [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks). Designed for use with Azure Virtual Machines and Azure VMware Solution, Azure Disk Storage delivers high-performance, high-durability block storage for mission-critical applications.
 * [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Virtual Network provides IP connectivity between the compute resources and the other cloud services, beyond what any native InfiniBand or RDMA communication provides.
-* [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer). Load balancing is the process of evenly distributing incoming network traffic across a group of back-end resources or servers. This Standard Load Balancer is the entry point for client requests.
+* [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer). Load balancing is the process of evenly distributing incoming network traffic across a group of back-end resources or servers. This standard load balancer is the entry point for client requests.
  
 ## Scenario details
 
-This solution uses Azure services to replicate the behavior of an on-premises DFS Namespace failover cluster. It provides all the traditional components of a failover system. DFS Namespaces is a role service in Windows Server that you can use to group shared folders that are located on different servers into one or more logically structured namespaces. You can use it to give users a virtual view of shared folders. These elements make up a DFS namespace:
+This solution uses Azure VMs to replicate the behavior of an on-premises DFS Namespace failover cluster. It provides all the traditional components of a failover system. DFS Namespaces is a role service in Windows Server that you can use to group shared folders that are located on different servers into one or more logically structured namespaces. You can use it to give users a virtual view of shared folders. These elements make up a DFS namespace:
 
 - **Namespace server.** A namespace server hosts a namespace. The namespace server can be a member server or a domain controller.
 - **Namespace root.** The namespace root is the starting point of the namespace, for example, `\\contoso.com\documentation`.
@@ -46,9 +46,13 @@ There are various ways to create a high-availability environment. One possibilit
 
 For disaster recovery, another approach is to provide protection for your instances by using [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). With Azure Site Recovery, you can provide protection for your workloads to help ensure business continuity by using a native disaster recovery strategy.
 
-Failover clusters use a voting system with a quorum to determine failover and to prevent split-brain conditions, in which the system can't determine which hosts should run which workloads. In the cluster, the quorum is defined as half the total nodes. After a fault, the nodes vote on whether to stay online. If fewer nodes than the number defined by the quorum vote yes, the nodes are removed. This solution uses a quorum system that's based on a quorum disk. Another approach is to use a [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness), a quorum witness that uses Azure to provide a vote on cluster quorum. A cloud witness solution uses Azure Blob Storage to read or write to a blob file in the same way that quorum disks are used for split-brain resolution. 
+Failover clusters use a voting system with a quorum to determine failover and to prevent split-brain conditions, in which the system can't determine which hosts should run which workloads. In the cluster, the quorum is defined as half the total nodes. After a fault, the nodes vote on whether to stay online. If fewer nodes than the number defined by the quorum vote yes, the nodes are removed. 
 
-Azure assigns IP addresses to VMs dynamically when they're created. For a failover cluster, you need to assign an IP address for the cluster DFS namespace shared roles. Running a DHCP service on in a virtual network [isn't supported](/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-within-vnets). The DHCP service is automatically provided by Azure for each subnet, so you don't need to run a DHCP service on a VM. Therefore, you need to assign an IP address for the role. This IP address is the public IP address for the load balancer that's used in the solution. In this solution, when a client attempts to reach the share, the next hop is the load balancer.
+This solution uses a quorum system that's based on a quorum disk. Another approach is to use a [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness), a quorum witness that uses Azure to provide a vote on cluster quorum. A cloud witness solution uses [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) to read or write to a blob file in the same way that quorum disks are used for split-brain resolution. 
+
+Azure assigns IP addresses to VMs dynamically when it creates the VMs. The DHCP service is automatically provided by Azure for each subnet, so you don't need to run a DHCP service on a VM. 
+
+Running a DHCP service in a virtual network [isn't supported](/azure/virtual-network/virtual-networks-faq#what-protocols-can-i-use-within-vnets). Therefore, you need to assign an IP address for the role. For a failover cluster, you need to assign an IP address for the cluster DFS namespace shared roles. This IP address is the public IP address for the load balancer that's used in the solution. In this solution, when a client attempts to reach the share, the next hop is the load balancer.
 
 ### Potential use cases
  
