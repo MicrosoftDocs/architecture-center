@@ -15,7 +15,7 @@ This article presents a solution for automating the process of using AI to analy
 1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.
 1. The function stores the data and results from the Cognitive Services API in Azure Database for MySQL.
-1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide other insights into the data.
+1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide insights into the data.
 1. The MySQL database connector for Power BI provides options for data visualization and analysis in Power BI or a custom web application.
 
 ### Components
@@ -63,7 +63,7 @@ This solution is ideal for organizations that run predictive analytics on data f
 
 ## Considerations
 
-- For most features, the Cognitive Service for Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+- For most features, the Cognitive Service for Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
 
 - Previous versions of this solution used the Cognitive Services Text Analytics API. Azure Cognitive Service for Language now unifies three individual language services in Cognitive Services: Text Analytics, QnA Maker, and Language Understanding (LUIS). You can easily migrate from the Text Analytics API to the Cognitive Service for Language API. For instructions, see [Migrate to the latest version of Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/migrate-language-service-latest).
 

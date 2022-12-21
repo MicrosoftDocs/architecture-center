@@ -14,7 +14,7 @@ This article presents a solution for automating the process of using AI to analy
 1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.
 1. The function stores the data and results from the Cognitive Services API in Azure Database for PostgreSQL.
-1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide other insights into the data. Results from this analysis are stored in Azure Database for PostgreSQL.
+1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide insights into the data. Results from this analysis are stored in Azure Database for PostgreSQL.
    - If you're approaching the machine learning step with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector, and n-gram extraction.
    - If you prefer a code-first approach, you can run an open-source natural language processing (NLP) model as an experiment in Machine Learning studio.
 1. The PostgreSQL connector for Power BI makes it possible to explore human-interpretable insights in Power BI or a custom web application.
@@ -40,7 +40,7 @@ To store data and results, the solution uses Azure Database for PostgreSQL. The 
 
 The solution also automates the delivery of results from the analysis. A connector links Azure Database for PostgreSQL with visualization tools like Power BI. These tools display insights from the data in meaningful ways.
 
-For automation, this architecture uses Functions. This serverless solution offers many benefits:
+For automation in the data ingestion stage, this architecture uses Functions. This serverless solution offers many benefits:
 
 - Infrastructure maintenance. As an Azure managed service, Functions provides the cloud environment and resources that keep apps running. Instead of managing infrastructure requirements, developers can focus on innovative work that delivers value to the business.
 - Scalability. Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
@@ -59,7 +59,7 @@ Azure Database for PostgreSQL is a cloud-based solution. As a result, this solut
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- For most features, the Cognitive Service for Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
+- For most features, the Cognitive Service for Language API has a maximum size of 5120 characters for a single document. For all features, the maximum request size is 1 MB. For more information about data and rate limits, see [Service limits for Azure Cognitive Service for Language](/azure/cognitive-services/language-service/concepts/data-limits#maximum-characters-per-document).
 
 - In Azure Database for PostgreSQL, your ingress volume and velocity determine your selection of service and deployment mode. Two services are available:
   - Azure Database for PostgreSQL

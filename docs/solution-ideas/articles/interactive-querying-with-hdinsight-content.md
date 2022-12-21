@@ -12,7 +12,7 @@ This article presents a solution for performing fast, interactive, SQL-like quer
 ### Dataflow
 
 1. Azure Data Factory moves data into Azure Data Lake Storage. The data comes from various sources, including Azure and non-Azure sources.
-1. Data Lake Storage serves as the solution's landing zone. An Apache Hadoop cluster in HDInsight processes the Data Lake Storage data.
+1. Data Lake Storage provides the solution's landing zone. An Apache Hadoop cluster in HDInsight processes the Data Lake Storage data. Data Lake Storage serves as the primary storage account for the cluster.
 1. Data Factory and Hive are used to run extract, load, transfer (ELT) procedures on the data. These procedures transform the data as it enters the Hadoop distributed file system (HDFS).
 1. External tables that use the HDFS data are created in Hive.
 1. Power BI is used to interpret and display the external table data.
@@ -21,7 +21,7 @@ This article presents a solution for performing fast, interactive, SQL-like quer
 
 - [Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service that provides a way to create, schedule, and orchestrate ELT and extract, transfer, load (ETL) workflows.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. This storage repository, which is built on Azure Blob storage, offers file system semantics and file-level security that's dedicated to big data analytics.
-- [HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed, open-source analytics service in the cloud for enterprises. HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. With HDInsight, you can use open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, and R in your Azure environment.
+- [HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed, open-source analytics service in the cloud for enterprises. HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Hive, LLAP, Apache Kafka, Apache Storm, and R in your Azure environment.
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. You can use Power BI to connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis.
 
 ## Scenario details
