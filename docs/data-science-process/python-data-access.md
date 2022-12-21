@@ -381,7 +381,7 @@ Principal author:
 ## Next steps
 
 - [Explore and analyze data with Python](/training/modules/explore-analyze-data-with-python/)
-- [Azure ML Package client library for Python - version 1.2.0](/python/api/overview/azure/ai-ml-readme?view=azure-python)
+- [Azure ML Package client library for Python - version 1.2.0](/python/api/overview/azure/ai-ml-readme/)
 - [Data collection and manipulation](/training/modules/collect-manipulate-data-python-nasa/)
 
 ## Related resources
