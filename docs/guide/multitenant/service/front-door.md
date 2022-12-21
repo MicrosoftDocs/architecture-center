@@ -26,7 +26,16 @@ ms.custom:
 
 Azure Front Door is Microsoft's modern cloud CDN (content delivery network), which provides fast, reliable, and secure access between users and applications' static and dynamic web content across the globe. In this article, we describe some of the features of Azure Front Door that are useful when working with multitenanted systems, and we link to guidance and examples for how to use Front Door in a multitenant solution.
 
-Front Door provides several features that are useful for multitenant solutions.
+When you use Front Door as part of a multitenant solution, there are multiple aspects to the configuration. You need to make decisions based on your own solution's design and requirements, including the following factors:
+
+- How many tenants do you have, or plan to grow to?
+- Do you share your application tier between multiple tenants, do you deploy many single-tenant application instances, or do you deploy separate deployment stamps that are shared by multiple tenants?
+- Do your tenants want to bring their own domain names?
+- Will you use wildcard domains?
+- Do you need to use your own TLS certificates, or will Microsoft manage your TLS certificates?
+- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Front Door? Do you understand which limits you'll approach as you grow? If you suspect that you're going to approach these limits, consider using multiple Front Door profiles, or whether you can change the way that you're using Front Door to avoid the limits. Also be aware that higher limits apply to the premium SKU than for Front Door standard.
+- Do you, or your tenants, have requirements for IP address filtering, geo-blocking, or customizing WAF rules?
+- Are all of your tenants' application servers internet-facing?
 
 ## Features of Front Door that support multitenancy
 
@@ -77,19 +86,6 @@ The Front Door rules engine enables you to customize how Front Door processes re
 For example, suppose you have deployed a multitenant application tier where you also use tenant-specific wildcard subdomains. You might use the rules engine to extract the tenant identifier from the request subdomain and add it to a request header. This rule could help the application tier to know which tenant the request came from.
 
 For more information, see [What is Rules Engine for Azure Front Door?](/azure/frontdoor/front-door-rules-engine).
-
-## Configure Front Door for your solution
-
-When you use Front Door as part of a multitenant solution, there are multiple aspects to the configuration. You need to make decisions based on your own solution's design and requirements, including the following factors:
-
-- How many tenants do you have, or plan to grow to?
-- Do you share your application tier between multiple tenants, do you deploy many single-tenant application instances, or do you deploy separate deployment stamps that are shared by multiple tenants?
-- Do your tenants want to bring their own domain names?
-- Will you use wildcard domains?
-- Do you need to use your own TLS certificates, or will Microsoft manage your TLS certificates?
-- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Front Door? Do you understand which limits you'll approach as you grow? If you suspect that you're going to approach these limits, consider using multiple Front Door profiles, or whether you can change the way that you're using Front Door to avoid the limits. Also be aware that higher limits apply to the premium SKU than for Front Door standard.
-- Do you, or your tenants, have requirements for IP address filtering, geo-blocking, or customizing WAF rules?
-- Are all of your tenants' application servers internet-facing?
 
 ## Example scenarios
 
