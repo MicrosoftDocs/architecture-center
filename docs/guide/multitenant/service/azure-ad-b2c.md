@@ -54,7 +54,7 @@ The following table summarizes the differences between the main tenancy models f
 
 | Consideration | [Shared Azure AD B2C tenant](#shared-azure-ad-b2c-tenant) | [Vertically partitioned Azure AD B2C tenant](#vertically-partitioned-azure-ad-b2c-tenants) | [Azure AD B2C tenant per application tenant](#azure-ad-b2c-tenant-per-application-tenant) |
 |---|---|---|---|
-| **Data isolation** | Low | Medium | High |
+| **Data isolation** | Data from each application tenant is stored in the same Azure AD B2C tenant, but only accessible to administrators | Data from each application tenant is stored in several Azure AD B2C tenants, but only accessible to administrators | Data from each application tenant is stored in a dedicated Azure AD B2C tenant, but only accessible to administrators |
 | **Deployment complexity** | Low | Medium to high, depending on your partitioning strategy | Very high |
 | [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per Azure AD B2C tenant, requests per client IP address | A combination of requests, number of Azure AD B2C tenants per subscription, and number of directories for a single user, depending on your partitioning strategy | Number of Azure AD B2C tenants per subscription, maximum number of directories for a single user |
 | **Operational complexity** | Low | Medium to high, depending on your partitioning strategy | Very high |
