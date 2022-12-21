@@ -402,6 +402,7 @@ Other contributors:
 - [Secure network access to Kubernetes](private-clusters.yml)
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
+- [Cluster governance](governance.md)
 - [Azure Kubernetes Service (AKS) solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
 - [Choose a Kubernetes at the edge compute option](../../operator-guides/aks/choose-kubernetes-edge-compute-option.md)

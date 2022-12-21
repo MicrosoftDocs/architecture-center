@@ -104,6 +104,7 @@ Other contributors:
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 

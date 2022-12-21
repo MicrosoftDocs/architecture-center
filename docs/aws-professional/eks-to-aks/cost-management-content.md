@@ -244,6 +244,7 @@ Other contributors:
 - [Secure network access to Kubernetes](private-clusters.yml)
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 

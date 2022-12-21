@@ -190,6 +190,7 @@ Other contributors:
 - [Secure network access to Kubernetes](private-clusters.yml)
 - [Cost management for Kubernetes](cost-management.yml)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 
