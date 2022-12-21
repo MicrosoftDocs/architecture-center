@@ -99,7 +99,7 @@ You should consider provisioning your Azure AD B2C tenants using a vertically pa
 
 The diagram below illustrates the vertically partitioned Azure AD B2C tenant model:
 
-![A diagram showing three applications, with two of them connected to a shared Azure A D B 2 C tenant, and the third connected to its own dedicated Azure A D B 2 C tenant.](media/azure-ad-b2c/vertically-partitioned-tenant.png)
+![A diagram showing three applications, with two of them connected to a shared Azure A D B 2 C tenant, and the third connected to its own dedicated Azure A D B 2 C tenant.](media/azure-ad-b2c/vertically-partitioned-tenant-diagram.png)
 
 ### Azure AD B2C tenant per application tenant
 
