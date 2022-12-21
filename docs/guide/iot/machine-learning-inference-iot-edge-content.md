@@ -40,8 +40,6 @@ image
 
 link
 
-image 
-
 Comments:
 
 1.	You can download pre-trained AI models from TensorFlow [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models) or [ONNX Model Zoo](https://github.com/onnx/models), or you can also use your own AI model maybe it was built by AML. Then upload Pre-Trained AI Models to public blob storage (Or any other Web service, just for the Edge Module can access this resource and download to Edge device later. You can also consider private endpoint connections between blob storage and Edge device if you need better security.)
