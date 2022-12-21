@@ -1,6 +1,6 @@
 This guide explains how pricing and cost management work in Azure Kubernetes Service (AKS) compared to Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to optimize costs and implement cost governance solutions for your AKS cluster.
 
-[!INCLUDE [eks-aks](eks-aks-include.md)]
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS cost basics
 

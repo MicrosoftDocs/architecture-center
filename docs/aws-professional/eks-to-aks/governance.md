@@ -23,7 +23,7 @@ Governance includes planning initiatives, setting strategic priorities, and usin
 
 Kubernetes governance includes both the cloud environment and cluster deployment infrastructure, and the clusters themselves and their applications. This guide focuses on governance within Kubernetes clusters. The article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage Kubernetes cluster governance.
 
-[!INCLUDE [eks-aks](eks-aks-include.md)]
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Kubernetes governance dimensions
 

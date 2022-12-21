@@ -1,6 +1,6 @@
 This article compares networking modes for Azure Kubernetes Service (AKS) and Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to improve connection security to the managed API server of an AKS cluster, and the different options to restrict public network access.
 
-[!INCLUDE [eks-aks](eks-aks-include.md)]
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS networking modes
 

@@ -22,7 +22,7 @@ products:
 
 This article compares the storage capabilities of Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) and describes the options to store workload data on AKS.
 
-[!INCLUDE [eks-aks](eks-aks-include.md)]
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS storage options
 

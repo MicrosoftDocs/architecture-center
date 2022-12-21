@@ -1,6 +1,6 @@
 This article describes how Azure Kubernetes Service (AKS) monitoring compares to Amazon Elastic Kubernetes Service (Amazon EKS). The article guides you on different options to monitor and manage the logs of an AKS cluster and its workloads.
 
-[!INCLUDE [eks-aks](eks-aks-include.md)]
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS monitoring and logging
 
