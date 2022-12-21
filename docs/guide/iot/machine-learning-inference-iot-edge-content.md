@@ -1,5 +1,3 @@
-Background
-
 AI on the edge is one of the most popular edge scenarios. Implementations of this scenario include image classification, object detection, body, face and, gesture analysis, and image manipulation. This architecture guide describes how to use Azure IoT Edge to support these scenarios. You can improve AI accuracy by updating the AI model, but in some scenarios the edge device network environment isn't good. For example, in the wind power and oil industries, equipment might be located in the desert or the ocean.
 
 IoT Edge modules are based on Docker. An IoT Edge module image for an AI environment is typically sized at least at the GB level, so incremental updates to the AI model in a narrow-bandwidth network are important. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow or Open Neural Network Exchange (ONNX) object detection models and enable this module as a web API. Doing so enables the IoT Edge module to benefit other applications or modules.
@@ -10,8 +8,6 @@ The solution described in this article can help you in these ways:
 - Minimize the network cost of deploying and updating AI models on the edge. The solution can save money for you or your customers, especially in a narrow-bandwidth network environment.
 - Create and manage an AI model repository in an IoT edge device's local storage.
 - Achieve almost zero downtime when the edge device switches AI models.
-
-Overview
 
 This article describes how to build an IoT Edge module that can download an AI model and then enable machine learning inference. It describes the TensorFlow **.tflite* format model and the **.onnx* format model.
 
@@ -30,15 +26,21 @@ ONNX
 
 ONNX is an open-standard format for representing machine learning models. It's supported by a community of partners who have implemented it in many frameworks and tools.
 
-- ONNX supports a variety of tools to build and deploy models, and frameworks and converters. For more information see, [Build / Deploy Model](https://onnx.ai/supported-tools.html).
-- You can use ONNX runtime run ONNX Pre-Trained Models [ONNX Model Zoo](https://github.com/onnx/models) for implementation Vision Language Other AI features
-- In this case you can use model of [Object Detection & Image Segmentation - Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3)
+- ONNX supports tools for building and deploying models and for accomplishing other tasks. For more information see, [Supported ONNX tools](https://onnx.ai/supported-tools.html).
+- You can use ONNX runtime to run ONNX pre-trained models. For information about a collection of pre-trained models, see [ONNX Model Zoo](https://github.com/onnx/models).
+- In this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3).
 
-The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to assist with creating and deploying your next deep learning model.
+The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to help you create and deploy your deep learning model.
 
-The dynamically loaded AI model is based on the features of IoT Edge module Twin, the architecture please refer below and work steps:
+## Architecture
 
-2 images 
+The dynamically loaded AI model is based on the features of IoT Edge module twins.
+
+image
+
+link
+
+image 
 
 Comments:
 
