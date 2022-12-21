@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for automating the process of using AI to analyze data from various sources. Core components in the automation are Azure Functions, Azure Cognitive Services, and Azure Database for MySQL. By integrating visualization tools, the solution presents results to users.
+This article presents a solution for automating the process of using AI to analyze data from various sources. Core components in the solution are Azure Functions, Azure Cognitive Services, and Azure Database for MySQL. By integrating visualization tools, the solution presents results to users.
 
 ## Architecture
 
@@ -81,13 +81,13 @@ Principal author:
 
 - [Functions](/azure/azure-functions/functions-overview)
 - [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
-- [Data Factory](/azure/data-factory/control-flow-azure-function-activity)
+- [Data Factory](/azure/data-factory/introduction)
 - [Event Hubs](/azure/event-hubs)
 - [Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
 - [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
 - [Azure Database for MySQL](/azure/mysql)
-- [Machine Learning studio](/azure/machine-learning)
+- [Machine Learning studio](/azure/machine-learning/overview-what-is-azure-machine-learning#studio)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resources

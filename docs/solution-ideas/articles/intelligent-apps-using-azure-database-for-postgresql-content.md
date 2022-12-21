@@ -25,8 +25,8 @@ This article presents a solution for automating the process of using AI to analy
 - [Functions](https://azure.microsoft.com/services/functions) is an event-driven serverless compute platform. For information about how to use an activity to run a function as part of a Data Factory pipeline, see [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity).
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform.
 - [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) provides a suite of AI services and APIs that you can use to build cognitive intelligence into apps.
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service. It provides [high availability](https://www.azure.cn/support/sla/postgresql), elastic scaling, patching, and other management capabilities for PostgreSQL.
-- [Machine Learning studio](/azure/machine-learning/overview-what-is-machine-learning-studio) is a cloud service that you can use to train, deploy, and automate machine learning models. The studio supports code-first and no-code approaches.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service. It provides [high availability](https://azure.microsoft.com/support/legal/sla/postgresql/v1_1), elastic scaling, patching, and other management capabilities for PostgreSQL.
+- [Machine Learning studio](https://azure.microsoft.com/products/machine-learning/#faq) is a cloud service that you can use to train, deploy, and automate machine learning models. The studio supports code-first and no-code approaches.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information and help you derive insights from data.
 
 ## Scenario details
