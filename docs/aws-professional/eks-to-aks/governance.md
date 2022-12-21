@@ -3,7 +3,7 @@ title: Governance options for a Kubernetes cluster
 description: Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.
 author:  gjoshevski
 ms.author: mgjoshevski
-ms.date: 10/10/2022
+ms.date: 12/19/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -15,83 +15,78 @@ products:
   - azure-policy
 ---
 
-# Cluster Governance
+# Kubernetes cluster governance
 
-Governance provides mechanisms and processes to control your applications and resources in the cloud. It involves planning your initiatives and setting strategic priorities. Governance can help you mitigate risks, stay compliant with corporate standards and external regulations, and ensure minimal interruption to adoption or innovation in your organization.
+Governance refers to an organization's ability to enforce and validate rules to guarantee compliance with corporate standards. Governance includes planning initiatives and setting strategic priorities, and using mechanisms and processes to control applications and resources. Governance helps you mitigate risks, comply with corporate standards and external regulations, and minimize interruption to adoption or innovation in your organization.
 
-When looking at the governance of Kubernetes clusters in a cloud environment, we can distinguish the following aspects:
+Kubernetes cluster governance in a cloud environment means implementing policies across Kubernetes clusters and the applications that run in those clusters. Cluster governance includes managing the cloud environment and cluster deployment infrastructure, and governance inside the cluster, such as how applications deploy and run on the cluster.
 
-- Managing the cloud environment and infrastructure where Kubernetes clusters are deployed.
-- Governance inside your Kubernetes environment, or how applications are deployed and run on it.
-
-This article will focus only on governance in your Kubernetes environment.
+This guide focuses on governance within Kubernetes clusters. The article describes and compares how Amazon Elastic Kubernetes Service (Amazon EKS) and Azure Kubernetes Service (AKS) manage Kubernetes cluster governance.
 
 > [!NOTE]
 > This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
 
-## Enforce policies and strengthen governance in your Kubernetes environment
-Governance refers to an organization's ability to enforce and validate rules across departments, groups, or the entire organization to guarantee compliance with corporate standards. In the Kubernetes context, this means implementing policies across a fleet of Kubernetes clusters and applications running in those clusters.
+## Kubernetes governance dimensions
 
-There are three governance dimensions to define a consistent Kubernetes governance strategy. 
+Three governance dimensions define a consistent Kubernetes governance strategy:
 
-- **Targets** define the policy goals a governance strategy should meet regarding security and compliance. For example, targets specify which users should have access to a Kubernetes cluster, namespace, or application or which container registries and images to use in which clusters. The security operations team usually sets these targets as the first step when defining a governance strategy for the company. 
-- **Scopes** define a set of elements to which policies should be applied to address the targets and must address all Kubernetes-visible components. You can specify scopes in terms of organizational units (departments, teams, groups, users), environments (cloud provider, region, group of clusters, namespaces, etc.), or both. 
-- **Policy directives** use Kubernetes capabilities to enforce governance policies across the specified scopes to enforce the rules defined by targets. 
+- **Targets** describe the security and compliance policy goals a governance strategy should meet. For example, targets specify which users should have access to a Kubernetes cluster, namespace, or application, or which container registries and images to use in which clusters. The security operations team usually sets these targets as the first step in defining a company's governance strategy.
 
-For more information, read [Kubernetes governance, what you should know](https://www.cncf.io/blog/2020/05/29/kubernetes-governance-what-you-should-know/).
-You can leverage one of the following leading CNCF projects to enforce policies in your Kubernetes clusters:
+- **Scopes** detail the elements that the target policies apply to. Scopes must address all Kubernetes-visible components. You can specify scopes as organizational units, such as departments, teams, groups, and users, or environments, like public clouds, regions, cluster groups, or namespaces, or both.
 
-- Open Policy Agent (OPA) via Gatekeeper 
-- Kyverno
+- **Policy directives** use Kubernetes capabilities to enforce the target rules across the specified scopes to enforce the governance policies.
 
-### Open Policy Agent (OPA) & Gatekeeper
+For more information, see [Kubernetes governance, what you should know](https://www.cncf.io/blog/2020/05/29/kubernetes-governance-what-you-should-know).
 
-[Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is an open-source CNCF project. Gatekeeper is a Kubernetes admission controller that enforces policies created with [Open Policy Agent (OPA)](https://www.openpolicyagent.org/), a general-purpose policy engine. With OPA you can create a policy that runs pods from tenants on separate instances or at a higher priority than other tenants. OPA policies are expressed in a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego). A collection of common OPA policies can be found in the [OPA Gatekeeper Library]( https://open-policy-agent.github.io/gatekeeper-library/).
+## Governance in EKS and AKS
+
+- Amazon Web Services (AWS) customers usually use Kyverno, Gatekeeper, or other third-party solutions to define and implement a governance strategy for their EKS clusters. The [aws-eks-best-practices/policies](https://github.com/aws/aws-eks-best-practices/tree/master/policies) GitHub repository contains a collection of example policies for Kyverno and Gatekeeper.
+
+- Azure customers can use Kyverno or Gatekeeper, or use [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes) to extend Gatekeeper for an AKS governance strategy.
+
+## OPA Gatekeeper and Kyverno
+
+The [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) sponsors the following open-source projects that enforce policies in Kubernetes clusters:
+
+- [Open Policy Agent (OPA) Gatekeeper](https://github.com/open-policy-agent/gatekeeper)
+- [Kyverno](https://kyverno.io)
+
+### Open Policy Agent (OPA) and Gatekeeper
+
+Gatekeeper is an open-source Kubernetes admission controller that enforces policies created with [Open Policy Agent (OPA)](https://www.openpolicyagent.org), a general-purpose policy engine. OPA uses a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego) to create policies.
+
+OPA can create policies that run pods from tenants on separate instances or at different priorities. For a collection of common OPA policies, see the [OPA Gatekeeper Library]( https://open-policy-agent.github.io/gatekeeper-library).
 
 ### Kyverno
 
-[Kyverno](https://kyverno.io) is a Kubernetes native policy engine that can validate, mutate, and generate configurations with policies as Kubernetes resources. Kyverno uses Kustomize-style overlays for validation, supports JSON Patch and strategic merge patch for mutation, and can clone resources across namespaces based on flexible triggers. With Kyverno, you can manage policies as Kubernetes resources without requiring a new language to define policies. This approach allows using familiar tools such as [kubectl](https://kubernetes.io/docs/tasks/tools/), [git](https://git-scm.com/), and [customize](https://kustomize.io/) to manage policies. You can use Kyverno policies to validate, mutate, and generate Kubernetes resources. 
+Kyverno is a Kubernetes-native policy engine that can validate, mutate, and generate Kubernetes resource configurations with policies. Kyverno uses `kustomize`-style overlays for validation, supports JSON patch and strategic merge patch for mutation, and can clone resources across namespaces based on flexible triggers.
 
+With Kyverno, you can manage policies as Kubernetes resources without needing a new language to define policies. This approach allows using familiar tools such as [kubectl](https://kubernetes.io/docs/tasks/tools), [git](https://git-scm.com), and [kustomize](https://kustomize.io) to manage policies. You can deploy policies individually by using their YAML manifest, or package and deploy them by using a Helm chart.
 
-## EKS Governance
+For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation). See the Kyverno [Policies](https://kyverno.io/policies) library for a list of ready to use or customizable policies.
 
-AWS customers usually rely on and use [Kyverno](https://kyverno.io), [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), or other third-party solutions to define and implement a governance strategy for their EKS clusters. This [GitHub repository](https://github.com/aws/aws-eks-best-practices/tree/master/policies) contains a collection of example policies for [Kyverno](https://kyverno.io) and [Gatekeeper](https://github.com/open-policy-agent/gatekeeper).
+Unlike with Azure Policy for Kubernetes, with Kyverno you can create policies not only to validate or mutate existing resources, but to create new Kubernetes objects. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
 
-## AKS Governance
+Optionally, you can deploy Kyverno's implementation of the [Kubernetes Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards) as [kyverno-policies](https://artifacthub.io/packages/helm/kyverno/kyverno-policies). The PSS controls provide a starting point for general Kubernetes cluster operational security.
 
-Azure customers can use [Azure Policy with OPA Gatekeeper](/azure/governance/policy/concepts/policy-for-kubernetes) or [Kyverno](https://kyverno.io) to implement a governance strategy and in their AKS clusters.
+## Azure Policy Add-on for AKS
 
-### Azure Policy
+[The Azure Policy Add-on for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy enables centralized compliance management and reporting for multiple Kubernetes clusters from a single location. This capability makes management and governance of multi-cluster environments significantly more efficient than when Kyverno or Gatekeeper are deployed and managed on a cluster-by-cluster basis.
 
-[Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy enables centralized management and reporting of the compliance status of multiple Kubernetes clusters from a single place, making the management and governance of multi-cluster environments significantly more efficient than when Kyverno and Gatekeeper are deployed and managed on a cluster-by-cluster basis.
-The add-on enacts the following functions:
+The Azure Policy Add-on for AKS enacts the following functions:
 
-- Checks with Azure Policy service for policy assignments to the cluster.
+- Checks with the Azure Policy service for policy assignments to the cluster.
 - Deploys policy definitions into the cluster as constraint template and constraint custom resources.
-- Reports auditing and compliance details back to Azure Policy service.
+- Reports auditing and compliance details back to the Azure Policy service.
 
-Azure Policy for Kubernetes supports the following cluster environments:
+The Azure Policy Add-on supports the following cluster environments:
 
 - Azure Kubernetes Service (AKS)
 - Azure Arc-enabled Kubernetes
 
-You can install Azure Policy on new and existing AKS clusters by installing the [Azure Policy Add-on](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks). For more information, see [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes). 
+To install the Azure Policy Add-on on new and existing clusters, see [Install the Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks). For more information, see [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes).
 
-To improve the security posture of your Azure Kubernetes Service (AKS) cluster, you can apply and enforce built-in security policies on your cluster using Azure Policy. [Azure Policy](/azure/governance/policy/overview) helps to enforce organizational standards and to assess compliance at scale. 
-
-After installing the [Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks), you can apply individual policy definitions or groups of policy definitions called initiatives to your AKS cluster. You can [create and assign your own custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition) or see [Azure Policy built-in definitions for AKS](/azure/aks/policy-reference) for a complete list of AKS built-in policy and initiative definitions that you can use from the outset.
-
-### Kyverno
-
-Alternatively, you can use [Kyverno](https://kyverno.io/) as a policy engine to secure and manage your AKS cluster.
-
-For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation/).
-
-Unlike Azure Policy for Kubernetes, with Kyverno you can create policies not only to validate or mutate existing resources, but also policies to create new Kubernetes objects. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
-
-See [Kyverno Policies Library](https://kyverno.io/policies/) for a large list of policies ready to use or customize. You can deploy policies individually using their YAML manifest or package and deploy them using a Helm chart.
-
-Optionally, you can deploy the [Kyverno policies for Kubernetes Pod Security Standards](https://artifacthub.io/packages/helm/kyverno/kyverno-policies/) which provide a Kyverno's implementation of the [Kubernetes Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The Kubernetes Pod Security Standards (PSS) controls aim to provide a good starting point for general Kubernetes cluster operational security.
+After you install the add-on, you can apply individual policy definitions or groups of policy definitions called initiatives to your AKS cluster. You can [create and assign your own custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition) or apply and enforce [Azure Policy built-in policy and initiative definitions](/azure/aks/policy-reference) from the outset. [Azure Policy](/azure/governance/policy/overview) security policies help improve the security posture of your AKS cluster, enforce organizational standards, and assess compliance at scale.
 
 ## Contributors
 
@@ -102,6 +97,13 @@ Principal authors:
 - [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 
+Other contributors:
+
+- [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
+- [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -109,8 +111,9 @@ Principal authors:
 - [Kubernetes identity and access management](workload-identity.yml)
 - [Kubernetes monitoring and logging](monitoring.yml)
 - [Secure network access to Kubernetes](private-clusters.yml)
+- [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
-
+- [Kubernetes node and node pool management](node-pools.yml)
 
 ## Related resources
 
