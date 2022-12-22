@@ -9,7 +9,7 @@ The solution described in this article can help you in these ways:
 - Create and manage an AI model repository in an IoT edge device's local storage.
 - Achieve almost zero downtime when the edge device switches AI models.
 
-*TensorFlow is a trademark of Google Inc. No endorsement is implied by the use of this mark.*
+*[TensorFlow](https://www.tensorflow.org) is a trademark of Google Inc. No endorsement is implied by the use of this mark.*
 
 ## Architecture
 
@@ -43,13 +43,13 @@ The next two sections clarify some concepts about machine learning inference mod
 
   When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box that contains each object, and a score that indicates the confidence in the detection.
 - If you want to build or custom-tune an AI model, see [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker).
-- You can get more free pre-trained detection models, with a variety of latency and precision characteristics, at [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each model uses the input and output signatures described in the following sections.
+- You can get more free pre-trained detection models, with various latency and precision characteristics, at [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each model uses the input and output signatures described in the following sections.
 
 ### ONNX
 
 ONNX is an open-standard format for representing machine learning models. It's supported by a community of partners who have implemented it in many frameworks and tools.
 
-- ONNX supports tools for building and deploying models and for accomplishing other tasks. For more information see, [Supported ONNX tools](https://onnx.ai/supported-tools.html).
+- ONNX supports tools for building and deploying models and for accomplishing other tasks. For more information, see, [Supported ONNX tools](https://onnx.ai/supported-tools.html).
 - You can use ONNX runtime to run ONNX pre-trained models. For information about a collection of pre-trained models, see [ONNX Model Zoo](https://github.com/onnx/models).
 - In this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3).
 
