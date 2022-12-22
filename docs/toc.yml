@@ -3640,6 +3640,8 @@ items:
                 href: example-scenario/infrastructure/reservoir-simulation.yml
           - name: Solution ideas
             items:
+              - name: DFS failover cluster
+                href: solution-ideas/articles/dfs-failover-cluster-vms.yml           
               - name: HPC media rendering
                 href: solution-ideas/articles/azure-batch-rendering.yml
               - name: HPC risk analysis
