@@ -83,7 +83,7 @@ After you install the Azure Policy Add-on for AKS, you can apply individual poli
 
 Principal authors:
 
-- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
 
 Other contributors:
