@@ -1,6 +1,8 @@
-AI on the edge is one of the most popular edge scenarios. Implementations of this scenario include image classification, object detection, body, face, and gesture analysis, and image manipulation. This architecture guide describes how to use Azure IoT Edge to support these scenarios. You can improve AI accuracy by updating the AI model, but in some scenarios the edge device network environment isn't good. For example, in the wind power and oil industries, equipment might be located in the desert or the ocean.
+AI on the edge is one of the most popular edge scenarios. Implementations of this scenario include image classification, object detection, body, face, and gesture analysis, and image manipulation. This architecture guide describes how to use Azure IoT Edge to support these scenarios. 
 
-IoT Edge modules are based on Docker. An IoT Edge module image for an AI environment is typically sized at least at the GB level, so incremental updates to the AI model in a narrow-bandwidth network are important. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow Lite or Open Neural Network Exchange (ONNX) object detection models and enable this module as a web API. Doing so enables the IoT Edge module to benefit other applications or modules.
+You can improve AI accuracy by updating the AI model, but in some scenarios the edge device network environment isn't good. For example, in the wind power and oil industries, equipment might be located in the desert or the ocean.
+
+IoT Edge modules are based on Docker. An IoT Edge module image for an AI environment is typically sized at least at the GB level, so incremental updates to the AI model in a narrow-bandwidth network are important. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow Lite or Open Neural Network Exchange (ONNX) object detection models. You can also enable the module as a web API so that you can use it to benefit other applications or modules.
 
 The solution described in this article can help you in these ways:
 
@@ -19,16 +21,16 @@ link
 
 The dynamically loaded AI model is based on the features of IoT Edge module twins.
 
-1.	The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow Lite or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this resource and download to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
-2.	Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or network traffic.)
-3.	The loader module monitors the updates of module twins via SDK. When an update is detected, it gets the machine learning model SAS token and then downloads the AI model. 
+1.	The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow Lite or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this model and download it to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
+2.	Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
+3.	The loader module monitors the updates of the module twins via SDK. When it detects an update, it gets the machine learning model SAS token and then downloads the AI model. 
     - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create).
     - You can use the **ExpiresOn** property to set the expiration date of resources. If your device will be offline for a long time, you can extend the expiration time.
 4.	The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
 5.	The loader module loads the AI model from local storage via the TensorFlow Lite or ONNX SDK.
 6.	The loader module starts a web API that receives the binary photo via post request and returns the results in a JSON file.
 
-To update the AI model, you can upload the new AI model to Blob Storage and sync the device module twins again for an incremental update. There's no need to update the whole IoT Edge module image.
+To update the AI model, you can upload the new version to Blob Storage and sync the device module twins again for an incremental update. There's no need to update the whole IoT Edge module image.
 
 ## Scenario details
 
@@ -38,32 +40,32 @@ The next two sections clarify some concepts about machine learning inference mod
 
 ### TensorFlow Lite
 
-- A **.tflite* file is a pre-trained AI model. You can download it from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model format that you can use in cross-platform applications like iOS and Android. For more information about metadata and associated fields (for example, *labels.txt*) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
+- A **.tflite* file is a pre-trained AI model. You can download one from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model that you can use in cross-platform applications like iOS and Android. For more information about metadata and associated fields (for example, `labels.txt`) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
 - An object detection model is trained to detect the presence and location of multiple classes of objects. For example, a model might be trained with images that contain various pieces of fruit, along with a label that specifies the class of fruit that they represent (for example, apple) and data that specifies where each object appears in the image.
 
-  When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box that contains each object, and a score that indicates the confidence in the detection.
+  When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box that contains each object, and a score that indicates the confidence of the detection.
 - If you want to build or custom-tune an AI model, see [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker).
-- You can get more free pre-trained detection models, with various latency and precision characteristics, at [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each model uses the input and output signatures described in the following sections.
+- You can get more free pre-trained detection models, with various latency and precision characteristics, at [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each model uses the input and output signatures shown in the following code samples.
 
 ### ONNX
 
 ONNX is an open-standard format for representing machine learning models. It's supported by a community of partners who have implemented it in many frameworks and tools.
 
 - ONNX supports tools for building and deploying models and for accomplishing other tasks. For more information, see, [Supported ONNX tools](https://onnx.ai/supported-tools.html).
-- You can use ONNX runtime to run ONNX pre-trained models. For information about a collection of pre-trained models, see [ONNX Model Zoo](https://github.com/onnx/models).
-- In this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3).
+- You can use ONNX Runtime to run ONNX pre-trained models. For information about pre-trained models, see [ONNX Model Zoo](https://github.com/onnx/models).
+- For this scenario, you can use an object detection and image segmentation model: [Tiny YOLOv3](https://github.com/onnx/models/tree/main/vision/object_detection_segmentation/tiny-yolov3).
 
 The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to help you create and deploy your deep learning model.
 
 ## Download trained AI models
 
-To download trained AI models, we recommend using device twin to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub to wait for the edge device to come back online. The message will be  synchronized automatically.
+To download trained AI models, we recommend that you use device twins to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub until the edge device comes back online. The message will be  synchronized automatically.
 
-Following is an example of Python code that registers notifications for device twin and then download the AI model in a ZIP package. It also performs further operations on the downloaded file.
+Following is an example of Python code that registers notifications for the device twins and then downloads the AI model in a ZIP package. It also performs further operations on the downloaded file.
 
 The code performs these tasks: 
 
-1.	Receive the device twin notification. The notification includes the file name, file download address, and MD5 authentication token. (In the file name, you can include version information, like 1.0 or 2.1.)
+1.	Receive the device twins notification. The notification includes the file name, file download address, and MD5 authentication token. (In the file name, you can include version information, like 1.0.)
 2.	Download the AI model as a ZIP file to local storage.
 3.	Optionally, perform MD5 checksum. MD5 verification helps prevent ZIP files that have been tampered with during network transmission.
 4.	Unzip the ZIP file and save it locally.
@@ -188,7 +190,7 @@ class InferenceProcedure():
         return json.dumps(results)
 ```
 
-Following is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how to handle the detection score, because the `Labelmap` and model output parameters are different.
+Following is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how the detection score is handled, because the `Labelmap` and model output parameters are different.
 
 ```
 class InferenceProcedure():
@@ -265,7 +267,7 @@ class InferenceProcedure():
 
 If your IoT edge device incorporates the preceding code and features, your edge device has AI image object detection and supports dynamic update of AI models. If you want the edge module to provide AI functionality to other applications or modules via a web API, you can create a web API in your module.
 
-You can use Flask framework, for example, to quickly create an API. You can receive images as binary data, use an AI model for detection, and then return the results in a JSON format.
+Flask framework is one example of a tool that you can use to quickly create an API. You can receive images as binary data, use an AI model for detection, and then return the results in a JSON format.
 
 For more information, see [Flask: Flask Tutorial in Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-flask).
 
@@ -291,10 +293,10 @@ Other contributor:
 - [Understand IoT Edge automatic deployments for single devices or at scale](/azure/iot-edge/module-deployment-monitoring)
 - [Open Neural Network Exchange](https://github.com/onnx)
 - [ONNX Tutorials](https://github.com/onnx/tutorials)
-- [Deploy ML model on IoT and edge devices](https://github.com/microsoft/onnxruntime/blob/gh-pages/docs/tutorials/iot-edge.md)
+- [Deploy a machine learning model on IoT and edge devices](https://github.com/microsoft/onnxruntime/blob/gh-pages/docs/tutorials/iot-edge.md)
 
 ## Related resources
 
-- [Internet of things (IoT) architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
-- [Choose an Internet of Things (IoT) solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
+- [IoT architecture design](../../reference-architectures/iot/iot-architecture-overview.md)
+- [Choose an IoT solution in Azure](../../example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml)
 - [AI architecture design](../../data-guide/big-data/ai-overview.md)
