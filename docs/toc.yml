@@ -1875,7 +1875,7 @@ items:
                         href: /azure/iot-central/retail/tutorial-micro-fulfillment-center
                         maintainContext: true
                   - name: Enable machine learning inference
-                    href: guide/machine-learning-inference-iot-edge.yml
+                    href: guide/iot/machine-learning-inference-iot-edge.yml
                   - name: Extract actionable insights
                     href: industries/manufacturing/extract-insights-iot-data.yml
                   - name: Industrial IoT
@@ -5142,7 +5142,7 @@ items:
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
               - name: Enable machine learning inference
-                href: guide/machine-learning-inference-iot-edge.yml
+                href: guide/iot/machine-learning-inference-iot-edge.yml
               - name: Industry-specific example solutions
                 href: reference-architectures/iot/industry-iot-hub-page.md
               - name: IoT concepts
