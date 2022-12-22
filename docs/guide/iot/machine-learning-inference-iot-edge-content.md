@@ -2,7 +2,7 @@ AI on the edge is one of the most popular edge scenarios. Implementations of thi
 
 You can improve AI accuracy by updating the AI model, but in some scenarios the edge device network environment isn't good. For example, in the wind power and oil industries, equipment might be located in the desert or the ocean.
 
-IoT Edge modules are based on Docker. An IoT Edge module image for an AI environment is typically sized at least at the GB level, so incremental updates to the AI model in a narrow-bandwidth network are important. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow Lite or Open Neural Network Exchange (ONNX) object detection models. You can also enable the module as a web API so that you can use it to benefit other applications or modules.
+IoT Edge module twins are used to implement the dynamically loaded AI model. IoT Edge modules are based on Docker. An IoT Edge module image for an AI environment is typically sized at least at the GB level, so incremental updates to the AI model in a narrow-bandwidth network are important. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow Lite or Open Neural Network Exchange (ONNX) object detection models. You can also enable the module as a web API so that you can use it to benefit other applications or modules.
 
 The solution described in this article can help you in these ways:
 
@@ -18,8 +18,6 @@ The solution described in this article can help you in these ways:
 image
 
 link
-
-The dynamically loaded AI model is based on the features of IoT Edge module twins.
 
 1.	The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow Lite or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this model and download it to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
 2.	Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
