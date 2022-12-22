@@ -2,10 +2,6 @@
 
 Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights.
 
-## Potential use cases
-
-Organizations use customers' shopping history to provide relevant product recommendations. This solution is ideal for the retail industry.
-
 ## Architecture
 
 ![Architecture diagram: shopper logs into e-commerce app, places order, it goes to Azure A P I Apps, data saved in Azure Cosmos D B, recommendations provided.](../media/personalization-using-cosmos-db.png)
@@ -17,7 +13,7 @@ Organizations use customers' shopping history to provide relevant product recomm
 1. Shopper/User places the order and order goes to Azure API Apps.
 1. Data gets stored in Azure Cosmos DB (Customer Order).
 1. The change feed is enabled on the Azure Cosmos DB and processes all the changes for available events.
-1. By using Apache Spark on Azure Data Bricks, data is trained and stored in Azure Cosmos DB (Product+ User Vectors)
+1. By using Apache Spark on Azure Databricks, data is trained and stored in Azure Cosmos DB (Product+ User Vectors)
 1. Latest Recommendation will be fetched by the e-commerce store UI using Azure Container Service (Recommendation APIs).
 
 ### Components
@@ -36,11 +32,21 @@ This architecture includes the following components:
 
 * [**Azure Databricks**](/azure/databricks) is a data analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks offers two environments for developing data intensive applications: Azure Databricks SQL Analytics and Azure Databricks Workspace.
 
+## Scenario details
+
+### Potential use cases
+
+Organizations use customers' shopping history to provide relevant product recommendations. This solution is ideal for the retail industry.
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 API management, in front of the container service provides many benefits such as rate throttling, API versioning, policies.  For further information, see [Azure API Management](/azure/api-management/api-management-key-concepts).
 
-### Scalability
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 In Azure Cosmos DB, you can configure either standard (manual) or autoscale provisioned throughput on your databases and containers. Autoscale provisioned throughput in Azure Cosmos DB allows you to scale the throughput (RU/s) of your database or container automatically and instantly. The throughput is scaled based on the usage, without affecting the availability, latency, throughput, or performance of the workload.
 
@@ -48,10 +54,11 @@ Azure Synapse also provides native Apache Spark capabilities and can be consider
 
 Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of pods to fully utilize the cluster, and to scale the nodes of the cluster to meet the demand of your service.
 
-## Next Steps
-
-* [Basic Web App Azure Reference Architecture](../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli)
+## Next steps
 
 * [Common Azure Cosmos DB Use Cases](/azure/cosmos-db/use-cases)
 
-* [Stream Processing with Azure DataBricks](../../reference-architectures/data/stream-processing-databricks.yml)
+## Related resources
+
+* [Basic Web App Azure Reference Architecture](../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli)
+* [Stream Processing with Azure Databricks](../../reference-architectures/data/stream-processing-databricks.yml)

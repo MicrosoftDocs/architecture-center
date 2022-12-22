@@ -15,22 +15,22 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 ### Components
 
-**Event Hubs** ingests the data stream. [Event Hubs][eh] is designed for high-throughput data streaming scenarios.
+- **Event Hubs** ingests the data stream. [Event Hubs](https://azure.microsoft.com/products/event-hubs) is designed for high-throughput data streaming scenarios.
 
-> [!NOTE]
-> For Internet of Things (IoT) scenarios, we recommend [Azure IoT Hub][iot-hub-product]. IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
+   > [!NOTE]
+   > For Internet of Things (IoT) scenarios, we recommend [Azure IoT Hub][iot-hub-product]. IoT Hub has a built-in endpoint that's compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the back-end processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
 
-**Function App**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger. In this architecture, when events arrive at Event Hubs, they trigger a function that processes the events and writes the results to storage.
+- **Function App**. [Azure Functions](https://azure.microsoft.com/products/functions) is a serverless compute option. It uses an event-driven model, where a piece of code (a *function*) is invoked by a trigger. In this architecture, when events arrive at Event Hubs, they trigger a function that processes the events and writes the results to storage.
 
-Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider [Apache Spark using Azure Databricks][spark-databricks-product], or [Azure Stream Analytics][stream-analytics-product].
+   Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider [Apache Spark using Azure Databricks][spark-databricks-product], or [Azure Stream Analytics][stream-analytics-product].
 
-**Azure Cosmos DB**. [Azure Cosmos DB][cosmosdb] is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using [Azure Cosmos DB for NoSQL][cosmosdb-sql].
+- **Azure Cosmos DB**. [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a multi-model database service that is available in a serverless, consumption-based mode. For this scenario, the event-processing function stores JSON records, using [Azure Cosmos DB for NoSQL][cosmosdb-sql].
 
-**Queue storage**. [Queue storage][queue] is used for dead-letter messages. If an error occurs while processing an event, the function stores the event data in a dead-letter queue for later processing. For more information, see the [Resiliency section](#resiliency) later in this article.
+- **Queue storage**. [Queue storage](https://azure.microsoft.com/products/storage/queues) is used for dead-letter messages. If an error occurs while processing an event, the function stores the event data in a dead-letter queue for later processing. For more information, see the [Resiliency section](#resiliency) later in this article.
 
-**Azure Monitor**. [Monitor][monitor] collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution.
+- **Azure Monitor**. [Monitor](https://azure.microsoft.com/products/monitor) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution.
 
-**Azure Pipelines**. [Pipelines][pipelines] is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
+- **Azure Pipelines**. [Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
 
 ## Considerations
 
@@ -51,7 +51,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 The throughput capacity of Event Hubs is measured in [throughput units][eh-throughput]. You can autoscale an event hub by enabling [auto-inflate][eh-autoscale], which automatically scales the throughput units based on traffic, up to a configured maximum.
 
-The [Event Hub trigger][eh-trigger] in the function app scales according to the number of partitions in the event hub. Each partition is assigned one function instance at a time. To maximize throughput, receive the events in a batch, instead of one at a time.
+The [Event Hubs trigger][eh-trigger] in the function app scales according to the number of partitions in the event hub. Each partition is assigned one function instance at a time. To maximize throughput, receive the events in a batch, instead of one at a time.
 
 #### Azure Cosmos DB
 
@@ -182,6 +182,14 @@ Use the [Azure Cosmos DB capacity calculator][Cosmos-Calculator] to get a quick 
 ## Deploy this scenario
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is [available on GitHub][github].
+
+## Next steps
+
+- [Introduction to Azure Functions][functions]
+- [Welcome to Azure Cosmos DB][cosmosdb]
+- [What is Azure Queue Storage?][queue]
+- [Azure Monitor overview][monitor]
+- [Azure Pipelines documentation][pipelines]
 
 ## Related resources
 

@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "docs/solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml",
+      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "docs/solution-ideas/articles/blockchain-workflow-application.yml",
+      "redirect_url": "https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "docs/networking/guide/waf-application-gateway.md",
       "redirect_url": "/azure/architecture/framework/services/networking/azure-application-gateway#security",
       "redirect_document_id": false
@@ -2501,6 +2511,11 @@
     "source_path": "docs/reference-architectures/enterprise-integration/queues-events.yml",
     "redirect_url": "/azure/architecture/example-scenario/integration/queues-events",
     "redirect_document_id": true
-  }
+  },
+  {
+    "source_path": "docs/example-scenario/apps/devops-dotnet-webapp.yml",
+    "redirect_url": "/azure/architecture/example-scenario/apps/devops-dotnet-baseline",
+    "redirect_document_id": false
+  }   
   ]
 }

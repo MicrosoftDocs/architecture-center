@@ -197,7 +197,7 @@ Predictive maintenance has been a topic of discussion for a long time. Recent de
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Ercenk Keresteci](https://www.linkedin.com/in/ercenk/) | Dir Partner Tech Strategist
  

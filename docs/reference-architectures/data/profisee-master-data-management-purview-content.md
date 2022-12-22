@@ -2,11 +2,11 @@ After cataloging enterprise data sources, it may be determined that there are mu
 
 ## Architecture
 
-The following flow illustration represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
-
 ![Diagram of Purview microservice design architecture.](./images/purview-microservice-design-architecture.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/purview-microservice-design-architecture.vsdx) of this architecture.*
+
+The above flow illustration represents the general order of activity that occurs during the development and subsequent operation of your master data solution. This flow should be thought of as **highly iterative**. As your solution evolves, these steps and phases may be repeated, sometimes automatically and sometimes manually, depending on the changes occurring to your master data solution, metadata, and/or data.
 
 ### Dataflow
 
@@ -73,7 +73,7 @@ You'll find a robust list of the use cases in the "MDM use cases" section, later
 
 In addition, these MDM solutions help financial organizations (in the finance industry) that rely heavily on data for critical activities, such as monthly, quarterly, and annual reporting.
 
-## MDM integration with Microsoft Purview
+### MDM integration with Microsoft Purview
 
 The following figure illustrates in more detail Profisee's Microsoft Purview integration. To support this integration, Profisee's **Governance** subsystem provides bidirectional integration with Purview, which consists of two distinct flows:
 
@@ -82,11 +82,11 @@ The following figure illustrates in more detail Profisee's Microsoft Purview int
 
 ![Diagram of detailed Profisee and Microsoft Purview integration.](./images/profisee-purview-integration-detail.png)
 
-### Purview integration capabilities
+#### Purview integration capabilities
 
 The Purview catalog and glossary can help you maximize integration.
 
-#### Master data model design
+##### Master data model design
 
 One of the challenges when preparing a master data management solution is determining what constitutes *master data* and from which data sources you will populate your master data model. You can use Purview to help with this effort, by taking advantage of the ability to scan your critical data sources, and by engaging your data governance team and subject matter experts. This way, you can enrich your catalog with information that your master data modelers can then tap, to better align your master data model with your LOB systems. You can reconcile conflicting terminology, which yields a master data model that optimally reflects the terminology and definitions on which your business wants to standardize, while avoiding outdated and misleading terms.
 
@@ -96,7 +96,7 @@ The following excerpt from the broader diagram illustrates this integration use-
 
 As your master data modelers evolve the model, the modeling services within the Profisee platform will publish changes that are received by Profisee's governance services. In turn, Profisee prepares and forwards those changes to Purview, for inclusion in its updated catalog. These additions to the catalog ensure that your master data definitions are included in the broader data estate, and that they can be governed and controlled in the same manner as your LOB system's metadata. By ensuring this information is cataloged together, you are in a better position to connect the dots between your master data and your LOB system data.
 
-#### Data stewardship
+##### Data stewardship
 
 Large enterprises with correspondingly complex and expansive data estates can present challenges to data stewards, who are responsible for managing and remediating issues as they arise. Key data domains can be complex, with many obscure attributes that only tenured employees with significant institutional knowledge understand. Profisee's integration with Purview allows this institutional knowledge to be captured within Purview, and made available for use within Profisee. Thus, you're bringing this knowledge of corporate data closer to the point of need, when you're managing critical and time-sensitive information.
 
@@ -124,11 +124,11 @@ Summary information is available to the user, by hovering over the governance ic
 
 You can go to the full Microsoft Purview user experience by selecting the governance icon in the dialog header. Selecting the icon takes the user to Purview in the context of the asset currently being viewed. You are then free to navigate elsewhere in Purview, based on your discovery needs.
 
-## Master data management processing
+### Master data management processing
 
 The power of a master data management solution is in the details.
 
-### Data modeling
+#### Data modeling
 
 The heart of your master data management solution is the underlying data model. It represents the definition of *master data* within your company. Developing a master data model involves the following tasks:
 
@@ -142,11 +142,11 @@ Data governance is a critical foundation for supporting all these activities:
 - Third-party systems are often a source of master data that is separate and apart from your LOB systems. It is critical to add elements to your model to capture the additional information that these systems add to your data, and to reflect these sources of information back into your data catalog.
 - Ownership and data access, as identified in your governance catalog, can be used to enforce access and change management permissions within your master data management solution. Thus, you align your corporate policies and needs with the tools that are used to manage and steward your master data.
 
-### Source data load
+#### Source data load
 
 Data is loaded into your master data model from your disparate LOB systems, ideally, with little to no change or transformation. The goal is to have a centralized version of the data, as it exists in the source system, with as little loss of fidelity between the source system and your master data repository as possible. By limiting the complexity of your loading process, lineage is made simpler. And by using technology such as Azure Data Factory pipelines, your governance solution can inspect the flow, and then it can connect the dots between your source system and your master data model.
 
-### Data enrichment and standardization
+#### Data enrichment and standardization
 
 After the source data is loaded into your model, you can extend it by tapping into rich sources of third-party data. These systems can be used to improve the data obtained from your LOB systems, or to augment the source data with information that enhances its use for other downstream consumers. For example:
 
@@ -157,13 +157,13 @@ Profisee's publish/subscribe infrastructure makes it easy to integrate your own 
 
 The ability to understand the sources and meaning behind these data are as critical for third-party data as they are for your internal LOB systems. By integrating your master data model into your governance data catalog, you can connect the dots between both internal and external sources of data.
 
-### Data quality validation and stewardship
+#### Data quality validation and stewardship
 
 After your data has been loaded and enriched, it's important to check it for quality and adherence to standards that are established through your governance processes. Purview can, again, be a rich source of standards information and can be used to drive your data quality rules, to be enforced by your master data management solution. Additionally, data quality rules can be published by Profisee, as assets to your governance catalog. The rules can be subject to review and approval, which helps you provide top-down oversight to quality standards that are associated with your master data. Because your rules are tied to master data entities and attributes, and because those attributes are traced back to source system, you can use this information to establish the root cause for the poor data quality that originates from your LOB systems.
 
 As data stewards address issues that are surfaced through your master data solution, they can apply Purview's data governance catalog to help with understanding and resolving quality issues, as they arise. Backed by the support of data owners and experts, they are armed to address data quality issues quickly and accurately.
 
-### Matching and survivorship
+#### Matching and survivorship
 
 With enriched, high-quality source data, you are now positioned to produce a *golden record* that represents the most accurate information across your disparate LOB systems. The following figure illustrates how all the steps culminate in data that is of high quality and that is ready to use for business analysis. When desired, you can harmonize this data across your data estate.
 
@@ -173,11 +173,11 @@ Profisee's matching engine produces a *golden record* as part of the survivorshi
 
 Profisee's history and audit tracking subsystem tracks changes that are not only made by users, but also by system processes, such as survivorship. Matching and survivorship allow the traceability of the flow of information from your source records to the master. Because Profisee knows the source system responsible for a given source record, and because you know how the golden record was populated from disparate source records, you can achieve data lineage from your analytics back to the source data that's referenced in those reports.
 
-## Master data management use cases
+### Master data management use cases
 
 Although there are numerous use cases for MDM, a few use cases cover most real-world MDM implementations. These use cases are focused on a single domain, but they are unlikely to be built from only that domain. In other words, even these focused use cases most likely include multiple master data domains.
 
-### Customer 360
+#### Customer 360
 
 Consolidating customer data for analytics is the most common MDM use case. Organizations capture customer data across an increasing number of applications, which creates duplicate customer data within and across applications, with inconsistencies and discrepancies. It makes it difficult to realize the value of modern analytics solutions, due to the poor quality of the customer data. Symptoms include the  following challenges:
 
@@ -189,7 +189,7 @@ Consolidating customer data for analytics is the most common MDM use case. Organ
 
 - You have poor-quality insights from AI and machine learning, due to the poor-quality input data.
 
-### Product 360
+#### Product 360
 
 Product data is often spread across multiple enterprise applications, such as ERP, PLM, or e-commerce. The result is a challenge understanding the total catalog of products that have inconsistent definitions for properties, such as the product's name, description, and characteristics. It's complicated by different definitions of reference data.  Symptoms include the following challenges:
 
@@ -197,7 +197,7 @@ Product data is often spread across multiple enterprise applications, such as ER
 - Whether finished goods or material inventory, you have a difficulty understanding exactly what products you have on hand, the vendors your products are purchased from, and you have duplicate products, which leads to excess inventory.
 - It's hard to rationalize products due to conflicting definitions, which leads to missing or inaccurate information in analytics.
 
-### Reference data 360
+#### Reference data 360
 
 In the context of analytics, reference data exists as numerous lists of data, which is often used to further describe other sets of master data. For example, reference data includes lists of countries/regions, currencies, colors, sizes, and units of measure. Inconsistent reference data leads to obvious errors in downstream analytics. Symptoms are:
 
@@ -205,7 +205,7 @@ In the context of analytics, reference data exists as numerous lists of data, wh
 - Difficulty aggregating data from across applications due to an inability to crosswalk the reference data values between the systems. For example, the color red is represented by "R" in the ERP system, and it shows as "Red" in the PLM system.
 - Difficulty tying numbers across organizations due to differences in agreed upon reference data values that are used to categorize data.
 
-### Finance 360
+#### Finance 360
 
 Financial organizations rely heavily on data for critical activities, such as monthly, quarterly, and annual reporting. Organizations with multiple finance and accounting systems often have financial data across multiple general ledgers, which need to be consolidated to produce financial reports. MDM can provide a centralized place to map and manage accounts, cost centers, business entities, and other financial data sets, to a consolidated view. Symptoms include the following challenges:
 
@@ -214,6 +214,8 @@ Financial organizations rely heavily on data for critical activities, such as mo
 - Delays in producing end-of-period financial reports.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Consider these factors when you choose a data management solution for your organization.
 
@@ -227,7 +229,15 @@ Profisee runs natively on Azure Kubernetes Service and Azure SQL Database. Azure
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Profisee authenticates users, by using OpenID Connect, which implements an OAuth 2.0 authentication flow. Most organizations configure Profisee to authenticate users against Azure Active Directory, which ensures that you can apply and enforce your enterprise policies for authentication.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Running costs consist of a software license and Azure consumption. For more information, [contact Profisee](https://profisee.com/contact/).
 
 ## Deploy this scenario
 
@@ -239,10 +249,6 @@ The Profisee platform can be deployed as a platform as a solution (PaaS) in Azur
 The following figure illustrates how these options are reflected in the Profisee ARM template:
 
 ![Diagram of the Profisee ARM template.](./images/profisee-azure-resource-manager-template.png)
-
-## Pricing
-
-Running costs consist of a software license and Azure consumption. For more information, [contact Profisee](https://profisee.com/contact/).
 
 ## Contributors
 

@@ -81,6 +81,12 @@ Principal author:
 - [Raunak Jhawar](https://www.linkedin.com/in/raunakjhawar) | Senior Cloud Architect
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [Orchestrate data movement and transformation in Azure Data Factory or Azure Synapse Pipeline](/training/modules/orchestrate-data-movement-transformation-azure-data-factory)
+
 ## Related resources
 
 The following reference architectures show end-to-end ELT pipelines on Azure:

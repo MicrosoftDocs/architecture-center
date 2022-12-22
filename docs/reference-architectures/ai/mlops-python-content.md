@@ -144,7 +144,7 @@ To deploy this reference architecture, follow the steps described in the [Gettin
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Praneet Singh Solanki](https://www.linkedin.com/in/praneetsolanki/) | Senior Software Engineer
 

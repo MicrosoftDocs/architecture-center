@@ -2,17 +2,15 @@
 
 This article provides a [machine learning operations (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops) architecture and process that uses Azure Databricks. This process defines a standardized way to move machine learning models and pipelines from development to production, with options to include automated and manual processes.
 
-MLOps helps to reduce the risk of failures in machine learning and AI systems and to improve the efficiency of collaboration and tooling. For an introduction to MLOps and an overview of this architecture, see [Architecting MLOps on the Lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
-
 ## Architecture
-
-The following diagram provides a template for a robust MLOps process that uses Azure Databricks. All elements in the architecture are pluggable, so you can integrate other Azure and third-party services throughout the architecture as needed. This architecture and description are adapted from the e-book [The Big Book of MLOps](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops). This e-book explores the architecture described here in more detail.
 
 :::image type="content" source="_images/orchestrate-mlops-azure-databricks-01.png" alt-text="Diagram that shows a solution for using Azure Databricks for MLOps." lightbox="_images/orchestrate-mlops-azure-databricks-01.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/orchestrate-mlops-azure-databricks-01.vsdx) of this architecture.*
 
 ### Workflow
+
+This solution provides a robust MLOps process that uses Azure Databricks. All elements in the architecture are pluggable, so you can integrate other Azure and third-party services throughout the architecture as needed. This architecture and description are adapted from the e-book [The Big Book of MLOps](https://www.databricks.com/p/ebook/the-big-book-of-mlops?itm_data=home-promocard3-bigbookmlops). This e-book explores the architecture described here in more detail.
 
 - **Source control**: This project's code repository organizes the notebooks, modules, and pipelines. Data scientists create development branches to test updates and new models. Code is developed in notebooks or in IDEs, backed by Git, with [Databricks Repos](/azure/databricks/repos) integration for syncing with your Azure Databricks workspaces. Source control promotes machine learning pipelines from development, through staging (for testing), to production (for deployment).
 
@@ -82,6 +80,8 @@ You can tailor this solution to your Azure infrastructure. Common customizations
 - Integrating with your existing CI/CD tooling via Git and Azure Databricks REST APIs.
 
 ## Scenario details
+
+MLOps helps to reduce the risk of failures in machine learning and AI systems and to improve the efficiency of collaboration and tooling. For an introduction to MLOps and an overview of this architecture, see [Architecting MLOps on the Lakehouse](https://databricks.com/blog/2022/06/22/architecting-mlops-on-the-lakehouse.html).
 
 By using this architecture, you can:
 

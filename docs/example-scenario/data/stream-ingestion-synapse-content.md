@@ -2,7 +2,9 @@ This solution uses Azure Stream Analytics to ingest data to an Azure Synapse ded
 
 ## Architecture
 
-![Diagram that shows stream ingestion to Synapse using Stream Analytics.](media/stream-ingestion-synapse/stream-synapse.png)
+![Diagram that shows stream ingestion to Synapse using Stream Analytics.](media/stream-ingestion-synapse/stream-synapse.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/stream-synapse.vsdx) of this architecture.*
 
 The architecture shows the components of the stream data ingestion pipeline. Data flows through the architecture as follows:
 

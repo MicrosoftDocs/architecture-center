@@ -2,7 +2,7 @@
 title: Solutions for the telecommunications industry
 titleSuffix: Azure Architecture Center
 description: Get an overview  of architectures and ideas for using Azure services to build solutions for the telecommunications industry.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/26/2022
 ms.topic: conceptual

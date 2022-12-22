@@ -2,7 +2,7 @@
 metadata:
   title: Queue-Based Load Leveling pattern
   description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
   ms.topic: conceptual

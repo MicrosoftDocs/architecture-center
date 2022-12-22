@@ -8,8 +8,12 @@ This reference architecture shows a microservices architecture deployed to Azure
 
 ![Diagram showing the Service Fabric reference architecture.](./_images/ra-sf-arch.png)
 
+*Download a [Visio file](https://arch-center.azureedge.net/microservices-service-fabric.vsdx) of this architecture.*
+
 > [!NOTE]
 > This article focuses on the [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) programming model for Service Fabric. Using Service Fabric to deploy and manage [containers](/azure/service-fabric/service-fabric-containers-overview) is beyond the scope of this article.
+
+### Workflow
 
 The architecture consists of the following components. For other terms, see [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview).
 
@@ -365,7 +369,7 @@ To view the data, configure Log Analytics to view the data collected through WAD
 
 You can also view performance logs and telemetry data related to a Service Fabric cluster, workloads, network traffic, pending updates, and more. See [Performance Monitoring with Log Analytics](/azure/service-fabric/service-fabric-diagnostics-oms-agent).
 
-[Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about the topology of the cluster (that is, the processes running in each node). Send the data in the storage account to [Application Insights](/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights). There might be some delay in getting data into Application Insights. If you want to see the data real time, consider configuring [Event Hub](/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs) using sinks and channels. For more information, see [Event aggregation and collection using Windows Azure Diagnostics](/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad).
+[Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about the topology of the cluster (that is, the processes running in each node). Send the data in the storage account to [Application Insights](/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights). There might be some delay in getting data into Application Insights. If you want to see the data real time, consider configuring [Event Hubs](/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs) using sinks and channels. For more information, see [Event aggregation and collection using Windows Azure Diagnostics](/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad).
 
 #### Dependent service metrics
 
@@ -447,11 +451,18 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Training: Introduction to Azure Service Fabric](/training/modules/intro-to-azure-service-fabric)
+- [Overview of Azure Service Fabric](/azure/service-fabric/service-fabric-overview)
+- [API Management documentation](/azure/api-management)
+- [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 
 ## Related resources
 

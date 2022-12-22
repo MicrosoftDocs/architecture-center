@@ -1,17 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution presents a visual assistant that provides rich information that's based on the content of an image. The assistant's capabilities include reading business cards, deciphering barcodes, and recognizing well-known people, places, objects, artwork, and monuments.
-
-## Potential use cases
-
-Organizations can use this solution to provide:
-
-- Appointment scheduling.
-- Order and delivery tracking in manufacturing, automotive, and transportation applications.
-- Barcode purchases in retail.
-- Payment processing in finance and retail.
-- Subscription renewals in retail.
-- The identification of well-known people, places, objects, art, and monuments, in the education, media, and entertainment industries.
+This solution presents a visual assistant that provides rich information that's based on the content of an image.
 
 ## Architecture
 
@@ -38,6 +27,21 @@ Organizations can use this solution to provide:
 - The [Bing Web Search API](https://www.microsoft.com/bing/apis/bing-web-search-api) provides search results after you issue a single API call. The results compile relevant information from billions of webpages, images, videos, and news.
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) that offers many natural language processing services.
 - [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Cognitive Service for Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use LUIS to predict the meaning of a conversation and pull out relevant, detailed information.
+
+## Scenario details
+
+This solution presents a visual assistant that provides rich information that's based on the content of an image. The assistant's capabilities include reading business cards, deciphering barcodes, and recognizing well-known people, places, objects, artwork, and monuments.
+
+### Potential use cases
+
+Organizations can use this solution to provide:
+
+- Appointment scheduling.
+- Order and delivery tracking in manufacturing, automotive, and transportation applications.
+- Barcode purchases in retail.
+- Payment processing in finance and retail.
+- Subscription renewals in retail.
+- The identification of well-known people, places, objects, art, and monuments, in the education, media, and entertainment industries.
 
 ## Next steps
 

@@ -119,6 +119,16 @@ When a new configuration is created in the configuration management service, it 
 
 The edge component can use either the external configuration controller or internal configuration provider. In either implementation, the configuration is either transmitted in the module twin desired properties, or in case large configurations need to be transmitted, the module twin desired properties contain a URL to [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or to another service that can be used to retrieve the configuration. The module then signals in the module twin reported properties whether the new configuration was applied successfully and what configuration is currently applied.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Heather Camm](https://www.linkedin.com/in/heather-camm-2367ba15/) | Senior Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge)
