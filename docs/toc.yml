@@ -5709,6 +5709,8 @@ items:
                 href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
+              - name: Migrate cloud workloads across security tenants
+                href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
               - name: Migrate IBM mainframe apps
                 href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
       - name: Mixed Reality
