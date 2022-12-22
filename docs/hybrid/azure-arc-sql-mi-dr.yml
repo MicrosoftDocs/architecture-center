@@ -15,7 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
-name: Manage configurations for Azure Arc-enabled servers
+name: Azure Arc-enabled SQL Managed Instance disaster recovery
 azureCategories:
   - hybrid
   - databases
