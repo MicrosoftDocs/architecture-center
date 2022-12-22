@@ -34,36 +34,36 @@ The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to hel
 
 ## Architecture
 
-The dynamically loaded AI model is based on the features of IoT Edge module twins.
-
 image
 
 link
 
-Comments:
+The dynamically loaded AI model is based on the features of IoT Edge module twins.
 
-1.	You can download pre-trained AI models from TensorFlow [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models) or [ONNX Model Zoo](https://github.com/onnx/models), or you can also use your own AI model maybe it was built by AML. Then upload Pre-Trained AI Models to public blob storage (Or any other Web service, just for the Edge Module can access this resource and download to Edge device later. You can also consider private endpoint connections between blob storage and Edge device if you need better security.)
-2.	The IoT Hub will sync device module twins automatically with AI Models information, the sync will be done even if IoT Edge was offline for some time(In some cases, IoT devices are connected to networks at scheduled times (hourly, daily or weekly) to save power or network traffic).
-3.	The Loader Module monitors the updates of module twins via SDK. Through this way, it can get the ML model SAS token, and then download the AI model. 
-    - [Create SAS token for a container or blob](https://learn.microsoft.com/azure/storage/blobs/sas-service-create?tabs=dotnet)
-    - The **ExpiresOn** property allows you to set the access time of resources. If your device will offline for a long time, you can extend the expiration time.
-4.	The Loader Module saves the AI model in the shared local storage of the IoT Edge Module. The shared local storage needs to be configured in the IoT Edge deployment JSON file.
-5.	The Loader Module loads the AI model from the local storage by TensorFlow/ONNX SDK.
-6.	The Loader Module starts a Web API that receives the binary photo via post request and returns results in json file
+1.	The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this resource and download to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
+2.	Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or network traffic.)
+3.	The loader module monitors the updates of module twins via SDK. When an update is detected, it gets the machine learning model SAS token and then downloads the AI model. 
+    - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create?tabs=dotnet).
+    - You can use the **ExpiresOn** property to set the expiration date of resources. If your device will be offline for a long time, you can extend the expiration time.
+4.	The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
+5.	The loader module loads the AI model from local storage via the TensorFlow or ONNX SDK.
+6.	The loader module starts a web API that receives the binary photo via post request and returns the results in a JSON file.
 
-In case for update AI model we can upload new AI model to blob storage and sync device module twins again instead of update whole IoT Edge module image, so this is the AI model incremental updates.
+To update the AI model, you can upload the new AI model to Blob Storage and sync the device module twins again for an incremental update. There's no need to update the whole IoT Edge module image.
 
-Download trained AI model
+Download trained AI models
 
-Here I recommend using device twin to receive notifications that a new model is ready. Even when the device is offline, the message can still be cached in the IoT Hub to wait for the Edge device to come back, and the message will be automatically synchronized.
+To download trained AI models, we recommend using device twin to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub to wait for the edge device to come back online. The message will be  synchronized automatically.
 
-Here is a code example of the python code used to register notifications for device twin then download AI model as a zip package. And perform further operations on the downloaded file.
+Following is an example of Python code that registers notifications for device twin and then download the AI model in a ZIP package. It also performs further operations on the downloaded file.
 
-1.	The device twin notification was received, which included the file name (File name You can include version information such as 1.0, 1.1, or 2.0), file download address, and MD5 authentication token.
-2.	Download AI model as zip file to local storage.
-3.	MD5 checksum (optional) MD5 verification prevents zip files that have been tampered with in network transmission.
-4.	Unzip it and save it locally.
-5.	Send notifications to IoT Hub or routing message to inform that the new AI model is ready.
+The code performs these tasks: 
+
+1.	Receive the device twin notification. The notification includes the file name, file download address, and MD5 authentication token. (In the file name, you can include version information, like 1.0 or 2.1.)
+2.	Download the AI model as a ZIP file to local storage.
+3.	Optionally, perform MD5 checksum. MD5 verification helps prevent ZIP files that have been tampered with during network transmission.
+4.	Unzip the ZIP file and save it locally.
+5.	Send a notification to IoT Hub or a routing message to report that the new AI model is ready.
 
 ```
 # define behavior for receiving a twin patch
@@ -121,13 +121,16 @@ async def twin_patch_handler(patch):
         print ( "Unexpected error in twin_patch_handler: %s" % ex )
 ```
 
-Inference Procedure
+Inference procedure
 
-After the download of the AI model the next step is to use the model on the Edge device, we can dynamically load and Object Detection on Edge devices. The following code can help us use the TensorFlow AI model to do Object Detection on Edge device.
-1.	Dynamic load TensorFlow flite AI MODEL.
-2.	Image standardization.
-3.	Object detection
-4.	Detection scores for the result
+After the AI model is downloaded, the next step is to use the model on the edge device. You can dynamically load the model and perform object detection on edge devices. The following code example shows how to use the TensorFlow AI model to detect objects on edge devices.
+
+The code performs these tasks: 
+
+1.	Dynamically load the TensorFlow AI model.
+2.	Perform image standardization.
+3.	Detect objects.
+4.	Compute detection scores.
 
 ```
 class InferenceProcedure():
@@ -180,7 +183,8 @@ class InferenceProcedure():
         # return results
         return json.dumps(results)
 ```
-For the ONNX version the process steps are exactly the same, here is the sample code for ONNX, the only difference is how to handle scores result, because the Labelmap and model output parameters are different.
+
+Following is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how to handle the detection score, because the `Labelmap` and model output parameters are different.
 
 ```
 class InferenceProcedure():
@@ -255,9 +259,10 @@ class InferenceProcedure():
         return json.dumps(results)
 ```
 
-Well, if your IoT Edge Device incorporates the above code and features, then congratulations, your Edge device has AI image object detection capability and supports dynamic updating of AI models. So next, if you want the Edge module to be able to provide AI ability to other applications or modules as Web API then you can create a Web API in your module.
+If your IoT edge device incorporates the preceding code and features, your edge device has AI image object detection and supports dynamic update of AI models. If you want the edge module to provide AI functionality to other applications or modules via a web API, you can create a web API in your module.
 
-Flask framework, for example, allows you to build an API quickly. You can receive images as binary then use AI model for detection and return results in json format.
+You can use Flask framework, for example, to quickly create an API. You can receive images as binary data, use an AI model for detection, and then return the results in a JSON format.
+
 Learn more about [Flask: Flask Tutorial in Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-flask)
 
 Reference
