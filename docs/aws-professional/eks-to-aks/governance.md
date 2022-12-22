@@ -41,28 +41,23 @@ For more information, see [Kubernetes governance, what you should know](https://
 
 - Amazon Web Services (AWS) customers usually use Kyverno, Gatekeeper, or other third-party solutions to define and implement a governance strategy for their Amazon EKS clusters. The [aws-eks-best-practices/policies](https://github.com/aws/aws-eks-best-practices/tree/master/policies) GitHub repository contains a collection of example policies for Kyverno and Gatekeeper.
 
-- Azure customers can also use Kyverno or Gatekeeper, or can use the [Azure Policy for Kubernetes Add-on](/azure/governance/policy/concepts/policy-for-kubernetes) to extend Gatekeeper for an AKS governance strategy.
+- Azure customers can also use Kyverno or Gatekeeper, and can use the [Azure Policy for Kubernetes Add-on](/azure/governance/policy/concepts/policy-for-kubernetes) to extend Gatekeeper for an AKS governance strategy.
 
-## Gatekeeper and Kyverno
+## Gatekeeper
 
-The [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) sponsors the following open-source projects for enforcing policies in Kubernetes clusters:
+The [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) sponsors the open-source [Gatekeeper Policy Controller for Kubernetes](https://github.com/open-policy-agent/gatekeeper) for enforcing policies in Kubernetes clusters. Gatekeeper is a Kubernetes admission controller that enforces policies created with [Open Policy Agent (OPA)](https://www.openpolicyagent.org), a general-purpose policy engine.
 
-- [Gatekeeper Policy Controller for Kubernetes](https://github.com/open-policy-agent/gatekeeper)
-- [Kyverno](https://kyverno.io)
+OPA uses a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego) to create policies that can run pods from tenants on separate instances or at different priorities. For a collection of common OPA policies, see the [OPA Gatekeeper Library]( https://open-policy-agent.github.io/gatekeeper-library).
 
-### Open Policy Agent (OPA) and Gatekeeper
+## Kyverno
 
-Gatekeeper is an open-source Kubernetes admission controller that enforces policies created with [Open Policy Agent (OPA)](https://www.openpolicyagent.org), a general-purpose policy engine. OPA uses a high-level declarative language called [Rego](https://www.openpolicyagent.org/docs/latest/#rego) to create policies.
+CNCF also sponsors the [Kyverno](https://kyverno.io) open-source project for enforcing policies in Kubernetes clusters. Kyverno is a Kubernetes-native policy engine that can validate, mutate, and generate Kubernetes resource configurations with policies.
 
-OPA can create policies that run pods from tenants on separate instances or at different priorities. For a collection of common OPA policies, see the [OPA Gatekeeper Library]( https://open-policy-agent.github.io/gatekeeper-library).
+With Kyverno, you can define and manage policies as Kubernetes resources without using a new language. This approach allows using familiar tools such as [kubectl](https://kubernetes.io/docs/tasks/tools), [git](https://git-scm.com), and [kustomize](https://kustomize.io) to manage policies.
 
-### Kyverno
+Kyverno uses `kustomize`-style overlays for validation, supports JSON patch and strategic merge patch for mutation, and can clone resources across namespaces based on flexible triggers. You can deploy policies individually by using their YAML manifests, or package and deploy them by using Helm charts.
 
-Kyverno is a Kubernetes-native policy engine that can validate, mutate, and generate Kubernetes resource configurations with policies. Kyverno uses `kustomize`-style overlays for validation, supports JSON patch and strategic merge patch for mutation, and can clone resources across namespaces based on flexible triggers.
-
-With Kyverno, you can manage policies as Kubernetes resources without needing a new language to define policies. This approach allows using familiar tools such as [kubectl](https://kubernetes.io/docs/tasks/tools), [git](https://git-scm.com), and [kustomize](https://kustomize.io) to manage policies. You can deploy policies individually by using their YAML manifests, or package and deploy them by using a Helm chart.
-
-With Kyverno, unlike with Gatekeeper or Azure Policy for Kubernetes, you can not only validate or mutate existing resources but create policies to create new Kubernetes objects. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
+Kyverno, unlike Gatekeeper or Azure Policy for AKS, can generate new Kubernetes objects with policies, not just validate or mutate existing resources. For example, you can define a Kyverno policy to automate the creation of a default network policy for any new namespace.
 
 For more information, see the official [Kyverno installation guide](https://kyverno.io/docs/installation). For a list of ready-to-use or customizable policies, see the Kyverno [Policies](https://kyverno.io/policies) library.
 
@@ -70,7 +65,7 @@ Optionally, you can deploy Kyverno's implementation of the [Kubernetes Pod Secur
 
 ## Azure Policy Add-on for AKS
 
-[The Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) to apply at-scale enforcements and safeguards on AKS clusters in a centralized, consistent manner. Azure Policy enables centralized compliance management and reporting for multiple Kubernetes clusters from a single location. This capability makes management and governance of multi-cluster environments more efficient than deploying and managing Kyverno or Gatekeeper for each cluster.
+[The Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes) extends [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) to apply at-scale enforcements and safeguards on AKS clusters in a centralized, consistent manner. [Azure Policy](https://azure.microsoft.com/products/azure-policy) enables centralized compliance management and reporting for multiple Kubernetes clusters from a single location. This capability makes management and governance of multicluster environments more efficient than deploying and managing Kyverno or Gatekeeper for each cluster.
 
 The Azure Policy Add-on for AKS enacts the following functions:
 
@@ -78,7 +73,7 @@ The Azure Policy Add-on for AKS enacts the following functions:
 - Deploys policy definitions into the cluster as constraint template and constraint custom resources.
 - Reports auditing and compliance details back to the Azure Policy service.
 
-The Azure Policy Add-on supports the [AKS](/azure/aks) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) cluster environments. To install the add-on on new and existing clusters, see [Install the Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks). For more information, see [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes).
+The Azure Policy Add-on supports the [AKS](/azure/aks) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes) cluster environments. For more information, see [Understand Azure Policy for Kubernetes clusters](/azure/governance/policy/concepts/policy-for-kubernetes). To install the add-on on new and existing clusters, see [Install the Azure Policy Add-on for AKS](/azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks).
 
 After you install the Azure Policy Add-on for AKS, you can apply individual policy definitions or groups of policy definitions called initiatives to your AKS cluster. You can apply and enforce [Azure Policy built-in policy and initiative definitions](/azure/aks/policy-reference) from the outset, or [create and assign your own custom policy definitions](/azure/aks/use-azure-policy#create-and-assign-a-custom-policy-definition). The [Azure Policy](/azure/governance/policy/overview) built-in security policies help improve the security posture of your AKS cluster, enforce organizational standards, and assess compliance at scale.
 
