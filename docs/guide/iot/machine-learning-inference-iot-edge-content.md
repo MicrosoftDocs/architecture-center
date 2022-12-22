@@ -22,7 +22,7 @@ The dynamically loaded AI model is based on the features of IoT Edge module twin
 1.	The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow Lite or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this resource and download to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
 2.	Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or network traffic.)
 3.	The loader module monitors the updates of module twins via SDK. When an update is detected, it gets the machine learning model SAS token and then downloads the AI model. 
-    - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create?tabs=dotnet).
+    - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create).
     - You can use the **ExpiresOn** property to set the expiration date of resources. If your device will be offline for a long time, you can extend the expiration time.
 4.	The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
 5.	The loader module loads the AI model from local storage via the TensorFlow Lite or ONNX SDK.
