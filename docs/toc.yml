@@ -685,6 +685,8 @@ items:
                     href: aws-professional/eks-to-aks/cost-management.yml
                   - name: Agent node management
                     href: aws-professional/eks-to-aks/node-pools.yml
+                  - name: Cluster governance
+                    href: aws-professional/eks-to-aks/governance.md
               - name: Migration from AWS
                 items:
                   - name: Azure Migrate
