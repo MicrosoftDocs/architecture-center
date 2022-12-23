@@ -4,7 +4,7 @@ To address business transformations like acquisitions or divesture, teams need t
 
 ## Architecture
 
-:::image type="content" source="../media/cross-tenant-migration-strategy.png" alt-text="Diagram that shows a cross-tenant migration architecture." border="false":::
+:::image type="content" source="../media/cross-tenant-migration-strategy.svg" alt-text="Diagram that shows a cross-tenant migration architecture." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/cross-tenant-migration-strategy.vsdx) of this architecture.* 
 
