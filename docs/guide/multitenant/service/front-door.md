@@ -83,7 +83,7 @@ For more information, see [Routing architecture overview](/azure/frontdoor/front
 
 The Front Door rules engine enables you to customize how Front Door processes requests at the network edge. The rules engine enables you to run small blocks of logic within Front Door's request processing pipeline. You can use the rules engine to override the routing configuration for a request. The rules engine also enables you to modify elements of the request before it's sent to the origin, and to modify some parts of the response before it's returned to the client.
 
-For example, suppose you have deployed a multitenant application tier where you also use tenant-specific wildcard subdomains. You might use the rules engine to extract the tenant identifier from the request subdomain and add it to a request header. This rule could help the application tier to know which tenant the request came from.
+For example, suppose you have deployed a multitenant application tier where you also use tenant-specific wildcard subdomains, as described in the example scenarios below. You might use the rules engine to extract the tenant identifier from the request subdomain and add it to a request header. This rule could help the application tier to know which tenant the request came from.
 
 For more information, see [What is Rules Engine for Azure Front Door?](/azure/frontdoor/front-door-rules-engine).
 
