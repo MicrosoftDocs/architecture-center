@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 12/20/2022
+ms.date: 12/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Migrate cloud workloads across security tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml)
+- [Governance options for a Kubernetes cluster](./aws-professional/eks-to-aks/governance.md)
+- [Automate document classification in Azure](./example-scenario/ai/automate-document-classification-durable-functions.yml)
+- [Deploy a DFS Namespaces failover cluster](./solution-ideas/articles/dfs-failover-cluster-vms.yml)
+- [Train machine learning models at the edge](./example-scenario/hybrid/train-machine-learning-models-on-premises-data.yml)
 - [Azure Synapse Analytics for landing zones](./example-scenario/analytics/synapse-analytics-landing-zone.yml)
 - [Considerations for using Azure Container Apps in a multitenant solution](./guide/multitenant/service/container-apps.md)
 - [Deploy Azure Spring Apps to multiple regions](./reference-architectures/microservices/spring-apps-multi-region.yml)
@@ -37,6 +42,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [AKS for Amazon EKS professionals](./aws-professional/eks-to-aks/index.md)  ([#326b82606](https://github.com/MicrosoftDocs/architecture-center/commit/326b82606))
 - [IaaS: Web app with relational database](./high-availability/ref-arch-iaas-web-and-db.yml)  ([#e69538827](https://github.com/MicrosoftDocs/architecture-center/commit/e69538827))
 - [Globally distributed applications using Azure Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#e69538827](https://github.com/MicrosoftDocs/architecture-center/commit/e69538827))
 - [Minimal storage – change feed to replicate data](./solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml)  ([#e69538827](https://github.com/MicrosoftDocs/architecture-center/commit/e69538827))
