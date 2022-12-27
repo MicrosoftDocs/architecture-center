@@ -15,9 +15,9 @@ The solution described in this article can help you in these ways:
 
 ## Architecture
 
-image
+:::image type="content" source="media/machine-learning-inference.png" alt-text="Diagram that shows an architecture that supports machine learning inference." lightbox="media/machine-learning-inference.png" border="false":::
 
-link
+*Download a [Visio file](https://arch-center.azureedge.net/machine-learning-inference.vsdx) of this architecture.*
 
 1.	The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow Lite or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this model and download it to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
 2.	Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
