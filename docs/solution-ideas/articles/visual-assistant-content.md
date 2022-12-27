@@ -6,7 +6,7 @@ This solution presents a visual assistant that provides rich information that's 
 
 [ ![Architecture diagram that shows the flow of data between a browser and a bot, and between the bot and search services.](../media/visual-assistant.svg)](../media/visual-assistant.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/../media/visual-assistant.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/visual-assistant.vsdx) of this architecture.*
 
 ### Dataflow
 
