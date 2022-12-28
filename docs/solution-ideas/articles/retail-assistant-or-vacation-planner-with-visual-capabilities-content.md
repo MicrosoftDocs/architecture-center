@@ -39,7 +39,7 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 ## Next steps
 
-- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
 - [Bing Search API documentation](/azure/cognitive-services/bing-web-search)
 - [What is the Bing Visual Search API?](/azure/cognitive-services/bing-visual-search)
