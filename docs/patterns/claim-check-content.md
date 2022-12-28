@@ -14,6 +14,13 @@ Store the entire message payload into an external service, such as a database. G
 
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
+1. Send message
+1. Store message on the data store
+1. Enqueue the message's reference
+1. Read the message's reference
+1. Recovery the message
+1. Process the message
+
 ## Issues and considerations
 
 Consider the following points when deciding how to implement this pattern:
