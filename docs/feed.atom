@@ -2,12 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2022-12-20T19:39:21.434Z</updated>
+    <updated>2022-12-26T21:53:07.165Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Migrate cloud workloads across security tenants]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/migrate-cloud-workloads-across-security-tenants"/>
+        <updated>2022-12-22T20:02:01.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to define and implement a cross-tenant workload migration strategy to address business transformations like acquisitions or divestiture.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Governance options for a Kubernetes cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/governance</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks/governance"/>
+        <updated>2022-12-22T19:40:05.000Z</updated>
+        <summary type="html"><![CDATA[Understand governance options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) governance options.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate document classification in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/automate-document-classification-durable-functions</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/automate-document-classification-durable-functions"/>
+        <updated>2022-12-22T02:57:17.000Z</updated>
+        <summary type="html"><![CDATA[Use Durable Functions, a feature of Azure Functions, as an automated document processing pipeline to classify documents by type.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy a DFS Namespaces failover cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/dfs-failover-cluster-vms</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/dfs-failover-cluster-vms"/>
+        <updated>2022-12-22T00:00:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy a Distributed File System (DFS) Namespaces failover cluster that uses Azure virtual machines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Train machine learning models at the edge]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/train-machine-learning-models-on-premises-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/train-machine-learning-models-on-premises-data"/>
+        <updated>2022-12-20T20:57:09.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use on-premises data to train machine learning models by using Azure and Azure Stack Hub.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Azure Synapse Analytics for landing zones]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/analytics/synapse-analytics-landing-zone</id>
@@ -63,6 +103,14 @@
         <updated>2022-12-05T23:01:52.000Z</updated>
         <summary type="html"><![CDATA[Learn how to use Azure Stack Hub to create a high-availability Kubernetes cluster solution on Azure.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS for Amazon EKS professionals]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/aws-professional/eks-to-aks"/>
+        <updated>2022-12-22T19:40:05.000Z</updated>
+        <summary type="html"><![CDATA[Read about the Azure Kubernetes Service (AKS) managed solution, configurations, best practices, and similarities and differences with Amazon EKS.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[IaaS: Web app with relational database]]></title>
