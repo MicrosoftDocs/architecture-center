@@ -4629,6 +4629,8 @@ items:
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true
+              - name: Check Resource Property with Deployment Scripts
+                href: guide/devops/deployment-scripts-property-check.yml
           - name: Architectures
             items:
               - name: Automate multistage Azure Pipelines
