@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Holistic SAP landscape architecture
-  description: Best practices large SAP environments deployment in Azure. Overall architecture for deployment and communication pathways between SAP tiers and integrating Azure services.
+  title: SAP landscape architecture
+  description: Best practices and recommendations for architecting an entire SAP landscape on Azure. 
   author: msftrobiro
   ms.author: ssumner
   ms.reviewer: ssumner
@@ -18,8 +18,8 @@ products:
   - azure-virtual-network
   - azure-files
   - azure-load-balancer
-name: Holistic SAP landscape architecture
-summary: Best practices large SAP environments deployment in Azure. Overall architecture for deployment and communication pathways between SAP tiers and integrating Azure services.
+name: SAP landscape architecture
+summary: Best practices and recommendations for architecting an entire SAP landscape on Azure. 
 thumbnailUrl: /azure/architecture/browse/thumbs/sap-whole-landscape-architecture.png
 content: |
   [!include[](sap-whole-landscape-content.md)]
