@@ -835,14 +835,14 @@
 		</g>
 		<g id="shape1092-188" v:mID="1092" v:groupContext="shape" transform="translate(470.443,-161)">
 			<title>Sheet.1092</title>
-			<desc>Virtual Machine (Release)</desc>
+			<desc>Virtual machine (Release)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(21000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
 			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
-			<text x="8.36" y="535.7" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Machine<v:newlineChar/><tspan
+			<text x="8.56" y="535.7" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual machine<v:newlineChar/><tspan
 						x="24.64" dy="1.2em" class="st48">(Release)</tspan></text>		</g>
 		<g id="shape1093-192" v:mID="1093" v:groupContext="shape" transform="translate(626.323,-161)">
 			<title>Sheet.1093</title>
@@ -856,14 +856,14 @@
 			<text x="20.05" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>SQL Server</text>		</g>
 		<g id="shape1098-195" v:mID="1098" v:groupContext="shape" transform="translate(318.725,-122.163)">
 			<title>Sheet.1098</title>
-			<desc>Transform</desc>
+			<desc>Terraform</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(27000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="46.3438" cy="539" width="92.69" height="20"/>
 			<rect x="0" y="529" width="92.6875" height="20" class="st46"/>
-			<text x="21.71" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Transform</text>		</g>
+			<text x="22.37" y="542.3" class="st47" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Terraform</text>		</g>
 		<g id="shape1099-198" v:mID="1099" v:groupContext="shape" transform="translate(134.03,-164.25)">
 			<title>Sheet.1099</title>
 			<desc>Azure Pipelines</desc>
