@@ -302,5 +302,5 @@ Other contributors:
 ## Related resources
 
 - [Architect multitenant solutions on Azure](overview.md)
-- [Checklist for architecting and building multitenant solutions on Azure](checklist.md)
-- [Tenancy models to consider for a multitenant solution](tenancy-models.md)
+- [Checklist for architecting and building multitenant solutions on Azure](/azure/architecture/guide/multitenant/checklist)
+- [Tenancy models to consider for a multitenant solution](/azure/architecture/guide/multitenant/considerations/tenancy-models)
