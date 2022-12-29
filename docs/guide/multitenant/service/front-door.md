@@ -28,7 +28,7 @@ When you use Azure Front Door as part of a multitenant solution, you need to mak
 - Do your tenants want to bring their own domain names?
 - Will you use wildcard domains?
 - Do you need to use your own TLS certificates, or will Microsoft manage your TLS certificates?
-- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Azure Front Door? Do you know which limits you'll approach as you grow? If you suspect that you'll approach these limits, consider using multiple Azure Front Door profiles, or whether you can change the way that you use Azure Front Door to avoid the limits. Also be aware that the Premium SKU has higher limits than the Standard SKU.
+- Have you considered the [quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits) that apply to Azure Front Door? Do you know which limits you'll approach as you grow? If you suspect that you'll approach these limits, consider using multiple Azure Front Door profiles. Or consider whether you can change the way that you use Azure Front Door to avoid the limits. Note that the Premium SKU has higher limits than the Standard SKU.
 - Do you or your tenants have requirements for IP address filtering, geo-blocking, or customizing WAF rules?
 - Are all of your tenants' application servers internet-facing?
 
@@ -252,11 +252,11 @@ Adventure Works and its tenants need to decide who issues TLS certificates:
 - Adventure Works needs to reconfigure Azure Front Door every time a new tenant is onboarded.
 - Tenants need to be involved in the onboarding process. They need to make DNS changes and possibly issue TLS certificates.
 - Tenants control their DNS records. Changes to DNS records might affect their ability to access the Adventure Works solution.
-- Aventure Works needs to pay attention to [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes and custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
+- Adventure Works needs to pay attention to [Azure Front Door quotas and limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-tier-service-limits), especially on the number of routes and custom domains, and the [composite routing limit](/azure/frontdoor/front-door-routing-limits).
 
 ### Scenario 5: Azure Front Door profile per stamp
 
-You can deploy an Azure Front Door profile for each stamp. If you have 10 stamps, you deploy 10 instances of Azure Front Door. This approach can be useful if you need to restrict management access of each stamp's Azure Front Door configuration, or if you need to use multiple Azure Front Door profiles to avoid resource quotas or limits. 
+You can deploy an Azure Front Door profile for each stamp. If you have 10 stamps, you deploy 10 instances of Azure Front Door. This approach can be useful if you need to restrict management access of each stamp's Azure Front Door configuration. It can also be useful if you need to use multiple Azure Front Door profiles to avoid resource quotas or limits. 
 
 > [!TIP]
 > Azure Front Door is a global resource. Even if you deploy regionally scoped stamps, each Azure Front Door profile is globally distributed. You should consider whether you really need to deploy multiple Azure Front Door profiles, and what advantages you gain by doing so.
@@ -303,4 +303,4 @@ Other contributors:
 
 - [Architect multitenant solutions on Azure](overview.md)
 - [Checklist for architecting and building multitenant solutions on Azure](/azure/architecture/guide/multitenant/checklist)
-- [Tenancy models to consider for a multitenant solution](/azure/architecture/guide/multitenant/considerations/tenancy-models)
+- [Tenancy models to consider for a multitenant solution](../considerations/tenancy-models.yml)
