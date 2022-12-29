@@ -4,7 +4,9 @@ This solution idea uses Azure services with a bot assistant to improve interacti
 
 ## Architecture
 
-![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services.](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.png)
+[ ![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services.](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.svg)](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/retail-assistant-or-vacation-planner-with-visual-capabilities.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -37,7 +39,7 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 
 ## Next steps
 
-- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
 - [Bing Search API documentation](/azure/cognitive-services/bing-web-search)
 - [What is the Bing Visual Search API?](/azure/cognitive-services/bing-visual-search)
