@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of Azure Front Door that are useful when you work with multitenanted systems, and it provides links to guidance for how to use Azure Front Door in a multitenant solution.
 author: rajnemani
 ms.author: ranema
-ms.date: 12/14/2022
+ms.date: 01/03/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
