@@ -1,7 +1,6 @@
 This guide explains how pricing and cost management work in Azure Kubernetes Service (AKS) compared to Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to optimize costs and implement cost governance solutions for your AKS cluster.
 
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS cost basics
 
@@ -95,7 +94,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
   - Service: Blob, File, Queue, Table or unmanaged disks
   - Storage account type: GPv1, GPv2, Blob, or Premium Blob
-  - Resiliency: Locally-redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
+  - Resiliency: Locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
   - Access tier: Hot, cool, or archive
   - Operations and data transfers
   - Used capacity in GB
@@ -117,7 +116,7 @@ Several Azure networking services can provide access to your applications that r
   - Rules: The number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
   - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually-managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
@@ -232,6 +231,9 @@ Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -241,6 +243,7 @@ Other contributors:
 - [Secure network access to Kubernetes](private-clusters.yml)
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 

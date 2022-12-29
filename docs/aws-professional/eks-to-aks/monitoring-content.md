@@ -1,7 +1,6 @@
 This article describes how Azure Kubernetes Service (AKS) monitoring compares to Amazon Elastic Kubernetes Service (Amazon EKS). The article guides you on different options to monitor and manage the logs of an AKS cluster and its workloads.
 
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS monitoring and logging
 
@@ -90,9 +89,11 @@ Principal authors:
 
 Other contributors:
 
-- [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -102,6 +103,7 @@ Other contributors:
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 

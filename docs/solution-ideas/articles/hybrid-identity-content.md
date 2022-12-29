@@ -16,8 +16,8 @@ This solution enables teams to manage identity for users and applications in a w
 1. Set up an Azure Active Directory tenant.
 1. Create users.
 1. Deploy, manage, and operate application resources on Azure and Azure Stack Hub.
-1. Create service principles.
-1. Deploy with service principles.
+1. Create service principals.
+1. Deploy with service principals.
 1. Application resources can communicate over network.
 
 ### Components
