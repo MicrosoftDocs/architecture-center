@@ -623,54 +623,54 @@
 			<text x="4.32" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Job queue</text>		</g>
 		<g id="shape1123-180" v:mID="1123" v:groupContext="shape" transform="translate(207.36,-463.75)">
 			<title>Sheet.1123</title>
-			<desc>Virtual Machines</desc>
+			<desc>Virtual machines</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(25000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="54" cy="575" width="108" height="20"/>
 			<rect x="0" y="565" width="108" height="20" class="st17"/>
-			<text x="10.02" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Machines</text>		</g>
+			<text x="10.24" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual machines</text>		</g>
 		<g id="shape1124-183" v:mID="1124" v:groupContext="shape" transform="translate(467.64,-463.75)">
 			<title>Sheet.1124</title>
-			<desc>Virtual Machines</desc>
+			<desc>Virtual machines</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(26000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="54" cy="575" width="108" height="20"/>
 			<rect x="0" y="565" width="108" height="20" class="st17"/>
-			<text x="10.02" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Machines</text>		</g>
+			<text x="10.24" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual machines</text>		</g>
 		<g id="shape1125-186" v:mID="1125" v:groupContext="shape" transform="translate(467.64,-274.5)">
 			<title>Sheet.1125</title>
-			<desc>Virtual Machines</desc>
+			<desc>Virtual machines</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(27000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="54" cy="575" width="108" height="20"/>
 			<rect x="0" y="565" width="108" height="20" class="st17"/>
-			<text x="10.02" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Machines</text>		</g>
+			<text x="10.24" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual machines</text>		</g>
 		<g id="shape1126-189" v:mID="1126" v:groupContext="shape" transform="translate(656.64,-274.5)">
 			<title>Sheet.1126</title>
-			<desc>Virtual Machines</desc>
+			<desc>Virtual machines</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(28000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="54" cy="575" width="108" height="20"/>
 			<rect x="0" y="565" width="108" height="20" class="st17"/>
-			<text x="10.02" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Machines</text>		</g>
+			<text x="10.24" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual machines</text>		</g>
 		<g id="shape1127-192" v:mID="1127" v:groupContext="shape" transform="translate(467.64,-108.25)">
 			<title>Sheet.1127</title>
-			<desc>Virtual Machines</desc>
+			<desc>Virtual machines</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(29000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="54" cy="575" width="108" height="20"/>
 			<rect x="0" y="565" width="108" height="20" class="st17"/>
-			<text x="10.02" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Machines</text>		</g>
+			<text x="10.24" y="578.6" class="st18" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual machines</text>		</g>
 		<g id="shape1128-195" v:mID="1128" v:groupContext="shape" transform="translate(682.028,855) rotate(180)">
 			<title>Sheet.1128</title>
 			<v:userDefs>
@@ -690,14 +690,14 @@
 			<text x="7.23" y="579.2" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure</text>		</g>
 		<g id="shape1130-201" v:mID="1130" v:groupContext="shape" transform="translate(465.532,-206)">
 			<title>Sheet.1130</title>
-			<desc>On-premise</desc>
+			<desc>On-premises</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(32000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="46.2341" cy="575" width="92.47" height="20"/>
 			<rect x="0" y="565" width="92.4681" height="20" class="st17"/>
-			<text x="9.63" y="579.2" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premise</text>		</g>
+			<text x="6.66" y="579.2" class="st20" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises</text>		</g>
 		<g id="shape1131-204" v:mID="1131" v:groupContext="shape" transform="translate(328.744,-491.04)">
 			<title>Circle.1070</title>
 			<desc>2</desc>
