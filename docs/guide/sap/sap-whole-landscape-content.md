@@ -81,7 +81,7 @@ The database subnet holds virtual machines running databases. In the diagram, a 
 
 Perimeter subnets are internet facing and include an SAP perimeter subnet and an Application Gateway subnet. Here are our recommendations for designing these two subnets.
 
-**SAP perimeter subnet**: The SAP perimeter subnet is a demilitarized zone (DMZ) that contains internet-facing applications such as SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. These services have dependencies on SAP systems that an SAP team should deploy, manage, and configure. A central IT team shouldn't manage the services in the SAP perimeter subnet. For this reason, you should place these services in the SAP spoke virtual network and not the Hub virtual network. The architecture diagram only shows a production SAP perimeter network. It doesn't have an SAP perimeter subnet in the non-production virtual networks. The workloads in the non-production SAP subscription use the services in the SAP perimeter subnet.
+**SAP perimeter subnet**: The SAP perimeter subnet is a perimeter network that contains internet-facing applications such as SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. These services have dependencies on SAP systems that an SAP team should deploy, manage, and configure. A central IT team shouldn't manage the services in the SAP perimeter subnet. For this reason, you should place these services in the SAP spoke virtual network and not the Hub virtual network. The architecture diagram only shows a production SAP perimeter network. It doesn't have an SAP perimeter subnet in the non-production virtual networks. The workloads in the non-production SAP subscription use the services in the SAP perimeter subnet.
 
 You can create separate set SAP perimeter subnet in the non-production subscription. We only recommend this approach for critical workloads or workloads that will change frequently. A dedicated non-production SAP perimeter is helpful for testing and new feature deployment. Less critical applications or applications that will only have few modifications over time don't need a separate non-production SAP perimeter subnet.
 
@@ -95,7 +95,7 @@ You can create separate set SAP perimeter subnet in the non-production subscript
 
 This network design provides better incident response capabilities and fine-grained network access control. However, it also increases the management complexity, network latency, and cost of the deployment. Let's discuss each point.
 
-*Better incident response*: The SAP perimeter spoke virtual network allows quick isolation of compromised services if a breach is detected. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You don't want to rely on network security group (NSG) rules changes for incident response. Changing or removing an NSG rule only affects new connections and won't cut existing malicious connections.
+*Better incident response*: The SAP perimeter spoke virtual network allows quick isolation of compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You don't want to rely on network security group (NSG) rules changes for incident response. Changing or removing an NSG rule only affects new connections and won't cut existing malicious connections.
 
 *Fine-grained network access control*: The SAP perimeter virtual network provides more stringent network access control to and from the SAP production spoke virtual network.
 
@@ -119,7 +119,7 @@ Using subnets to group SAP resources that have the same security rule requiremen
 
 We recommend using Azure Private Link to improve the security of network communications. Azure Private Link uses private endpoints with private IP addresses to communicate with Azure services. Azure Private Links avoids sending network communication over the internet to public endpoints. For more information, see [private endpoints on Azure services](/azure/private-link/private-endpoint-overview).
 
-**Use private endpoints in the application subnet**: We recommend using private endpoints to connect the application subnet to supported Azure services. In the architecture, there's a private endpoint for Azure Files in the Application subnet of each virtual network. The same concept can be extended to any supported Azure service.
+**Use private endpoints in the application subnet**: We recommend using private endpoints to connect the application subnet to supported Azure services. In the architecture, there's a private endpoint for Azure Files in the Application subnet of each virtual network. You can extend this concept to any supported Azure service.
 
 **Use Azure Private Link for SAP Business Technology Platform (BTP)**: Azure Private Link for SAP Business Technology Platform (BTP) is now generally available. SAP Private Link Service supports connections from SAP BTP, the Cloud Foundry runtime, and other services. Example scenarios include SAP S/4HANA or SAP ERP running on the virtual machine. They can connect to Azure native services such as Azure Database for MariaDB and Azure Database for MySQL.
 
@@ -134,7 +134,7 @@ For more information, see:
 
 ### Network file system (NFS) and server message block (SMB) file shares
 
-SAP systems often depend on network file system volumes or server message block shares. These file shares move files between virtual machines or act as a file interface with other applications. We recommend using native Azure services, such as Azure Premium Files and Azure NetApp Files, as your network file system (NFS) and server message block (SMB) file shares. Azure services have better combined availability, resilience, and service level agreements (SLAs) than operating-system-based tools.
+SAP systems often depend on network file system volumes or server message block shares. These file shares move files between virtual machines or function as a file interface with other applications. We recommend using native Azure services, such as Azure Premium Files and Azure NetApp Files, as your network file system (NFS) and server message block (SMB) file shares. Azure services have better combined availability, resilience, and service level agreements (SLAs) than operating-system-based tools.
 
 For more information, see:
 
@@ -173,7 +173,7 @@ For many data integration scenarios, an integration runtime is required. The Azu
 
 SAP solutions rely on shared services. Load balancer and application gateways are examples of services that multiple SAP systems use. The architecture but your organizational needs should determine how you architect your shared services. Here's general guidance you should follow.
 
-**Load balancers**: We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does.  Check the database-specific documentation for more details.
+**Load balancers**: We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does. Check the database-specific documentation for more details.
 
 **Application Gateway**: We recommend at least one application gateway per SAP environment (production, non-production, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity since not all SAP systems in the environment require public access. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
 
@@ -208,12 +208,12 @@ For smaller SAP solutions, it might be beneficial to simply the network design. 
 **Combine SAP spoke virtual networks between different SAP environments** The architecture uses different virtual networks for each SAP environment (hub, production, non-production, and disaster recovery). Depending on the size of your SAP landscape, you can combine the SAP spoke virtual networks into fewer or even only one SAP spoke. You still need to divide between production and non-production environments. Each SAP production environment becomes a subnet in one SAP production virtual network. Each SAP non-production environment becomes a subnet in one SAP non-production virtual network.
 
 ## Contributors
-  
+
 *Microsoft maintains this article. It was originally written by the following contributors.*
 
 **Principal authors:**
 
-- [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect  
+- [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect
 - [Pankaj Meshram](https://ww.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager
 
 ## Next steps
