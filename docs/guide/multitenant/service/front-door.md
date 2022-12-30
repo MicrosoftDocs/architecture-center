@@ -173,7 +173,7 @@ Proseware deploys Azure Front Door by using this configuration:
 
 ### Scenario 3: Provider-managed stamp-based wildcard subdomains
 
-Fabrikam is building a multitenant solution. The company deploys stamps in Australia and the United States. All requests within a single region will be served by the stamp in that region. Fabrikam decided to use stamp-based stem domains, like `tenant1.australia.fabrikam.com`, `tenant2.australia.fabrikam.com`, and `tenant3.us.fabrikam.com`.
+Fabrikam is building a multitenant solution. The company deploys stamps in Australia and the United States. All requests within a single region will be served by the stamp in that region. Fabrikam will use stamp-based stem domains, like `tenant1.australia.fabrikam.com`, `tenant2.australia.fabrikam.com`, and `tenant3.us.fabrikam.com`.
 
 The company deploys Azure Front Door by using this configuration:
 
@@ -214,7 +214,7 @@ The company deploys Azure Front Door by using this configuration:
 
 ### Scenario 4: Vanity domains
 
-Adventure Works Cycles is building a multitenant solution. They deploy stamps in multiple regions, like Australia and the United States. All requests within a single region will be served by the stamp in that region. The company decided to allow its tenants to bring their own domain names. For example, tenant 1 might configure a custom domain name like `tenant1app.tenant1.com`.
+Adventure Works Cycles is building a multitenant solution. The company deploys stamps in multiple regions, like Australia and the United States. All requests within a single region will be served by the stamp in that region. Adventure Works will allow its tenants to bring their own domain names. For example, tenant 1 might configure a custom domain name like `tenant1app.tenant1.com`.
 
 The company deploys Azure Front Door by using this configuration:
 
@@ -234,7 +234,7 @@ The company deploys Azure Front Door by using this configuration:
 Adventure Works and its tenants need to decide who issues TLS certificates:
 
 - The easiest option is to use Azure Front Door to issue and manage the certificates, but tenants must be sure they don't configure CCA records on their DNS servers. If they do, the records might prevent the Azure Front Door certification authority from issuing certificates.
-- Alternately, tenants can provide their own certificates. They need to work with Adventure Works to upload the certificate to a key vault and get access to Azure Front Door.
+- Alternatively, tenants can provide their own certificates. They need to work with Adventure Works to upload the certificate to a key vault and provide access to Azure Front Door.
 
 #### Azure Front Door configuration
 
