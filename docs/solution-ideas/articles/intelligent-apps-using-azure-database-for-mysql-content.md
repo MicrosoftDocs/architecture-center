@@ -10,7 +10,7 @@ This article presents a solution for automating data analysis and visualization 
 
 ### Dataflow
 
-1. An Azure Function activity allows you to trigger Azure Functions in the Azure Data Factory pipeline. You create a linked service connection and use the linked service with an activity to specify the Azure Function you want to execute.
+1. An Azure Function activity allows you to trigger Azure Functions App in the Azure Data Factory pipeline. You create a linked service connection and use the linked service with an activity to specify the Azure Function you want to execute.
 1. Data comes from various sources such as Azure Blob Storage or Azure Event Hubs for high volume of data. When the pipeline receives new data, it triggers the function.
 1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.
