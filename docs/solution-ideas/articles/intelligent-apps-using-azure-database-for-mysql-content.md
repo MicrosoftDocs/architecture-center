@@ -13,9 +13,9 @@ This article presents a solution for automating data analysis and visualization 
 1. An Azure Function activity allows you to trigger Azure Functions App in the Azure Data Factory pipeline. You create a linked service connection and use the linked service with an activity to specify the Azure Function you want to execute.
 1. Data comes from various sources such as Azure Blob Storage or Azure Event Hubs for a high volume of data. When the pipeline receives new data, it triggers the function.
 1. The Azure Functions App calls the Cognitive Services API to analyze the data.
-1. The results of the analysis are returned in JSON format from the Cognitive Services API.
-1. The function stores the data and results from the Cognitive Services API in Azure Database for MySQL.
-1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide insights into the data.
+1. The Cognitive Services API returns results of the analysis in JSON format to the Azure Functions App.
+1. The Azure Functions App stores the data and results from the Cognitive Services API in Azure Database for MySQL.
+1. Azure Machine Learning use custom machine learning algorithms to provide further insights into the data.
 1. The MySQL database connector for Power BI provides options for data visualization and analysis in Power BI or a custom web application.
 
 ### Components
