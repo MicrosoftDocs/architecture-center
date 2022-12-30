@@ -1,4 +1,4 @@
-This article provides best practices for architecting an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, non-production, and disaster recovery environments. We provide high-level recommendations that focus on high-level network design and not specific SAP systems. The goal is to provide our recommendations for architecting a secure, high-performing, and resilient SAP landscape.
+This article provides best practices for architecting an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, non-production, and disaster recovery environments. We provide recommendations that focus on network design and not specific SAP systems. The goal is to provide our recommendations for architecting a secure, high-performing, and resilient SAP landscape.
 
 ## Architecture
 
