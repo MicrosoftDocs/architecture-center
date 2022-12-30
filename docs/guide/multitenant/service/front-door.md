@@ -103,7 +103,7 @@ Contoso deploys Azure Front Door by using this configuration:
 **One-time configuration:** Contoso configures two DNS entries:
 
 - A wildcard TXT record for `*.contoso.com`. It's set to the value that's specified by Azure Front Door during the custom domain onboarding process.
-- A wildcard CNAME record, `*.contoso.com`, that aliases to Contoso's Azure Front Door endpoint: `contoso.z01.azurefd.net`.
+- A wildcard CNAME record, `*.contoso.com`, that's an alias for Contoso's Azure Front Door endpoint: `contoso.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
@@ -143,7 +143,7 @@ Proseware deploys Azure Front Door by using this configuration:
 **One-time configuration:** Proseware configures two DNS entries:
 
 - A wildcard TXT record for `*.proseware.com`. It's set to the value that's specified by Azure Front Door during the custom domain onboarding process.
-- A wildcard CNAME record, `*.proseware.com`, that aliases to Proseware's Azure Front Door endpoint: `proseware.z01.azurefd.net`.
+- A wildcard CNAME record, `*.proseware.com`, that's an alias for Proseware's Azure Front Door endpoint: `proseware.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
@@ -162,7 +162,7 @@ Proseware deploys Azure Front Door by using this configuration:
 #### Benefits
 
 - When new tenants are onboarded, no DNS or TLS configuration changes are required.
-- Proseware maintains single instance of Azure Front Door to route traffic to multiple stamps across multiple regions.
+- Proseware maintains a single instance of Azure Front Door to route traffic to multiple stamps across multiple regions.
 
 #### Drawbacks
 
@@ -184,7 +184,7 @@ The company deploys Azure Front Door by using this configuration:
 **One-time configuration:** Fabrikam configures the following two wildcard DNS entries for each stamp.
 
 - A wildcard TXT record for each stamp: `*.australia.fabrikam.com` and `*.us.fabrikam.com`. They're set to the values specified by Azure Front Door during the custom domain onboarding process.
-- A wildcard CNAME record for each stamp, `*.australia.fabrikam.com` and `*.us.fabrikam.com`, which both alias to the Azure Front Door endpoint: `fabrikam.z01.azurefd.net`.
+- A wildcard CNAME record for each stamp, `*.australia.fabrikam.com` and `*.us.fabrikam.com`, which are both aliases for the Azure Front Door endpoint: `fabrikam.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
@@ -240,7 +240,7 @@ Adventure Works and its tenants need to decide who issues TLS certificates:
 
 **One-time configuration:** Adventure Works creates an Azure Front Door profile and a single endpoint. They configure an origin group for each stamp. They don't create custom domain resources or routes.
 
-**When a new tenant is onboarded:** Adventure Works adds a custom domain resource to Azure Front Door. They use the tenant-provided domain name and associate the appropriate TLS certificate with the custom domain resource. They then create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the preceding diagram, `tenant1app.tenant1.com` routes to the origin group in the Australia region, and `tenant2app.tenant3.com` routes to the origin group in the US region.
+**When a new tenant is onboarded:** Adventure Works adds a custom domain resource to Azure Front Door. They use the tenant-provided domain name and associate the appropriate TLS certificate with the custom domain resource. They then create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the preceding diagram, `tenant1app.tenant1.com` is routed to the origin group in the Australia region, and `tenant2app.tenant3.com` is routed to the origin group in the US region.
 
 #### Benefits
 
