@@ -34,7 +34,7 @@ When you use Azure Front Door as part of a multitenant solution, you need to mak
 
 ## Features of Azure Front Door that support multitenancy
 
-This section describes several key features of Azure Front Door that are useful for multitenant solutions. It describes how Azure Front Door can help you configure custom domains, including wildcard domains and TLS certificates. It also summarizes how you can use the Azure Front Door routing capabilities to support multitenancy.
+This section describes several key features of Azure Front Door that are useful for multitenant solutions. It describes how Azure Front Door can help you configure custom domains, including information about wildcard domains and TLS certificates. It also summarizes how you can use Azure Front Door routing capabilities to support multitenancy.
 
 ### Custom domains
 
@@ -46,13 +46,13 @@ For more information, see [Add a custom domain to your Front Door](/azure/frontd
 
 #### Wildcard domains
 
-Wildcard domains simplify the configuration of DNS records and Azure Front Door traffic routing configuration when you use a shared stem domain and tenant-specific subdomains. For example, assume your tenants access their applications by using subdomains like `tenant1.app.contoso.com`, `tenant2.app.contoso.com`, and so on. You can configure a wildcard domain, `*.app.contoso.com`, instead of configuring each tenant-specific domain individually.
+Wildcard domains simplify the configuration of DNS records and Azure Front Door traffic routing configuration when you use a shared stem domain and tenant-specific subdomains. For example, suppose your tenants access their applications by using subdomains like `tenant1.app.contoso.com` and `tenant2.app.contoso.com`. You can configure a wildcard domain, `*.app.contoso.com`, instead of configuring each tenant-specific domain individually.
 
 Azure Front Door supports creating custom domains that use wildcards. You can then configure a route for requests that arrive on the wildcard domain. When you onboard a new tenant, you don't need to reconfigure your DNS servers, issue new TLS certificates, or update your Azure Front Door profile's configuration.
 
 Wildcard domains work well if you send all your traffic to a single origin group. But if you have separate stamps of your solution, a single-level wildcard domain isn't sufficient. You either need to use multi-level stem domains or supply extra configuration by, for example, overriding the routes to use for each tenant's subdomain. For more information, see [Considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
 
-Also, Azure Front Door doesn't issue managed TLS certificates for wildcard domains, so you need to purchase and supply your own certificate.
+Azure Front Door doesn't issue managed TLS certificates for wildcard domains, so you need to purchase and supply your own certificate.
 
 For more information, see [Wildcard domains](/azure/frontdoor/front-door-wildcard-domain?pivots=front-door-standard-premium).
 
@@ -68,17 +68,17 @@ For more information about TLS certificates, see [End-to-end TLS with Azure Fron
 
 ### Routing
 
-A multitenant application might have one or more application stamps that serve the tenants. Stamps are frequently used to enable multi-region deployments and to support scaling your solution to a large number of tenants.
+A multitenant application might have one or more application stamps that serve the tenants. Stamps are frequently used to enable multi-region deployments and to support scaling a solution to a large number of tenants.
 
-Azure Front Door has a powerful set of routing capabilities that can support a number of multitenant architectures. You can use routing to distribute traffic among origins within a stamp, or to send traffic to the correct stamp for a specific tenant. You can configure routing based on individual domain names, wildcard domain names, and URL paths. You can use the rules engine to further customize routing behavior.
+Azure Front Door has a powerful set of routing capabilities that can support a number of multitenant architectures. You can use routing to distribute traffic among origins within a stamp, or to send traffic to the correct stamp for a specific tenant. You can configure routing based on individual domain names, wildcard domain names, and URL paths. And you can use the rules engine to further customize routing behavior.
 
 For more information, see [Routing architecture overview](/azure/frontdoor/front-door-routing-architecture).
 
 ### Rules engine
 
-You can use the Azure Front Door rules engine to customize how Azure Front Door processes requests at the network edge. The rules engine enables you to run small blocks of logic within the Front Door request-processing pipeline. You can use the rules engine to override the routing configuration for a request. You can also use the rules engine to modify elements of the request before it's sent to the origin, and to modify some parts of the response before it's returned to the client.
+You can use the Azure Front Door rules engine to customize how Azure Front Door processes requests at the network edge. The rules engine enables you to run small blocks of logic within the Azure Front Door request-processing pipeline. You can use the rules engine to override the routing configuration for a request. You can also use the rules engine to modify elements of the request before it's sent to the origin, and to modify some parts of the response before it's returned to the client.
 
-For example, suppose you've deployed a multitenant application tier in which you also use tenant-specific wildcard subdomains, as described in the following example scenarios. You might use the rules engine to extract the tenant identifier from the request subdomain and add it to a request header. This rule could help the application tier determine which tenant the request came from.
+For example, suppose you deploy a multitenant application tier in which you also use tenant-specific wildcard subdomains, as described in the following example scenarios. You might use the rules engine to extract the tenant identifier from the request subdomain and add it to a request header. This rule could help the application tier determine which tenant the request came from.
 
 For more information, see [What is Rules Engine for Azure Front Door?](/azure/frontdoor/front-door-rules-engine).
 
@@ -132,7 +132,7 @@ Contoso deploys Azure Front Door by using this configuration:
 
 ### Scenario 2: Provider-managed wildcard domain, multiple stamps
 
-Proseware is building a multitenant solution across multiple stamps that are deployed into both Australia and Europe. All requests within a single region are served by the stamp in that region. Like Contoso, Proseware decided to use wildcard domains for all tenants, like `tenant1.prosware.com` and `tenant2.prosware.com`.
+Proseware is building a multitenant solution across multiple stamps that are deployed into both Australia and Europe. All requests within a single region are served by the stamp in that region. Like Contoso, Proseware decided to use wildcard domains for all tenants, like `tenant1.proseware.com` and `tenant2.proseware.com`.
 
 Proseware deploys Azure Front Door by using this configuration:
 
@@ -142,8 +142,8 @@ Proseware deploys Azure Front Door by using this configuration:
 
 **One-time configuration:** Proseware configures two DNS entries:
 
-- A wildcard TXT record for `*.prosware.com`. It's set to the value that's specified by Azure Front Door during the custom domain onboarding process.
-- A wildcard CNAME record, `*.prosware.com`, that aliases to Proseware's Azure Front Door endpoint: `prosware.z01.azurefd.net`.
+- A wildcard TXT record for `*.proseware.com`. It's set to the value that's specified by Azure Front Door during the custom domain onboarding process.
+- A wildcard CNAME record, `*.proseware.com`, that aliases to Proseware's Azure Front Door endpoint: `proseware.z01.azurefd.net`.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
@@ -157,7 +157,7 @@ Proseware deploys Azure Front Door by using this configuration:
 
 **One-time configuration**: Proseware creates an Azure Front Door profile and a single endpoint. The company configures multiple origin groups, one per application stamp/server in each region.
 
-**When a new tenant is onboarded:** Proseware adds a custom domain resource to Azure Front Door. They use the name `*.prosware.com` and associate their wildcard TLS certificate with the custom domain resource. They then create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the preceding diagram, `tenant1.prosware.com` routes to the origin group in the Australia region, and `tenant2.prosware.com` routes to the origin group in the Europe region.
+**When a new tenant is onboarded:** Proseware adds a custom domain resource to Azure Front Door. They use the name `*.proseware.com` and associate their wildcard TLS certificate with the custom domain resource. They then create a route to specify which origin group (stamp) that tenant's requests should be directed to. In the preceding diagram, `tenant1.proseware.com` routes to the origin group in the Australia region, and `tenant2.proseware.com` routes to the origin group in the Europe region.
 
 #### Benefits
 
@@ -196,7 +196,7 @@ The company deploys Azure Front Door by using this configuration:
 
 #### Azure Front Door configuration
 
-**One-time configuration:** Fabrikam creates an Azure Front Door profile and a single endpoint. They configure an origin group for each stamp. They create a custom domain using the wildcard for each stamp-based subdomain: `*.australia.fabrikam.com` and `*.us.fabrikam.com`. They create a route for stamp's custom domain to send traffic to the appropriate origin group.
+**One-time configuration:** Fabrikam creates an Azure Front Door profile and a single endpoint. They configure an origin group for each stamp. They create a custom domains that use the wildcard for each stamp-based subdomain: `*.australia.fabrikam.com` and `*.us.fabrikam.com`. They create a route for each stamp's custom domain to send traffic to the appropriate origin group.
 
 **When a new tenant is onboarded:** No additional configuration is required.
 
