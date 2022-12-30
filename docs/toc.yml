@@ -6158,6 +6158,8 @@ items:
               - name: SAP checklist
                 href: /azure/virtual-machines/workloads/sap/sap-deployment-checklist
                 maintainContext: true
+              - name: SAP landscape architecture
+                href: guide/sap/sap-whole-landscape.yml
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true
