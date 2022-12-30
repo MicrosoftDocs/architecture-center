@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for automating the process of using AI to analyze data from various sources. For example, you can use the solution for social media text analysis. Core components in the solution are Azure Functions, Azure Cognitive Services, and Azure Database for PostgreSQL.
+This article presents a solution for automating data analysis and visualization using artificial intelligence (AI).  For example, you can use the solution for social media text analysis. Core components in the solution are Azure Functions, Azure Cognitive Services, and Azure Database for PostgreSQL.
 
 ## Architecture
 
