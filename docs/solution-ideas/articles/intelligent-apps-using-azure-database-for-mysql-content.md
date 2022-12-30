@@ -41,7 +41,7 @@ This article presents a solution for automating data analysis and visualization 
 
 ## Scenario details
 
-The automated pipelines in this solution use state-of-the-art machine learning algorithms to analyze data from disparate sources. The analysis uses:
+The automated pipeline uses the following services to analyze the data:
 
 - AI capabilities that Cognitive Services offers, such as question answering, sentiment analysis, and text translation.
 - Services that Machine Learning studio offers for managing predictive analytics.
