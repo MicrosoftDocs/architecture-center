@@ -79,6 +79,8 @@ The database subnet holds virtual machines running databases. In the diagram, a 
 
 ##### Perimeter subnets
 
+Perimeter subnets are internet facing and include an SAP perimeter subnet and an Application Gateway subnet. Here are our recommendations for designing these two subnets.
+
 **SAP perimeter subnet**: The SAP perimeter subnet is a demilitarized zone (DMZ) that contains internet-facing applications such as SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. These services have dependencies on SAP systems that an SAP team should deploy, manage, and configure. A central IT team shouldn't manage the services in the SAP perimeter subnet. For this reason, you should place these services in the SAP spoke virtual network and not the Hub virtual network. The architecture diagram only shows a production SAP perimeter network. It doesn't have an SAP perimeter subnet in the non-production virtual networks. The workloads in the non-production SAP subscription use the services in the SAP perimeter subnet.
 
 You can create separate set SAP perimeter subnet in the non-production subscription. We only recommend this approach for critical workloads or workloads that will change frequently. A dedicated non-production SAP perimeter is helpful for testing and new feature deployment. Less critical applications or applications that will only have few modifications over time don't need a separate non-production SAP perimeter subnet.
@@ -105,13 +107,13 @@ For more information, see [perimeter network best practices](/azure/cloud-adopti
 
 If you're using NetApp Files, you should have a delegated subnet to provide network file system (NFS) or server message block (SMB) file shares for different SAP on Azure scenarios. A /24 subnet is the default size for a NetApp Files subnet, but you can change the size to meet your needs. Use your own requirements to determine the proper sizing. For more information, see [delegated subnet](/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).
 
-#### Subnet security
+##### Subnet security
 
 Using subnets to group SAP resources that have the same security rule requirements makes it easier to manage the security.
 
 **Network security groups (NSG)**: Subnets allow you to implement network security groups at the subnet level. Grouping resources in the same subnet that require different security rules requires network security groups at the subnet level and network-interface level. With this two-level setup, security rules easily conflict and can cause unexpected communication problems that are difficult to troubleshoot. NSG rules also affect traffic [within the subnet](/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic). For more information on NSGs, see [network security groups](/azure/virtual-network/tutorial-filter-network-traffic-cli).
 
-**Application security groups (ASG)**: We recommend using application security groups to group VM network interfaces and reference the application security groups in the network-security-group rules. This configuration allows easier rule creation and management for SAP deployments. Each network interface can belong to multiple application security groups with different network-security-group rules. For more information, see [application security groups](/azure/virtual-network/application-security-groups).
+**Application security groups (ASG)**: We recommend using application security groups to group virtual machine network interfaces and reference the application security groups in the network-security-group rules. This configuration allows easier rule creation and management for SAP deployments. Each network interface can belong to multiple application security groups with different network-security-group rules. For more information, see [application security groups](/azure/virtual-network/application-security-groups).
 
 #### Azure Private Link
 
@@ -171,23 +173,13 @@ For many data integration scenarios, an integration runtime is required. The Azu
 
 SAP solutions rely on shared services. Load balancer and application gateways are examples of services that multiple SAP systems use. The architecture but your organizational needs should determine how you architect your shared services. Here's general guidance you should follow.
 
-#### Load balancers
+**Load balancers**: We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group. Each SAP system with a clustered high-availability (HA) architecture should have at least one load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does.  Check the database-specific documentation for more details.
 
-We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group.
+**Application Gateway**: We recommend at least one application gateway per SAP environment (production, non-production, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity since not all SAP systems in the environment require public access. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
 
-Each SAP system with a clustered high-availability (HA) architecture should have at least one load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does.  Check the database-specific documentation for more details.
+**SAP Web Dispatcher virtual machines**: The architecture shows a pool of two or more SAP Web Dispatcher VMs. We recommend that you don't reuse SAP Web Dispatcher virtual machines between different SAP systems. Keeping them separate allows you to size the Web Dispatcher virtual machines to meet the needs of each SAP system. For smaller SAP solutions, we recommend embedding the Web Dispatcher services in the ASCS instance.
 
-#### Application Gateway
-
-We recommend at least one application gateway per SAP environment (production, non-production, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity since not all SAP systems in the environment require public access. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
-
-#### SAP Web Dispatcher virtual machines
-
-The architecture shows a pool of two or more SAP Web Dispatcher VMs. We recommend that you don't reuse SAP Web Dispatcher virtual machines between different SAP systems. Keeping them separate allows you to size the Web Dispatcher virtual machines to meet the needs of each SAP system. For smaller SAP solutions, we recommend embedding the Web Dispatcher services in the ASCS instance.
-
-#### SAP services
-
-SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. No recommendation on reuse between SAP systems due to diverse customer requirements. Main decision to make is mentioned in networking section, if and when SAP perimeter subnet for non-production should be used. Otherwise with just production perimeter subnet for SAP, the SAP perimeter services are consumed by entire SAP landscape.
+**SAP services**: SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. No recommendation on reuse between SAP systems due to diverse customer requirements. Main decision to make is mentioned in networking section, if and when SAP perimeter subnet for non-production should be used. Otherwise with just production perimeter subnet for SAP, the SAP perimeter services are consumed by entire SAP landscape.
 
 ### Disaster recovery
 
