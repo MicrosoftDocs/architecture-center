@@ -32,7 +32,7 @@ This article presents a solution for automating data analysis and visualization 
 
 ### Alternatives
 
-- This solution uses Functions to process data as it's received. If a large amount of data already exists in the data source, consider forms of batch processing.
+- This solution uses Azure Functions to process data as it's received. If a large amount of data already exists in the data source, consider forms of batch processing.
 - [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) provides event processing for high volumes of fast-streaming data that arrives simultaneously from multiple sources. Stream Analytics also supports integration with Power BI.
 - To compare this solution with alternatives, see the following resources:
   - [Choose a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
