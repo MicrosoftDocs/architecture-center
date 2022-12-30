@@ -285,7 +285,7 @@ Principal author:
 Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-* [Fernando Antivero](http://linkedin.com/in/fernandoantivero) | Fullstack Developer & Cloud Platform Engineer, Clarius Consulting
+* [Fernando Antivero](http://linkedin.com/in/fernandoantivero) | Fullstack Developer & Cloud Platform Engineer
 * [Duong Au](http://linkedin.com/in/duong-au-32427b46) | Senior Content Developer, C+E Skilling Content R&D
 * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
 * [Harikrishnan M B (HARI)](http://linkedin.com/in/harikrishnanmb) | Product Manager 2, Azure Networking 
