@@ -2,7 +2,7 @@ AI on the edge is one of the most popular edge scenarios. Implementations of thi
 
 You can improve AI accuracy by updating the AI model, but in some scenarios the edge device network environment isn't good. For example, in the wind power and oil industries, equipment might be located in the desert or the ocean.
 
-IoT Edge module twins are used to implement the dynamically loaded AI model. IoT Edge modules are based on Docker. An IoT Edge module image for an AI environment is typically sized at least at the GB level, so incremental updates to the AI model in a narrow-bandwidth network are important. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow Lite or Open Neural Network Exchange (ONNX) object detection models. You can also enable the module as a web API so that you can use it to benefit other applications or modules.
+IoT Edge module twins are used to implement the dynamically loaded AI model. IoT Edge modules are based on Docker. An image for an IoT Edge module in an AI environment typically has a size of at least 1 GB, so incrementally updating the AI model is important in a narrow-bandwidth network. That consideration is the main focus of this article. The idea is to create an IoT Edge AI module that can load TensorFlow Lite or Open Neural Network Exchange (ONNX) object detection models. You can also enable the module as a web API so that you can use it to benefit other applications or modules.
 
 The solution described in this article can help you in these ways:
 
@@ -21,12 +21,12 @@ The solution described in this article can help you in these ways:
 
 1.	The AI model is uploaded to Azure Blob Storage or a web service. The model can be a pre-trained TensorFlow Lite or ONNX model or a model created in Azure Machine Learning. The IoT Edge module can access this model and download it to the edge device later. If you need better security, consider using private endpoint connections between Blob Storage and the edge device.
 2.	Azure IoT Hub syncs device module twins automatically with AI model information. The sync occurs even if IoT Edge has been offline. (In some cases, IoT devices are connected to networks at scheduled hourly, daily, or weekly times to save power or reduce network traffic.)
-3.	The loader module monitors the updates of the module twins via SDK. When it detects an update, it gets the machine learning model SAS token and then downloads the AI model. 
+3.	The loader module monitors the updates of the module twins via API. When it detects an update, it gets the machine learning model SAS token and then downloads the AI model. 
     - For more information, see [Create SAS token for a container or blob](/azure/storage/blobs/sas-service-create).
     - You can use the **ExpiresOn** property to set the expiration date of resources. If your device will be offline for a long time, you can extend the expiration time.
 4.	The loader module saves the AI model in the shared local storage of the IoT Edge module. You need to configure the shared local storage in the IoT Edge deployment JSON file.
-5.	The loader module loads the AI model from local storage via the TensorFlow Lite or ONNX SDK.
-6.	The loader module starts a web API that receives the binary photo via post request and returns the results in a JSON file.
+5.	The loader module loads the AI model from local storage via the TensorFlow Lite or ONNX API.
+6.	The loader module starts a web API that receives the binary photo via POST request and returns the results in a JSON file.
 
 To update the AI model, you can upload the new version to Blob Storage and sync the device module twins again for an incremental update. There's no need to update the whole IoT Edge module image.
 
@@ -41,7 +41,7 @@ The next two sections clarify some concepts about machine learning inference mod
 - A **.tflite* file is a pre-trained AI model. You can download one from [TensorFlow.org](https://www.tensorflow.org/lite/examples/object_detection/overview). It's a generic AI model that you can use in cross-platform applications like iOS and Android. For more information about metadata and associated fields (for example, `labels.txt`) see [Read the metadata from models](https://www.tensorflow.org/lite/models/convert/metadata#read_the_metadata_from_models).
 - An object detection model is trained to detect the presence and location of multiple classes of objects. For example, a model might be trained with images that contain various pieces of fruit, along with a label that specifies the class of fruit that they represent (for example, apple) and data that specifies where each object appears in the image.
 
-  When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box that contains each object, and a score that indicates the confidence of the detection.
+  When an image is provided to the model, it outputs a list of the objects that it detects, the location of a bounding box for each object, and a score that indicates the confidence of the detection.
 - If you want to build or custom-tune an AI model, see [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/models/modify/model_maker).
 - You can get more free pre-trained detection models, with various latency and precision characteristics, at [Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#mobile-models). Each model uses the input and output signatures shown in the following code samples.
 
@@ -59,7 +59,7 @@ The ONNX community [provides tools](https://onnx.ai/supported-tools.html) to hel
 
 To download trained AI models, we recommend that you use device twins to receive notifications when a new model is ready. Even if the device is offline, the message can be cached in IoT Hub until the edge device comes back online. The message will be  synchronized automatically.
 
-Following is an example of Python code that registers notifications for the device twins and then downloads the AI model in a ZIP package. It also performs further operations on the downloaded file.
+Following is an example of Python code that registers notifications for the device twins and then downloads the AI model in a ZIP file. It also performs further operations on the downloaded file.
 
 The code performs these tasks: 
 
@@ -69,7 +69,7 @@ The code performs these tasks:
 4.	Unzip the ZIP file and save it locally.
 5.	Send a notification to IoT Hub or a routing message to report that the new AI model is ready.
 
-```
+```python
 # define behavior for receiving a twin patch
 async def twin_patch_handler(patch):
     try:
@@ -136,7 +136,7 @@ The code performs these tasks:
 3.	Detect objects.
 4.	Compute detection scores.
 
-```
+```python
 class InferenceProcedure():
     
     def detect_object(self, imgBytes):
@@ -190,7 +190,7 @@ class InferenceProcedure():
 
 Following is the ONNX version of the preceding code. The steps are mostly the same. The only difference is how the detection score is handled, because the `Labelmap` and model output parameters are different.
 
-```
+```python
 class InferenceProcedure():
 
     def letterbox_image(self, image, size):
@@ -265,9 +265,7 @@ class InferenceProcedure():
 
 If your IoT edge device incorporates the preceding code and features, your edge device has AI image object detection and supports dynamic update of AI models. If you want the edge module to provide AI functionality to other applications or modules via a web API, you can create a web API in your module.
 
-Flask framework is one example of a tool that you can use to quickly create an API. You can receive images as binary data, use an AI model for detection, and then return the results in a JSON format.
-
-For more information, see [Flask: Flask Tutorial in Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-flask).
+Flask framework is one example of a tool that you can use to quickly create an API. You can receive images as binary data, use an AI model for detection, and then return the results in a JSON format. For more information, see [Flask: Flask Tutorial in Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-flask).
 
 ## Contributors 
 
