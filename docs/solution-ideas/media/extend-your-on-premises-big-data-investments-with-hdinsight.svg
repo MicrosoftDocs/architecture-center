@@ -719,5 +719,19 @@
 				<text x="5.5" y="477.3" class="st31" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft<v:newlineChar/><tspan
 							x="17.66" dy="1.2em" class="st22">Azure</tspan></text>			</g>
 		</g>
+		<g id="shape1155-219" v:mID="1155" v:groupContext="shape" transform="translate(672.188,162) rotate(90)">
+			<title>Sheet.1155</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(29000):26"/>
+			</v:userDefs>
+			<path d="M7.68 504 L8.04 504 L63.96 504" class="st25"/>
+		</g>
+		<g id="shape1156-226" v:mID="1156" v:groupContext="shape" transform="translate(1194.19,162) rotate(90)">
+			<title>Sheet.1156</title>
+			<v:userDefs>
+				<v:ud v:nameU="visNavOrder" v:val="VT0(30000):26"/>
+			</v:userDefs>
+			<path d="M7.68 504 L8.04 504 L63.96 504" class="st25"/>
+		</g>
 	</g>
 </svg>
