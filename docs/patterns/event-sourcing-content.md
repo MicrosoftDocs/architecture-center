@@ -10,7 +10,7 @@ The CRUD approach has some limitations:
 
 - In a collaborative domain with many concurrent users, data update conflicts are more likely because the update operations take place on a single item of data.
 
-- Unless there's an another auditing mechanism that records the details of each operation in a separate log, history is lost.
+- Unless there's another auditing mechanism that records the details of each operation in a separate log, history is lost.
 
 ## Solution
 
@@ -75,7 +75,7 @@ Use this pattern in the following scenarios:
 
 - When you use events. It's a natural feature of the operation of the application, and it requires little extra development or implementation effort.
 
-- When you need to decouple the process of inputting, or updating data from the tasks that required to apply these actions. This change might be to improve UI performance, or to distribute events to other listeners that take action when the events occur. For example, you can integrate a payroll system with an expense submission website. The events that are raised by the event store in response to data updates made in the website would be consumed by both the website and the payroll system.
+- When you need to decouple the process of inputting, or updating data from the tasks required to apply these actions. This change might be to improve UI performance, or to distribute events to other listeners that take action when the events occur. For example, you can integrate a payroll system with an expense submission website. The events that are raised by the event store in response to data updates made in the website would be consumed by both the website and the payroll system.
 
 - When you want flexibility to be able to change the format of materialized models and entity data if requirements change, or&mdash;when used with CQRS&mdash;you need to adapt a read model or the views that expose the data.
 
