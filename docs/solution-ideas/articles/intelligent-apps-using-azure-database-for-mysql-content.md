@@ -1,17 +1,17 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article presents a solution for automating the process of using AI to analyze data from various sources. Core components in the solution are Azure Functions, Azure Cognitive Services, and Azure Database for MySQL. By integrating visualization tools, the solution presents results to users.
+This article presents a solution for automating data analysis and visualization using artificial intelligence (AI). Core components in the solution are Azure Functions, Azure Cognitive Services, and Azure Database for MySQL.
 
 ## Architecture
 
-![Architecture diagram that shows the data flow of an intelligent app that stores data in Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.png)
+![Architecture diagram that shows the dataflow of an intelligent application using Azure Database for MySQL.](../media/intelligent-apps-using-azure-database-for-mysql.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-using-azure-database-for-mysql.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Azure Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run a function in the Data Factory pipeline.
-1. Data comes from various sources, such as Azure Blob Storage and Azure Event Hubs. Data is uploaded to Blob Storage, while Event Hubs ingests a high volume of data. When the system receives new data, the function in the pipeline is triggered.
+1. An Azure Function activity allows you to trigger Azure Functions in the Azure Data Factory pipeline. You create a linked service connection and use the linked service with an activity to specify the Azure Function you want to execute.
+1. Data comes from various sources such as Azure Blob Storage or Azure Event Hubs for high volume of data. When the pipeline receives new data, it triggers the function.
 1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
 1. The results of the analysis are returned in JSON format from the Cognitive Services API.
 1. The function stores the data and results from the Cognitive Services API in Azure Database for MySQL.
