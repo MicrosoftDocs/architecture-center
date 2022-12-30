@@ -46,7 +46,7 @@ The automated pipeline uses the following services to analyze the data:
 - Cognitive Services uses AI for question answering, sentiment analysis, and text translation.
 - Azure Machine Learning supplies machine-learning tools for predictive analytics.
 
-The solution also automates the delivery of results from the analysis. A connector links Azure Database for MySQL, where the solution stores results, with visualization tools like Power BI. These tools display insights from the data in meaningful ways.
+The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI. 
 
 For automation in the data ingestion stage, this architecture uses Functions. This serverless solution offers many benefits:
 
