@@ -173,13 +173,13 @@ SAP solutions rely on shared services. Load balancer and application gateways ar
 
 #### Load balancers
 
-We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and subnet.
+We recommend one load balancer per SAP system. This configuration helps minimize complexity. You want to avoid too many pools and rules on a single load balancer. This configuration also ensures naming and placement aligns with the SAP system and resource group.
 
-Each SAP system with a clustered high-availability (HA) architecture should have one load balancer. The architecture uses one load balancer for the ASCS virtual machines and another for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does.  Check the database-specific documentation for more details.
+Each SAP system with a clustered high-availability (HA) architecture should have at least one load balancer. The architecture uses one load balancer for the ASCS virtual machines and a second load balancer for the database virtual machines. Some databases might not require load balancers to create a high-availability deployment. SAP HANA does.  Check the database-specific documentation for more details.
 
 #### Application Gateway
 
-We recommend at least one application gateway per SAP environment (production, non-production, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity since not all SAP systems in the environment require public access. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or across different SAP environments.
+We recommend at least one application gateway per SAP environment (production, non-production, and sandbox) unless the complexity and number of connected systems is too high. You could use an application gateway for multiple SAP systems to reduce complexity since not all SAP systems in the environment require public access. A single application gateway could serve multiple web dispatcher ports for a single SAP S/4HANA system or be used by different SAP systems.
 
 #### SAP Web Dispatcher virtual machines
 
