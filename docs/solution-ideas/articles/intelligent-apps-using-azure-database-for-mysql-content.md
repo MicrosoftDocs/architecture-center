@@ -48,10 +48,10 @@ The automated pipeline uses the following services to analyze the data:
 
 The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI. 
 
-For automation in the data ingestion stage, this architecture uses Functions. This serverless solution offers many benefits:
+The architecture uses an Azure Functions App to ingest data from multiple data sources. It is a serverless solution that offers that following benefits:
 
-- Infrastructure maintenance. As an Azure managed service, Functions provides the cloud environment and resources that keep the apps running. Instead of managing infrastructure requirements, developers can focus on innovative work that delivers value to the business.
-- Scalability. Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
+- **Infrastructure maintenance**: Azure Functions is a managed service that allows developers to focus on innovative work that delivers value to the business.
+- **Scalability**: Azure Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
 
 ### Potential use cases
 
