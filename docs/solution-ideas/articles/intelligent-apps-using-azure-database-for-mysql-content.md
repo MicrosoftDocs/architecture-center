@@ -87,7 +87,7 @@ Principal author:
 - [Cognitive Services](/azure/cognitive-services/what-are-cognitive-services)
 - [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
 - [Azure Database for MySQL](/azure/mysql)
-- [Machine Learning studio](/azure/machine-learning/overview-what-is-azure-machine-learning#studio)
+- [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Power BI](/power-bi/fundamentals/power-bi-overview)
 
 ## Related resources
