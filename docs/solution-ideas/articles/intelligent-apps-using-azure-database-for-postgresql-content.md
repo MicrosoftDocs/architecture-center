@@ -9,12 +9,12 @@ This article presents a solution for automating the process of using AI to analy
 
 ### Dataflow
 
-1. Azure Functions is triggered as part of an Azure Data Factory pipeline. A Functions *activity* uses a linked service connection to run a function in the Data Factory pipeline.
-1. Data comes from various sources, such as Azure Blob Storage and Azure Event Hubs. Data is uploaded to Blob Storage, while Event Hubs ingests a high volume of data. When the system receives new data, the function in the pipeline is triggered.
-1. The function calls the Cognitive Services API to analyze the data. For example, for sentiment analysis, the function uses an Azure Cognitive Service for Language text analytics API.
-1. The results of the analysis are returned in JSON format from the Cognitive Services API.
-1. The function stores the data and results from the Cognitive Services API in Azure Database for PostgreSQL.
-1. Azure Machine Learning studio is used to further analyze the data. Custom machine learning algorithms provide insights into the data. Results from this analysis are stored in Azure Database for PostgreSQL.
+1. An Azure Function activity allows you to trigger an Azure Functions App in the Azure Data Factory pipeline. You create a linked service connection and use the linked service with an activity to specify the Azure Function you want to execute.
+1. Data comes from multiple sources including Azure Storage and Azure Event Hubs for high-volume data. When the pipeline receives new data, it triggers the Azure Functions App.
+1. The Azure Functions App calls the Cognitive Services API to analyze the data.
+1. The Cognitive Services API returns the results of the analysis in JSON format to the Azure Functions App.
+1. The Azure Functions App stores the data and results from the Cognitive Services API in Azure Database for PostgreSQL.
+1. Azure Machine Learning use custom machine learning algorithms to provide further insights into the data.
    - If you're approaching the machine learning step with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector, and n-gram extraction.
    - If you prefer a code-first approach, you can run an open-source natural language processing (NLP) model as an experiment in Machine Learning studio.
 1. The PostgreSQL connector for Power BI makes it possible to explore human-interpretable insights in Power BI or a custom web application.
@@ -26,24 +26,24 @@ This article presents a solution for automating the process of using AI to analy
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform.
 - [Cognitive Services](https://azure.microsoft.com/services/cognitive-services) provides a suite of AI services and APIs that you can use to build cognitive intelligence into apps.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service. It provides [high availability](https://azure.microsoft.com/support/legal/sla/postgresql/v1_1), elastic scaling, patching, and other management capabilities for PostgreSQL.
-- [Machine Learning studio](https://azure.microsoft.com/products/machine-learning/#faq) is a cloud service that you can use to train, deploy, and automate machine learning models. The studio supports code-first and no-code approaches.
+- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/#faq) is a cloud service that you can use to train, deploy, and automate machine learning models. The studio supports code-first and no-code approaches.
 - [Power BI](https://powerbi.microsoft.com) is a collection of software services and apps that display analytics information and help you derive insights from data.
 
 ## Scenario details
 
-The automated pipelines in this solution use state-of-the-art machine learning algorithms to analyze data from disparate sources. The analysis uses:
+The automated pipeline uses the following services to analyze the data:
 
-- AI capabilities that Cognitive Services offers, such as question answering, sentiment analysis, and text translation.
-- Services that Machine Learning studio offers for managing predictive analytics.
+- Cognitive Services uses AI for question answering, sentiment analysis, and text translation.
+- Azure Machine Learning supplies machine-learning tools for predictive analytics.
 
 To store data and results, the solution uses Azure Database for PostgreSQL. The PostgreSQL database supports unstructured data, parallel queries, and declarative partitioning. This support makes Azure Database for PostgreSQL an effective choice for highly data-intensive AI and machine learning tasks.
 
-The solution also automates the delivery of results from the analysis. A connector links Azure Database for PostgreSQL with visualization tools like Power BI. These tools display insights from the data in meaningful ways.
+The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI. 
 
-For automation in the data ingestion stage, this architecture uses Functions. This serverless solution offers many benefits:
+The architecture uses an Azure Functions App to ingest data from multiple data sources. It is a serverless solution that offers that following benefits:
 
-- Infrastructure maintenance. As an Azure managed service, Functions provides the cloud environment and resources that keep apps running. Instead of managing infrastructure requirements, developers can focus on innovative work that delivers value to the business.
-- Scalability. Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
+- **Infrastructure maintenance**: Azure Functions is a managed service that allows developers to focus on innovative work that delivers value to the business.
+- **Scalability**: Azure Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
 
 ### Potential use cases
 
