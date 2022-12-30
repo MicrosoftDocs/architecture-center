@@ -44,7 +44,7 @@ This article presents a solution for automating data analysis and visualization 
 The automated pipeline uses the following services to analyze the data:
 
 - Cognitive Services uses AI for question answering, sentiment analysis, and text translation.
-- Services that Machine Learning studio offers for managing predictive analytics.
+- Azure Machine Learning supplies machine-learning tools for predictive analytics.
 
 The solution also automates the delivery of results from the analysis. A connector links Azure Database for MySQL, where the solution stores results, with visualization tools like Power BI. These tools display insights from the data in meaningful ways.
 
