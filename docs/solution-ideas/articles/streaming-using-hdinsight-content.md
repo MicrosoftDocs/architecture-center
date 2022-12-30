@@ -1,16 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.
+This article outlines a solution for ingesting and processing millions of streaming events per second. Core components include Azure HDInsight, Apache Kafka, Apache Storm, and Apache Spark.
 
-## Potential use cases
-
-Companies can use this solution to retrieve (or ingest) data from multiple sources and make real-time business decisions. Scenarios include:
-
-- Analyzing data from IoT sensors for quality detection, fault analysis, maintenance event prediction
-- Business integration of weather feed or sensor data (agriculture, retail)
-- Analysis of real-time stock market data (financial)
-- Analysis of current market conditions (insurance and finance)
-- Trend analysis over real-time sales (retail)
+*Apache®, [Apache Kafka](https://kafka.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Spark](https://spark.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -30,11 +22,31 @@ Companies can use this solution to retrieve (or ingest) data from multiple sourc
 
 ### Components
 
-Key technologies used to implement this architecture:
-
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
 - [Power BI](https://powerbi.microsoft.com)
+
+## Scenario details
+
+
+
+
+### Potential use cases
+
+Companies can use this solution to retrieve or ingest data from multiple sources and make real-time business decisions. Scenarios include:
+
+- Analyzing data from IoT sensors for quality detection, fault analysis, maintenance event prediction.
+- Business integration of weather feed or sensor data.
+- Analysis of real-time stock market data.
+- Analysis of current market conditions.
+- Trend analysis over real-time sales.
+
+The solution applies to the following industries:
+
+- Agriculture
+- Retail
+- Finance
+- Insurance
 
 ## Contributors
 
