@@ -262,11 +262,11 @@
 			<text x="23.06" y="131.8" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Storage</text>		</g>
 		<g id="shape1079-31" v:mID="1079" v:groupContext="shape" transform="translate(215.344,-379.954)">
 			<title>Sheet.1079</title>
-			<desc>Event Hub</desc>
+			<desc>Azure Event Hubs</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="45" cy="489.304" width="90" height="29.3929"/>
 			<rect x="0" y="474.607" width="90" height="29.3929" class="st10"/>
-			<text x="22.25" y="492.3" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Event Hub</text>		</g>
+			<text x="6.09" y="492.3" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Event Hubs</text>		</g>
 		<g id="shape1081-34" v:mID="1081" v:groupContext="shape" transform="translate(421.875,-243.9)">
 			<title>Sheet.1081</title>
 			<desc>Azure Data Lake Storage</desc>
