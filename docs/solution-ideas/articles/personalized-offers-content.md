@@ -10,7 +10,7 @@ This solution builds intelligent marketing systems that provide customer-tailore
 
 ### Dataflow
 
-1. An Azure Function app captures the raw user activity (such as product and offer clicks) and offers that are made to users on the website. The activity is sent to Azure Event Hub. In areas where user activity is not available, the simulated user activity is stored in Azure Cache for Redis.
+1. An Azure Function app captures the raw user activity (such as product and offer clicks) and offers that are made to users on the website. The activity is sent to Azure Event Hubs. In areas where user activity is not available, the simulated user activity is stored in Azure Cache for Redis.
 1. Azure Stream Analytics analyzes the data to provide near real-time analytics on the input stream from the Azure Event Hubs instance.
 1. The aggregated data is sent to Azure Cosmos DB for NoSQL.
 1. Power BI is used to look for insights on the aggregated data.
