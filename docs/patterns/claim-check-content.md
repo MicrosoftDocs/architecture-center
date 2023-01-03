@@ -18,7 +18,7 @@ Store the entire message payload into an external service, such as a database. G
 1. Store message on the data store
 1. Enqueue the message's reference
 1. Read the message's reference
-1. Recovery the message
+1. Retrieve the message
 1. Process the message
 
 ## Issues and considerations
