@@ -3,7 +3,7 @@ title: Storage options for a Kubernetes cluster
 description: Understand storage options for a Kubernetes cluster, and compare Amazon EKS and Azure Kubernetes Service (AKS) storage options.
 author:  lanicolas
 ms.author: lanicola
-ms.date: 09/30/2022
+ms.date: 12/30/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
