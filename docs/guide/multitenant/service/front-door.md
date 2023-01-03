@@ -278,16 +278,16 @@ If you have a stamp that serves multiple tenants, you need to consider how you r
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
  * [Raj Nemani](http://linkedin.com/in/rajnemani) | Director, Partner Technology Strategist
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
 * [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 * [Fernando Antivero](http://linkedin.com/in/fernandoantivero) | Fullstack Developer & Cloud Platform Engineer
 * [Duong Au](http://linkedin.com/in/duong-au-32427b46) | Senior Content Developer, C+E Skilling Content R&D
-* [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
 * [Harikrishnan M B (HARI)](http://linkedin.com/in/harikrishnanmb) | Product Manager 2, Azure Networking 
 * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
