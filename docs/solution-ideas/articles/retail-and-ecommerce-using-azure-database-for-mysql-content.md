@@ -21,7 +21,7 @@ This article outlines an e-commerce solution that engages customers by using Azu
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
-- [Azure Storage](https://azure.microsoft.com/product-categories/storage)
+- [Storage](https://azure.microsoft.com/product-categories/storage)
 
 ## Scenario details
 

@@ -23,7 +23,7 @@ This article presents a solution for generating personalized recommendations for
 
 - The [Web Apps](https://azure.microsoft.com/products/app-service/web) feature of [Azure App Service](https://azure.microsoft.com/products/app-service/#overview) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. With Web Apps, you can develop in your favorite language, be it .NET, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments.
 
-- The [API Apps](https://azure.microsoft.com/products/app-service/web) feature of [App Service](https://azure.microsoft.com/products/app-service/#overview) is used to build and consume cloud APIs. App Service provides cross-origin resource sharing (CORS) support for RESTful APIs. API Apps simplifies mobile app scenarios by enabling authentication, offline data sync, and push notifications.
+- The [API Apps](https://azure.microsoft.com/products/app-service/api) feature of [App Service](https://azure.microsoft.com/products/app-service/#overview) is used to build and consume cloud APIs. App Service provides cross-origin resource sharing (CORS) support for RESTful APIs. API Apps simplifies mobile app scenarios by enabling authentication, offline data sync, and push notifications.
 
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a multiple-model database that can serve data elastically at a massive scale. Azure Cosmos DB was designed for applications that are globally distributed in a multi-write model. The Azure Cosmos DB [change feed](/azure/cosmos-db/change-feed) provides a persistent record of changes to a container while maintaining the order that the changes occur in.
 

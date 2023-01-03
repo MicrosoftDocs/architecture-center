@@ -80,10 +80,8 @@ Principal author:
 See the following Training modules:
 
 - [Design a geographically distributed application](/training/modules/design-a-geographically-distributed-application)
-- [Distribute your data globally with Azure Cosmos DB](/training/modules/distribute-data-globally-with-cosmos-db)
-- [Choose the appropriate API for Azure Cosmos DB](/training/modules/choose-api-for-cosmos-db)
-- [Store and access NoSQL data with Azure Cosmos DB for Table](/training/modules/store-access-data-cosmos-table-api)
-- [Work with NoSQL data in Azure Cosmos DB](/training/paths/work-with-nosql-data-in-azure-cosmos-db)
+- [Work with Azure Cosmos DB](/training/modules/work-with-cosmos-db)
+- [AZ-204: Develop solutions that use Azure Cosmos DB](/training/paths/az-204-develop-solutions-that-use-azure-cosmos-db)
 
 See the following Azure Cosmos DB articles:
 
@@ -94,6 +92,6 @@ See the following Azure Cosmos DB articles:
 ## Related resources
 
 - [Web-Queue-Worker architecture style](../../guide/architecture-styles/web-queue-worker.yml)
-- [Build scalable database solutions with Azure services](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
+- [Choose an Azure data storage system](../../data-guide/scenarios/build-scalable-database-solutions-azure-services.md)
 - [RESTful web API design](../../best-practices/api-design.md)
 - [Consistency levels in Azure Cosmos DB](/azure/cosmos-db/consistency-levels)
