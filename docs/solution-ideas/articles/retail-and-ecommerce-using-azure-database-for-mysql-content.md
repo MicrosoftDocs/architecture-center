@@ -10,7 +10,7 @@ This article outlines an e-commerce solution that engages customers by using Azu
 
 ### Dataflow
 
-1. The Web Apps feature of Microsoft Azure App Service hosts a web application.
+1. The Web Apps feature of Azure App Service hosts a web application.
 1. Azure Database for MySQL stores session state data and data about products.
 1. An Azure Storage account stores static content and product images.
 1. Azure Cognitive Search is used to search across all products.
