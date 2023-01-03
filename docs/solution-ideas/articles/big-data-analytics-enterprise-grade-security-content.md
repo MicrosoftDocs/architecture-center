@@ -4,7 +4,7 @@ The solution described in this article demonstrates how to use Azure Synapse Ana
 
 ## Architecture
 
-[ ![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.svg) ](../media/big-data-analytics-enterprise-grade-security-large.png#lightbox)
+[ ![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.svg) ](../media/big-data-analytics-enterprise-grade-security.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/big-data-analytics-enterprise-grade-security.vsdx) of this architecture.*
 
