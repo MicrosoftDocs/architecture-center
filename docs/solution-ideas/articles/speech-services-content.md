@@ -4,8 +4,9 @@ This solution uses Azure Speech Services to transcribe calls and then run full-t
 
 ## Architecture
 
-![Architecture diagram shows recorded calls to Azure trans queue to speech endpoint to transcription result queue to transcript blob and insights.](../media/speech-services.png)
-*Download an [SVG](../media/speech-services.svg) of this architecture.*
+[ ![Architecture diagram shows recorded calls to Azure trans queue to speech endpoint to transcription result queue to transcript blob and insights.](../media/speech-services.svg)](../media/speech-services.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/speech-services.vsdx) of this architecture.*
 
 ### Dataflow
 
