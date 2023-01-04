@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture shows you how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
+This architecture shows you the components used to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
 
 ## Architecture
 

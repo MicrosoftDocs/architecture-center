@@ -18,7 +18,7 @@ This article shows you how to use Azure Machine Learning and Azure Synapse Analy
 
 ## Scenario details
 
-This solution is built on Azure-managed services: [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics), and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure-managed services described in the preceding [Components](#components) section. These services run in a high-availability environment, patched and supported, which lets you focus on your solution instead of the environment they run in.
 
 ### Potential use cases
 
