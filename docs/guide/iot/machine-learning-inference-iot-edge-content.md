@@ -273,7 +273,7 @@ Flask framework is one example of a tool that you can use to quickly create an A
 
 Principal author:
 
- * [Bo Wang](https://www.linkedin.com/in/bowang0104) | Senior Software Engineer 
+ * [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673) | Senior Software Engineer 
 
 Other contributor: 
 
