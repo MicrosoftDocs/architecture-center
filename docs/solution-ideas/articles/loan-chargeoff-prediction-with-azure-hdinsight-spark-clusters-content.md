@@ -1,59 +1,82 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. By using ML Services on Azure HDInsight, a lending institution can use machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and Hive tables.
+A charged-off loan is a loan that a creditor views as unlikely to be collected. The creditor is usually a lending institution. Loans are usually declared charged off when the debtor is severely delinquent on loan repayments. High charge-off has a negative impact on lending institutions' year-end financials. As a result, lending institutions often monitor loan charge-off risk closely. By using machine learning services on Azure HDInsight, a lending institution can predict the likelihood of loans getting charged off. Reports can be run on the analytics results that are stored in the Apache Hadoop distributed file system (HDFS) and Apache Hive tables.
 
-## Potential use cases
-
-This solution demonstrates how to build and deploy a machine learning model to predict if a bank loan will need to be charged off within the given period. This solution is ideal for the finance industry.
+*Apache®, [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Spark](https://spark.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-![Architecture diagram](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png)
+![Architecture diagram that shows the components of a charge-off prediction system. Data flows from RStudio through HDInsight and then to Power BI or a web app.](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.png)
 
-Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.
+*Download an [SVG](../media/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.svg) of this architecture.*
 
 ### Dataflow
 
-1. Create some data and define data sources for the ML prediction
-1. Run a logistic regression over the data using the local compute (or spark) context to predict loan charge off variable
-1. Use Azure HDInsights spark connector to connect to the table
-1. Use Power BI to interpret this data and create new visualizations
-1. (Optional) Deploy the model as a web service that can be consumed on popular devices such as PC and mobile
+1. A data scientist uses a web browser to connect to RStudio Server. The compute context determines the location of the server. The following options are possible:
+
+   - Distributed across the nodes of an HDInsight Apache Spark cluster
+   - On a local cluster edge node
+
+1. The following raw data is deployed to the server as CSV files:
+
+   - Lending institution customer demographic information
+   - Detailed information about loans
+   - Payment history records
+
+1. R scripts run a logistic regression over the data to predict the loan charge-off variable.
+
+1. An HDInsight Spark connector is used to access the analytics results that are in HDFS and Hive tables.
+
+1. Power BI is used to interpret and display the results.
+
+1. The model is optionally deployed as a web service that PCs and mobile devices can access.
 
 ### Components
 
-* [Azure HDInsight](/azure/hdinsight/hdinsight-overview): Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more.
-* [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+- [HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. With HDInsight, you can use open-source frameworks such as Hadoop, Spark, Hive, low-latency analytical processing (LLAP), Apache Kafka, Apache Storm, and R in your Azure environment.
+- [Power BI](https://powerbi.microsoft.com) provides interactive dashboards that display predictive analytics data and related data that's needed for business decisions.
 
-## Solution details
+## Scenario details
 
-This solution creates a cluster of type ML Services on Azure HDInsight. This cluster contains 2 head nodes, 2 worker nodes, and 1 edge node with a total of 32 cores. The approximate cost for this HDInsight Spark cluster is $8.29/hour. Billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it's no longer in use. Use the Deployments page to delete the entire solution once you're done.
+Charging off a loan is an action that a bank takes as a last resort on a severely delinquent loan. Prediction data can help loan officers from reaching the point where they charge off loans. Specifically, loan officers can use the prediction data to offer personalized incentives like reduced interest rates or extended repayment periods. These incentives can help customers to keep making loan payments and to avoid having their loans charged off.
 
-### Benefits
+To get this type of prediction data, credit unions and banks often perform manual calculations based on a customer's past payment history. They also often run a basic statistical regression analysis. These methods are highly subject to data compilation errors and aren't statistically sound.
 
-There are multiple benefits for lending institutions to equip with loan chargeoff prediction data. Charging off a loan is the last resort that the bank will do on a severely delinquent loan, with the prediction data at hand, the loan officer could offer personalized incentives like lower interest rate or longer repayment period to help customers to keep making loan payments and thus prevent the loan of getting charged off. To get to this type of prediction data, often credit unions or banks manually handcraft the data based on customers' past payment history and performed simple statistical regression analysis. This method is highly subject to data compilation error and not statistically sound.
-
-This solution template demonstrates a solution end-to-end to run predictive analytics on loan data and produce scoring on chargeoff probability. A Power BI report will also walk through the analysis and trend of credit loans and prediction of chargeoff probability.
+This article's end-to-end solution runs predictive analytics on loan data and produces scoring on charge-off probability. A Power BI report presents the details of the analysis, the credit loan trends, and the prediction of charge-off probability.
 
 ### Business perspective
 
-This loan chargeoff prediction uses a simulated loan history data to predict probability of loan chargeoff in the immediate future (next three months). The higher the score, the higher is the probability of the loan getting charged-off in the future.
+This loan charge-off prediction uses simulated loan history data to predict the probability of loan charge-off in the next three months. The higher the score, the higher the probability is that the loan gets charged off in the future.
 
-With the analytics data, loan manager is also presented with the trends and analytics of the chargeoff loans by branch locations. Characteristics of the high chargeoff risk loans will help loan managers to make business plan for loan offering in that specific geographical area.
+Together with the analytics data, the loan manager is also presented with the trends and analytics of charged-off loans by branch location. Loan managers can use the characteristics of loans with a high charge-off risk in a specific geographical area to make a business plan for loan offerings in that area.
 
-Power BI also presents visual summaries of the loan payments and chargeoff predictions (shown here with simulated data). You can try out this dashboard by clicking the "Try it Now" button to the right.
+Power BI also presents visual summaries of loan payments and charge-off predictions.
 
-### Data scientist perspective
+### Potential use cases
 
-This solution template walks through the end-to-end process of how to develop predictive analytics using a set of simulated loan history data to predict loan chargeoff risk. The data contains information like loan holder demographic data, loan amount, contractual loan duration and loan payment history. The solution template also includes a set of R scripts that perform data processing, feature engineering, and several different algorithms to train the data, and finally select the best performant model to score the data to produce probability score for each loan.
+This solution demonstrates how to build and deploy a machine learning model to predict whether a bank loan gets charged off within a given period. This solution is ideal for the finance industry.
 
-Data scientists who are testing this solution can work with the provided R code from the browser-based Open Source Edition of RStudio Server that runs on the Edge Node of the ML Services on Azure HDInsight cluster. By [setting the compute context](/azure/hdinsight/hdinsight-hadoop-r-server-compute-contexts), the user can decide where the computation will be performed: locally on the edge node, or distributed across the nodes in the Spark cluster. All the R code can also be found in public GitHub repository. Have fun!
+## Deploy this scenario
+
+A template for this solution is available in a public [GitHub repo](https://github.com/Microsoft/r-server-loan-chargeoff). It walks through the end-to-end process of how to develop predictive analytics by using simulated loan history data to predict loan charge-off risk. The data contains information for each loan like the holder demographic data, the amount, the contractual duration, and the payment history. The solution template also includes a set of R scripts that:
+
+- Perform data processing and feature engineering.
+- Use several algorithms to train the data.
+- Select the best performant model to score the data to produce a probability score for each loan.
+
+Data scientists who test this solution can work with the R code that the GitHub repo provides. They can work from the browser-based open-source edition of RStudio Server that runs on the edge node of the machine learning services on the HDInsight cluster. By [setting the compute context](/azure/hdinsight/hdinsight-hadoop-r-server-compute-contexts), the user can decide where the computation is performed. The options are locally on the edge node or distributed across the nodes in the Spark cluster.
+
+This solution creates a cluster of type Apache Spark on HDInsight. This cluster contains two head nodes, two worker nodes, and one edge node with a total of 32 cores. For the approximate cost of this HDInsight Spark cluster, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight). Billing starts when a cluster is created and stops when the cluster is deleted. Billing is prorated per minute, so delete your cluster when it's no longer in use. After you're finished using the solution, use the **Deployments** page to delete the entire solution.
 
 ## Next steps
 
-* [Analyze Apache Spark data using Power BI in HDInsight](/azure/hdinsight/spark/apache-spark-use-bi-tools): How to use Microsoft Power BI to visualize data in an Apache Spark cluster in Azure HDInsight.
-* [Operationalize ML Services cluster on Azure HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/): Operationalize the model to make predictions using an ML Services cluster on Azure HDInsight.
+- [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
+- [Analyze Apache Spark data using Power BI in HDInsight](/azure/hdinsight/spark/apache-spark-use-bi-tools)
+- [R Server for HDInsight](https://azure.microsoft.com/services/hdinsight/r-server)
 
 ## Related resources
 
-* [R developer's guide to Azure](../../data-guide/technology-choices/r-developers-guide.md): This article provides an overview of the various ways that data scientists can use their existing skills with the R programming language in Azure.
+- [R developer's guide to Azure](../../data-guide/technology-choices/r-developers-guide.md)
+- [Loan charge-off prediction with SQL Server](./loan-chargeoff-prediction-with-sql-server.yml)
+- [Use a demand forecasting model for price optimization](./demand-forecasting-price-optimization-marketing.yml)
+- [Product recommendations for retail using Azure](./product-recommendations.yml)

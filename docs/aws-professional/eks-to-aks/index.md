@@ -3,7 +3,7 @@ title: AKS for Amazon EKS professionals
 description: Read about the Azure Kubernetes Service (AKS) managed solution, configurations, best practices, and similarities and differences with Amazon EKS.
 author: lanicolas
 ms.author: lanicola
-ms.date: 09/30/2022
+ms.date: 12/30/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -26,6 +26,7 @@ The series articles compare AKS with Amazon EKS for the following Kubernetes des
 - [Storage options](storage.md)
 - [Cost optimization and management](cost-management.yml)
 - [Agent node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 These articles provide recommended architectures and practices to improve AKS deployment security, compliance, management, and observability. For basic AKS implementation, see [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks) and [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
 
@@ -58,6 +59,9 @@ Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -67,6 +71,8 @@ Other contributors:
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
+
 
 ## Related resources
 

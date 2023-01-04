@@ -472,6 +472,8 @@ items:
                     href: guide/multitenant/service/aks.yml
               - name: Networking
                 items:
+                  - name: Azure Front Door
+                    href: guide/multitenant/service/front-door.md
                   - name: Azure NAT Gateway
                     href: guide/multitenant/service/nat-gateway.md
                   - name: Azure Private Link
@@ -685,6 +687,8 @@ items:
                     href: aws-professional/eks-to-aks/cost-management.yml
                   - name: Agent node management
                     href: aws-professional/eks-to-aks/node-pools.yml
+                  - name: Cluster governance
+                    href: aws-professional/eks-to-aks/governance.md
               - name: Migration from AWS
                 items:
                   - name: Azure Migrate
@@ -3056,6 +3060,8 @@ items:
                 href: example-scenario/digital-health/patient-data-ohdsi-omop-cdm.yml
               - name: Anomaly detection for conveyor belts
                 href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
+              - name: Automate document classification
+                href: example-scenario/ai/automate-document-classification-durable-functions.yml
               - name: Automate document processing
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
@@ -3642,6 +3648,8 @@ items:
                 href: example-scenario/infrastructure/reservoir-simulation.yml
           - name: Solution ideas
             items:
+              - name: DFS failover cluster
+                href: solution-ideas/articles/dfs-failover-cluster-vms.yml           
               - name: HPC media rendering
                 href: solution-ideas/articles/azure-batch-rendering.yml
               - name: HPC risk analysis
@@ -5707,6 +5715,8 @@ items:
                 href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
+              - name: Migrate cloud workloads across security tenants
+                href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
               - name: Migrate IBM mainframe apps
                 href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
       - name: Mixed Reality
@@ -6154,6 +6164,8 @@ items:
               - name: SAP checklist
                 href: /azure/virtual-machines/workloads/sap/sap-deployment-checklist
                 maintainContext: true
+              - name: SAP landscape architecture
+                href: guide/sap/sap-whole-landscape.yml
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true

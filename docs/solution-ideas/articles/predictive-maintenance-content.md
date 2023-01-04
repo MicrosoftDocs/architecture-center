@@ -4,8 +4,9 @@ This predictive maintenance solution monitors aircraft and predicts the remainin
 
 ## Architecture
 
-![Architecture diagram: predictive maintenance for aircraft components using Microsoft Azure cloud services.](../media/predictive-maintenance.png)
-*Download an [SVG](../media/predictive-maintenance.svg) of this architecture.*
+[ ![Architecture diagram: predictive maintenance for aircraft components using Microsoft Azure cloud services.](../media/../media/predictive-maintenance.svg)](../media/predictive-maintenance.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/predictive-maintenance.vsdx) of this architecture.*
 
 ### Dataflow
 

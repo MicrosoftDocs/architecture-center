@@ -4,8 +4,9 @@ Marketing campaigns are about more than the message being delivered; when and ho
 
 ## Architecture
 
-![Architecture diagram that shows predictive marketing with Azure Machine Learning.](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.png)
-*Download an [SVG file](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.svg) of this architecture.*
+![Architecture diagram that shows predictive marketing with Azure Machine Learning.](../media/predictive-marketing-campaigns-with-machine-learning-and-spark.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/predictive-marketing-campaigns-with-machine-learning-and-spark.vsdx) of this architecture.*
 
 ### Dataflow
 
