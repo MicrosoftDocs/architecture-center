@@ -5,8 +5,9 @@ This solution idea implements a process of aggregating customer data into a comp
 
 ## Architecture
 
-![Architecture diagram that shows the flow of data between an event generator and a dashboard. Other stages include analytics and machine learning.](../media/product-recommendations.png)
-*Download an [SVG](../media/product-recommendations.svg) of this architecture.*
+[ ![Architecture diagram that shows the flow of data between an event generator and a dashboard. Other stages include analytics and machine learning.](../media/product-recommendations.svg)](../media/product-recommendations.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/product-recommendations.vsdx) of this architecture.*
 
 ### Dataflow
 
