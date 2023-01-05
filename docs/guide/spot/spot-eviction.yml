@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: How to build workloads on spot virtual machines
-  description: Learn how to use build reliable workloads on spot virtual machines.
+  description: Learn how to build reliable workloads on spot virtual machines.
   author: stephen-sumner
   ms.author: ssumner
   ms.reviewer: ssumner
