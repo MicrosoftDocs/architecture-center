@@ -2,7 +2,9 @@ This solution provides logging, tracing, and monitoring for microservices apps. 
 
 ## Architecture
 
-![Diagram of Azure architecture for PaaS microservices applications](./media/paas-tracing-logging.png)
+:::image type="content" border="false" source="./media/paas-tracing-logging.svg" alt-text="Diagram of Azure architecture for PaaS microservices applications." lightbox="./media/paas-tracing-logging.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/unified-logging-for-microservices.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -17,7 +19,7 @@ The architecture uses Azure services to build a unified logging and monitoring s
 
 For applications that use Azure VMs, the following infrastructure-as-a-service (IaaS) architecture includes Azure Monitor to monitor the performance and health of the VMs that run the application.
 
-![Diagram of Azure architecture for Iaas applications that use VMs](./media/iaas-tracing-logging.png)
+:::image type="content" border="false" source="./media/iaas-tracing-logging.svg" alt-text="Diagram of Azure architecture for IaaS applications that use VMs." lightbox="./media/iaas-tracing-logging.svg":::
 
 ### Components
 
