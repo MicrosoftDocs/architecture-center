@@ -8,7 +8,7 @@ This solution enables teams to manage identity for users and applications in a w
 
 ## Architecture
 
-[ ![Architecture diagram show that how to manage identity for users and applications in a way that is consistent across clouds](../media/hybrid-identity.svg)](../media/hybrid-identity.svg#lightbox)
+[ ![Architecture diagram that shows how to manage identity for users and applications in a way that is consistent across clouds.](../media/hybrid-identity.svg)](../media/hybrid-identity.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-identity.vsdx) of this architecture.*
 
