@@ -44,7 +44,7 @@ This document assumes that you have an Azure subscription, a storage account, an
 The following steps document how to upload/download data using Azure Storage Explorer.
 
 1. Launch Microsoft Azure Storage Explorer.
-2. To bring up the **Sign in to your account...** wizard, select **Azure account settings** icon, then **Add an account** and enter you credentials. 
+2. To bring up the **Sign in to your account...** wizard, select **Azure account settings** icon, then **Add an account** and enter your credentials. 
 ![Add an Azure Storage account](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
 3. To bring up the **Connect to Azure Storage** wizard, select the **Connect to Azure Storage** icon. ![Click "Connect to Azure Storage"](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
 4. Enter the access key from your Azure Storage account on the **Connect to Azure Storage** wizard and then **Next**. ![Enter access key from Azure Storage account](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)

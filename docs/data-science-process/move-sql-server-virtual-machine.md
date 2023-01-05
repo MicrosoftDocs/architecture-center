@@ -183,7 +183,7 @@ The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple 
 
 ### <a name="export-flat-file"></a>Export to Flat File
 
-Various methods can be used to bulk export data from an On-Premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
+Various methods can be used to bulk export data from an on-premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
 
 1. Export the data from on-premises SQL Server to a file using the bcp utility as follows
 

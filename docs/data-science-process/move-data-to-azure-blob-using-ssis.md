@@ -71,7 +71,7 @@ The parameters that the task uses are described here:
 | --- | --- |
 | **AzureStorageConnection** |Specifies an existing Azure Storage Connection Manager or creates a new one that refers to an Azure Storage account that points to where the blob files are hosted. |
 | **BlobContainer** |Specifies the name of the blob container that holds the uploaded files as blobs. |
-| **BlobDirectory** |Specifies the blob directory where the uploaded file is stored as a block blob. The blob directory is a virtual hierarchical structure. If the blob already exists, it ia replaced. |
+| **BlobDirectory** |Specifies the blob directory where the uploaded file is stored as a block blob. The blob directory is a virtual hierarchical structure. If the blob already exists, it is replaced. |
 | **LocalDirectory** |Specifies the local directory that contains the files to be uploaded. |
 | **FileName** |Specifies a name filter to select files with the specified name pattern. For example, MySheet\*.xls\* includes files such as MySheet001.xls and MySheetABC.xlsx |
 | **TimeRangeFrom/TimeRangeTo** |Specifies a time range filter. Files modified after *TimeRangeFrom* and before *TimeRangeTo* are included. |

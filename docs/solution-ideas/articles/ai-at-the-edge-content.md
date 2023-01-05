@@ -45,7 +45,7 @@ With the Azure AI tools, edge, and cloud platform, edge intelligence is possible
 There's a wide range of Edge AI applications that monitor and provide information in near real-time. Areas where Edge AI can help include:
 
 * Security camera detection processes.
-* Image and video analysis (the media and entertainament industry).
+* Image and video analysis (the media and entertainment industry).
 * Transportation and traffic (the automotive and mobility industry).
 * Manufacturing.
 * Energy (smart grids).
