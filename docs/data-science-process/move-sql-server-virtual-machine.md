@@ -183,7 +183,7 @@ The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple 
 
 ### <a name="export-flat-file"></a>Export to Flat File
 
-Various methods can be used to bulk export data from an On-Premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
+Various methods can be used to bulk export data from an on-premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import.
 
 1. Export the data from on-premises SQL Server to a file using the bcp utility as follows
 
@@ -223,7 +223,7 @@ A screenshot of the Database back up/restore options from SQL Server Management 
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -231,6 +231,13 @@ Principal author:
 
 - [Migrate a Database to SQL Server on an Azure VM](/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server)
 - [SQL Server on Azure Virtual Machines overview](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)
+
+## Related resources
+
+- [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md)
+- [Move data from a SQL Server database to SQL Database with Azure Data Factory](move-sql-azure-adf.md)
+- [Process data in a SQL Server virtual machine on Azure](sql-server-virtual-machine.md)
+- [What is the Team Data Science Process?](overview.yml)
 
 [1]: ./media/move-sql-server-virtual-machine/sql-server-built-in-utilities.png
 [2]: ./media/move-sql-server-virtual-machine/addsql-aud.png

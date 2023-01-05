@@ -2,16 +2,7 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in business process management.
-
-## Potential use cases
-
-This solution is ideal for the finance industry. When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in scenarios where bidding competition is fierce or where you have to diagnosis problems quickly or in near real time. Examples include the following areas:
-
-- Sales
-- IT service management
-- Finances
-- Logistics
+This architecture shows how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in business process management to explore information, gain insight, and find relationships in your organization's data.
 
 ## Architecture
 
@@ -50,13 +41,26 @@ These are the key technologies used for this technical content review and resear
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 * [Web API custom skills](/azure/search/cognitive-search-custom-skill-interface)
 
+## Scenario details
+
+This solution demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in business process management.
+
+### Potential use cases
+
+This solution is ideal for the finance industry. When organizations task employees with the review and research of technical data, it can be tedious to read page after page of dense text. Knowledge mining helps employees quickly review these materials. Knowledge mining can help avoid costly mistakes in scenarios where bidding competition is fierce or where you have to diagnosis problems quickly or in near real time. Examples include the following areas:
+
+- Sales
+- IT service management
+- Finances
+- Logistics
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- * [Kathryn Papandrew](https://www.linkedin.com/in/kathryn-jesaitis-papandrew-50411131) | Director, Specialist GBB
+* [Kathryn Papandrew](https://www.linkedin.com/in/kathryn-jesaitis-papandrew-50411131) | Director, Specialist GBB
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
