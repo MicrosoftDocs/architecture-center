@@ -2846,6 +2846,8 @@ items:
             items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
+              - name: Custom speech-to-text overview
+                href: guide/ai/custom-speech-text.yml
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.yml
               - name: R developer's guide to Azure
@@ -3158,6 +3160,8 @@ items:
                 href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
               - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
+              - name: Custom speech-to-text
+                href: guide/ai/custom-speech-text-deploy.yml
               - name: Customer churn prediction
                 href: solution-ideas/articles/customer-churn-prediction.yml
               - name: Customer feedback
