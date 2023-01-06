@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 This article is an implementation guide and example scenario that provides a sample deployment of the solution that's described in **Implement custom speech-to-text**:
 
 > [!div class="nextstepaction"]
