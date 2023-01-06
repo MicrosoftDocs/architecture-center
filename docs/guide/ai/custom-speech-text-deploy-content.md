@@ -96,7 +96,7 @@ Based on the results in the preceding table, for the base model, **Model 1: 2021
 |olympic champion to go back to back in the downhill since nineteen ninety eight the great katja seizinger of germany what ninety four and ninety eight     |   olympic champion to go back to back in the downhill since nineteen ninety eight the great **catch a sizing are** of germany what ninety four and ninety eight      |   olympic champion to go back to back in the downhill since nineteen ninety eight the great katja seizinger of germany what ninety four and ninety eight      |
 |she has dethroned the olympic champion goggia|she has dethroned the olympic champion **georgia**|she has dethroned the olympic champion goggia|
 
-Model 1 doesn't recognize domain-specific words like the names of the athletes "Katia Seizinger" and "Goggia." However, when the custom model is trained with data that includes the athletes' names and other domain-specific words and phrases, it's able learn and recognize them.
+Model 1 doesn't recognize domain-specific words like the names of the athletes "Katia Seizinger" and "Goggia." However, when the custom model is trained with data that includes the athletes' names and other domain-specific words and phrases, it's able to learn and recognize them.
 
 **4.	Review various options for creating custom models. Decide whether one or many custom models will work better**
 
