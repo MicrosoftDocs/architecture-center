@@ -1,5 +1,4 @@
 
-
 Gridwich uses the Azure Media Services Platform as a Service (PaaS) for media processing.
 
 ## Azure Media Services v3
@@ -29,7 +28,7 @@ resource "azurerm_function_app" "fxn" {
 }
 ```
 
-Use the Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script to authorize the Azure Functions service principal on the Azure Media Services account:
+Use the Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/bashscriptgenerator/templates/ams_sp.sh) script to authorize the Azure Functions identity on the Azure Media Services account:
 
 ```bash
 for id in ${mediaServicesAccountResourceId}
@@ -37,44 +36,6 @@ for id in ${mediaServicesAccountResourceId}
     echo "Granting fxn access to $id"
     az role assignment create --role "Contributor" --assignee-object-id ${functionPrincipalId} --scope $id
 }
-```
-
-The *ams_sp.sh* script creates an explicit service principal to use with the Media Services v3 SDK, by using the `az ams account sp create` command:
-
-```azurecli
-# Ref: https://learn.microsoft.com/azure/media-services/latest/access-api-cli-how-to
-
-echo 'Creating service principal for Azure Media Services'
-AZOUT=$(az ams account sp create --account-name ${mediaServicesName} --resource-group ${mediaServicesResourceGroupName} | jq '{AadClientId: .AadClientId, AadSecret:.AadSecret}')
-```
-
-The script then places the credentials in a key vault for app settings to consume:
-
-```bash
-echo 'Adding access policy in KeyVault'
-USER_PRINCIPAL_NAME=$(az ad signed-in-user show | jq -r '.userPrincipalName')
-az keyvault set-policy --name ${keyVaultName} --upn $USER_PRINCIPAL_NAME --secret-permissions set get list delete > /dev/null
-echo 'Updating ams-sp-client-id and ams-sp-client-secret in KeyVault'
-az keyvault secret set --vault-name ${keyVaultName} --name 'ams-sp-client-id' --value $(echo $AZOUT | jq -r '.AadClientId') > /dev/null
-az keyvault secret set --vault-name ${keyVaultName} --name 'ams-sp-client-secret' --value $(echo $AZOUT | jq -r '.AadSecret')  > /dev/null
-echo 'Revoking access policy in KeyVault'
-az keyvault delete-policy --name ${keyVaultName} --upn $USER_PRINCIPAL_NAME > /dev/null
-echo 'Done.'
-```
-
-The Function App settings use a reference to the Azure Key Vault. The script creates those and other settings in the Terraform `functions/main.tf` file:
-
-```terraform
-    {
-      name        = "AmsAadClientId"
-      value       = format("@Microsoft.KeyVault(SecretUri=https://%s.vault.azure.net/secrets/%s/)", var.key_vault_name, "ams-sp-client-id")
-      slotSetting = false
-    },
-    {
-      name        = "AmsAadClientSecret"
-      value       = format("@Microsoft.KeyVault(SecretUri=https://%s.vault.azure.net/secrets/%s/)", var.key_vault_name, "ams-sp-client-secret")
-      slotSetting = false
-    },
 ```
 
 ## Scale Media Services resources
