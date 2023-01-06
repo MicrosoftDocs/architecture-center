@@ -138,7 +138,7 @@ When the virtual customer isn't running, all microservices in this solution scal
 
 For deployment instructions, see the [Red Dog Demo: Azure Container Apps Deployment](https://github.com/Azure/reddog-containerapps/blob/main/README.md) on GitHub.
 
-The [Red Dog Demo: Microservices integration](https://github.com/Azure-Samples/app-templates-microservices-integration) sample application builds on the preceding code assets to demonstrate the integration of Azure Container Apps, App Service, Functions, and API Management.
+The [Red Dog Demo: Microservices integration](https://github.com/Azure-Samples/app-templates-microservices-integration) is a packaged [app template](https://github.com/microsoft/App-Templates) that builds on the preceding code assets to demonstrate the integration of Azure Container Apps, App Service, Functions, and API Management and provisions the infra, deploys the code using GitHub Actions.
 
 ## Contributors
 
