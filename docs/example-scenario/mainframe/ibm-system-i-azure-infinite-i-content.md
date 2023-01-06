@@ -153,5 +153,5 @@ Principal author:
 - IBM System i (AS/400) information:
   - [IBM Power Systems Servers: Powering the hybrid enterprise](https://www.ibm.com/it-infrastructure/power)
   - [IBM i: A platform for innovators, by innovators](https://www.ibm.com/it-infrastructure/power/os/ibm-i)
-  - [IBM Power System case studies](https://www.ibm.com/it-infrastructure/power/resources/case-studies)
+  - [IBM Power System case studies](https://www.ibm.com/power#3137816)
   - [IBM Power Systems: enterprise servers](https://www.ibm.com/it-infrastructure/power/enterprise)

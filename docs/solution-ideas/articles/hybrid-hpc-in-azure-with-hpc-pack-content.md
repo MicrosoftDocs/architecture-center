@@ -4,8 +4,9 @@ This article describes how to use Azure HPC Pack to create a hybrid high-perform
 
 ## Architecture
 
-![Architecture Diagram](../media/hybrid-hpc-in-azure-with-hpc-pack.png)
-*Download an [SVG](../media/hybrid-hpc-in-azure-with-hpc-pack.svg) of this architecture.*
+[ ![Architecture diagram of Azure HPC Pack to create a hybrid high-performance computing (HPC) environment.](../media/hybrid-hpc-in-azure-with-hpc-pack.svg)](../media/hybrid-hpc-in-azure-with-hpc-pack.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-hpc-in-azure-with-hpc-pack.vsdx) of this architecture.*
 
 ### Dataflow
 

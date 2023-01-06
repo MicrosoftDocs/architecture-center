@@ -123,7 +123,7 @@ It's not always necessarily to perform feature engineering or feature selection.
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -131,5 +131,11 @@ Principal author:
 
 To create features for data in specific environments, see the following articles:
 
-* [Create features for data in SQL Server](create-features-sql-server.md)
-* [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
+- [Create features for data in SQL Server](create-features-sql-server.md)
+- [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
+
+## Related resources
+
+- [Feature selection in the Team Data Science Process](select-features.md)
+- [Modeling stage of the Team Data Science Process lifecycle](lifecycle-modeling.md)
+- [What is the Team Data Science Process?](overview.yml)
