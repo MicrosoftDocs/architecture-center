@@ -1,14 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle. Use industry-leading MLOps (machine learning operations), open-source interoperability, and integrated tools on a secure, trusted platform designed for responsible machine learning (ML).
-
-## Potential use cases
-
-* Use machine learning as a service.
-* Easy and flexible building interface.
-* Wide range of supported algorithms.
-* Easy implementation of web services.
-* Great documentation for machine learning solutions.
+This architecture shows you the components used to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
 
 ## Architecture
 
@@ -41,6 +33,18 @@ Build, deploy, and manage high-quality models with Azure Machine Learning, a ser
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault) safeguards cryptographic keys and other secrets used by cloud apps and services.
 * [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) load-balances internet and private network traffic with high performance and low latency. Load Balancer works across virtual machines, virtual machine scale sets, and IP addresses.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive unplanned analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
+
+## Scenario details
+
+Build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle. Use industry-leading MLOps (machine learning operations), open-source interoperability, and integrated tools on a secure, trusted platform designed for responsible machine learning (ML).
+
+### Potential use cases
+
+* Use machine learning as a service.
+* Easy and flexible building interface.
+* Wide range of supported algorithms.
+* Easy implementation of web services.
+* Great documentation for machine learning solutions.
 
 ## Considerations
 

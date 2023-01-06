@@ -44,7 +44,7 @@ This document assumes that you have an Azure subscription, a storage account, an
 The following steps document how to upload/download data using Azure Storage Explorer.
 
 1. Launch Microsoft Azure Storage Explorer.
-2. To bring up the **Sign in to your account...** wizard, select **Azure account settings** icon, then **Add an account** and enter you credentials. 
+2. To bring up the **Sign in to your account...** wizard, select **Azure account settings** icon, then **Add an account** and enter your credentials. 
 ![Add an Azure Storage account](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
 3. To bring up the **Connect to Azure Storage** wizard, select the **Connect to Azure Storage** icon. ![Click "Connect to Azure Storage"](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
 4. Enter the access key from your Azure Storage account on the **Connect to Azure Storage** wizard and then **Next**. ![Enter access key from Azure Storage account](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
@@ -61,6 +61,19 @@ The following steps document how to upload/download data using Azure Storage Exp
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Upload, download, and manage data with Azure Storage Explorer](/training/modules/upload-download-and-manage-data-with-azure-storage-explorer/)
+- [What is the Team Data Science Process (TDSP)?](overview.yml)
+
+## Related resources
+
+- [Explore data in Azure Blob storage](explore-data-blob.md)
+- [Process Azure Blob Storage data with advanced analytics](data-blob.md)
+- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
+- [Load data into storage environments for analytics](ingest-data.md)
