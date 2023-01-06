@@ -2,7 +2,7 @@ This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes
 
 ## Architecture
 
-![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
+![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-factory-hierarchy-service.vsdx) of this architecture.*
 
