@@ -6,23 +6,27 @@ Gridwich uses the Azure Media Services Platform as a Service (PaaS) for media pr
 Use the Terraform file [functions/main.tf](https://github.com/mspnp/gridwich/blob/main/infrastructure/terraform/functions/main.tf) to configure a system-assigned managed identity for the Azure Functions App, with:
 
 ```terraform
-resource "azurerm_function_app" "fxn" {
+resource "azurerm_windows_function_app" "fxn" {
   name                       = format("%s-%s-fxn-%s", var.appname, var.domainprefix, var.environment)
   location                   = var.location
   resource_group_name        = var.resource_group_name
-  app_service_plan_id        = azurerm_app_service_plan.fxnapp.id
+  service_plan_id            = azurerm_service_plan.fxnapp.id
   storage_account_name       = azurerm_storage_account.fxnstor.name
   storage_account_access_key = azurerm_storage_account.fxnstor.primary_access_key
-  version                    = "~3"
-  https_only                 = true
-
+  functions_extension_version = "~4"
+  https_only                  = true
+  app_settings = {
+    FUNCTIONS_WORKER_RUNTIME = "dotnet"
+  }
+  site_config {
+  }
   identity {
     type = "SystemAssigned"
   }
-
   lifecycle {
     ignore_changes = [
-      app_settings
+      app_settings,
+      site_config
     ]
   }
 }
@@ -34,7 +38,7 @@ Use the Terraform [bashscriptgenerator/templates/ams_sp.sh](https://github.com/m
 for id in ${mediaServicesAccountResourceId}
 {
     echo "Granting fxn access to $id"
-    az role assignment create --role "Contributor" --assignee-object-id ${functionPrincipalId} --scope $id
+    az role assignment create --role "Contributor" --assignee-object-id ${functionPrincipalId} --scope $id --assignee-principal-type ServicePrincipal
 }
 ```
 
@@ -47,10 +51,11 @@ The script is in [azcli-last-steps-template.yml](https://github.com/mspnp/gridwi
 To set the Media Services *streaming endpoint* infrastructure scale, run:
 
 ```yaml
-- task: AzureCLI@1
+- task: AzureCLI@2
   displayName: 'Set the scale of Azure Media Services streaming endpoint infrastructure.'
   inputs:
     azureSubscription: '${{parameters.serviceConnection}}'
+    scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
       set -eu
@@ -80,7 +85,7 @@ To set the Media Services *streaming endpoint* infrastructure scale, run:
         fi
         resourceStateActual=$(echo $amsStreamingEndpointJson | jq -r '.resourceState')
         if [[ $resourceStateActual == "Stopped"  ]]
-        then
+        then 
           echo Starting the $amsStreamingEndpointName endpoint
           echo az ams streaming-endpoint start --resource-group $amsAccountResourceGroupName --account-name $amsAccountName --name $amsStreamingEndpointName --no-wait
           az ams streaming-endpoint start --resource-group $amsAccountResourceGroupName --account-name $amsAccountName --name $amsStreamingEndpointName --no-wait
@@ -96,7 +101,7 @@ To set the Media Services *streaming endpoint* infrastructure scale, run:
       then
         resourceStateActual=$(echo $amsDefaultJson | jq -r '.resourceState')
         if [[ $resourceStateActual != "Stopped"  ]]
-        then
+        then 
           echo Stopping the default endpoint
           echo az ams streaming-endpoint stop --resource-group $amsAccountResourceGroupName --account-name $amsAccountName --name default --no-wait
           az ams streaming-endpoint stop --resource-group $amsAccountResourceGroupName --account-name $amsAccountName --name default --no-wait
