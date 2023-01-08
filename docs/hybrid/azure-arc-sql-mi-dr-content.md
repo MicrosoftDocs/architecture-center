@@ -119,6 +119,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](https://review.learn.microsoft.com/en-us/azure/architecture/framework/devops/overview).
+
 - Review the Upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone accelerator](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) fro best practices on how to keep you instances up-to-date.
 - Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/day2/) to learn about additional operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
 - Other operational excellence considerations for your solution are described in the [Operational excellence design principles][waf-principles-operational-excellence] section in the Microsoft Azure Well-Architected Framework.
