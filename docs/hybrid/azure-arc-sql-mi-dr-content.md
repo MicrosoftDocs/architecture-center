@@ -44,7 +44,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Azure Arc-enabled SQL Managed Instance deployment
 
-You can connect any [validated Kubernetes distribution](/azure/azure-arc/kubernetes/validation-program) to Azure Arc. Before connecting clusters, be sure to complete the [Azure Arc-enabled Kubernetes prerequisites][/azure/azure-arc/kubernetes/quickstart-connect-cluster#prerequisites].
+You can connect any [validated Kubernetes distribution](/azure/azure-arc/kubernetes/validation-program) to Azure Arc. Before connecting clusters, be sure to complete the [Azure Arc-enabled Kubernetes prerequisites](/azure/azure-arc/kubernetes/quickstart-connect-cluster#prerequisites).
 
 Once connected, you would need to deploy an Azure Arc Data Controller. Make sure to complete the [Azure Arc Data Controller prerequisites](/azure/azure-arc/data/create-data-controller-direct-prerequisites?tabs=azure-cli), then you can start deployed the Azure Arc-enabled SQL Managed Instance.
 
