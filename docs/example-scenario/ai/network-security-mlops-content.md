@@ -243,7 +243,7 @@ resource "azurerm_private_endpoint" "ws_pe" {
   depends_on = [azurerm_machine_learning_compute_instance.compute_instance, azurerm_machine_learning_compute_cluster.compute_cluster]
 }
 ```
-As mentioned previously, the above code for ```azurerm_machine_learning_workspace``` will use v2 API platform by default. If you still want to use v1 API, or have a company policy that prohibits sending communication over public networks, you can enable the v1_legacy_mode parameter (as shown in the following code snippet). When enabled, this parameter disables the v2 API for your workspace. 
+The above code for `azurerm_machine_learning_workspace` will use v2 API platform by default. If you still wish to use the v1 API or have a company policy that prohibits sending communication over public networks, you can enable the _v1_legacy_mode_ parameter (as shown in the following code snippet). When enabled, this parameter disables the v2 API for your workspace.
 
 ```terraform
 resource "azurerm_machine_learning_workspace" "aml_ws" {
