@@ -472,6 +472,8 @@ items:
                     href: guide/multitenant/service/aks.yml
               - name: Networking
                 items:
+                  - name: Azure Front Door
+                    href: guide/multitenant/service/front-door.md
                   - name: Azure NAT Gateway
                     href: guide/multitenant/service/nat-gateway.md
                   - name: Azure Private Link
@@ -685,6 +687,8 @@ items:
                     href: aws-professional/eks-to-aks/cost-management.yml
                   - name: Agent node management
                     href: aws-professional/eks-to-aks/node-pools.yml
+                  - name: Cluster governance
+                    href: aws-professional/eks-to-aks/governance.md
               - name: Migration from AWS
                 items:
                   - name: Azure Migrate
@@ -1874,6 +1878,8 @@ items:
                       - name: Micro-fulfillment center
                         href: /azure/iot-central/retail/tutorial-micro-fulfillment-center
                         maintainContext: true
+                  - name: Enable machine learning inference
+                    href: guide/iot/machine-learning-inference-iot-edge.yml
                   - name: Extract actionable insights
                     href: industries/manufacturing/extract-insights-iot-data.yml
                   - name: Industrial IoT
@@ -2842,6 +2848,8 @@ items:
             items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
+              - name: Custom speech-to-text overview
+                href: guide/ai/custom-speech-text.yml
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.yml
               - name: R developer's guide to Azure
@@ -3154,6 +3162,8 @@ items:
                 href: solution-ideas/articles/website-content-tag-suggestion-with-deep-learning-and-nlp.yml
               - name: Contract management
                 href: solution-ideas/articles/contract-management.yml
+              - name: Custom speech-to-text
+                href: guide/ai/custom-speech-text-deploy.yml
               - name: Customer churn prediction
                 href: solution-ideas/articles/customer-churn-prediction.yml
               - name: Customer feedback
@@ -5143,6 +5153,8 @@ items:
             items:
               - name: Choose an IoT solution
                 href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+              - name: Enable machine learning inference
+                href: guide/iot/machine-learning-inference-iot-edge.yml
               - name: Industry-specific example solutions
                 href: reference-architectures/iot/industry-iot-hub-page.md
               - name: IoT concepts
@@ -5707,6 +5719,8 @@ items:
                 href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
               - name: Migrate .NET applications
                 href: solution-ideas/articles/net-app-modernization.yml
+              - name: Migrate cloud workloads across security tenants
+                href: solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml
               - name: Migrate IBM mainframe apps
                 href: solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
       - name: Mixed Reality
@@ -6154,6 +6168,8 @@ items:
               - name: SAP checklist
                 href: /azure/virtual-machines/workloads/sap/sap-deployment-checklist
                 maintainContext: true
+              - name: SAP landscape architecture
+                href: guide/sap/sap-whole-landscape.yml
               - name: SAP HANA infrastructure configurations
                 href: /azure/virtual-machines/workloads/sap/hana-vm-operations
                 maintainContext: true

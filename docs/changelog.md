@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 12/12/2022
+ms.date: 12/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,14 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Migrate cloud workloads across security tenants](./solution-ideas/articles/migrate-cloud-workloads-across-security-tenants.yml)
+- [Governance options for a Kubernetes cluster](./aws-professional/eks-to-aks/governance.md)
+- [Automate document classification in Azure](./example-scenario/ai/automate-document-classification-durable-functions.yml)
+- [Deploy a DFS Namespaces failover cluster](./solution-ideas/articles/dfs-failover-cluster-vms.yml)
+- [Train machine learning models at the edge](./example-scenario/hybrid/train-machine-learning-models-on-premises-data.yml)
+- [Azure Synapse Analytics for landing zones](./example-scenario/analytics/synapse-analytics-landing-zone.yml)
+- [Considerations for using Azure Container Apps in a multitenant solution](./guide/multitenant/service/container-apps.md)
+- [Deploy Azure Spring Apps to multiple regions](./reference-architectures/microservices/spring-apps-multi-region.yml)
 - [Deploy AKS and API Management with mTLS](./solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml)
 - [Enable dual-stack network traffic on AKS](./example-scenario/aks-dualstack/aks-dual-stack.yml)
 - [Extend mainframe applications to Azure by using Verastream Host Integrator](./example-scenario/mainframe/extend-mainframe-applications.yml)
@@ -34,6 +42,54 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [AKS for Amazon EKS professionals](./aws-professional/eks-to-aks/index.md)  ([#326b82606](https://github.com/MicrosoftDocs/architecture-center/commit/326b82606))
+- [IaaS: Web app with relational database](./high-availability/ref-arch-iaas-web-and-db.yml)  ([#e69538827](https://github.com/MicrosoftDocs/architecture-center/commit/e69538827))
+- [Globally distributed applications using Azure Cosmos DB](./solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)  ([#e69538827](https://github.com/MicrosoftDocs/architecture-center/commit/e69538827))
+- [Minimal storage – change feed to replicate data](./solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml)  ([#e69538827](https://github.com/MicrosoftDocs/architecture-center/commit/e69538827))
+- [Optimized storage – time based - multi writes](./solution-ideas/articles/optimized-storage-time-based-multi-writes.yml)  ([#e69538827](https://github.com/MicrosoftDocs/architecture-center/commit/e69538827))
+- [Deploy Autodesk VRED for HPC on Azure](./guide/hpc/hpc-autodesk-vred.md)  ([#83c59c761](https://github.com/MicrosoftDocs/architecture-center/commit/83c59c761))
+- [SQL Server 2008 R2 failover cluster in Azure](./example-scenario/sql-failover/sql-failover-2008r2.yml)  ([#84dc65da8](https://github.com/MicrosoftDocs/architecture-center/commit/84dc65da8))
+- [Build cloud native applications](./solution-ideas/articles/cloud-native-apps.yml)  ([#84dc65da8](https://github.com/MicrosoftDocs/architecture-center/commit/84dc65da8))
+- [Data streaming with AKS](./solution-ideas/articles/data-streaming-scenario.yml)  ([#84dc65da8](https://github.com/MicrosoftDocs/architecture-center/commit/84dc65da8))
+- [Enterprise data warehouse](./solution-ideas/articles/enterprise-data-warehouse.yml)  ([#84dc65da8](https://github.com/MicrosoftDocs/architecture-center/commit/84dc65da8))
+- [Optimized storage – time based with Data Lake Storage](./solution-ideas/articles/optimized-storage-time-based-data-lake.yml)  ([#84dc65da8](https://github.com/MicrosoftDocs/architecture-center/commit/84dc65da8))
+- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#69330ca3b](https://github.com/MicrosoftDocs/architecture-center/commit/69330ca3b))
+- [Enhanced-security hybrid messaging — mobile access](./example-scenario/hybrid/secure-hybrid-messaging-mobile.yml)  ([#69330ca3b](https://github.com/MicrosoftDocs/architecture-center/commit/69330ca3b))
+- [On-premises network using ExpressRoute](./reference-architectures/hybrid-networking/expressroute-vpn-failover.yml)  ([#69330ca3b](https://github.com/MicrosoftDocs/architecture-center/commit/69330ca3b))
+- [Hybrid relay connection in Azure and Azure Stack Hub](./solution-ideas/articles/hybrid-relay-connection.yml)  ([#69330ca3b](https://github.com/MicrosoftDocs/architecture-center/commit/69330ca3b))
+- [Enhanced-security hybrid messaging — web access](./example-scenario/hybrid/secure-hybrid-messaging-web.yml)  ([#75fc736cd](https://github.com/MicrosoftDocs/architecture-center/commit/75fc736cd))
+- [Monitor hybrid availability, performance](./hybrid/hybrid-perf-monitoring.yml)  ([#75fc736cd](https://github.com/MicrosoftDocs/architecture-center/commit/75fc736cd))
+- [Manage hybrid Azure workloads using Windows Admin Center](./hybrid/hybrid-server-os-mgmt.yml)  ([#75fc736cd](https://github.com/MicrosoftDocs/architecture-center/commit/75fc736cd))
+- [Blue/green app deployments](./example-scenario/blue-green-spring/blue-green-spring.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Use Service Fabric to decompose apps](./example-scenario/infrastructure/service-fabric-microservices.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Multicloud solutions with the Serverless Framework](./example-scenario/serverless/serverless-multicloud.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Monoliths to microservices using domain-driven design](./microservices/migrate-monolith.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Azure Service Fabric microservices architecture](./reference-architectures/microservices/service-fabric.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Event-based cloud automation](./reference-architectures/serverless/cloud-automation.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Serverless event processing](./reference-architectures/serverless/event-processing.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Application assessment](./serverless-quest/application-assessment.md)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Migrate a Cloud Services app to Service Fabric](./service-fabric/migrate-from-cloud-services.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Modernize enterprise applications with Azure Service Fabric](./service-fabric/modernize-app-azure-service-fabric.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Big data analytics with Azure Data Explorer](./solution-ideas/articles/big-data-azure-data-explorer.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Serverless application architectures using Event Grid](./solution-ideas/articles/serverless-application-architectures-using-event-grid.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Azure Kubernetes in event stream processing](./solution-ideas/articles/serverless-event-processing-aks.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [De-batch and filter serverless event processing with Event Hubs](./solution-ideas/articles/serverless-event-processing-filtering.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Serverless event stream processing in a VNet with private endpoints](./solution-ideas/articles/serverless-event-processing-private-link.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Transit hub dynamic pub-sub messaging system](./solution-ideas/articles/transit-hub.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Data warehousing and analytics](./example-scenario/data/data-warehouse.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [CI/CD for microservices](./microservices/ci-cd.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [API design](./microservices/design/api-design.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Choose a compute option for microservices](./microservices/design/compute-options.md)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Data considerations for microservices](./microservices/design/data-considerations.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [API gateways](./microservices/design/gateway.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Design a microservices architecture](./microservices/design/index.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Interservice communication in microservices](./microservices/design/interservice-communication.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Design patterns for microservices](./microservices/design/patterns.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Domain analysis for microservices](./microservices/model/domain-analysis.md)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Identify microservice boundaries](./microservices/model/microservice-boundaries.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Using tactical DDD to design microservices](./microservices/model/tactical-ddd.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
+- [Master data management with Azure and CluedIn](./reference-architectures/data/cluedin.yml)  ([#d35e46d6b](https://github.com/MicrosoftDocs/architecture-center/commit/d35e46d6b))
 - [Choose a data transfer technology](./data-guide/scenarios/data-transfer.md)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
 - [Extend on-premises data solutions to the cloud](./data-guide/scenarios/hybrid-on-premises-and-cloud.md)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
 - [Secure data solutions](./data-guide/scenarios/securing-data-solutions.md)  ([#f757eef6c](https://github.com/MicrosoftDocs/architecture-center/commit/f757eef6c))
@@ -436,7 +492,6 @@ The following new and updated articles have recently been published in the Azure
 - [Industrial IoT visibility patterns](./guide/iiot-patterns/iiot-visibility-patterns.yml)  ([#427736233](https://github.com/MicrosoftDocs/architecture-center/commit/427736233))
 - [Finance management apps with Azure DB for MySQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-mysql.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
 - [Finance management apps using Azure Database for PostgreSQL](./solution-ideas/articles/finance-management-apps-using-azure-database-for-postgresql.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
-- [Instant broadcasting with serverless code](./solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
 - [Ops automation using Event Grid](./solution-ideas/articles/ops-automation-using-event-grid.yml)  ([#4dbb9fc5a](https://github.com/MicrosoftDocs/architecture-center/commit/4dbb9fc5a))
 - [Plan deployment for updating Windows VMs in Azure](./example-scenario/wsus/index.yml)  ([#b2cfbfb58](https://github.com/MicrosoftDocs/architecture-center/commit/b2cfbfb58))
 - [Automate document processing with Azure Form Recognizer](./example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
@@ -482,7 +537,6 @@ The following new and updated articles have recently been published in the Azure
 - [Troubleshoot virtual node problems in AKS clusters](./operator-guides/aks/troubleshoot-virtual-nodes-aks.md)
 - [Deploy Autodesk Civil 3D on an Azure virtual machine](./guide/hpc/civil-3d.yml)
 - [Data obfuscation using Delphix in Azure Data Factory and Synapse Analytics](./example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml)
-- [Oracle on Azure architecture design](./solution-ideas/articles/oracle-on-azure-start-here.md)
 
 ### Updated articles
 

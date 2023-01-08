@@ -1,16 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge, integrate it with your applications for low-latency intelligence, and continuously feedback into a refined AI model for improved accuracy, with no tool or process changes for local applications. This solution idea shows a connected Stack Hub scenario, where edge applications are connected to Azure. For the disconnected-edge version of this scenario, see the article [AI at the edge - disconnected](./ai-at-the-edge-disconnected.yml).
-
-## Potential use cases
-
-There's a wide range of Edge AI applications that monitor and provide information in near real-time. Areas where Edge AI can help include:
-
-* Security camera detection processes.
-* Image and video analysis (the media and entertainament industry).
-* Transportation and traffic (the automotive and mobility industry).
-* Manufacturing.
-* Energy (smart grids).
+This architecture shows how you can bring your trained AI model to the edge with Azure Stack Hub and integrate it with your applications for low-latency intelligence.
 
 ## Architecture
 
@@ -45,6 +35,20 @@ Key technologies used to implement this architecture:
 * [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack): Build and run innovative hybrid applications across cloud boundaries.
 * [Azure Functions](https://azure.microsoft.com/services/functions): Event-driven serverless compute unit for on-demand tasks running without the needs of maintaining the computing server.
 * [Azure App Service](/azure/app-service/overview): Path that captures end-user feedback data to enable model optimization.
+
+## Scenario details
+
+With the Azure AI tools, edge, and cloud platform, edge intelligence is possible. The next generation of AI-enabled hybrid applications can run where your data lives. With [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), bring a trained AI model to the edge, integrate it with your applications for low-latency intelligence, and continuously feedback into a refined AI model for improved accuracy, with no tool or process changes for local applications. This solution idea shows a connected Stack Hub scenario, where edge applications are connected to Azure. For the disconnected-edge version of this scenario, see the article [AI at the edge - disconnected](./ai-at-the-edge-disconnected.yml).
+
+### Potential use cases
+
+There's a wide range of Edge AI applications that monitor and provide information in near real-time. Areas where Edge AI can help include:
+
+* Security camera detection processes.
+* Image and video analysis (the media and entertainment industry).
+* Transportation and traffic (the automotive and mobility industry).
+* Manufacturing.
+* Energy (smart grids).
 
 ## Next steps
 

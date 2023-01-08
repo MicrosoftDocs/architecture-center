@@ -4,8 +4,9 @@ This solution idea describes how to extend your on-premises big data investments
 
 ## Architecture
 
-![Diagram that shows the big data architecture.](../media/extend-your-on-premises-big-data-investments-with-hdinsight.png)
-*Download an [SVG](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg) of this architecture.*
+[ ![Architecture diagram that shows the big data architecture.](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg)](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/extend-your-on-premises-big-data-investments-with-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 

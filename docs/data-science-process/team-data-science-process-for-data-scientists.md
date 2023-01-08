@@ -23,12 +23,12 @@ categories:
 
 This article provides guidance to a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies. You are guided through:
 
-- understanding an analytics workload
-- using the Team Data Science Process
-- using Azure Machine Learning
-- the foundations of data transfer and storage
-- providing data source documentation
-- using tools for analytics processing
+- Understanding an analytics workload
+- Using the Team Data Science Process
+- Using Azure Machine Learning
+- Understanding the foundations of data transfer and storage
+- Providing data source documentation
+- Using tools for analytics processing
 
 These training materials are related to the Team Data Science Process (TDSP) and Microsoft and open-source software and toolkits, which are helpful for envisioning, executing and delivering data science solutions.
 
@@ -63,13 +63,21 @@ You can use the items in the following table to guide your own self-study. Read 
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 See [Team Data Science Process for Developer Operations](team-data-science-process-for-devops.md). This article explores the Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.
+
+## Related resources
+
+- [Execute data science tasks: exploration, modeling, and deployment](execute-data-science-tasks.md)
+- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
+- [Platforms and tools for data science projects](platforms-and-tools.md)
+- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
+- [What is the Team Data Science Process?](overview.yml)
