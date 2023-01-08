@@ -127,6 +127,8 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ### Performance efficiency
 
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](https://review.learn.microsoft.com/en-us/azure/architecture/framework/scalability/overview).
+
 - Use Azure Monitor to collect metrics and logs from your Azure Arc-enabled SQL Managed Instances for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment).
 - You can also leverage open source tools like [Grafana and Kibana](/azure/azure-arc/data/monitor-grafana-kibana) to monitor your instances.
 - Additional performance efficiency considerations for your solution are described in the [Performance efficiency principles][waf-principles-performance-efficiency] section in the Microsoft Azure Well-Architected Framework.
