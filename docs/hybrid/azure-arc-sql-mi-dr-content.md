@@ -103,7 +103,6 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - Consider the need for keeping your Arc-enabled SQL Managed Instance up-to-date with the latest versions, whether they're deployed in Directly or Indirectly Connected mode. Review the [upgradeability disciplines critical design area](./eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines.md) for more guidance.
 - Review the design considerations in the Azure Arc-enabled Kubernetes [governance and security disciplines design area](../arc-enabled-kubernetes/eslz-arc-kubernetes-governance-disciplines.md).
 - Consult [Azure Arc-enabled SQL Managed Instance security and governance disciplines](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-governance-disciplines#design-considerations) for a comprehensive overview of the security features in Azure Arc-enabled SQL Managed Instance.
-- Other security considerations for your solution are described in the [security design principles][waf-principles-security] section in the Microsoft Azure Well-Architected Framework.
 
 ### Cost optimization
 
