@@ -27,7 +27,7 @@ The sample MLOps solution consists of the following components:
 
 - Data storage: [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) for data storage.
 - Model training, validation, and registration: [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) workspace
-- Model deployment: [Azure Machine Learning endpoints](https://learn.microsoft.com/azure/machine-learning/concept-endpoints), [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
+- Model deployment: [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) and [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 - Model monitor: [Azure Monitor](https://azure.microsoft.com/services/monitor) for Application Insights
 - MLOps pipelines: [Azure DevOps](https://azure.microsoft.com/services/devops/) and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
