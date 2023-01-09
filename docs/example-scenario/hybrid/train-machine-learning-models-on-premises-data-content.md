@@ -21,7 +21,7 @@ This solution uses the following components:
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry) stores the model that Machine Learning produces and places in a container for deployment.
 - [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack/hub) provides an on-premises Azure environment to run the following components:
   - [Azure App Service](/azure-stack/operator/azure-stack-app-service-overview) provides the base for the components at the edge.
-  - [VM](/products/virtual-machines/) running [Ubuntu](https://azure.microsoft.com/ubuntu) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker) trains the machine learning model.
+  - [VM](/azure/virtual-machines/) running [Ubuntu](https://azure.microsoft.com/ubuntu) with [Docker](https://azure.microsoft.com/products/kubernetes-service/docker) trains the machine learning model.
   - [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) stores private data.
 
 
