@@ -54,7 +54,7 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 
 Principal author:
 
-- [Matteo Pagani](https://www.linkedin.com/in/matteopagani) | Windows App Consult Tech Lead
+- [Matteo Pagani](https://www.linkedin.com/in/matteopagani) | Modern Work App Consult Tech Lead
 
 ## Next steps
 
