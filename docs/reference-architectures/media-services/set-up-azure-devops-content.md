@@ -114,7 +114,7 @@ Update some of the installed files.
    }
    ```
 
-You can also update the default Azure region by changing this variable:
+   You can also update the default Azure region by changing this variable:
 
    ```terraform
    variable "location" {
