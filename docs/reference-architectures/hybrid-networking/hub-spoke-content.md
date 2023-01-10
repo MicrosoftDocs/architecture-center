@@ -92,6 +92,7 @@ Suppose you have several spokes that need to connect with each other. In that ca
 While Azure Firewall is primarily used for egress security, it can be used as an ingress point. The topology in this article is designed to facilitate egress flows. For more ingress considerations to hub network virtual appliance and ingress routing, see [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway).
 
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, you must:
+
 Using Vnet peering:
 - Configure the peering connection in the hub to **allow gateway transit**.
 - Configure the peering connection in each spoke to **use remote gateways**.
@@ -281,7 +282,7 @@ Use the following command to create a resource group for the deployment. Click t
 az group create --name hub-spoke --location eastus
 ```
 
-Run the following command to deploy the hub and spoke network configuration, VNet peconnections erings between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
+Run the following command to deploy the hub and spoke network configuration, VNet connections between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
 
 ```azurecli-interactive
 az deployment group create --resource-group hub-spoke \
