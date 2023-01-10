@@ -7,7 +7,7 @@ This solution idea demonstrates a hybrid end-to-end monitoring solution integrat
 
 ## Architecture
 
-:::image type="content" source="../media/monitor-azure-data-explorer.png" alt-text="Monitoring solution with Azure Data Explorer." lightbox="../media/monitor-azure-data-explorer.png":::
+:::image type="content" source="../media/monitor-azure-data-explorer.svg" alt-text="Monitoring solution with Azure Data Explorer." lightbox="../media/monitor-azure-data-explorer.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-azure-data-explorer.vsdx) of this architecture.*
 
