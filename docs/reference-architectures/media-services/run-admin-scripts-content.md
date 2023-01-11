@@ -97,7 +97,7 @@ The `logic_app_sp.sh` bash script grants the Azure Logic App access to the Funct
 
 The script:
 
-1. Grants the Logic Appn **Website Contributor** access to the Function App.
+1. Grants the Logic App **Website Contributor** access to the Function App.
 1. Loops and grants the Logic App **Storage Blob Data Contributor** access to Azure Storage Accounts.
 1. Loops and grants the Logic App **Reader and Data Access** access to the resource groups that contain the Storage Accounts.
 
