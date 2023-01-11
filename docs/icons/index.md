@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Icons for use in building architecture diagrams for Azure
 author: Zimmergren
 ms.author: tozimmergren
-ms.date: 11/1/2023
+ms.date: 1/11/2023
 ms.service: architecture-center
 azureCategories: developer-tools
 categories: developer-tools
