@@ -1,5 +1,4 @@
 
-
 The Azure Pipelines continuous integration and delivery (CI/CD) pipelines deploy the Gridwich application into Azure, but they don't set up any identity principals or their access rights to Azure resources. The pipelines use Terraform to generate and publish admin scripts, and a user with elevated permissions must run the scripts manually to create and configure Azure resources. This article describes the admin scripts and how to run them.
 
 ## Grant admin privileges
@@ -27,14 +26,7 @@ az account set --subscription "<subscriptionID>"
 
 ### The ams_sp.sh script
 
-The `ams_sp.sh` script grants the Azure Function App access to Azure Media Services resources, and creates the Media Services service principal.
-
-The script:
-1. Loops and grants the Function App **Contributor** access to Media Services resources.
-1. Creates a Media Services service principal.
-1. Temporarily grants the service principal access to the shared Azure Key Vault.
-1. Stores the service principal ClientId/AppId and secret in the key vault secrets.
-1. Revokes the service principal's access to the key vault.
+The `ams_sp.sh` script grants the Azure Function App access to Azure Media Services resources.
 
 The Terraform variables are:
 
@@ -42,7 +34,6 @@ The Terraform variables are:
 - **functionPrincipalId**, the Function App managed identity service principal ID.
 - **mediaServicesName**, the Media Services account name.
 - **mediaServicesResourceGroupName**, the Media Services account resource group.
-- **keyVaultName**, the shared Key Vault name.
 
 To run the script:
 
@@ -81,6 +72,7 @@ To run the script:
 The `fxn_to_storage_sp.sh` bash script grants the Function App access to various Azure Storage Accounts and their resource groups.
 
 The script:
+
 1. Loops and grants the Function App **Storage Blob Data Contributor** access to the Azure Storage Accounts.
 1. Loops and grants the Function App **Reader and Data Access** access to the resource groups that contain the Storage Accounts.
 
@@ -104,7 +96,8 @@ To run the script:
 The `logic_app_sp.sh` bash script grants the Azure Logic App access to the Function App, the Storage Accounts, and the Storage Account resource groups.
 
 The script:
-1. Grants the Logic Appn **Website Contributor** access to the Function App.
+
+1. Grants the Logic App **Website Contributor** access to the Function App.
 1. Loops and grants the Logic App **Storage Blob Data Contributor** access to Azure Storage Accounts.
 1. Loops and grants the Logic App **Reader and Data Access** access to the resource groups that contain the Storage Accounts.
 
@@ -125,5 +118,6 @@ To run the script:
    ```
 
 ## Next steps
+
 - [Maintain and rotate Key Vault keys](maintain-keys.yml)
 - [Variable group to Terraform flow](variable-group-terraform-flow.yml)
