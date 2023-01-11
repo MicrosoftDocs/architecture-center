@@ -7,7 +7,7 @@ manager: lizross
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.topic: reference-architecture
-ms.date: 01/06/2023
+ms.date: 01/11/2023
 ms.author: ansyeo
 ms.custom:
   - internal-intro
