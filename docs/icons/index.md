@@ -68,7 +68,7 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://archcenter.blob.core.windows.net/cdn/icons/Azure_Public_Service_Icons_V11.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V11.zip)
 
 ## More icon sets from Microsoft
 
