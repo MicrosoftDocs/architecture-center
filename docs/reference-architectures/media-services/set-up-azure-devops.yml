@@ -2,7 +2,7 @@
 metadata:
   title: Gridwich Azure DevOps setup
   titleSuffix: Azure Reference Architectures
-  description: Learn how to set up Azure DevOps projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
+  description: Learn how to set up Azure DevOps Projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
   author: martinekuan
   ms.author: architectures
   ms.date: 12/23/2022
@@ -18,7 +18,7 @@ metadata:
     - azure devops
     - gridwich
 name: Gridwich Azure DevOps setup
-summary: Learn how to set up Azure DevOps projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
+summary: Learn how to set up Azure DevOps Projects, repos, pipelines, variable groups, and Azure connections for Gridwich.
 products:
   - azure-active-directory
   - azure-devops
