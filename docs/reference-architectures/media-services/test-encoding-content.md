@@ -73,7 +73,7 @@ To set up your local environment, see [Gridwich local development environment](s
            EventGrid: [POST] http://localhost:7071/api/EventGrid
    ```
 
-   Note : the port number could be different.
+   Note: the port number could be different.
 
 1. Send the payload to the local function to trigger the encoding.
 
