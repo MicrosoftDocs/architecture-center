@@ -469,7 +469,7 @@ For DevOps considerations in a microservices architecture, see [CI/CD for micros
 
 To learn how to deploy a container application with CI/CD to a Service Fabric cluster, see [this tutorial][service-fabric-tutorial].
 
-## Deployment of this scenario
+## Deploy this scenario
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
 
