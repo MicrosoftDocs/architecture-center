@@ -17,32 +17,32 @@ This reference architecture shows a microservices architecture deployed to Azure
 
 The architecture consists of the following components. For other terms, see [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview).
 
-**Service Fabric cluster**. A cluster is a network-connected set of virtual machines (VMs) into which you deploy and manage your microservices.
+- **Service Fabric cluster**. A cluster is a network-connected set of virtual machines (VMs) into which you deploy and manage your microservices.
 
-**Virtual machine scale sets**. Virtual machine scale sets allow you to create and manage a group of identical, load-balanced, and autoscaling VMs. These compute resources also provide the fault and upgrade domains.
+- **Virtual machine scale sets**. Virtual machine scale sets allow you to create and manage a group of identical, load-balanced, and autoscaling VMs. These compute resources also provide the fault and upgrade domains.
 
-**Nodes**. The nodes are the VMs that belong to the Service Fabric cluster.
+- **Nodes**. The nodes are the VMs that belong to the Service Fabric cluster.
 
-**Node types**. A node type represents a virtual machine scale set that deploys a collection of nodes. A Service Fabric cluster has at least one node type. 
+- **Node types**. A node type represents a virtual machine scale set that deploys a collection of nodes. A Service Fabric cluster has at least one node type. 
 
   In a cluster that has multiple node types, one must be declared the [primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type). The primary node type in the cluster runs the [Service Fabric system services](/azure/service-fabric/service-fabric-technical-overview#system-services). These services provide the platform capabilities of Service Fabric. The primary node type also acts as the [seed nodes](/azure/service-fabric/service-fabric-disaster-recovery#random-failures-that-lead-to-cluster-failures), which are the nodes that maintain the availability of the underlying cluster. 
   
   Configure [additional node types](/azure/service-fabric/service-fabric-cluster-capacity#non-primary-node-type) to run your services.
 
-**Services**. A service performs a standalone function that can start and run independently of other services. Instances of services get deployed to nodes in the cluster. There are two varieties of services in Service Fabric:
+- **Services**. A service performs a standalone function that can start and run independently of other services. Instances of services get deployed to nodes in the cluster. There are two varieties of services in Service Fabric:
 
-- **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, then state is written to and retrieved from an external store, such as Azure Cosmos DB.
-- **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement this through [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) in Service Fabric.
+  - **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, then state is written to and retrieved from an external store, such as Azure Cosmos DB.
+  - **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement this through [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) in Service Fabric.
 
-**Service Fabric Explorer**. [Service Fabric Explorer][sfx] is an open-source tool for inspecting and managing Service Fabric clusters.
+- **Service Fabric Explorer**. [Service Fabric Explorer][sfx] is an open-source tool for inspecting and managing Service Fabric clusters.
 
-**Azure Pipelines**. [Azure Pipelines](/azure/devops/pipelines/) is part of [Azure DevOps Services](/azure/devops/index) and runs automated builds, tests, and deployments. You can also use third-party continuous integration and continuous delivery (CI/CD) solutions such as Jenkins.
+- **Azure Pipelines**. [Azure Pipelines](/azure/devops/pipelines/) is part of [Azure DevOps Services](/azure/devops/index) and runs automated builds, tests, and deployments. You can also use third-party continuous integration and continuous delivery (CI/CD) solutions such as Jenkins.
 
-**Azure Monitor**. [Azure Monitor](/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, along with container and node logs.
+- **Azure Monitor**. [Azure Monitor](/azure/azure-monitor) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, along with container and node logs.
 
-**Azure Key Vault**. Use [Key Vault](/azure/key-vault) to store any application secrets that the microservices use, such as connection strings.
+- **Azure Key Vault**. Use [Key Vault](/azure/key-vault) to store any application secrets that the microservices use, such as connection strings.
 
-**Azure API Management**. In this architecture, [API Management](/azure/api-management/api-management-key-concepts) acts as an API gateway that accepts requests from clients and routes them to your services.
+- **Azure API Management**. In this architecture, [API Management](/azure/api-management/api-management-key-concepts) acts as an API gateway that accepts requests from clients and routes them to your services.
 
 ## Considerations
 
@@ -158,7 +158,7 @@ This section is focused on autoscaling. You can choose to manually scale in situ
 
 When you create a Service Fabric cluster, provision the node types based on your security and scalability needs. Each node type is mapped to a virtual machine scale set and can be scaled independently.
 
-- Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Create separate node types to run your public or front-end services. And create other node types as necessary for your back end and private or isolated services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are deployed only to the intended node types.
+- Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Create separate node types to run your public or front-end services. Create other node types as necessary for your back end and private or isolated services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are deployed only to the intended node types.
 - Specify the *durability tier* for each node type. The durability tier represents the ability of Service Fabric to influence updates and maintenance operations in virtual machine scale sets. For production workloads, choose a Silver or higher durability tier. For information about each tier, see [Durability characteristics of the cluster](/azure/service-fabric/service-fabric-cluster-capacity#Durability-characteristics-of-the-cluster).
 - If you're using the Bronze durability tier, certain operations require manual steps. Node types with the Bronze durability tier require additional steps during scale-in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
@@ -168,7 +168,7 @@ Service Fabric supports autoscaling for scale-in and scale-out. You can configur
 
 Each node type can have a maximum of 100 nodes. Start with a smaller set of nodes, and add more nodes depending on your load. If you require more than 100 nodes in a node type, you'll need to add more node types. For details, see [Service Fabric cluster capacity planning considerations](/azure/service-fabric/service-fabric-cluster-capacity). A virtual machine scale set does not scale instantaneously, so consider that factor when you set up autoscale rules.
 
-To support automatic scale-in, configure the node type to have the Silver or Gold durability tier. This configuration makes sure that scaling in is delayed until Service Fabric finishes relocating services. It also make sure that the virtual machine scale sets inform Service Fabric that the VMs are removed, not just down temporarily.
+To support automatic scale-in, configure the node type to have the Silver or Gold durability tier. This configuration makes sure that scaling in is delayed until Service Fabric finishes relocating services. It also makes sure that the virtual machine scale sets inform Service Fabric that the VMs are removed, not just down temporarily.
 
 For more information about scaling at the node or cluster level, see [Scaling Azure Service Fabric clusters](/azure/service-fabric/service-fabric-cluster-scaling).
 
@@ -406,7 +406,7 @@ The [Service Map solution in Log Analytics](/azure/azure-monitor/insights/servic
 
 - [Application Map in Application Insights](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between services, with the installed Application Insights SDK.
 - [Service Map in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about inbound and outbound traffic from and to external services. Service Map integrates with other solutions, such as updates or security.
-- You can use custom watchdogs to report error conditions on external services. For example, the service could report an error health report if it can't access an external service or data storage (Azure Cosmos DB).
+- Custom watchdogs can report error conditions on external services. For example, the service can provide an error health report if it can't access an external service or data storage (Azure Cosmos DB).
 
 #### Distributed tracing
 
