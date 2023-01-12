@@ -1914,7 +1914,6 @@ items:
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
-              - name: Data analysis for manufacturing
               - name: IoT and data analytics in manufacturing
                 href: example-scenario/data/big-data-with-iot.yml
               - name: IoT Edge safety and maintenance system
