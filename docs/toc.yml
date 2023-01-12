@@ -1211,8 +1211,6 @@ items:
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
-              - name: Data analysis for finance
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
               - name: Finance management using PostgreSQL
@@ -1916,8 +1914,6 @@ items:
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
-              - name: Data analysis for manufacturing
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: IoT and data analytics in manufacturing
                 href: example-scenario/data/big-data-with-iot.yml
               - name: IoT Edge safety and maintenance system
@@ -3308,8 +3304,6 @@ items:
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
               - name: Customer 360 with Azure Synapse
                 href: example-scenario/analytics/synapse-customer-insights.yml      
-              - name: Data analysis for regulated industries
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data lake queries via Synapse serverless
                 href: example-scenario/data/synapse-exploratory-data-analytics.yml
               - name: Data warehouse for small business
@@ -4300,8 +4294,6 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
-              - name: Data analysis for regulated industries
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data governance with Profisee
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: Data warehousing and analytics
