@@ -122,7 +122,7 @@ Principal author:
 
 - [Reference architecture for a multi-region web application][multi-region-web-app]
 - [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
-- [Social app for mobile and web with authentication](.../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
+- [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
 - [Web applications architecture design](../../guide/web/web-start-here.md)
 - [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
 - [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
@@ -163,7 +163,7 @@ Principal author:
 [keyvault-sla]: https://azure.microsoft.com/en-au/support/legal/sla/key-vault/v1_0/
 [mariadb-security]: https://learn.microsoft.com/en-us/azure/mariadb/concepts-security
 [msi]: /azure/app-service/app-service-managed-service-identity
-[kusto-query]: (azure/data-explorer/kusto/query/)
+[kusto-query]: /azure/data-explorer/kusto/query
 [azure-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
 [app-service-always-on]: https://learn.microsoft.com/en-us/troubleshoot/azure/app-service/web-apps-performance-faqs#how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time
 [bicep]: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
