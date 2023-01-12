@@ -4,9 +4,9 @@ This architecture shows how you can create a solution personalizing offers with 
 
 ## Architecture
 
-![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
+[ ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.svg)](../media/personalized-marketing.svg#lightbox)
 
-*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Personalized%20marketing%20solution%20using%20Azure&templateid=TM44657576) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download an [SVG](../media/personalized-marketing.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/personalized-marketing.vsdx) of this architecture.*
 
 ### Dataflow
 

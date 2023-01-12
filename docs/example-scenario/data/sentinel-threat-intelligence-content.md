@@ -116,7 +116,7 @@ TAXII 2.x servers advertise API Roots, which are URLs that host threat intellige
 
 If you don't have the API Root, you can usually get it from the threat intelligence provider's documentation page, but sometimes the only information available is the discovery endpoint URL. You can find the API Root using the discovery endpoint. The following example uses the discovery endpoint of the [Anomali Limo](https://www.anomali.com/community/limo) ThreatStream TAXII 2.0 server.
 
-1. From a browser, navigate and sign in to the ThreatStream TAXII 2.0 server discovery endpoint, [https://limo.anomali.com/taxii](https://limo.anomali.com/taxii), using the username *guest* and password *guest*. After you sign in, you see the following information:
+1. From a browser, navigate and sign in to the ThreatStream TAXII 2.0 server discovery endpoint, `https://limo.anomali.com/taxii`, using the username *guest* and password *guest*. After you sign in, you see the following information:
 
    ```json
    {
@@ -133,7 +133,7 @@ If you don't have the API Root, you can usually get it from the threat intellige
    }
    ```
 
-1. To browse collections, enter the API Root you got from the previous step into your browser: [https://limo.anomali.com/api/v1/taxii2/feeds/collections/](https://limo.anomali.com/api/v1/taxii2/feeds/collections). You see information like:
+1. To browse collections, enter the API Root you got from the previous step into your browser: `https://limo.anomali.com/api/v1/taxii2/feeds/collections/`. You see information like:
 
    ```json
    {

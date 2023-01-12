@@ -2,7 +2,7 @@ This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes
 
 ## Architecture
 
-![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
+![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-factory-hierarchy-service.vsdx) of this architecture.*
 
@@ -34,7 +34,7 @@ The hierarchy service lets you filter query operations by node types and node at
 |Operation|Filter|Description|
 |---|---|---|
 |`get`|`/api/v0.1/nodes`|Get nodes by their attribute values.|
-|`get`|`/api/v0.1/nodes/{nodeId}`|Get a node by Id.|
+|`get`|`/api/v0.1/nodes/{nodeId}`|Get a node by ID.|
 |`get`|`/api/v0.1/nodes/{nodeId}/subtree`|Get subtree of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/children`|Get direct children of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/parent`|Get parent of a hierarchy node.|

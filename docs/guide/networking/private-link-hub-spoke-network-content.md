@@ -155,6 +155,12 @@ Principal author:
 
  - Jose Angel Fernandez Rodrigues | Senior Specialist GBB
 
+Other contributor:
+
+ - [Ivens Applyrs](https://www.linkedin.com/in/ivens-applyrs/) | Product Manager 2
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Hub-spoke network topology in Azure][Hub-spoke network topology in Azure]

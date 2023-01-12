@@ -4,7 +4,9 @@ This solution idea demonstrates how to use interactive analytics in Azure Data E
 
 ## Architecture
 
-:::image type="content" source="../media/interactive-azure-data-explorer.png" alt-text="Interactive analytics with Azure Data Explorer" lightbox="../media/interactive-azure-data-explorer.png":::
+:::image type="content" source="../media/interactive-azure-data-explorer.svg" alt-text="Interactive analytics with Azure Data Explorer." lightbox="../media/interactive-azure-data-explorer.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/interactive-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 
