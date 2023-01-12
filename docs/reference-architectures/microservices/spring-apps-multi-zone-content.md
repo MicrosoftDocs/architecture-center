@@ -29,7 +29,7 @@ This reference architecture shows how to run application workloads on Azure Spri
 - [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for Domain Name System (DNS) domains that provides name resolution by using Azure infrastructure. This solution uses Azure DNS for DNS resolution from your custom domain to your Azure Application Gateway.
 - [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway acts as a local reverse proxy in a region where your application runs in. For alternative reverse proxy setups, see [Reverse proxy setup](#reverse-proxy-setup). The Application Gateway is also set up to use multiple availability zones.
 - [Azure Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
-- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) makes it easy to deploy Java Spring Boot applications to Azure without any code changes. It can very easily be made zone redundant by adding setting the `zone redundant` option for it. When doing so, all underlying infrastructure of the service will be spread across multiple availability zones. This allows for an overall higher availability of your applications using the service.
+- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) makes it easy to deploy Java Spring Boot applications to Azure without any code changes. It can easily be made zone redundant by adding setting the `zone redundant` option for it. When doing so, all underlying infrastructure of the service will be spread across multiple availability zones. This zone spreading allows for an overall higher availability of your applications using the service.
 - [Azure Flexible Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service in the Azure cloud that's based on the MySQL Community Edition.
 - [Key Vault](https://azure.microsoft.com/products/key-vault) is one of several key management solutions in Azure that help manage keys, secrets, and certificates. This solution uses Key Vault for storing application secrets and the certificates that Application Gateway, and Azure Spring Apps use.
 - [Azure resource groups](https://azure.microsoft.com/get-started/azure-portal/resource-manager) are logical containers for Azure resources. In this solution, resource groups organize components within a region. As a naming convention, the setup includes a short string for the component's region, so it's easy to identify which region the component is running in.
@@ -43,11 +43,11 @@ The following sections discuss alternatives for several aspects of this architec
 
 ### Multi region deployment
 
-To increase application resilience and reliability, you can alternatively deploy the application to multiple regions. In case you do so you will add an additional [Azure Front Door](/azure/frontdoor/front-door-overview) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) service to loadbalance requests to your applications across regions.
+To increase application resilience and reliability, you can alternatively deploy the application to multiple regions. In case you do so you'll add an additional [Azure Front Door](/azure/frontdoor/front-door-overview) or [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) service to load balance requests to your applications across regions.
 
-A multi region deployment will however double the costs of your setup, since you will duplicate the full setup to a secondary region. For this reason, the choice is often made to provide an active-passive setup, where only 1 region is active and deployed. A global load balancer is already added to the setup to privide an easy way of failing over your workloads once a secondary region becomes active. Whether active-active or active-passive is the best choice for your workload depends on the availability requirements you have for your application.
+A multi region deployment will however double the costs of your setup, since you'll duplicate the full setup to a secondary region. For this reason, the choice is often made to provide an active-passive setup, where only one region is active and deployed. A global load balancer is already added to the setup to provide an easy way of failing over your workloads once a secondary region becomes active. Whether active-active or active-passive is the best choice for your workload depends on the availability requirements you have for your application.
 
-The biggest challenge with a multi region setup is also replicating the data for your application between multiple regions. This challenge is not there in the multi-zone setup. Azure availability zones are connected by a high-performance network with a roundtrip latency of less than 2 ms. This latency is ok for the majority of applications.
+The biggest challenge with a multi region setup is also replicating the data for your application between multiple regions. This challenge isn't there in the multi-zone setup. Azure availability zones are connected by a high-performance network with a roundtrip latency of less than 2 ms. This latency is ok for the most of applications.
 
 You can also combine a multizone solution with a multiregion solution.
 
@@ -55,7 +55,7 @@ You can also combine a multizone solution with a multiregion solution.
 
 This architecture uses a MySQL database for the backend database. You can also use other database technologies, like [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview), [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview), [Azure Database for MariaDB](/azure/mariadb/overview), or [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
-Some of these databases you will also be able to connect to your virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). This is not the case for [Azure Flexible Database for MySQL](https://azure.microsoft.com/products/mysql) which needs a dedicated subnet to be deployed in.
+Some of these databases you'll also be able to connect to your virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). Azure Private Link isn't available for [Azure Flexible Database for MySQL](https://azure.microsoft.com/products/mysql), which needs a dedicated subnet to be deployed in.
 
 ### Reverse proxy setup
 
@@ -85,20 +85,20 @@ This architecture describes a multi zone design for Azure Spring Apps. This arch
 
 > [!IMPORTANT]
 > For mission-critical workloads it is recommended to combine zone-redundancy and regional-redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions.
-> For more details please refer to the [global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#video---global-distribution ) section of the mission-critical design methodology, and the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
+> For more information please refer to the [global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#video---global-distribution ) section of the mission-critical design methodology, and the [mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 > You can also use the [Deploy Azure Spring Apps to multiple regions](/azure/architecture/reference-architectures/microservices/spring-apps-multi-region) guidance for an automated setup across regions.
 
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have specific requirements that override them.
 
-### Front And IP Adresses
+### Front And IP Addresses
 
-[Availability Zone](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone) support is available for Public IP addresses with a standard SKU. When using availability zones in your architecture you should make sure you use availability zones for all the components in your setup. So also for the public IP address used by the Application Gateway.
+[Availability Zone](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone) support is available for Public IP addresses with a standard SKU. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. So also for the public IP address used by the Application Gateway.
 
 ### Application Gateway
 
-[Application Gateway v2](/azure/application-gateway/overview-v2) can be spread across multiple availability zones. When using availability zones in your architecture you should make sure you use availability zones for all the components in your setup. So also for the Application Gateway.
+[Application Gateway v2](/azure/application-gateway/overview-v2) can be spread across multiple availability zones. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. So also for the Application Gateway.
 
 Enable [Web Application Firewall](/azure/web-application-firewall/) on your Application Gateway with OWASP enabled.
 
@@ -108,9 +108,9 @@ Key Vault is automatically zone-redundant in any region where availability zones
 
 ### MySQL Flexible Server
 
-[MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When using availability zones in your architecture you should make sure you use availability zones for all the components in your setup. So also for the database.
+[MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. So also for the database.
 
-When configuring high availability concepts in Azure Database for MySQL Flexible Server you can choose between `Zone-redundant HA` and `same-zone HA`. What option you choice will depend on your latency requirements.
+When configuring high availability concepts in Azure Database for MySQL Flexible Server, you can choose between `Zone-redundant HA` and `same-zone HA`. What option you choose will depend on your latency requirements.
 
 ### Automated deployment
 
@@ -144,13 +144,13 @@ You should also protect your virtual networks with [Azure DDoS Protection](/azur
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-This solution will have a higher cost then a single-zone version. This is because some components in the setup will be deployed in multiple zones, instead of 1 instance, they will run 2 or even 3 instances. [Azure Spring Apps](/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery?tabs=azure-cli#pricing) however will not have any extra cost associated with it when you enable zone redundancy on the service.
+This solution will have a higher cost than a single-zone version. This higher cost is because some components in the setup will be deployed in multiple zones, instead of one instance, they'll run two or even three instances. [Azure Spring Apps](/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery?tabs=azure-cli#pricing) however won't have any extra cost associated with it when you enable zone redundancy on the service.
 
 To address costs:
-- You can deploy different applications and application types to a single instance of Azure Spring Apps. By doing this the cost of the underlying infrastructure will be shared across applications.
+- You can deploy different applications and application types to a single instance of Azure Spring Apps. By deploying multiple applications, the cost of the underlying infrastructure will be shared across applications.
 - Azure Spring Apps supports application autoscaling triggered by metrics or schedules, which can improve utilization and cost efficiency.
 - You can use Application Insights in [Azure Monitor](/azure/azure-monitor/overview) to lower operational costs. A comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
-- The alternative setup that uses a Front Door instead of an Application Gateway will allow for cost on a per request basis. With Front Door you won't have to provision multiple Application Gateway instances and cost will be calculated per actual request to your application.
+- The alternative setup that uses a Front Door instead of an Application Gateway will allow for cost on a per request basis. With Front Door, you won't have to provision multiple Application Gateway instances and cost will be calculated per actual request to your application.
 
 All the services this architecture describes are pre-configured in an [Azure pricing calculator estimate](https://azure.com/e/414c5e0b15494e5081cc9f008d82fdaa) with reasonable default values for a small scale application. You can update this estimate based on the throughput values you expect for your application.
 
