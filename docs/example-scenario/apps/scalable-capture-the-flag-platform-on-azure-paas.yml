@@ -2,7 +2,7 @@
 metadata:
   title: Scalable Capture-the-Flag with CTFd on Azure PaaS
   description: Build a secure, scalable CTFd service with Azure PaaS so you can manage a your games while Azure takes care of the infrastructure.
-  author: avbalter
+  author: balteravishay
   ms.author: architectures
   ms.date: 01/11/2023
   ms.topic: example-scenario
