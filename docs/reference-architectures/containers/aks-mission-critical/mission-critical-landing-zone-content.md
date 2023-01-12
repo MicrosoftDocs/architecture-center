@@ -44,6 +44,8 @@ Apply these strategies on top of the [mission-critical baseline](/azure/architec
 
 :::image type="content" source="./images/mission-critical-architecture-landing-zone.svg" alt-text="Architecture diagram of a mission-critical workload in an Azure landing zone." lightbox="./images/mission-critical-architecture-landing-zone-high-res.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/mission-critical-landing-zone.vsdx) of this architecture.*
+
 The components of this architecture are same as the [**mission-critical baseline architecture with network controls**](./mission-critical-network-architecture.yml). The descriptions are short for brevity. If you need more information, see the linked articles. For product documentation about Azure services, see [Related resources](#related-resources).
 
 ### Global resources
