@@ -476,16 +476,6 @@ To deploy the reference implementation for this architecture, follow the steps i
 [ri]: https://github.com/mspnp/microservices-reference-implementation-servicefabric
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation-servicefabric/blob/master/deployment.md
 
-## Contributors
-
-*Microsoft maintains this article. The following contributors originally wrote it.* 
-
-Principal author:
-
-- [Priyanka Wilkins](https://www.linkedin.com/in/priyanka-w/) | Senior Content Developer
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - [Training: Introduction to Azure Service Fabric](/training/modules/intro-to-azure-service-fabric)
