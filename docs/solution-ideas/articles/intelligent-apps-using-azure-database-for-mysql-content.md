@@ -46,9 +46,9 @@ The automated pipeline uses the following services to analyze the data:
 - Cognitive Services uses AI for question answering, sentiment analysis, and text translation.
 - Azure Machine Learning supplies machine-learning tools for predictive analytics.
 
-The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI. 
+The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI.
 
-The architecture uses an Azure Functions App to ingest data from multiple data sources. It is a serverless solution that offers that following benefits:
+The architecture uses an Azure Functions App to ingest data from multiple data sources. It's a serverless solution that offers the following benefits:
 
 - **Infrastructure maintenance**: Azure Functions is a managed service that allows developers to focus on innovative work that delivers value to the business.
 - **Scalability**: Azure Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
