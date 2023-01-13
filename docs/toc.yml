@@ -3463,7 +3463,7 @@ items:
           - name: Solution ideas
             items:
               - name: Blockchain workflow application
-                href: solution-ideas/articles/blockchain-workflow-application.yml
+                href: /updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
               - name: Supply chain management with QBS
                 href: guide/blockchain/quorum-blockchain-service.yml
               - name: Supply chain track and trace
@@ -4506,7 +4506,7 @@ items:
                   - name: HIPAA/HITRUST compliant health data
                     href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
                   - name: Instant broadcasting with serverless
-                    href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+                    href: /azure/architecture/serverless-quest/serverless-overview
                   - name: Serverless applications using Event Grid
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless apps using Azure Cosmos DB
@@ -5595,7 +5595,7 @@ items:
               - name: HPC media rendering
                 href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Instant broadcasting with serverless
-                href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+                href: /azure/architecture/serverless-quest/serverless-overview
               - name: Keyword search in videos
                 href: solution-ideas/articles/digital-media-speech-text.yml
               - name: Live streaming digital media
