@@ -163,7 +163,7 @@ Principal author:
 ## Next steps
 
 - [Introduction to Memory-Optimized Tables](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)
-- [In-Memory OLTP overview and usage scenarios](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios}
+- [In-Memory OLTP overview and usage scenarios](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios)
 - [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](/azure-sql/in-memory-oltp-overview)
 - [Distributed transactions across cloud databases](/azure/azure-sql/database/elastic-transactions-overview)
 
@@ -171,5 +171,5 @@ Principal author:
 
 - [Azure Data Architecture Guide](../index.md)
 - [Databases architecture design](../databases-architecture-design.yml)
-- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml))
+- [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 - [IBM z/OS online transaction processing on Azure](../../example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml)
