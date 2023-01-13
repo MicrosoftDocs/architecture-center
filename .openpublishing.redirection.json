@@ -2516,6 +2516,11 @@
     "source_path": "docs/example-scenario/apps/devops-dotnet-webapp.yml",
     "redirect_url": "/azure/architecture/example-scenario/apps/devops-dotnet-baseline",
     "redirect_document_id": false
-  }   
+  },
+  {
+    "source_path": "docs/example-scenario/data/data-analysis-regulated-industries.yml",
+    "redirect_url": "/azure/architecture/example-scenario/data/data-warehouse",
+    "redirect_document_id": false
+   }   
   ]
 }

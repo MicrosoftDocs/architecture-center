@@ -14,7 +14,7 @@ This article presents a solution for automating data analysis and visualization 
 1. The Azure Functions App calls the Cognitive Services API to analyze the data.
 1. The Cognitive Services API returns the results of the analysis in JSON format to the Azure Functions App.
 1. The Azure Functions App stores the data and results from the Cognitive Services API in Azure Database for PostgreSQL.
-1. Azure Machine Learning use custom machine learning algorithms to provide further insights into the data.
+1. Azure Machine Learning uses custom machine learning algorithms to provide further insights into the data.
    - If you're approaching the machine learning step with a no-code perspective, you can implement further text analytics operations on the data, like feature hashing, Word2Vector, and n-gram extraction.
    - If you prefer a code-first approach, you can run an open-source natural language processing (NLP) model as an experiment in Machine Learning studio.
 1. The PostgreSQL connector for Power BI makes it possible to explore human-interpretable insights in Power BI or a custom web application.
@@ -38,9 +38,9 @@ The automated pipeline uses the following services to analyze the data:
 
 To store data and results, the solution uses Azure Database for PostgreSQL. The PostgreSQL database supports unstructured data, parallel queries, and declarative partitioning. This support makes Azure Database for PostgreSQL an effective choice for highly data-intensive AI and machine learning tasks.
 
-The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI. 
+The solution automates the delivery of the data analysis. A connector links Azure Database for MySQL with visualization tools like Power BI.
 
-The architecture uses an Azure Functions App to ingest data from multiple data sources. It is a serverless solution that offers that following benefits:
+The architecture uses an Azure Functions App to ingest data from multiple data sources. It's a serverless solution that offers the following benefits:
 
 - **Infrastructure maintenance**: Azure Functions is a managed service that allows developers to focus on innovative work that delivers value to the business.
 - **Scalability**: Azure Functions provides compute resources on demand, so function instances scale as needed. As requests fall, resources and application instances drop off automatically.
@@ -92,7 +92,7 @@ Cognitive Service for Language offers various pricing tiers. The number of text 
 - [Azure Functions overview](/azure/azure-functions/functions-overview)
 - [Azure Function activity in Azure Data Factory](/azure/data-factory/control-flow-azure-function-activity)
 - [Azure Event Hubs—A big data streaming platform and event ingestion service](/azure/event-hubs/event-hubs-about)
-- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
 - [How to use Language service features asynchronously](/azure/cognitive-services/language-service/concepts/use-asynchronously)
 - [Azure Cognitive Services for Language API testing console](https://westus.dev.cognitive.microsoft.com/docs/services/Language-2022-05-01/operations/ConversationAnalysis_AnalyzeConversations)
