@@ -2,7 +2,7 @@ This article provides an overview of monitor and manage process loop architectur
 
 ## Architecture
 
-[ ![Architecture diagram show Monitor and Manage Loop](./media/monitor-and-manage.svg)](./media/monitor-and-manage.svg#lightbox)
+[ ![Architecture diagram show Monitor and Manage Loop.](./media/monitor-and-manage.svg)](./media/monitor-and-manage.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/monitor-and-manage.vsdx) of this architecture.*
 
