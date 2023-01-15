@@ -12,7 +12,7 @@ The following workflow corresponds to the above diagram:
 
 - Two Azure Arc-enabled Kubernetes clusters are deployed in different virtual networks representing two different sites.
 - Virtual network peering is established between the two vitual networks for communication.
-- Two domain controllers are deployed in each virtual network and Active Directory replication is configured between them.
+- Two domain controllers are deployed in each site and Active Directory replication is configured between them.
 - An Azure Arc data controller is deployed on each Azure Arc-enabled Kubernetes cluster.
 - An Azure Arc-enabled SQL Managed Instance is deployed on the primary cluster in Business critical service tier.
 - An Azure Arc-enabled SQL Managed Instance is deployed on the secondary cluster in Business critical service tier and configured as a disaster recovery instance.
@@ -83,6 +83,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
+- Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 - Define your targets for [recovery point objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) (RPO) and [recovery time objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) (RTO).
 - Plan and configure [Point-in-time restore](/azure/azure-sql/managed-instance/point-in-time-restore?view=azuresql&tabs=azure-portal) capability to be able to restore your databases to a point in time.
 - Consider how many replicas—one to three—to deploy in the Business Critical service tier.
@@ -95,6 +96,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
+- Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 - Consider which Azure regions you plan to deploy your Arc-enabled SQL Managed Instance and Data Controllers within based on your security and compliance requirements, taking into consideration any data sovereignty requirements. Understand [what data is collected from your resources](/azure/azure-arc/data/privacy-data-collection-and-reporting) in *Directly* and *Indirectly Connected* mode, and plan accordingly based on the data residency requirements of your organization.
 - Your Arc-enabled SQL Managed Instance can reside on hybrid or multicloud Kubernetes clusters. Review the security and governance considerations for your chosen cloud provider and Kubernetes distribution.
 - While considering your organization's separation of duties and least-privileged access requirements, define cluster administration, operations, database administration, and developer roles within your organization. Mapping each team to actions and responsibilities determines Azure role-based access control (RBAC) roles or the Kubernetes _ClusterRoleBinding_ and _RoleBinding_ depending on the connectivity mode used.
@@ -106,6 +108,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Cost optimization
 
+- Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 - **Service tier** Define the business requirements to determine the most appropriate service tier. In addition, consider the extra infrastructure needed to support [business continuity and disaster recovery](./eslz-arc-data-service-sql-managed-instance-business-continuity-disaster-recovery.md).
 - **Connectivity modes** How usage and billing information is sent to Azure varies depending on whether one is using the directly connected or indirectly connected mode. If you're using the indirectly connected mode, consider how the usage and billing information is regularly sent to Azure.
 - **Reserved instances** Based on the expected time for Arc-enabled SQL MI, consider whether pay-as-you-go, a one-year reserved instance, or a three-year reserved instance offers savings.
@@ -116,15 +119,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](https://review.learn.microsoft.com/en-us/azure/architecture/framework/devops/overview).
-
+- Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 - Review the Upgradeability design principle in the [Azure Arc-enabled SQL Managed Instance landing zone accelerator](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines) fro best practices on how to keep you instances up-to-date.
 - Review [Azure Arc Jumpstart Unified Operations Use Cases](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/day2/) to learn about additional operational excellence scenarios for Azure Arc-enabled SQL Managed Instance.
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](https://review.learn.microsoft.com/en-us/azure/architecture/framework/scalability/overview).
-
+- Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 - Use Azure Monitor to collect metrics and logs from your Azure Arc-enabled SQL Managed Instances for detailed analysis and correlation. Review the [deployment options](/azure/azure-arc/servers/concept-log-analytics-extension-deployment).
 - You can also leverage open source tools like [Grafana and Kibana](/azure/azure-arc/data/monitor-grafana-kibana) to monitor your instances.
 
