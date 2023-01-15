@@ -11,7 +11,7 @@ This example scenario shows how to run a fully managed, highly scalable, and sec
 This scenario covers an e-commerce solution where customers can search through a product catalog.
 
 1. CTF administrators and participants navigate to the **capture-the-flag web application** from any device.
-2. The web application is provided by [CTFd][ctfd] platform.
+2. The web application is provided by [CTFd][ctfd] platform, as a docker container running on an **Azure App Service Web App for Containers**.
 3. The CTFd data is maintained in an **Azure Database for MariaDB**. That includes users, challenges, flags, and game plays.
 4. The state, user sessions, and other CTFd values are held in an **Azure Cache for Redis**, which makes it suitable for supporting scaling out to multiple CTFd instances.
 5. The keys for both the database and cache are maintained in an **Azure Key Vault**, and access to the secrets is granted only to the web application.
@@ -20,7 +20,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 ### Components
 
-- [App Services - Web Apps][docs-webapps-service-page] hosts web applications allowing autoscale and high availability without managing infrastructure.
+- [App Services - Web App for container][docs-webapps-service-page] hosts containerized web applications allowing autoscale and high availability without managing infrastructure.
 - [Azure Database for MariaDB][mariadb] is a cloud-based relational database service. This service is based on the [MariaDB][mariadb-org] community edition database engine.
 - [Azure Cache for Redis][docs-redis-cache] improves the performance and scalability of systems that rely heavily on backend data stores by temporarily copying frequently accessed data to fast storage close to the application.
 - [Azure Key Vault][key-vault]: Secure credential and certificate management.
@@ -97,6 +97,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 ## Deploy this scenario
 
 You can find the solution deployment files as [Bicep][bicep] Infrastructure-as-Code [GitHub][source-code].
+The easiest way to deploy the solution to your subscription is to use the 'Deploy to Azure Button' from the repo's main README.
 
 ## Contributors
 
@@ -131,9 +132,8 @@ Principal author:
 
 <!-- links -->
 [ctfd]: https://github.com/CTFd/CTFd
-[architecture]: ./media/architecture-ctfd.svg
-[docs-webapps]: /azure/app-service/app-service-web-overview
-[docs-webapps-service-page]: https://azure.microsoft.com/products/app-service/web/
+[architecture]: ./media/architecture-ctfd.png
+[docs-webapps-service-page]: https://azure.microsoft.com/en-us/products/app-service/containers/
 [mariadb]: https://azure.microsoft.com/services/mariadb/
 [mariadb-org]: https://mariadb.org/
 [docs-redis-cache]: https://www.microsoft.com/azure/redis-cache/cache-overview
@@ -167,5 +167,5 @@ Principal author:
 [azure-monitor-pricing]: https://azure.microsoft.com/pricing/details/monitor/
 [app-service-always-on]: https://learn.microsoft.com/en-us/troubleshoot/azure/app-service/web-apps-performance-faqs#how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time
 [bicep]: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
-[source-code]: https://github.com/balteravishay/CTFd_azure
+[source-code]: https://github.com/Azure-Samples/ctfd-azure-paas
 [multi-region-web-app]: ../../reference-architectures/app-service-web-app/multi-region.yml
