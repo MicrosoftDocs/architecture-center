@@ -42,7 +42,7 @@ In certain situations, it might be reasonable not to build a full control plane.
 > [!NOTE]
 > If you provide self-service tenant management, you'll need a control plane early in your journey. You might choose to creae a basic control plane and only automate some of the most commonly used functionality.
 
-As you grow beyond a few tenants, you'll likely gain benefits from having a way to track each tenant and monitor across your fleet of resources and tenants. You might also notice that your team spends an increasing amount of time and effort on tenant management, or you start to see bugs or operational incidents because of inconsistencies in the ways that team members perform management tasks. At this point, it's worth considering building a control plane to take on these responsibilities.
+As you grow beyond a few tenants, you'll likely gain benefits from having a way to track each tenant and monitor across your fleet of resources and tenants. You might also notice that your team spends an increasing amount of time and effort on tenant management. Or, you might notice bugs or operational problems because of inconsistencies in the ways that team members perform management tasks. If these situations occur, it's worth considering building a more comprehensive control plane to take on these responsibilities.
 
 > [!TIP]
 > If you decide not to create a full control plane, it's still a good idea to be systematic about your management procedures. Document your processes thoroughly. Where possible, create and reuse scripts for your management operations. If you need to automate the processes in the future, your documentation and scripts will form the basis of your control plane.
@@ -80,21 +80,26 @@ If any step in the sequence fails, you need to consider whether you retry it, co
 
 ## Use multiple control planes
 
-Most solutions only need one control plane. However, in a complex environment, you might need to have multiple control planes, each with different areas of responsibility.
+Most solutions only need one control plane. However, in a complex environment, you might need to have multiple control planes, each with different areas of responsibility. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. When you follow this pattern, you might create separate control planes for global and stamp concerns.
 
 ### Global control planes
 
-A global control plane is typically responsible for overall management of tenants. For example, tenant onboarding and lifecycle management operations might be triggered by a global control plane.
+A global control plane is typically responsible for overall management and tracking of tenants. A global control plane might have the following responsibilities:
+
+- Tenant placement. The global control plane can use information like the region of the tenant, the level of utilization of each stamp, and the tenant's service level requirements, to determine which stamp should serve the tenant.
+- Tenant onboarding and lifecycle management, including tracking all of the tenants across all deployments.
 
 ### Stamp control planes
 
-When you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard your tenants across stamps, it might be to build a control plane that's responsible for the management of each stamp. A stamp control plane might cover the following responsibilities:
+A stamp control plane is deployed into each deployment stamp and has responsibilities for the tenants and resources allocated to that stamp. A stamp control plane might cover the following responsibilities:
 
 - Creating and managing tenant-specific resources within the stamp, such as databases or storage containers.
 - Monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity.
 - Performing maintenance operations within the stamp, such as database index management and cleanup operations.
 
-A stamp control plane might coordinate with a global control plane. For example, suppose a new tenant signs up. The global control plane might use information like the region of the tenant, the level of utilization of each stamp, and the tenant's service level requirements, to determine which stamp should serve the tenant. Then, the global control plane can instruct the stamp control plane to create the necessary resources for the tenant. The following diagram shows an example of how the two control planes might coexist in a single system:
+Each stamp's control plane coordinates with the global control plane. For example, suppose a new tenant signs up. The global control plane is initially responsible for selecting a stamp for the tenant's resources. Then, the global control plane can instruct the stamp control plane to create the necessary resources for the tenant.
+
+The following diagram shows an example of how the two control planes might coexist in a single system:
 
 ![Diagram showing a logical system design, with a global control plane and stamp control planes.](media/control-planes/stamp-control-planes.png)
 
