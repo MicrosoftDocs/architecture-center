@@ -43,20 +43,36 @@ If your system is only going to have a very small number of tenants, and if it's
 As you grow beyond a small number of tenants, you will likely gain benefits from having a way to track each tenant and monitor across your fleet of resources and tenants. You might also notice that your team spends an increasing amount of time and effort on tenant management, or you start to see bugs or operational incidents because of inconsistencies in the ways that team members perform management tasks. At this point, it's worth considering building a control plane to take on these responsibilities.
 
 > [!TIP]
-> If you decide not to create a full control plane, it's still a good idea to be systematic about your management procedures. Document your processes thoroughly. Where possible, create and reuse scripts for your management operations. If you need to automate the processes in future, the documentation and scripts will form the basis of your control plane.
+> If you decide not to create a full control plane, it's still a good idea to be systematic about your management procedures. Document your processes thoroughly. Where possible, create and reuse scripts for your management operations. If you need to automate the processes in the future, your documentation and scripts will form the basis of your control plane.
 
 ## Design a control plane
 
-* Control plane operations are often long-running and coordinate multiple elements. For example, onboarding a new tenant might involve these steps:
-    * Deploy a new database (Azure deployment operation, which might take several minutes)
-    * Update a tenant catalog (SQL database command)
-    * Update a CRM system to tell them about the new tenant (REST API call, which might fail)
-* Ensure you use a suitable technlogy for coordinating long-running operations or workflows.
+After you've determined the requirements and the scope of your control plane, you need to design and architect it. A control plane is an important system in its own right, and just like the other elements of your system, it needs to be planned carefully. Two particular architectural concerns are resiliency and how the control plane orchestrates long-running operations.
+
+### Resiliency
+
+<!-- TODO -->
+
 * Resiliency is critical. Think about what happens if your control plane is down. Depending on what it does, you might:
    * Be unable to onboard new tenants or manage existing tenants.
    * Accumulate maintenance issues - e.g. if your solution assumes data cleanup is done nightly and it's not, will disks fill up or performance degrade?
    * Lose access to all tenants, bringing your entire solution down, potentially globally.
-* In a fully automated multitenant system, CP will invoke pipelines to run deployments - [here's an example](../approaches/deployment-configuration.yml). Don't need to rebuild a DevOps pipeline inside the CP, but the CP could orchestrate the pipeline.
+
+### Long-running operations
+
+The operations that a control plane performs are often long-running and involve coordination between multiple systems. The operations can also have complex failure modes. When you design your control plane, it's important that you use a suitable technology for coordinating long-running operations or workflows.
+
+For example, suppose that when you onboard a new tenant, your control plane might need to do the following sequence of actions:
+
+1. **Deploy a new database.** This action is an Azure deployment operation, and might take several minutes to complete.
+1. **Update your tenant metadata catalog.** This action might involve executing a command against an Azure SQL database.
+1. **Send a welcome email to the new tenant.** This action invokes a third-party API to send an email.
+1. **Update your billing system to prepare to invoice the new tenant.** This action invokes a third-party API, and you've noticed in the past that it intermittently fails.
+1. **Update your customer relationship management (CRM) system to track the new tenant.** This action invokes a third-party API.
+
+If any step in the sequence fails, you need to consider whether you retry it, continue to the next step, or abandon the workflow and trigger a manual recovery process. You also need to consider what the tenant's experience is for each scenario.
+
+<!-- TODO: In a fully automated multitenant system, CP will invoke pipelines to run deployments - [here's an example](../approaches/deployment-configuration.yml). Don't need to rebuild a DevOps pipeline inside the CP, but the CP could orchestrate the pipeline. -->
 
 ## Use multiple control planes
 
