@@ -86,7 +86,7 @@ Most solutions only need one control plane. However, in a complex environment, y
 
 A global control plane is typically responsible for overall management and tracking of tenants. A global control plane might have the following responsibilities:
 
-- Tenant placement. The global control plane can use information like the region of the tenant, the level of utilization of each stamp, and the tenant's service level requirements, to determine which stamp should serve the tenant.
+- Tenant placement. The global control plane decides which stamp a tenant should use. It might decide based on factors like the tenant's region, each stamp's capacity utilization, and the tenant's service level requirements.
 - Tenant onboarding and lifecycle management, including tracking all of the tenants across all deployments.
 
 ### Stamp control planes
