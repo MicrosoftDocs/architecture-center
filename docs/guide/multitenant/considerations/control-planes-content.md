@@ -66,7 +66,7 @@ Consider following the [Azure Well-Architected Framework guidance for building r
 
 ### Components
 
-There's no single template for a control plane, and the components that you design and build depend on your requirements. Commonly, a control plane consists of APIs and background worker components. In some solutions a control plane might also include a user interface.
+There's no single template for a control plane, and the components that you design and build depend on your requirements. Commonly, a control plane consists of APIs and background worker components. In some solutions, a control plane might also include a user interface.
 
 ### Orchestrate sequences of long-running operations
 
