@@ -37,8 +37,8 @@ It's important that you carefully consider how much effort you need to spend on 
 
 If your system is only going to have a very small number of tenants, and if it's feasible for your team to be directly involved in onboarding tenants and managing them, then you probably don't need to invest in building a full control plane. Instead, your team can take on a control plane's responsibilities and can use manual operations and processes. However, you should still have a process and central place to track your tenants and their configuration.
 
-> [!TIP]
-> If you're building self-service tenant management, you'll need a control plane early in your journey. You might choose to keep it simple and only automate some of the most commonly used functionality.
+> [!NOTE]
+> If you provide self-service tenant management, you'll need a control plane early in your journey. You might choose to keep it simple and only automate some of the most commonly used functionality.
 
 As you grow beyond a small number of tenants, you will likely gain benefits from having a way to track each tenant and monitor across your fleet of resources and tenants. You might also notice that your team spends an increasing amount of time and effort on tenant management, or you start to see bugs or operational incidents because of inconsistencies in the ways that team members perform management tasks. At this point, it's worth considering building a control plane to take on these responsibilities.
 
