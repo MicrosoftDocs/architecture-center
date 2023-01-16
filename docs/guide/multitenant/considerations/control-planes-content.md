@@ -4,7 +4,7 @@ You can think about a multitenant solution as having multiple *planes*, each wit
 
 For example, consider a bookkeeping system for managing financial records. Multiple tenants each store their financial records in the system. When end users access the system to view and enter their financial records, they use the *data plane*. The data plane is likely the primary application component for your solution, and your tenants probably think of it as the way to use the system for its intended purpose. The *control plane* is the component that onboards new tenants, creates databases for each tenant, and performs other management and maintenance operations. If the system didn't include a control plane, the administrators would need to run many manual processes instead. Or, the data plane and control plane responsibilities would be mixed together, overcomplicating the solution.
 
-Many complex solutions include control planes. For example, Azure's control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and backend components that are responsible for deploying and configuring Azure resources. The [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) manages many concerns, such as the placement of Kubernetes pods on worker nodes. Almost all SaaS (software as a service) solutions have a control plane to work with cross-tenant concerns.
+Many complex systems include control planes. For example, Azure's control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and backend components that are responsible for deploying and configuring Azure resources. The [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) manages many concerns, such as the placement of Kubernetes pods on worker nodes. Almost all SaaS (software as a service) solutions have a control plane to work with cross-tenant concerns.
 
 Control planes are critical components to consider when you design your own multitenant solutions. In this article, we discuss the responsibilities of control planes, and how to scope and design a control plane to meet your needs.
 
@@ -49,7 +49,7 @@ As you grow beyond a few tenants, you'll likely gain benefits from having a way 
 
 ## Design a control plane
 
-After you've determined the requirements and the scope of your control plane, you need to design and architect it. A control plane is an important system in its own right, and just like the other elements of your system, it needs to be planned carefully. Two particular architectural concerns are resiliency and how the control plane orchestrates long-running operations.
+After you've determined the requirements and the scope of your control plane, you need to design and architect it. A control plane is an important system in its own right, and just like the other elements of your system, it needs to be planned carefully.
 
 ### Resiliency
 
@@ -64,7 +64,11 @@ Consider what happens if your control plane is unavailable. In extreme cases, a 
 
 Consider following the [Azure Well-Architected Framework guidance for building reliable solutions](/azure/architecture/framework/resiliency/overview) throughout your system, including your control plane.
 
-### Long-running operations
+### Components
+
+There's no single template for a control plane, and the components that you design and build depend on your requirements. Commonly, a control plane consists of APIs and background worker components. In some solutions a control plane might also include a user interface.
+
+### Orchestrate sequences of long-running operations
 
 The operations that a control plane performs are often long-running and involve coordination between multiple systems. The operations can also have complex failure modes. When you design your control plane, it's important that you use a suitable technology for coordinating long-running operations or workflows.
 
