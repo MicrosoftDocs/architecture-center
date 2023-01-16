@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Considerations for multitenant control planes
+  description: This article describes the considerations for planning a control plane for a multitenant solution.
+  author: johndowns
+  ms.author: jodowns
+  ms.date: 01/09/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - management-and-governance
+products:
+  - azure
+name: Considerations for multitenant control planes
+summary: This article describes the considerations for planning a control plane for a multitenant solution.
+thumbnailUrl: /azure/architecture/browse/thumbs/subdomains-multiple-stem.png # TODO
+content: |
+   [!include[](control-planes-content.md)]
+  

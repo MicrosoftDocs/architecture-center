@@ -1,23 +1,3 @@
----
-title: Multitenant control planes
-titleSuffix: Azure Architecture Center
-description: This article describes the considerations for planning a control plane for a multitenant solution.
-author: johndowns
-ms.author: jodowns
-ms.date: 01/09/2023
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure
-categories:
-  - management-and-governance
-ms.category:
-  - fcp
-ms.custom:
-  - guide
----
-
 # Multitenant control planes
 
 You can think about a multitenant solution as having multiple *planes*. Each plane has separate responsibilities. The *data plane* is how end users and clients interact with the system for its intended purpose. The *control plane* is the component that manages higher level aspects across all tenants such as access control, provisioning, and system maintenance: 
