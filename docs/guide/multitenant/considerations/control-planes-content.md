@@ -88,12 +88,13 @@ A global control plane is typically responsible for overall management of tenant
 
 ### Stamp control planes
 
-When you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard your tenants across stamps, you might find it necessary to have a control plane within each stamp that's responsible for the management of that stamp. A stamp control plane's responsibilities might include the following:
+When you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard your tenants across stamps, it might be to build a control plane that's responsible for the management of each stamp. A stamp control plane might cover the following responsibilities:
 
 - Creating and managing tenant-specific resources within the stamp, such as databases or storage containers.
+- Monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity.
 - Performing maintenance operations within the stamp, such as database index management and cleanup operations.
 
-A stamp control plane might coordinate with a global control plane. For example, suppose a new tenant signs up. The global control plane might be responsible for *tenant placement*, or assigning a tenant to a stamp. The global control plane can use information like the region of the tenant, the level of utilization of each stamp, and the tenant's service level requirements, to determine which stamp should serve the tenant. Then, the global control plane can instruct the stamp control plane to create the necessary resources for the tenant. The following diagram shows an example of how the two control planes might coexist in a single system:
+A stamp control plane might coordinate with a global control plane. For example, suppose a new tenant signs up. The global control plane might use information like the region of the tenant, the level of utilization of each stamp, and the tenant's service level requirements, to determine which stamp should serve the tenant. Then, the global control plane can instruct the stamp control plane to create the necessary resources for the tenant. The following diagram shows an example of how the two control planes might coexist in a single system:
 
 ![Diagram showing a logical system design, with a global control plane and stamp control planes.](media/control-planes/stamp-control-planes.png)
 
