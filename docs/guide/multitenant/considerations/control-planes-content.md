@@ -1,6 +1,6 @@
 # Multitenant control planes
 
-You can think about a multitenant solution as having multiple *planes*. Each plane has separate responsibilities. The *data plane* is how end users and clients interact with the system for its intended purpose. The *control plane* is the component that manages higher level aspects across all tenants such as access control, provisioning, and system maintenance: 
+You can think about a multitenant solution as having multiple *planes*, each with separate responsibilities. The *data plane* is how end users and clients interact with the system for its intended purpose. The *control plane* is the component that manages higher level aspects across all tenants such as access control, provisioning, and system maintenance: 
 
 ![Diagram showing a logical system design, with a single control plane that manages across multiple tenant-specific data planes.](media/control-planes/control-planes.png)
 
@@ -55,4 +55,4 @@ Control planes are critical components to consider when you design your own mult
    * Be unable to onboard new tenants or manage existing tenants.
    * Accumulate maintenance issues - e.g. if your solution assumes data cleanup is done nightly and it's not, will disks fill up or performance degrade?
    * Lose access to all tenants, bringing your entire solution down, potentially globally.
-* In a fully automated multitenant system, CP will invoke pipelines to run deployments - here's an example https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/approaches/deployment-configuration. Don't need to rebuild a DevOps pipeline inside the CP, but the CP could orchestrate the pipeline.
+* In a fully automated multitenant system, CP will invoke pipelines to run deployments - [here's an example](../approaches/deployment-configuration.yml). Don't need to rebuild a DevOps pipeline inside the CP, but the CP could orchestrate the pipeline.
