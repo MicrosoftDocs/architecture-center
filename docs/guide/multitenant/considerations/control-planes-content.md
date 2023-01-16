@@ -14,7 +14,7 @@ There's no single template for a control plane or its responsibilities. Your sol
 
 In general, a control plane might have many of the following core responsibilities:
 
-- Provision and manage the system resources that the system needs to serve the workload, including tenant-specific resources.
+- Provision and manage the system resources that the system needs to serve the workload, including tenant-specific resources. Your control plane might [invoke and orchestrate a deployment pipeline](../approaches/deployment-configuration.yml#tenant-lists-as-configuration-or-data) that's responsible for deployments, or it might run the deployment operations itself.
 - Reconfigure shared resources to be aware of new tenants. For example, configuring network routing to ensure that incoming traffic is [mapped to the correct tenant's resources](map-requests.yml).
 - Manage the configuration of each tenant.
 - Handle the [tenant lifecycle](tenant-lifecycle.md), including onboarding, moving, and offboarding tenants.
@@ -51,12 +51,16 @@ After you've determined the requirements and the scope of your control plane, yo
 
 ### Resiliency
 
-<!-- TODO -->
+Control planes are often mission-critical components, and it's essential that you consider the resiliency and reliability of your control plane.
 
-* Resiliency is critical. Think about what happens if your control plane is down. Depending on what it does, you might:
-   * Be unable to onboard new tenants or manage existing tenants.
-   * Accumulate maintenance issues - e.g. if your solution assumes data cleanup is done nightly and it's not, will disks fill up or performance degrade?
-   * Lose access to all tenants, bringing your entire solution down, potentially globally.
+Consider what happens if your control plane is unavailable. In extreme cases, a control plane outage might result in your entire solution being unavailable. Even if your control plane isn't a single point of failure, an outage might include the following effects:
+
+- Your system isn't able to onboard new tenants.
+- Your system can't manage existing tenants.
+- You can't measure the consumption of tenants, or bill them for their usage.
+- Maintenance debt accumulates. For example, if your solution requires nightly cleanup of old data, will disks fill up or will your performance degrade?
+
+Consider following the [Azure Well-Architected Framework guidance for building reliable solutions](/azure/architecture/framework/resiliency/overview) throughout your system, including your control plane.
 
 ### Long-running operations
 
@@ -71,8 +75,6 @@ For example, suppose that when you onboard a new tenant, your control plane migh
 1. **Update your customer relationship management (CRM) system to track the new tenant.** This action invokes a third-party API.
 
 If any step in the sequence fails, you need to consider whether you retry it, continue to the next step, or abandon the workflow and trigger a manual recovery process. You also need to consider what the tenant's experience is for each scenario.
-
-<!-- TODO: In a fully automated multitenant system, CP will invoke pipelines to run deployments - [here's an example](../approaches/deployment-configuration.yml). Don't need to rebuild a DevOps pipeline inside the CP, but the CP could orchestrate the pipeline. -->
 
 ## Use multiple control planes
 
