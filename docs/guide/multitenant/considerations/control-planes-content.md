@@ -28,10 +28,10 @@ In contrast, suppose your solution uses a deployment model that requires tenant-
 
 More advanced control planes might also take on more responsibilities:
 
-- Performing automated maintenance operations, such as deleting or archiving old data, creating and managing database indexes, and rotating secrets and cryptographic certificates.
-- Allocating tenants to existing deployments or stamps, which is sometimes called *tenant placement*.
-- Rebalancing existing tenants across deployment stamps.
-- Integrating with external customer management solutions, such as Microsoft Dynamics 365, to track activity against your customers.
+- Perform automated maintenance operations, such as deleting or archiving old data, creating and managing database indexes, and rotating secrets and cryptographic certificates.
+- Allocate tenants to existing deployments or stamps, which is sometimes called *tenant placement*.
+- Rebalance existing tenants across deployment stamps.
+- Integrate with external customer management solutions, such as Microsoft Dynamics 365, to track activity against your customers.
 
 ## Scope a control plane
 
