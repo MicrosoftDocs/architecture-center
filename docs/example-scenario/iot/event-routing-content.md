@@ -11,7 +11,9 @@ This scenario applies to the retail, energy, and environment industries.
 
 ## Architecture
 
-![Architecture diagram illustrating use of rules to route events to different Azure services](media/event-routing.svg)
+[ ![Architecture diagram illustrating use of rules to route events to different Azure services.](media/event-routing.svg)](media/event-routing.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/event-routing.vsdx) of this architecture.*
 
 In an IoT platform, rules can be created for fine-grained routing of events. One or more rules can be configured in the IoT platform. The rules will be applied to the ingress events and are routed to the specific endpoint(s).
 
