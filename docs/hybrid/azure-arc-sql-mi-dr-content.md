@@ -22,7 +22,7 @@ The following workflow corresponds to the above diagram:
 
 The architecture consists of the following components:
 
-- An **[Azure Resource Group][Azure Resource Group]** is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group.
+- An **[Azure Resource Group](/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)** is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group.
 - **[Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/)**. Attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, you can deploy Azure Arc Data services to it like Azure Arc-enabled SQL Managed Instance.
 - **[Azure Arc Data Controller](/azure/azure-arc/data/create-data-controller-direct-cli?tabs=linux)**. The Arc Data Controller is the orchestrator in the Azure Arc-enabled data services architecture, its responsible to manage services like provisioning, elasticity, recoverability, monitoring, and high availability.
 - **[Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview)**. Deploy Azure Arc-enabled SQL Managed Instances to host your data workloads using the Azure PaaS data offerings on your hybrid and multi-cloud infrastructure.
@@ -161,6 +161,7 @@ Explore related architectures:
 
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
+
 [architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-sqlmi-dr.pptx
 [Arc Jumpstart]: https://azurearcjumpstart.io
 [architectural-diagram]: ./images/azure-arc-sql-mi-dr.png
