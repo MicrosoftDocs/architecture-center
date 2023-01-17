@@ -161,7 +161,7 @@ Explore related architectures:
 
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Azure Arc hybrid management and deployment for Kubernetes clusters](/azure/architecture/hybrid/arc-hybrid-kubernetes)
-
+[architectural-diagram-ppt-source]: https://arch-center.azureedge.net/azure-arc-sqlmi-dr.pptx
 [Arc Jumpstart]: https://azurearcjumpstart.io
 [architectural-diagram]: ./images/azure-arc-sql-mi-dr.png
 [Azure Arc docs]: /azure/azure-arc/
