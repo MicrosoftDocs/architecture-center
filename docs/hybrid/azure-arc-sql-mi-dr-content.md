@@ -96,7 +96,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-- Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 - Consider which Azure regions you plan to deploy your Arc-enabled SQL Managed Instance and Data Controllers within based on your security and compliance requirements, taking into consideration any data sovereignty requirements. Understand [what data is collected from your resources](/azure/azure-arc/data/privacy-data-collection-and-reporting) in *Directly* and *Indirectly Connected* mode, and plan accordingly based on the data residency requirements of your organization.
 - Your Arc-enabled SQL Managed Instance can reside on hybrid or multicloud Kubernetes clusters. Review the security and governance considerations for your chosen cloud provider and Kubernetes distribution.
 - While considering your organization's separation of duties and least-privileged access requirements, define cluster administration, operations, database administration, and developer roles within your organization. Mapping each team to actions and responsibilities determines Azure role-based access control (RBAC) roles or the Kubernetes _ClusterRoleBinding_ and _RoleBinding_ depending on the connectivity mode used.
