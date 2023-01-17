@@ -107,7 +107,6 @@ Follow these steps to run the [ALS quickstart notebook][als-quickstart]:
 - [Build a real-time recommendation API on Azure][ref-arch] - An in-depth guide to building and scaling a recommender service.
 - [Product recommendations for retail using Azure][ref-sol-idea] - An example of developing predictive insights on customer behavior.
 - [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
-- [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)
 - [Campaign optimization with SQL Server and machine learning](../../solution-ideas/articles/campaign-optimization-with-sql-server.yml)
 
