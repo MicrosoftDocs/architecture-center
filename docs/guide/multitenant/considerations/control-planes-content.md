@@ -90,34 +90,34 @@ Most solutions only need one control plane. However, in a complex environment, y
 
 A global control plane is typically responsible for overall management and tracking of tenants. A global control plane might have the following responsibilities:
 
-- Tenant placement. The global control plane decides which stamp a tenant should use. It might decide based on factors like the tenant's region, each stamp's capacity utilization, and the tenant's service level requirements.
-- Tenant onboarding and lifecycle management, including tracking all of the tenants across all deployments.
+- **Tenant placement.** The global control plane decides which stamp a tenant should use. It might decide based on factors like the tenant's region, each stamp's capacity utilization, and the tenant's service level requirements.
+- **Tenant onboarding and lifecycle management.** These responsibilities include tracking all of the tenants across all deployments.
 
 ### Stamp control planes
 
 A stamp control plane is deployed into each deployment stamp and has responsibilities for the tenants and resources allocated to that stamp. A stamp control plane might cover the following responsibilities:
 
-- Creating and managing tenant-specific resources within the stamp, such as databases or storage containers.
-- Monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity.
-- Performing maintenance operations within the stamp, such as database index management and cleanup operations.
+- **Creating and managing tenant-specific resources within the stamp**, such as databases or storage containers.
+- **Managing shared resources**, including monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity.
+- **Performing maintenance operations within the stamp**, such as database index management and cleanup operations.
 
 Each stamp's control plane coordinates with the global control plane. For example, suppose a new tenant signs up. The global control plane is initially responsible for selecting a stamp for the tenant's resources. Then, the global control plane can instruct the stamp control plane to create the necessary resources for the tenant.
 
 The following diagram shows an example of how the two control planes might coexist in a single system:
 
-![Diagram showing a logical system design, with a global control plane and stamp control planes.](media/control-planes/stamp-control-planes.png)
+![Diagram showing a logical system design, with a global control plane and stamp control planes.](media/control-planes/global-stamp-control-planes.png)
 
 ### Tenant control planes
 
 Tenants might use a tenant-level control plane to manage their own logical or physical resources. A tenant control plane might include the following responsibilities:
 
-- Management of user access and other tenant-specific configuration.
-- Tenants can perform maintenance operations, such as backing their data or downloading a previous backup.
-- If you allow tenants to [control their own updates](updates.md), the tenant-level control plane could provide the necessary controls.
+- **Management of tenant-specific configuration**, such as user access.
+- **Tenant-initiated maintenance operations**, such as backing their data or downloading a previous backup.
+- **Update management**, if you allow tenants to [control their own updates to their applications](updates.md).
 
 The following diagram shows a complex system with a global control plane, stamp control planes, and a control plane for each tenant:
 
-![Diagram showing a logical system design, with a global control plane, stamp control planes, and a control plane for each tenant.](media/control-planes/tenant-control-planes.png)
+![Diagram showing a logical system design, with a global control plane, stamp control planes, and a control plane for each tenant.](media/control-planes/global-stamp-tenant-control-planes.png)
 
 ## Contributors
 
