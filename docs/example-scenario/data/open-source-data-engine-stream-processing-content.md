@@ -127,7 +127,7 @@ To estimate the cost of this solution, use the [Azure pricing calculator][Azure 
 
 - An [AKS][Azure Kubernetes Service (AKS) pricing] cluster consists of a set of nodes, or virtual machines (VMs), that run in Azure. The cost of the compute, storage, and networking components make up a cluster's primary costs.
 
-- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server, Flexible Server, and Hyperscale (Citus) tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity.
+- [Azure Database for PostgreSQL][Azure Database for PostgreSQL pricing] is available in Single Server and Flexible Server tiers. Different tiers cater to different scenarios, such as predicable, burstable, and high-performance workloads. The costs mainly depend on the choice of compute nodes and storage capacity. For new workloads, consider choosing the Flexible Server tier since it has a wider range of [supported capabilities][Comparison between Single Server and Flexible Server] over the Single Server tier. 
 
 - [Azure Cache for Redis][Azure Cache for Redis pricing] is available in multiple tiers. These tiers accommodate caches that range from 250 megabytes to several terabytes. Besides size, other requirements also affect the choice of tier:
 
@@ -255,3 +255,4 @@ To learn about related solutions, see the following information:
 [What is Azure Private Link?]: /azure/private-link/private-link-overview
 [What is PaaS?]: https://azure.microsoft.com/overview/what-is-paas/
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
+[Comparison between Single Server and Flexible Server]: /azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server#comparison-table
