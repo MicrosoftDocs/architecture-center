@@ -83,7 +83,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-- Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 - Define your targets for [recovery point objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-point-objectives-rpo) (RPO) and [recovery time objective](/azure/cloud-adoption-framework/manage/considerations/protect#recovery-time-objectives-rto) (RTO).
 - Plan and configure [Point-in-time restore](/azure/azure-sql/managed-instance/point-in-time-restore?view=azuresql&tabs=azure-portal) capability to be able to restore your databases to a point in time.
 - Consider how many replicas—one to three—to deploy in the Business Critical service tier.
