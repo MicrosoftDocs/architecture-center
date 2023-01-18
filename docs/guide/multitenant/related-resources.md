@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/22/2022
+ms.date: 01/18/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -95,6 +95,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 ### Messaging
 
 * [Azure Event Grid domains](/azure/event-grid/event-domains): Azure Event Grid domains allow you to manage multitenant eventing architectures, at scale.
+* [Service Bus sample: Cross-tenant communication using Azure Service Bus](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus): Sample implementation of Azure Service Bus that shows how to communicate between a central provider and one or more customers (tenants).
 
 ### Identity
 
@@ -117,7 +118,7 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 * [Design patterns for multitenant SaaS applications and Azure Cognitive Search](/azure/search/search-modeling-multitenant-saas-applications): This document discusses tenant isolation strategies for multitenant applications that are built with Azure Cognitive Search.
 
-## Community Content
+## Community content
 
 ### Kubernetes
 

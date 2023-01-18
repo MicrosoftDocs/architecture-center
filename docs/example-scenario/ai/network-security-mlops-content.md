@@ -27,7 +27,7 @@ The sample MLOps solution consists of the following components:
 
 - Data storage: [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) for data storage.
 - Model training, validation, and registration: [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) workspace
-- Model deployment: [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
+- Model deployment: [Azure Machine Learning endpoints](/azure/machine-learning/concept-endpoints) and [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)
 - Model monitor: [Azure Monitor](https://azure.microsoft.com/services/monitor) for Application Insights
 - MLOps pipelines: [Azure DevOps](https://azure.microsoft.com/services/devops/) and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines)
 
@@ -62,7 +62,9 @@ To secure these resources, consider the following methods:
 
 - Network security
 
-  - Use [Virtual Network](/azure/virtual-network/virtual-networks-overview) to partially or fully isolate the environment from the public internet to reduce the attack surface and the potential for data exfiltration.
+  - Use [Virtual Network](/azure/virtual-network/virtual-networks-overview) to partially or fully isolate the environment from the public internet to reduce the attack surface and the potential for data exfiltration. Please note:
+    - In the Azure Machine Learning workspace, if you are still using Azure Machine Learning CLI v1 and Azure Machine Learning Python SDK v1 (i.e. v1 API), adding a private endpoint to the workspace provides network isolation for everything except CRUD operations on the workspace or compute resources.
+    - In order to leverage the new features of Azure Machine Learning workspace, you are encouraged to switch to use Azure Machine Learning CLI v2 and Azure Machine Learning Python SDK v2 (i.e. v2 API) in which enabling a private endpoint on your workspace doesn't provide the same level of network isolation. However, the training data and machine learning models will still be protected by the virtual network. It's recommended to evaluate v2 API before adopting it in your enterprise solutions. Please refer to [What is the new API platform on Azure Resource Manager](/azure/machine-learning/how-to-configure-network-isolation-with-v2?tabs=python#what-is-the-new-api-platform-on-azure-resource-manager-arm) for the details.      
 
 - Data encryption
 
@@ -239,6 +241,15 @@ resource "azurerm_private_endpoint" "ws_pe" {
 
   # Add the private link after configuring the workspace
   depends_on = [azurerm_machine_learning_compute_instance.compute_instance, azurerm_machine_learning_compute_cluster.compute_cluster]
+}
+```
+The above code for `azurerm_machine_learning_workspace` will use v2 API platform by default. If you still wish to use the v1 API or have a company policy that prohibits sending communication over public networks, you can enable the _v1_legacy_mode_ parameter (as shown in the following code snippet). When enabled, this parameter disables the v2 API for your workspace.
+
+```terraform
+resource "azurerm_machine_learning_workspace" "aml_ws" {
+  ...
+  public_network_access_enabled = false
+  v1_legacy_mode_enabled  = true
 }
 ```
 
@@ -454,6 +465,7 @@ Other contributors:
 
 - [Terraform on Azure documentation](/azure/developer/terraform)
 - [Azure Machine Learning Enterprise Terraform Example](https://github.com/csiebler/azure-machine-learning-terraform)
+- [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2)
 - [Azure Virtual Network pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
 - [Pricing for Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services) 
 

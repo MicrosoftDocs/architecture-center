@@ -97,7 +97,7 @@ Principal author:
 
 - [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
-- [Data analysis workloads for regulated industries](./data-analysis-regulated-industries.yml)
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 
 <!-- links -->
 
