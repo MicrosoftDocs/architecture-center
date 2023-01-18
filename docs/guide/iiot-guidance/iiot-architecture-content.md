@@ -173,7 +173,6 @@ Principal author:
 - [Extract actionable insights from IoT data](../../industries/manufacturing/extract-insights-iot-data.yml)
 - [IoT analytics with Azure Data Explorer](../../solution-ideas/articles/iot-azure-data-explorer.yml)
 - [Industry specific Azure IoT reference architectures](../../reference-architectures/iot/industry-iot-hub-page.md)
-- [Data analysis workloads for regulated industries](../../example-scenario/data/data-analysis-regulated-industries.yml)
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 - [IoT and data analytics in manufacturing](../../example-scenario/data/big-data-with-iot.yml)
 - [Architectural approaches for IoT in a multitenant solution](../multitenant/approaches/iot.md)
-

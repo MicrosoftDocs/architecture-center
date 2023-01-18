@@ -128,7 +128,6 @@ Principal author:
 ## Related resources
 
 - [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
-- [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Batch scoring with R models to forecast sales](../../reference-architectures/ai/batch-scoring-R-models.yml)
 - [What is the Team Data Science Process?](../../data-science-process/overview.yml)
 
