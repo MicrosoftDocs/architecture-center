@@ -88,7 +88,7 @@ Design and implement each service with best practices in mind. For guidelines on
 
 ### Performance
 
-- Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance.
+- Implement [connection pooling for Azure Database for PostgreSQL][Performance best practices for using Azure Database for PostgreSQL – Connection Pooling]. You can use a connection pooling library within the application. Or you can use a connection pooler such as [PgBouncer][PgBouncer] or [Pgpool][Pgpool Wiki]. Establishing a connection with PostgreSQL is an expensive operation. With connection pooling, you can avoid degrading application performance. PgBouncer is [built-in][PgBouncer in Azure Database for PostgreSQL Flexible Server] in Azure Database for PostgreSQL Flexible Server.
 
 - Configure Azure Cosmos DB for Apache Cassandra for best performance by using an appropriate [partitioning strategy][Partitioning in Azure Cosmos DB for Apache Cassandra]. Decide whether to use a single field primary key, a compound primary key, or a composite partition key when partitioning tables.
 
@@ -256,3 +256,4 @@ To learn about related solutions, see the following information:
 [What is PaaS?]: https://azure.microsoft.com/overview/what-is-paas/
 [What is Power BI?]: /power-bi/fundamentals/power-bi-overview
 [Comparison between Single Server and Flexible Server]: /azure/postgresql/flexible-server/concepts-compare-single-server-flexible-server#comparison-table
+[PgBouncer in Azure Database for PostgreSQL Flexible Server]: /azure/postgresql/flexible-server/concepts-pgbouncer
