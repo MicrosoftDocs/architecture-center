@@ -16,7 +16,7 @@ The architecture consists of the following aspects:
 
 - **Spoke virtual networks:** Spoke virtual networks are used to isolate workloads in their own virtual networks, managed separately from other spokes. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers. Each spoke might exist in different subscriptions and represent a different environment such as Production and Non-Production.
 
-- **Virtual network Connectivity:** Two virtual networks can be connected using a [peering connection](/azure/virtual-network/virtual-network-peering-overview) or a [connected group](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low latency connections between virtual networks. Once peered or connected, the virtual networks exchange traffic using the Azure backbone without needing a router. Connected groups are available for virtual networks in [network groups](/azure/virtual-network-manager/concept-network-groups) and managed by [Azure Virtual Network Manager](/azure/virtual-network-manager/overview).
+- **Virtual network connectivity:** Two virtual networks can be connected using a [peering connection](/azure/virtual-network/virtual-network-peering-overview) or a [connected group](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low-latency connections between virtual networks. Once peered or connected, the virtual networks exchange traffic using the Azure backbone without needing a router. Connected groups are available for virtual networks in [network groups](/azure/virtual-network-manager/concept-network-groups) and managed by [Azure Virtual Network Manager](/azure/virtual-network-manager/overview).
 
 - **Bastion Host:** Azure Bastion lets you securely connect to a virtual machine using your browser and the Azure portal. An Azure Bastion host is deployed inside an Azure Virtual Network and can access virtual machines in the virtual network (VNet) or in peered VNets.
 
@@ -27,6 +27,7 @@ The architecture consists of the following aspects:
 - **VPN device**. A device or service that provides external connectivity to the cross-premises network. The VPN device can be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server. For more information, see [Validated VPN devices and device configuration guides](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable).
 
 ### Components
+
 - [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) is a management service that enables you to group, configure, deploy, and manage virtual networks at scale across subscriptions, regions and cross tenant. With Virtual Network Manager, you can define network groups (group of virtual networks) to identify and logically segment your virtual networks. Then you can determine the connectivity and security configurations you want and apply them across all the selected virtual networks in network groups at once.
 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, your cross-premises network, and the internet.
@@ -93,17 +94,18 @@ While Azure Firewall is primarily used for egress security, it can be used as an
 
 You can also configure spokes to use the hub gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub and connect to remote networks, you must:
 
-Using Vnet peering:
+Using virtual network peering:
+
 - Configure the peering connection in the hub to **allow gateway transit**.
 - Configure the peering connection in each spoke to **use remote gateways**.
 - Configure all peering connections to **allow forwarded traffic**.
 
 Using Connected Groups:
-- Configure a network group and add virtual network members
-- Create a hub and spoke connectivity configuration
-- Select **use hub as a gateway**
+- Configure a network group and add virtual network members.
+- Create a hub and spoke connectivity configuration.
+- Select **use hub as a gateway**.
 
-For more information, see [Create VNet peerings](/azure/virtual-network/virtual-network-manage-peering#create-a-peering) and [Create a Hub and Spoke Connected Group](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
+For more information, see [Create a virtual network peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering) and [Create a hub and spoke topology with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
 
 ### Spoke connectivity
 
@@ -112,7 +114,7 @@ There are two main ways to allow spoke virtual networks to communicate:
 1. Communicate via using a network virtual appliance like a firewall and router. This method incurs a hop between the two spokes.
 2. Direct communication using virtual network peering or AVNM's direct connectivity between spokes. This approach does not cause a hop between the two spokes and is recommended for minimizing latency.
 
-#### Communicate between Virtual Network Spokes through a Network Virtual Appliance
+#### Communicate between virtual network spokes through a network virtual appliance
 
 If you require connectivity between spokes, consider deploying an Azure Firewall or another network virtual appliance. Then create routes to forward traffic from the spoke to the firewall or network virtual appliance, which can then route to the second spoke. In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
@@ -124,9 +126,9 @@ You can also use a VPN gateway to route traffic between spokes, although this ch
 
 Consider what services are shared in the hub to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider your firewall solution's bandwidth limits when adding multiple spokes. You can move some of these shared services to a second level of hubs.
 
-#### Direct communication between Virtual Network Spokes
+#### Direct communication between virtual network spokes
 
-Finally, to allow direct connectivity between spokes, without traversing through the hub virtual network, consider creating peering connections directly between spoke virtual networks or enabling direct connectivity for the network group. We recommend to allow for direct peering or connectivity between virtual networks for spokes which are part of the same environment or workload. When using AVNM, spoke virtual networks can be added to network groups manually or automatically based the condition you define.
+Finally, to allow direct connectivity between spokes, without traversing through the hub virtual network, consider creating peering connections directly between spoke virtual networks or enabling direct connectivity for the network group. We recommend reserving direct peering or connectivity between virtual networks for spokes which are part of the same environment and workload. When using AVNM, spoke virtual networks can be added to network groups manually or automatically based the condition you define.
 
 ![Direct Connectivity between spokes using AVNM](./images/spoke-spoke-avnm.png)
 
@@ -151,9 +153,9 @@ Spoke VNets in the same network group can be connected with one another by enabl
 
 ![Diagram showing spoke direct connectivity.](/azure/virtual-network-manager/media/concept-configuration-types/hub-and-spoke.png)
 
-Further, to ensure a baseline set of security rules, VNets within the same network group can be associated to [security admin rules](/azure/virtual-network-manager/concept-security-admins). Security admin rules are evaluated before NSG rules and have the same nature of NSGs, with support for prioritization, service tags, and L3-L4 protocols. Security admin rules should be used in order to avoid spoke virtual network owners from overwriting baseline security rules (admin rules) while allowing them independency to add their own set of additional security rules (network security groups). For an example of using security admin rules in hub and spoke topologies review [Tutorial: Create a secured hub and spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke).
+Further, to ensure a baseline set of security rules, virtual networks within the same network group can be associated to [Security admin rules in Azure Virtual Network Manager](/azure/virtual-network-manager/concept-security-admins). Security admin rules are evaluated before NSG rules and have the same nature of NSGs, with support for prioritization, service tags, and L3-L4 protocols. Security admin rules should be used in order to avoid spoke virtual network owners from overwriting baseline security rules (admin rules) while allowing them independency to add their own set of additional security rules (network security groups). For an example of using security admin rules in hub and spoke topologies review [Tutorial: Create a secured hub and spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke).
 
-Finally, to facilitate a controlled rollout of network groups, connectivity, and security rules changes, AVNM's [deployments](/azure/virtual-network-manager/concept-deployments) feature allows you to safely release of these configurations' breaking changes to the hub-and-spoke environments.
+Finally, to facilitate a controlled rollout of network groups, connectivity, and security rules changes, [Configuration deployments in Azure Virtual Network Manager](/azure/virtual-network-manager/concept-deployments) allows you to safely release of these potentially breaking changes to the hub-spoke environments.
 For more information on how to get started, see [Create a hub and spoke topology with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
 
 ## Considerations
@@ -207,7 +209,7 @@ You should also consider enabling the [Azure Firewall diagnostic logging](/azure
 
 This deployment includes one hub virtual network and two connected spokes. An Azure Firewall and Azure Bastion host are also deployed. Optionally, the deployment can include virtual machines in the first spoke network and a VPN gateway.
 
-### Using VNet Peering:
+### Using virtual network peering:
 
 ### [Azure CLI](#tab/cli)
 
@@ -272,7 +274,7 @@ For detailed information and extra deployment options, see the Azure Resource Ma
 > [!div class="nextstepaction"]
 > [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
 
-### Using Connected Groups:
+### Using Virtual Network Manager connected groups:
 
 # [Azure CLI](#tab/cli)
 
@@ -323,12 +325,10 @@ Run the following commands to download all the needed modules in a new directory
 ```azurecli-interactive
 mkdir modules
 
-curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/avnm.bicep > avnm.bicep 
-curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/avnmDeploymentScript.bicep > avnmDeploymentScript.bicep
-curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/hub.bicep > hub.bicep
-curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/spoke.bicep > spoke.bicep
-
-cd
+curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/avnm.bicep > modules/avnm.bicep
+curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/avnmDeploymentScript.bicep > modules/avnmDeploymentScript.bicep
+curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/hub.bicep > modules/hub.bicep
+curl https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/bicep/modules/spoke.bicep > modules/spoke.bicep
 ```
 
 Run the following command to deploy the hub and spoke network configuration, VNet connections between the hub and spoke, and a Bastion host. When prompted, enter a user name and password. These values can be used to access the virtual machine located in the spoke network.
@@ -341,14 +341,14 @@ az deployment group create --resource-group hub-spoke --template-file main.bicep
 
 Use the following button to deploy the reference using the Azure portal.
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
+[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke-connected-group%2Fazuredeploy.json)
 
 ---
 
 For detailed information and extra deployment options, see the Azure Resource Manager (ARM) templates used to deploy this solution.
 
 > [!div class="nextstepaction"]
-> [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment/)
+> [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/)
 
 ## Next steps
 
