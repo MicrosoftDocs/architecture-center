@@ -242,7 +242,7 @@ To learn about related solutions, see the following information:
 [Quickstart: Build a Java app to manage Azure Cosmos DB for Apache Cassandra data (v4 Driver)]: /azure/cosmos-db/cassandra/manage-data-java-v4-sdk
 [Quickstart: Data streaming with Event Hubs using the Kafka protocol]: /azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs
 [Quickstart: Use Azure Cache for Redis in Java]: /azure/azure-cache-for-redis/cache-java-get-started
-[Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: /azure/postgresql/connect-java
+[Quickstart: Use Java and JDBC with Azure Database for PostgreSQL]: /azure/postgresql/flexible-server/connect-java?tabs=passwordless
 [Redis]: https://redis.io
 [Running Apache Spark jobs on AKS]: /azure/aks/spark-job
 [Secure Azure Cosmos keys using Azure Key Vault]: /azure/cosmos-db/access-secrets-from-keyvault
