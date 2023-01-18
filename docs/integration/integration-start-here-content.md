@@ -196,7 +196,7 @@ The following resources provide practical recommendations and information for sp
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
 [Cross-cloud scaling with Traffic Manager]: ../example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
 [Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
-[Data analysis workloads for regulated industries]: ../example-scenario/data/data-analysis-regulated-industries.yml
+[Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
 [Data integration with Logic Apps and SQL Server]: ../example-scenario/integration/logic-apps-data-integration.yml
 [Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
