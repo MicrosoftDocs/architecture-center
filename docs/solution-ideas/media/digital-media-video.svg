@@ -1,108 +1,618 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="348.129" width="746.468" viewBox="0 0 746.468 348.129">
-    <line x1="101.758" y1="158.68" x2="64.754" y2="158.68" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="100.335 153.818 108.754 158.68 100.335 163.542 100.335 153.818" fill="#b5b6b6" />
-    <line x1="216.758" y1="158.68" x2="179.754" y2="158.68" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="215.335 153.818 223.754 158.68 215.335 163.542 215.335 153.818" fill="#b5b6b6" />
-    <line x1="327.758" y1="158.68" x2="290.754" y2="158.68" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="326.335 153.818 334.754 158.68 326.335 163.542 326.335 153.818" fill="#b5b6b6" />
-    <line x1="574.754" y1="158.68" x2="529.754" y2="158.68" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <line x1="574.148" y1="102.177" x2="574.148" y2="239.183" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="569.287 103.599 574.148 95.18 579.01 103.599 569.287 103.599" fill="#b5b6b6" />
-    <polygon points="569.287 237.761 574.148 246.18 579.01 237.761 569.287 237.761" fill="#b5b6b6" />
-    <polyline points="165.758 27.68 143.754 27.68 143.754 112.599" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="164.335 22.818 172.754 27.68 164.335 32.542 164.335 22.818" fill="#b5b6b6" />
-    <polygon points="138.893 111.176 143.754 119.596 148.616 111.176 138.893 111.176" fill="#b5b6b6" />
-    <polyline points="612.846 15.68 714.064 15.68 714.064 104.214" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="709.202 102.792 714.064 111.211 718.926 102.792 709.202 102.792" fill="#b5b6b6" />
-    <polyline points="619.843 29.47 699.064 29.47 699.064 111.211" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="621.266 34.331 612.846 29.47 621.266 24.608 621.266 34.331" fill="#b5b6b6" />
-    <polyline points="612.846 293.304 714.064 293.304 714.064 230.385" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="718.926 231.807 714.064 223.388 709.202 231.807 718.926 231.807" fill="#b5b6b6" />
-    <polyline points="619.843 278.304 699.064 278.304 699.064 223.388" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="621.266 283.165 612.846 278.304 621.266 273.442 621.266 283.165" fill="#b5b6b6" />
-    <text transform="translate(629.007 8.501)" font-size="10" fill="#5e5e5e" font-family="SegoeUI, Segoe UI"><tspan letter-spacing="-0.098em">T</tspan><tspan x="4.263" y="0">oken</tspan></text>
-    <text transform="translate(629.007 308.596)" font-size="10" fill="#5e5e5e" font-family="SegoeUI, Segoe UI"><tspan letter-spacing="-0.098em">T</tspan><tspan x="4.263" y="0">oken</tspan></text>
-    <text transform="translate(631.584 47.096)" font-size="10" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">License/<tspan x="36.006" y="0" letter-spacing="-0.013em">K</tspan><tspan x="41.675" y="0">ey</tspan></text>
-    <text transform="translate(631.584 270.221)" font-size="10" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">License/<tspan x="36.006" y="0" letter-spacing="-0.013em">K</tspan><tspan x="41.675" y="0">ey</tspan></text>
-    <text transform="translate(114.399 197.149)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Azure Blob<tspan x="8.429" y="14.4" letter-spacing="-0.032em">S</tspan><tspan x="14.417" y="14.4">torage</tspan></text>
-    <path d="M120.333,177.331a1.88,1.88,0,0,0,1.8,1.9h46.3a1.9,1.9,0,0,0,1.9-1.9v-33.1h-50Z" transform="translate(-2.154 -1.285)" fill="#9fa0a2" />
-    <path d="M168.433,136.531h-46.3a1.88,1.88,0,0,0-1.8,1.9v5.7h50v-5.7a1.9,1.9,0,0,0-1.9-1.9" transform="translate(-2.154 -1.285)" fill="#7c7b7b" />
-    <rect x="121.88" y="146.346" width="20.4" height="13" fill="#2272b9" />
-    <rect x="121.88" y="161.146" width="20.4" height="13" fill="#2272b9" />
-    <rect x="144.08" y="146.346" width="20.3" height="13" fill="#fff" />
-    <rect x="144.08" y="161.146" width="20.3" height="13" fill="#2272b9" />
-    <path d="M122.333,136.531a2.006,2.006,0,0,0-2,2v38.6a2.006,2.006,0,0,0,2,2h2.2l39.4-42.6Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.2" style="isolation:isolate" />
-    <text transform="translate(229.326 197.149)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI"><tspan letter-spacing="-0.032em">S</tspan><tspan x="5.988" y="0">treaming</tspan><tspan x="2.965" y="14.4">Endpoint</tspan></text>
-    <path d="M281.333,173.611a5.52,5.52,0,0,1-5.52,5.52h-34.96a5.52,5.52,0,0,1-5.52-5.52v-34.96a5.52,5.52,0,0,1,5.52-5.52h34.96a5.52,5.52,0,0,1,5.52,5.52Z" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <path d="M248.213,179.131h-7.36a5.52,5.52,0,0,1-5.52-5.52v-34.96a5.52,5.52,0,0,1,5.52-5.52h31.28Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.15" style="isolation:isolate" />
-    <path d="M250.053,168.4V143.865l19.6,12.279Z" transform="translate(-2.154 -1.285)" fill="#fff" />
-    <rect x="228.662" y="128.632" width="55.184" height="88.048" fill="#b9539f" opacity="0" />
-    <text transform="translate(321.163 197.149)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Multi-Protocol <tspan x="15.422" y="14.4">Dynamic </tspan><tspan x="10.749" y="28.8" letter-spacing="-0.034em">P</tspan><tspan x="17.06" y="28.8">ackaging/</tspan><tspan x="10.711" y="43.2">Multi-DRM</tspan></text>
-    <path d="M377.186,155.444h0v-1.671a12.434,12.434,0,0,0-3.342-8.658c-1.975-2.278-6.379-3.721-9.645-3.721s-7.67,1.443-9.645,3.721a12.785,12.785,0,0,0-3.342,8.658v1.671h0l6,.683v-1.519a9.68,9.68,0,0,1,1.823-5.772c1.139-1.291,3.569-1.9,5.164-1.975a7.7,7.7,0,0,1,5.164,1.975,7.253,7.253,0,0,1,1.823,4.86v2.43Z" transform="translate(-2.154 -1.285)" fill="#3f3f3f" />
-    <path d="M351.214,155.444h0c-2.962,0-4.025,1.747-4.025,4.025v15.872c0,1.975,1.215,4.025,3.493,4.025h27.036c2.582,0,3.493-2.05,3.493-4.025V159.469c0-2.05-.835-4.025-4.025-4.025H351.214Z" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <polygon points="359.29 159.855 367.644 165.411 359.29 170.967 359.29 159.855" fill="#fff" />
-    <path d="M371.111,155.444h-19.9c-2.962,0-4.025,1.747-4.025,4.025v15.872c0,1.975,1.215,4.025,3.493,4.025h5.088Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.15" style="isolation:isolate" />
-    <line x1="427.758" y1="158.68" x2="389.754" y2="158.68" fill="none" stroke="#b5b6b6" stroke-miterlimit="10" stroke-width="1.5" />
-    <polygon points="426.335 153.818 434.754 158.68 426.335 163.542 426.335 153.818" fill="#b5b6b6" />
-    <text transform="translate(168.859 70.483)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Azure Encoder<tspan x="5.584" y="14.4">(</tspan><tspan x="9.205" y="14.4" letter-spacing="-0.032em">S</tspan><tspan x="15.193" y="14.4">tandard or</tspan><tspan x="12.741" y="28.8">Premium)</tspan></text>
-    <path d="M219.023,45.982h-18.9a3.521,3.521,0,0,1,0-7.042h18.9a4.544,4.544,0,0,0,4.539-4.539V16.056a4.544,4.544,0,0,0-4.539-4.539h-18.9a3.521,3.521,0,0,1,0-7.042h18.9A11.594,11.594,0,0,1,230.6,16.056V34.4A11.594,11.594,0,0,1,219.023,45.982Z" transform="translate(-2.154 -1.285)" fill="#3f3f3f" />
-    <rect x="192.224" y="48.96" width="19.056" height="1.76" fill="#3f3f3f" />
-    <rect x="198.232" y="50.72" width="7.042" height="2.47" fill="#3f3f3f" />
-    <rect x="200.872" y="10.232" width="1.76" height="40.489" fill="#3f3f3f" />
-    <rect x="185.909" y="23.554" width="28.166" height="7.922" fill="#618dc9" />
-    <rect x="191.19" y="15.633" width="19.364" height="7.922" fill="#5bb4da" />
-    <rect x="198.232" y="12.992" width="7.042" height="2.641" fill="#676767" />
-    <rect x="198.232" y="31.476" width="7.042" height="2.47" fill="#676767" />
-    <path d="M551,45.634a2.007,2.007,0,0,0,2.007,2.007h45.986A2.007,2.007,0,0,0,601,45.634V14.3H551Z" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <path d="M598.993,5.007H553.007A2.006,2.006,0,0,0,551,7.014V17.641h50V7.014a2.007,2.007,0,0,0-2.007-2.007" transform="translate(-2.154 -1.285)" fill="#9fa0a2" />
-    <path d="M553.014,5.007a2.007,2.007,0,0,0-2.007,2.007v38.62a2.008,2.008,0,0,0,2.007,2.007H555.2L594.62,5.007Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.2" style="isolation:isolate" />
-    <rect x="561.703" y="8.501" width="33.671" height="3.942" fill="#fff" />
-    <path d="M562.31,11.69a4.878,4.878,0,1,1-4.878-4.879,4.879,4.879,0,0,1,4.878,4.879" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <polygon points="554.762 10.954 556.975 13.29 555.774 13.29 552.815 10.472 555.763 7.654 556.961 7.654 554.762 9.976 560.155 9.976 560.155 10.954 554.762 10.954" fill="#fff" />
-    <text transform="translate(522.852 70.596)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Azure Media Player<tspan x="23.408" y="14.4">in Browser</tspan></text>
-    <circle cx="574.148" cy="30.68" r="11.52" fill="#5bb4da" />
-    <path d="M568.156,40.111a11.52,11.52,0,0,1,16.292-16.292Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.15" style="isolation:isolate" />
-    <polygon points="571.464 35.614 571.482 25.747 579.346 30.685 571.464 35.614" fill="#fff" />
-    <path d="M576.3,22.187a9.778,9.778,0,1,1-9.778,9.778,9.778,9.778,0,0,1,9.778-9.778m0-2.222a12,12,0,1,0,12,12,12.014,12.014,0,0,0-12-12Z" transform="translate(-2.154 -1.285)" fill="#3f3f3f" />
-    <rect x="520.975" y="1.95" width="101.871" height="84.23" fill="#b9539f" opacity="0" />
-    <text transform="translate(522.577 328.796)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Azure Media Player<tspan x="13.512" y="14.4">in Mobile App</tspan></text>
-    <path d="M593.222,306.859a3,3,0,0,1-3,3H561.778a3,3,0,0,1-3-3v-44a3,3,0,0,1,3-3h28.445a3,3,0,0,1,3,3Z" transform="translate(-2.154 -1.285)" fill="#3f3f3f" />
-    <rect x="558.848" y="263.574" width="30" height="35.222" fill="#5bb4da" />
-    <path d="M578.889,304.969A2.889,2.889,0,1,1,576,302.08a2.889,2.889,0,0,1,2.89,2.889" transform="translate(-2.154 -1.285)" fill="#fff" />
-    <path d="M577.895,304.969a1.894,1.894,0,1,1-1.9-1.894,1.9,1.9,0,0,1,1.9,1.894" transform="translate(-2.154 -1.285)" fill="#b8d433" />
-    <path d="M561,300.081V264.859h22.767l2.031-5H561.778a3,3,0,0,0-3,3v44a3,3,0,0,0,3,3h3.695l3.974-9.778Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.15" style="isolation:isolate" />
-    <path d="M581.111,262.676a.737.737,0,0,1-.738.738h-8.744a.739.739,0,1,1,0-1.477h8.744a.738.738,0,0,1,.738.739" transform="translate(-2.154 -1.285)" fill="#1e1e1e" />
-    <path d="M581.111,262.676a.737.737,0,0,1-.738.738h-8.744a.739.739,0,1,1,0-1.477h8.744a.738.738,0,0,1,.738.739" transform="translate(-2.154 -1.285)" fill="#fff" />
-    <circle cx="574.148" cy="281.304" r="11.52" fill="#5bb4da" />
-    <path d="M568.156,290.734a11.52,11.52,0,0,1,16.292-16.292Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.15" style="isolation:isolate" />
-    <polygon points="571.464 286.237 571.482 276.37 579.346 281.309 571.464 286.237" fill="#fff" />
-    <path d="M576.3,272.811a9.778,9.778,0,1,1-9.778,9.778,9.778,9.778,0,0,1,9.778-9.778m0-2.222a12,12,0,1,0,12,12,12.014,12.014,0,0,0-12-12Z" transform="translate(-2.154 -1.285)" fill="#3f3f3f" />
-    <rect x="521.975" y="258.18" width="101.871" height="87" fill="#b9539f" opacity="0" />
-    <text transform="translate(676.625 183.66)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Cloud DRM<tspan x="-0.606" y="14.4">License/</tspan><tspan x="42.601" y="14.4" letter-spacing="-0.013em">K</tspan><tspan x="49.403" y="14.4">ey</tspan><tspan x="-8.965" y="28.8">Delivery Server</tspan></text>
-    <path d="M731.618,147.431a22.453,22.453,0,0,0-8.8-17.8v.7a13.743,13.743,0,0,1-1.5,6.1,16.294,16.294,0,1,1-28.4,10.9,16.426,16.426,0,0,1,4.7-11.5,13.161,13.161,0,0,1-1.3-5.6,5.7,5.7,0,0,1,.1-1.3,22.44,22.44,0,1,0,35.2,18.5Z" transform="translate(-2.154 -1.285)" fill="#7fbb42" />
-    <path d="M709.518,119.831a10.31,10.31,0,0,0-2.9,20.2v10.2h-4.8v5.2h4.8v3.8h5.7v-19.3a10.23,10.23,0,0,0,7.4-9.9A10.115,10.115,0,0,0,709.518,119.831Zm0,5.4a4.9,4.9,0,1,1-4.9,4.9A4.908,4.908,0,0,1,709.518,125.231Z" transform="translate(-2.154 -1.285)" fill="#fbd118" />
-    <text transform="translate(453.719 197.559)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Azure CDN</text>
-    <path d="M498.853,156.467h-39.9a3.009,3.009,0,0,1-3-3h0a3.009,3.009,0,0,1,3-3h39.9a3.009,3.009,0,0,1,3,3h0A3.009,3.009,0,0,1,498.853,156.467Z" transform="translate(-2.154 -1.285)" fill="#7c7b7b" />
-    <path d="M490.753,181.517h-36.9a3.009,3.009,0,0,1-3-3h0a3.009,3.009,0,0,1,3-3h36.9a3.009,3.009,0,0,1,3,3h0A3.009,3.009,0,0,1,490.753,181.517Z" transform="translate(-2.154 -1.285)" fill="#7c7b7b" />
-    <path d="M486.4,169.367H449.5a3.009,3.009,0,0,1-3-3h0a3.009,3.009,0,0,1,3-3h36.9a3.009,3.009,0,0,1,3,3h0A3.009,3.009,0,0,1,486.4,169.367Z" transform="translate(-2.154 -1.285)" fill="#7c7b7b" />
-    <path d="M521.5,175.067a6.371,6.371,0,0,0-6.3-6.45h-.9a20.411,20.411,0,0,0,.6-4.5,16.869,16.869,0,0,0-16.8-16.8,17.071,17.071,0,0,0-15.9,11.4,15.081,15.081,0,0,0-3.75-.6,11.7,11.7,0,0,0,0,23.4H515.5a6.626,6.626,0,0,0,6-6.45" transform="translate(-2.154 -1.285)" fill="#3999c7" />
-    <path d="M484.453,181.367a10.682,10.682,0,0,1-3.15-5.7,11.275,11.275,0,0,1,12.45-13.95,16.334,16.334,0,0,1,9.45-13.5,19.139,19.139,0,0,0-5.1-.9,17.071,17.071,0,0,0-15.9,11.4,15.081,15.081,0,0,0-3.75-.6,11.7,11.7,0,0,0,0,23.4h0l6-.15Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.2" style="isolation:isolate" />
-    <rect x="444.9" y="144.021" width="75.26" height="55" fill="#b9539f" opacity="0" />
-    <text transform="translate(1.461 197.149)" font-size="12" fill="#5e5e5e" font-family="SegoeUI, Segoe UI">Mezzanine<tspan x="-0.144" y="14.4">Video Files</tspan></text>
-    <polygon points="52.246 149.046 48.346 145.146 46.646 143.546 46.446 143.546 17.846 143.546 17.846 181.546 53.846 181.546 53.846 150.946 53.846 150.746 52.246 149.046" fill="#5bb4da" />
-    <polygon points="45.846 145.546 19.846 145.546 19.846 179.546 51.846 179.546 51.846 151.546 45.846 151.546 45.846 145.546" fill="#fff" opacity="0.8" style="isolation:isolate" />
-    <path d="M27,171.931a.9.9,0,0,1,.9-.9H40.3a.9.9,0,0,1,0,1.8H27.9a.9.9,0,0,1-.9-.9" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <path d="M27,165.731a.9.9,0,0,1,.9-.9H48.4a.9.9,0,1,1,0,1.8H27.9a.9.9,0,0,1-.9-.9" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <path d="M27,159.931a.9.9,0,0,1,.9-.9H48.4a.9.9,0,1,1,0,1.8H27.9a.9.9,0,0,1-.9-.9" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <rect x="7.846" y="131.546" width="29" height="6" fill="#5bb4da" />
-    <rect x="5.846" y="131.546" width="6" height="40" fill="#5bb4da" />
-    <polygon points="9.846 133.546 7.846 133.546 7.846 169.546 11.846 169.546 11.846 137.546 34.846 137.546 34.846 133.546 9.846 133.546" fill="#fff" opacity="0.8" style="isolation:isolate" />
-    <rect x="13.846" y="137.546" width="29" height="6" fill="#5bb4da" />
-    <rect x="11.846" y="137.546" width="6" height="38" fill="#5bb4da" />
-    <polygon points="15.846 139.546 13.846 139.546 13.846 173.546 17.846 173.546 17.846 143.546 40.846 143.546 40.846 139.546 15.846 139.546" fill="#fff" opacity="0.8" style="isolation:isolate" />
-    <path d="M73.75,128.13h0v-1.1a8.186,8.186,0,0,0-2.2-5.7c-1.3-1.5-4.2-2.45-6.35-2.45s-5.05.95-6.35,2.45a8.417,8.417,0,0,0-2.2,5.7v1.1h0l3.95.45v-1a6.373,6.373,0,0,1,1.2-3.8,5.33,5.33,0,0,1,3.4-1.3,5.07,5.07,0,0,1,3.4,1.3,4.776,4.776,0,0,1,1.2,3.2v1.6Z" transform="translate(-2.154 -1.285)" fill="#3f3f3f" />
-    <path d="M56.65,128.13h0A2.372,2.372,0,0,0,54,130.78v10.45a2.44,2.44,0,0,0,2.3,2.65H74.1c1.7,0,2.3-1.35,2.3-2.65V130.78a2.363,2.363,0,0,0-2.65-2.65H56.65Z" transform="translate(-2.154 -1.285)" fill="#5bb4da" />
-    <polygon points="61.232 130.596 66.732 134.254 61.232 137.911 61.232 130.596" fill="#fff" />
-    <path d="M69.75,128.13H56.65A2.372,2.372,0,0,0,54,130.78v10.45a2.44,2.44,0,0,0,2.3,2.65h3.35Z" transform="translate(-2.154 -1.285)" fill="#fff" opacity="0.15" style="isolation:isolate" />
-    <rect y="116.546" width="75.246" height="97.149" fill="#b9539f" opacity="0" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by Microsoft Visio, SVG Export digital-media-video.svg digital-media-live-stream -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="10.25in" height="4.75in" viewBox="0 0 738 342" xml:space="preserve" color-interpolation-filters="sRGB" class="st40">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:none;stroke-width:0.25}
+		.st2 {fill:#3e3e3e;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st3 {fill:#5b8ed8;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st4 {fill:#59b4d9;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st5 {fill:#666666;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st6 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st7 {fill:#ffffff;fill-opacity:0.15;stroke:none;stroke-linecap:butt;stroke-width:12.24}
+		.st8 {fill:none;stroke:none;stroke-width:0.25}
+		.st9 {fill:#000000;font-family:Segoe UI;font-size:0.916672em}
+		.st10 {font-size:1em}
+		.st11 {fill:url(#grad0-50);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st12 {fill:#0078d4;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st13 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st14 {fill:#7fbb42;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st15 {fill:#fbd118;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st16 {fill:#5bb4da;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st17 {fill:#9fa0a2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st18 {fill:#ffffff;fill-opacity:0.2;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st19 {fill:#5bb4da}
+		.st20 {stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st21 {fill:#ffffff;fill-opacity:0.15;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st22 {fill:#3f3f3f;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st23 {marker-end:url(#mrkr4-110);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
+		.st24 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st25 {marker-start:url(#mrkr4-151);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
+		.st26 {fill:#000000;font-family:Segoe UI;font-size:0.833336em}
+		.st27 {fill:#ffffff;fill-opacity:0.8;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st28 {fill:#ffffff}
+		.st29 {fill:#b8d433;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st30 {fill:#1e1e1e;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st31 {fill:url(#grad0-244);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st32 {fill:#000000;fill-opacity:0.5;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st33 {fill:#000000;fill-opacity:0.25;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st34 {fill:url(#grad0-260);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st35 {fill:#7f7f7f;font-family:Segoe UI Semibold;font-size:1.16666em}
+		.st36 {fill:#b3b3b3;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st37 {fill:#a3a3a3;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st38 {fill:#7a7a7a;stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st39 {fill:url(#grad0-282);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st40 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-50" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#32bedd" stop-opacity="1"/>
+			<stop offset="0.775" stop-color="#32d4f5" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-244" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(116.95960434515 0.5 0.5)">
+			<stop offset="0" stop-color="#114a8b" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0669bc" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-260" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(61.849084498542 0.5 0.5)">
+			<stop offset="0" stop-color="#3ccbf4" stop-opacity="1"/>
+			<stop offset="1" stop-color="#2892df" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-282" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(90 0.5 0.5)">
+			<stop offset="0.18" stop-color="#5ea0ef" stop-opacity="1"/>
+			<stop offset="1" stop-color="#0078d4" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-110" class="st24" refX="-5.36" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
+		</marker>
+		<marker id="mrkr4-151" class="st24" refX="5.12" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(2.68) "/>
+		</marker>
+	</defs>
+	<g>
+		<title>VBackground-1</title>
+		<g id="shape1000-1">
+			<title>Solid.1000</title>
+			<rect x="0" y="0" width="738" height="342" class="st1"/>
+		</g>
+	</g>
+	<g>
+		<title>digital-media-live-stream</title>
+		<g id="group1010-3" transform="translate(211.333,-248.198)">
+			<title>Sheet.1010</title>
+			<g id="shape1011-4" transform="translate(6.95098,-6.9111)">
+				<title>Sheet.1011</title>
+				<path d="M18.24 342 L2.87 342 C1.28 342 0 340.72 0 339.13 C0 337.55 1.28 336.27 2.87 336.27 L18.24 336.27 C20.28
+							 336.27 21.94 334.61 21.94 332.58 L21.94 317.65 C21.94 315.61 20.28 313.95 18.24 313.95 L2.87 313.95
+							 C1.28 313.95 0 312.67 0 311.09 C0 309.51 1.28 308.22 2.87 308.22 L18.24 308.22 C23.44 308.22 27.67 312.45
+							 27.67 317.65 L27.67 332.58 C27.67 337.77 23.44 342 18.24 342 Z" class="st2"/>
+			</g>
+			<g id="shape1012-6" transform="translate(5.13878,-2.00994)">
+				<title>Sheet.1012</title>
+				<rect x="0" y="340.568" width="15.5067" height="1.43218" class="st2"/>
+			</g>
+			<g id="shape1013-8" transform="translate(10.0277,0)">
+				<title>Sheet.1013</title>
+				<rect x="0" y="339.99" width="5.73037" height="2.00994" class="st2"/>
+			</g>
+			<g id="shape1014-10" transform="translate(12.176,-2.00913)">
+				<title>Sheet.1014</title>
+				<rect x="0" y="309.052" width="1.43218" height="32.9476" class="st2"/>
+			</g>
+			<g id="shape1015-12" transform="translate(1.73861E-13,-17.6696)">
+				<title>Sheet.1015</title>
+				<rect x="0" y="335.554" width="22.9198" height="6.44646" class="st3"/>
+			</g>
+			<g id="shape1016-14" transform="translate(4.29737,-24.1152)">
+				<title>Sheet.1016</title>
+				<rect x="0" y="335.554" width="15.7573" height="6.44646" class="st4"/>
+			</g>
+			<g id="shape1017-16" transform="translate(10.0277,-30.5617)">
+				<title>Sheet.1017</title>
+				<rect x="0" y="339.851" width="5.73037" height="2.14909" class="st5"/>
+			</g>
+			<g id="shape1018-18" transform="translate(10.0277,-15.6596)">
+				<title>Sheet.1018</title>
+				<rect x="0" y="339.99" width="5.73037" height="2.00994" class="st5"/>
+			</g>
+		</g>
+		<g id="group1032-20" transform="translate(375.661,-163.148)">
+			<title>Sheet.1032</title>
+			<g id="shape1033-21" transform="translate(4.09545,-23.6455)">
+				<title>Sheet.1033</title>
+				<path d="M26.43 341.3 L26.43 339.6 C26.43 336.2 25.19 333.04 23.03 330.8 C21.02 328.48 16.54 327.01 13.21 327.01
+							 C9.89 327.01 5.41 328.48 3.4 330.8 C1.31 333.04 0 336.2 0 339.6 L0 341.3 L6.1 342 L6.1 340.45 C6.1 338.45
+							 6.8 335.9 7.96 334.58 C9.12 333.27 11.59 332.65 13.21 332.57 C14.84 332.57 17.31 333.27 18.47 334.58
+							 C19.63 335.9 20.32 337.6 20.32 339.53 L20.32 342 L26.43 341.3 Z" class="st2"/>
+			</g>
+			<g id="shape1034-23">
+				<title>Sheet.1034</title>
+				<path d="M4.1 317.66 C1.08 317.66 0 319.44 0 321.75 L0 337.9 C0 339.91 1.24 342 3.55 342 L31.06 342 C33.69 342 34.62
+							 339.91 34.62 337.9 L34.62 321.75 C34.62 319.67 33.77 317.66 30.52 317.66 L4.1 317.66 Z" class="st4"/>
+			</g>
+			<g id="shape1035-25" transform="translate(14.5049,-7.23968)">
+				<title>Sheet.1035</title>
+				<path d="M0 330.69 L8.5 336.35 L0 342 L0 330.69 Z" class="st6"/>
+			</g>
+			<g id="shape1036-27">
+				<title>Sheet.1036</title>
+				<path d="M24.34 317.66 L4.1 317.66 C1.08 317.66 0 319.44 0 321.75 L0 337.9 C0 339.91 1.24 342 3.55 342 L8.73 342
+							 L24.34 317.66 Z" class="st7"/>
+			</g>
+		</g>
+		<g id="shape1083-29" transform="translate(7.33333,-127.125)">
+			<title>Sheet.1083</title>
+			<desc>Mezzanine video files</desc>
+			<rect x="0" y="313.559" width="67.5259" height="28.4415" class="st8"/>
+			<text x="7.74" y="324.48" class="st9">Mezzanine <tspan x="9.36" dy="1.2em" class="st10">video files</tspan></text>		</g>
+		<g id="shape1085-33" transform="translate(167.817,-289.8)">
+			<title>Sheet.1085</title>
+			<desc>Azure Encoder (Standard or Premium)</desc>
+			<rect x="0" y="306.558" width="121.65" height="35.4417" class="st8"/>
+			<text x="25.7" y="320.98" class="st9">Azure Encoder <tspan x="5.68" dy="1.2em" class="st10">(Standard or Premium)</tspan></text>		</g>
+		<g id="group1088-37" transform="translate(262.561,-162.793)">
+			<title>Sheet.1088</title>
+			<g id="shape1089-38">
+				<title>Sheet.1089</title>
+				<path d="M34.62 337.85 C34.62 340.14 32.76 342 30.46 342 L4.15 342 C1.86 342 0 340.14 0 337.85 L0 311.54 C0 309.24
+							 1.86 307.38 4.15 307.38 L30.46 307.38 C32.76 307.38 34.62 309.24 34.62 311.54 L34.62 337.85 Z"
+						class="st4"/>
+			</g>
+			<g id="shape1090-40">
+				<title>Sheet.1090</title>
+				<path d="M9.69 342 L4.15 342 C1.86 342 0 340.14 0 337.85 L0 311.54 C0 309.24 1.86 307.38 4.15 307.38 L27.69 307.38
+							 L9.69 342 Z" class="st7"/>
+			</g>
+			<g id="shape1091-42" transform="translate(11.0778,-8.07781)">
+				<title>Sheet.1091</title>
+				<path d="M0 342 L0 323.54 L14.75 332.78 L0 342 Z" class="st6"/>
+			</g>
+		</g>
+		<g id="group1114-44" transform="translate(117.333,-129.333)">
+			<title>Sheet.1114</title>
+			<g id="group1024-45" transform="translate(25.221,-36)">
+				<title>MsPortalFx.base.images-7</title>
+				<g id="group1025-46">
+					<title>Sheet.1025</title>
+					<g id="shape1026-47">
+						<title>Sheet.1026</title>
+						<path d="M1.13 319.31 L39.53 319.31 L39.53 340.72 A1.2831 1.2831 0 0 1 38.25 342 L2.41 342 A1.2831 1.2831
+									 0 0 1 1.13 340.72 L1.13 319.31 Z" class="st11"/>
+					</g>
+					<g id="shape1027-51" transform="translate(1.91847E-13,-22.6937)">
+						<title>Sheet.1027</title>
+						<path d="M2.42 333.82 L38.24 333.82 A1.2831 1.2831 0 0 1 39.53 335.1 L39.53 342 L1.13 342 L1.13 335.1 A1.2831
+									 1.2831 0 0 1 2.42 333.82 Z" class="st12"/>
+					</g>
+					<g id="shape1028-53" transform="translate(5.2589,-12.1465)">
+						<title>Sheet.1028</title>
+						<path d="M-0 341.36 a0.639305 0.639305 -180 0 0 0.63929 0.63929 L13.55 342 a0.639305 0.639305 -180 0 0 0.63929
+									 -0.63929 L14.19 334.94 a0.639305 0.639305 -180 0 0 -0.63929 -0.63929 L0.64 334.3 a0.639305 0.639305
+									 -180 0 0 -0.63929 0.63929 L0 341.36 Z" class="st12"/>
+					</g>
+					<g id="shape1029-55" transform="translate(21.0898,-12.1465)">
+						<title>Sheet.1029</title>
+						<path d="M-0 341.36 a0.639305 0.639305 -180 0 0 0.63929 0.63929 L13.55 342 a0.639305 0.639305 -180 0 0 0.63929
+									 -0.63929 L14.19 334.94 a0.639305 0.639305 -180 0 0 -0.63929 -0.63929 L0.64 334.3 a0.639305 0.639305
+									 -180 0 0 -0.63929 0.63929 L0 341.36 Z" class="st13"/>
+					</g>
+					<g id="shape1030-57" transform="translate(5.18661,-2.93215)">
+						<title>Sheet.1030</title>
+						<path d="M-0 341.36 a0.639305 0.639305 -180 0 0 0.63929 0.63929 L13.55 342 a0.639305 0.639305 -180 0 0 0.63929
+									 -0.63929 L14.19 334.94 a0.639305 0.639305 -180 0 0 -0.63929 -0.63929 L0.64 334.3 a0.639305 0.639305
+									 -180 0 0 -0.63929 0.63929 L0 341.36 Z" class="st12"/>
+					</g>
+					<g id="shape1031-59" transform="translate(21.0175,-2.93215)">
+						<title>Sheet.1031</title>
+						<path d="M-0 341.36 a0.639305 0.639305 -180 0 0 0.63929 0.63929 L13.55 342 a0.639305 0.639305 -180 0 0 0.63929
+									 -0.63929 L14.19 334.94 a0.639305 0.639305 -180 0 0 -0.63929 -0.63929 L0.64 334.3 a0.639305 0.639305
+									 -180 0 0 -0.63929 0.63929 L0 341.36 Z" class="st12"/>
+					</g>
+				</g>
+			</g>
+			<g id="shape1113-61">
+				<title>Sheet.1113</title>
+				<desc>Azure Blob Storage</desc>
+				<rect x="0" y="312.75" width="89.9741" height="29.25" class="st8"/>
+				<text x="18.6" y="324.07" class="st9">Azure Blob <tspan x="26.15" dy="1.2em" class="st10">Storage</tspan></text>			</g>
+		</g>
+		<g id="shape1115-65" transform="translate(234.883,-133.333)">
+			<title>Sheet.1115</title>
+			<desc>Streaming endpoint</desc>
+			<rect x="0" y="312.75" width="89.9741" height="29.25" class="st8"/>
+			<text x="20.19" y="324.07" class="st9">Streaming <tspan x="22.99" dy="1.2em" class="st10">endpoint</tspan></text>		</g>
+		<g id="shape1116-69" transform="translate(327.375,-121.5)">
+			<title>Sheet.1116</title>
+			<desc>Multi-protocol Dynamic / Packaging /Multi-DRM</desc>
+			<rect x="0" y="299.453" width="124.095" height="42.5473" class="st8"/>
+			<text x="26.72" y="310.83" class="st9">Multi-protocol <tspan x="7.33" dy="1.2em" class="st10">Dynamic / Packaging /</tspan><tspan
+						x="35.18" dy="1.2em" class="st10">Multi</tspan>-DRM</text>		</g>
+		<g id="shape1117-74" transform="translate(468,-132.6)">
+			<title>Sheet.1117</title>
+			<desc>Azure Content Delivery Network</desc>
+			<rect x="0" y="312.545" width="94.6666" height="29.4545" class="st8"/>
+			<text x="12.43" y="323.37" class="st9">Azure Content <tspan x="5.65" dy="1.282em" class="st10">Delivery Network</tspan></text>		</g>
+		<g id="group1139-78" transform="translate(690.6,-162.821)">
+			<title>Sheet.1139</title>
+			<g id="shape1137-79">
+				<title>Sheet.1137</title>
+				<path d="M32.06 325.58 A18.6021 18.6021 -180 0 0 24.77 310.83 L24.77 311.41 A11.3859 11.3859 0 0 1 23.53 316.46 A13.4994
+							 13.4994 0 1 1 -0 325.49 A13.6088 13.6088 0 0 1 3.89 315.97 A10.9037 10.9037 0 0 1 2.82 311.33 A4.72239
+							 4.72239 0 0 1 2.9 310.25 A18.5913 18.5913 -180 1 0 32.06 325.58 Z" class="st14"/>
+			</g>
+			<g id="shape1138-81" transform="translate(5.30841,-6.64671)">
+				<title>Sheet.1138</title>
+				<path d="M8.44 309.36 A8.54172 8.54172 -180 0 0 6.04 326.09 L6.04 334.54 L2.07 334.54 L2.07 338.85 L6.04 338.85 L6.04
+							 342 L10.76 342 L10.76 326.01 A8.47545 8.47545 -180 0 0 16.9 317.81 A8.38017 8.38017 -180 0 0 8.44 309.36
+							 ZM8.44 313.83 A4.0596 4.0596 0 1 1 4.38 317.89 A4.06623 4.06623 0 0 1 8.44 313.83 Z" class="st15"/>
+			</g>
+		</g>
+		<g id="group1149-83" transform="translate(586.219,-250.875)">
+			<title>Sheet.1149</title>
+			<g id="shape1150-84" transform="translate(0,-0.00082875)">
+				<title>Sheet.1150</title>
+				<path d="M0 340.34 A1.6633 1.6633 -180 0 0 1.66 342 L39.77 342 A1.6633 1.6633 -180 0 0 41.44 340.34 L41.44 314.38
+							 L0 314.38 L0 340.34 Z" class="st16"/>
+			</g>
+			<g id="shape1151-86" transform="translate(0,-24.8633)">
+				<title>Sheet.1151</title>
+				<path d="M39.77 331.53 L1.66 331.53 A1.66247 1.66247 -180 0 0 -0 333.19 L0 342 L41.44 342 L41.44 333.19 A1.6633 1.6633
+							 -180 0 0 39.77 331.53 Z" class="st17"/>
+			</g>
+			<g id="shape1152-88" transform="translate(0.00580125,0)">
+				<title>Sheet.1152</title>
+				<path d="M1.66 306.67 A1.6633 1.6633 -180 0 0 0 308.33 L0 340.34 A1.66413 1.66413 -180 0 0 1.66 342 L3.48 342 L36.14
+							 306.67 L1.66 306.67 Z" class="st18"/>
+			</g>
+			<g id="shape1153-90" transform="translate(10.6544,-28.1062)">
+				<title>Sheet.1153</title>
+				<rect x="0" y="338.733" width="27.9048" height="3.26693" class="st13"/>
+			</g>
+			<g id="shape1154-92" transform="translate(2.47526,-26.94)">
+				<title>Sheet.1154</title>
+				<path d="M6.9 339.14 A4.04264 4.04264 0 1 1 2.86 335.1 A4.04347 4.04347 0 0 1 6.9 339.14 L6.9 339.14 Z"
+						class="st19"/>
+				<path d="M6.9 339.14 A4.04264 4.04264 0 1 1 2.86 335.1 A4.04347 4.04347 0 0 1 6.9 339.14" class="st20"/>
+			</g>
+			<g id="shape1155-95" transform="translate(3.28848,-27.4043)">
+				<title>Sheet.1155</title>
+				<path d="M1.61 340.06 L3.45 342 L2.45 342 L0 339.66 L2.44 337.33 L3.44 337.33 L1.61 339.25 L6.08 339.25 L6.08 340.06
+							 L1.61 340.06 Z" class="st13"/>
+			</g>
+			<g id="shape1156-97" transform="translate(11.421,-3.44511)">
+				<title>Sheet.1156</title>
+				<ellipse cx="9.5472" cy="332.453" rx="9.5472" ry="9.5472" class="st16"/>
+			</g>
+			<g id="shape1157-99" transform="translate(14.218,-6.2438)">
+				<title>Sheet.1157</title>
+				<path d="M0 342 A9.54735 9.54735 0 1 1 13.5 328.5 L0 342 Z" class="st21"/>
+			</g>
+			<g id="shape1158-101" transform="translate(18.7438,-8.90409)">
+				<title>Sheet.1158</title>
+				<path d="M0 342 L0.01 333.82 L6.53 337.92 L0 342 Z" class="st13"/>
+			</g>
+			<g id="shape1159-103" transform="translate(12.8655,-5.95931)">
+				<title>Sheet.1159</title>
+				<path d="M8.1 326.86 A8.10352 8.10352 0 1 1 0 334.97 A8.10352 8.10352 0 0 1 8.1 326.86 ZM8.1 325.02 A9.945 9.945
+							 -180 1 0 18.05 334.97 A9.9566 9.9566 -180 0 0 8.1 325.02 Z" class="st22"/>
+			</g>
+		</g>
+		<g id="shape1169-105" transform="translate(64,-173.25)">
+			<title>Directed line 1.1000</title>
+			<path d="M0 342 L65.29 342" class="st23"/>
+		</g>
+		<g id="shape1171-111" transform="translate(305.1,-173.25)">
+			<title>Directed line 1.1171</title>
+			<path d="M0 342 L54.6 342" class="st23"/>
+		</g>
+		<g id="shape1172-116" transform="translate(418.2,-173.25)">
+			<title>Directed line 1.1172</title>
+			<path d="M0 342 L54.6 342" class="st23"/>
+		</g>
+		<g id="shape1177-121" transform="translate(164,-200.667)">
+			<title>Top/bottom to side.1177</title>
+			<path d="M0 342 L0 272.1 L33.83 272.1" class="st23"/>
+		</g>
+		<g id="shape1178-126" transform="translate(544.979,511.417) scale(1,-1)">
+			<title>Side to top/bottom.1178</title>
+			<path d="M0 342 L63.08 342 L63.08 272.52" class="st23"/>
+		</g>
+		<g id="shape1179-131" transform="translate(545.344,-172.406)">
+			<title>Side to top/bottom.1179</title>
+			<path d="M0 342 L62.72 342 L62.72 277.2" class="st23"/>
+		</g>
+		<g id="shape1180-136" transform="translate(635.625,405.562) scale(1,-1)">
+			<title>Side to top/bottom.1180</title>
+			<path d="M0 342 L76.5 342 L76.5 276.63" class="st23"/>
+		</g>
+		<g id="shape1181-141" transform="translate(637.875,-67.5)">
+			<title>Side to top/bottom.1181</title>
+			<path d="M0 342 L72.56 342 L72.56 260.6" class="st23"/>
+		</g>
+		<g id="shape1182-146" transform="translate(633.375,420.75) scale(1,-1)">
+			<title>Side to top/bottom.1182</title>
+			<path d="M7.68 342 L8.04 342 L63.56 342 L63.56 282.09" class="st25"/>
+		</g>
+		<g id="shape1183-152" transform="translate(636.75,-80.7188)">
+			<title>Side to top/bottom.1183</title>
+			<path d="M7.68 342 L8.04 342 L60.19 342 L60.19 266.63" class="st25"/>
+		</g>
+		<g id="shape1184-157" transform="translate(552.6,-286.8)">
+			<title>Sheet.1184</title>
+			<desc>Azure Media Player in browser</desc>
+			<rect x="0" y="312.545" width="108" height="29.4545" class="st8"/>
+			<text x="7.21" y="323.37" class="st9">Azure Media Player <tspan x="28.58" dy="1.282em" class="st10">in browser</tspan></text>		</g>
+		<g id="shape1185-161" transform="translate(555.6,-17.4)">
+			<title>Sheet.1185</title>
+			<desc>Azure Media Player in mobile app</desc>
+			<rect x="0" y="312.545" width="106.521" height="29.4545" class="st8"/>
+			<text x="6.47" y="323.37" class="st9">Azure Media Player <tspan x="19.8" dy="1.282em" class="st10">in mobile app</tspan></text>		</g>
+		<g id="shape1186-165" transform="translate(629.719,-43.5937)">
+			<title>Sheet.1186</title>
+			<desc>Token</desc>
+			<rect x="0" y="312.545" width="69.8333" height="29.4545" class="st8"/>
+			<text x="21.44" y="330.35" class="st26">Token</text>		</g>
+		<g id="shape1188-168" transform="translate(626.4,-81.6)">
+			<title>Sheet.1188</title>
+			<desc>License/Key</desc>
+			<rect x="0" y="323.437" width="77.625" height="18.5625" class="st8"/>
+			<text x="12.87" y="335.8" class="st26">License/Key</text>		</g>
+		<g id="shape1189-171" transform="translate(633.6,-274.2)">
+			<title>Sheet.1189</title>
+			<desc>Token</desc>
+			<rect x="0" y="312.545" width="69.8333" height="29.4545" class="st8"/>
+			<text x="21.44" y="330.35" class="st26">Token</text>		</g>
+		<g id="shape1190-174" transform="translate(630,-241.2)">
+			<title>Sheet.1190</title>
+			<desc>License/Key</desc>
+			<rect x="0" y="323.045" width="67.5983" height="18.9545" class="st8"/>
+			<text x="7.86" y="335.6" class="st26">License/Key</text>		</g>
+		<g id="group1199-177" transform="translate(19.3333,-158.035)">
+			<title>Sheet.1199</title>
+			<g id="shape1200-178" transform="translate(9.79167,0)">
+				<title>Sheet.1200</title>
+				<path d="M28.07 315.48 L24.89 312.3 L23.5 310.99 L23.34 310.99 L0 310.99 L0 342 L29.38 342 L29.38 317.03 L29.38 316.87
+							 L28.07 315.48 Z" class="st16"/>
+			</g>
+			<g id="shape1201-180" transform="translate(11.4236,-1.63194)">
+				<title>Sheet.1201</title>
+				<path d="M21.22 314.26 L0 314.26 L0 342 L26.11 342 L26.11 319.15 L21.22 319.15 L21.22 314.26 Z" class="st27"/>
+			</g>
+			<g id="shape1202-182" transform="translate(15.5035,-8.15972)">
+				<title>Sheet.1202</title>
+				<path d="M0 341.27 a0.734375 0.734375 0 0 1 0.734375 -0.734375 L10.85 340.53 a0.734375 0.734375 0 1 1 0 1.46875 L0.73
+							 342 a0.734375 0.734375 0 0 1 -0.734375 -0.734375 Z" class="st16"/>
+			</g>
+			<g id="shape1203-184" transform="translate(15.5035,-13.2188)">
+				<title>Sheet.1203</title>
+				<path d="M0 341.27 a0.734375 0.734375 0 0 1 0.734375 -0.734375 L17.46 340.53 a0.734375 0.734375 0 1 1 0 1.46875 L0.73
+							 342 a0.734375 0.734375 0 0 1 -0.734375 -0.734375 Z" class="st16"/>
+			</g>
+			<g id="shape1204-186" transform="translate(15.5035,-17.9514)">
+				<title>Sheet.1204</title>
+				<path d="M0 341.27 a0.734375 0.734375 0 0 1 0.734375 -0.734375 L17.46 340.53 a0.734375 0.734375 0 1 1 0 1.46875 L0.73
+							 342 a0.734375 0.734375 0 0 1 -0.734375 -0.734375 Z" class="st16"/>
+			</g>
+			<g id="shape1205-188" transform="translate(1.63194,-35.9028)">
+				<title>Sheet.1205</title>
+				<rect x="0" y="337.104" width="23.6632" height="4.89583" class="st16"/>
+			</g>
+			<g id="shape1206-190" transform="translate(0,-8.15972)">
+				<title>Sheet.1206</title>
+				<rect x="0" y="309.361" width="4.89583" height="32.6389" class="st16"/>
+			</g>
+			<g id="shape1207-192" transform="translate(1.63194,-9.79167)">
+				<title>Sheet.1207</title>
+				<path d="M1.63 312.62 L0 312.62 L0 342 L3.26 342 L3.26 315.89 L22.03 315.89 L22.03 312.62 L1.63 312.62 Z"
+						class="st27"/>
+			</g>
+			<g id="shape1208-194" transform="translate(6.52778,-31.0069)">
+				<title>Sheet.1208</title>
+				<rect x="0" y="337.104" width="23.6632" height="4.89583" class="st16"/>
+			</g>
+			<g id="shape1209-196" transform="translate(4.89583,-4.89583)">
+				<title>Sheet.1209</title>
+				<rect x="0" y="310.993" width="4.89583" height="31.0069" class="st16"/>
+			</g>
+			<g id="shape1210-198" transform="translate(6.52778,-6.52778)">
+				<title>Sheet.1210</title>
+				<path d="M1.63 314.26 L0 314.26 L0 342 L3.26 342 L3.26 317.52 L22.03 317.52 L22.03 314.26 L1.63 314.26 Z"
+						class="st27"/>
+			</g>
+		</g>
+		<g id="shape1211-200" transform="translate(192,-173.25)">
+			<title>Directed line 1.1211</title>
+			<path d="M0 342 L54.6 342" class="st23"/>
+		</g>
+		<g id="group1212-205" transform="translate(56,-186)">
+			<title>Sheet.1212</title>
+			<g id="shape1213-206" transform="translate(2.21326,-12.7785)">
+				<title>Sheet.1213</title>
+				<path d="M14.28 341.62 L14.28 340.71 C14.28 338.87 13.61 337.16 12.44 335.94 C11.36 334.69 8.94 333.9 7.14 333.9
+							 C5.35 333.9 2.92 334.69 1.84 335.94 C0.71 337.16 0 338.87 0 340.71 L0 341.62 L3.3 342 L3.3 341.16 C3.3
+							 340.08 3.67 338.7 4.3 337.99 C4.93 337.28 6.26 336.95 7.14 336.91 C8.02 336.91 9.35 337.28 9.98 337.99
+							 C10.61 338.7 10.98 339.62 10.98 340.66 L10.98 342 L14.28 341.62 Z" class="st2"/>
+			</g>
+			<g id="shape1214-208">
+				<title>Sheet.1214</title>
+				<path d="M2.21 328.85 C0.58 328.85 0 329.81 0 331.06 L0 339.79 C0 340.87 0.67 342 1.92 342 L16.79 342 C18.21 342
+							 18.71 340.87 18.71 339.79 L18.71 331.06 C18.71 329.93 18.25 328.85 16.5 328.85 L2.21 328.85 Z"
+						class="st4"/>
+			</g>
+			<g id="shape1215-210" transform="translate(7.83871,-3.91246)">
+				<title>Sheet.1215</title>
+				<path d="M0 335.89 L4.59 338.95 L0 342 L0 335.89 Z" class="st6"/>
+			</g>
+			<g id="shape1216-212">
+				<title>Sheet.1216</title>
+				<path d="M13.15 328.85 L2.21 328.85 C0.58 328.85 0 329.81 0 331.06 L0 339.79 C0 340.87 0.67 342 1.92 342 L4.72 342
+							 L13.15 328.85 Z" class="st7"/>
+			</g>
+		</g>
+		<g id="group1228-214" transform="translate(592.667,-49.7171)">
+			<title>Sheet.1228</title>
+			<g id="shape1217-215">
+				<title>Sheet.1217</title>
+				<path d="M27.21 339.47 A2.36972 2.52692 0 0 1 24.84 342 L2.37 342 A2.36972 2.52692 0 0 1 -0 339.47 L0 302.41 A2.36972
+							 2.52692 0 0 1 2.37 299.88 L24.84 299.88 A2.36972 2.52692 0 0 1 27.21 302.41 L27.21 339.47 Z"
+						class="st22"/>
+			</g>
+			<g id="shape1218-217" transform="translate(1.75675,-8.23609)">
+				<title>Sheet.1218</title>
+				<rect x="0" y="312.332" width="23.6972" height="29.6678" class="st16"/>
+			</g>
+			<g id="shape1219-219" transform="translate(11.9901,-2.39819)">
+				<title>Sheet.1219</title>
+				<path d="M3.9 340.28 A2.28204 2.43343 0 1 1 1.61 337.85 A2.28204 2.43343 0 0 1 3.9 340.28 L3.9 340.28 Z"
+						class="st28"/>
+				<path d="M3.9 340.28 A2.28204 2.43343 0 1 1 1.61 337.85 A2.28204 2.43343 0 0 1 3.9 340.28" class="st20"/>
+			</g>
+			<g id="shape1220-222" transform="translate(12.5483,-2.98904)">
+				<title>Sheet.1220</title>
+				<path d="M2.55 340.87 A1.49608 1.59533 0 1 1 1.05 339.27 A1.50082 1.60038 0 0 1 2.55 340.87 Z" class="st29"/>
+			</g>
+			<g id="shape1221-224">
+				<title>Sheet.1221</title>
+				<path d="M1.76 333.76 L1.76 304.1 L19.74 304.1 L21.34 299.88 L2.37 299.88 A2.36972 2.52692 -180 0 0 0 302.41 L0 339.47
+							 A2.36972 2.52692 -180 0 0 2.37 342 L5.29 342 L8.43 333.76 L1.76 333.76 Z" class="st21"/>
+			</g>
+			<g id="shape1222-226" transform="translate(9.54587,-39.121)">
+				<title>Sheet.1222</title>
+				<path d="M8.1 341.38 a0.582161 0.620781 0 0 1 -0.582951 0.621623 L0.61 342 a0.583741 0.622465 0 1 1 -7.88258E-15
+							 -1.24409 L7.51 340.76 a0.582951 0.621623 0 0 1 0.582951 0.622465 Z" class="st30"/>
+			</g>
+			<g id="shape1223-228" transform="translate(9.54587,-39.121)">
+				<title>Sheet.1223</title>
+				<path d="M8.1 341.38 a0.582161 0.620781 0 0 1 -0.582951 0.621623 L0.61 342 a0.583741 0.622465 0 1 1 -7.88258E-15
+							 -1.24409 L7.51 340.76 a0.582951 0.621623 0 0 1 0.582951 0.622465 Z" class="st13"/>
+			</g>
+			<g id="shape1224-230" transform="translate(4.7426,-13.2663)">
+				<title>Sheet.1224</title>
+				<ellipse cx="9.09972" cy="332.297" rx="9.09972" ry="9.70339" class="st16"/>
+			</g>
+			<g id="shape1225-232" transform="translate(7.40774,-16.1091)">
+				<title>Sheet.1225</title>
+				<path d="M0 342 A9.09986 9.70354 0 1 1 12.87 328.28 L0 342 Z" class="st21"/>
+			</g>
+			<g id="shape1226-234" transform="translate(11.7222,-18.8146)">
+				<title>Sheet.1226</title>
+				<path d="M0 342 L0.01 333.69 L6.23 337.85 L0 342 Z" class="st13"/>
+			</g>
+			<g id="shape1227-236" transform="translate(6.11703,-15.8225)">
+				<title>Sheet.1227</title>
+				<path d="M7.72 326.62 A7.7237 8.23609 0 1 1 0 334.85 A7.7237 8.23609 0 0 1 7.72 326.62 ZM7.72 324.75 A9.47887 10.1077
+							 -180 1 0 17.2 334.85 A9.48993 10.1195 -180 0 0 7.72 324.75 Z" class="st22"/>
+			</g>
+		</g>
+		<g id="group1229-238" transform="translate(16.2,-10.8)">
+			<title>logo.1229</title>
+			<g id="group1230-239" transform="translate(0,-4.5)">
+				<title>Azure.1002</title>
+				<g id="group1231-240">
+					<title>Sheet.1231</title>
+					<g id="shape1232-241">
+						<title>Sheet.1232</title>
+						<path d="M11.96 306 L22.69 306 L11.57 340.79 A1.67987 1.77404 0 0 1 9.98 342 L1.59 342 A1.67905 1.77317 0
+									 0 1 0 339.66 L10.37 307.21 A1.6774 1.77143 0 0 1 11.96 306 Z" class="st31"/>
+					</g>
+					<g id="shape1233-245" transform="translate(9.14148,0)">
+						<title>Sheet.1233</title>
+						<path d="M17.63 328.67 L0.73 328.67 a0.781965 0.8258 -180 0 0 -0.533644 1.42843 L11.79 341.52 A1.67987 1.77404
+									 -180 0 0 12.93 342 L22.51 342 L17.63 328.67 Z" class="st12"/>
+					</g>
+					<g id="group1234-247" transform="translate(12.9538,0)">
+						<title>Sheet.1234</title>
+						<g id="shape1235-248" transform="translate(7.38139,0)">
+							<title>Sheet.1235</title>
+							<path d="M3.43 342 L11.31 342 L6.43 328.67 L0 328.67 L3.72 340.29 A1.69796 1.79314 0 0 1 3.43 342 Z"
+									class="st32"/>
+						</g>
+						<g id="shape1236-250" transform="translate(9.29257E-14,-20.9906)">
+							<title>Sheet.1236</title>
+							<path d="M4.94 342 L9.73 326.99 L0 326.99 A1.70042 1.79575 0 0 1 0.33 327.59 L4.94 342 Z" class="st32"/>
+						</g>
+					</g>
+					<g id="group1237-252" transform="translate(12.3462,0)">
+						<title>Sheet.1237</title>
+						<g id="shape1238-253" transform="translate(0,-20.0024)">
+							<title>Sheet.1238</title>
+							<path d="M0 326 L5.23 342 L5.95 339.72 L1.58 326 L0 326 Z" class="st33"/>
+						</g>
+						<g id="shape1239-255" transform="translate(7.32219,0)">
+							<title>Sheet.1239</title>
+							<path d="M2.59 342 L4.85 342 A2.31876 2.44874 -180 0 0 4.98 340.07 L1.33 328.67 L0 328.67 L3.79 340.5
+										 A1.07469 1.13493 0 0 1 2.77 342 L2.59 342 Z" class="st33"/>
+						</g>
+					</g>
+					<g id="shape1240-257" transform="translate(12.088,0)">
+						<title>Sheet.1240</title>
+						<path d="M13.54 307.21 A1.6774 1.77143 -180 0 0 11.95 306 L0 306 A1.70454 1.80009 0 0 1 1.61 307.22 L11.97
+									 339.63 A1.70371 1.79922 0 0 1 10.35 342 L22.32 342 A1.67905 1.77317 -180 0 0 23.91 339.66 L13.54
+									 307.21 Z" class="st34"/>
+					</g>
+				</g>
+			</g>
+			<g id="shape1241-261" transform="translate(28.6277,0)">
+				<title>Sheet.1241</title>
+				<desc>Microsoft Azure</desc>
+				<rect x="0" y="297" width="72" height="45" class="st8"/>
+				<text x="5.5" y="315.3" class="st35">Microsoft <tspan x="17.66" dy="1.2em" class="st10">Azure</tspan></text>			</g>
+		</g>
+		<g id="group1242-265" transform="translate(483,-166.663)">
+			<title>Sheet.1242</title>
+			<g id="group1243-266">
+				<title>Page-1</title>
+				<g id="group1244-267">
+					<title>CDN Profile</title>
+					<g id="group1245-268">
+						<title>g10</title>
+						<g id="group1246-269" transform="translate(-321.251,325.115) rotate(-90)">
+							<title>rect2</title>
+							<g id="shape1247-270">
+								<title>Sheet.1247</title>
+								<path d="M-0 340.43 A1.57147 1.52199 -90 0 0 1.52 342 L1.93 342 A1.57147 1.52199 -90 0 0 3.46 340.43
+											 L3.46 327.68 A1.57147 1.52199 -90 0 0 1.93 326.11 L1.52 326.11 A1.57147 1.52199 -90
+											 0 0 0 327.68 L0 340.43 Z" class="st36"/>
+							</g>
+						</g>
+						<g id="group1248-272" transform="translate(-326.109,332.338) rotate(-90)">
+							<title>rect4</title>
+							<g id="shape1249-273">
+								<title>Sheet.1249</title>
+								<path d="M-0 340.43 A1.57147 1.52199 -90 0 0 1.52 342 L1.93 342 A1.57147 1.52199 -90 0 0 3.46 340.43
+											 L3.46 327.68 A1.57147 1.52199 -90 0 0 1.93 326.11 L1.52 326.11 A1.57147 1.52199 -90
+											 0 0 0 327.68 L0 340.43 Z" class="st37"/>
+							</g>
+						</g>
+						<g id="group1250-275" transform="translate(-321.251,339.56) rotate(-90)">
+							<title>rect6</title>
+							<g id="shape1251-276">
+								<title>Sheet.1251</title>
+								<path d="M-0 340.43 A1.57147 1.52199 -90 0 0 1.52 342 L1.93 342 A1.57147 1.52199 -90 0 0 3.46 340.43
+											 L3.46 327.68 A1.57147 1.52199 -90 0 0 1.93 326.11 L1.52 326.11 A1.57147 1.52199 -90
+											 0 0 0 327.68 L0 340.43 Z" class="st38"/>
+							</g>
+						</g>
+						<g id="group1252-278" transform="translate(10.7857,0)">
+							<title>path8</title>
+							<g id="shape1253-279">
+								<title>Sheet.1253</title>
+								<path d="M42.14 332.09 A9.91211 9.60006 -90 0 0 33.92 322.49 A12.4808 12.0879 -90 0 0 21.6 310.4
+											 A12.783 12.3805 -90 0 0 9.9 318.85 A11.7555 11.3855 -90 0 0 -0 330.34 A12.0879 11.7074
+											 -90 0 0 11.89 342 L32.69 342 A10.033 9.71715 -90 0 0 42.14 332.09 Z" class="st39"/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
 </svg>
