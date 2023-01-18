@@ -18,8 +18,6 @@ This reference architecture shows how to run application workloads on Azure Spri
 
 1. The components inside the virtual networks use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to the key vault.
 
-   - The example uses [Azure Database for MySQL](/azure/mysql/single-server/overview) for data storage, but you can use any database. For alternatives, see [Backend database](#backend-database).
-
    - [Azure Key Vault](/azure/key-vault/general/overview) stores application secrets and certificates. The microservices running in Azure Spring Apps use the application secrets. Azure Spring Apps, Application Gateway, and Azure Front Door use the certificates for host name preservation.
 
 1. An [Azure Flexible Database for MySQL](/azure/mysql/flexible-server/overview) is being used for data storage, but you can use any database. For alternatives, see [Backend database](#backend-database). The database server is deployed within the virtual network.
