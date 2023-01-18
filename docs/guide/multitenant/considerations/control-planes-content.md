@@ -10,21 +10,20 @@ Control planes are critical components to consider when you design your own mult
 
 ## Responsibilities of a control plane
 
-There's no single template for a control plane or its responsibilities. Your solution's requirements dictate what your control plane needs to do. In some multitenant solutions, the control plane has wide range of responsibilities and is a complex system in its own right. In other multitenant solutions, the control plane only has basic responsibilities.
+There's no single template for a control plane or its responsibilities. Your solution's requirements and architecture dictate what your control plane needs to do. In some multitenant solutions, the control plane has wide range of responsibilities and is a complex system in its own right. In other multitenant solutions, the control plane only has basic responsibilities.
 
 In general, a control plane might have many of the following core responsibilities:
 
 - Provision and manage the system resources that the system needs to serve the workload, including tenant-specific resources. Your control plane might [invoke and orchestrate a deployment pipeline](../approaches/deployment-configuration.yml#tenant-lists-as-configuration-or-data) that's responsible for deployments, or it might run the deployment operations itself.
-- Reconfigure shared resources to be aware of new tenants. For example, configuring network routing to ensure that incoming traffic is [mapped to the correct tenant's resources](map-requests.yml).
-- Manage the configuration of each tenant.
-- Handle the [tenant lifecycle](tenant-lifecycle.md), including onboarding, moving, and offboarding tenants.
-- Track the tenants who are using the system, and the resources that those tenants are allocated to.
+- Reconfigure shared resources to be aware of new tenants. For example, your control plane might configure network routing to ensure that incoming traffic is [mapped to the correct tenant's resources](map-requests.yml).
+- Store and manage the configuration of each tenant.
+- Handle [tenant lifecycle events](tenant-lifecycle.md), including onboarding, moving, and offboarding tenants.
+- Track each tenant's use of your features and the performance of the system.
 - [Measure each tenant's consumption](measure-consumption.md) of your system's resources. Consumption metrics might inform your billing systems, or they might be used for resource governance.
-- Providing observability over your tenants' state and performance.
 
-If you're building a solution that uses the [fully multitenant tenancy model](tenancy-models.yml#fully-multitenant-deployments), a basic control plane might just track tenants and their associated metadata. For example, whenever a new tenant signs up to your service, the control plane could update the appropriate records in a database so that the rest of the system is able to serve the new tenant's requests.
+If you use the [fully multitenant tenancy model](tenancy-models.yml#fully-multitenant-deployments) and doesn't deploy any tenant-specific resources, a basic control plane might just track tenants and their associated metadata. For example, whenever a new tenant signs up to your service, the control plane could update the appropriate records in a database so that the rest of the system is able to serve the new tenant's requests.
 
-In contrast, suppose your solution uses a deployment model that requires tenant-specific infrastructure, such as the [automated single-tenant deployments model](tenancy-models.yml#automated-single-tenant-deployments). In this scenario, your control plane might have further responsibilities to deploy or reconfigure Azure infrastructure whenever you onboard a new tenant. Your solution's control plane likely needs to interact with the control planes for the services that you use, such as Azure Resource Manager or the Kubernetes control plane.
+In contrast, suppose your solution uses a deployment model that requires tenant-specific infrastructure, such as the [automated single-tenant model](tenancy-models.yml#automated-single-tenant-deployments). In this scenario, your control plane might have further responsibilities to deploy or reconfigure Azure infrastructure whenever you onboard a new tenant. Your solution's control plane likely needs to interact with the control planes for the services and technologies that you use, such as Azure Resource Manager or the Kubernetes control plane.
 
 More advanced control planes might also take on more responsibilities:
 
@@ -39,40 +38,44 @@ It's important that you carefully consider how much effort you need to spend on 
 
 In certain situations, it might be reasonable not to build a full control plane. This situation might apply your system is only going to have fewer than five tenants. Instead, your team can take on a control plane's responsibilities and can use manual operations and processes to onboard and manage tenants. However, you should still have a process and central place to track your tenants and their configuration.
 
-> [!NOTE]
-> If you provide self-service tenant management, you'll need a control plane early in your journey. You might choose to creae a basic control plane and only automate some of the most commonly used functionality.
+> [!TIP]
+> If you decide not to create a full control plane, it's still a good idea to be systematic about your management procedures:
+> - Document your processes thoroughly.
+> - Wherever possible, create and reuse scripts for your management operations.
+> 
+> If you need to automate the processes in the future, your documentation and scripts will form the basis of your control plane.
 
 As you grow beyond a few tenants, you'll likely gain benefits from having a way to track each tenant and monitor across your fleet of resources and tenants. You might also notice that your team spends an increasing amount of time and effort on tenant management. Or, you might notice bugs or operational problems because of inconsistencies in the ways that team members perform management tasks. If these situations occur, it's worth considering building a more comprehensive control plane to take on these responsibilities.
 
-> [!TIP]
-> If you decide not to create a full control plane, it's still a good idea to be systematic about your management procedures. Document your processes thoroughly. Where possible, create and reuse scripts for your management operations. If you need to automate the processes in the future, your documentation and scripts will form the basis of your control plane.
+> [!NOTE]
+> If you provide self-service tenant management, you'll need a control plane early in your journey. You might choose to create a basic control plane and only automate some of the most commonly used functionality. You can progressively add more capabilities over time.
 
 ## Design a control plane
 
-After you've determined the requirements and the scope of your control plane, you need to design and architect it. A control plane is an important system in its own right, and just like the other elements of your system, it needs to be planned carefully.
+After you've determined the requirements and the scope of your control plane, you need to design and architect it. A control plane is an important component in its own right, and just like the other elements of your system, it needs to be planned carefully.
 
 ### Resiliency
 
-Control planes are often mission-critical components, and it's essential that you consider the resiliency and reliability of your control plane.
+Control planes are often mission-critical components, and it's essential that you plan the level of resiliency and reliability that your control plane needs.
 
-Consider what happens if your control plane is unavailable. In extreme cases, a control plane outage might result in your entire solution being unavailable. Even if your control plane isn't a single point of failure, an outage might include the following effects:
+Consider what happens if your control plane is unavailable. In extreme cases, a control plane outage might result in your entire solution being unavailable. Even if your control plane isn't a single point of failure, an outage might have some of the following effects:
 
-- Your system isn't able to onboard new tenants.
-- Your system can't manage existing tenants.
-- You can't measure the consumption of tenants, or bill them for their usage.
-- Maintenance debt accumulates. For example, if your solution requires nightly cleanup of old data, will disks fill up or will your performance degrade?
+- Your system isn't able to onboard new tenants, which might impact your sales and business growth.
+- Your system can't manage existing tenants, which results in more calls to your support team.
+- You can't measure the consumption of tenants, or bill them for their usage, which results in lost revenue.
+- Maintenance debt accumulates, which results in longer-term damage to the system. For example, if your solution requires nightly cleanup of old data, will disks fill up or will your performance degrade?
 
-Consider following the [Azure Well-Architected Framework guidance for building reliable solutions](/azure/architecture/framework/resiliency/overview) throughout your system, including your control plane.
+Follow the [Azure Well-Architected Framework guidance for building reliable solutions](/azure/architecture/framework/resiliency/overview) throughout your system, including your control plane.
 
 ### Components
 
 There's no single template for a control plane, and the components that you design and build depend on your requirements. Commonly, a control plane consists of APIs and background worker components. In some solutions, a control plane might also include a user interface.
 
-### Orchestrate sequences of long-running operations
+#### Orchestrate sequences of long-running operations
 
 The operations that a control plane performs are often long-running and involve coordination between multiple systems. The operations can also have complex failure modes. When you design your control plane, it's important that you use a suitable technology for coordinating long-running operations or workflows.
 
-For example, suppose that when you onboard a new tenant, your control plane might need to do the following sequence of actions:
+For example, suppose that when you onboard a new tenant, your control plane runs the following actions in sequence:
 
 1. **Deploy a new database.** This action is an Azure deployment operation, and might take several minutes to complete.
 1. **Update your tenant metadata catalog.** This action might involve executing a command against an Azure SQL database.
@@ -80,11 +83,20 @@ For example, suppose that when you onboard a new tenant, your control plane migh
 1. **Update your billing system to prepare to invoice the new tenant.** This action invokes a third-party API, and you've noticed in the past that it intermittently fails.
 1. **Update your customer relationship management (CRM) system to track the new tenant.** This action invokes a third-party API.
 
-If any step in the sequence fails, you need to consider whether you retry it, continue to the next step, or abandon the workflow and trigger a manual recovery process. You also need to consider what the tenant's experience is for each scenario.
+If any step in the sequence fails, you need to consider what to do, such as:
+
+- Retry the failed operation. For example, if your Azure SQL command in step 2 fails with a transient error, you can probably retry it.
+- Continue to the next step anyway. For example, you might decide that it's acceptable if the update to your billing system fails, because your sales team will manually add the customer anyway.
+- Abandon the workflow and trigger a manual recovery process.
+
+You also need to consider what the user experience is like for each failure scenario.
 
 ## Use multiple control planes
 
-Most solutions only need one control plane. However, in a complex environment, you might need to have multiple control planes, each with different areas of responsibility. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. When you follow this pattern, you might create separate control planes for global and stamp concerns.
+In a complex environment, you might need to have multiple control planes, each with different areas of responsibility. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. When you follow this pattern, you might create separate control planes for global and stamp concerns.
+
+> [!TIP]
+> Coordinating across multiple control planes is complex, so try to minimize the number of control planes you build. Most solutions only need one control plane.
 
 ### Global control planes
 
