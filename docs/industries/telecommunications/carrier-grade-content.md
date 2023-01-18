@@ -7,22 +7,22 @@ This architecture provides guidance for designing a carrier-grade solution for a
 
 This reference architecture is for a voicemail solution. It offers common functionalities such as, play greeting and record voicemail, retrieve voicemail through phone or app, configure features, and much more.  
 
-Multiple clients can connect to the workload using various protocols. They can be HTTP or other protocols, such as Session Initiation Protocol (SIP). A connection will lead to persisted state, which can be client configuration, messages, and related metadata. 
+Multiple clients can connect to the workload using various protocols. They can be HTTP or other protocols, such as Session Initiation Protocol (SIP). A connection may modify persisted state, which could be client configuration, messages, and related metadata.
 
 ## Workload requirements
 
-- The workload is expected to have a Service Level Object target of 99.999%, which equates to outage duration of less than 5 minutes per year.
+- The workload is expected to have a Service Level Objective target of 99.999%, which equates to a total expected outage duration of less than 5 minutes per year.
 - Application requests for all the supported protocols must be load-balanced across all the active service instances (SIs).
-- Replication of write operations on subscriber data must be instantaneous across regions. Any service instance reading data always gets served the latest and most up to date version of the subscriber data.
+- Replication of write operations on subscriber data should be near-instantaneous across regions. In most cases, a service instance reading data should be served the latest and most up to date version of the subscriber data.
 - If a failure occurs in the middle of an active subscriber voice mail session, the caller will need to reconnect. The application isn't required to maintain active session state for in-flight messages.
 
 ## Key design strategies
 
-- **Active-active muti-region deployment**. Deploy atleast 12 application instances across four regions to minimize regional outage as a single point of failure. In active-active model, there's no failover also making  request processing fast and reliable.
-- **Replicated storage**. Keep the application stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions. 
-- **Eventual data consistency enforced by Consistency, Availability, and Partition tolerance (CAP)**. Implement application logic that uses Conflict-free Replicated Data Types (CRDTs) to handle eventual inconsistency.
+- **Active-active multi-region deployment**. Deploy 12 at least application instances across four regions to minimize regional outage as a single point of failure. In active-active model there's no failover, so failure handling is fast and reliable.
+- **Replicated storage**. Keep the application itself stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions.
+- **Eventual consistency of data** is forced by the CAP theorem (Consistency, Availability, and Partition Tolerance). Implement application logic that uses conflict-free replicated data types (CRDTs) and application logic to handle intermediate states.
 - **Avoid correlated failure modes**. Take independent elements and [combine them to reach a higher reliability target](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance#high-availability-through-combination). 
-- **Shared fate within each stamp**. Aggregate all the components of service instance in a stamp. This model removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
+- **Shared fate within each stamp**. Aggregate all the dependencies of service instance in a stamp. This removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
 
 ## Architecture
 
@@ -41,14 +41,14 @@ The global load balancer that uses DNS-based routing to send traffic to the appl
 
 **Azure Cosmos DB**
 
-Stores application payload metadata and end-user provisioning data. Also used by dependent services listed above. Multi-master write is enabled so that data is replicated to each region, instantaneously. Also, zone redundancy is enabled through availability zone redundancy support (AZRS). 
+Stores application payload metadata and end-user provisioning data. Also used by dependent services listed above. Multi-master write is enabled so that data is replicated to each region, instantaneously. Also, zone redundancy is enabled through zone-redundant storage (ZRS).
 
 **Gateway component** 
 
 A custom solution component that that exists outside of the cloud. The gateway serves as the single endpoint for clients using protocols different than HTTP. It monitors the health of the backend endpoints and routes traffic to the healthy instances. 
 
 > [!IMPORTANT] 
-> Global routing is handled through DNS. If any global service or a foundational service isn't available, the entire system will be impacted. 
+> Global routing is handled through DNS. If any global or foundational service isn't available, the entire system will be impacted.
 
 ### Regional resources
 
@@ -60,14 +60,15 @@ Is a custom service that delivers the management, deployment, and monitoring asp
 
 **Azure Container Registry**
 
-Stores all Open Container Initiative (OCI) artifacts. Zone redundancy is enabled to safeguard against zonal failures. 
+Stores all container images. Zone redundancy is enabled to safeguard against zonal failures.
 
 **Azure Key Vault**
 
 Stores global secrets such as connection strings to the global database and regional secrets.
 
 **Azure Monitor**
-Collects logs and metrics emitted by the workload and Azure resources. The data is stored in Azure Monitor Logs and Log Analytics Workspace. 
+
+Collects logs and metrics emitted by the workload and Azure resources. The data is stored in Azure Monitor Logs and Log Analytics Workspace.
 
 **Virtual machine scale set**
 
@@ -90,7 +91,7 @@ Stores messages temporarily as mitigation of write failures.
 
 ### Regional stamp resources
 
-Within each region, a set of resources are deployed as part of a deployment stamp to provide more resiliency and scale. The resources are expected to be ephemeral. They're created and destroyed dynamically while the preceding regional resources outside the stamp continue to persist. 
+Within each region, a set of resources are deployed as part of a deployment stamp to provide more resiliency and scale. The resources are expected to be ephemeral. They are destroyed and recreated dynamically while the regional resources outside the stamp (holding the application state) continue to persist.
 
 **Workload compute**
 
@@ -122,19 +123,19 @@ The application is fronted by a traffic management layer, which provides load ba
 
 - **Protocol A** accesses the application through an intermediate gateway component outside the cloud. The design uses [gateway routing pattern](/azure/architecture/patterns/gateway-routing) and the gateway serves as the single endpoint and routes traffic to multiple backend SIs. 
 
-- **Protocol B** routes HTTP traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS. 
+- **Protocol B** routes HTTP or non-HTTP traffic to the application in multiple regions. Azure Traffic Manager is used as global load balancer and routes traffic based on DNS.
 
 The internal load balancer distributes incoming requests to the SI pods. The services are reachable through their DNS names assigned by native Kubernetes objects.
 
 #### Reliability considerations 
 
-Traffic Manager is on the critical path when clients make their initial connection and for clients whose existing cached DNS records have expired. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, Traffic Manager SLA must be considered. 
+Traffic Manager is on the critical path for clients. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, the Traffic Manager SLA must be considered.
 
-Like Traffic Manager, the gateway is also a single point of failure. Failure will impact new client connections and existing clients after the cached DNS entry expires.
+Like Traffic Manager, the gateway is also a single point of failure and thus should be designed with internal redundancy. Failure will impact new client connections and existing clients after the cached DNS entry expires.
 
-If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired. Clients will continue to reach the last-known address. Use Azure policies to enforce termination of long-running calls or connections that still exist.
+If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired - so this time must be set short. Clients will continue to reach the last-known address. Use Azure policies to enforce termination of long-running calls or connections that still exist.
 
-Both routers depend on Azure DNS to reduce complexity and higher Service Level Agreement (SLA). However, if that service is unavailable, expect a full outage. 
+Both routers depend on Azure DNS, as a foundational service, to reduce complexity and provide higher Service Level Agreement (SLA).  However, if that service is unavailable, expect a full outage.
 
 #### Health monitoring
 
@@ -146,9 +147,11 @@ For Protocol B, Azure Traffic Manager has built-in polling capabilities that min
 
 ## Data consistency
 
-For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally. Writing to the database is a critical process for this use case. If there's a failure, time taken to bring up an instance in another region should be minimized. Write requests to the database should still be functional.
+For carrier-grade workloads, it's recommended that crucial data related to the workload is stored externally (the stateless pattern).  Writing to the database is a critical process for this use case.
 
-In this architecture, Azure Cosmos DB was chosen because it supports multi-write region model. Data is regionally replicated in an active-active configuration and it's instantly synchronized across multiple regions. If there's a global outage, consistent data is available in all regions almost instantly. Also, zonal redundancy is guaranteed through availability zone redundancy support (AZRS).
+Data should be regionally replicated in an active-active configuration, so that it is rapidly synchronized across regions. The database should be configured with multiple write regions. Both read and write can be performed against all regions. This ensures that if there is a failure of either workload or database in any region, the workload can continue to service requests from other regions seamlessly. 
+
+In this architecture, Azure Cosmos DB was chosen as the global database because it supports the multiple write region model. If there's a global outage, consistent data is available in multiple regions almost instantly. Also, zonal redundancy is guaranteed through use of zone redundant storage (ZRS).
 
 This architecture also uses Azure Blob Storage to store supplementary data, such as long-term metrics data, application core dumps, and diagnostics packages. The resource is configured to use zone-redundant storage (ZRS) with [object replication](/azure/storage/blobs/object-replication-overview) between regions. This combination was chosen because it allows control of the secondary region and storage tier, that is, premium primary copy and hot-cool secondary copy. For this use case, it's also a cost-effective way of replicating data. 
 
@@ -162,7 +165,7 @@ The capacity of the individual service instance is adjusted based on load testin
 
 ## Overall observability
 
-Logs and metrics emitted by the workload that Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They're handled by the management service in each Availability Zone and not replicated outside each zone because the cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management service in each zone. Monitoring data is retained so that diagnosis can be performed after the fact, allowing fault resolution. 
+Logs and metrics emitted by the workload and by Azure resources are collected and stored in Azure Monitor Logs and Blob Storage. They are handled by the management service in each Availability Zone and not replicated outside each zone, because the additional cost isn't justified in this case. Application-wide monitoring is achieved through use of federated queries across the management service in each zone. Monitoring data is retained so that diagnosis can be performed after the fact, allowing fault resolution.
 
 Alerts are set up by the application instances. Metric threshold events are replicated across all zones and regions so they're always available. 
 
@@ -200,7 +203,7 @@ From an availability perspective, failure mode analysis is extended to include a
 
 - Instead of Storage Queue, you can choose another message broker that has reliability guarantees. Azure Service Bus is a good option because it has two-phase commits and features such as a built-in dead letter queue and deduplication capabilities.
 
-- Another option for global routing is Azure Front Door. It has built-in Web Application Firewall (WAF) capabilities applied to secure Layer 7 ingress traffic.
+- Another option for global routing of HTTP traffic (not other protocols) is Azure Front Door. It has built-in Web Application Firewall (WAF) capabilities applied to secure Layer 7 ingress traffic.
 
 ## Related resources
 
