@@ -113,7 +113,7 @@ A stamp control plane is deployed into each deployment stamp and has responsibil
 - **Managing shared resources**, including monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity.
 - **Performing maintenance operations within the stamp**, such as database index management and cleanup operations.
 
-Each stamp's control plane coordinates with the global control plane. For example, suppose a new tenant signs up. The global control plane is initially responsible for selecting a stamp for the tenant's resources. Then, the global control plane can instruct the stamp control plane to create the necessary resources for the tenant.
+Each stamp's control plane coordinates with the global control plane. For example, suppose a new tenant signs up. The global control plane is initially responsible for selecting a stamp for the tenant's resources. Then, the global control plane tells the stamp's control plane to create the necessary resources for the tenant.
 
 The following diagram shows an example of how the two control planes might coexist in a single system:
 
@@ -124,7 +124,7 @@ The following diagram shows an example of how the two control planes might coexi
 Tenants might use a tenant-level control plane to manage their own logical or physical resources. A tenant control plane might include the following responsibilities:
 
 - **Management of tenant-specific configuration**, such as user access.
-- **Tenant-initiated maintenance operations**, such as backing their data or downloading a previous backup.
+- **Tenant-initiated maintenance operations**, such as backing up their data or downloading a previous backup.
 - **Update management**, if you allow tenants to [control their own updates to their applications](updates.md).
 
 The following diagram shows a complex system with a global control plane, stamp control planes, and a control plane for each tenant:
