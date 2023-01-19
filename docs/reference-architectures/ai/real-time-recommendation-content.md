@@ -133,7 +133,6 @@ Principal authors:
 - [Batch scoring of Spark models on Azure Databricks][batch-scoring]
 - [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
 - [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
-- [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
 - [Personalization using Cosmos DB](../../solution-ideas/articles/personalization-using-cosmos-db.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)

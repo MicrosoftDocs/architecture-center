@@ -46,7 +46,7 @@ The folder structure of our collection of Azure architecture icons has changed. 
 
 ### January 2021
 
-There are ~26 icons that have been added to the existing set. The download file name format has been updated to `Azure_Public_Service_Icons_V4.zip`, where the number is the version of the icon release.
+There are ~26 icons that have been added to the existing set.
 
 ### November 2022
 

@@ -214,7 +214,7 @@ For smaller SAP solutions, it might be beneficial to simply the network design. 
 **Principal authors:**
 
 - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect
-- [Pankaj Meshram](https://ww.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager
+- [Pankaj Meshram](https://www.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager
 
 ## Next steps
 
