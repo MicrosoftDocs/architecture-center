@@ -166,3 +166,4 @@ Other contributors:
 - [HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai)
 - [Precision medicine pipeline with genomics](/azure/architecture/example-scenario/precision-medicine/genomic-analysis-reporting)
 - [Health data consortium on Azure](/azure/architecture/example-scenario/data/azure-health-data-consortium)
+
