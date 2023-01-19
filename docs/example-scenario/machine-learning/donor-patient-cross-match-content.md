@@ -1,6 +1,8 @@
-This Azure example scenario supports developing data-driven models for donor-patient virtual DNA cross matching. The solution eliminates human interpretation by using Azure Machine Learning to train models with several different machine learning algorithms.
+This Azure example scenario supports developing data-driven models for donor-patient virtual DNA cross matching. This solution eliminates human interpretation by using Azure Machine Learning to train models with several different machine learning algorithms.
 
-The models predict recipient and donor compatibility by using Human Leukocyte Antigen (HLA) antibody mean fluorescent intensity data and donor HLA typing. The solution uses best practices for data exploration, governance, model training, and deployment.
+The models predict recipient and donor compatibility by using Human Leukocyte Antigen (HLA) antibody mean fluorescent intensity data and donor HLA typing. The workflow uses best practices for data exploration, governance, model training, and deployment.
+
+*The Ray logo is a trademark of [Ray](https://www.ray.io). No endorsement is implied by the use of this logo.*
 
 ## Architecture
 
@@ -14,9 +16,9 @@ This architecture is developed on [Machine Learning](/azure/machine-learning/ove
 
 The first step is to collect data for research and training purposes. Then, the workflow divides into two parts: Inferencing or application consumption by a third party, and artificial intelligence (AI) machine learning training for continued research.
 
-1. [Azure Data Factory](/azure/data-factory/introduction) securely ingests patient and genomics datasets into [Azure Data Lake Storage](/azure/storage/blobs).
+1. [Azure Data Factory](/azure/data-factory/introduction) and [Azure Health Data Services](/azure/healthcare-apis) securely ingest patient and genomics data into [Azure Data Lake Storage](/azure/storage/blobs).
 
-   Azure Health Data Services ingests the patient non-genomics clinical datasets in Fast Healthcare Interoperability Resources (FHIR) format. Azure [Health Data Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) persist and access the stored patient clinical data in Parquet format. If the data is in a legacy format such as HL7, CCDA, or JSON, [FHIR Converters](/azure/healthcare-apis/fhir/convert-data) can convert the data.
+   Azure Health Data Services ingests the patient non-genomics clinical datasets in Fast Healthcare Interoperability Resources (FHIR) format. Azure [Health Data Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) convert and provide access to the stored patient clinical data in Parquet format. If the data is in a legacy format such as HL7, CCDA, or JSON, [FHIR Converters](/azure/healthcare-apis/fhir/convert-data) can convert the data.
 
 2. Machine Learning loads the data store by referencing the blob storage. Machine Learning with the [Ray framework](https://www.ray.io) and [Ray-on-AML library](https://github.com/microsoft/ray-on-aml) use parallel and distributed data processing to do data preprocessing, custom data imputation, and model training.
 
@@ -41,11 +43,11 @@ The first step is to collect data for research and training purposes. Then, the 
 
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is limitless data storage to house data in different shapes and formats for archives, data lakes, high-performance computing (HPC), machine learning, and cloud-native workloads. Data Lake Storage has enterprise-grade security and monitoring support, and provides easy integration with Azure analytics tools. In this example, Data Lake Storage provides a local data store for Machine Learning data and a Premium data cache for training the machine learning model.
 
-- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is an Azure extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. Azure Data Factory offers a code-free UI for intuitive authoring, and s single pane of glass for monitoring and management.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is an Azure extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. Azure Data Factory offers a code-free UI for intuitive authoring, and a single pane of glass for monitoring and management.
 
 - [Azure Health Data Services](https://azure.microsoft.com/products/health-data-services) is a set of managed Azure services that can combine disparate health datasets and standardize data in the cloud.
 
-- [Machine Learning](https://azure.microsoft.com/services/machine-learning) provides enterprise-grade machine learning services for easier model development and deployment to a wide range of targets. Machine Learning accelerates and manages the machine learning project lifecycle, including training and deploying models and managing MLOps. Machine Learning provides a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
+- [Machine Learning](https://azure.microsoft.com/services/machine-learning) provides enterprise-grade machine learning services for easy model development and deployment to a wide range of targets. Machine Learning accelerates and manages the machine learning project lifecycle, including training and deploying models and managing MLOps. Machine Learning provides a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
 
 - [AKS](https://azure.microsoft.com/services/kubernetes-service) is a serverless Kubernetes service that can deploy and scale containerized applications with enterprise-grade security and governance. AKS can define, deploy, debug, and upgrade complex Kubernetes applications, and automatically containerize applications.
 
@@ -73,13 +75,15 @@ The first step is to collect data for research and training purposes. Then, the 
 
 Genomics quantifies the entirety of an organism's genes, called its *genome*. Healthcare and genomics researchers with bioinformatics expertise analyze large amounts of complex DNA sequence data for variations that affect health, diseases, or drug response. Genomics has achieved great breakthroughs in the past couple of decades, but faces the challenge of processing enormous amounts of genomic data, which requires complex algorithms and HPC power. To analyze this complex data for meaningful patterns, researchers use AI and machine learning.
 
-Ray is an open-source unified compute framework that makes it easy to scale AI workloads for large-scale machine learning applications. Ray-on-AML offers scalable computational power with high availability, and enables parallel computing on multinode clusters. The Ray-on-AML library turns Machine Learning compute instances and compute clusters into Ray and Dask clusters, which give Machine Learning powerful computational performance to handle complex genomics data.
+Ray is an open-source unified compute framework that makes it easy to scale AI workloads for large-scale machine learning applications. Ray-on-AML offers scalable computational power with high availability, and enables parallel computing on multinode clusters. The Ray-on-AML library turns Machine Learning compute instances and compute clusters into Ray and [Dask](https://docs.ray.io/en/latest/data/dask-on-ray.html) clusters, which give Machine Learning powerful computational performance to handle complex genomics data.
+
+The virtual cross match use case dwells solely within the Machine Learning ecosystem, enabling easy integration among its components. This use case also demonstrates how to promote research projects into viable applications that can generate social and economic value while maintaining division of the research project.
+
+Hospitals and diagnostic centers that participate in the [Donor matching system](https://optn.transplant.hrsa.gov/patients/about-donation/donor-matching-system) can use [Azure Data Share](/azure/data-share/overview) to share data between tenants. All participating tenants must have an Azure subscription.
 
 ### Potential use cases
 
-The virtual cross match use case dwells solely within the Machine Learning ecosystem, enabling easy integration among its components. This use case also demonstrates how to promote research projects into viable applications that can generate social and economic value, while maintaining division of the research project.
-
-Use cases for this example architecture include:
+Other use cases for this architecture include:
 
 - Extensive analysis and processing of genomic data.
 - Genetic disease research.
@@ -90,8 +94,6 @@ Use cases for this example architecture include:
 This architecture implements the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](https://www.microsoft.com/azure/partners/well-architected#well-architected-assets).
 
 The technologies in this architecture were chosen for scalability and availability along with the aim of managing and controlling cost.
-
-Hospitals and diagnostic centers that participate in the [Donor matching system](https://optn.transplant.hrsa.gov/patients/about-donation/donor-matching-system) can use [Azure Data Share](/azure/data-share/overview) to share data between tenants. All tenants require an Azure subscription. 
 
 ### Reliability
 
