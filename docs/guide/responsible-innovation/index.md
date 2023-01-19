@@ -48,5 +48,4 @@ Similar to *Security Threat Modeling*, Harms Modeling enables product teams to a
 
 ## Sustainability
 
-The [Azure Well-Architected Framework sustainability workload guidance](/azure/architecture/framework/sustainability/) is a set of recommendations and principles to increase cloud efficiency across your Azure workloads. In partnership with the Green Software Foundation, we've developed guidance for an improved sustainability posture to help create new business value while reducing your operational footprint.
-This guide helps you drive innovation responsibly by factoring in the effect your solutions have on the climate, and you get concrete advice on how to build for a better tomorrow.
+The [Azure Well-Architected Framework sustainability workload guidance](/azure/architecture/framework/sustainability/) is a set of recommendations and principles to increase cloud efficiency across Azure workloads. This guidance is developed in partnership with the Green Software Foundation for an improved sustainability posture to help create new business value while reducing the operational footprint. This guide helps drive innovation responsibly by factoring in the effect workloads have on the climate and gives concrete advice on how to build for a better tomorrow.
