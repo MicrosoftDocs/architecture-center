@@ -21,7 +21,7 @@ In general, a control plane might have many of the following core responsibiliti
 - Track each tenant's use of your features and the performance of the system.
 - [Measure each tenant's consumption](measure-consumption.md) of your system's resources. Consumption metrics might inform your billing systems, or they might be used for resource governance.
 
-If you use the [fully multitenant tenancy model](tenancy-models.yml#fully-multitenant-deployments) and doesn't deploy any tenant-specific resources, a basic control plane might just track tenants and their associated metadata. For example, whenever a new tenant signs up to your service, the control plane could update the appropriate records in a database so that the rest of the system is able to serve the new tenant's requests.
+If you use the [fully multitenant tenancy model](tenancy-models.yml#fully-multitenant-deployments) and don't deploy any tenant-specific resources, a basic control plane might just track tenants and their associated metadata. For example, whenever a new tenant signs up to your service, the control plane could update the appropriate records in a database so that the rest of the system is able to serve the new tenant's requests.
 
 In contrast, suppose your solution uses a deployment model that requires tenant-specific infrastructure, such as the [automated single-tenant model](tenancy-models.yml#automated-single-tenant-deployments). In this scenario, your control plane might have further responsibilities to deploy or reconfigure Azure infrastructure whenever you onboard a new tenant. Your solution's control plane likely needs to interact with the control planes for the services and technologies that you use, such as Azure Resource Manager or the Kubernetes control plane.
 
