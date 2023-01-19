@@ -31,8 +31,8 @@ The architecture consists of the following components. For other terms, see [Ser
 
 - **Services**. A service performs a standalone function that can start and run independently of other services. Instances of services get deployed to nodes in the cluster. There are two varieties of services in Service Fabric:
 
-  - **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, state is written to and retrieved from an external store, such as Azure Cosmos DB.
-  - **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement persistent state through [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) in Service Fabric.
+  - **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, then state is written to and retrieved from an external store, such as Azure Cosmos DB.
+  - **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement this through [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) in Service Fabric.
 
 - **Service Fabric Explorer**. [Service Fabric Explorer][sfx] is an open-source tool for inspecting and managing Service Fabric clusters.
 
@@ -63,7 +63,7 @@ Optionally, the application manifest can describe services that are automaticall
 > [!NOTE]
 > Avoid using default services if you want to control the lifetime of your services. Default services are created when the application is created, and they run as long as the application is running.
 
-Learn more about [Azure Service Fabric](/azure/service-fabric/service-fabric-content-roadmap).
+For more information, see [So you want to learn about Service Fabric?](/azure/service-fabric/service-fabric-content-roadmap).
 
 #### Application-to-service packaging model
 
@@ -160,7 +160,7 @@ When you create a Service Fabric cluster, provision the node types based on your
 
 - Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Create separate node types to run your public or front-end services. Create other node types as necessary for your back end and private or isolated services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are deployed only to the intended node types.
 - Specify the *durability tier* for each node type. The durability tier represents the ability of Service Fabric to influence updates and maintenance operations in virtual machine scale sets. For production workloads, choose a Silver or higher durability tier. For information about each tier, see [Durability characteristics of the cluster](/azure/service-fabric/service-fabric-cluster-capacity#Durability-characteristics-of-the-cluster).
-- If you're using the Bronze durability tier, certain operations require manual steps. Node types with the Bronze durability tier require additional steps during scale-in. For more information on scaling operations, see [Introduction to auto scaling](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
+- If you're using the Bronze durability tier, certain operations require manual steps. Node types with the Bronze durability tier require additional steps during scale-in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling).
 
 #### Scaling nodes
 
@@ -203,7 +203,7 @@ Depending on how you design the partition, you might have nodes with replicas th
 
 Service Fabric uses metrics to know how to place and balance services within a cluster. You can specify a default load for each metric associated with a service when that service is created. Service Fabric then takes that load into account when placing the service, or whenever the service needs to move (for example, during upgrades), to balance the nodes in the cluster.
 
-The initially specified default load for a service will not change over the lifetime of the service. To capture changing metrics for a service, we recommend that you monitor your service, and then report the load dynamically. This approach allows Service Fabric to adjust the allocation based on the reported load at a given time. Use the [IServicePartition.ReportLoad](/dotnet/api/system.fabric.iservicepartition.reportload?view=azure-dotnet) method to report custom metrics. For more information, see [Dynamic load](/azure/service-fabric/service-fabric-cluster-resource-manager-metrics#dynamic-load).
+The initially specified default load for a service will not change over the lifetime of the service. To capture changing metrics for a service, we recommend that you monitor your service and then report the load dynamically. This approach allows Service Fabric to adjust the allocation based on the reported load at a given time. Use the [IServicePartition.ReportLoad](/dotnet/api/system.fabric.iservicepartition.reportload?view=azure-dotnet) method to report custom metrics. For more information, see [Dynamic load](/azure/service-fabric/service-fabric-cluster-resource-manager-metrics#dynamic-load).
 
 ### Availability
 
@@ -326,7 +326,7 @@ This reference implementation uses [Polly](https://github.com/App-vNext/Polly), 
 
 ### Monitoring
 
-Before you explore the monitoring options, we recommend that you read [Diagnose common scenarios with Service Fabric](/azure/service-fabric/service-fabric-diagnostics-common-scenarios). You can think of monitoring data in these sets:
+Before you explore the monitoring options, we recommend that you read [this article about diagnosing common scenarios with Service Fabric](/azure/service-fabric/service-fabric-diagnostics-common-scenarios). You can think of monitoring data in these sets:
 
 - [Application metrics and logs](#application-metrics-and-logs)
 - [Service Fabric health and event data](#service-fabric-health-and-event-data)
