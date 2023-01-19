@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Donor-patient crossmatch on Azure Machine Learning
+  title: Donor-patient matching on Azure Machine Learning
   titleSuffix: Azure Architecture Center
-  description: Use Azure Machine Learning with Ray-on-AML library to run and train donor-patient crossmatch models over FHIR and health data.
+  description: Use Azure Machine Learning with Ray-on-AML library to run and train donor-patient cross match models over FHIR and health data.
   author: kunanba
   ms.author: akunanbaeva
   ms.date: 01/19/2023
@@ -17,8 +17,8 @@ products:
   - azure-kubernetes-service
   - azure-machine-learning
   - power-apps
-name: Donor-patient crossmatch on Azure Machine Learning
-summary: Use Azure Machine Learning with Ray-on-AML library to run and train donor-patient crossmatch models over FHIR and health data.
+name: Donor-patient matching on Azure Machine Learning
+summary: Use Azure Machine Learning with Ray-on-AML library to run and train donor-patient cross match models over FHIR and health data.
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
   [!include[](donor-patient-crossmatch-content.md)]

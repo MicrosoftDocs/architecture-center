@@ -1,28 +1,32 @@
-This Azure example scenario supports developing data-driven models for donor-patient virtual DNA crossmatching. The solution eliminates human interpretation by using Azure Machine Learning to train models with several different machine learning algorithms. The models predict recipient and donor compatibility by using HLA antibody mean fluorescent intensity data and donor HLA typing. The solution uses best practices for data exploration, governance, model training, and deployment.
+This Azure example scenario supports developing data-driven models for donor-patient virtual DNA cross matching. The solution eliminates human interpretation by using Azure Machine Learning to train models with several different machine learning algorithms.
+
+The models predict recipient and donor compatibility by using Human Leukocyte Antigen (HLA) antibody mean fluorescent intensity data and donor HLA typing. The solution uses best practices for data exploration, governance, model training, and deployment.
 
 ## Architecture
 
-![Diagram that shows the donor-patient crossmatching machine learning dataflow.](media/donor-patient-match.png)
+![Diagram that shows the donor-patient cross matching machine learning dataflow.](media/donor-patient-match.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
 ### Workflow
 
-This architecture is developed on [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). The donor-patient matching solution trains several supervised machine learning algorithms to facilitate preprocessing and imputing genomics data and donor-patient matching. The first step is to collect data for research and training purposes. Then, the workflow divides into two parts: Inferencing or application consumption by a third party, and artificial intelligence (AI) machine learning training for continued research.
+This architecture is developed on [Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). The donor-patient matching solution trains several supervised machine learning algorithms to facilitate preprocessing and imputing genomics data and donor-patient matching.
+
+The first step is to collect data for research and training purposes. Then, the workflow divides into two parts: Inferencing or application consumption by a third party, and artificial intelligence (AI) machine learning training for continued research.
 
 1. [Azure Data Factory](/azure/data-factory/introduction) securely ingests patient and genomics datasets into [Azure Data Lake Storage](/azure/storage/blobs).
 
-   Azure Health Data Services ingests the patient non-genomics clinical datasets in FHIR format. Azure [Health Data Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) persist and access the stored patient clinical data in Parquet format. If the data is in a legacy format such as HL7, CCDA or JSON, [FHIR Converters](/azure/healthcare-apis/fhir/convert-data) can convert the data.
+   Azure Health Data Services ingests the patient non-genomics clinical datasets in Fast Healthcare Interoperability Resources (FHIR) format. Azure [Health Data Analytics Pipelines](https://github.com/microsoft/FHIR-Analytics-Pipelines) persist and access the stored patient clinical data in Parquet format. If the data is in a legacy format such as HL7, CCDA, or JSON, [FHIR Converters](/azure/healthcare-apis/fhir/convert-data) can convert the data.
 
-2. Machine Learning loads the data store by referencing the blob storage. Machine Learning with the Ray® framework and [Ray-on-AML library](https://github.com/microsoft/ray-on-aml) use parallel and distributed data processing to do data preprocessing, custom data imputation, and model training.
+2. Machine Learning loads the data store by referencing the blob storage. Machine Learning with the [Ray framework](https://www.ray.io) and [Ray-on-AML library](https://github.com/microsoft/ray-on-aml) use parallel and distributed data processing to do data preprocessing, custom data imputation, and model training.
 
 3. The models deploy to Azure Kubernetes Service (AKS) within the Machine Learning workspace.
 
 4. End users and researchers can invoke inferencing by using the Power Apps user interface (UI) to input patient and donor data.
 
-5. Subsequently, the real-time Machine Learning pipeline uses AKS to do data processing, imputation, and inferencing, and shows results in the UI.
+5. After that, the real-time Machine Learning pipeline uses AKS to do data processing, imputation, and inferencing, and shows results in the UI.
 
-   For continued research, a separate manually-triggered pipeline can do batch inferencing when needed on larger datasets, and upload the result to Azure Blob Storage.
+   For continued research, a separate manually triggered pipeline can do batch inferencing when needed on larger datasets, and upload the result to Azure Blob Storage.
 
 6. The pipeline tests the retrained models, evaluates them based on user metrics, and versions them in a model registry that facilitates organization of trained models.
 
@@ -31,47 +35,49 @@ This architecture is developed on [Machine Learning](/azure/machine-learning/ove
    - [Azure Key Vault](/azure/key-vault/general/overview) to securely store connection strings, passwords, and secrets among different components.
    - [Azure Monitor](/azure/azure-monitor/overview) to monitor the service health and performance.
    - [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) as the identity and access management provider.
-   - Azure DevOps to manage Machine Learning lifecycle and orchestration.
+   - [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) to manage Machine Learning lifecycle and orchestration.
 
 ### Components
 
-- [Data Lake Storage](https://azure.microsoft.com/solutions/data-lake) is limitless data storage to house data in different shapes and formats for archives, data lakes, high-performance computing (HPC), machine learning, and cloud-native workloads. Data Lake Storage has enterprise-grade security and monitoring support, and provides easy integration with Azure analytics tools. In this example, Data Lake Storage provides a local data store for Machine Learning data and a Premium data cache for training the machine learning model.
+- [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is limitless data storage to house data in different shapes and formats for archives, data lakes, high-performance computing (HPC), machine learning, and cloud-native workloads. Data Lake Storage has enterprise-grade security and monitoring support, and provides easy integration with Azure analytics tools. In this example, Data Lake Storage provides a local data store for Machine Learning data and a Premium data cache for training the machine learning model.
 
-- [Azure Data Factory](/azure/data-factory/introduction) is an Azure extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. Azure Data Factory offers a code-free UI for intuitive authoring, and single-pane-of-glass monitoring and management.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is an Azure extract, transform, and load (ETL) service for scale-out serverless data integration and data transformation. Azure Data Factory offers a code-free UI for intuitive authoring, and s single pane of glass for monitoring and management.
 
 - [Azure Health Data Services](https://azure.microsoft.com/products/health-data-services) is a set of managed Azure services that can combine disparate health datasets and standardize data in the cloud.
 
-- [Machine Learning](https://azure.microsoft.com/services/machine-learning) provides enterprise-grade machine learning services for easier model development and deployment to a wide range of targets. Machine Learning accelerates and manages the machine learning project lifecycle, including training and deploying models and managing MLOps. Machine Learning provides a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments (IDEs).
+- [Machine Learning](https://azure.microsoft.com/services/machine-learning) provides enterprise-grade machine learning services for easier model development and deployment to a wide range of targets. Machine Learning accelerates and manages the machine learning project lifecycle, including training and deploying models and managing MLOps. Machine Learning provides a low-code designer, automated machine learning, and a hosted Jupyter notebook environment that supports various integrated development environments.
 
 - [AKS](https://azure.microsoft.com/services/kubernetes-service) is a serverless Kubernetes service that can deploy and scale containerized applications with enterprise-grade security and governance. AKS can define, deploy, debug, and upgrade complex Kubernetes applications, and automatically containerize applications.
 
 - [Power Apps](/power-apps/powerapps-overview) is a suite of apps, services, and connectors that provide a rapid development environment to build custom apps.
 
-- [Azure Key Vault](/azure/key-vault/general/overview) can securely store, manage, and tightly control access to tokens, credentials, certificates, API keys, and secrets.
+- [Ray](https://www.ray.io) is an open-source, high-performance distributed execution framework for large-scale machine learning and AI applications.
 
-- [Azure Monitor](/azure/azure-monitor/overview) is a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) can securely store, manage, and tightly control access to tokens, credentials, certificates, API keys, and secrets.
 
-- [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) is an Azure cloud-based identity and access management service.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments.
 
-- [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) improves software development by supporting collaborative continuous integration and continuous deployment (CI/CD).
+- [Azure AD](https://azure.microsoft.com/products/active-directory) is an Azure cloud-based identity and access management service.
+
+- [Azure DevOps](https://azure.microsoft.com/products/devops) improves software development by supporting collaborative continuous integration and continuous deployment (CI/CD).
 
 ### Alternatives
 
-- This solution uses the Ray® framework and the Ray-on-AML library distributed execution framework for powerful computational performance. You can alternatively use [Azure High Performance Computing](https://azure.microsoft.com/solutions/high-performance-computing) for some components of the solution.
+- This solution uses the Ray framework and the Ray-on-AML library distributed execution framework for powerful computational performance. You can alternatively use [Azure high-performance computing](https://azure.microsoft.com/solutions/high-performance-computing) for some components of the solution.
 
 - Alternatively, you can use [Azure Databricks](/azure/databricks/what-is-databricks) for machine learning workloads. Azure Databricks is a first-class implementation of Apache Spark Databricks that is fully integrated with Azure services.
 
-- You can use [GitHub Actions](https://github.com) instead of Azure DevOps to manage machine learning lifecycle and orchestration.
+- You can use [GitHub Actions](https://github.com/features/actions) instead of Azure DevOps to manage machine learning lifecycle and orchestration.
 
 ## Scenario details
 
 Genomics quantifies the entirety of an organism's genes, called its *genome*. Healthcare and genomics researchers with bioinformatics expertise analyze large amounts of complex DNA sequence data for variations that affect health, diseases, or drug response. Genomics has achieved great breakthroughs in the past couple of decades, but faces the challenge of processing enormous amounts of genomic data, which requires complex algorithms and HPC power. To analyze this complex data for meaningful patterns, researchers use AI and machine learning.
 
-To use all Machine Learning capabilities, Ray® is a high-performance distributed execution framework for large-scale machine learning and AI applications. Ray-on-AML offers scalable computational power with high availability, and enables parallel computing on multinode clusters. The Ray-on-AML library turns Machine Learning compute instances and compute clusters into Ray and Dask clusters, which give Machine Learning powerful computational performance to handle complex genomics data.
+Ray is an open-source unified compute framework that makes it easy to scale AI workloads for large-scale machine learning applications. Ray-on-AML offers scalable computational power with high availability, and enables parallel computing on multinode clusters. The Ray-on-AML library turns Machine Learning compute instances and compute clusters into Ray and Dask clusters, which give Machine Learning powerful computational performance to handle complex genomics data.
 
 ### Potential use cases
 
-The virtual crossmatch use case dwells solely within the Machine Learning ecosystem, enabling easy integration among its components. This use case also demonstrates how to promote research projects into viable applications that can generate social and economic value, while maintaining division of the research project.
+The virtual cross match use case dwells solely within the Machine Learning ecosystem, enabling easy integration among its components. This use case also demonstrates how to promote research projects into viable applications that can generate social and economic value, while maintaining division of the research project.
 
 Use cases for this example architecture include:
 
@@ -83,9 +89,9 @@ Use cases for this example architecture include:
 
 This architecture implements the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see the [Microsoft Azure Well-Architected Framework](https://www.microsoft.com/azure/partners/well-architected#well-architected-assets).
 
-The technologies in this architecture were chosen for scalability and availability considerations along with the aim of managing and controlling cost.
+The technologies in this architecture were chosen for scalability and availability along with the aim of managing and controlling cost.
 
-Hospitals and diagnostic centers participating in the Donor Patient matching program can utilize [Azure Data Share](/azure/data-share/overview) to share data between tenants. All tenants require an Azure subscription. 
+Hospitals and diagnostic centers that participate in the [Donor matching system](https://optn.transplant.hrsa.gov/patients/about-donation/donor-matching-system) can use [Azure Data Share](/azure/data-share/overview) to share data between tenants. All tenants require an Azure subscription. 
 
 ### Reliability
 
@@ -97,7 +103,7 @@ The components in this architecture feature high availability. However, machine 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The components in this scenario have built-in security. You can also manage permissions through Azure AD authentication or role-based access control. Consider following [Azure Machine learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
+The components in this scenario have built-in security. You can also manage permissions through Azure AD authentication or role-based access control. Follow [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) to establish suitable security levels.
 
 To store, manage, and analyze HIPAA-compliant and HITRUST-compliant health data and medical records with the highest level of built-in security, follow the [HIPAA and HITRUST compliant health data AI](/azure/architecture/solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai) architecture.
 
@@ -123,9 +129,9 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 You can scale most components in this scenario up or down depending on the analysis activity levels. You can scale Machine Learning depending on the data size and the compute resources necessary for model training. For continuous research, you can scale up the analytics workload resources from zero compute nodes. Similarly, data processing, model training, and retraining workloads use resources that scale according to the job.
 
-For deployment, you can scale compute resources based on expected load, scoring service, and AKS service latency requirements. You can scale batch processing up or down during inferencing, whereas real-time inferencing requires continuous resource use. To deploy optimal resources for real-time inference, consider the size of the models and the number of models to invoke concurrently or consequently.
+For deployment, you can scale compute resources based on expected load, scoring service, and AKS service latency requirements. You can scale batch processing up or down during inferencing, whereas real-time inferencing requires continuous resource use. To deploy optimal resources for real-time inferencing, consider the size of the models and the number of models to invoke concurrently or consequently.
 
-Consult the [Performance Efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) for guidance on designing scalable solutions.
+Consult the [Performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) for guidance on designing scalable solutions.
 
 ## Contributors
 
@@ -145,10 +151,10 @@ Other contributors:
 
 ## Next steps
 
-- [Enterprise Security and Governance - Machine Learning](/azure/machine-learning/concept-enterprise-security)
-- [Library to turn Machine Learning Compute into Ray® and Dask® cluster](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/library-to-turn-azure-ml-compute-into-ray-and-dask-cluster/ba-p/3048784).
+- [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
+- [Library to turn Machine Learning Compute into Ray and Dask cluster](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/library-to-turn-azure-ml-compute-into-ray-and-dask-cluster/ba-p/3048784).
 - [Artificial Intelligence, Machine Learning and Genomics](https://www.genome.gov/about-genomics/educational-resources/fact-sheets/artificial-intelligence-machine-learning-and-genomics).
-- [Development of data-driven models for the flow cytometric crossmatch](https://www.sciencedirect.com/science/article/abs/pii/S0198885919306585?via%3Dihub)
+- [Development of data-driven models for the flow cytometric cross match](https://www.sciencedirect.com/science/article/abs/pii/S0198885919306585?via%3Dihub)
 
 ## Related resources
 
