@@ -82,7 +82,7 @@ Azure Files supports Azure Backup, and its use is highly recommended. This workl
 - Review a [pricing sample](https://azure.microsoft.com/pricing/calculator/?shared-estimate=2dcc42209bcd46e9aa66fa972de6441e) for an Azure File Sync workload by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator). Adjust the values to see how your requirements affect your costs.
 - With Storage you can adjust the redundancy and quantity of data and the quantity of snapshot data. It also allows you to select the number of sync servers to use to support your files workload. The dominant cost is quantity of data stored.
 - Virtual Desktop allows you to select pooled versus dedicated personal resources, and the VM type to support your workload. The cost increases with personal resources and also reflects the VM size you select.
-- Bandwidth charges are for data that's sent out of the Azure environment, such as data sent to on-premises endpoints. Charges can also result from the use of Windows Virtual Desktop and other Azure services.
+- Bandwidth charges are for data that's sent out of the Azure environment, such as data sent to on-premises endpoints. Charges can also result from the use of Azure Virtual Desktop and other Azure services.
 
 ### Operational excellence
 

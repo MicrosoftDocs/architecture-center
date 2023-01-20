@@ -2,22 +2,22 @@
 
 <!-- markdownlint-disable MD033 -->
 
-<li class="grid-item item-column" data-categories="Windows Virtual Desktop ">
+<li class="grid-item item-column" data-categories="Azure Virtual Desktop ">
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop"><img src="/azure/architecture/browse/thumbs/windows-virtual-desktop.png" class="diagram" alt="Thumbnail of Windows Virtual Desktop for the enterprise Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop"><img src="/azure/architecture/browse/thumbs/windows-virtual-desktop.png" class="diagram" alt="Thumbnail of Azure Virtual Desktop for the enterprise Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/example-scenario/wvd/windows-virtual-desktop">
-            <p>Windows Virtual Desktop for the enterprise</p>
+            <p>Azure Virtual Desktop for the enterprise</p>
         </a>
         <ul class="card-content-metadata">
             <li>7/16/2020</li>
             <li>8 min read</li>
         </ul>
-        <p class="card-content-description">Explore Windows Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.</p>
+        <p class="card-content-description">Explore Azure Virtual Desktop, and learn to build virtual desktop infrastructure solutions at enterprise scale.</p>
         <div class="bottom-to-top-fade is-hidden-mobile"></div>
     </div>
 </article>

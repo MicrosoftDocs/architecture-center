@@ -22,7 +22,7 @@
     "security": "Security",
     "storage": "Storage",
     "web": "Web",
-    "windows-virtual-desktop": "Windows Virtual Desktop"
+    "windows-virtual-desktop": "Azure Virtual Desktop"
   },
   "hybrid-categories": {
     "ai-machine-learning": "Apps",
