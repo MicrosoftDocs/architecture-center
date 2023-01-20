@@ -34,13 +34,13 @@ The following diagram shows the relationship between the control plane and nodes
 
 ### Control plane
 
-Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS free tier, the control plane is free.
+Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS Free tier, the control plane is free.
 
-For a higher control plane service-level agreement (SLA), you can create an AKS cluster with [Uptime SLA](/azure/aks/uptime-sla). Uptime SLA is a paid feature that you enable per cluster. Uptime SLA pricing is determined by the number of clusters, not by cluster size.
+For a higher control plane service-level agreement (SLA), you can create an AKS cluster in the [Standard tier with the Uptime SLA feature](/azure/aks/free-standard-pricing-tiers). Uptime SLA is included in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. For more information, see [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-Uptime SLA clusters have more control plane resources and automatically scale to meet cluster load. AKS uses master node replicas across update and fault domains to meet availability requirements. AKS REST APIs regard Uptime SLA clusters as a Paid tier.
+Clusters in the Standard tier with the Uptime SLA feature have more control plane resources and automatically scale to meet cluster load. AKS uses main node replicas across update and fault domains to meet availability requirements.
 
-It's best to use Uptime SLA in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources, and aren't suitable for production workloads.
+It's best to use the Uptime SLA feature in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources and aren't suitable for production workloads.
 
 ### Nodes
 
