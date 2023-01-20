@@ -46,7 +46,7 @@ The following services typically aren't necessary, but they're effective alterna
 
 IBM's Sterling Order Management Software (OMS) is an order management system that delivers a complete omnichannel order fulfillment platform. It includes features such as real-time inventory visibility and demand, fully configurable order orchestration and workflows, reverse logistics for multi-channel returns and return order status, plus much more.
 
-Microsoft and the IBM Sterling OMS team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running OMS vX on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions..
+Microsoft and the IBM Sterling OMS team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running OMS v10.0+ on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions..
 
 ### Potential use cases
 
@@ -96,7 +96,7 @@ OMS has a dependency on a relational database system for state and data manageme
 OMS has been tested with Azure Red Hat OpenShift v4.10.15. Before you deploy Azure Red Hat OpenShift (ARO), there are a few things you need to determine:
 
 - Domain (Optional) - When you deploy ARO, you will need to specify a domain name that will be appended to all services that get deployed in your cluster
-- API and Ingress Visibility - You should decide how you want your OpenShift cluster API (for management) and Ingress (for deployed applications and services) to be visible. Note that if you decide to hide your API and/or Ingress with private connectivity, you will only be able to reach these endpoints from a machine that can reach the network where your service is deployed to.
+- API and Ingress Visibility - You should decide how you want your OpenShift cluster API (for management) and Ingress (for deployed applications and services) to be internet-facing. Note that if you decide to hide your API and/or Ingress with private connectivity, you will only be able to reach these endpoints from a machine that can reach the network where your service is deployed to.
 - Master and Worker VM Size and count - In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum reccomended size. Your worker node count which runs your application workloads like Sterling OMS are sized seperately. You should consider the required number of worker nodes in your cluster, plus the appropriate size of each, when deploying your instance. This may take testing and validation to arrive at due to the number of agents in your deployment and the number of pods for each agent type you choose to run. You can adjust this post-deployment as you need to scale as well.
 
 For more information, please refer to the "Before Your Begin" documentation for Azure Red Hat OpenShift: https://learn.microsoft.com/en-gb/azure/openshift/tutorial-create-cluster#before-you-begin 
