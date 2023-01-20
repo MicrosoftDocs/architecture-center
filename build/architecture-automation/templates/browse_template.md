@@ -107,7 +107,7 @@ ms.date: 04/03/2020
                                     <button data-facet="web" class="hub-facet button has-inner-focus is-full-width has-flex-justify-content-space-between is-text is-small has-text-weight-semibold justify-content-" aria-pressed="false">Web</button>
                                 </li>
                                 <li class="is-unstyled">
-                                    <button data-facet="windows-virtual-desktop" class="hub-facet button has-inner-focus is-full-width has-flex-justify-content-space-between is-text is-small has-text-weight-semibold justify-content-" aria-pressed="false">Windows Virtual Desktop</button>
+                                    <button data-facet="windows-virtual-desktop" class="hub-facet button has-inner-focus is-full-width has-flex-justify-content-space-between is-text is-small has-text-weight-semibold justify-content-" aria-pressed="false">Azure Virtual Desktop</button>
                                 </li>
                         </ul>
                     </nav>
@@ -187,7 +187,7 @@ ms.date: 04/03/2020
                                         <button data-facet="web" class="hub-facet dropdown-menu-close button is-full-width has-flex-justify-content-space-between is-text is-small has-text-weight-semibold has-inner-focus" aria-pressed="false">Web</button>
                                     </li>
                                     <li class="is-unstyled">
-                                        <button data-facet="windows-virtual-desktop" class="hub-facet dropdown-menu-close button is-full-width has-flex-justify-content-space-between is-text is-small has-text-weight-semibold has-inner-focus" aria-pressed="false">Windows Virtual Desktop</button>
+                                        <button data-facet="windows-virtual-desktop" class="hub-facet dropdown-menu-close button is-full-width has-flex-justify-content-space-between is-text is-small has-text-weight-semibold has-inner-focus" aria-pressed="false">Azure Virtual Desktop</button>
                                     </li>
                             </ul>
                         </div>
