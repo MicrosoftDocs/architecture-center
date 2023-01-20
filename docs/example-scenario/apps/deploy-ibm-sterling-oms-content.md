@@ -178,7 +178,12 @@ A standard deployment of OMS consists of the following components. Note that man
  - 3 worker VMs (Standard_D8s_v5)
 
 **Additional Resources**
-- 1 Virtual Network
+- 1 Virtual Network (/16), with the following subnets considered:
+  - ARO Control Node Subnet (/24)
+  - ARO Worker Node Subnet (/24)
+  - Data Subnet, if needed (/27)
+  - Additional VM Subnet, if needed (/27)
+  - Manamange Subnet, if needed (/30)
 - 1 Azure Database for PostgreSQL - Flexible Server
 - 1 Azure Container Registry
 - 2 Azure Storage accounts
