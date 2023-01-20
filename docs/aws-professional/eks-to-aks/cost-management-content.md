@@ -36,11 +36,11 @@ The following diagram shows the relationship between the control plane and nodes
 
 Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS Free tier, the control plane is free.
 
-For a higher control plane service-level agreement (SLA), you can create an AKS cluster in the [Standard tier with the Uptime SLA feature](/azure/aks/free-standard-pricing-tiers). Uptime SLA is included in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. For more information, see [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+For a higher control plane service-level agreement (SLA), you can create an AKS cluster in the [Standard tier](/azure/aks/free-standard-pricing-tiers). Uptime SLA is included by default in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. For more information, see [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-Clusters in the Standard tier with the Uptime SLA feature have more control plane resources and automatically scale to meet cluster load. AKS uses main node replicas across update and fault domains to meet availability requirements.
+Clusters in the Standard tier have more control plane resources, such as the number of API server instances, Etcd resource limits, [scalability up to 5,000 nodes](https://azure.microsoft.com/updates/generally-available-5000-node-scale-in-aks/), and the existing financially-backed Uptime SLA support, and automatically scale to meet cluster load. AKS uses main node replicas across update and fault domains to meet availability requirements.
 
-It's best to use the Uptime SLA feature in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources and aren't suitable for production workloads.
+It's best to use the Standard tier in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources and aren't recommended for production workloads.
 
 ### Nodes
 
