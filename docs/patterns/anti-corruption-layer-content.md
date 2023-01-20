@@ -28,6 +28,7 @@ The diagram above shows an application with two subsystems. Subsystem A calls to
 - Make sure transaction and data consistency are maintained and can be monitored.
 - Consider whether the anti-corruption layer needs to handle all communication between different subsystems, or just a subset of features.
 - If the anti-corruption layer is part of an application migration strategy, consider whether it will be permanent, or will be retired after all legacy functionality has been migrated.
+- This pattern is illustrated with distinct subsystems above, but can apply to other service architectures as well, such as when integrating legacy code together in a monolithic architecture.
 
 ## When to use this pattern
 
