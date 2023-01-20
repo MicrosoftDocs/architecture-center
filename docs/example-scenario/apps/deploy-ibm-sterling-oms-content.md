@@ -46,7 +46,7 @@ The following services typically aren't necessary, but they're effective alterna
 
 IBM's Sterling Order Management Software (OMS) is an order management system that delivers a complete omnichannel order fulfillment platform. It includes features such as real-time inventory visibility and demand, fully configurable order orchestration and workflows, reverse logistics for multi-channel returns and return order status, plus much more.
 
-Microsoft and the IBM Sterling OMS team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running OMS vX on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions..
+Microsoft and the IBM Sterling OMS team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running OMS v10.0+ on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions..
 
 ### Potential use cases
 
