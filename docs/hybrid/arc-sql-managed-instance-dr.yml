@@ -26,4 +26,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-arc-sql-mi-dr.png
 content: |
-   [!include[](azure-arc-sql-mi-dr-content.md)]
+   [!include[](arc-sql-managed-instance-dr-content.md)]
