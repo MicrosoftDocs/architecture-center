@@ -36,7 +36,7 @@ Typical use cases for this architecture include:
 
 - Deploy, on one site, a highly available Azure Arc-enabled SQL managed instance that's resilient to failure.
 - Deploy an Azure Arc-enabled SQL managed instance in a primary and a DR site to recover from complete site downtime.
-- Deploy, on your hybrid or multicloud infrastructure, a resilient data back end for your mission-critical applications.
+- Deploy a resilient data back end for your mission-critical applications that reside on your hybrid or multicloud infrastructure.
 
 ## Recommendations
 
