@@ -73,7 +73,6 @@ Before you proceed with your deployment, you should answer the following questio
   - Where do you plan to deploy this messaging system? In the same OpenShift cluster? External to the cluster on a different platform/virtual machines?
 - Do you have an existing container registry, and do you plan to keep using it?
 - What number and sizes of VMs do you need for your worker nodes? 
-- Will users connect from external networks?
 - Security requirements around Encryption needs.
 - Access requirements such as considerations about the IDP integration.
 - Connectivity needs/firewall rules/ internal&external (egress) services to connect to.
@@ -151,6 +150,10 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 
 - Block access to all other parts of your deployed infrastructure, such as specific ports and services used by your message broker and/or backend database
 - Control which locations can have access to OMS and the OpenShift cluster
+- The port numbers and ranges you need to open depend on a number of factors, however some to consider are:
+  - Service-to-service communcation (port 443)
+  - Database-specific ports (example: port 5432 for Azure Postgres Flexible Server)
+  - Message Queue ports (example: port 1414 for IBM MQ)
 
 If you need access to your other, non-Red Hat OpenShift nodes for some reason you can access your VMs through [Azure Bastion](/azure/bastion/bastion-overview) (which is optional). For security reasons, you shouldn't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
 
