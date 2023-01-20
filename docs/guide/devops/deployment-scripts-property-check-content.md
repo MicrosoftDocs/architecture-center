@@ -1,12 +1,12 @@
-This article describes an approach that uses [Deployment Scripts](/azure/azure-resource-manager/bicep/deployment-script-bicep) to check the property of an Azure resource has a desired value. The Deployment Script is used to ensure a Bicep/ARM (Azure Resource Manager) deployment is successful when the resource being deployed reports to ARM that it is "ready" but underlying resources are not and therefore that resource isn't ready to be interacted with further in the remainder of the deployment yet.
+This article describes how to use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value. You can use this technique to ensure that a deployment succeeds when the resource that's being deployed reports to Resource Manager that it's ready but the underlying resources aren't. When this happens, the resource that's being deployed isn't yet ready to interact with the remainder of the deployment, so a pause is required.
 
-> [!NOTE]
-> For the purposes of this document, we will use an Azure Virtual WAN scenario to explain how Deployment Scripts can be used to help orchestrate a single end-to-end deployment. However, this approach can be taken and used against any Azure resource to help orchestrate the single deployment by checking the value of a property of the resource is as desired.
->
-> If you are looking to use this against another resource type then you should review the following files and use utilize these in your deployment scenario, similar to how this article describes around utilizing the `dependsOn` property on resource/module deployments from your orchestration Bicep file:
->
-> - [`azResourceStateCheck.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)
-> - [`Invoke-AzResourceStateCheck.ps1`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1)
+This article uses an Azure Virtual WAN scenario to illustrate the technique. The resource check and pause is implemented in these files:
+
+> - [orchestration.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/orchestration.bicep)
+> - [azResourceStateCheck.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)
+> - [Invoke-AzResourceStateCheck.ps1](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1)
+
+You can adapt the files for your deployment. The azResourceStateCheck.bicep module is parameterized for ease of reuse. Be sure to note how the **dependsOn** property is used in orchestration.bicep to make the vwanvhcs.bicep module deployment depend on the azResourceStateCheck.bicep nodule deployment.
 
 ## Architecture
 
@@ -14,56 +14,64 @@ This article describes an approach that uses [Deployment Scripts](/azure/azure-r
 
 *Download a [Visio file](https://arch-center.azureedge.net/deployment-scripts-property-check.vsdx) of this architecture.*
 
-*Review and utilize the [code samples in GitHub](https://github.com/Azure/CAE-Bits/tree/main/infra/samples/deployment-scripts-property-check) for this architecture.*
+*Review and download the [code samples in GitHub](https://github.com/Azure/CAE-Bits/tree/main/infra/samples/deployment-scripts-property-check) for this architecture.*
 
 ### Workflow
 
-1. Submit [`orchestration.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/orchestration.bicep) Bicep file for deployment to ARM at the Subscription scope.
-2. Resource Group is created in Subscription.
-3. Virtual WAN and spoke Virtual Networks are deployed in [parallel (default in ARM)](azure/azure-resource-manager/bicep/resource-dependencies).
-4. Once the Virtual WAN deployment is complete, the Virtual WAN Hub is deployed inside the Virtual WAN (handled by an [implicit dependency](/azure/azure-resource-manager/bicep/resource-dependencies#implicit-dependency)).
-5. A User-Assigned Managed Identity is then created and assigned the `Reader` RBAC (Role-Based Access Control) Role on the Resource Group.
-6. Once the Role Assignment is complete, the Deployment Script resource is then deployed.
-7. The Deployment Script runs the [`Invoke-AzResourceStateCheck.ps1`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1) PowerShell script which uses the User-Assigned Managed Identity to authenticate itself against ARM and poll the Virtual WAN Hub routingStatus` property to check it has the value of `Provisioned`.
-   1. If it **doesn't**, it will wait the defined duration value provided to the parameter in the `orchestration.bicep` Bicep file and then check the property's value again. It will do this for a maximum number of iterations, again defined by the provided value to the parameter in the `orchestration.bicep` Bicep file. If it PowerShell script hits the maximum number of iterations and the property is still not of the desired value, the Deployment Script will throw an exception and exit, which will cause the remainder of the Bicep deployment to stop and fail.
-   2. If it **does**, the Deployment Script will exit with a success code (`0`).
-8. If the Deployment Script is successful then the Virtual Hub Connections are created between the spoke Virtual Networks and the Virtual WAN Hub. This uses an [explicit dependency](/azure/azure-resource-manager/bicep/resource-dependencies#explicit-dependency).
-   1. The Virtual WAN Hub Connections are deployed sequentially rather than in parallel, as this is not supported on a single Virtual WAN Hub. This uses the Bicep [`batchSize` decorator](/azure/azure-resource-manager/bicep/loops#deploy-in-batches) by setting the batch size to 1.
+1. Submit the [orchestration.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/orchestration.bicep) file for deployment to Resource Manager at the subscription scope.
+   > [!NOTE]
+   > You can get this Bicep file and the other files that are used for this example from the [infra/samples/deployment-scripts-property-check directory](https://github.com/Azure/CAE-Bits/tree/main/infra/samples/deployment-scripts-property-check) in the Azure/CAE-Bits GitHub repo. The organization of the files in the repo is shown in part on the right-hand side of the architecture diagram.
+1. The orchestration.bicep file creates a resource group at the subscription scope.
+1. The orchestration.bicep file deploys the Virtual WAN and the spoke virtual networks:
+   - It deploys the [vwan.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/vwan.bicep) module, which deploys the WAN at resource group scope.
+   - It deploys the [vnet.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/vnet.bicep) module, which deploys the virtual networks at resource group scope.
 
-### Summary
+   The virtual WAN and spoke virtual networks are deployed in parallel, which means that Bicep regards them as independent of one another. Dependencies determine the order of deployment in Bicep. A resource is deployed before any resource that depends on it. For more information about resource dependencies in Bicep, including explicit and implicit dependencies, see [Resource dependencies in Bicep](/azure/azure-resource-manager/bicep/resource-dependencies).
+1. The orchestration.bicep file deploys the [vwanhub.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/vwanhub.bicep) module, which deploys the virtual WAN hub at resource group scope. The hub depends implicitly on the virtual WAN, so deployment of the hub is guaranteed to occur only after deployment of the virtual WAN completes.
+1. The orchestration.bicep file deploys the [azResourceStateCheck.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep) module, which creates a user-assigned managed identity and assigns the Azure role-based access control (RBAC) Reader role on the resource group.
+1. The azResourceStateCheck.bicep module deploys the [deployment script resource](/azure/templates/microsoft.resources/deploymentscripts?pivots=deployment-language-bicep).
+1. The deployment script resource uses the user-assigned managed identity to authenticate itself against Resource Manager. It then runs the deployment script, [Invoke-AzResourceStateCheck.ps1](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1), which is a PowerShell script. For more information about deployment scripts, see [Use deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep).
 
-The key part of this architecture is the Deployment Script resource, deployed as a [Bicep module](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep), and the associated [PowerShell file](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1) it uses to make calls to ARM to retrieve and check the value of a defined property on a specified Azure resource; in this example an Azure Virtual WAN Hub.
+   The script polls the Virtual WAN hub **routingStatus** property to determine whether it has the value of **Provisioned**:
+   1. If the property value isn't **Provisioned**, the script pauses for a duration that's specified by a parameter that's set in the orchestration.bicep file and passed to the azResourceStateCheck.bicep module. The script then checks the value of the **routingStatus** property value again.
 
-As this environment is all deployed from a single Bicep file ([`orchestration.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/orchestration.bicep)), utilizing Bicep modules, we're able to declare a dependency, using `dependsOn`, on the Deployment Scripts Bicep module ([`azResourceStateCheck.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/azResourceStateCheck.bicep)) deployment on other Bicep module or resource deployments within the same Bicep file.
+      The script repeats the pause and check cycle for a maximum number of iterations, a number that's specified by a parameter that's set in the orchestration.bicep file. If the property value isn't **Provisioned** after the maximum number of iterations, the script throws an exception and exits, which causes the remainder of the Bicep deployment to stop and fail.
+   1. If the property value is **Provisioned**, no matter how many iterations it takes, the deployment script exits with a success code (0).
+1. If the deployment script succeeds, the orchestration.bicep file deploys the [vwanvhcs.bicep](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/vwanhub.bicep) module, which creates the connections between the spoke virtual networks and the Virtual WAN hub.
 
-In this example, the Virtual WAN Hub Connections Bicep module ([`vwanVhcs.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/modules/vwanVhcs.bicep)) deployment is dependent on the Deployment Scripts module. This is shown below in a reduced version of [`orchestration.bicep`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/orchestration.bicep):
+   The definition of the vwanvhcs.bicep module that's in orchestration.bicep has a **dependsOn** clause that causes vwanvhcs.bicep to depend explicitly on the successful completion of the azResourceStateCheck.bicep module. Therefore, the connections are created only if the **routingStatus** property is **Provisioned**.
+
+   The vwanvhcs.bicep module deploys the Virtual WAN hub connections sequentially rather than in parallel, because parallel deployment isn't supported on a single Virtual WAN hub. The module uses the Bicep **batchSize** decorator to set the batch size to 1: `@batchSize(1)`. This means that the connections are deployed one at a time.
+
+### Scenario details
+
+The key parts of this architecture are the azResourceStateCheck.bicep module, which deploys the deployment script resource, and the associated deployment script Invoke-AzResourceStateCheck.ps1, a PowerShell file. The module uses the deployment script to check the value of a resource property. In this example, the resource is a Virtual WAN hub.
+
+Because this environment is all deployed from a single file that uses Bicep modules, we can use **dependsOn** to make one module depend explicitly on another. In this example, **dependsOn** makes the vwanvhcs.bicep module depend on the azResourceStateCheck.bicep module.
+
+The following excerpt from orchestration.bicep shows the use of **dependsOn**:
 
 :::code language="bicep" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/orchestration.bicep" range="57-68,98-134" highlight="110,125-127":::
 
-This is because when a Virtual WAN Hub is created, it will report back to ARM that the deployment is successful, and that will signal to the ARM deployment engine that it can continue with other deployments that were dependent on the Virtual WAN Hub being available. However, the Virtual WAN Hub isn't actually "ready" yet as the Virtual WAN Hub Router is still being provisioned into the created hub, and this can take around 10-15 minutes to complete.
+The resource check is required because, when a Virtual Wan hub is deployed, it's not ready for use until the **routingStatus** property has the value of **Provisioned**. When the hub is created, it reports to the Resource Manager that deployment succeeded, so the deployment engine continues deploying. However, the hub isn't ready right away. The Virtual WAN hub router is still being provisioned into the created hub, which takes 15 minutes or so to complete.
 
-This can be seen in the below screenshot of a newly created Virtual WAN Hub:
+This behavior can be seen in the following screenshot of a newly created Virtual WAN hub. The screenshot shows a hub status of **Succeeded** but a routing status of **Provisioning** (not yet **Provisioned**):
 
-[![Screenshot of a newly deployed Virtual WAN Hub with the Hub Status showing as Ready but the Routing Status showing as Provisioning](images/vwan-hub-routing-status-provisioning.png)](images/vwan-hub-routing-status-provisioning.png#lightbox)
+[![Screenshot of a newly deployed Virtual WAN hub with the Hub Status showing as Ready but the Routing Status showing as Provisioning](images/vwan-hub-routing-status-provisioning.png)](images/vwan-hub-routing-status-provisioning.png#lightbox)
 
-With this now known, the importance of the Deployment Script, and the PowerShell script ([`Invoke-AzResourceStateCheck.ps1`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1)) it runs, can be understood. As if you were to try and create the Virtual WAN Hub Connections between the Virtual Networks and the Virtual WAN Hub before the Routing Status was "ready" (`Provisioned`), the Virtual WAN Hub Connections would fail and the overall Bicep/ARM deployment would fail. This would then require a redeployment of the Bicep/ARM deployment, by which time the Virtual WAN Hub Router might have now completed provisioning and be "ready" for the Virtual WAN Hub Connections to be created.
+If you try to deploy the vwanvhcs.bicep module to create the Virtual WAN hub connections before the **routingStatus** value is **Provisioned**, the attempt to create connections fails and so does the overall deployment. Until the router is provisioned, attempts to redeploy fail.
 
-Therefore, utilizing the Deployment Script and the PowerShell script allows this situation to be avoided as it will poll the Virtual WAN Hub, via a `GET` API call, and check the specified property of `routingStatus` has the value of `Provisioned`, both of which are provided as parameters to the PowerShell script from the Deployment Script Bicep module. If the Virtual WAN Hub property, `routingStatus`, isn't `Provisioned` it will wait for a specified duration of time and then check again and it will repeat this for a specified number of iterations; again both of which are provided as parameters to the PowerShell script from the Deployment Script Bicep module.
+The following screenshot shows an example of the log that the deployment script creates as it checks the **routingStatus** property of the Virtual WAN hub. The log shows repeated checks of the property that show a value other than **Provisioned**:
 
->[!NOTE]
-> The Deployment Script module creates a User-Assigned Managed Identity and grants it the Reader RBAC Role on the Resource Group and then uses this identity when running the PowerShell script to ensure it can make the required `GET` API calls against ARM to check the specified Azure Resource's property and value.
+[![Screenshot of the Deployment Script polling the Virtual WAN hub routingStatus property](images/deployment-script-in-action.png)](images/deployment-script-in-action.png#lightbox)
 
-This can be seen in the below screenshot of the Deployment Script in action checking the Virtual WAN Hub's `routingStatus` property:
+The following screenshot shows that, after more than 10 minutes of checking, the value becomes **Provisioned**:
 
-[![Screenshot of the Deployment Script polling the Virtual WAN Hub's routingStatus property](images/deployment-script-in-action.png)](images/deployment-script-in-action.png#lightbox)
+[![Screenshot of the Deployment Script completing as the Virtual WAN hub routingStatus property is Provisioned](images/deployment-script-complete.png)](images/deployment-script-complete.png#lightbox)
 
-Once the property of the Azure resource enters the desired state, before the number of maximum iterations is hit, the Deployment Script will complete and then this will signal to the ARM deployment engine that it can continue with other deployments that were dependent upon it.
+If the value doesn't become **Provisioned** after the maximum number of iterations, the script throws an exception, which signals to Resource Manager that the script resource failed. The Resource Manager deployment engine fails and stops the deployment, because the exception suggests that there's an issue with the Azure resource that requires troubleshooting.
 
-[![Screenshot of the Deployment Script completing as the Virtual WAN Hub's routingStatus property is Provisioned](images/deployment-script-complete.png)](images/deployment-script-complete.png#lightbox)
-
-If the Deployment Script does hit the maximum number of iterations whilst polling the Azure resource to check that the property has the desired value, it will [`throw` an exception](/powershell/scripting/learn/deep-dives/everything-about-exceptions) and this will signal to ARM that the Deployment Script resource has failed and therefore the ARM deployment engine will fail the deployment and not continue to deploy any of the remaining deployments or resources. This is required as this could indicate there's an issue with the Azure resource that has meant the property hasn't entered the desired state and this will require troubleshooting.
-
-The [`Invoke-AzResourceStateCheck.ps1`](https://github.com/Azure/CAE-Bits/blob/main/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1) can be seen below:
+The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
 :::code language="powershell" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1" :::
 
@@ -79,13 +87,21 @@ Other contributors:
 
 - [Gary McMahon](https://www.linkedin.com/in/gmcmaho1/) | Senior Cloud Solutions Architect
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- [Review the code sample in the `Azure/CAE-Bits` repo](https://github.com/Azure/CAE-Bits/tree/main/infra/samples/deployment-scripts-property-check)
+- [Files for the example in the Azure/CAE-Bits repo](https://github.com/Azure/CAE-Bits/tree/main/infra/samples/deployment-scripts-property-check)
 - [Use deployment scripts in Bicep](/azure/azure-resource-manager/bicep/deployment-script-bicep)
-- [Learn Module: Extend Bicep and ARM templates using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
+- [Learn module: Extend Bicep and ARM templates using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
+- [Everything you wanted to know about exceptions](/powershell/scripting/learn/deep-dives/everything-about-exceptions)
 - [Migrate to Azure Virtual WAN](/azure/virtual-wan/migrate-from-hub-spoke-topology)
+- [Resource dependencies in Bicep](/azure/azure-resource-manager/bicep/resource-dependencies)
+- [Bicep documentation](/azure/azure-resource-manager/bicep)
 
 ## Related resources
 
 - [Hub-spoke network topology with Azure Virtual WAN](../../networking/hub-spoke-vwan-architecture.yml)
+- [Enterprise infrastructure as code using Bicep and Azure Container Registry](../azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)
+- [Architectural approaches for the deployment and configuration of multitenant solutions](../multitenant/approaches/deployment-configuration.yml)
+- [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
