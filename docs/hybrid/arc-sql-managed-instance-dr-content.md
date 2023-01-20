@@ -1,8 +1,8 @@
-This reference architecture demonstrates how to deploy an Azure Arc-enabled SQL Managed Instance in a highly available architecture across two sites, and is based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops/) implementation. ArcBox is a solution that provides an easy to deploy sandbox for all things Azure Arc. ArcBox for DataOps is a version of ArcBox that is intended for users who want to experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
+This article demonstrates how to deploy an Azure Arc-enabled SQL managed instance in a highly available architecture across two sites. It's based on the Azure Arc Jumpstart [ArcBox for DataOps](https://azurearcjumpstart.io/azure_jumpstart_arcbox/dataops) implementation. ArcBox is a solution that provides an easy-to-deploy sandbox for Azure Arc. ArcBox for DataOps is a version of ArcBox that can help you experience Azure Arc-enabled SQL Managed Instance capabilities in a sandbox environment.
 
 ## Architecture
 
-:::image type="content" source="./images/azure-arc-sql-mi-dr.png" alt-text="An Azure Arc-enabled SQL Managed Instance topology diagram in across two sites." lightbox="./images/azure-arc-sql-mi-dr.png" :::
+:::image type="content" source="./images/azure-arc-sql-managed-instance-dr.png" alt-text="Diagram that shows an Azure Arc-enabled SQL Managed Instance topology." lightbox="./images/azure-arc-sql-managed-instance-dr.png" :::
 
 *Download a [PowerPoint file][architectural-diagram-ppt-source] of this architecture.*
 
