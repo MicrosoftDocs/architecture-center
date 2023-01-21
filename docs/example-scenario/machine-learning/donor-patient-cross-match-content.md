@@ -8,7 +8,7 @@ The models predict recipient and donor compatibility by using Human Leukocyte An
 
 ![Diagram that shows the donor-patient cross matching machine learning dataflow.](media/donor-patient-match.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/Donor _ Match Architecture_v4.0.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/Donor_Match_Architecture_v4.0.vsdx) of this architecture.*
 
 ### Workflow
 
