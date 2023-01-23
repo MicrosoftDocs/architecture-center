@@ -1,7 +1,7 @@
 This article describes a high-level DevOps workflow for deploying application changes to staging and production environments in Azure. The solution uses continuous integration/continuous deployment (CI/CD) practices with Azure Pipelines.
 
-> [!NOTE]
-> Although this article covers CI/CD for application changes, Azure Pipelines can also be used to build CI/CD pipelines for infrastructure as code (IaC) changes.
+> [!IMPORTANT]
+> This article covers a general CI/CD architecture using Azure Pipelines. It is not intended to cover the specifics of deploying to different environments, such as Azure App Services, Virtual Machines, and Azure Power Platform. Deployment platform specifics are covered in separate articles.
 
 ## Architecture
 
@@ -10,6 +10,9 @@ Architecture diagram of an Azure pipeline. The diagram shows the following steps
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-devops-ci-cd-architecture.vsdx) of this architecture.*
+
+> [!NOTE]
+> Although this article covers CI/CD for application changes, Azure Pipelines can also be used to build CI/CD pipelines for infrastructure as code (IaC) changes.
 
 ### Dataflow
 
@@ -47,13 +50,15 @@ While this article focuses on Azure Pipelines, you could consider these alternat
 
 - [GitHub Repositories](https://docs.github.com/repositories) can be substituted as the code repository. Azure Pipelines integrates seamlessly with GitHub repositories.
 
-Consider these compute environments:
+This article focuses on general CI/CD practices with Azure Pipelines. The following are some compute environments to which you could consider deploying:
 
-- [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments. Web Apps supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
-
-- [Functions](https://azure.microsoft.com/services/functions) is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to integrate services. Functions also supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
+- [App Services](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments. Web Apps supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
 
 - [Azure Virtual Machines](/azure/app-service/choose-web-site-cloud-service-vm) handles workloads that require a high degree of control, or depend on OS components and services that aren't possible with Web Apps (for example, the Windows GAC, or COM).
+
+- [Azure Power Platform](https://powerplatform.microsoft.com/) is a collection of cloud services that enable users to build, deploy, and manage applications without the need for infrastructure or technical expertise.
+
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to integrate services. Functions also supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks) is a managed Kubernetes cluster in Azure. Kubernetes is an open source container orchestration platform.
 
