@@ -1,0 +1,1 @@
+This article describes the steps for running [Engys](https://engys.com/products/helyx) HELYX application on a virtual machine(VM) that’s deployed on Azure. It also presents the performance results of  running HELYX on single-node and multi-node VM configurations. 
