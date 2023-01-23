@@ -1,6 +1,6 @@
 # Azure Architecture Center
 
-Microsoft patterns & practices
+Microsoft patterns & practices 
 
 <https://aka.ms/architecture>
 
