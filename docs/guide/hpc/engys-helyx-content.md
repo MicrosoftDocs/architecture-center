@@ -1,13 +1,16 @@
-This article describes the steps for running [Engys](https://engys.com/products/helyx) HELYX application on a virtual machine(VM) that’s deployed on Azure. It also presents the performance results of  running HELYX on single-node and multi-node VM configurations.
+This article describes the steps for running [Engys HELYX](https://engys.com/products/helyx) on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HELYX on single-node and multi-node VM configurations.
 
-Engys HELYX is a general purpose, computational fluid dynamics (CFD) software for engineering analysis and design optimization. It is based on OpenFOAM libraries and advanced automatic meshing utility for simulating complex flows. HELYX provides:
-- A Generalised Internal Boundaries (GIB) method to support complex boundary motions inside the finite-volume mesh.
-- Advanced hex-dominant automatic mesh algorithm with polyhedra support which can run in parallel to generate large computational grids.
-- Highly capable solver stack based on the finite-volume approach covering single- and multi-phase turbulent flows (RANS, URANS, DES, LES), thermal flows with natural/forced convection, thermal/solar radiation, incompressible and compressible flow solutions.
+HELYX is a general purpose computational fluid dynamics (CFD) application for engineering analysis and design optimization. It's based on OpenFOAM libraries and uses  an advanced automatic meshing utility to simulate complex flows. 
 
-HELYX supports industry specific add-ons such as elements, hydro, marine, coupled, etc., in conjunction with core to offer solutions.
+HELYX provides:
 
-HELYX is primarily used in industries like automotive, aerospace, building, marine, turbo, energy, engineering process industries including academic research.
+- A Generalized Internal Boundaries (GIB) method to support complex boundary motions inside the finite-volume mesh.
+- An advanced hex-dominant automatic mesh algorithm with polyhedra support that can run in parallel to generate large computational grids.
+- A solver stack that's based on the finite-volume approach. It covers single-phase and multi-phase turbulent flows (RANS, URANS, DES, LES), thermal flows with natural/forced convection, thermal/solar radiation, and incompressible and compressible flow solutions.
+
+HELYX supports industry-specific add-ons, including hydrodynamics analysis for marine applications, block-coupled incompressible flow solvers, and advanced two-phase VOF flows.
+
+HELYX is used in the automotive, aerospace, construction, marine, turbo, and energy industries.
 
 ## Why deploy HELYX on Azure?
 
@@ -28,21 +31,20 @@ Single-node configuration:
 
 image 
 
-Components
+### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux and Windows VMs. 
-   - For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. For information about deploying the VM and installing the drivers, see [Linux VMs on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
   - A public IP address connects the internet to the VM.   
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
 - A physical SSD is used for storage.  
 
-Compute sizing and drivers
+## Compute sizing and drivers
 
-Performance tests of HELYX on Azure used [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs running Linux CentOS Operating system. The following table provides details about HBv3-series VMs.
+Performance tests of HELYX on Azure used [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs running Linux CentOS. The following table provides details about HBv3-series VMs.
 
-|VM size|vCPU|Memory (GiB)|Memory bandwidth GBps|Base CPU frequency (Ghz)|	All-cores frequency (Ghz, peak)|Single-core frequency (Ghz, peak)|RDMA performance (Gbps)|Maximum data disks|
+|VM size|vCPU|Memory (GiB)|Memory bandwidth (GBps)|Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|RDMA performance (Gbps)|Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
 |Standard_HB120rs_v3|	120	|448|	350|	1.9|	3.0|	3.5|	200|	32|
 |Standard_HB120-96rs_v3|	96|	448|	350|	1.9|	3.0|	3.5|	200	|32|
@@ -50,113 +52,113 @@ Performance tests of HELYX on Azure used [HBv3 AMD EPYC 7V73X](/azure/virtual-ma
 |Standard_HB120-32rs_v3	|32	|448|	350	|1.9	|3.0	|3.5|	200|	32|
 |Standard_HB120-16rs_v3	|16|	448|	350	|1.9|	3.0	|3.5|	200	|32|
 
-Required drivers
+### Required drivers
 
 To use InfiniBand, you need to enable InfiniBand drivers.
 
-Install HELYX 3.5.0 on a VM and HPC Cluster
+## Install HELYX 3.5.0 on a VM or HPC cluster
 
-The software HELYX must be purchased from ENGYS or one of their local authorized distributors/agents to get access to the installation files and technical support. Contact [ENGYS](https://engys.com/products/helyx) if you are interested in buying HELYX.
+You need to buy HELYX from ENGYS or one of its local authorized distributors/agents to get access to the installation files and technical support. For information about buying HELYX, contact [ENGYS](https://engys.com/products/helyx).
 
-Before you install HELYX, you need to deploy and connect a VM or HPC Cluster.
+Before you install HELYX, you need to deploy and connect a VM or HPC cluster.
 
-For information about deploying the VM and installing the drivers, see one of these articles:
+For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
-- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
-
-For information about deploying the Azure CycleCloud and HPC cluster, see below articles:
+For information about deploying Azure CycleCloud and an HPC cluster, see these articles:
 
 - [Install and configure Azure CycleCloud](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
-- [Create a HPC Cluster](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
+- [Create an HPC cluster](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
 
-HELYX 3.5.0 Performance Results
+## HELYX 3.5.0 performance results
 
-Test Models
+Three models are used to test the parallel scalability performance of HELYX version 3.5.0 on Azure:
 
-Three models were considered for testing the parallel scalability performance of HELYX version 3.5.0 on Azure, namely:
 - A steady-state model of a city landscape, typical of wind comfort analysis.
-- A steady-state model of a ventilator fan with moving blades approximated using a MRF approach with arbitrary mesh interface. Two mesh densities were compared.
-- A transient model of a ship moving in calm water using a two-phase volume-of-fluid solver. Two mesh densities were compared.
+- A steady-state model of a ventilator fan with moving blades, approximated via an MRF approach and an arbitrary mesh interface (AMI). Two mesh densities are compared.
+- A transient model of a ship moving in calm water. A two-phase volume-of-fluid solver is used. Two mesh densities are compared.
 
-All computational grids tested herein were created in parallel as part of the execution process using the hex-dominant meshing utility provided with HELYX. 
+All computational grids tested were created in parallel as part of the execution process. The hex-dominant meshing utility that's provided with HELYX was used for the tests. 
 
-The details of each test model are shown below:
+The details of each test model are provided in the following sections. 
 
-**Model 1 – City_landscape_Niigata-NNE**
-
-image 
-
-The following table provides details about the model.
-
-|Model Details|	Mesh Size|	Solver|	Steady-state|
-|-|-|-|-|
-|1|	26,500,000 cells|	Single phase, turbulent flow|	1000 iterations|
-
-**Model 2 – Turbomachine_Ventilator-AFnq182**
+### Model 1: City_landscape_Niigata-NNE
 
 image 
 
 The following table provides details about the model.
 
-|Model Details|	Mesh Size|	Solver|	Steady-state|
+|Model number|	Mesh size|	Solver|	Steady state|
 |-|-|-|-|
-|2a|3,100,000 cells	|Single phase, turbulent flow with MRF (AMI)	|1000 iterations	|
-|2b|11,800,000 cells	|Single phase, turbulent flow with MRF (AMI)	|1000 iterations	|
+|1|	26,500,000 cells|	Single phase, turbulent flow|	1,000 iterations|
 
-**Model 3 – Marine_G2010-C2.2b-KCS-Fn026**
-
-|Model Details|	Mesh Size|	Solver|	Steady-state|
-|-|-|-|-|
-|3a|1,350,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 s|
-|3b|11,100,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 s|
-
-HELYX 3.5.0 Performance Results on Single-Node VM
-
-The performance results achieved running HELYX in parallel on single-node Azure [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs are presented below as baseline for comparing with multi-node runs.
-
-**Model 1 - City_landscape_Niigata-NNE**
-
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VM:
-
-|Number of cores|Total Solver time in seconds|	Relative Solver Speedup|
-|-|-|-|
-|16|	6176.48|	1.00|
-|32	|4301.36	|1.44|
-|64	|3783.12	|1.63|
-|120|	3774.44	|1.64|
-
-The following graph shows the relative speedup of the City_landscape_Niigata-NNE model on Standard_HBv3-series VM:
+### Model 2: Turbomachine_Ventilator-AFnq182
 
 image 
 
-**Model 2a - Turbomachine_Ventilator-AFnq182**
+The following table provides details about the model.
 
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VM:
+|Model number|	Mesh size|	Solver|	Steady state|
+|-|-|-|-|
+|2a|3,100,000 cells	|Single phase, turbulent flow with MRF (AMI)	|1,000 iterations	|
+|2b|11,800,000 cells	|Single phase, turbulent flow with MRF (AMI)	|1,000 iterations	|
 
-|Number of cores|Total Solver time in seconds|	Relative Solver Speedup|
+### Model 3: Marine_G2010-C2.2b-KCS-Fn026
+
+image
+
+The following table provides details about the model.
+
+|Model number|	Mesh size|	Solver|	Steady state|
+|-|-|-|-|
+|3a|1,350,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 seconds|
+|3b|11,100,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 seconds|
+
+## HELYX 3.5.0 performance results on single-node VM
+
+The following sections provide the performance results of running HELYX in parallel on single-node Azure [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs. You can use these results as a baseline for comparison with multi-node runs.
+
+### Model 1: City_landscape_Niigata-NNE
+
+This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
+
+|Number of cores|Total solver running time (seconds)|	Relative speed increase|
 |-|-|-|
-|16|1609.85|	1.00|
-|32	|1081.2	|1.49|
+|16|	6,176.48|	1.00|
+|32	|4,301.36	|1.44|
+|64	|3,783.12	|1.63|
+|120|	3,774.44	|1.64|
+
+The following graph shows the relative speed increases as the number of CPUs increases:
+
+image 
+
+### Model 2a: Turbomachine_Ventilator-AFnq182
+
+This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
+
+|Number of cores|Total solver running time (seconds)|	Relative speed increase|
+|-|-|-|
+|16|1,609.85|	1.00|
+|32	|1,081.2	|1.49|
 |64	|850.98	|1.89|
 |120|715.07	|2.25|
 
-The following graph shows the relative speedup of the Turbomachine_Ventilator-AFnq182 model on Standard_HBv3-series VM:
+The following graph shows the relative speed increases as the number of CPUs increases:
 
 image 
 
-**Model 3a - Marine_G2010-C2.2b-KCS-Fn026**
+### Model 3a: Marine_G2010-C2.2b-KCS-Fn026
 
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VM:
+This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-|Number of cores|Total Solver time in seconds|	Relative Solver Speedup|
+|Number of cores|Total solver running time (seconds)|	Relative speed increase|
 |-|-|-|
-|16|16608.29|	1.00|
-|32	|13622.88	|1.22|
-|64	|7979.05	|2.08|
-|120|8007.08|2.07|
+|16|16,608.29|	1.00|
+|32	|13,622.88	|1.22|
+|64	|7,979.05	|2.08|
+|120|8,007.08|2.07|
 
-The following graph shows the relative speedup of the Marine_G2010-C2.2b-KCS-Fn026 model on Standard_HBv3-series VM:
+The following graph shows the relative speed increases of the Marine_G2010-C2.2b-KCS-Fn026 model on Standard_HBv3-series VM:
 
 image 
 
