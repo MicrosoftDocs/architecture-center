@@ -6,7 +6,7 @@ This article describes a high-level DevOps workflow for deploying application ch
 ## Architecture
 
 :::image type="complex" source="./media/azure-devops-ci-cd-architecture.svg" lightbox="./media/azure-devops-ci-cd-architecture.svg" alt-text="Architecture diagram of a CI/CD pipeline using Azure Pipelines." border="false"::: 
-Architecture diagram of an Azure pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to a staging environment. 5. Shows the CD pipeline releasing to a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.
+Architecture diagram of an Azure pipeline. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure Pipelines PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure Pipelines CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing build artifacts. 3. An Azure Pipelines CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to a staging environment. 5. Shows the CD pipeline releasing to a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.
 :::image-end:::
 
 *Download a [Visio file](https://arch-center.azureedge.net/azure-devops-ci-cd-architecture.vsdx) of this architecture.*
@@ -15,11 +15,11 @@ Architecture diagram of an Azure pipeline. The diagram shows the following steps
 
 The data flows through the scenario as follows:
 
-1. A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks such as linting, building, and unit testing the code. If any of the checks fail, the PR doesn't merge. The result of a successful run of this pipeline is a successful merge of the PR.
-1. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline runs integration tests. These tests require secrets, so this pipeline gets those secrets from Azure Key Vault. The result of a successful run of this pipeline is the creation and publishing of build artifacts.
-1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
-1. The CD pipeline downloads the build artifacts that are created in the CI pipeline and deploys the solution to a staging environment. The pipeline then runs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a [manual validation task](/azure/devops/pipelines/tasks/utility/manual-validation?tabs=yaml) is run, requiring a person to validate the deployment and resume the pipeline.
-1. If the manual intervention is resumed, the pipeline releases the solution to production.
+1. A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks. These checks should include the use of tools to analyze the code doing tasks such as static code analysis, linting, and security scanning. Once the analysis checks are passed, the code is built and unit tests are run. If any of the checks fail, the pipeline run ends and the developer will have to make the required changes. If all checks pass, the pipeline should require a PR review. If the PR review fails, the pipeline ends and the developer will have to make the required changes. If all the checks and PR reviews pass, the PR will successfully merge.
+1. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same checks as the PR pipeline with some important additions. The CI pipeline runs integration tests. These integration tests shouldn't require the deployment of the solution, as the build artifacts haven't been created yet. If the integration tests require secrets, the pipeline gets those secrets from Azure Key Vault. If any of the checks fail, the pipeline ends and the developer will have to make the required changes. The result of a successful run of this pipeline is the creation and publishing of build artifacts.
+1. The publishing of artifacts [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
+1. The CD pipeline downloads the build artifacts that are created in the CI pipeline and deploys the solution to a staging environment. The pipeline then runs acceptance tests against the staging environment to validate the deployment. If any acceptance test fails, the pipeline ends and the developer will have to make the required changes. If the tests succeed, a [manual validation task](/azure/devops/pipelines/tasks/utility/manual-validation?tabs=yaml) can be implemented to require a person or group to validate the deployment and resume the pipeline.
+1. If the manual intervention is resumed, or there's no manual intervention implemented, the pipeline releases the solution to production. The pipeline should run smoke tests in production to ensure the release is working as expected. If a manual intervention step results in a cancel, the release fails, or the smoke tests fail, the release is rolled back, the pipeline ends and the developer will have to make the required changes.
 1. Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
 
 ### Components
@@ -37,7 +37,7 @@ The data flows through the scenario as follows:
 
 ### Alternatives
 
-While this article focuses on Azure DevOps, you could consider these alternatives:
+While this article focuses on Azure Pipelines, you could consider these alternatives:
 
 - [Azure DevOps Server](https://azure.microsoft.com/services/devops/server) (previously known as Team Foundation Server) could be used as an on-premises substitute.
 
@@ -47,7 +47,7 @@ While this article focuses on Azure DevOps, you could consider these alternative
 
 - [GitHub Repositories](https://docs.github.com/repositories) can be substituted as the code repository. Azure Pipelines integrates seamlessly with GitHub repositories.
 
-Consider these alternatives for compute environments:
+Consider these compute environments:
 
 - [Web Apps](https://azure.microsoft.com/services/app-service/web) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, and applications run and scale with ease on both Windows and Linux-based environments. Web Apps supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
 
@@ -58,8 +58,6 @@ Consider these alternatives for compute environments:
 - [Azure Kubernetes Service (AKS)](/azure/aks) is a managed Kubernetes cluster in Azure. Kubernetes is an open source container orchestration platform.
 
 - [Azure Container Apps](/azure/container-apps/overview) allows you to run containerized applications on a serverless platform.
-
-This [decision tree for Azure compute services](../../guide/technology-choices/compute-decision-tree.yml) can help when choosing the right path to take for a migration.
 
 ## Scenario details
 
@@ -73,7 +71,7 @@ Using proven CI and CD practices to deploy application or infrastructure changes
 
 ### Potential use cases
 
-Consider Azure DevOps and CI/CD processes for:
+Consider Azure Pipelines and CI/CD processes for:
 
 - Accelerating application development and development lifecycles.
 - Building quality and consistency into an automated build and release process.
@@ -83,7 +81,7 @@ Consider Azure DevOps and CI/CD processes for:
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Security and operational excellence
+### Operational excellence
 
 - Consider using one of the [tokenization tasks](https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance) available in the VSTS marketplace.
 
@@ -106,6 +104,12 @@ Azure DevOps costs depend on the number of users in your organization that requi
 This [pricing calculator](https://azure.com/e/498aa024454445a8a352e75724f900b1) provides an estimate for running Azure DevOps with 20 users.
 
 Azure DevOps is billed on a per-user per-month basis. There might be more charges depending on concurrent pipelines needed, in addition to any additional test users or user basic licenses.
+
+## Security
+
+- Consider the [security benefits of using Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#security) when choosing whether to use Microsoft-hosted or self-hosted agents.
+
+- Ensure all changes to environments is done through pipelines. Implement role-based access controls (RBAC) on the principle of least privilege, preventing users from accessing environments.
 
 ## Next steps
 
