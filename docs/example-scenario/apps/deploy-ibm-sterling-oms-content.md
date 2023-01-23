@@ -14,7 +14,7 @@ From the perspective of infrastructure, this architecture will solve for these r
 
 - A container hosting platform to deploy highly available workloads across availability zones. We reccomend Azure Red Hat OpenShift.
 - A fully managed database service designed to serve as the backend-database for the OMS system. Sterling Order Management currenly supports IBM DB2, Oracle, and PostgreSQL. This guide reccomends Azure PostgreSQL Flexible Server.
-- A scalable and highly available setup for a JMS-compliant message broker, such as IBM MQ.
+- A scalable and highly available setup for a JMS-compliant message broker, such as IBM MQ. While not shown on the diagram, this might exist within your cluster or external to the cluster depending on your requirements.
 - Private Endpoints for all relative services to isolate and secure network traffic
 - Additional, optional Azure Virtual Machines for both management and development purposes
 - Azure Premium Files and standard files for storage of log files and other application configuration data
