@@ -39,11 +39,11 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 ## Icon updates
 
 |Month|Change description|
-|---|---|
-|January 2023|Added ~106 icons for various services and components.|
-|November 2022|Updated icon names from Azure Security Center to Microsoft Defender for Cloud.|
-|January 2021|There are ~26 icons that have been added to the existing set.|
-|November 2020|The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there's no longer a CXP folder.|
+|---------|---------|
+|<pre>January 2023</pre>|Added ~106 icons for various services and components.|
+|<pre>November 2022</pre>|Updated icon names from Azure Security Center to Microsoft Defender for Cloud.|
+|<pre>January 2021</pre>|There are ~26 icons that have been added to the existing set.|
+|<pre>November 2020</pre>|The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there's no longer a CXP folder.|
 
 ## Icon terms
 
