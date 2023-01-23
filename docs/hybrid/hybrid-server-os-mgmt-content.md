@@ -223,8 +223,8 @@ More about Azure Automation:
 - [Manage configurations for Azure Arc-enabled servers](/azure/architecture/hybrid/azure-arc-hybrid-config)
 - [Use Azure Stack HCI switchless interconnect and lightweight quorum for remote office or branch office](/azure/architecture/hybrid/azure-stack-robo)
 
-[architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.png
-[architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.png
+[architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.svg
+[architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-server-os-mgmt.vsdx
 [onprem-installation-type]: ./images/hybrid-server-os-mgmt-wac-onprem-install-type.png
 [wac-case-studies]: /windows-server/manage/windows-admin-center/understand/case-studies
