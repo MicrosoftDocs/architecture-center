@@ -16,12 +16,12 @@ The following workflow corresponds to the preceding diagram:
 - An Azure Arc data controller is deployed in each Kubernetes cluster.
 - An Azure Arc-enabled SQL managed instance is deployed in the primary cluster, in the Business Critical service tier.
 - An Azure Arc-enabled SQL managed instance is deployed in the secondary cluster, in the Business Critical service tier. It's configured as a disaster recovery instance.
-- If there's downtime in the primary site, the system fails over to the SQL managed instance in the secondary site.
+- If the primary site fails, the system fails over to the SQL managed instance in the secondary site.
 
 ### Components
 
 - [Azure Arc](https://azure.microsoft.com/products/azure-arc). Azure Arc is a bridge that extends the Azure platform to help you build applications and services. 
-- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes). You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, you can deploy Azure Arc data services, like Azure Arc-enabled SQL Managed Instance, to it.
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes). You can attach and configure Kubernetes clusters inside or outside of Azure by using Azure Arc-enabled Kubernetes. When a Kubernetes cluster is attached to Azure Arc, you can deploy Azure Arc data services to it, services like Azure Arc-enabled SQL Managed Instance.
 - [Azure Arc data controller](/azure/azure-arc/data/create-data-controller-direct-cli). Azure Arc data controller is the orchestrator in the Azure Arc-enabled data services architecture. It manages services like provisioning, elasticity, recoverability, monitoring, and high availability.
 - [Azure Arc-enabled SQL Managed Instance](/azure/azure-arc/data/managed-instance-overview). You can deploy Azure Arc-enabled [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) to host your data workloads. It supports the Azure PaaS data services on your hybrid and multicloud infrastructure.
 - Domain controllers. Domain controllers are deployed into this architecture to manage authentication and authorization to the Azure Arc-enabled SQL managed instances.
@@ -35,7 +35,7 @@ This scenario is based on the Azure Arc Jumpstart [ArcBox for DataOps](https://a
 Typical use cases for this architecture include:
 
 - Deploy, on one site, a highly available Azure Arc-enabled SQL managed instance that's resilient to failure.
-- Deploy an Azure Arc-enabled SQL managed instance in a primary and a DR site to recover from complete site downtime.
+- Deploy an Azure Arc-enabled SQL managed instance in a primary site and a DR site to recover from complete site downtime.
 - Deploy a resilient data back end for mission-critical applications that reside on your hybrid or multicloud infrastructure.
 
 ## Recommendations
@@ -46,7 +46,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 You can connect any [validated Kubernetes distribution](/azure/azure-arc/kubernetes/validation-program) to Azure Arc. Before you connect your clusters, be sure to complete the [Azure Arc-enabled Kubernetes prerequisites](/azure/azure-arc/kubernetes/quickstart-connect-cluster#prerequisites).
 
-After your clusters are connected, you need to deploy an Azure Arc data controller. Be sure to complete the [Azure Arc data controller prerequisites](/azure/azure-arc/data/create-data-controller-direct-prerequisites). You can then deploy SQL Managed Instance.
+After your clusters are connected, you need to deploy an Azure Arc data controller. First, complete the [Azure Arc data controller prerequisites](/azure/azure-arc/data/create-data-controller-direct-prerequisites). You can then deploy SQL Managed Instance.
 
 There are two service tiers on which you can deploy Azure Arc-enabled SQL Managed Instance:
 
@@ -98,12 +98,12 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Determine the Azure regions in which to deploy your Azure Arc-enabled SQL managed instance and data controllers. Take into account your security and compliance requirements and any data sovereignty requirements. Be aware of [the types of data that are collected from your resources](/azure/azure-arc/data/privacy-data-collection-and-reporting) in directly connected mode and indirectly connected mode, and plan accordingly based on the data residency requirements of your organization.
-- Your Azure Arc-enabled SQL managed instance can reside in hybrid or multicloud Kubernetes clusters. Review the security and governance considerations for your chosen cloud provider and Kubernetes distribution.
+- Determine the Azure regions in which to deploy your Azure Arc-enabled SQL managed instance and data controllers. Take into account your security and compliance requirements and any data sovereignty requirements. Be aware of [the types of data that are collected from your resources](/azure/azure-arc/data/privacy-data-collection-and-reporting) in directly connected mode and in indirectly connected mode, and plan accordingly based on the data residency requirements of your organization.
+- Your Azure Arc-enabled SQL managed instance can reside in hybrid or multicloud Kubernetes clusters. Review the security and governance considerations for your cloud provider and Kubernetes distribution.
 - Taking into account your organization's separation of duties and least-privileged access requirements, define cluster administration, operations, database administration, and developer roles for your organization. A mapping of each team to actions and responsibilities determines Azure role-based access control (RBAC) roles or the Kubernetes `ClusterRoleBinding` and `RoleBinding`, depending on the connectivity mode you use.
 - Determine the authentication model to use in your Azure Arc-enabled SQL managed instance: Azure Active Directory (Azure AD) authentication or SQL authentication. Review the [identity and access management design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-identity-access-management) for considerations and recommendations that can help you choose the right model.
 - Review the [security capabilities](/azure/azure-arc/data/managed-instance-features#RDBMSS) that are available in Azure Arc-enabled SQL Managed Instance for your data workloads.
-- Consider the need for keeping your Azure Arc-enabled SQL managed instance up to date with the latest versions, whether they're deployed in directly or indirectly connected mode. For guidance, see the [upgradeability disciplines critical design area](/azure/Cloud-Adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines).
+- Consider the need for keeping your Azure Arc-enabled SQL managed instance up to date with the latest versions, whether they're deployed in directly connected mode or in indirectly connected mode. For guidance, see the [upgradeability disciplines critical design area](/azure/Cloud-Adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-upgradeability-disciplines).
 - Review the design considerations in the Azure Arc-enabled Kubernetes [governance and security disciplines design area](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-kubernetes/eslz-arc-kubernetes-governance-disciplines).
 - See the [security and governance disciplines](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-governance-disciplines#design-considerations) for a comprehensive overview of the security features in Azure Arc-enabled SQL Managed Instance.
 
@@ -112,7 +112,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Define your business requirements to determine the most appropriate service tier. Also consider the extra infrastructure that you need to support [business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-business-continuity-disaster-recovery).
-- Be aware that the way in which usage and billing information is sent to Azure varies depending on whether you use the directly connected or indirectly connected mode. If you use the indirectly connected mode, consider how the usage and billing information is regularly sent to Azure.
+- Be aware that the way in which usage and billing information is sent to Azure varies depending on whether you use the directly connected mode or the indirectly connected mode. If you use the indirectly connected mode, consider how the usage and billing information is regularly sent to Azure.
 - Based on how long you expect to use Azure Arc-enabled SQL Managed Instance, consider whether pay-as-you-go, a one-year reserved instance, or a three-year reserved instance is most cost effective.
 - Keep in mind that Azure Hybrid Benefits offers savings on both service tiers of Azure Arc-enabled SQL Managed Instance.
 - See [Cost governance for Azure Arc-enabled SQL Managed Instance](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-data-service-sql-managed-instance/eslz-arc-data-service-sql-managed-instance-cost-governance) for more cost optimization guidance.
