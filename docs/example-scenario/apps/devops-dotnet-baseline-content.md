@@ -38,6 +38,10 @@ The data flows through the scenario as follows:
 
 - [Monitor](https://azure.microsoft.com/services/monitor) is an observability resource that collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
 
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a monitoring service that provides real-time insights into the performance and usage of your web applications.
+
+- [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) provides a central location where you can store, query, and analyze data from multiple sources, including Azure resources, applications, and services.
+
 ### Alternatives
 
 While this article focuses on Azure Pipelines, you could consider these alternatives:
