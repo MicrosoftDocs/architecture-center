@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 01/16/2023
+ms.date: 01/23/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,12 +27,20 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)
 - [Enable machine learning inference on an Azure IoT Edge device](./guide/iot/machine-learning-inference-iot-edge.yml)
 - [Implement custom speech-to-text solutions that use AI](./guide/ai/custom-speech-text.yml)
 - [Deploy a custom speech-to-text solution that uses AI](./guide/ai/custom-speech-text-deploy.yml)
 
 ### Updated articles
 
+- [Azure Service Fabric microservices architecture](./reference-architectures/microservices/service-fabric.yml)  ([#ea68e0676](https://github.com/MicrosoftDocs/architecture-center/commit/ea68e0676))
+- [Network security checklist for MLOps solutions](./example-scenario/ai/network-security-mlops.yml)  ([#e76ad649c](https://github.com/MicrosoftDocs/architecture-center/commit/e76ad649c))
+- [Messaging](./solution-ideas/articles/messaging.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
+- [Personalization using Azure Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
+- [Retail and e-commerce using Azure Database for MySQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
+- [Retail and e-commerce using Azure Database for PostgreSQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
+- [Streaming using HDInsight](./solution-ideas/articles/streaming-using-hdinsight.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
 - [Azure Private Link in a hub-and-spoke network](./guide/networking/private-link-hub-spoke-network.yml)  ([#13425d83d](https://github.com/MicrosoftDocs/architecture-center/commit/13425d83d))
 - [Azure icons](./icons/index.md)  ([#8763c35f7](https://github.com/MicrosoftDocs/architecture-center/commit/8763c35f7))
 - [Gridwich Azure DevOps setup](./reference-architectures/media-services/set-up-azure-devops.yml)  ([#c7dffcd9d](https://github.com/MicrosoftDocs/architecture-center/commit/c7dffcd9d))
