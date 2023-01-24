@@ -256,9 +256,9 @@ For help with getting started, see the following resources:
 * [Quickstart: Deploy an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/en-us/azure/openshift/quickstart-portal)
 * [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/quickstart-create-server-portal)
 
-
 ## Related Resources
 
-* [Secure access to Azure Red Hat OpenShift with Azure Front Door](https://learn.microsoft.com/en-us/azure/openshift/howto-secure-openshift-with-front-door)
-* [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](https://learn.microsoft.com/en-us/azure/openshift/howto-use-key-vault-secrets)
+* [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door)
+* [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 * [IBM MQ In Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
+
