@@ -29,7 +29,7 @@ Multi-node configuration:
 
 Single-node configuration: 
 
-:::image type="content" source="media/helyx-architecture.png" alt-text="Diagram that shows a single-node configuration." lightbox="media/helyx-architecture.png" border="false"::: 
+:::image type="content" source="media/helyx-architecture.png" alt-text="Diagram that shows a single-node configuration." border="false"::: 
 
 *Download a [Visio file](https://arch-center.azureedge.net/helyx-architecture.vsdx) of this architecture.* 
 
@@ -85,7 +85,7 @@ The details of each test model are provided in the following sections.
 
 ### Model 1: City_landscape_Niigata-NNE
 
-:::image type="content" source="media/model-1.png" alt-text="Screenshot that shows model 1." lightbox="media/model-1.png" border="false":::  
+:::image type="content" source="media/model-1.png" alt-text="Screenshot that shows model 1." border="false":::  
 
 The following table provides details about the model.
 
@@ -95,7 +95,7 @@ The following table provides details about the model.
 
 ### Model 2: Turbomachine_Ventilator-AFnq182
 
-:::image type="content" source="media/model-2.png" alt-text="Screenshot that shows model 2." lightbox="media/model-2.png" border="false":::   
+:::image type="content" source="media/model-2.png" alt-text="Screenshot that shows model 2." border="false":::   
 
 The following table provides details about the model.
 
@@ -106,7 +106,7 @@ The following table provides details about the model.
 
 ### Model 3: Marine_G2010-C2.2b-KCS-Fn026
 
-:::image type="content" source="media/model-3.png" alt-text="Screenshot that shows model 3." lightbox="media/model-3.png" border="false":::  
+:::image type="content" source="media/model-3.png" alt-text="Screenshot that shows model 3." border="false":::  
 
 The following table provides details about the model.
 
