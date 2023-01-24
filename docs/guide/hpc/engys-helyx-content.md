@@ -60,7 +60,7 @@ To use InfiniBand, you need to enable InfiniBand drivers.
 
 ## Install HELYX 3.5.0 on a VM or HPC cluster
 
-You need to buy HELYX from ENGYS or one of its local authorized distributors/agents to get access to the installation files and technical support. For information about buying HELYX, contact [ENGYS](https://engys.com/products/helyx).
+You need to buy HELYX from ENGYS or one of its local authorized distributors or agents to get access to the installation files and technical support. For information about buying HELYX, contact [ENGYS](https://engys.com/products/helyx).
 
 Before you install HELYX, you need to deploy and connect a VM or HPC cluster.
 
@@ -168,7 +168,7 @@ The following graph shows the relative speed increases as the number of CPUs inc
 
 For all the single-node tests, the solver time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results show that parallel performance improves as cores increase from 16 to 64. At 120 cores, some simulations show limited improvement and others show a drop in performance. This pattern is common with CFD solvers and other memory-intensive applications because of saturation of the onboard memory that's available on each processor.
 
-The AMD EPYC 7V73-series processor (Milan-X) in the HBv3 VMs tested here is a powerful processor, with 768 MB of total L3 cache. Our single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the HELYX solvers when you use half the cores available on each 7V73-series chip.
+The AMD EPYC 7V73-series processor (Milan-X) in the HBv3 VMs tested here is a powerful processor, with 768 MB of total L3 cache. The single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the HELYX solvers when you use half the cores available on each 7V73-series chip.
 
 ## HELYX 3.5.0 performance results on multi-node clusters
 

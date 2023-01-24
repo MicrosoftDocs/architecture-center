@@ -16,6 +16,6 @@ products:
   - azure-cyclecloud
 name: Deploy Engys HELYX on an Azure virtual machine
 summary: Learn how Engys HELYX CFD software performs on an Azure virtual machine.
-thumbnailUrl: /azure/architecture/browse/thumbs/engys-helix-thumb.png
+thumbnailUrl: /azure/architecture/browse/thumbs/engys-helyx-thumb.png
 content: |
   [!include[](engys-helyx-content.md)]
