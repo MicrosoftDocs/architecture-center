@@ -172,7 +172,7 @@ The AMD EPYC 7V73-series processor (Milan-X) in the HBv3 VMs tested here is a po
 
 ## HELYX 3.5.0 performance results on multi-node clusters
 
-The single-node tests confirm that the solver achieves parallel performance until you reach 64 cores with HBv3 VMs. Based on those results, only 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs where used to evaluate the performance of HELYX on  multi-node clusters. The following sections provide the test results.
+The single-node tests confirm that the solver achieves parallel performance until you reach 64 cores with HBv3 VMs. Based on those results, only 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs were used to evaluate the performance of HELYX on  multi-node clusters. The following sections provide the test results.
 
 ### Model 1: City_landscape_Niigata-NNE
 
