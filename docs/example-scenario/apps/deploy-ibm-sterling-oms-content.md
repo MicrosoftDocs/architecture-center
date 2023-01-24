@@ -248,14 +248,14 @@ Other contributors:
 
 For help with getting started, see the following resources:
 
-* [Prerequisites to deploying certified containers using Sterling Order Management Software Operator](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
+* [Prerequisites to deploying certified containers using Sterling Order Management Software Operator](/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
 * [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
-* [Quickstart: Deploy an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/en-us/azure/openshift/quickstart-portal)
-* [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
-
+* [Quickstart: Deploy an Azure Red Hat OpenShift cluster](/azure/openshift/quickstart-portal)
+* [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
 
 ## Related Resources
 
-* [Secure access to Azure Red Hat OpenShift with Azure Front Door](https://learn.microsoft.com/en-us/azure/openshift/howto-secure-openshift-with-front-door)
-* [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](https://learn.microsoft.com/en-us/azure/openshift/howto-use-key-vault-secrets)
+* [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door)
+* [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 * [IBM MQ In Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
+
