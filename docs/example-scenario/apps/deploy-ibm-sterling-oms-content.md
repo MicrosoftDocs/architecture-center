@@ -155,6 +155,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
   - Database-specific ports (example: port 5432 for Azure Postgres Flexible Server)
   - Message Queue ports (example: port 1414 for IBM MQ)
   - Azure RedHat OpensShift Cluster Nodes must have outbound internet access, or at a minimum access to the Azure Resource Manager and Service Logging endpoints.
+  - IBM also provides guidance around implementing multiple Sterling Order Management applications that share common services, like a backend database. Such deployments also have intra-application firewall considerations. For more information, please see this documentation: [Opening firewall ports for intra-app communication](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=deployment-opening-firewall-ports-intra-app-communication)
 
 If you need access to your other, non-Red Hat OpenShift nodes for some reason you can access your VMs through [Azure Bastion](/azure/bastion/bastion-overview) (which is optional). For security reasons, you shouldn't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
 
