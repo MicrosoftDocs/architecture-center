@@ -23,7 +23,7 @@ Following are the typical use cases for this architecture:
 
 The following illustration shows a MITRE Att&ck cloud scenario.
 
-![Diagram of a MITRE Att&ck cloud scenario.](./media/mitre-attack-in-sentinel-artifacts-dev.svg)
+:::image type="content" border="false" source="./media/mitre-attack-in-sentinel-artifacts-dev.svg" alt-text="Diagram of a MITRE Att&ck cloud scenario." lightbox="./media/mitre-attack-in-sentinel-artifacts-dev.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -31,7 +31,7 @@ The following illustration shows a MITRE Att&ck cloud scenario.
 
 The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
-![Diagram of the Architecture for automating a Microsoft Sentinel Infra as code pipeline.](./media/automate-sentinel-architecture.svg)
+:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram of the Architecture for automating a Microsoft Sentinel Infra as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
