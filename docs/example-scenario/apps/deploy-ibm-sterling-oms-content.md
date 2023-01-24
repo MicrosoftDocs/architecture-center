@@ -250,6 +250,7 @@ Other contributors:
 For help with getting started, see the following resources:
 
 * [Prerequisites to deploying certified containers using Sterling Order Management Software Operator](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=dccusomso-prerequisites-deploying-certified-containers-using-sterling-order-management-software-operator)
+* [Sterling Order Management - Best Practices Guide](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=operator-best-practices)
 * [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
 * [Quickstart: Deploy an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/en-us/azure/openshift/quickstart-portal)
 * [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/quickstart-create-server-portal)
