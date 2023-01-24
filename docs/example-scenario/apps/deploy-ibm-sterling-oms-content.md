@@ -154,6 +154,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
   - Service-to-service communcation (port 443)
   - Database-specific ports (example: port 5432 for Azure Postgres Flexible Server)
   - Message Queue ports (example: port 1414 for IBM MQ)
+  - Azure RedHat OpensShift Cluster Nodes must have outbound internet access, or at a minimum access to the Azure Resource Manager and Service Logging endpoints.
 
 If you need access to your other, non-Red Hat OpenShift nodes for some reason you can access your VMs through [Azure Bastion](/azure/bastion/bastion-overview) (which is optional). For security reasons, you shouldn't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
 
@@ -248,10 +249,10 @@ Other contributors:
 
 For help with getting started, see the following resources:
 
-* [Prerequisites to deploying certified containers using Sterling Order Management Software Operator](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
+* [Prerequisites to deploying certified containers using Sterling Order Management Software Operator](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=dccusomso-prerequisites-deploying-certified-containers-using-sterling-order-management-software-operator)
 * [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/pao_customer.html)
 * [Quickstart: Deploy an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/en-us/azure/openshift/quickstart-portal)
-* [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/apps/deploy-ibm-maximo-application-suite)
+* [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/quickstart-create-server-portal)
 
 
 ## Related Resources
