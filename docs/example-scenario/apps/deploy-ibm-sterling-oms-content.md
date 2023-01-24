@@ -238,9 +238,9 @@ Principal authors:
 Other contributors:
 
 - [Vijaya Bashyam](https://www.linkedin.com/in/vijaya-bashyam-76a6837/) | Senior Technical Staff Member, IBM
-- Andy Repton | Red Hat
-- James Read | Red Hat 
-- Aneesh AR | Red Hat 
+- [Andy Repton](https://www.linkedin.com/in/andy-repton/) | Managed OpenShift Black Belt, Red Hat
+- [James Read](https://www.linkedin.com/in/jwread/) | EMEA Principal Solution Architect, Red Hat 
+- [Aneesh AR](https://www.linkedin.com/in/aneesh-ar-tech/) | Senior Cloud Services Black Belt, Red Hat 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
