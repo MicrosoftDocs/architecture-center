@@ -113,7 +113,7 @@ The following table provides details about the model.
 |3a|1,350,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 seconds|
 |3b|11,100,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 seconds|
 
-## HELYX 3.5.0 performance results on single-node VM
+## HELYX 3.5.0 performance results on single-node VMs
 
 The following sections provide the performance results of running HELYX in parallel on single-node Azure [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs. You can use these results as a baseline for comparison with multi-node runs.
 
@@ -121,7 +121,7 @@ The following sections provide the performance results of running HELYX in paral
 
 This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-|Number of cores|Total solver running time (seconds)|	Relative speed increase|
+|Number of cores|Solver running time (seconds)|	Relative speed increase|
 |-|-|-|
 |16|	6,176.48|	1.00|
 |32	|4,301.36	|1.44|
@@ -136,7 +136,7 @@ image
 
 This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-|Number of cores|Total solver running time (seconds)|	Relative speed increase|
+|Number of cores|Solver running time (seconds)|	Relative speed increase|
 |-|-|-|
 |16|1,609.85|	1.00|
 |32	|1,081.2	|1.49|
@@ -151,120 +151,120 @@ image
 
 This table shows total elapsed solver running times recorded for varying numbers of CPUs on the Standard HBv3-series VM:
 
-|Number of cores|Total solver running time (seconds)|	Relative speed increase|
+|Number of cores|Solver running time (seconds)|	Relative speed increase|
 |-|-|-|
 |16|16,608.29|	1.00|
 |32	|13,622.88	|1.22|
 |64	|7,979.05	|2.08|
 |120|8,007.08|2.07|
 
-The following graph shows the relative speed increases of the Marine_G2010-C2.2b-KCS-Fn026 model on Standard_HBv3-series VM:
+The following graph shows the relative speed increases as the number of CPUs increases:
 
 image 
 
-Additional notes about Single-Node Tests 
+### Notes about the single-node tests 
 
-For all single-node tests we have taken the solver time on HB120-16rs_v3 (16 cores) as the reference to calculate the relative speed up with respect to other similar VMs with more cores. The results presented above show that parallel performance improves as we increase from 16 to 64 cores, then at 120 cores some simulations show very limited improvement and others show a drop in performance. This is a common occurrence with CFD solvers and other memory intensive applications due to the saturation of the onboard memory available on each processor.
+For all the single-node tests, the solver time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results show that parallel performance improves as cores increase 16 to 64. At 120 cores, some simulations show limited improvement and others show a drop in performance. This pattern is common with CFD solvers and other memory-intensive applications because of saturation of the onboard memory that's available on each processor.
 
-The AMD EPYC 7V73-series (Milan-X) featured in the Azure HBv3 VMs tested here is a very capable processor with 768MB of total L3 cache. Our single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the HELYX solvers when using half the cores available on each 7V73-series chip.
+The AMD EPYC 7V73-series processor (Milan-X) in the HBv3 VMs tested here is a powerful processor, with 768 MB of total L3 cache. Our single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the HELYX solvers when you use half the cores available on each 7V73-series chip.
 
-HELYX 3.5.0 Performance Results on Multi-Node (Cluster)
+## HELYX 3.5.0 performance results on multi-node clusters
 
-The single-node tests carried out with HELYX confirmed that the solver exhibits proper parallel performance when using up to 64 cores with HBv3 VMs. Therefore, we employed only 64 cores to evaluate the performance of HELYX with [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) when testing multi-node (cluster) configurations. The results are shared below for each test case considered in this study:
+The single-node tests confirm that the solver achieves parallel performance until you reach 64 cores with HBv3 VMs. Based on those results, only 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs where used to evaluate the performance of HELYX on  multi-node clusters. The following sections provide the test results.
 
-**Model 1 - City_landscape_Niigata-NNE**
+### Model 1: City_landscape_Niigata-NNE
 
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VMs:
+This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per cores|	Total solver time, in seconds|	Relative solver speedup|
+|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|414063	|3741.59	|1.00|
-|2	|128	|207031	|1528.34	|2.45|
-|4	|256	|103516	|640.64	|5.84|
-|8	|512	|51758	|398.73	|9.38|
-|16	|1024	|25879	|193.72	|19.31|
+|1	|64	|414,063	|3,741.59	|1.00|
+|2	|128	|207,031	|1,528.34	|2.45|
+|4	|256	|103,516	|640.64	|5.84|
+|8	|512	|51,758	|398.73	|9.38|
+|16	|1,024	|25,879	|193.72	|19.31|
 
-The following graph shows the relative speedup of the City_landscape_Niigata-NNE model on Standard_HBv3-series VMs:
+The following graph shows the relative speed increase as the number of cores increases:
 
 image 
 
-Model 2a - Turbomachine_Ventilator-AFnq182
+### Model 2a: Turbomachine_Ventilator-AFnq182
 
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VMs:
+This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per cores|	Total solver time, in seconds|	Relative solver speedup|
+|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|48438	|838.4|1.00|
-|2	|128	|24219	|567.48|	1.48|
-|4	|256	|12109	|455.9	|1.84|
-|8	|512	|6055	|372.82	|2.25|
+|1	|64	|48,438	|838.4|1.00|
+|2	|128	|24,219	|567.48|	1.48|
+|4	|256	|12,109	|455.9	|1.84|
+|8	|512	|6,055	|372.82	|2.25|
 
-The following graph shows the relative speedup of the Turbomachine_Ventilator-AFnq182 model on Standard_HBv3-series VMs:
+The following graph shows the relative speed increase as the number of cores increases:
 
 image 
 
-Model 2b - Turbomachine_Ventilator-AFnq182_large
+### Model 2b: Turbomachine_Ventilator-AFnq182_large
 
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VM:
+This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per cores|	Total solver time, in seconds|	Relative solver speedup|
+|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|184375|	2710.14	|1.00|
-|2	|128		|92188	|1602.64|	1.69|
-|4	|256	|46094	|1076.27	|2.52|
-|8	|512	|23047	|756.73	|3.58|
+|1	|64	|184,375|	2,710.14	|1.00|
+|2	|128		|92,188	|1,602.64|	1.69|
+|4	|256	|46,094	|1,076.27	|2.52|
+|8	|512	|23,047	|756.73	|3.58|
 
-The following graph shows the relative speedup of the Turbomachine_Ventilator-AFnq182_large model on Standard_HBv3-series VMs:
+The following graph shows the relative speed increase as the number of cores increases:
 
 image 
 
-Model 3a - Marine_G2010-C2.2b-KCS-Fn026
+### Model 3a: Marine_G2010-C2.2b-KCS-Fn026
 
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VMs:
+This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per cores|	Total solver time, in seconds|	Relative solver speedup|
+|Number of nodes|	Number of cores|	Cells per cores|	Solver running time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|21094|	8028.75	|1.00|
-|2	|128		|10547|	6354.25|	1.26|
-|4	|256	|5273	|4320.72|	1.86|
-|8	|512	|2637	|4518.09|	1.78|
+|1	|64	|21,094|	8,028.75	|1.00|
+|2	|128		|10,547|	6,354.25|	1.26|
+|4	|256	|5,273	|4,320.72|	1.86|
+|8	|512	|2,637	|4,518.09|	1.78|
 
-The following graph shows the relative speedup of the Marine_G2010-C2.2b-KCS-Fn026 model on Standard_HBv3-series VMs:
+The following graph shows the relative speed increase as the number of cores increases:
 
 image 
 
-Model 3b - Marine_G2010-C2.2b-KCS-Fn026_large
+### Model 3b: Marine_G2010-C2.2b-KCS-Fn026_large
 
-This table shows total solver times for varying numbers of CPUs on Standard_HBv3-series VM:
+This table shows the total elapsed solver running times recorded for varying numbers of CPUs on Standard HBv3-series VMs:
 
-|Number of nodes|	Number of cores|	Cells per core|	Total solver time, in seconds|	Relative solver speedup|
+|Number of nodes|	Number of cores|	Cells per core|	Solver running time (seconds)|	Relative speed increase|
 |-|-|-|-|-|
-|1	|64	|173438|	66860.55|	1.00|
-|2	|128		|86719|	41243.12|	1.62|
-|4	|256	|43359	|25901.95	|2.58|
-|8	|512	|21680	|16781.86	|3.98|
+|1	|64	|173,438|	66,860.55|	1.00|
+|2	|128		|86,719|	41,243.12|	1.62|
+|4	|256	|43,359	|25,901.95	|2.58|
+|8	|512	|21,680	|16,781.86	|3.98|
 
-The following graph shows the relative speedup of the Marine_G2010-C2.2b-KCS-Fn026_large model on Standard_HBv3-series VMs:
+The following graph shows the relative speed increase as the number of cores increases:
 
 inage 
 
-Additional notes about Multi-Node Tests 
+### Notes about the multi-node tests
 
-We conclude from the multi-node tests that parallel scalability for Model 1 (steady-state, incompressible, turbulent flow) is above optimal. We also notice from the results obtained with Models 2 and 3 that parallel solver performance can be somewhat conditioned when using ancillary methods such as MRF/AMI or automatic mesh refinement.
+Based on the multi-node tests, parallel scalability for model 1 (steady state, incompressible, turbulent flow) is above optimal. The results of the model 2 and 3 tests show that parallel solver performance can be influenced by ancillary methods like MRF/AMI or automatic mesh refinement.
 
-The results also show that a minimum number of cells per core is required to reach optimal scalability across multiple nodes when using HELYX. This is evident when comparing the results from Model 2a to 2b and 3a to 3b. Solver performance is reduced when the number of cells per core falls below 20,000 due to excessive data communication between processor boundaries.
+The results also show that a minimum number of cells per core is required to reach optimal scalability across multiple nodes. You can see this by comparing the model 2a results to those of 2b and the model 3a results to those of 3b. Solver performance is reduced when the number of cells per core falls below 20,000 because of excessive data communication between processor boundaries.
 
-Azure cost
+## Azure cost
 
-Only solver time has been considered for the cost calculations. Meshing times, installation time and software costs have been ignored.
+Only elapsed solver running time is considered for these cost calculations. Meshing times, installation time, and software costs aren't considered.
 
-You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate VM costs for your configurations.
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the VM costs for your configurations.
 
-The following tables provide the solver times in hours. The Azure VM hourly rates are subject to change. To compute the cost, multiply the solver time by the number of nodes and the Azure VM hourly cost which you can find [here for Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following tables provide the elapsed solver running times in hours. Azure VM hourly rates are subject to change. To compute the cost, multiply the solver running time by the number of nodes and the [Linux VM hourly cost](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-Cost for Model 1 - City_landscape_Niigata-NNE
+### Cost for model 1: City_landscape_Niigata-NNE
 
-|Number of nodes	|Solver time, in hours|
+|Number of nodes	|Solver running time (hours)|
 |-|-|
 |1	|1.052|
 |2	|0.436|
