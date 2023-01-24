@@ -8,7 +8,7 @@ HELYX provides:
 - An advanced hex-dominant automatic mesh algorithm with polyhedra support that can run in parallel to generate large computational grids.
 - A solver stack that's based on the finite-volume approach. It covers single-phase and multi-phase turbulent flows (RANS, URANS, DES, LES), thermal flows with natural/forced convection, thermal/solar radiation, and incompressible and compressible flow solutions.
 
-HELYX supports industry-specific add-ons, including hydrodynamics analysis for marine applications, block-coupled incompressible flow solvers, and advanced two-phase VOF flows.
+HELYX supports industry-specific add-ons, including hydrodynamics analysis for marine applications, block-coupled incompressible flow solvers, and advanced two-phase volume-of-fluid (VOF) flows.
 
 HELYX is used in the automotive, aerospace, construction, marine, turbo, and energy industries.
 
@@ -77,7 +77,7 @@ Three models are used to test the parallel scalability performance of HELYX vers
 
 - A steady-state model of a city landscape, typical of wind comfort analysis.
 - A steady-state model of a ventilator fan with moving blades, approximated via an MRF approach and an arbitrary mesh interface (AMI). Two mesh densities are compared.
-- A transient model of a ship moving in calm water. A two-phase volume-of-fluid solver is used. Two mesh densities are compared.
+- A transient model of a ship moving in calm water. A two-phase VOF solver is used. Two mesh densities are compared.
 
 All computational grids tested were created in parallel as part of the execution process. The hex-dominant meshing utility that's provided with HELYX was used for the tests. 
 
@@ -112,8 +112,8 @@ The following table provides details about the model.
 
 |Model number|	Mesh size|	Solver|	Steady state|
 |-|-|-|-|
-|3a|1,350,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 seconds|
-|3b|11,100,000 cells|Two-phase (VOF) with automatic mesh refinement|CFL regulated for 20 seconds|
+|3a|1,350,000 cells|Two-phase VOF with automatic mesh refinement|CFL regulated for 20 seconds|
+|3b|11,100,000 cells|Two-phase VOF with automatic mesh refinement|CFL regulated for 20 seconds|
 
 ## HELYX 3.5.0 performance results on single-node VMs
 
@@ -166,13 +166,13 @@ The following graph shows the relative speed increases as the number of CPUs inc
 
 ### Notes about the single-node tests 
 
-For all the single-node tests, the solver time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results show that parallel performance improves as cores increase 16 to 64. At 120 cores, some simulations show limited improvement and others show a drop in performance. This pattern is common with CFD solvers and other memory-intensive applications because of saturation of the onboard memory that's available on each processor.
+For all the single-node tests, the solver time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results show that parallel performance improves as cores increase from 16 to 64. At 120 cores, some simulations show limited improvement and others show a drop in performance. This pattern is common with CFD solvers and other memory-intensive applications because of saturation of the onboard memory that's available on each processor.
 
 The AMD EPYC 7V73-series processor (Milan-X) in the HBv3 VMs tested here is a powerful processor, with 768 MB of total L3 cache. Our single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the HELYX solvers when you use half the cores available on each 7V73-series chip.
 
 ## HELYX 3.5.0 performance results on multi-node clusters
 
-The single-node tests confirm that the solver achieves parallel performance until you reach 64 cores with HBv3 VMs. Based on those results, only 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs were used to evaluate the performance of HELYX on  multi-node clusters. The following sections provide the test results.
+The single-node tests confirm that the solver achieves parallel performance until you reach 64 cores on HBv3 VMs. Based on those results, only 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) VMs were used to evaluate the performance of HELYX on  multi-node clusters. The following sections provide the test results.
 
 ### Model 1: City_landscape_Niigata-NNE
 
