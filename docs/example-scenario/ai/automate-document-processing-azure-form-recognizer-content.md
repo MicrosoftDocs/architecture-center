@@ -2,7 +2,7 @@ This article outlines a scalable and secure solution for building an automated d
 
 ## Architecture
 
-:::image type="content" source="./media/automate-document-processing-azure-form-recognizer-architecture.svg" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="./media/automate-document-processing-azure-form-recognizer-architecture-lightbox.svg":::
+:::image type="content" source="./media/automate-document-processing-form-recognizer-architecture.svg" alt-text="Architecture diagram that shows how data flows through the extraction, enrichment, and analytics stages of document processing." border="false" lightbox="./media/automate-document-processing-form-recognizer-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
