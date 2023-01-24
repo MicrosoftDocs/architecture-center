@@ -23,13 +23,15 @@ HELYX is used in the automotive, aerospace, construction, marine, turbo, and ene
 
 Multi-node configuration:
 
-image 
+:::image type="content" source="media/helyx-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration." lightbox="media/helyx-cluster-architecture.png" border="false"::: 
 
-download 
+*Download a [Visio file](https://arch-center.azureedge.net/helyx-cluster-architecture.vsdx) of this architecture.* 
 
 Single-node configuration: 
 
-image 
+:::image type="content" source="media/helyx-architecture.png" alt-text="Diagram that shows a single-node configuration." lightbox="media/helyx-architecture.png" border="false"::: 
+
+*Download a [Visio file](https://arch-center.azureedge.net/helyx-architecture.vsdx) of this architecture.* 
 
 ### Components
 
@@ -83,7 +85,7 @@ The details of each test model are provided in the following sections.
 
 ### Model 1: City_landscape_Niigata-NNE
 
-image 
+:::image type="content" source="media/model-1.png" alt-text="Screenshot that shows model 1." lightbox="media/model-1.png" border="false":::  
 
 The following table provides details about the model.
 
@@ -93,7 +95,7 @@ The following table provides details about the model.
 
 ### Model 2: Turbomachine_Ventilator-AFnq182
 
-image 
+:::image type="content" source="media/model-2.png" alt-text="Screenshot that shows model 2." lightbox="media/model-2.png" border="false":::   
 
 The following table provides details about the model.
 
@@ -104,7 +106,7 @@ The following table provides details about the model.
 
 ### Model 3: Marine_G2010-C2.2b-KCS-Fn026
 
-image
+:::image type="content" source="media/model-3.png" alt-text="Screenshot that shows model 3." lightbox="media/model-3.png" border="false":::  
 
 The following table provides details about the model.
 
@@ -130,7 +132,7 @@ This table shows total elapsed solver running times recorded for varying numbers
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
-image 
+:::image type="content" source="media/model-1-increase-single.png" alt-text="Graph that shows the relative speed increases for model 1 in a single-node configuration." lightbox="media/model-1-increase-single.png" border="false":::   
 
 ### Model 2a: Turbomachine_Ventilator-AFnq182
 
@@ -145,7 +147,7 @@ This table shows total elapsed solver running times recorded for varying numbers
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
-image 
+:::image type="content" source="media/ventilator-increase-single.png" alt-text="Graph that shows the relative speed increases for model 2a in a single-node configuration." lightbox="media/ventilator-increase-single.png" border="false":::   
 
 ### Model 3a: Marine_G2010-C2.2b-KCS-Fn026
 
@@ -160,7 +162,7 @@ This table shows total elapsed solver running times recorded for varying numbers
 
 The following graph shows the relative speed increases as the number of CPUs increases:
 
-image 
+:::image type="content" source="media/marine-increase-single.png" alt-text="Graph that shows the relative speed increases for model 3a in a single-node configuration." lightbox="media/marine-increase-single.png" border="false":::   
 
 ### Notes about the single-node tests 
 
@@ -186,7 +188,7 @@ This table shows the total elapsed solver running times recorded for varying num
 
 The following graph shows the relative speed increase as the number of cores increases:
 
-image 
+:::image type="content" source="media/city-increase-cluster.png" alt-text="Graph that shows the relative speed increases for model 1 in a multi-node configuration." lightbox="media/city-increase-cluster.png" border="false":::    
 
 ### Model 2a: Turbomachine_Ventilator-AFnq182
 
@@ -201,7 +203,7 @@ This table shows the total elapsed solver running times recorded for varying num
 
 The following graph shows the relative speed increase as the number of cores increases:
 
-image 
+:::image type="content" source="media/ventilator-increase-cluster.png" alt-text="Graph that shows the relative speed increases for model 2a in a multi-node configuration." lightbox="media/ventilator-increase-cluster.png" border="false":::     
 
 ### Model 2b: Turbomachine_Ventilator-AFnq182_large
 
@@ -216,7 +218,7 @@ This table shows the total elapsed solver running times recorded for varying num
 
 The following graph shows the relative speed increase as the number of cores increases:
 
-image 
+:::image type="content" source="media/ventilator-large-increase-cluster.png" alt-text="Graph that shows the relative speed increases for model 2b in a multi-node configuration." lightbox="media/ventilator-large-increase-cluster.png" border="false":::    
 
 ### Model 3a: Marine_G2010-C2.2b-KCS-Fn026
 
@@ -231,7 +233,7 @@ This table shows the total elapsed solver running times recorded for varying num
 
 The following graph shows the relative speed increase as the number of cores increases:
 
-image 
+:::image type="content" source="media/marine-increase-cluster.png" alt-text="Graph that shows the relative speed increases for model 3a in a multi-node configuration." lightbox="media/marine-increase-cluster.png" border="false"::: 
 
 ### Model 3b: Marine_G2010-C2.2b-KCS-Fn026_large
 
@@ -246,7 +248,7 @@ This table shows the total elapsed solver running times recorded for varying num
 
 The following graph shows the relative speed increase as the number of cores increases:
 
-inage 
+:::image type="content" source="media/marine-large-increase-cluster.png" alt-text="Graph that shows the relative speed increases for model 3b in a multi-node configuration." lightbox="media/marine-large-increase-cluster.png" border="false":::  
 
 ### Notes about the multi-node tests
 
@@ -272,27 +274,27 @@ The following tables provide the elapsed solver running times in hours. Azure VM
 |8	|0.118|
 |16|	0.062|
 
-Cost for Model 2a - Turbomachine_Ventilator-AFnq182
+### Cost for model 2a: Turbomachine_Ventilator-AFnq182
 
-|Number of nodes	|Solver time, in hours|
+|Number of nodes	|Solver time (hours)|
 |-|-|
 |1	|0.244|
 |2	|0.168|
 |4	|0.138|
 |8	|0.118|
 
-Cost for Model 2b - Turbomachine_Ventilator-AFnq182_large
+### Cost for model 2b: Turbomachine_Ventilator-AFnq182_large
 
-|Number of nodes	|Solver time, in hours|
+|Number of nodes	|Solver time (hours)|
 |-|-|
 |1	|0.801|
 |2	|0.483|
 |4	|0.337|
 |8	|0.247|
 
-Cost for Model 3a - Marine_G2010-C2.2b-KCS-Fn026
+### Cost for model 3a: Marine_G2010-C2.2b-KCS-Fn026
 
-|Number of nodes	|Solver time, in hours|
+|Number of nodes	|Solver time (hours)|
 |-|-|
 |1	|2.291|
 |2	|1.823|
@@ -300,26 +302,26 @@ Cost for Model 3a - Marine_G2010-C2.2b-KCS-Fn026
 |8	|1.336|
 
 
-Cost for Model 3b - Marine_G2010-C2.2b-KCS-Fn026_large
+### Cost for model 3b: Marine_G2010-C2.2b-KCS-Fn026_large
 
-|Number of nodes	|Solver time, in hours|
+|Number of nodes	|Solver time (hours)|
 |-|-|
 |1	|18.800|
 |2	|11.670|
 |4	|7.406|
 |8	|4.890|
 
-Summary
+## Summary
 
-- HELYX 3.5.0 was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) setup.
-- All models tested demonstrated good CPU acceleration when running in a multi-node configuration.
-- The meshing, setup and solver applications in HELYX can all be run in parallel, thus making this CFD tool ideal for execution in multi-node configurations (no need for mesh decomposition/reconstruction).
-- The simulation engine delivered with HELYX is open source, which means users can run as many simulations in as many processors as needed without incurring additional license costs.
-- For better parallel performance we recommend using 64 cores per HBv3 node and a minimum of 20,000 cells per core.
+- HELYX 3.5.0 was successfully tested on HBv3 standalone VMs and on an Azure CycleCloud multi-node configuration.
+- All tested models demonstrated good CPU acceleration in a multi-node configuration.
+- The meshing, setup, and solver applications in HELYX can all be run in parallel, which makes it ideal for running in multi-node configurations. (There's no need for mesh decomposition and reconstruction.)
+- The simulation engine delivered with HELYX is open source, so you can run as many simulations as you need, on as many processors as you need, without incurring additional license costs.
+- For better parallel performance, we recommend that you use 64 cores per HBv3 node and a minimum of 20,000 cells per core.
 
 ## Contributors
 
-This article is maintained by Microsoft. It was originally written by the following contributors.
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 - [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
@@ -331,12 +333,12 @@ Other contributors:
 - [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
-To see non-public LinkedIn profiles, sign into LinkedIn.
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Windows virtual machines on Azure](/azure/virtual-machines/windows/overview)
+- [Virtual machines on Azure](/azure/virtual-machines/windows/overview)
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run HPC applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
