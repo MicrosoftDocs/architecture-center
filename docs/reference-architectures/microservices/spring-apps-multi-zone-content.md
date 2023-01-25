@@ -118,7 +118,7 @@ Automate your deployments as much as possible. You should automate infrastructur
 
 Automating infrastructure deployments guarantees that infrastructure is configured the same, avoiding configuration drift, for instance between environments. Infrastructure automation can also help you test failover and quickly bringing up a secondary region.
 
-For application deployment, make sure your deployment systems target all the components in your setup. You can also use a [blue-green](../../example-scenario/blue-green-spring/blue-green-spring.yml) or canary deployment strategy. 
+You can also use a [blue-green](../../example-scenario/blue-green-spring/blue-green-spring.yml) or canary deployment strategy. 
 
 ## Considerations
 
