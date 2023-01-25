@@ -114,7 +114,7 @@ When configuring high availability for your Azure Database for MySQL Flexible Se
 
 ### Automated deployment
 
-Automate your deployments as much as possible. You can automate infrastructure deployment, and also automate application code deployments.
+Automate your deployments as much as possible. You should automate infrastructure deployment and application code deployments.
 
 Automating infrastructure deployments guarantees that infrastructure is configured the same, avoiding configuration drift, for instance between environments. Infrastructure automation can also help you test failover and quickly bringing up a secondary region.
 
