@@ -10,7 +10,7 @@ This reference architecture shows how to run application workloads on Azure Spri
 
 1. The user accesses the application via browser by using the HTTP host name of the application, for example `www.contoso.com`. [Azure DNS](/azure/dns/dns-overview) or another public DNS service resolves the request for this host name to the public endpoint of the Application Gateway.
 
-1. Application Gateway deploys with [Azure Web Application Firewall](/azure/web-application-firewall/overview). The Application Gateway is configured with a custom domain name and TLS certificate name. Web Application Firewall will add checking for OWASP vulnerabilities.
+1. Application Gateway deploys with [Azure Web Application Firewall](/azure/web-application-firewall/overview). The Application Gateway is configured with a custom domain name and TLS certificate name. Web Application Firewall will add checking for [OWASP](https://owasp.org/) (The Open Web Application Security Project) vulnerabilities.
 
 1. Application Gateway forwards allowed traffic to the Azure Spring Apps load balancers, which allow incoming calls only from the Application Gateway.
 
