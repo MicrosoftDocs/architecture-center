@@ -55,7 +55,7 @@ You can also combine a multizone solution with a multiregion solution.
 
 This architecture uses a MySQL database for the backend database. You can also use other database technologies, like [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview), [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview), [Azure Database for MariaDB](/azure/mariadb/overview), or [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
-Some of these databases you'll also be able to connect to your virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). Azure Private Link isn't available for [Azure Flexible Database for MySQL](https://azure.microsoft.com/products/mysql), which needs a dedicated subnet to be deployed in.
+Some of these databases you'll also be able to connect to your virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). Azure Private isn't necessary for [Azure Flexible Database for MySQL](https://azure.microsoft.com/products/mysql), which directly supports VNet integration through a dedicated subnet.
 
 ### Reverse proxy setup
 
