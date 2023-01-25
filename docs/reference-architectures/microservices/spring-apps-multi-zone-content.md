@@ -108,7 +108,7 @@ Key Vault is automatically zone-redundant in any region where availability zones
 
 ### MySQL Flexible Server
 
-[MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. So also for the database.
+[MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. Including the database.
 
 When configuring high availability concepts in Azure Database for MySQL Flexible Server, you can choose between `Zone-redundant HA` and `same-zone HA`. What option you choose will depend on your latency requirements.
 
