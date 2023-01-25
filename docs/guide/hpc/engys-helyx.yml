@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title:  Deploy Engys HELYX on an Azure virtual machine
+  description: Learn how Engys HELYX computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 01/26/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-cyclecloud
+name: Deploy Engys HELYX on an Azure virtual machine
+summary: Learn how Engys HELYX CFD software performs on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/engys-helyx-thumb.png
+content: |
+  [!include[](engys-helyx-content.md)]
