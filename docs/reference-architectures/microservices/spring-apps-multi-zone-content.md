@@ -1,4 +1,4 @@
-This reference architecture shows how to run application workloads on Azure Spring Apps using a zone-redundant configuration. [Zone-redundant services](https://learn.microsoft.com/azure/reliability/availability-zones-service-support#highly-available-services) provide high availability by replicating your services and data across availability zones to protect against single points of failure. For a templated deployment of this architecture, see [Deploy this scenario](#deploy-this-scenario).
+This reference architecture shows how to run application workloads on Azure Spring Apps using a zone-redundant configuration. [Zone-redundant services](https://learn.microsoft.com/azure/reliability/availability-zones-service-support#highly-available-services) provide high availability by replicating your services and data across availability zones to protect against single points of failure. For a deployment of this architecture using Terraform templates, see [Deploy this scenario](#deploy-this-scenario).
 
 ## Architecture
 
