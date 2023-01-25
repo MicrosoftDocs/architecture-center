@@ -94,7 +94,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Front And IP Addresses
 
-[Availability Zone](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone) support is available for Public IP addresses with a standard SKU. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. So also for the public IP address used by the Application Gateway.
+[Availability Zone](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone) support is available for Public IP addresses with a standard SKU. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. Including the public IP address used by the Application Gateway.
 
 ### Application Gateway
 
