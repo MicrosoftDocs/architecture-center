@@ -20,4 +20,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-arc-sql-managed-instance-dr-thumb
 content: |
-   [!include[](arc-sql-managed-instance-dr-content.md)]
+   [!include[](arc-sql-managed-instance-disaster-recovery-content.md)]
