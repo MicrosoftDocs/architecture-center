@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-01-16T17:25:14.875Z</updated>
+    <updated>2023-01-23T21:33:14.431Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2023-01-18T17:24:29.000Z</updated>
+        <summary type="html"><![CDATA[Deployment options for platform and application landing zones in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Enable machine learning inference on an Azure IoT Edge device]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/iot/machine-learning-inference-iot-edge</id>
@@ -31,6 +39,62 @@
         <updated>2023-01-06T22:30:32.000Z</updated>
         <summary type="html"><![CDATA[Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Service Fabric microservices architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric"/>
+        <updated>2023-01-19T17:16:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy microservices to Azure Service Fabric, which can be used as a starting point for most cluster configuration deployments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Network security checklist for MLOps solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/network-security-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/network-security-mlops"/>
+        <updated>2023-01-17T22:44:16.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure network security capabilities, such as virtual networks, network peering, Private Link, and private DNS zones to protect MLOps solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Messaging]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/messaging</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/messaging"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Personalization using Azure Cosmos DB]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Database for MySQL]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for MySQL.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Database for PostgreSQL]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for PostgreSQL.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Streaming using HDInsight]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/streaming-using-hdinsight</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/streaming-using-hdinsight"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Azure Private Link in a hub-and-spoke network]]></title>
