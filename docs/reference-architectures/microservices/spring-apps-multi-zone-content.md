@@ -22,6 +22,8 @@ This reference architecture shows how to run application workloads on Azure Spri
 
 1. An [Azure Flexible Database for MySQL](/azure/mysql/flexible-server/overview) is being used for data storage, but you can use any database. For alternatives, see [Backend database](#backend-database). The database server is deployed within the virtual network.
 
+1. The private endpoint and network integrated connections use an [Azure Private DNS Zone](https://learn.microsoft.comazure/dns/private-dns-getstarted-cli).
+
 ### Components
 
 - [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for Domain Name System (DNS) domains that provides name resolution by using Azure infrastructure. This solution uses Azure DNS for DNS resolution from your custom domain to your Azure Application Gateway.
