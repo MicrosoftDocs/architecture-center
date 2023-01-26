@@ -1220,7 +1220,7 @@ items:
               - name: Location-based conditional access control
                 href: example-scenario/financial/location-based-access.yml
               - name: Modernize mainframe & midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                href: example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
                 href: example-scenario/banking/patterns-and-implementations.yml
               - name: Real-time fraud detection
