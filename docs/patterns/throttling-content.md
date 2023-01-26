@@ -46,11 +46,15 @@ You should consider the following points when deciding how to implement this pat
 
 - Throttling must be performed quickly. The system must be capable of detecting an increase in activity and react accordingly. The system must also be able to revert to its original state quickly after the load has eased. This requires that the appropriate performance data is continually captured and monitored.
 
-- If a service needs to temporarily deny a user request, it should return a specific error code so the client application understands that the reason for the refusal to perform an operation is due to throttling. The client application can wait for a period before retrying the request.
+- If a service needs to temporarily deny a user request, it should return a specific error code (e.g., 429 or 503) so the client application understands that the reason for the refusal to perform an operation is due to throttling. The client application can wait for a period before retrying the request. A ```Retry-After``` HTTP header should be included, to support the client in choosing the retry strategy.
 
 - Throttling can be used as a temporary measure while a system autoscales. In some cases it's better to simply throttle, rather than to scale, if a burst in activity is sudden and isn't expected to be long lived because scaling can add considerably to running costs.
 
-- If throttling is being used as a temporary measure while a system autoscales, and if resource demands grow very quickly, the system might not be able to continue functioning&mdash;even when operating in a throttled mode. If this isn't acceptable, consider maintaining larger capacity reserves and configuring more aggressive autoscaling.
+- If throttling is being used as a temporary measure while a system autoscales, and if resource demands grow very quickly, the system might not be able to continue functioning&mdash;even when operating in a throttled mode. If this isn't acceptable, consider maintaining larger capacity reserves and configuring more aggressive autoscaling. 
+
+- Normalizing resource cost for different operations as they generally do not carry equal cost execution. For example, throttling limits might be lower for read operations and could be higher for write operations. Not considering the cost of an operation can result in exhausted capacity as well as exposing a potential attack vector.  
+
+- Runtime configuration change of throttling behaviour is desirable. If a system facing abnormal load which the applied configuration cannot handle, throttling limits might need to increase or decrease to stabilize the system. Expensive, risky and slow deployments is not desirable at this point. Using the [External Configuration Store pattern](./external-configuration-store.yml) throttling configuration is externalized and can be changed and applied without deployments.
 
 ## When to use this pattern
 
@@ -86,3 +90,4 @@ The following patterns may also be relevant when implementing this pattern:
 
 - [Queue-based Load Leveling pattern](./queue-based-load-leveling.yml). Queue-based load leveling is a commonly used mechanism for implementing throttling. A queue can act as a buffer that helps to even out the rate at which requests sent by an application are delivered to a service.
 - [Priority Queue pattern](./priority-queue.yml). A system can use priority queuing as part of its throttling strategy to maintain performance for critical or higher value applications, while reducing the performance of less important applications.
+- [External Configuration Store pattern](./external-configuration-store.yml). Centralizing and externalizing the throttling polices provides the capability to change configuration at runtime without deployments. Services can subscribe to configuration changes, thereby apply the new configuration immediately, to stabilize a system.
