@@ -38,26 +38,12 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 ## Icon updates
 
-See the most recent change log for the Azure icons download pack.
-
-### November 2020
-
-The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there's no longer a CXP folder. If you encounter any issues, let us know.
-
-### January 2021
-
-There are ~26 icons that have been added to the existing set.
-
-### November 2022
-
-Updated the following icon names for Microsoft Defender and Microsoft Defender for Cloud renaming:
-
-- 02247-icon-service-Azure-Defender.svg to 02247-icon-service-Microsoft-Defender.svg
-- 10241-icon-service-Security-Center.svg to 10241-icon-service-Microsoft-Defender-for-Cloud.svg
-
-### January 2023
-
-Added ~106 icons for various services and components.
+|Month|Change description|
+|--------------|--------------|
+|January 2023|Added ~106 icons for various services and components.|
+|November 2022|Updated icon names from Azure Security Center to Microsoft Defender for Cloud.|
+|January 2021|There are ~26 icons that have been added to the existing set.|
+|November 2020|The folder structure of our collection of Azure architecture icons has changed. The FAQs and Terms of Use PDF files appear in the first level when you download the SVG icons below. The files in the icons folder are the same except there's no longer a CXP folder.|
 
 ## Icon terms
 
@@ -72,8 +58,6 @@ I agree to the above terms.
 
 ## More icon sets from Microsoft
 
-- [Build Azure icons and diagrams with Visio for Microsoft 365](https://aka.ms/AzureDiagrams)
-    - *You must have a Visio license to access this diagram*
 - [Microsoft 365 architecture icons and templates](/microsoft-365/solutions/architecture-icons-templates)
 - [Dynamics 365 icons](/dynamics365/get-started/icons)
 - [Microsoft Power Platform icons](/power-platform/guidance/icons)

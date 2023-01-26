@@ -4,8 +4,9 @@ Improve uptime and operations in travel and hospitality, manufacturing, retail, 
 
 ## Architecture
 
-![Architecture diagram](../media/facilities-management-powered-by-mixed-reality-and-iot.png)
-*Download an [SVG](../media/facilities-management-powered-by-mixed-reality-and-iot.svg) of this architecture.*
+![Diagram that shows facilities management powered by mixed reality and I o T.](../media/facilities-management-powered-by-mixed-reality-and-iot.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/facilities-management-powered-by-mixed-reality-and-iot.vsdx) of this architecture.*
 
 ### Dataflow
 

@@ -1474,6 +1474,8 @@ items:
                 href: example-scenario/confidential/healthcare-inference.yml
               - name: Consumer health portal on Azure
                 href: example-scenario/digital-health/health-portal.yml
+              - name: Donor-patient cross matching
+                href: example-scenario/machine-learning/donor-patient-cross-match.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
               - name: Implement risk prediction for surgeries
@@ -3090,6 +3092,8 @@ items:
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Distributed model hyperparameter tuning
                 href: example-scenario/ai/training-python-models.yml
+              - name: Donor-patient cross matching
+                href: example-scenario/machine-learning/donor-patient-cross-match.yml
               - name: End-to-end computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
@@ -3516,6 +3520,8 @@ items:
                         href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
+                  - name: Engys HELYX 
+                    href: guide/hpc/engys-helyx.yml  
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
@@ -4798,6 +4804,8 @@ items:
                 items:
                 - name: Azure Arc hybrid management with AKS
                   href: hybrid/arc-hybrid-kubernetes.yml
+                - name:  Deploy an Azure Arc-enabled SQL managed instance for DR
+                  href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
                 - name: Manage configurations for Azure Arc
                   href: hybrid/azure-arc-hybrid-config.yml
                 - name: Optimize SQL Server with Azure Arc

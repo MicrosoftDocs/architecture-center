@@ -4,8 +4,9 @@ This solution is built on the Azure managed services: [Blob Storage](https://azu
 
 ## Architecture
 
-![Architecture diagram shows the flow from the video files through Azure Blob Storage and Live Encoder to the streaming endpoint.](../media/digital-media-video.png)
-*Download an [SVG](../media/digital-media-video.svg) of this architecture.*
+![Architecture diagram shows the flow from the video files through Azure Blob Storage and Live Encoder to the streaming endpoint.](../media/digital-media-video.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/digital-media-video.vsdx) of this architecture.*
 
 ### Components
 
