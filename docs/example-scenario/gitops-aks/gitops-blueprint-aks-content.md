@@ -62,6 +62,8 @@ The configuration source repository could be any Git compatible repository, incl
 
 ## Scenario 3: GitOps with Flux and AKS
 
+![Diagram of GitOps with Flux v2, GitHub and AKS](media/GitOps_Flux_GitHub_AKS.png)
+
 In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS. Flux:
 
 1. Pulls desired changes from GitHub.
@@ -77,6 +79,8 @@ In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster
 1. [Flux can also be configured against Azure Blob Storage Container as a source to produce artifacts](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
 ## Scenario 4: Implementing CI/CD using GitOps with Flux, GitHub and AKS
+
+![Diagram of implementing CI/CD using GitOps with Flux, GitHub and AKS.](media/GitOps_CICD_Flux_GitHub_AKS.png)
 
 ### Dataflow
 
