@@ -52,11 +52,11 @@ Before you activate the private endpoint, have a virtual network and subnet read
   - Register the A record in the `privatelink.azurewebsites.net` DNS zone.
   - Depending on your setup, possibly configure a DNS forwarder to resolve the Azure DNS public zone, `azurewebsites.net`.
 
-  For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
+  For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 In both cases, during the creation of the private endpoint, the Azure DNS public zone (`azurewebsites.net`) is automatically updated with the CNAME record that points to the private DNS zone. Users can try to reach the web app from sources that can't resolve the private DNS zone to retrieve the actual A record and its internal IP address. Those users get a public resolvable IP address, but the response is *403 Forbidden*.
 
-In this guide's architecture, the provider VM accesses the Azure web app. That access is possible because the private DNS zone is linked to the virtual network of the VM. The VM can reach the private endpoint because they reside in the same subnet.
+In this guide's architecture, the provider VM accesses the Azure web app. That access is possible because the private DNS zone is linked to the virtual network of the VM. The VM can reach the private endpoint because the VM and endpoint reside in the same subnet.
 
 ## Consumer setup
 
@@ -135,8 +135,8 @@ VMs aren't included in this pricing overview because they're not an absolute req
 
 - The provider needs to share the subscription ID, the resource group name, and the Azure web app resource name with the consumer. Similarly, the consumer shares the subscription ID, the resource group name, and the private endpoint resource name with the provider.
 - There are limits to the number of private endpoints that you can create in a subscription. But because the private endpoints are created in the consumer subscriptions, this limit shouldn't be a problem. For more information, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- The subscription that contains the Private Link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](/azure/azure-resource-manager/management/resource-providers-and-types).
-- If you have connectivity problems, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity). In particular, verify the DNS configuration.
+- The subscription that contains the Private Link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure resource providers](/azure/azure-resource-manager/management/resource-providers-and-types).
+- If you have connectivity problems, see [Troubleshoot Azure private endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity). In particular, verify the DNS configuration.
 
 ## Deploy this scenario
 
@@ -152,7 +152,7 @@ Principal author:
 
 Other contributor:
 
- - [Rajkumar (Raj) Balakrishnan](https://www.linkedin.com/in/raj-microsoft) | Digital Cloud Solution Architect
+- [Rajkumar (Raj) Balakrishnan](https://www.linkedin.com/in/raj-microsoft) | Digital Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
