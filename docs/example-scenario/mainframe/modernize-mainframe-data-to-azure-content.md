@@ -1,24 +1,25 @@
-This reference architecture outlines an end-to-end modernization plan for mainframe and midrange data sources.
+This article describes an end-to-end modernization plan for mainframe and midrange data sources.
 
 ## Architecture
 
 :::image source="./images/modernize-mainframe-data-with-azure.png" alt-text="Architecture diagram that shows how to modernize mainframe and midrange systems by migrating data to Azure." border="false":::
 :::image-end:::
 
-The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains boxes that represent the file system, the relational and non-relational databases, and the object conversion components. Arrows point from the on-premises components to the Azure components. One of those arrows goes through the object conversion box, and one is labeled on-premises data gateway. The Azure part contains boxes that represent data ingestion and transformation, data storage, Azure services, and client apps. Some arrows point from the on-premises components to the tools and services in the data integration and transformation box. Another arrow points from that box to the data storage box, which contains databases and data stores. Additional arrows point from data storage to Azure services and to client apps.
-
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
 ### Dataflow
 
-Mainframe Data tiers modernization must pass through the process below and steps to orchestrate dataflow.
+The following dataflow outlines a process for modernizing a mainframe data tier. It corresponds to the preceding diagram.
 
-1. **On-Premises Data Gateway** The [on-premises data gateway](/data-integration/gateway) acts as a bridge. It provides quick and secure data transfer between Mainframe on-premises data to Azure Services. 
+1. **On-premises data gateway** 
+
+   The [on-premises data gateway](/data-integration/gateway) serves as a bridge. It provides enhanced-security data transfer between mainframe on-premises data and Azure services.
+
 1. **Object conversion**
 
-   The object conversion process extracts object definitions from sources. The definitions are then converted into corresponding objects on the target data store.
+   The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects on the target data store.
 
-   -	[Microsoft SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) (SSMA) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
+   -	[SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) for DB2 migrates schemas and data from IBM Db2 databases to Azure databases.
    - Data Provider for Host Files converts objects by:
        - Parsing COBOL and RPG record layouts, or copybooks.
        - Mapping the copybooks to C# objects that .NET applications use.
@@ -31,6 +32,7 @@ Mainframe Data tiers modernization must pass through the process below and steps
    **File data**
 
    a. FTP transfers mainframe and midrange datasets with single layouts and unpacked fields in binary format to Azure.
+   
    b. Mainframe Dataset Converter.
     
       Mainframe and midrange systems store data on DASD or tape in EBCDIC format in these types of files:
@@ -189,6 +191,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors: Ashish Khandelwal
+
 Other contributors: Nithish Aruldoss
 
 ## Next steps
