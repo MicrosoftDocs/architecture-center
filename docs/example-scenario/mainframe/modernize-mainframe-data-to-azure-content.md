@@ -66,14 +66,18 @@ Mainframe Data tiers modernization must pass through the process below and steps
    d. **Migrate Non-Relational Database data**
 
       IBM mainframe and midrange systems store data in non-relational databases including:
-    - [IDMS], a [network model] Database Management System (DBMS)
-    - [IMS], a [hierarchical model] DBMS
-    - [ADABAS]
-    - [Datacom]
-      Third-party products integrate data from these databases.
-4) Data Ingestion
-Azure services like Data Factory and AzCopy load data into Azure databases and Azure data storage. Third-party solutions and custom loading solutions can also load data.
-5) Data storage
+    - [IDMS](https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) Database Management System (DBMS)
+    - [IMS](https://www.ibm.com/it-infrastructure/z/ims), a [hierarchical model](https://www.ibm.com/support/knowledgecenter/SSEPH2_14.1.0/com.ibm.ims14.doc.apg/ims_comparehierandreldbs.htm) DBMS
+    - [ADABAS](https://www.softwareag.com/en_corporate/platform/adabas-natural.html)
+    - [Datacom](https://www.broadcom.com/products/mainframe/databases-database-mgmt/datacom)
+      
+    Third-party products integrate data from these databases.
+
+1. **Data Ingestion**
+
+   Azure services like Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. Third-party solutions and custom loading solutions can also load data.
+
+1. Data storage
 Azure offers many managed data storage solutions:
 •	Databases:
 o	Azure SQL Database
