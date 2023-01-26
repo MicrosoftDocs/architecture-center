@@ -13,14 +13,14 @@ Architecture diagram of an Azure pipeline deploying to Azure App Services. The d
 
 ### Dataflow
 
-The data flows through the scenario as follows. The items in bold are specific to Web Apps and not part of the [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml)
+This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml) and only focuses on Web App specific details.
 
-1. A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks such as linting, building, and unit testing the code. If any of the checks fail, the PR doesn't merge. The result of a successful run of this pipeline is a successful merge of the PR.
-1. A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same tasks as the PR pipeline with some important additions. The CI pipeline runs integration tests. These tests require secrets, so this pipeline gets those secrets from Azure Key Vault. The result of a successful run of this pipeline is the creation and publishing of build artifacts. **The build artifact for Web Apps is a Web Deploy package.**
-1. The completion of the CI pipeline [triggers the CD pipeline](/azure/devops/pipelines/process/pipeline-triggers).
-1. **The CD pipeline downloads the Web Deploy package that are created in the CI pipeline and deploys the solution to a staging slot in App Services.** The pipeline then runs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a [manual validation task](/azure/devops/pipelines/tasks/utility/manual-validation?tabs=yaml) is run, requiring a person to validate the deployment and resume the pipeline.
-1. **If the manual intervention is resumed, the pipeline swaps staging and production, releasing the solution to production.**
-1. Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
+1. **PR pipeline** - *Same as the baseline*
+1. **CI pipeline** - Same as the baseline, except the build artifacts created for Web Apps is a Web Deploy package.
+1. **CD pipeline trigger** - *Same as the baseline*
+1. **CD release to staging** - Same as the baseline with 2 exceptions: 1) the build artifact that is downloaded is the Web Deploy Package and 2) the package is deployed to a staging slot in App Services.
+1. **CD release to production** - Same as the baseline with 2 exceptions: 1) the release to production for a Web App swaps the production and staging slot, and 2) the rollback for Web Apps swaps production with staging.
+1. **Monitoring** - *same as the baseline*
 
 ### Components
 
