@@ -59,7 +59,7 @@ The client application can wait for a period before retrying the request. A `Ret
 
 - Normalizing resource costs for different operations as they generally do not carry equal execution costs. For example, throttling limits might be lower for read operations and higher for write operations. Not considering the cost of an operation can result in exhausted capacity and exposing a potential attack vector. 
 
-- Runtime configuration change of throttling behaviour is desirable. If a system facing abnormal load which the applied configuration cannot handle, throttling limits might need to increase or decrease to stabilize the system. Expensive, risky and slow deployments is not desirable at this point. Using the [External Configuration Store pattern](./external-configuration-store.yml) throttling configuration is externalized and can be changed and applied without deployments.
+- Dynamic configuration change of throttling behavior at runtime is desirable. If a system faces an abnormal load that the applied configuration cannot handle, throttling limits might need to increase or decrease to stabilize the system and keep up with the current traffic. Expensive, risky, and slow deployments are not desirable at this point. Using the [External Configuration Store pattern](./external-configuration-store.yml) throttling configuration is externalized and can be changed and applied without deployments.
 
 ## When to use this pattern
 
