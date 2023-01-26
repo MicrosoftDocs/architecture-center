@@ -243,7 +243,7 @@ Although the availability and reliability considerations are not fully pertainin
 - Where possible, don't store service state inside the container. Instead, use an Azure platform as a service (PaaS) that supports multi-region replication.
 - If you use Azure Storage, prepare and test how to migrate your storage from the primary region to the backup region.
 - Consider deploying the cluster configuration using [GitOps](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks). Using GitOps provides uniformity between primary and DR clusters and a quick way to rebuild new cluster in case of cluster loss. 
-- •	Consider backup / restore of the cluster configuration using tools such as [Velero](https://github.com/vmware-tanzu/velero).
+- Consider backup/restore of the cluster configuration using tools such as [Velero](https://github.com/vmware-tanzu/velero).
 
 ### Storage considerations
 
