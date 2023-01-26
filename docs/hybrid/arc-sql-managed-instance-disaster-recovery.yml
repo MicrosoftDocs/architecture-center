@@ -18,6 +18,6 @@ products:
   - azure-arc
   - azure-sql-managed-instance
 
-thumbnailUrl: /azure/architecture/browse/thumbs/azure-arc-sql-managed-instance-dr-thumb
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-arc-sql-managed-instance-dr-thumb.png
 content: |
    [!include[](arc-sql-managed-instance-disaster-recovery-content.md)]
