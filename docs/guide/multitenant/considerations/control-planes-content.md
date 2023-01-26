@@ -84,7 +84,7 @@ Control planes are often highly privileged systems. Security issues within a con
 
 When you design and implement a control plane, it's essential that you follow good security best practices, and that you create a comprehensive threat model to document and mitigate potential threats and security issues in your solution. For more information, see the [Azure Well-Architected Framework guidance for building secure solutions](/azure/architecture/framework/security/overview).
 
-### Operational excellence
+#### Operational excellence
 
 Because a control plane is a critical component, you should carefully consider how you deploy and operate it in production.
 
