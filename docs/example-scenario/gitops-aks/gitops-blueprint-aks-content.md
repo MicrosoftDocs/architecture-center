@@ -1,5 +1,3 @@
-Organizations that use Kubernetes to run their application workloads have to follow these requirements when securing their clusters. Kubernetes isn't secure by default, but operators can use its features to make it secure.
-
 GitOps  is a set of principles for operating and managing software systems. Though GitOps can be applied to any software system, GitOps finds extensive use in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation.
 
 [GitOps](https://github.com/open-gitops/documents/blob/main/PRINCIPLES.md) is a set of principles for operating and managing software systems. Though GitOps can be applied to any software system, GitOps finds extensive use in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation.According to GitOps principles, the desired state of a GitOps managed system must be:
