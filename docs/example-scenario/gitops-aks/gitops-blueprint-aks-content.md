@@ -2,10 +2,10 @@ GitOps  is a set of principles for operating and managing software systems. Thou
 
 [GitOps](https://github.com/open-gitops/documents/blob/main/PRINCIPLES.md) provides a set of principles for operating and managing software systems. Though GitOps can be applied to any software system, GitOps finds extensive use in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation. According to GitOps principles, the desired state of a GitOps managed system must be:
 
-* Declarative: A system managed by GitOps must have its desired state expressed declaratively.
-* Versioned and Immutable: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
-* Pulled Automatically: Software agents automatically pull the desired state declarations from the source.
-* Continuously Reconciled:  Software agents continuously observe actual system state and attempt to apply the desired state.
+- **Declarative**: A system managed by GitOps must have its desired state expressed declaratively.
+- **Versioned and Immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
+- **Pulled Automatically**: Software agents automatically pull the desired state declarations from the source.
+- **Continuously Reconciled**:  Software agents continuously observe actual system state and attempt to apply the desired state.
 
 Kubernetes describes everything from cluster state to application deployments declaratively with code. In GitOps, [infrastructure as code (IaC)](https://wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components like virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
