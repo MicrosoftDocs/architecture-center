@@ -94,7 +94,7 @@ You can consider the following two approaches when you deploy resources in a mul
 - **Use an automated deployment pipeline to deploy every resource.** As new tenants are added, reconfigure your pipeline to provision the resources for each tenant.
 - **Use an automated deployment pipeline to deploy shared resources that don't depend on the number of tenants.** For resources that are deployed for each tenant, create them within your application.
 
-When considering the two approaches, you should distinguish between treating your tenant list as a *configuration* or as *data*. This distinction is also important when you consider how to build a [control [plane](../considerations/control-planes.yml) for your system.
+When considering the two approaches, you should distinguish between treating your tenant list as a *configuration* or as *data*. This distinction is also important when you consider how to build a [control plane](../considerations/control-planes.yml) for your system.
 
 ### Tenant list as configuration
 
