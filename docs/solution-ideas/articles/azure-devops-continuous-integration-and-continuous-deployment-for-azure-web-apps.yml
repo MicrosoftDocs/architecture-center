@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: CI/CD for Azure Web Apps
+  title: CI/CD with Azure Pipelines for Azure Web Apps
   titleSuffix: Azure Architecture Center
   description: Learn how to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a CI/CD pipeline.
   author: martinekuan
