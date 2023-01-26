@@ -46,7 +46,12 @@ You should consider the following points when deciding how to implement this pat
 
 - Throttling must be performed quickly. The system must be capable of detecting an increase in activity and react accordingly. The system must also be able to revert to its original state quickly after the load has eased. This requires that the appropriate performance data is continually captured and monitored.
 
-- If a service needs to temporarily deny a user request, it should return a specific error code (e.g., 429 or 503) so the client application understands that the reason for the refusal to perform an operation is due to throttling. The client application can wait for a period before retrying the request. A ```Retry-After``` HTTP header should be included, to support the client in choosing the retry strategy.
+- If a service needs to deny a user request temporarily, it should return a specific error code like 429 ("Too many requests") and 503 ("Server Too Busy") so the client application can understand that the reason for the refusal to serve a request is due to throttling. 
+
+ - HTTP 429 indicates the calling application sent too many requests in a time window and exceeded a predetermined limit.
+ - HTTP 503 indicates the service isn't ready to handle the request. The common cause is that the service is experiencing temporary load spikes than expected.
+
+The client application can wait for a period before retrying the request. A `Retry-After` HTTP header should be included, to support the client in choosing the retry strategy.
 
 - Throttling can be used as a temporary measure while a system autoscales. In some cases it's better to simply throttle, rather than to scale, if a burst in activity is sudden and isn't expected to be long lived because scaling can add considerably to running costs.
 
