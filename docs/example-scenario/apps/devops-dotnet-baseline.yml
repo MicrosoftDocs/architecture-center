@@ -19,7 +19,7 @@ metadata:
     - app-development
     - internal-intro
   social_image_url: /azure/architecture/example-scenario/apps/media/azure-devops-ci-cd-architecture.png
-name: Design a CI/CD pipeline using Azure DevOps
+name: CI/CD with Azure Pipelines baseline architecture
 azureCategories:
   - developer-tools
   - devops
