@@ -4804,6 +4804,8 @@ items:
                 items:
                 - name: Azure Arc hybrid management with AKS
                   href: hybrid/arc-hybrid-kubernetes.yml
+                - name:  Deploy an Azure Arc-enabled SQL managed instance for DR
+                  href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
                 - name: Manage configurations for Azure Arc
                   href: hybrid/azure-arc-hybrid-config.yml
                 - name: Optimize SQL Server with Azure Arc
