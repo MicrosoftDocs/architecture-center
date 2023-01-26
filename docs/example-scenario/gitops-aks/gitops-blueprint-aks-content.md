@@ -27,6 +27,8 @@ The most common and widely used GitOps operators are [Flux](<https://fluxcd.io/>
 
 ## Scenario 1:  GitOps with Argo CD, GitHub repository and AKS
 
+![Diagram of GitOps with Argo CD, GitHub and AKS.](media/GitOps_ArgoCD_GitHub_AKS.png)
+
 ### Data Flow
 
 The data flow for this scenario is as follows:
@@ -40,6 +42,8 @@ The data flow for this scenario is as follows:
 The configuration source repository could be any Git compatible repository, including Azure DevOps.
 
 ## Scenario 2:  Implementing CI/CD using GitOps with Argo CD, GitHub actions and AKS
+
+![Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS.](media/GitOps_CICD_ArgoCD_GitHub_AKS.png)
 
 ### Dataflow
 
