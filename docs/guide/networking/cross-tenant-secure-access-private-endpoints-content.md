@@ -1,6 +1,6 @@
 Like most Azure platform as a service (PaaS) services, Azure web apps and function apps are publicly available on the internet by default. If you want to restrict the inbound traffic to a web app or function app, Azure provides two built-in options: access restrictions and private endpoints.
 
-If you use access restrictions, you can configure the internal firewall of the resource by defining lists of allow and deny rules. You can base the restrictions on IP addresses (IPv4 and IPv6) or service tags, or you can use service endpoints to restrict access. When you use service endpoints, only traffic from selected subnets and virtual networks can access your app. There's no cost to use access restrictions, and they're available in all Azure App Service and Azure Functions plans. But access restrictions have some drawbacks. Maintaining allow and deny rules can be challenging. Also, to allow a third party to consume your service, you need to list its IP address in an allow rule. Some third party services have dynamic IPs, and some organizations view IP addresses as sensitive.
+If you use access restrictions, you can configure the internal firewall of the resource by defining lists of allow and deny rules. You can base the restrictions on IP addresses (IPv4 and IPv6) or service tags, or you can use service endpoints to restrict access. When you use service endpoints, only traffic from selected subnets and virtual networks can access your app. There's no cost to use access restrictions, and they're available in all Azure App Service and Azure Functions plans. But access restrictions have some drawbacks. Maintaining allow and deny rules can be challenging. Also, to allow a third party to consume your service, you need to list its IP address in an allow rule. Some third-party services have dynamic IPs, and some organizations view IP addresses as sensitive.
 
 The second built-in option, a private endpoint, gives clients in your private network secure access to your app over Azure Private Link. A private endpoint uses an IP address from your Azure virtual network address space. The network traffic between a client in your private network and the app traverses the virtual network and Private Link on the Microsoft backbone network. This solution eliminates exposure to the public internet. You can also use private endpoints to form ad hoc connections among Azure tenants. Specifically, you can create a secure site-to-point virtual private network (VPN) tunnel. The tunnel can run from a consumer virtual network in one tenant to an Azure web app or function app in another tenant. This approach eliminates the need to set up and maintain site-to-site VPNs or virtual network peerings, which limit the services that a client can access.
 
@@ -8,7 +8,7 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ## Architecture
 
-:::image type="content" source="./images/cross-tenant-secure-access-private-endpoints-architecture.png" alt-text="Architecture diagram that shows how a private endpoint provides a virtual machine in one tenant with access to a web app in another tenant." lightbox="./images/cross-tenant-secure-access-private-endpoints-architecture.png" border="false":::
+:::image type="content" source="./images/cross-tenant-secure-access-private-endpoints-architecture.png" alt-text="Architecture diagram that shows how a private endpoint securely connects a user on a virtual machine in one tenant with a web app in another tenant." lightbox="./images/cross-tenant-secure-access-private-endpoints-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-2025459-cross-tenant-secure-access-private-endpoints.vsdx) of this architecture.*
 
@@ -105,7 +105,7 @@ The consumer needs to set up and configure the private DNS zone to make sure its
 
 In this guide's architecture, the consumer VM uses the private endpoint to access the Azure web app. That access is possible as soon as the connection is approved and the DNS has been configured correctly.
 
-### Connection management
+## Connection management
 
 Both the provider and the consumer can manage the private endpoint connection after it has been created and approved.
 
