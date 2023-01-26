@@ -13,13 +13,18 @@ Architecture diagram of an Azure pipeline deploying to Azure App Services. The d
 
 ### Dataflow
 
-This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml) and only focuses on Web App specific details.
+This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#workflow) and only focuses on Web App specific details.
 
 1. **PR pipeline** - *Same as the baseline*
+
 1. **CI pipeline** - Same as the baseline, except the build artifacts created for Web Apps is a Web Deploy package.
+
 1. **CD pipeline trigger** - *Same as the baseline*
+
 1. **CD release to staging** - Same as the baseline with 2 exceptions: 1) the build artifact that is downloaded is the Web Deploy Package and 2) the package is deployed to a staging slot in App Services.
+
 1. **CD release to production** - Same as the baseline with 2 exceptions: 1) the release to production for a Web App swaps the production and staging slot, and 2) the rollback for Web Apps swaps production with staging.
+
 1. **Monitoring** - *same as the baseline*
 
 ### Components
