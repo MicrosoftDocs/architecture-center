@@ -3520,6 +3520,8 @@ items:
                         href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
+                  - name: Engys HELYX 
+                    href: guide/hpc/engys-helyx.yml  
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
@@ -4802,6 +4804,8 @@ items:
                 items:
                 - name: Azure Arc hybrid management with AKS
                   href: hybrid/arc-hybrid-kubernetes.yml
+                - name:  Deploy an Azure Arc-enabled SQL managed instance for DR
+                  href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
                 - name: Manage configurations for Azure Arc
                   href: hybrid/azure-arc-hybrid-config.yml
                 - name: Optimize SQL Server with Azure Arc
