@@ -54,7 +54,11 @@ As you grow beyond a few tenants, you'll likely gain benefits from having a way 
 
 After you've determined the requirements and the scope of your control plane, you need to design and architect it. A control plane is an important component in its own right, and just like the other elements of your system, it needs to be planned carefully.
 
-### Resiliency
+### Well-architected control planes
+
+Because a control plane is its own system, it's important that you consider all five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) when you design and architect your control plane. The following sections highlight some particular areas to focus on.
+
+#### Reliability
 
 Control planes are often mission-critical components, and it's essential that you plan the level of resiliency and reliability that your control plane needs.
 
@@ -63,13 +67,45 @@ Consider what happens if your control plane is unavailable. In extreme cases, a 
 - Your system isn't able to onboard new tenants, which might impact your sales and business growth.
 - Your system can't manage existing tenants, which results in more calls to your support team.
 - You can't measure the consumption of tenants, or bill them for their usage, which results in lost revenue.
+- You can't respond to a security incident by disabling or reconfiguring a tenant.
 - Maintenance debt accumulates, which results in longer-term damage to the system. For example, if your solution requires nightly cleanup of old data, will disks fill up or will your performance degrade?
 
+Define [service-level objectives](/azure/architecture/framework/resiliency/design-requirements) for your control plane, including availability targets, the recovery time objective (RTO), and the recovery point objective (RPO). The objectives that you set for your control plane might be different to those that you offer your customers.
+
 Follow the [Azure Well-Architected Framework guidance for building reliable solutions](/azure/architecture/framework/resiliency/overview) throughout your system, including your control plane.
+
+#### Security
+
+Control planes are often highly privileged systems. Security issues within a control plane can have catastrophic consequences. Depending on its design and functionality, a control plane might be vulnerable to many different types of attacks, including the following:
+
+- A control plane might have access to keys and secrets for all tenants. An attacker with access to your control plane might be able to gain access to a tenant's data or resources.
+- A control plane can often deploy new resources to Azure. An attacker might be able to exploit your control plane to deploy their own resources into your subscriptions, potentially incurring large charges.
+- If an attacker successfully brings your control plane offline, there can be both immediate and long-term damage to your system and to your business. See [Reliability](#reliability) for example consequences of a control plane being unavailable.
+
+When you design and implement a control plane, it's essential that you follow good security best practices, and that you create a comprehensive threat model to document and mitigate potential threats and security issues in your solution. For more information, see the [Azure Well-Architected Framework guidance for building secure solutions](/azure/architecture/framework/security/overview).
+
+### Operational excellence
+
+Because a control plane is a critical component, you should carefully consider how you deploy and operate it in production.
+
+Like other parts of your solution, you should deploy non-production instances of your control plane so that you can thoroughly test its functionality. If your control plane performs deployment operations then consider how your non-production control planes interact with your Azure environment, and which Azure subscription you deploy non-production resources to.
+
+You should also plan how you govern your team's access to your control plane. Follow best practices for granting the least permission possible for team members to perform their duties. As well as helping to avoid security incidents, this approach helps to reduce the impact of accidental misconfiguration.
 
 ### Components
 
 There's no single template for a control plane, and the components that you design and build depend on your requirements. Commonly, a control plane consists of APIs and background worker components. In some solutions, a control plane might also include a user interface.
+
+#### Isolate your control plane from tenant workloads
+
+It's a good practice to separate your control plane's resources from those used to serve your tenants' data planes. For example, you should consider using separate database servers, application servers and App Service plans, and other components. It's often a good idea to keep your control plane's resources in a separate Azure resource group from those that contain tenant-specific resources.
+
+By isolating your control plane from tenants' workloads, you gain several advantages:
+
+- You can configure scaling separately. For example, your control plane might have consistent resource requirements, while tenants' resources scale elastically depending on their needs.
+- There's a [bulkhead](../../../patterns/bulkhead.yml) between your control and data planes, which helps to avoid [noisy neighbor issues](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading between the planes of your solution.
+- Control planes are typically highly privileged systems with high levels of access. By separating the control plane from data planes, you reduce the likelihood that a security issue might allow an attacker to elevate their permission across your entire system.
+- You can deploy separate networking and firewall configuration. Data planes and control planes usually require different types of network access.
 
 #### Orchestrate sequences of long-running operations
 
