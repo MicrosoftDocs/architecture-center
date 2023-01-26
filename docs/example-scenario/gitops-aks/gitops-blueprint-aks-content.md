@@ -72,6 +72,8 @@ In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster
 1. Detects any configuration drift.
 1. Reconciles the state in the Kubernetes cluster.
 
+You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesConfiguration/fluxConfigurations resource type) at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
+
 ### Alternatives
 
 1. Flux can be used with other Git Repositories and CI/CD tools such as Azure DevOps, GitLabs, BitBucket etc. 
