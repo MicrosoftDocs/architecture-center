@@ -30,8 +30,8 @@ Mainframe Data tiers modernization must pass through the process below and steps
 
    **File data**
 
-   1. FTP transfers mainframe and midrange datasets with single layouts and unpacked fields in binary format to Azure.
-   1. Mainframe Dataset Converter.
+   a. FTP transfers mainframe and midrange datasets with single layouts and unpacked fields in binary format to Azure.
+   b. Mainframe Dataset Converter.
     
       Mainframe and midrange systems store data on DASD or tape in EBCDIC format in these types of files:
       - Indexed [VSAM](/sql/ssma/sql-server-migration-assistant) files
@@ -48,24 +48,28 @@ Mainframe Data tiers modernization must pass through the process below and steps
 
       [Host Integration Server (HIS)](/host-integration-server/what-is-his) is an industry tried and tested solution for decades. HFC give complete freedom/flexibility to the usage data that is converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that is transformed. The Host integration server technologies and tools enables existing IBM Host File system data transformation (EBCDIC to ASCII) efficiently.
 
-     **Azure Synapse with OSS (Open-Source Software)**  
+      **Azure Synapse with OSS (Open-Source Software)**  
 
-     This conversion solution is built based on industry known Open-Source Software (OSS) in [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics). It covers a wide range of mainframe data structures and desired targets with minimal coding efforts. It is an Apache spark-based solution and a good candidate for huge mainframe dataset workload conversion.
+      This conversion solution is built based on industry known Open-Source Software (OSS) in [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics). It covers a wide range of mainframe data structures and desired targets with minimal coding efforts. It is an Apache spark-based solution and a good candidate for huge mainframe dataset workload conversion.
 
-3c) Migrate Relational Database data
-IBM mainframe and midrange systems store data in relational databases including:
-o	Db2 for z/OS
-o	Db2 LUW
-o	Db2 for i
-     These services migrate the database data:
-o	Azure Data Factory uses a Db2 connector to extract and integrate data from these databases.
-o	SQL Server Integration Services (SSIS) handles a broad range of data ETL tasks.
-3d) Migrate Non-Relational Database data
-IBM mainframe and midrange systems store data in non-relational databases including:
-o	IDMS, a network model Database Management System (DBMS)
-o	IMS, a hierarchical model DBMS
-o	ADABAS
-o	Datacom
+   c. **Migrate Relational Database data**
+
+      IBM mainframe and midrange systems store data in relational databases including:
+      - [Db2 for z/OS](https://www.ibm.com/analytics/db2/zos)
+      - [Db2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.kc.doc/welcome.html)
+      - [Db2 for i](https://www.ibm.com/support/pages/db2-ibm-i)
+     
+      These services migrate the database data:
+     - Azure Data Factory uses a Db2 connector to extract and integrate data from these databases.
+     - SQL Server Integration Services (SSIS) handles a broad range of data [ETL](https://www.ibm.com/cloud/learn/etl) tasks.
+
+   d. **Migrate Non-Relational Database data**
+
+      IBM mainframe and midrange systems store data in non-relational databases including:
+    - [IDMS], a [network model] Database Management System (DBMS)
+    - [IMS], a [hierarchical model] DBMS
+    - [ADABAS]
+    - [Datacom]
       Third-party products integrate data from these databases.
 4) Data Ingestion
 Azure services like Data Factory and AzCopy load data into Azure databases and Azure data storage. Third-party solutions and custom loading solutions can also load data.
