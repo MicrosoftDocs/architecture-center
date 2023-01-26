@@ -2,10 +2,10 @@ GitOps  is a set of principles for operating and managing software systems. Thou
 
 [GitOps](https://github.com/open-gitops/documents/blob/main/PRINCIPLES.md) provides a set of principles for operating and managing software systems. Though GitOps can be applied to any software system, GitOps finds extensive use in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation. According to GitOps principles, the desired state of a GitOps managed system must be:
 
-- **Declarative**: A system managed by GitOps must have its desired state expressed declaratively.
-- **Versioned and Immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
-- **Pulled Automatically**: Software agents automatically pull the desired state declarations from the source.
-- **Continuously Reconciled**:  Software agents continuously observe actual system state and attempt to apply the desired state.
+1. **Declarative**: A system managed by GitOps must have its desired state expressed declaratively.
+1. **Versioned and Immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
+1. **Pulled Automatically**: Software agents automatically pull the desired state declarations from the source.
+1. **Continuously Reconciled**:  Software agents continuously observe actual system state and attempt to apply the desired state.
 
 Kubernetes describes everything from cluster state to application deployments declaratively with code. In GitOps, [infrastructure as code (IaC)](https://wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components like virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
@@ -15,15 +15,15 @@ One of the principles of GitOps is to continuously reconcile the system state wi
 
 Policy management / enforcement tools can be combined with GitOps to enforce policies and provide feedback for proposed policy changes. Notifications can be configured for various teams so that the teams are updated on the GitOps operation status (such as if a deployment is succeeded, or if a reconciliation failed).
 
-This article describes few common options for using GitOps with an Azure Kubernetes Services (AKS) cluster. This solution explores aspects of full audit capabilities, policy enforcement, and early feedback.
+This article describes few common options for using GitOps with an Azure Kubernetes Services (AKS) cluster. 
 
 ## Potential use cases
 
 This solution benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change.
 
-GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters (for example, apply the same configuration across primary and DR clusters, or across a farm or clusters).
+GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters (for example, to apply the same configuration across primary and DR clusters, or across a farm or clusters).
 
-The most common and widely used GitOps operators are Flux and Argo CD. Both are CNCF projects, and can be used with Azure Kubernetes Service.
+The most common and widely used GitOps operators are [Flux](<https://fluxcd.io/>) and [Argo CD](<https://argo-cd.readthedocs.io/>). Both are CNCF projects, and can be used with Azure Kubernetes Service.
 
 ## Scenario 1:  GitOps with Argo CD, GitHub repository and AKS
 
