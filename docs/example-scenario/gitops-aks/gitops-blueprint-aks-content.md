@@ -31,9 +31,9 @@ The most common and widely used GitOps operators are [Flux](<https://fluxcd.io/>
 
 The data flow for this scenario is as follows:
 
-* The Kubernetes administrator makes configuration changes in YAML files and commits the changes to the GitHub repository.
-* Argo CD syncs with, or pulls from, the Git repository.
-* Argo CD deploys the app to the AKS cluster.
+1. The Kubernetes administrator makes configuration changes in YAML files and commits the changes to the GitHub repository.
+1. Argo CD syncs with, or pulls from, the Git repository.
+1. Argo CD deploys the app to the AKS cluster.
 
 ### Alternatives
 
@@ -45,12 +45,12 @@ The configuration source repository could be any Git compatible repository, incl
 
 This scenario covers a pull-based DevOps pipeline for a web application. This pipeline uses GitHub Actions for build. For deployment, it uses Argo CD as a GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
-* The app code is developed.
-* The app code is committed to a GitHub repository.
-* GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
-* GitHub Actions updates a Kubernetes manifest deployment file with the current image version based on the version number of the container image in the Azure Container Registry.
-* Argo CD syncs with, or pulls from, the Git repository.
-* Argo CD deploys the app to the AKS cluster.
+1. The app code is developed.
+1. The app code is committed to a GitHub repository.
+1. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
+1. GitHub Actions updates a Kubernetes manifest deployment file with the current image version based on the version number of the container image in the Azure Container Registry.
+1. Argo CD syncs with, or pulls from, the Git repository.
+1. Argo CD deploys the app to the AKS cluster.
 
 ### Alternatives
 
@@ -60,17 +60,17 @@ The configuration source repository could be any Git compatible repository, incl
 
 In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS. Flux:
 
-* Pulls desired changes from GitHub.
-* Detects any configuration drift.
-* Reconciles the state in the Kubernetes cluster.
-* Manages Gatekeeper and the applications.
-* Updates itself.
+1. Pulls desired changes from GitHub.
+1. Detects any configuration drift.
+1. Reconciles the state in the Kubernetes cluster.
+1. Manages Gatekeeper and the applications.
+1. Updates itself.
 
 ### Alternatives
 
-* Flux can be used with other Git Repositories and CI/CD tools such as Azure DevOps, GitLabs, BitBucket etc. 
-* Instead of Git Repositories, [Flux Bucket API]{<https://fluxcd.io/flux/components/source/buckets/>} defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others. 
-* [Flux can also be configured against Azure Blob Storage Container as a source to produce artifacts](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
+1. Flux can be used with other Git Repositories and CI/CD tools such as Azure DevOps, GitLabs, BitBucket etc. 
+1. Instead of Git Repositories, [Flux Bucket API]{<https://fluxcd.io/flux/components/source/buckets/>} defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others. 
+1. [Flux can also be configured against Azure Blob Storage Container as a source to produce artifacts](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
 ## Scenario 4: Implementing CI/CD using GitOps with Flux, GitHub and AKS
 
@@ -78,12 +78,12 @@ In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster
 
 This scenario covers a pull-based DevOps pipeline for a web application. This pipeline uses GitHub Actions for build. For deployment, it uses Flux as a GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
-* The app code is developed.
-* The app code is committed to a GitHub repository.
-* GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
-* GitHub Actions updates a Kubernetes manifest deployment file with the current image version based on the version number of the container image in the Azure Container Registry.
-* Flux operator syncs with, or pulls from, the Git repository.
-* Flux deploys the app to the AKS cluster using manifest files. (Flux can deploy to AKS using Kubernetes manifests / helm charts / Kustomization files).
+1. The app code is developed.
+1. The app code is committed to a GitHub repository.
+1. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
+1. GitHub Actions updates a Kubernetes manifest deployment file with the current image version based on the version number of the container image in the Azure Container Registry.
+1. Flux operator syncs with, or pulls from, the Git repository.
+1. Flux deploys the app to the AKS cluster using manifest files. (Flux can deploy to AKS using Kubernetes manifests / helm charts / Kustomization files).
 
 ## Scenario 5: Enforcing policies using Sycier tower and GitOps operator. 
 
