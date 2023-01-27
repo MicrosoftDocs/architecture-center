@@ -34,11 +34,11 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
       COBOL, PL/I, and assembly language copybooks define the data structure of these files. Data Provider for Host Files converts the data from EBCDIC to ASCII format based on the copybook layout.
 
-      The Azure Data Factory custom connector is a no-code solution that uses the Host File client component of Host Integration Server. With minimal setup, you can use the custom connector to convert your mainframe dataset just as you'd use any other [Azure Data Factory](https://azure.microsoft.com/products/data-factory) connector.  
+      The Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. 
 
-      You can use [Host Integration Server](/host-integration-server/what-is-his) to integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
+      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. 
 
-      The conversion solution depicted in the diagram is based on open-source software that's used in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). The solution is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
+      A solution that's based on open-source software and is used in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) converts data. 
 
    c. Relational database data is migrated. 
 
@@ -49,7 +49,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
      
       These services migrate the database data:
      - Data Factory uses a Db2 connector to extract and integrate data from the databases.
-     - SQL Server Integration Services handles a various data [ETL](https://www.ibm.com/cloud/learn/etl) tasks.
+     - SQL Server Integration Services handles various data [ETL](https://www.ibm.com/cloud/learn/etl) tasks.
 
    d. Non-relational database data is migrated.
 
@@ -96,21 +96,23 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 #### Networking
 
 - An [on-premises data gateway](/data-integration/gateway/service-gateway-onprem) provides enhanced-security data transfer between mainframe on-premises data and Azure services. Typically, [you install the gateway on a dedicated on-premises VM](/data-integration/gateway/service-gateway-install). 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT](https://www.ibm.com/cloud/learn/etl#toc-etl-vs-elt-goFgkQcP) workflows.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a hybrid data integration service. In this solution, an Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. With minimal setup, you can use a custom connector to convert your mainframe dataset just as you'd use any other Azure Data Factory connector.
 - [AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command-line utility that moves blobs or files into and out of storage accounts.
 - [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) is a platform for creating enterprise-level data integration and transformation solutions. You can use it to solve complex business problems by:
    - Copying or downloading files.
    - Loading data warehouses.
    - Cleansing and mining data.
    - Managing SQL Server objects and data.
+- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools enable you to integrate existing IBM host systems, programs, messages and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
+- [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics) brings together data integration, enterprise data warehousing, and big data analytics. The Azure Synapse conversion solution used in this architecture is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
 
 #### Other tools
 
-- [SQL Server Migration Assistant for Db2](/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql) automates migration from Db2 to Microsoft database services. When it runs on a virtual machine, this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. 
+- [SQL Server Migration Assistant for Db2](/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql) automates migration from Db2 to Microsoft database services. When it runs on a VM, this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [Host Integration Server](/host-integration-server/what-is-his) that uses offline, SNA, or TCP/IP connections.
    - With offline connections, Data Provider reads and writes records in a local binary file.
    - With SNA and TCP/IP connections, Data Provider reads and writes records stored in remote z/OS (IBM Z Series Mainframe) datasets or remote i5/OS (IBM AS/400 and iSeries systems) physical files. Only i5/OS systems use TCP/IP.
@@ -135,7 +137,7 @@ Organizations that use mainframe and midrange systems can benefit from this solu
 
 - Modernize mission-critical workloads.
 - Acquire business intelligence to improve operations and gain a competitive advantage.
-- Remove the high costs and rigidity that's associated with mainframe and midrange data stores.
+- Remove the high costs and rigidity that are associated with mainframe and midrange data stores.
 
 ## Recommendations
 
