@@ -1,14 +1,15 @@
-Mainframe and midrange systems constitute critical data and could be migrated to Azure platform with different migration strategies. Data migration plays a key role when moving data from mainframe/midrange to Azure platform. In hybrid cloud strategy, customers require data to be replicated between mainframe/midrange and Azure data platform. To maintain the integrity of the data, customers need real time replication for business-critical applications. Precisely Connect can help customers to replicate data in real time using change data capture (CDC) and through batch from mainframe/midrange data sources to Azure data platform.
+ You can use various strategies to migrate mainframe and midrange systems to the Azure platform. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
 
-Precisely Connect supports different mainframe/midrange data sources (e.g., Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, copybooks) and migrate them to Azure (e.g., SQL DB, Azure PostgreSQL, Azure MySQL, Azure Data Lake Storage Gen2 (ADLS), Synapse) without impacting the applications. It also supports scalability based on the data volume and customer requirements. It replicates the data without affecting the performance and straining the network. 
+Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like Azure SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Azure Synapse Analytics, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network. 
 
-Potential use cases
+### Potential use cases
 
-This solution will be relevant in the scenarios below.
-- Data replication from mainframe/midrange data sources to Azure data platform.
-- In hybrid cloud platform, data replication will sync the data between mainframe/midrange and Azure data platform.
-- Near real time analytics on Azure using operational data from mainframe/midrange. 
-- Migrating data from mainframe/midrange to Azure without impacting the applications.
+This solution applies to the following scenarios:
+
+- Data replication from mainframe and midrange data sources the to Azure data platform.
+- In a hybrid cloud architecture, data sync between mainframe or midrange systems and the Azure data platform.
+- Near real-time analytics on Azure, based on operational data from mainframe or midrange systems. 
+- Migration of data from mainframe or midrange systems to Azure without affecting applications.
 
 ## Architecture
 
@@ -18,14 +19,14 @@ link
 
 ### Workflow 
 
-1.	Change logs are captured by an agent using mainframe/midrange native utilities and cached in temporary storage.
-2.	For mainframe, Publisher lives on the mainframe for managing the data migration.
-3.	For midrange, instead of Publisher, Listener manages the data migration which lives off the box which can be either on Windows or Linux machine.
-4.	Publisher/Listener will move the data from on-premises to Azure platform in a secure connection. It will handle the commit and rollback of transactions for each Unit of Work maintaining the integrity of data.
-5.	The Replicator captures the data from publisher/listener and applies them to the target. It can act as distributor for parallel processing of data.
-6.	The target could be a database using ODBC or ingesting the changes through Azure Event Hubs. 
-7.	The changed data can be consumed by Azure Databricks and applied to the Azure data platform services.
-8.	Controller daemon acts as authenticating service for the request and establish the socket connection between publisher/listener and replicator. 
+1.	An agent captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
+2.	For mainframe systems, a publisher on the mainframe manages data migration.
+3.	For midrange systems, in place of the publisher, a listener manages data migration. It's located on either a Windows or Linux machine.
+4.	The publisher or listener moves the data from on-premises to the Azure platform via an enhanced-security connection. It handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
+5.	A replicator engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
+6.	The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs. 
+7.	The changed data is consumed by Azure Databricks and applied to Azure data platform services.
+8.	Controller Daemon acts as authenticating service for the request and establish the socket connection between publisher/listener and replicator. 
 
 Components
 
