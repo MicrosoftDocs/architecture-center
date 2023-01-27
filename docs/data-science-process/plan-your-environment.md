@@ -164,7 +164,7 @@ After you have answered the questions in the previous section, you are ready to 
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -172,3 +172,10 @@ Principal author:
 
 > [!div class="nextstepaction"]
 > [What is the Team Data Science Process (TDSP)?](overview.yml)
+
+## Related resources
+
+- [Execute data science tasks: exploration, modeling, and deployment](execute-data-science-tasks.md)
+- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
+- [Platforms and tools for data science projects](platforms-and-tools.md)
+- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)

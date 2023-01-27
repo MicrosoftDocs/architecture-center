@@ -13,7 +13,7 @@ AKS|Azure Kubernetes Service|[Azure Kubernetes Service (AKS) documentation](/azu
 ARM|Azure Resource Manager|[ARM template documentation](/en-us/azure/azure-resource-manager/templates/)
 BAU|Business As Usual| 
 BC|Business Continuity|[Business continuity management program in Azure](/azure/availability-zones/business-continuity-management-program)
-BCDR|Business Continuity and Disaster Recovery|[Business continuity and disaster recovery - Cloud Adoption Framework](/availability-zones/business-continuity-management-program)
+BCDR|Business Continuity and Disaster Recovery|[Business continuity management in Azure](/azure/reliability/business-continuity-management-program)
 CI/CD|Continuous Integration & Continuous Deployment|[Azure DevOps - CI/CD Overview](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview?view=azure-devops#what-is-cicd) 
 DR|Disaster Recovery| 
 DNS|Domain Name System| 
@@ -67,3 +67,17 @@ Other contributors:
 - [Rolf Tesmer](https://www.linkedin.com/in/rolftesmer/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Azure Data Lake Storage training module](/training/modules/introduction-to-azure-data-lake-storage)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+- [Azure Synapse Analytics](/azure/synapse-analytics)
+
+## Related resources
+
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)

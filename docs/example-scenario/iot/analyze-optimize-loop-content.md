@@ -17,7 +17,9 @@ Some example scenarios for analyze and optimize loops include:
 
 The following diagram shows the schematic of a typical analyze and optimize loop and its relationships with other IoT process loops.
 
-![Diagram showing an analyze and optimize loop in context with measure and control and monitor and manage loops.](./media/analyze-and-optimize.svg)
+[ ![Architecture diagram showing an analyze and optimize loop in context with measure and control and monitor and manage loops.](./media/analyze-and-optimize.svg)](./media/analyze-and-optimize.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/analyze-and-optimize.vsdx) of this architecture.*
 
 In an analyze and optimize loop, data from various IoT, enterprise, private, and public sources flows into cloud data lakes. Offline analytics consume the data lakes to discover hidden trends and business optimization insights. The optimization insights from the offline analytics processes flow back to IoT installations through [monitor and manage loops](monitor-manage-loop.yml) and [measure and control loops](measure-control-loop.yml).
 

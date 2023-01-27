@@ -120,10 +120,16 @@ Principal author:
  
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-### Next steps
+## Next steps
 
 - [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 - [R on Azure](https://github.com/yueguoguo/r-on-azure): an overview of packages, tools, and case studies for using R with Azure
+
+## Related resources
+
+- [Data science and machine learning with Azure Databricks](../../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
+- [Batch scoring with R models to forecast sales](../../reference-architectures/ai/batch-scoring-R-models.yml)
+- [What is the Team Data Science Process?](../../data-science-process/overview.yml)
 
 ---
 

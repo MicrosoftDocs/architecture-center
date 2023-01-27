@@ -66,7 +66,7 @@ The following table provides level-based guidance to help complete the DevOps ob
 |  |  | [Use this previous reference for Runbooks to automate tests using System Center](/system-center/orchestrator/automate-runbooks) | System Center | Experienced | Experience with System Center Orchestrator |
 |  |  | [As part of not only testing but development, you should build in Security. The Microsoft SDL Threat Modeling Tool can help in all phases. Learn more and download it here](https://www.microsoft.com/SDL/adopt/threatmodeling.aspx) | Threat Monitoring Tool | Experienced | Familiarity with security concepts, software development |
 |  |  | [This article explains how to use the Microsoft Attack Surface Analyzer to test your Advanced Analytics solution](https://technet.microsoft.com/security/gg749821.aspx) | Attack Surface Analyzer | Experienced | Familiarity with security concepts, software development |
-|  | Package | [This reference explains the concepts of working with Packages in TFS and Visual Studio Codespace](/cli/vsts/package) | Visual Studio Codespace | Experienced | Software development, familiarity with an SDLC |
+|  | Package | [This reference explains the concepts of working with Packages in TFS and Visual Studio Codespace](/cli/azure/service-page/azure%20devops) | Visual Studio Codespace | Experienced | Software development, familiarity with an SDLC |
 |  |  | [Use this previous reference for Runbooks to automate packaging using System Center](/system-center/orchestrator/automate-runbooks) | System Center | Experienced | Experience with System Center Orchestrator |
 |  |  | [This reference explains how to create a data pipeline for your solution, which you can save as a JSON template as a "package"](/azure/data-factory/v1/data-factory-introduction) | Azure Data Factory | Intermediate | General computing background, data project experience |
 |  |  | [This topic describes the structure of an Azure Resource Manager template](/azure/azure-resource-manager/templates/template-syntax) | Azure Resource Manager | Intermediate | Familiarity with the Microsoft Azure Platform |
@@ -91,10 +91,18 @@ The following table provides level-based guidance to help complete the DevOps ob
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 See [Team Data Science Process for data scientists](team-data-science-process-for-data-scientists.md). This article provides guidance for implementing data science solutions with Azure.
+
+## Related resources
+
+- [Execute data science tasks: exploration, modeling, and deployment](execute-data-science-tasks.md)
+- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
+- [Platforms and tools for data science projects](platforms-and-tools.md)
+- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
+- [What is the Team Data Science Process?](overview.yml)

@@ -2,7 +2,7 @@
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: yuanzhiqu
 ms.date: 11/18/2022
 ms.topic: conceptual
@@ -305,7 +305,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | [Web Application Firewall](https://aws.amazon.com/waf) | [Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) | A firewall that protects web applications from common web exploits. |
-| [Web Application Firewall](https://aws.amazon.com/waf)| [Firewall](https://azure.microsoft.com/services/azure-firewall) | Provides inbound protection for non-HTTP/S protocols, outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S. |
+| [AWS Network Firewall](https://aws.amazon.com/network-firewall)| [Firewall](https://azure.microsoft.com/services/azure-firewall) | Provides inbound protection for non-HTTP/S protocols, outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S. |
 
 ### Security
 

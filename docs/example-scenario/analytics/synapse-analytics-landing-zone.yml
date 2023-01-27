@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Synapse Analytics for landing zones
+  titleSuffix: Azure Architecture Center
+  description: Prepare Azure landing zone subscriptions for a scalable, enhanced-security deployment of Azure Synapse Analytics.
+  author: vidya13
+  ms.author: vinara
+  ms.date: 12/20/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - analytics
+products:
+  - azure-synapse-analytics
+  - azure-private-link
+  - azure-data-lake-storage
+  - azure-key-vault
+name: Azure Synapse Analytics for landing zones
+summary: Prepare Azure landing zone subscriptions for a scalable, enhanced-security deployment of Azure Synapse Analytics.
+thumbnailUrl: /azure/architecture/browse/thumbs/synapse-analytics-landing-zone-thumb.png
+content: |
+  [!include[](synapse-analytics-landing-zone-content.md)]

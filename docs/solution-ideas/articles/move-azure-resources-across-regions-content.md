@@ -117,3 +117,9 @@ Consider the following points when making a cross-regional move:
 * [Support for moving Azure resources across regions](/azure/azure-resource-manager/management/region-move-support)
 * [Move Azure VMs to another region](/azure/site-recovery/azure-to-azure-tutorial-migrate)
 * [Move resources to new region - Azure SQL Database & Azure SQL Managed Instance](/azure/azure-sql/database/move-resources-across-regions)
+
+## Related resources
+
+- [Azure resource organization in multitenant solutions](../../guide/multitenant/approaches/resource-organization.yml)
+- [Multi-region N-tier application](../../reference-architectures/n-tier/multi-region-sql-server.yml)
+- [Multi-region load balancing with Traffic Manager and Application Gateway](../../high-availability/reference-architecture-traffic-manager-application-gateway.yml)

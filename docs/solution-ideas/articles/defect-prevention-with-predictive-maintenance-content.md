@@ -1,15 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
-
-This solution is built on Azure-managed services: [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics), and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
-## Potential use cases
-
-Industries that benefit from this solution include:
-
-- Manufacturing processes
-- Airline maintenance scheduling
+This article shows you how to use Azure Machine Learning and Azure Synapse Analytics to predict failures before they happen with real-time assembly line data.
 
 ## Architecture
 
@@ -24,6 +15,17 @@ Industries that benefit from this solution include:
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) predicts potential failures based on real-time assembly-line data from Stream Analytics.
 * [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) stores assembly-line data along with failure predictions.
 * [Power BI](https://powerbi.microsoft.com) enables visualization of real-time assembly-line data from Stream Analytics, and the predicted failures and alerts from Data Warehouse.
+
+## Scenario details
+
+This solution is built on the Azure-managed services described in the preceding [Components](#components) section. These services run in a high-availability environment, patched and supported, which lets you focus on your solution instead of the environment they run in.
+
+### Potential use cases
+
+Industries that benefit from this solution include:
+
+- Manufacturing processes
+- Airline maintenance scheduling
 
 ## Next steps
 

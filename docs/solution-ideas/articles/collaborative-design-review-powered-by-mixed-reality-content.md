@@ -1,12 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
-
-## Potential use cases
-
-* Remote assistance to problem-solve in real-time
-* Tailored, immersive experiences with 3D and the IIoT
-* Knowledge-based work instructions to capture and scale expertise
+This article describes how you can use a mixed reality scenario to enable clients, designers, and onsite engineers to easily share and review designs as 3D holograms in the context of their environment.
 
 ## Architecture
 
@@ -32,8 +26,25 @@ Businesses and teams across industries have to spend time and money on design re
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs): REST-based object storage for unstructured data
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db): Globally distributed, multi-model database for any scale
 
+## Scenario details
+
+Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
+
+### Potential use cases
+
+* Remote assistance to problem-solve in real-time
+* Tailored, immersive experiences with 3D and the IIoT
+* Knowledge-based work instructions to capture and scale expertise
+
 ## Next steps
 
 * [Azure Active Directory documentation](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 * [Blob Storage documentation](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
 * [Azure Cosmos DB documentation](/azure/cosmos-db/create-sql-api-dotnet)
+
+## Related resources
+
+- [Prototyping and manufacturing for enterprises](/windows/mixed-reality/enthusiast-guide/prototyping-manufacturing)
+- [Mixed reality architecture design](/azure/architecture/guide/mixed-reality/mixed-reality-overview)
+- [Mixed reality structural elements](/windows/mixed-reality/design/core-concepts-landingpage)
+- [Design and prototype for mixed reality](/windows/mixed-reality/design/design)

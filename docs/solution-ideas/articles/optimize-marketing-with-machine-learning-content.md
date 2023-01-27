@@ -1,31 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Marketing campaigns are about more than the message that you deliver. When and how you deliver that message is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
-
-These days, marketing campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world. Social media analysis is a powerful tool that you can use to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor social media conversations. As a result, they miss countless opportunities to use these insights to inform their strategies and plans.
-
-## Potential use cases
-
-If you can extract information about your customers from social media, you can enhance customer experiences, increase customer satisfaction, gain new leads, and prevent customer churn. These applications of social media analytics fall into three main areas:
-
-- **Measuring brand health:**
-
-  - Capturing customer reactions and feedback for new products on social media.
-  - Analyzing sentiment on social media interactions for a newly introduced product.
-
-- **Building and maintaining customer relationships:**
-
-  - Quickly identifying customer concerns.
-  - Listening to untagged brand mentions.
-
-- **Optimizing marketing investments:**
-
-  - Extracting insights from social media for campaign analysis.
+Azure services can extract insights from social media for you to use in big data marketing campaigns.
 
 ## Architecture
 
-![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage.][architecture-png]
-*Download an [SVG file][architecture-svg] of this architecture.*
+[ ![Architecture diagram that shows the flow of data from external sources to its visualization. Other steps include ingestion, enrichment, and storage.](../media/optimize-marketing-with-machine-learning.svg)](../media/optimize-marketing-with-machine-learning.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/optimize-marketing-with-machine-learning.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -47,6 +28,30 @@ If you can extract information about your customers from social media, you can e
 - [App Service](https://azure.microsoft.com/services/app-service) provides a framework for building, deploying, and scaling web apps. The [Web Apps](https://azure.microsoft.com/services/app-service/web) feature is a service for hosting web applications, REST APIs, and mobile back ends.
 
 - [Power BI](https://powerbi.microsoft.com) is a collection of analytics services and apps. You can use Power BI to connect and display unrelated sources of data.
+
+## Scenario details
+
+Marketing campaigns are about more than the message that you deliver. When and how you deliver that message is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
+
+These days, marketing campaigns are often based on social media analysis, which has become increasingly important for companies and organizations around the world. Social media analysis is a powerful tool that you can use to receive instant feedback on products and services, improve interactions with customers to increase customer satisfaction, keep up with the competition, and more. Companies often lack efficient, viable ways to monitor social media conversations. As a result, they miss countless opportunities to use these insights to inform their strategies and plans.
+
+### Potential use cases
+
+If you can extract information about your customers from social media, you can enhance customer experiences, increase customer satisfaction, gain new leads, and prevent customer churn. These applications of social media analytics fall into three main areas:
+
+- **Measuring brand health:**
+
+  - Capturing customer reactions and feedback for new products on social media.
+  - Analyzing sentiment on social media interactions for a newly introduced product.
+
+- **Building and maintaining customer relationships:**
+
+  - Quickly identifying customer concerns.
+  - Listening to untagged brand mentions.
+
+- **Optimizing marketing investments:**
+
+  - Extracting insights from social media for campaign analysis.
 
 ## Contributors
 
@@ -89,8 +94,6 @@ For information about solution components, see these resources:
 
 
 <!-- links -->
-[architecture-png]: ../media/optimize-marketing-with-machine-learning.png
-[architecture-svg]: ../media/optimize-marketing-with-machine-learning.png
 [synapse-docs]: /azure/synapse-analytics
 [aml-docs]: /azure/machine-learning
 [pbi-docs]: /power-bi

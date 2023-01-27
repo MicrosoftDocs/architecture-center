@@ -1,7 +1,7 @@
 ---
 title: Azure and Power Platform scenarios
 description: Learn about architectures and solutions that use Azure together with Microsoft Power Platform. 
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/28/2022
 ms.topic: conceptual
@@ -89,7 +89,7 @@ The following articles provide detailed analysis of solutions that feature integ
 |[Campaign optimization with Azure HDInsight Spark](/azure/architecture/solution-ideas/articles/optimize-marketing-with-machine-learning)|Use Microsoft Machine Learning Server to build and deploy a machine learning model to maximize the purchase rate of leads that are targeted by a marketing campaign. Power BI provides summaries of the effectiveness of the campaign recommendations.| Databases|
 |[Campaign optimization with SQL Server](../solution-ideas/articles/campaign-optimization-with-sql-server.yml)|Use machine learning and SQL Server 2016 R Services to optimize when and how to contact potential customers. Power BI provides data visualization.| Databases|
 |[Clinical insights with Microsoft Cloud for Healthcare](../example-scenario/mch-health/medical-data-insights.yml)|Gather insights from clinical and medical data by using Microsoft Cloud for Healthcare. Power BI reports provide insights on healthcare metrics.| Web|
-|[Data analysis for regulated industries](../example-scenario/data/data-analysis-regulated-industries.yml)|Learn about an architecture that you can use for data analysis workloads in regulated industries. The architecture includes ETL/ELT and Power BI.| Analytics|
+|[Data analysis for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)|Learn about an architecture that you can use for data analysis workloads in regulated industries. The architecture includes ETL/ELT and Power BI.| Analytics|
 |[Data governance with Profisee and Azure Purview](../reference-architectures/data/profisee-master-data-management-purview.yml)|Integrate Profisee master data management with Azure Purview to build a foundation for data governance and management. Produce and deliver high-quality, trusted data. Power BI is used as an analytics tool. | Databases|
 |[Data management across Azure Data Lake with Azure Purview](../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)|Use Azure Purview to build a foundation for data governance and management that can produce and deliver high-quality, trusted data. Azure Purview connects natively with Power BI.| Analytics|
 |[Defect prevention with predictive maintenance](../solution-ideas/articles/defect-prevention-with-predictive-maintenance.yml)|Predict failures before they happen with real-time assembly line data, Azure Machine Learning, and Azure Synapse Analytics. Power BI enables visualization of real-time assembly-line data from Stream Analytics, and the predicted failures and alerts from Azure SQL Data Warehouse.| AI|

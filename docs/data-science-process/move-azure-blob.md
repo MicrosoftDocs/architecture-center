@@ -61,6 +61,19 @@ This article assumes that you have an Azure subscription, a storage account, and
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+- [Copy and move blobs from one container or storage account to another](/training/modules/copy-blobs-from-command-line-and-code/)
+- [What is the Team Data Science Process (TDSP)?](overview.yml)
+
+## Related resources
+
+- [Explore data in Azure Blob storage](explore-data-blob.md)
+- [Process Azure Blob Storage data with advanced analytics](data-blob.md)
+- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
+- [Load data into storage environments for analytics](ingest-data.md)

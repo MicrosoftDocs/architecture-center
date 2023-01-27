@@ -2,7 +2,7 @@
 metadata:
   title: Batch processing
   description: Learn about big data batch processing solutions to load, transform, and prepare data at rest for analytics and reporting.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
   ms.topic: conceptual

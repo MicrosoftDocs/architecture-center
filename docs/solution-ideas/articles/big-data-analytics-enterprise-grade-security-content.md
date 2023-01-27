@@ -1,24 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics to help you build a modern data platform capable of handling the most common data challenges facing large organizations. Azure Virtual Network allows you to create your own private network in the Azure public cloud and managed network, and Azure Private Endpoint allows you to securely integrate managed cloud services into these private networks.
-
-## Potential use cases
-
-The solution described in this article demonstrates how to combine these technologies to build a modern data platform able to ingest, process, store, serve, and visualize data from different sources, both structured and semistructured, while meeting the high security standards your organization expects. This includes supporting common requirements, such as:
-
--   **Securing data sources.** Data sources inside the on-premises corporate network or on the virtual network are secured behind a firewall. These resources can be securely accessed by installing a self-hosted integration runtime on a resource hosted on-premises or on the virtual networks.
-
--   **Authentication and authorization using managed identities.** Communication between Azure services can be secured using managed identities, which provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. In this example, Azure Synapse uses the managed identity to integrate pipelines.
-
--   **Private endpoints establishing a private link to Azure resources.** Azure Synapse provides fully managed private endpoint functionality for services within the Synapse workspace (such as Azure Storage or Azure Cosmos DB). Other Azure resources such as Azure applications, Microsoft Power BI, and Azure Synapse service are secured using Private Endpoints integrated into the example solution's virtual network. Network traffic between your private network and the Synapse pools uses Private Link to move traffic over the Microsoft backbone network, eliminating exposure to the public internet.
-
--   **Encrypting data in transit.** Data is encrypted in transit as all data transfers are via secure channel HTTPS and TLS over TCP to prevent man-in-the-middle attacks during communication with Azure services, ensuring end-to-end secure private data movement.
-
--   **Encrypting data at rest.** Transparent data encryption in Azure Synapse Analytics helps protect against malicious activity by performing real-time encryption and decryption of your data stored within the Synapse workspace. Azure Storage also encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys, but you can manage your own keys if you need additional control over encryption.
+The solution described in this article demonstrates how to use Azure Synapse Analytics to build a modern data platform to ingest, process, store, serve, and visualize data from various sources.
 
 ## Architecture
 
-[ ![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.png) ](../media/big-data-analytics-enterprise-grade-security-large.png#lightbox)
+[ ![Diagram showing the data flow in this solution. For a detailed explanation, see the following article text. ](../media/big-data-analytics-enterprise-grade-security.svg) ](../media/big-data-analytics-enterprise-grade-security.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/big-data-analytics-enterprise-grade-security.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -85,6 +73,24 @@ This example solution makes use of several Azure services and features:
 -   [Azure Private Link](https://azure.microsoft.com/services/private-link)
 
 -   [Power BI](https://powerbi.microsoft.com)
+
+## Scenario details
+
+Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics to help you build a modern data platform capable of handling the most common data challenges facing large organizations. Azure Virtual Network allows you to create your own private network in the Azure public cloud and managed network, and Azure Private Endpoint allows you to securely integrate managed cloud services into these private networks.
+
+### Potential use cases
+
+The solution described in this article demonstrates how to combine these technologies to build a modern data platform that can ingest, process, store, serve, and visualize data from different sources, both structured and semistructured, while meeting the high security standards your organization expects. This includes supporting common requirements, such as:
+
+-   **Securing data sources.** Data sources inside the on-premises corporate network or on the virtual network are secured behind a firewall. These resources can be securely accessed by installing a self-hosted integration runtime on a resource hosted on-premises or on the virtual networks.
+
+-   **Authentication and authorization using managed identities.** Communication between Azure services can be secured using managed identities, which provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. In this example, Azure Synapse uses the managed identity to integrate pipelines.
+
+-   **Private endpoints establishing a private link to Azure resources.** Azure Synapse provides fully managed private endpoint functionality for services within the Synapse workspace (such as Azure Storage or Azure Cosmos DB). Other Azure resources such as Azure applications, Microsoft Power BI, and Azure Synapse service are secured using Private Endpoints integrated into the example solution's virtual network. Network traffic between your private network and the Synapse pools uses Private Link to move traffic over the Microsoft backbone network, eliminating exposure to the public internet.
+
+-   **Encrypting data in transit.** Data is encrypted in transit as all data transfers are via secure channel HTTPS and TLS over TCP to prevent man-in-the-middle attacks during communication with Azure services, ensuring end-to-end secure private data movement.
+
+-   **Encrypting data at rest.** Transparent data encryption in Azure Synapse Analytics helps protect against malicious activity by performing real-time encryption and decryption of your data stored within the Synapse workspace. Azure Storage also encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys, but you can manage your own keys if you need additional control over encryption.
 
 ## Deploy this scenario
 

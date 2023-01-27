@@ -286,7 +286,10 @@ Learn more about features in Azure Monitor that support monitoring of applicatio
 
 ## Related resources
 
-For more information about using metrics for performance tuning, see [Performance tuning a distributed application](../performance/index.md).
+- [Performance tuning a distributed application](../performance/index.md)
+- [Using domain analysis to model microservices](model/domain-analysis.md)
+- [Design a microservices architecture](index.yml)
+- [Design APIs for microservices](design/api-design.yml)
 
 <!-- links -->
 

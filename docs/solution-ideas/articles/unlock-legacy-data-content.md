@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Use Azure Stack to update and extend your legacy application data with the latest cloud technology, such as Azure web services, containers, serverless computing, and microservices architectures.
-
-## Potential use cases
-
-This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
+Create cloud-based applications by using Azure Stack while integrating and preserving mainframe and core business process application data.
 
 ## Architecture
 
@@ -23,7 +19,21 @@ This is a solution to create new applications while integrating and preserving l
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network): Provision private networks, and optionally connect to on-premises datacenters.
 * [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway): Establish secure, cross-premises connectivity.
 
+## Scenario details
+
+Use Azure Stack to update and extend your legacy application data with the latest cloud technology, such as Azure web services, containers, serverless computing, and microservices architectures.
+
+### Potential use cases
+
+This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
+
 ## Next steps
 
 * [Virtual Network documentation](/azure/virtual-network/virtual-networks-overview)
 * [VPN Gateway documentation](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+
+## Related resources
+
+* [Baseline architecture for AKS on Azure Stack HCI](../../example-scenario/hybrid/aks-baseline.yml)
+* [Cross-cloud scaling with Azure Functions](../../solution-ideas/articles/cross-cloud-scaling.yml)
+* [Hybrid connections](../../solution-ideas/articles/hybrid-connectivity.yml)

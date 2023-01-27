@@ -1,14 +1,13 @@
 ---
 title: Deploy a hybrid app with on-premises data that scales cross-cloud
 description: Learn how to deploy an app that uses on-premises data and scales cross-cloud using Azure and Azure Stack Hub.
-author: BryanLa
+author: ronmiab
+ms.author: robess
 categories: azure
 ms.service: azure-stack
 ms.subservice: azure-stack-hub
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: bryanla
-ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 azureCategories:
   - web

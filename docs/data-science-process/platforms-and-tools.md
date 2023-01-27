@@ -149,12 +149,19 @@ If you're using Linux (CentOS) machines to run the git commands, you need to add
 
 Principal author:
 
- - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
+## Next steps
+
+- [Understand data science for machine learning](/training/paths/understand-machine-learning/)
+- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
+- [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml/)
+- [Databricks Data Science & Engineering](/azure/databricks/scenarios/what-is-azure-databricks-ws)
+
 ## Related resources
 
-- [What is the Team Data Science Process?](/azure/architecture/data-science-process/overview)
+- [What is the Team Data Science Process?](overview.yml)
+- [Team Data Science Process roles and tasks](roles-tasks.md)
 - [Compare the machine learning products and technologies from Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-- [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)

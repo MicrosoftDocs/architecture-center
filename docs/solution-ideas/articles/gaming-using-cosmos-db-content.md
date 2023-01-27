@@ -4,8 +4,9 @@ This gaming solution idea elastically scales your database to accommodate unpred
 
 ## Architecture
 
-![Architecture Diagram](../media/gaming-using-cosmos-db.png)
-*Download an [SVG](../media/gaming-using-cosmos-db.svg) of this architecture.*
+![Diagram that shows gaming solution idea using Azure Cosmos DB.](../media/gaming-using-cosmos-db.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/gaming-using-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 

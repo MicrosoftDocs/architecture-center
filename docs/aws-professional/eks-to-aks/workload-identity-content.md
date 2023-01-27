@@ -5,8 +5,7 @@ This article describes how Amazon Elastic Kubernetes Service (Amazon EKS) and Az
 
 This guide explains how AKS clusters, built-in services, and add-ons use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) to access Azure resources like load balancers and managed disks. The article also demonstrates how to use [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs) so AKS workloads can access Azure resources without needing a connection string, access key, or user credentials.
 
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS identity and access management
 
@@ -136,13 +135,16 @@ To use Azure AD Workload Identity end-to-end in a Kubernetes cluster:
 Principal authors:
 
 - [Paolo Salvatori](https://www.linkedin.com/in/paolo-salvatori) | Principal Service Engineer
-- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Software Engineer
+- [Martin Gjoshevski](https://www.linkedin.com/in/martin-gjoshevski) | Senior Service Engineer
 
 Other contributors:
 
 - [Laura Nicolas](https://www.linkedin.com/in/lauranicolasd) | Senior Software Engineer
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -152,6 +154,7 @@ Other contributors:
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Cost management for Kubernetes](cost-management.yml)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 - [Azure Active Directory identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
 
 ## Related resources
