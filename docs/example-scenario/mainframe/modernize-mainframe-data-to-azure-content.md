@@ -13,13 +13,9 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 The following dataflow outlines a process for modernizing a mainframe data tier. It corresponds to the preceding diagram.
 
-1. **On-premises data gateway** 
+1. The [on-premises data gateway](/data-integration/gateway) provides enhanced-security data transfer between mainframe on-premises data and Azure services.
 
-   The [on-premises data gateway](/data-integration/gateway) serves as a bridge. It provides enhanced-security data transfer between mainframe on-premises data and Azure services.
-
-1. **Object conversion**
-
-   The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects on the target data store.
+1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects on the target data store.
 
    -	[SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
    - Managed Data Provider for Host Files converts objects by:
@@ -27,13 +23,9 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
        - Mapping the copybooks to C# objects that .NET applications use.
    -	Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
-1. **Data ingestion and transformation**
- 
-   In this step, data is migrated.
+1. Data is ingested and transformed.
 
-   **File data**
-
-   a. FTP transfers mainframe and midrange datasets with single layouts and unpacked fields in binary format to Azure.
+   a. FTP transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format to Azure.
    
    b. Mainframe data is converted. Mainframe and midrange systems store data on DASD or tape in EBCDIC format in these types of files:
       - Indexed [VSAM](/sql/ssma/sql-server-migration-assistant) files
@@ -42,19 +34,13 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
       COBOL, PL/I, and assembly language copybooks define the data structure of these files. Data Provider for Host Files converts the data from EBCDIC to ASCII format based on the copybook layout.
 
-      **Azure Data Factory custom connector**
-
-      The custom connector is a no-code solution that uses the Host File client component of Host Integration Server. With minimal setup, you can use the custom connector to convert your mainframe dataset just as you's use any other [Azure Data Factory](https://azure.microsoft.com/products/data-factory) connector.  
-
-      **Host Integration Server**
+      The Azure Data Factory custom connector is a no-code solution that uses the Host File client component of Host Integration Server. With minimal setup, you can use the custom connector to convert your mainframe dataset just as you'd use any other [Azure Data Factory](https://azure.microsoft.com/products/data-factory) connector.  
 
       You can use [Host Integration Server](/host-integration-server/what-is-his) to integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
 
-      **Azure Synapse Analytics with open-source software**  
+      The conversion solution is based on open-source software that's used in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). The solution is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
 
-      This conversion solution is based on open-source software that's used in [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics). The solution is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
-
-   c. **Migrate relational database data**
+   c. Relational database data is migrated. 
 
       IBM mainframe and midrange systems store data in relational databases like these:
       - [Db2 for z/OS](https://www.ibm.com/analytics/db2/zos)
@@ -65,7 +51,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
      - Data Factory uses a Db2 connector to extract and integrate data from the databases.
      - SQL Server Integration Services handles a various data [ETL](https://www.ibm.com/cloud/learn/etl) tasks.
 
-   d. **Migrate non-relational database data**
+   d. Non-relational database data is migrated.
 
       IBM mainframe and midrange systems store data in non-relational databases like these:
     - [IDMS](https://www.broadcom.com/products/mainframe/databases-database-mgmt/idms), a [network model](https://web.archive.org/web/20060904190944/http:/coronet.iicm.edu/wbtmaster/allcoursescontent/netlib/ndm1.htm) database management system (DBMS)
@@ -75,11 +61,9 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
       
     Third-party products integrate data from these databases.
 
-1. **Data ingestion**
+1. Azure services like Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use third-party solutions and custom loading solutions to load data.
 
-   Azure services like Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use third-party solutions and custom loading solutions to load data.
-
-1. **Data storage**
+1. Data is stored.
 
    Azure provides many managed data storage solutions:
    - Databases:
@@ -99,7 +83,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 ### Components
 
-#### Data store
+#### Data storage
 
 - [SQL Database](https://azure.microsoft.com/services/sql-database) is part of the [Azure SQL family](https://azure.microsoft.com/services/azure-sql). It's built for the cloud and provides all the benefits of a fully managed and evergreen platform as a service. SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and [Hyperscale storage options](/azure/azure-sql/database/service-tier-hyperscale) automatically scale resources on demand.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org) database engine. 
@@ -124,7 +108,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    - Cleansing and mining data.
    - Managing SQL Server objects and data.
 
-#### Tools
+#### Other tools
 
 - [SQL Server Migration Assistant for Db2](/sql/ssma/db2/sql-server-migration-assistant-for-db2-db2tosql) automates migration from Db2 to Microsoft database services. When it runs on a virtual machine, this tool converts Db2 database objects into SQL Server database objects and creates those objects in SQL Server. 
 - [Data Provider for Host Files](/host-integration-server/core/data-for-host-files) is a component of [Host Integration Server](/host-integration-server/what-is-his) that uses offline, SNA, or TCP/IP connections.
@@ -210,5 +194,5 @@ See these articles:
 
 ## Related resources
 
-- [Azure data architecture guide](/azure/architecture/data-guide)
+- [Azure data architecture guide](../../data-guide/index.md)
 - [Azure data platform end-to-end](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
