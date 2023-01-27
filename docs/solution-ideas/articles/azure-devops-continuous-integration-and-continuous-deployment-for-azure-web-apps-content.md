@@ -13,7 +13,7 @@ Architecture diagram of an Azure pipeline deploying to Azure App Services. The d
 
 ### Dataflow
 
-This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#workflow) and only focuses on Web App specific details.
+This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#dataflow) and only focuses on Web App specific details.
 
 1. **PR pipeline** - *Same as the baseline*
 
