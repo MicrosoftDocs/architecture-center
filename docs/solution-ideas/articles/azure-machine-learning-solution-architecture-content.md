@@ -6,7 +6,7 @@ This architecture shows you the components used to build, deploy, and manage hig
 
 ![Diagram of a machine learning solution architecture using Azure Machine Learning with Azure services for storage, data analysis, monitoring, authenticating, and secure deployment.](../media/azure-machine-learning-solution-architecture.svg)
 
-*Download a [Visio file] (https://arch-center.azureedge.net/azure-machine-learning-solution-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-machine-learning-solution-architecture.vsdx) of this architecture.*
 
 > [!NOTE]
 > The architecture described in this article is based on Azure Machine Learning's CLI and Python SDK v1. For more information on the new v2 SDK and CLI, see [What is CLI and SDK v2](/azure/machine-learning/concept-v2).
