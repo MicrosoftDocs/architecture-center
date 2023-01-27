@@ -2,9 +2,9 @@ This article describes Azure solutions for building, training, deploying, and us
 
 ## Architecture
 
-![Diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.png)
+[ ![Architecture diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.svg)](images/build-deploy-custom-models.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/BuildandDeployCustomModels.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/BuildandDeployCustomModels.vsdx.vsdx) of this architecture.*
 
 ### Dataflow
 
