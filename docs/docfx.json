@@ -19,8 +19,7 @@
           "**/includes/**",
           "**/_bread/**",
           "**/_themes/**",
-          "**/**/*-content.md",
-          "PULL_REQUEST_TEMPLATE.md"
+          "**/**/*-content.md"
         ]
       },
       {
