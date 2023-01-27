@@ -14,10 +14,10 @@ azureCategories:
   - management-and-governance
   - migration
 products:
-  - azure-purview
   - azure-data-factory
   - azure-sql-database
   - azure-synapse-analytics
+  - microsoft-purview
 name: Use Profisee MDM to migrate SQL Server MDS to Azure
 summary: Migrate from SQL Server Master Data Services (MDS) to a full-featured master data management (MDM) in the Azure cloud with Profisee.
 thumbnailUrl: /azure/architecture/browse/thumbs/profisee-purview-reference-architecture.png
