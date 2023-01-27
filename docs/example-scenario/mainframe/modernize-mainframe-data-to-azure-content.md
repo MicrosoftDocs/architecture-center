@@ -19,7 +19,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
    -	[SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
    - Managed Data Provider for Host Files converts objects by:
-       - Parsing COBOL and RPG record layouts, or copybooks.
+       - Parsing COBOL and RPG record layouts, or *copybooks*.
        - Mapping the copybooks to C# objects that .NET applications use.
    -	Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
@@ -38,7 +38,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
       You can use [Host Integration Server](/host-integration-server/what-is-his) to integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
 
-      The conversion solution is based on open-source software that's used in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). The solution is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
+      The conversion solution depicted in the diagram is based on open-source software that's used in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). The solution is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
 
    c. Relational database data is migrated. 
 
