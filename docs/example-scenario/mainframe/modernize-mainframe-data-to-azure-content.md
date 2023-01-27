@@ -34,7 +34,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
       COBOL, PL/I, and assembly language copybooks define the data structure of these files. Data Provider for Host Files converts the data from EBCDIC to ASCII format based on the copybook layout.
 
-      The Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. 
+      An Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. 
 
       [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. 
 
@@ -107,7 +107,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    - Loading data warehouses.
    - Cleansing and mining data.
    - Managing SQL Server objects and data.
-- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools enable you to integrate existing IBM host systems, programs, messages and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
+- [Host Integration Server](/host-integration-server/what-is-his) technologies and tools enable you to integrate existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component provides flexibility for data that's converted from EBCDIC to ASCII. For example, you can generate JSON/XML from the data that's converted.
 - [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics) brings together data integration, enterprise data warehousing, and big data analytics. The Azure Synapse conversion solution used in this architecture is based on Apache Spark and is a good candidate for large mainframe-dataset workload conversion. It supports a wide range of mainframe data structures and targets and requires minimal coding effort.
 
 #### Other tools
