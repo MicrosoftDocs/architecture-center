@@ -15,7 +15,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 1. The [on-premises data gateway](/data-integration/gateway) provides enhanced-security data transfer between mainframe on-premises data and Azure services.
 
-1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects on the target data store.
+1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects in the target data store.
 
    -	[SQL Server Migration Assistant](/sql/ssma/sql-server-migration-assistant) for Db2 migrates schemas and data from IBM Db2 databases to Azure databases.
    - Managed Data Provider for Host Files converts objects by:
@@ -63,7 +63,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 1. Azure services like Data Factory and [AzCopy](/azure/storage/common/storage-ref-azcopy) load data into Azure databases and Azure data storage. You can also use third-party solutions and custom loading solutions to load data.
 
-1. Data is stored.
+1. Data is moved to storage.
 
    Azure provides many managed data storage solutions:
    - Databases:
@@ -90,7 +90,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 - [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a globally distributed [multimodel](https://www.infoworld.com/article/2861579/the-rise-of-the-multimodel-database.html) [NoSQL](https://www.infoworld.com/article/3240644/what-is-nosql-databases-for-a-cloud-scale-future.html) database.
 - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a fully managed relational database service that's based on the community edition of the open-source [MySQL](https://www.mysql.com/products/community) database engine.
 - [Azure Database for MariaDB](https://azure.microsoft.com/products/mariadb) is a cloud-based relational database service. It's based on the [MariaDB](https://mariadb.org) community edition database engine.
-- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near 100 percent compatibility with the latest SQL Server (Enterprise edition) database engine. It also provides a native virtual network implementation that addresses common security concerns.
+- [SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near-100% compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
 - [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is a storage repository that holds large amounts of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources. It can be structured, semi-structured, or unstructured.
 
 #### Networking
@@ -118,11 +118,11 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 ## Scenario details
 
-Modern data storage solutions like the Azure data platform offer improved scalability and performance over mainframe and midrange systems. By modernizing, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one aspect to consider when modernizing. But you also need to look at data visualization and integration.
+Modern data storage solutions like the Azure data platform provide better scalability and performance than mainframe and midrange systems. By modernizing your systems, you can take advantage of these benefits. However, updating technology, infrastructure, and practices is complex. The process involves an exhaustive investigation of business and engineering activities. Data management is one consideration when you modernize your systems. You also need to look at data visualization and integration.
 
-Successful modernizations use a [data-first strategy](http://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html). When you use this approach, you focus on the data rather than the new system. Data management is no longer just an item on the modernization checklist. Instead, the data becomes the centerpiece. Coordinated, quality-oriented data solutions replace fragmented, poorly governed ones.
+Successful modernizations use a [data-first strategy](http://www.enterpriseappstoday.com/data-management/5-reasons-a-data-first-strategy-works.html). When you use this approach, you focus on the data rather than the new system. Data management is no longer just an item on the modernization checklist. Instead, the data is the centerpiece. Coordinated, quality-oriented data solutions replace fragmented, poorly governed ones.
 
-The solution uses Azure data platform components in a data-first approach. Specifically, the solution involves:
+This solution uses Azure data platform components in a data-first approach. Specifically, the solution involves:
 
 - **Object conversion.** Converting object definitions from the source data store to corresponding objects in the target data store.
 - **Data ingestion.** Connecting to the source data store and extracting data.
@@ -131,11 +131,11 @@ The solution uses Azure data platform components in a data-first approach. Speci
  
 ### Potential use cases
 
-Organizations that use mainframe and midrange systems can benefit from this solution, especially when they want to meet these goals:
+Organizations that use mainframe and midrange systems can benefit from this solution, especially when they want to achieve these goals:
 
 - Modernize mission-critical workloads.
 - Acquire business intelligence to improve operations and gain a competitive advantage.
-- Escape the high costs and rigidity associated with mainframe and midrange data stores.
+- Remove the high costs and rigidity that's associated with mainframe and midrange data stores.
 
 ## Recommendations
 
@@ -158,7 +158,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - SQL Server Migration Assistant is a free, supported tool that simplifies database migration from Db2 to SQL Server, SQL Database, and SQL Managed Instance. SQL Server Migration Assistant automates all aspects of migration, including migration assessment analysis, schema and SQL statement conversion, and data migration.
-- The Azure Synapse Spark-based solution was built from open-source libraries. It eliminates the financial burden of conversion tools licensing.
+- The Azure Synapse Spark-based solution is built from open-source libraries. It eliminates the financial burden of licensing conversion tools.
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ### Operational excellence 
