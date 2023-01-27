@@ -51,6 +51,8 @@ Here are some security considerations for this scenario:
 
 - You could add [Azure Application Gateway](https://azure.microsoft.com/products/application-gateway) ingress to support secure socket layer (SSL) termination.
 
+- You can also enable Azure Web Application Firewall (WAF) along with your Azure Application Gateway to protect the ingress traffic for your web application hosted in your AKS cluster
+
 #### Role-based access control (RBAC)
 
 Kubernetes and Azure both have mechanisms for *role-based access control (RBAC)*.
@@ -66,6 +68,8 @@ AKS integrates the Azure and Kubernetes RBAC mechanisms. To assign AKS permissio
 - Role binding assigns users or groups to roles.
 
 - A *ClusterRole* object defines a role that applies to the entire AKS cluster, across all namespaces. To assign users or groups to a ClusterRole, create a *ClusterRoleBinding*.
+
+Alternatively, you can use [Azure RBAC for Kubernetes Authorization](/azure/aks/manage-azure-rbac) that allows for the unified management and access control across Azure Resources, AKS, and Kubernetes resources.
 
 When you create the AKS cluster, you can configure it to use Azure AD for user authentication.
 
@@ -160,7 +164,9 @@ Azure Monitor provides key metrics for all Azure services, including container m
 
 ![Screenshot of an Azure Monitor monitoring dashboard.](media/monitor-dashboard.png)
 
-Another monitoring option is to use [Grafana](https://grafana.com) dashboard:
+Besides using Azure monitor for containers, you now have the option to enable [Azure Managed Prometheus (Preview)](/azure/azure-monitor/essentials/prometheus-metrics-overview) to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution. 
+
+You can also use [Azure Managed Grafana](/azure/managed-grafana/overview) (or self-managed [Grafana](https://grafana.com)) to visualize the Prometheus metrics. For Azure Managed Grafana, connect your Azure Monitor workspace to the Azure Managed Grafana workspace will allow Grafana to use the Azure Monitor workspace data in a Grafana dashboard.You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 
 ![Screenshot of a Grafana dashboard.](media/grafana.png)
 
