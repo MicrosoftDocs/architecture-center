@@ -4,9 +4,9 @@ This article presents a solution that enriches text and image documents by using
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram that shows Azure Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.png" lightbox="../media/cognitive-search-for-ai-enrichment.png":::
+:::image type="content" alt-text="Diagram that shows Azure Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.svg" lightbox="../media/cognitive-search-for-ai-enrichment.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-for-ai-enrichment.vsdm) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-with-skillsets.vsdx) of this architecture.*
 
 ### Dataflow
 
