@@ -2,7 +2,7 @@ Like most Azure platform as a service (PaaS) services, Azure web apps and functi
 
 If you use access restrictions, you can configure the internal firewall of the resource by defining lists of allow and deny rules. You can base the restrictions on IP addresses (IPv4 and IPv6) or service tags, or you can use service endpoints to restrict access. When you use service endpoints, only traffic from selected subnets and virtual networks can access your app. There's no cost to use access restrictions, and they're available in all Azure App Service and Azure Functions plans. But access restrictions have some drawbacks. Maintaining allow and deny rules can be challenging. Also, to allow a third party to consume your service, you need to list its IP address in an allow rule. Some third-party services have dynamic IPs, and some organizations view IP addresses as sensitive.
 
-The second built-in option, a private endpoint, gives clients in your private network secure access to your app over Azure Private Link. A private endpoint uses an IP address from your Azure virtual network address space. The network traffic between a client in your private network and the app traverses the virtual network and Private Link on the Microsoft backbone network. This solution eliminates exposure to the public internet. You can also use private endpoints to form ad hoc connections among Azure tenants. Specifically, you can create a secure site-to-point virtual private network (VPN) tunnel. The tunnel can run from a consumer virtual network in one tenant to an Azure web app or function app in another tenant. This approach eliminates the need to set up and maintain site-to-site VPNs or virtual network peerings, which limit the services that a client can access.
+The second built-in option, a private endpoint, gives clients in your private network secure access to your app over Azure Private Link. A private endpoint uses an IP address from your Azure virtual network address space. The network traffic between a client in your private network and the app traverses the virtual network and Private Link on the Microsoft backbone network. This solution eliminates exposure to the public internet. You can also use private endpoints to form ad hoc connections among Azure tenants. Specifically, you can create a secure site-to-point virtual private network (VPN) tunnel. The tunnel can run from a consumer virtual network in one tenant to an Azure web app or function app in another tenant. This approach eliminates the need to set up and maintain site-to-site VPNs or virtual network peerings.
 
 This guide presents an architecture that uses the private endpoint option. The private endpoint securely exposes an Azure web app in one tenant to a client that consumes the app in another Azure tenant. You can also use this approach for a function app if you have a Premium or App Service plan for Functions.
 
@@ -14,13 +14,12 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ### Dataflow
 
-1. In a consumer tenant, a user or service on a virtual machine (VM) submits a DNS request for an Azure web app at `webapp.azurewebsites.net`. The web app runs in a provider tenant.
+1. A user or service on a virtual machine (VM) submits a DNS request for an Azure web app at `webapp.azurewebsites.net`. The web app runs in a provider tenant.
 1. The public Azure DNS service handles the query for `webapp.azurewebsites.net`. The response is a CNAME record, `webapp.privatelink.azurewebsites.net`.
 1. An Azure DNS private zone handles the DNS query for `webapp.privatelink.azurewebsites.net`.
 1. The response is an A record with the IP address of a private endpoint.
 1. The VM issues an HTTPS request to the Azure web app via the IP address of the private endpoint.
 1. The web app handles the request and responds to the VM.
-1. A user or service on a VM in the provider tenant can also access the Azure web app. That access is possible because the private DNS zone in the provider tenant is linked to the virtual network of the VM. The VM can reach the private endpoint because the VM and endpoint reside in the same subnet.
 1. If the user or service doesn't have access to the private DNS zone, the public Azure DNS service resolves the DNS query to `webapp.privatelink.azurewebsites.net` by returning a public IP address. HTTPS requests to that public IP address receive a *403 Forbidden* response.
 
 ### Components
@@ -47,10 +46,10 @@ Before you activate the private endpoint, have a virtual network and subnet read
   - The A record is registered and managed automatically in the private DNS zone.
 
 - If you don't use the DNS services that Azure provides by default, you must configure and manage your own DNS servers and zones:
-  - Create a `privatelink.azurewebsites.net` DNS zone.
-  - Ensure that `privatelink.azurewebsites.net` can be resolved in the virtual networks that need to resolve the NIC of the private endpoint.
-  - Register the A record in the `privatelink.azurewebsites.net` DNS zone.
-  - Depending on your setup, possibly configure a DNS forwarder to resolve the Azure DNS public zone, `azurewebsites.net`.
+  1. Create a `privatelink.azurewebsites.net` DNS zone.
+  1. Ensure that `privatelink.azurewebsites.net` can be resolved in the virtual networks that need to resolve the NIC of the private endpoint.
+  1. Register the A record in the `privatelink.azurewebsites.net` DNS zone with the IP address of the private endpoint.
+  1. Depending on your setup, possibly configure a DNS forwarder to resolve the Azure DNS public zone, `azurewebsites.net`.
 
   For more information, see [Azure private endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
@@ -76,7 +75,7 @@ The provider doesn't get a notification that there's a pending private endpoint 
 
 The provider can retrieve, review, and approve or reject pending requests in the Azure portal in either of the following places:
 
-- On the **Private Link Center** page. The approver can enter a description for the approval request on this page.
+- On the **Private Link Center** page. The approver can enter an approval message on this page.
 - On the **Networking** blade of the web app, by selecting **Private endpoints**.
 
 Alternatively, the provider can use the Azure CLI or Azure PowerShell to retrieve, review, and approve or reject the pending requests.
