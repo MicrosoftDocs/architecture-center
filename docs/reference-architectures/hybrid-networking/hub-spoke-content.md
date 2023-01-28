@@ -56,7 +56,7 @@ For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption
 
 Typical uses for this architecture include workloads that:
 
-- Have different environments, such as development, testing, and production environments, that require shared services. Shared services might include DNS IDs, Network Time Protocol (NTP), or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, while each environment deploys to a different spoke to maintain isolation.
+- Have several environments that require shared services. For example, a workload might have development, testing, and production environments. Shared services might include DNS IDs, Network Time Protocol (NTP), or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, while each environment deploys to a different spoke to maintain isolation.
 - Don't require connectivity to each other, but require access to shared services.
 - Require central control over security aspects, like a DMZ firewall in the hub with segregated workload management in each spoke.
 - Require central control over connectivity aspects, such as selective connectivity or isolation between spokes of certain environments or workloads.
@@ -160,7 +160,7 @@ To centrally manage connectivity and security controls, use [Virtual Network Man
 Example Virtual Network Manager use case scenarios include:
 
 - Democratization of spoke virtual network management to groups such as business units or application teams. Democratization can result in large numbers of virtual network-to-virtual network connectivity and network security rules requirements.
-- Standardization of multiple replicated hub and spoke topologies in multiple Azure regions to ensure a global footprint for applications.
+- Standardization of multiple replica architectures in multiple Azure regions to ensure a global footprint for applications.
 
 To ensure uniform connectivity and network security rules, you can use [network groups](/azure/virtual-network-manager/concept-network-groups) to group virtual networks in any subscription, management group, or region under the same Azure AD tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
 
