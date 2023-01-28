@@ -244,7 +244,7 @@ You can choose between virtual network peering or Virtual Network Manager connec
        --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
    ```
 
-#### [Azure PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 
 1. Run the following command to create a resource group named `hub-spoke` in the `eastus` region for the deployment. Select **Try it** to use an embedded shell.
 
@@ -284,6 +284,7 @@ You can choose between virtual network peering or Virtual Network Manager connec
 Use the following button to deploy the reference architecture as an Azure Resource Manager (ARM) template in the Azure portal:
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
+
 ---
 
 
@@ -306,7 +307,7 @@ For detailed information and extra deployment options, see the [Hub and Spoke AR
        --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke-connected-group/azuredeploy.json
    ```
 
-#### [Azure PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 
 1. Run the following command to create a resource group for the deployment. Select **Try it** to use an embedded shell.
 
@@ -357,6 +358,7 @@ For detailed information and extra deployment options, see the [Hub and Spoke AR
 Use the following button to deploy the reference architecture as an ARM template in the Azure portal:
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke-connected-group%2Fazuredeploy.json)
+
 
 ---
 
