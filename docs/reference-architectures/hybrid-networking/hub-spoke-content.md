@@ -1,6 +1,4 @@
-This reference architecture implements a hub-spoke network pattern with customer-managed hub infrastructure components. The hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. You can also enable cross-premises scenarios by using the hub to connect to on-premises networks.
-
-This architecture describes a network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
+This reference architecture implements a hub-spoke network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
 
 ## Architecture
 
@@ -24,9 +22,9 @@ This hub-spoke network configuration uses the following architectural elements:
 
 - **Azure Firewall:** An Azure Firewall managed firewall instance exists in its own subnet.
 
-- **Azure VPN Gateway or Azure ExpressRoute gateway**. A virtual network gateway enables a virtual network to connect to a virtual private network (VPN) device or Azure ExpressRoute circuit. The gateway provides cross-premises network connectivity. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide) and [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager).
+- **Azure VPN Gateway or Azure ExpressRoute gateway:** A virtual network gateway enables a virtual network to connect to a virtual private network (VPN) device or Azure ExpressRoute circuit. The gateway provides cross-premises network connectivity. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network](/microsoft-365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network?view=o365-worldwide) and [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
-- **VPN device**. A VPN device or service provides external connectivity to the cross-premises network. The VPN device can be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server. For more information, see [Validated VPN devices and device configuration guides](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable).
+- **VPN device:** A VPN device or service provides external connectivity to the cross-premises network. The VPN device can be a hardware device or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server. For more information, see [Validated VPN devices and device configuration guides](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable).
 
 ### Components
 
@@ -42,9 +40,11 @@ This hub-spoke network configuration uses the following architectural elements:
 
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) can collect, analyze, and act on telemetry data from your cross-premises environments, including Azure and on-premises. Azure Monitor helps you maximize the performance and availability of your applications and proactively identify problems in seconds.
 
-### Alternatives
-
 ## Scenario details
+
+This reference architecture implements a hub-spoke network pattern where the hub virtual network acts as a central point of connectivity to many spoke virtual networks. The spoke virtual networks connect with the hub and can be used to isolate workloads. You can also enable cross-premises scenarios by using the hub to connect to on-premises networks.
+
+This architecture describes a network pattern with customer-managed hub infrastructure components. For a Microsoft-managed hub infrastructure solution, see [Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture).
 
 The benefits of using a hub and spoke configuration include:
 
@@ -56,12 +56,12 @@ For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption
 
 ### Potential use cases
 
-Typical uses for this architecture include:
+Typical uses for this architecture include workloads that:
 
-- Workloads deployed in different environments, such as development, testing, and production, that require shared services. Shared services might include DNS IDs, NTP, or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, while each environment deploys to a spoke to maintain isolation.
-- Workloads that don't require connectivity to each other, but require access to shared services.
-- Workloads that require central control over security aspects, like a DMZ firewall in the hub with segregated workload management in each spoke.
-- Workloads that require central control over connectivity aspects, such as selective connectivity or isolation between spokes of certain environments or workloads.
+- Use different environments, such as development, testing, and production, that require shared services. Shared services might include DNS IDs, NTP, or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, while each environment deploys to a spoke to maintain isolation.
+- Don't require connectivity to each other, but require access to shared services.
+- Require central control over security aspects, like a DMZ firewall in the hub with segregated workload management in each spoke.
+- Require central control over connectivity aspects, such as selective connectivity or isolation between spokes of certain environments or workloads.
 
 ## Recommendations
 
@@ -164,7 +164,7 @@ To ensure uniform connectivity and network security rules, you can use [network 
 
 You define discoverability of the virtual networks that Virtual Network Manager manages by using [Scopes](/azure/virtual-network-manager/concept-network-manager-scope). This feature provides flexibility for a desired number of network manager instances, which allows further management democratization for virtual network groups.
 
-To connect spoke virtual networks in the same network group with each other, you can implement virtual network peering or [direct connectivity] through Virtual Network Manager (/azure/virtual-network-manager/concept-connectivity-configuration#direct-connectivity). To extend the capabilities for spokes in different regions to have direct connectivity, the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option enables mesh connectivity between regions. The following diagram shows global mesh connectivity between regions:
+To connect spoke virtual networks in the same network group to each other, you can implement virtual network peering or [direct connectivity] (/azure/virtual-network-manager/concept-connectivity-configuration#direct-connectivity) through Virtual Network Manager. To extend the capabilities for spokes in different regions to have direct connectivity, the [global mesh](/azure/virtual-network-manager/concept-connectivity-configuration#global-mesh) option enables mesh connectivity between regions. The following diagram shows global mesh connectivity between regions:
 
 ![Diagram showing spoke global mesh direct connectivity over regions.](./images/hub-and-spoke.png)
 
@@ -229,7 +229,7 @@ You can choose between virtual network peering or Virtual Network Manager connec
 
 ### Use virtual network peering
 
-### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 1. Run the following command to create a resource group named `hub-spoke` in the `eastus` region for the deployment. Select **Try it** to use an embedded shell.
 
@@ -244,7 +244,7 @@ You can choose between virtual network peering or Virtual Network Manager connec
        --template-uri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
    ```
 
-### [Azure PowerShell](#tab/powershell)
+#### [Azure PowerShell](#tab/powershell)
 
 1. Run the following command to create a resource group named `hub-spoke` in the `eastus` region for the deployment. Select **Try it** to use an embedded shell.
 
@@ -259,7 +259,7 @@ You can choose between virtual network peering or Virtual Network Manager connec
        -TemplateUri https://raw.githubusercontent.com/mspnp/samples/main/solutions/azure-hub-spoke/azuredeploy.json
    ```
 
-### [Bicep](#tab/bicep)
+#### [Bicep](#tab/bicep)
 
 1. Run the following command to create a resource group named `hub-spoke` in the `eastus` region for the deployment. Select **Try it** to use an embedded shell.
 
@@ -279,18 +279,19 @@ You can choose between virtual network peering or Virtual Network Manager connec
    az deployment group create --resource-group hub-spoke --template-file main.bicep
    ```
 
-### [Azure portal](#tab/portal)
+#### [Azure portal](#tab/portal)
 
 Use the following button to deploy the reference architecture as an Azure Resource Manager (ARM) template in the Azure portal:
 
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke%2Fazuredeploy.json)
 ---
 
+
 For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment) that deploy this solution.
 
 ### Use Virtual Network Manager connected groups:
 
-# [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli)
 
 1. Run the following command to create a resource group named `hub-spoke` in the `eastus` region for the deployment. Select **Try it** to use an embedded shell.
 
@@ -358,6 +359,7 @@ Use the following button to deploy the reference architecture as an ARM template
 [![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsamples%2Fmain%2Fsolutions%2Fazure-hub-spoke-connected-group%2Fazuredeploy.json)
 
 ---
+
 
 <!-- For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) that deploy this solution.-->
 
