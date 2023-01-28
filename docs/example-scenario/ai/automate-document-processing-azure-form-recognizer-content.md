@@ -44,7 +44,7 @@ The pipeline that's used for data enrichment depends on the use case.
 1. Data enrichment can include the following NLP capabilities:
 
    * Named entity recognition (NER)
-   * The extraction of personally identifiable information (PII), key phrases, health information, and other domain-dependent entities
+   * The extraction of personal information, key phrases, health information, and other domain-dependent entities
 
    To enrich the data, the web app:
 
@@ -52,7 +52,7 @@ The pipeline that's used for data enrichment depends on the use case.
    * Posts requests to these features of the Azure Cognitive Service for Language API:
 
      * [NER][What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]
-     * [PII][What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?]
+     * [Personal information][What is Personal Information detection in Azure Cognitive Service for Language?]
      * [Key phrase extraction][What is key phrase extraction in Azure Cognitive Service for Language?]
      * [Text analytics for health][What is Text Analytics for health in Azure Cognitive Service for Language?]
      * [Custom NER][What is Custom Named Entity Recognition (NER) (preview)?], which is in preview
@@ -181,7 +181,7 @@ The availability of the architecture depends on the Azure services that make up 
 * For Azure Cognitive Service for Language, data and rate limits apply. For more information, see these resources:
 
   * [How to use named entity recognition (NER)][How to use named entity recognition (NER) - Data limits]
-  * [How to detect and redact personally identifying information (PII)][How to detect and redact Personally Identifying Information (PII) - Data limits]
+  * [How to detect and redact personal information][How to detect and redact Personal Information - Data limits]
   * [How to use sentiment analysis and opinion mining][How to: Use Sentiment analysis and Opinion Mining - Data limits]
   * [How to use Text Analytics for health][How to use Text Analytics for health - Data limits]
 
@@ -326,7 +326,7 @@ Principal author:
 [Get started with AzCopy]: /azure/storage/common/storage-use-azcopy-v10
 [How to: Use Sentiment analysis and Opinion Mining - Data limits]: /azure/cognitive-services/language-service/sentiment-opinion-mining/how-to/call-api#data-limits
 [How to configure Azure Functions with a virtual network]: /azure/azure-functions/configure-networking-how-to
-[How to detect and redact Personally Identifying Information (PII) - Data limits]: /azure/cognitive-services/language-service/personally-identifiable-information/how-to-call#data-limits
+[How to detect and redact Personal Information - Data limits]: /azure/cognitive-services/language-service/personally-identifiable-information/how-to-call#data-limits
 [How to use named entity recognition (NER) - Data limits]: /azure/cognitive-services/language-service/named-entity-recognition/how-to-call#data-limits
 [How to use Text Analytics for health - Data limits]: /azure/cognitive-services/language-service/text-analytics-for-health/how-to/call-api?tabs=ner#data-limits
 [Introduction to Azure Functions]: /azure/azure-functions/functions-overview
@@ -368,5 +368,5 @@ Principal author:
 [What is key phrase extraction in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/key-phrase-extraction/overview
 [What is Kubernetes?]: https://azure.microsoft.com/topic/what-is-kubernetes/#overview
 [What is Named Entity Recognition (NER) in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/named-entity-recognition/overview
-[What is Personally Identifiable Information (PII) detection in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
+[What is Personal Information detection in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/personally-identifiable-information/overview
 [What is Text Analytics for health in Azure Cognitive Service for Language?]: /azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=ner
