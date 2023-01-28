@@ -56,7 +56,7 @@ For more information, see [Hub-and-spoke network topology](/azure/cloud-adoption
 
 Typical uses for this architecture include workloads that:
 
-- Have different environments, such as development, testing, and production, that require shared services. Shared services might include DNS IDs, Network Time Protocol (NTP), or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, while each environment deploys to a different spoke to maintain isolation.
+- Have different environments, such as development, testing, and production environments, that require shared services. Shared services might include DNS IDs, Network Time Protocol (NTP), or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, while each environment deploys to a different spoke to maintain isolation.
 - Don't require connectivity to each other, but require access to shared services.
 - Require central control over security aspects, like a DMZ firewall in the hub with segregated workload management in each spoke.
 - Require central control over connectivity aspects, such as selective connectivity or isolation between spokes of certain environments or workloads.
@@ -160,7 +160,7 @@ To centrally manage connectivity and security controls, use [Virtual Network Man
 Example Virtual Network Manager use case scenarios include:
 
 - Democratization of spoke virtual network management to groups such as business units or application teams. Democratization can result in large numbers of virtual network-to-virtual network connectivity and network security rules requirements.
-- Standardization of multiple replica hub and spoke architectures in multiple Azure regions to ensure a global footprint for applications.
+- Standardization of multiple replicated hub and spoke topologies in multiple Azure regions to ensure a global footprint for applications.
 
 To ensure uniform connectivity and network security rules, you can use [network groups](/azure/virtual-network-manager/concept-network-groups) to group virtual networks in any subscription, management group, or region under the same Azure AD tenant. You can automatically or manually onboard virtual networks to network groups through dynamic or static membership assignments.
 
@@ -172,7 +172,7 @@ To connect spoke virtual networks in the same network group to each other, use V
 
 You can associate virtual networks within a network group to a baseline set of security admin rules. Network group security admin rules prevent spoke virtual network owners from overwriting baseline security rules, while letting them independently add their own sets of security rules and NSGs. For an example of using security admin rules in hub and spoke topologies, see [Tutorial: Create a secured hub and spoke network](/azure/virtual-network-manager/tutorial-create-secured-hub-and-spoke).
 
-To facilitate a controlled rollout of network groups, connectivity, and security rules changes, Virtual Network Manager [configuration deployments](/azure/virtual-network-manager/concept-deployments) help you safely release potentially breaking configuration changes to hub and spoke environments. For more information, see [Configuration deployments in Azure Virtual Network Manager](/azure/virtual-network-manager/concept-deployments).
+To facilitate a controlled rollout of network groups, connectivity, and security rules, Virtual Network Manager [configuration deployments](/azure/virtual-network-manager/concept-deployments) help you safely release potentially breaking configuration changes to hub and spoke environments. For more information, see [Configuration deployments in Azure Virtual Network Manager](/azure/virtual-network-manager/concept-deployments).
 
 To get started with Virtual Network Manager, see [Create a hub and spoke topology with Azure Virtual Network Manager](/azure/virtual-network-manager/how-to-create-hub-and-spoke).
 
