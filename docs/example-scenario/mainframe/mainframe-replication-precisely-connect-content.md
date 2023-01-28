@@ -19,43 +19,43 @@ link
 
 ### Workflow 
 
-1.	An agent captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
-2.	For mainframe systems, a publisher on the mainframe manages data migration.
-3.	For midrange systems, in place of the publisher, a listener manages data migration. It's located on either a Windows or Linux machine.
+1.	An agent component captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
+2.	For mainframe systems, a publisher component on the mainframe manages data migration.
+3.	For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
 4.	The publisher or listener moves the data from on-premises to the Azure platform via an enhanced-security connection. It handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
 5.	A replicator engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
 6.	The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs. 
 7.	The changed data is consumed by Azure Databricks and applied to Azure data platform services.
-8.	Controller Daemon acts as authenticating service for the request and establish the socket connection between publisher/listener and replicator. 
+8.	The Connect Controller Daemon acts authenticate the request and establishes the socket connection between the publisher or listener and the replicator.
 
-Components
+### Components
 
-Networking and identity
+#### Networking and identity
 
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into cloud services that are offered by Microsoft over a private connection from a connectivity provider. With ExpressRoute, you can establish connections to cloud components such as Azure services and Microsoft 365.
-- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) is a specific type of virtual network gateway that sends encrypted traffic between Azure Virtual Network and an on-premises location over the public internet.
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with an on-premises active directory.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks to Azure cloud services over a private connection from a connectivity provider. 
+- [Azure VPN Gateway](https://azure.microsoft.com/services/vpn-gateway) enables you to create virtual network gateways that send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) is an identity and access management service that synchronizes with on-premises Active Directory.
 
-Storage
+#### Storage
 
-- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is part of the Azure SQL family and is built on the cloud. This service offers all the benefits of a fully managed and evergreen platform as a service (PaaS). Azure SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. With this service, you can focus on application innovation instead of database management. You can also scale your workload quickly and easily.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database) is part of the Azure SQL family. It's built for the cloud and provides all the benefits of a fully managed and evergreen platform as a service (PaaS). SQL Database also provides AI-powered automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine. 
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
-- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server (Enterprise Edition) database engine. This service also provides a native virtual network implementation that addresses common security concerns.
+- [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance) is an intelligent, scalable cloud database service that offers all the benefits of a fully managed and evergreen PaaS. SQL Managed Instance has nearly 100 percent compatibility with the latest SQL Server Enterprise edition database engine. It also provides a native virtual network implementation that addresses common security concerns.
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is a fast and flexible cloud data warehouse that helps you scale, compute, and store elastically and independently, with a massively parallel processing architecture.
 - [Azure Storage](https://azure.microsoft.com/product-categories/storage) is a cloud storage solution that includes object, file, disk, queue, and table storage. Services include hybrid storage solutions and tools for transferring, sharing, and backing up data.
 
-Analysis and reporting
+#### Analysis and reporting
 
-- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis. You can produce beautiful reports, then publish them for your organization to consume on the web, and across mobile devices.
+- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that can deliver insights throughout your organization. By using Power BI, you can connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis.
 
-Monitoring
+#### Monitoring
 
-- [Azure Monitor](https://azure.microsoft.com/services/monitor) delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. It contains the Application Insights, Azure Monitor Logs, and Azure Log Analytics features.
+- [Azure Monitor](https://azure.microsoft.com/services/monitor) provides a comprehensive solution for collecting, analyzing, and acting on telemetry from cloud and on-premises environments. Features include Application Insights, Azure Monitor Logs, and Log Analytics.
 
-Data integrators
+#### Data integrators
 
-- [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) can integrate data from multiple sources and provide real time replication to Azure. Data can be replicated without making changes to the application and can increase performance in ETL jobs.
+- [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) can integrate data from multiple sources and provide real-time replication to Azure. You use it to replicate data without making changes to your application. Connect can also increase the performance of ETL jobs.
 - [Azure Databricks](https://azure.microsoft.com/products/databricks) is based on Apache Spark and integrate with open-source libraries. It provides a unified platform to run analytics workload and manages cloud infrastructure. Python, Scala, R, and SQL languages can be used to frame Extract, Transform, Load (ETL) pipelines and orchestrate jobs.
 - [Azure Event Hubs]() is a real time ingestion service and can process millions of records per second. Data can be ingested from multiple sources and can be used for real time analytics. It can be easily scalable based on the volume of data.  
 
