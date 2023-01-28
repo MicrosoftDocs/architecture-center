@@ -1136,12 +1136,12 @@
 			</g>
 			<g id="shape1082-323" v:mID="1082" v:groupContext="shape">
 				<title>Sheet.1082</title>
-				<desc>Machine Learning studio</desc>
+				<desc>Machine Learning Studio</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="48.375" cy="414" width="96.75" height="36"/>
 				<rect x="0" y="396" width="96.75" height="36" class="st30"/>
 				<text x="5.19" y="410.7" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Machine Learning <tspan
-							x="33.27" dy="1.2em" class="st20">studio</tspan></text>			</g>
+							x="32.68" dy="1.2em" class="st20">Studio</tspan></text>			</g>
 		</g>
 		<g id="group1086-327" transform="translate(746.848,-297.146)" v:mID="1086" v:groupContext="group">
 			<title>Sheet.1086</title>
