@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 01/23/2023
+ms.date: 01/30/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,9 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Azure Arc-enabled SQL Managed Instance disaster recovery](./hybrid/arc-sql-managed-instance-disaster-recovery.yml)
+- [Deploy Engys HELYX on an Azure virtual machine](./guide/hpc/engys-helyx.yml)
+- [Donor-patient matching on Azure Machine Learning](./example-scenario/machine-learning/donor-patient-cross-match.yml)
 - [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)
 - [Enable machine learning inference on an Azure IoT Edge device](./guide/iot/machine-learning-inference-iot-edge.yml)
 - [Implement custom speech-to-text solutions that use AI](./guide/ai/custom-speech-text.yml)
@@ -34,6 +37,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Responsible Innovation toolkit](./guide/responsible-innovation/index.md)  ([#dd71b0206](https://github.com/MicrosoftDocs/architecture-center/commit/dd71b0206))
 - [Azure Service Fabric microservices architecture](./reference-architectures/microservices/service-fabric.yml)  ([#ea68e0676](https://github.com/MicrosoftDocs/architecture-center/commit/ea68e0676))
 - [Network security checklist for MLOps solutions](./example-scenario/ai/network-security-mlops.yml)  ([#e76ad649c](https://github.com/MicrosoftDocs/architecture-center/commit/e76ad649c))
 - [Messaging](./solution-ideas/articles/messaging.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
