@@ -15,12 +15,12 @@ This guide presents an architecture that uses the private endpoint option. The p
 ### Dataflow
 
 1. A user or service on a virtual machine (VM) submits a DNS request for an Azure web app at `webapp.azurewebsites.net`. The web app runs in a provider tenant.
-1. The public Azure DNS service handles the query for `webapp.azurewebsites.net`. The response is a CNAME record, `webapp.privatelink.azurewebsites.net`.
+1. The Azure public DNS service handles the query for `webapp.azurewebsites.net`. The response is a CNAME record, `webapp.privatelink.azurewebsites.net`.
 1. An Azure DNS private zone handles the DNS query for `webapp.privatelink.azurewebsites.net`.
 1. The response is an A record with the IP address of a private endpoint.
 1. The VM issues an HTTPS request to the Azure web app via the IP address of the private endpoint.
 1. The web app handles the request and responds to the VM.
-1. If the user or service doesn't have access to the private DNS zone, the public Azure DNS service resolves the DNS query to `webapp.privatelink.azurewebsites.net` by returning a public IP address. HTTPS requests to that public IP address receive a *403 Forbidden* response.
+1. If the user or service doesn't have access to the private DNS zone, the Azure public DNS service resolves the DNS query to `webapp.privatelink.azurewebsites.net` by returning a public IP address. HTTPS requests to that public IP address receive a *403 Forbidden* response.
 
 ### Components
 
