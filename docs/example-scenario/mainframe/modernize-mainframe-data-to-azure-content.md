@@ -4,10 +4,9 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 ## Architecture
 
-:::image source="./images/modernize-mainframe-data-with-azure.png" alt-text="Architecture diagram that shows how to modernize mainframe and midrange systems by migrating data to Azure." border="false":::
-:::image-end:::
+:::image source="./media/modernize-mainframe-data.png" alt-text="Architecture diagram that shows how to modernize mainframe and midrange systems by migrating data to Azure." border="false" lightbox="./media/modernize-mainframe-data.png":::
 
-*Download a [Visio file][Visio version of architecture diagram] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/modernize-mainframe-data.vsdx) of this architecture.*
 
 ### Dataflow
 
