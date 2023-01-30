@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Index file contents and metadata in Azure Cognitive Search
+  titleSuffix: Azure Architecture Center
+  description: Combine file contents in Blob storage with metadata in Table storage to search for relevant documents in Azure Cognitive Search.
+  author: jelledruyts
+  ms.author: jelled
+  ms.date: 01/27/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - databases
+  - ai-machine-learning
+products:
+  - azure-cognitive-search
+  - azure-blob-storage
+  - azure-table-storage
+name: Index file contents and metadata in Azure Cognitive Search
+summary: Combine file contents in Blob storage with metadata in Table storage to search for relevant documents in Azure Cognitive Search.
+thumbnailUrl: /azure/architecture/browse/thumbs/search-blob-metadata.png
+content: |
+  [!include[](search-blob-metadata-content.md)]
