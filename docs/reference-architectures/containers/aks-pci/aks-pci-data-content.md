@@ -286,7 +286,7 @@ It's critical that you maintain thorough documentation about the processes and p
 
 People who are operating regulated environments must be educated, informed, and incentivized to support the security assurances. This is particularly important for people who are part of the approval process from a policy perspective.
 
-## Next
+## Next steps
 
 Protect all systems against malware and regularly update antivirus software or programs. Develop and maintain secure systems and applications.
 

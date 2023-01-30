@@ -2,7 +2,7 @@
 title: Solutions for the retail industry
 titleSuffix: Azure Architecture Center
 description: Architectures and ideas to use Azure services for building efficient, scalable, and reliable retail solutions.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/26/2022
 ms.topic: conceptual
@@ -55,7 +55,6 @@ The following articles provide more details about retail architectural topics. A
 | ------- | ------- | ------- |
 | [Data Management in Retail](/previous-versions/azure/industry-marketing/retail/retail-data-management-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Primer for how to ingest, prepare, store, analyze, and take action on data, for the retail industry. | Databases |
 | [Migrate your e-commerce solution to Azure](/previous-versions/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Learn how to move an existing e-commerce solution to the cloud. The three stages are to rehost, refactor, and rebuild your solution. | Migration |
-| [Optimize and reuse an existing recommendation system](/previous-versions/azure/industry-marketing/retail/recommendation-engine-optimization?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | The process of successfully reusing and improving an existing recommendation system that is written in R. | AI/ML |
 | [Visual search in retail with Azure Cosmos DB](/previous-versions/azure/industry-marketing/retail/visual-search-use-case-overview?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | This document focuses on the AI concept of visual search and offers a few key considerations on its implementation. It provides a workflow example and maps its stages to the relevant Azure technologies. | Databases |
 | [SKU optimization for consumer brands](/previous-versions/azure/industry-marketing/retail/sku-optimization-solution-guide?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json) | Topics include automating decision making, SKU assortment optimization, descriptive analytics, predictive analytics, parametric models, non-parametric models, implementation details, data output and reporting, and security considerations. | Analytics |
 

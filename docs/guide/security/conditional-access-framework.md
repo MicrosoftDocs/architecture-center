@@ -128,7 +128,7 @@ Location-based access controls rely on the source IP of a request to determine t
 
 ## Recommended Conditional Access policies
 
-We've created a spreadsheet that contains recommended Conditional Access policies. You can [download the spreadsheet here](https://arch-center.azureedge.net/Conditional-Access-policies-for-personas-2.xlsx). 
+We've created a spreadsheet that contains recommended Conditional Access policies. You can [download the spreadsheet here](https://github.com/microsoft/ConditionalAccessforZeroTrustResources/raw/main/ConditionalAccessSamplePolicies/Microsoft%20Conditional%20Access%20for%20Zero%20trust%20persona%20based%20policies.xlsx).
 
 Use the suggested policies as a starting point.
 

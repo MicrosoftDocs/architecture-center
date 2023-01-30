@@ -1,15 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
-
-## Potential use cases
-
-The integration of WANdisco Fusion with Azure HDInsight presents an enterprise solution that enables organizations to meet stringent data availability and compliance requirements while seamlessly moving production data at petabyte scale from on-premises big data deployments to Microsoft Azure.
+This solution idea describes how to extend your on-premises big data investments to the cloud and transform your business by using the advanced analytics capabilities of Azure HDInsight.
 
 ## Architecture
 
-![Diagram that shows the big data architecture.](../media/extend-your-on-premises-big-data-investments-with-hdinsight.png)
-*Download an [SVG](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg) of this architecture.*
+[ ![Architecture diagram that shows the big data architecture.](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg)](../media/extend-your-on-premises-big-data-investments-with-hdinsight.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/extend-your-on-premises-big-data-investments-with-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -29,6 +26,14 @@ The integration of WANdisco Fusion with Azure HDInsight presents an enterprise s
 - [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network)
 
+## Scenario details
+
+This solution idea describes how to extend your on-premises big data investments to the cloud.
+
+### Potential use cases
+
+The integration of WANdisco Fusion with Azure HDInsight presents an enterprise solution that enables organizations to meet stringent data availability and compliance requirements while seamlessly moving production data at petabyte scale from on-premises big data deployments to Microsoft Azure.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -36,6 +41,8 @@ The integration of WANdisco Fusion with Azure HDInsight presents an enterprise s
 Principal author:
 
  * [Aadi Manchanda](https://www.linkedin.com/in/aadi-manchanda) | Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

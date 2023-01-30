@@ -1,7 +1,6 @@
 This guide explains how pricing and cost management work in Azure Kubernetes Service (AKS) compared to Amazon Elastic Kubernetes Service (Amazon EKS). The article describes how to optimize costs and implement cost governance solutions for your AKS cluster.
 
-> [!NOTE]
-> This article is part of a [series of articles](index.md) that helps professionals who are familiar with Amazon Elastic Kubernetes Service (Amazon EKS) to understand Azure Kubernetes Service (AKS).
+[!INCLUDE [eks-aks](includes/eks-aks-include.md)]
 
 ## Amazon EKS cost basics
 
@@ -35,13 +34,13 @@ The following diagram shows the relationship between the control plane and nodes
 
 ### Control plane
 
-Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS free tier, the control plane is free.
+Azure automatically provisions and configures the control plane layer when you create an AKS cluster. For the AKS Free tier, the control plane is free.
 
-For a higher control plane service-level agreement (SLA), you can create an AKS cluster with [Uptime SLA](/azure/aks/uptime-sla). Uptime SLA is a paid feature that you enable per cluster. Uptime SLA pricing is determined by the number of clusters, not by cluster size.
+For a higher control plane service-level agreement (SLA), you can create an AKS cluster in the [Standard tier](/azure/aks/free-standard-pricing-tiers). Uptime SLA is included by default in the Standard tier and is enabled per cluster. The pricing is $0.10 per cluster per hour. For more information, see [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-Uptime SLA clusters have more control plane resources and automatically scale to meet cluster load. AKS uses master node replicas across update and fault domains to meet availability requirements. AKS REST APIs regard Uptime SLA clusters as a Paid tier.
+Clusters in the Standard tier have more control plane resources, such as the number of API server instances, Etcd resource limits, [scalability up to 5,000 nodes](https://azure.microsoft.com/updates/generally-available-5000-node-scale-in-aks/), and the existing financially-backed Uptime SLA support. AKS uses main node replicas across update and fault domains to meet availability requirements.
 
-It's best to use Uptime SLA in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources, and aren't suitable for production workloads.
+It's best to use the Standard tier in production workloads to provide higher control plane component availability. Free tier clusters have fewer replicas and limited control plane resources and aren't recommended for production workloads.
 
 ### Nodes
 
@@ -95,7 +94,7 @@ If you run workloads that use CSI persistent volumes on your AKS cluster, consid
 
   - Service: Blob, File, Queue, Table or unmanaged disks
   - Storage account type: GPv1, GPv2, Blob, or Premium Blob
-  - Resiliency: Locally-redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
+  - Resiliency: Locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS)
   - Access tier: Hot, cool, or archive
   - Operations and data transfers
   - Used capacity in GB
@@ -117,7 +116,7 @@ Several Azure networking services can provide access to your applications that r
   - Rules: The number of configured load-balancing and outbound rules. Inbound network address translation (NAT) rules don't count in the total number of rules.
   - Data processed: The amount of data processed inbound and outbound, independent of rules. There's no hourly charge for Standard Load Balancer with no rules configured.
 
-- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually-managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
+- [Azure Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway). AKS often uses Application Gateway through [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), or by fronting a different ingress controller with manually managed Application Gateway. Application Gateway supports gateway routing, transport-layer security (TLS) termination, and Web Application Firewall (WAF) functionality. Application Gateway charges are based on:
 
   - Fixed price set by hour or partial hour.
   - Capacity unit price, an added consumption-based cost. Each capacity unit has at most one compute unit, 2,500 persistent connections, and 2.22-Mbps throughput.
@@ -232,6 +231,9 @@ Other contributors:
 
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel) | Principal Software Engineer
 - [Ed Price](https://www.linkedin.com/in/priceed) | Senior Content Program Manager
+- [Theano Petersen](https://www.linkedin.com/in/theanop) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -241,6 +243,7 @@ Other contributors:
 - [Secure network access to Kubernetes](private-clusters.yml)
 - [Storage options for a Kubernetes cluster](storage.md)
 - [Kubernetes node and node pool management](node-pools.yml)
+- [Cluster governance](governance.md)
 
 ## Related resources
 

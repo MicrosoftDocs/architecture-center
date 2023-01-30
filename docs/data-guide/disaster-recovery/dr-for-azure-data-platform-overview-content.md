@@ -40,3 +40,10 @@ The key assumptions for this DR worked example are
 ## Next steps
 
 Now that you have learned about the scenario at a high level, you can move on to learn about the [architecture](../disaster-recovery/dr-for-azure-data-platform-architecture.yml) designed for the use case.
+
+## Related resources
+
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)
+- [DR for Azure Data Platform - Deploy this scenario](dr-for-azure-data-platform-deploy-this-scenario.yml)

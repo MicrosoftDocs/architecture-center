@@ -174,7 +174,7 @@ For more information, see [Virtual WAN pricing](https://azure.microsoft.com/pric
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors: 
+Principal author: 
 
  - [Yunus Emre Alpozen](https://www.linkedin.com/in/yemre/) | Program Architect Cross-Workload
  

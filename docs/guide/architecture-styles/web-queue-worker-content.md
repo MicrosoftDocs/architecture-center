@@ -89,6 +89,7 @@ For more information, see the [App Service web application reference architectur
 - [Data partitioning guidance](/azure/architecture/best-practices/data-partitioning)
 - [Use the best data store for your data](/azure/architecture/guide/design-principles/use-best-data-store)
 - [Scalable web application](/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
+- [Queue-Based Load Leveling pattern](/azure/architecture/patterns/queue-based-load-leveling)
 
 <!-- links -->
 

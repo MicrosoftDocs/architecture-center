@@ -301,7 +301,6 @@ Related retail guidance:
 
 - [Solutions for the retail industry](/azure/architecture/industries/retail)
 - [Data management in the retail industry](/azure/architecture/industries/retail/retail-data-management-overview)
-- [Optimize and reuse an existing recommendation system](/azure/architecture/industries/retail/recommendation-engine-optimization)
 - [Migrate your e-commerce solution to Azure](/azure/architecture/industries/retail/migrate-ecommerce-solution)
 - [Visual search in retail with Azure Cosmos DB](/azure/architecture/industries/retail/visual-search-use-case-overview)
 - [Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-retail-footfall-detection)

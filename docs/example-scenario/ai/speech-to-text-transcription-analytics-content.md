@@ -4,10 +4,7 @@ The example solution described in this article outlines a repeatable pipeline fo
 
 ## Architecture
 
-The architecture consists of two pipelines:
-
-* A transcription pipeline to convert audio to text
-* An enrichment and visualization pipeline
+The architecture consists of two pipelines: A transcription pipeline to convert audio to text, and an enrichment and visualization pipeline.
 
 ### Transcription pipeline
 
@@ -15,7 +12,7 @@ The architecture consists of two pipelines:
 
 *Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
 
-#### Dataflow for the transcription pipeline
+#### Dataflow
 
 1. Audio files are uploaded to an Azure Storage account via any supported method. You can use a UI-based tool like [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) or use a [storage SDK or API](/azure/storage/blobs/reference).
 1. The upload to Azure Storage triggers an Azure logic app. The logic app accesses any necessary credentials in Azure Key Vault and makes a request to the Speech service's batch transcription API.
@@ -28,7 +25,7 @@ The architecture consists of two pipelines:
 
 *Download a [Visio file](https://arch-center.azureedge.net/speech-to-text-transcription-pipeline.vsdx) of this architecture.*
 
-#### Dataflow for the enrichment and visualization pipeline
+#### Dataflow
 
 5. An Azure Synapse Analytics pipeline runs to retrieve and process the transcribed audio text.
 6. The pipeline sends processed text via an API call to the Language service. The service performs various natural language processing (NLP) enrichments, like sentiment and opinion mining, summarization, and custom and pre-built named entity recognition.
@@ -104,6 +101,8 @@ Principal authors:
 Other contributor:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

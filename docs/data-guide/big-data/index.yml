@@ -2,7 +2,7 @@
 metadata:
   title: Big data architectures
   description: Learn about big data architectures that handle the ingestion, processing, and analysis of data too large or complex for traditional database systems.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
   ms.topic: conceptual

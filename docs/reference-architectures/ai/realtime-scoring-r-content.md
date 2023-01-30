@@ -61,6 +61,16 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 The main cost consideration in this architecture is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Hong Ooi](https://www.linkedin.com/in/hongooi) | Senior Data Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Azure Machine Learning Documentation][aml-docs].

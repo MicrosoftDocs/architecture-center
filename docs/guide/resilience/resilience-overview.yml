@@ -2,8 +2,8 @@
 metadata:
   title: Resilient identity and access management with Azure Active Directory (Azure AD)
   description: Read this guide to learn how architects, IT administrators, and developers can build resilience to disruption of their identity systems.
-  author: BarbaraSelden
-  ms.author: baselden
+  author: JaniceRicketts
+  ms.author: jricketts
   ms.date: 04/22/2021
   ms.topic: conceptual
   ms.service: architecture-center

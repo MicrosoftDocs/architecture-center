@@ -4,7 +4,7 @@ This article provides guidance on how to design a solution using Azure Health Da
 
 ## Architecture
 
-:::image type="content" source="./images/remote-patient-monitoring.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/remote-patient-monitoring.png" border="false" :::
+[ ![Architecture diagram of remote patient monitoring architecture using healthcare devices and Azure services.](./images/remote-patient-monitoring.svg)](./images/remote-patient-monitoring.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/remote-patient-monitoring.vsdx) of this architecture.*
 

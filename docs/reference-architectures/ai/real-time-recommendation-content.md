@@ -108,6 +108,18 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 1. Open the notebook within Azure Databricks and attach the configured cluster.
 1. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Miguel Fierro](https://www.linkedin.com/in/miguelgfierro) | Principal Data Scientist Manager
+- [Nikhil Joglekar](https://www.linkedin.com/in/nrjoglekar) | Product Manager, Azure algorithms and data science
+- [Le Zhang](https://www.linkedin.com/in/yueguoguo1024) | Data Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Building a Real-time Recommendation API][als-example]
@@ -121,7 +133,6 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 - [Batch scoring of Spark models on Azure Databricks][batch-scoring]
 - [Build a content-based recommendation system](/azure/architecture/solution-ideas/articles/build-content-based-recommendation-system-using-recommender)
 - [Build a movie recommendation system using machine learning](../../example-scenario/ai/movie-recommendations-with-machine-learning.yml)
-- [Optimize and reuse an existing recommendation system](../../industries/retail/recommendation-engine-optimization.yml)
 - [Product recommendations for retail using Azure](../../solution-ideas/articles/product-recommendations.yml)
 - [Personalization using Cosmos DB](../../solution-ideas/articles/personalization-using-cosmos-db.yml)
 - [Retail assistant with visual capabilities](../../solution-ideas/articles/retail-assistant-or-vacation-planner-with-visual-capabilities.yml)

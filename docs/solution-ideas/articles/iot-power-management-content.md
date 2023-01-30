@@ -4,11 +4,6 @@ This article describes an internet of things (IoT) solution that provides power,
 
 ## Architecture
 
-The architecture consists of:
-
-- A containerized microservices app with end-user interfaces.
-- An analytics and machine learning workflow.
-
 ### Application solution
 
 [![Diagram showing user interfaces interacting with Azure Application Gateway and the cloud application components.](../media/iot-power-architecture.png)](../media/iot-power-architecture.png#lightbox)
@@ -16,6 +11,8 @@ The architecture consists of:
 *Download a [Visio file](https://arch-center.azureedge.net/iot-power-architecture.vsdx)* of this architecture.
 
 #### Dataflow
+
+This is a containerized microservices app with end-user interfaces:
 
 1. Field sales and service agents use a mobile platform to interact with the cloud application via Azure Application Gateway. End users use a built-in interface or mobile app to access and control their devices.
 1. Application Gateway uses messaging protocols to interact with users and operators.

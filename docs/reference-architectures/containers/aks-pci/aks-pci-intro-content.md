@@ -47,7 +47,7 @@ This series is split into several articles. Each article outlines the high-level
 |[Monitoring operations](aks-pci-monitor.yml)|Maintain the security posture through monitoring operations and regularly test your security design and implementation.|
 |[Policy management](aks-pci-policy.yml)|Maintain thorough and updated documentation about your security processes and policies.|
 
-## Next
+## Next steps
 
 Start by understanding the regulated architecture and the design choices.
 

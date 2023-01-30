@@ -2,7 +2,7 @@ This architecture shows a secure research environment intended to allow research
 
 ## Architecture
 
-:::image type="content" source="./media/secure-research-env.png" alt-text="Diagram of a secure research environment.":::
+:::image type="content" source="./media/secure-research-env.svg" alt-text="Diagram of a secure research environment." lightbox="./media/secure-research-env.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/secure-compute-for-research.vsdx) of this architecture.*
 

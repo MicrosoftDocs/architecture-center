@@ -1,7 +1,7 @@
 ---
 title: Choose an analytical data store
 description: Evaluate analytical data store options for big data in Azure, including key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -112,3 +112,21 @@ The following tables summarize the key differences in capabilities.
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Analyze data in a relational data warehouse](/training/modules/design-multidimensional-schema-to-optimize-analytical-workloads)
+- [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
+- [Create an Azure Databricks workspace](/azure/databricks/getting-started)
+- [Create Apache Spark cluster in Azure HDInsight using Azure portal](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
+- [Creating a Synapse workspace](/azure/synapse-analytics/get-started-create-workspace)
+- [Explore Azure data services for modern analytics](/training/modules/explore-azure-data-services-for-modern-analytics)
+- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
+- [Query Azure Cosmos DB by using the API for NoSQL](/azure/cosmos-db/nosql/tutorial-query)
+
+## Related resources
+
+- [Technology choices for Azure solutions](../../guide/technology-choices/technology-choices-overview.md)
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)
+- [Analyze operational data on MongoDB Atlas using Azure Synapse Analytics](../../example-scenario/analytics/azure-synapse-analytics-integrate-mongodb-atlas.yml)
+- [Non-relational data and NoSQL](../../data-guide/big-data/non-relational-data.yml)

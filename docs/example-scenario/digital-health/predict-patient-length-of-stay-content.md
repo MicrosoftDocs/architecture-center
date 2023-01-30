@@ -1,12 +1,10 @@
-For the people running a healthcare facility, length of stay (LOS)—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it hard to track patient flow and plan accordingly.
-
 This Azure solution helps hospital administrators use the power of machine learning to predict the length of stay for in-hospital admissions, to improve capacity planning and resource utilization. A chief medical information officer might use a predictive model to determine which facilities are overtaxed and which resources to bolster within those facilities. A care line manager might use a model to determine whether there are adequate staff resources to handle the release of a patient.
 
 ## Architecture
 
 :::image type="content" source="./images/predict-length-of-stay.png" alt-text="Diagram of remote patient monitoring architecture using healthcare devices and Azure services." lightbox="./images/predict-length-of-stay.png" border="false" :::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/predict-length-of-stay.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/predict-length-of-stay.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -60,6 +58,8 @@ The following dataflow corresponds to the above diagram:
 - Azure Synapse Analytics [pipelines](/azure/data-factory/concepts-pipelines-activities?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=synapse-analytics) can be used as an alternative to Azure Data Factory in most cases, depending largely on the specific customer environment.  
 
 ## Scenario details
+
+For the people running a healthcare facility, length of stay (LOS)—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it hard to track patient flow and plan accordingly.
 
 This solution enables a predictive model for LOS for in-hospital admissions. LOS is defined in number of days from the initial admit date to the date that the patient is discharged from any given hospital facility. There can be significant variation of LOS across various facilities, disease conditions, and specialties, even within the same healthcare system. 
 

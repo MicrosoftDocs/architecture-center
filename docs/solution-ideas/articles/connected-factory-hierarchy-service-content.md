@@ -1,16 +1,14 @@
-This article explores a connected factory hierarchy service implementation. 
+This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) to run the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
 
 ## Architecture
 
-This solution uses [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) to run the microservices that query master data from the various connected services. The hierarchy service is an ASP.NET Core REST API hosted in an AKS cluster.
-
-[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. Downstream applications can use this contextual information.
-
-![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.png)
+![Infographic of an example hierarchy service.](../media/connected-factory-hierarchy-service-03.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-factory-hierarchy-service.vsdx) of this architecture.*
 
 ### Dataflow
+
+[Azure Digital Twins](/azure/digital-twins) helps build the hierarchy service by creating a model of nodes, like machines, work centers, and locations, and their relationships. Each node has metadata that includes identifiers from enterprise resource management (ERP) systems. Downstream applications can use this contextual information.
 
 1. The **web app** lets users manage the hierarchy through a UI.
 1. **Azure Digital Twins Explorer** allows managing the hierarchy directly against Azure Digital Twins.
@@ -36,7 +34,7 @@ The hierarchy service lets you filter query operations by node types and node at
 |Operation|Filter|Description|
 |---|---|---|
 |`get`|`/api/v0.1/nodes`|Get nodes by their attribute values.|
-|`get`|`/api/v0.1/nodes/{nodeId}`|Get a node by Id.|
+|`get`|`/api/v0.1/nodes/{nodeId}`|Get a node by ID.|
 |`get`|`/api/v0.1/nodes/{nodeId}/subtree`|Get subtree of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/children`|Get direct children of a hierarchy node.|
 |`get`|`/api/v0.1/nodes/{nodeId}/parent`|Get parent of a hierarchy node.|
@@ -88,6 +86,8 @@ This system design is intentionally simple to avoid the introduction of more ser
 - Integration with [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/#overview). You can ingest data directly into a store that can manage manufacturing data rates. Azure Digital Twins/Azure Data Explorer joint queries via the [Azure Digital Twins query plugin for Azure Data Explorer](/azure/digital-twins/concepts-data-explorer-plugin) can provide contextualization.
 
 ## Scenario details
+
+This article explores a connected factory hierarchy service implementation. 
 
 A hierarchy service centrally defines the organization of production assets like machines within factories, from both an operational and maintenance point of view. Business stakeholders can use this information as a common data source for monitoring plant conditions or overall equipment effectiveness (OEE).
 

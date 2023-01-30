@@ -2,7 +2,7 @@
 title: Solutions for the education industry 
 titleSuffix: Azure Architecture Center
 description: Discover architectures and ideas for using Azure services to build solutions in the education industry.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/26/2022
 ms.topic: conceptual

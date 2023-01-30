@@ -93,7 +93,7 @@ This solution uses the following components:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Husam Hilal](https://www.linkedin.com/in/husamhilal/) | Senior Cloud Solution Architect
  

@@ -12,11 +12,11 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 1. Developer converts existing web application to container.
 2. Developer publishes container image to:
-    1. Azure Container Registry.
-    1. Or, a private registry or Docker Hub.
+    1. A private registry or Docker Hub.
+    1. Or, an Azure Container Registry.
 3. App Service pulls image with:
-    1. Managed identity, which uses an Azure Active Directory security principal to  access to Azure Container Directory.
-    1. Or, credentials for private registry or Docker Hub if necessary.
+    1. Credentials for private registry or Docker Hub, if used.
+    1. Or, managed identity, which uses an Azure Active Directory security principal to access to Azure Container Registry.
 4. Service connectors to access other Azure resources.
 5. Developer pushes new image to the container registry, which triggers App Service updates when continuous deployment is enabled.
 
@@ -38,7 +38,7 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 ## Scenario details
 
-Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Containers easily other Azure resources like storage and database services.
+Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Your containers can easily integrate other Azure resources like storage and database services.
 
 ### Potential use cases
 

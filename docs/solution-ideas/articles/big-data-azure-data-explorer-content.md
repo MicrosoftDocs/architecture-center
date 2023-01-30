@@ -43,6 +43,17 @@ Principal author:
 
  * [Ornat Spodek](https://www.linkedin.com/in/ornat-s-89123544) | Senior Content Manager
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-For more information, see the [Azure Data Explorer documentation](/azure/data-explorer).
+- [Azure Data Explorer documentation](/azure/data-explorer)
+- [Training: Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
+- [Azure Synapse Analytics](/azure/synapse-analytics)
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+
+## Related resources
+
+- [Analytics architecture design](../../solution-ideas/articles/analytics-start-here.yml)
+- [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
+- [Advanced analytics architecture](../../solution-ideas/articles/advanced-analytics-on-big-data.yml)

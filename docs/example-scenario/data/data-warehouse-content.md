@@ -6,11 +6,13 @@ This example scenario demonstrates a data pipeline that integrates large amounts
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-data-warehousing.vsdx) of this architecture.*
 
+### Dataflow
+
 The data flows through the solution as follows:
 
-1. For each data source, any updates are exported periodically into a staging area in ADLS.
-2. Data Factory incrementally loads the data from ADLS into staging tables in Azure Synapse Analytics. The data is cleansed and transformed during this process. PolyBase can parallelize the process for large datasets.
-3. After loading a new batch of data into the warehouse, a previously created Analysis Services tabular model is refreshed. This semantic model simplifies the analysis of business data and relationships.
+1. For each data source, any updates are exported periodically into a staging area in Azure Data Lake Storage.
+2. Azure Data Factory incrementally loads the data from Azure Data Lake Storage into staging tables in Azure Synapse Analytics. The data is cleansed and transformed during this process. PolyBase can parallelize the process for large datasets.
+3. After loading a new batch of data into the warehouse, a previously created Azure Analysis Services tabular model is refreshed. This semantic model simplifies the analysis of business data and relationships.
 4. Business analysts use Microsoft Power BI to analyze warehoused data via the Analysis Services semantic model.
 
 ### Components
@@ -25,19 +27,18 @@ The company has data sources on many different platforms:
 
 Data is loaded from these different data sources using several Azure components:
 
-- [Azure Data Lake Storage Gen2 (ADLS)](/azure/storage/blobs/data-lake-storage-introduction) is used to stage source data before it's loaded into Azure Synapse.
-- [Data Factory](/azure/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
-- [Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from ADLS.
-- [Analysis Services](/azure/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data.
-- [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
-- [Azure Active Directory (Azure AD)](/azure/active-directory) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Azure AD to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is used to stage source data before it's loaded into Azure Synapse.
+- [Data Factory](https://azure.microsoft.com/products/data-factory) orchestrates the transformation of staged data into a common structure in Azure Synapse. Data Factory [uses PolyBase when loading data into Azure Synapse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput.
+- [Azure Synapse](https://azure.microsoft.com/products/synapse-analytics) is a distributed system for storing and analyzing large datasets. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. Azure Synapse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Azure Data Lake Storage.
+- [Analysis Services](https://azure.microsoft.com/products/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data.
+- [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Azure AD to authenticate to Azure Synapse via a service principal or [Managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ### Alternatives
 
 - The example pipeline includes several different kinds of data sources. This architecture can handle a wide variety of relational and non-relational data sources.
-- Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into ADLS. You can then load the data directly into Azure Synapse using PolyBase.
+- Data Factory orchestrates the workflows for your data pipeline. If you want to load data only one time or on demand, you could use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Azure Data Lake Storage. You can then load the data directly into Azure Synapse using PolyBase.
 - If you have very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
-- An on-premises [SQL Server Parallel Data Warehouse](/sql/analytics-platform-system) appliance can also be used for big data processing. However, operating costs are often much lower with a managed cloud-based solution like Azure Synapse.
 - Azure Synapse is not a good fit for OLTP workloads or data sets smaller than 250 GB. For those cases you should use Azure SQL Database or SQL Server.
 - For comparisons of other alternatives, see:
 
@@ -91,17 +92,26 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributor.*
 
-Principal authors:
+Principal author:
 
 * [Alex Buck](https://www.linkedin.com/in/alex-buck-0161575) | Senior Content Developer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - Review the [Azure reference architecture for automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml), which includes instructions for deploying an instance of this architecture in Azure.
 - Read the [Maritz Motivation Solutions customer story][source-document]. That story describes a similar approach to managing customer data.
 - Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
+- Learn more about the services used in this scenario:
+   - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+   - [Azure Data Factory documentation](/azure/data-factory)
+   - [What is dedicated SQL pool in Azure Synapse Analytics?](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+   - [Azure Analysis Services documentation](/azure/analysis-services)
+   - [Power BI documentation](/power-bi)
+   - [Azure Active Directory documentation](/azure/active-directory)
 
 <!-- links -->
 

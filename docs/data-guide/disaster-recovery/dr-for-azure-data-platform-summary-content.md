@@ -13,7 +13,7 @@ AKS|Azure Kubernetes Service|[Azure Kubernetes Service (AKS) documentation](/azu
 ARM|Azure Resource Manager|[ARM template documentation](/en-us/azure/azure-resource-manager/templates/)
 BAU|Business As Usual| 
 BC|Business Continuity|[Business continuity management program in Azure](/azure/availability-zones/business-continuity-management-program)
-BCDR|Business Continuity and Disaster Recovery|[Business continuity and disaster recovery - Cloud Adoption Framework](/availability-zones/business-continuity-management-program)
+BCDR|Business Continuity and Disaster Recovery|[Business continuity management in Azure](/azure/reliability/business-continuity-management-program)
 CI/CD|Continuous Integration & Continuous Deployment|[Azure DevOps - CI/CD Overview](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview?view=azure-devops#what-is-cicd) 
 DR|Disaster Recovery| 
 DNS|Domain Name System| 
@@ -51,6 +51,7 @@ WRT|Work Recovery Time|The maximum acceptable amount of time that is required to
 ZRS|Zone-Redundant Storage|[Data redundancy - Azure Storage](/azure/storage/common/storage-redundancy)
 
 ## Contributors
+
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
@@ -59,8 +60,24 @@ Principal authors:
 - [Justice Zisanhi](https://www.linkedin.com/in/justice-zisanhi/) | Cloud Solution Architect
 - [Scott Mckinnon](https://www.linkedin.com/in/scott-mckinnon-96756a83) | Cloud Solution Architect
 
-Other contributors
+Other contributors:
 
 - [Ananth Prakash](https://www.linkedin.com/in/ananthprakashj/) | Senior CSA Manager
 - [Fabio Braga](https://www.linkedin.com/in/fabiohemylio/) | Chief Architect – Customer Success
 - [Rolf Tesmer](https://www.linkedin.com/in/rolftesmer/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [Azure Data Lake Storage training module](/training/modules/introduction-to-azure-data-lake-storage)
+- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
+- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
+- [Azure Synapse Analytics](/azure/synapse-analytics)
+
+## Related resources
+
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Recommendations](dr-for-azure-data-platform-recommendations.yml)

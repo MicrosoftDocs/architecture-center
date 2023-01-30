@@ -119,3 +119,10 @@ For this outage scenario, the relative impact on the four high-level DR Strategi
 
 ## Next steps
 Now that you've learned about the recommendations related to the scenario, you can learn how to  [deploy this scenario](../disaster-recovery/dr-for-azure-data-platform-deploy-this-scenario.yml)
+
+## Related resources
+
+- [DR for Azure Data Platform - Overview](dr-for-azure-data-platform-overview.yml)
+- [DR for Azure Data Platform - Architecture](dr-for-azure-data-platform-architecture.yml)
+- [DR for Azure Data Platform - Scenario details](dr-for-azure-data-platform-scenario-details.yml)
+- [DR for Azure Data Platform - Summary](dr-for-azure-data-platform-summary.yml)

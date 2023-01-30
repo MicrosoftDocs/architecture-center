@@ -459,3 +459,9 @@ These tutorials will provide you with details on running applications on Microso
 - [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 - [Run on-demand Spark jobs on Batch](https://github.com/Azure/aztk)
 - [Use compute-intensive VMs in Batch pools](/azure/batch/batch-pool-compute-intensive-sizes)
+
+## Related resources
+
+- [Big compute architecture style](../guide/architecture-styles/big-compute.yml)
+- [Hybrid HPC in Azure with HPC Pack](../solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml)
+- [HPC cluster deployed in the cloud](../solution-ideas/articles/hpc-cluster.yml)

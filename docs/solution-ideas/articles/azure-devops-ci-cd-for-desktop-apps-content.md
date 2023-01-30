@@ -54,7 +54,7 @@ Because it supports features like automatic updates, MSIX, together with Azure D
 
 Principal author:
 
-- [Matteo Pagani](https://www.linkedin.com/in/matteopagani) | Windows App Consult Tech Lead
+- [Matteo Pagani](https://www.linkedin.com/in/matteopagani) | Modern Work App Consult Tech Lead
 
 ## Next steps
 
@@ -66,6 +66,6 @@ Principal author:
 
 ## Related resources
 
-- [Design a CI/CD pipeline by using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-webapp)
+- [Design a CI/CD pipeline by using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)
 - [DevOps checklist](/azure/architecture/checklist/dev-ops)
 - [Advanced Azure Resource Manager template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)
