@@ -5992,6 +5992,8 @@ items:
                 maintainContext: true
               - name: Resolve overlapping IP address space constraints 
                 href: guide/networking/private-link-ip-constraints.yml
+              - name: Cross-tenant secure access to apps 
+                href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
           - name: Architectures
             items:
               - name: Azure DNS Private Resolver
@@ -6615,6 +6617,8 @@ items:
                   - name: Networking features for App Service
                     href: /azure/app-service/networking-features
                     maintainContext: true
+              - name: Cross-tenant secure access to apps
+                href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
               - name: Modernize web apps
                 items:
                   - name: Characteristics of modern web apps
