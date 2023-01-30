@@ -126,6 +126,10 @@ This solution follows a strong GitOps approach.
    - Introduces risk acceptance whenever policies can't be applied for good reasons.
    - Provides security policies to OPA Gatekeeper.
 
+## Other GitOps tools and add-ons. 
+
+The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to (integrate to Azure)[https://jenkins-x.io/v3/admin/platforms/azure/]. Progressive delivery tools such as (Flagger)[https://fluxcd.io/flagger/] can be used For gradual shifting of production workloads deployed through GitOps.
+
 
 ## Considerations
 
