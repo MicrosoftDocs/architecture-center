@@ -11,14 +11,14 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 ### Workflow
 
-1.	An agent component captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
+1.	A Connect agent component captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
 2.	For mainframe systems, a publisher component on the mainframe manages data migration.
 3.	For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
-4.	The publisher or listener moves the data from on-premises to the Azure platform via an enhanced-security connection. It handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
+4.	The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. It handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
 5.	The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
 6.	The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs. 
 7.	The changed data is consumed by Azure Databricks and applied to Azure data platform services.
-8.	The Connect Controller Daemon acts authenticate the request and establishes the socket connection between the publisher or listener and the replicator.
+8.	The Connect Controller Daemon authenticates the request and establishes the socket connection between the publisher or listener and the Replicator Engine.
 
 ### Components
 
@@ -53,7 +53,7 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 ## Scenario details
 
- You can use various strategies to migrate mainframe and midrange systems to the Azure platform. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
+ You can use various strategies to migrate mainframe and midrange systems to Azure. Data migration plays a key role in this process. In a hybrid cloud architecture, data needs to be replicated between mainframe or midrange systems and the Azure data platform. To maintain the integrity of the data, you need real-time replication for business-critical applications. Precisely Connect can help you replicate data from mainframe and midrange data sources to the Azure data platform in real time by using change data capture (CDC) or by using batch ingestion.
 
 Precisely Connect supports various mainframe and midrange data sources, including Db2 z/OS, Db2 LUW, Db2 for i, IMS, VSAM, files, and copybooks. It migrates them to Azure targets, like SQL Database, Azure Database for PostgreSQL, Azure Database for MySQL, Azure Data Lake Storage, and Azure Synapse Analytics, without affecting applications. It also supports scalability based on data volume and customer requirements. It replicates data without affecting performance or straining the network. 
 
@@ -80,9 +80,9 @@ Use [Azure Monitor](https://azure.microsoft.com/services/monitor) and [Applicati
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview). 
 
-- Replicating data to Azure and processing it in Azure services could be more cost effective than maintaining it in a mainframe system.
+- Replicating data to Azure and processing it in Azure services can be more cost effective than maintaining it in a mainframe system.
 - The Cost Management tool in the Azure portal provides a cost analysis view that can help you analyze your spending.
-- You can use Azure Databricks to resize your cluster with autoscaling to optimize costs. Doing so can be less expensive than a fixed configuration.
+- You can use Azure Databricks to resize your cluster with autoscaling to optimize costs. Doing so can be less expensive than using a fixed configuration.
 - Azure Advisor provides recommendations to optimize performance and cost management.
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
@@ -124,6 +124,6 @@ Other contributor:
 
 - [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
-- [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
+- [Replicate and sync mainframe data on Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
