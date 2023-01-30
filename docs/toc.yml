@@ -5391,6 +5391,8 @@ items:
             items:
               - name: Architectures
                 items:
+                  - name: Mainframe data replication with Connect
+                    href: example-scenario/mainframe/mainframe-replication-precisely-connect-content.yml
                   - name: Mainframe data replication with Qlik
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
