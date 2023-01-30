@@ -14,7 +14,7 @@ This hub-spoke network configuration uses the following architectural elements:
 
 - **Spoke virtual networks:** Spoke virtual networks isolate and manage workloads separately in each spoke. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers. Spokes can exist in different subscriptions and represent different environments, such as **Production** and **Non-production**.
 
-- **Virtual network connectivity:** Virtual networks form non-transitive, low-latency connections through [peering connections](/azure/virtual-network/virtual-network-peering-overview) and [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration).  Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) manages the connected [network groups](/azure/virtual-network-manager/concept-network-groups).
+- **Virtual network connectivity:** Virtual networks can be connected by using a [peering connection](/azure/virtual-network/virtual-network-peering-overview) or a [connected group](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) creates and manages [network groups](/azure/virtual-network-manager/concept-network-groups) and their connections.
 
 - **Azure Bastion host:** Azure Bastion provides secure connectivity to virtual machines (VMs) through the browser in the Azure portal. An Azure Bastion host deployed inside an Azure virtual network can access VMs in that virtual network or in connected virtual networks.
 
@@ -375,9 +375,9 @@ Alejandra Palacios | Sr Customer Engineer | https://www.linkedin.com/in/alejandr
 
 Other contributors:
 
-Matthew Bratschun | Customer Engineer | https://www.linkedin.com/in/matthewbratschun/
-Jay Li | Sr Product Manager | 
-Telmo Sampaio | Principal Srv Engineering Manager | https://www.linkedin.com/in/telmo-sampaio-172200/
+- Matthew Bratschun | Customer Engineer | https://www.linkedin.com/in/matthewbratschun/
+- Jay Li | Sr Product Manager | https://www.linkedin.com/in/jiayangl/
+- Telmo Sampaio | Principal Srv Engineering Manager | https://www.linkedin.com/in/telmo-sampaio-172200/
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
