@@ -12,11 +12,11 @@ This hub-spoke network configuration uses the following architectural elements:
 
 - **Hub virtual network.** The hub virtual network hosts shared Azure services. Workloads hosted in the spoke virtual networks can use these services. The hub virtual network is the central point of connectivity for cross-premises networks.
 
-- **Spoke virtual networks.** Spoke virtual networks isolate and manage workloads separately in each spoke. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers. Spokes can exist in different subscriptions and represent different environments, such as **Production** and **Non-production**.
+- **Spoke virtual networks.** Spoke virtual networks isolate and manage workloads separately in each spoke. Each workload can include multiple tiers, with multiple subnets connected through Azure load balancers. Spokes can exist in different subscriptions and represent different environments, such as Production and Non-production.
 
-- **Virtual network connectivity.** You can connect virtual networks by using a [peering connection](/azure/virtual-network/virtual-network-peering-overview) or a [connected group](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) creates and manages [network groups](/azure/virtual-network-manager/concept-network-groups) and their connections.
+- **Virtual network connectivity.** This architecture connects virtual networks by using [peering connections](/azure/virtual-network/virtual-network-peering-overview) or [connected groups](/azure/virtual-network-manager/concept-connectivity-configuration). Peering connections and connected groups are non-transitive, low-latency connections between virtual networks. Peered or connected virtual networks can exchange traffic over the Azure backbone without needing a router. [Azure Virtual Network Manager](/azure/virtual-network-manager/overview) creates and manages [network groups](/azure/virtual-network-manager/concept-network-groups) and their connections.
 
-- **Azure Bastion host.** Azure Bastion provides secure connectivity to virtual machines (VMs) from the Azure portal by using your browser. An Azure Bastion host deployed inside an Azure virtual network can access VMs in that virtual network or in connected virtual networks.
+- **Azure Bastion host.** Azure Bastion provides secure connectivity from the Azure portal to virtual machines (VMs) by using your browser. An Azure Bastion host deployed inside an Azure virtual network can access VMs in that virtual network or in connected virtual networks.
 
 - **Azure Firewall.** An Azure Firewall managed firewall instance exists in its own subnet.
 
@@ -26,7 +26,7 @@ This hub-spoke network configuration uses the following architectural elements:
 
 ### Components
 
-- [Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) is a management service that can group, configure, deploy, and manage virtual networks at scale across Azure subscriptions, regions, and tenants. With Virtual Network Manager, you can define groups of virtual networks to identify and logically segment your virtual networks. You can define and apply connectivity and security configurations across all virtual networks in a network group at once.
+- [Virtual Network Manager](https://azure.microsoft.com/products/virtual-network-manager) is a management service that helps you group, configure, deploy, and manage virtual networks at scale across Azure subscriptions, regions, and tenants. With Virtual Network Manager, you can define groups of virtual networks to identify and logically segment your virtual networks. You can define and apply connectivity and security configurations across all virtual networks in a network group at once.
 
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Virtual Network enables many Azure resources, such as Azure VMs, to securely communicate with each other, cross-premises networks, and the internet.
 
@@ -58,8 +58,8 @@ Typical uses for a hub and spoke architecture include workloads that:
 
 - Have several environments that require shared services. For example, a workload might have development, testing, and production environments. Shared services might include DNS IDs, Network Time Protocol (NTP), or Active Directory Domain Services (AD DS). Shared services are placed in the hub virtual network, and each environment deploys to a different spoke to maintain isolation.
 - Don't require connectivity to each other, but require access to shared services.
-- Require central control over security factors, like a perimeter network (also known as DMZ) firewall in the hub with segregated workload management in each spoke.
-- Require central control over connectivity factors, such as selective connectivity or isolation between spokes of certain environments or workloads.
+- Require central control over security, like a perimeter network (also known as DMZ) firewall in the hub with segregated workload management in each spoke.
+- Require central control over connectivity, such as selective connectivity or isolation between spokes of certain environments or workloads.
 
 ## Recommendations
 
@@ -67,7 +67,7 @@ The following recommendations apply to most scenarios. Follow these recommendati
 
 ### Resource groups, subscriptions, and regions
 
-The sample solution included in this document uses a single Azure resource group. You can also implement the hub and each spoke in different resource groups and subscriptions.
+This example solution uses a single Azure resource group. You can also implement the hub and each spoke in different resource groups and subscriptions.
 
 When you peer virtual networks in different subscriptions, you can associate the subscriptions to the same or different Azure Active Directory (Azure AD) tenants. This flexibility allows for decentralized management of each workload while maintaining shared services in the hub. See [Create a virtual network peering - Resource Manager, different subscriptions, and Azure AD tenants](/azure/virtual-network/create-peering-different-subscriptions).
 
@@ -108,9 +108,9 @@ The topology in this architectural design facilitates egress flows. While Azure 
 
 #### Spoke connections to remote networks through a hub gateway
 
-To configure spokes to communicate with remote networks through a hub gateway, you can use virtual network peering or connected network groups.
+To configure spokes to communicate with remote networks through a hub gateway, you can use virtual network peerings or connected network groups.
 
-To use virtual network **Peerings**:
+To use virtual network peerings, in the virtual network **Peering** setup:
 
 - Configure the peering connection in the hub to **Allow** gateway transit.
 - Configure the peering connection in each spoke to **Use the remote virtual network's gateway**.
@@ -118,7 +118,7 @@ To use virtual network **Peerings**:
 
 For more information, see [Create a virtual network peering](/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
 
-To use connected **Network groups**:
+To use connected network groups:
 
 1. In Virtual Network Manager, create a network group and add member virtual networks.
 1. Create a hub and spoke connectivity configuration.
@@ -394,7 +394,7 @@ Explore the following related architectures:
 - [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.yml)
-- [Spoke to Spoke Networking Scenarios](../../networking/spoke-to-spoke-networking.yml)
+- [Spoke-to-spoke networking](../../networking/spoke-to-spoke-networking.yml)
 - [Hybrid connection](../../solution-ideas/articles/hybrid-connectivity.yml)
 - [Connect standalone servers by using Azure Network Adapter](../../hybrid/azure-network-adapter.yml)
 - [Secure and govern workloads with network level segmentation](./network-level-segmentation.yml)
