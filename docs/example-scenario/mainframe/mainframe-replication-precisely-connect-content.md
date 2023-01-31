@@ -14,7 +14,7 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 1.	A Connect agent component captures change logs by using mainframe or midrange native utilities and caches the logs in temporary storage.
 2.	For mainframe systems, a publisher component on the mainframe manages data migration.
 3.	For midrange systems, in place of the publisher, a listener component manages data migration. It's located on either a Windows or Linux machine.
-4.	The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. It handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
+4.	The publisher or listener moves the data from on-premises to Azure via an enhanced-security connection. The publisher or listener handles the commit and rollback of transactions for each unit of work, maintaining the integrity of data.
 5.	The Connect Replicator Engine captures the data from the publisher or listener and applies it to the target. It distributes data for parallel processing.
 6.	The target is a database that receives the changes via ODBC or ingests the changes via Azure Event Hubs. 
 7.	The changed data is consumed by Azure Databricks and applied to Azure data platform services.
@@ -47,9 +47,9 @@ This article describes how to use Precisely Connect to migrate mainframe and mid
 
 #### Data integrators
 
-- [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) can integrate data from multiple sources and provide real-time replication to Azure. You can use it to replicate data without making changes to your application. Connect can also increase the performance of extract, transform, load (ETL) jobs.
+- [Precisely Connect](https://www.precisely.com/product/precisely-connect/connect) can integrate data from multiple sources and provide real-time replication to Azure. You can use it to replicate data without making changes to your application. Connect can also improve the performance of extract, transform, load (ETL) jobs.
 - [Azure Databricks](https://azure.microsoft.com/products/databricks) is based on Apache Spark and integrates with open-source libraries. It provides a unified platform for running analytics workloads. You can use Python, Scala, R, and SQL languages to frame ETL pipelines and orchestrate jobs.
-- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a real-time ingestion service that can process millions of records per second. You can ingest data can from multiple sources and use it for real-time analytics. You can easily scale Event Hubs based on the volume of data.  
+- [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs) is a real-time ingestion service that can process millions of records per second. You can ingest data from multiple sources and use it for real-time analytics. You can easily scale Event Hubs based on the volume of data.  
 
 ## Scenario details
 
@@ -61,7 +61,7 @@ Precisely Connect supports various mainframe and midrange data sources, includin
 
 This solution applies to the following scenarios:
 
-- Data replication from mainframe and midrange data sources the to Azure data platform.
+- Data replication from mainframe and midrange data sources to the Azure data platform.
 - In a hybrid cloud architecture, data sync between mainframe or midrange systems and the Azure data platform.
 - Near real-time analytics on Azure, based on operational data from mainframe or midrange systems. 
 - Migration of data from mainframe or midrange systems to Azure without affecting applications.
@@ -118,7 +118,7 @@ Other contributor:
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 - [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview)
-- [Contact us](mailto:mainframedatamod@microsoft.com)
+- [Contact Mainframe Data Modernization Engineering at Microsoft](mailto:mainframedatamod@microsoft.com)
 
 ## Related resources
 
