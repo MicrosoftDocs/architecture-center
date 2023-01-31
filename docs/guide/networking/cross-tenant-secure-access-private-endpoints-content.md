@@ -8,7 +8,7 @@ This guide presents an architecture that uses the private endpoint option. The p
 
 ## Architecture
 
-:::image type="content" source="./images/cross-tenant-secure-access-private-endpoints-architecture.png" alt-text="Architecture diagram that shows how a private endpoint securely connects a user on a virtual machine in one tenant with a web app in another tenant." lightbox="./images/cross-tenant-secure-access-private-endpoints-architecture.png" border="false":::
+:::image type="content" source="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" alt-text="Architecture diagram that shows how a private endpoint securely connects a user on a virtual machine in one tenant with a web app in another tenant." lightbox="./images/cross-tenant-secure-access-private-endpoints-architecture.svg" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-2025459-cross-tenant-secure-access-private-endpoints.vsdx) of this architecture.*
 
