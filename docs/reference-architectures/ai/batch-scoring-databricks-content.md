@@ -4,7 +4,7 @@ This reference architecture shows how to build a scalable solution for batch sco
 
 ## Architecture
 
-![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.png)
+![Diagram showing batch scoring of Apache Spark classification models on Azure Databricks.](./_images/batch-scoring-spark-models-databricks.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-spark-models-databricks.vsdx) of this architecture.*
 
@@ -99,6 +99,16 @@ The solution notebooks can run on any Spark-based platform with minimal edits to
 ## Deploy this scenario
 
 To deploy this reference architecture, follow the steps described in the [GitHub][github] repository to build a scalable solution for scoring Spark models in batch on Azure Databricks.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [John Ehrlinger](https://www.linkedin.com/in/ehrlinger) | Senior Applied Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

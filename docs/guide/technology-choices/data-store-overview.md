@@ -2,8 +2,8 @@
 title: Understand data store models
 titleSuffix: Azure Application Architecture Guide
 description: Learn about the high-level differences between the various data storage models found in Azure data services.
-author: dsk-2015
-ms.author: architectures
+author: PageWriter-MSFT
+ms.author: prwilk
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -355,6 +355,20 @@ Sometimes, using simple flat files can be the most effective means of storing an
 - Shared content accessible among a number of VMs or app instances
 
 Aided with this understanding of different data storage models, the next step is to evaluate your workload and application, and decide which data store will meet your specific needs. Use the [data storage decision tree](./data-store-decision-tree.md) to help with this process.
+
+## Next steps
+
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [Introduction to Azure Data Explorer](/training/modules/intro-to-azure-data-explorer)
+
+## Related resources
+
+- [Databases architecture design](../../data-guide/databases-architecture-design.yml)
+- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
+- [Data store decision tree](data-store-decision-tree.md)
 
 <!-- links -->
 

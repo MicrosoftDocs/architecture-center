@@ -107,6 +107,17 @@ Another limitation of this design is that only active/standby configurations are
 
 One benefit of this design is that no Source Network Address Translation (SNAT) is required to guarantee traffic symmetry, since there's only one NVA active at any given point in time.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Keith Mayer](https://www.linkedin.com/in/keithm) | Principal Cloud Solution Architect
+ - [Telmo Sampaio](https://www.linkedin.com/in/telmo-sampaio-172200) | Principal Service Engineering Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Learn how to [implement a secure hybrid network][secure_hybrid] using Azure Firewall.

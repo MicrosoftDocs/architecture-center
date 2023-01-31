@@ -146,7 +146,7 @@ Principal authors:
 - [Confidential computing on a healthcare platform](../confidential/healthcare-inference.yml)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Predict hospital readmissions with traditional and automated machine learning techniques](../ai/predict-hospital-readmissions-machine-learning.yml)
-- [Predict length of stay and patient flow](../../solution-ideas/articles/predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+- [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)
 - [Population health management for healthcare](../../solution-ideas/articles/population-health-management-for-healthcare.yml)
 - [Precision medicine pipeline with genomics](../precision-medicine/genomic-analysis-reporting.yml)
 - [IoT device connectivity for healthcare facilities](../../solution-ideas/articles/healthcare-network.yml)

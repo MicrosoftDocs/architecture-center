@@ -21,18 +21,18 @@ Read and write workloads are often asymmetrical, with very different performance
 CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
 - Commands should be task-based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved").
-- Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
+- Commands may be placed on a queue for [asynchronous processing](/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication), rather than being processed synchronously.
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
 The models can then be isolated, as shown in the following diagram, although that's not an absolute requirement.
 
 ![A basic CQRS architecture](./_images/command-and-query-responsibility-segregation-cqrs-basic.png)
 
-Having separate query and update models simplifies the design and implementation. However, one disadvantage is that CQRS code can't automatically be generated from a database schema using scaffolding mechanisms such as O/RM tools.
+Having separate query and update models simplifies the design and implementation. However, one disadvantage is that CQRS code can't automatically be generated from a database schema using scaffolding mechanisms such as O/RM tools (However, you will be able to build your customization on top of the generated code).
 
 For greater isolation, you can physically separate the read data from the write data. In that case, the read database can use its own data schema that is optimized for queries. For example, it can store a [materialized view](./materialized-view.yml) of the data, in order to avoid complex joins or complex O/RM mappings. It might even use a different type of data store. For example, the write database might be relational, while the read database is a document database.
 
-If separate read and write databases are used, they must be kept in sync. Typically this is accomplished by having the write model publish an event whenever it updates the database. For more information about using events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.yml). Updating the database and publishing the event must occur in a single transaction.
+If separate read and write databases are used, they must be kept in sync. Typically this is accomplished by having the write model publish an event whenever it updates the database. For more information about using events, see [Event-driven architecture style](../guide/architecture-styles/event-driven.yml). Since message brokers and databases usually cannot be enlisted into a single distributed transaction, there can be challenges in guaranteeing consistency when updating the database and publishing events. For more information, see the [guidance on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 
 ![A CQRS architecture with separate read and write stores](./_images/command-and-query-responsibility-segregation-cqrs-separate-stores.png)
 

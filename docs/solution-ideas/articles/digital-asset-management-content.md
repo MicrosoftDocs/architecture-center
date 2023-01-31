@@ -1,18 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in digital asset management.
-
-## Potential use cases
-
-Given the amount of unstructured data created daily, many companies struggle to make use of or find information within their files. One of the key functions of a digital asset management system is to allow assets to be easily retrieved.
-
-Knowledge mining can help with retrieval by providing a search index that enables users to quickly locate what they are looking for.
+Use digital asset management to mine knowledge and find information. Ingest unstructured and structured data, enrich it with AI, and explore it by using search.
 
 ## Architecture
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture diagram that shows knowledge mining used in digital asset management to make assets discoverable.](../media/knowledge-mining-digital-asset-management.png)
+[ ![Architecture diagram that shows knowledge mining used in digital asset management to make assets discoverable.](../media/knowledge-mining-digital-asset-management.svg)](../media/knowledge-mining-digital-asset-management.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-digital-asset-management.vsdx) of this architecture.*
 
 - **Ingest**
 
@@ -34,6 +30,16 @@ The following key technologies are used to implement tools for technical content
 - The [Azure Cognitive Search custom skill interface](/azure/search/cognitive-search-custom-skill-interface) is used to integrate a custom skill into an Azure Cognitive Search enrichment pipeline.
 - [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision) uses text recognition APIs to extract text from images. Computer Vision is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services).
 - [Face API](https://azure.microsoft.com/services/cognitive-services/face) is AI service that analyzes faces in images. Face API is part of Cognitive Services.
+
+## Scenario details
+
+This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in digital asset management.
+
+### Potential use cases
+
+Given the amount of unstructured data created daily, many companies struggle to make use of or find information within their files. One of the key functions of a digital asset management system is to allow assets to be easily retrieved.
+
+Knowledge mining can help with retrieval by providing a search index that enables users to quickly locate what they are looking for.
 
 ## Next steps
 

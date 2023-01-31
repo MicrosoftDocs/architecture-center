@@ -5,7 +5,7 @@ description: An overview of Microsoft's Azure mainframe and midrange architectur
 author: bhbandam
 ms.author: bhbandam
 ms.date: 08/19/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:

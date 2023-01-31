@@ -4,13 +4,13 @@ This article presents a solution that enriches text and image documents by using
 
 ## Architecture
 
-The following diagram illustrates the process of passing the unstructured JFK Files dataset through the Azure Cognitive Search skills pipeline to produce structured, indexable data.
+:::image type="content" alt-text="Diagram that shows Azure Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.svg" lightbox="../media/cognitive-search-for-ai-enrichment.svg":::
 
-:::image type="content" alt-text="Diagram that shows Azure Cognitive Search architecture to convert unstructured into structured data." source="../media/cognitive-search-for-ai-enrichment.png" lightbox="../media/cognitive-search-for-ai-enrichment.png":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-for-ai-enrichment.vsdm) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/cognitive-search-with-skillsets.vsdx) of this architecture.*
 
 ### Dataflow
+
+The above diagram illustrates the process of passing the unstructured JFK Files dataset through the Azure Cognitive Search skills pipeline to produce structured, indexable data:
 
 1. Unstructured data in Azure Blob Storage, such as documents and images, ingest into Azure Cognitive Search.
 1. The *document cracking* step initiates the indexing process by extracting images and text from the data, followed by content enrichment. The enrichment steps that occur in this process depend on the data and type of skills selected.

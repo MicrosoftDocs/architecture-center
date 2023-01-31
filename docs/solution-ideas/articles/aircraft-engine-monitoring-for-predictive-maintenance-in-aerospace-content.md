@@ -6,8 +6,9 @@ This solution is built with [Azure Stream Analytics](https://azure.microsoft.com
 
 ## Architecture
 
-![Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure.](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png)
-*Download an [SVG](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg) of this architecture.*
+![Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure.](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aircraft-engine-monitoring-for-predictive-maintenance.vsdx) of this architecture.*
 
 ### Components
 
@@ -51,4 +52,4 @@ Read other Azure Architecture Center articles about predictive maintenance and p
 * [Predictive maintenance](./predictive-maintenance.yml)
 * [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
 * [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
-* [Predict length of stay and patient flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+* [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

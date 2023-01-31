@@ -3,10 +3,10 @@ metadata:
   title: Build web and mobile applications
   titleSuffix: Azure Architecture Center
   description: Build web and mobile applications with an Azure microservices-based architecture. Use this solution inspired by PayMe for Business in e-commerce platforms.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/11/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

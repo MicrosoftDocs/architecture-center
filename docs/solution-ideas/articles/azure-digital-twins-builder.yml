@@ -3,10 +3,10 @@ metadata:
   title: Azure digital twins builder
   titleSuffix: Azure Solution Ideas
   description: Learn how a web app can use Azure Digital Twins and Autodesk Forge API to accelerate the process of creating digital twins from Build Information Modeling (BIM) models.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: mfarquhar
   ms.date: 07/12/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom: fcp

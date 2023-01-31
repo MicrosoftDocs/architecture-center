@@ -30,7 +30,7 @@ A key design area of any mission critical architecture is the application platfo
 
 In this architecture, the application platform consists of global, deployment stamp, and regional resources. The regional resources are provisioned as part of a deployment stamp. Each stamp equates to a scale unit and, in case it becomes unhealthy, can be entirely replaced.
 
-The resources in each layer have distinct characteristics:
+The resources in each layer have distinct characteristics. For more information, see [Architecture pattern of a typical mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-architecture-pattern).
 
 |Characteristics|Considerations|
 |---|---|
@@ -43,7 +43,7 @@ The resources in each layer have distinct characteristics:
 
 ## Global resources
 
-Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state for the whole application, and cache global static data.
+Certain resources in this architecture are shared by resources deployed in regions. In this architecture, they are used to distribute traffic across multiple regions, store permanent state for the whole application, and cache global static data. 
 
 |Characteristics|Layer Considerations|
 |---|---|

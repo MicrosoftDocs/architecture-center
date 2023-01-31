@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2021
 ms.author: tdsp
 ms.custom:
@@ -23,12 +23,12 @@ categories:
 
 This article provides guidance to a set of objectives that are typically used to implement comprehensive data science solutions with Azure technologies. You are guided through:
 
-- understanding an analytics workload
-- using the Team Data Science Process
-- using Azure Machine Learning
-- the foundations of data transfer and storage
-- providing data source documentation
-- using tools for analytics processing
+- Understanding an analytics workload
+- Using the Team Data Science Process
+- Using Azure Machine Learning
+- Understanding the foundations of data transfer and storage
+- Providing data source documentation
+- Using tools for analytics processing
 
 These training materials are related to the Team Data Science Process (TDSP) and Microsoft and open-source software and toolkits, which are helpful for envisioning, executing and delivering data science solutions.
 
@@ -61,5 +61,23 @@ You can use the items in the following table to guide your own self-study. Read 
 |                                                                                           | [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview)                                                   | Another method to monitor your application is to integrate it into your DevOps process. The Azure Monitor logs system provides a rich set of features to help you watch your analytic solutions after you deploy them.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Complete this tutorial](/azure/azure-monitor/logs/get-started-queries) on using Azure Monitor logs.                                                                                                                                                                                                                                                                                                       |
 | Complete this Learning Path                                                               |                                                                                                                           | Congratulations! You've completed this learning path.                                                                                                                                                                                                                                                                                                                                            |
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
-[Team Data Science Process for Developer Operations](team-data-science-process-for-devops.md) This article explores the Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.
+See [Team Data Science Process for Developer Operations](team-data-science-process-for-devops.md). This article explores the Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.
+
+## Related resources
+
+- [Execute data science tasks: exploration, modeling, and deployment](execute-data-science-tasks.md)
+- [Set up data science environments for use in the Team Data Science Process](environment-setup.md)
+- [Platforms and tools for data science projects](platforms-and-tools.md)
+- [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
+- [What is the Team Data Science Process?](overview.yml)

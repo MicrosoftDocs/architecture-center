@@ -246,6 +246,16 @@ SQL Database provides an extensive set of security features for data access, mon
 
 **Cost efficiency**: At the heart of any analytics solution is storage. Analytics engines need speed, efficiency, security, and throughput for processing volumes of data in reasonable times. Devising mechanisms to make the best use of the underlying platform, by aggregating and summarizing data and efficiently using polyglot stores, is the means for efficiently managing costs. As Azure is a cloud platform, there are methods to programmatically decommission, recommission, and resize resources. For example, the [Create or Update operation](/rest/api/sql/databases/createorupdate?WT.mc_id=iotinsightssoln-docs-ercenk) provides a way to change the database size of Azure SQL Database.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ercenk Keresteci](https://www.linkedin.com/in/ercenk/) | Dir Partner Tech Strategist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 We covered many concepts, and we want to give you a set of starting points to learn more and apply the techniques to your own requirements. Here are some tutorials we believe can be useful for this purpose.

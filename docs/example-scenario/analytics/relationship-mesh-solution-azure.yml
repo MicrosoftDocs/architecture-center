@@ -3,10 +3,10 @@ metadata:
   title: Build a relationship mesh dashboard on Azure
   titleSuffix: Azure Architecture Center
   description: Learn how to build an example workload that brings together data from various systems into a user-friendly dashboard.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: malrose, nachandh
   ms.date: 04/28/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:

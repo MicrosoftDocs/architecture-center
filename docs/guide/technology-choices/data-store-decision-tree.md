@@ -2,8 +2,8 @@
 title: Data store decision tree
 titleSuffix: Azure Application Architecture Guide
 description: Select an Azure data store for your application. View a graphical representation of choosing your data store.
-author: dsk-2015
-ms.author: architectures
+author: PageWriter-MSFT
+ms.author: prwilk
 ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -32,3 +32,15 @@ The output from this flowchart is a **starting point** for consideration. Next, 
 ## Choose specialized storage
 
 Alternative database solutions often require specific storage solutions. For example, SAP HANA on VMs often employs Azure NetApp Files as its underlying storage solution. Evaluate your vendor's requirements to find an appropriate storage solution to meet your database's requirements. For more information about selecting a storage solution, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options).
+
+## Next steps
+
+- [Azure Cloud Storage Solutions and Services](https://azure.microsoft.com/products/category/storage)
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+
+## Related resources
+
+- [Choose a data storage technology](../../data-guide/technology-choices/data-storage.md)
+- [Criteria for choosing a data store](data-store-considerations.md)
+- [Understand data store models](data-store-overview.md)

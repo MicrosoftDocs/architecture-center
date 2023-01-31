@@ -7,7 +7,7 @@ manager: marktab
 editor: marktab
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/21/2021
 ms.author: tdsp
 ms.category:
@@ -46,3 +46,13 @@ Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to
 * For an overview of Microsoft Azure Machine Learning, see [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning).
 * For an explanation of how to deploy a scoring web service, see [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 * For a discussion of how to consume a scoring web service, see [Consume an Azure Machine Learning model deployed as a web service](/azure/machine-learning/how-to-consume-web-service).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

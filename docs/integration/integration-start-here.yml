@@ -3,10 +3,10 @@ metadata:
   title: Integration architecture design
   titleSuffix: Azure Architecture Center
   description: Bring workflows together and automate processes by connecting apps, data, services, and devices. See resources with integration guidelines and recommendations.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual 
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
   ms.custom: fcp

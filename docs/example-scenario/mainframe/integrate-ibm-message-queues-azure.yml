@@ -3,10 +3,10 @@ metadata:
   title: Integrate IBM mainframe and midrange message queues with Azure
   titleSuffix: Azure Example Scenarios
   description: This example describes a data-first approach to middleware integration that enables IBM message queues (MQs).
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: askhande
   ms.date: 07/01/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:

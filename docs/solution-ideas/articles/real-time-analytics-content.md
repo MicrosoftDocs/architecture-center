@@ -1,14 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Get insights from live streaming data with ease. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
-
-## Potential use cases
-
-This solution is ideal for the media and entertainment industry. The scenario is for building analytics from live streaming data. It can be implemented by various organizations.
+This solution idea describes how you can get insights from live streaming data. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
 
 ## Architecture
 
-:::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real-time analytics solution on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hub, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
+:::image type="content" source="../media/real-time-analytics.png" alt-text="Diagram of a real-time analytics solution on big data architecture using Azure Synapse Analytics with Azure Data Lake Storage Gen2, Event Hubs, Azure Analysis Services, Azure Cosmos DB, and Power BI." border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/real-time-analytics.vsdx) of this architecture.*
 
@@ -38,9 +34,23 @@ This solution is ideal for the media and entertainment industry. The scenario is
 
 - [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
 
-## Pricing
+## Scenario details
 
-* [Customize and get pricing estimates](https://azure.com/e/f8f5bc2de0b64aa0ae2dd154e7b6b462)
+This scenario illustrates how you can get insights from live streaming data. You can capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.
+
+### Potential use cases
+
+This solution is ideal for the media and entertainment industry. The scenario is for building analytics from live streaming data. 
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+You can use the [Azure pricing calculator](https://azure.com/e/f8f5bc2de0b64aa0ae2dd154e7b6b462) to get a customized pricing estimate.
 
 ## Next steps
 

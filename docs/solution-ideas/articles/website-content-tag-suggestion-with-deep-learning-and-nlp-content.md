@@ -1,16 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users don't have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it's needed later.
-
-## Potential use cases
-
-By using natural language processing (NLP) with deep learning for content tagging, you enable a scalable solution to create tags across content. As users search for content by keywords, this multi-class classification process enriches untagged content with labels that will allow you to search on substantial portions of text, which improves the information retrieval processes. New incoming content will be appropriately tagged by running NLP inference.
+This article describes how you can use Microsoft AI to improve website content tagging accuracy by combining deep learning and natural language processing (NLP) with data on site-specific search terms.
 
 ## Architecture
 
 [![Architecture diagram: overview of using Azure Machine Learning to help suggest content tags for websites.](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png)](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.png#lightbox)
 
-*Download an [SVG file](../media/website-content-tag-suggestion-with-deep-learning-and-nlp.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/website-content-tag-suggestion-with-deep-learning-and-nlp.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -36,13 +32,21 @@ By using natural language processing (NLP) with deep learning for content taggin
 * [Azure Container Registry](/azure/container-registry)
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service)
 
+## Scenario details
+
+Social sites, forums, and other text-heavy Q&A services rely heavily on content tagging, which enables good indexing and user search. Often, however, content tagging is left to users' discretion. Because users don't have lists of commonly searched terms or a deep understanding of the site structure, they frequently mislabel content. Mislabeled content is difficult or impossible to find when it's needed later.
+
+### Potential use cases
+
+By using natural language processing (NLP) with deep learning for content tagging, you enable a scalable solution to create tags across content. As users search for content by keywords, this multi-class classification process enriches untagged content with labels that will allow you to search on substantial portions of text, which improves the information retrieval processes. New incoming content will be appropriately tagged by running NLP inference.
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal author:
 
- * [Louis Li](https://www.linkedin.com/in/louisli) | Senior Customer Engineer
+* [Louis Li](https://www.linkedin.com/in/louisli) | Senior Customer Engineer
 
 ## Next steps
 

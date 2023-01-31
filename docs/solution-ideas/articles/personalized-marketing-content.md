@@ -4,8 +4,9 @@ This architecture shows how you can create a solution personalizing offers with 
 
 ## Architecture
 
-![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.png)
-*Download an [SVG](../media/personalized-marketing.svg) of this architecture.*
+[ ![Architecture diagram: personalizing offers with machine learning and near real time analytics.](../media/personalized-marketing.svg)](../media/personalized-marketing.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/personalized-marketing.vsdx) of this architecture.*
 
 ### Dataflow
 

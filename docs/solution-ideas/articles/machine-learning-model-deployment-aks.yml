@@ -3,10 +3,10 @@ metadata:
   title: Deploy machine learning models to AKS with Kubeflow
   titleSuffix: Azure Solution Ideas
   description: Deploy machine learning models to Azure Kubernetes Service (AKS) for high-scale production inference.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

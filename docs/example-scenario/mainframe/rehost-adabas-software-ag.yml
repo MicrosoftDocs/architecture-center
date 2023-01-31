@@ -3,10 +3,10 @@ metadata:
   title: Rehost Adabas & Natural applications on Azure 
   titleSuffix: Azure Architecture Center
   description: Learn how to migrate a Software AG Adabas & Natural mainframe system to Azure by using a rehost approach.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: marlon.johnson, bhbandam
   ms.date: 07/01/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp 

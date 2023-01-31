@@ -2,12 +2,6 @@
 
 This solution idea describes how Azure Data Explorer provides near real-time analytics for fast flowing, high volume streaming data from internet of things (IoT) devices and sensors. This analytics workflow is part of an overall IoT solution that integrates operational and analytical workloads with Azure Cosmos DB and Azure Data Explorer.
 
-## Potential use cases
-
-- Fleet management, for predictive maintenance of vehicle parts. This solution is ideal for the automotive and transportation industry.
-- Facilities management, for energy and environment optimization.
-- [Combining real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
-
 ## Architecture
 
 :::image type="content" source="../media/iot-azure-data-explorer-new.png" alt-text="Diagram showing IoT telemetry analytics with Azure Data Explorer." border="false" lightbox="../media/iot-azure-data-explorer-new.png":::
@@ -70,6 +64,16 @@ The [Azure Data Explorer Web UI](/azure/data-explorer/web-query-data) connects t
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) enables bi-directional communication between IoT devices and the Azure cloud.
 - [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) runs near real-time analytics over operational data in Azure Cosmos DB, without any performance or cost impact on transactional workloads. Synapse Link uses the [SQL Serverless](/azure/synapse-analytics/sql/on-demand-workspace-overview) and [Spark Pools](/azure/synapse-analytics/spark/apache-spark-overview) analytics engines from the Azure Synapse workspace.
 - [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction) is an easy, cost-effective, enterprise-grade service for open-source analytics with Apache Kafka.
+
+## Scenario details
+
+This solution uses Azure Data Explorer to get near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices.
+
+### Potential use cases
+
+- Fleet management, for predictive maintenance of vehicle parts. This solution is ideal for the automotive and transportation industry.
+- Facilities management, for energy and environment optimization.
+- [Combining real-time road conditions with weather data for safer autonomous driving](https://customers.microsoft.com/story/816933-bosch-automotive-azure-germany).
 
 ## Contributors
 

@@ -1,13 +1,12 @@
 ---
 title: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
 description: Learn how to deploy an AI-based footfall detection solution for analyzing visitor traffic in retail stores using Azure and Azure Stack Hub.
-author: BryanLa
+author: ronmiab
+ms.author: robess
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: bryanla
-ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 products:
   - azure-stack-hubx
@@ -20,7 +19,6 @@ categories:
 # Intent: As an Azure Stack Hub operator, I want to deploy a footfall detection solution using Azure and Azure Stack Hub so I can analyze visitor traffic in retail stores.
 
 # Keyword: AI footfall detection azure stack hub
-
 ---
 
 # Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub
@@ -65,7 +63,7 @@ Before getting started with this deployment guide, make sure you:
   - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
   - [Porter](https://porter.sh/). You use Porter to deploy cloud apps using CNAB bundle manifests that are provided for you.
   - [Visual Studio Code](https://code.visualstudio.com/)
-  - [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  - [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
   - [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - [Python](https://www.python.org/)
 

@@ -3,10 +3,10 @@ metadata:
   title: Migrate master data services to Azure with CluedIn and Azure Purview
   titleSuffix: Azure Architecture Center
   description: Use CluedIn to migrate your master data services solution to Azure, by using CluedIn and Azure Purview.
-  author: EdPrice-MSFT
-  ms.author: Oliver.Kaae
+  author: martinekuan
+  ms.author: architectures
   ms.date: 07/05/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:

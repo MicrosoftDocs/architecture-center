@@ -144,7 +144,7 @@ These reference architectures provide baseline implementations for various scena
 - [Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)][Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)]: Build logic apps that run in ISEs and access protected resources.
 - [Publish internal APIs to external users][Publish internal APIs to external users]: Consolidate APIs and then expose them to external users.
 - [Basic enterprise integration on Azure][Basic enterprise integration on Azure]: Orchestrate synchronous calls to enterprise back-end systems.
-- [Enterprise integration using message broker and events][Enterprise integration using message broker and events]: Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
+- [Enterprise integration using message broker and events](../example-scenario/integration/queues-events.yml): Orchestrate asynchronous calls to enterprise back-end systems by using queues and events.
 - [Enterprise business intelligence][Enterprise business intelligence]: Move data from an on-premises SQL Server database into Azure Synapse Analytics and transform the data for analysis.
 - [Web and mobile front ends][Web and mobile front ends]: Make third-party data available to web users.
 - [Data integration with Logic Apps and SQL Server][Data integration with Logic Apps and SQL Server]: Automate data integration tasks that you perform in response to API calls.
@@ -196,7 +196,7 @@ The following resources provide practical recommendations and information for sp
 [Cross-cloud scaling - on-premises data]: ../example-scenario/hybrid/hybrid-cross-cloud-scale-on-premises-data.yml
 [Cross-cloud scaling with Traffic Manager]: ../example-scenario/hybrid/hybrid-cross-cloud-scaling.yml
 [Custom business processes]: ../solution-ideas/articles/custom-business-processes.yml
-[Data analysis workloads for regulated industries]: ../example-scenario/data/data-analysis-regulated-industries.yml
+[Data analysis workloads for regulated industries]: /azure/architecture/example-scenario/data/data-warehouse
 [Data Factory ACOM page]: https://azure.microsoft.com/services/data-factory
 [Data integration with Logic Apps and SQL Server]: ../example-scenario/integration/logic-apps-data-integration.yml
 [Data integrations with Finance and Operations apps]: /training/modules/data-integrations-finance-operations
@@ -205,7 +205,6 @@ The following resources provide practical recommendations and information for sp
 [Elastic Workplace Search on Azure]: ../solution-ideas/articles/elastic-workplace-search.yml
 [Energy supply optimization]: ../solution-ideas/articles/energy-supply-optimization.yml
 [Enterprise business intelligence]: /azure/architecture/example-scenario/analytics/enterprise-bi-synapse
-[Enterprise integration using message broker and events]: ../reference-architectures/enterprise-integration/queues-events.yml
 [Event Grid ACOM page]: https://azure.microsoft.com/services/event-grid
 [Examine business integration for IoT solutions]: /training/modules/examine-business-integration-for-iot-solutions
 [Explore Event Grid integration]: /training/modules/explore-event-grid-integration

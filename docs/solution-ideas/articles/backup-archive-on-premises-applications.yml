@@ -3,10 +3,10 @@ metadata:
   title: Back up on-premises applications and data to the cloud
   titleSuffix: Azure Archtitecture Center
   description: Use this architecture to back up on-premises applications and data with Azure Backup and Blob storage applications.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

@@ -1,13 +1,11 @@
 ---
 author: doodlemania2
 ms.author: adboegli
-ms.date: 06/25/2019
 ms.topic: include
 ms.service: architecture-center
-ms.subservice: example-scenario
 ---
 
-<!-- cSpell:ignore DSVM newsfeed newsfeeds apim Grafana Agisoft wordpress -->
+<!-- cSpell:ignore DSVM apim Agisoft -->
 <!-- markdownlint-disable MD033 MD041 -->
 
 ## AI Scenarios
@@ -152,7 +150,7 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/devops-dotnet-webapp.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/example-scenario/apps/devops-dotnet-baseline.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

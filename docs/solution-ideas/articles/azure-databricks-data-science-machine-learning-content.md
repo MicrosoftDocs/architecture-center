@@ -1,41 +1,10 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-As your organization recognizes the power of data science and machine learning, you can improve efficiency, enhance customer experiences, and predict changes. To achieve these goals in business-critical use cases, you need a consistent and reliable pattern for:
-
-- Tracking experiments.
-- Reproducing results.
-- Deploying machine learning models into production.
-
-This article outlines a solution for a consistent, reliable machine learning framework. Azure Databricks forms the core of the architecture. The storage layer Delta Lake and the machine learning platform MLflow also play significant roles. These components integrate seamlessly with other services such as Azure Data Lake Storage, Azure Machine Learning, and Azure Kubernetes Service (AKS).
-
-Together, these services provide a solution for data science and machine learning that's:
-
-- **Simple**: An open data lake simplifies the architecture. The data lake contains a curated layer, Delta Lake. That layer provides access to the data in an open-source format.
-
-- **Open**: The solution supports open-source code, open standards, and open frameworks. This approach minimizes the need for future updates. Azure Databricks and Machine Learning natively support MLflow and Delta Lake. Together, these components provide industry-leading *machine learning operations (MLOps)*, or DevOps for machine learning. A broad range of deployment tools integrate with the solution's standardized model format.
-
-- **Collaborative**: Data science and MLOps teams work together with this solution. These teams use MLflow tracking to record and query experiments. The teams also deploy models to the central MLflow model registry. Data engineers then use deployed models in data ingestion, extract-transform-load (ETL) processes, and streaming pipelines.
-
-## Potential use cases
-
-A [platform that AGL built for energy forecasting][AGL achieves machine learning at scale with a standardized platform on Azure Machine Learning] inspired this solution. That platform provides quick and cost-effective training, deployment, and life-cycle management for thousands of parallel models.
-
-Besides energy providers, this solution can benefit any organization that:
-
-- Uses data science.
-- Builds and trains machine learning models.
-- Runs machine learning models in production.
-
-Examples include organizations in:
-
-- Retail and e-commerce.
-- Banking and finance.
-- Healthcare and life sciences.
-- Automotive industries and manufacturing.
+This architecture shows how you can improve operations by using Azure Databricks, Delta Lake, and MLflow for data science and machine learning. You can improve your overall efficiency and the customer experience by developing, training, and deploying machine learning models.
 
 ## Architecture
 
-:::image type="complex" source="../media/azure-databricks-data-science-machine-learning-architecture.png" alt-text="Architecture diagram showing how Azure Databricks works with data storage services to refine and analyze data and make it available for other services." border="false":::
+:::image type="complex" source="../media/azure-databricks-data-science-machine-learning-architecture.svg" alt-text="Architecture diagram showing how Azure Databricks works with data storage services to refine and analyze data and make it available for other services." border="false":::
    The diagram contains three gray rectangles: one labeled Process, one labeled Serve, and one labeled Store. The Process and Serve rectangles are next to each other in the upper part of the diagram. The Serve rectangle contains a white box with icons for Machine Learning and Azure Kubernetes Service. Another white box straddles the Process and Serve rectangles. It contains icons for Azure Databricks and MLflow. An arrow points from that box to the white box in the Serve rectangle. Below the Process rectangle is the Store rectangle. It contains a white box with icons for Data Lake Storage, Delta Lake, and three database tables labeled Bronze, Silver, and Gold. Three lines connect the Process and Store rectangles, with arrows at each end of each line.
 :::image-end:::
 
@@ -93,6 +62,41 @@ Azure Databricks can deploy models to other services, such as Machine Learning a
 - [Machine Learning][Machine Learning] is a cloud-based environment that helps you build, deploy, and manage predictive analytics solutions. With these models, you can forecast behavior, outcomes, and trends.
 
 - [AKS][AKS] is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
+
+## Scenario details
+
+As your organization recognizes the power of data science and machine learning, you can improve efficiency, enhance customer experiences, and predict changes. To achieve these goals in business-critical use cases, you need a consistent and reliable pattern for:
+
+- Tracking experiments.
+- Reproducing results.
+- Deploying machine learning models into production.
+
+This article outlines a solution for a consistent, reliable machine learning framework. Azure Databricks forms the core of the architecture. The storage layer Delta Lake and the machine learning platform MLflow also play significant roles. These components integrate seamlessly with other services such as Azure Data Lake Storage, Azure Machine Learning, and Azure Kubernetes Service (AKS).
+
+Together, these services provide a solution for data science and machine learning that's:
+
+- **Simple**: An open data lake simplifies the architecture. The data lake contains a curated layer, Delta Lake. That layer provides access to the data in an open-source format.
+
+- **Open**: The solution supports open-source code, open standards, and open frameworks. This approach minimizes the need for future updates. Azure Databricks and Machine Learning natively support MLflow and Delta Lake. Together, these components provide industry-leading *machine learning operations (MLOps)*, or DevOps for machine learning. A broad range of deployment tools integrate with the solution's standardized model format.
+
+- **Collaborative**: Data science and MLOps teams work together with this solution. These teams use MLflow tracking to record and query experiments. The teams also deploy models to the central MLflow model registry. Data engineers then use deployed models in data ingestion, extract-transform-load (ETL) processes, and streaming pipelines.
+
+### Potential use cases
+
+A [platform that AGL built for energy forecasting][AGL achieves machine learning at scale with a standardized platform on Azure Machine Learning] inspired this solution. That platform provides quick and cost-effective training, deployment, and life-cycle management for thousands of parallel models.
+
+Besides energy providers, this solution can benefit any organization that:
+
+- Uses data science.
+- Builds and trains machine learning models.
+- Runs machine learning models in production.
+
+Examples include organizations in:
+
+- Retail and e-commerce.
+- Banking and finance.
+- Healthcare and life sciences.
+- Automotive industries and manufacturing.
 
 ## Next steps
 

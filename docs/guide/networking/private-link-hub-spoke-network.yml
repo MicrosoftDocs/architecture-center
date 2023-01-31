@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.
   author: jangelfdez
-  ms.author: josefern
-  ms.date: 10/10/2022
+  ms.author: ivapplyr
+  ms.date: 01/10/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

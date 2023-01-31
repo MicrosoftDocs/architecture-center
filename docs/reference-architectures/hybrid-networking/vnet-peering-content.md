@@ -52,6 +52,14 @@ For more information, see the following articles:
 | Initial setup time | Fast | ~30 minutes |
 | Typical scenarios | Data replication, database failover, and other scenarios needing frequent backups of large data. | Encryption-specific scenarios that are not latency sensitive and do not need high throughout. |
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - Anavi Nahar | Principal PDM Manager
+
 ## Next steps
 
 - [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)

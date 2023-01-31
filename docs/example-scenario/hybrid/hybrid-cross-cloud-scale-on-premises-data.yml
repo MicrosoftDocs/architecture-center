@@ -3,10 +3,10 @@ metadata:
   title: Cross-cloud scaling - on-premises data 
   titleSuffix: Azure Architecture Center
   description: Learn how to build a hybrid app that spans Azure and Azure Stack Hub. The solution uses a single on-premises data source.
-  author: BryanLa
-  ms.author: bryanla 
+  author: ronmiab
+  ms.author: robess
   ms.date: 09/20/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 azureCategories:

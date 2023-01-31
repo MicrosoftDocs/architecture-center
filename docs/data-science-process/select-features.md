@@ -7,7 +7,7 @@ editor: marktab
 services: architecture-center
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/21/2021
 ms.author: tdsp
 ms.custom:
@@ -59,3 +59,13 @@ It is not always necessarily to perform feature engineering or feature selection
 [feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing
 [filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
 [fisher-linear-discriminant-analysis]: /azure/machine-learning/studio-module-reference/fisher-linear-discriminant-analysis
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*

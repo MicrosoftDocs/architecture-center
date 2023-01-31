@@ -139,6 +139,6 @@ Other contributors:
 - [Azure DevTest Labs reference architecture for enterprises](../../../example-scenario/infrastructure/devtest-labs-reference-architecture.yml)
 - [Build a CI/CD pipeline for chatbots with ARM templates](../../../example-scenario/apps/devops-cicd-chatbot.yml)
 - [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
-- [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-webapp.yml)
+- [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Microservices with AKS and Azure DevOps](../../../solution-ideas/articles/microservices-with-aks.yml)

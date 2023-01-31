@@ -1,7 +1,7 @@
 ---
 title: Choose a stream processing technology
 description: Compare options for real-time message stream processing in Azure, with key selection criteria and a capability matrix.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022
@@ -83,11 +83,19 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [App Service overview](/azure/app-service/overview)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Get started with Azure Stream Analytics](/training/modules/introduction-to-data-streaming)
+- [Perform advanced streaming data transformations](/training/modules/perform-advanced-streaming-data-transformations-with-spark-kafka)
+- [Set up clusters in HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)
+- [Use Apache Spark in Azure Databricks](/training/modules/use-apache-spark-azure-databricks)
+
 ## Related resources
 
-- [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
+- [Choose a real-time message ingestion technology](real-time-ingestion.md)
 - [Real time processing](../big-data/real-time-processing.yml)
-
-<!-- links -->
+- [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
 
 [dotnet-spark]: https://github.com/dotnet/spark

@@ -1,13 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This document describes the architecture and design considerations for reliable, high-performing chat applications. It uses the SignalR Service to implement multi-factor authentication working with Azure App Service.
-
-## Potential use cases
-
-* Ease of use
-* Accessibility
-* Scalability
-* Multi-factor authentication
+This architecture uses Azure App Service to accelerate development of reliable, high-performing chat applications.
 
 ## Architecture
 
@@ -26,6 +19,17 @@ Key technology used to implement this architecture:
 
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service)
 - [Azure App Service](https://azure.microsoft.com/services/app-service)
+
+## Scenario details
+
+This document describes the architecture and design considerations for reliable, high-performing chat applications. It uses the SignalR Service to implement multi-factor authentication working with Azure App Service.
+
+### Potential use cases
+
+- Ease of use
+- Accessibility
+- Scalability
+- Multi-factor authentication
 
 ## Next steps
 

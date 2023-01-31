@@ -139,7 +139,7 @@ You can also deploy a batch scoring architecture for deep learning models by usi
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Jian Tang](https://www.linkedin.com/in/jian-tang-9739a814/) | Program Manager II
 

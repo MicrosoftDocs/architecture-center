@@ -169,11 +169,14 @@ Principal authors:
 
 - [Gansu Adhinarayanan](http://linkedin.com//in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist
 - [Vandana Bagalkot](http://linkedin.com/in/vandana-bagalkot) | Principal Cloud Solution Architect
+- [Marc van Houten](https://www.linkedin.com/in/marcvanhouten) | Senior Cloud Solution Architect
 
 Other contributors:
 
 - [Astha Malik](http://linkedin.com/in/astha-malik8) | Senior Program Manager
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

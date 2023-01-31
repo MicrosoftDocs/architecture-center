@@ -167,7 +167,7 @@ See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac0
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
  

@@ -3,10 +3,10 @@ metadata:
   title: Hybrid geo-distributed architecture
   titleSuffix: Azure Architecture Center
   description: Learn how to use Azure Traffic Manager to direct traffic to specific cloud and on-premises endpoints based on various metrics. 
-  author: BryanLa
-  ms.author: bryanla
+  author: ronmiab
+  ms.author: robess
   ms.date: 09/20/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
 name: Hybrid geo-distributed architecture

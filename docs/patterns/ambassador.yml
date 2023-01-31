@@ -2,10 +2,10 @@
 metadata:
   title: Ambassador pattern
   description: Learn about the Ambassador pattern, which creates helper services that send network requests on behalf of a consumer service or application.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: design-pattern
   ms.service: architecture-center
   ms.subservice: design-pattern
   ms.custom: fcp

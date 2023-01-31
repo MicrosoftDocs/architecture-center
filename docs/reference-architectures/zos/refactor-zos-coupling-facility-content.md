@@ -32,21 +32,21 @@ The next diagram shows how Azure services can provide similar functionality and 
 
    A web browser to access Azure system resources replaces terminal emulation for demand and online users. Users access web-based applications over TLS port 443. Web applications' presentation layers can remain virtually unchanged, to minimize end user retraining. Or you can update the web application presentation layer with modern user experience frameworks.
 
-   For admin access to the Azure Virtual Machines (VMs), Azure Bastion hosts maximize security by minimizing open ports.
+   For admin access to the Azure Virtual Machines (VMs), [Azure Bastion](/azure/bastion/bastion-overview) hosts maximize security by minimizing open ports.
 
-1. In Azure, access to the application compute clusters is through Azure Load Balancer, allowing for scale-out compute resources to process the input work.
+1. In Azure, access to the application compute clusters is through [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), allowing for scale-out compute resources to process the input work.
 
 1. The type of application compute cluster to use depends on whether the application runs on VMs or in a container cluster like Kubernetes. Usually, mainframe system emulation for applications written in PL/I or COBOL use VMs, while applications refactored to Java or .NET use containers. Some mainframe system emulation software can also support deployment in containers.
 
 1. Application servers, such as Tomcat for Java or CICS/IMS transaction processing monitor for COBOL, receive the input, and share application state and data using Azure Cache for Redis or Remote Direct Memory Access (RDMA). This capability is similar to CF for mainframes.
 
-1. Data services in the application clusters allow for multiple connections to persistent data sources. These data sources can include platform-as-a-service (PaaS) data services like Azure SQL Database and Azure Cosmos DB, databases on VMs like Oracle or Db2, or Big Data repositories like Databricks and Azure Data Lake. Application data services can also connect to streaming data analytics services like Kafka and Azure Stream Analytics.
+1. Data services in the application clusters allow for multiple connections to persistent data sources. These data sources can include platform-as-a-service (PaaS) data services like [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) and Azure Cosmos DB, databases on VMs like Oracle or Db2, or Big Data repositories like Databricks and Azure Data Lake. Application data services can also connect to streaming data analytics services like Kafka and Azure Stream Analytics.
 
    Azure PaaS data services provide scalable and highly available data storage that multiple compute resources in a cluster can share. These services can also be geo-redundant.
 
 1. The application servers host various application programs based on language, such as Java classes in Tomcat, or COBOL programs with CICS verbs in CICS emulation VMs.
 
-1. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on Azure NetApp Files or Azure Files, and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
+1. Data services use a combination of high-performance storage on Ultra or Premium solid-state disks (SSDs), file storage on Azure NetApp Files or [Azure Files](/azure/storage/files/storage-files-introduction), and standard blob, archive, and backup storage that can be locally redundant or geo-redundant.
 
 1. Azure Blob storage is a common landing zone for external data sources.
 
@@ -56,43 +56,43 @@ The next diagram shows how Azure services can provide similar functionality and 
 
 ### Components
 
-- [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity partner provides. With ExpressRoute, you can establish connections to cloud services like Azure and Office 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that a connectivity partner provides. With ExpressRoute, you can establish connections to cloud services like Azure and Office 365.
 
-- [Azure Bastion](/azure/bastion/bastion-overview) is a fully managed PaaS that you provision inside your virtual network. Bastion provides secure and seamless RDP and SSH connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
+- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) is a fully managed PaaS that you provision inside your virtual network. Bastion provides secure and seamless RDP and SSH connectivity to the VMs in your virtual network directly from the Azure portal over TLS.
 
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) distributes inbound flows from the load balancer's front end to back-end pool instances, according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set. Load Balancer is the single point of contact for clients.
+- [Azure Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure) distributes inbound flows from the load balancer's front end to back-end pool instances, according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in a virtual machine scale set. Load Balancer is the single point of contact for clients.
 
   Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. Both level 7 application level and level 4 network protocol level load balancers are available. The type to use depends on how the application input reaches the compute cluster's entry point.
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) are on-demand, scalable computing resources that allow the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems, including Windows and Linux.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) are on-demand, scalable computing resources that allow the flexibility of virtualization without having to buy and maintain physical hardware. Azure VMs give you a choice of operating systems, including Windows and Linux.
 
   Most Azure high-performance computing (HPC) VM sizes feature a network interface for [RDMA connectivity](/azure/virtual-machines/sizes-hpc#rdma-capable-instances).
 
-- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. An Azure Virtual Network is similar to a traditional on-premises network, but with the benefits of Azure infrastructure scalability, availability, and isolation.
+- [Azure Virtual Networks](https://azure.microsoft.com/products/virtual-network) are the fundamental building blocks for Azure private networks. Virtual networks let Azure resources like VMs securely communicate with each other, the internet, and on-premises networks. An Azure Virtual Network is similar to a traditional on-premises network, but with the benefits of Azure infrastructure scalability, availability, and isolation.
 
-- [Virtual network interfaces](/azure/virtual-network/virtual-network-network-interface) let Azure VMs communicate with internet, Azure, and on-premises resources. As in this architecture, you can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
+  Virtual network interfaces let Azure VMs communicate with internet, Azure, and on-premises resources. As in this architecture, you can add several network interface cards to one Azure VM, so child VMs can have their own dedicated network interface devices and IP addresses.
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) is a fully managed Kubernetes service for deploying and managing containerized applications in container-based compute clusters.
 
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) is a fully managed, in-memory cache that improves the performance and scalability of data-intensive architectures. The current architecture uses Azure Cache for Redis to share data and state between compute resources.
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache) is a fully managed, in-memory cache that improves the performance and scalability of data-intensive architectures. The current architecture uses Azure Cache for Redis to share data and state between compute resources.
 
-- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a fully managed PaaS database engine that always runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business critical, domain-specific database administration and optimization.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine that always runs the latest stable version of SQL Server and patched OS, with 99.99% availability. SQL Database handles upgrading, patching, backups, monitoring, and most other database management functions without user involvement. These PaaS capabilities let you focus on business critical, domain-specific database administration and optimization.
 
-- [Azure Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection from Azure VMs to Azure SQL Database that is isolated to the Azure networking backbone.
+- [Azure Private Link](https://azure.microsoft.com/products/private-link) for Azure SQL Database] provides a private, direct connection from Azure VMs to Azure SQL Database that is isolated to the Azure networking backbone.
 
-- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is an Azure PaaS service for NoSQL databases.
+- [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) is an Azure PaaS service for NoSQL databases.
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is an Azure PaaS service for PostgreSQL databases.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is an Azure PaaS service for PostgreSQL databases.
 
-- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This architecture works best with Premium SSDs or Ultra Disk SSDs.
+- [Azure managed disks](https://azure.microsoft.com/products/storage/disks) are block-level storage volumes that Azure manages on Azure VMs. The available types of disks are ultra disks, premium SSDs, standard SSDs, and standard hard disk drives (HDDs). This architecture works best with Premium SSDs or Ultra Disk SSDs.
 
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a fully managed, serverless data integration solution for ingesting, preparing, and transforming data at scale.
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory) is a fully managed, serverless data integration solution for ingesting, preparing, and transforming data at scale.
 
-- [Azure Files](/azure/storage/files/storage-files-introduction) offers fully managed file shares in an Azure Storage Account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently, and access files via the industry-standard Server Message Block (SMB) protocol.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) offers fully managed file shares in an Azure Storage Account that are accessible from the cloud or on-premises. Windows, Linux, and macOS deployments can mount Azure file shares concurrently, and access files via the industry-standard Server Message Block (SMB) protocol.
 
-- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is an Azure-based analytics service for streaming data.
+- [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is an Azure-based analytics service for streaming data.
 
-- [Azure Databricks](https://azure.microsoft.com/services/databricks/) is an Apache Spark PaaS service for Big Data analytics.
+- [Azure Databricks](https://azure.microsoft.com/services/databricks) is an Apache Spark PaaS service for Big Data analytics.
 
 ## Scenario details
 
@@ -104,11 +104,11 @@ Azure resources can provide similar scale-out performance with shared data and h
 
 ## Considerations
 
-The following considerations apply to this architecture:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
-This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
+This architecture uses [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery) to mirror Azure VMs to a secondary Azure region for quick failover and DR if an Azure datacenter fails.
 
 ### Resiliency
 
@@ -120,6 +120,8 @@ You can scale out the server sets to provide more throughput. For more informati
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - This solution uses an Azure network security group (NSG) to manage traffic between Azure resources. For more information, see [Network security groups](/azure/virtual-network/network-security-groups-overview).
 
 - [Private Link for Azure SQL Database](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection isolated to the Azure networking backbone from the Azure VMs to Azure SQL Database.
@@ -128,16 +130,21 @@ You can scale out the server sets to provide more throughput. For more informati
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 - Azure SQL Database should use [Hyperscale or Business Critical](/azure/azure-sql/database/service-tiers-general-purpose-business-critical) SQL Database tiers for high input/output operations per second (IOPS) and high uptime SLA.
 
-- This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- This architecture works best with Premium SSDs or Ultra Disk SSDs. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 - [Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
 - [Azure Bastion](/azure/bastion/bastion-overview)
-- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 
+- [Azure Load Balancer](/azure/load-balancer/load-balancer-overview)
+- [Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview)
+- [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview)
+- [Create, change, or delete a network interface](/azure/virtual-network/virtual-network-network-interface)
 
 ## Related resources
 

@@ -3,10 +3,10 @@ metadata:
   title: Cross-platform chat
   titleSuffix: Azure Architecture Center
   description: Use this architecture to accelerate development of reliable, high-performing chat applications.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

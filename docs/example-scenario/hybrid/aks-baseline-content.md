@@ -163,7 +163,7 @@ Focus on the entire stack by securing the host and containers.
 ### Operational excellence
 
 - **Create Cluster Wizard**. Experience a simplified provisioning and management experience with Windows Admin Center. The [Create Cluster wizard in Windows Admin Center][] provides a wizard-driven interface that guides you through creating an Azure Stack HCI cluster. The Create Cluster Wizard is a tradeoff for ease vs creating deploy scripts that you can source control for auditing and repeatability across multiple deployments. Similarly, [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs][].
-- [Azure ARC][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
+- [Azure Arc][]. Integrate with Azure Arc or a range of Azure services that provide additional management, maintenance, and resiliency capabilities (for example, Azure Monitor and Log analytics).
 - **GitOps.** Instead of manually configuring Kubernetes components, use automated tooling to apply configurations to a Kubernetes cluster, as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. In this architecture, we recommend using the Microsoft-provided GitOps extension, which is based on Flux.
 - **Azure Arc–enabled [Open Service Mesh (OSM)][].** A lightweight, extensible, cloud-native service mesh that allows users to uniformly manage, help secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
@@ -199,7 +199,7 @@ Focus on the entire stack by securing the host and containers.
 
 - [AKS overview](/azure/aks/hybrid/aks-hybrid-options-overview)
 
-  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview.md
+  [Azure Stack HCI (20H2)]: /azure-stack/hci/overview
   [1]: https://azure.microsoft.com/products/azure-stack/hci/
   [Azure Kubernetes Service on Azure Stack HCI (AKS hybrid)]: /azure/aks/hybrid/aks-hybrid-options-overview
   [Windows Admin Center]: /windows-server/manage/windows-admin-center/overview
@@ -221,11 +221,11 @@ Focus on the entire stack by securing the host and containers.
   [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator
   [cost optimization]: /azure/architecture/framework/cost/overview
   [Create Cluster Wizard in Windows Admin Center]: /azure-stack/hci/deploy/create-cluster
-  [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs]: /azure/aks/hybrid/manage/vm
+  [Windows Admin Center simplifies the process of managing Azure Stack HCI VMs]: /azure-stack/hci/manage/vm
   [Open Service Mesh (OSM)]: https://docs.openservicemesh.io/
   [virtualization-based security (VBS)]: /windows-hardware/design/device-experiences/oem-vbs
   [Azure Stack HCI solutions]: https://azure.microsoft.com/overview/azure-stack/hci
-  [Calico network policies]: /azure/aks/hybrid/calico-networking-policy.md
+  [Calico network policies]: /azure/aks/hybrid/calico-networking-policy
   [2]: /azure/defender-for-cloud/defender-for-cloud-introduction
   [Azure Key Vault Secrets provider extension]: /azure/azure-arc/kubernetes/tutorial-akv-secrets-provider
   [Open Service Mesh AKS add-on]: /azure/aks/open-service-mesh-about

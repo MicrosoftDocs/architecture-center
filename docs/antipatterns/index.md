@@ -4,7 +4,7 @@ description: Build scalability solutions for common stressors by learning about 
 author: johndowns
 ms.author: jodowns
 ms.date: 08/23/2021
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 ms.custom:

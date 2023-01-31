@@ -1,8 +1,4 @@
-This article describes how you can manage your own Transparent Data Encryption (TDE) keys for SQL managed instances in a cross-region auto-failover group by using Azure Key Vault. When you use customer-managed keys (CMK), also referred to as bring your own key (BYOK), you're responsible for the security, availability, and optional rotation of the keys. These responsibilities are critical because if the key is lost, the databases and backups are also permanently lost. This article describes the key management process and provides options so that you have the information you need to make an informed decision about the best process for your business.
-
-## Potential use cases
-
-Many organizations have policies that require that certificates or encryption keys be created and managed internally. If your organization has a similar policy, this architecture might apply to you. If your customers require internal management of these items, the architecture also might apply to you. If neither of those situations apply, consider using system-managed keys. 
+This article describes how you can manage your own Transparent Data Encryption (TDE) keys for SQL managed instances in a cross-region auto-failover group by using Azure Key Vault.
 
 ## Architecture
 
@@ -32,7 +28,17 @@ The secondary key vault instance, while in a remote region, has a [private endpo
 
 - An alternative to having key vaults in two regions is to just have one in a single region. SQL Managed Instance can access keys from a vault that's in another region. You can still use private endpoint. The traffic to Key Vault is low and infrequent, so any latency isn't noticeable. SQL Managed Instance only queries the vault to see whether the key exists. It doesn't copy the material.
 
+## Scenario details
+
+When you use customer-managed keys (CMK), also referred to as bring your own key (BYOK), you're responsible for the security, availability, and optional rotation of the keys. These responsibilities are critical because if the key is lost, the databases and backups are also permanently lost. This article describes the key management process and provides options so that you have the information you need to make an informed decision about the best process for your business.
+
+### Potential use cases
+
+Many organizations have policies that require that certificates or encryption keys be created and managed internally. If your organization has a similar policy, this architecture might apply to you. If your customers require internal management of these items, the architecture also might apply to you. If neither of those situations apply, consider using system-managed keys. 
+
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### General recommendations
 
@@ -41,7 +47,7 @@ See these articles:
 - [Recommendations for configuring customer-managed TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview#recommendations-when-configuring-akv)
 - [Recommendations for configuring TDE protector](/azure/azure-sql/database/transparent-data-encryption-byok-overview#recommendations-when-configuring-tde-protector)
 
-### Key management considerations
+### Key management
 
 Your method of key rotation will differ depending on what you're using to create your TDE asymmetric keys. When you bring your own TDE wrapper key, you have to decide how you'll create this key. Your options are:
 
@@ -53,9 +59,11 @@ Your method of key rotation will differ depending on what you're using to create
 
 ### Availability
 
-When you add Key Vault to your architecture, it becomes a critical component. At least one of the key vaults in the design must be accessible. Additionally, the keys that are necessary for TDE must be accessible. Azure Monitor insights provides comprehensive monitoring of Key Vault. For more information, see [Monitoring your key vault service](/azure/azure-monitor/insights/key-vault-insights-overview).
+When you add Key Vault to your architecture, it becomes a critical component. At least one of the key vaults in the design must be accessible. Additionally, the keys that are necessary for TDE must be accessible. Azure Monitor Insights provides comprehensive monitoring of Key Vault. For more information, see [Monitoring your key vault service](/azure/azure-monitor/insights/key-vault-insights-overview).
 
-### Operations
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 When you move from service-managed keys to customer-managed keys, your operations will be:
 
@@ -64,17 +72,25 @@ When you move from service-managed keys to customer-managed keys, your operation
 - [Backing up and restoring keys](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 - [Monitoring customer-managed TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview#monitoring-of-the-customer-managed-tde)
 
-### Performance
+#### DevOps
+
+You can use [Azure Pipelines](/azure/devops/pipelines) in Azure DevOps to automate the [key rotation process](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation).
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 SQL Managed Instance auto-failover groups [perform significantly better when you use paired regions](/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#using-geo-paired-regions).
 
 SQL Managed Instance only checks to see whether the key exists, and it only does that every 10 minutes. Therefore, SQL Managed Instances doesn't require region-affinity with Key Vault. The location of your TDE keys has no effect on performance.
 
-### Scalability
+#### Scalability
 
 When it comes to managing your TDE keys, scaling isn't a concern. The request size and frequency are so small that you won't need to scale.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 The biggest security consideration is ensuring that you keep your TDE wrapper key safe and always available to SQL Managed Instances. Any database encrypted via TDE is inaccessible if it can't access the required key in Key Vault. If you use service-managed keys, you don't have to worry about this consideration.
 
@@ -82,18 +98,7 @@ The biggest security consideration is ensuring that you keep your TDE wrapper ke
 
 Each SQL managed instance is configured to use two key vaults. If the SQL managed instance primary TDE key is unavailable or inaccessible, the instance attempts to find a key with a matching thumbprint in the secondary key vault.
 
-### DevOps
-
-You can use [Azure Pipelines](/azure/devops/pipelines) in Azure DevOps to automate the [key rotation process](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation).
-
-## Deploy this scenario
-
-You can deploy this scenario by using these ARM templates:
-
-- [SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-managed-instance-azure-environment)
-- [Azure Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault)
-
-## Pricing
+### Cost optimization
 
 For information about the additional costs of managing your own TDE keys, outside of added operational costs, see these resources:
 
@@ -105,13 +110,22 @@ For information about the optional components, see these resources:
 - [Azure DevOps pricing](https://azure.microsoft.com/pricing/details/devops/azure-devops-services)
 - [Azure Automation pricing](https://azure.microsoft.com/pricing/details/automation/#pricing)
 
+## Deploy this scenario
+
+You can deploy this scenario by using these ARM templates:
+
+- [SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-managed-instance-azure-environment)
+- [Azure Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault)
+
 ## Contributors
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Ahmet Arsan](https://www.linkedin.com/in/aarsan) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -3,10 +3,10 @@ metadata:
   title: Quality assurance
   titleSuffix: Azure Architecture
   description: Build a quality assurance system that collects data and improves productivity by identifying potential problems in a manufacturing pipeline before they occur.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 11/01/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

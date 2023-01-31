@@ -3,10 +3,10 @@ metadata:
   title: Power BI data write-back with Power Apps and Power Automate 
   titleSuffix: Azure Architecture Center
   description: Learn about a solution that provides data write-back functionality for Power BI reports. Update data in Power BI and push the changes back to your data source. 
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp 

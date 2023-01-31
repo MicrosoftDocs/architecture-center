@@ -2,10 +2,10 @@
 title: Monolithic Persistence antipattern
 titleSuffix: Azure Architecture Center
 description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application&apos;s data into a single data store.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.date: 06/05/2017
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 azureCategories: 

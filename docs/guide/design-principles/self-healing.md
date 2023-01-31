@@ -2,8 +2,8 @@
 title: Design for self healing
 titleSuffix: Azure Application Architecture Guide
 description: Learn to design resilient applications that can recover from failures without manual intervention through self-healing.
-author: EdPrice-MSFT
-ms.date: 12/13/2021
+author: martinekuan
+ms.date: 11/07/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -46,7 +46,7 @@ Also, don't just consider big events like regional outages, which are generally 
 
 **Compensate failed transactions**. In general, avoid distributed transactions, as they require coordination across services and resources. Instead, compose an operation from smaller individual transactions. If the operation fails midway through, use [Compensating Transactions][compensating-transactions] to undo any step that already completed.
 
-**Checkpoint long-running transactions**. Checkpoints can provide resiliency if a long-running operation fails. When the operation restarts (for example, it is picked up by another VM), it can be resumed from the last checkpoint.
+**Checkpoint long-running transactions**. Checkpoints can provide resiliency if a long-running operation fails. When the operation restarts (for example, it is picked up by another VM), it can be resumed from the last checkpoint. Consider implementing a mechanism that records state information about the task at regular intervals, and save this state in durable storage that can be accessed by any instance of the process running the task. In this way, if the process is shut down, the work that it was performing can be resumed from the last checkpoint by using another instance. There are libraries that provide this functionality, such as [NServiceBus](https://docs.particular.net/nservicebus/sagas) and [MassTransit](https://masstransit-project.com/usage/sagas). They transparently persist state, where the intervals are aligned with the processing of messages from queues in Azure Service Bus.
 
 **Degrade gracefully**. Sometimes you can't work around a problem, but you can provide reduced functionality that is still useful. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. Entire subsystems might be noncritical for the application. For example, in an e-commerce site, showing product recommendations is probably less critical than processing orders.
 

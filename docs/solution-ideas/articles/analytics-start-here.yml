@@ -3,10 +3,10 @@ metadata:
   title: Analytics architecture design
   titleSuffix: Azure Architecture Center
   description: Analytics solutions turn volumes of data into useful business intelligence (BI), such as reports and visualizations, and inventive artificial intelligence (AI), such as forecasts based on machine learning.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: v-nanra
   ms.date: 08/05/2022
-  ms.topic: conceptual 
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category: analytics

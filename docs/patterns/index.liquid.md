@@ -2,7 +2,7 @@
 title: Cloud Design Patterns
 titleSuffix: Azure Architecture Center
 description: Cloud Design Patterns for Microsoft Azure
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/28/2022
 ms.topic: conceptual

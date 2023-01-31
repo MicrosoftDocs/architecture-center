@@ -34,6 +34,8 @@ The [design strategies for mission-critical baseline](/azure/architecture/refere
 
 :::image type="content" source="./images/mission-critical-architecture-network.svg" alt-text="Diagram showing private endpoint subnet in the regional stamp virtual network." lightbox="./images/mission-critical-architecture-network-highres.png":::
 
+*Download a [Visio file](https://arch-center.azureedge.net/mission-critical-network-architecture.vsdx) of this architecture.*
+
 The components of this architecture can be broadly categorized in this manner. For product documentation about Azure services, see [Related resources](#related-resources).
 
 ### Global resources
@@ -219,7 +221,7 @@ You can further restrict access to the jump box subnet by using an NSG that only
 
 To build deployment pipelines, you need to provision additional compute to run build agents. These resources won't directly impact the runtime availability of the workload but a reliability failure can jeopardize the ability to deploy or service your mission critical environment. So, reliability features should be extended to these resources.
 
-This architecture uses virtual machine scale sets for both build agents and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps.
+This architecture uses Virtual Machine Scale Sets for both build agents and jump boxes (as opposed to single VMs). Also, network segmentation is provided through the use of subnets. Ingress is restricted to Azure DevOps.
 
 ## Cost considerations
 

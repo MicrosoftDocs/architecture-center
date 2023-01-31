@@ -2,10 +2,10 @@
 metadata:
   title: Anti-corruption Layer pattern
   description: Examine the Anti-corruption Layer pattern. Implement a façade or adapter layer between a modern application and a legacy system.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: design-pattern
   ms.service: architecture-center
   ms.subservice: design-pattern
   ms.custom: fcp

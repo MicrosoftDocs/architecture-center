@@ -68,7 +68,7 @@ The answers to these questions will help you refine your tenancy requirement.
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
  - [Michael Friedrich](https://www.linkedin.com/in/1michaelfriedrich/) | Senior Partner Tech Manager
 

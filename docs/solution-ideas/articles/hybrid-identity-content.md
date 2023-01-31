@@ -8,16 +8,17 @@ This solution enables teams to manage identity for users and applications in a w
 
 ## Architecture
 
-![Architecture diagram](../media/hybrid-identity.png)
-*Download an [SVG](../media/hybrid-identity.svg) of this architecture.*
+[ ![Architecture diagram that shows how to manage identity for users and applications in a way that is consistent across clouds.](../media/hybrid-identity.svg)](../media/hybrid-identity.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-identity.vsdx) of this architecture.*
 
 ### Dataflow
 
 1. Set up an Azure Active Directory tenant.
 1. Create users.
 1. Deploy, manage, and operate application resources on Azure and Azure Stack Hub.
-1. Create service principles.
-1. Deploy with service principles.
+1. Create service principals.
+1. Deploy with service principals.
 1. Application resources can communicate over network.
 
 ### Components

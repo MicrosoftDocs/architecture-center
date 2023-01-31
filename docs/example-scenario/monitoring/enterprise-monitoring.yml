@@ -3,10 +3,10 @@ metadata:
   title: Enterprise monitoring with Azure Monitor
   titleSuffix: Azure Architecture Center
   description: See an enterprise monitoring solution that uses Azure Monitor to collect and manage data from cloud, on-premises, and hybrid resources.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: surins
   ms.date: 08/26/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

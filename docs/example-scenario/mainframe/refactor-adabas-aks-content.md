@@ -106,7 +106,7 @@ This architecture is primarily built on Kubernetes, which includes security comp
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
-Principal authors:
+Principal author:
 
  - Marlon Johnson | Senior TPM
  

@@ -2,7 +2,7 @@
 title: Use a suitable data store
 titleSuffix: Azure Architecture Center
 description: "Pick the storage technology that's the best fit for how you use your data. Learn about alternatives to relational databases. Consider polyglot persistence."
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -33,7 +33,7 @@ In the past, many organizations stored all their data in large relational SQL da
 
 ## Alternatives to relational databases
 
-In a large solution, a single data store technology probably won't meet all your needs. Alternatives to relational databases include:
+In a large solution, a single data store technology probably doesn't meet all your needs. Alternatives to relational databases include:
 
 - Key/value stores
 - Document databases
@@ -75,6 +75,19 @@ For example, you might store a product catalog in a document database, such as A
 - Use [compensating transactions][Compensating Transaction pattern]. A side effect of polyglot persistence is that a single transaction might write data to multiple stores. If something fails, use compensating transactions to undo any steps that already finished.
 
 - Look at *bounded contexts*, a concept from domain-driven design. A bounded context is an explicit boundary around a domain model. A bounded context defines which parts of the domain the model applies to. Ideally, a bounded context maps to a subdomain of the business domain. The bounded contexts in your system are a natural place to consider polyglot persistence. For example, *products* might appear in the Product Catalog subdomain and the Product Inventory subdomain. But most likely, these two subdomains have different requirements for storing, updating, and querying products.
+
+## Next steps
+
+- [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options)
+- [Architect storage infrastructure in Azure](/training/paths/architect-storage-infrastructure)
+- [Store data in Azure](/training/paths/store-data-in-azure)
+
+## Related resources
+
+- [Azure Data Architecture Guide](../../data-guide/index.md)
+- [Databases architecture design](../../data-guide/databases-architecture-design.yml)
+- [Understand data store models](../technology-choices/data-store-overview.md)
+- [Compensating Transaction pattern](../../patterns/compensating-transaction.yml)
 
 [CAP theroem]: /previous-versions/msp-n-p/dn589800(v=pandp.10)#eventual-consistency
 [Compensating Transaction pattern]: ../../patterns/compensating-transaction.yml

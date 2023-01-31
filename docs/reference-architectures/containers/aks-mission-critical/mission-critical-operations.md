@@ -5,7 +5,7 @@ author: robbagby
 categories: networking
 ms.author: allensu
 ms.date: 06/28/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.category:
@@ -147,6 +147,17 @@ Azure subscriptions have quota limits. Deployments can fail when these limits ar
 
 > [!IMPORTANT]
 > See [Operational procedures for mission-critical workloads on Azure](/azure/architecture/framework/mission-critical/mission-critical-operational-procedures) for operational design considerations and recommendations.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+ - [Rob Bagby](https://www.linkedin.com/in/robbagby/) | Principal Content Developer
+ - [Allen Sudbring](https://www.linkedin.com/in/allen-sudbring-9163171/) | Senior Content Developer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

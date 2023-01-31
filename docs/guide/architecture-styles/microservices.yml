@@ -2,7 +2,7 @@
 metadata:
   title: Microservice architecture style
   description: Read about the benefits, challenges, and best practices of the microservices architecture style on Azure.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
   ms.topic: conceptual

@@ -3,10 +3,10 @@ metadata:
   title: Training and procedural guidance powered by mixed reality
   titleSuffix: Azure Solution Ideas
   description: Help employees learn processes and materials effectively by providing persistent holographic instructions mapped to precise locations in physical workspaces.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 06/14/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

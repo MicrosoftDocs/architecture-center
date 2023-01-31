@@ -6,7 +6,7 @@ metadata:
   author: nehalineogi
   ms.author: tmaher
   ms.date: 06/24/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:
@@ -21,6 +21,6 @@ products:
   - azure-active-directory-domain
   - azure-files
   - azure-virtual-desktop
-thumbnailUrl: /azure/architecture/browse/thumbs/two-forest-to-azure-no-private-connectivity.png
+thumbnailUrl: /azure/architecture/browse/thumbs/wvd-multi-forest-aadds-thumb.png
 content: |
    [!include[](multi-forest-azure-managed-content.md)]
