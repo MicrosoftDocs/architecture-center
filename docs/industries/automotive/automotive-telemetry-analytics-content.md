@@ -133,6 +133,7 @@ This solution uses the following practices to help optimize costs:
 
 - Correctly configure hot caches and cold storage for the Raw and Signals tables. The hot data cache is stored in RAM or SSD and provides improved performance. Cold data, however, is 45 times cheaper. Set a hot cache policy that's adequate for your use case, such as 30 days.
 - Set up a retention policy on the Raw and Signals tables. Determine when the signal data is no longer relevant, for example after 365 days, and set the retention policy accordingly.
+- Consider which signals are relevant for analysis.
 - Use materialized views when querying the signals last known values, signals deduped, and signals downsampled. Materialized views consume fewer resources than doing source table aggregations on each query.
 - Consider your real-time data analytics needs. Setting up streaming ingestion for the live telemetry table enables latency of less than one second between ingestion and query, but at a higher cost of more CPU cycles.
 
@@ -140,7 +141,12 @@ This solution uses the following practices to help optimize costs:
 
 Performance efficiency is your workload's ability to scale efficiently to meet user demands. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-In this workload, if the number and size of recorded data files is greater than 1,000 files or 300 MB a day, consider using Azure Batch with Azure Functions for decoding.
+- If the number and size of recorded data files is greater than 1,000 files or 300 MB a day, consider using Azure Batch for decoding.
+- Consider performing common calculations and analysis after ingest and storing them in additional tables.
+
+## Deploy this scenario
+
+To deploy Azure Data Explorer and ingest MDF files, you can follow the [step-by-step](https://github.com/microsoft/adx-automotive-demos/tree/main/mdf42adx) tutorial demonstrating how to deploy a free instance, parse MDF files, ingest and perform some basic queries.
 
 ## Contributors
 
@@ -149,7 +155,7 @@ In this workload, if the number and size of recorded data files is greater than 
 Principal authors:
 
 - [Frank Kaleck](https://www.linkedin.com/in/frank-kaleck) | Digital Architect Automotive
-- [Mario Ortegon-Cabrera](https://www.linkedin.com/in/marioortegon) | Senior Program Manager
+- [Mario Ortegon-Cabrera](https://www.linkedin.com/in/marioortegon) | Principal Program Manager
 - [Henning Rauch](https://www.linkedin.com/in/henning-rauch-adx) | Principal Program Manager
 - [Boris Scholl](https://www.linkedin.com/in/bscholl) | Partner, Chief Architect
 
