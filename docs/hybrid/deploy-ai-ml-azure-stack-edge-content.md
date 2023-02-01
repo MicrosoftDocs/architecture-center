@@ -117,7 +117,7 @@ Microsoft Learn modules:
  - [Build an enterprise-grade conversational bot](../reference-architectures/ai/conversational-bot.yml)
  - [Image classification on Azure](../example-scenario/ai/intelligent-apps-image-processing.yml)
 
-[architectural-diagram]: ./images/deploy-ai-ml-azure-stack-edge.png
+[architectural-diagram]: ./images/deploy-ai-ml-azure-stack-edge.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/deploy-ai-ml-azure-stack-edge.vsdx
 [azure-container-instances]: /azure/container-instances/
 [azure-container-registry]: /azure/container-registry/
