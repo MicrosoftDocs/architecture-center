@@ -2,7 +2,7 @@ This solution expands on [Citizen AI with the Power Platform](../ai/citizen-ai-p
 
 ## Architecture
 
-:::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.png" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint." lightbox="media/deploy-real-time-machine-learning-model-application-ui.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.svg" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint." lightbox="media/deploy-real-time-machine-learning-model-application-ui.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-real-time-machine-learning-model-application-ui.vsdx) of this architecture.*
 
