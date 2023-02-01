@@ -1,10 +1,10 @@
-A multitenant solution has multiple *planes*, each with separate responsibilities. The *data plane* enables end users and clients to interact with the system. The *control plane* is the component that manages higher-level tasks across all tenants, like access control, provisioning, and system maintenance to support your platform administrators' tasks.
+A multitenant solution has multiple *planes*, and each has its own responsibilities. The *data plane* enables end users and clients to interact with the system. The *control plane* is the component that manages higher-level tasks across all tenants, like access control, provisioning, and system maintenance to support your platform administrators' tasks.
 
 This article provides information about the responsibilities of control planes and how to design a control plane that meets your needs.
 
 ![Diagram that shows a logical system design. A single control plane provides management across multiple tenant-specific data planes.](media/control-planes/control-planes.png)
 
-For example, consider a bookkeeping system for managing financial records. Multiple tenants store their financial records in the system. When end users access the system to view and enter their financial records, they use the data plane. The data plane is likely the primary application component for your solution. Your tenants probably think of it as the way to use the system for its intended purpose. The control plane is the component that onboards new tenants, creates databases for each tenant, and performs other management and maintenance operations. If the system didn't have a control plane, the administrators would need to run many manual processes instead. Or the data plane and control plane tasks would be mixed together, overcomplicating the solution.
+For example, consider a bookkeeping system for managing financial records. Multiple tenants store their financial records in the system. When end users access the system to view and enter their financial records, they use the data plane. The data plane is likely the primary application component for your solution. Your tenants probably think of it as the way to use the system for its intended purpose. The control plane is the component that onboards new tenants, creates databases for each tenant, and performs other management and maintenance operations. If the system didn't have a control plane, administrators would need to run many manual processes. Or data plane and control plane tasks would be mixed together, overcomplicating the solution.
 
 Many complex systems include control planes. For example, the Azure control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and back-end components that are responsible for deploying and configuring Azure resources. The [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) manages many tasks, like the placement of Kubernetes pods on worker nodes. Almost all software as a service (SaaS) solutions have a control plane to handle cross-tenant tasks.
 
@@ -58,7 +58,7 @@ After you've determined the requirements and the scope of your control plane, yo
 
 ### Well-architected control planes
 
-Because a control plane is its own system, it's important that you consider all five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework) when you design and architect your control plane. The following sections highlight some particular areas to focus on.
+Because a control plane is its own system, it's important to consider all five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework) when you design one. The following sections highlight some particular areas to focus on.
 
 #### Reliability
 
@@ -81,7 +81,7 @@ Follow the [Azure Well-Architected Framework guidance for building reliable solu
 Control planes are often highly privileged systems. Security problems within a control plane can have catastrophic consequences. Depending on its design and functionality, a control plane might be vulnerable to many different types of attacks, including the following:
 
 - A control plane might have access to keys and secrets for all tenants. An attacker who has access to your control plane might be able to gain access to a tenant's data or resources.
-- A control plane can often deploy new resources to Azure. Attackers might be able to exploit your control plane to deploy their own resources into your subscriptions, potentially incurring large charges.
+- A control plane can often deploy new resources to Azure. Attackers might be able to exploit your control plane to deploy their own resources into your subscriptions, potentially incurring extensive charges.
 - If an attacker successfully brings your control plane offline, there can be immediate and long-term damage to your system and to your business. See [Reliability](#reliability) for example consequences of a control plane being unavailable.
 
 When you design and implement a control plane, it's essential that you follow security best practices and create a comprehensive threat model to document and mitigate potential threats and security problems in your solution. For more information, see the [Azure Well-Architected Framework guidance for building secure solutions](/azure/architecture/framework/security/overview).
@@ -124,7 +124,7 @@ For example, suppose that, when you onboard a new tenant, your control plane run
 If any step in the sequence fails, you need to consider what to do, such as:
 
 - Retry the failed operation. For example, if your Azure SQL command in step 2 fails with a transient error, you could retry it.
-- Continue to the next step anyway. For example, you might decide that it's acceptable if the update to your billing system fails, because your sales team will manually add the customer anyway.
+- Continue to the next step. For example, you might decide that it's acceptable if the update to your billing system fails, because your sales team will manually add the customer.
 - Abandon the workflow and trigger a manual recovery process.
 
 You also need to consider what the user experience is like for each failure scenario.
