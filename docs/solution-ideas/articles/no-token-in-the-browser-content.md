@@ -31,7 +31,7 @@ This pattern increases the security of the application by moving the token acqui
 
 The acquisition of the access token and encryption and decryption of the cookie is handled by the use of Azure API Management Policies. Examples of these policies can be found in this [GitHub repository](https://github.com/irarainey/no-token-in-the-browser-pattern).
 
-By using an `HttpOnly` cookie to store the access token, the token is protected from XSS attacks and is not accessible by JavaScript. Scoping the cookie to the API domain and setting `SameSite=strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This pattern allows the access token to be automatically added to the Authorization header of all API calls made from the single-page application by the backend.
+By using an `HttpOnly` cookie to store the access token, the token is protected from XSS attacks and isn't accessible by JavaScript. Scoping the cookie to the API domain and setting `SameSite=strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This pattern allows the access token to be automatically added to the Authorization header of all API calls made from the single-page application by the backend.
 
 ### Potential use cases
 
