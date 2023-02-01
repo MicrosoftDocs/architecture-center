@@ -25,7 +25,7 @@ As the backend handles the token acquisition, no other code or library, such as 
 
 ## Scenario details
 
-Single-page applications are written in JavaScript and run within the context of a client-side browser. This pattern means that any code running in the browser can be accessed by the user. It also means that any data such as an access token stored in the browser session or local storage can be accessed by malicious code running in the browser, or via a XSS vulnerability. This vulnerability means that any sensitive data, such as access tokens, can be accessed and used to impersonate the user.
+Single-page applications are written in JavaScript and run within the context of a client-side browser. This pattern means that any code running in the browser can be accessed by the user. It also means that any data such as an access token stored in the browser session or local storage can be accessed by malicious code running in the browser, or via an XSS vulnerability. This vulnerability means that any sensitive data, such as access tokens, can be accessed and used to impersonate the user.
 
 This pattern increases the security of the application by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token, meaning access tokens no longer need to be stored in the browser session or local storage, and aren't accessible to malicious code running in the browser.
 
