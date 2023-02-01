@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Protect access tokens in a single-page application using Azure API Management 
+  titleSuffix: Azure Solution Ideas
+  description: Implement a no token in the browser pattern for a JavaScript single-page application using Azure API Management.
+  author: irarainey
+  ms.author: irarainey
+  ms.date: 01/30/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - identity
+  - security
+  - web
+products:
+  - azure-api-management
+  - azure-active-directory
+  - azure-app-service-static
+name: Protect access tokens in a single-page application using Azure API Management 
+summary: Implement a no token in the browser pattern for a JavaScript single-page application using Azure API Management.
+thumbnailUrl: /azure/architecture/browse/thumbs/no-token-in-the-browser.png
+content: |
+  [!include[](no-token-in-the-browser-content.md)]
