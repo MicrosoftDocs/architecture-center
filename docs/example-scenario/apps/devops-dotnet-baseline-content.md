@@ -18,7 +18,13 @@ Architecture diagram of an Azure pipeline. The diagram shows the following steps
 
 The data flows through the scenario as follows:
 
-1. **PR pipeline** - A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks. These checks should include the use of tools to analyze the code doing tasks such as static code analysis, linting, and security scanning. Once the analysis checks are passed, the code is built and unit tests are run. If any of the checks fail, the pipeline run ends and the developer will have to make the required changes. If all checks pass, the pipeline should require a PR review. If the PR review fails, the pipeline ends and the developer will have to make the required changes. If all the checks and PR reviews pass, the PR will successfully merge.
+1. **PR pipeline** - A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks. These checks should include:
+
+    - Building the code
+    - The use of tools to analyze the code, such as static code analysis, linting, and security scanning
+    - Unit tests
+
+    If any of the checks fail, the pipeline run ends and the developer will have to make the required changes. If all checks pass, the pipeline should require a PR review. If the PR review fails, the pipeline ends and the developer will have to make the required changes. If all the checks and PR reviews pass, the PR will successfully merge.
 
 1. **CI pipeline** - A merge to Azure Repos Git triggers a CI pipeline. This pipeline runs the same checks as the PR pipeline with some important additions. The CI pipeline runs integration tests. These integration tests shouldn't require the deployment of the solution, as the build artifacts haven't been created yet. If the integration tests require secrets, the pipeline gets those secrets from Azure Key Vault. If any of the checks fail, the pipeline ends and the developer will have to make the required changes. The result of a successful run of this pipeline is the creation and publishing of build artifacts
 
@@ -67,7 +73,7 @@ This article focuses on general CI/CD practices with Azure Pipelines. The follow
 
 - [Azure Power Platform](https://powerplatform.microsoft.com/) is a collection of cloud services that enable users to build, deploy, and manage applications without the need for infrastructure or technical expertise.
 
-- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to integrate services. Functions also supports deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
+- [Azure Functions](https://azure.microsoft.com/services/functions) is a serverless compute platform that you can use to build applications. With Functions, you can use triggers and bindings to integrate services. Functions also support deployment slots like staging and production. You can deploy an application to a staging slot and release it to the production slot.
 
 - [Azure Kubernetes Service (AKS)](/azure/aks) is a managed Kubernetes cluster in Azure. Kubernetes is an open source container orchestration platform.
 
@@ -97,17 +103,23 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Operational excellence
 
+- Consider implementing [Infrastructure as Code (IaC)](/devops/deliver/what-is-infrastructure-as-code) to define your infrastructure and to deploy it in your pipelines.
+
 - Consider using one of the [tokenization tasks](https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance) available in the VSTS marketplace.
 
 - Use [release variables](/azure/devops/pipelines/release/variables) in your release definitions to drive configuration changes of your environments. Release variables can be scoped to an entire release or a given environment. When using variables for secret information, ensure that you select the padlock icon.
 
-- Consider using [Self-hosted agents](/azure/devops/pipelines/agents/agents?tabs=browser#install) if you're deploying to resources running in a secured virtual network.
+- Consider using [Self-hosted agents](/azure/devops/pipelines/agents/agents?tabs=browser#install) if you're deploying to resources running in a secured virtual network. You might also consider self-hosted agents if you're running a high volume of builds. In cases of high build volumes, self-hosted agents can be used to speed up builds in a cost efficient manner.
 
 - Consider using [Application Insights](/azure/application-insights/app-insights-overview) and other monitoring tools as early as possible in your release pipeline. Many organizations only begin monitoring in their production environment. By monitoring your other environments, you can identify bugs earlier in the development process and avoid issues in your production environment.
+
+- Consider using separate monitoring resources for production.
 
 - Consider using [YAML pipelines](/azure/devops/pipelines/get-started/yaml-pipeline-editor) instead of the Classic interface. YAML pipelines can be treated like other code. YAML pipelines can be checked in to source control and versioned, for example.
 
 - Consider using [YAML Templates](/azure/devops/pipelines/process/templates) to promote reuse and simplify pipelines. For example, PR and CI pipelines are similar. A single parameterized template could be used for both pipelines.
+
+- Consider creating environments beyond staging and production to support activities such as manual user acceptance testing, performance and load testing, and rollbacks.
 
 ### Cost optimization
 
@@ -123,7 +135,9 @@ Azure DevOps is billed on a per-user per-month basis. There might be more charge
 
 - Consider the [security benefits of using Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#security) when choosing whether to use Microsoft-hosted or self-hosted agents.
 
-- Ensure all changes to environments is done through pipelines. Implement role-based access controls (RBAC) on the principle of least privilege, preventing users from accessing environments.
+- Ensure all changes to environments are done through pipelines. Implement role-based access controls (RBAC) on the principle of least privilege, preventing users from accessing environments.
+
+- Consider integrating steps in Azure Pipelines to track dependencies, manage licensing, scan for vulnerabilities, and keep dependencies to date.
 
 ## Next steps
 
