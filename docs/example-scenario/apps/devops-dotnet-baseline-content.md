@@ -45,6 +45,8 @@ The data flows through the scenario as follows:
   - CI pipelines run after code is merged. They perform the same validation as PR pipelines, but add integration testing and publish build artifacts if everything succeeds.
   - CD pipelines deploy build artifacts, run acceptance tests, and release to production.
 
+- [Azure Artifact Feeds](/azure/devops/artifacts/concepts/feeds) allow you to manage and share software packages, such as Maven, npm, and NuGet. Artifact feeds allow you to manage the lifecycle of your packages, including versioning, promoting, and retiring packages. This helps you to ensure that your team is using the latest and most secure versions of your packages.
+
 - [Key Vault](https://azure.microsoft.com/services/key-vault) provides a way to manage secure data for your solution, including secrets, encryption keys, and certificates. In this architecture, it's used to store application secrets. These secrets are accessed through the pipeline. Secrets can be accessed by Azure Pipelines with a [Key Vault task](/azure/devops/pipelines/tasks/deploy/azure-key-vault) or by [linking secrets from Key Vault](/azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault).
 
 - [Monitor](https://azure.microsoft.com/services/monitor) is an observability resource that collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures.
