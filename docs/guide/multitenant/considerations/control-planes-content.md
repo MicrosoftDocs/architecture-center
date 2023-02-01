@@ -8,7 +8,7 @@ For example, consider a bookkeeping system for managing financial records. Multi
 
 Many complex systems include control planes. For example, the Azure control plane, [Azure Resource Manager](/azure/azure-resource-manager/management/overview), is a set of APIs, tools, and back-end components that are responsible for deploying and configuring Azure resources. The [Kubernetes control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) manages many tasks, like the placement of Kubernetes pods on worker nodes. Almost all software as a service (SaaS) solutions have a control plane to handle cross-tenant tasks.
 
- When you design multitenant solutions, you need to consider control panes. The following sections provide the details you need to scope and design a control plane.
+ When you design multitenant solutions, you need to consider control planes. The following sections provide the details you need to scope and design a control plane.
 
 ## Responsibilities of a control plane
 
