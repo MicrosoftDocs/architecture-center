@@ -32,7 +32,7 @@ More advanced control planes might also take on more responsibilities:
 - Perform automated maintenance operations. Common maintenance operations include deleting or archiving old data, creating and managing database indexes, and rotating secrets and cryptographic certificates.
 - Allocate tenants to existing deployments or stamps, which is sometimes called *tenant placement*.
 - Rebalance existing tenants across deployment stamps.
-- Integrate with external customer management solutions, like Microsoft Dynamics 365, to track customer activity.
+- Integrate with external customer management solutions, like Microsoft Dynamics 365, to track customer activity. 
 
 ## Scope a control plane
 
