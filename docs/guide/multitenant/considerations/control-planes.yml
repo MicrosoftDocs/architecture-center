@@ -14,7 +14,7 @@ products:
   - azure
 name: Considerations for multitenant control planes
 summary: This article describes the considerations for planning a control plane for a multitenant solution.
-thumbnailUrl: /azure/architecture/browse/thumbs/control-panes-thumb.png 
+thumbnailUrl: /azure/architecture/browse/thumbs/control-planes-thumb.png
 content: |
    [!include[](control-planes-content.md)]
   
