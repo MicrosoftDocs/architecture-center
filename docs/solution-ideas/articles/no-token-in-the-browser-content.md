@@ -4,7 +4,7 @@ This pattern is an example of how you can use Azure API Management to implement 
 
 This pattern uses [Azure API Management](https://azure.microsoft.com/en-us/products/api-management) in a [Backend for Frontend](https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends) pattern to handle the OAuth2 access token acquisition from Azure Active Directory; [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption and decryption of the access token into an `HttpOnly` cookie; and to proxy all API calls requiring authorization.
 
-As the backend handles the token acquisition, no other code or library, such as [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application itself. This also means that no tokens are stored in the browser session or local storage. By encrypting and storing the access token in an `HttpOnly` cookie protects it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks, and scoping it to the API domain and setting `SameSite=strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
+As the backend handles the token acquisition, no other code or library, such as [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application itself. This design means that no tokens are stored in the browser session or local storage. By encrypting and storing the access token in an `HttpOnly` cookie protects it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks, and scoping it to the API domain and setting `SameSite=strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
 
 ## Architecture
 
@@ -25,9 +25,9 @@ As the backend handles the token acquisition, no other code or library, such as 
 
 ## Scenario details
 
-Single-page applications are written in JavaScript and run within the context of a client-side browser. This pattern means that any code running in the browser can be accessed by the user. It also means that any data such as an access token stored in the browser session or local storage can be accessed by malicious code running in the browser, or via a XSS vulnerability. This means that any sensitive data, such as access tokens, can be accessed and used to impersonate the user.
+Single-page applications are written in JavaScript and run within the context of a client-side browser. This pattern means that any code running in the browser can be accessed by the user. It also means that any data such as an access token stored in the browser session or local storage can be accessed by malicious code running in the browser, or via a XSS vulnerability. This vulnerability means that any sensitive data, such as access tokens, can be accessed and used to impersonate the user.
 
-This pattern increases the security of the application by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token. This means that the access token isn't stored in the browser session or local storage, and isn't accessible to malicious code running in the browser.
+This pattern increases the security of the application by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token, meaning access tokens no longer need to be stored in the browser session or local storage, and aren't accessible to malicious code running in the browser.
 
 The acquisition of the access token and encryption and decryption of the cookie is handled by the use of Azure API Management Policies. Examples of these policies can be found in this [GitHub repository](https://github.com/irarainey/no-token-in-the-browser-pattern).
 
