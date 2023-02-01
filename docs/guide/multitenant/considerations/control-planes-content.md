@@ -70,7 +70,7 @@ Consider what happens if your control plane is unavailable. In extreme cases, a 
 - Your system can't manage existing tenants, which results in more calls to your support team.
 - You can't measure the consumption of tenants or bill them for their usage, which results in lost revenue.
 - You can't respond to a security incident by disabling or reconfiguring a tenant.
-- Maintenance debt accumulates, which results in longer-term damage to the system. For example, if your solution requires nightly cleanup of old data, your disks could fill up or your performance could degrade.
+- Maintenance debt accumulates, which results in long-term damage to the system. For example, if your solution requires nightly cleanup of old data, your disks could fill up or your performance could degrade.
 
 Define [service-level objectives](/azure/architecture/framework/resiliency/design-requirements) for your control plane, including availability targets, the recovery time objective (RTO), and the recovery point objective (RPO). The objectives that you set for your control plane might be different from those that you offer your customers.
 
@@ -100,14 +100,14 @@ There's no single template for a control plane, and the components that you desi
 
 #### Isolate your control plane from tenant workloads
 
-It's a good practice to separate your control plane's resources from those used to serve your tenants' data planes. For example, you should consider using separate database servers, application servers and App Service plans, and other components. It's often a good idea to keep your control plane's resources in a separate Azure resource group from those that contain tenant-specific resources.
+It's a good practice to separate your control plane's resources from those used to serve your tenants' data planes. For example, you should consider using separate database servers, application servers and Azure App Service plans, and other components. It's often a good idea to keep your control plane's resources in a separate Azure resource group from those that contain tenant-specific resources.
 
 By isolating your control plane from tenants' workloads, you gain several advantages:
 
 - You can configure scaling separately. For example, your control plane might have consistent resource requirements, and your tenants' resources might scale elastically depending on their needs.
-- There's a [bulkhead](../../../patterns/bulkhead.yml) between your control and data planes, which helps to avoid [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading between the planes of your solution.
+- There's a [bulkhead](../../../patterns/bulkhead.yml) between your control and data planes, which helps to prevent [noisy neighbor problems](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) from spreading between the planes of your solution.
 - Control planes are typically highly privileged systems that have high levels of access. By separating the control plane from data planes, you reduce the likelihood that a security vulnerability might allow attackers to elevate their permissions across your entire system.
-- You can deploy separate networking and firewall configuration. Data planes and control planes usually require different types of network access.
+- You can deploy separate networking and firewall configurations. Data planes and control planes usually require different types of network access.
 
 #### Orchestrate sequences of long-running operations
 
