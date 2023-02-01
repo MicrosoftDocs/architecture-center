@@ -20,7 +20,7 @@ The data flows through the scenario as follows:
 
 1. **PR pipeline** - A pull request (PR) to Azure Repos Git triggers a PR pipeline. This pipeline runs fast quality checks. These checks should include:
 
-    - Building the code
+    - Building the code, which requires pulling dependencies from a dependency management system.
     - The use of tools to analyze the code, such as static code analysis, linting, and security scanning
     - Unit tests
 
