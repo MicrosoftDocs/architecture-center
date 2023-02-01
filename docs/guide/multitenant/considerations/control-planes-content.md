@@ -131,7 +131,7 @@ You also need to consider what the user experience is like for each failure scen
 
 ## Use multiple control planes
 
-In a complex environment, you might need to have multiple control planes, each with different areas of responsibility. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. When you use this pattern, you might create separate control planes for global and stamp concerns.
+In a complex environment, you might need to use multiple control planes, each with different areas of responsibility. Many multitenant solutions follow the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and shard tenants across multiple stamps. When you use this pattern, you might create separate control planes for global and stamp responsibilities.
 
 > [!TIP]
 > Coordinating across multiple control planes is complex, so try to minimize the number of control planes that you build. Most solutions need only one control plane.
@@ -145,11 +145,11 @@ A global control plane is typically responsible for the overall management and t
 
 ### Stamp control planes
 
-A stamp control plane is deployed into each deployment stamp and has responsibilities for the tenants and resources allocated to that stamp. A stamp control plane might have these responsibilities:
+A stamp control plane is deployed into each deployment stamp and is responsible for the tenants and resources allocated to that stamp. A stamp control plane might have these responsibilities:
 
-- **Creating and managing tenant-specific resources within the stamp**, like databases and storage containers.
-- **Managing shared resources**, including monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity.
-- **Performing maintenance operations within the stamp**, like database index management and cleanup operations.
+- **Creating and managing tenant-specific resources within the stamp**, like databases and storage containers
+- **Managing shared resources**, including monitoring the consumption of shared resources and deploying new instances when they're approaching their maximum capacity
+- **Performing maintenance operations within the stamp**, like database index management and cleanup operations
 
 Each stamp's control plane coordinates with the global control plane. For example, suppose a new tenant signs up. The global control plane is initially responsible for selecting a stamp for the tenant's resources. Then, the global control plane prompts the stamp's control plane to create the necessary resources for the tenant.
 
@@ -159,11 +159,11 @@ The following diagram shows an example of how the two control planes might coexi
 
 ### Tenant control planes
 
-Tenants might use a tenant-level control plane to manage their own logical or physical resources. A tenant control plane might include the following responsibilities:
+Tenants might use a tenant-level control plane to manage their own logical or physical resources. A tenant control plane might have the following responsibilities:
 
-- **Management of tenant-specific configuration**, like user access.
-- **Tenant-initiated maintenance operations**, like backing up data or downloading a previous backup.
-- **Update management**, if you allow tenants to [control their own updates to their applications](updates.md).
+- **Management of tenant-specific configuration**, like user access
+- **Tenant-initiated maintenance operations**, like backing up data or downloading a previous backup
+- **Update management**, if you allow tenants to [control their own updates to their applications](updates.md)
 
 The following diagram shows a complex system that has a global control plane, stamp control planes, and a control plane for each tenant:
 
