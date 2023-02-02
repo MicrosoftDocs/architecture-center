@@ -416,6 +416,8 @@ items:
                 href: guide/multitenant/considerations/tenant-lifecycle.md
               - name: Pricing models
                 href: guide/multitenant/considerations/pricing-models.md
+              - name: Control planes
+                href: guide/multitenant/considerations/control-planes.yml
               - name: Measure consumption
                 href: guide/multitenant/considerations/measure-consumption.md
               - name: Deploy updates
