@@ -111,7 +111,7 @@ Note: 16CPU is taken as a baseline to calculate the relative Speed-up.
 |24 CPU|	100|	7.70|	1.00|
 |	1GPU	|100	|5.55	|1.39|
 |	2GPU|	100	|4.07	|1.89|
-|	4GPU	|100	2.91|	2.65|
+|	4GPU	|100|	2.91|	2.65|
 |32 CPU|	100|	5.59|	1.00|
 |	1GPU|	100|	4.99|	1.12|
 |	2GPU	|100	|3.59|	1.56|
