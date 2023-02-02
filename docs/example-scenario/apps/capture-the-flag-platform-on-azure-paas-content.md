@@ -86,7 +86,6 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event and then tear it down just as easily.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
-- Some services may have a lower tier than those used in this design. However, the lower tier may not support network connectivity.
 - For information about scaling a basic web app, see [Scaling the App Service app](../../reference-architectures/app-service-web-app/basic-web-app.yml#scaling-the-app-service-app).
 - App Service's lowest tier for this solution is Basic since lower tiers do not support [Hybrid Connections][app-service-pricing] into the virtual network.
 - CTFd web application component requires at least 1 CPU and 1 GB of RAM per instance, [source][ctfd-installation].
