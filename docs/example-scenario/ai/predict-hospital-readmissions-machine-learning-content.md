@@ -4,9 +4,9 @@ This architecture provides a predictive health analytics framework in the cloud 
 
 This framework makes use of native Azure analytics services for data ingestion, storage, data processing, analysis, and model deployment.
 
-:::image type="content" source="media/predict-hospital-readmissions-machine-learning.png" lightbox="media/predict-hospital-readmissions-machine-learning.png" alt-text="Diagram demonstrates the architecture of a multi-tier app.":::
+:::image type="content" source="media/predict-hospital-readmissions-machine-learning.svg" lightbox="media/predict-hospital-readmissions-machine-learning.svg" alt-text="Diagram demonstrates the architecture of a multi-tier app.":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/predict-hospital-readmission-07-23-21.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/predict-hospital-readmissions-machine-learning.vsdx) of this architecture.*
 
 ### Workflow
 
