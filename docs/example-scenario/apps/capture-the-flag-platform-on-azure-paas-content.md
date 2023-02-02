@@ -74,8 +74,6 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 ### Operational Excellence
 
-#### Logging
-
 Azure Monitor integrates with Azure App Service to support logging from all web application instances to a single location. Azure Monitor diagnostics settings collect CTFd container logs and send them to a Log Analytics workspace. From there, you can use the [Kusto query language][kusto-query] to write queries across the aggregated logs.
 
 Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing][azure-monitor-pricing])
