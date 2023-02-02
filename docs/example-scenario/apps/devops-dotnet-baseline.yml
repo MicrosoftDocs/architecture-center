@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Design a CI/CD pipeline using Azure DevOps
+  title: CI/CD baseline architecture with Azure Pipelines
   titleSuffix: Azure Example Scenarios
   description: This architecture illustrates building a continuous integration and deployment pipeline using Azure Pipelines.
   author: robbagby
@@ -19,7 +19,7 @@ metadata:
     - app-development
     - internal-intro
   social_image_url: /azure/architecture/example-scenario/apps/media/azure-devops-ci-cd-architecture.png
-name: Design a CI/CD pipeline using Azure DevOps
+name: CI/CD baseline architecture with Azure Pipelines
 azureCategories:
   - developer-tools
   - devops
