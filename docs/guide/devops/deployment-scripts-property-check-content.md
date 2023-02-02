@@ -79,11 +79,11 @@ The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Jack Tracey](https://www.linkedin.com/in/jacktracey93) | Senior Cloud Solutions Architect
 
-Other contributors:
+Other contributor:
 
 - [Gary McMahon](https://www.linkedin.com/in/gmcmaho1/) | Senior Cloud Solutions Architect
 
