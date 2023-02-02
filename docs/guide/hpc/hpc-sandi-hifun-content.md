@@ -70,7 +70,7 @@ The Windsor model is used in this performance evaluation.
 :::image type="content" source="media/windsor-model.png" alt-text="Screenshots that show the Windsor model." border="false":::
 
 
-Details about the model are provided in the following tables.
+The following tables provide details about the models.
 
 |Flow conditions||
 |-|-|
