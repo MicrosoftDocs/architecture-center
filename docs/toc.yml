@@ -3542,6 +3542,8 @@ items:
                         href: guide/hpc/plasma.yml
                       - name: Samadii SCIV
                         href: guide/hpc/samadii-sciv.yml  
+                  - name: Sandi HiFUN
+                    href: guide/hpc/hpc-sandi-hifun.yml
                   - name: Siemens deployments
                     items:
                       - name: Siemens NX

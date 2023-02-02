@@ -1,18 +1,17 @@
-This article briefly describes the steps for running [Sandi’s](https://sandi.co.in)  HiFUN application on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HiFUN on Azure.
+This article briefly describes the steps for running [Sandi HiFUN](https://sandi.co.in)   on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HiFUN on Azure.
 
-HiFUN is a  general purpose Computational Fluid Dynamics (CFD) software.
+HiFUN is a  general purpose computational fluid dynamics (CFD) application. You can use it to simulate airflow over aircraft, automobiles, and structures like buildings and ships. 
 
-HiFUNis capable of simulating airflow over flying configurations, automobiles as well as structures such as buildings, ships etc. HiFUN:
+HiFUN has these capabilities:
+- Provides a robust, fast, and accurate solver for aerodynamic design data
+- Uses an unstructured cell-centered finite volume method that can handle complex geometries and flow physics
+- Handles MPI directives for parallel computing on distributed-memory HPC
+- Provides the ability to scale over thousands of processor cores
+- Can be ported to NVIDIA GPUs for parallel computing via [OpenACC](https://www.openacc.org) constructs  
 
-- Provides robust, fast, and accurate solver providing aerodynamic design data in an attractive turnaround time.
-- Employs unstructured cell center finite volume method capable of handling complex geometries and complicated flow physics in a typical industry environment.
-- Handles MPI directives for parallel computing on distributed memory HPC.
-- Provides the ability to scale over several thousands of processor cores
-- Uses [OpenACC](https://www.openacc.org) constructs  for porting HiFUN onto NVIDIA GPUs for parallel computing using hybrid HPC platform
+Sandi HiFUN is used in the aerospace, automotive, industrial, and wind/turbine industries.
 
-Sandi HiFUN is  majorly used in Aerospace, Automotive, Industrial and Wind/Turbine industries.
-
-To test the performance of Sandi HiFUN on Azure Platform [HBv3-Series](/azure/virtual-machines/hbv3-series) virtual machines and [NC64as_T4_v3](/azure/virtual-machines/nct4-v3-series) virtual machines are deployed.
+[HBv3](/azure/virtual-machines/hbv3-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) series VMs were used to test the performance of HiFUN on Azure.
 
 ## Why deploy HiFUN on Azure?
 
@@ -22,28 +21,28 @@ To test the performance of Sandi HiFUN on Azure Platform [HBv3-Series](/azure/vi
 
 ## Architecture
 
-diagram 
+:::image type="content" source="media/hpc-sandi-hifun.png" alt-text="Diagram that shows an architecture for running HiFUN on a virtual machine." lightbox="media/hpc-sandi-hifun.png" border="false":::
 
-link 
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-sandi-hifun.vsdx) of this architecture.* 
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines). Create Linux and Windows virtual machines in seconds.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network). Use Virtual Network to create your own private network infrastructure in the cloud.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux virtual machines.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud.
 
 ## Compute sizing and drivers
 
-Performance tests of HiFUN on Azure used [HBv3-series](/azure/virtual-machines/hbv3-series) VMs running the Linux CentOS operating system. The following table provides details about HBv3-series VMs.
+Performance tests of HiFUN on Azure used [HBv3](/azure/virtual-machines/hbv3-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) VMs running the Linux CentOS operating system. The following table provides details about HBv3-series VMs.
 
-|VM size|vCPU|Memory (GiB)|	Memory bandwidth GBps|	Base CPU frequency (GHz)|All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|	RDMA performance (Gbps)	|Maximum data disks|
+|VM size|vCPU|Memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|All-cores frequency (GHz, peak)|Single-core frequency (GHz, peak)|	RDMA performance (Gbps)	|Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
 |Standard_HB120rs_v3|	120	|448|	350|	1.9|	3.0	|3.5	|200|	32|
 |Standard_HB120-96rs_v3|	96|	448|	350|	1.9|	3.0	|3.5	|200	|32|
 |Standard_HB120-64rs_v3	|64	|448	|350	|1.9|	3.0	|3.5|	200|	32|
 |Standard_HB120-32rs_v3	|32	|448|	350	|1.9|	3.0	|3.5	|200	|32
-|Standard_HB120-16rs_v3	|16|	448|	350|	1.9|	3.0	|3.5	|200|	
+|Standard_HB120-16rs_v3	|16|	448|	350|	1.9|	3.0	|3.5	|200|	32|
 
-The performance tests of HiFUN on Azure used [Standard_NCasT4_v3](/azure/virtual-machines/nct4-v3-series) VMs running Linux CentOS operating system. The following table provides details about the VMs.
+The following table provides details about NCasT4_v3 VMs.
 
 |VM size|vCPU|Memory (GiB)|	Temp storage (SSD) GiB|GPU|GPU memory: GiB|Max data disks|Max NICs / Expected network bandwidth (Mbps)|
 |-|-|-|-|-|-|-|-|
@@ -56,39 +55,39 @@ The performance tests of HiFUN on Azure used [Standard_NCasT4_v3](/azure/virtual
 
 To use InfiniBand, you need to enable [InfiniBand drivers](/azure/virtual-machines/workloads/hpc/enable-infiniband).
 
-To take advantage of the GPU capabilities of [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) VMs, you need to install NVIDIA GPU drivers.
+To enable the GPU capabilities of [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) VMs, you need to install NVIDIA GPU drivers.
 
 ## HiFUN installation
 
-Before you install HiFUN, you need to deploy and connect a VM For information about deploying the VM and installing the drivers, see one of these articles:
-
-- [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+Before you install HiFUN, you need to deploy and connect a VM. For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
  
-For Installing Sandi HiFUN on Azure Virtual Machine, Users can connect with Sandi by contacting at [sales@sandi.co.in](mailto:sales@sandi.co.in) and [info@sandi.co.in](mailto:info@sandi.co.in)
+For more information about installing HiFUN on an Azure VM, you can contact Sandi at [sales@sandi.co.in](mailto:sales@sandi.co.in) or [info@sandi.co.in](mailto:info@sandi.co.in).
 
 ## HiFUN performance results
 
-The Windsor model is used for this performance evaluation. The model details are shown below.
+The Windsor model is used in this performance evaluation.
+
+:::image type="content" source="media/windsor-model.png" alt-text="Screenshots that show the Windsor model." border="false":::
+
+
+Details about the model are provided in the following tables.
 
 |Flow conditions||
 |-|-|
 |**Parameter**|	**Value**|
-|Mach No.|	0.1207|
+|Mach number|	0.1207|
 |Velocity|	40 m/s|
-|Reynolds Number|	1.8 million|
-|Flow Direction	|Aligned to X axis|
+|Reynolds number|	1.8 million|
+|Flow direction	|Aligned to x axis|
 
 |**Workload**|| 
 |-|-|
-|Model| 	Windsor Car Body |
-|No. of volumes|	7.456 million|
-
-image 
+|Model| 	Windsor car body |
+|Number of volumes|	7.456 million|
 
 ### Performance results for HiFUN 4.1.1 on HBv3
 
-|VM Instances|	No of iterations|	Time taken per iteration (S)|Relative Speed-up|
+|VM size|	Number of iterations|	Time per iteration (seconds)<sup>1</sup>|Relative speed increase|
 |-|-|-|-|
 |Standard_HB120-16rs_v3	|100	|10.13|	1.00|
 |Standard_HB120-32rs_v3	|100|	5.29	|1.91|
@@ -96,54 +95,56 @@ image
 |Standard_HB120-96rs_v3|	100	|2.00	|5.07|
 |Standard_HB120rs_v3|	100	|1.70|	5.96|
 
-Note: In order to neglect the impact of Input/output operations per second (IOPS), average time taken from 51-60 iterations.
+<sup>1</sup> To negate the effect of input/output operations per second (IOPS), the average time of 51-60 iterations is used.
 
-The following graph shows the relative speed increase of HiFUN with increase of number of CPUs
+This graph shows the relative speed increase<sup>2</sup> as the number of CPUs increases:
 
-graph
+:::image type="content" source="media/hifun-hbv3.png" alt-text="Graph that shows the relative speed increase on an HBv3 VM." lightbox="hifun-hbv3.png" border="false":::
 
-Note: 16CPU is taken as a baseline to calculate the relative Speed-up.
+<sup>2</sup> The 16-CPU configuration is used as a baseline for the relative-speed calculations.
 
 ### Performance results for HiFUN 4.1.1 on NCasT4
 
-|Configuration|No of iterations|Time taken per iteration (S)|Accelerated Speed-up|
-|-|-|-|-|
-|24 CPU|	100|	7.70|	1.00|
-|	1GPU	|100	|5.55	|1.39|
-|	2GPU|	100	|4.07	|1.89|
-|	4GPU	|100|	2.91|	2.65|
-|32 CPU|	100|	5.59|	1.00|
-|	1GPU|	100|	4.99|	1.12|
-|	2GPU	|100	|3.59|	1.56|
-|	4GPU|	100|	2.45|	2.28|
-|48 CPU	|100	|4.15	|1.00|
-|	1GPU|	100|	5.18|	0.80|
-|	2GPU|	100	|3.32	|1.25|
-|	4GPU|	100|	2.02|	2.05|
+|CPU configuration|Number of CPUs/GPUs|Number of iterations|Time per iteration (seconds)<sup>3</sup>|Relative speed increase|
+|-|-|-|-|-|
+|24 CPU|24 CPU|	100|	7.70|	1.00|
+|	|1 GPU	|100	|5.55	|1.39|
+|	|2 GPU|	100	|4.07	|1.89|
+|	|4 GPU	|100|	2.91|	2.65|
+|32 CPU|32 CPU|	100|	5.59|	1.00|
+|	|1 GPU|	100|	4.99|	1.12|
+|	|2 GPU	|100	|3.59|	1.56|
+|	|4 GPU|	100|	2.45|	2.28|
+|48 CPU|48 CPU	|100	|4.15	|1.00|
+||	1 GPU|	100|	5.18|	0.80|
+||	2 GPU|	100	|3.32	|1.25|
+||	4 GPU|	100|	2.02|	2.05|
 
-Note: In order to neglect the impact of Input/Output operations per second (IOPS), average time taken from 51-60 iterations.
+<sup>3</sup> To negate the effect of IOPS, the average time of 51-60 iterations is used.
 
-The following graph shows the relative speed increase of HiFUN with increase of number of GPUs
+This graph shows the relative speed increase<sup>4</sup> as the number of GPUs increases:
 
-graph 
+:::image type="content" source="media/hifun-ncast4.png" alt-text="Graph that shows the relative speed increase on an NCasT4 VM." lightbox="hifun-ncast4.png" border="false":::
+
+<sup>4</sup> The CPU configurations listed in the preceding table are used as the baselines for the relative-speed calculations.
 
 ### Additional notes about the tests
 
-- Sandi HiFUN is successfully tested on HBv3 Series and NC64as_T4_v3Virtual Machines on Azure Cloud Platform.
-- Every incremental CPU demonstrated good speed up in all different sizes of the VM and the peak performance of 5.96x is achieved with 120CPUs.
-- Every incremental GPU demonstrated accelerated speed up in all 4 GPUs and the peak performance of 2.65x is achieved with 4 GPUs.
+- HiFUN was successfully tested on HBv3 and NCasT4 VMs on Azure.
+- Every CPU increase provides a good speed increase on all VM sizes. The peak speed increase of 5.96x is achieved with 120 CPUs.
+- Every GPU increase provides a good speed increase on all CPU configurations. The peak speed increase of 2.65x is achieved with 4 GPUs.
 
 ## Azure cost
 
-Only model running time (wall clock time) is considered for these cost calculations. Application installation time isn't considered. The calculations are indicative. The actual numbers depend on the size of the model.
+Only model running time (wall clock time) is considered for these cost calculations. Application installation time isn't considered. The numbers presented here are indicative of your potential results. The actual numbers depend on the size of the model.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for your configuration.
 
-The following tables provide elapsed times in hours. To compute the total cost, multiply by the Azure VM hourly cost, which you can find [here for Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) and here for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following tables provide elapsed times in hours. To compute the total cost, multiply these times by the hourly costs for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
 ### HBv3
 
-|Azure VM Size|	No of CPUs|	Elapsed time in hours|
+| VM size|	Number of CPUs|	Elapsed time (hours)|
 |-|-|-|
 |Standard_HB120-16rs_v3	|16|	0.297|
 |Standard_HB120-32rs_v3	|32|	0.156|
@@ -153,17 +154,14 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ### NC64as_T4_v3
 
-|No of GPUs|	Elapsed time in Hours|
+|CPU/GPU|	Elapsed time (hours)|
 |-|-|
 |CPU	|0.116|
-|1-GPU|	0.144
-|2-GPU|	0.093
-|4-GPU|	0.057
+|4 GPU|	0.057|
 
 ## Summary
-- Azure HPC comes in with its fully managed platform services and a robust architecture to run HPC workloads and applications.
-- Azure HPC supports fast compute capabilities for GPU-intensive workloads.
-- Azure offers robust compute services that provide unlimited scalability options for HPC applications. User can use H-series virtual machines for memory-bound applications, N-series virtual machines for graphic-intensive applications.
+
+Azure offers robust compute services that support GPU-intensive workloads and provide unlimited scalability options for HPC applications. You can use H-series virtual machines for memory-bound applications and N-series virtual machines for graphic-intensive applications.
  
 ## Contributors
 
@@ -184,14 +182,12 @@ Other contributors:
 ## Next steps
 
 - [High performance computing VM sizes](/azure/virtual-machines/sizes-hpc)
-- [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
-- [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
-- [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [Linux virtual machines on Azure](/azure/virtual-machines/linux/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run HPC applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
-- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 - [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
 - [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
