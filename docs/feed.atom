@@ -2,12 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-01-09T14:40:41.342Z</updated>
+    <updated>2023-01-30T17:02:05.630Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Azure Arc-enabled SQL Managed Instance disaster recovery]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/arc-sql-managed-instance-disaster-recovery</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/arc-sql-managed-instance-disaster-recovery"/>
+        <updated>2023-01-26T00:22:35.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Arc to deploy an Azure Arc-enabled SQL managed instance across two sites that are outside of Azure in a highly available architecture.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Engys HELYX on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/engys-helyx</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/engys-helyx"/>
+        <updated>2023-01-25T23:07:39.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Engys HELYX computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Donor-patient matching on Azure Machine Learning]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/machine-learning/donor-patient-cross-match</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/machine-learning/donor-patient-cross-match"/>
+        <updated>2023-01-24T17:22:03.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Machine Learning with the Ray-on-AML library to run and train donor-patient cross match models over FHIR and health data.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2023-01-18T17:24:29.000Z</updated>
+        <summary type="html"><![CDATA[Deployment options for platform and application landing zones in Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Enable machine learning inference on an Azure IoT Edge device]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/iot/machine-learning-inference-iot-edge</id>
@@ -31,6 +63,102 @@
         <updated>2023-01-06T22:30:32.000Z</updated>
         <summary type="html"><![CDATA[Deploy high-quality speech-aware applications that use AI. This article provides details about how to deploy the solution described in part one of this guide.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Responsible Innovation toolkit]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/responsible-innovation</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/responsible-innovation"/>
+        <updated>2023-01-24T15:11:42.000Z</updated>
+        <summary type="html"><![CDATA[Responsible Innovation is a commitment to put people first in the development of technology by understanding the stakeholders and impact of your technology]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Service Fabric microservices architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric"/>
+        <updated>2023-01-19T17:16:43.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to deploy microservices to Azure Service Fabric, which can be used as a starting point for most cluster configuration deployments.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Network security checklist for MLOps solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/network-security-mlops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/network-security-mlops"/>
+        <updated>2023-01-17T22:44:16.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure network security capabilities, such as virtual networks, network peering, Private Link, and private DNS zones to protect MLOps solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Messaging]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/messaging</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/messaging"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Azure Cache for Redis routes real-time messages in publish and subscribe systems. It also scales up web communication frameworks like Azure SignalR Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Personalization using Azure Cosmos DB]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Generate personalized recommendations for customers in real time by using low-latency and tunable consistency settings for immediate insights.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Database for MySQL]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for MySQL.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Retail and e-commerce using Azure Database for PostgreSQL]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Build secure and scalable e-commerce solutions that meet customer and business demands by using Azure Database for PostgreSQL.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Streaming using HDInsight]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/streaming-using-hdinsight</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/streaming-using-hdinsight"/>
+        <updated>2023-01-17T08:44:49.000Z</updated>
+        <summary type="html"><![CDATA[Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Private Link in a hub-and-spoke network]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/private-link-hub-spoke-network</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/private-link-hub-spoke-network"/>
+        <updated>2023-01-11T16:55:37.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Private Link to access PaaS services from a hub-and-spoke network. Connect to these services by using a private IP address from your virtual network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure icons]]></title>
+        <id>https://learn.microsoft.com/azure/architecture//icons</id>
+        <link href="https://learn.microsoft.com/azure/architecture//icons"/>
+        <updated>2023-01-11T15:23:11.000Z</updated>
+        <summary type="html"><![CDATA[Icons for use in building architecture diagrams for Azure]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridwich Azure DevOps setup]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/media-services/set-up-azure-devops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/media-services/set-up-azure-devops"/>
+        <updated>2023-01-11T15:11:19.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to set up Azure DevOps Projects, repos, pipelines, variable groups, and Azure connections for Gridwich.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How to build workloads on spot virtual machines]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/spot/spot-eviction</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/spot/spot-eviction"/>
+        <updated>2023-01-09T15:08:08.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to build reliable workloads on spot virtual machines.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Transformer and collector ARM template]]></title>
@@ -1345,166 +1473,6 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Cross-cloud scaling with Traffic Manager]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scaling</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scaling"/>
-        <updated>2022-12-01T03:17:03.000Z</updated>
-        <summary type="html"><![CDATA[Use Azure Traffic Manager to automatically add resources to an existing app to accommodate an increase in load.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hybrid geo-distributed architecture]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-geo-distributed</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-geo-distributed"/>
-        <updated>2022-12-01T03:17:03.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure Traffic Manager to direct traffic to specific cloud and on-premises endpoints based on various metrics.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Disaster recovery for Azure Stack Hub VMs]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-vm-disaster-recovery</id>
-        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-vm-disaster-recovery"/>
-        <updated>2022-12-01T03:17:03.000Z</updated>
-        <summary type="html"><![CDATA[This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DevOps with Azure Stack Hub]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-continuous-integration</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-continuous-integration"/>
-        <updated>2022-12-01T03:17:03.000Z</updated>
-        <summary type="html"><![CDATA[Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Use Azure Firewall to help protect an AKS cluster]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/aks-firewall/aks-firewall</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/aks-firewall/aks-firewall"/>
-        <updated>2022-12-01T00:50:04.000Z</updated>
-        <summary type="html"><![CDATA[Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scalable and secure WordPress on Azure]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Enterprise deployment using Azure ASE]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the recommended architecture for deploying an enterprise application using App Services Environment in Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Modernize mainframe and midrange data]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Unisys mainframe migration with Asysco]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Run SAP BW/4HANA with Linux VMs]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Refactor IBM z/OS coupling facility]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Homomorphic encryption with SEAL]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Use the Microsoft Simple Encrypted Arithmetic Library (SEAL) to implement homomorphic encryption so that you can run computations directly on encrypted data.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Scalable Umbraco CMS web app]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/medium-umbraco-web-app</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/medium-umbraco-web-app"/>
-        <updated>2022-12-01T00:37:06.000Z</updated>
-        <summary type="html"><![CDATA[Run an Umbraco content management system on the Web Apps feature of Azure App Service. Use Azure managed services for a high-availability environment.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Choose an Azure compute service]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree"/>
-        <updated>2022-12-01T00:34:28.000Z</updated>
-        <summary type="html"><![CDATA[Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tiered data for analytics]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-tiered-data-analytics</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-tiered-data-analytics"/>
-        <updated>2022-12-01T00:19:24.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure file shares in a hybrid environment]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-file-share</id>
-        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-file-share"/>
-        <updated>2022-12-01T00:19:24.000Z</updated>
-        <summary type="html"><![CDATA[With identity-based authentication, you can control access to Azure file shares by using Active Directory Directory Services users and groups.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[On-premises data gateway for Logic Apps]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/hybrid/gateway-logic-apps</id>
-        <link href="https://learn.microsoft.com/azure/architecture/hybrid/gateway-logic-apps"/>
-        <updated>2022-12-01T00:19:24.000Z</updated>
-        <summary type="html"><![CDATA[This reference architecture illustrates a logic app that&apos;s running in Microsoft Azure, which is triggered by Azure Spring Apps.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Cross-cloud scaling with Azure Functions]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/cross-cloud-scaling</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/cross-cloud-scaling"/>
-        <updated>2022-12-01T00:19:24.000Z</updated>
-        <summary type="html"><![CDATA[Understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hybrid connections]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-connectivity</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-connectivity"/>
-        <updated>2022-12-01T00:19:24.000Z</updated>
-        <summary type="html"><![CDATA[Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Unlock legacy data with Azure Stack]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/unlock-legacy-data</id>
-        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/unlock-legacy-data"/>
-        <updated>2022-12-01T00:19:24.000Z</updated>
-        <summary type="html"><![CDATA[Unlock legacy data with Azure Stack. Create cloud-based applications while integrating and preserving mainframe and core business process application data.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Enterprise integration with message broker and events]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/integration/queues-events</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/integration/queues-events"/>
@@ -1742,6 +1710,166 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region"/>
         <updated>2022-11-15T21:20:42.000Z</updated>
         <summary type="html"><![CDATA[Learn how to run an Azure App Service application in multiple regions to achieve high availability, by following this example architecture.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cross-cloud scaling with Traffic Manager]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scaling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-cross-cloud-scaling"/>
+        <updated>2022-12-01T03:17:03.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Traffic Manager to automatically add resources to an existing app to accommodate an increase in load.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hybrid geo-distributed architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-geo-distributed</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-geo-distributed"/>
+        <updated>2022-12-01T03:17:03.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Traffic Manager to direct traffic to specific cloud and on-premises endpoints based on various metrics.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Disaster recovery for Azure Stack Hub VMs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-vm-disaster-recovery</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-stack-vm-disaster-recovery"/>
+        <updated>2022-12-01T03:17:03.000Z</updated>
+        <summary type="html"><![CDATA[This solution delivers an optimized approach to disaster recovery of virtual machine (VM)-based user workloads hosted on Azure Stack Hub.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevOps with Azure Stack Hub]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-continuous-integration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-continuous-integration"/>
+        <updated>2022-12-01T03:17:03.000Z</updated>
+        <summary type="html"><![CDATA[Code from a single location and deploy to multiple targets in development, test, and production environments that may be in your local datacenter, private clouds, or the public cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Azure Firewall to help protect an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/aks-firewall/aks-firewall</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/aks-firewall/aks-firewall"/>
+        <updated>2022-12-01T00:50:04.000Z</updated>
+        <summary type="html"><![CDATA[Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scalable and secure WordPress on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/infrastructure/wordpress"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Content Delivery Network and other Azure services to deploy a highly scalable and secure installation of WordPress.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enterprise deployment using Azure ASE]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the recommended architecture for deploying an enterprise application using App Services Environment in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modernize mainframe and midrange data]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/modernize-mainframe-data-to-azure"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unisys mainframe migration with Asysco]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/migration/unisys-mainframe-migration"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about options for using the Asysco Automated Migration Technology (AMT) Framework to migrate Unisys mainframe workloads to Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run SAP BW/4HANA with Linux VMs]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the SAP BW/4HANA application tier and how it's suitable for a high availability, small-scale production environment of SAP BW/4HANA on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Refactor IBM z/OS coupling facility]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Azure services and components can provide scale-out performance comparable to IBM z/OS mainframe CF and Parallel Sysplex capabilities.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Homomorphic encryption with SEAL]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Use the Microsoft Simple Encrypted Arithmetic Library (SEAL) to implement homomorphic encryption so that you can run computations directly on encrypted data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scalable Umbraco CMS web app]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/medium-umbraco-web-app</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/medium-umbraco-web-app"/>
+        <updated>2022-12-01T00:37:06.000Z</updated>
+        <summary type="html"><![CDATA[Run an Umbraco content management system on the Web Apps feature of Azure App Service. Use Azure managed services for a high-availability environment.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Choose an Azure compute service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree"/>
+        <updated>2022-12-01T00:34:28.000Z</updated>
+        <summary type="html"><![CDATA[Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tiered data for analytics]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-tiered-data-analytics</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/hybrid-tiered-data-analytics"/>
+        <updated>2022-12-01T00:19:24.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Stack Hub and Azure to stage, analyze, process, sanitize, and store data across multiple on-premises and cloud locations.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure file shares in a hybrid environment]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/azure-file-share</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/azure-file-share"/>
+        <updated>2022-12-01T00:19:24.000Z</updated>
+        <summary type="html"><![CDATA[With identity-based authentication, you can control access to Azure file shares by using Active Directory Directory Services users and groups.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[On-premises data gateway for Logic Apps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/hybrid/gateway-logic-apps</id>
+        <link href="https://learn.microsoft.com/azure/architecture/hybrid/gateway-logic-apps"/>
+        <updated>2022-12-01T00:19:24.000Z</updated>
+        <summary type="html"><![CDATA[This reference architecture illustrates a logic app that&apos;s running in Microsoft Azure, which is triggered by Azure Spring Apps.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cross-cloud scaling with Azure Functions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/cross-cloud-scaling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/cross-cloud-scaling"/>
+        <updated>2022-12-01T00:19:24.000Z</updated>
+        <summary type="html"><![CDATA[Understand how to improve cross-cloud scalability with solution architecture that includes Azure Stack.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hybrid connections]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-connectivity</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/hybrid-connectivity"/>
+        <updated>2022-12-01T00:19:24.000Z</updated>
+        <summary type="html"><![CDATA[Use a hybrid connection for Azure Stack Hub solutions with apps that communicate with the Azure public cloud and on-premises Azure Stack Hub components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unlock legacy data with Azure Stack]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/unlock-legacy-data</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/unlock-legacy-data"/>
+        <updated>2022-12-01T00:19:24.000Z</updated>
+        <summary type="html"><![CDATA[Unlock legacy data with Azure Stack. Create cloud-based applications while integrating and preserving mainframe and core business process application data.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -2513,7 +2641,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SAP on Azure architecture design]]></title>
+        <title type="html"><![CDATA[Overview of SAP guidance and resources]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview"/>
         <updated>2022-11-04T02:54:16.000Z</updated>
@@ -2574,78 +2702,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/precision-medicine/genomic-analysis-reporting"/>
         <updated>2022-11-01T06:15:40.000Z</updated>
         <summary type="html"><![CDATA[Build a precision medicine pipeline for genomic analysis and reporting. Use Microsoft Genomics for efficient secondary and tertiary analysis.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Computer vision with Azure IoT Edge]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision"/>
-        <updated>2022-11-01T03:02:00.000Z</updated>
-        <summary type="html"><![CDATA[Create a vision AI solution with Azure IoT Edge. Explore computer vision hardware, machine learning and storage requirements, alerting, and user interfaces.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hardware for IoT Edge vision AI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware"/>
-        <updated>2022-11-01T02:05:25.000Z</updated>
-        <summary type="html"><![CDATA[Explore hardware acceleration for Azure IoT Edge vision solutions. Learn about hardware acceleration capabilities of CPUs, GPUs, FPGAs, and ASIC chips.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Alerts in IoT Edge vision AI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts"/>
-        <updated>2022-11-01T02:05:05.000Z</updated>
-        <summary type="html"><![CDATA[Learn about alerts and alert persistence in an Azure IoT Edge vision solution. An alert is a response to an event that's triggered by the AI model.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[User interfaces and scenarios in IoT Edge vision AI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface"/>
-        <updated>2022-11-01T02:05:00.000Z</updated>
-        <summary type="html"><![CDATA[Examine user interface (UI) types, useful user-facing technology choices, and two user scenarios for Azure IoT Edge vision AI solutions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Automated enterprise BI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf</id>
-        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf"/>
-        <updated>2022-11-01T01:18:36.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Camera selection for Azure IoT Edge vision AI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/camera</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/camera"/>
-        <updated>2022-11-01T01:18:07.000Z</updated>
-        <summary type="html"><![CDATA[Get information about camera selection in an Azure IoT Edge vision solution. Explore camera features, camera placement, and the communication interface.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Machine learning in IoT Edge Vision]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning"/>
-        <updated>2022-11-01T01:17:59.000Z</updated>
-        <summary type="html"><![CDATA[Learn about machine learning data and models in Azure IoT Edge vision AI solutions.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Image storage in IoT Edge vision AI]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage"/>
-        <updated>2022-11-01T01:17:54.000Z</updated>
-        <summary type="html"><![CDATA[Learn about image storage and management in an Azure IoT Edge vision AI solution. See an image storage workflow that uses an IoT Edge blob storage module.]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Azure industrial IoT guidance]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture</id>
-        <link href="https://learn.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture"/>
-        <updated>2022-11-01T01:17:47.000Z</updated>
-        <summary type="html"><![CDATA[Get architectural guidance for industrial IoT (IIoT) analytics solutions that use Azure platform as a service (PaaS) components.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>
@@ -2943,6 +2999,86 @@
         <updated>2022-10-03T19:31:22.000Z</updated>
         <summary type="html"><![CDATA[Understand how Kubernetes pods handle identity and access, and compare options in Amazon EKS and Azure Kubernetes Service (AKS).]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Computer vision with Azure IoT Edge]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision"/>
+        <updated>2022-11-01T03:02:00.000Z</updated>
+        <summary type="html"><![CDATA[Create a vision AI solution with Azure IoT Edge. Explore computer vision hardware, machine learning and storage requirements, alerting, and user interfaces.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hardware for IoT Edge vision AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/hardware"/>
+        <updated>2022-11-01T02:05:25.000Z</updated>
+        <summary type="html"><![CDATA[Explore hardware acceleration for Azure IoT Edge vision solutions. Learn about hardware acceleration capabilities of CPUs, GPUs, FPGAs, and ASIC chips.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Alerts in IoT Edge vision AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/alerts"/>
+        <updated>2022-11-01T02:05:05.000Z</updated>
+        <summary type="html"><![CDATA[Learn about alerts and alert persistence in an Azure IoT Edge vision solution. An alert is a response to an event that's triggered by the AI model.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[User interfaces and scenarios in IoT Edge vision AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/user-interface"/>
+        <updated>2022-11-01T02:05:00.000Z</updated>
+        <summary type="html"><![CDATA[Examine user interface (UI) types, useful user-facing technology choices, and two user scenarios for Azure IoT Edge vision AI solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automated enterprise BI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-adf"/>
+        <updated>2022-11-01T01:18:36.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with Azure Synapse Analytics.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Camera selection for Azure IoT Edge vision AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/camera</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/camera"/>
+        <updated>2022-11-01T01:18:07.000Z</updated>
+        <summary type="html"><![CDATA[Get information about camera selection in an Azure IoT Edge vision solution. Explore camera features, camera placement, and the communication interface.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Machine learning in IoT Edge Vision]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/machine-learning"/>
+        <updated>2022-11-01T01:17:59.000Z</updated>
+        <summary type="html"><![CDATA[Learn about machine learning data and models in Azure IoT Edge vision AI solutions.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Image storage in IoT Edge vision AI]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot-edge-vision/image-storage"/>
+        <updated>2022-11-01T01:17:54.000Z</updated>
+        <summary type="html"><![CDATA[Learn about image storage and management in an Azure IoT Edge vision AI solution. See an image storage workflow that uses an IoT Edge blob storage module.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure industrial IoT guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture"/>
+        <updated>2022-11-01T01:17:47.000Z</updated>
+        <summary type="html"><![CDATA[Get architectural guidance for industrial IoT (IIoT) analytics solutions that use Azure platform as a service (PaaS) components.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SAS on Azure architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/sas/sas-overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/sas/sas-overview"/>
+        <updated>2022-11-01T01:16:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to run SAS analytics products on Azure. See guidelines for designing and implementing cloud solutions for SAS Viya and SAS Grid that use Azure.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Advanced Azure Kubernetes Service (AKS) microservices architecture]]></title>

@@ -23,7 +23,7 @@ Following are the typical use cases for this architecture:
 
 The following illustration shows a MITRE Att&ck cloud scenario.
 
-![Diagram of a MITRE Att&ck cloud scenario.](./media/mitre-attack-in-sentinel-artifacts-dev.png)
+:::image type="content" border="false" source="./media/mitre-attack-in-sentinel-artifacts-dev.svg" alt-text="Diagram of a MITRE Att&ck cloud scenario." lightbox="./media/mitre-attack-in-sentinel-artifacts-dev.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -31,7 +31,9 @@ The following illustration shows a MITRE Att&ck cloud scenario.
 
 The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
-![Diagram of the Architecture for automating a Microsoft Sentinel Infra as code pipeline.](./media/automate-sentinel-architecture.png)
+:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram of the Architecture for automating a Microsoft Sentinel Infra as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -50,7 +52,7 @@ The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
    * Workbooks - SIEM engineers use Workbooks dashboards to visualize trends and statistics and to view the status of a Microsoft Sentinel instance and its subcomponents.
    * Threat intelligence - A specific data connector that fuses threat intelligence platforms feeds into Microsoft Sentinel. Two connectivity methods are supported: TAXII and Graph API. Both methods serve as *tiIndicators*, or threat intelligence indicators, in security APIs.
 3. Azure AD - Identity and access management capabilities are delivered to components that are used in the reference architecture, such as managed identities, service principals, Azure role-based access controls (RBACs) for Microsoft Sentinel, logic apps, and automation runbooks.
-4. Azure pipelines - DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions like the sandbox and production environments with continuous integration and continuous delivery (CI/CD) pipelines. We recommend using approval workflows to prevent unexpected deployments and separated service principals if you target multiple subscriptions per Azure environment.
+4. Azure Pipelines - DevOps engineers use pipelines to create service connections for managing the different Azure subscriptions like the sandbox and production environments with continuous integration and continuous delivery (CI/CD) pipelines. We recommend using approval workflows to prevent unexpected deployments and separated service principals if you target multiple subscriptions per Azure environment.
 5. Azure Key Vault - SOC engineers use the key vault to securely store service principal secrets and certificates. This component of the architecture helps enforce the DevSecOps principle of _no secrets in code_ when used by Azure Pipeline service connections.
 6. Azure subscription - The SOC teams use two instances of Microsoft Sentinel in this reference architecture, separated within two logical Azure subscriptions to simulate production and sandbox environments. You can scale for your needs with other environments, such as testing, dev, preproduction, and so on.
 
@@ -481,7 +483,7 @@ For more information on how to create an ARM template, see [Create and deploy AR
 
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 
-:::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.png" alt-text="Diagram of a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.png":::
+:::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg" alt-text="Diagram of a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg":::
 
 1. An MSP offering is integrated through an ARM template or an Azure Marketplace service offering.
 1. Azure delegated resource management checks that the request is from a partner tenant and calls a managed service resource provider.

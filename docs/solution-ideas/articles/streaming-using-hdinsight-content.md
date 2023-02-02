@@ -1,40 +1,63 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Ingest and process millions of streaming events per second with Apache Kafka, Apache Storm, and Apache Spark Streaming.
+This article outlines a solution for ingesting and processing millions of streaming events per second. Core components include Azure HDInsight, Apache Kafka, Apache Storm, and Apache Spark.
 
-## Potential use cases
-
-Companies can use this solution to retrieve (or ingest) data from multiple sources and make real-time business decisions. Scenarios include:
-
-- Analyzing data from IoT sensors for quality detection, fault analysis, maintenance event prediction
-- Business integration of weather feed or sensor data (agriculture, retail)
-- Analysis of real-time stock market data (financial)
-- Analysis of current market conditions (insurance and finance)
-- Trend analysis over real-time sales (retail)
+*Apache®, [Apache Kafka](https://kafka.apache.org), [Apache Storm](https://storm.apache.org), [Apache Spark](https://spark.apache.org), [Apache HBase](https://hbase.apache.org), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-![Architecture Diagram shows the flow of data through the different processes.](../media/streaming-using-hdinsight-new.png)
+![Architecture diagram that shows how streaming data is ingested and processed in an Azure environment and then presented to users.](../media/streaming-using-hdinsight-new.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/streaming-using-hdinsight.vsdx) of this architecture.*
 
 ### Dataflow
 
-- Streaming data is ingested, processed, and the results are stored by the following:
-    - Apache Kafka for data ingestion
-    - Apache Spark Streaming or Apache Storm for processing
-    - Apache HBase, which is a NoSQL database, for the storage of analyzed results
-- The data is consumed by the user in the related apps.
+- Kafka ingests streaming data.
+- Storm and Spark process the data.
+- Apache HBase, which is a NoSQL database, stores results.
+- Users consume the data in apps.
 - The data is visualized in Power BI.
-- The data used by Azure HDInsight is stored in Azure Data Lake Storage for secure and scalable processing in the cloud.
+- HDInsight stores data in Azure Data Lake Storage for secure and scalable processing in the cloud.
 
 ### Components
 
-Key technologies used to implement this architecture:
-
-- [Azure HDInsight](https://azure.microsoft.com/services/hdinsight)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight)
+- [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage)
 - [Power BI](https://powerbi.microsoft.com)
+
+## Scenario details
+
+Many Apache components are a good fit for systems that stream a large volume of data:
+
+- Kafka is a widely used high-performance event-streaming platform.
+- Storm is a computation system that quickly processes large volumes of data in real time.
+- Spark is a data processing framework that uses in-memory data sharing.
+- HBase is a schemaless database that provides random access and strong consistency for large amounts of data.
+
+These components offer the added advantage of being open source. By using HDInsight, you can run these Apache components in an Azure environment.
+
+HDInsight is an enterprise-scale analytics service in the cloud. This managed-cluster platform simplifies the process of running big data frameworks that use Apache components:
+
+- You can use HDInsight to create optimized clusters for Spark, Kafka, and HBase.
+- An HDInsight Spark cluster can use a Spark HBase connector to query an HDInsight HBase cluster.
+- HDInsight also offers [other benefits](/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight), including scalability, security, centralized monitoring, global availability, and extensibility.
+
+### Potential use cases
+
+Companies can use this solution to retrieve or ingest data from multiple sources and make real-time business decisions. Scenarios include:
+
+- Analyzing data from Internet of Things (IoT) sensors for quality detection, fault analysis, and maintenance event prediction.
+- Business integration of weather feed or sensor data.
+- Analysis of real-time stock market data.
+- Analysis of current market conditions.
+- Trend analysis over real-time sales.
+
+The solution applies to the following industries:
+
+- Agriculture
+- Retail
+- Finance
+- Insurance
 
 ## Contributors
 
@@ -47,21 +70,20 @@ Principal authors:
 
 ## Next steps
 
-To learn more about these services, see the following articles:
-
 - [What is Azure HDInsight?](/azure/hdinsight/hdinsight-overview)
-- [What is streaming in HDInsight?](/azure/hdinsight/hdinsight-streaming-at-scale-overview)
-- [Create Apache Hadoop cluster in HDInsight](/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)
+- [Streaming at scale in HDInsight](/azure/hdinsight/hdinsight-streaming-at-scale-overview)
+- [Quickstart: Create Apache Hadoop cluster in Azure HDInsight using Azure portal](/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)
+- [Quickstart: Create Apache Spark cluster in Azure HDInsight using Azure portal](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
+- [Tutorial: Use Apache HBase in Azure HDInsight](/azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Create Apache Spark cluster - Portal](/azure/hdinsight/spark/apache-spark-jupyter-spark-sql-use-portal)
-- [Enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
+- [Overview of enterprise security in Azure HDInsight](/azure/hdinsight/domain-joined/hdinsight-security-overview)
 
 ## Related resources
 
-- [Extend your on-premises big data investments with HDInsight](/azure/architecture/solution-ideas/articles/extend-your-on-premises-big-data-investments-with-hdinsight)
-- [Extract, transform, and load (ETL) using HDInsight](/azure/architecture/solution-ideas/articles/extract-transform-and-load-using-hdinsight)
-- [Campaign optimization with Azure HDInsight Spark clusters](/azure/architecture/solution-ideas/articles/campaign-optimization-with-azure-hdinsight-spark-clusters)
-- [Loan charge-off prediction with Azure HDInsight Spark clusters](/azure/architecture/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters)
-- [Interactive querying with HDInsight](/azure/architecture/solution-ideas/articles/interactive-querying-with-hdinsight)
-- [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml)
-- [Instant IoT data streaming with AKS](aks-iot-data-streaming.yml)
+- [Extend your on-premises big data investments with HDInsight](./extend-your-on-premises-big-data-investments-with-hdinsight.yml)
+- [Extract, transform, and load (ETL) using HDInsight](./extract-transform-and-load-using-hdinsight.yml)
+- [Optimize marketing with machine learning](./optimize-marketing-with-machine-learning.yml)
+- [Loan charge-off prediction with Azure HDInsight Spark clusters](./loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml)
+- [Interactive querying with HDInsight](./interactive-querying-with-hdinsight.yml)
+- [Azure Kubernetes in event stream processing](./serverless-event-processing-aks.yml)
+- [Instant IoT data streaming with AKS](./aks-iot-data-streaming.yml)

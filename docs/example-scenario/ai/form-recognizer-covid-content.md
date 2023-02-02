@@ -2,9 +2,9 @@ This architecture can help you automate processes and digitize vaccination and t
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/form-recognizer-covid.png" alt-text="Diagram that shows an architecture for automating processes and digitizing vaccination and test forms." lightbox="./media/form-recognizer-covid.png":::
+:::image type="content" border="false" source="./media/form-recognizer-covid.svg" alt-text="Architecture diagram that shows an architecture for automating processes and digitizing vaccination and test forms." lightbox="./media/form-recognizer-covid.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/CovidFormsSAArchitecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/form-recognizer-covid.vsdx) of this architecture.*
 
 ### Dataflow
 

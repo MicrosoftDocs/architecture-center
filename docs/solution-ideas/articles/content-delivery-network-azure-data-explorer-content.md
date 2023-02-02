@@ -4,7 +4,9 @@ This solution idea demonstrates low-latency, high-throughput ingestion of large 
 
 ## Architecture
 
-:::image type="content" source="../media/content-delivery-network-azure-data-explorer.png" alt-text="Content delivery network analytics with Azure Data Explorer" lightbox="../media/content-delivery-network-azure-data-explorer.png":::
+:::image type="content" source="../media/content-delivery-network-azure-data-explorer.svg" alt-text="Content delivery network analytics with Azure Data Explorer." lightbox="../media/content-delivery-network-azure-data-explorer.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/content-delivery-network-analytics-azure-data-explorer.vsdx) of this architecture.*
 
 ### Dataflow
 

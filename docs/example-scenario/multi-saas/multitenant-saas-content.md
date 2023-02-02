@@ -20,7 +20,7 @@ A suite of Azure technologies secure and load balance the traffic.
 
     * Fail over if there's a regional outage.
 
-1. Azure DNS manages DNS records and insures routing to the correct Front Door endpoint.
+1. Azure DNS manages DNS records and ensures routing to the correct Front Door endpoint.
 
 1. The architecture uses Azure Active Directory (Azure AD) as the identity provider for authentication.
 

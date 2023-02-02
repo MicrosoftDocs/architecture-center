@@ -152,7 +152,7 @@ The following sections list other serverless and Azure Functions-related referen
 - [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.yml)
 - [Serverless web application on Azure](../reference-architectures/serverless/web-app.yml)
 - [Serverless Asynchronous Multiplayer Reference Architecture](/gaming/azure/reference-architectures/multiplayer-asynchronous-serverless)
-- [Instant Broadcasting on Serverless Architecture](../solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml)
+- [Instant Broadcasting on Serverless Architecture](/azure/architecture/serverless-quest/serverless-overview)
 - [Building a telehealth system on Azure](../example-scenario/apps/telehealth-system.yml)
 - [Custom Data Sovereignty & Data Gravity Requirements](../solution-ideas/articles/data-sovereignty-and-gravity.yml)
 - [Sharing location in real time using low-cost serverless Azure services](../example-scenario/signalr/index.yml)

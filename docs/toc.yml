@@ -9,6 +9,8 @@ items:
     href: changelog.md
   - name: Landing zones
     items:
+      - name: Deployment Options
+        href: landing-zones/landing-zone-deploy.md
       - name: Design guides
         items:
           - name: Bicep landing zone implementation
@@ -997,8 +999,6 @@ items:
                       - name: Personalized lists
                         href: /industry/retail/intelligent-recommendations/personalized-recommendations
                         maintainContext: true
-                  - name: Optimize and reuse recommendations
-                    href: industries/retail/recommendation-engine-optimization.yml
                   - name: Personalizer
                     items:
                       - name: Overview
@@ -1211,8 +1211,6 @@ items:
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Banking system cloud transformation
                 href: example-scenario/banking/banking-system-cloud-transformation.yml
-              - name: Data analysis for finance
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Decentralized trust between banks
                 href: example-scenario/apps/decentralized-trust.yml
               - name: Finance management using PostgreSQL
@@ -1222,7 +1220,7 @@ items:
               - name: Location-based conditional access control
                 href: example-scenario/financial/location-based-access.yml
               - name: Modernize mainframe & midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                href: example-scenario/mainframe/modernize-mainframe-data-to-azure.yml
               - name: Patterns and implementations in banking
                 href: example-scenario/banking/patterns-and-implementations.yml
               - name: Real-time fraud detection
@@ -1476,6 +1474,8 @@ items:
                 href: example-scenario/confidential/healthcare-inference.yml
               - name: Consumer health portal on Azure
                 href: example-scenario/digital-health/health-portal.yml
+              - name: Donor-patient cross matching
+                href: example-scenario/machine-learning/donor-patient-cross-match.yml
               - name: Health data consortium
                 href: example-scenario/data/azure-health-data-consortium.yml
               - name: Implement risk prediction for surgeries
@@ -1916,8 +1916,6 @@ items:
                 href: solution-ideas/articles/connected-factory-hierarchy-service.yml
               - name: Connected factory signal pipeline
                 href: example-scenario/iot/connected-factory-signal-pipeline.yml
-              - name: Data analysis for manufacturing
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: IoT and data analytics in manufacturing
                 href: example-scenario/data/big-data-with-iot.yml
               - name: IoT Edge safety and maintenance system
@@ -2900,8 +2898,6 @@ items:
                     href: industries/finance/financial-risk-model.md
                   - name: Healthcare blueprint for AI
                     href: industries/healthcare/healthcare-ai-blueprint.yml
-                  - name: Optimize and reuse recommendations
-                    href: industries/retail/recommendation-engine-optimization.yml
                   - name: Predictive maintenance in manufacturing
                     href: industries/manufacturing/predictive-maintenance-overview.yml
                   - name: Predictive maintenance solution
@@ -3096,6 +3092,8 @@ items:
                 href: reference-architectures/ai/training-deep-learning.yml
               - name: Distributed model hyperparameter tuning
                 href: example-scenario/ai/training-python-models.yml
+              - name: Donor-patient cross matching
+                href: example-scenario/machine-learning/donor-patient-cross-match.yml
               - name: End-to-end computer vision at the edge
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Enterprise-grade conversational bot
@@ -3308,8 +3306,6 @@ items:
                 href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
               - name: Customer 360 with Azure Synapse
                 href: example-scenario/analytics/synapse-customer-insights.yml      
-              - name: Data analysis for regulated industries
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data lake queries via Synapse serverless
                 href: example-scenario/data/synapse-exploratory-data-analytics.yml
               - name: Data warehouse for small business
@@ -3469,7 +3465,7 @@ items:
           - name: Solution ideas
             items:
               - name: Blockchain workflow application
-                href: solution-ideas/articles/blockchain-workflow-application.yml
+                href: /updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
               - name: Supply chain management with QBS
                 href: guide/blockchain/quorum-blockchain-service.yml
               - name: Supply chain track and trace
@@ -3524,6 +3520,8 @@ items:
                         href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
+                  - name: Engys HELYX 
+                    href: guide/hpc/engys-helyx.yml  
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
@@ -4300,8 +4298,6 @@ items:
                 href: example-scenario/data/azure-nifi.yml
               - name: Automated enterprise BI
                 href: reference-architectures/data/enterprise-bi-adf.yml
-              - name: Data analysis for regulated industries
-                href: example-scenario/data/data-analysis-regulated-industries.yml
               - name: Data governance with Profisee
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: Data warehousing and analytics
@@ -4514,7 +4510,7 @@ items:
                   - name: HIPAA/HITRUST compliant health data
                     href: solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml
                   - name: Instant broadcasting with serverless
-                    href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+                    href: /azure/architecture/serverless-quest/serverless-overview
                   - name: Serverless applications using Event Grid
                     href: solution-ideas/articles/serverless-application-architectures-using-event-grid.yml
                   - name: Serverless apps using Azure Cosmos DB
@@ -4808,6 +4804,8 @@ items:
                 items:
                 - name: Azure Arc hybrid management with AKS
                   href: hybrid/arc-hybrid-kubernetes.yml
+                - name:  Deploy an Azure Arc-enabled SQL managed instance for DR
+                  href: hybrid/arc-sql-managed-instance-disaster-recovery.yml
                 - name: Manage configurations for Azure Arc
                   href: hybrid/azure-arc-hybrid-config.yml
                 - name: Optimize SQL Server with Azure Arc
@@ -5603,7 +5601,7 @@ items:
               - name: HPC media rendering
                 href: solution-ideas/articles/azure-batch-rendering.yml
               - name: Instant broadcasting with serverless
-                href: solution-ideas/articles/instant-broadcasting-on-serverless-architecture.yml
+                href: /azure/architecture/serverless-quest/serverless-overview
               - name: Keyword search in videos
                 href: solution-ideas/articles/digital-media-speech-text.yml
               - name: Live streaming digital media
@@ -5994,6 +5992,8 @@ items:
                 maintainContext: true
               - name: Resolve overlapping IP address space constraints 
                 href: guide/networking/private-link-ip-constraints.yml
+              - name: Cross-tenant secure access to apps 
+                href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
           - name: Architectures
             items:
               - name: Azure DNS Private Resolver
@@ -6617,6 +6617,8 @@ items:
                   - name: Networking features for App Service
                     href: /azure/app-service/networking-features
                     maintainContext: true
+              - name: Cross-tenant secure access to apps
+                href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
               - name: Modernize web apps
                 items:
                   - name: Characteristics of modern web apps

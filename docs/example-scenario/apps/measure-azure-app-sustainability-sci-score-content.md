@@ -239,6 +239,6 @@ For more information about sustainability, see these articles:
 ## Related resources
 
 - [Choose a data analytics and reporting technology in Azure](../../data-guide/technology-choices/analysis-visualizations-reporting.md)
-- [Data analysis workloads for regulated industries](../data/data-analysis-regulated-industries.yml)
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 - [Interactive price analytics using transaction history data](../../solution-ideas/articles/interactive-price-analytics.yml)
 - [Power BI data write-back with Power Apps and Power Automate](../data/power-bi-write-back-power-apps.yml)
