@@ -44,12 +44,12 @@ Performance tests of HiFUN on Azure used [HBv3](/azure/virtual-machines/hbv3-ser
 
 The following table provides details about NCasT4_v3 VMs.
 
-|VM size|vCPU|Memory (GiB)|	Temp storage (SSD) GiB|GPU|GPU memory: GiB|Max data disks|Max NICs / Expected network bandwidth (Mbps)|
+|VM size|vCPU|Memory, in GiB|	Temporary storage (SSD), in GiB|GPU|GPU memory, in GiB|Maximum data disks|Maximum NICs / Expected network bandwidth, in Mbps|
 |-|-|-|-|-|-|-|-|
-|Standard_NC4as_T4_v3	|4	|28|	180|	1|	16|	8	|2 / 8000|
-|Standard_NC8as_T4_v3	|8|	56|	360|	1|	16|	16|	4 / 8000|
-|Standard_NC16as_T4_v3|	16|	110|	360|	1|	16|	32|	8 / 8000|
-|Standard_NC64as_T4_v3|	64	|440|	2880|	4	|64|	32|	8 / 32000|
+|Standard_NC4as_T4_v3	|4	|28|	180|	1|	16|	8	|2 / 8,000|
+|Standard_NC8as_T4_v3	|8|	56|	360|	1|	16|	16|	4 / 8,000|
+|Standard_NC16as_T4_v3|	16|	110|	360|	1|	16|	32|	8 / 8,000|
+|Standard_NC64as_T4_v3|	64	|440|	2,880|	4	|64|	32|	8 / 32,000|
 
 ### Required drivers
 
@@ -70,7 +70,7 @@ The Windsor model is used in this performance evaluation.
 :::image type="content" source="media/windsor-model.png" alt-text="Screenshots that show the Windsor model." border="false":::
 
 
-The following tables provide details about the models.
+The following tables provide details about the model.
 
 |Flow conditions||
 |-|-|
@@ -95,7 +95,7 @@ The following tables provide details about the models.
 |Standard_HB120-96rs_v3|	100	|2.00	|5.07|
 |Standard_HB120rs_v3|	100	|1.70|	5.96|
 
-<sup>1</sup> To negate the effect of input/output operations per second (IOPS), the average time of 51-60 iterations is used.
+<sup>1</sup> To negate the effect of input/output operations per second (IOPS), the average time of 51-60 recorded iterations is presented here.
 
 This graph shows the relative speed increase<sup>2</sup> as the number of CPUs increases:
 
@@ -120,7 +120,7 @@ This graph shows the relative speed increase<sup>2</sup> as the number of CPUs i
 ||	2 GPU|	100	|3.32	|1.25|
 ||	4 GPU|	100|	2.02|	2.05|
 
-<sup>3</sup> To negate the effect of IOPS, the average time of 51-60 iterations is used.
+<sup>3</sup> To negate the effect of IOPS, the average time of 51-60 recorded iterations is presented here.
 
 This graph shows the relative speed increase<sup>4</sup> as the number of GPUs increases:
 
@@ -161,7 +161,7 @@ The following tables provide elapsed times in hours. To compute the total cost, 
 
 ## Summary
 
-Azure offers robust compute services that support GPU-intensive workloads and provide unlimited scalability options for HPC applications. You can use H-series virtual machines for memory-bound applications and N-series virtual machines for graphic-intensive applications.
+Azure provides robust compute services that support GPU-intensive workloads and offers unlimited scalability for HPC applications. You can use H-series virtual machines for memory-bound applications and N-series virtual machines for graphic-intensive applications.
  
 ## Contributors
 
@@ -170,7 +170,7 @@ Azure offers robust compute services that support GPU-intensive workloads and pr
 Principal authors:
 - [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
 - [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
-- [Kalai Selvan](https://www.linkedin.com/in/kalai-selvan-5a153358) | HPC Performance Engineer
+- Kalai Selvan | HPC Performance Engineer
 
 Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
