@@ -20,12 +20,18 @@ The Azure architecture center has guides, architectures, and solution ideas that
 
 Architectures give detailed best practices on how to design SAP platforms, workloads, and applications in Azure.
 >[!div class="nextstepaction"]
->[Architectures](run-sap-hana-for-linux-virtual-machines.yml)
+>[Architectures](../../guide/sap/sap-s4hana.yml)
 
 The guides provide general checklists, configurations, and design guidance. Use these guides to make design decisions for forming the best approach for your SAP solution.
 >[!div class="nextstepaction"]
->[Guides](../../guide/sap/sap-internet-inbound-outbound.yml)
+>[Guides](../../guide/sap/sap-whole-landscape.yml)
 
 Solution ideas are conceptual. They're meant to inspire new ideas and novel approaches to architecture. The goal is to help you extend your SAP solutions to derive more benefits.
 >[!div class="nextstepaction"]
 >[Solution ideas](../../solution-ideas/articles/sap-netweaver-on-sql-server.yml)
+
+## RISE with SAP
+
+Integrating SAP RISE environment with Azure resources. Under RISE with SAP solution, the SAP workload is managed by SAP in the partner's own Azure subscription and tenant. Guides to enable use of customer managed Azure services to extend the SAP environment.
+>[!div class="nextstepaction"]
+>[Integrating Azure with SAP RISE](/azure/virtual-machines/workloads/sap/rise-integration)
