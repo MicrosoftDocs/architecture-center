@@ -1,4 +1,4 @@
-This architecture illustrates an OMS implementation of a Sterling OMS environment in Azure. It doesn't go into detail on how to install OMS. To learn more about the installation process, see [Installing Sterling Order Management Software](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=installing-sterling-order-management-software).
+This architecture illustrates how to implement a Sterling Order Management Software (OMS) environment in Azure. This article doesn't provide a detailed explanation about how to install Sterling OMS. To learn more about the installation process, see [Installing Sterling Order Management Software](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=installing-sterling-order-management-software).
 
 ## Architecture
 
@@ -6,126 +6,125 @@ This architecture illustrates an OMS implementation of a Sterling OMS environmen
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-order-management.vsdx) of this architecture.*
 
-The workload can be deployed internally or externally facing, depending on your requirements.
+Depending on your requirements, you can deploy a workload so it's internally or externally facing.
 
 ### Workflow
 
-From the perspective of infrastructure, this architecture will solve for these requirements in the following ways:
+The architecture meets infrastructure requirements in the following ways:
 
-- A container hosting platform to deploy highly available workloads across availability zones. We reccomend Azure Red Hat OpenShift.
-- A fully managed database service designed to serve as the backend-database for the OMS system. Sterling Order Management currenly supports IBM DB2, Oracle, and PostgreSQL. This guide reccomends Azure PostgreSQL Flexible Server.
-- A scalable and highly available setup for a JMS-compliant message broker, such as IBM MQ. While not shown on the diagram, this might exist within your cluster or external to the cluster depending on your requirements.
-- Private Endpoints for all relative services to isolate and secure network traffic
-- Additional, optional Azure Virtual Machines for both management and development purposes
-- Azure Premium Files and standard files for storage of log files and other application configuration data
+- A container hosting platform is used to deploy highly available workloads across availability zones. We recommend Azure Red Hat OpenShift.
+- A fully managed database service serves as the backend database for the OMS system. Sterling OMS currently supports IBM Db2, Oracle Database, and PostgreSQL. We recommend Azure Database for PostgreSQL with the flexible server option.
+- A scalable and highly available setup provides an environment for running a message broker such as IBM MQ that's compliant with the Java Message Service (JMS) API. The diagram doesn't include this setup. Depending on your requirements, it might be within your cluster or external to your cluster.
+- Private endpoints isolate and secure network traffic to all connected services.
+- Additional, optional Azure virtual machines (VMs) are used for management and development purposes.
+- Premium and standard Azure Files shares provide storage for log files and other application configuration data.
 
 ### Components
 
-- [Azure Red Hat OpenShift](https://learn.microsoft.com/en-us/azure/openshift/) Azure Red Hat OpenShift (ARO) provides highly available, fully managed OpenShift clusters on demand, monitored and operated jointly by Microsoft and Red Hat.
+- [Azure Red Hat OpenShift](https://learn.microsoft.com/en-us/azure/openshift/) provides highly available, fully managed OpenShift clusters on demand. These clusters are monitored and operated jointly by Microsoft and Red Hat.
 
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network) are uesd for communication between nodes, Azure services, and hybrid connectivity needs.  Virtual Network is the fundamental building block for private networks in Azure.
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network) is used for communication between nodes, Azure services, and hybrid connectivity needs. Virtual Network is the fundamental building block for private networks in Azure.
 
-- [Azure Files](https://azure.microsoft.com/services/storage/files) is used for hosting the stateful data for the databases and systems inside the cluster. Azure Files provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols.
+- [Azure Files](https://azure.microsoft.com/services/storage/files) provides fully managed file shares in the cloud that are accessible via the SMB and NFS protocols. In this solution, Azure Files hosts the stateful data for the databases and systems that are inside the cluster.
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) (optional) and a subnet can be used to securely access any of the worker nodes or optional JumpBox machines. Azure Bastion is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides secure and seamless RDP and SSH access to VMs without any exposure through public IP addresses. In this solution, Azure Bastion is optional. You can use Azure Bastion and a subnet to securely access any of the worker nodes or optional jump box machines.
 
-- [Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview) Azure Database for PostgreSQL Flexible Server is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/products/postgresql/) is a fully managed relational database service that's based on the PostgreSQL database engine. Azure Database for PostgreSQL offers predictable performance and dynamic scalability, and is appropriate for business-critical workloads. Its [flexible server deployment model](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/overview) provides granular control and flexibility over database management functions and configuration settings.
 
-- [Linux virtual machines in Azure](https://azure.microsoft.com/services/virtual-machines/linux) is used to provide a jump box for management of your OMS Azure-based resources and services. Note: If you have network connectivity into your Azure environment, you can perform the installation from an existing machine instead.
+- [Virtual Machines](https://azure.microsoft.com/en-us/products/virtual-machines) is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources. This solution uses [Linux VMs in Azure](https://azure.microsoft.com/services/virtual-machines/linux) to provide a jump box for management of your OMS Azure-based resources and services.
 
 ### Alternatives
 
+If you have network connectivity into your Azure environment, you can perform the installation from an existing machine instead of using an Azure Linux VM.
+
 The following services typically aren't necessary, but they're effective alternatives:
 
-- [IBM DB2 on Azure](https://azure.microsoft.com/en-us/solutions/oracle) is an optional alternative if you prefer that to Azure Database for PostgreSQL - Flexible Server.
-- [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp) NetApp Files supports any type of workload with high availability and high performance and is ideal for IO sensitive workloads, such as IBM DB2 on Azure Virtual Machines.
-- [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer) If you plan on running IBM DB2 on virtual machines, you should familiarize yourself with using Azure Load Balancers and Pacemaker clustering software to enable high availability for your database servers.
-- [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) is an optional alternative if you prefer that to Azure Database for PostgreSQL - Flexible Server.
+- [IBM Db2 on Azure](https://www.ibm.com/docs/en/db2/11.5?topic=providers-db2-azure) is an optional alternative to the flexible server model of Azure Database for PostgreSQL. If you run IBM Db2 on VMs, familiarize yourself with using [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer) and Pacemaker clustering software to achieve high availability for your database servers.
+- [Oracle Database on Azure](https://azure.microsoft.com/en-us/solutions/oracle) is an optional alternative to the flexible server model of Azure Database for PostgreSQL.
+- [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp) supports any workload type by providing high availability and high performance. Azure NetApp Files is ideal for IO-sensitive workloads, such as IBM Db2 workloads that run on Azure VMs.
 
 ## Scenario details
 
-IBM's Sterling Order Management Software (OMS) is an order management system that delivers a complete omnichannel order fulfillment platform. It includes features such as real-time inventory visibility and demand, fully configurable order orchestration and workflows, reverse logistics for multi-channel returns and return order status, plus much more.
+IBM Sterling OMS is an order management system that delivers a complete omnichannel order fulfillment platform. It includes features such as real-time inventory visibility and demand, fully configurable order orchestration and workflows, reverse logistics for multi-channel returns and return order status, plus much more.
 
-Microsoft and the IBM Sterling OMS team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running OMS v10.0+ on Azure for customers who have support from IBM and a partner for installation. Please contact your IBM team for product-specific questions..
+Microsoft and the IBM Sterling OMS team partnered to ensure this solution is configured to run optimally on Azure. This article provides a design for running OMS 10.0 and later versions on Azure for customers who have support from IBM and a partner for installation. For answers to product-specific questions, contact your IBM team.
 
 ### Potential use cases
 
-Many industries and sectors use the solutions in OMS, including:
+Many industries and sectors use OMS solutions, including:
 
 - Retail
 - Ecommerce
 - Manufacturing
 
-Find more information about use cases for OMS on IBM's website at [IBM Sterling Order Management](https://www.ibm.com/products/order-management).
+For more information about use cases for OMS, see [IBM Sterling Order Management](https://www.ibm.com/products/order-management).
 
 ## Recommendations
 
-This guidance was written to support versions of OMS v 10.0, Q3 2022 and later because it provides the best integration options with Azure by offering support for PostgresSQL as well as the Azure Red Hat OpenShift container platform. Before building out your own deployment, we recommend using the quickstart guide to deploy OMS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling).
+This guidance supports OMS 10.0, Q3 2022 and later versions. These versions provide the best integration options with Azure because they support PostgresSQL and the Azure Red Hat OpenShift container platform. Before you build out your own deployment, we recommend that you use the quickstart guide to deploy OMS so that you understand how the deployment and configuration works. Knowing how this is done speeds creation of the design requirements for your implementation. For more information, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling).
 
-We work closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). Contact your IBM account team for support beyond this documentation.
+Microsoft works closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. They follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). For support beyond this documentation, contact your IBM account team.
 
-Before you proceed with your deployment, you should answer the following questions about your design:
+Before you proceed with your deployment, answer the following questions about your design:
 
-- Is this a new deployment of OMS, or are you migrating an existing deployment to Azure? 
-- What backend database platform do you plan to use?
-  - How big of a database will you need for your data?
-- What sort of JMS-based message broker are you planning to use?
-  - Where do you plan to deploy this messaging system? In the same OpenShift cluster? External to the cluster on a different platform/virtual machines?
+- Is your deployment of OMS a new one, or are you migrating an existing deployment to Azure?
+- What back-end database platform do you plan to use? How big of a database will you need for your data?
+- What sort of JMS-based message broker do you plan to use?
+- Where do you plan to deploy the messaging system:
+  - In the same OpenShift cluster?
+  - External to the cluster on a different platform or VMs?
 - Do you have an existing container registry, and do you plan to keep using it?
-- What number and sizes of VMs do you need for your worker nodes? 
-- Security requirements around Encryption needs.
-- Access requirements such as considerations about the IDP integration.
-- Connectivity needs/firewall rules/ internal&external (egress) services to connect to.
-- HA/DR strategy.
+- What number and sizes of VMs do you need for your worker nodes?
+- What are your encryption-related security requirements?
+- What are your access requirements, and what identity provider (IdP) integration considerations do you have?
+- What are your connectivity needs? What firewall rules do you need to connect to internal and external (egress) services?
+- What's your strategy for high availability and disaster recovery?
 
-### Sterling Order Management (OMS)
+### Sterling OMS
 
-Microsoft has tested OMS version 10.0.2209.0 on Azure. Our recommendation is to use the latest version of OMS, which (as of time of writing) is 10.0.2209.0
+Microsoft has tested OMS version 10.0.2209.0 on Azure. We recommend that you use the latest version of OMS. At the time of writing, that version is 10.0.2209.0.
 
-Before deploying your Azure resources to support your OMS environment, you should familiarize yourself with the different requirements for running OMS:
+Before deploying your Azure resources to support your OMS environment, familiarize yourself with the requirements for running OMS:
 
-- [OMS System Requirements](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=installing-system-requirements)
+- For OMS system requirements, see [System Requirements](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=installing-system-requirements).
+- OMS has a dependency on a relational database system for state and data management, and a JMS-enabled message broker system for service-to-service communication and order workflows. OMS supports several different database and message broker options that you can deploy in your environment. For more information, see the following resources:
+  - Database Tier: [Installing and configuring database tier software on UNIX or Linux](https://www.ibm.com/docs/vi/order-management-sw/10.0?topic=tier-installing-configuring-database-software-unix-linux)
+  - JSM Message Broker: [Integrating with JMS Systems](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=integrating-jms-systems)
 
-OMS has a dependency on a relational database system for state and data management, and a JMS-enabled message broker system for service-to-service communication and order workflows. OMS supports several different database and message broker options that you can deploy in your environment. For more information, please refer to the appropriate requirements from IBM:
+### Azure Red Hat OpenShift
 
-- Database Tier: [Installing and configuring database tier software on UNIX or Linux](https://www.ibm.com/docs/vi/order-management-sw/10.0?topic=tier-installing-configuring-database-software-unix-linux)
-- JSM Message Broker: [Integrating with JMS Systems](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=integrating-jms-systems)
+OMS has been tested with Azure Red Hat OpenShift v4.10.15. Before you deploy Azure Red Hat OpenShift, determine the following things:
 
-### Azure Red Hat OpenShift (ARO)
+- A domain (optional). When you deploy Azure Red Hat OpenShift, you need to specify a domain name that gets appended to all services that get deployed in your cluster.
+- API and ingress visibility. Decide how you want your OpenShift cluster API (for management) and Ingress (for deployed applications and services) to be internet-facing. If you use private connectivity to hide your API or ingress, you can only reach these endpoints from a machine that can reach the network that your service is deployed to.
+- Master and worker VM size and count. In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct number and sizes. The number of agents in your deployment and the number of pods for each agent type that you run affect these values. After deploying, you can adjust these values when you need to scale.
 
-OMS has been tested with Azure Red Hat OpenShift v4.10.15. Before you deploy Azure Red Hat OpenShift (ARO), there are a few things you need to determine:
-
-- Domain (Optional) - When you deploy ARO, you will need to specify a domain name that will be appended to all services that get deployed in your cluster
-- API and Ingress Visibility - You should decide how you want your OpenShift cluster API (for management) and Ingress (for deployed applications and services) to be internet-facing. Note that if you decide to hide your API and/or Ingress with private connectivity, you will only be able to reach these endpoints from a machine that can reach the network where your service is deployed to.
-- Master and Worker VM Size and count - In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum reccomended size. Your worker node count which runs your application workloads like Sterling OMS are sized seperately. You should consider the required number of worker nodes in your cluster, plus the appropriate size of each, when deploying your instance. This may take testing and validation to arrive at due to the number of agents in your deployment and the number of pods for each agent type you choose to run. You can adjust this post-deployment as you need to scale as well.
-
-For more information, please refer to the "Before Your Begin" documentation for Azure Red Hat OpenShift: https://learn.microsoft.com/en-gb/azure/openshift/tutorial-create-cluster#before-you-begin 
+For more information, see [Before Your Begin for Azure Red Hat OpenShift](https://learn.microsoft.com/en-gb/azure/openshift/tutorial-create-cluster#before-you-begin).
 
 ### Sizing your environment
 
-We recommend using the latest *Ds* series VMs as your worker nodes. Examples are the [Dsv3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series), [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series), [Dsv4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series), [Dasv5](/azure/virtual-machines/dasv5-dadsv5-series#dasv5-series), or [Dsv5](/azure/virtual-machines/dv5-dsv5-series#dsv5-series). We recommend using the latest versions, when possible, because they provide better performance. When deploying new or additional nodes, only use VMs that have [premium storage](/azure/virtual-machines/premium-storage-performance).
+We recommend that you use the latest *Ds* series VMs as your worker nodes. Examples are the [Dsv3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series), [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series), [Dsv4](/azure/virtual-machines/dv4-dsv4-series#dsv4-series), [Dasv5](/azure/virtual-machines/dasv5-dadsv5-series#dasv5-series), and [Dsv5](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) series. We recommend that you use the latest versions, when possible, because they provide better performance. When you deploy new or additional nodes, only use VMs that have [premium storage](/azure/virtual-machines/premium-storage-performance).
 
 ### Database specifics
 
-Due to OMS having different backend database options, it's important first to decide on which platform you'd like to host your database on, and then size the appropriate service or infrastructure accordingly. However, there are some general guidelines for each that should be considered:
+Because OMS has different back-end database options, it's important to first decide which platform to host your database on. Then you can make decisions about the size of that platform. Keep the following general guidelines in mind during this process:
 
-* **Azure Database for PostgreSQL - Flexible Server**: Due to the nature of its scale and redundancy options, Azure Database for PostgreSQL - Flexible Server is the preferred method for hosting OMS workloads in Azure. When deploying your instance, you should take care to:
-  * Compute: Select the compute tier that matches your usage patterns. It is recommended to start with "General Purpose" and select an appropriate number of cores. Also note that your CPU, memory, and IOPs are tied to your compute size selection.
-  * Storage: When deploying your instance, make sure you add appropriate storage. Also remember that increased storage increases cost, and you cannot shrink your provisioned storage. Therefore, it's important to know your initial data size and predicted growth.
-  * Server Parameters: Make sure you adjust server parameters, such as ```max_connections``` that will allow all your agents to maintain connectivity to your database
-* **DB2 in Virtual Machines**: When running DB2 on Azure Virtual Machines, there are several complex factors that need to be addressed, such as performance and availability. A detailed write-up of a high-performance DB2 deployment on Azure is available here: https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw. This guide walks through sizing and performance considerations, as well as deploying a high availability DB2 cluster with Pacemaker.
-* **Oracle**: Customers who are currently using (or wish to migrate to) an Oracle Database should familiarize themselves with the following options and guides for running Oracle workloads on Azure:
-  * Design and implement an Oracle database in Azure: https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-design
-  * Oracle Interconnect for Azure: https://www.oracle.com/cloud/azure/interconnect/
+- **Azure Database for PostgreSQL, flexible server deployment model**: Due to the nature of its scale and redundancy options, the flexible server model of Azure Database for PostgreSQL is the preferred method for hosting OMS workloads in Azure. When you deploy your instance:
+  - Select the compute tier that matches your usage patterns. We recommend that you start with a general purpose tier and select an appropriate number of cores. Also note that your CPU, memory, and IOPs are tied to your compute size selection.
+  - Add appropriate storage. Also remember that increased storage increases cost, and you can't shrink your provisioned storage. As a result, it's important to know your initial data size and predicted growth.
+  - Adjust server parameters such as `max_connections` that affect your agents' ability to maintain connectivity to your database.
+- **Db2 on VMs**: When you run Db2 on Azure VMs, there are several complex factors that you need to address, such as performance and availability. For a detailed article about a high-performance DB2 deployment on Azure, see [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw). That article walks through sizing and performance considerations. It also shows you how to deploy a high availability Db2 cluster that uses Pacemaker.
+- **Oracle**: If you currently use Oracle Database, or if you plan to migrate to Oracle, familiarize yourself with the following resources for running Oracle workloads on Azure:
+  - [Design and implement an Oracle database in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-design)
+  - [Oracle Interconnect for Azure](https://www.oracle.com/cloud/azure/interconnect)
 
+### Message queue specifics
 
-### Message Queue Specifics
+Sterling OMS requires a JMS-based message broker. Most commonly, IBM MQ is used. The best way to run a highly available MQ instance in Azure is to use the [IBM MQ Helm Charts for Kubernetes deployments](https://github.com/ibm-messaging/mq-helm). You can deploy these charts into your existing Azure Red Hat OpenShift cluster onto separate workers to isolate your workloads. You can also manually deploy and install MQ onto virtual machines if you prefer.
 
-Sterling Order Management requires a JMS-based message broker. Most commonly, this is IBM MQ. Running a highly available MQ instance in Azure can best be accomplished by utilizing the IBM MQ Helm Charts for Kubernetes deployments, available here: https://github.com/ibm-messaging/mq-helm. You can deploy these charts into your existing ARO cluster onto seperate workers to isolate your workloads. You can also manually deploy and install MQ onto virtual machines if you prefer.
+As part of the standard deployment, you can define your queues at deployment time, which reduces the configuration time that's needed to spin up your instances. The standard deployment creates one active and two passive instances of your queue manager. When your deployment is complete, you can use SSH to connect to the current leader pod and define your JMS bindings file. You can then use that file to create your configuration map for your OMS deployment.
 
-As part of the standard deployment, you can define your queues at deployment time, reducing the configuration time needed to spin up your instances. Furthermore, the standard deployment will create one active and two passive instances of your queue manager. Once your deployment is complete, you can SSH into the current leader pod and define your JMS bindings file, which you can then use to create your configuration map for your OMS deployment.
-
-Note that other JMS-based message queuing systems are supported by IBM, such as ActiveMQ, which you can read more about here: https://www.ibm.com/docs/en/configurepricequote/10.0?topic=site-message-queues-in-sterling-order-management-software. Your deployment options will vary per solution.
+IBM also supports other JMS-based message queuing systems, such as ActiveMQ. For more information, see [Message queues in Sterling Order Management Software](https://www.ibm.com/docs/en/configurepricequote/10.0?topic=site-message-queues-in-sterling-order-management-software). Your deployment options vary per solution.
 
 ## Considerations
 
@@ -144,22 +143,26 @@ Azure delivers OMS by using the models of infrastructure as a service (IaaS) and
 - Physical host
 - Hypervisor
 
-Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Be sure to provide the proper security controls for your architecture. You're responsible for patching and maintaining the security of the IaaS systems. Microsoft takes that role for the PaaS services, like ARO which, although the upgrade is initiatied by the customer, is fully managed by Microsoft and Red Hat. More information about patching and upgrading ARO can be found here: https://learn.microsoft.com/en-us/azure/openshift/howto-upgrade 
+Carefully evaluate the services and technologies that you select for the areas above the hypervisor, such as the latest patched version of OpenShift for a major release. Be sure to provide the proper security controls for your architecture. You're responsible for patching and maintaining the security of the IaaS systems. Microsoft takes that role for the PaaS services like Azure Red Hat OpenShift. Even though you can initiate an upgrade for Azure Red Hat OpenShift, it's fully managed by Microsoft and Red Hat. For more information about patching and upgrading Azure Red Hat OpenShift, see [Upgrade an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/en-us/azure/openshift/howto-upgrade).
 
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your OMS services. Examples include:
 
-- Block access to all other parts of your deployed infrastructure, such as specific ports and services used by your message broker and/or backend database
-- Control which locations can have access to OMS and the OpenShift cluster
-- The port numbers and ranges you need to open depend on a number of factors, however some to consider are:
-  - Service-to-service communcation (port 443)
-  - Database-specific ports (example: port 5432 for Azure Postgres Flexible Server)
-  - Message Queue ports (example: port 1414 for IBM MQ)
-  - Azure RedHat OpensShift Cluster Nodes must have outbound internet access, or at a minimum access to the Azure Resource Manager and Service Logging endpoints.
-  - IBM also provides guidance around implementing multiple Sterling Order Management applications that share common services, like a backend database. Such deployments also have intra-application firewall considerations. For more information, please see this documentation: [Opening firewall ports for intra-app communication](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=deployment-opening-firewall-ports-intra-app-communication)
+- Blocking access to all other parts of your deployed infrastructure, such as specific ports and services that your message broker or back-end database use.
+- Controlling which locations have access to OMS and the OpenShift cluster.
 
-If you need access to your other, non-Red Hat OpenShift nodes for some reason you can access your VMs through [Azure Bastion](/azure/bastion/bastion-overview) (which is optional). For security reasons, you shouldn't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
+The port numbers and ranges you need to open depend on a number of factors. Some ports to consider are:
 
-[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) protects your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. ARO also supports Customer Managed Encryption Keys (CMEK) for the OS disks in your cluster.
+- Port 443, for service-to-service communication.
+- Database-specific ports such as port 5432 for the flexible server option of Azure Data base for PostgresSQL.
+- Message queue ports such as port 1414 for IBM MQ.
+
+Azure RedHat OpenShift cluster nodes must have outbound internet access. Or at a minimum, these nodes need access to the Azure Resource Manager and service logging endpoints.
+
+IBM also provides guidance for implementing multiple Sterling OMS applications that share common services like a backend database. Such deployments also have intra-application firewall considerations. For more information, see [Opening firewall ports for intra-app communication](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=deployment-opening-firewall-ports-intra-app-communication).
+
+If you need access to your other, non–Red Hat OpenShift nodes, you can optionally use [Azure Bastion](/azure/bastion/bastion-overview) to access your VMs. For security reasons, you shouldn't expose VMs to a network or the internet without configuring [network security groups](/azure/virtual-network/network-security-groups-overview) to control access to them.
+
+[Server-side encryption (SSE) of Azure Disk Storage](/azure/virtual-machines/disk-encryption) helps protect your data. It also helps you meet organizational security and compliance commitments. With Azure managed disks, SSE encrypts the data at rest when persisting it to the cloud. This behavior applies by default to both OS and data disks. OpenShift uses SSE by default. Azure Red Hat OpenShift also supports customer-managed encryption keys (CMEK) for the OS disks in your cluster.
 
 ### Authentication
 
@@ -173,59 +176,61 @@ Control access to the Azure resources that you deploy. Every Azure subscription 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-A standard deployment of OMS consists of the following components. Note that many of these compute-based resources can be adjusted to meet your needs (for instance scaling up your MQ agent nodes to allow greater throughput):
+A standard deployment of OMS consists of the following components. Note that many of these compute-based resources can be adjusted to meet your needs. For instance, you can scale up your MQ agent nodes to allow greater throughput.
 
-**Azure Red Hat OpenShift (OMS)**
- - 3 control VMs (Standard_D8s_v5)
- - 3 worker VMs (Standard_D8s_v5)
+#### Azure Red Hat OpenShift (OMS)
 
-**Additional Resources**
-- 1 Virtual Network (/16), with the following subnets considered:
-  - ARO Control Node Subnet (/24)
-  - ARO Worker Node Subnet (/24)
-  - Data Subnet, if needed (/27)
-  - Additional VM Subnet, if needed (/27)
-  - Manamange Subnet, if needed (/30)
-- 1 Azure Database for PostgreSQL - Flexible Server
-- 1 Azure Container Registry
-- 2 Azure Storage accounts
-- 3 DNS zones
-- 2 Load balancers
-- 1 Jump Box Virtual Machine
+- Three control VMs (Standard_D8s_v5)
+- Three worker VMs (Standard_D8s_v5)
+
+#### Additional resources
+
+- One virtual network (/16), with the following subnets considered:
+  - Azure Red Hat OpenShift control node subnet (/24)
+  - Azure Red Hat OpenShift worker node subnet (/24)
+  - Data subnet, if needed (/27)
+  - Additional VM subnet, if needed (/27)
+  - Management subnet, if needed (/30)
+- One Azure Database for PostgreSQL, flexible server
+- One Azure Container Registry
+- Two Azure Storage accounts
+- Three DNS zones
+- Two load balancers
+- One jump box VM
 - Azure Bastion
 
-Note that your deployment will differ slightly (i.e. you decide to run DB2 in Azure VMs, or deploy IBM MQ into your ARO environment). You can review an example estimate by using our [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, and you should verify your configuration with your IBM sizing team before finalizing your deployment.
+Your deployment will differ slightly, for instance, if you decide to run Db2 on Azure VMs, or if you deploy IBM MQ into your Azure Red Hat OpenShift environment. To review an example estimate, use the [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, so verify your configuration with your IBM sizing team before you finalize your deployment.
 
 ### Reliability
 
-Azure Red Hat OpenShift has built-in capabilities for self-healing, scaling, and resilience to ensure Auzre Red Hat OpenShift and OMS work successfully. Azure Red Hat OpenShift and OMS have been designed for parts that fail and recover. A key requirement for self-healing to work is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
+Azure Red Hat OpenShift has built-in capabilities for self-healing, scaling, and resilience to ensure Azure Red Hat OpenShift and OMS work successfully. Azure Red Hat OpenShift and OMS have been designed for parts that fail and recover. A key requirement for self-healing to work is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
 
-OMS and Azure Red Hat OpenShift use database storage to persist state outside of the Kubernetes cluster. Logs and other application resources are persisted to a storage account. To ensure that the storage dependencies continue to work during a failure, you should use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails. Your database deployment should also take multi-zone configurations into account.
+OMS and Azure Red Hat OpenShift use database storage to persist state outside the Kubernetes cluster. Logs and other application resources are persisted to a storage account. To ensure that the storage dependencies continue to work during a failure, use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs) whenever possible. This type of storage remains available when a zone fails. Your database deployment should also take multi-zone configurations into account.
 
-Because human error is common, you should deploy OMS by using as much automation as possible. In our [quickstart guide](https://github.com/Azure/sterling), we provide some sample scripts for setting up full, end-to-end automation.
+Because human error is common, deploy OMS by using as much automation as possible. For some sample scripts for setting up full, end-to-end automation, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/Azure/sterling) on GitHub.
 
 ## Deploy this scenario
 
-Before you start, we recommend that you review the [IBM Sterling Order Management system requirements](hhttps://www.ibm.com/docs/en/order-management-sw/10.0?topic=installing-system-requirements). In addition, be sure that you have the following resources available before starting the deployment:
+Before you start, we recommend that you review the requirements for IBM Sterling OMS in [system requirements](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=installing-system-requirements). Also ensure that you have the following resources available:
 
-- Access to an Azure Subscription with *Reader* permission
-- Application Registration or service principal name that has *Contributor* and *User Access Administrator* permissions to the subscription
-- Domain or delegated subdomain to an Azure DNS zone
-- IBM OMS entitlement key
-- IBM-recommended cluster sizing
-- Existing virtual network or a new virtual depending on your requirements. For an example of createing a new virtual network with two empty subnets, you can see an example here: https://learn.microsoft.com/en-us/azure/openshift/tutorial-create-cluster#create-a-virtual-network-containing-two-empty-subnets
-- High-availability and disaster-recovery requirements for your specific deployment
-- OMEnviroment Configuration file, aka *omenvironment.yaml*, for use when deploying OMS via the OpenShift Operator Catalog
+- Access to an Azure subscription with *Reader* permission.
+- An application registration or service principal name that has *Contributor* and *User Access Administrator* permissions to the subscription.
+- A domain or delegated subdomain to an Azure DNS zone.
+- An IBM OMS entitlement key.
+- IBM-recommended cluster sizing.
+- An existing virtual network or a new virtual network, depending on your requirements. For an example of creating a new virtual network with two empty subnets, see [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](https://learn.microsoft.com/en-us/azure/openshift/tutorial-create-cluster#create-a-virtual-network-containing-two-empty-subnets).
+- High availability and disaster recovery requirements for your specific deployment.
+- An OMEnviroment configuration file, *omenvironment.yaml*, to use when you deploy OMS via the OpenShift Operator Catalog.
 
-For a step-by-step guide for installing OpenShift and OMS on Azure, including how to address the prerequisites, see our [quickStart guide](https://github.com/Azure/sterling) on GitHub.
+For a step-by-step guide for installing OpenShift and OMS on Azure, including how to address the prerequisites, see [QuickStart Guide: Sterling Order Management on Azure](https://github.com/Azure/sterling).
 
 ### Deployment considerations
 
-The current best practice reccomendation is to deploy workloads by using infrastructure as code (IaC) rather than manually deploying workloads, because manual deployment can result in misconfiguration. Container-based workloads can be sensitive to misconfiguration, which can reduce productivity.
+The current best practice is to deploy workloads by using infrastructure as code (IaC) rather than manually deploying workloads, because manual deployment can result in misconfiguration. Container-based workloads can be sensitive to misconfiguration, which can reduce productivity.
 
-Before building your environment, review the [quickstart guide](https://github.com/azure/sterling#getting-started) to develop an understanding of the design parameters. The quickstart guide isn't intended for a production-ready deployment, but you can use the guide's assets to get to a production-grade mechanism for deployment.
+Before you build your environment, review [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling#getting-started) to develop an understanding of the design parameters. The quickstart guide isn't intended for a production-ready deployment, but you can use the guide's assets to get to a production-grade mechanism for deployment.
 
-IBM offers specialist services to help you with installation. Contact your IBM team for support. 
+IBM offers specialist services to help you with installation. Contact your IBM team for support.
 
 ## Contributors
 
@@ -261,4 +266,3 @@ For help with getting started, see the following resources:
 * [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door)
 * [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 * [IBM MQ In Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
-
