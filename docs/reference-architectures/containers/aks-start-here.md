@@ -23,7 +23,7 @@ Kubernetes is an open-source system for automating deployment, scaling, and mana
 
 Organizations are at various points in their understanding, rationalizing, and adoption of Kubernetes on Azure. Your organization's journey will likely follow a similar path to many other technologies you've adopted; learning, aligning your organization around roles &amp; responsibilities, and deploying production-ready workloads. From there, you'll iterate; growing your product as your customer and business demands change.
 
-:::image type="content" alt-text="Architecture diagram shows visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate." source="images/aks-journey.svg" lightbox="images/aks-journey.svg":::
+:::image type="content" alt-text="Architecture diagram visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate." source="images/aks-journey.svg" lightbox="images/aks-journey.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-journey.vsdx) of this architecture.*
 
