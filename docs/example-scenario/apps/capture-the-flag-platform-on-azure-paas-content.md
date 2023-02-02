@@ -22,7 +22,7 @@ This scenario covers an open capture-the-flag solution based on CTFd where custo
 
 ### Network configuration
 
-The template supports two network configuration, the one described above and a simpler configuration without virtual network, using the *vnet* input parameter. In that case the following diagram describes the solution, and the workflow step 7 mentioned above is omitted.
+The template supports two network configurations, the one described above and a simpler configuration without virtual network, using the *vnet* input parameter. In that case, the following diagram describes the solution, and the workflow step 7 mentioned above is omitted.
 
 ![Diagram showing the architecture overview of the Azure components involved in a CTFd system.][architecture-no-vnet]
 
