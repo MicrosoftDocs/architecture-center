@@ -1,5 +1,5 @@
 A Capture the Flag (CTF) event is a gamified exercise designed to test engineering skills such as cybersecurity, devops, or operational troubleshooting.
-This example scenario shows how to run a fully managed capture-the-flag (CTF) game service using Azure PaaS and the open-source [CTFd][ctfd] platform.
+This example scenario shows how to run a capture-the-flag (CTF) game service using Azure PaaS and the open-source [CTFd][ctfd] platform.
 
 ## Architecture
 
