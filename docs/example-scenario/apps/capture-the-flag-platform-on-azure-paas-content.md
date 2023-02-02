@@ -86,9 +86,11 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event and then tear it down just as easily.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
-- For information about scaling a basic web app, see [Scaling the App Service app](../../reference-architectures/app-service-web-app/basic-web-app.yml#scaling-the-app-service-app).
+
+## Performance efficiency
 - App Service's lowest tier for this solution is Basic since lower tiers do not support [Hybrid Connections][app-service-pricing] into the virtual network.
 - CTFd web application component requires at least 1 CPU and 1 GB of RAM per instance, [source][ctfd-installation].
+- For information about scaling a basic web app, see [Scaling the App Service app](../../reference-architectures/app-service-web-app/basic-web-app.yml#scaling-the-app-service-app).
 - Azure Database for MariaDB can be [scaled up][mariadb-pricing-tiers] to meet higher demands. You can dynamically change the number vCores, the amount of storage, and the pricing tier (except to and from Basic), so you should carefully consider the right tier for your target workload.
 
 ## Deploy this scenario
