@@ -33,6 +33,7 @@ This solution idea describes how you can get insights from live streaming data. 
 ### Alternatives
 
 - [Synapse Link](/azure/cosmos-db/synapse-link) is the Microsoft preferred solution for analytics on top of Azure Cosmos DB data.
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-about) alternative is [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub), which is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub.
 
 ## Scenario details
 
