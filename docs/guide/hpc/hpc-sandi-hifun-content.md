@@ -99,7 +99,7 @@ Details about the model are provided in the following tables.
 
 This graph shows the relative speed increase<sup>2</sup> as the number of CPUs increases:
 
-:::image type="content" source="media/hifun-hbv3.png" alt-text="Graph that shows the relative speed increase on an HBv3 VM." lightbox="hifun-hbv3.png" border="false":::
+:::image type="content" source="media/hifun-hbv3.png" alt-text="Graph that shows the relative speed increase on an HBv3 VM." border="false":::
 
 <sup>2</sup> The 16-CPU configuration is used as a baseline for the relative-speed calculations.
 
@@ -124,7 +124,7 @@ This graph shows the relative speed increase<sup>2</sup> as the number of CPUs i
 
 This graph shows the relative speed increase<sup>4</sup> as the number of GPUs increases:
 
-:::image type="content" source="media/hifun-ncast4.png" alt-text="Graph that shows the relative speed increase on an NCasT4 VM." lightbox="hifun-ncast4.png" border="false":::
+:::image type="content" source="media/hifun-ncast4.png" alt-text="Graph that shows the relative speed increase on an NCasT4 VM." border="false":::
 
 <sup>4</sup> The CPU configurations listed in the preceding table are used as the baselines for the relative-speed calculations.
 
