@@ -40,4 +40,4 @@ name: Reliable web app pattern for .NET
 summary: How to improve your .NET application with the reliable web app pattern.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
-   [!include[](pattern-overview.md)]
+   [!include[](pattern-overview-content.md)]

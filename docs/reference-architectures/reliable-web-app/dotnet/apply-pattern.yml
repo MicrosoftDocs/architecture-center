@@ -40,4 +40,4 @@ name: Reliable web app pattern for .NET
 summary: How to modernize your .NET application in the cloud with by applying low-cost, high-value updates to your application.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
-   [!include[](apply-pattern.md)]
+   [!include[](apply-pattern-content.md)]
