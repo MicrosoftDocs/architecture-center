@@ -416,6 +416,8 @@ items:
                 href: guide/multitenant/considerations/tenant-lifecycle.md
               - name: Pricing models
                 href: guide/multitenant/considerations/pricing-models.md
+              - name: Control planes
+                href: guide/multitenant/considerations/control-planes.yml
               - name: Measure consumption
                 href: guide/multitenant/considerations/measure-consumption.md
               - name: Deploy updates
@@ -4088,6 +4090,8 @@ items:
                 href: reference-architectures/data/profisee-master-data-management-data-factory.yml
               - name: Migrate master data services with CluedIn
                 href: reference-architectures/data/migrate-master-data-services-with-cluedin.yml
+              - name: Migrate master data services with Profisee
+                href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
               - name: Minimal storage – change feed replication
                 href: solution-ideas/articles/minimal-storage-change-feed-replicate-data.yml
               - name: Multi-region web app with private database
@@ -5391,6 +5395,8 @@ items:
             items:
               - name: Architectures
                 items:
+                  - name: Mainframe data replication with Connect
+                    href: example-scenario/mainframe/mainframe-replication-precisely-connect.yml
                   - name: Mainframe data replication with Qlik
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
@@ -5693,6 +5699,8 @@ items:
                 href: example-scenario/mainframe/general-mainframe-refactor.yml
               - name: Migrate a web app with APIM
                 href: example-scenario/apps/apim-api-scenario.yml
+              - name: Migrate master data services with Profisee
+                href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
               - name: Modernize mainframe and midrange data
                 href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
               - name: Oracle database migration
