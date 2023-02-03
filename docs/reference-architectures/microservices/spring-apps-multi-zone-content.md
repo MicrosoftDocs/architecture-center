@@ -1,4 +1,4 @@
-This reference architecture shows how to run application workloads on Azure Spring Apps using a zone-redundant configuration. [Zone-redundant services](https://learn.microsoft.com/azure/reliability/availability-zones-service-support#highly-available-services) provide high availability by replicating your services and data across availability zones to protect against single points of failure. For a deployment of this architecture using Terraform templates, see [Deploy this scenario](#deploy-this-scenario).
+This reference architecture shows how to run application workloads on Azure Spring Apps using a zone-redundant configuration. [Zone-redundant services](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support) provide high availability by replicating your services and data across availability zones to protect against single points of failure. For a deployment of this architecture using Terraform templates, see [Deploy this scenario](#deploy-this-scenario).
 
 ## Architecture
 
@@ -12,7 +12,7 @@ This reference architecture shows how to run application workloads on Azure Spri
 
 1. Application Gateway deploys with [Azure Web Application Firewall](/azure/web-application-firewall/overview). The Application Gateway is configured with a custom domain name and TLS certificate name. Web Application Firewall will add checking for [OWASP](https://owasp.org/) (The Open Web Application Security Project) vulnerabilities.
 
-1. Application Gateway forwards allowed traffic to the Azure Spring Apps load balancers, which allow incoming calls only from the Application Gateway.
+1. Azure Application Gateway forwards allowed traffic to the Azure Spring Apps load balancers, which allow incoming calls only from the Application Gateway.
 
 1. Azure Spring Apps runs the application workload inside a virtual network in a zone redundant setup.
 
@@ -20,9 +20,9 @@ This reference architecture shows how to run application workloads on Azure Spri
 
    - [Azure Key Vault](/azure/key-vault/general/overview) stores application secrets and certificates. The microservices running in Azure Spring Apps use the application secrets. Azure Spring Apps, Application Gateway, and Azure Front Door use the certificates for host name preservation.
 
-1. An [Azure Flexible Database for MySQL](/azure/mysql/flexible-server/overview) is being used for data storage, but you can use any database. For alternatives, see [Backend database](#backend-database). The database server is deployed within the virtual network.
+1. An [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview) is being used for data storage, but you can use any database. For alternatives, see [Backend database](#backend-database). The database server is deployed within the virtual network.
 
-1. The private endpoint and network integrated connections use an [Azure Private DNS Zone](https://learn.microsoft.comazure/dns/private-dns-getstarted-cli).
+1. The private endpoint and network integrated connections use an [Azure private DNS zone](/azure/dns/private-dns-getstarted-cli).
 
 ### Components
 
@@ -30,7 +30,7 @@ This reference architecture shows how to run application workloads on Azure Spri
 - [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a web-traffic load balancer that lets you manage traffic to your web applications. Application Gateway acts as a local reverse proxy in a region where your application runs in. For alternative reverse proxy setups, see [Reverse proxy setup](#reverse-proxy-setup). The Application Gateway is also set up to use multiple availability zones.
 - [Azure Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks Open Web Application Security Project (OWASP) exploits.
 - [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) makes it easy to deploy Java Spring Boot applications to Azure without any code changes. You can easily make it zone redundant by setting the `zone redundant` option. When doing so, all underlying infrastructure of the service will be spread across multiple availability zones. This zone spreading allows for an overall higher availability of your applications using the service.
-- [Azure Flexible Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service in the Azure cloud that's based on the MySQL Community Edition.
+- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service in the Azure cloud that's based on the MySQL Community Edition.
 - [Key Vault](https://azure.microsoft.com/products/key-vault) is one of several key-management solutions in Azure that help manage keys, secrets, and certificates. This solution uses Key Vault for storing application secrets and the certificates that Application Gateway and Azure Spring Apps use.
 - [Azure resource groups](https://azure.microsoft.com/get-started/azure-portal/resource-manager) are logical containers for Azure resources. In this solution, resource groups organize components within a region. As a naming convention, the setup includes a short string for the component's region, so it's easy to identify which in region the component is running.
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This solution uses a virtual network for each region to which you deploy.
@@ -108,7 +108,7 @@ Key Vault is automatically zone-redundant in any region where availability zones
 
 ### MySQL Flexible Server
 
-[MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network allows configuring high availability with automatic failover. The high-availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. Including the database.
+[Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network allows configuring high availability with automatic failover. The high-availability solution is designed to ensure that committed data is never lost because of failures and that the database won't be a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When using availability zones in your architecture, you should make sure you use availability zones for all the components in your setup. Including the database.
 
 When configuring high availability for your Azure Database for MySQL Flexible Server, you can choose between `Zone-redundant HA` and `same-zone HA`. What option you choose will depend on your latency requirements.
 
@@ -118,7 +118,7 @@ Automate your deployments as much as possible. You should automate infrastructur
 
 Automating infrastructure deployments guarantees that infrastructure is configured the same, avoiding configuration drift (for example, between environments). Infrastructure automation can also help you test failing over and quickly bringing up a secondary region.
 
-You can also use a [blue-green](../../example-scenario/blue-green-spring/blue-green-spring.yml) or canary deployment strategy.
+You can also use a [blue-green](/azure/architecture/example-scenario/blue-green-spring/blue-green-spring) or canary deployment strategy.
 
 ## Considerations
 
@@ -200,6 +200,6 @@ Principal author:
 
 - [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
 - [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
-- [High-availability blue/green deployment](../../example-scenario/blue-green-spring/blue-green-spring.yml)
-- [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../best-practices/host-name-preservation.yml)
-- [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
+- [High-availability blue/green deployment](/azure/architecture/example-scenario/blue-green-spring/blue-green-spring)
+- [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation)
+- [Multiregion web app with private connectivity to a database](/azure/architecture/example-scenario/sql-failover/app-service-private-sql-multi-region)
