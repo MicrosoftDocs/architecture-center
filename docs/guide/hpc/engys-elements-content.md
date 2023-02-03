@@ -187,6 +187,16 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 |8|	0.148|
 |16	|0.162|
 
+### Cost for Model 2 - Automotive_GTU-0001
+
+|Number of Nodes|	Solver time (Hr)|
+|-|-|
+|1| 28.888|
+|2|	 13.622|
+|4|	 6.249|
+|8|	 2.990|
+|16	| 1.761|
+
 ## Summary
 
 - ELEMENTS 3.5.0 was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) configurations.
@@ -212,14 +222,14 @@ Other contributors:
 
 ## Next steps
 
-- GPU Optimized Virtual Machine Sizes
-- Windows Virtual Machines in Azure
-- Virtual networks and virtual machines on Azure
-- Learning path: Run high-performance computing (HPC) applications on Azure
+- [GPU Optimized Virtual Machine Sizes](/azure/virtual-machines/sizes-gpu)
+- [Windows Virtual Machines in Azure](/azure/virtual-machines/windows/overview)
+- [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
-- Run a Linux VM on Azure
-- Run a Windows VM on Azure
-- HPC system and big-compute solutions
-- HPC cluster deployed in the cloud
+- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
+- [Run a Windows VM on Azure]()
+- [HPC system and big-compute solutions]()
+- [HPC cluster deployed in the cloud]()
