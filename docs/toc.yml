@@ -6605,14 +6605,14 @@ items:
                 href: patterns/category/design-implementation.md
               - name: Enterprise app patterns
               - items:
-                  - name: Reliable web app pattern
+                - name: Reliable web app pattern
+                - items: 
+                  - name: .NET 
                   - items: 
-                      - name: .NET 
-                      - items: 
-                          - name: Pattern overview
-                          - href: reference-architecture/reliable-web-app/pattern-overview.yml
-                          - name: Apply pattern
-                          - href: reference-architecture/reliable-web-app/apply-pattern.yml
+                    - name: Planning and architecture
+                    - href: reference-architecture/reliable-web-app/pattern-overview.yml
+                    - name: How to apply pattern
+                    - href: reference-architecture/reliable-web-app/apply-pattern.yml
               - name: App Service considerations
                 items:
                   - name: Deployment best practices
