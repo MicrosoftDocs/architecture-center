@@ -6610,9 +6610,9 @@ items:
                       - name: .NET 
                         items: 
                           - name: Planning and architecture
-                          - href: reference-architecture/reliable-web-app/dotnet/pattern-overview.yml
+                            href: reference-architecture/reliable-web-app/dotnet/pattern-overview.yml
                           - name: How to apply the pattern
-                          - href: reference-architecture/reliable-web-app/dotnet/apply-pattern.yml
+                            href: reference-architecture/reliable-web-app/dotnet/apply-pattern.yml
               - name: App Service considerations
                 items:
                   - name: Deployment best practices
