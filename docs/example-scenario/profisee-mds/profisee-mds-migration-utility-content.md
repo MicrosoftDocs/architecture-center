@@ -130,7 +130,7 @@ Entities, hierarchies, users and groups, and data seamlessly migrate to Profisee
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-I you're a customer of Profisee MDM SaaS, your data hosts on Azure in regional pairs. The resources used to host Profisee Cloud are deployed across region pairs. The resources apply multiple availability zones within a region for high availability, geo-replication across regions for disaster recovery, and strong backup policies. These options enable minimal downtime, fast recovery, and seamless failover if necessary.
+You're a customer of Profisee MDM SaaS, your data hosts on Azure in regional pairs. The resources used to host Profisee Cloud are deployed across region pairs. The resources apply multiple availability zones within a region for high availability, geo-replication across regions for disaster recovery, and strong backup policies. These options enable minimal downtime, fast recovery, and seamless failover if necessary.
 
 Profisee is a cloud-native application that runs on Azure services, including Azure Kubernetes Service (AKS), Azure SQL, and Azure Storage accounts. The Profisee SaaS offering uses these underlying services to provide high availability within an Azure region and the ability to fail over to an alternative Azure region if a major outage in an Azure region occurs.
 
