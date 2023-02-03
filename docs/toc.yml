@@ -5505,8 +5505,6 @@ items:
                 href: solution-ideas/articles/backup-archive-on-premises-applications.yml
               - name: Centralize app configuration and security
                 href: solution-ideas/articles/appconfig-key-vault.yml
-              - name: Data sovereignty and data gravity
-                href: solution-ideas/articles/data-sovereignty-and-gravity.yml
               - name: Deploy AKS and API Management with mTLS
                 href: solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml
               - name: Enterprise-scale disaster recovery
