@@ -1,7 +1,7 @@
 
 For your initial convergence on the cloud, you should adopt the reliable web application pattern for .NET. The reliable web app pattern for .NET features several low-cost, high-value code and architecture enhancements to capitalize on the cloud and rapidly improve the reliability of your .NET application.
 
-This article shows you how to apply the reliable web app pattern for .NET and provides recommendations that follow the the pillars of the Well-Architected Framework. There's a companion [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy, and the guidance refers to the reference implementation throughout to show how you can apply the pattern. The reference implementation deploys an application with the following architecture.
+This article shows you how to apply the reliable web app pattern for .NET and provides recommendations that follow the pillars of the Well-Architected Framework. There's a companion [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. This article refers to the reference implementation throughout to demonstrate the changes you need to make and how to apply the reliable web app pattern for .NET web apps. The reference implementation deploys an application with the following architecture.
 
 ![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
@@ -13,7 +13,7 @@ A reliable workload is one that is both resilient and available. Resiliency is t
 
 ### Use the retry pattern
 
-The retry pattern is a best practice for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They are transient because they typically resolve themselves in a few seconds. On-premises environments experience transient faults, and your application already use the retry pattern.
+The retry pattern is a best practice for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They're transient because they typically resolve themselves in a few seconds. On-premises environments experience transient faults, and your application already use the retry pattern.
 
 In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network hops across compute nodes. The retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception.
 
@@ -108,7 +108,7 @@ The Polly `HttpPolicyExtensions` object and `HandleTransientHttpError()` method 
 
 ## Security
 
-Cloud applications benefit from using multiple Azure services, and communication between those services across compute nodes needs to be secure, and enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, we recommend using managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
+Cloud applications benefit from using multiple Azure services, and communication between those services across compute nodes needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, we recommend using managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
 
 ### Use managed identities
 
@@ -120,13 +120,13 @@ Managed identities are similar to connection strings in on-premises applications
 
 **Authorization:** Governing these actions is a key tenet of security. When granting access to a resource, we recommend that you always grant the least permissions needed. Using extra permissions when not needed gives attackers more opportunity to compromise the confidentiality, integrity, or the availability of your solution.
 
-*Reference implementation:* The reference implementation grants the managed identity root access to SQL server because it uses Entity Framework Code First Migrations. You shouldn’t do this in your environment because it could create a race condition. The reference implementation needed root access to create the database schema and populate data. To manage your SQL schema, you should reduce these permissions to read/write access.
+*Reference implementation:* The reference implementation grants the managed identity root access to SQL server because it uses Entity Framework Code First Migrations. You shouldn’t do follow this approach in your environment because it could create a race condition. The reference implementation needed root access to create the database schema and populate data. To manage your SQL schema, you should reduce these permissions to read/write access.
 
-**Accounting:** By default, Azure resources come with connection strings, and secret keys, but these connections are not identity based. Secret keys don’t track the resources connecting. When an app uses the secret key to connect, you lose traceability and context behind each connection. You lose the ability to govern what permissions should be applied to during a connection. With managed identities, you can understand who is connecting to your resources and set the appropriate permissions for that user or service. For more information, see:
+**Accounting:** By default, Azure resources come with connection strings, and secret keys, but these connections aren't identity based. Secret keys don’t track the resources connecting. When an app uses the secret key to connect, you lose traceability and context behind each connection. You lose the ability to govern what permissions should be applied to during a connection. With managed identities, you can understand who is connecting to your resources and set the appropriate permissions for that user or service. For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
-- [Azure Services with managed identities support](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
+- [Azure Services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
 **How to set up managed identities.** Managed identities have two components. There’s a code component and the infrastructure component. We recommend the `DefaultAzureCredential` class to set up the code and infrastructure-as-code (IaC) to set up the infrastructure.
@@ -172,7 +172,7 @@ Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-databa
 
 ### Use a central secrets store
 
-Not every service supports managed identities, and sometimes you have to use secrets. When this happens, you must externalize the application configurations and put the secrets in a central secret store. In Azure, the central secret store is Azure Key Vault.
+Not every service supports managed identities, and sometimes you have to use secrets. In these situations, you must externalize the application configurations and put the secrets in a central secret store. In Azure, the central secret store is Azure Key Vault.
 
 Many on-premises environments don’t have central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotating keys, and audit key access. For more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
 
@@ -191,7 +191,7 @@ By default, service communication to certain Azure services traverses the public
 
 ## Cost optimization
 
-Cost optimization principles balance business goals with budget justification to create a cost-effective workload. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For the initial move to the cloud, there are three best practices you should implement right away to optimize cost. These recommendation center on three concepts. The cloud services you use should meet not exceed the needs of each environment. Automate horizontal scaling to meet changes in user demands, and use automation to delete resources when unneeded. Here are our recommendations for cost optimization after migration.
+Cost optimization principles balance business goals with budget justification to create a cost-effective workload. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For the initial move to the cloud, there are three best practices you should implement right away to optimize cost. These recommendations center on three concepts. The cloud services you use should meet, not exceed, the needs of each environment. Automate horizontal scaling to meet changes in user demands, and use automation to delete resources when unneeded. Here are our recommendations for cost optimization after migration.
 
 ### Right-size resources for each environment
 
@@ -214,16 +214,16 @@ var redisCacheCapacity = isProd ? 1 : 0
 
 [See this code in content](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4704f6f43bb9669ebd97716e9e7b6e8ba97d6ebf/infra/azureRedisCache.bicep#L21).
 
-We chose the StandardC1 SKU for the production environment and the BasicC0 SKU for the non-production environment. The BasicC0 SKU costs significantly less than the StandardC1 SKU. It provides the behavior we need for testing without the data capacity or availability targets we would need for our production environment (see table). For more information, see [SKU pricing Azure Cache for Redis](/pricing/details/cache/).
+We chose the StandardC1 SKU for the production environment and the BasicC0 SKU for the non-production environment. The BasicC0 SKU costs less than the StandardC1 SKU. It provides the behavior we need for testing without the data capacity or availability targets we would need for our production environment (see table). For more information, see [SKU pricing Azure Cache for Redis](/pricing/details/cache/).
 
 *Table 1. Comparison of the production and non-production cache SKUs*
 |   | StandardC1 SKU | BasicC0 SKU|
 | --- | --- | --- |
-|**SKU Features**| 1GB cache <br> Dedicated service <br> 99.9% Availability SLA <br> Up to 1,000 connections |250MB cache <br> Shared infrastructure <br> No SLA <br> Up to 256 connections
+|**SKU Features**| 1-GB cache <br> Dedicated service <br> 99.9% Availability SLA <br> Up to 1,000 connections |250-MB cache <br> Shared infrastructure <br> No SLA <br> Up to 256 connections
 
 ### Automate scaling the environment
 
-You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. We don’t recommend increasing the size of your virtual machines to meet frequent change in demand (vertical scaling) because it’s less cost efficient. For more information, see :
+You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. We don’t recommend increasing the size of your virtual machines to meet frequent change in demand (vertical scaling) because it’s less cost efficient. For more information, see:
 
 - [Scaling in Azure App Service](/azure/app-service/manage-scale-up)
 - [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
@@ -257,7 +257,7 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4704f6f43bb9669ebd97716e9e7b6e8ba97d6ebf/infra/resources.bicep#L343)
 
-We use CPU as the trigger. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. Scaling out at 85% CPU usage, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic due to sticky sessions. It also protects against high bursts of traffic by scaling early to avoid max CPU usage. These autoscale rules aren’t universal. You need to configure and adapt scaling rules to meet the behavior of your application.
+CPU usage is the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting at 85% CPU usage, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic due to sticky sessions. It also protects against high bursts of traffic by scaling early to avoid max CPU usage. These autoscale rules aren’t universal. You need to configure and adapt scaling rules to meet the behavior of your application.
 
 ### Delete non-production environments
 
@@ -271,16 +271,16 @@ We recommend using a single cache instance to support multiple data types. Anoth
 
 ## Operational excellence
 
-Organizations that move to cloud and apply a DevOps methodology see greater returns on investment. Infrastructure-as-code (Iac) is a key tenant of DevOps, and the reliable web app pattern uses IaC (bicep) to deploy application infrastructure, configure services, and setup application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry, and when fed into a DevOps framework, they help rapidly improve your application. Here are the recommendations for operational excellence with the reliable web app pattern.
+A DevOps methodology provides a greater return on investment for organizations in the cloud. Infrastructure-as-code (IaC) is a key tenant of DevOps. The reliable web app pattern uses IaC (bicep) to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry, and when fed into a DevOps framework, they help rapidly improve your application. Here are the recommendations for operational excellence with the reliable web app pattern.
 
 ### Automate deployments
 
-You should use an DevOps pipeline to deploy changes from source control to production. If you’re using Azure DevOps, you should use Azure Pipelines. If you don’t have anything and are using GitHub, you should explore GitHub actions.  Automating deployments with IaC offers the following benefits:
+You should use a DevOps pipeline to deploy changes from source control to production. If you’re using Azure DevOps, you should use Azure Pipelines. If you don’t have anything and are using GitHub, you should explore GitHub actions.  Automating deployments with IaC offers the following benefits:
 
 - **Resolves production issues faster:** IaC creates consistent environments that foster predictable behaviors in production. The development team can quickly create a copy of the production environment to troubleshot production issues.
 - **Applies changes consistently across environments:** We recommend using IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment pipeline. When  you deploy a fix to the development environment, the same change applies to other environments.
-- **Maximizes productivity:** Use automation to quickly set up new environments and reduce the operational overhead managing environments manually.
-- **Improves governance:** IaC makes it easier to audit and review production changes deployed to Azure because it is checked into source control.
+- **Maximizes productivity:** Use automation to set up new environments and reduce the operational overhead managing environments manually.
+- **Improves governance:** IaC makes it easier to audit and review production changes deployed to Azure because it's checked into source control.
 
 For more information, see guide to using repeatable infrastructure.
 
@@ -320,7 +320,7 @@ public void ConfigureServices(IServiceCollection services)
 - `RemoveFromCart`: records what ticket users remove from the cart ([see code](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Controllers/CartController.cs#L111)).
 - `CheckoutCart`: records an event every time a user buys a ticket ([see code](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Controllers/CartController.cs#L165)).
 
-You can find the telemetry from `TelemetryClient` in the Azure Portal. Go to Application Insights, and under “Usage” select the “Events”. For more information, see [Application Insights TrackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent).
+You can find the telemetry from `TelemetryClient` in the Azure portal. Go to Application Insights, and under “Usage” select the “Events”. For more information, see [Application Insights TrackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent).
 
 The following code uses `this.telemetryClient.TrackEvent()` to count the tickets added to the cart. It gives the event name (`AddToCart`) and specifies the output (a dictionary with the `concertId` and `count`). You should turn the query into an Azure Dashboard widget.
 
@@ -401,9 +401,9 @@ public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web.Api/Services/SqlDatabaseConcertRepository/SqlDatabaseConcertRepository.cs#L67).
 
-The method populates the cache with the ten latest concerts. The method filters by time, sorts, and returns data to the controller to display the results.
+The method populates the cache with the 10 latest concerts. The method filters by time, sorts, and returns data to the controller to display the results.
 
-**Right-size the database for cost savings.** The cache-aside pattern lessens the demand on the database. The reduced load on the database creates a potential opportunity to select a cheaper SKU and decrease costs. We recommend using Azure Monitor and Azure SQL Analytics to track CPU, memory, and storage of the database to see if you can use a smaller database SKU and save money.
+**Right-size the database for cost savings.** The cache-aside pattern lessens the demand on the database. The reduced load on the database creates a potential opportunity to select a cheaper SKU and decrease costs. You should use Azure Monitor and Azure SQL Analytics to track CPU, memory, and storage of the database. With these metrics, you can determine if a smaller database SKU is possible and reduce cost.
 
 **Keep cache data fresh.** You should periodically refresh the data in the cache to keep it relevant. The process involves getting the latest version of the data from the database to ensure the cache has the most requested data and most up-to-date information. The goal is to ensure users get current data fast. The frequency of the refreshes depends on the application.
 
@@ -421,7 +421,7 @@ public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web.Api/Services/SqlDatabaseConcertRepository/SqlDatabaseConcertRepository.cs#L28).
 
-**Ensure data consistency.** You need to change cached data whenever a user makes an update. You can achieve this with an event driven system or by ensuring that the cached data is only accessed directly from the repository class that is responsible for handling the create and edit events.
+**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event driven system can make these updates. Another option is to ensure cached data is only accessed directly from the repository class responsible for handling the create and edit events.
 
 ***Reference implementation:*** The reference implementation uses the `UpdateConcertAsync()` method to keep the data in the cache consistent.
 
@@ -447,25 +447,23 @@ The reliable web application pattern is the first phase in cloud adoption journe
 
 We’re developing the second and third phases of this guidance: the modern web application pattern and the scalable web application. When ready, these articles will show you how to further modify the application and reach the business objectives of each phase.
 
-## Additional resources
+## More resources
 
-**Cloud best practices:** For further guidance on how to build Azure solutions that align with Microsoft's best practices, see:
+**Cloud best-practices:** For Microsoft's best practices, see:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview): It helps an organization prepare and execute their strategy to build solutions on Azure.
 - [Well Architected Framework](/azure/architecture/framework/): Describes the best practices and design principles that should be applied when designing Azure solutions that align with Microsoft's recommended best practices.
 - [Azure Architectures](/azure/architecture/browse/): Provides architecture diagrams and technology descriptions for reference architectures, real world examples of cloud architectures, and solution ideas for common workloads on Azure.
 - [Azure Architecture Center fundamentals](/azure/architecture/guide/): Provides a library of content that presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available.
 
-**Azure Migration.** The following tools and resources can help you with migrating on-prem resources to Azure.
+**Azure Migration:** The following tools and resources can help you with migrating on-premises resources to Azure.
 
 - [Azure Migrate](/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment, migration of web apps, SQL server, and Virtual Machines.
 - [Azure Database Migration Guides](/data-migration/) provides resources for different database types, and different tools designed for your migration scenario.
 - [Azure App Service Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) is deployment architecture guidance for hardening and scaling Azure App Service deployments.
 
-**Upgrading .NET Framework applications.** The reference implementation deploys to an App Service running Windows, but it’s capable of running on Linux. The Azure App Service windows platform enables customers to move .NET Framework web apps to Azure without upgrading to newer framework versions.
+**Upgrading .NET Framework applications:** The reference implementation deploys to an App Service running Windows, but it’s capable of running on Linux. The Azure App Service windows platform enables customers to move .NET Framework web apps to Azure without upgrading to newer framework versions. If you want Linux App Service plans, or new features and performance improvements added to the latest versions of dotnet, you should use the following guidance.
 
-If you want Linux App Service plans, or new features and performance improvements added to the latest versions of dotnet, you should use the following guidance.
-
-- [Overview of porting from .NET Framework to .NET](/dotnet/core/porting/) - A starting point for finding additional guidance based on your specific type of .NET app.
-- [Overview of the .NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview) - A console tool that can help automate many of the tasks associated with upgrading .NET framework projects.
-- [Migrating from ASP.NET to ASP.NET Core in Visual Studio](/dotnet/introducing-project-migrations-visual-studio-extension/) - The ASP.NET Core team is developing a Visual Studio extension that can assist with incremental migrations of web apps.
+- [Overview of porting from .NET Framework to .NET](/dotnet/core/porting/): A starting point for finding more guidance based on your specific type of .NET app.
+- [Overview of the .NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview): A console tool that can help automate many of the tasks associated with upgrading .NET framework projects.
+- [Migrating from ASP.NET to ASP.NET Core in Visual Studio](/dotnet/introducing-project-migrations-visual-studio-extension/): The ASP.NET Core team is developing a Visual Studio extension that can assist with incremental migrations of web apps.

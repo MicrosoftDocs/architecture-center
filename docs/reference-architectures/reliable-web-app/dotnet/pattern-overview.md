@@ -1,6 +1,6 @@
 The reliable web app pattern is a set of best practices built on the Azure Well-Architected Framework that helps developers successfully migrate applications to the cloud and achieve reliability, scalability, and security. The reliable web application pattern is the first phase in cloud adoption journey. For more information, see [CAF cloud adoption overview](/azure/cloud-adoption-framework/adopt/).
 
-This guide shows you how to apply the reliable web application pattern to a legacy, line-of-business (LOB) ASP.NET web application migrating to the cloud. We simulate the developer cloud adoption journey and show you how to apply the reliable web app pattern while converging on the cloud. The guidance includes an enterprise-grade reference implementation that you can deploy in your environment and gain additional insight.
+This guide shows you how to apply the reliable web application pattern to a legacy, line-of-business (LOB) ASP.NET web application migrating to the cloud. We simulate the developer cloud adoption journey and show you how to apply the reliable web app pattern while converging on the cloud. The guidance includes an enterprise-grade reference implementation that you can deploy in your environment and gain more insight.
 
 | Objectives | Implementations for .NET |
 | --- | --- |
@@ -52,7 +52,7 @@ For Relecloud, available is when customers can purchase tickets. A service like 
 | [Azure Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) |  99.9% |
 | [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8/) |  99.99% |
 
-Calculating the composite SLA for a single-region deployment resulted in an SLA of 99.56%, 38 hours of downtime per year. This SLA created unacceptable business risk. So they deployed the web app to two regions. The multi-region availability formula is `(1 - (1 − N) ^ R)`. `N` represents the composite SLA and `R` the number of regions. Two regions improves the SLA of each region to 99.99% availability. However, now there's a need for a global load balancer, Azure Front Door, to route traffic between the two regions. Front Door has an SLA of 99.99%. The composite availability for the multi-region web app becomes 99.98% and exceeds the SLO of 99.9%.
+Calculating the composite SLA for a single-region deployment resulted in an SLA of 99.56%, 38 hours of downtime per year. This SLA created unacceptable business risk. So they deployed the web app to two regions. The multi-region availability formula is `(1 - (1 − N) ^ R)`. `N` represents the composite SLA and `R` the number of regions. Two regions improve the SLA of each region to 99.99% availability. However, now there's a need for a global load balancer, Azure Front Door, to route traffic between the two regions. Front Door has an SLA of 99.99%. The composite availability for the multi-region web app becomes 99.98% and exceeds the SLO of 99.9%.
 
 ## Cost
 
@@ -63,16 +63,16 @@ The guidance covers cost-optimiztion in more depth, but we wanted to give you so
 
 ## Choose the right services
 
-Choosing the right Azure services is an important part of the planning phase before moving your app to Azure. Understanding the level of performance and availability you need for your app will have an impact on the total cost to run your solution. You should start by defining a target SLO for your solution and use that information to determine which products and SKUs you should be using. We provide our decision process for each service in the solution. The main requirement was reaching an SLA of 99.9% for the production environment.
+Choosing the right Azure services is an important part of the planning phase before moving your app to Azure. Understanding the level of performance and availability you need for your app affects the total cost to run your solution. You should start by defining a target SLO for your solution and use that information to determine which products and SKUs you should be using. We provide our decision process for each service in the solution. The main requirement was reaching an SLA of 99.9% for the production environment.
 
 ### Web application host
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). But we chose Azure App Service because it met the following requirements:
 
 - **High SLA:** It has a 99.95% uptime SLA and meets our requirements for the production environment.
-- **Reduced management overhead:** It's is a fully managed solution that handles scaling, health checks, and load balancing.
+- **Reduced management overhead:** It's a fully managed solution that handles scaling, health checks, and load balancing.
 - **.NET support:** It supports the latest version of .NET.
-- **Containerization capability:** We can converge on the cloud without containerizing the app, but we have the option to containerize without changing Azure services.
+- **Containerization capability:** We can converge on the cloud without containerizing the app, but we can also containerize in the future without changing Azure services.
 - **Autoscaling:** The web app can automatically scale up, down, in, and out based on user traffic and settings we control.
 
 ### Identity management
@@ -103,7 +103,7 @@ Choosing the right Azure services is an important part of the planning phase bef
 - **Troubleshooting:** It helps diagnose issues in our running app.
 - **Telemetry:** It collects information about how users are using the app and allows us to easily send custom events we want to track in our app.
 
-Azure Monitor is a comprehensive suite of monitoring tools to collect data from a variety of Azure services. Review the following concepts to quickly come up to speed on its capabilities:
+Azure Monitor is a comprehensive suite of monitoring tools to collect data from various Azure services. Review the following concepts to quickly come up to speed on its capabilities:
 
 - [Smart detection in application insights](/azure/azure-monitor/alerts/proactive-diagnostics)
 - [Application Map: Triaging Distributed Applications](/azure/azure-monitor/app/app-map?tabs=net)
@@ -123,7 +123,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Global load balancer
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-seven, global load balancer that uses the Azure backbone network to route traffic between regions. This choice sets up additional features such as Web Application Firewall and positions us to use a content delivery network to provide site acceleration as traffic to the web app increases. We chose Azure Front Door because it provides the following capabilities.
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-seven, global load balancer that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions us to use a content delivery network to provide site acceleration as traffic to the web app increases. We chose Azure Front Door because it provides the following capabilities.
 
 - **Traffic acceleration:** It uses anycast to reach the nearest Azure point of presence and find the fastest route to our web app.
 - **Custom domains:** It supports custom domain names with flexible domain validation.
@@ -136,7 +136,7 @@ Azure has several load balancer options. Make note of your current system capabi
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection without sacrificing performance. This also provides a platform the team can monitor and configure to address security concerns from botnets. We wanted to use WAF to protect against the following threats:
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection without sacrificing performance. WAF also provides a platform the team can monitor and configure to address security concerns from botnets. We wanted to use WAF to protect against the following threats:
 
 - Cross-site scripting
 - Java attacks
@@ -153,7 +153,7 @@ Azure has several load balancer options. Make note of your current system capabi
 [Azure App Configuration](/azure/azure-app-configuration/overview) is a service to centrally manage application settings and feature flags. We chose to take a dependency on Azure App Configuration to manage our configuration data. Our configuration requirements are:
 
 - **Central configuration store:** The application uses configuration data, and we needed a central store for this data, not secrets.
-- **Flexibility:** It supports feature flags. Feature flags allow users to opt-in and opt-out of early preview features in a production environment without redeploying the app.
+- **Flexibility:** It supports feature flags. Feature flags allow users to opt in and opt-out of early preview features in a production environment without redeploying the app.
 - **Supports git pipeline:** The source of truth for configuration data needed to be a git repository. The pipeline needed to update the data in the central configuration store.
 - **Supports managed identities:** We want to use managed identities to simplify and secure our connection to our configuration store.
 
@@ -174,8 +174,8 @@ You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder
 
 [Azure Storage](/azure/storage/common/storage-introduction) provides storage queue storage for message driven communication and file storage. We use Azure Storage for both. Azure Storage Queues holds purchases that are pending PDF generation and Blob Storage stores the resulting ticket PDFs. The following requirements led us to use Azure Storage Queues for our queuing needs. If you have a queue scenario in your app, review the [messaging options available](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
-- **Random ordering:** It need to ensure a specific order for message delivery.
-- **Idempotency at consumer:** Message consumption is idempotent, so at-most-once delivery is not required.
+- **Random ordering:** The app doesn't need to ensure a specific order for message deliver, so random ordering supports the needs of the app.
+- **Idempotency at consumer:** Message consumption is idempotent, so at-most-once delivery isn't required.
 - **Batch processing:** We wanted to pull a batch of work items from the queue for each operation.
 - **Auditing:** We need to audit server-side transaction logs.
 - **Managed identities:** We wanted to authenticate to our queue using managed identities.
@@ -185,13 +185,13 @@ For Blob Storage, we chose Zone-redundant storage (ZRS). Zone-redundant storage 
 - **Secure endpoint:** We didn’t want endpoints for accessing storage exposed to the public internet
 - **Secrets management:** We wanted to manage our encryption keys using our own certificates.
 - **Encryption:** It encrypts data at rest and in transit.
-- **Resiliency:** Blob storage provides  data should be extremely resilient against loss
+- **Resiliency:** Blob storage provides  data should be resilient against loss
 
 You can use Key Vault to manage the certificates used to encrypt the storage account, and private endpoints to allow clients to securely access data over a Private Link.
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) lets you to access PaaS Services (such as, Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. You can avoid exposing your service to the public internet. You use Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure SQL Database. Azure Private DNS integrates with Azure App Service to extend DNS resolution so that the private IP address is provided for public hostnames. This enables a web app to connect to Azure SQL Database which requires connections to use the public hostname when connecting to the private IP address. We chose Azure Private Link for the following benefits.
+[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. You can avoid exposing your service to the public internet. You use Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure SQL Database. Azure Private DNS integrates with Azure App Service to extend DNS resolution so that the private IP address is provided for a public hostname. This integration enables a web app to connect to Azure SQL Database, which requires connections to use the public hostname when connecting to the private IP address. We chose Azure Private Link for the following benefits.
 
 - **Secure communication:** It lets the application privately access services on the Azure platform. Reduces the network footprint of data stores to protect against data leakage.
 - **On-premises connectivity:** You can access services running in Azure from on-premises over ExpressRoute private peering.
