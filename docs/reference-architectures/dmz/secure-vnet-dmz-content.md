@@ -120,8 +120,6 @@ You can find additional information about monitoring and managing VPN and Expres
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
-
 This reference architecture implements multiple levels of security.
 
 #### Routing all on-premises user requests through Azure Firewall
@@ -131,6 +129,10 @@ The user-defined route in the gateway subnet blocks all user requests other than
 #### Using NSGs to block/pass traffic to spoke virtual network subnets
 
 Traffic to and from resource subnets in spoke virtual networks is restricted by using NSGs. If you have a requirement to expand the NSG rules to allow broader access to these resources, weigh these requirements against the security risks. Each new inbound pathway represents an opportunity for accidental or purposeful data leakage or application damage.
+
+#### DDoS protection
+
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### Use AVNM to create baseline Security Admin rules
 
