@@ -1,4 +1,4 @@
-Implementing reliable messaging in distributed systems can be challenging, specifically when it comes to [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events. To accomplish this, you'll use Azure Cosmos DB transactional batches and change feed in combination with Azure Service Bus.
+Implementing reliable messaging in distributed systems can be challenging. This article describes how to use the Transactional Outbox pattern for reliable messaging and guaranteed delivery of events, an important part of supporting [idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing). To accomplish this, you'll use Azure Cosmos DB transactional batches and change feed in combination with Azure Service Bus.
 
 ## Overview 
 
