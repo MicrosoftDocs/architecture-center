@@ -80,6 +80,10 @@ One backup strategy is to use Oracle Recovery Manager (RMAN) and Azure Backup fo
 
 Optionally use Azure Blob Fuse to mount a highly redundant Azure Blob Storage account and write your RMAN backups to it for added resiliency.
 
+#### Security
+
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 ### Business continuity and disaster recovery
 
 For business continuity and disaster recovery, consider deploying the following software:
