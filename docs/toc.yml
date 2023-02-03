@@ -6603,6 +6603,16 @@ items:
                 href: guide/design-principles/index.md
               - name: Design and implementation patterns
                 href: patterns/category/design-implementation.md
+              - name: Enterprise app patterns
+              - items:
+                  - name: Reliable web app pattern
+                  - items: 
+                      - name: .NET 
+                      - items: 
+                          - name: Pattern overview
+                          - href: reference-architecture/reliable-web-app/pattern-overview.yml
+                          - name: Apply pattern
+                          - href: reference-architecture/reliable-web-app/apply-pattern.yml
               - name: App Service considerations
                 items:
                   - name: Deployment best practices
