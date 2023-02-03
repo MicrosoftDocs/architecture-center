@@ -1,0 +1,1 @@
+This article describes the steps for running the Computational Fluid Dynamics (CFD) software [ELEMENTS] on a Virtual Machine (VM) and a HPC cluster on Azure. It also presents the performance results of ELEMENTS  while running on single-node and multi-node VM configurations. 
