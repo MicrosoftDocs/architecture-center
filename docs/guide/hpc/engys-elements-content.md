@@ -69,3 +69,157 @@ For information about deploying the VM and installing the drivers, see one of th
 - [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
 
+For information about deploying the Azure CycleCloud and HPC cluster, see below articles:
+
+- [Install and configure Azure CycleCloud](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
+- [Create a HPC Cluster](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
+
+## ELEMENTS 3.5.0 Performance Results
+
+### Test Models
+
+Two vehicle models were considered for testing the parallel scalability performance of ELEMENTS version 3.5.0 on Azure, namely:
+
+- [DrivAer](https://www.epc.ed.tum.de/en/aer/research-groups/automotive/drivaer) sedan model (mid-size computational grid) external vehicle aerodynamics.
+- Generic Truck Utility ([GTU](https://www.ecara.org/driveaer/gtu)) model (large computational grid) external vehicle aerodynamics.
+
+All the computational grids were created in parallel as part of the execution process using the hex-dominant meshing utility provided with ELEMENTS.  
+
+The details of each test model are shown below: 
+
+#### Model 1 – Automotive_DESdrivAer
+
+image 
+
+Model Details
+
+|Mesh Size	|Solver|Transient|
+|-|-|-|
+|17,000,000 cells|	DES (helyxAero)|400 time steps|
+
+#### Model 2 – Automotive_GTU-0001
+
+image 
+
+Model Details
+
+|Mesh Size	|Solver|Transient|
+|-|-|-|
+|116,000,000 cells|	DES (helyxAero)|3,583 time steps|
+
+### ELEMENTS 3.5.0 Performance Results on Single-Node VM
+
+The performance results achieved running ELEMENTS in parallel on single-node Azure [HBv3 AMD EPYC™ 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs are presented below as baseline for comparing with multi-node runs. Only Model 1 was considered for single-node tests.
+
+#### Model 1 - Automotive_DESdrivAer
+
+|Number of cores|Total Solver time in seconds|Relative Solver Speedup|
+|-|-|-|
+|16|	3,102.28|	1.00|
+|32|	1,938.16|	1.60|
+|64|	1,395.36|	2.22|
+|96|	1,337.25|	2.32|
+|120|	1,318.55|	2.35|
+
+The below chart shows the relative speedup of Automotive DESdrivAer model on HBv3 single nodes
+
+graph
+
+#### Additional notes about Single-Node Tests 
+
+For all single-node tests we have taken the solver time on HB120-16rs_v3 (16 cores) as the reference to calculate the relative speed up with respect to other similar VMs with more cores. The results for Model 1 presented above show that parallel performance in ELEMENTS improves as we increase from 16 to 64 cores, then above 64 cores no further scalability is attained. This is a common occurrence with CFD solvers and other memory intensive applications due to the saturation of the onboard memory available on each processor.
+
+The AMD EPYC™ 7V73-series (Milan-X) featured in the Azure HBv3 VMs tested here is a very capable processor with 768MB of total L3 cache. Our single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the ELEMENTS solvers when using half the cores available on each 7V73-series chip.
+
+### ELEMENTS 3.5.0 Performance Results on Multi-Node (Cluster)
+
+The single-node tests carried out with ELEMENTS confirmed that the solver exhibits proper parallel performance when using up to 64 cores with HBv3 VMs. Therefore, we employed only 64 cores to evaluate the performance of ELEMENTS with [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) when testing multi-node (cluster) configurations. The results are shared below for each test case considered in this study: 
+
+#### Model 1 - Automotive_DESdrivAer
+
+|Number of Nodes|Number of cores|Cells per Core|Total Solver time in seconds|Relative Solver Speedup|
+|-|-|-|-|-|
+|1|	64|	265,625|	1,370.81|	1.00|
+|2|	128|	132,813|	630.86|	2.17|
+|4|	256	|66,406|	351.83	|3.90|
+|8|	512	|33,203|	206.36|	6.64|
+|16|	1,024	|16,602	|168.07|	8.16|
+
+The below chart shows the relative speedup of Automotive DESdrivAer model on HBv3 cluster
+
+graph 
+
+#### Model 2 - Automotive_GTU-0001
+
+|Number of Nodes|Number of cores|Cells per Core|Total Solver time in seconds|Relative Solver Speedup|
+|-|-|-|-|-|
+|1|	64|	 1,812,500	|102,740.23|	1.00|
+|2|	128|	 906,250|	47,761.85|	2.15|
+|4|	256	| 453,125	|21,484.47	|4.78|
+|8|	512	| 226,563	|9,595.72|	10.71|
+|16|	1,024	| 113,281	|5,125.38|	20.05|
+
+The below chart shows the relative speedup of Automotive DESdrivAer model on HBv3 cluster
+
+graph 
+
+#### Additional notes about Multi-Node Tests 
+
+The multi-node performance tests for Model 1 (mid-size mesh) show that the parallel scalability of ELEMENTS in this particular case is appropriate, albeit below optimal. This suboptimal performance can be explained by the relatively low number of cells per core employed when running with 8 and 16 nodes. Solver performance is known to be reduced due to excessive data communication between processor boundaries when the number of cells count per core is low.
+
+By contrast, the results for Model 2 (large mesh) confirm that solver scalability is outstanding and above optimal. The number of cells per core in this case never drops below 100,000, even when using 16 nodes. This is encouraging because most real-life CFD external vehicle aerodynamic models feature 100 million cells or more. 
+
+## Azure cost
+
+Only solver time has been considered for the cost calculations. Meshing times, installation time and software costs have been ignored.
+
+You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the VM costs for your configurations.
+
+The following tables provide the solver times in hours. The Azure VM hourly rates are subject to change. To compute the cost, multiply the solver time by the number of nodes and the Azure VM hourly cost which you can find [here for Windows]()  and  [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+
+### Cost for Model 1 - Automotive_DESdrivAer
+
+|Number of Nodes|	Solver time (Hr)|
+|-|-|
+|1|	0.458|
+|2|	0.256|
+|4|	0.168|
+|8|	0.148|
+|16	|0.162|
+
+## Summary
+
+- ELEMENTS 3.5.0 was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) configurations.
+- All external vehicle aerodynamics models tested demonstrated good CPU acceleration when running in multi-node configurations.
+- The meshing, setup and solver applications in ELEMENTS can all be run in parallel, thus making this CFD tool ideal for execution in multi-node configurations (no need for mesh decomposition/reconstruction).
+- The simulation engine delivered with ELEMENTS is open source, which means users can run as many simulations in as many processors as needed without incurring additional license costs. This is particularly useful when performing DES-type external aerodynamic calculations.
+- For better parallel performance when running DES-type calculations with ELEMENTS we recommend using 64 cores per HBv3 node and a minimum of 50,000 cells per core.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors:
+- [Hari Bagudu](https://www.linkedin.com/in/hari-bagudu-88732a19) | Senior Manager
+- [Gauhar Junnarkar](https://www.linkedin.com/in/gauharjunnarkar) | Principal Program Manager
+ 
+Other contributors:
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- GPU Optimized Virtual Machine Sizes
+- Windows Virtual Machines in Azure
+- Virtual networks and virtual machines on Azure
+- Learning path: Run high-performance computing (HPC) applications on Azure
+
+## Related resources
+
+- Run a Linux VM on Azure
+- Run a Windows VM on Azure
+- HPC system and big-compute solutions
+- HPC cluster deployed in the cloud
