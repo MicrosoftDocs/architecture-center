@@ -2,7 +2,7 @@ This scenario shows a solution for creating predictive models of [customer lifet
 
 ## Architecture
 
-![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services.](./media/architecture-customer-lifetime-churn.png)
+[ ![Architecture diagram for scenario to determine customer lifetime and churn by using Azure AI services.](./media/architecture-customer-lifetime-churn.svg)](./media/architecture-customer-lifetime-churn.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/architecture-customer-lifetime-churn.vsdx) of this architecture.*
 
