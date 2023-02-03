@@ -5,7 +5,7 @@ metadata:
   description: Migrate from SQL Server Master Data Services (MDS) to a full-featured master data management (MDM) in the Azure cloud with Profisee.
   author: ssabat
   ms.author: susabat
-  ms.date: 02/02/2023
+  ms.date: 02/03/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
