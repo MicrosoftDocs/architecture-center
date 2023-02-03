@@ -1,11 +1,11 @@
 ### YamlMime:Architecture
 metadata:
-  title: CI/CD for Azure VMs
+  title: CI/CD for IaaS applications
   titleSuffix: Azure Architecture Center
   description: High-level DevOps workflow for deploying application changes to VMs using continuous integration (CI) and continuous deployment (CD) practices using Azure Pipelines.
   author: ckittel
-  ms.author: prwilk
-  ms.date: 08/25/2022
+  ms.author: robbag
+  ms.date: 02/02/2023
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -23,8 +23,8 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/cicd-for-azure-vms"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-azure-vms.png
-name: CI/CD for Azure VMs
+  social_image_url: /azure/architecture/solution-ideas/articles/media/azure-pipelines-iaas-variant-architecture.png
+name: CI/CD for IaaS applications
 azureCategories:
   - devops
   - compute
@@ -34,6 +34,6 @@ products:
   - azure-pipelines
   - azure-devtest-labs
   - azure-virtual-machines
-thumbnailUrl: /azure/architecture/browse/thumbs/cicd-for-azure-vms.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-pipelines-iaas-variant-architecture.png
 content: |
    [!include[](cicd-for-azure-vms-content.md)]

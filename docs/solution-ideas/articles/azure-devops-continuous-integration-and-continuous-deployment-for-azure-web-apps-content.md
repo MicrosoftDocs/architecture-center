@@ -23,14 +23,23 @@ This section assumes you have read [Azure Pipelines baseline architecture](../..
 
 1. **CD release to staging** - Same as the baseline with 2 exceptions: 1) the build artifact that is downloaded is the Web Deploy Package and 2) the package is deployed to a staging slot in App Services.
 
-1. **CD release to production** - Same as the baseline with 2 exceptions: 1) the release to production for a Web App swaps the production and staging slot, and 2) the rollback for Web Apps swaps production with staging.
+1. **CD release to production** - Same as the baseline with 2 exceptions: 1) the release to production for a Web App swaps the production and staging slot, and 2) the rollback for Web Apps swaps production and staging slots back.
 
 1. **Monitoring** - *same as the baseline*
 
 ### Components
 
-* [Azure App Service](/azure/app-service/): Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. Azure Web Apps are actually applications hosted in Azure App Service.
-* [Azure Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission-critical Web apps at scale. Azure Web Apps has many offerings, including [Windows Web Apps](/azure/app-service/overview), [Linux Web Apps](/azure/app-service/overview#app-service-on-linux), and [Web Apps for Containers](https://azure.microsoft.com/products/app-service/containers).
+- [Azure App Service](/azure/app-service/): Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. Azure Web Apps are actually applications hosted in Azure App Service.
+
+- [Azure Web Apps](https://azure.microsoft.com/services/app-service/web): Quickly create and deploy mission-critical Web apps at scale. Azure Web Apps has many offerings, including [Windows Web Apps](/azure/app-service/overview), [Linux Web Apps](/azure/app-service/overview#app-service-on-linux), and [Web Apps for Containers](https://azure.microsoft.com/products/app-service/containers).
+
+## Considerations
+
+This section assumes you have read the [considerations section in Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#considerations) and only focuses on the considerations specifics to deploying a workload to Azure App Services.
+
+### Operational Excellence
+
+- Consider implementing environments beyond just staging and production to enable things like rollbacks, manual acceptance testing, and performance testing. The act of using staging as the rollback environment keeps you from being able to use that environment for other purposes.
 
 ## Next steps
 
