@@ -294,11 +294,11 @@
 			<text x="17.51" y="417.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Your workload</text>		</g>
 		<g id="shape1398-72" v:mID="1398" v:groupContext="shape" transform="translate(530.625,-97.875)">
 			<title>Sheet.1398</title>
-			<desc>Day 2- operations</desc>
+			<desc>Day 2 - operations</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="90.1875" cy="414" width="180.38" height="36"/>
 			<rect x="0" y="396" width="180.375" height="36" class="st7"/>
-			<text x="39.89" y="417.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Day 2- operations</text>		</g>
+			<text x="38.23" y="417.6" class="st8" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Day 2 - operations</text>		</g>
 		<g id="shape1399-75" v:mID="1399" v:groupContext="shape" transform="translate(92,-365.875)">
 			<title>Sheet.1399</title>
 			<desc>Azure Kubernetes Service</desc>
