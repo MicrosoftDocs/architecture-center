@@ -24,17 +24,17 @@ Elastic Database provides two schemes for mapping data to shardlets and storing 
 
     ![Diagram that shows a list shard map to store tenant data in separate shards.](./images/data-partitioning/pointshardlet.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this architecture.*
+    *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this architecture.*
 
 - A **range shard map** associates a set of contiguous key values to a shardlet. For example, you can group the data for a set of tenants (each with their own key) within the same shardlet. This scheme is less expensive than the first, because tenants share data storage, but has less isolation.
 
-    ![[Diagram that shows a range shard map to store data for a range of tenants in a shard.](./images/data-partitioning/rangeshardlet.svg)
+    ![Diagram that shows a range shard map to store data for a range of tenants in a shard.](./images/data-partitioning/rangeshardlet.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this architecture.*
+    *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this architecture.*
 
 A single shard can contain the data for several shardlets. For example, you can use list shardlets to store data for different non-contiguous tenants in the same shard. You can also mix range shardlets and list shardlets in the same shard, although they will be addressed through different maps. The following diagram shows this approach:
 
-![[Diagram that shows multiple shard maps.](./images/data-partitioning/multipleshardmaps.svg)
+![Diagram that shows multiple shard maps.](./images/data-partitioning/multipleshardmaps.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-partitioning-strategies.vsdx) of this architecture.*
 
