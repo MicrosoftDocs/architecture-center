@@ -47,7 +47,11 @@ The following services typically aren't necessary, but they're effective alterna
 
 ## Scenario details
 
-IBM Sterling OMS is an order management system that delivers a complete omnichannel order fulfillment platform. This system includes features such as real-time inventory visibility and demand, fully configurable order orchestration and workflows, reverse logistics for multi-channel returns and return order status, plus much more.
+IBM Sterling OMS is an order management system that delivers a complete omnichannel order fulfillment platform. This system includes features such as:
+
+- Real-time inventory visibility and demand.
+- Fully configurable order orchestration and workflows.
+- Reverse logistics for multi-channel returns and return order status.
 
 A partnership between Microsoft and the IBM Sterling OMS team ensures that this solution is configured to run optimally on Azure. This article provides a design for running Sterling OMS 10.0 and later versions on Azure for customers who have support from IBM and a partner for installation. For answers to product-specific questions, contact your IBM team.
 
@@ -98,7 +102,7 @@ Before deploying your Azure resources to support your Sterling OMS environment, 
 Sterling OMS has been tested with Azure Red Hat OpenShift version 4.10.15. Before you deploy Azure Red Hat OpenShift:
 
 - Decide on a domain (optional). When you deploy Azure Red Hat OpenShift, you need to specify a domain name that gets appended to all services that get deployed in your cluster.
-- Determine your API and ingress visibility. Decide how you want your OpenShift cluster API (for management) and ingress (for deployed applications and services) to be internet-facing. If you use private connectivity to hide your API or ingress, you can only reach these endpoints from a machine that can reach the network that your service is deployed to.
+- Determine your API and ingress visibility. Decide how you want your OpenShift cluster API (for management) and ingress (for deployed applications and services) to be internet-facing. If you use private connectivity to hide your API or ingress, you can only reach these endpoints from a machine that can reach the network where you deploy your service.
 - Calculate your master and worker VM sizes and counts. In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
 
 For more information, see [Before Your Begin for Azure Red Hat OpenShift](/azure/openshift/tutorial-create-cluster#before-you-begin).
@@ -149,7 +153,7 @@ Carefully evaluate the services and technologies that you select for the areas a
 
 Use [network security groups](/azure/virtual-network/security-overview) to filter network traffic to and from resources in your [virtual network](/azure/virtual-network/virtual-networks-overview). With these groups, you can define rules that grant or deny access to your Sterling OMS services. Examples include:
 
-- Blocking access to all other parts of your deployed infrastructure, such as specific ports and services that your message broker or back-end database use.
+- Blocking access to all other parts of your deployed infrastructure, such as specific ports and services that your message broker or back-end database uses.
 - Controlling which locations have access to Sterling OMS and the OpenShift cluster.
 
 The port numbers and ranges that you need to open depend on many factors. Some to consider are:
@@ -247,10 +251,10 @@ Principal authors:
 
 Other contributors:
 
-- [Aneesh AR](https://www.linkedin.com/in/aneesh-ar-tech) | Senior Cloud Services Black Belt, Red Hat
-- [Vijaya Bashyam](https://www.linkedin.com/in/vijaya-bashyam-76a6837) | Senior Technical Staff Member, IBM
-- [James Read](https://www.linkedin.com/in/jwread) | EMEA Principal Solution Architect, Red Hat
-- [Andy Repton](https://www.linkedin.com/in/andy-repton) | Managed OpenShift Black Belt, Red Hat
+- [Aneesh AR](https://www.linkedin.com/in/aneesh-ar-tech) | Senior Cloud Services Black Belt
+- [Vijaya Bashyam](https://www.linkedin.com/in/vijaya-bashyam-76a6837) | Senior Technical Staff Member
+- [James Read](https://www.linkedin.com/in/jwread) | EMEA Principal Solution Architect
+- [Andy Repton](https://www.linkedin.com/in/andy-repton) | Managed OpenShift Black Belt
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -263,7 +267,7 @@ Other contributors:
 - [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server-portal)
 - [Secure access to Azure Red Hat OpenShift with Azure Front Door](/azure/openshift/howto-secure-openshift-with-front-door)
 - [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
-- [IBM MQ In Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
+- [IBM MQ in Containers](https://www.ibm.com/docs/en/ibm-mq/9.1?topic=mq-in-containers)
 - [Azure Red Hat OpenShift](/azure/openshift/intro-openshift)
 - [What is Azure Database for PostgreSQL?](/azure/postgresql/single-server/overview)
 - [Introduction to Red Hat on Azure](/training/modules/introduction-to-red-hat-azure)
