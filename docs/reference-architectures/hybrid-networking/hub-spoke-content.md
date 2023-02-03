@@ -188,6 +188,8 @@ To ensure a baseline set of security rules, make sure to associate [security adm
 
 Use Virtual Network Manager [deployments](/azure/virtual-network-manager/concept-deployments) to facilitate controlled rollout of potentially breaking changes to network group security rules.
 
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 ### Cost optimization
 
 Cost optimization is about ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
