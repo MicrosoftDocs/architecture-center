@@ -89,6 +89,8 @@ AD DS servers provide authentication services and are an attractive target for a
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 ## DevOps considerations
 
 - Use Infrastructure as Code (IaC) practice, to provision and configure the network and security infrastructure. One option is [Azure Resource Manager templates][arm-template].
