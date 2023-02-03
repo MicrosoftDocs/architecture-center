@@ -6604,11 +6604,11 @@ items:
               - name: Design and implementation patterns
                 href: patterns/category/design-implementation.md
               - name: Enterprise app patterns
-              - items:
+                items:
                 - name: Reliable web app pattern
-                - items: 
+                  items: 
                   - name: .NET 
-                  - items: 
+                    items: 
                     - name: Planning and architecture
                     - href: reference-architecture/reliable-web-app/pattern-overview.yml
                     - name: How to apply pattern
