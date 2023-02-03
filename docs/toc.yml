@@ -6611,10 +6611,8 @@ items:
                         items: 
                           - name: Planning and architecture
                           - href: reference-architecture/reliable-web-app/dotnet/pattern-overview.yml
-                            maintainContext: true
-                          - name: How to apply pattern
+                          - name: How to apply the pattern
                           - href: reference-architecture/reliable-web-app/dotnet/apply-pattern.yml
-                            maintainContext: true
               - name: App Service considerations
                 items:
                   - name: Deployment best practices
