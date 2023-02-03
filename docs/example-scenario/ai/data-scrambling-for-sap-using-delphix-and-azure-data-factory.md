@@ -106,16 +106,17 @@ For optimal performance for datasets larger than 1 TB in size, Delphix Hyperscal
 
 ## Contributors
 
-This article is maintained by Microsoft and Delphix. It was originally written by the following contributors.
+This article was written by the following contributors.
 
 Principal authors: 
-* Tess Maggio – Product Manager 2, Delphix
-* Arun Saju – Senior Staff Engineer, Delphix
-* Mick Shieh – SAP Global Practice Leader, Delphix
+* [Tess Maggio](https://www.linkedin.com/in/tessmaggio) – Product Manager 2
+* [Arun Saju](https://www.linkedin.com/in/arunsajukurian) – Senior Staff Engineer
+* [Mick Shieh](https://www.linkedin.com/in/mick-shieh-9219641/) – SAP Global Practice Leader
 
 Other contributors:
-* Michael Torok – Senior Director of Digital Customer Experience, Delphix
-* Jon Burchel - Senior Content Developer, Microsoft
+* [Michael Torok](https://www.linkedin.com/in/michaelatorok/) – Senior Director of Digital Customer Experience
+* [Abhishek Narain](https://www.linkedin.com/in/narain-abhishek/) - Senior Program Manager
+* [Jon Burchel](https://www.linkedin.com/in/jon-burchel-8068917b) - Senior Content Developer
 
 ## Next steps
 
