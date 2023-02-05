@@ -14,7 +14,7 @@ The following architecture outlines the use of Delphix CC in an Azure Data Facto
 
 [Delphix Continuous Compliance (Delphix CC)](https://www.delphix.com/platform/continuous-compliance) identifies sensitive information and automates data masking/scrambling. It offers a fast, automated, API-driven way to provide secure data where it's needed in organizations.
 
-## How do Delphix CC and Azure Data Factory Solve Automating Compliant Data?
+## How do Delphix CC and Azure Data Factory solve automating compliant data?
 
 The movement of secure data is a challenge for all organizations. Delphix makes achieving consistent data compliance easy while Azure Data Factory enables connecting and moving data seamlessly. Together Delphix CC and Azure Data Factory are combining industry-leading compliance and automation offerings to make the delivery of on-demand, compliant data easy for everyone.
 
