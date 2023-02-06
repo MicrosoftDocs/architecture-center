@@ -1,12 +1,12 @@
 This article briefly describes the steps for running [Sandi HiFUN](https://sandi.co.in)   on a virtual machine (VM) that's deployed on Azure. It also presents the performance results of running HiFUN on Azure.
 
-HiFUN is a  general purpose computational fluid dynamics (CFD) application. You can use it to simulate airflow over aircraft, automobiles, and structures like buildings and ships. 
+HiFUN is a  general-purpose computational fluid dynamics (CFD) application. You can use it to simulate airflow over aircraft, automobiles, and structures like buildings and ships. 
 
 HiFUN has these capabilities:
 - Provides a robust, fast, and accurate solver for aerodynamic design data
 - Uses an unstructured cell-centered finite volume method that can handle complex geometries and flow physics
 - Handles MPI directives for parallel computing on distributed-memory HPC
-- Provides the ability to scale over thousands of processor cores
+- Can scale over thousands of processor cores
 - Can be ported to NVIDIA GPUs for parallel computing via [OpenACC](https://www.openacc.org) constructs  
 
 Sandi HiFUN is used in the aerospace, automotive, industrial, and wind/turbine industries.
