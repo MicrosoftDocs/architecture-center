@@ -14,7 +14,6 @@ This guidance addresses key decisions when converging on the cloud application t
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
 
-The following paragraphs outline the assumed on-premises starting point and the business context that motivated the web application migration. We also provide guidance on meeting service level objectives and understanding the cost of the reliable web app pattern.
 
 ## On-premises application
 
