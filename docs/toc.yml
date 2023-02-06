@@ -4074,6 +4074,8 @@ items:
                 href: reference-architectures/data/profisee-master-data-management-purview.yml
               - name: Data obfuscation with Delphix
                 href: example-scenario/ai/data-obfuscation-with-delphix-in-azure-data-factory.yml
+              - name: Data scrambling for SAP with Delphix
+                href: example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml
               - name: DataOps for modern data warehouse
                 href: example-scenario/data-warehouse/dataops-mdw.yml
               - name: Extend Project Online reporting
@@ -5507,8 +5509,6 @@ items:
                 href: solution-ideas/articles/backup-archive-on-premises-applications.yml
               - name: Centralize app configuration and security
                 href: solution-ideas/articles/appconfig-key-vault.yml
-              - name: Data sovereignty and data gravity
-                href: solution-ideas/articles/data-sovereignty-and-gravity.yml
               - name: Deploy AKS and API Management with mTLS
                 href: solution-ideas/articles/mutual-tls-deploy-aks-api-management.yml
               - name: Enterprise-scale disaster recovery

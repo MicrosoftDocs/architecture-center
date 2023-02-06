@@ -2,7 +2,7 @@ This reference architecture describes how to build an enterprise-grade conversat
 
 ## Architecture
 
-[![Diagram of the architecture][0]][0]
+[![Diagram showing the architecture of a conversational bot.][0]](./_images/conversational-bot.svg#lightbox)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -271,7 +271,7 @@ Microsoft Learn Training modules:
 
 <!-- links -->
 
-[0]: ./_images/conversational-bot.png
+[0]: ./_images/conversational-bot.svg
 [aad]: /azure/active-directory
 [aaf-cost]: /azure/architecture/framework/cost/overview
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts#activity

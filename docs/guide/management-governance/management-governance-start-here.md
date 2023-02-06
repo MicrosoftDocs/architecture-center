@@ -87,7 +87,6 @@ The following sections provide links to reference architectures in some key mana
 ### Compliance and governance
 
 - [Manage virtual machine compliance](../../example-scenario/security/virtual-machine-compliance.yml)
-- [Custom data sovereignty and data gravity requirements](../../solution-ideas/articles/data-sovereignty-and-gravity.yml)
 - [End-to-end governance in Azure when using CI/CD](../../example-scenario/governance/end-to-end-governance-in-azure.yml)
 - [Introduction of an AKS regulated cluster for PCI-DSS 3.2.1](../../reference-architectures/containers/aks-pci/aks-pci-intro.yml)
 

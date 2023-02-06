@@ -2649,51 +2649,6 @@
         },
         {
             "tags": [
-                "'https:--azure.microsoft.com-solutions-architecture-data-sovereignty-and-gravity-'",
-                "acom-architecture",
-                "all-items",
-                "azure-data-sovereignty",
-                "cloud-data-sovereignty",
-                "data-flow",
-                "data-gravity",
-                "data-gravity-cloud",
-                "data-sovereignty",
-                "data-sovereignty-requirements",
-                "interactive-diagram",
-                "solution-idea"
-            ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/data-sovereignty-and-gravity.md",
-            "http_url": "/azure/architecture/solution-ideas/articles/data-sovereignty-and-gravity",
-            "word_count": 155,
-            "read_time": "1 min read",
-            "Title": "Custom Data Sovereignty & Data Gravity Requirements",
-            "MetaDescription": "Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack. Find a step-by-step flow chart to implement this solution.",
-            "category": [
-                "management-and-governance",
-                "databases"
-            ],
-            "image": "/azure/architecture/solution-ideas/media/data-sovereignty-and-gravity.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\data-sovereignty-and-gravity.png",
-            "publish_date": "12/16/2019",
-            "components": [
-                "<p><a href=\"https://azure.microsoft.com/services/virtual-network\">Virtual Network</a>: Provision private networks, optionally connect to on-premises datacenters</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/vpn-gateway\">VPN Gateway</a>: Establish secure, cross-premises connectivity</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/sql-database\">Azure SQL Database</a>: Managed, intelligent SQL in the cloud</p>",
-                "<p><a href=\"https://azure.microsoft.com/services/functions\">Azure Functions</a>: Process events with serverless code</p>",
-                "<p><a href=\"https://azure.microsoft.com/overview/azure-stack\">Azure Stack</a>: Build and run innovative hybrid applications across cloud boundaries</p>"
-            ],
-            "Flow": {
-                "FlowStep_A": "User enters data into Azure-based web app.",
-                "FlowStep_B": "Application commits data to database over virtual network-to virtual network VPN connection to Azure Stack.",
-                "FlowStep_C": "Data is stored in SQL database on virtual machine (VM)."
-            },
-            "name": "data-sovereignty-and-gravity",
-            "popularity": 124,
-            "topic": "Management and Governance"
-        },
-        {
-            "tags": [
                 "'https:--azure.microsoft.com-solutions-architecture-custom-mobile-workforce-app-'",
                 "acom-architecture",
                 "all-items",
