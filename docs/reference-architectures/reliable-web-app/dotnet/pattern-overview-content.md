@@ -29,7 +29,7 @@ Traffic to the on-premises application has increased due to higher-than-expected
 
 ## Service level objective
 
-Before calculating your service level objective (SLO), you need to define what it means to be available. Find all the Azure services that support your definition of availability. Remove from your list all those services that don’t support your definition of available.
+One of the short-term goals was a 99.9% SLO. Before calculating your service level objective (SLO), you need to define what it means to be available. Find all the Azure services that support your definition of availability. Remove from your list all those services that don’t support your definition of available.
 
 To calculate the composite availability of an architecture, you need to use the published service level agreements. You calculate the composite availability by multiplying the SLAs for each service. If a single-region deployment doesn’t meet your SLO, use a multi-region architecture improve your availability. There’s a separate multi-region availability formula. For more information, see:
 
