@@ -17,7 +17,7 @@ This guidance addresses key decisions when converging on the cloud application t
 
 ## On-premises application
 
-The assumed on-premises starting point is a monolithic ASP.NET application with a Microsoft SQL Server database. It's an employee-facing LOB eCommerce application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common legacy challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different components of the application under higher load.
+The assumed on-premises starting point is a monolithic ASP.NET application with a Microsoft SQL Server database. It's an employee-facing LOB eCommerce application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common on-premises challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different components of the application under higher load.
 
 ## Business context
 
