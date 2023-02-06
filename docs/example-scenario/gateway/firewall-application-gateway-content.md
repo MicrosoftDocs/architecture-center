@@ -225,7 +225,7 @@ Outbound flows from the VMs to the public internet go through Azure Firewall, as
 
 ## Application Gateway after firewall
 
-This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway. For example, it can apply features like threat intelligence-based filtering. Another benefit is that the application gets the same public IP address for both inbound and outbound traffic, regardless of protocol. However, Azure Firewall SNATs the incoming traffic, so the application will not have visibility to the original IP address of the HTTP requests.
+This design lets Azure Firewall filter and discard malicious traffic before it reaches the Application Gateway. For example, it can apply features like threat intelligence-based filtering. Another benefit is that the application gets the same public IP address for both inbound and outbound traffic, regardless of protocol. However, Azure Firewall SNATs the incoming traffic, so the application will not have visibility to the original IP address of the HTTP requests. From an administration perspective, for example for troubleshooting purposes, you can obtain the actual client IP for a specific connection by correlating it with the SNAT logs of the Azure Firewall.
 
 There's limited benefit in this scenario, because Azure Firewall will only see encrypted traffic going to the Application Gateway. There might be scenarios where this design is preferred. One case is if another WAF is earlier in the network (for example, with [Azure Front Door][afd-overview]), which could capture the original source IP in the `X-Forwarded-For` HTTP header. Or the design is preferred if many public IP addresses are required.
 
