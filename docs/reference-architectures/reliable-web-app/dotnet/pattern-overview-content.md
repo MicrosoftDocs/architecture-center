@@ -1,6 +1,6 @@
 This guidance is a set of best practices built on the Azure Well-Architected Framework that helps developers successfully migrate applications to the cloud and achieve reliability, performance efficiency, and security. The reliable web application pattern is the first phase in cloud adoption journey for web workloads. For more information on adopting Azure, see [CAF cloud adoption overview](/azure/cloud-adoption-framework/adopt/).
 
-This guide shows you how to apply the reliable web application pattern to a legacy, line-of-business (LOB) ASP.NET web application migrating to the cloud. We simulate the developer cloud adoption journey and show you how to apply the reliable web app pattern while converging on the cloud. The guidance includes an enterprise-grade reference implementation that you can deploy in your environment and gain more insight.
+This guide shows you how to apply the pattern to a legacy, line-of-business (LOB) ASP.NET web application migrating to the cloud. The guidance includes a reference implementation that you can deploy in your environment and gain more insight.
 
 | Objectives | Implementations for .NET |
 | --- | --- |
