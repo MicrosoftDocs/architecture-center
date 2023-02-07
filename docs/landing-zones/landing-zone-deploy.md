@@ -59,6 +59,8 @@ The options below provide an opinionated approach to deploy and operate the [Azu
 | [Azure landing zone Terraform accelerator](terraform/landing-zone-terraform.md) | This accelerator provides an orchestrator module, but also allows you to deploy each capability individually or in part. |
 | [Azure landing zone Bicep accelerator](bicep/landing-zone-bicep.md)  | A modular accelerator where each module encapsulates a core capability of the [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone#azure-landing-zone-conceptual-architecture). While the modules can be deployed individually, the design proposes the use of orchestrator modules to encapsulate the complexity of deploying different topologies with the modules. |
 
+In addition, after deploying the landing zone, you will need to plan to operate it and maintain it.  Review the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
+
 ## Application
 
 Application landing zones are one or more subscriptions that are deployed as environments for workloads or applications. These workloads can take advantage of services deployed in platform landing zones. The application landing zones can be centrally managed applications, decentralized workloads, or technology platforms such as Azure Kubernetes Service that host applications.
