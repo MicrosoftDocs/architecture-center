@@ -3,7 +3,7 @@ For your initial convergence on the cloud, you should adopt the reliable web app
 
 This article shows you how to apply the reliable web app pattern for .NET and provides recommendations that follow the pillars of the Well-Architected Framework. There's a companion [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. This article refers to the reference implementation throughout to demonstrate the changes you need to make and how to apply the reliable web app pattern for .NET web apps. The reference implementation deploys an application with the following architecture.
 
-![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
+![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
 
