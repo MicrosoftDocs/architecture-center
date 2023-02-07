@@ -3522,8 +3522,12 @@ items:
                         href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
-                  - name: Engys HELYX 
-                    href: guide/hpc/engys-helyx.yml  
+                  - name: Engys deployments
+                    items:  
+                      - name: Engys ELEMENTS 
+                        href: guide/hpc/engys-elements.yml
+                      - name: Engys HELYX 
+                        href: guide/hpc/engys-helyx.yml  
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI

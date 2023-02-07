@@ -116,7 +116,7 @@ The following graph shows the relative speed increases as the number of CPUs inc
 
 #### Notes about single-node tests 
 
-For all single-node tests, the solver running time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results for the DrivAer model show that parallel performance in ELEMENTS improves as cores increase from 16 to 64.Above 64 cores, no further improvement occurs. This pattern is common with CFD solvers and other memory-intensive applications because of saturation of the onboard memory that's available on each processor.
+For all single-node tests, the solver running time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results for the DrivAer model show that parallel performance in ELEMENTS improves as cores increase from 16 to 64. Above 64 cores, no further improvement occurs. This pattern is common with CFD solvers and other memory-intensive applications because of saturation of the onboard memory that's available on each processor.
 
 The AMD EPYC 7V73-series processor (Milan-X) in the HBv3 VMs tested here is a powerful processor, with 768 MB of total L3 cache. The single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the ELEMENTS solvers when you use half the cores available on each 7V73-series chip.
 
@@ -136,7 +136,7 @@ The single-node tests confirm that the solver achieves good parallel performance
 
 The following graph shows the relative speed increases as the number of nodes increases:
 
-:::image type="content" source="media/drivaer-graph-cluster.png " alt-text="Graph that shows the relative speed increases on a multi-node configuration." lightbox="media/drivaer-graph-cluster.png" border="false":::
+:::image type="content" source="media/drivaer-graph-cluster.png" alt-text="Graph that shows the relative speed increases on a multi-node configuration." lightbox="media/drivaer-graph-cluster.png" border="false":::
 
 #### Model 2: Automotive_GTU-0001
 
@@ -150,25 +150,25 @@ The following graph shows the relative speed increases as the number of nodes in
 
 The following graph shows the relative speed increases as the number of nodes increases:
 
-graph 
+:::image type="content" source="media/truck-graph-cluster.png" alt-text="Graph that shows the relative speed increases for the GTU model on a multi-node configuration." lightbox="media/truck-graph-cluster.png.png" border="false":::
+ 
+#### Notes about multi-node tests
 
-#### Notes about multi-node tests 
+The multi-node performance tests for the DrivAer model (mid-size mesh) show that the parallel performance improves as the number of nodes increases but is less than optimal. This suboptimal performance can be explained by the relatively low number of cells per core in 8-node and 16-node configurations. Solver performance is known to be reduced by excessive data communication between processor boundaries when the number of cells per core is low.
 
-The multi-node performance tests for Model 1 (mid-size mesh) show that the parallel scalability of ELEMENTS in this particular case is appropriate, albeit below optimal. This suboptimal performance can be explained by the relatively low number of cells per core employed when running with 8 and 16 nodes. Solver performance is known to be reduced due to excessive data communication between processor boundaries when the number of cells count per core is low.
-
-By contrast, the results for Model 2 (large mesh) confirm that solver scalability is outstanding and above optimal. The number of cells per core in this case never drops below 100,000, even when using 16 nodes. This is encouraging because most real-life CFD external vehicle aerodynamic models feature 100 million cells or more. 
+In contrast, the results for the GTU model (large mesh) show that solver scalability is above optimal. The number of cells per core in this case never drops below 100,000, even in 16-node configurations. These results are encouraging because most real-life CFD external vehicle aerodynamic models feature 100 million cells or more. 
 
 ## Azure cost
 
-Only solver time has been considered for the cost calculations. Meshing times, installation time and software costs have been ignored.
+Only solver running time is considered for these cost calculations. Meshing times, installation time, and software costs aren't considered.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the VM costs for your configurations.
 
-The following tables provide the solver times in hours. The Azure VM hourly rates are subject to change. To compute the cost, multiply the solver time by the number of nodes and the Azure VM hourly cost which you can find [here for Windows]()  and  [here for Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
+The following tables provide the solver running times in hours. Azure VM hourly rates are subject to change. To compute the cost, multiply the solver time by the number of nodes and the [Linux VM hourly cost](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#pricing).
 
-### Cost for Model 1 - Automotive_DESdrivAer
+### Cost for model 1: Automotive_DESdrivAer
 
-|Number of Nodes|	Solver time (Hr)|
+|Number of nodes|	Solver running time (hours)|
 |-|-|
 |1|	0.458|
 |2|	0.256|
@@ -176,9 +176,9 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 |8|	0.148|
 |16	|0.162|
 
-### Cost for Model 2 - Automotive_GTU-0001
+### Cost for model 2: Automotive_GTU-0001
 
-|Number of Nodes|	Solver time (Hr)|
+|Number of nodes|	Solver running time (hours)|
 |-|-|
 |1| 28.888|
 |2|	 13.622|
@@ -188,11 +188,11 @@ The following tables provide the solver times in hours. The Azure VM hourly rate
 
 ## Summary
 
-- ELEMENTS 3.5.0 was successfully tested on Azure using HBv3 standalone Virtual Machines and Azure Cycle Cloud multi-node (cluster) configurations.
-- All external vehicle aerodynamics models tested demonstrated good CPU acceleration when running in multi-node configurations.
-- The meshing, setup and solver applications in ELEMENTS can all be run in parallel, thus making this CFD tool ideal for execution in multi-node configurations (no need for mesh decomposition/reconstruction).
-- The simulation engine delivered with ELEMENTS is open source, which means users can run as many simulations in as many processors as needed without incurring additional license costs. This is particularly useful when performing DES-type external aerodynamic calculations.
-- For better parallel performance when running DES-type calculations with ELEMENTS we recommend using 64 cores per HBv3 node and a minimum of 50,000 cells per core.
+- ELEMENTS 3.5.0 was successfully tested on HBv3 standalone VMs and on an Azure CycleCloud multi-node configuration.
+- All  external vehicle aerodynamics models that were tested demonstrate good CPU acceleration when running in multi-node configurations.
+- The meshing, setup, and solver applications in ELEMENTS can be run in parallel, which makes it ideal for running in multi-node configurations. (There's no need for mesh decomposition and reconstruction.)
+- The simulation engine provided with ELEMENTS is open source, so you can run as many simulations in as many processors as you need, without incurring additional license costs. This capability is particularly useful when you're performing DES-type external aerodynamic calculations.
+- For better parallel performance when you run DES-type calculations with ELEMENTS, we recommend that you use 64 cores per HBv3 node and a minimum of 50,000 cells per core.
 
 ## Contributors
 
@@ -204,21 +204,20 @@ Principal authors:
  
 Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
-- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director Business Strategy
+- [Guy Bursell](https://www.linkedin.com/in/guybursell) | Director, Business Strategy
 - [Sachin Rastogi](https://www.linkedin.com/in/sachin-rastogi-907a3b5) | Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [GPU Optimized Virtual Machine Sizes](/azure/virtual-machines/sizes-gpu)
-- [Windows Virtual Machines in Azure](/azure/virtual-machines/windows/overview)
+- [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
+- [Virtual Machines on Azure](/azure/virtual-machines/windows/overview)
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
+- [Learning path: Run HPC applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
 ## Related resources
 
 - [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
-- [Run a Windows VM on Azure]()
-- [HPC system and big-compute solutions]()
-- [HPC cluster deployed in the cloud]()
+- [HPC system and big-compute solutions](../../solution-ideas/articles/big-compute-with-azure-batch.yml)
+- [HPC cluster deployed in the cloud](../../solution-ideas/articles/hpc-cluster.yml)
