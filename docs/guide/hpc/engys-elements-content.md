@@ -150,7 +150,7 @@ The following graph shows the relative speed increases as the number of nodes in
 
 The following graph shows the relative speed increases as the number of nodes increases:
 
-:::image type="content" source="media/truck-graph-cluster.png" alt-text="Graph that shows the relative speed increases for the GTU model on a multi-node configuration." lightbox="media/truck-graph-cluster.png.png" border="false":::
+:::image type="content" source="media/truck-graph-cluster.png" alt-text="Graph that shows the relative speed increases for the GTU model on a multi-node configuration." lightbox="media/truck-graph-cluster.png" border="false":::
  
 #### Notes about multi-node tests
 
