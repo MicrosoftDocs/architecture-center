@@ -197,7 +197,7 @@ You can use Key Vault to manage the certificates used to encrypt the storage acc
 
 ## Deploy the reference implementation
 
-The reference implementation is a concert ticketing web app with the reliable web app pattern for .NET. You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://github.com/Azure/reliable-web-app-pattern-dotnet). The repository has everything you need.  Follow the deployment guidelines to deploy the code to Azure and local development.
+You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://github.com/Azure/reliable-web-app-pattern-dotnet). Follow the deployment guide to set up a local development environment and deploy the solution to Azure.
 
 ## Next Steps
 
