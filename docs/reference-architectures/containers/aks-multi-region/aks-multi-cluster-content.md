@@ -4,7 +4,7 @@ This architecture builds on the [AKS baseline architecture](/azure/architecture/
 
 ## Architecture
 
-[![Diagram showing mutli-region deployment.](./images/aks-multi-cluster.png)](./images/aks-multi-cluster-large.png#lightbox)
+[ ![Architecture diagram showing mutli-region deployment.](./images/aks-multi-cluster.svg)](./images/aks-multi-cluster.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster.vsdx) of this architecture.*
 
@@ -165,7 +165,7 @@ Similar to the AKS baseline reference architecture, this architecture uses a hub
 
 With the AKS baseline reference architecture, workload traffic is routed directly to an Azure Application Gateway instance, then forwarded onto the backend load balancer / AKS ingress resources. When you work with multiple clusters, the client requests are routed through an Azure Front Door instance, which routes to the Azure Application Gateway instance.
 
-![Diagram showing workload traffic in mutli-region deployment.](images/aks-ingress-flow.svg)
+![Architecture diagram showing workload traffic in mutli-region deployment.](images/aks-ingress-flow.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster-aks-ingress-flow.vsdx) of this diagram.*
 
