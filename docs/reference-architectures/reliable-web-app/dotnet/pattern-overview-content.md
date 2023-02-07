@@ -70,7 +70,7 @@ Choosing the right Azure services is an important part of the planning phase bef
 
 - **High SLA:** It has a 99.95% uptime SLA and meets our requirements for the production environment.
 - **Reduced management overhead:** It's a fully managed solution that handles scaling, health checks, and load balancing.
-- **.NET support:** It supports the latest version of .NET.
+- **.NET support:** It supports the version of .NET the application was written in.
 - **Containerization capability:** We can converge on the cloud without containerizing the app, but we can also containerize in the future without changing Azure services.
 - **Autoscaling:** The web app can automatically scale up, down, in, and out based on user traffic and settings we control.
 
