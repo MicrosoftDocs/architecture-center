@@ -3,7 +3,7 @@ title: Deploy Autodesk VRED for HPC on Azure
 description: Learn how to deploy Autodesk VRED on Azure. Review performance results on two Azure virtual machines. 
 author: gauharjunnarkar
 ms.author: gajunnar
-ms.date: 12/19/2022
+ms.date: 02/07/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
