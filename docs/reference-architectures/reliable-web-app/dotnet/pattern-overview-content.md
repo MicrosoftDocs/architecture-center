@@ -64,7 +64,7 @@ The best way to cost-optimize across environments is to pick the right SKUs for 
 
 Choosing the right Azure services is an important part of the planning phase before moving your app to Azure. Understanding the level of performance and availability you need for your app affects the total cost to run your solution. You should start by defining a target SLO for your solution and use that information to determine which products and SKUs you should be using. We provide our decision process for each service in the solution. The main requirement was reaching an SLA of 99.9% for the production environment.
 
-### Web application host
+### Application platform
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). But we chose Azure App Service because it met the following requirements:
 
