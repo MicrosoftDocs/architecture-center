@@ -1,29 +1,26 @@
-This article describes the steps for running the Computational Fluid Dynamics (CFD) software [ELEMENTS](https://engys.com/products/elements) on a Virtual Machine (VM) and a HPC cluster on Azure. It also presents the performance results of ELEMENTS  while running on single-node and multi-node VM configurations. 
+This article describes the steps for running [Engys ELEMENTS](https://engys.com/products/elements) on a virtual machine (VM) and an HPC cluster on Azure. It also presents the performance results of running ELEMENTS on single-node and multi-node VM configurations. 
 
-Elements is a CFD and optimization software solution for vehicle design applications produced by Streamline Solutions LLC, a joint venture between [ENGYS](https://engys.com) and [Auto Research Center](http://www.arcindy.com). The simulation engine delivered with this tool is powered by [HELYX](https://engys.com/products/helyx) to offer a cost-effective solution that combines the best of automotive engineering design practices with the latest and most advanced open-source CFD and optimization methods developed by Engys, all within a unified, easy-to-use platform.
+ELEMENTS is a computational fluid dynamics (CFD) and optimization solution for vehicle design applications. The simulation engine provided with ELEMENTS is powered by [HELYX](https://engys.com/products/helyx). The resulting solution combines automotive engineering design practices with open-source CFD and optimization methods developed by Engys.
 
-ELEMENTS was widely used and validated in the production environment to solve most flow related problems encountered in automotive design, including external vehicle aerodynamics, UHTM, HVAC and cabin comfort, aeroacoustics, powertrain, ICE, water management and soiling, among others. CFD methods available in ELEMENTS have also been successfully applied beyond automotive to analyze the aerodynamics performance of other vehicles and means of transportation, such as high-speed trains, motorbikes, and competition bicycles.
-
-- **Evaluate vehicle designs more efficiently** using a completely new ribbon-based GUI layout focused on functional design.
-- **Automate external vehicle aerodynamics calculations** using a virtual wind tunnel wizard with fully configurable best simulation practices, automatic report creation, added support for rotating tires/wheels, and new ride height and frontal area calculators.
-- **Solve more complex engineering problems** with improved CFD methods and tools for UHMT, HVAC, in-cabin flows and aeroacoustics, including better volume meshing, faster and more stable solvers, added support for multi-region CHT, etc.
-- **Leverage on-demand computing and cloud services** with a dedicated client-server framework for working remotely via secure network connections.
-- **Improved usability and productivity** through powerful open-source CFD solvers and utilities developed and maintained by Engys.
+ELEMENTS is used to solve flow-related problems encountered in automotive design, including external vehicle aerodynamics, UHTM, HVAC and cabin comfort, aeroacoustics, powertrain, ICE, water management, and soiling. ELEMENTS is also used to analyze the aerodynamics of other vehicles, like high-speed trains, motorcycles, and competition bicycles.
 
 ## Why deploy ELEMENTS on Azure?
 
-- Modern and diverse compute options to meet your workload's needs.
-- The flexibility of virtualization without the need to buy and maintain physical hardware.
-- Rapid provisioning.
-- Complex problems solved within a few hours.
+- Modern and diverse compute options to meet your workload's needs
+- The flexibility of virtualization without the need to buy and maintain physical hardware
+- Rapid provisioning
+- Complex problems solved within a few hours
 
 ## Architecture
 
 Multi-node configuration:
 
-image 
+:::image type="content" source="media/elements-cluster-architecture.png" alt-text="Diagram that shows an architecture for running ELEMENTS in a multi-node configuration." lightbox="media/elements-cluster-architecture.png" border="false":::
 
-link 
+
+
+Download a [Visio file](https://arch-center.azureedge.net/elements-cluster-architecture.vsdx) of this architecture.
+
 
 Single-node configuration:
 
