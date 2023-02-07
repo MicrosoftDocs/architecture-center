@@ -177,7 +177,7 @@ You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder
 - **Idempotency at consumer:** Message consumption is idempotent, so at-most-once delivery isn't required.
 - **Batch processing:** We wanted to pull a batch of work items from the queue for each operation.
 - **Auditing:** We need to audit server-side transaction logs.
-- **Managed identities:** We wanted to authenticate to our queue using managed identities.
+- **Azure RBAC authentication:** We wanted to authenticate to our queue using managed identities.
 
 For Blob Storage, we chose Zone-redundant storage (ZRS). Zone-redundant storage replicates data synchronously across three Azure availability zones in the primary region. Each availability zone is in a separate physical location with independent power, cooling, and networking. The app uses Blob Storage to meet the following requirements:
 
