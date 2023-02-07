@@ -13,7 +13,7 @@ A reliable workload is one that is both resilient and available. Resiliency is t
 
 ### Use the retry pattern
 
-The retry pattern is a best practice for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They're transient because they typically resolve themselves in a few seconds. On-premises environments experience transient faults, and your application already use the retry pattern.
+The retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They're transient because they typically resolve themselves in a few seconds. On-premises environments experience transient faults, and your application already use the retry pattern.
 
 In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network hops across compute nodes. The retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception.
 
