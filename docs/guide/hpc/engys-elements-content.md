@@ -27,16 +27,16 @@ Download a [Visio file](https://arch-center.azureedge.net/elements-architecture.
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux and Windows VMs. 
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
   - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
   - A public IP address connects the internet to the VM.   
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
-- A physical SSD is used for storage.  
+- A physical SSD provides storage.  
 
 ## Compute sizing and drivers
 
-Performance tests of ELEMENTS on Azure used [HBv3 AMD EPYC 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs running Linux CentOS Operating system.  The following table provides details about HBv3-series VMs.
+Performance tests of ELEMENTS on Azure used [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs running Linux CentOS. The following table provides details about HBv3-series VMs.
 
 |VM size|	vCPU|	Memory (GiB)|	Memory bandwidth GBps|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (Gbps)|Maximum data disks|
 |-|-|-|-|-|-|-|-|-|
@@ -52,62 +52,57 @@ To use AMD CPUs on [HBv3 VMs](/azure/virtual-machines/hbv3-series), you need to 
 
 To use InfiniBand, you need to enable [InfiniBand drivers](/azure/virtual-machines/workloads/hpc/enable-infiniband).
 
-## Install ELEMENTS 3.5.0 on a VM and HPC Cluster
+## Install ELEMENTS 3.5.0 on a VM or HPC cluster
 
-The software ELEMENTS must be purchased from Engys or one of their local authorized distributors/agents to get the installation files and technical support with the application. ContactEngys if you interested in buying [ELEMENTS](https://engys.com/products/elements).
+You need to buy ELEMENTS from Engys or one of its local authorized distributors or agents to get the installation files and technical support. For information about buying [ELEMENTS](https://engys.com/products/elements), contact Engys.
 
-Before you install ELEMENTS, you need to deploy and connect a VM or HPC Cluster.
+Before you install ELEMENTS, you need to deploy and connect a VM or HPC cluster.
 
-For information about deploying the VM and installing the drivers, see one of these articles:
+For information about deploying the VM and installing the drivers, see [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-- [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml)
-- [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml)
-
-For information about deploying the Azure CycleCloud and HPC cluster, see below articles:
+For information about deploying the Azure CycleCloud and HPC cluster, see these articles:
 
 - [Install and configure Azure CycleCloud](/learn/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure)
-- [Create a HPC Cluster](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
+- [Create an HPC cluster](/learn/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster)
 
-## ELEMENTS 3.5.0 Performance Results
+## ELEMENTS 3.5.0 performance results
 
-### Test Models
+Two vehicle models were used to test the parallel scalability performance of ELEMENTS version 3.5.0 on Azure:
 
-Two vehicle models were considered for testing the parallel scalability performance of ELEMENTS version 3.5.0 on Azure, namely:
+- [DrivAer](https://www.epc.ed.tum.de/en/aer/research-groups/automotive/drivaer) sedan model (mid-size computational grid) external vehicle aerodynamics
+- [Generic Truck Utility (GTU)](https://www.ecara.org/driveaer/gtu) model (large computational grid) external vehicle aerodynamics
 
-- [DrivAer](https://www.epc.ed.tum.de/en/aer/research-groups/automotive/drivaer) sedan model (mid-size computational grid) external vehicle aerodynamics.
-- Generic Truck Utility ([GTU](https://www.ecara.org/driveaer/gtu)) model (large computational grid) external vehicle aerodynamics.
+The hex-dominant meshing utility provided with ELEMENTS was used to create all computational grids. They were created in parallel as part of the execution process.
 
-All the computational grids were created in parallel as part of the execution process using the hex-dominant meshing utility provided with ELEMENTS.  
+The details of each test model are provided in the following sections. 
 
-The details of each test model are shown below: 
+### Model 1: Automotive_DESdrivAer
 
-#### Model 1 – Automotive_DESdrivAer
+:::image type="content" source="media/drivaer-model.png" alt-text="Screenshot that shows the DrivAer model." :::
 
-image 
+The following table provides details about the model.
 
-Model Details
-
-|Mesh Size	|Solver|Transient|
+|Mesh size	|Solver|Transient|
 |-|-|-|
 |17,000,000 cells|	DES (helyxAero)|400 time steps|
 
-#### Model 2 – Automotive_GTU-0001
+### Model 2: Automotive_GTU-0001
 
-image 
+:::image type="content" source="media/generic-truck-utility-model.png" alt-text="Screenshot that shows the GTU model." :::
+ 
+The following table provides details about the model.
 
-Model Details
-
-|Mesh Size	|Solver|Transient|
+|Mesh size	|Solver|Transient|
 |-|-|-|
 |116,000,000 cells|	DES (helyxAero)|3,583 time steps|
 
-### ELEMENTS 3.5.0 Performance Results on Single-Node VM
+### ELEMENTS 3.5.0 performance results on single-node VMs
 
-The performance results achieved running ELEMENTS in parallel on single-node Azure [HBv3 AMD EPYC™ 7V73X](/azure/virtual-machines/hbv3-series) (Milan-X) VMs are presented below as baseline for comparing with multi-node runs. Only Model 1 was considered for single-node tests.
+The following section provides the performance results of running ELEMENTS in parallel on single-node Azure [HBv3 AMD EPYC 7V73X (Milan-X)](/azure/virtual-machines/hbv3-series) VMs. You can use these results as a baseline for comparison with multi-node runs. Only the DrivAer model was tested in single-node configurations.
 
-#### Model 1 - Automotive_DESdrivAer
+#### Model 1: Automotive_DESdrivAer
 
-|Number of cores|Total Solver time in seconds|Relative Solver Speedup|
+|Number of cores|Solver running time (seconds)|Relative speed increase|
 |-|-|-|
 |16|	3,102.28|	1.00|
 |32|	1,938.16|	1.60|
@@ -115,23 +110,23 @@ The performance results achieved running ELEMENTS in parallel on single-node Azu
 |96|	1,337.25|	2.32|
 |120|	1,318.55|	2.35|
 
-The below chart shows the relative speedup of Automotive DESdrivAer model on HBv3 single nodes
+The following graph shows the relative speed increases as the number of CPUs increases:
 
-graph
+:::image type="content" source="media/drivaer-graph.png" alt-text="Graph that shows the relative speed increases on a single-node configuration." lightbox="media/drivaer-graph.png" border="false":::
 
-#### Additional notes about Single-Node Tests 
+#### Notes about single-node tests 
 
-For all single-node tests we have taken the solver time on HB120-16rs_v3 (16 cores) as the reference to calculate the relative speed up with respect to other similar VMs with more cores. The results for Model 1 presented above show that parallel performance in ELEMENTS improves as we increase from 16 to 64 cores, then above 64 cores no further scalability is attained. This is a common occurrence with CFD solvers and other memory intensive applications due to the saturation of the onboard memory available on each processor.
+For all single-node tests, the solver running time on a Standard_HB120-16rs_v3 VM (16 cores) is used as a reference to calculate the relative speed increase with respect to similar VMs that have more cores. The previously presented results for the DrivAer model show that parallel performance in ELEMENTS improves as cores increase from 16 to 64.Above 64 cores, no further improvement occurs. This pattern is common with CFD solvers and other memory-intensive applications because of saturation of the onboard memory that's available on each processor.
 
-The AMD EPYC™ 7V73-series (Milan-X) featured in the Azure HBv3 VMs tested here is a very capable processor with 768MB of total L3 cache. Our single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the ELEMENTS solvers when using half the cores available on each 7V73-series chip.
+The AMD EPYC 7V73-series processor (Milan-X) in the HBv3 VMs tested here is a powerful processor, with 768 MB of total L3 cache. The single-node tests confirm that this memory is sufficient to guarantee parallel scalability of the ELEMENTS solvers when you use half the cores available on each 7V73-series chip.
 
-### ELEMENTS 3.5.0 Performance Results on Multi-Node (Cluster)
+### ELEMENTS 3.5.0 performance results on multi-node clusters
 
-The single-node tests carried out with ELEMENTS confirmed that the solver exhibits proper parallel performance when using up to 64 cores with HBv3 VMs. Therefore, we employed only 64 cores to evaluate the performance of ELEMENTS with [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) when testing multi-node (cluster) configurations. The results are shared below for each test case considered in this study: 
+The single-node tests confirm that the solver achieves good parallel performance until you reach 64 cores with HBv3 VMs. Based on those results, only 64-core configurations on [Standard_HB120-64rs_v3](/azure/virtual-machines/hbv3-series) were used to evaluate the performance of ELEMENTS on multi-node clusters. The following sections provide the test results.
 
-#### Model 1 - Automotive_DESdrivAer
+#### Model 1: Automotive_DESdrivAer
 
-|Number of Nodes|Number of cores|Cells per Core|Total Solver time in seconds|Relative Solver Speedup|
+|Number of nodes|Number of cores|Cells per core|Solver running time (seconds)|Relative speed increase|
 |-|-|-|-|-|
 |1|	64|	265,625|	1,370.81|	1.00|
 |2|	128|	132,813|	630.86|	2.17|
@@ -139,13 +134,13 @@ The single-node tests carried out with ELEMENTS confirmed that the solver exhibi
 |8|	512	|33,203|	206.36|	6.64|
 |16|	1,024	|16,602	|168.07|	8.16|
 
-The below chart shows the relative speedup of Automotive DESdrivAer model on HBv3 cluster
+The following graph shows the relative speed increases as the number of nodes increases:
 
-graph 
+:::image type="content" source="media/drivaer-graph-cluster.png " alt-text="Graph that shows the relative speed increases on a multi-node configuration." lightbox="media/drivaer-graph-cluster.png" border="false":::
 
-#### Model 2 - Automotive_GTU-0001
+#### Model 2: Automotive_GTU-0001
 
-|Number of Nodes|Number of cores|Cells per Core|Total Solver time in seconds|Relative Solver Speedup|
+|Number of nodes|Number of cores|Cells per core|Solver running time (seconds)|Relative speed increase|
 |-|-|-|-|-|
 |1|	64|	 1,812,500	|102,740.23|	1.00|
 |2|	128|	 906,250|	47,761.85|	2.15|
@@ -153,11 +148,11 @@ graph
 |8|	512	| 226,563	|9,595.72|	10.71|
 |16|	1,024	| 113,281	|5,125.38|	20.05|
 
-The below chart shows the relative speedup of Automotive DESdrivAer model on HBv3 cluster
+The following graph shows the relative speed increases as the number of nodes increases:
 
 graph 
 
-#### Additional notes about Multi-Node Tests 
+#### Notes about multi-node tests 
 
 The multi-node performance tests for Model 1 (mid-size mesh) show that the parallel scalability of ELEMENTS in this particular case is appropriate, albeit below optimal. This suboptimal performance can be explained by the relatively low number of cells per core employed when running with 8 and 16 nodes. Solver performance is known to be reduced due to excessive data communication between processor boundaries when the number of cells count per core is low.
 
