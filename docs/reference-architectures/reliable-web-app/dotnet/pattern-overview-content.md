@@ -62,13 +62,13 @@ The best way to cost-optimize across environments is to pick the right SKUs for 
 
 The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that meet the SLO of 99.9% for the production environment, require minimal work, and support planned modernizations efforts. For example, pick services that support your SLO. You should mirror the on-premises database management system in the cloud to minimize work. If you plan to containerize your application, find a web application platform that supports a traditional and containerized web applications to facilitate modernization.
 
-#### Web application host
+### Application platform
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). But we chose Azure App Service because it met the following requirements:
 
 - **High SLA:** It has a 99.95% uptime SLA and meets our requirements for the production environment.
 - **Reduced management overhead:** It's a fully managed solution that handles scaling, health checks, and load balancing.
-- **.NET support:** It supports the latest version of .NET.
+- **.NET support:** It supports the version of .NET the application was written in.
 - **Containerization capability:** We can converge on the cloud without containerizing the app, but we can also containerize in the future without changing Azure services.
 - **Autoscaling:** The web app can automatically scale up, down, in, and out based on user traffic and settings we control.
 
@@ -177,7 +177,7 @@ You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder
 - **Idempotency at consumer:** Message consumption is idempotent, so at-most-once delivery isn't required.
 - **Batch processing:** We wanted to pull a batch of work items from the queue for each operation.
 - **Auditing:** We need to audit server-side transaction logs.
-- **Managed identities:** We wanted to authenticate to our queue using managed identities.
+- **Azure RBAC authentication:** We wanted to authenticate to our queue using managed identities.
 
 For Blob Storage, we chose Zone-redundant storage (ZRS). Zone-redundant storage replicates data synchronously across three Azure availability zones in the primary region. Each availability zone is in a separate physical location with independent power, cooling, and networking. The app uses Blob Storage to meet the following requirements:
 
@@ -197,7 +197,7 @@ You can use Key Vault to manage the certificates used to encrypt the storage acc
 
 ## Deploy the reference implementation
 
-The reference implementation is a concert ticketing web app with the reliable web app pattern for .NET. You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://github.com/Azure/reliable-web-app-pattern-dotnet). The repository has everything you need.  Follow the deployment guidelines to deploy the code to Azure and local development.
+You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://github.com/Azure/reliable-web-app-pattern-dotnet). Follow the deployment guide to set up a local development environment and deploy the solution to Azure.
 
 ## Next Steps
 
