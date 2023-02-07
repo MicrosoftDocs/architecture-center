@@ -81,7 +81,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L85)
 
-The dependency injection for the `IConcertSearchService` object applies the retry pattern on all requests to the web service from a class or controller. The `GetRetryPolicy()` method uses the Polly `HttpPolicyExtensions` object to retry the request after a delay. The built-in backoff method retries the error up to three times with increasingly larger delays. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the retry pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect safely retriable HTTP requests and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
 
 *Simulate the retry pattern:* You can simulate the retry pattern in the reference implementation. For instructions, see [simulate the retry pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#retry-pattern).
 
