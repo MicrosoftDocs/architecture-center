@@ -87,7 +87,7 @@ The policy handler for the `RelecloudApiConcertSearchService` instance applies t
 
 ### Use the circuit-breaker pattern
 
-You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren’t transient. The goal is to prevent an application from repeatedly invoking a service that is likely to fail. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the circuit breaker pattern.
+You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren’t transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the circuit breaker pattern.
 
 ***Reference implementation:*** The reference implementation adds the circuit-breaker pattern with the `GetCircuitBreakerPolicy()` method as seen in the following code snippet.
 
