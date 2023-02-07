@@ -3467,7 +3467,7 @@ items:
           - name: Solution ideas
             items:
               - name: Blockchain workflow application
-                href: /updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
+                href: https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
               - name: Supply chain management with QBS
                 href: guide/blockchain/quorum-blockchain-service.yml
               - name: Supply chain track and trace

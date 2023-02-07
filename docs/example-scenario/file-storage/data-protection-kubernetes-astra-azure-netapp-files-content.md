@@ -175,7 +175,7 @@ Principal authors:
 [Astra Control Service documentation]: https://docs.netapp.com/us-en/astra-control-service/index.html
 [Azure Kubernetes Service (AKS)]: /azure/aks/intro-kubernetes
 [Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction
-[Azure NetApp Files Performance Calculator]: https://cloud.netapp.com/azure-netapp-files/tco
+[Azure NetApp Files Performance Calculator]: https://bluexp.netapp.com/azure-netapp-files/sizer
 [Azure NetApp Files service page]: https://azure.microsoft.com/services/netapp
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
