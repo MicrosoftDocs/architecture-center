@@ -17,16 +17,13 @@ Multi-node configuration:
 
 :::image type="content" source="media/elements-cluster-architecture.png" alt-text="Diagram that shows an architecture for running ELEMENTS in a multi-node configuration." lightbox="media/elements-cluster-architecture.png" border="false":::
 
-
-
 Download a [Visio file](https://arch-center.azureedge.net/elements-cluster-architecture.vsdx) of this architecture.
-
 
 Single-node configuration:
 
-image
+:::image type="content" source="media/elements-architecture.png" alt-text="Diagram that shows an architecture for running ELEMENTS in a single-node configuration." lightbox="media/elements-architecture.png" border="false":::
 
-link 
+Download a [Visio file](https://arch-center.azureedge.net/elements-architecture.vsdx) of this architecture.
 
 ### Components
 
