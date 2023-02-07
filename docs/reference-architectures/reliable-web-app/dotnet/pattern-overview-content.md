@@ -1,71 +1,68 @@
-This guidance is a set of best practices built on the Azure Well-Architected Framework that helps developers successfully migrate applications to the cloud and achieve reliability, performance efficiency, and security. The reliable web application pattern is the first phase in cloud adoption journey for web workloads. For more information on adopting Azure, see [CAF cloud adoption overview](/azure/cloud-adoption-framework/adopt/).
+This guidance shows you how to apply the reliable web app pattern to an on-premises, line-of-business (LOB) ASP.NET web application converging on the cloud. The goal of the pattern is to meet increasing business demand with minimal investments in the existing monolithic app.
 
-This guide shows you how to apply the pattern to a legacy, line-of-business (LOB) ASP.NET web application migrating to the cloud. The guidance includes a reference implementation that you can deploy in your environment and gain more insight.
+This guidance is a set of best practices built on the Azure Well-Architected Framework that helps developers successfully migrate applications to the cloud. It includes a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy for more insights. The objective of the reliable web app pattern is as follows:
 
 | Objectives | Implementations for .NET |
 | --- | --- |
 |▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Immutable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
 
-## Architecture and planning
+## Architecture and design patterns
 
-This guidance addresses key decisions when converging on the cloud application to the cloud. To the journey of a fictional concert ticket company called Relecloud built the reference implementation around this fictional scenario. As such, the reference implementation deploys a concert ticket web application, and the web application applies all the features of the reliable we app pattern. The architecture and code of the application illustrate the desired, to-be state of a .NET web application having converged on the cloud.
+The architecture of the [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) represent best practices for implementing the reliable web app pattern for .NET.
 
 ![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
 
-The following paragraphs outline the assumed on-premises starting point and the business context that motivated the web application migration. We also provide guidance on meeting service level objectives and understanding the cost of the reliable web app pattern.
+### Starting point
 
-## On-premises application
+The starting point is an on-premises, monolithic ASP.NET application with a Microsoft SQL Server database. It's an employee-facing LOB eCommerce application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
 
-The assumed on-premises starting point is a monolithic ASP.NET application with a Microsoft SQL Server database. It's an employee-facing LOB eCommerce application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common legacy challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different components of the application under higher load.
+### Business context
 
-## Business context
-
-Traffic to the on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. The migration of your application should meet the increasing business demand with minimal investments in the existing monolithic app. Here are some short-term and long-term goals for the application.
+Traffic to the on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
 
 | Short term goals | Long term goals |
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes to the LOB web application. <br> ▪ Mature development team practices for modern development and operations. <br> ▪ Create cost-optimized production and development environments. <br> ▪ Implement reliability and security best practices in the cloud. <br> ▪ Service-level objective of 99.9%.| ▪ Open the application directly to online customers through multiple web and mobile experiences. <br> ▪ Improve availability. <br> ▪ Reduce time required to deliver new features. <br> ▪ Independently scale different components of the system based on traffic
 
-## Service level objective
+### Service level objective
 
-Before calculating your service level objective (SLO), you need to define what it means to be available. Find all the Azure services that support your definition of availability. Remove from your list all those services that don’t support your definition of available.
+Before calculating your service level objective (SLO), you need to define what it means to be available for your workload. Find all the Azure services that support your definition of availability. For Relecloud, available is when customers can purchase tickets. A service like Azure Monitor is outside the scope of the SLO of 99.9% because it doesn’t directly support ticket purchases.
 
-To calculate the composite availability of an architecture, you need to use the published service level agreements. You calculate the composite availability by multiplying the SLAs for each service. If a single-region deployment doesn’t meet your SLO, use a multi-region architecture improve your availability. There’s a separate multi-region availability formula. For more information, see:
+To calculate composite availability, make a list of the services that support the essential functions of your application and find their service-level agreement (SLA). Next, calculate the composite SLA of the services. For more information, see:
 
 - [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 - [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional availability formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
 
-For Relecloud, available is when customers can purchase tickets. A service like Azure Monitor is outside the scope of the SLO of 99.9% because it doesn’t directly support ticket purchases. The following table shows the SLA for each service in the availability path.
+ The following table shows the SLA for each service in the availability path.
 
 | Azure Service | SLA |
 | --- | --- |
 | [Azure Active Directory](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/) | 99.99% |
 | [Azure App Configuration](<https://azure.microsoft.com/support/legal/sla/app-configuration/v1_0/>) | 99.9% |
-| [Azure App Service: Front-end](https://azure.microsoft.com/support/legal/sla/app-service/) | 99.95% |
-| [Azure App Service: API](https://azure.microsoft.com/support/legal/sla/app-service/) | 99.95% |
+| [Azure App Service](https://azure.microsoft.com/support/legal/sla/app-service/) | 99.95% |
 | [Azure Cache for Redis](https://azure.microsoft.com/support/legal/sla/cache/) |99.9% |
 | [Azure Key Vault](https://azure.microsoft.com/support/legal/sla/key-vault/v1_0/) | 99.99% |
 | [Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/) | 99.99%|
 | [Azure Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) |  99.9% |
 | [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8/) |  99.99% |
 
-Calculating the composite SLA for a single-region deployment resulted in an SLA of 99.56%, 38 hours of downtime per year. This SLA created unacceptable business risk. So they deployed the web app to two regions. The multi-region availability formula is `(1 - (1 − N) ^ R)`. `N` represents the composite SLA and `R` the number of regions. Two regions improve the SLA of each region to 99.99% availability. However, now there's a need for a global load balancer, Azure Front Door, to route traffic between the two regions. Front Door has an SLA of 99.99%. The composite availability for the multi-region web app becomes 99.98% and exceeds the SLO of 99.9%.
+If the composite SLA doesn’t meet or exceed your SLO, then you need to reconsider the services you use or adjust the architecture. Relecloud adjusted the architecture and added a second region to improve availability. There’s a separate multi-region availability formula. Calculating the composite SLA for a single-region deployment resulted in an SLA of 99.52%, 38 hours of downtime per year. This SLA created unacceptable business risk. So they deployed the web app to two regions. The multi-region availability formula is `(1 - (1 − N) ^ R)`. `N` represents the composite SLA and `R` the number of regions. Two regions improve the SLA of each region to 99.99% availability. However, now there's a need for a global load balancer, Azure Front Door, to route traffic between the two regions. Front Door has an SLA of 99.99%. The composite availability for the multi-region web app becomes 99.98% and exceeds the SLO of 99.9%.
 
-## Cost
+### Cost
 
-The guidance covers cost-optimiztion in more depth, but we wanted to give you some cost details about the reference implementation up front. reference implementation deploys two cost-optimized environments. The best way to cost-optimize across environments is to pick the right SKUs for environment. The following links take you to the Azure calculator pre-populated with SKUs in the reference implementation, and you can review the current estimated cost per month for each environment before you deploy.
+The best way to cost-optimize across environments is to pick the right SKUs for the environment. The following links take you to the Azure calculator pre-populated with SKUs in the reference implementation, and you can review the current estimated cost per month for each environment before you deploy.
 
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 
-## Choose the right services
+### Choose the right services
 
-Choosing the right Azure services is an important part of the planning phase before moving your app to Azure. Understanding the level of performance and availability you need for your app affects the total cost to run your solution. You should start by defining a target SLO for your solution and use that information to determine which products and SKUs you should be using. We provide our decision process for each service in the solution. The main requirement was reaching an SLA of 99.9% for the production environment.
+The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that meet the SLO of 99.9% for the production environment, require minimal work, and support planned modernizations efforts. For example, pick services that support your SLO. You should mirror the on-premises database management system in the cloud to minimize work. If you plan to containerize your application, find a web application platform that supports a traditional and containerized web applications to facilitate modernization.
 
-### Web application host
+#### Web application host
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). But we chose Azure App Service because it met the following requirements:
 
@@ -75,7 +72,7 @@ Choosing the right Azure services is an important part of the planning phase bef
 - **Containerization capability:** We can converge on the cloud without containerizing the app, but we can also containerize in the future without changing Azure services.
 - **Autoscaling:** The web app can automatically scale up, down, in, and out based on user traffic and settings we control.
 
-### Identity management
+#### Identity management
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with our application. Azure AD provides the application with the following abilities.
 
@@ -85,7 +82,7 @@ Choosing the right Azure services is an important part of the planning phase bef
 - **Self-service password reset (SSPR):** We wanted users to manage their own passwords.
 - **Support authorization protocols:** We needed to support OpenID Connect and OAuth 2.0.
 
-### Database
+#### Database
 
 [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) is a general-purpose relational database and managed service in that supports relational and spatial data, JSON, spatial, and XML. We were using SQL Server on premises and wanted to keep the database schema, stored procedures, and functions. There are different SQL products in Azure, but we selected Azure SQL Database because it met the following requirements.
 
@@ -94,8 +91,9 @@ Choosing the right Azure services is an important part of the planning phase bef
 - **Migration support:** It supports database migration from on-premises SQL Server.
 - **Consistency with on-premises configurations:** Azure SQL Server existing stored procedures, functions, and views.
 - **Resiliency:** It supports backups and point-in-time restore.
+- **Expertise and minimal rework:** Azure SQL Database is the database platform that maximized in-house expertise and minimal rework.
 
-### Application performance monitoring
+#### Application performance monitoring
 
 [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. We chose to incorporate Application Insights for the following reasons.
 
@@ -113,7 +111,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 - [Application Insights Overview dashboard](https://learn.mi/azure/azure-monitor/app/overview-dashboard)
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 
-### Cache
+#### Cache
 
 [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store based on the Redis software. Our load is heavily skewed toward viewing concerts and venue details. We wanted to implement a cache that provided the following benefits.
 
@@ -121,7 +119,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 - **Speed and volume:** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
 
-### Global load balancer
+#### Global load balancer
 
 [Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-seven, global load balancer that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions us to use a content delivery network to provide site acceleration as traffic to the web app increases. We chose Azure Front Door because it provides the following capabilities.
 
@@ -134,7 +132,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 Azure has several load balancer options. Make note of your current system capabilities and what requirements you have for your new app running in Azure, then [choose the best load balancer option for your app](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-### Web application firewall
+#### Web application firewall
 
 [Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection without sacrificing performance. WAF also provides a platform the team can monitor and configure to address security concerns from botnets. We wanted to use WAF to protect against the following threats:
 
@@ -148,7 +146,7 @@ Azure has several load balancer options. Make note of your current system capabi
 - SQL injection protection
 - Protocol attackers
 
-### Configuration storage
+#### Configuration storage
 
 [Azure App Configuration](/azure/azure-app-configuration/overview) is a service to centrally manage application settings and feature flags. We chose to take a dependency on Azure App Configuration to manage our configuration data. Our configuration requirements are:
 
@@ -159,18 +157,19 @@ Azure has several load balancer options. Make note of your current system capabi
 
 App Configuration meets these needs and is easy to incorporate in your existing app using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide if this service is a fit for your app.
 
-### Secret manager
+#### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. Our solution requires use of X.509 certificates, connection strings, and API keys to integration with third party services. We prefer managed identities for intra-Azure service communication, but the application still has secrets to manage. The following list captures the Azure Key Vault capabilities we needed.
+[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. Our solution requires use of X.509 certificates, connection strings, and API keys to integrate with third party services. We prefer managed identities for intra-Azure service communication, but the application still has secrets to manage. The following list captures the Azure Key Vault capabilities we needed.
 
 - **Encryption:** It supports encryption at rest and in transit.
 - **Supports managed identities:** The application services can use managed identities to access the secret store.
 - **Monitoring and logging:** We wanted the secret store to facilitate audit access and generate alert us when stored secrets change.
 - **Certificate support:** We wanted to import PFX and PEM formatted certificates.
+- **Integration:** It provides native integration with the Azure configuration store (Azure App Configuration) and web hosting platform (Azure App Service).
 
 You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app).
 
-### Object storage
+#### Object storage
 
 [Azure Storage](/azure/storage/common/storage-introduction) provides storage queue storage for message driven communication and file storage. We use Azure Storage for both. Azure Storage Queues holds purchases that are pending PDF generation and Blob Storage stores the resulting ticket PDFs. The following requirements led us to use Azure Storage Queues for our queuing needs. If you have a queue scenario in your app, review the [messaging options available](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
@@ -189,11 +188,11 @@ For Blob Storage, we chose Zone-redundant storage (ZRS). Zone-redundant storage 
 
 You can use Key Vault to manage the certificates used to encrypt the storage account, and private endpoints to allow clients to securely access data over a Private Link.
 
-### Endpoint security
+#### Endpoint security
 
 [Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. You can avoid exposing your service to the public internet. You use Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure SQL Database. Azure Private DNS integrates with Azure App Service to extend DNS resolution so that the private IP address is provided for a public hostname. This integration enables a web app to connect to Azure SQL Database, which requires connections to use the public hostname when connecting to the private IP address. We chose Azure Private Link for the following benefits.
 
-- **Secure communication:** It lets the application privately access services on the Azure platform. Reduces the network footprint of data stores to protect against data leakage.
+- **Secure communication:** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to protect against data leakage.
 - **On-premises connectivity:** You can access services running in Azure from on-premises over ExpressRoute private peering.
 
 ## Deploy the reference implementation
