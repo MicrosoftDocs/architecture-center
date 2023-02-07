@@ -55,7 +55,7 @@ Calculating the composite SLA for a single-region deployment resulted in an SLA 
 
 ## Cost
 
-The guidance covers cost-optimiztion in more depth, but we wanted to give you some cost details about the reference implementation up front. reference implementation deploys two cost-optimized environments. The best way to cost-optimize across environments is to pick the right SKUs for environment. The following links take you to the Azure calculator pre-populated with SKUs in the reference implementation, and you can review the current estimated cost per month for each environment before you deploy.
+The best way to cost-optimize across environments is to pick the right SKUs for the environment. The following links take you to the Azure calculator pre-populated with SKUs in the reference implementation, and you can review the current estimated cost per month for each environment before you deploy.
 
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
