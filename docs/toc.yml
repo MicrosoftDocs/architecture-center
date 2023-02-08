@@ -3626,7 +3626,7 @@ items:
                 href: example-scenario/apps/hpc-saas.yml
               - name: Deploy IBM Maximo Application Suite 
                 href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
-              - name: Deploy IBM Sterling Order Management Software 
+              - name: Deploy IBM Sterling Order Management
                 href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
               - name: Digital image modeling
                 href: example-scenario/infrastructure/image-modeling.yml
