@@ -1,8 +1,8 @@
-This article describes the steps for running [Engys ELEMENTS](https://engys.com/products/elements) on a virtual machine (VM) and an HPC cluster on Azure. It also presents the performance results of running ELEMENTS on single-node and multi-node VM configurations. 
+This article describes the steps for running [Engys ELEMENTS](https://engys.com/products/elements) on a virtual machine (VM) and on an HPC cluster on Azure. It also presents the performance results of running ELEMENTS on single-node and multi-node VM configurations. 
 
-ELEMENTS is a computational fluid dynamics (CFD) and optimization solution for vehicle design applications. The simulation engine provided with ELEMENTS is powered by [HELYX](https://engys.com/products/helyx). The resulting solution combines automotive engineering design practices with open-source CFD and optimization methods developed by Engys.
+ELEMENTS is a computational fluid dynamics (CFD) and optimization solution for vehicle design applications. The simulation engine that's provided with ELEMENTS is powered by [HELYX](https://engys.com/products/helyx). The resulting solution combines automotive engineering design practices with open-source CFD and optimization methods developed by Engys.
 
-ELEMENTS is used to solve flow-related problems encountered in automotive design, including external vehicle aerodynamics, UHTM, HVAC and cabin comfort, aeroacoustics, powertrain, ICE, water management, and soiling. ELEMENTS is also used to analyze the aerodynamics of other vehicles, like high-speed trains, motorcycles, and competition bicycles.
+ELEMENTS is used to solve flow-related problems that are encountered in automotive design, including external vehicle aerodynamics, UHTM, HVAC and cabin comfort, aeroacoustics, powertrain, ICE, water management, and soiling. ELEMENTS is also used to analyze the aerodynamics of other vehicles, like high-speed trains, motorcycles, and competition bicycles.
 
 ## Why deploy ELEMENTS on Azure?
 
@@ -29,7 +29,7 @@ Download a [Visio file](https://arch-center.azureedge.net/elements-architecture.
 
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Linux VMs. 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network infrastructure in the cloud. 
-  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to restrict access to the VMs.  
+  - [Network security groups](/azure/virtual-network/network-security-groups-overview) are used to control access to the VMs.  
   - A public IP address connects the internet to the VM.   
 - [Azure CycleCloud](https://azuremarketplace.microsoft.com/marketplace/apps/azurecyclecloud.azure-cyclecloud) is used to create the cluster in the multi-node configuration.
 - A physical SSD provides storage.  
@@ -69,10 +69,10 @@ For information about deploying the Azure CycleCloud and HPC cluster, see these 
 
 Two vehicle models were used to test the parallel scalability performance of ELEMENTS 3.5.0 on Azure:
 
-- [DrivAer](https://www.epc.ed.tum.de/en/aer/research-groups/automotive/drivaer) sedan model (mid-size computational grid) external vehicle aerodynamics
-- [Generic Truck Utility (GTU)](https://www.ecara.org/driveaer/gtu) model (large computational grid) external vehicle aerodynamics
+- The [DrivAer](https://www.epc.ed.tum.de/en/aer/research-groups/automotive/drivaer) sedan model (mid-size computational grid) for external vehicle aerodynamics
+- The [Generic Truck Utility (GTU)](https://www.ecara.org/driveaer/gtu) model (large computational grid) for external vehicle aerodynamics
 
-The hex-dominant meshing utility provided with ELEMENTS was used to create all computational grids. They were created in parallel as part of the execution process.
+The hex-dominant meshing utility that's provided with ELEMENTS was used to create all computational grids. They were created in parallel as part of the execution process.
 
 The details of each test model are provided in the following sections. 
 
@@ -191,8 +191,8 @@ The following tables provide the solver running times in hours. Azure VM hourly 
 - ELEMENTS 3.5.0 was successfully tested on HBv3 standalone VMs and on an Azure CycleCloud multi-node configuration.
 - All  external vehicle aerodynamics models that were tested demonstrate good CPU acceleration when running in multi-node configurations.
 - The meshing, setup, and solver applications in ELEMENTS can be run in parallel, which makes it ideal for running in multi-node configurations. (There's no need for mesh decomposition and reconstruction.)
-- The simulation engine provided with ELEMENTS is open source, so you can run as many simulations in as many processors as you need, without incurring additional license costs. This capability is particularly useful when you're performing DES-type external aerodynamic calculations.
-- For better parallel performance when you run DES-type calculations with ELEMENTS, we recommend that you use 64 cores per HBv3 node and a minimum of 50,000 cells per core.
+- The simulation engine that's provided with ELEMENTS is open source, so you can run as many simulations in as many processors as you need, without incurring additional license costs. This capability is particularly useful when you're performing DES-type external aerodynamic calculations.
+- For better parallel performance when you run DES-type calculations by using ELEMENTS, we recommend that you use 64 cores per HBv3 node and a minimum of 50,000 cells per core.
 
 ## Contributors
 
