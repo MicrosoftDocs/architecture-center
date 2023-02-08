@@ -5,6 +5,8 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
 ## Architecture
 
 [![Diagram that shows the Azure Sandbox environment.](images/create-azure-sandbox.png)](images/create-azure-sandbox.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/create-an-azure-sandbox.vsdx) of this architecture.*
 ### Components
 
 You can deploy all the following sandbox configurations, or just the ones you need.
@@ -71,6 +73,8 @@ The following list describes some of the capabilities and configurations that th
 Principal author:
 
 - [Roger Doherty](https://www.linkedin.com/in/roger-doherty-805635b/) | Cloud Solution Architect
+
+ *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
