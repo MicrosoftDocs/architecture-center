@@ -153,7 +153,7 @@ Managed identities are similar to the identity component in connection strings i
 
 The `DefaultAzureCredential` class creates the connection during startup and works with Microsoft client libraries to provide connectivity options for local development work and managed identities in the cloud.
 
-**Use infrastructure-as-code to set up the managed-identity infrastructure.** You should use bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don’t use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
+**Use infrastructure-as-code to set up managed-identities.** You should use bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don’t use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
 
 ***Reference implementation:*** The reference implementation uses bicep templates to accomplish the following tasks:
 
