@@ -108,7 +108,7 @@ The policy handler for the `RelecloudApiConcertSearchService` instance applies t
 
 ## Security
 
-Cloud applications benefit from using multiple Azure services, and communication between those services across compute nodes needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, we recommend using managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
+Cloud applications are often composed of multiple Azure services and communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, we recommend using managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
 
 ### Use managed identities
 
