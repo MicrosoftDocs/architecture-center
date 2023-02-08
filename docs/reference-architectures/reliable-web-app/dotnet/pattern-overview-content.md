@@ -22,7 +22,7 @@ The pattern objectives determine the services used and web app architecture.
 
 ### Starting point
 
-Since this guidance mirrors a cloud-convergance scenario, it's helpful to define a starting point. The reference implementation applies the pattern to an on-premises, monolithic ASP.NET application with a Microsoft SQL Server database. It's an employee-facing and LOB eCommerce web application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
+Since this guidance mirrors a cloud-convergance scenario, it's helpful to define a starting point. The reference implementation applies the pattern to an on-premises, monolithic ASP.NET application. It runs on two virtual machines with a Microsoft SQL Server database. It's an employee-facing and LOB eCommerce web application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
 
 ### Business context
 
@@ -36,7 +36,7 @@ The goal of the pattern is to meet increasing business demand with minimal inves
 
 Before calculating your service level objective (SLO), you need to define what it means to be available for your web application. Find all the Azure services that support your definition of availability. For Relecloud, available is when customers can purchase tickets. A service like Azure Monitor is outside the scope of the SLO of 99.9% because it doesn’t directly support ticket purchases.
 
-To determine availability, make a list of the services that support the essential functions of your application and find their service-level agreement (SLA). Next, calculate the composite SLA of the services. For more information, see:
+To determine availability, we need some metric to measure the predicted availability of a service and, for that, we use Azure's service service level agreements (SLAs). Make a list of the services that support the essential functions of your application and find their SLA. Next, calculate the composite SLA of the services. For more information, see:
 
 - [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 - [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
@@ -82,11 +82,10 @@ The Azure services you choose should support your short-term objectives while pr
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with our application. Azure AD provides the application with the following abilities.
 
-- **Authentication and authorization:** The application needed to authenticate and authorize call center users.
-- **Scalable:** We wanted a proven solution that could scale to support larger scenarios and millions of users.
-- **User-identity control:** We didn’t want users to choose their identity solution or create their own accounts.
-- **Self-service password reset (SSPR):** We wanted users to manage their own passwords.
-- **Support authorization protocols:** We needed to support OpenID Connect and OAuth 2.0.
+- **Authentication and authorization:** The application needed to authenticate and authorize call center employees.
+- **Scalable:** We wanted a proven solution that could scale to support larger scenarios.
+- **User-identity control:** We wanted the call center employee to use their existing enterprise identity.
+- **Support authorization protocols:** We needed to support OAuth 2.0 for managed identities and OpenID Connect for future B2C support.
 
 #### Database
 
@@ -101,11 +100,12 @@ The Azure services you choose should support your short-term objectives while pr
 
 #### Application performance monitoring
 
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. We chose to incorporate Application Insights for the following reasons.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps.  solution We chose to incorporate Application Insights for the following reasons.
 
 - **Anomaly detection:** It automatically detects performance anomalies
 - **Troubleshooting:** It helps diagnose issues in our running app.
 - **Telemetry:** It collects information about how users are using the app and allows us to easily send custom events we want to track in our app.
+- **Solving an on-premises visibility gap:** The on-premises solution didn't have APM, and Application Insights provided an easy integration to the application platform and code.
 
 Azure Monitor is a comprehensive suite of monitoring tools to collect data from various Azure services. Review the following concepts to quickly come up to speed on its capabilities:
 
@@ -124,15 +124,17 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 - **Reduce management overhead:** It’s a fully managed service.
 - **Speed and volume:** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
+- **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly-frequented data nor could that data be invalidated.
+- **Enabling non-sticky sessions:** Externalizing session state supports non-sticky sessions.
 
 #### Global load balancer
 
 [Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-seven, global load balancer that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions us to use a content delivery network to provide site acceleration as traffic to the web app increases. We chose Azure Front Door because it provides the following capabilities.
 
+- **Routing flexibility:** It allows the application team to configure ingress needs to support future changes inside the application.
 - **Traffic acceleration:** It uses anycast to reach the nearest Azure point of presence and find the fastest route to our web app.
 - **Custom domains:** It supports custom domain names with flexible domain validation.
-- **Backend supportability:** It load-balances and routes traffic across origins.
-- **Health probes.** The application needed intelligent health probe monitoring. Azure Front Door then uses these responses from the probe to determine the "best" origin to route your client requests.
+- **Health probes:** The application needed intelligent health probe monitoring. Azure Front Door then uses these responses from the probe to determine the "best" origin to route your client requests.
 - **Monitoring support:** We wanted built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
 - **DDoS protection:** It has built-in layer 3-4 DDoS protection.
 
@@ -140,32 +142,21 @@ Azure has several load balancer options. Make note of your current system capabi
 
 #### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection without sacrificing performance. WAF also provides a platform the team can monitor and configure to address security concerns from botnets. We wanted to use WAF to protect against the following threats:
-
-- Cross-site scripting
-- Java attacks
-- Local file inclusion
-- PHP injection attacks
-- Remote command execution
-- Remote file inclusion
-- Session fixation
-- SQL injection protection
-- Protocol attackers
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection without sacrificing performance. WAF also provides a platform the team can monitor and configure to address security concerns from botnets. We wanted to maintain parity with our on-premises solution, which was running behind an IT-managed WAF.
 
 #### Configuration storage
 
-[Azure App Configuration](/azure/azure-app-configuration/overview) is a service to centrally manage application settings and feature flags. We chose to take a dependency on Azure App Configuration to manage our configuration data. Our configuration requirements are:
+[Azure App Configuration](/azure/azure-app-configuration/overview) is a service to centrally manage application settings and feature flags. We chose to take a dependency on Azure App Configuration to manage our configuration data. We wanted to replace our file-based configuration with a central configuration store that integrated with the application platform and code. App Config provided the following benefits:
 
-- **Central configuration store:** The application uses configuration data, and we needed a central store for this data, not secrets.
 - **Flexibility:** It supports feature flags. Feature flags allow users to opt in and opt-out of early preview features in a production environment without redeploying the app.
 - **Supports git pipeline:** The source of truth for configuration data needed to be a git repository. The pipeline needed to update the data in the central configuration store.
 - **Supports managed identities:** We want to use managed identities to simplify and secure our connection to our configuration store.
 
-App Configuration meets these needs and is easy to incorporate in your existing app using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app). Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide if this service is a fit for your app.
+Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide if this service is a fit for your app.
 
 #### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. Our solution requires use of X.509 certificates, connection strings, and API keys to integrate with third party services. We prefer managed identities for intra-Azure service communication, but the application still has secrets to manage. The following list captures the Azure Key Vault capabilities we needed.
+[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. Our solution requires use of X.509 certificates, connection strings, and API keys to integrate with third party services. We prefer managed identities for intra-Azure service communication, but the application still has secrets to manage. We stored secrets on-premises in our code configuration files, and we needed to externalize those secrets. Key Vault met our needs for the following reasons:
 
 - **Encryption:** It supports encryption at rest and in transit.
 - **Supports managed identities:** The application services can use managed identities to access the secret store.
@@ -177,7 +168,7 @@ You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder
 
 #### Object storage
 
-[Azure Storage](/azure/storage/common/storage-introduction) provides storage queue storage for message driven communication and file storage. We use Azure Storage for both. Azure Storage Queues holds purchases that are pending PDF generation and Blob Storage stores the resulting ticket PDFs. The following requirements led us to use Azure Storage Queues for our queuing needs. If you have a queue scenario in your app, review the [messaging options available](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+[Azure Storage](/azure/storage/common/storage-introduction) provides storage queue storage for message driven communication and file storage. We use Azure Storage for both. Azure Storage Queues holds purchases that are pending PDF generation and Blob Storage stores the resulting ticket PDFs. On-premises, we had disk storage mounted to each web server and wanted to externalize. The following requirements led us to use Azure Storage Queues for our queuing needs. If you have a queue scenario in your app, review the [messaging options available](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 - **Random ordering:** The app doesn't need to ensure a specific order for message deliver, so random ordering supports the needs of the app.
 - **Idempotency at consumer:** Message consumption is idempotent, so at-most-once delivery isn't required.
@@ -187,19 +178,15 @@ You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder
 
 For Blob Storage, we chose Zone-redundant storage (ZRS). Zone-redundant storage replicates data synchronously across three Azure availability zones in the primary region. Each availability zone is in a separate physical location with independent power, cooling, and networking. The app uses Blob Storage to meet the following requirements:
 
-- **Secure endpoint:** We didn’t want endpoints for accessing storage exposed to the public internet
-- **Secrets management:** We wanted to manage our encryption keys using our own certificates.
+- **Eliminate anonymous access:** We didn’t want endpoints for accessing storage exposed to the public internet with anonymous access.
 - **Encryption:** It encrypts data at rest and in transit.
-- **Resiliency:** Blob storage provides  data should be resilient against loss
-
-You can use Key Vault to manage the certificates used to encrypt the storage account, and private endpoints to allow clients to securely access data over a Private Link.
+- **Resiliency:** Blob storage should make our ticketing PDF resilient against loss.
 
 #### Endpoint security
 
 [Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. You can avoid exposing your service to the public internet. You use Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure SQL Database. Azure Private DNS integrates with Azure App Service to extend DNS resolution so that the private IP address is provided for a public hostname. This integration enables a web app to connect to Azure SQL Database, which requires connections to use the public hostname when connecting to the private IP address. We chose Azure Private Link for the following benefits.
 
 - **Secure communication:** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to protect against data leakage.
-- **On-premises connectivity:** You can access services running in Azure from on-premises over ExpressRoute private peering.
 
 ## Deploy the reference implementation
 
