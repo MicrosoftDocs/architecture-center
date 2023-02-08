@@ -67,7 +67,7 @@ For information about deploying the Azure CycleCloud and HPC cluster, see these 
 
 ## ELEMENTS 3.5.0 performance results
 
-Two vehicle models were used to test the parallel scalability performance of ELEMENTS version 3.5.0 on Azure:
+Two vehicle models were used to test the parallel scalability performance of ELEMENTS 3.5.0 on Azure:
 
 - [DrivAer](https://www.epc.ed.tum.de/en/aer/research-groups/automotive/drivaer) sedan model (mid-size computational grid) external vehicle aerodynamics
 - [Generic Truck Utility (GTU)](https://www.ecara.org/driveaer/gtu) model (large computational grid) external vehicle aerodynamics
@@ -156,7 +156,7 @@ The following graph shows the relative speed increases as the number of nodes in
 
 The multi-node performance tests for the DrivAer model (mid-size mesh) show that the parallel performance improves as the number of nodes increases but is less than optimal. This suboptimal performance can be explained by the relatively low number of cells per core in 8-node and 16-node configurations. Solver performance is known to be reduced by excessive data communication between processor boundaries when the number of cells per core is low.
 
-In contrast, the results for the GTU model (large mesh) show that solver scalability is above optimal. The number of cells per core in this case never drops below 100,000, even in 16-node configurations. These results are encouraging because most real-life CFD external vehicle aerodynamic models feature 100 million cells or more. 
+In contrast, the results for the GTU model (large mesh) show that solver scalability is above optimal. The number of cells per core in this case never drops below 100,000, even in 16-node configurations. These results are encouraging because most real-life CFD external vehicle aerodynamic models have 100 million cells or more. 
 
 ## Azure cost
 
@@ -212,7 +212,7 @@ Other contributors:
 ## Next steps
 
 - [GPU-optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu)
-- [Virtual Machines on Azure](/azure/virtual-machines/windows/overview)
+- [Virtual machines on Azure](/azure/virtual-machines/windows/overview)
 - [Virtual networks and virtual machines on Azure](/azure/virtual-network/network-overview)
 - [Learning path: Run HPC applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 
