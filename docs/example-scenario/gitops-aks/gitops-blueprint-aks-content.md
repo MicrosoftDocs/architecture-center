@@ -197,9 +197,18 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/cal
 
 - Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs. 
 
+
 ## Contributors
 This article is maintained by Microsoft. It was originally written by the following contributors.
 
 Principal authors:
 
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Principal Cloud Solutions Architect
+
+
+## Next Steps 
+
+- [Build and deploy apps on AKS using DevOps and GitOps](/azure/architecture/example-scenario/apps/devops-with-aks)
+- [Argo CD documentation](https://argo-cd.readthedocs.io/)
+- [Flux CD documentation](https://fluxcd.io/)
+- [GitOps with JenkinsX](https://jenkins-x.io/v3/devops/gitops/)
