@@ -1,87 +1,92 @@
 ---
 title: Azure Sandbox
-description: "Accelerate your Azure project with a fully functional sandbox environment."
+description: Accelerate your Azure project with a fully functional sandbox environment.
 author: doherty100
 ms.author: rdoherty
-ms.date: 01/10/2023
+ms.date: 02/10/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-bastion
-  - azure-virtual-machines
-  - azure-sql-virtual-machines
-  - azure-sql-database
   - azure-database-mysql
+  - azure-sql-database
+  - azure-sql-virtual-machines
+  - azure-virtual-machines
 categories:
-  - popular
   - compute
   - databases
+  - developer-tools
   - networking
   - storage
-  - developer-tools
 ---
 
 # Azure Sandbox
 
-Azure Sandbox is a collection of inter-dependent [cloud computing](https://azure.microsoft.com/overview/what-is-cloud-computing) configurations for implementing common [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) services on a single [subscription](https://learn.microsoft.com/azure/azure-glossary-cloud-terminology#subscription). Collectively these configurations provide a flexible and cost effective sandbox environment useful for experimenting with various Azure services and capabilities. Depending upon your Azure offer type and region, a fully provisioned AzureSandbox environment costs approximately $50 USD / day. These costs can be further reduced by stopping / deallocating virtual machines when not in use, or by skipping optional configurations that you do not plan to use.
+Azure Sandbox is a collection of interdependent [cloud computing](https://azure.microsoft.com/overview/what-is-cloud-computing) configurations for implementing common [Azure](https://azure.microsoft.com/overview/what-is-azure) services on a single [subscription](/azure/azure-glossary-cloud-terminology#subscription). This collection provides a flexible and cost effective sandbox environment for experimenting with Azure services and capabilities.
+
+Depending on your Azure offer type and region, a fully provisioned Azure Sandbox environment costs approximately $50 USD per day. You can reduce these costs by stopping or deallocating virtual machines (VMs) when not in use, or by skipping optional configurations that you don't plan to use.
   
 ## Architecture
 
-![diagram](./azuresandbox.drawio.svg)
+![Diagram that shows the Azure Sandbox environment.](../images/create-azure-sandbox.png)
 
-## Components
+### Components
 
-You can deploy all the sandbox configurations, or just the ones you need, including:
+You can deploy all the following sandbox configurations, or just the ones you need.
 
-- Shared services virtual network, bastion and Active Directory domain controller
-- Application virtual network, Windows Server jumpbox, Linux jumpbox and Azure Files share
-- SQL Server virtual machine
-- Azure SQL Database
-- Azure Database for MySQL Flexible Server
-- Azure Virtual WAN and point-to-site VPN
+- Shared services virtual network, [Azure Bastion](https://azure.microsoft.com/products/azure-bastion), and Active Directory domain controller
+- Application virtual network, Windows Server jumpbox, Linux jumpbox, and [Azure Files](https://azure.microsoft.com/products/storage/files) share
+- [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/sql-server)
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database)
+- [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview)
+- [Azure Virtual WAN](https://azure.microsoft.com/products/virtual-wan) and point-to-site VPN
 
-### Deploy the sandbox
+## Deploy the sandbox
 
-The following prerequisites must be in place in order to deploy your sandbox environment:
+You need the following prerequisites to deploy your Azure Sandbox environment:
 
-- Identify an Azure Active Directory tenant
-- Identify an Azure subscription
-- Create Azure RBAC role assignment
-- Create a service principal
-- Configure your client environment
+- An [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) tenant
+- An Azure subscription
+- The appropriate [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) role assignments
+- A service principal created
+- Your [client environment configured](https://github.com/Azure-Samples/azuresandbox#configure-client-environment)
 
-See [prerequisites](https://github.com/Azure-Samples/azuresandbox#prerequisites) to prepare for a sandbox deployment. See [Perform Default Sandbox Deployment](https://github.com/Azure-Samples/azuresandbox#perform-default-sandbox-deployment) to get started deploying your AzureSandbox environment.
+For more information about how to prepare for a sandbox deployment, see [Prerequisites](https://github.com/Azure-Samples/azuresandbox#prerequisites). See [Default Sandbox Deployment](https://github.com/Azure-Samples/azuresandbox#perform-default-sandbox-deployment) to get started deploying your Azure Sandbox environment.
 
-## Experiments
+## Use cases
 
-Have you ever wanted to experiment with a particular Azure service or capability but got blocked by all the foundational pre-requisites required in order to do so? This is where a sandbox environment can really accelerate your project by provisioning many of the mundane core infrastructure components so you can focus on just the serivces or capabilities you need to work with.
-
-- Connect to Windows Jumpbox VM from the Internet
-  - Option 1: Internet facing access using a Web browser and Azure Bastion
-  - Option 2: Point-to-site VPN connectivity via Azure Virtual WAN
-- Leverage a pre-configured file share via Azure Files
-- Use Windows Jumpbox VM as a developer workstation
-  - Visual Studio Code pre-installed with Remote-SSH into a Linux Jumpbox
-  - Azure Storage Explorer, AzCopy and Azure Data Studio pre-installed
-  - SQL Server Management Studio pre-installed
-  - MySQL Workbench pre-installed
-- Leverage a pre-configured SQL Server Virtual Machine
-- Leverage a pre-configured Azure SQL Database using privatge endpoints
-- Leverage a pre-configured Azure MySQL Flexible Server using private endpoints
-
-### Use cases
-
-A sandbox is ideal for accelerating Azure projects. After your sandbox environment is deployed, you can add your own services and capabilities and use it in a variety of ways, including:
+A sandbox is ideal for accelerating Azure projects. After you deploy your sandbox environment, you can add services and capabilities, and use the sandbox in various ways including:
 
 - Self-learning
 - Hackathons
 - Testing
 - Development
 
-## Disclaimer
+> [!IMPORTANT]
+> Azure Sandbox isn't intended for production use. The Sandbox uses some best practices, but others intentionally aren't used in favor of simplicity and cost.
 
-Azure Sandbox is not intended for production use. While some best practices are used, others are intentionally not used in favor of simplicity and cost.
+## Capabilities
+
+Have you ever wanted to experiment with a particular Azure service or capability but were blocked by all the foundational prerequisites? A sandbox environment can accelerate your project by provisioning many of the mundane core infrastructure components. You can focus on just the services or capabilities you need to work with.
+
+The following list describes some of the capabilities and configurations that the Azure Sandbox environment provides:
+
+- Connect to a Windows jumpbox VM from the internet.
+  - Option 1: Internet-facing access by using a web browser and Azure Bastion
+  - Option 2: Point-to-site VPN connectivity via Azure Virtual WAN
+  
+- Use an Azure Files preconfigured file share.
+
+- Use a Windows jumpbox VM as a developer workstation.
+  - Visual Studio Code preinstalled with Remote-SSH into a Linux jumpbox
+  - Azure Storage Explorer, AzCopy, and Azure Data Studio preinstalled
+  - SQL Server Management Studio preinstalled
+  - MySQL Workbench preinstalled
+
+- Use a preconfigured SQL Server VM.
+
+- Use a preconfigured Azure SQL database or Azure MySQL Flexible Server through private endpoints.
 
 ## Contributors
 
@@ -93,10 +98,10 @@ Principal author:
 
 ## Next steps
 
-Navigate to the [#AzureSandbox GitHub Repository](https://github.com/Azure-Samples/azuresandbox) and begin with [Getting started](https://github.com/Azure-Samples/azuresandbox#getting-started).
+- Navigate to the [AzureSandbox](https://github.com/Azure-Samples/azuresandbox) GitHub repository and begin with [Getting started](https://github.com/Azure-Samples/azuresandbox#getting-started). Also see [Known issues](https://github.com/Azure-Samples/azuresandbox#known-issues).
 
 ## Related resources
 
-- [Known Issues](https://github.com/Azure-Samples/azuresandbox#known-issues)
-- [Microsoft Cloud Adoption Framework for Azure](https://learn.microsoft.com/azure/cloud-adoption-framework/)
-- [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/azure/architecture/framework/)
+- 
+- [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework)
+- [Microsoft Azure Well-Architected Framework](/azure/architecture/framework)
