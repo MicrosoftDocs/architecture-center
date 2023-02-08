@@ -131,7 +131,7 @@ Managed identities are similar to the identity component in connection strings i
 
 **How to set up managed identities.** Managed identities have two components. There’s a code component and the infrastructure component. We recommend the `DefaultAzureCredential` class to set up the code and infrastructure-as-code (IaC) to set up the infrastructure.
 
-*Use DefaultAzureCredential to set up code.* The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token. You should configure. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+*Use DefaultAzureCredential to set up code.* The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from it's application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
 ***Reference implementation:*** The reference implementation uses the `DefaultAzureCredential()` to create a secure connection between the web api and Azure Key Vault.
 
