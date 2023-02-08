@@ -204,7 +204,7 @@ Production environments need SKUs that meet service level agreements (SLA), feat
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
 
-***Reference implementation:*** The reference implementation has optional parameters to trigger different behaviors. One of those parameters tells the bicep templates which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production than for non-prod environments.
+***Reference implementation:*** The reference implementation has Bicep parameters to trigger different resource deployment configuration. One of those parameters tells Azure resource manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production than for non-prod environments.
 
 ```csharp
 var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
