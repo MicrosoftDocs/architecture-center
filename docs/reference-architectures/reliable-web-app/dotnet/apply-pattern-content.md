@@ -1,6 +1,8 @@
-The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The goal of the pattern is to maximize the value of the cloud with minimal cost and effort and create a foundation to modernize. The pattern is a viable stopping point for some applications but most should use this pattern as a critical first step in a modernization journey.
+The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The goal is to maximize the value of the cloud with minimal cost and effort and create a foundation for future modernization. This guide simulates the developer journey and discussion the decision process from planning to implementation. While the reliable web app pattern is a viable stopping point for some applications, it's a critical first step for most web applications and creates a foundation for future modernizations.
 
-This article shows you how to apply the reliable web app pattern to a .NET web application.  The pattern assumes an on-premises starting point and focuses on harnessing the reliability of the cloud with minimal changes. There's a companion article that outlines objectives of the reliable web app pattern. It helps you understand the business drivers, on-premises context, and reason we chose each Azure service. For more information, see [Reliable web application pattern for .NET](./pattern-overview.yml)
+The guidance assumes an on-premises starting point and focuses on harnessing the reliability of the cloud with minimal changes. It shows you how to apply the reliable web app pattern to an on-premises, line-of-business (LOB) ASP.NET web application.
+
+This article shows you how to apply the reliable web app pattern. There's a companion article that defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. For more information, see [Reliable web application pattern for .NET](./pattern-overview.yml)
 
 ***Reference architecture:*** There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that applies the pattern to .NET web application. The web app is an employee-facing, line of business, concert ticketing app, and we refer to it throughout this guidance.
 
@@ -10,7 +12,7 @@ This article shows you how to apply the reliable web app pattern to a .NET web a
 
 ## Architecture and code
 
-Architecture and code are symbiotic. A well-architected web application needs great code and great code needs well-architected infrastructure. Flaws in one will limit the benefits of the other. The reliable web app pattern situates code changes within the pillars of the well-architected framework to enforce this principle.
+Architecture and code are symbiotic. A well-architected web application needs great code and great code needs well-architected infrastructure. Flaws in one will limit the benefits of the other. The reliable web app pattern situates code changes within the pillars of the well-architected framework to reenforce this concept.
 
 ## Reliability
 

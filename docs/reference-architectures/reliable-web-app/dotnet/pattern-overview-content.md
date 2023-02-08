@@ -1,14 +1,20 @@
-This guidance shows you how to apply the reliable web app pattern to an on-premises, line-of-business (LOB) ASP.NET web application converging on the cloud. The goal of the pattern is to meet increasing business demand with minimal investments in the existing monolithic app.
+The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The goal is to maximize the value of the cloud with minimal cost and effort and create a foundation for future modernization. This guide simulates the developer journey and discussion the decision process from planning to implementation. While the reliable web app pattern is a viable stopping point for some applications, it's a critical first step for most web applications and creates a foundation for future modernizations.
 
-This guidance is a set of best practices built on the Azure Well-Architected Framework that helps developers successfully migrate web applications to the cloud. It includes a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy for more insights. The objective of the reliable web app pattern is as follows:
+The guidance assumes an on-premises starting point and focuses on harnessing the reliability of the cloud with minimal changes. It shows you how to apply the reliable web app pattern to an on-premises, line-of-business (LOB) ASP.NET web application.
+
+This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you how to apply the reliable web app pattern to a .NET web application. For more information, see [How to apply the reliable web app pattern](./apply-pattern.yml)
+
+**Reference implementation:** The guidance includes a [reference implementation of the reliable web app pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. You can see and emulate the code changes while also simulating the code-level design patterns used.
+
+## Pattern definition
+
+The reliable web app pattern conforms to a common set of objectives and adheres to the [Azure Well-Architected Framework](/azure/architecture/framework/). The implementation to reach these objectives might vary between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
 
 | Objectives | Implementations for .NET |
 | --- | --- |
 |▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
 
-## Architecture and design patterns
-
-The architecture of the [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) represent best practices for implementing the reliable web app pattern for .NET.
+The pattern objectives determine the services used and web app architecture.
 
 ![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
@@ -16,11 +22,11 @@ The architecture of the [reference implementation](https://github.com/Azure/reli
 
 ### Starting point
 
-The starting point is an on-premises, monolithic ASP.NET application with a Microsoft SQL Server database. It's an employee-facing LOB eCommerce application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
+Since this guidance mirrors a cloud-convergance scenario, it's helpful to define a starting point. The reference implementation applies the pattern to an on-premises, monolithic ASP.NET application with a Microsoft SQL Server database. It's an employee-facing and LOB eCommerce web application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
 
 ### Business context
 
-Traffic to the on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
+The goal of the pattern is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
 
 | Short term goals | Long term goals |
 | --- | --- |
