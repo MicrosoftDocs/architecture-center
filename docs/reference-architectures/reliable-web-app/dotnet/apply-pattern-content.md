@@ -4,7 +4,7 @@ This article shows you how to apply the reliable web app pattern to a .NET web a
 
 ***Reference architecture:*** There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that applies the pattern to .NET web application. The web app is an employee-facing, line of business, concert ticketing app, and we refer to it throughout this guidance.
 
-![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
+![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
 
@@ -82,13 +82,13 @@ private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L85)
 
-The dependency injection for the `IConcertSearchService` object applies the retry pattern on all requests to the web service from a class or controller. The `GetRetryPolicy()` method uses the Polly `HttpPolicyExtensions` object to retry the request after a delay. The built-in backoff method retries the error up to three times with increasingly larger delays. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the retry pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect safely retriable HTTP requests and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
 
 *Simulate the retry pattern:* You can simulate the retry pattern in the reference implementation. For instructions, see [simulate the retry pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#retry-pattern).
 
 ### Use the circuit-breaker pattern
 
-You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is likely to fail. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the circuit breaker pattern.
+You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the circuit breaker pattern.
 
 ***Reference implementation:*** The reference implementation adds the circuit-breaker pattern with the `GetCircuitBreakerPolicy()` method as seen in the following code snippet.
 
@@ -103,21 +103,21 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L115).
 
-The Polly `HttpPolicyExtensions` object and `HandleTransientHttpError()` method to trigger the circuit-breaker policy if the web app receives an HTTP server error (500-599) or request time-out (408 error). The `CircuitBreakerAsync()` arguments return an error after five retries and wait 30 seconds before sending the next request. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the circuit-breaker pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect those same retriable HTTP requests but limits the number of aggregate faults over a specified period of time. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
 
 *Simulate the circuit-breaker pattern:* You can simulate the circuit-breaker pattern in the reference implementation. For instructions, see [simulate the circuit-breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
 
 ## Security
 
-Cloud applications benefit from using multiple Azure services, and communication between those services across compute nodes needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, we recommend using managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
+Cloud applications are often composed of multiple Azure services and communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, we recommend using managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
 
 ### Use managed identities
 
 We recommend using managed identities for all supported Azure services. They make identity management easier and more secure with benefits for authentication, authorization, and accounting.
 
-**Authentication:** Managed identities provide an automatically managed identity in Azure AD for applications to use when connecting to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens without having to manage any credentials.
+**Authentication:** Managed identities provide an automatically managed identity in Azure AD for applications to use when connecting to resources that support Azure AD authentication. Application code can use the application platform's managed identity to obtain Azure AD tokens without having to access static credentials from configuration.
 
-Managed identities are similar to connection strings in on-premises applications. On-premises apps use connection strings to secure communication to a database. *Trusted connection* and *Integrated security* features hide the database username and password from the config file. The application connects to the database with an Active Directory account. This Active Directory account is known as a service account because only the service has permissions to access the resources.
+Managed identities are similar to the identity component in connection strings in typical on-premises applications. On-premises apps use connection strings to prove an application's identity to a database. *Trusted connection* and *Integrated security* features hide the database username and password from the config file. The application connects to the database with an Active Directory account.
 
 **Authorization:** When granting access to a resource, we recommend that you always grant the least permissions needed. Using extra permissions when not needed gives attackers more opportunity to compromise the confidentiality, integrity, or the availability of your solution.
 
@@ -132,7 +132,7 @@ Managed identities are similar to connection strings in on-premises applications
 
 **How to set up managed identities.** Managed identities have two components. There's a code component and the infrastructure component. We recommend the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
 
-*Use DefaultAzureCredential to set up code.* The `DefaultAzureCredential` class works with Microsoft client libraries to provide connectivity options for local development work and managed identities in the cloud. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token. You should configure. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+*Use DefaultAzureCredential to set up code.* The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from it's application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
 ***Reference implementation:*** The reference implementation uses the `DefaultAzureCredential()` to create a secure connection between the web api and Azure Key Vault during startup.
 
@@ -152,7 +152,9 @@ Managed identities are similar to connection strings in on-premises applications
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/b05fb3f940b32af9117dcae4319f7d84624fab28/src/Relecloud.Web.Api/Program.cs#L11)
 
-**Use infrastructure-as-code to set up the managed-identity infrastructure.** You should use bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don't use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
+The `DefaultAzureCredential` class creates the connection during startup and works with Microsoft client libraries to provide connectivity options for local development work and managed identities in the cloud.
+
+**Use infrastructure-as-code to set up managed-identities.** You should use bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don’t use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
 
 ***Reference implementation:*** The reference implementation uses bicep templates to accomplish the following tasks:
 
@@ -201,7 +203,7 @@ Production environments need SKUs that meet service level agreements (SLA), feat
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
 
-***Reference implementation:*** The reference implementation has optional parameters to trigger different behaviors. One of those parameters tells the bicep templates which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production than for non-prod environments.
+***Reference implementation:*** The reference implementation has Bicep parameters to trigger different resource deployment configuration. One of those parameters tells Azure resource manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production than for non-prod environments.
 
 ```csharp
 var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
@@ -220,7 +222,7 @@ We chose the StandardC1 SKU for the production environment and the BasicC0 SKU f
 
 ### Automate scaling the environment
 
-You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. We don't recommend increasing the size of your virtual machines to meet frequent change in demand (vertical scaling) because it's less cost efficient. For more information, see:
+You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. We don’t recommend increasing the size of your application platform (vertical scaling) to meet frequent change in demand because it’s less cost efficient. For more information, see:
 
 - [Scaling in Azure App Service](/azure/app-service/manage-scale-up)
 - [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
@@ -231,13 +233,12 @@ You should use autoscale to automate horizontal scaling for production environme
 resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-preview' = if (isProd) {
   name: '${resourceToken}-web-plan-autoscale'
   location: location
-  tags: tags
   properties: {
     targetResourceUri: webAppServicePlan.id
     enabled: true
     profiles: [
       {
-        name: 'Auto created scale condition'
+        name: 'Auto scale from one to ten'
         capacity: {
           maximum: '10'
           default: '1'
@@ -425,10 +426,10 @@ public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
 ```csharp
 public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
 {
-database.Update(existingConcert);
-await database.SaveChangesAsync();
-this.cache.Remove(CacheKeys.UpcomingConcerts);
-return UpdateResult.SuccessResult();
+   database.Update(existingConcert);
+   await database.SaveChangesAsync();
+   this.cache.Remove(CacheKeys.UpcomingConcerts);
+   return UpdateResult.SuccessResult();
 }
 ```
 
