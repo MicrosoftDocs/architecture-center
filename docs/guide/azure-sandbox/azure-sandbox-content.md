@@ -34,7 +34,7 @@ To deploy the Azure Sandbox, go to the [AzureSandbox](https://github.com/Azure-S
 
 ## Use cases
 
-A sandbox is ideal for accelerating Azure projects. After you deploy your sandbox environment, you can add services and capabilities, and use the sandbox in various ways including:
+A sandbox is ideal for accelerating Azure projects. After you deploy your sandbox environment, you can add services and capabilities. You can use the sandbox for activities like:
 
 - Self-learning
 - Hackathons
@@ -42,7 +42,7 @@ A sandbox is ideal for accelerating Azure projects. After you deploy your sandbo
 - Development
 
 > [!IMPORTANT]
-> Azure Sandbox isn't intended for production use. The environment uses some best practices, but others intentionally aren't used in favor of simplicity and cost.
+> Azure Sandbox isn't intended for production use. The deployment uses some best practices, but others intentionally aren't used in favor of simplicity and cost.
 
 ## Capabilities
 
@@ -86,5 +86,5 @@ Principal author:
 ## Related resources
 
 - [Technology choices for Azure solutions](../technology-choices/technology-choices-overview.md)
-- [Best practices for cloud applications](../../best-practices/index-best-practices)
+- [Best practices for cloud applications](../../best-practices/index-best-practices.md)
 - [Build applications on the Microsoft Cloud](../microsoft-cloud/overview.md)
