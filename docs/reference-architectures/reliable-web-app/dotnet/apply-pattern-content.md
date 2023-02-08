@@ -102,7 +102,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L115).
 
-The Polly `HttpPolicyExtensions` object and `HandleTransientHttpError()` method to trigger the circuit-breaker policy if the web app receives an HTTP server error (500-599) or request time-out (408 error). The `CircuitBreakerAsync()` arguments return an error after five retries and wait 30 seconds before sending the next request. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the circuit-breaker pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect those same retriable HTTP requests but limits the number of aggregate faults over a specified period of time. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
 
 *Simulate the circuit-breaker pattern:* You can simulate the circuit-breaker pattern in the reference implementation. For instructions, see [simulate the circuit-breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
 
