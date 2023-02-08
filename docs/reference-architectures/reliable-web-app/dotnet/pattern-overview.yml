@@ -10,32 +10,15 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
-    - iot
-    - featured
+  - featured
 azureCategories:
   - migration
-  - networking
-  - web
-  - security
-  - compute
-  - databases
-  - developer-tools
   - web
 products:
   - azure-app-service
-  - azure-active-directory
-  - azure-app-configuration
   - azure-front-door
-  - azure-key-vault
   - azure-cache-redis
-  - azure-sql-database
-  - azure-web-application-firewall
-  - azure-private-link
-  - azure-virtual-network
-  - azure-storage
-  - azure-dns
   - dotnet
-  - dotnet-core
 name: Reliable web app pattern for .NET
 summary: How to improve your .NET application with the reliable web app pattern.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
