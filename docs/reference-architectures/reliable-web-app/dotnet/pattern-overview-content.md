@@ -1,10 +1,10 @@
 This guidance shows you how to apply the reliable web app pattern to an on-premises, line-of-business (LOB) ASP.NET web application converging on the cloud. The goal of the pattern is to meet increasing business demand with minimal investments in the existing monolithic app.
 
-This guidance is a set of best practices built on the Azure Well-Architected Framework that helps developers successfully migrate applications to the cloud. It includes a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy for more insights. The objective of the reliable web app pattern is as follows:
+This guidance is a set of best practices built on the Azure Well-Architected Framework that helps developers successfully migrate web applications to the cloud. It includes a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy for more insights. The objective of the reliable web app pattern is as follows:
 
 | Objectives | Implementations for .NET |
 | --- | --- |
-|▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Immutable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
+|▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
 
 ## Architecture and design patterns
 
@@ -28,9 +28,9 @@ Traffic to the on-premises application has increased due to higher-than-expected
 
 ### Service level objective
 
-Before calculating your service level objective (SLO), you need to define what it means to be available for your workload. Find all the Azure services that support your definition of availability. For Relecloud, available is when customers can purchase tickets. A service like Azure Monitor is outside the scope of the SLO of 99.9% because it doesn’t directly support ticket purchases.
+Before calculating your service level objective (SLO), you need to define what it means to be available for your web application. Find all the Azure services that support your definition of availability. For Relecloud, available is when customers can purchase tickets. A service like Azure Monitor is outside the scope of the SLO of 99.9% because it doesn’t directly support ticket purchases.
 
-To calculate composite availability, make a list of the services that support the essential functions of your application and find their service-level agreement (SLA). Next, calculate the composite SLA of the services. For more information, see:
+To determine availability, make a list of the services that support the essential functions of your application and find their service-level agreement (SLA). Next, calculate the composite SLA of the services. For more information, see:
 
 - [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 - [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
@@ -49,7 +49,7 @@ To calculate composite availability, make a list of the services that support th
 | [Azure Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) |  99.9% |
 | [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8/) |  99.99% |
 
-If the composite SLA doesn’t meet or exceed your SLO, then you need to reconsider the services you use or adjust the architecture. Relecloud adjusted the architecture and added a second region to improve availability. There’s a separate multi-region availability formula. Calculating the composite SLA for a single-region deployment resulted in an SLA of 99.52%, 38 hours of downtime per year. This SLA created unacceptable business risk. So they deployed the web app to two regions. The multi-region availability formula is `(1 - (1 − N) ^ R)`. `N` represents the composite SLA and `R` the number of regions. Two regions improve the SLA of each region to 99.99% availability. However, now there's a need for a global load balancer, Azure Front Door, to route traffic between the two regions. Front Door has an SLA of 99.99%. The composite availability for the multi-region web app becomes 99.98% and exceeds the SLO of 99.9%.
+If the composite SLA doesn’t meet or exceed your SLO, then you need to reconsider the services you use or adjust the architecture. Relecloud adjusted the architecture and added a second region to improve availability. There’s a separate formula multi-region availability. Calculating the composite SLA for a single-region deployment resulted in an SLA of 99.52%, 42 hours of downtime per year. This SLA created unacceptable business risk. So they deployed the web app to two regions. The multi-region availability formula is `(1 - (1 − N) ^ R)`. `N` represents the composite SLA and `R` the number of regions. Two regions improve the composite SLA to 99.99%. However, now there's a need for a global load balancer, Azure Front Door, to route traffic between the two regions. Front Door has an SLA of 99.99%. With Front Door, the composite availability for the multi-region web app becomes 99.98% and exceeds the SLO of 99.9%.
 
 ### Cost
 
@@ -66,7 +66,7 @@ The Azure services you choose should support your short-term objectives while pr
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). But we chose Azure App Service because it met the following requirements:
 
-- **High SLA:** It has a 99.95% uptime SLA and meets our requirements for the production environment.
+- **High SLA:** It has a 99.95% uptime SLA and met the production environment SLO.
 - **Reduced management overhead:** It's a fully managed solution that handles scaling, health checks, and load balancing.
 - **.NET support:** It supports the version of .NET the application was written in.
 - **Containerization capability:** We can converge on the cloud without containerizing the app, but we can also containerize in the future without changing Azure services.
