@@ -165,4 +165,4 @@ Explore related resources:
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Replicate and sync mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
 - [Unlock legacy data with Azure Stack](../../solution-ideas/articles/unlock-legacy-data.yml)
-- [Modernize mainframe & midrange data](./modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

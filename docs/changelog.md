@@ -266,7 +266,7 @@ The following new and updated articles have recently been published in the Azure
 - [Use Azure Firewall to help protect an AKS cluster](./example-scenario/aks-firewall/aks-firewall.yml)  ([#206e29618](https://github.com/MicrosoftDocs/architecture-center/commit/206e29618))
 - [Scalable and secure WordPress on Azure](./example-scenario/infrastructure/wordpress.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
 - [Enterprise deployment using Azure ASE](./reference-architectures/enterprise-integration/ase-standard-deployment.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
-- [Modernize mainframe and midrange data](./reference-architectures/migration/modernize-mainframe-data-to-azure.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
 - [Unisys mainframe migration with Asysco](./reference-architectures/migration/unisys-mainframe-migration.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
 - [Run SAP BW/4HANA with Linux VMs](./reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
 - [Refactor IBM z/OS coupling facility](./reference-architectures/zos/refactor-zos-coupling-facility.yml)  ([#a99fa79f8](https://github.com/MicrosoftDocs/architecture-center/commit/a99fa79f8))
@@ -549,4 +549,3 @@ The following new and updated articles have recently been published in the Azure
 - [Administer SQL Server with Azure Arc](./hybrid/azure-arc-sql-server.yml)  ([#9b213bf1e](https://github.com/MicrosoftDocs/architecture-center/commit/9b213bf1e))
 - [CI/CD for Azure Web Apps](./solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)  ([#47c08039d](https://github.com/MicrosoftDocs/architecture-center/commit/47c08039d))
 - [Build and deploy apps on AKS using DevOps and GitOps](./example-scenario/apps/devops-with-aks.yml)  ([#73a070014](https://github.com/MicrosoftDocs/architecture-center/commit/73a070014))
-
