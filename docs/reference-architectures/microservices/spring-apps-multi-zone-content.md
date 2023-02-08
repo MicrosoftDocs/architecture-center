@@ -18,7 +18,7 @@ This reference architecture shows how to run application workloads on Azure Spri
 
 1. The components inside the virtual networks use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to Azure Key Vault. [Azure Key Vault](/azure/key-vault/general/overview) stores application secrets and certificates. The microservices that run in Azure Spring Apps use the application secrets. Azure Spring Apps, Application Gateway, and Azure Front Door use the certificates for host name preservation.
 
-1. An [instance of Azure Database for MySQL with the flexible server deployment mode](/azure/mysql/flexible-server/overview) is used for data storage, but you can use any database. For alternatives, see [Back-end database](#back-end-database). The database server is deployed within the virtual network.
+1. An [instance of Azure Database for MySQL with the flexible server deployment option](/azure/mysql/flexible-server/overview) is used for data storage, but you can use any database. For alternatives, see [Back-end database](#back-end-database). The database server is deployed within the virtual network.
 
 1. The private endpoint and network-integrated connections use an [Azure private DNS zone](/azure/dns/private-dns-getstarted-cli).
 
@@ -53,7 +53,7 @@ You can also combine a multi-zone solution with a multi-region solution.
 
 This architecture uses a MySQL database for the back-end database. You can also use other database technologies, like [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview), [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview), [Azure Database for MariaDB](/azure/mariadb/overview), or [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
-You can also connect some of these databases to your virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). Azure Private Link isn't necessary for [the flexible server mode of Azure Database for MySQL](https://azure.microsoft.com/products/mysql), which directly supports virtual network integration through a dedicated subnet.
+You can also connect some of these databases to your virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). Azure Private Link isn't necessary for [the flexible server deployment mode of Azure Database for MySQL](https://azure.microsoft.com/products/mysql), which directly supports virtual network integration through a dedicated subnet.
 
 #### Reverse proxy setup
 
@@ -106,9 +106,9 @@ Key Vault is automatically zone redundant in any region where availability zones
 
 ### Azure Database for MySQL in flexible server mode
 
-[Azure Database for MySQL in flexible server mode](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network supports configuring high availability with automatic failover. The high-availability solution is designed to ensure that committed data is never lost because of failures and that the database isn't a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When you use availability zones in your architecture, make sure you use availability zones for all the components in your setup, including the database.
+[Azure Database for MySQL with the flexible server deployment option](/azure/mysql/flexible-server/concepts-high-availability) deployed in a virtual network supports configuring high availability with automatic failover. The high-availability solution is designed to ensure that committed data is never lost because of failures and that the database isn't a single point of failure in your software architecture. When high availability is configured, flexible server automatically provisions and manages a standby replica. When you use availability zones in your architecture, make sure you use availability zones for all the components in your setup, including the database.
 
-When you configure high availability for your Azure Database for MySQL Flexible Server, you can choose between `Zone-redundant HA` and `same-zone HA`. What option you choose depends on your latency requirements.
+When you configure high availability for your Azure Database for MySQL with the flexible server deployment option, you can choose between `Zone-redundant HA` and `same-zone HA`. What option you choose depends on your latency requirements.
 
 ### Automated deployment
 
