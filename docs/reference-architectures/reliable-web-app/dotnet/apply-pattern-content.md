@@ -234,13 +234,12 @@ You should use autoscale to automate horizontal scaling for production environme
 resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-preview' = if (isProd) {
   name: '${resourceToken}-web-plan-autoscale'
   location: location
-  tags: tags
   properties: {
     targetResourceUri: webAppServicePlan.id
     enabled: true
     profiles: [
       {
-        name: 'Auto created scale condition'
+        name: 'Auto scale from one to ten'
         capacity: {
           maximum: '10'
           default: '1'
