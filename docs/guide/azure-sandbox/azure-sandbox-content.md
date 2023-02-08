@@ -48,7 +48,7 @@ A sandbox is ideal for accelerating Azure projects. After you deploy your sandbo
 
 Have you ever wanted to experiment with a particular Azure service or capability, but were blocked by all the foundational prerequisites? A sandbox environment can accelerate your project by provisioning many of the mundane core infrastructure components. You can focus on just the services or capabilities you need to work with.
 
-The following list describes some of the capabilities and configurations that the Azure Sandbox environment provides:
+For example, you can use the following capabilities and configurations that the Azure Sandbox environment provides:
 
 - Connect to a Windows jumpbox VM from the internet.
   - Option 1: Internet-facing access by using a web browser and Azure Bastion
