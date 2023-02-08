@@ -15,7 +15,7 @@ Spot VMs can be up to 90 percent cheaper than regular (pay-as-you-go) VMs. The d
 - [Azure Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/)
 - [Spot VM pricing overview](/azure/virtual-machines/spot-vms#pricing)
 
-Alternatively, you can also query the [Azure retail prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices) to programmatically obtain the spot pricing for any SKU of interest. 
+You can also query the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to programmatically obtain the spot pricing for any SKU of interest. 
 
 ## Understand interruptible workloads
 
