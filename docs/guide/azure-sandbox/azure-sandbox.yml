@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Sandbox
-  description: Accelerate your Azure project with a fully functional sandbox environment.
+  description: Accelerate your Azure project with a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.
   author: doherty100
   ms.author: rdoherty
   ms.date: 02/10/2023
