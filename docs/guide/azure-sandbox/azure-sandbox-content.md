@@ -50,14 +50,14 @@ Have you ever wanted to experiment with a particular Azure service or capability
 
 For example, you can use the following capabilities and configurations that the Azure Sandbox environment provides:
 
-- Connect to a Windows jumpbox VM from the internet.
+- Connect to a Windows jump box VM from the internet.
   - Option 1: Internet-facing access by using a web browser and Azure Bastion
   - Option 2: Point-to-site VPN connectivity via Azure Virtual WAN
   
 - Use an Azure Files preconfigured file share.
 
 - Use a Windows jumpbox VM as a developer workstation.
-  - Visual Studio Code preinstalled with Remote-SSH into a Linux jumpbox
+  - Visual Studio Code preinstalled with Remote-SSH into a Linux jump box
   - Azure Storage Explorer, AzCopy, and Azure Data Studio preinstalled
   - SQL Server Management Studio preinstalled
   - MySQL Workbench preinstalled
