@@ -3,7 +3,7 @@ title: Resiliency checklist for services
 titleSuffix: Azure Architecture Center
 description: Resiliency is the ability to recover from failures and continue to function. Use this checklist to review the resiliency considerations for Azure services.
 author: martinekuan
-ms.date: 02/02/2023
+ms.date: 07/25/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: well-architected
