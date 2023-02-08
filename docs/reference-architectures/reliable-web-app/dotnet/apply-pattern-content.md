@@ -223,7 +223,7 @@ We chose the StandardC1 SKU for the production environment and the BasicC0 SKU f
 
 ### Automate scaling the environment
 
-You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. We don’t recommend increasing the size of your virtual machines to meet frequent change in demand (vertical scaling) because it’s less cost efficient. For more information, see:
+You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. We don’t recommend increasing the size of your application platform (vertical scaling) to meet frequent change in demand because it’s less cost efficient. For more information, see:
 
 - [Scaling in Azure App Service](/azure/app-service/manage-scale-up)
 - [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
