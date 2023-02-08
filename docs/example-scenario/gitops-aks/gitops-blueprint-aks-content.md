@@ -186,3 +186,11 @@ The following tutorials provide steps for deploying applications to AKS using Gi
 
 * [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
 * [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
+
+
+## Contributors
+This article is maintained by Microsoft. It was originally written by the following contributors.
+
+Principal authors:
+
+- [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Principal Cloud Solutions Architect
