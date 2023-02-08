@@ -114,7 +114,7 @@ Cloud applications are often composed of multiple Azure services and communicati
 
 We recommend using managed identities for all supported Azure services. They make identity management easier and more secure with benefits for authentication, authorization, and accounting.
 
-**Authentication:** Managed identities provide an automatically managed identity in Azure AD for applications to use when connecting to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens without having to manage any credentials.
+**Authentication:** Managed identities provide an automatically managed identity in Azure AD for applications to use when connecting to resources that support Azure AD authentication. Application code can use the application platform's managed identity to obtain Azure AD tokens without having to access static credentials from configuration.
 
 Managed identities are similar to connection strings in on-premises applications. On-premises apps use connection strings to secure communication to a database. *Trusted connection* and *Integrated security* features hide the database username and password from the config file. The application connects to the database with an Active Directory account. This Active Directory account is known as a service account because only the service has permissions to access the resources.
 
