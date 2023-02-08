@@ -1,7 +1,8 @@
 ### YamlMime:Architecture
 metadata:
   title: Capture-the-Flag with CTFd on Azure PaaS
-  description: Build a CTFd service with Azure PaaS so you can manage a your games while Azure takes care of the infrastructure.
+  titleSuffix: Azure Architecture Center
+  description: Build a CTFd service with Azure PaaS so you can manage your games while Azure takes care of the infrastructure.
   author: balteravishay
   ms.author: architectures
   ms.date: 01/11/2023
@@ -18,7 +19,7 @@ metadata:
 name: Capture-the-Flag with CTFd on Azure PaaS
 azureCategories:
   - web
-summary: Build a CTFd service with Azure PaaS so you can manage a your games while Azure takes care of the infrastructure.
+summary: Build a CTFd service with Azure PaaS so you can manage your games while Azure takes care of the infrastructure.
 products:
   - azure-database-mariadb
   - azure-key-vault
