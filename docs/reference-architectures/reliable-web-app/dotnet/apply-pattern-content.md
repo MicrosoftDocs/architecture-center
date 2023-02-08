@@ -121,7 +121,7 @@ Managed identities are similar to the identity component in connection strings i
 
 **Authorization:** When granting access to a resource, we recommend that you always grant the least permissions needed. Using extra permissions when not needed gives attackers more opportunity to compromise the confidentiality, integrity, or the availability of your solution.
 
-***Reference implementation:*** The reference implementation grants the managed identity of App Service root access to SQL server because it uses Entity Framework Code First Migrations. It's not a best practice to give the App Service root access to the SQL server. It could create a race condition in a live, production environment. Unlike most environments, the reference implementation needs to create the database schema and populate data. We had to grant the App Service root access to do that. In your environment, we recommend only granting App Service read/write access to the SQL server.
+***Reference implementation:*** The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage schema. We recommend granting your managed identities only the permissions level necessary to support your code's needs, such as just the ability to read/write data.
 
 **Accounting:** Accounting in cybersecurity refers to the process of tracking and logging actions within an environment. With managed identities in Azure, you can gain better visibility into which supported Azure resources are accessing other resources and set appropriate permissions for each resource or service. While connection strings with secrets stored in Azure Key Vault can provide secure access to a resource, they do not offer the same level of accounting visibility. As a result, it can be more challenging to govern and control access using only connection strings. Managed identities provide a secure and traceable way to control access to Azure resources. For more information, see:
 
@@ -143,8 +143,8 @@ Managed identities are similar to the identity component in connection strings i
             .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
             .ConfigureKeyVault(kv =>
             {
-                // In this setup, we must provide Key Vault access to setup
-                // App Configuration even if we do not access Key Vault settings
+                // Some of the values coming from Azure App Configuration are stored Key Vault, use
+                // the managed identity of this host for the authentication.
                 kv.SetCredential(new DefaultAzureCredential());
             });
     });
@@ -173,24 +173,32 @@ Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-databa
 
 Not every service supports managed identities, and sometimes you have to use secrets. In these situations, you must externalize the application configurations and put the secrets in a central secret store. In Azure, the central secret store is Azure Key Vault.
 
-Many on-premises environments don't have central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotate keys, and audit key access. For more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
+Many on-premises environments don't have central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotate keys, and audit key access. You can also enabling monitor in Azure Key Vault, and for more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
 
-***Reference implementation:*** The reference implementation doesn't use Key Vault monitoring. It also uses external secrets for three services. The first two services don't support managed identities yet. Using external secrets for Azure Storage isn't a best practice, but due to technical debt, the reference implementation uses shared access signatures.
+***Reference implementation:*** The reference implementation doesn't use Key Vault monitoring. It also uses external secrets for three services.
 
-1. *Azure AD client secret:* The secret verifies the identity of the web app when it calls the graph API. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code will start using the new secret. After the web app has been restarted, the team can delete the previous client secret.
-1. *Azure Cache for Redis secret:* To rotate the key in the connection string, you need to change the value in Key Vault to the secondary connection string for Azure Cache for Redis. After changing the value, you must restart the web app to use the new settings. Use the Azure CLI or the Azure portal to regenerate the access key for Azure Cache for Redis.
-1. *Azure Storage Account secret:* The reference implementation makes ticket images publicly available to users from Azure storage. It uses shared access signature (SAS) URLs and generates SAS URLs with each ticket. The primary Storage Account access key creates the SAS URL and grants access to the ticket image for a limited time of 30-days. For more information, see [Manage account access keys](/azure/storage/common/storage-account-keys-manage).
+1. *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated user, we used the on-behalf-of flow. To execute that process, we needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code will start using the new secret. After the web app has been restarted, the team can delete the previous client secret.
+
+1. *Azure Cache for Redis secret:* The service doesn't support managed identity yet. To rotate the key in the connection string, you need to change the value in Key Vault to the secondary connection string for Azure Cache for Redis. After changing the value, you must restart the web app to use the new settings. Use the Azure CLI or the Azure portal to regenerate the access key for Azure Cache for Redis.
+
+1. *Azure Storage Account secret:* The web app uses shared access signature (SAS) URLs and generates SAS URLs with each ticket. The reference implementation makes ticket images publicly available to users from Azure storage. The primary Storage Account access key creates the SAS URL and grants access to the ticket image for a limited time of 30-days. For more information, see [Manage account access keys](/azure/storage/common/storage-account-keys-manage).
 
 ### Secure communication with private endpoints
 
-You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services traverses the public internet. These services include Azure SQL Database, Azure Cache for Redis, and Azure App Service in the reference implementation. Azure Private Link allows you to secure that communication with private endpoints in a virtual network and avoid the public internet. For more information, see:
+You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services traverses the public internet. These services include Azure SQL Database, Azure Cache for Redis, and Azure App Service in the reference implementation. Azure Private Link allows you to secure that communication with private endpoints in a virtual network and avoid the public internet.
+
+This network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes.
+
+For more information, see:
 
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
 
 ## Cost optimization
 
-Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization.
+Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes made optimize for horizontal scale as a lower cost investment as compared to optimizing existing business processes, which lead to higher risk change.
+
+**Reference architecture:** The checkout path has a hotspot of rendering ticket images during request processing. Isolating this to a separate workload would improve cost management and performance. Changes of this scope magnitude are beyond the scope of this pattern and should be addressed in future modernizations.
 
 ### Right-size resources for each environment
 
@@ -255,8 +263,6 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4704f6f43bb9669ebd97716e9e7b6e8ba97d6ebf/infra/resources.bicep#L343)
 
-While not shown in the code snippet above, CPU usage is the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting at 85% CPU usage, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic due to sticky sessions. It also protects against high bursts of traffic by scaling early to avoid max CPU usage. These autoscale rules aren't universal. You need to configure and adapt scaling rules to meet the behavior of your application.
-
 ### Delete non-production environments
 
 Infrastructure as code (IaC) is often listed as an operational best practice, but it's also a way to manage costs. Infrastructure as code can create and delete entire environments.  We recommend deleting non-production environments after hours or during holidays.
@@ -265,7 +271,7 @@ Infrastructure as code (IaC) is often listed as an operational best practice, bu
 
 We recommend using a single cache instance to support multiple data types rather than using a single instance for each data type.
 
-***Reference implementation:*** The reference implementation uses a single Azure Cache for Redis instances for carts, Microsoft Authentication Library (MSAL) authentication, and the “Upcoming Concerts” page data. It uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, we allocated the "extra" capacity to multiple data types.
+***Reference implementation:*** The reference implementation uses a single Azure Cache for Redis instance to stores session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the “Upcoming Concerts” page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, we allocated the "extra" capacity to multiple data types.
 
 ## Operational excellence
 
@@ -280,13 +286,13 @@ You should use a DevOps pipeline to deploy changes from source control to produc
 - **Maximizes productivity:** Use automation to set up new environments and reduce the operational overhead managing environments manually.
 - **Improves governance:** IaC makes it easier to audit and review production changes deployed to Azure because it's checked into source control.
 
-For more information, see guide to [using repeatable infrastructure]().
+For more information, see guide to [using repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
 
 ***Reference implementation:*** The reference implementation uses Azure Dev CLI and IaC (bicep templates) to create Azure resources, setup configuration, and deploy the required resources from a GitHub Action.  
 
-### Collect application telemetry
+### Logging and application telemetry
 
-The telemetry you gather on your application should cater to the operational needs of the web application. At a minimum, you must collect telemetry on baseline metrics. We recommend adding to the baseline metrics to gather information on user behavior that can help you apply targeted improvements. Here are our recommendations for collecting application telemetry.
+We recommend enabling logging to diagnose when any request fails for tracing and debugging. The telemetry you gather on your application should cater to the operational needs of the web application. At a minimum, you must collect telemetry on baseline metrics. We recommend adding to the baseline metrics to gather information on user behavior that can help you apply targeted improvements. Here are our recommendations for collecting application telemetry.
 
 **Monitor baseline metrics.** The workload should monitor baseline metrics. Important metrics to measure include request throughput, average request duration, errors, and monitoring dependencies. We recommend using application Insights to gather this telemetry. You can use `AddApplicationInsightsTelemetry()` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see:
 
@@ -335,9 +341,11 @@ Performance efficiency is the ability of a workload to scale and meet the demand
 
 The cache-aside pattern is a technique used to manage in-memory data caching. The cache-aside pattern makes the application responsible for managing data requests and data consistency between the cache and the persistent data store such as a database. When a data request reaches the application, the application first checks the cache to see if the cache has the data in memory. If not, the application queries the database, returns it to the requester, and stores that data in the cache. For more information, see [cache-aside pattern overview](/azure/architecture/patterns/cache-aside).
 
-The cache-aside pattern introduces a few benefits. It increases the responsiveness of the application for data in the cache and reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages caused by.
+The cache-aside pattern introduces a few benefits. It lowers the request response time which can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages caused by.
 
-***Reference implementation:*** The reference implementation uses the cache-aside pattern to improve the performance of the Azure SQL database, minimize cost, and increase application performance. The distributed memory cache is a framework provided by ASP.NET Core that stores items in memory. The application connects to the cache when the web application starts. It checks for an existing connection string. If the Configuration["App:RedisCache:ConnectionString"] is empty or contains only white-space characters, then the `AddDistributedMemoryCache()` method adds the in-memory cache implementation to the `IServiceCollection`. When a connection string is present, the `AddStackExchangeRedisCache()` method is called to use the Redis cache. The code overrides the default behavior by using Azure Cache for Redis. The application instance stores cached items on the server where the app is running. For more information, see:
+***Reference implementation:*** The reference implementation uses the cache-aside pattern to improve the performance of the Azure SQL database, minimize cost, and increase application performance. It caches the upcoming concert data, which is part of the ticket purchase hot path. The distributed memory cache is a framework provided by ASP.NET Core that stores items in memory.
+
+When the application starts, it connects to Azure Cache for Redis if it detects a connection string. If a connection string is not connected, it will use the in-memory cache, and the application stores data on the server where the app is running. We recommend the external cache for this scenario because it keeps data in sync across multiple servers. The configuration supports local development scenarios without Redis. For more information, see:
 
 - [Distributed caching in ASP.NET Core](/aspnet/core/performance/caching/distributed?view=aspnetcore-6.0)
 - [AddDistributedMemoryCache Method](/dotnet/api/microsoft.extensions.dependencyinjection.memorycacheservicecollectionextensions.adddistributedmemorycache)
@@ -365,7 +373,7 @@ private void AddAzureCacheForRedis(IServiceCollection services)
 
 *Simulate the cache-aside pattern:* You can simulate the cache-aside pattern in the reference implementation. For instructions, see [simulate the cache-aside pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#cache-aside-pattern).
 
-**Cache high-need data.** Most applications have pages that get more viewers than other pages. We recommend you cache data that supports the most-viewed pages of the application to improve responsiveness to the end user and lessen the demand on the database.
+**Cache high-need data.** Most applications have pages that get more viewers than other pages. We recommend you cache data that supports the most-viewed pages of the application to improve responsiveness to the end user and lessen the demand on the database. You should use Azure Monitor and Azure SQL Analytics to track CPU, memory, and storage of the database. With these metrics, you can determine if a smaller database SKU is possible.
 
 ***Reference implementation:*** The reference implementation caches the data supporting the “Upcoming Concerts”. The “Upcoming Concerts” page creates the most queries to the Azure SQL Database and produces a consistent output for each visit. The cache-aside pattern caches the data after the first request for this page to reduce the load on the database. The following code uses the `GetUpcomingConcertsAsync()` method to pull data into the Redis cache from the Azure SQL Database.
 
@@ -401,8 +409,6 @@ public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
 
 The method populates the cache with the latest concerts. The method filters by time, sorts, and returns data to the controller to display the results.
 
-**Right-size the database for cost savings.** The cache-aside pattern lessens the demand on the database. The reduced load on the database creates a potential opportunity to select a cheaper SKU and decrease costs. You should use Azure Monitor and Azure SQL Analytics to track CPU, memory, and storage of the database. With these metrics, you can determine if a smaller database SKU is possible and reduce cost.
-
 **Keep cache data fresh.** You should periodically refresh the data in the cache to keep it relevant. The process involves getting the latest version of the data from the database to ensure the cache has the most requested data and most up-to-date information. The goal is to ensure users get current data fast. The frequency of the refreshes depends on the application.
 
 ***Reference implementation:*** The reference implementation only caches data for 1 hour and has a process for clearing the cache key when the data changes. The following code from the `CreateConcertAsync()` method clears the cache key.
@@ -434,6 +440,12 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 ```
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web.Api/Services/SqlDatabaseConcertRepository/SqlDatabaseConcertRepository.cs#L36)
+
+### Autoscale by performance metrics
+
+Autoscale based on performance metrics so that users are not affected by SKU constraints. CPU utilization performance triggers are a good starting point when you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to meet the behavior of your web application.
+
+***Reference implementation:*** The reference implementation uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting at 85% CPU usage, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic due to sticky sessions. It also protects against high bursts of traffic by scaling early to avoid max CPU usage. These autoscale rules aren't universal.
 
 ## Deploy the reference implementation
 
