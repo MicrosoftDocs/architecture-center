@@ -4535,6 +4535,8 @@ items:
             href: guide/devops/devops-start-here.md
           - name: Guides
             items:
+              - name: Azure Sandbox
+                href: guide/azure-sandbox/azure-sandbox.yml
               - name: DevOps checklist
                 href: checklist/dev-ops.md
               - name: Operational Excellence patterns
