@@ -10,7 +10,7 @@ metadata:
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:
-    - featured
+  - featured
 azureCategories:
   - migration
   - web
