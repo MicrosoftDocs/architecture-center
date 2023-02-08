@@ -445,7 +445,6 @@ The reference implementation is a concert ticketing web app with the reliable we
 
 The reliable web application pattern is the first phase in cloud adoption journey and helps developers quickly achieve reliability, scalability, and security for web applications. For some applications, the reliable web app pattern is a viable stopping point. Not all applications should receive further investment.
 
-We’re developing the second and third phases of this guidance: the modern web application pattern and the scalable web application. When ready, these articles will show you how to further modify the application and reach the business objectives of each phase.
 
 ## More resources
 
