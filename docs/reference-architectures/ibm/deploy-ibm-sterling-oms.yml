@@ -4,7 +4,7 @@ metadata:
   description: Run IBM Sterling Order Management Software (OMS) on Azure. Design and implement cloud solutions for Sterling OMS that use Azure.
   author: drewfurgiuele
   ms.author: anfurgiu,ronieuwe,dbaumgarten
-  ms.date: 02/06/2023
+  ms.date: 02/08/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture

@@ -78,7 +78,7 @@ Before you proceed with your deployment, answer the following questions about yo
 - What type of JMS-based message broker do you plan to use?
 - Where do you plan to deploy the messaging system:
   - In the same OpenShift cluster?
-  - External to the cluster on a different platform or VMs?
+  - External to the cluster on a different platform or on VMs?
 - Do you have an existing container registry, and do you plan to keep using it?
 - What number and sizes of VMs do you need for your worker nodes?
 - What are your encryption-related security requirements?
@@ -93,7 +93,7 @@ Sterling OMS version 10.0.2209.0 has been tested on Azure. We recommend that you
 Before deploying your Azure resources to support your Sterling OMS environment, familiarize yourself with the following requirements:
 
 - For Sterling OMS system requirements, see [System Requirements](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=installing-system-requirements).
-- Sterling OMS has a dependency on a relational database system for state and data management. A JMS-enabled message broker system is also required, for service-to-service communication and order workflows. Sterling OMS supports several database and message broker options that you can deploy in your environment. For more information, see the following resources:
+- Sterling OMS has a dependency on a relational database system for state and data management. A JMS-enabled message broker system is also required for service-to-service communication and order workflows. Sterling OMS supports several database and message broker options that you can deploy in your environment. For more information, see the following resources:
   - Database tier: [Installing and configuring database tier software on UNIX or Linux](https://www.ibm.com/docs/vi/order-management-sw/10.0?topic=tier-installing-configuring-database-software-unix-linux)
   - JMS message broker: [Integrating with JMS Systems](https://www.ibm.com/docs/en/order-management-sw/10.0?topic=integrating-jms-systems)
 
@@ -101,7 +101,7 @@ Before deploying your Azure resources to support your Sterling OMS environment, 
 
 Sterling OMS has been tested with Azure Red Hat OpenShift version 4.10.15. Before you deploy Azure Red Hat OpenShift:
 
-- Decide on a domain (optional). When you deploy Azure Red Hat OpenShift, you need to specify a domain name that gets appended to all services that get deployed in your cluster.
+- Decide on a domain. When you deploy Azure Red Hat OpenShift, specify a domain name that gets appended to all services that get deployed in your cluster.
 - Determine your API and ingress visibility. Decide how you want your OpenShift cluster API (for management) and ingress (for deployed applications and services) to be internet-facing. If you use private connectivity to hide your API or ingress, you can only reach these endpoints from a machine that can reach the network where you deploy your service.
 - Calculate your master and worker VM sizes and counts. In Azure Red Hat OpenShift, the master count is a fixed number, with a minimum recommended size. Your worker nodes, which run your application workloads like Sterling OMS, are sized separately. When you deploy your instance, consider the required number of worker nodes in your cluster, plus the appropriate size of each. You might need to do some testing and validation to determine the correct numbers and sizes. These values depend on the number of agents in your deployment and the number of pods for each agent type that you run. After deploying, you can adjust these values when you need to scale.
 
@@ -140,7 +140,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Maintaining access and visibility into the maintenance lifecycle of your assets can be one of your organization's greatest opportunities to operate efficiently and maintain uptime. To improve the security posture of your environment, it's important to use secure authentication and to keep your solutions up to date. Use encryption to protect all data that moves in and out of your architecture.
+Maintaining access and visibility into the maintenance lifecycle of your assets can be one of your organization's greatest opportunities to operate efficiently and maintain uptime. To help improve the security posture of your environment, it's important to use secure authentication and to keep your solutions up to date. Use encryption to help protect all data that moves in and out of your architecture.
 
 Azure delivers Sterling OMS by using the models of IaaS and platform as a service (PaaS). Microsoft builds security protections into the service at the following levels:
 
@@ -209,6 +209,8 @@ A standard deployment of Sterling OMS consists of the following components. You 
 Individual deployments can differ, for instance, if you run Db2 on Azure VMs, or if you deploy IBM MQ into your Azure Red Hat OpenShift environment. To review an example estimate, use the [cost calculator](https://azure.com/e/fae03e2386cf46149273a379966e95b1). Configurations vary, so verify your configuration with your IBM sizing team before you finalize your deployment.
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 Azure Red Hat OpenShift has built-in capabilities for self-healing, scaling, and resilience to ensure that Azure Red Hat OpenShift and Sterling OMS work successfully. Azure Red Hat OpenShift and Sterling OMS have been designed for parts that fail and recover. A key requirement for self-healing is that there are enough worker nodes. To recover from a zone failure within an Azure region, your control and worker nodes must be balanced across availability zones.
 
