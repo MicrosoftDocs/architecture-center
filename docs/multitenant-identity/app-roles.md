@@ -30,9 +30,9 @@ You can use application roles to assign permissions to users. For example, the [
 
 Roles are ultimately translated into permissions during [authorization][authorization]. The first step is to assign and manage roles. There are three commonly used ways to assign roles:
 
-* [Azure AD app roles](#roles-using-azure-ad-app-roles)
-* [Azure AD security groups](#roles-using-azure-ad-security-groups)
-* [Application role manager](#roles-using-an-application-role-manager).
+* [Azure AD app roles](#assign-roles-by-using-azure-ad-app-roles)
+* [Azure AD security groups](#assign-roles-by-using-azure-ad-security-groups)
+* [Application role manager](#assign-roles-by-using-an-application-role-manager)
 
 ## Assign roles by using Azure AD app roles
 
