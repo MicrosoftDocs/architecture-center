@@ -188,6 +188,15 @@ The following tutorials provide steps for deploying applications to AKS using Gi
 * [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
 
 
+## Pricing
+Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
+
+- AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes. 
+
+- GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing](https://github.com/pricing) page.
+
+- Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs. 
+
 ## Contributors
 This article is maintained by Microsoft. It was originally written by the following contributors.
 
