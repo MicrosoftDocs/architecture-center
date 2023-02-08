@@ -223,9 +223,9 @@
 			</g>
 			<g id="shape1084-49" transform="translate(-7.71429,-190.286)">
 				<title>Sheet.1084</title>
-				<desc>Azure Kubenetes Service (AKS)</desc>
+				<desc>Azure Kubernetes Service (AKS)</desc>
 				<rect x="0" y="412.408" width="90" height="21.0922" class="st14"/>
-				<text x="7.8" y="419.95" class="st15">Azure Kubenetes <tspan x="16.29" dy="1.2em" class="st16">Service (AKS)</tspan></text>			</g>
+				<text x="6.06" y="419.95" class="st15">Azure Kubernetes <tspan x="16.29" dy="1.2em" class="st16">Service (AKS)</tspan></text>			</g>
 		</g>
 		<g id="group1284-53" transform="translate(324.759,-58.8258)">
 			<title>Sheet.1284</title>
@@ -1789,9 +1789,9 @@
 			<text x="8.44" y="425.45" class="st42">3</text>		</g>
 		<g id="shape1413-549" transform="translate(362.88,-289.125)">
 			<title>Sheet.1413</title>
-			<desc>Azure Kubenetes Service virtual node</desc>
+			<desc>Azure Kubernetes Service virtual node</desc>
 			<rect x="0" y="403.71" width="100.44" height="29.79" class="st14"/>
-			<text x="13.02" y="414.4" class="st15">Azure Kubenetes <tspan x="7" dy="1.38em" class="st16">Service virtual node</tspan></text>		</g>
+			<text x="11.28" y="414.4" class="st15">Azure Kubernetes <tspan x="7" dy="1.38em" class="st16">Service virtual node</tspan></text>		</g>
 		<g id="shape1-553" transform="translate(-5.33333,2.66667)">
 			<title>logo png.1</title>
 			<rect x="0" y="372.603" width="115.292" height="60.8973" class="st14"/>
