@@ -22,13 +22,13 @@ products:
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
-Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
+You can use application roles to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
 
-* Administrator. Can perform all CRUD operations on any survey that belongs to that tenant.
+* Administrator. Can perform all CRUD operations on any survey that belongs to the tenant.
 * Creator. Can create new surveys.
-* Reader. Can read any surveys that belong to that tenant.
+* Reader. Can read any survey that belongs to the tenant.
 
-You can see that roles ultimately get translated into permissions, during [authorization][authorization]. But the first question is how to assign and manage roles. We identified three main options:
+Roles are ultimately translated into permissions during [authorization][authorization]. But the first question is how to assign and manage roles. We identified three main options:
 
 * [Azure AD App Roles](#roles-using-azure-ad-app-roles)
 * [Azure AD security groups](#roles-using-azure-ad-security-groups)
