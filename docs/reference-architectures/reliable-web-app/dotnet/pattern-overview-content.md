@@ -1,10 +1,10 @@
 The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The overarching objective of the pattern is to your web application harness the value of the cloud fast and create a foundation for modernization. The reliable web app pattern addresses code and architecture decisions from the developer perspective, and it details the entire cloud convergence process from planning to implementation. The pattern applies to most web applications converging on the cloud. While it's a viable stopping point for some web applications, it's an essential first step for most applications in a strategic modernization journey.
 
-This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation of the reliable web app pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. The following diagram shows the architecture of the reliable web app pattern for .NET.
+This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) you can deploy. The following diagram shows the architecture of the reliable web app pattern for .NET.
 
 ![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.* Estimated cost of the reference implementation by environment:
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of the reference implementation by environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
@@ -33,7 +33,7 @@ The goal of the pattern is to meet increasing business demand with minimal inves
 
 Before calculating your service level objective (SLO), you need to define what it means to be available for your web application. Find all the Azure services that support your definition of availability. For Relecloud, available is when customers can purchase tickets. A service like Azure Monitor is outside the scope of the SLO of 99.9% because it doesn’t directly support ticket purchases.
 
-To determine availability, we need some metric to measure the predicted availability of a service and, for that, we use Azure's service service level agreements (SLAs). Make a list of the services that support the essential functions of your application and find their SLA. Next, calculate the composite SLA of the services. For more information, see:
+To determine availability, we need some metric to measure the predicted availability of a service and, for that, we use Azure's service level agreements (SLAs). Make a list of the services that support the essential functions of your application and find their SLA. Next, calculate the composite SLA of the services. For more information, see:
 
 - [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 - [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
@@ -56,7 +56,7 @@ If the composite SLA doesn’t meet or exceed your SLO, then you need to reconsi
 
 ## Choose the right services
 
-The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that meet the SLO for the production environment, require minimal migration effort, and support aspired modernizations efforts. At this phase, it's important select Azure services that mirror key on-premises choices, such as keeping the database engine consistent (e.g. SQL Server -> Azure SQL Database) and keeping the app hosting platform the same (e.g. IIS on Windows Server -> Azure Web Apps). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal.
+The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that meet the SLO for the production environment, require minimal migration effort, and support aspired modernizations efforts. At this phase, it's important select Azure services that mirror key on-premises choices. For example, you should keep the same database engine (SQL Server -> Azure SQL Database) and app hosting platform (IIS on Windows Server -> Azure Web Apps). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal.
 
 ### Application platform
 
@@ -114,7 +114,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 - **Reduce management overhead:** It’s a fully managed service.
 - **Speed and volume:** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
-- **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly-frequented data nor could that data be invalidated.
+- **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data nor could that data be invalidated.
 - **Enabling non-sticky sessions:** Externalizing session state supports non-sticky sessions.
 
 ### Global load balancer
