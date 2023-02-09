@@ -6609,7 +6609,7 @@ items:
                     items: 
                       - name: .NET 
                         items: 
-                          - name: Plan implementation
+                          - name: Plan the implementation
                             href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
                           - name: Apply the pattern
                             href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
