@@ -118,11 +118,13 @@ Cloud applications are often composed of multiple Azure services and communicati
 
 We recommend using managed identities for all supported Azure services. They make identity management easier and more secure with benefits for authentication, authorization, and accounting.
 
+#### Overview
+
 **Authentication:** Managed identities provide an automatically managed identity in Azure AD for applications to use when connecting to resources that support Azure AD authentication. Application code can use the application platform's managed identity to obtain Azure AD tokens without having to access static credentials from configuration.
 
 Managed identities are similar to the identity component in connection strings in typical on-premises applications. On-premises apps use connection strings to prove an application's identity to a database. *Trusted connection* and *Integrated security* features hide the database username and password from the config file. The application connects to the database with an Active Directory account.
 
-**Authorization:** When granting manage-identities' access to a resource, we recommend that you always grant the least permissions needed. Using extra permissions when not needed gives attackers more opportunity to compromise the confidentiality, integrity, or the availability of your solution.
+**Authorization:** When granting manage-identities' access to a resource, we recommend that you always grant the least permissions needed to limit attack surface.
 
 *Reference implementation:* The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. We recommend granting your managed identities only using the permissions necessary to support your code's needs such as just the ability to read/write data.
 
@@ -133,9 +135,11 @@ Managed identities are similar to the identity component in connection strings i
 - [Azure Services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-**How to set up managed identities.** Managed identities have two components. There's a code component and the infrastructure component. We recommend the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
+#### How to set up managed identities
 
-*Use DefaultAzureCredential to set up code.* The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+Managed identities have two components. There's a code component and the infrastructure component. We recommend the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
+
+**1. Use DefaultAzureCredential to set up code.** The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
 *Reference implementation:* The reference implementation uses the `DefaultAzureCredential()` class during start up to enable the use of managed identity between the web API and Key Vault.
 
@@ -157,7 +161,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 
 The `DefaultAzureCredential` class works with Microsoft client libraries to provide credentials for local development and managed identities in the cloud.
 
-**Use infrastructure-as-code to set up managed-identities.** You should use bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don’t use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
+**2. Automate infrastructure build.** You should use bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don’t use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
 
 *Reference implementation:* The reference implementation uses bicep templates to accomplish the following tasks:
 
@@ -190,9 +194,7 @@ Many on-premises environments don't have central secrets store. The absence make
 
 You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services traverses the public internet. These services include Azure SQL Database, Azure Cache for Redis, and Azure App Service in the reference implementation. Azure Private Link allows you to secure that communication with private endpoints in a virtual network and avoid the public internet.
 
-This network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes.
-
-For more information, see:
+This network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see:
 
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
