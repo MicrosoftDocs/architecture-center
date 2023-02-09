@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Subscription vending
-  description: Subscription vending with bicep
+  title: Subscription vending - Bicep module design recommendations
+  description: Subscription vending with Bicep
   author: ssumner
   ms.author: ssumner
   ms.date: 02/23/2023

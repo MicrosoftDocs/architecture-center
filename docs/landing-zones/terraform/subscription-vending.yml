@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Subscription vending - Terraform module design recommendations
-  description: Subscription vending with terraform
+  description: Subscription vending with Terraform
   author: ssumner
   ms.author: ssumner
   ms.date: 02/23/2023
