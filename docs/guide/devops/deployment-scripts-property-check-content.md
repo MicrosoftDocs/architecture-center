@@ -51,7 +51,65 @@ Because this environment is all deployed from a single file that uses Bicep modu
 
 The following excerpt from orchestration.bicep shows the use of **dependsOn**:
 
+<!--
+
+The following is not currently supported in the architecture-center-pr repo:
+
 :::code language="bicep" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/orchestration.bicep" range="57-68,98-134" highlight="110,125-127":::
+
+-->
+
+```Bicep
+@description('The API Version of the Azure Resource you wish to use to check a properties state.')
+param parAzResourceApiVersion string = '2022-01-01'
+
+@description('The property of the resource that you wish to check. This is a property inside the `properties` bag of the resource that is captured from a GET call to the Resource ID.')
+param parAzResourcePropertyToCheck string = 'routingState'
+
+@description('The value of the property of the resource that you wish to check.')
+param parAzResourceDesiredState string = 'Provisioned'
+
+@description('How long in seconds the deployment script should wait between check/polling requestes to check the property, and its state, if not in its desired state. Defaults to `30`')
+param parWaitInSecondsBetweenIterations int = 30
+
+module modVWANHub 'modules/vwanHub.bicep' = {
+  scope: rsg
+  name: 'deployVWANHub'
+  params: {
+    region: region
+    regionNamePrefix: regionNamePrefix
+    defaultTags: defaultTags
+    vwanHubCIDR: vwanHubCIDR
+    vwanName: modVWAN.outputs.vwanName
+  }
+}
+
+module modVWANHubRouterCheckerDeploymentScript 'modules/azResourceStateCheck.bicep' = {
+  scope: rsg
+  name: 'deployVWANHubRouterChecker'
+  params: {
+    parLocation: region
+    parAzResourceId: modVWANHub.outputs.outVwanVHubId
+    parAzResourceApiVersion: parAzResourceApiVersion
+    parAzResourcePropertyToCheck: parAzResourcePropertyToCheck
+    parAzResourceDesiredState: parAzResourceDesiredState
+    parMaxIterations: parMaxIterations
+    parWaitInSecondsBetweenIterations: parWaitInSecondsBetweenIterations
+  }
+}
+
+module modVWanVhubVnetConnections 'modules/vwanVhcs.bicep' = {
+  dependsOn: [
+    modVWANHubRouterCheckerDeploymentScript
+  ]
+  scope: rsg
+  name: 'deployConnectVnetsToVWANVHub'
+  params: {
+    vnets: vnets
+    regionNamePrefix: regionNamePrefix
+  }
+}
+```
 
 The resource check is required because, when a Virtual Wan hub is deployed, it's not ready for use until the **routingStatus** property has the value of **Provisioned**. When the hub is created, it reports to the Resource Manager that deployment succeeded, so the deployment engine continues deploying. However, the hub isn't ready right away. The Virtual WAN hub router is still being provisioned into the created hub, which takes 15 minutes or so to complete.
 
@@ -73,7 +131,72 @@ If the value doesn't become **Provisioned** after the maximum number of iteratio
 
 The Invoke-AzResourceStateCheck.ps1 script is as follows:
 
+<!--
+
+The following is not currently supported in the architecture-center-pr repo:
+
 :::code language="powershell" source="~/azure-cae-bits/infra/samples/deployment-scripts-property-check/scripts/Invoke-AzResourceStateCheck.ps1" :::
+
+-->
+
+```Bicep
+[CmdletBinding()]
+param (
+  [string]
+  $azResourceResourceId,
+
+  [string]
+  $apiVersion = "2022-05-01",
+
+  [string]
+  $azResourcePropertyToCheck = "provisioningState",
+
+  [string]
+  $azResourceDesiredState = "Provisioned",
+
+  [int]
+  $waitInSecondsBetweenIterations = 30,
+
+  [int]
+  $maxIterations = 30
+)
+
+$totalTimeoutCalculation = $waitInSecondsBetweenIterations * $maxIterations
+
+$azResourcePropertyExistenceCheck = Invoke-AzRestMethod -Method GET -Path "$($azResourceResourceId)?api-version=$($apiVersion)"
+
+if ($azResourcePropertyExistenceCheck.StatusCode -ne "200") {
+  $DeploymentScriptOutputs["azResourcePropertyState"] = "Not Found"
+  throw "Unable to get Azure Resource - $($azResourceResourceId). Likely it doesn't exist. Status code: $($azResourcePropertyExistenceCheck.StatusCode) Error: $($azResourcePropertyExistenceCheck.Content)"
+}
+
+$azResourcePropertyStateResult = "Unknown"
+$iterationCount = 0
+
+do {
+  $azResourcePropertyStateGet = Invoke-AzRestMethod -Method GET -Path "$($azResourceResourceId)?api-version=$($apiVersion)"
+  $azResourcePropertyStateJsonConverted = $azResourcePropertyStateGet.Content | ConvertFrom-Json -Depth 10
+  $azResourcePropertyStateResult = $azResourcePropertyStateJsonConverted.properties.$($azResourcePropertyToCheck)
+
+  if ($azResourcePropertyStateResult -ne $azResourceDesiredState) {
+    Write-Host "Azure Resource Property ($($azResourcePropertyToCheck)) is not in $($azResourceDesiredState) state. Waiting $($waitInSecondsBetweenIterations) seconds before checking again. Iteration count: $($iterationCount)"
+    Start-Sleep -Seconds $waitInSecondsBetweenIterations
+    $iterationCount++
+  }
+} while (
+  $azResourcePropertyStateResult -ne $azResourceDesiredState -and $iterationCount -ne $maxIterations
+)
+
+if ($azResourcePropertyStateResult -eq $azResourceDesiredState) {
+  Write-Host "Azure Resource Property ($($azResourcePropertyToCheck)) is now in $($azResourceDesiredState) state."
+  $DeploymentScriptOutputs["azResourcePropertyState"] = "$($azResourceDesiredState)"
+}
+
+if ($iterationCount -eq $maxIterations -and $azResourcePropertyStateResult -ne $azResourceDesiredState) {
+  $DeploymentScriptOutputs["azResourcePropertyState"] = "Azure Resource Property ($($azResourcePropertyToCheck)) is still not in desired state of $($azResourceDesiredState). Timeout reached of $($totalTimeoutCalculation) seconds."
+  throw "Azure Resource Property ($($azResourcePropertyToCheck)) is still not in $($azResourceDesiredState) state after $($totalTimeoutCalculation) seconds."
+}
+```
 
 ## Contributors
 
