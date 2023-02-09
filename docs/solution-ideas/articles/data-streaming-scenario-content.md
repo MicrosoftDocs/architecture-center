@@ -6,8 +6,9 @@ This article presents a solution for using Azure Kubernetes Service (AKS) to qui
 
 ## Architecture
 
-![Architecture diagram that shows how streaming data from devices is ingested, processed, and analyzed.](../media/data-streaming-scenario.png)
-*Download an [SVG](../media/data-streaming-scenario.svg) of this architecture.*
+![Architecture diagram that shows how streaming data from devices is ingested, processed, and analyzed.](../media/data-streaming-scenario.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/data-streaming-scenario.vsdx) of this architecture.*
 
 ### Dataflow
 
