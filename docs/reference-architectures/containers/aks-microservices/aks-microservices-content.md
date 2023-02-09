@@ -4,7 +4,7 @@ This reference architecture shows a microservices application deployed to Azure 
 
 ## Architecture
 
-![Diagram that shows the AKS reference architecture.](./images/aks.png)
+![Diagram that shows the AKS reference architecture.](./images/aks.svg)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -75,7 +75,7 @@ The Kubernetes **Service** object provides a set of capabilities that match the 
 
 The following diagram shows the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
 
-![Diagram showing services and pods.](./images/aks-services.png)
+![Diagram showing services and pods.](./images/aks-services.svg)
 
 ### Ingress
 
