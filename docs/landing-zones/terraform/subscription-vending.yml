@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Subscription vending
+  description: Subscription vending with terraform
+  author: ssumner
+  ms.author: ssumner
+  ms.date: 02/23/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - devops
+products:
+  - azure
+name: Subscription vending with terraform
+summary: Subscription vending with terraform
+thumbnailUrl: /azure/architecture/browse/thumbs/ci-cd-monolith.png
+content: |
+  [!include[](subscription-vending-content.md)]

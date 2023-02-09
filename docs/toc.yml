@@ -20,9 +20,9 @@ items:
         - name: Subscription vending implementations
           items: 
             - name: Bicep subscription vending implementation
-              href: landing-zones/bicep/subscription-vending-bicep.md
+              href: landing-zones/bicep/subscription-vending-content.md
             - name: Terraform subscription vending implementation
-              href: landing-zones/bicep/subscription-vending-terraform.md
+              href: landing-zones/bicep/subscription-vending-content.md
   - name: Application architecture fundamentals
     items:
       - name: Introduction
