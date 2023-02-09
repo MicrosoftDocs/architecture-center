@@ -90,7 +90,7 @@ The `value` property appears in the role claim. The `id` property is the unique 
 
 #### Assign users 
 
-When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner (under **Enterprise applications**) can assign app roles to users.
+When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner can assign app roles to users (under **Enterprise applications**).
 
 > [!NOTE]
 > As noted earlier, customers with Azure AD Premium can also assign app roles to security groups.
@@ -99,12 +99,12 @@ The following screenshot from the Azure portal shows users and groups for the Su
 
 ![Screenshot that shows users and groups in the Azure portal.](./images/running-the-app/users-and-groups.png)
 
-As shown in the following screenshot, Charles is part of the Admin group, so he inherits the SurveyAdmin role. Bob is not yet assigned an app role.
+As shown in the following screenshot, Charles is part of the Admin group, so he inherits the SurveyAdmin role. Bob isn't yet assigned an app role.
 
-![Admin group members](./images/running-the-app/admin-members.png)
+![Screenshot that shows the Admin group members.](./images/running-the-app/admin-members.png)
 
 > [!NOTE]
-> An alternative approach is to enable the application to assign app roles programmatically by using the Microsoft Graph API. However, this requires the application to obtain write permissions for the customer's Azure AD directory, which is a high privilege that's usually unnecessary.
+> An alternative approach is to enable the application to assign app roles programmatically by using the Microsoft Graph API. However, this approach requires the application to obtain write permissions for the customer's Azure AD directory, which is a high privilege that's usually unnecessary.
 
 #### Get role claims
 
