@@ -24,8 +24,8 @@ products:
 
 You can use application roles to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
 
-* Administrator. Can perform all CRUD operations on any survey that belongs to the tenant.
-* Creator. Can create new surveys.
+* SurveyAdmin. Can perform all CRUD operations on any survey that belongs to the tenant.
+* SurveyCreator. Can create new surveys.
 * Reader. Can read any survey that belongs to the tenant.
 
 Roles are ultimately translated into permissions during [authorization][authorization]. The first step is to assign and manage roles. There are three commonly used ways to assign roles:
