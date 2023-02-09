@@ -6609,9 +6609,9 @@ items:
                     items: 
                       - name: .NET 
                         items: 
-                          - name: Planning and architecture
+                          - name: Plan implementation
                             href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
-                          - name: How to apply the pattern
+                          - name: Apply the pattern
                             href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
               - name: App Service considerations
                 items:
