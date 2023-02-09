@@ -1,4 +1,4 @@
-The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The overarching objective of the pattern is to your web application harness the value of the cloud fast and create a foundation for modernization. The reliable web app pattern addresses code and architecture decisions from the developer perspective, and it details the entire cloud convergence process from planning to implementation. The pattern applies to most web applications converging on the cloud. While it's a viable stopping point for some web applications, it's an essential first step for most applications in a strategic modernization journey.
+The reliable web app pattern is a set of best practices that helps developers successfully migrate applications to the cloud. It addresses code and architecture decisions from the developer perspective and details the process from planning to implementation. The reliable web app pattern is an essential first step the modernization journey.
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
