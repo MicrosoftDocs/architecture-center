@@ -10,7 +10,7 @@ You can adapt the files for your deployment. The azResourceStateCheck.bicep modu
 
 ## Architecture
 
-[![Architecture Diagram](images/deployment-scripts-property-check.png)](images/deployment-scripts-property-check.png#lightbox)
+[![Diagram that shows the architecture that the Workflow section describes.](images/deployment-scripts-property-check.png)](images/deployment-scripts-property-check.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/deployment-scripts-property-check.vsdx) of this architecture.*
 
@@ -111,21 +111,21 @@ module modVWanVhubVnetConnections 'modules/vwanVhcs.bicep' = {
 }
 ```
 
-The resource check is required because, when a Virtual Wan hub is deployed, it's not ready for use until the **routingStatus** property has the value of **Provisioned**. When the hub is created, it reports to the Resource Manager that deployment succeeded, so the deployment engine continues deploying. However, the hub isn't ready right away. The Virtual WAN hub router is still being provisioned into the created hub, which takes 15 minutes or so to complete.
+The resource check is required because, when a Virtual WAN hub is deployed, it's not ready for use until the **routingStatus** property has the value of **Provisioned**. When the hub is created, it reports to the Resource Manager that deployment succeeded, so the deployment engine continues deploying. However, the hub isn't ready right away. The Virtual WAN hub router is still being provisioned into the created hub, which takes 15 minutes or so to complete.
 
 This behavior can be seen in the following screenshot of a newly created Virtual WAN hub. The screenshot shows a hub status of **Succeeded** but a routing status of **Provisioning** (not yet **Provisioned**):
 
-[![Screenshot of a newly deployed Virtual WAN hub with the Hub Status showing as Ready but the Routing Status showing as Provisioning](images/vwan-hub-routing-status-provisioning.png)](images/vwan-hub-routing-status-provisioning.png#lightbox)
+[![Screenshot of a newly deployed Virtual WAN hub with the Hub Status showing as Ready but the Routing Status showing as Provisioning.](images/vwan-hub-routing-status-provisioning.png)](images/vwan-hub-routing-status-provisioning.png#lightbox)
 
 If you try to deploy the vwanvhcs.bicep module to create the Virtual WAN hub connections before the **routingStatus** value is **Provisioned**, the attempt to create connections fails and so does the overall deployment. Until the router is provisioned, attempts to redeploy fail.
 
 The following screenshot shows an example of the log that the deployment script creates as it checks the **routingStatus** property of the Virtual WAN hub. The log shows repeated checks of the property that show a value other than **Provisioned**:
 
-[![Screenshot of the Deployment Script polling the Virtual WAN hub routingStatus property](images/deployment-script-in-action.png)](images/deployment-script-in-action.png#lightbox)
+[![Screenshot of the Deployment Script polling the Virtual WAN hub routingStatus property.](images/deployment-script-in-action.png)](images/deployment-script-in-action.png#lightbox)
 
 The following screenshot shows that, after more than 10 minutes of checking, the value becomes **Provisioned**:
 
-[![Screenshot of the Deployment Script completing as the Virtual WAN hub routingStatus property is Provisioned](images/deployment-script-complete.png)](images/deployment-script-complete.png#lightbox)
+[![Screenshot of the Deployment Script completing as the Virtual WAN hub routingStatus property is Provisioned.](images/deployment-script-complete.png)](images/deployment-script-complete.png#lightbox)
 
 If the value doesn't become **Provisioned** after the maximum number of iterations, the script throws an exception, which signals to Resource Manager that the script resource failed. The Resource Manager deployment engine fails and stops the deployment, because the exception suggests that there's an issue with the Azure resource that requires troubleshooting.
 
