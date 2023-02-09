@@ -2,7 +2,7 @@ The reliable web app pattern is a set of best practices that helps developers su
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-This article shows you how to apply the reliable web app pattern. There's a companion article that [defines the reliable web application pattern for .NET](./pattern-overview.yml) and a [reference implementation of the reliable web app pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. The reference implementation is an employee-facing, line of business, concert ticketing app, and we refer to it throughout this guidance.
+This article shows you how to apply the reliable web app pattern. There's a companion article that [defines the reliable web application pattern for .NET](./pattern-overview.yml) and a [reference implementation of the reliable web app pattern](https://aka.ms/eap/rwa/dotnet) that you can deploy. The reference implementation is an employee-facing, line of business, concert ticketing app, and we refer to it throughout this guidance.
 
 ## Architecture and code
 
@@ -453,7 +453,7 @@ Autoscale based on performance metrics so that users aren't affected by SKU cons
 
 ## Deploy the reference implementation
 
-The reference implementation is a concert ticketing web app with the reliable web app pattern for .NET. You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://github.com/Azure/reliable-web-app-pattern-dotnet). The repository has everything you need.  Follow the deployment guidelines to deploy the code to Azure and local development.
+The reference implementation is a concert ticketing web app with the reliable web app pattern for .NET. You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://aka.ms/eap/rwa/dotnet). The repository has everything you need.  Follow the deployment guidelines to deploy the code to Azure and local development.
 
 ## Next steps
 
