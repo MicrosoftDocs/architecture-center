@@ -135,7 +135,7 @@ Managed identities are similar to the identity component in connection strings i
 ***Reference implementation:*** The reference implementation uses the `DefaultAzureCredential()` class during start up to enable the use of managed identity between the web API and Key Vault.
 
 ```csharp
- builder.Configuration.AddAzureAppConfiguration(options =>
+builder.Configuration.AddAzureAppConfiguration(options =>
 {
      options
         .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
