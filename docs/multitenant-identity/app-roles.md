@@ -90,7 +90,7 @@ The `value` property appears in the role claim. The `id` property is the unique 
 
 #### Assign users 
 
-When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner (under Enterprise apps) can assign app roles to users.
+When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner (under **Enterprise applications**) can assign app roles to users.
 
 > [!NOTE]
 > As noted earlier, customers with Azure AD Premium can also assign app roles to security groups.
@@ -127,7 +127,7 @@ Advantages of this approach:
 Disadvantages:
 
 * This approach is complicated. Because every tenant sends different group claims, the app must track which security groups correspond to each application role, for each tenant.
-* As users belong to more groups, access tokens grow to include more claims. After a certain limit, Azure AD adds an overage claim to limit the token size. For more information, see [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens). Using application roles can help you avoid this issue because roles are scoped to specific applications.
+* As users are added to more groups, access tokens grow to include more claims. After a certain limit, Azure AD adds an overage claim to limit the token size. For more information, see [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens). Using application roles can help you avoid this issue because roles are scoped to specific applications.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -160,7 +160,7 @@ Authorization policies should use the custom role claim, not the group claim.
 
 ## Assign roles by using an application role manager
 
-When you use this approach, application roles aren't stored in Azure AD at all. Instead, the application stores the role assignments for each user in its own DB, for example, by using the **RoleManager** class in ASP.NET **Identity**.
+When you use this approach, application roles aren't stored in Azure AD at all. Instead, the application stores the role assignments for each user in its own database, for example, by using the **RoleManager** class in ASP.NET **Identity**.
 
 Advantages of this approach:
 
