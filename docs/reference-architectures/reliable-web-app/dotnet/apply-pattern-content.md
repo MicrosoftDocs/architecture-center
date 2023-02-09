@@ -461,7 +461,7 @@ Use the following resources to find cloud best practices, migration tools, and .
 
 ### Introduction to web apps on Azure
 
-For a hands-on introduction to .NET web application on Azure, you should follow the guidance to deploy a [basic .NET web application](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice).
+For a hands-on introduction to .NET web applications on Azure, you can follow the guidance to deploy a [basic .NET web application](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice).
 
 ### Cloud best-practices
 
