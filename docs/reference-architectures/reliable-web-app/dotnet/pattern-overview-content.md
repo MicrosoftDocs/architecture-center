@@ -2,6 +2,8 @@ The reliable web app pattern is a set of objectives to help your web application
 
 This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-dotnet) you can deploy. The following diagram shows the architecture of the reliable web app pattern for .NET.
 
+For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos)
+
 ![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of the reference implementation by environment, see:*
@@ -12,6 +14,8 @@ This article defines objectives of the reliable web app pattern and walks you th
 ## Pattern definition
 
 The reliable web app pattern is a set of objectives that adheres to the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/). How you implement this pattern might vary between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
+
+
 
 | Objectives | Implementation for .NET |
 | --- | --- |
