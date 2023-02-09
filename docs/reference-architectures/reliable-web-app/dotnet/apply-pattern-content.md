@@ -124,7 +124,7 @@ Managed identities are similar to the identity component in connection strings i
 
 **Authorization:** When granting manage-identities' access to a resource, we recommend that you always grant the least permissions needed. Using extra permissions when not needed gives attackers more opportunity to compromise the confidentiality, integrity, or the availability of your solution.
 
-***Reference implementation:*** The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. We recommend granting your managed identities only using the permissions necessary to support your code's needs such as just the ability to read/write data.
+*Reference implementation:* The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. We recommend granting your managed identities only using the permissions necessary to support your code's needs such as just the ability to read/write data.
 
 **Accounting:** Accounting in cybersecurity refers to the process of tracking and logging actions within an environment. With managed identities in Azure, you can gain better visibility into which supported Azure resources are accessing other resources and set appropriate permissions for each resource or service. While connection strings with secrets stored in Azure Key Vault can provide secure access to a resource, they do not offer the same level of accounting visibility. As a result, it can be more challenging to govern and control access using only connection strings. Managed identities provide a secure and traceable way to control access to Azure resources. For more information, see:
 
@@ -137,7 +137,7 @@ Managed identities are similar to the identity component in connection strings i
 
 *Use DefaultAzureCredential to set up code.* The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
-***Reference implementation:*** The reference implementation uses the `DefaultAzureCredential()` class during start up to enable the use of managed identity between the web API and Key Vault.
+*Reference implementation:* The reference implementation uses the `DefaultAzureCredential()` class during start up to enable the use of managed identity between the web API and Key Vault.
 
 ```csharp
 builder.Configuration.AddAzureAppConfiguration(options =>
@@ -159,7 +159,7 @@ The `DefaultAzureCredential` class works with Microsoft client libraries to prov
 
 **Use infrastructure-as-code to set up managed-identities.** You should use bicep templates to create and configure the Azure infrastructure to support managed identities. Managed identities don’t use secrets or passwords, so you don't need Key Vault or a secret rotation strategy to ensure integrity. You can store the connection strings in the App Configuration Service.
 
-***Reference implementation:*** The reference implementation uses bicep templates to accomplish the following tasks:
+*Reference implementation:* The reference implementation uses bicep templates to accomplish the following tasks:
 
 1. Create the managed identity.
 1. Associate the identity with the web app.
@@ -178,7 +178,7 @@ Not every service supports managed identities, and sometimes you have to use sec
 
 Many on-premises environments don't have central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotate keys, and audit key access. You can also enabling monitor in Azure Key Vault, and for more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
 
-***Reference implementation:*** The reference implementation doesn't use Key Vault monitoring. It also uses external secrets for three services.
+*Reference implementation:* The reference implementation doesn't use Key Vault monitoring. It also uses external secrets for three services.
 
 1. *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, we used the on-behalf-of flow. To execute that process, we needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code will start using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
@@ -237,7 +237,7 @@ You should use autoscale to automate horizontal scaling for production environme
 - [Scaling in Azure App Service](/azure/app-service/manage-scale-up)
 - [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
 
-***Reference implementation:*** The reference implementation uses the following configuration in the bicep template. It creates an autoscale rule for the Azure App Service. The rule scales up to 10 instances and defaults to one instance.
+*Reference implementation:* The reference implementation uses the following configuration in the bicep template. It creates an autoscale rule for the Azure App Service. The rule scales up to 10 instances and defaults to one instance.
 
 ```csharp
 resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-preview' = if (isProd) {
@@ -273,7 +273,7 @@ Infrastructure as code (IaC) is often listed as an operational best practice, bu
 
 We recommend using a single cache instance to support multiple data types rather than using a single instance for each data type.
 
-***Reference implementation:*** The reference implementation uses a single Azure Cache for Redis instance to stores session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, we allocated the "extra" capacity to multiple data types.
+*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to stores session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, we allocated the "extra" capacity to multiple data types.
 
 ## Operational excellence
 
@@ -290,7 +290,7 @@ You should use a DevOps pipeline to deploy changes from source control to produc
 
 For more information, see guide to [using repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
 
-***Reference implementation:*** The reference implementation uses Azure Dev CLI and IaC (bicep templates) to create Azure resources, setup configuration, and deploy the required resources from a GitHub Action.  
+*Reference implementation:* The reference implementation uses Azure Dev CLI and IaC (bicep templates) to create Azure resources, setup configuration, and deploy the required resources from a GitHub Action.  
 
 ### Logging and application telemetry
 
@@ -320,7 +320,7 @@ public void ConfigureServices(IServiceCollection services)
 - [TelemetryClient Class](/dotnet/api/microsoft.applicationinsights.telemetryclient)
 - [Telemetry client methods](/dotnet/api/microsoft.applicationinsights.telemetryclient)
 
-***Reference implementation:*** The reference implementation augments the web app with metrics that help the operations team identify that the web app is completing transactions successfully. It validates that the web app is online by monitoring if customers can place orders and not by measuring number requests or CPU usage. The reference implementation uses the `TelemetryClient` via dependency injection and the `TrackEvent` method to gather telemetry on events related to cart activity. The telemetry tracks the tickets that users add, remove, and purchase.
+*Reference implementation:* The reference implementation augments the web app with metrics that help the operations team identify that the web app is completing transactions successfully. It validates that the web app is online by monitoring if customers can place orders and not by measuring number requests or CPU usage. The reference implementation uses the `TelemetryClient` via dependency injection and the `TrackEvent` method to gather telemetry on events related to cart activity. The telemetry tracks the tickets that users add, remove, and purchase.
 
 - `AddToCart`: counts how many times users add a certain ticket (`ConcertID`) to the cart ([see code](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Controllers/CartController.cs#L81)).
 - `RemoveFromCart`: records what ticket users remove from the cart ([see code](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Controllers/CartController.cs#L111)).
