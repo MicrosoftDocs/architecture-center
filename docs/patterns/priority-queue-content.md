@@ -2,29 +2,30 @@ Prioritize requests sent to services so that requests with a higher priority are
 
 ## Context and problem
 
-Applications can delegate specific tasks to other services, for example, to perform background processing or to integrate with other applications or services. In the cloud, a message queue is typically used to delegate tasks to background processing. In many cases, the order in which requests are received by a service isn't important. In some cases, though, it's necessary to prioritize specific requests. These requests should be processed earlier than lower priority requests that were sent previously by the application.
+Applications can delegate specific tasks to other services, for example, to perform background processing or to integrate with other applications or services. In the cloud, a message queue is typically used to delegate tasks to background processing. In many cases, the order in which requests are received by a service isn't important. In some cases, though, it's necessary to prioritize specific requests. These requests should be processed earlier than lower priority requests that were sent earlier by the application.
 
 ## Solution
 
-A queue is usually a first-in, first-out (FIFO) structure, and consumers typically receive messages in the same order that they were posted to the queue. However, some message queues support priority messaging. The application posting a message can assign a priority and the messages in the queue are automatically reordered so that those with a higher priority will be received before those with a lower priority. The figure illustrates a queue with priority messaging.
+A queue usually has a first-in, first-out (FIFO) structure, and consumers typically receive messages in the same order that they're posted to the queue. However, some message queues support priority messaging. The application that's posting a message can assign a priority. The messages in the queue are automatically reordered so that those that have a higher priority are received before those that have a lower priority. This diagram illustrates the process:
 
-![Figure 1 - Using a queuing mechanism that supports message prioritization](./_images/priority-queue-pattern.png)
+![Diagram that illustrates a queuing mechanism that supports message prioritization.](./_images/priority-queue-pattern.png)
 
-> Most message queue implementations support multiple consumers (following the [Competing Consumers pattern](./competing-consumers.yml)), and the number of consumer processes can be scaled up or down depending on demand.
+>[!NOTE] 
+> Most message queue implementations support multiple consumers. (See the [Competing Consumers pattern](./competing-consumers.yml).) The number of consumer processes can be scaled up and down based on demand.
 
-In systems that don't support priority-based message queues, an alternative solution is to maintain a separate queue for each priority. The application is responsible for posting messages to the appropriate queue. Each queue can have a separate pool of consumers. Higher priority queues can have a larger pool of consumers running on faster hardware than lower priority queues. The next figure illustrates using separate message queues for each priority.
+In systems that don't support priority-based message queues, an alternative solution is to maintain a separate queue for each priority. The application is responsible for posting messages to the appropriate queue. Each queue can have a separate pool of consumers. Higher priority queues can have a larger pool of consumers that run on faster hardware than lower priority queues. This diagram illustrates the use of separate message queues for each priority:
 
-![Figure 2 - Using separate message queues for each priority](./_images/priority-queue-separate.png)
+![Diagram that illustrates the use of separate message queues for each priority.](./_images/priority-queue-separate.png)
 
-A variation on this strategy is to have a single pool of consumers that check for messages on high priority queues first, and only then start to fetch messages from lower priority queues. There are some semantic differences between a solution that uses a single pool of consumer processes (either with a single queue that supports messages with different priorities or with multiple queues that each handle messages of a single priority), and a solution that uses multiple queues with a separate pool for each queue.
+A variation on this strategy is to have a single pool of consumers that check for messages on high priority queues first, and only after that start to fetch messages from lower priority queues. There are some semantic differences between a solution that uses a single pool of consumer processes (either with a single queue that supports messages that have different priorities or with multiple queues that each handle messages of a single priority), and a solution that uses multiple queues with a separate pool for each queue.
 
-In the single pool approach, higher priority messages are always received and processed before lower priority messages. In theory, messages that have a very low priority could be continually superseded and might never be processed. In the multiple pool approach, lower priority messages will always be processed, just not as quickly as those of a higher priority (depending on the relative size of the pools and the resources that they have available).
+In the single-pool approach, higher priority messages are always received and processed before lower priority messages. In theory, messages that have a low priority could be continually superseded and might never be processed. In the multiple pool approach, lower priority messages are always processed, but not as quickly as those of a higher priority (depending on the relative size of the pools and the resources that are available for them).
 
 Using a priority-queuing mechanism can provide the following advantages:
 
-- It allows applications to meet business requirements that require prioritization of availability or performance, such as offering different levels of service to specific groups of customers.
+- It allows applications to meet business requirements that require the prioritization of availability or performance, such as offering different levels of service to specific groups of customers.
 
-- It can help to minimize operational costs. In the single queue approach, you can scale back the number of consumers if necessary. High priority messages will still be processed first (although possibly more slowly), and lower priority messages might be delayed for longer. If you've implemented the multiple message queue approach with separate pools of consumers for each queue, you can reduce the pool of consumers for lower priority queues, or even suspend processing for some very low priority queues by stopping all the consumers that listen for messages on those queues.
+- It can help to minimize operational costs. If you use the single-queue approach, you can scale back the number of consumers if necessary. High priority messages will still be processed first (although possibly more slowly), and lower priority messages might be delayed for longer. If you've implemented the multiple message queue approach with separate pools of consumers for each queue, you can reduce the pool of consumers for lower priority queues, or even suspend processing for some very low priority queues by stopping all the consumers that listen for messages on those queues.
 
 - The multiple message queue approach can help maximize application performance and scalability by partitioning messages based on processing requirements. For example, vital tasks can be prioritized to be handled by receivers that run immediately while less important background tasks can be handled by receivers that are scheduled to run at less busy periods.
 
