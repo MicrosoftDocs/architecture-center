@@ -1,10 +1,13 @@
 The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The overarching objective of the pattern is to your web application harness the value of the cloud fast and create a foundation for modernization. The reliable web app pattern addresses code and architecture decisions from the developer perspective, and it details the entire cloud convergence process from planning to implementation. The pattern applies to most web applications converging on the cloud. While it's a viable stopping point for some web applications, it's an essential first step for most applications in a strategic modernization journey.
 
-This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation of the reliable web app pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. The following diagram shows the architecture of the reliable web app pattern for .NET
+This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation of the reliable web app pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. The following diagram shows the architecture of the reliable web app pattern for .NET.
 
 ![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.* Estimated cost to run the reference implementation by environment:
+
+- [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
+- [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
 ## Pattern definition
 
@@ -50,13 +53,6 @@ To determine availability, we need some metric to measure the predicted availabi
 | [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8/) |  99.99% |
 
 If the composite SLA doesn’t meet or exceed your SLO, then you need to reconsider the services you use or adjust the architecture. Relecloud adjusted the architecture and added a second region to improve availability. There’s a separate formula multi-region availability. Calculating the composite SLA for a single-region deployment resulted in an SLA of 99.52%, 42 hours of downtime per year. This SLA created unacceptable business risk. So they deployed the web app to two regions. The multi-region availability formula is `(1 - (1 − N) ^ R)`. `N` represents the composite SLA and `R` the number of regions. Two regions improve the composite SLA to 99.99%. However, now there's a need for a global load balancer, Azure Front Door, to route traffic between the two regions. Front Door has an SLA of 99.99%. With Front Door, the composite availability for the multi-region web app becomes 99.98% and exceeds the SLO of 99.9%.
-
-## Cost
-
-A number of factors affect the cost of a deployment.   should address across environments is to pick the right SKUs for the environment. The following links take you to the Azure calculator pre-populated with SKUs in the reference implementation, and you can review the current estimated cost per month for each environment before you deploy.
-
-- [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
-- [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 
 ## Choose the right services
 
