@@ -1,10 +1,10 @@
-The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The goal is to maximize the value of the cloud with minimal cost and effort and create a foundation for future modernization. This guide simulates the developer journey and discussion the decision process from planning to implementation. While the reliable web app pattern is a viable stopping point for some applications, it's a critical first step for most web applications and creates a foundation for future modernizations.
+The reliable web app pattern is a set of objectives to help your web application converge on the cloud. The overarching objective of the pattern is to your web application harness the value of the cloud fast and create a foundation for modernization. The reliable web app pattern addresses code and architecture decisions from the developer perspective, and it details the entire cloud convergence process from planning to implementation. The pattern applies to most web applications converging on the cloud. While it's a viable stopping point for some web applications, you should view it as an essential first step in a modernization journey.
 
-The guidance assumes an on-premises starting point and focuses on harnessing the reliability of the cloud with minimal changes. It shows you how to apply the reliable web app pattern to an on-premises, line-of-business (LOB) ASP.NET web application.
+This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation of the reliable web app pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. The following diagram shows the architecture of the reliable web app pattern for .NET
 
-This article defines objectives of the reliable web app pattern and walks you through the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you how to apply the reliable web app pattern to a .NET web application. For more information, see [How to apply the reliable web app pattern](./apply-pattern.yml)
+![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
-**Reference implementation:** The guidance includes a [reference implementation of the reliable web app pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet) that you can deploy. You can see and emulate the code changes while also simulating the code-level design patterns used.
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
 
 ## Pattern definition
 
@@ -14,15 +14,9 @@ The reliable web app pattern conforms to a common set of objectives and adheres 
 | --- | --- |
 |▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
 
-The pattern objectives determine the services used and web app architecture.
-
-![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
-
-*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
-
 ### Starting point
 
-Since this guidance mirrors a cloud-convergance scenario, it's helpful to define a starting point. The reference implementation applies the pattern to an on-premises, monolithic ASP.NET application. It runs on two virtual machines with a Microsoft SQL Server database. It's an employee-facing and LOB eCommerce web application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
+This guidance mirrors the journey of a web application converging on the cloud. It's essential to define the on-premises web application. It's a monolithic ASP.NET application that runs on two virtual machines with a Microsoft SQL Server database. It's an employee-facing and LOB eCommerce web application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
 
 ### Business context
 
@@ -59,7 +53,7 @@ If the composite SLA doesn’t meet or exceed your SLO, then you need to reconsi
 
 ### Cost
 
-The best way to cost-optimize across environments is to pick the right SKUs for the environment. The following links take you to the Azure calculator pre-populated with SKUs in the reference implementation, and you can review the current estimated cost per month for each environment before you deploy.
+A number of factors affect the cost of a deployment.   should address across environments is to pick the right SKUs for the environment. The following links take you to the Azure calculator pre-populated with SKUs in the reference implementation, and you can review the current estimated cost per month for each environment before you deploy.
 
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
@@ -142,11 +136,15 @@ Azure has several load balancer options. Make note of your current system capabi
 
 #### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection without sacrificing performance. WAF also provides a platform the team can monitor and configure to address security concerns from botnets. We wanted to maintain parity with our on-premises solution, which was running behind an IT-managed WAF.
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. Azure Web Application Firewall provided the following benefits.
+
+- **Global protection:** We wanted global web app protection without sacrificing performance.
+- **Botnet protection:** The team can monitor and configure to address security concerns from botnets.
+- **Parity with on-premises**: The service allowed us to maintain parity with our on-premises solution, which was running behind a web application firewall managed by IT.
 
 #### Configuration storage
 
-[Azure App Configuration](/azure/azure-app-configuration/overview) is a service to centrally manage application settings and feature flags. We chose to take a dependency on Azure App Configuration to manage our configuration data. We wanted to replace our file-based configuration with a central configuration store that integrated with the application platform and code. App Config provided the following benefits:
+[Azure App Configuration](/azure/azure-app-configuration/overview) is a service to centrally manage application settings and feature flags. We chose to take a dependency on Azure App Configuration to manage our configuration data. We wanted to replace our file-based configuration with a central configuration store that integrated with the application platform and code. App Config provided the following benefits.
 
 - **Flexibility:** It supports feature flags. Feature flags allow users to opt in and opt-out of early preview features in a production environment without redeploying the app.
 - **Supports git pipeline:** The source of truth for configuration data needed to be a git repository. The pipeline needed to update the data in the central configuration store.
