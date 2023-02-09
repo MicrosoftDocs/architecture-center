@@ -1,4 +1,4 @@
-The reliable web app pattern is a set of best practices that helps developers successfully migrate applications to the cloud. It addresses code and architecture decisions from the developer perspective and details the process from planning to implementation. The reliable web app pattern is an essential first step the modernization journey.
+The reliable web app pattern is a set of best practices that helps developers successfully migrate and modernize with minimal changes. It focuses on low-cost, high-value improvements in code and architecture, and the guidance details the process from planning to implementation. The reliable web app pattern is an essential first step for applications converging on the cloud and sets a foundation for future modernizations.
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
@@ -13,7 +13,7 @@ This article defines objectives of the reliable web app pattern and details the 
 
 ## Pattern definition
 
-The reliable web app pattern is a set of objectives that adheres to the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern might vary between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
+The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern might vary between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
 
 | Objectives | Implementation for .NET |
 | --- | --- |
