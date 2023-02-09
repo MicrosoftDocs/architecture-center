@@ -10,7 +10,10 @@ Architecture and code are symbiotic. A well-architected web application needs qu
 
 ![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost, see:*
+
+- [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
+- [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
 ## Reliability
 
