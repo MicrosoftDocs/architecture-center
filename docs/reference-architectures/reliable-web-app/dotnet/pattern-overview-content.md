@@ -180,9 +180,10 @@ For Blob Storage, we chose Zone-redundant storage (ZRS). Zone-redundant storage 
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. You can avoid exposing your service to the public internet. You use Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure SQL Database. Azure Private DNS integrates with Azure App Service to extend DNS resolution so that the private IP address is provided for a public hostname. This integration enables a web app to connect to Azure SQL Database, which requires connections to use the public hostname when connecting to the private IP address. We chose Azure Private Link for the following benefits.
+[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure SQL Database. We chose Azure Private Link for the following reasons:
 
 - **Secure communication:** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to protect against data leakage.
+- **Minimal effort:** The private endpoints support the web application platform and database platform we chose. Both platforms mirror existing on-premises setup for minimal change.
 
 ## Deploy the reference implementation
 
