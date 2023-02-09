@@ -116,7 +116,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 - **Reduce management overhead:** It’s a fully managed service.
 - **Speed and volume:** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
-- **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data nor could that data be invalidated.
+- **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 - **Enabling non-sticky sessions:** Externalizing session state supports non-sticky sessions.
 
 ### Global load balancer

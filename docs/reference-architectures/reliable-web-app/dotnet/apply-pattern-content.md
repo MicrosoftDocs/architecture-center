@@ -87,7 +87,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L89)
 
-The policy handler for the `RelecloudApiConcertSearchService` instance applies the retry pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect safely retriable HTTP requests and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the retry pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
 
 ### Use the circuit-breaker pattern
 
@@ -108,7 +108,7 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L115).
 
-The policy handler for the `RelecloudApiConcertSearchService` instance applies the circuit-breaker pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect those same retriable HTTP requests but limits the number of aggregate faults over a specified period of time. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the circuit-breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
 
 ## Security
 
@@ -126,7 +126,7 @@ Managed identities are similar to the identity component in connection strings i
 
 *Reference implementation:* The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. We recommend granting your managed identities only using the permissions necessary to support your code's needs such as just the ability to read/write data.
 
-**Accounting:** Accounting in cybersecurity refers to the process of tracking and logging actions within an environment. With managed identities in Azure, you can gain better visibility into which supported Azure resources are accessing other resources and set appropriate permissions for each resource or service. While connection strings with secrets stored in Azure Key Vault can provide secure access to a resource, they do not offer the same level of accounting visibility. As a result, it can be more challenging to govern and control access using only connection strings. Managed identities provide a secure and traceable way to control access to Azure resources. For more information, see:
+**Accounting:** Accounting in cybersecurity refers to the process of tracking and logging actions within an environment. With managed identities in Azure, you can gain better visibility into which supported Azure resources are accessing other resources and set appropriate permissions for each resource or service. While connection strings with secrets stored in Azure Key Vault can provide secure access to a resource, they don't offer the same level of accounting visibility. As a result, it can be more challenging to govern and control access using only connection strings. Managed identities provide a secure and traceable way to control access to Azure resources. For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
@@ -176,11 +176,11 @@ Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-databa
 
 Not every service supports managed identities, and sometimes you have to use secrets. In these situations, you must externalize the application configurations and put the secrets in a central secret store. In Azure, the central secret store is Azure Key Vault.
 
-Many on-premises environments don't have central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotate keys, and audit key access. You can also enabling monitor in Azure Key Vault, and for more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
+Many on-premises environments don't have central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotate keys, and audit key access. You can also enable monitor in Azure Key Vault, and for more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
 
 *Reference implementation:* The reference implementation doesn't use Key Vault monitoring. It also uses external secrets for three services.
 
-1. *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, we used the on-behalf-of flow. To execute that process, we needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code will start using the new secret. After the web app has been restarted, the team can delete the previous client secret.
+1. *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, we used the on-behalf-of flow. To execute that process, we needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
 1. *Azure Cache for Redis secret:* The service doesn't support managed identity yet. To rotate the key in the connection string, you need to change the value in Key Vault to the secondary connection string for Azure Cache for Redis. After changing the value, you must restart the web app to use the new settings. Use the Azure CLI or the Azure portal to regenerate the access key for Azure Cache for Redis.
 
@@ -201,7 +201,7 @@ For more information, see:
 
 Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes made optimize for horizontal scale as a lower cost investment as compared to optimizing existing business processes, which lead to higher risk change.
 
-**Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating this to a separate workload would improve cost management and performance but is beyond the scope of this pattern. You should address it in future modernizations.
+**Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but the effort is beyond the scope of this pattern. You should address it in future modernizations.
 
 ### Right-size resources for each environment
 
@@ -209,12 +209,12 @@ Production environments need SKUs that meet service level agreements (SLA), feat
 
 **Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives customers access to select Azure services for nonproduction environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
 
-**Consider Azure Reservations or an Azure Savings Plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. Azure savings plan for compute is our most flexible savings plan and generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment that will apply to compute services regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure premium functions, and Azure app services. For more information, see:
+**Consider Azure Reservations or an Azure Savings Plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. Azure savings plan for compute is our most flexible savings plan and generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure premium functions, and Azure app services. For more information, see:
 
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
 
-*Reference implementation:* The reference implementation has Bicep parameters to trigger different resource deployment configuration. One of those parameters tells Azure resource manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production than for non-prod environments.
+*Reference implementation:* The reference implementation has Bicep parameters to trigger different resource deployment configuration. One of those parameters tells Azure Resource Manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production than for non-prod environments.
 
 ```bicep
 var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
@@ -273,7 +273,7 @@ Infrastructure as code (IaC) is often listed as an operational best practice, bu
 
 We recommend using a single cache instance to support multiple data types rather than using a single instance for each data type.
 
-*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to stores session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, we allocated the "extra" capacity to multiple data types.
+*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to store session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, we allocated the "extra" capacity to multiple data types.
 
 ## Operational excellence
 
@@ -345,7 +345,7 @@ The cache-aside pattern is a technique used to manage in-memory data caching. Th
 
 *Simulate the cache-aside pattern:* You can simulate the cache-aside pattern in the reference implementation. For instructions, see [simulate the cache-aside pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#cache-aside-pattern).
 
-The cache-aside pattern introduces a few benefits to the web application. It lowers the request response time which can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages caused by.
+The cache-aside pattern introduces a few benefits to the web application. It lowers the request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages caused by.
 
 *Reference implementation:* The reference implementation uses the cache-aside pattern to improve the performance of the Azure SQL database, minimize cost, and increase application performance. It caches the upcoming concert data, which is part of the ticket purchase hot path. The distributed memory cache is a framework provided by ASP.NET Core that stores items in memory.
 
@@ -445,7 +445,7 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 
 ### Autoscale by performance metrics
 
-Autoscale based on performance metrics so that users are not affected by SKU constraints. CPU utilization performance triggers are a good starting point when you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to meet the behavior of your web application.
+Autoscale based on performance metrics so that users aren't affected by SKU constraints. CPU utilization performance triggers are a good starting point when you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to meet the behavior of your web application.
 
 *Reference implementation:* The reference implementation uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting at 85% CPU usage, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic due to sticky sessions. It also protects against high bursts of traffic by scaling early to avoid max CPU usage. These autoscale rules aren't universal.
 
