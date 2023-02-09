@@ -23,6 +23,8 @@ A reliable web application is one that is both resilient and available. Resilien
 
 The retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They're transient because they typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception.
 
+*Simulate the retry pattern:* You can simulate the retry pattern in the reference implementation. For instructions, see [simulate the retry pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#retry-pattern).
+
 If your code already uses the retry pattern, you should update your code to use the retry mechanisms available in Azure services and client SDKs. If your application doesn't have a retry pattern, then you should add it based on the following guidance. For more information, see:
 
 - [Transient fault handling](/azure/architecture/best-practices/transient-faults)
@@ -87,11 +89,11 @@ private static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 
 The policy handler for the `RelecloudApiConcertSearchService` instance applies the retry pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect safely retriable HTTP requests and then to retry the request based on the configuration. It includes some randomness to smooth out potential bursts in traffic to the API if an error occurs.
 
-**3. Simulate the retry pattern:** You can simulate the retry pattern in the reference implementation. For instructions, see [simulate the retry pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#retry-pattern).
-
 ### Use the circuit-breaker pattern
 
 You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the circuit breaker pattern.
+
+*Simulate the circuit-breaker pattern:* You can simulate the circuit-breaker pattern in the reference implementation. For instructions, see [simulate the circuit-breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
 
 *Reference implementation:* The reference implementation adds the circuit-breaker pattern with the `GetCircuitBreakerPolicy()` method as seen in the following code snippet.
 
@@ -107,8 +109,6 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L115).
 
 The policy handler for the `RelecloudApiConcertSearchService` instance applies the circuit-breaker pattern on all requests to the API. This uses Polly's `HandleTransientHttpError` logic to detect those same retriable HTTP requests but limits the number of aggregate faults over a specified period of time. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
-
-*Simulate the circuit-breaker pattern:* You can simulate the circuit-breaker pattern in the reference implementation. For instructions, see [simulate the circuit-breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
 
 ## Security
 
@@ -343,7 +343,9 @@ Performance efficiency is the ability of a workload to scale and meet the demand
 
 The cache-aside pattern is a technique used to manage in-memory data caching. The cache-aside pattern makes the application responsible for managing data requests and data consistency between the cache and the persistent data store such as a database. When a data request reaches the application, the application first checks the cache to see if the cache has the data in memory. If not, the application queries the database, returns it to the requester, and stores that data in the cache. For more information, see [cache-aside pattern overview](/azure/architecture/patterns/cache-aside).
 
-The cache-aside pattern introduces a few benefits. It lowers the request response time which can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages caused by.
+*Simulate the cache-aside pattern:* You can simulate the cache-aside pattern in the reference implementation. For instructions, see [simulate the cache-aside pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#cache-aside-pattern).
+
+The cache-aside pattern introduces a few benefits to the web application. It lowers the request response time which can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages caused by.
 
 *Reference implementation:* The reference implementation uses the cache-aside pattern to improve the performance of the Azure SQL database, minimize cost, and increase application performance. It caches the upcoming concert data, which is part of the ticket purchase hot path. The distributed memory cache is a framework provided by ASP.NET Core that stores items in memory.
 
@@ -440,8 +442,6 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 ```
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web.Api/Services/SqlDatabaseConcertRepository/SqlDatabaseConcertRepository.cs#L36)
-
-**Simulate the cache-aside pattern:** You can simulate the cache-aside pattern in the reference implementation. For instructions, see [simulate the cache-aside pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#cache-aside-pattern).
 
 ### Autoscale by performance metrics
 
