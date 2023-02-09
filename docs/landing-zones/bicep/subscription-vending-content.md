@@ -4,14 +4,33 @@
 
 [ADD CONTENT]
 
-## Example usage
+## Modules
 
-Hub & Spoke example (pinned to a version so it works 😊) 
+[ADD CONTENT]
 
-## Customizing the module
+## Module description
+
+|Layer| Module | Description | Useful Links |
+|---|---|---|
+|  |  |
+|  |  |
+
+## How to deploy
+
+[ADD CONTENT]
+
+## How to manage
+
+[ADD CONTENT]
+
+## How to customize
 
 See examples in wiki
 
-See parameters in repo 
+See parameters in repo
 
-If feature not available create an issue 
+If feature not available create an issue
+
+## Example usage
+
+Hub & Spoke example (pinned to a version so it works 😊) 

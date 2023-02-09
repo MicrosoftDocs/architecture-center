@@ -1,15 +1,34 @@
 The subscription vending Terraform module  
 
-## Design 
+## Design
 
 [ADD CONTENT]  
 
-## Example Usage 
+## Modules
 
-[ADD CONTENT] 
+[ADD CONTENT]  
 
-Note link to TF registry for latest 
+## Module description
 
-## Customizing the Terraform implementation 
+|Layer| Module | Description | Useful Links |
+|---|---|---|
+|  |  |
+|  |  |
 
-Designed to be customizable, please refer to the documentation in the registry for latest information. Please raise an issue or feature request (link) if needed. 
+## How to deploy
+
+[ADD CONTENT]  
+
+## How to customize
+
+Designed to be customizable, please refer to the documentation in the registry for latest information. Please raise an issue or feature request (link) if needed.
+
+## How to manage
+
+[ADD CONTENT]  
+
+## Example Usage
+
+[ADD CONTENT]
+
+Note link to TF registry for latest
