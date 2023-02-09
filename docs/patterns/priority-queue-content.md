@@ -25,7 +25,7 @@ Using a priority-queuing mechanism can provide the following advantages:
 
 - It allows applications to meet business requirements that require the prioritization of availability or performance, such as offering different levels of service to specific groups of customers.
 
-- It can help to minimize operational costs. If you use the single-queue approach, you can scale back the number of consumers if you need to. High priority messages will still be processed first (although possibly more slowly), and lower priority messages might be delayed for longer. If you implement the multiple message queue approach with separate pools of consumers for each queue, you can reduce the pool of consumers for lower priority queues, or even suspend processing for some very low priority queues by stopping all the consumers that listen for messages on those queues.
+- It can help to minimize operational costs. If you use the single-queue approach, you can scale back the number of consumers if you need to. High priority messages are still processed first (although possibly more slowly), and lower priority messages might be delayed for longer. If you implement the multiple message queue approach with separate pools of consumers for each queue, you can reduce the pool of consumers for lower priority queues. You can even suspend processing for some very low priority queues by stopping all the consumers that listen for messages on those queues.
 
 - The multiple message queue approach can help maximize application performance and scalability by partitioning messages based on processing requirements. For example, you can prioritize critical tasks to be handled by receivers that run immediately, and less important background tasks can be handled by receivers that are scheduled to run at times that are less busy.
 
@@ -33,7 +33,7 @@ Using a priority-queuing mechanism can provide the following advantages:
 
 Consider the following points when you decide how to implement this pattern:
 
-- Define the priorities in the context of the solution. For example, high priority could mean that messages should be processed within ten seconds. Identify the requirements for handling high priority items, and the other resources that should be allocated to meet these criteria.
+- Define the priorities in the context of the solution. For example, high priority could mean that messages should be processed within 10 seconds. Identify the requirements for handling high priority items, and the other resources that should be allocated to meet these criteria.
 
 - Decide whether all high priority items must be processed before any lower priority items. If the messages are being processed by a single pool of consumers, you have to provide a mechanism that can preempt and suspend a task that's handling a low priority message if a higher priority message enters the queue.
 
@@ -49,7 +49,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - There might be a financial and processing cost associated with checking a queue for a message. (Some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages.) This cost increases when you check multiple queues.
 
-- You can dynamically adjust the size of a pool of consumers based on the length of the queue that the pool is servicing. For more information, see the [Autoscaling Guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
+- You can dynamically adjust the size of a pool of consumers based on the length of the queue that the pool is servicing. For more information, see the [Autoscaling guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
 
 ## When to use this pattern
 
