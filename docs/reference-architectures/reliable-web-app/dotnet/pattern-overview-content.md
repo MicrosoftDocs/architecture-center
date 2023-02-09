@@ -8,9 +8,9 @@ This article defines objectives of the reliable web app pattern and walks you th
 
 ## Pattern definition
 
-The reliable web app pattern conforms to a common set of objectives and adheres to the [Azure Well-Architected Framework](/azure/architecture/framework/). The implementation to reach these objectives might vary between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
+The reliable web app pattern is a set of objectives that adheres to the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/). How you implement this pattern might vary between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
 
-| Objectives | Implementations for .NET |
+| Objectives | Implementation for .NET |
 | --- | --- |
 |▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
 
