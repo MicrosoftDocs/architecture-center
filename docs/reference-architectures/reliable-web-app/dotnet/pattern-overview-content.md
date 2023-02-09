@@ -2,7 +2,7 @@ The reliable web app pattern is a set of best practices that helps developers su
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-This article defines objectives of the reliable web app pattern and details the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The following diagram shows the architecture of the reliable web app pattern for .NET.
+This article defines objectives of the reliable web app pattern and details the business drivers, on-premises context, and reason we chose each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The following diagram shows the architecture of the reference implementation of the reliable web app pattern.
 
 ![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
 
@@ -13,7 +13,7 @@ This article defines objectives of the reliable web app pattern and details the 
 
 ## Pattern definition
 
-The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern might vary between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
+The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern varies between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
 
 | Objectives | Implementation for .NET |
 | --- | --- |
