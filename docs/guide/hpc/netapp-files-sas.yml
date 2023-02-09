@@ -4,7 +4,7 @@ metadata:
   description: Learn about running SAS Grid 9.4 on Azure, using Azure NetApp Files for SASDATA storage, and about storage options for SASWORK.
   author: gvanteylingen
   ms.author: b-gevant
-  ms.date: 11/09/2022
+  ms.date: 02/09/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
