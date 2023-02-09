@@ -459,22 +459,30 @@ The reference implementation is a concert ticketing web app with the reliable we
 
 Use the following resources to find cloud best practices, migration tools, and .NET guidance.
 
-**New to web apps on Azure:** To gain familiarity with .NET web apps on Azure, you can deploy this [basic .NET web application](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice).
+### Introduction to web apps on Azure
 
-**Cloud best-practices:** For Microsoft's best practices, see:
+For a hands-on introduction to .NET web application on Azure, you should follow the guidance to deploy a [basic .NET web application](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice).
+
+### Cloud best-practices
+
+For Microsoft's best practices in Azure, see:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview): It helps an organization prepare and execute their strategy to build solutions on Azure.
 - [Well Architected Framework](/azure/architecture/framework/): Describes the best practices and design principles that should be applied when designing Azure solutions that align with Microsoft's recommended best practices.
 - [Azure Architectures](/azure/architecture/browse/): Provides architecture diagrams and technology descriptions for reference architectures, real world examples of cloud architectures, and solution ideas for common workloads on Azure.
 - [Azure Architecture Center fundamentals](/azure/architecture/guide/): Provides a library of content that presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available.
 
-**Azure Migration:** The following tools and resources can help you with migrating on-premises resources to Azure.
+### Migration guidance
+
+The following tools and resources can help you with migrating on-premises resources to Azure.
 
 - [Azure Migrate](/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment, migration of web apps, SQL server, and Virtual Machines.
 - [Azure Database Migration Guides](/data-migration/) provides resources for different database types, and different tools designed for your migration scenario.
 - [Azure App Service Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) is deployment architecture guidance for hardening and scaling Azure App Service deployments.
 
-**Upgrading .NET Framework applications:** The reference implementation deploys to an App Service running Windows, but it's capable of running on Linux. The Azure App Service windows platform enables customers to move .NET Framework web apps to Azure without upgrading to newer framework versions. If you want Linux App Service plans, or new features and performance improvements added to the latest versions of dotnet, you should use the following guidance.
+### Upgrading .NET Framework applications
+
+The reference implementation deploys to an App Service running Windows, but it's capable of running on Linux. The Azure App Service windows platform enables customers to move .NET Framework web apps to Azure without upgrading to newer framework versions. If you want Linux App Service plans, or new features and performance improvements added to the latest versions of dotnet, you should use the following guidance.
 
 - [Overview of porting from .NET Framework to .NET](/dotnet/core/porting/): A starting point for finding more guidance based on your specific type of .NET app.
 - [Overview of the .NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview): A console tool that can help automate many of the tasks associated with upgrading .NET framework projects.
