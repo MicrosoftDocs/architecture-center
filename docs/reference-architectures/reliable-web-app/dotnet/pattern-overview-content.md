@@ -1,10 +1,10 @@
-The reliable web app pattern is a set of best practices built on the the [Azure Well-Architected Framework](/azure/architecture/framework/) that helps developers successfully migrate web applications to the cloud. The goal is to improve the cost, performance, security, operations, and reliability of your web application with minimal changes. The reliable web app pattern is an essential first step for web applications converging on the cloud and sets a foundation for future modernizations in Azure.
+The reliable web app pattern is a set of best practices built on the [Azure Well-Architected Framework](/azure/architecture/framework/) that helps developers successfully migrate web applications to the cloud. The goal is to improve the cost, performance, security, operations, and reliability of your web application with minimal changes. The reliable web app pattern is an essential first step for web applications converging on the cloud and sets a foundation for future modernizations in Azure.
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-This article defines objectives of the reliable web app pattern and details the business drivers, on-premises context, and the reasons the web app uses each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The following diagram shows the architecture of the reference implementation of the reliable web app pattern.
+This article defines objectives of the reliable web app pattern and details the business drivers, on-premises context, and the reasons the web app uses each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The following diagram shows the architecture of the reference implementation that applies the reliable web app pattern.
 
-![Diagram showing the architecture of the reliable web app pattern for .NET.](images/reliable-web-app-dotnet.png)
+![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost, see:*
 
@@ -13,7 +13,7 @@ This article defines objectives of the reliable web app pattern and details the 
 
 ## Pattern objectives and implementation
 
-The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern varies between web application and languages. The following table outlines the pattern objectives and how the reference implementation met these objectives.
+The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern will vary based on the web application and language. The following table outlines the pattern objectives and how the reference implementation met these objectives.
 
 | Objectives | Implementation for .NET |
 | --- | --- |
@@ -21,11 +21,11 @@ The reliable web app pattern is a set of objectives that follow the pillars of [
 
 ## Web application starting point
 
-This guidance mirrors the journey of a web application converging on the cloud. It's essential to define the on-premises web application. It's a monolithic ASP.NET application that runs on two virtual machines with a Microsoft SQL Server database. It's an employee-facing and LOB eCommerce web application. The employees are call-center users, and they use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
+This guidance mirrors the journey of a fictional company, Relecloud, that wants to take their on-premises, line of business (LOB) web application to the cloud. It's a monolithic, eCommerce, ASP.NET application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is also employee-facing. The only application users are Relecloud's call-center employees. They use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
 
 ## Business context
 
-The goal of the pattern is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
+Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
 
 | Short term goals | Long term goals |
 | --- | --- |
@@ -33,9 +33,9 @@ The goal of the pattern is to meet increasing business demand with minimal inves
 
 ## Service level objective
 
-Before calculating your service level objective (SLO), you need to define what it means to be available for your web application. Find all the Azure services that support your definition of availability. For Relecloud, available is when customers can purchase tickets. A service like Azure Monitor is outside the scope of the SLO of 99.9% because it doesn’t directly support ticket purchases.
+Before calculating your service level objective (SLO), you need to define what it means to be available for your web application. Find all the Azure services that support your definition of availability. For Relecloud, available is when tickets can be purchased. A service like Azure Monitor is outside the scope of the SLO because it doesn’t affect the ability to make ticket purchases. However, services that could affect availability are within scope. The Relecloud web app doesn't invoke Azure App Configuration or Azure Key Vault during ticket purchases, but they do support application platform scaling events. If these scaling events, it would negatively affect the ability to purchase tickets.
 
-To determine availability, you need a metric to measure the predicted availability of a service and Azure's service level agreements (SLAs) are useful. Make a list of the services that support the essential functions of your application and find their SLA. Next, calculate the composite SLA of the services. For more information, see:
+To determine the anticipated availability of the web app, you need a metric to measure the predicted availability of a service and Azure's service level agreements (SLAs) are useful. Make a list of the services that support the essential functions of your application and find their SLA. Next, calculate the composite SLA of the services. For more information, see:
 
 - [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 - [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
@@ -49,6 +49,7 @@ To determine availability, you need a metric to measure the predicted availabili
 | [Azure App Configuration](<https://azure.microsoft.com/support/legal/sla/app-configuration/v1_0/>) | 99.9% |
 | [Azure App Service](https://azure.microsoft.com/support/legal/sla/app-service/) | 99.95% |
 | [Azure Cache for Redis](https://azure.microsoft.com/support/legal/sla/cache/) |99.9% |
+| [Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/)|100%|
 | [Azure Key Vault](https://azure.microsoft.com/support/legal/sla/key-vault/v1_0/) | 99.99% |
 | [Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/) | 99.99%|
 | [Azure Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) |  99.9% |
@@ -156,7 +157,7 @@ Review [App Configuration best practices](/azure/azure-app-configuration/howto-b
 
 - **Encryption:** It supports encryption at rest and in transit.
 - **Supports managed identities:** The application services can use managed identities to access the secret store.
-- **Monitoring and logging:** It facilitate audit access and generate alert us when stored secrets change.
+- **Monitoring and logging:** It facilitates audit access and generate alert us when stored secrets change.
 - **Certificate support:** It supports importing PFX and PEM formatted certificates.
 - **Integration:** It provides native integration with the Azure configuration store (Azure App Configuration) and web hosting platform (Azure App Service).
 

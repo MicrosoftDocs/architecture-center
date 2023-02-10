@@ -6,7 +6,7 @@ This article shows you how to apply the reliable web app pattern. There's a comp
 
 ## Architecture and code
 
-Architecture and code are symbiotic. A well-architected web application needs quality code and quality code needs a well-architected solution. Flaws in one limit the benefits of the other. The guidance here situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reenforce the interdependence of code and architecture. The following diagram shows the architecture of the reference implementation of the reliable web app pattern.
+Architecture and code are symbiotic. A well-architected web application needs quality code and quality code needs a well-architected solution. Flaws in one limit the benefits of the other. The guidance here situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reenforce the interdependence of code and architecture. The following diagram shows an implementation that uses the reliable web app pattern.
 
 ![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
 
@@ -199,11 +199,17 @@ This network security is transparent from the code perspective. It doesn't invol
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
 
+### Use web application firewall
+
+You should protect web applications with a web application firewall. The web application firewall provides protection against common security attacks and botnets. To capture the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Front Door.
+
+*Reference implementation:* The reference implementation uses Front Door as the hostname URL. In production, you should use your own hostname and follow the guidance in [preserve the original HTTP hostname](/azure/architecture/best-practices/host-name-preservation).
+
 ## Cost optimization
 
 Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes made optimize for horizontal scale as a lower cost investment as compared to optimizing existing business processes, which lead to higher risk change.
 
-**Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but the effort is beyond the scope of this pattern. You should address it in future modernizations.
+**Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but the effort is an example of an optimizations that is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
 
 ### Right-size resources for each environment
 
@@ -279,7 +285,7 @@ You should use a single cache instance to support multiple data types rather tha
 
 ## Operational excellence
 
-A DevOps methodology provides a greater return on investment for application teams in the cloud. Infrastructure-as-code (IaC) is a key tenant of DevOps. The reliable web app pattern uses IaC (bicep) to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry, and when fed into a DevOps framework, they help rapidly improve your application.
+A DevOps methodology provides a greater return on investment for application teams in the cloud. Infrastructure-as-code (IaC) is a key tenant of DevOps. The reliable web app pattern requires using IaC to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry, and when fed into a DevOps framework, they help rapidly improve your application.
 
 ### Automate deployments
 
