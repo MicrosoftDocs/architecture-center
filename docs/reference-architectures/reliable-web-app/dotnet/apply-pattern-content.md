@@ -2,7 +2,7 @@ The reliable web app pattern is a set of best practices built on the the [Azure 
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-This article shows you how to apply the reliable web app pattern. There's a companion article that [defines the reliable web application pattern for .NET](./pattern-overview.yml) and a [reference implementation of the reliable web app pattern](https://aka.ms/eap/rwa/dotnet) that you can deploy. The reference implementation is an employee-facing, line of business, concert ticketing app, and we refer to it throughout this guidance.
+This article shows you how to apply the reliable web app pattern. There's a companion article that [defines the reliable web application pattern for .NET](./pattern-overview.yml) and a [reference implementation of the reliable web app pattern](https://aka.ms/eap/rwa/dotnet) that you can deploy. The reference implementation is an employee-facing, line of business, concert ticketing app, and the guidance refers to it throughout.
 
 ## Architecture and code
 
@@ -17,7 +17,7 @@ Architecture and code are symbiotic. A well-architected web application needs qu
 
 ## Reliability
 
-A reliable web application is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your web application when they need to. We recommend using the retry and circuit-breaker patterns as a critical first step toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
+A reliable web application is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your web application when they need to. You should use the retry and circuit-breaker patterns as a critical first step toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
 
 ### Use the retry pattern
 
@@ -30,7 +30,7 @@ If your code already uses the retry pattern, you should update your code to use 
 - [Transient fault handling](/azure/architecture/best-practices/transient-faults)
 - [Retry pattern](/azure/architecture/patterns/retry)
 
-**1. Try the Azure service and client SDKs first.** Most Azure services and client SDKs have a built-in retry mechanism. We recommend using the built-in retry mechanism for Azure services to expedite the implementation. For more information, see [Azure service retry guidance](/azure/architecture/best-practices/retry-service-specific).
+**1. Try the Azure service and client SDKs first.** Most Azure services and client SDKs have a built-in retry mechanism. You should use the built-in retry mechanism for Azure services to expedite the implementation. For more information, see [Azure service retry guidance](/azure/architecture/best-practices/retry-service-specific).
 
 *Reference implementation:* The reference implementation uses the connection resiliency mechanism in Entity Framework Core to apply the retry pattern in requests to Azure SQL Database. For more information, see:
 
@@ -50,9 +50,9 @@ services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sq
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/911f841d4b721bef1d9021d487745f873464d11d/src/Relecloud.Web.Api/Startup.cs#L99)
 
-**2. Use the Polly when the client library doesn't support retries.** You might need to make calls to a dependency that isn't an Azure service or doesn't support the retry pattern natively. We recommend using the Polly library to implement the retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
+**2. Use the Polly when the client library doesn't support retries.** You might need to make calls to a dependency that isn't an Azure service or doesn't support the retry pattern natively. In that case, you should use the Polly library to implement the retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
 
-*Reference implementation:* The reference implementation uses Polly to set up the ASP.NET Core Dependency Injection. Polly enforces the retry pattern every time we construct an object that calls the `IConcertSearchService` object. In the Polly framework, we call that behavior a policy. The code extracts this policy in the `GetRetryPolicy()` method, and the `GetRetryPolicy()` method applies the retry pattern every time the front-end web app calls web API services. The following code applies the retry pattern to all service calls to the concert search service.
+*Reference implementation:* The reference implementation uses Polly to set up the ASP.NET Core Dependency Injection. Polly enforces the retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a policy. The code extracts this policy in the `GetRetryPolicy()` method, and the `GetRetryPolicy()` method applies the retry pattern every time the front-end web app calls web API services. The following code applies the retry pattern to all service calls to the concert search service.
 
 ```csharp
 private void AddConcertSearchService(IServiceCollection services)
@@ -112,11 +112,11 @@ The policy handler for the `RelecloudApiConcertSearchService` instance applies t
 
 ## Security
 
-Cloud applications are often composed of multiple Azure services and communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, we recommend using managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
+Cloud applications are often composed of multiple Azure services and communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
 
 ### Use managed identities
 
-We recommend using managed identities for all supported Azure services. They make identity management easier and more secure with benefits for authentication, authorization, and accounting.
+You should use managed identities for all supported Azure services. They make identity management easier and more secure with benefits for authentication, authorization, and accounting.
 
 #### Overview
 
@@ -124,9 +124,9 @@ We recommend using managed identities for all supported Azure services. They mak
 
 Managed identities are similar to the identity component in connection strings in typical on-premises applications. On-premises apps use connection strings to prove an application's identity to a database. *Trusted connection* and *Integrated security* features hide the database username and password from the config file. The application connects to the database with an Active Directory account.
 
-**Authorization:** When granting manage-identities' access to a resource, we recommend that you always grant the least permissions needed to limit attack surface.
+**Authorization:** When granting manage-identities' access to a resource, you should always grant the least permissions needed to limit attack surface.
 
-*Reference implementation:* The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. We recommend granting your managed identities only using the permissions necessary to support your code's needs such as just the ability to read/write data.
+*Reference implementation:* The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. You should grant the managed identities only the permissions necessary to support the needs of the code, such as the ability to read or write data.
 
 **Accounting:** Accounting in cybersecurity refers to the process of tracking and logging actions within an environment. With managed identities in Azure, you can gain better visibility into which supported Azure resources are accessing other resources and set appropriate permissions for each resource or service. While connection strings with secrets stored in Azure Key Vault can provide secure access to a resource, they don't offer the same level of accounting visibility. As a result, it can be more challenging to govern and control access using only connection strings. Managed identities provide a secure and traceable way to control access to Azure resources. For more information, see:
 
@@ -137,7 +137,7 @@ Managed identities are similar to the identity component in connection strings i
 
 #### How to set up managed identities
 
-Managed identities have two components. There's a code component and the infrastructure component. We recommend the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
+Managed identities have two components. There's a code component and the infrastructure component. You should use the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
 
 **1. Use DefaultAzureCredential to set up code.** The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
@@ -184,7 +184,7 @@ Many on-premises environments don't have central secrets store. The absence make
 
 *Reference implementation:* The reference implementation doesn't use Key Vault monitoring. It also uses external secrets for three services.
 
-1. *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, we used the on-behalf-of flow. To execute that process, we needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
+1. *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, the web app uses an on-behalf-of flow. The on-behalf-of flow needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
 1. *Azure Cache for Redis secret:* The service doesn't support managed identity yet. To rotate the key in the connection string, you need to change the value in Key Vault to the secondary connection string for Azure Cache for Redis. After changing the value, you must restart the web app to use the new settings. Use the Azure CLI or the Azure portal to regenerate the access key for Azure Cache for Redis.
 
@@ -226,7 +226,7 @@ var redisCacheCapacity = isProd ? 1 : 0
 
 [See this code in content](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4704f6f43bb9669ebd97716e9e7b6e8ba97d6ebf/infra/azureRedisCache.bicep#L21).
 
-We chose the StandardC1 SKU for the production environment and the BasicC0 SKU for the non-production environment. The BasicC0 SKU costs less than the StandardC1 SKU. It provides the behavior we need for testing without the data capacity or availability targets we would need for our production environment (see table). For more information, see [SKU pricing Azure Cache for Redis](/pricing/details/cache/).
+The web app uses the StandardC1 SKU for the production environment and the BasicC0 SKU for the non-production environment. The BasicC0 SKU costs less than the StandardC1 SKU. It provides the behavior needed for testing without the data capacity or availability targets needed for our production environment (see table). For more information, see [SKU pricing Azure Cache for Redis](/pricing/details/cache/).
 
 |   | StandardC1 SKU | BasicC0 SKU|
 | --- | --- | --- |
@@ -234,7 +234,7 @@ We chose the StandardC1 SKU for the production environment and the BasicC0 SKU f
 
 ### Automate scaling the environment
 
-You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. We don’t recommend increasing the size of your application platform (vertical scaling) to meet frequent change in demand because it’s less cost efficient. For more information, see:
+You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. Don't increase the size of your application platform (vertical scaling) to meet frequent change in demand because it’s less cost efficient. For more information, see:
 
 - [Scaling in Azure App Service](/azure/app-service/manage-scale-up)
 - [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
@@ -269,13 +269,13 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 
 ### Delete non-production environments
 
-Infrastructure as code (IaC) is often listed as an operational best practice, but it's also a way to manage costs. Infrastructure as code can create and delete entire environments.  We recommend deleting non-production environments after hours or during holidays.
+Infrastructure as code (IaC) is often listed as an operational best practice, but it's also a way to manage costs. Infrastructure as code can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
 
 ### Use cache to support multiple data types
 
-We recommend using a single cache instance to support multiple data types rather than using a single instance for each data type.
+You should use a single cache instance to support multiple data types rather than using a single instance for each data type.
 
-*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to store session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, we allocated the "extra" capacity to multiple data types.
+*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to store session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, the extra capacity uses multiple data types.
 
 ## Operational excellence
 
@@ -286,7 +286,7 @@ A DevOps methodology provides a greater return on investment for application tea
 You should use a DevOps pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, you should explore GitHub actions.  Automating deployments with IaC offers the following benefits:
 
 - **Resolves production issues faster:** IaC creates consistent environments that foster predictable behaviors in production. The development team can automate the creation of a copy of the production environment to troubleshot production issues.
-- **Applies changes consistently across environments:** We recommend using IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow with separate pipelines to different environments. You can use environment variables to differentiate between. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
+- **Applies changes consistently across environments:** You should use IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow with separate pipelines to different environments. You can use environment variables to differentiate between. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
 - **Maximizes productivity:** Use automation to set up new environments and reduce the operational overhead managing environments manually.
 - **Improves governance:** IaC makes it easier to audit and review production changes deployed to Azure because it's checked into source control.
 
@@ -296,9 +296,9 @@ For more information, see guide to [using repeatable infrastructure](/azure/arch
 
 ### Logging and application telemetry
 
-We recommend enabling logging to diagnose when any request fails for tracing and debugging. The telemetry you gather on your application should cater to the operational needs of the web application. At a minimum, you must collect telemetry on baseline metrics. We recommend adding to the baseline metrics to gather information on user behavior that can help you apply targeted improvements. Here are our recommendations for collecting application telemetry.
+You should enable logging to diagnose when any request fails for tracing and debugging. The telemetry you gather on your application should cater to the operational needs of the web application. At a minimum, you must collect telemetry on baseline metrics. Gather information on user behavior that can help you apply targeted improvements. Here are our recommendations for collecting application telemetry.
 
-**Monitor baseline metrics.** The workload should monitor baseline metrics. Important metrics to measure include request throughput, average request duration, errors, and dependency-monitoring. We recommend using application Insights to gather this telemetry. You can use `AddApplicationInsightsTelemetry()` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see:
+**Monitor baseline metrics.** The workload should monitor baseline metrics. Important metrics to measure include request throughput, average request duration, errors, and dependency-monitoring. You should use application Insights to gather this telemetry. You can use `AddApplicationInsightsTelemetry()` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see:
 
 - [Enable Application Insights telemetry](/azure/azure-monitor/app/asp-net-core)
 - [Dependency injection .NET](/dotnet/core/extensions/dependency-injection)
@@ -316,7 +316,7 @@ public void ConfigureServices(IServiceCollection services)
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L38)
 
-**Create custom telemetry as needed.** We recommend that you augment baseline metrics with information that helps you understand your users. You can use Application Insights to gather custom telemetry. To create custom telemetry, you need to create an instance of the `TelemetryClient` class and use the `TelemetryClient` methods to create the right metric. For more information, see:
+**Create custom telemetry as needed.** You should augment baseline metrics with information that helps you understand your users. You can use Application Insights to gather custom telemetry. To create custom telemetry, you need to create an instance of the `TelemetryClient` class and use the `TelemetryClient` methods to create the right metric. For more information, see:
 
 - [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics#trackevent)
 - [TelemetryClient Class](/dotnet/api/microsoft.applicationinsights.telemetryclient)
@@ -332,14 +332,14 @@ You can find the telemetry from `TelemetryClient` in the Azure portal. Go to App
 
 The following code uses `this.telemetryClient.TrackEvent()` to count the tickets added to the cart. It gives the event name (`AddToCart`) and specifies the output (a dictionary with the `concertId` and `count`). You should turn the query into an Azure Dashboard widget.
 
-**Gather log-based metrics.** We recommend tracking log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. You can run these queries in the portal. Under Monitoring, select Logs to run your queries. For more information, see:
+**Gather log-based metrics.** You should track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. You can run these queries in the portal. Under Monitoring, select Logs to run your queries. For more information, see:
 
 - [Azure Application Insights log-based metrics](/azure/azure-monitor/essentials/app-insights-metrics)
 - [Log-based and pre-aggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
 
 ## Performance efficiency
 
-Performance efficiency is the ability of a workload to scale and meet the demands placed on it by users in an efficient manner. A workload should anticipate increases in cloud environments to meet business requirements. We recommend using the cache-aside pattern to manage application data while improving performance and optimizing costs.
+Performance efficiency is the ability of a workload to scale and meet the demands placed on it by users in an efficient manner. A workload should anticipate increases in cloud environments to meet business requirements. You should use the cache-aside pattern to manage application data while improving performance and optimizing costs.
 
 ### Use the cache-aside pattern
 
@@ -377,7 +377,7 @@ private void AddAzureCacheForRedis(IServiceCollection services)
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L50).
 
-**Cache high-need data.** Most applications have pages that get more viewers than other pages. We recommend you cache data that supports the most-viewed pages of the application to improve responsiveness to the end user and lessen the demand on the database. You should use Azure Monitor and Azure SQL Analytics to track CPU, memory, and storage of the database. With these metrics, you can determine if a smaller database SKU is possible.
+**Cache high-need data.** Most applications have pages that get more viewers than other pages. You should cache data that supports the most-viewed pages of the application to improve responsiveness to the end user and lessen the demand on the database. You should use Azure Monitor and Azure SQL Analytics to track CPU, memory, and storage of the database. With these metrics, you can determine if a smaller database SKU is possible.
 
 *Reference implementation:* The reference implementation caches the data supporting the “Upcoming Concerts”. The “Upcoming Concerts” page creates the most queries to the Azure SQL Database and produces a consistent output for each visit. The cache-aside pattern caches the data after the first request for this page to reduce the load on the database. The following code uses the `GetUpcomingConcertsAsync()` method to pull data into the Redis cache from the Azure SQL Database.
 
