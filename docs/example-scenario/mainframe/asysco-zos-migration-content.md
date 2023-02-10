@@ -1,5 +1,7 @@
 This article describes how [Asysco's](https://asysco.com) Automated Migration Technology (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
 
+Asysco is now part of Avanade. For more information, please email mainframe@avanade.com.
+
 ## Architecture
 
 ![Diagram showing how Asysco A M T migration maps z/O S mainframe components to Azure capabilities.](media/asysco-zos-migration.svg)
