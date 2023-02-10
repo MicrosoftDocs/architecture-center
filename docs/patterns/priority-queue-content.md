@@ -33,7 +33,7 @@ Using a priority-queuing mechanism can provide the following advantages:
 
 Consider the following points when you decide how to implement this pattern:
 
-- Define the priorities in the context of the solution. For example, *high priority* could be applied to messages should be processed within 10 seconds. Identify the requirements for handling high priority items, and the other resources that should be allocated to meet these criteria.
+- Define the priorities in the context of the solution. For example, a *high priority* message could be defined as a  message that should be processed within 10 seconds. Identify the requirements for handling high priority items, and the resources that need to be allocated to meet your criteria.
 
 - Decide whether all high priority items must be processed before any lower priority items. If the messages are processed by a single pool of consumers, you have to provide a mechanism that can preempt and suspend a task that's handling a low priority message if a higher priority message enters the queue.
 
@@ -45,7 +45,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - The use of a separate queue for each message priority works best for systems that have a few well-defined priorities.
 
-- The system can logically determine message priorities. For example, rather than having explicit high and low priority messages, messages could be designated as "paying customer" or "non-paying customer." Your system could then allocate more resources to processing messages from paying customers.
+- The system can logically determine message priorities. For example, rather than having explicit high and low priority messages, you could designate messages as "paying customer" or "non-paying customer." Your system could then allocate more resources to processing messages from paying customers.
 
 - There might be a financial and processing cost associated with checking a queue for a message. (Some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages.) This cost increases when you check multiple queues.
 
@@ -86,7 +86,7 @@ public static class PriorityQueueConsumerHighFn
 }
 ```
 
-An administrator can configure how many instances the functions on Azure App Service can scale out to. They do that by configuring the **Enforce Scale Out Limit** option from the Azure portal, setting a maximum scale-out limit for each function. You typically need to have more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function. This configuration ensures that high priority messages are read from the queue more quickly than low priority messages.
+An administrator can configure how many instances the functions on Azure App Service can scale out to. You do that by configuring the **Enforce Scale Out Limit** option from the Azure portal, setting a maximum scale-out limit for each function. You typically need to have more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function. This configuration ensures that high priority messages are read from the queue more quickly than low priority messages.
 
 Another project, `PriorityQueueSender`, contains a time-triggered Azure function that's configured to run every 30 seconds. This function integrates with Service Bus via an output binding and sends batches of low and high priority messages to an `IAsyncCollector` object. When the function posts messages to the topic that's associated with the subscriptions used by the `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions, it specifies the priority by using the `Priority` custom property, as shown here:
 
@@ -122,7 +122,7 @@ The following resources might be helpful to you when you implement this pattern:
 
 - [A sample that demonstrates this pattern, on GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue).
 
-- [Asynchronous messaging primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). A consumer service that processes a request might need to send a reply to the instance of the application that posted the request. This article provides information on the strategies that you can use to implement request/response messaging.
+- [Asynchronous messaging primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)). A consumer service that processes a request might need to send a reply to the instance of the application that posted the request. This article provides information about the strategies that you can use to implement request/response messaging.
 
 - [Autoscaling guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)). You can sometimes scale the size of the pool of consumer processes that are handling a queue based on the length of the queue. This strategy can help you improve performance, especially for pools that handle high priority messages.
 
@@ -132,4 +132,4 @@ The following patterns might be helpful to you when you implement this pattern:
 
 - [Competing Consumers pattern](./competing-consumers.yml). To increase the throughput of the queues, you can implement multiple consumers that listen on the same queue and process tasks in parallel. These consumers compete for messages, but only one should be able to process each message. This article provides more information on the benefits and disadvantages of implementing this approach.
 
-- [Throttling pattern](./throttling.yml). You can implement throttling by using queues. You can use priority messaging to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
+- [Throttling pattern](./throttling.yml). You can implement throttling by using queues. You can use priority messaging to ensure that requests from critical applications, or applications that are run by high-value customers, are given priority over requests from less important applications.
