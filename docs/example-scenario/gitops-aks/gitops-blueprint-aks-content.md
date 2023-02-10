@@ -1,6 +1,6 @@
 GitOps  is a set of principles for operating and managing software systems. Though GitOps can be applied to any software system, GitOps is extensively used in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation. 
 
-According to GitOps principles, the desired state of a GitOps managed system must be:
+According to [GitOps principles](https://opengitops.dev/), the desired state of a GitOps managed system must be:
 
 1. **Declarative**: A system managed by GitOps must have its desired state expressed declaratively.
 1. **Versioned and Immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
@@ -23,11 +23,29 @@ This solution benefits any organization that wants the advantages of deploying a
 
 GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters (for example, to apply the same configuration across primary and DR clusters, or across a farm or clusters). GitOps enhances developer productivity.  
 
-The most common and widely used GitOps operators are [Flux](<https://fluxcd.io/>) and [Argo CD](<https://argo-cd.readthedocs.io/>). Both are CNCF projects, and can be used with Azure Kubernetes Service.
+The most common and widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are CNCF projects, and can be used with Azure Kubernetes Service.
+
+## Components
+
+1. [Azure Kubernetes Service (AKS)](/azure/aks) is a highly available, secure, and fully managed Kubernetes service in Azure. In AKS, Azure manages the Kubernetes API server, and cluster owners and operators access and manage the Kubernetes nodes and node pools.
+
+1. [GitHub](https://github.com) is a code hosting platform for version control and collaboration. GitHub offers Git distributed version control, source code management, and other features.
+
+1. [Azure DevOps](https://dev.azure.com) is a platform that provides devops services for teams to share code, track work, and ship software
+
+1. [Flux](https://fluxcd.io/) is a GitOps tool that automates the deployment of applications on Kubernetes. Flux automates configuration updates when there is new code to deploy. Flux is provided as a native extension to Azure Kubernetes Service. 
+
+1. [Argo CD](https://argo-cd.readthedocs.io/) is a declarative, GitOps continuous delivery tool for Kubernetes.
+
+1. [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is a project that integrates the open-source OPA admission controller with Kubernetes. Kubernetes admission controllers enforce policies on objects during create, update, and delete operations, and are fundamental to Kubernetes policy enforcement.
+
+1. [Syncier Security Tower](https://securitytower.syncier.com/) is a tool that Syncier developed and makes publicly available to help overcome GitOps security and compliance challenges. To help ensure that only trusted images run in the cluster, Syncier Security Tower comes with a set of best-practice policies that are grouped by well-known security standards.
+
+## Native GitOps extensions to Azure Kubernetes Service
+
+Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different extensions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
 
 ## Scenario 1: GitOps with Flux and AKS
-
-Flux is provided as a native [cluster extension](</azure/aks/cluster-extensions>) to Azure Kubernetes Service. Cluster extensions provides a platform for different extensions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, CLI (or IaC scripts), or across multiple AKS clusters at scale using Azure Policy. 
 
 ![Diagram of GitOps with Flux v2, GitHub and AKS](media/GitOps_Flux_GitHub_AKS.png)
 
@@ -42,7 +60,7 @@ You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesCo
 ### Alternatives
 
 1. Flux can be used with other Git Repositories and CI/CD tools such as Azure DevOps, GitLabs, BitBucket etc. 
-1. Instead of Git Repositories, [Flux Bucket API]{<https://fluxcd.io/flux/components/source/buckets/>} defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others. 
+1. Instead of Git Repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets/) defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others. 
 1. [Flux can also be configured against Azure Blob Storage Container as a source to produce artifacts](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
 ## Scenario 2: Implementing CI/CD using GitOps with Flux, GitHub and AKS
@@ -129,26 +147,9 @@ This solution follows a strong GitOps approach.
    - Introduces risk acceptance whenever policies can't be applied for good reasons.
    - Provides security policies to OPA Gatekeeper.
 
-## Components
-
-1. [Azure Kubernetes Service (AKS)](/azure/aks) is a highly available, secure, and fully managed Kubernetes service in Azure. In AKS, Azure manages the Kubernetes API server, and cluster owners and operators access and manage the Kubernetes nodes and node pools.
-
-1. [GitHub](https://github.com) is a code hosting platform for version control and collaboration. GitHub offers Git distributed version control, source code management, and other features.
-
-1. [Azure DevOps](https://dev.azure.com) is a platform that provides devops services for teams to share code, track work, and ship software
-
-1. [Flux](https://fluxcd.io/) is a GitOps tool that automates the deployment of applications on Kubernetes. Flux automates configuration updates when there is new code to deploy. Flux is provided as a native extension to Azure Kubernetes Service. 
-
-1. [Argo CD](https://argo-cd.readthedocs.io/) is a declarative, GitOps continuous delivery tool for Kubernetes.
-
-1. [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) is a project that integrates the open-source OPA admission controller with Kubernetes. Kubernetes admission controllers enforce policies on objects during create, update, and delete operations, and are fundamental to Kubernetes policy enforcement.
-
-1. [Syncier Security Tower](https://securitytower.syncier.com/) is a tool that Syncier developed and makes publicly available to help overcome GitOps security and compliance challenges. To help ensure that only trusted images run in the cluster, Syncier Security Tower comes with a set of best-practice policies that are grouped by well-known security standards.
-
 ## Other GitOps tools and add-ons. 
 
 The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used For gradual shifting of production workloads deployed through GitOps.
-
 
 ## Considerations
 
@@ -187,7 +188,6 @@ The following tutorials provide steps for deploying applications to AKS using Gi
 * [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
 * [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
 
-
 ## Pricing
 Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
 
@@ -197,14 +197,12 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/cal
 
 - Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs. 
 
-
 ## Contributors
 This article is maintained by Microsoft. It was originally written by the following contributors.
 
 Principal authors:
 
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Principal Cloud Solutions Architect
-
 
 ## Next Steps 
 
