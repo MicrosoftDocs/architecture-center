@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Engys ELEMENTS on an Azure virtual machine
+  description: Learn how Engys ELEMENTS computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar 
+  ms.date: 02/09/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-cyclecloud
+name: Deploy Engys ELEMENTS on an Azure virtual machine
+summary: Learn how Engys ELEMENTS performs on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/engys-elements-thumb.png
+content: |
+  [!include[](engys-elements-content.md)]
