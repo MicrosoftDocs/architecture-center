@@ -1,4 +1,4 @@
-If you have a series of steps that together define an eventually consistent operation, the Compensating Transaction pattern can be useful. Specifically, if one or more of the steps fail, you can use the Compensating Transaction pattern to undo the work that the steps performed. Typically, you find operations that follow the eventual consistency model in cloud-hosted applications that implement complex business processes and workflows.
+When you use an eventually consistent operation that consists of a series of steps, the Compensating Transaction pattern can be useful. Specifically, if one or more of the steps fail, you can use the Compensating Transaction pattern to undo the work that the steps performed. Typically, you find operations that follow the eventual consistency model in cloud-hosted applications that implement complex business processes and workflows.
 
 ## Context and problem
 
@@ -88,7 +88,7 @@ In many business solutions, failure of a single step doesn't always necessitate 
 
 ## Related resources
 
-- [Scheduler-Agent-Supervisor pattern](./scheduler-agent-supervisor.yml). This article describes how to implement resilient systems that perform business operations that use distributed services and resources. In these systems, you sometimes need to use a compensating transaction to undo the work that an operation performs.
+- [Scheduler Agent Supervisor pattern](./scheduler-agent-supervisor.yml). This article describes how to implement resilient systems that perform business operations that use distributed services and resources. In these systems, you sometimes need to use a compensating transaction to undo the work that an operation performs.
 - [Retry pattern](./retry.yml). Compensating transactions can be expensive to perform. You can try to minimize their use by using the Retry pattern to implement an effective policy of retrying failed operations.
 - [Saga distributed transactions pattern](../reference-architectures/saga/saga.yml). This article explains how to use the Saga pattern to manage data consistency across microservices in distributed transaction scenarios. The Saga pattern handles failure recovery with compensating transactions.
 - [Pipes and Filters pattern](./pipes-and-filters.yml). This article describes the Pipes and Filters pattern, which you can use to decompose a complex processing task into a series of reusable elements. You can use the Pipes and Filters pattern with the Compensating Transaction pattern as an alternative to implementing distributed transactions.
