@@ -2,7 +2,7 @@ This reference architecture shows how to run application workloads on Azure Spri
 
 ## Architecture
 
-![Diagram that shows a multi-region Azure Spring Apps reference architecture.](./_images/zr-spring-apps-reference-architecture.png)
+:::image type="content" source="./_images/zone-redundant-spring-apps-reference-architecture.png" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/zone-redundant-spring-apps-reference-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ha-zone-redundant-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.*
 
