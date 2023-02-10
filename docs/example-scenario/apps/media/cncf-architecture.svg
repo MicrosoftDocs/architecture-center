@@ -3005,7 +3005,7 @@
 						x="5.95" dy="1.2em" class="st8">Studio<v:newlineChar/></tspan><tspan x="8.16" dy="1.2em" class="st8">Code</tspan></text>		</g>
 		<g id="shape1025-107" v:mID="1025" v:groupContext="shape" transform="translate(-429.93,235.551) rotate(-90)">
 			<title>Sheet.1025</title>
-			<path d="M0 792 L81 792" class="st12"/>
+			<path d="M0 792 L85.5 792" class="st12"/>
 		</g>
 		<g id="group1026-110" transform="translate(553.183,-160.067)" v:mID="1026" v:groupContext="group">
 			<title>Azure Active Directory (opaque)</title>
