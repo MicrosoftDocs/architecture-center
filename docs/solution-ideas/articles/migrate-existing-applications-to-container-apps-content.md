@@ -76,7 +76,7 @@ Principal author:
 Example language deployments of containers in App Service:
 
 * [Deploy a containerized Python web app on Azure App Service](/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
-* [Deploy Express.js with VS Code to Azure App Service](/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01)
+* [Deploy Express.js with Visual Studio Code to Azure App Service](/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01)
 * [Deploy an ASP.NET Core container to Azure App Service using Visual Studio](/visualstudio/containers/deploy-app-service)
 
 ## Related resources
