@@ -109,6 +109,8 @@ Principal author:
 
 - [Avishay Balter](https://www.linkedin.com/in/avishay-balter-67913138) | Senior Software Engineer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [App Service documentation](/azure/app-service)
