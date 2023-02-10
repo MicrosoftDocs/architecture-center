@@ -61,7 +61,7 @@ This pattern is useful in scenarios where:
 
 ## Example
 
-Azure doesn't provide a queuing mechanism that natively supports automatic prioritization of messages via sorting. However, it does provide Azure Service Bus topics and subscriptions, which support a queuing mechanism that provides message filtering, together with a range of flexible capabilities that make it ideal for use in most priority-queue implementations.
+Azure doesn't provide a queuing mechanism that natively supports automatic prioritization of messages via sorting. However, it does provide Azure Service Bus topics, Service Bus subscriptions that support a queuing mechanism that provides message filtering, and a range of flexible capabilities that make Azure ideal for most priority-queue implementations.
 
 An Azure solution can implement a Service Bus topic that an application can post messages to, just as it would post them to a queue. Messages can contain metadata in the form of application-defined custom properties. You can associate Service Bus subscriptions with the topic, and the subscriptions can filter messages based on their properties. When an application sends a message to a topic, the message is directed to the appropriate subscription, where a consumer can read it. Consumer processes can retrieve messages from a subscription by using the same semantics that they would use with a message queue. (A subscription is a logical queue.) This diagram shows how to implement a priority queue by using Service Bus topics and subscriptions:
 
@@ -86,9 +86,9 @@ public static class PriorityQueueConsumerHighFn
 }
 ```
 
-An administrator can configure how many instances the functions on the Azure App Service can scale out to. You do that by configuring the **Enforce Scale Out Limit** option from the Azure portal, setting a maximum scale-out limit for each function. Typically, there are more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
+An administrator can configure how many instances the functions on Azure App Service can scale out to. They do that by configuring the **Enforce Scale Out Limit** option from the Azure portal, setting a maximum scale-out limit for each function. Typically, there are more instances of the `PriorityQueueConsumerHigh` function than the `PriorityQueueConsumerLow` function.
 
-Another project named `PriorityQueueSender` contains a time-triggered Azure function that's configured to run every 30 seconds. This function integrates with Service Bus via an output binding and sends batches of low and high priority messages to an `IAsyncCollector` object. When the function posts messages to the topic that's associated with the subscriptions used by the `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions, it specifies the priority by using the `Priority` custom property, as shown here:
+Another project, `PriorityQueueSender`, contains a time-triggered Azure function that's configured to run every 30 seconds. This function integrates with Service Bus via an output binding and sends batches of low and high priority messages to an `IAsyncCollector` object. When the function posts messages to the topic that's associated with the subscriptions used by the `PriorityQueueConsumerHigh` and `PriorityQueueConsumerLow` functions, it specifies the priority by using the `Priority` custom property, as shown here:
 
 ```csharp
 public static class PriorityQueueSenderFn
@@ -118,7 +118,7 @@ public static class PriorityQueueSenderFn
 
 ## Next steps
 
-The following guidance might be helpful to you when you implement this pattern:
+The following resources might be helpful to you when you implement this pattern:
 
 - [A sample that demonstrates this pattern, on GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/priority-queue).
 
@@ -132,4 +132,4 @@ The following patterns might be helpful to you when you implement this pattern:
 
 - [Competing Consumers pattern](./competing-consumers.yml). To increase the throughput of the queues, you can implement multiple consumers that listen on the same queue and process tasks in parallel. These consumers compete for messages, but only one should be able to process each message. This article provides more information on the benefits and disadvantages of implementing this approach.
 
-- [Throttling pattern](./throttling.yml). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
+- [Throttling pattern](./throttling.yml). You can implement throttling by using queues. You can use priority messaging to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
