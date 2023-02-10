@@ -6,7 +6,7 @@ This article shows you how to apply the reliable web app pattern. There's a comp
 
 ## Architecture and code
 
-Architecture and code are symbiotic. A well-architected web application needs quality code and quality code needs a well-architected solution. Flaws in one limit the benefits of the other. The guidance here situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reenforce the interdependence of code and architecture. The following diagram shows an implementation that uses the reliable web app pattern.
+Architecture and code are symbiotic. A well-architected web application needs quality code and quality code needs a well-architected solution. Flaws in one limit the benefits of the other. The guidance here situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reenforce the interdependence of code and architecture. The following diagram shows the architecture of the reference implementation that applies the reliable web app pattern.
 
 ![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
 
