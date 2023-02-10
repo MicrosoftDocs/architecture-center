@@ -4,7 +4,7 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 ## Architecture
 
-![Diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-to-container-apps.png)
+[ ![Architecture diagram shows existing application migration to containers in Azure Kubernetes Service with Open Service Broker for Azure to access Azure databases.](../media/migrate-existing-applications-to-container-apps.svg)](../media/migrate-existing-applications-to-container-apps.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/migrate-existing-applications-to-container-apps.vsdx) of this architecture.*
 
@@ -76,7 +76,7 @@ Principal author:
 Example language deployments of containers in App Service:
 
 * [Deploy a containerized Python web app on Azure App Service](/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-01)
-* [Deploy Express.js with VS Code to Azure App Service](/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01)
+* [Deploy Express.js with Visual Studio Code to Azure App Service](/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01)
 * [Deploy an ASP.NET Core container to Azure App Service using Visual Studio](/visualstudio/containers/deploy-app-service)
 
 ## Related resources
