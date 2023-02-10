@@ -50,6 +50,7 @@ To determine the anticipated availability of the web app, you need a metric to m
 | [Azure App Service](https://azure.microsoft.com/support/legal/sla/app-service/) | 99.95% |
 | [Azure Cache for Redis](https://azure.microsoft.com/support/legal/sla/cache/) |99.9% |
 | [Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/)|100%|
+| [Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_1/)|99.99%|
 | [Azure Key Vault](https://azure.microsoft.com/support/legal/sla/key-vault/v1_0/) | 99.99% |
 | [Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/) | 99.99%|
 | [Azure Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) |  99.9% |
