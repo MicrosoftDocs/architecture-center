@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reliable web application pattern for .NET
+  title: Reliable web application pattern (.NET)
   titleSuffix: Azure Reference Architectures
   description: How to improve your .NET application in the cloud with the reliable web app pattern. The pattern features low-cost, high-value code and infrastructure enhancements.
   author: KSchlobohm
@@ -19,7 +19,7 @@ products:
   - azure-front-door
   - azure-cache-redis
   - dotnet
-name: Reliable web app pattern for .NET
+name: Reliable web app pattern planning (.NET)
 summary: How to improve your .NET application with the reliable web app pattern.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
