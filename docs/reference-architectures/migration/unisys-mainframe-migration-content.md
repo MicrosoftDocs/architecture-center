@@ -1,5 +1,7 @@
 This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com) uses to migrate Unisys mainframe workflows to Azure.
 
+Asysco is now part of Avanade. For more information, please email mainframe@avanade.com
+
 ## Legacy architecture
 
 The following diagram shows the typical components of Unisys Burroughs MCP or Unisys Sperry OS 1100/2200 mainframe systems.
