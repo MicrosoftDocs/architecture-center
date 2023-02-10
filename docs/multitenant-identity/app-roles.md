@@ -110,7 +110,7 @@ As shown in the following screenshot, Charles is part of the Admin group, so he 
 
 When a user signs in, the application receives the user's assigned roles in a claim with type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` (the `roles` claim in a JWT token).
 
-A user can be assigned multiple roles, or no role. In your authorization code, don't assume a user has exactly one role claim. Instead, write code that checks whether a particular claim value is present:
+A user can be assigned multiple roles, or no role. In your authorization code, don't assume that a user has exactly one role claim. Instead, write code that checks whether a particular claim value is present:
 
 ```csharp
 if (context.User.HasClaim(ClaimTypes.Role, "Admin")) { ... }
@@ -152,7 +152,7 @@ When a new customer signs up, the application instructs the customer to create s
 When a user signs in:
 
 1. The application receives the user's groups as claims. The value of each claim is the object ID of a group.
-2. Azure AD limits the number of groups that can be sent in the token. If the number of groups exceeds the limit, Azure AD sends an overage claim. If that claim is present, the application must query the Microsoft Graph API to get all the groups to which that user belongs. For more information, see [Groups overage claim](/azure/active-directory/develop/id-tokens#groups-overage-claim).
+2. Azure AD limits the number of groups that can be sent in the token. If the number of groups exceeds the limit, Azure AD sends an overage claim. If that claim is present, the application must query the Microsoft Graph API to get all the groups that include the user. For more information, see [Groups overage claim](/azure/active-directory/develop/id-tokens#groups-overage-claim).
 3. To find the corresponding application roles to assign to the user, the application looks up the object IDs in its own database.
 4. The application adds a custom claim value to the user principal that expresses the application role. For example: `survey_role` = "SurveyAdmin".
 
