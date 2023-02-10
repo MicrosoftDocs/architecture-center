@@ -4,7 +4,7 @@ In this solution, [Azure Web Application Firewall (WAF)](/azure/web-application-
 
 :::image type="content" border="false" source="./media/aks-agic.png" alt-text="Diagram displays a diagram of this Application Gateway Ingress Controller solution." lightbox="./media/aks-agic.png":::
 
-*Download a [Visio file](./media/aks-agic.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -135,7 +135,7 @@ Although Kubernetes cannot guarantee perfectly secure isolation between tenants,
 
 :::image type="content" border="false" source="./media/aks-agic-multi-tenancy.png" alt-text="Diagram of multitenancy" lightbox="./media/aks-agic-multi-tenancy.png":::
 
-*Download a [Visio file](./media/aks-agic.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
 
 The [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) is a Kubernetes application, which makes it possible for [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) customers to use an [Azure Application Gateway](/azure/application-gateway/overview) to expose their containerized applications to the Internet. AGIC monitors the Kubernetes cluster that it is hosted on and continuously updates an Application Gateway, so that the selected services are exposed to the Internet. The Ingress Controller runs in its own pod on the customer's AKS instance. AGIC monitors a subset of Kubernetes Resources for changes. The state of the AKS cluster is translated to Application Gateway-specific configuration and applied to the [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). This architecture sample shows proven practices to deploy a public or private [Azure Kubernetes Service (AKS) cluster](/azure/aks/intro-kubernetes), with an [Azure Application Gateway](/azure/application-gateway/overview) and an [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview) add-on.
 
@@ -311,7 +311,7 @@ The source code for this scenario is available [on GitHub](https://github.com/Az
 
 :::image type="content" border="false" source="./media/aks-agic-sample.png" alt-text="The diagram shows the deployment of this AGIC with AKS architecture." lightbox="./media/aks-agic-sample.png":::
 
-*Download a [Visio file](./media/aks-agic.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-agic.vsdx) of this architecture.*
 
 
 ### Prerequisites
