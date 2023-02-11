@@ -42,13 +42,13 @@ As a pre-requisite to this article, we recommend you review [Build and deploy ap
 1. [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to securely inject secrets and credentials into an application at runtime, separating sensitive information from developers.
 1. The AKS network policy engine is configured to help secure traffic between application pods by using Kubernetes network policies.
 1. Continuous monitoring of the AKS cluster can be set up by using [Azure Monitor](/azure/azure-monitor/overview) and [Container insights](/azure/azure-monitor/containers/container-insights-overview) to ingest performance metrics and analyze application and security logs.
-   1. Container insights is used to retrieve performance metrics and application and cluster logs.
+   1. Container insights retrieve performance metrics and application and cluster logs.
    1. Diagnostic and application logs are pulled into an Azure Log Analytics workspace to run log queries.
 1. Microsoft Sentinel, which is a security information and event management (SIEM) solution, can be used to ingest and further analyze the AKS cluster logs for any security threats based on defined patterns and rules.
 1. Open-Source tools such as Open Web Application Security Project ([OWASP ZAP](https://owasp.org/www-project-zap/)) can be used to do penetration testing for web applications and services.
 1. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments including GitHub and Azure DevOps.
 
-## Personas Overview and Responsibilities
+## Team members overview and responsibilities
 
 Consider managing the complexity of DevSecOps on Kubernetes-based solution deployments as a separation of concerns. Which team in an enterprise environment should be concerned with each aspect of the deployment? And what tools and processes should a team employ to best achieve their objectives? In this section, we go over the common roles of developers, application operators (site reliability engineers), cluster operators, and security teams.
 
@@ -80,11 +80,11 @@ Security controls are implemented in each phase of the software development life
 
 The plan phase usually has the least amount of automation, but it has important security implications that significantly impact later DevOps lifecycle stages. This phase involves collaboration between security, development, and operations teams. Including security stakeholders in this phase of designing and planning ensures security requirements and security issues are appropriately accounted for or mitigated.
 
-#### Best Practice – Secure application platform design
+#### Best Practice – Design a more secure application platform
 
-Building a secure AKS-hosted platform is an important step to help ensure security is built into the system at every layer, starting with the platform itself. The platform can include components both internal to the cluster (such as runtime security and policy agents) and components that are external to AKS (such as network firewalls and container registries). For more information, see [AKS Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which includes critical design areas such as security, identity, and network topology.
+Building a more secure AKS-hosted platform is an important step to help ensure security is built into the system at every layer, starting with the platform itself. The platform can include components both internal to the cluster (such as runtime security and policy agents) and components that are external to AKS (such as network firewalls and container registries). For more information, see [AKS Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator), which includes critical design areas such as security, identity, and network topology.
 
-#### Best Practice – Threat modeling
+#### Best Practice – Build threat modeling into your process
 
 - Threat modeling is usually a manual activity that involves security and development teams. It's used to model and find threats within a system so vulnerabilities can be addressed prior to any code being developed or changes being made to a system. Threat modeling can occur at different times, triggered by events such as a significant software change, solution architectural change, or security incidents.
 - We recommend you use the [STRIDE threat model](/azure/security/develop/threat-modeling-tool-threats#stride-model). This methodology starts with a data flow diagram and uses the STRIDE mnemonic (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege) threat categories to empower teams to identify, mitigate, and validate risk. It also includes a [modeling tool](https://www.microsoft.com/securityengineering/sdl/threatmodeling) to notate and visualize system components, data flows, and security boundaries. Building threat modeling into your SDLC processes introduces new processes and more work to maintain updated threat models. But it helps ensure security is in place early, which helps reduce the potential cost of dealing with security issues found in later SDLC stages.
@@ -122,7 +122,7 @@ Most popular IDEs, like Visual Studio, Visual Studio Code, IntelliJ IDEA, and Ec
   - Use the GitHub provided, built-in pre-commit hooks that can be easily configured for a specific project. For example, there are pre-built hooks to scan for secrets, private keys, and credentials, and prevent a commit if any of these issues are found.
 - Establish role-based access control within your version control system.
   - Create well-defined roles by using the principle of least privileges. A CI/CD pipeline is your supply chain for production deployments.
-  - Apply established user or group [roles](https://docs.github.com/en/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise) within your organization. Roles like Admin, Developer, Security admin, and Operator must be created to group individuals based on their specific role and function with regard to your CI/CD workflows.
+  - Apply established user or group [roles](https://docs.github.com/en/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise) within your organization. Roles like Admin, Developer, Security admin, and Operator must be created to group individuals based on their specific role and function regarding your CI/CD workflows.
 - Enable [auditing](https://docs.github.com/en/enterprise-server@3.2/admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise) of your workflows so there's transparency and traceability for configuration and other changes with respect to your CI/CD pipelines.
 
 #### Best practice – Secure your container images
@@ -201,7 +201,7 @@ During the deployment phase, developers, application operators, and cluster oper
 - Use GitHub [Actions](https://github.com/marketplace?category=testing&type=actions&query=) in deployment workflows to run Dynamic Application Security Testing (DAST) tests.
 - Use open-source tools such as [OWASP ZAP](https://owasp.org/www-project-zap/) to do penetration testing for common web application vulnerabilities.
 
-#### Best practice – Container images should be deployed from trusted registries only
+#### Best practice – Deploy container images from trusted registries only
 
 - Use [Defender for Containers](/azure/defender-for-cloud/kubernetes-workload-protections) to enable Azure Policy add-on for Kubernetes.
 - Enable Azure Policy so that container images can only be deployed from trusted registries.
@@ -235,7 +235,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 
 #### Best practice – Use Azure Monitor for Continuous monitoring and alerting
 
-- Use Azure Monitor to collect logs and metrics from AKS. You’ll gain insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
+- Use Azure Monitor to collect logs and metrics from AKS. You gain insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.
   - Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity.
   - Onboard your AKS instances to Azure Monitor and configure diagnostic settings for your cluster.
     - See [Azure security baseline for Azure Kubernetes Service](/security/benchmark/azure/baselines/aks-security-baseline).
