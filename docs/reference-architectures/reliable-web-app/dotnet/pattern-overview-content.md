@@ -19,17 +19,17 @@ The reliable web app pattern is a set of objectives that follow the pillars of [
 | --- | --- |
 |▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
 
-## Web application starting point
-
-This guidance mirrors the journey of a fictional company, Relecloud, that wants to take their on-premises, line of business (LOB) web application to the cloud. It's a monolithic, eCommerce, ASP.NET application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is also employee-facing. The only application users are Relecloud's call-center employees. They use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
-
 ## Business context
 
-Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
+This guidance mirrors the journey of a fictional company, Relecloud, that wants to take their on-premises, line of business (LOB) web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
 
 | Short term goals | Long term goals |
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes to the LOB web application. <br> ▪ Mature development team practices for modern development and operations. <br> ▪ Create cost-optimized production and development environments. <br> ▪ Implement reliability and security best practices in the cloud. <br> ▪ Service-level objective of 99.9%.| ▪ Open the application directly to online customers through multiple web and mobile experiences. <br> ▪ Improve availability. <br> ▪ Reduce time required to deliver new features. <br> ▪ Independently scale different components of the system based on traffic
+
+## Web application starting point
+
+The on-premises starting point is web application is a monolithic, eCommerce, ASP.NET application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. The employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under higher load.
 
 ## Service level objective
 
