@@ -8,17 +8,17 @@ The following diagram illustrates the problems with processing data by using the
 
 ![Diagram that shows a solution implemented with monolithic modules.](./_images/pipes-and-filters-modules.png)
 
-Some of the tasks that the monolithic modules perform are functionally similar, but the modules were designed separately. The code that implements the tasks is closely coupled in a module. It was developed with little or no thought given to reuse or scalability.
+Some of the tasks that the monolithic modules perform are functionally similar, but the modules were designed separately. The code that implements the tasks is closely coupled in a module. Reuse and scalability weren't taken into account during development.
 
 However, the processing tasks performed by each module, or the deployment requirements for each task, might change as business requirements are updated. Some tasks might be compute-intensive tasks that could benefit from running on powerful hardware. Other tasks might not require such expensive resources. Also, additional processing might be required in the future, or the order in which the tasks performed by the processing might change. A solution that addresses these problems and increases the possibilities for code reuse is required.
 
 ## Solution
 
-Break down the processing that's required for each stream into a set of separate components (or filters), each performing a single task. If you standardize the format of the data that each component receives and sends, you can combine these filters in a pipeline. Doing so helps you avoid code duplication and makes it easy to remove, replace, or integrate additional components if the processing requirements change. This diagram shows a solution that's implemented with pipes and filters:
+Break down the processing that's required for each stream into a set of separate components (or *filters*), each performing a single task. If you standardize the format of the data that each component receives and sends, you can combine these filters in a pipeline. Doing so helps you avoid code duplication and makes it easy to remove or replace components, or integrate additional components, if the processing requirements change. This diagram shows a solution that's implemented with pipes and filters:
 
 ![Diagram that shows a solution that's implemented with pipes and filters.](./_images/pipes-and-filters-solution.png)
 
-The time it takes to process a single request depends on the speed of the slowest filter in the pipeline. One or more filters could be bottlenecks, especially if a high number of requests appear in a stream from a particular data source. A key advantage of the pipeline structure is that it provides opportunities for running parallel instances of slow filters, which enables the system to spread the load and improve throughput.
+The time it takes to process a single request depends on the speed of the filters in the pipeline. One or more filters could be bottlenecks, especially if a high number of requests appear in a stream from a particular data source. A key advantage of the pipeline structure is that it provides opportunities for running parallel instances of slow filters, which enables the system to spread the load and improve throughput.
 
 The filters that make up a pipeline can run on different machines, which enables them to be scaled independently and take advantage of the elasticity that many cloud environments provide. A filter that's computationally intensive can run on high-performance hardware, while other less-demanding filters can be hosted on less-expensive commodity hardware. The filters don't even need to be in the same datacenter or geographic location, so each element in a pipeline to run in an environment that's close to the resources it requires. This diagram shows an example applied to the pipeline for the data from Source 1:
 
@@ -26,9 +26,9 @@ The filters that make up a pipeline can run on different machines, which enables
 
 If the input and output of a filter are structured as a stream, you can perform the processing for each filter in parallel. The first filter in the pipeline can start its work and output its results, which are passed directly to the next filter in the sequence before the first filter completes its work.
 
-Another benefit is the resiliency that this model can provide. If a filter fails or the machine it's running on is no longer available, the pipeline can reschedule the work that the filter was doing and direct it to another instance of the component. Failure of a single filter doesn't necessarily result in failure of the entire pipeline.
+Another benefit of this model is the resiliency that it can provide. If a filter fails or the machine that it's running on is no longer available, the pipeline can reschedule the work that the filter was doing and direct it to another instance of the component. Failure of a single filter doesn't necessarily result in failure of the entire pipeline.
 
-Using the Pipes and Filters pattern together with the [Compensating Transaction pattern](./compensating-transaction.yml) is an alternative approach to implementing distributed transactions. You can break a distributed transaction into separate, compensable tasks, each of which can be implemented by using a filter that also implements the Compensating Transaction pattern. You can implement the filters in a pipeline as separate hosted tasks that run close to the data that they maintain.
+Using the Pipes and Filters pattern together with the [Compensating Transaction pattern](./compensating-transaction.yml) is an alternative approach to implementing distributed transactions. You can break a distributed transaction into separate, compensable tasks, each of which can be implemented via a filter that also implements the Compensating Transaction pattern. You can implement the filters in a pipeline as separate hosted tasks that run close to the data that they maintain.
 
 ## Issues and considerations
 
@@ -65,13 +65,13 @@ Use this pattern when:
 
 This pattern might not be useful when:
 
-- The processing steps performed by an application aren't independent, or they have to be performed together as part of the same transaction.
+- The processing steps performed by an application aren't independent, or they have to be performed together as part of a single transaction.
 
-- The amount of context or state information that's required by a step makes this approach inefficient. You might be able to persist state information to a database, but don't use this strategy if the additional load on the database causes excessive contention.
+- The amount of context or state information that's required by a step makes this approach inefficient. You might be able to persist state information to a database, but don't use this strategy if the extra load on the database causes excessive contention.
 
 ## Example
 
-You can use a sequence of message queues to provide the infrastructure that's required to implement a pipeline. An initial message queue receives unprocessed messages. A component that's implemented as a filter task listens for a message on this queue, performs its work, and then posts the transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and so on until the fully transformed data appears in the final message in the queue. This diagram illustrates a pipeline that uses message queues:
+You can use a sequence of message queues to provide the infrastructure that's required to implement a pipeline. An initial message queue receives unprocessed messages. A component that's implemented as a filter task listens for a message on this queue, performs its work, and then posts the transformed message to the next queue in the sequence. Another filter task can listen for messages on this queue, process them, post the results to another queue, and so on, until the fully transformed data appears in the final message in the queue. This diagram illustrates a pipeline that uses message queues:
 
 ![Diagram showing a pipeline that uses message queues.](./_images/pipes-and-filters-message-queues.png)
 
@@ -215,7 +215,7 @@ This role contains a `ServiceBusPipeFilter` object. The `OnStart` method in the 
 
 The sample code contains another worker role named `PipeFilterBRoleEntry`. It's in the PipeFilterB project. This role is similar to `PipeFilterARoleEntry`, but it performs different processing in the `Run` method. In the example solution, these two roles are combined to construct a pipeline. The output queue for the `PipeFilterARoleEntry` role is the input queue for the `PipeFilterBRoleEntry` role.
 
-The sample solution also provides two additional roles named `InitialSenderRoleEntry` (in the InitialSender project) and `FinalReceiverRoleEntry` (in the FinalReceiver project). The `InitialSenderRoleEntry` role provides the initial message in the pipeline. The `OnStart` method connects to a single queue and the `Run` method posts a method to that queue. The queue is the input queue used by the `PipeFilterARoleEntry` role, so posting a message to it causes the message to be received and processed by the `PipeFilterARoleEntry` role. The processed message then passes through the `PipeFilterBRoleEntry` role.
+The sample solution also provides two other roles named `InitialSenderRoleEntry` (in the InitialSender project) and `FinalReceiverRoleEntry` (in the FinalReceiver project). The `InitialSenderRoleEntry` role provides the initial message in the pipeline. The `OnStart` method connects to a single queue and the `Run` method posts a method to that queue. The queue is the input queue used by the `PipeFilterARoleEntry` role, so posting a message to it causes the message to be received and processed by the `PipeFilterARoleEntry` role. The processed message then passes through the `PipeFilterBRoleEntry` role.
 
 The input queue for the `FinalReceiveRoleEntry` role is the output queue for the `PipeFilterBRoleEntry` role. The `Run` method in the `FinalReceiveRoleEntry` role, shown in the following code, receives the message and performs some final processing. It then writes the values of the custom properties added by the filters in the pipeline to the trace output.
 
