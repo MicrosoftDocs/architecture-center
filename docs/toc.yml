@@ -3522,8 +3522,12 @@ items:
                         href: guide/hpc/hpc-autodesk-vred.md 
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
-                  - name: Engys HELYX 
-                    href: guide/hpc/engys-helyx.yml  
+                  - name: Engys deployments
+                    items:  
+                      - name: Engys ELEMENTS 
+                        href: guide/hpc/engys-elements.yml
+                      - name: Engys HELYX 
+                        href: guide/hpc/engys-helyx.yml  
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
@@ -3630,6 +3634,8 @@ items:
                 href: example-scenario/apps/hpc-saas.yml
               - name: Deploy IBM Maximo Application Suite 
                 href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
+              - name: Deploy IBM Sterling Order Management
+                href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
               - name: Digital image modeling
                 href: example-scenario/infrastructure/image-modeling.yml
               - name: HPC cluster deployed in the cloud
@@ -4428,12 +4434,14 @@ items:
                 items:
                    - name: Azure Spring Apps multiregion deployment
                      href: reference-architectures/microservices/spring-apps-multi-region.yml
-                   - name: Blue/green deployments
+                   - name: Blue/green on Azure Spring Apps
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
                    - name: Enterprise-grade logging on Azure
                      href: reference-architectures/logging/enterprise-grade-logging.yml
+                   - name: Highly available zone-redundant Spring Apps
+                     href: reference-architectures/microservices/spring-apps-multi-zone.yml
                    - name: Microservices on Azure Service Fabric
                      href: reference-architectures/microservices/service-fabric.yml
                    - name: Microservices with Azure Spring Apps
@@ -4535,6 +4543,8 @@ items:
             href: guide/devops/devops-start-here.md
           - name: Guides
             items:
+              - name: Azure Sandbox
+                href: guide/azure-sandbox/azure-sandbox.yml
               - name: DevOps checklist
                 href: checklist/dev-ops.md
               - name: Operational Excellence patterns
@@ -4625,6 +4635,8 @@ items:
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true
+              - name: Use deployment scripts to check resource properties
+                href: guide/devops/deployment-scripts-property-check.yml
           - name: Architectures
             items:
               - name: Automate multistage Azure Pipelines
