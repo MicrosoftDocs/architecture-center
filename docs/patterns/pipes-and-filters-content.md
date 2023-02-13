@@ -262,7 +262,7 @@ public class FinalReceiverRoleEntry : RoleEntryPoint
 You might find the following resources helpful when you implement this pattern:
 
 - [A sample that demonstrates this pattern, on GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters)
-- [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns/), on Jonathan Oliver's blog
+- [Idempotency patterns](https://blog.jonathanoliver.com/idempotency-patterns), on Jonathan Oliver's blog
 
 ## Related resources
 
