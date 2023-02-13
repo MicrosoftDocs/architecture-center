@@ -41,7 +41,7 @@ To determine the anticipated availability of the web app, you need a metric to m
 - [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional availability formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
 
- The following table shows the SLO for each service in the availability path.
+ The following table shows the SLA for each service in the availability path.
 
 | Azure Service | SLA |
 | --- | --- |
