@@ -4335,7 +4335,7 @@ items:
               - name: Modern data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Modernize mainframe and midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
               - name: Optimized storage with data classification
                 href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
               - name: Power BI data write-back
@@ -5422,7 +5422,7 @@ items:
                   - name: Model9 mainframe modernization
                     href: example-scenario/mainframe/mainframe-modernization-model9.yml
                   - name: Modernize mainframe midrange data
-                    href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                    href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
                   - name: Move mainframe archive data to Azure
                     href: example-scenario/mainframe/move-archive-data-mainframes.yml
                   - name: Re-engineer mainframe batch apps
@@ -5716,7 +5716,7 @@ items:
               - name: Migrate master data services with Profisee
                 href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
               - name: Modernize mainframe and midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
               - name: Oracle database migration
                 items:
                   - name: Oracle migration to Azure

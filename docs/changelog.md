@@ -400,4 +400,3 @@ The following new and updated articles have recently been published in the Azure
 - [R developer&amp;apos;s guide - R programming](./data-guide/technology-choices/r-developers-guide.md)  ([#3cb7f03e7](https://github.com/MicrosoftDocs/architecture-center/commit/3cb7f03e7))
 - [Use subject matter expertise in machine teaching](./solution-ideas/articles/machine-teaching.yml)  ([#22935be85](https://github.com/MicrosoftDocs/architecture-center/commit/22935be85))
 - [The Team Data Science Process lifecycle](./data-science-process/lifecycle.md)  ([#e8a2d2b1b](https://github.com/MicrosoftDocs/architecture-center/commit/e8a2d2b1b))
-

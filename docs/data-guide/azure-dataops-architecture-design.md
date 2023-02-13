@@ -97,7 +97,7 @@ Apply DevOps principles to data pipelines built according to the modern data war
 Modernize IBM mainframe and midrange data and use a data-first approach to migrate this data to Azure.
 
 > [!div class="nextstepaction"]
-> [Modernize mainframe and midrange data](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+> [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 
 ### Change data directly from Power BI
 
