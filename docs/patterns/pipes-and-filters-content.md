@@ -2,7 +2,7 @@ Decompose a task that performs complex processing into a series of separate elem
 
 ## Context and problem
 
-Applications perform a variety of tasks of varying complexity on the information that they process. A straightforward but inflexible approach to implementing an application is to perform this processing as a monolithic module. However, this approach is likely to reduce the opportunities for refactoring the code, optimizing it, or reusing it if parts of the same processing are required elsewhere in the application.
+Applications perform a variety of tasks of varying complexity on the information that they process. A straightforward but inflexible approach to implementing an application is to perform this processing in a monolithic module. However, this approach is likely to reduce the opportunities for refactoring the code, optimizing it, or reusing it if parts of the same processing are required elsewhere in the application.
 
 The following diagram illustrates the problems with processing data by using the monolithic approach. An application receives and processes data from two sources. The data from each source is processed by a separate module that performs a series of tasks to transform the data before passing the result to the business logic of the application.
 
@@ -42,7 +42,8 @@ Consider the following points when you decide how to implement this pattern:
 
 - **Repeated messages**. If a filter in a pipeline fails after it posts a message to the next stage of the pipeline, another instance of the filter might be run, and it would post a copy of the same message to the pipeline. This scenario could cause two instances of the same message to be passed to the next filter. To avoid this problem, the pipeline should detect and eliminate duplicate messages.
 
-  If you implement the pipeline by using message queues (like Azure Service Bus queues), the message queuing infrastructure might provide automatic duplicate message detection and removal.
+  > [!NOTE] 
+  > If you implement the pipeline by using message queues (like Azure Service Bus queues), the message queuing infrastructure might provide automatic duplicate message detection and removal.
 
 - **Context and state**. In a pipeline, each filter essentially runs in isolation and shouldn't make any assumptions about how it was invoked. Therefore, each filter should be provided with sufficient context to perform its work. This context could include a significant amount of state information.
 
@@ -161,7 +162,7 @@ public class ServiceBusPipeFilter
 }
 ```
 
-The `Start` method in the `ServiceBusPipeFilter` class connects to a pair of input and output queues, and the `Close` method disconnects from the input queue. The `OnPipeFilterMessageAsync` method performs the actual processing of messages, and the `asyncFilterTask` parameter of this method specifies the processing to be performed. The `OnPipeFilterMessageAsync` method waits for incoming messages on the input queue, runs the code specified by the `asyncFilterTask` parameter over each message as it arrives, and posts the results to the output queue. The queues themselves are specified by the constructor.
+The `Start` method in the `ServiceBusPipeFilter` class connects to a pair of input and output queues, and the `Close` method disconnects from the input queue. The `OnPipeFilterMessageAsync` method performs the actual processing of messages, and the `asyncFilterTask` parameter of this method specifies the processing to be performed. The `OnPipeFilterMessageAsync` method waits for incoming messages on the input queue, runs the code specified by the `asyncFilterTask` parameter over each message as it arrives, and posts the results to the output queue. The queues are specified by the constructor.
 
 The sample solution implements filters in a set of worker roles. Each worker role can be scaled independently, depending on the complexity of the business processing that it performs or the resources that are required for processing. Additionally, multiple instances of each worker role can be run in parallel to improve throughput.
 
@@ -215,7 +216,7 @@ This role contains a `ServiceBusPipeFilter` object. The `OnStart` method in the 
 
 The sample code contains another worker role named `PipeFilterBRoleEntry`. It's in the PipeFilterB project. This role is similar to `PipeFilterARoleEntry`, but it performs different processing in the `Run` method. In the example solution, these two roles are combined to construct a pipeline. The output queue for the `PipeFilterARoleEntry` role is the input queue for the `PipeFilterBRoleEntry` role.
 
-The sample solution also provides two other roles named `InitialSenderRoleEntry` (in the InitialSender project) and `FinalReceiverRoleEntry` (in the FinalReceiver project). The `InitialSenderRoleEntry` role provides the initial message in the pipeline. The `OnStart` method connects to a single queue and the `Run` method posts a method to that queue. The queue is the input queue used by the `PipeFilterARoleEntry` role, so posting a message to it causes the message to be received and processed by the `PipeFilterARoleEntry` role. The processed message then passes through the `PipeFilterBRoleEntry` role.
+The sample solution also provides two other roles named `InitialSenderRoleEntry` (in the InitialSender project) and `FinalReceiverRoleEntry` (in the FinalReceiver project). The `InitialSenderRoleEntry` role provides the initial message in the pipeline. The `OnStart` method connects to a single queue, and the `Run` method posts a method to that queue. The queue is the input queue that's used by the `PipeFilterARoleEntry` role, so posting a message to it causes the message to be received and processed by the `PipeFilterARoleEntry` role. The processed message then passes through the `PipeFilterBRoleEntry` role.
 
 The input queue for the `FinalReceiveRoleEntry` role is the output queue for the `PipeFilterBRoleEntry` role. The `Run` method in the `FinalReceiveRoleEntry` role, shown in the following code, receives the message and performs some final processing. It then writes the values of the custom properties added by the filters in the pipeline to the trace output.
 
