@@ -2,7 +2,7 @@ This article shows how to conceptualize, architect, build, and deploy an applica
 
 ## Architecture
 
-:::image type="content" source="./media/cncf-architecture.png" alt-text="Diagram that shows the reference architecture for building a CNCF project." lightbox="./media/cncf-architecture.png":::
+:::image type="content" source="./media/cncf-architecture.svg" alt-text="Architecture diagram that shows the reference architecture for building a CNCF project." lightbox="./media/cncf-architecture.svg":::
 
 *Download a [Visio](https://arch-center.azureedge.net/cncf-architecture.vsdx) file of this architecture.*
 
