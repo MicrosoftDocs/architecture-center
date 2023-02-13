@@ -1,4 +1,4 @@
-There are many ways to design a multitenant solution. Mostly this decision hinges on whether and how you share resources between your tenants. Intuitively, you might want to avoid sharing *any* resources, but this quickly becomes expensive, as your business scales and as you onboard more and more tenants.
+There are many ways to design a multitenant solution. Your choice of solution depends importantly on whether and how you share resources among your tenants. Intuitively, you might want to avoid sharing *any* resources, but that limitation quickly becomes expensive as your business scales and you onboard more tenants.
 
 It's helpful to think about the different models of multitenancy, by first understanding how you define tenants for your specific organization, what business drivers you have, and how you plan to scale your solution. On this page, we provide guidance for technical decision-makers about the tenancy models you can consider and their tradeoffs.
 
