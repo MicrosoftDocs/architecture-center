@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Tenancy models to consider for a multitenant solution
+  title: Tenancy models for a multitenant solution
   description: This article describes the considerations you need to give to different models of multitenancy.
   author: martinekuan
   ms.author: architectures
@@ -14,7 +14,7 @@ azureCategories:
   - security
 products:
   - azure
-name: Tenancy models to consider for a multitenant solution
+name: Tenancy models for a multitenant solution
 summary: This article describes the considerations you need to give to different models of multitenancy.
 thumbnailUrl: /azure/architecture/browse/thumbs/map-logical-physical.png
 content: |
