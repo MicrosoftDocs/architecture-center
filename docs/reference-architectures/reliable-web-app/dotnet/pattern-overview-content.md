@@ -21,7 +21,7 @@ The reliable web app pattern is a set of objectives that follow the pillars of [
 
 ## Business context
 
-This guidance mirrors the journey of a fictional company (Relecloud) that wants to take an on-premises, line of business (LOB) web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
+This guidance mirrors the journey of a fictional company (Relecloud) that wants to take an on-premises, line of business (LOB) web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn't provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
 
 | Short term goals | Long term goals |
 | --- | --- |
@@ -35,9 +35,9 @@ The on-premises starting point is web application is a monolithic, eCommerce, AS
 
 A service level objective (SLO) for availability defines how available you want a web app to be for users. Relecloud has a target SLO of 99.9% for availability. You need to define what it means to be available for your web application. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of available, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
-For each dependency in the critical path, you need to assign an availability goal. [Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/) from Azure provide a good starting point. SLAs don’t factor in, for example, downtime associated with the application code run on those services, deployment/operations methodologies, or architecture choices to connect the services. So the availability metric you assign to a dependency shouldn’t exceed the SLA.
+For each dependency in the critical path, you need to assign an availability goal. [Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/) from Azure provide a good starting point. SLAs don't factor in, for example, downtime associated with the application code run on those services, deployment/operations methodologies, or architecture choices to connect the services. So the availability metric you assign to a dependency shouldn't exceed the SLA.
 
-For example, Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud’s dependency list with availability goals for each dependency.
+For example, Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
 
 [![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](images/slo-dependencies.png)](images/slo-dependencies.png)
 
@@ -103,7 +103,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store based on the Redis software. Our load is heavily skewed toward viewing concerts and venue details. The web app needed a cache that provided the following benefits:
 
-- **Reduce management overhead:** It’s a fully managed service.
+- **Reduce management overhead:** It's a fully managed service.
 - **Speed and volume:** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
 - **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
@@ -124,7 +124,7 @@ Azure has several load balancer options. Make note of your current system capabi
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It’s built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. Azure Web Application Firewall provided the following benefits.
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. Azure Web Application Firewall provided the following benefits.
 
 - **Global protection:** It provides global web app protection without sacrificing performance.
 - **Botnet protection:** The team can monitor and configure to address security concerns from botnets.
