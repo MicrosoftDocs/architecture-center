@@ -1,4 +1,4 @@
-This article describes the steps for running the [AVL FIRE M](https://www.avl.com/fire-m) application on a virtual machine (VM) and a high-performance computing (HPC) cluster that's deployed on Azure. It also presents the performance results of running AVL FIRE M on Azure CycleCloud (Azure HPC Cluster).
+This article describes the steps for running the [AVL FIRE M](https://www.avl.com/fire-m) application on a virtual machine (VM) and a high-performance computing (HPC) cluster that's deployed on Azure. The article also shows the performance results of running AVL FIRE M on Azure CycleCloud (Azure HPC cluster).
 
 AVL FIRE M is the leading computational fluid dynamics (CFD) simulation package for the Internal Combustion Engine. In the new era of e-mobility, it has evolved into a comprehensive software tool offering solutions for a wide spectrum of applications. It simulates:
 
@@ -12,32 +12,25 @@ Designed to accurately simulate relevant physics and chemistry, AVL FIRE M enabl
 
 AVL FIRE M provides:
 
-- Efficient solutions to solve demanding flow problems in a variety of applications and industries
+- Efficient solutions to solve demanding flow problems in various applications and industries
 - Accurate simulation of heat transfer and thermal load problems
 - Qualified and task-oriented software support along with application method development
 
-## Why deploy Fire M on Azure?
+## Why deploy AVL Fire M on Azure?
 
 The following list describes the benefits of deploying AVL FIRE M on Azure.
 
 - Modern and diverse compute options align to your workload's needs
-- Flexibility of virtualization without the need to buy and maintain physical hardware
+- Flexibility for virtualization without the need to buy and maintain physical hardware
 - Rapid provisioning
 
 ## Architecture
 
 This diagram shows a multi-node configuration:
 
-:::image type="content" source="media/acusolve-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration." lightbox="media/acusolve-cluster-architecture.png" border="false":::
+:::image type="content" source="media/fire-m/fire-m-cluster-architecture.png" alt-text="Diagram that shows a multi-node configuration architecture." lightbox="media/fire-m/fire-m-cluster-architecture.png" border="false":::
 
-*Download a* *[Visio file](https://arch-center.azureedge.net/acusolve-cluster-architecture.vsdx) of this architecture.*
-
-This diagram shows a single-node configuration:
-
-:::image type="content" source="media/hpc-acusolve.png" alt-text="Diagram that shows a single-node configuration." lightbox="media/hpc-acusolve.png" border="false":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/hpc-acusolve.vsdx) of this
-architecture.*
+*Download a* *[Visio file](https://arch-center.azureedge.net/fire-m-cluster-architecture.vsdx) of this architecture.*
 
 ### Components
 
@@ -47,7 +40,7 @@ architecture.*
 
 ## Compute sizing and drivers
 
-Performance tests of AVL FIRE M on Azure uses [HBv3-series VMs](/azure/virtual-machines/hbv3-series) running the Linux CentOS operating system. The following table provides configuration details:
+Performance tests of AVL FIRE M on Azure use [HBv3-series VMs](/azure/virtual-machines/hbv3-series) running the Linux CentOS operating system. The following table provides the configuration details:
 
 |Size|	vCPU	|RAM memory (GiB)|	Memory bandwidth (GBps)|	Base CPU frequency (GHz)|	All-cores frequency (GHz, peak)|	Single-core frequency (GHz, peak)|	RDMA performance (GBps)|	Maximum data disks|
 |--|--|--|--|--|--|--|--|--|
@@ -59,28 +52,28 @@ Performance tests of AVL FIRE M on Azure uses [HBv3-series VMs](/azure/virtual-m
 
 ### Required drivers
 
-To use InfiniBand, you must [enable InfiniBand drivers](/azure/virtual-machines/workloads/hpc/enable-infiniband).
+To use InfiniBand, you need to [enable InfiniBand drivers](/azure/virtual-machines/workloads/hpc/enable-infiniband).
 
 ## AVL FIRE M installation
 
-Before you install AVL FIRE M, you must deploy and connect a VM or an Azure HPC Cluster.
+Before you install AVL FIRE M, you deploy and connect a VM or an Azure HPC cluster.
 
 For more information about deploying the VM and installing the drivers, see either [Run a Windows VM on Azure](/azure/architecture/reference-architectures/n-tier/windows-vm) or [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
 
-For more information on deploying the Azure CycleCloud and Azure HPC Cluster, see:
+For more information on deploying the Azure CycleCloud and Azure HPC cluster, see:
 
 - [Install and configure Azure CycleCloud](/training/modules/azure-cyclecloud-high-performance-computing/4-exercise-install-configure).
-- [Create an Azure HPC Cluster](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
+- [Create an Azure HPC cluster](/training/modules/azure-cyclecloud-high-performance-computing/5-exercise-create-cluster).
 
 Download AVL FIRE M products on the AVL self-service portal. You can alternately install the application without downloading the large installation image by running the installer executable (AVL SETUP.run). For more information on how to download, install, and license AVL FIRE M, see the [AVL Fire M website](https://www.avl.com/fire-m).
 
 ## AVL FIRE M performance results
 
-For the performance results, AVL FIRE M was used to run steady state simulations. Following are the details on the models for AVL FIRE M performance validation on Azure Virtual Machines.
+For the performance results, AVL FIRE M ran steady state simulations. Following are details on the models used for AVL FIRE M performance validation on Azure Virtual Machines.
 
 DrivAer_BodyFitted: Open Cooling DrivAer Notchback is a realistic test case that's relevant to the automotive industry and accepted as the standard for automotive CFD correlation. For more information, see the [DrivAer_BodyFitted SAE technical paper](https://doi.org/10.4271/2021-01-0958) by Hupertz, B., Chalupa, K., Krueger, L., Howard, K. et al., _On the Aerodynamics of the Notchback Open Cooling DrivAer: A Detailed Investigation of Wind Tunnel Data for Improved Correlation and Reference_, (SAE Int. J. Adv. & Curr. Prac. in Mobility 3(4):1726-1747,- 2021).
 
-DrivAer_EmbeddedBody: Embedded body approach in AVL FIRE M, which practically requires no conventional meshing and is an alternative to the standard (body-fitted) for the comparative assessment. For more information, see the [DrivAer_EmbeddedBody SAE technical paper](https://doi.org/10.4271/2022-01-0889) by Basara, B., Zunic, Z., Pavlovic, Z., Sampl, P. et al., _Performance Analysis of Immersed Boundary Method for Predicting External Car Aerodynamics_, (SAE Technical Paper 2022-01-0889, 2022).
+DrivAer_EmbeddedBody: Embedded body approach in AVL FIRE M, which practically requires no conventional meshing and is an alternative to the standard (body-fitted) for the comparative assessment. For more information, see the [DrivAer_EmbeddedBody SAE technical paper](https://doi.org/10.4271/2022-01-0889) by Basara, B., Zunic, Z., Pavlovic, Z., Sampl, P. et al., _Performance Analysis of Immersed Boundary Method for Predicting External Car Aerodynamics_ (SAE Technical Paper 2022-01-0889, 2022).
 
 > [!NOTE]
 > Analysis steady state RANS simulation is run with decomposed mesh.
@@ -92,7 +85,7 @@ The following table provides details:
 | DrivAer_BodyFitted |  Simple       |     Mirrored    |     No   | Incompressible |
 | DrivAer_EmbeddedBody | Simple | Extrapolated | Yes | Incompressible |
 
-The DrivAer_BodyFitted and DrivAer_EmbeddedBody models are used for this performance evaluation.
+The DrivAer_BodyFitted and DrivAer_EmbeddedBody models were used for this performance evaluation.
 
 ### DrivAer_BodyFitted model results
 
@@ -156,7 +149,7 @@ The following graph shows the DrivAer_EmbeddedBody execution time results.
 > [!NOTE]
 > To get a better speedup, there must be a minimum of 20000 cells per CPU for a single-phase incompressible flow simulation.
 
-Additional notes about the tests:
+More notes about the tests:
 
 - Both the models demonstrated good CPU acceleration in all multi-node setup.
 - For this research, iterations are limited to a few, but in real-world circumstances, iterations can be more, and the decomposition time in total run time can become minimal, allowing performance to be increased even further.
@@ -192,7 +185,7 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |  16 |                                1.6|
 
 > [!NOTE]
-> *The total run time presented above is for 300 iterations only. The analysis time for a fully converged solution can differ. **The total run time presented above is for 500 iterations only. The analysis time for a fully converged solution can differ.
+> *The total run time presented here is for 300 iterations only. The analysis time for a fully converged solution can differ. **The total run time presented here is for 500 iterations only. The analysis time for a fully converged solution can differ.
 
 ## Summary
 
@@ -200,8 +193,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 - Azure offers robust compute services that provide unlimited scalability options for HPC applications. You can use HB-series virtual machines for memory-bound applications and N-series virtual machines for graphic-intensive applications.
 - Azure CycleCloud lets you manage and orchestrate workloads, define access controls with Active Directory, and customize cluster policies.
 - AVL FIRE M was successfully tested on HBv3 AMD EPYC™ 7V73X (Milan-X) series on Azure CycleCloud multi-node setup.
-- AVL FIRE M demonstrated good scale up with an increase in the number of CPUs in a multi-node setup.
-- For better performance, there must be minimum of 20000 cells per CPU for single-phase incompressible flow simulations.
+- AVL FIRE M demonstrated good upscale with an increase in the number of CPUs in a multi-node setup.
+- For better performance, there must be minimum of 20,000 cells per CPU for single-phase incompressible flow simulations.
 - For smaller problems, it's recommended that you use fewer CPUs to get better performance.
 
 ## Contributors
