@@ -1152,9 +1152,9 @@
 		</g>
 		<g id="shape1156-385" transform="translate(367.875,-278.708)">
 			<title>Sheet.1156</title>
-			<desc>DNAT: Load Balancer PiP SNAT: Firewall PiP</desc>
+			<desc>DNAT: Load balancer PiP SNAT: Firewall PiP</desc>
 			<rect x="0" y="354.957" width="115.875" height="23.0429" class="st8"/>
-			<text x="4" y="363.78" class="st24">DNAT: Load Balancer PiP <tspan x="4" dy="1.2em" class="st23">SNAT: Firewall PiP</tspan></text>		</g>
+			<text x="4" y="363.78" class="st24">DNAT: Load balancer PiP <tspan x="4" dy="1.2em" class="st23">SNAT: Firewall PiP</tspan></text>		</g>
 		<g id="shape1157-389" transform="translate(462,-134.042)">
 			<title>Sheet.1157</title>
 			<desc>UDR: 0.0.0.0/0 Next hop: Firewall private IP</desc>

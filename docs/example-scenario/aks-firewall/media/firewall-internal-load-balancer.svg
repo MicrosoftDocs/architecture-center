@@ -394,9 +394,9 @@
 			<text x="8.82" y="729.48" class="st30">2</text>		</g>
 		<g id="shape1050-154" transform="translate(172.164,-391.043)">
 			<title>Sheet.1050</title>
-			<desc>DNAT: Load Balancer private IP</desc>
+			<desc>DNAT: Load balancer private IP</desc>
 			<rect x="0" y="709.654" width="135" height="28.3465" class="st21"/>
-			<text x="5.99" y="726.53" class="st22">DNAT: Load Balancer private IP</text>		</g>
+			<text x="5.92" y="726.53" class="st22">DNAT: Load balancer private IP</text>		</g>
 		<g id="shape1051-157" transform="translate(228.144,-260.187)">
 			<title>Circle.191</title>
 			<desc>3</desc>

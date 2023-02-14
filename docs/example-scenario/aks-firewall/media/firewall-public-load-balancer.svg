@@ -400,9 +400,9 @@
 			<text x="8.82" y="747.48" class="st30">2</text>		</g>
 		<g id="shape1051-154" transform="translate(182.102,-396.269)">
 			<title>Sheet.1051</title>
-			<desc>DNAT: Load Balancer public IP SNAT: Firewall public IP</desc>
+			<desc>DNAT: Load balancer public IP SNAT: Firewall public IP</desc>
 			<rect x="0" y="727.654" width="135" height="28.3465" class="st21"/>
-			<text x="4" y="739.13" class="st22">DNAT: Load Balancer public IP <tspan x="4" dy="1.2em" class="st15">SNAT: Firewall public IP</tspan></text>		</g>
+			<text x="4" y="739.13" class="st22">DNAT: Load balancer public IP <tspan x="4" dy="1.2em" class="st15">SNAT: Firewall public IP</tspan></text>		</g>
 		<g id="shape1052-158" transform="translate(238.082,-263.706)">
 			<title>Circle.191</title>
 			<desc>3</desc>
