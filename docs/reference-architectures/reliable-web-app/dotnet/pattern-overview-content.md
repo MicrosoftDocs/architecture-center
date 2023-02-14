@@ -152,19 +152,13 @@ You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder
 
 ### Object storage
 
-[Azure Storage](/azure/storage/common/storage-introduction) provides storage queue storage for message driven communication and file storage. The web app uses Azure Storage for both. Azure Storage Queues holds purchases that are pending PDF generation and Blob Storage stores the resulting ticket PDFs. On-premises, the web app had disk storage mounted to each web server and wanted to externalize. The following requirements led us to use Azure Storage Queues for our queuing needs. If you have a queue scenario in your app, review the [messaging options available](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
-
-- **Random ordering:** The app doesn't need to ensure a specific order for message deliver, so random ordering supports the needs of the app.
-- **Idempotency at consumer:** Message consumption is idempotent, so at-most-once delivery isn't required.
-- **Batch processing:** It can pull a batch of work items from the queue for each operation.
-- **Auditing:** It supports auditing of server-side transaction logs.
-- **Azure RBAC authentication:** It supports authentication to the queue using managed identities.
+[Azure Storage](/azure/storage/common/storage-introduction) provides file storage. Azure Blob Storage stores the resulting ticket images. On-premises, the web app had disk storage mounted to each web server and wanted to externalize.
 
 For Blob Storage, the web app uses Zone-redundant storage (ZRS). Zone-redundant storage replicates data synchronously across three Azure availability zones in the primary region. Each availability zone is in a separate physical location with independent power, cooling, and networking. The app uses Blob Storage to meet the following requirements:
 
 - **Eliminate anonymous access:** The web app can eliminate endpoints for accessing storage exposed to the public internet with anonymous access.
 - **Encryption:** It encrypts data at rest and in transit.
-- **Resiliency:** Blob storage should make our ticketing PDF resilient against loss.
+- **Resiliency:** Blob storage should make our ticketing images resilient against loss.
 
 ### Endpoint security
 
