@@ -152,7 +152,7 @@ You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder
 
 ### Object storage
 
-[Azure Storage](/azure/storage/common/storage-introduction) provides storage queue storage for message driven communication and file storage. The web app uses Azure Storage for both. Azure Storage Queues holds purchases that are pending PDF generation and Blob Storage stores the resulting ticket PDFs. On-premises, the web app had disk storage mounted to each web server and wanted to externalize. The following requirements led us to use Azure Storage Queues for our queuing needs. If you have a queue scenario in your app, review the [messaging options available](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+[Azure Storage](/azure/storage/common/storage-introduction) provides file storage. Azure Blob Storage stores the resulting ticket images. On-premises, the web app had disk storage mounted to each web server and wanted to externalize.
 
 - **Random ordering:** The app doesn't need to ensure a specific order for message deliver, so random ordering supports the needs of the app.
 - **Idempotency at consumer:** Message consumption is idempotent, so at-most-once delivery isn't required.
