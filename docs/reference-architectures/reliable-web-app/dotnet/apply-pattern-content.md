@@ -137,7 +137,7 @@ Managed identities are similar to the identity component in connection strings i
 
 #### How to set up managed identities
 
-Managed identities have two components. There's a code component and the infrastructure component. You should use the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
+Managed identities have two components. There's a code component and the infrastructure component. You should use the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure as code (IaC) to deploy the infrastructure.
 
 **1. Use DefaultAzureCredential to set up code.** The `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
@@ -150,7 +150,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
         .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
         .ConfigureKeyVault(kv =>
         {
-            // Some of the values coming from Azure App Configuration are stored Key Vault, use
+            // Some of the values coming from Azure App Configuration are stored Key Vault. Use
             // the managed identity of this host for the authentication.
             kv.SetCredential(new DefaultAzureCredential());
         });
@@ -167,7 +167,7 @@ The `DefaultAzureCredential` class works with Microsoft client libraries to prov
 
 1. Create the managed identity.
 1. Associate the identity with the web app.
-1. Grants the identity permission to access the SQL database.
+1. Grant the identity permission to access the SQL database.
 1. The `Authentication` argument in the following connection string tells the Microsoft client library to connect with a managed identity.
 
     ```csharp
@@ -192,37 +192,37 @@ Many on-premises environments don't have a central secrets store. The absence ma
 
 ### Secure communication with private endpoints
 
-You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services traverses the public internet. These services include Azure SQL Database, Azure Cache for Redis, and Azure App Service in the reference implementation. Azure Private Link allows you to secure that communication with private endpoints in a virtual network and avoid the public internet.
+You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services crosses the public internet. In the reference implementation, these services include Azure SQL Database, Azure Cache for Redis, and Azure App Service. Azure Private Link enables you to add security to that communication via private endpoints in a virtual network to avoid the public internet.
 
-This network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see:
+This improved network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see:
 
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
 
-### Use web application firewall
+### Use a web application firewall
 
-You should protect web applications with a web application firewall. The web application firewall provides protection against common security attacks and botnets. To capture the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Front Door.
+You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take advantage of the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Azure Front Door.
 
-*Reference implementation:* The reference implementation uses Front Door as the hostname URL. In production, you should use your own hostname and follow the guidance in [preserve the original HTTP hostname](/azure/architecture/best-practices/host-name-preservation).
+*Reference implementation:* The reference implementation uses Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
 ## Cost optimization
 
-Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes made optimize for horizontal scale as a lower cost investment as compared to optimizing existing business processes, which lead to higher risk change.
+Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes optimize for horizontal scale to reduce costs rather than optimizing existing business processes. The latter can lead to higher risks.
 
 **Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but this change is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
 
-### Right-size resources for each environment
+### Rightsize resources for each environment
 
-Production environments need SKUs that meet service level agreements (SLA), features, and scale needed for production. But non-production environments don't normally need the same capabilities. You can optimize costs in non-production environments with cheaper SKUs that have lower capacity and SLAs. You should consider Azure Dev/Test pricing and Azure reservations. How, or if, you use these cost-saving methods depends on your environment.
+Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. But non-production environments don't normally need the same capabilities. You can optimize costs in non-production environments by using cheaper SKUs that have lower capacity and SLAs. You should consider Azure Dev/Test pricing and Azure reservations. How or whether you use these cost-saving methods depends on your environment.
 
-**Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives customers access to select Azure services for nonproduction environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
+**Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for non-production environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
 
-**Consider Azure Reservations or an Azure Savings Plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. Azure savings plan for compute is our most flexible savings plan and generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure premium functions, and Azure app services. For more information, see:
+**Consider Azure reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure reservations to optimize compute cost and flexibility. Azure reservations help you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and Azure app services. For more information, see:
 
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
 
-*Reference implementation:* The reference implementation has Bicep parameters to trigger different resource deployment configuration. One of those parameters tells Azure Resource Manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production than for non-prod environments.
+*Reference implementation:* The reference implementation uses Bicep parameters to trigger resource deployment configurations. One of these parameters tells Azure Resource Manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production and non-production environments:
 
 ```bicep
 var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
@@ -240,7 +240,7 @@ The web app uses the Standard C1 SKU for the production environment and the Basi
 
 ### Automate scaling the environment
 
-You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. Don't increase the size of your application platform (vertical scaling) to meet frequent change in demand because it’s less cost efficient. For more information, see:
+You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. Don't increase the size of your application platform (vertical scaling) to meet frequent changes in demand. It's less cost efficient. For more information, see:
 
 - [Scaling in Azure App Service](/azure/app-service/manage-scale-up)
 - [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
@@ -275,28 +275,28 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 
 ### Delete non-production environments
 
-Infrastructure as code (IaC) is often listed as an operational best practice, but it's also a way to manage costs. Infrastructure as code can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
+IaC is often considered an operational best practice, but it's also a way to manage costs. IaC can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
 
 ### Use cache to support multiple data types
 
 You should use a single cache instance to support multiple data types rather than using a single instance for each data type.
 
-*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to store session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, the extra capacity uses multiple data types.
+*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to store session state for the front-end web app and the back-end web app. The front-end web app stores two pieces of data in session state. It stores the cart and the Microsoft Authentication Library (MSAL) token. The back-end web app stores the Upcoming Concerts page data. The reference implementation uses the smallest Redis SKU to handle these requirements. This SKU still provides more capacity than the web API needs. To manage costs, the extra capacity uses multiple data types.
 
 ## Operational excellence
 
-A DevOps methodology provides a greater return on investment for application teams in the cloud. Infrastructure-as-code (IaC) is a key tenant of DevOps. The reliable web app pattern requires using IaC to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry, and when fed into a DevOps framework, they help rapidly improve your application.
+A DevOps methodology provides a greater return on investment for application teams in the cloud. IaC is a key tenet of DevOps. The reliable web app pattern requires the use of IaC to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry. When this telemetry is fed into a DevOps framework, it can help you rapidly improve your application.
 
 ### Automate deployments
 
 You should use a DevOps pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, you should explore GitHub actions.  Automating deployments with IaC offers the following benefits:
 
-- **Resolves production issues faster:** IaC creates consistent environments that foster predictable behaviors in production. The development team can automate the creation of a copy of the production environment to troubleshot production issues.
-- **Applies changes consistently across environments:** You should use IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow with separate pipelines to different environments. You can use environment variables to differentiate between. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
-- **Maximizes productivity:** Use automation to set up new environments and reduce the operational overhead managing environments manually.
-- **Improves governance:** IaC makes it easier to audit and review production changes deployed to Azure because it's checked into source control.
+- **Resolves production issues faster.** IaC creates consistent environments that foster predictable behaviors in production. The development team can automate the creation of a copy of the production environment to troubleshot production issues.
+- **Applies changes consistently across environments.** You should use IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow that has separate pipelines for different environments. You can use environment variables to differentiate between the environments. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
+- **Maximizes productivity.** Use automation to set up new environments and reduce the operational overhead managing environments manually.
+- **Improves governance.** IaC makes it easier to audit and review production changes deployed to Azure because they're checked in to source control.
 
-For more information, see guide to [using repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
+For more information, see [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
 
 *Reference implementation:* The reference implementation uses Azure Dev CLI and IaC (Bicep templates) to create Azure resources, setup configuration, and deploy the required resources from a GitHub Action.  
 
