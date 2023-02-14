@@ -43,7 +43,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - If you need to guarantee that low priority messages will be processed, implement the multiple message queue approach with multiple pools of consumers. Alternatively, in a queue that supports message prioritization, you can dynamically increase the priority of a queued message as it ages. This approach works only if the message queue provides that feature.
 
-- The use of a separate queue for each message priority works best for systems that have a few well-defined priorities.
+- The strategy of using separate queues based on message priority is recommended for systems that have a few well-defined priorities.
 
 - The system can logically determine message priorities. For example, rather than having explicit high and low priority messages, you could designate messages as "paying customer" or "non-paying customer." Your system could then allocate more resources to processing messages from paying customers.
 
