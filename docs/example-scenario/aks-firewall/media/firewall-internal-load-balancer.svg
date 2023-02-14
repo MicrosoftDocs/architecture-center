@@ -318,10 +318,10 @@
 			<text x="19.52" y="720.83" class="st14">Firewall <tspan x="14.81" dy="1.2em" class="st15">public IP</tspan></text>		</g>
 		<g id="shape1034-107" transform="translate(126.278,-285.88)">
 			<title>Sheet.1034</title>
-			<desc>AKS cluster Internal standard Load Balancer</desc>
+			<desc>AKS cluster Internal standard load balancer</desc>
 			<rect x="0" y="709.654" width="99.2126" height="28.3465" class="st2"/>
 			<text x="45.87" y="714.83" class="st14">AKS cluster  <tspan x="20.17" dy="1.2em" class="st15">Internal standard  </tspan><tspan
-						x="33.62" dy="1.2em" class="st15">Load Balancer</tspan></text>		</g>
+						x="35.75" dy="1.2em" class="st15">load balancer</tspan></text>		</g>
 		<g id="shape1035-112" transform="translate(119.05,-337.764)">
 			<title>Sheet.1035</title>
 			<desc>NGINX ingress controller service private IP</desc>

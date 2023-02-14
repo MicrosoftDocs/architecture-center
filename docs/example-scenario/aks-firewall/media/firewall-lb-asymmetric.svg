@@ -340,9 +340,9 @@
 				<text x="5.94" y="373.96" class="st22">Private IP</text>			</g>
 			<g id="shape1056-102" transform="translate(-6.75001,-138.123)">
 				<title>Sheet.1056</title>
-				<desc>Public standard Load Balancer</desc>
+				<desc>Public standard load balancer</desc>
 				<rect x="0" y="354.957" width="85.5" height="23.0429" class="st8"/>
-				<text x="8.72" y="363.48" class="st22">Public standard <tspan x="11.95" dy="1.2em" class="st23">Load Balancer</tspan></text>			</g>
+				<text x="8.72" y="363.48" class="st22">Public standard <tspan x="13.02" dy="1.2em" class="st23">load balancer</tspan></text>			</g>
 			<g id="shape1057-106" transform="translate(0,-30.9571)">
 				<title>Sheet.1057</title>
 				<desc>No instance level PiP</desc>
@@ -431,11 +431,11 @@
 			<rect x="0" y="358.714" width="91.6071" height="19.2857" class="st8"/>
 			<text x="4.17" y="371.66" class="st38">Default behavior</text>		</g>
 		<g id="shape1079-184" transform="translate(303.429,-63)">
-			<title>VnetBox.1022</title>
+			<title>VnetBox.1079</title>
 			<rect x="0" y="117.643" width="264.134" height="260.357" rx="4.5" ry="4.5" class="st3"/>
 		</g>
 		<g id="group1080-186" transform="translate(311.786,-55.9286)">
-			<title>Vnet_hexbck.1023</title>
+			<title>Vnet_hexbck.1080</title>
 			<g id="shape1081-187" transform="translate(3.87558,-0.932567)">
 				<title>Hexagon.1255</title>
 				<path d="M12.48 365.78 L3.34 365.78 L-1.22 371.89 L3.34 378 L12.48 378 L17.05 371.89 L12.48 365.78 Z" class="st4"/>
@@ -628,9 +628,9 @@
 			<text x="5.94" y="373.96" class="st22">Private IP</text>		</g>
 		<g id="shape1125-266" transform="translate(301.5,-212.542)">
 			<title>Sheet.1125</title>
-			<desc>Public standard Load Balancer</desc>
+			<desc>Public standard load blancer</desc>
 			<rect x="0" y="354.957" width="82.4464" height="23.0429" class="st8"/>
-			<text x="7.19" y="363.48" class="st22">Public standard <tspan x="10.42" dy="1.2em" class="st23">Load Balancer</tspan></text>		</g>
+			<text x="7.19" y="363.48" class="st22">Public standard <tspan x="14.04" dy="1.2em" class="st23">load blancer</tspan></text>		</g>
 		<g id="shape1126-270" transform="translate(305.196,-105.376)">
 			<title>Sheet.1126</title>
 			<desc>No instance level PiP</desc>

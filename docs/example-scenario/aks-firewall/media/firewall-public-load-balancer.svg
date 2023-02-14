@@ -325,10 +325,10 @@
 			<text x="19.52" y="738.83" class="st14">Firewall <tspan x="14.81" dy="1.2em" class="st15">public IP</tspan></text>		</g>
 		<g id="shape1035-108" transform="translate(136.216,-291.106)">
 			<title>Sheet.1035</title>
-			<desc>AKS cluster Public standard Load Balancer</desc>
+			<desc>AKS cluster Public standard load balancer</desc>
 			<rect x="0" y="727.654" width="99.2126" height="28.3465" class="st2"/>
 			<text x="45.87" y="732.83" class="st14">AKS cluster  <tspan x="27.15" dy="1.2em" class="st15">Public standard  </tspan><tspan
-						x="33.62" dy="1.2em" class="st15">Load Balancer</tspan></text>		</g>
+						x="35.75" dy="1.2em" class="st15">load balancer</tspan></text>		</g>
 		<g id="shape1036-113" transform="translate(128.987,-342.99)">
 			<title>Sheet.1036</title>
 			<desc>Kubernetes Service public IP</desc>

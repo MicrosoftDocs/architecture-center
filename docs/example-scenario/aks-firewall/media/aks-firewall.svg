@@ -424,16 +424,16 @@
 		</g>
 		<g id="shape57-79" transform="translate(19,-279.749)">
 			<title>Sheet.57</title>
-			<desc>AKS cluster Public standard Load Balancer</desc>
+			<desc>AKS cluster Public standard load balancer</desc>
 			<rect x="0" y="610.654" width="99.2126" height="28.3465" class="st4"/>
 			<text x="45.87" y="615.83" class="st6">AKS cluster  <tspan x="27.15" dy="1.2em" class="st16">Public standard  </tspan><tspan
-						x="33.62" dy="1.2em" class="st16">Load Balancer</tspan></text>		</g>
+						x="35.75" dy="1.2em" class="st16">load balancer</tspan></text>		</g>
 		<g id="shape58-84" transform="translate(229.8,-280.5)">
 			<title>Sheet.58</title>
-			<desc>AKS cluster Internal standard Load Balancer</desc>
+			<desc>AKS cluster Internal standard load balancer</desc>
 			<rect x="0" y="610.654" width="99.2126" height="28.3465" class="st4"/>
 			<text x="4" y="615.83" class="st6">AKS cluster  <tspan x="4" dy="1.2em" class="st16">Internal standard  </tspan><tspan
-						x="4" dy="1.2em" class="st16">Load Balancer</tspan></text>		</g>
+						x="4" dy="1.2em" class="st16">load balancer</tspan></text>		</g>
 		<g id="shape60-89" transform="translate(177.74,-254.237)">
 			<title>Sheet.60</title>
 			<desc>Route table</desc>
