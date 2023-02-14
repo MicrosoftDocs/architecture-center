@@ -90,7 +90,7 @@ Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data inges
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- This solution requires the at least the Basic tier, because lower tiers do not support [hybrid connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
+- This solution requires at least the Basic tier, because lower tiers do not support [hybrid connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
 - The CTFd web application component requires [at least 1 CPU and 1 GB of RAM per instance](https://docs.ctfd.io/docs/deployment/installation).
 - For information about scaling a basic web app, see [Scaling the App Service app](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app#scaling-the-app-service-app).
 - You can [scale up](/azure/mariadb/concepts-pricing-tiers) Azure Database for MariaDB to meet higher demands. You can dynamically change the number vCores, the amount of storage, and the pricing tier (except to and from Basic), so you should carefully consider the right tier for your target workload.
