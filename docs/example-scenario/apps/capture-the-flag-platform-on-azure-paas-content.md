@@ -36,7 +36,7 @@ The template supports two network configurations: the preceding one and a simple
 
 ### Alternatives
 
-- You can use the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, that provisions the required services (web-application, cache, and database) into a single host machine, which is neither scaleable nor highly available.
+- You can use the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, that provisions the required services (web-application, cache, and database) into a single host machine, which is neither scalable nor highly available.
 - You can provision the required services, as described in the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml) to [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/), but then you're managing infrastructure as a service (IaaS).
 - You can use a [CTFd paid tier](https://ctfd.io/pricing/) and get the platform as a service, with added features, per the chosen plan.
 
