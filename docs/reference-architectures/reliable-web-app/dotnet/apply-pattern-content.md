@@ -234,7 +234,7 @@ var redisCacheCapacity = isProd ? 1 : 0
 
 The web app uses the Standard C1 SKU for the production environment and the Basic C0 SKU for the non-production environment. The Basic C0 SKU costs less than the Standard C1 SKU. It provides the behavior needed for testing without the data capacity or availability targets needed for the production environment (see following table). For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 
-|   | StandardC1 SKU | BasicC0 SKU|
+|   | Standard C1 SKU | Basic C0 SKU|
 | --- | --- | --- |
 |**SKU Features**| 1-GB cache <br> Dedicated service <br> Availability SLA <br> As many as 1,000 connections |250-MB cache <br> Shared infrastructure <br> No SLA <br> As many as 256 connections
 
@@ -392,7 +392,7 @@ private void AddAzureCacheForRedis(IServiceCollection services)
 
 **Cache high-need data.** Most applications have pages that get more viewers than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor and Azure SQL Analytics to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
 
-*Reference implementation:* The reference implementation caches the data supporting the “Upcoming Concerts”. The “Upcoming Concerts” page creates the most queries to the Azure SQL Database and produces a consistent output for each visit. The cache-aside pattern caches the data after the first request for this page to reduce the load on the database. The following code uses the `GetUpcomingConcertsAsync()` method to pull data into the Redis cache from the Azure SQL Database.
+*Reference implementation:* The reference implementation caches the data that supports the Upcoming Concerts. The Upcoming Concerts page creates the most queries to SQL Database and produces a consistent output for each visit. The cache-aside pattern caches the data after the first request for this page to reduce the load on the database. The following code uses the `GetUpcomingConcertsAsync` method to pull data into the Redis cache from SQL Database.
 
 ```csharp
 public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
@@ -401,12 +401,12 @@ public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
     var concertsJson = await this.cache.GetStringAsync(CacheKeys.UpcomingConcerts);
     if (concertsJson != null)
     {
-        // We have cached data, deserialize the JSON data.
+        // There is cached data. Deserialize the JSON data.
         concerts = JsonSerializer.Deserialize<IList<Concert>>(concertsJson);
     }
     else
     {
-        // There's nothing in the cache, retrieve data from the repository and cache it for one hour.
+        // There's nothing in the cache. Retrieve data from the repository and cache it for one hour.
         concerts = await this.database.Concerts.AsNoTracking()
             .Where(c => c.StartTime > DateTimeOffset.UtcNow && c.IsVisible)
             .OrderBy(c => c.StartTime)
@@ -424,11 +424,11 @@ public async Task<ICollection<Concert>> GetUpcomingConcertsAsync(int count)
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web.Api/Services/SqlDatabaseConcertRepository/SqlDatabaseConcertRepository.cs#L67).
 
-The method populates the cache with the latest concerts. The method filters by time, sorts, and returns data to the controller to display the results.
+The method populates the cache with the latest concerts. The method filters by time, sorts the data, and returns the data to the controller to display the results.
 
-**Keep cache data fresh.** You should periodically refresh the data in the cache to keep it relevant. The process involves getting the latest version of the data from the database to ensure the cache has the most requested data and most up-to-date information. The goal is to ensure users get current data fast. The frequency of the refreshes depends on the application.
+**Keep cache data fresh.** You should periodically refresh the data in the cache to keep it relevant. The process involves getting the latest version of the data from the database to ensure that the cache has the most requested data and the most current information. The goal is to ensure that users get current data fast. The frequency of the refreshes depends on the application.
 
-*Reference implementation:* The reference implementation only caches data for 1 hour and has a process for clearing the cache key when the data changes. The following code from the `CreateConcertAsync()` method clears the cache key.
+*Reference implementation:* The reference implementation caches data only for one hour. It has a process for clearing the cache key when the data changes. The following code from the `CreateConcertAsync` method clears the cache key.
 
 ```csharp
 public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
@@ -442,9 +442,9 @@ public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web.Api/Services/SqlDatabaseConcertRepository/SqlDatabaseConcertRepository.cs#L28).
 
-**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event driven system can make these updates. Another option is to ensure cached data is only accessed directly from the repository class responsible for handling the create and edit events.
+**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event-driven system can make these updates. Another option is to ensure that cached data is only accessed directly from the repository class that's responsible for handling the create and edit events.
 
-*Reference implementation:* The reference implementation uses the `UpdateConcertAsync()` method to keep the data in the cache consistent.
+*Reference implementation:* The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent.
 
 ```csharp
 public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert), 
@@ -460,43 +460,43 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 
 ### Autoscale by performance metrics
 
-Autoscale based on performance metrics so that users aren't affected by SKU constraints. CPU utilization performance triggers are a good starting point when you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to meet the behavior of your web application.
+Autoscale based on performance metrics so that users aren't affected by SKU constraints. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application.
 
-*Reference implementation:* The reference implementation uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting at 85% CPU usage, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic due to sticky sessions. It also protects against high bursts of traffic by scaling early to avoid max CPU usage. These autoscale rules aren't universal.
+*Reference implementation:* The reference implementation uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting of 85%, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic caused by sticky sessions. It also protects against high bursts of traffic by scaling early to avoid maximum CPU usage. These autoscale rules aren't universal.
 
 ## Deploy the reference implementation
 
-The reference implementation is a concert ticketing web app with the reliable web app pattern for .NET. You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://aka.ms/eap/rwa/dotnet). The repository has everything you need.  Follow the deployment guidelines to deploy the code to Azure and local development.
+The reference implementation is a concert ticketing web app that uses the reliable web app pattern for .NET. You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://aka.ms/eap/rwa/dotnet). The repository has everything you need.  Follow the deployment guidelines to deploy the code to Azure and local development.
 
 ## Next steps
 
-Use the following resources to find cloud best practices, migration tools, and .NET guidance.
+The following resources can help you learn cloud best practices, discover migration tools, and learn about .NET.
 
 ### Introduction to web apps on Azure
 
-For a hands-on introduction to .NET web applications on Azure, you can follow the guidance to deploy a [basic .NET web application](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice).
+For a hands-on introduction to .NET web applications on Azure, see this [guidance for deploying a basic .NET web application](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice).
 
-### Cloud best-practices
+### Cloud best practices
 
-For Microsoft's best practices in Azure, see:
+For Azure best practices, see:
 
-- [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview): It helps an organization prepare and execute their strategy to build solutions on Azure.
-- [Well Architected Framework](/azure/architecture/framework/): Describes the best practices and design principles that should be applied when designing Azure solutions that align with Microsoft's recommended best practices.
-- [Azure Architectures](/azure/architecture/browse/): Provides architecture diagrams and technology descriptions for reference architectures, real world examples of cloud architectures, and solution ideas for common workloads on Azure.
-- [Azure Architecture Center fundamentals](/azure/architecture/guide/): Provides a library of content that presents a structured approach for designing applications on Azure that are scalable, secure, resilient, and highly available.
+- [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview). Can help your organization prepare and execute a strategy to build solutions on Azure.
+- [Well Architected Framework](/azure/architecture/framework/). Describes the best practices and design principles that you should apply when you design Azure solutions that align with Microsoft-recommended best practices.
+- [Azure architectures](/azure/architecture/browse/). Provides architecture diagrams and technology descriptions for reference architectures, real-world examples of cloud architectures, and solution ideas for common workloads on Azure.
+- [Azure Architecture Center fundamentals](/azure/architecture/guide/). Provides a library of content that presents a structured approach for designing applications on Azure that are scalable, highly secure, resilient, and highly available.
 
 ### Migration guidance
 
-The following tools and resources can help you with migrating on-premises resources to Azure.
+The following tools and resources can help you migrate on-premises resources to Azure.
 
-- [Azure Migrate](/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment, migration of web apps, SQL server, and Virtual Machines.
+- [Azure Migrate](/azure/migrate/migrate-services-overview) provides a simplified migration, modernization, and optimization service for Azure that handles assessment and migration of web apps, SQL Server, and virtual machines.
 - [Azure Database Migration Guides](/data-migration/) provides resources for different database types, and different tools designed for your migration scenario.
-- [Azure App Service Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) is deployment architecture guidance for hardening and scaling Azure App Service deployments.
+- [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator) provides guidance for hardening and scaling App Service deployments.
 
 ### Upgrading .NET Framework applications
 
-The reference implementation deploys to an App Service running Windows, but it's capable of running on Linux. The Azure App Service windows platform enables customers to move .NET Framework web apps to Azure without upgrading to newer framework versions. If you want Linux App Service plans, or new features and performance improvements added to the latest versions of dotnet, you should use the following guidance.
+The reference implementation deploys to an App Service that runs Windows, but it can run on Linux. The App Service Windows platform enables you to move .NET Framework web apps to Azure without upgrading to newer framework versions. For information about Linux App Service plans or new features and performance improvements added to the latest versions of .NET, see the following guidance.
 
-- [Overview of porting from .NET Framework to .NET](/dotnet/core/porting/): A starting point for finding more guidance based on your specific type of .NET app.
-- [Overview of the .NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview): A console tool that can help automate many of the tasks associated with upgrading .NET framework projects.
-- [Migrating from ASP.NET to ASP.NET Core in Visual Studio](https://devblogs.microsoft.com/dotnet/introducing-project-migrations-visual-studio-extension/): The ASP.NET Core team is developing a Visual Studio extension that can assist with incremental migrations of web apps.
+- [Overview of porting from .NET Framework to .NET](/dotnet/core/porting/). Get guidance based on your specific type of .NET app.
+- [Overview of the .NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview). Learn about a console tool that can help you automate many of the tasks associated with upgrading .NET Framework projects.
+- [Migrating from ASP.NET to ASP.NET Core in Visual Studio](https://devblogs.microsoft.com/dotnet/introducing-project-migrations-visual-studio-extension/). Learn about a Visual Studio extension that can help you with incremental migrations of web apps.
