@@ -6,7 +6,7 @@ This article shows you how to apply the reliable web app pattern. There's a comp
 
 ## Architecture and code
 
-Architecture and code are symbiotic. A well-architected web application needs quality code and quality code needs a well-architected solution. Flaws in one limit the benefits of the other. The guidance here situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reenforce the interdependence of code and architecture. The following diagram shows the architecture of the reference implementation that applies the reliable web app pattern.
+Architecture and code are symbiotic. A well-architected web application needs quality code, and quality code needs a well-architected solution. Flaws in one limit the benefits of the other. The guidance here situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reenforce the interdependence of code and architecture. The following diagram shows the architecture of the reference implementation that applies the reliable web app pattern.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
@@ -17,15 +17,15 @@ Architecture and code are symbiotic. A well-architected web application needs qu
 
 ## Reliability
 
-A reliable web application is one that is resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your web application when they need to. You should use the retry and circuit-breaker patterns as a critical first step toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
+A reliable web application is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is a measure of whether your users can access your web application when they need to. You should use the retry and circuit-breaker patterns as critical first steps toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
 
 ### Use the retry pattern
 
-The retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They're transient because they typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception.
+The retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults*. They're transient because they typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception.
 
 *Simulate the retry pattern:* You can simulate the retry pattern in the reference implementation. For instructions, see [simulate the retry pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#retry-pattern).
 
-If your code already uses the retry pattern, you should update your code to use the retry mechanisms available in Azure services and client SDKs. If your application doesn't have a retry pattern, then you should add it based on the following guidance. For more information, see:
+If your code already uses the retry pattern, you should update your code to use the retry mechanisms available in Azure services and client SDKs. If your application doesn't have a retry pattern, you should add one based on the following guidance. For more information, see:
 
 - [Transient fault handling](/azure/architecture/best-practices/transient-faults)
 - [Retry pattern](/azure/architecture/patterns/retry)
@@ -50,9 +50,9 @@ services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sq
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/911f841d4b721bef1d9021d487745f873464d11d/src/Relecloud.Web.Api/Startup.cs#L99)
 
-**2. Use the Polly when the client library doesn't support retries.** You might need to make calls to a dependency that isn't an Azure service or doesn't support the retry pattern natively. In that case, you should use the Polly library to implement the retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
+**2. Use the Polly library when the client library doesn't support retries.** You might need to make calls to a dependency that isn't an Azure service or doesn't support the retry pattern natively. In that case, you should use the Polly library to implement the retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
 
-*Reference implementation:* The reference implementation uses Polly to set up the ASP.NET Core Dependency Injection. Polly enforces the retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a policy. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the retry pattern every time the front-end web app calls web API services. The following code applies the retry pattern to all service calls to the concert search service.
+*Reference implementation:* The reference implementation uses Polly to set up the ASP.NET Core dependency injection. Polly enforces the retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a _policy_. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the retry pattern every time the front-end web app calls web API services. The following code applies the retry pattern to all service calls to the concert search service.
 
 ```csharp
 private void AddConcertSearchService(IServiceCollection services)
@@ -91,11 +91,11 @@ The policy handler for the `RelecloudApiConcertSearchService` instance applies t
 
 ### Use the circuit-breaker pattern
 
-You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker).
+You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The circuit breaker pattern releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the circuit breaker pattern.
 
-*Simulate the circuit-breaker pattern:* You can simulate the circuit-breaker pattern in the reference implementation. For instructions, see [Simulate the circuit-breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
+*Simulate the circuit breaker pattern:* You can simulate the circuit breaker pattern in the reference implementation. For instructions, see [Simulate the circuit breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
 
-*Reference implementation:* The reference implementation adds the circuit-breaker pattern with the `GetCircuitBreakerPolicy` method as seen in the following code snippet.
+*Reference implementation:* The reference implementation adds the circuit breaker pattern in the `GetCircuitBreakerPolicy` method, as you can see in the following code snippet.
 
 ```csharp
 private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
@@ -108,23 +108,23 @@ private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
 
 [See this code in context](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4b486d52bccc54c4e89b3ab089f2a7c2f38a1d90/src/Relecloud.Web/Startup.cs#L115).
 
-The policy handler for the `RelecloudApiConcertSearchService` instance applies the circuit-breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time. For more information, see [implement circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
+The policy handler for the `RelecloudApiConcertSearchService` instance applies the circuit breaker pattern on all requests to the API. It uses the `HandleTransientHttpError` logic to detect HTTP requests that it can safely retry but limits the number of aggregate faults over a specified period of time. For more information, see [Implement the circuit breaker pattern](/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern#implement-circuit-breaker-pattern-with-ihttpclientfactory-and-polly).
 
 ## Security
 
-Cloud applications are often composed of multiple Azure services and communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to health security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
+Cloud applications are often composed of multiple Azure services. Communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to your security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
 
 ### Use managed identities
 
-You should use managed identities for all supported Azure services. They make identity management easier and more secure with benefits for authentication, authorization, and accounting.
+You should use managed identities for all supported Azure services. They make identity management easier and more secure, providing benefits for authentication, authorization, and accounting.
 
 #### Overview
 
-**Authentication:** Managed identities provide an automatically managed identity in Azure AD for applications to use when connecting to resources that support Azure AD authentication. Application code can use the application platform's managed identity to obtain Azure AD tokens without having to access static credentials from configuration.
+**Authentication:** Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD) that applications can use when they connect to resources that support Azure AD authentication. Application code can use the application platform's managed identity to obtain Azure AD tokens without having to access static credentials from configuration.
 
-Managed identities are similar to the identity component in connection strings in typical on-premises applications. On-premises apps use connection strings to prove an application's identity to a database. *Trusted connection* and *Integrated security* features hide the database username and password from the config file. The application connects to the database with an Active Directory account.
+Managed identities are similar to the identity component in connection strings in typical on-premises applications. On-premises apps use connection strings to prove an application's identity to a database. Trusted connection and integrated security features hide the database user name and password from the config file. The application connects to the database via an Active Directory account.
 
-**Authorization:** When granting manage-identities' access to a resource, you should always grant the least permissions needed to limit attack surface.
+**Authorization:** When you grant managed identities access to a resource, you should always grant the least permissions needed.
 
 *Reference implementation:* The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. You should grant the managed identities only the permissions necessary to support the needs of the code, such as the ability to read or write data.
 
