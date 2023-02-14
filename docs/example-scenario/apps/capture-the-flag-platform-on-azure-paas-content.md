@@ -2,7 +2,7 @@ A Capture the Flag (CTF) event is a gamified exercise designed to test engineeri
 
 ## Architecture
 
-![Diagram showing the architecture overview of the Azure components involved in a CTFd system.](/azure/architecture/example-scenario/apps/media/architecture-ctfd.png)
+:::image type="content" source="/azure/architecture/example-scenario/apps/media/architecture-ctfd.png" alt-text="Diagram showing the architecture overview of the Azure components involved in a CTFd system." lightbox="/azure/architecture/example-scenario/apps/media/architecture-ctfd.png":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/architecture-ctfd.pptx) of this architecture.*
 
@@ -23,7 +23,7 @@ This scenario covers an open-source capture-the-flag solution based on CTFd in w
 
 The template supports two network configurations: the preceding one and a simpler configuration without virtual network, using the *vnet* input parameter. In the latter case, the following diagram describes the solution, and step 7 in the preceding workflow is omitted.
 
-![Diagram showing the architecture overview of the Azure components involved in a CTFd system.](/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png)
+:::image type="content" source="/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png" alt-text="Diagram showing the architecture overview of the Azure components involved in a CTFd system." lightbox="/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png":::
 
 ### Components
 
