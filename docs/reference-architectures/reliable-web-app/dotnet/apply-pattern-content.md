@@ -240,7 +240,7 @@ The web app uses the StandardC1 SKU for the production environment and the Basic
 
 ### Automate scaling the environment
 
-You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. Don't increase the size of your application platform (vertical scaling) to meet frequent change in demand because it’s less cost efficient. For more information, see:
+You should use autoscale to automate horizontal scaling for production environments. Autoscaling adapts to user demand to save you money. Horizontal scaling automatically increases compute capacity to meet user demand and decreases compute capacity when demand drops. Don't increase the size of your application platform (vertical scaling) to meet frequent changes in demand. It's less cost efficient. For more information, see:
 
 - [Scaling in Azure App Service](/azure/app-service/manage-scale-up)
 - [Autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
@@ -275,28 +275,28 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 
 ### Delete non-production environments
 
-Infrastructure as code (IaC) is often listed as an operational best practice, but it's also a way to manage costs. Infrastructure as code can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
+IaC is often considered an operational best practice, but it's also a way to manage costs. IaC can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
 
 ### Use cache to support multiple data types
 
 You should use a single cache instance to support multiple data types rather than using a single instance for each data type.
 
-*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to store session state for the frontend web app and the backend web app. The frontend web app stores two pieces of data in session state. It stores the cart and Microsoft Authentication Library (MSAL) token. The backend web app stores the "Upcoming Concerts" page data. The reference implementation uses the smallest Redis SKU to handle these requirements but still had more capacity than the web API needed. To manage costs, the extra capacity uses multiple data types.
+*Reference implementation:* The reference implementation uses a single Azure Cache for Redis instance to store session state for the front-end web app and the back-end web app. The front-end web app stores two pieces of data in session state. It stores the cart and the Microsoft Authentication Library (MSAL) token. The back-end web app stores the Upcoming Concerts page data. The reference implementation uses the smallest Redis SKU to handle these requirements. This SKU still provides more capacity than the web API needs. To manage costs, the extra capacity uses multiple data types.
 
 ## Operational excellence
 
-A DevOps methodology provides a greater return on investment for application teams in the cloud. Infrastructure-as-code (IaC) is a key tenant of DevOps. The reliable web app pattern requires using IaC to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry, and when fed into a DevOps framework, they help rapidly improve your application.
+A DevOps methodology provides a greater return on investment for application teams in the cloud. IaC is a key tenet of DevOps. The reliable web app pattern requires the use of IaC to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry. When this telemetry is fed into a DevOps framework, it can help you rapidly improve your application.
 
 ### Automate deployments
 
 You should use a DevOps pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, you should explore GitHub actions.  Automating deployments with IaC offers the following benefits:
 
-- **Resolves production issues faster:** IaC creates consistent environments that foster predictable behaviors in production. The development team can automate the creation of a copy of the production environment to troubleshot production issues.
-- **Applies changes consistently across environments:** You should use IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow with separate pipelines to different environments. You can use environment variables to differentiate between. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
-- **Maximizes productivity:** Use automation to set up new environments and reduce the operational overhead managing environments manually.
-- **Improves governance:** IaC makes it easier to audit and review production changes deployed to Azure because it's checked into source control.
+- **Resolves production issues faster.** IaC creates consistent environments that foster predictable behaviors in production. The development team can automate the creation of a copy of the production environment to troubleshot production issues.
+- **Applies changes consistently across environments.** You should use IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow that has separate pipelines for different environments. You can use environment variables to differentiate between the environments. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
+- **Maximizes productivity.** Use automation to set up new environments and reduce the operational overhead managing environments manually.
+- **Improves governance.** IaC makes it easier to audit and review production changes deployed to Azure because they're checked in to source control.
 
-For more information, see guide to [using repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
+For more information, see [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure).
 
 *Reference implementation:* The reference implementation uses Azure Dev CLI and IaC (Bicep templates) to create Azure resources, setup configuration, and deploy the required resources from a GitHub Action.  
 
