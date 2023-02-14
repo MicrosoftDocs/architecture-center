@@ -4,7 +4,7 @@ For more information, see the [Reliable web app pattern video series (YouTube)](
 
 This article defines objectives of the reliable web app pattern and details the business drivers, on-premises context, and the reasons the web app uses each Azure service. There's a companion article that shows you [how to apply the reliable web app pattern for .NET](./apply-pattern.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The following diagram shows the architecture of the reference implementation that applies the reliable web app pattern.
 
-![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
+[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost, see:*
 
@@ -13,7 +13,7 @@ This article defines objectives of the reliable web app pattern and details the 
 
 ## Pattern objectives and implementation
 
-The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern will vary based on the web application and language. The following table outlines the pattern objectives and how the reference implementation met these objectives.
+The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern varies based on the web application and language. The following table outlines the pattern objectives and how the reference implementation met these objectives.
 
 | Objectives | Implementation for .NET |
 | --- | --- |
@@ -21,7 +21,7 @@ The reliable web app pattern is a set of objectives that follow the pillars of [
 
 ## Business context
 
-This guidance mirrors the journey of a fictional company, Relecloud, that wants to take their on-premises, line of business (LOB) web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
+This guidance mirrors the journey of a fictional company (Relecloud) that wants to take an on-premises, line of business (LOB) web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn’t provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
 
 | Short term goals | Long term goals |
 | --- | --- |
@@ -33,30 +33,16 @@ The on-premises starting point is web application is a monolithic, eCommerce, AS
 
 ## Service level objective
 
-Before calculating your service level objective (SLO), you need to define what it means to be available for your web application. Find all the Azure services that support your definition of availability. For Relecloud, available is when tickets can be purchased. A service like Azure Monitor is outside the scope of the SLO because it doesn’t affect the ability to make ticket purchases. However, services that could affect availability should be within the SLO scope. The Relecloud web app doesn't invoke Azure App Configuration or Azure Key Vault during ticket purchases, but these services do support application start up. Autoscaling and App Service restarts trigger start up events. You should include App Configuration Service and Azure Key Vault as part of your composite availability when planning for workloads with high-availability requirements.
+A service level objective (SLO) for availability defines how available you want a web app to be for users. Relecloud has a target service level objective (SLO) of 99.9% for availability. You need to define what it means to be available for your web application. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of available, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
-To determine the anticipated availability of the web app, you need a metric to measure the predicted availability of a service and Azure's service level agreements (SLAs) are useful. Make a list of the services that support the essential functions of your application and find their SLA. Next, calculate the composite SLA of the services. For more information, see:
+You need to approximate and assign an availability goal to each dependency in the critical path. [Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/) from Azure provide a good starting point. The availability metric shouldn’t exceed the SLA because a web app can only be as available as the underlying hardware or service. SLAs don’t factor in, for example, the application code run on those services, response times, or the architecture you use to connect them. Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud’s dependency list with availability goals for each dependency.
 
-- [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
+[![Diagram showing Relecloud's dependencies on the critical path.](images/slo-dependencies.png)](images/slo-dependencies.png)
+
+Finally, use the formulas for composite SLAs and multi-region availability to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. For more information, see:
+
 - [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional availability formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
-
- The following table shows the SLA for each service in the availability path.
-
-| Azure Service | SLA |
-| --- | --- |
-| [Azure Active Directory](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/) | 99.99% |
-| [Azure App Configuration](<https://azure.microsoft.com/support/legal/sla/app-configuration/v1_0/>) | 99.9% |
-| [Azure App Service](https://azure.microsoft.com/support/legal/sla/app-service/) | 99.95% |
-| [Azure Cache for Redis](https://azure.microsoft.com/support/legal/sla/cache/) |99.9% |
-| [Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/)|100%|
-| [Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_1/)|99.99%|
-| [Azure Key Vault](https://azure.microsoft.com/support/legal/sla/key-vault/v1_0/) | 99.99% |
-| [Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/) | 99.99%|
-| [Azure Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/) |  99.9% |
-| [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_8/) |  99.99% |
-
-If the composite SLA doesn’t meet or exceed your SLO, then you need to reconsider the services you use or adjust the architecture. Calculating the composite SLA for a single-region deployment resulted in composite that would allow 42 hours of downtime per year. This composite SLA created unacceptable business risk. Relecloud adjusted the architecture and added a second region to improve availability, and there’s a separate formula for multi-region availability.The multi-region availability formula is (1 - (1 − N) ^ R). `N` represents the composite SLA and `R` the number of regions. Two regions improve the composite SLA to near 99.99% and exceeds the SLO of 99.9%.
 
 ## Choose the right services
 
