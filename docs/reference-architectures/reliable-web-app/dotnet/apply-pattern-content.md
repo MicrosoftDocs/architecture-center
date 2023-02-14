@@ -209,7 +209,7 @@ You should protect web applications with a web application firewall. The web app
 
 Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes made optimize for horizontal scale as a lower cost investment as compared to optimizing existing business processes, which lead to higher risk change.
 
-**Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but the effort is an example of an optimizations that is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
+**Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but this change is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
 
 ### Right-size resources for each environment
 
@@ -230,13 +230,13 @@ var redisCacheFamilyName = isProd ? 'C' : 'C'
 var redisCacheCapacity = isProd ? 1 : 0
 ```
 
-[See this code in content](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4704f6f43bb9669ebd97716e9e7b6e8ba97d6ebf/infra/azureRedisCache.bicep#L21).
+[See this code in content](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/4704f6f43bb9669ebd97716e9e7b6e8ba97d6ebf/infra/azureRedisCache.bicep#L21)
 
-The web app uses the StandardC1 SKU for the production environment and the BasicC0 SKU for the non-production environment. The BasicC0 SKU costs less than the StandardC1 SKU. It provides the behavior needed for testing without the data capacity or availability targets needed for our production environment (see table). For more information, see [SKU pricing Azure Cache for Redis](/pricing/details/cache/).
+The web app uses the Standard C1 SKU for the production environment and the Basic C0 SKU for the non-production environment. The Basic C0 SKU costs less than the Standard C1 SKU. It provides the behavior needed for testing without the data capacity or availability targets needed for the production environment (see following table). For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 
 |   | StandardC1 SKU | BasicC0 SKU|
 | --- | --- | --- |
-|**SKU Features**| 1-GB cache <br> Dedicated service <br> 99.9% Availability SLA <br> Up to 1,000 connections |250-MB cache <br> Shared infrastructure <br> No SLA <br> Up to 256 connections
+|**SKU Features**| 1-GB cache <br> Dedicated service <br> Availability SLA <br> As many as 1,000 connections |250-MB cache <br> Shared infrastructure <br> No SLA <br> As many as 256 connections
 
 ### Automate scaling the environment
 
