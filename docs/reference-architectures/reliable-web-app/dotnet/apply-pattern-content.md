@@ -139,9 +139,9 @@ Managed identities are similar to the identity component in connection strings i
 
 Managed identities have two components. There's a code component and the infrastructure component. You should use the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
 
-**1. Use DefaultAzureCredential to set up code.** The first option is the `DefaultAzureCredential` class. `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
+**1. Use DefaultAzureCredential to set up code.** The `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
-*Reference implementation:* The reference implementation uses the `DefaultAzureCredential()` class during start up to enable the use of managed identity between the web API and Key Vault.
+*Reference implementation:* The reference implementation uses the `DefaultAzureCredential` class during start up to enable the use of managed identity between the web API and Key Vault.
 
 ```csharp
 builder.Configuration.AddAzureAppConfiguration(options =>
@@ -178,11 +178,11 @@ Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog=my-sql-databa
 
 ### Use a central secrets store
 
-Not every service supports managed identities, and sometimes you have to use secrets. In these situations, you must externalize the application configurations and put the secrets in a central secret store. In Azure, the central secret store is Azure Key Vault.
+Not every service supports managed identities, so sometimes you have to use secrets. In these situations, you must externalize the application configurations and put the secrets in a central secret store. In Azure, the central secret store is Azure Key Vault.
 
 Many on-premises environments don't have central secrets store. The absence makes key rotation uncommon and auditing to see who has access to a secret difficult. However, with Key Vault you can store secrets, rotate keys, and audit key access. You can also enable monitor in Azure Key Vault, and for more information, see [Monitoring Azure Key Vault](/azure/key-vault/general/monitor-key-vault).
 
-*Reference implementation:* The reference implementation doesn't use Key Vault monitoring. It also uses external secrets for three services.
+*Reference implementation:* The reference implementation doesn't use Key Vault monitoring, and it also uses external secrets for three services.
 
 1. *Azure AD client secret:* There are different authorization processes. To provide the API with an authenticated employee, the web app uses an on-behalf-of flow. The on-behalf-of flow needed a client secret from Azure AD and stored in Key Vault. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, restart the web app so the code starts using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
