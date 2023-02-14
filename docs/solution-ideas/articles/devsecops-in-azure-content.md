@@ -227,7 +227,7 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 #### Best practice – Use Azure Policy to secure and govern your AKS clusters
 
 - After installing the [Azure Policy Add-on for AKS](/azure/aks/use-azure-policy), you can apply individual policy definitions or groups of policy definitions called initiatives (also called policy sets) to your cluster.
-- Use [Built-in Azure policies](/azure/aks/policy-reference) for common scenarios like preventing privileged containers from running or only allowing whitelisted external IPs. You can also create custom policies for specific use cases.
+- Use [Built-in Azure policies](/azure/aks/policy-reference) for common scenarios like preventing privileged containers from running or only approving allowlisted external IPs. You can also create custom policies for specific use cases.
 - Apply policy definitions to your cluster and verify those assignments are being enforced.
 - Use Gatekeeper to configure an admission controller that allows or denies deployments based on rules specified. Azure Policy extends Gatekeeper.
 - Secure traffic between workload pods by using network policies in AKS.
