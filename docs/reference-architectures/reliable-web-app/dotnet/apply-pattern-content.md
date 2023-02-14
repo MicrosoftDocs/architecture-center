@@ -199,19 +199,19 @@ This improved network security is transparent from the code perspective. It does
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
 
-### Use web application firewall
+### Use a web application firewall
 
-You should protect web applications with a web application firewall. The web application firewall provides protection against common security attacks and botnets. To capture the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Front Door.
+You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take advantage of the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Azure Front Door.
 
-*Reference implementation:* The reference implementation uses Front Door as the hostname URL. In production, you should use your own hostname and follow the guidance in [preserve the original HTTP hostname](/azure/architecture/best-practices/host-name-preservation).
+*Reference implementation:* The reference implementation uses Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
 ## Cost optimization
 
-Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes made optimize for horizontal scale as a lower cost investment as compared to optimizing existing business processes, which lead to higher risk change.
+Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes optimize for horizontal scale to reduce costs rather than optimizing existing business processes. The latter can lead to higher risks.
 
 **Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but the effort is an example of an optimizations that is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
 
-### Right-size resources for each environment
+### Rightsize resources for each environment
 
 Production environments need SKUs that meet service level agreements (SLA), features, and scale needed for production. But non-production environments don't normally need the same capabilities. You can optimize costs in non-production environments with cheaper SKUs that have lower capacity and SLAs. You should consider Azure Dev/Test pricing and Azure reservations. How, or if, you use these cost-saving methods depends on your environment.
 
