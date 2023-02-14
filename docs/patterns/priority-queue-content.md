@@ -41,7 +41,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - Monitor the processing speed on high and low priority queues to ensure that messages in those queues are processed at the expected rates.
 
-- If you need to guarantee that low priority messages will be processed, implement the multiple message queue approach with multiple pools of consumers. Alternatively, in a queue that supports message prioritization, you can dynamically increase the priority of a queued message as it ages. This approach works only if the message queue provides that feature.
+- If you need to guarantee that low priority messages will be processed, implement the multiple message queue approach with multiple pools of consumers. Alternatively, in a queue that supports message prioritization, you can dynamically increase the priority of a queued message as it ages. However, this approach depends on the message queue providing this feature.
 
 - The strategy of using separate queues based on message priority is recommended for systems that have a few well-defined priorities.
 
