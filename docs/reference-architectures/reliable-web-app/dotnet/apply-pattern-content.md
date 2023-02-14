@@ -302,7 +302,7 @@ For more information, see [Repeatable infrastructure](/azure/architecture/framew
 
 ### Logging and application telemetry
 
-You should enable logging to diagnose when any request fails for tracing and debugging. The telemetry you gather on your application should cater to the operational needs of the web application. At a minimum, you must collect telemetry on baseline metrics. Gather information on user behavior that can help you apply targeted improvements. Here are our recommendations for collecting application telemetry.
+You should enable logging to diagnose when any request fails for tracing and debugging. The telemetry you gather on your application should cater to the operational needs of the web application. At a minimum, you must collect telemetry on baseline metrics. Gather information on user behavior that can help you apply targeted improvements. Here are our recommendations for collecting application telemetry:
 
 **Monitor baseline metrics.** The workload should monitor baseline metrics. Important metrics to measure include request throughput, average request duration, errors, and dependency monitoring. You should use Application Insights to gather this telemetry. You can use `AddApplicationInsightsTelemetry` from the NuGet package `Microsoft.ApplicationInsights.AspNetCore` to enable telemetry collection. For more information, see:
 
@@ -499,4 +499,4 @@ The reference implementation deploys to an App Service running Windows, but it's
 
 - [Overview of porting from .NET Framework to .NET](/dotnet/core/porting/): A starting point for finding more guidance based on your specific type of .NET app.
 - [Overview of the .NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview): A console tool that can help automate many of the tasks associated with upgrading .NET framework projects.
-- [Migrating from ASP.NET to ASP.NET Core in Visual Studio](/dotnet/introducing-project-migrations-visual-studio-extension/): The ASP.NET Core team is developing a Visual Studio extension that can assist with incremental migrations of web apps.
+- [Migrating from ASP.NET to ASP.NET Core in Visual Studio](https://devblogs.microsoft.com/dotnet/introducing-project-migrations-visual-studio-extension/): The ASP.NET Core team is developing a Visual Studio extension that can assist with incremental migrations of web apps.
