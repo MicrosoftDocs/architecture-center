@@ -137,7 +137,7 @@ Managed identities are similar to the identity component in connection strings i
 
 #### How to set up managed identities
 
-Managed identities have two components. There's a code component and the infrastructure component. You should use the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure-as-code (IaC) to deploy the infrastructure.
+Managed identities have two components. There's a code component and the infrastructure component. You should use the `DefaultAzureCredential` class from the Azure SDK library to set up the code and infrastructure as code (IaC) to deploy the infrastructure.
 
 **1. Use DefaultAzureCredential to set up code.** The `DefaultAzureCredential` creates a default `TokenCredential` (credentials that provide an OAuth token) capable of handling most Azure SDK authentication scenarios. It starts the authentication flow for applications that deploy to Azure. The identity it uses depends on the environment. When an access token is needed, it requests a token from its application platform host. For more information, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
@@ -150,7 +150,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
         .Connect(new Uri(builder.Configuration["Api:AppConfig:Uri"]), new DefaultAzureCredential())
         .ConfigureKeyVault(kv =>
         {
-            // Some of the values coming from Azure App Configuration are stored Key Vault, use
+            // Some of the values coming from Azure App Configuration are stored Key Vault. Use
             // the managed identity of this host for the authentication.
             kv.SetCredential(new DefaultAzureCredential());
         });
@@ -167,7 +167,7 @@ The `DefaultAzureCredential` class works with Microsoft client libraries to prov
 
 1. Create the managed identity.
 1. Associate the identity with the web app.
-1. Grants the identity permission to access the SQL database.
+1. Grant the identity permission to access the SQL database.
 1. The `Authentication` argument in the following connection string tells the Microsoft client library to connect with a managed identity.
 
     ```csharp
@@ -192,9 +192,9 @@ Many on-premises environments don't have a central secrets store. The absence ma
 
 ### Secure communication with private endpoints
 
-You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services traverses the public internet. These services include Azure SQL Database, Azure Cache for Redis, and Azure App Service in the reference implementation. Azure Private Link allows you to secure that communication with private endpoints in a virtual network and avoid the public internet.
+You should use private endpoints to provide more secure communication between your web app and Azure services. By default, service communication to most Azure services crosses the public internet. In the reference implementation, these services include Azure SQL Database, Azure Cache for Redis, and Azure App Service. Azure Private Link enables you to add security to that communication via private endpoints in a virtual network to avoid the public internet.
 
-This network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see:
+This improved network security is transparent from the code perspective. It doesn't involve any app configuration, connection string, or code changes. For more information, see:
 
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
