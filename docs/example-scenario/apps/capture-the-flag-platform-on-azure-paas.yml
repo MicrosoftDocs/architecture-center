@@ -15,7 +15,7 @@ metadata:
     - acom-architecture
     - web-app
     - web apps
-  social_image_url: /azure/architecture/example-scenario/apps/media/ctfd-web-app.svg
+  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ctfd.png
 name: Capture-the-Flag with CTFd on Azure PaaS
 azureCategories:
   - web
@@ -25,9 +25,7 @@ products:
   - azure-key-vault
   - azure-log-analytics
   - azure-private-link
-  - azure-virtual-network
-  - azure-web-apps
   - azure-container-registry
-thumbnailUrl: /azure/architecture/browse/thumbs/ctfd-web-app.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/architecture-ctfd.png
 content: |
    [!include[](capture-the-flag-platform-on-azure-paas-content.md)]
