@@ -2,7 +2,7 @@
 metadata:
   title: Reliable web application pattern (.NET)
   titleSuffix: Azure Reference Architectures
-  description: How to modernize your .NET (dotnet) application in the Azure cloud by applying low-cost, high-value updates to your ASP.NET application.
+  description: Learn how to modernize your .NET application in the Azure cloud by applying low-cost, high-value updates to your ASP.NET application.
   author: KSchlobohm
   ms.author: ssumner
   ms.date: 02/17/2023
@@ -20,7 +20,7 @@ products:
   - azure-cache-redis
   - dotnet
 name: How to apply the reliable web app pattern (.NET)
-summary: How to migrate and modernize your .NET application in the cloud with by applying low-cost, high-value updates to your application.
+summary: How to migrate and modernize your .NET application in the cloud by applying low-cost, high-value updates to your application.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-dotnet.png
 content: |
    [!include[](apply-pattern-content.md)]
