@@ -1,4 +1,4 @@
-A Capture the Flag (CTF) event is a gamified exercise designed to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This example scenario shows how to run a capture-the-flag (CTF) game service using Azure PaaS and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
+A Capture the Flag (CTF) event is a gamified exercise designed to test engineering skills such as cybersecurity, DevOps, or operational troubleshooting. This example scenario shows how to run a capture-the-flag game service by using Azure PaaS and the open-source [CTFd](https://github.com/CTFd/CTFd) platform.
 
 ## Architecture
 
@@ -8,51 +8,51 @@ A Capture the Flag (CTF) event is a gamified exercise designed to test engineeri
 
 ### Workflow
 
-This scenario covers an open capture-the-flag solution based on CTFd where customers can provision and configure a game service.
+This scenario covers an open-source capture-the-flag solution based on CTFd in which customers can provision and configure a game service.
 
-1. CTFd Docker image is pulled from the **Azure Container Registry** and ready to serve customers.
-2. CTF administrators and participants navigate to the **Capture-the-flag web application** from any device.
-3. The web application is provided by [CTFd](https://github.com/CTFd/CTFd) platform as a Docker container that runs on an **Azure App Service Web App for Containers**.
-4. The CTFd data is maintained in an **Azure Database for MariaDB** that includes users, challenges, flags, and game plays.
-5. The state, user sessions, and other CTFd values are held in an **Azure Cache for Redis**, which makes it suitable for supporting scaling out to multiple CTFd instances.
-6. The keys for both the database and cache are maintained in an **Azure Key Vault**, and access to the secrets is granted only to the web application.
-7. A **virtual network** connects Azure resources to each other and provides logical isolation. In this architecture, the web application communicates through the network with the database, cache, and key vault.
-8. Logs from the web application are sent to **Azure Log Analytics**, where they're aggregated from all instances and can be queried easily.
+1. A CTFd Docker image is pulled from Azure Container Registry and ready to serve customers.
+2. CTF administrators and participants navigate to the Capture-the-flag web application from any device.
+3. The web application is provided by [CTFd](https://github.com/CTFd/CTFd) platform as a Docker container that runs on an Azure App Service Web App for Containers.
+4. The CTFd data is maintained in an Azure Database for MariaDB that includes users, challenges, flags, and game plays.
+5. The state, user sessions, and other CTFd values are held in Azure Cache for Redis. This configuration makes it suitable for supporting scaling out to multiple CTFd instances.
+6. The keys for both the database and cache are maintained in Azure Key Vault. Access to the secrets is granted only to the web application.
+7. A virtual network connects Azure resources to each other and provides logical isolation. In this architecture, the web application communicates through the network with the database, cache, and key vault.
+8. Logs from the web application are sent to Azure Log Analytics, where they're aggregated from all instances and can be queried easily.
 
 ### Network configuration
 
-The template supports two network configurations, the one described above and a simpler configuration without virtual network, using the *vnet* input parameter. In the latter case, the following diagram describes the solution, and step 7 in the preceding workflow is omitted.
+The template supports two network configurations: the preceding one and a simpler configuration without virtual network, using the *vnet* input parameter. In the latter case, the following diagram describes the solution, and step 7 in the preceding workflow is omitted.
 
 ![Diagram showing the architecture overview of the Azure components involved in a CTFd system.](/azure/architecture/example-scenario/apps/media/architecture-ctfd-without-vnet.png)
 
 ### Components
 
-- [App Services - Web App for Containers](https://azure.microsoft.com/products/app-service/containers/) hosts containerized web applications allowing autoscale and high availability without managing infrastructure.
+- [Azure App Service Web App for Container](https://azure.microsoft.com/products/app-service/containers/) hosts containerized web applications allowing autoscale and high availability without managing infrastructure.
 - [Azure Database for MariaDB](https://azure.microsoft.com/products/mariadb/) is a cloud-based relational database service. This service is based on the [MariaDB](https://mariadb.org) community edition database engine.
-- [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) improves the performance and scalability of systems that rely heavily on backend data stores by temporarily copying frequently accessed data to fast storage close to the application.
-- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/): Secure credential and certificate management.
-- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/), an Azure Monitor Logs tool, can be used for diagnostic or logging information and for querying this data to sort, filter, or visualize them. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
+- [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) improves the performance and scalability of systems that rely heavily on backend data stores. It does this by temporarily copying frequently accessed data to fast storage that's close to the application.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) provides secure credential and certificate management.
+- [Azure Log Analytics](https://azure.microsoft.com/products/monitor/), an Azure Monitor Logs tool, can be used for diagnostic or logging information and for querying this data to sort, filter, or visualize it. This service is priced by consumption and is perfect for hosting diagnostic and usage logs from all of the services in this solution.
 - [Azure Networking](https://azure.microsoft.com/products/category/networking/) provides various networking capabilities in Azure, and the networks can peer with other virtual networks in Azure. Connections can also be established with on-premises datacenters via ExpressRoute or site-to-site. In this case, [private endpoints](/azure/private-link/private-endpoint-overview) for [Azure Database for MariaDB](/azure/mariadb/concepts-data-access-security-private-link), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-private-link), and [Azure Key Vault](/azure/key-vault/general/private-link-service) are used within the virtual network, and an [Azure App Service virtual network integration](/azure/app-service/overview-vnet-integration) is enabled on the virtual network to ensure all the data is flowing only through the Azure virtual network.
 
 ### Alternatives
 
-- You could use the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, that provisions the required services (web-application, cache, and database) into a single host machine, which is neither scaleable nor highly available.
-- You could provision the required services, as described in the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml) to [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/), but then you're managing Infrastructure-as-a-Service (IaaS).
-- You could use a [CTFd paid tier](https://ctfd.io/pricing/) and get the platform as a service, with added features, per the chosen plan.
+- You can use the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml). However, that provisions the required services (web-application, cache, and database) into a single host machine, which is neither scaleable nor highly available.
+- You can provision the required services, as described in the Docker compose definition from [CTFd repository on GitHub](https://github.com/CTFd/CTFd/blob/master/docker-compose.yml) to [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service/), but then you're managing infrastructure as a service (IaaS).
+- You can use a [CTFd paid tier](https://ctfd.io/pricing/) and get the platform as a service, with added features, per the chosen plan.
 
 ## Scenario details
 
-Traditionally, [Capture the Flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) events are cybersecurity exercises in which “flags” are secretly hidden in a program or website, and competitors steal them from other competitors (attack/defense-style CTFs) or the organizers (jeopardy-style challenges). However, you can teach and practice more engineering practices as CTF events. You might not always use the CTF term. For example, Microsoft's [OpenHack](https://github.com/microsoft/OpenHack) content packs, which are very similar to what CTF is all about and include topics such as AI-Powered Knowledge Mining, ML and DevOps, containers, Serverless, and Azure security.
+Traditionally, [Capture the Flag](https://wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) events are cybersecurity exercises in which “flags” are secretly hidden in a program or website, and competitors steal them from other competitors (attack/defense-style CTFs) or the organizers (Jeopardy-style challenges). However, you can teach and practice other engineering practices as CTF events. You might not always use the CTF term. For example, the Microsoft [OpenHack](https://github.com/microsoft/OpenHack) content packs are similar to what CTF is all about, and include topics such as AI-Powered Knowledge Mining, ML and DevOps, containers, Serverless, and Azure security.
 
 Open-source CTF frameworks make it easy to turn any challenge into a CTF event with configurable challenge pages, leader boards, and other expected features of such an event, using zero code. For instance, [OWASP’s Juice-Shop](https://owasp.org/www-project-juice-shop/) has a [CTF plugin](https://github.com/juice-shop/juice-shop-ctf) that supports several common CTF platforms you can provision and run for your teams to do security training on.
 
-One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). It's easy to use and customize, and it's built with open-source components. It offers several [plans for managed hosting and features](https://ctfd.io/pricing/) from which you can choose, or you could deploy and maintain your own environment. Managing an environment has cost and maintenance implications, but you own the data, you can integrate it with your organization’s network if required, and it typically costs less. Furthermore, using Platform as a Service (PaaS) maintained by your cloud vendor has the benefit of both worlds: free, open-source software and much easier maintenance and IT handling than virtualized infrastructure components.
+One of the most popular open CTF platforms is [CTFd](https://github.com/CTFd/CTFd). It's easy to use and customize, and it's built with open-source components. It offers several [plans for managed hosting and features](https://ctfd.io/pricing/) from which you can choose, or you could deploy and maintain your own environment. Managing an environment has cost and maintenance implications, but you own the data, you can integrate it with your organization’s network if required, and it typically costs less. Furthermore, using PaaS maintained by your cloud vendor has the benefit of both worlds: free, open-source software and easier maintenance and IT handling than virtualized infrastructure components.
 
-This document can help you set up a self-hosted CTFd environment using Azure PaaS, so your CTF environment is easy to maintain and scalable to accommodate the number of your participants.
+This document can help you set up a self-hosted CTFd environment using Azure PaaS, so your CTF environment is easy to maintain and scalable to accommodate your participants.
 
 ### Potential use cases
 
-This solution is optimized for the developer, DevOps, and cybersecurity communities, and teams within organizations that want to run a CTF event.
+This solution is optimized for the developer, DevOps, and cybersecurity communities, and for teams that want to run a CTF event.
 
 Ultimately, **any** up-skilling, hack, or bug bash event can use this setup to run [CTFd](https://github.com/CTFd/CTFd) to manage and track challenge-based, team, or individual, progress.
 
@@ -90,8 +90,8 @@ Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data inges
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- App Service's lowest tier for this solution is Basic, because lower tiers do not support [Hybrid Connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
-- CTFd web application component requires [at least 1 CPU and 1 GB of RAM per instance](https://docs.ctfd.io/docs/deployment/installation).
+- This solution requires the at least the Basic tier, because lower tiers do not support [hybrid connections](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing) into the virtual network.
+- The CTFd web application component requires [at least 1 CPU and 1 GB of RAM per instance](https://docs.ctfd.io/docs/deployment/installation).
 - For information about scaling a basic web app, see [Scaling the App Service app](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app#scaling-the-app-service-app).
 - You can [scale up](/azure/mariadb/concepts-pricing-tiers) Azure Database for MariaDB to meet higher demands. You can dynamically change the number vCores, the amount of storage, and the pricing tier (except to and from Basic), so you should carefully consider the right tier for your target workload.
 
@@ -131,5 +131,5 @@ Principal author:
 - [Web applications architecture design](/../../guide/web/web-start-here)
 - [Architect scalable e-commerce web app](/../../solution-ideas/articles/scalable-ecommerce-web-app)
 - [Scalable Sitecore marketing website](/../../solution-ideas/articles/digital-marketing-sitecore)
-- [Scalable web application]/../../reference-architectures/app-service-web-app/scalable-web-app)
+- [Scalable web application](/../../reference-architectures/app-service-web-app/scalable-web-app)
 - [Web application monitoring on Azure](/../../reference-architectures/app-service-web-app/app-monitoring)
