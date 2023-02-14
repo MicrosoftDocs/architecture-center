@@ -341,7 +341,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(106.784 221)">Order service</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(106.784 221)">Order service</text>
     <g clip-path="url(#clip6)">
       <g clip-path="url(#clip7)">
         <g clip-path="url(#clip8)">
@@ -390,7 +390,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(823.968 358)">Makeline service</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(823.968 358)">Makeline service</text>
     <g clip-path="url(#clip14)">
       <g clip-path="url(#clip15)">
         <g clip-path="url(#clip16)">
@@ -470,8 +470,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(750.575 219)">Loyalty</text>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(792.849 219)">service</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(750.575 219)">Loyalty service</text>
     <g clip-path="url(#clip30)">
       <g clip-path="url(#clip31)">
         <g clip-path="url(#clip32)">
@@ -511,7 +510,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(619.841 357)">Virtual worker</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(619.841 357)">Virtual worker</text>
     <g clip-path="url(#clip38)">
       <g clip-path="url(#clip39)">
         <g clip-path="url(#clip40)">
@@ -548,7 +547,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(394.089 358)">UI</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(394.089 358)">UI</text>
     <rect x="336.5" y="398.5" width="126" height="50" stroke="#44546A" stroke-miterlimit="8" fill="none"/>
     <g clip-path="url(#clip46)">
       <g clip-path="url(#clip47)">
@@ -570,7 +569,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(381.454 444)">Traefik</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(381.454 444)">Traefik</text>
     <path d="M239.167 369.82 239.167 382.167 99.8334 382.167 99.8334 369.82 101.167 369.82 101.167 381.5 100.5 380.833 238.5 380.833 237.833 381.5 237.833 369.82ZM233.258 377.484 238.5 368.497 243.743 377.484C243.928 377.802 243.821 378.21 243.503 378.396 243.185 378.581 242.776 378.474 242.591 378.156L237.924 370.156 239.076 370.156 234.409 378.156C234.224 378.474 233.816 378.581 233.497 378.396 233.179 378.21 233.072 377.802 233.258 377.484ZM95.2575 377.484 100.5 368.497 105.743 377.484C105.928 377.802 105.821 378.21 105.503 378.396 105.185 378.581 104.776 378.474 104.591 378.156L99.9242 370.156 101.076 370.156 96.4092 378.156C96.2237 378.474 95.8155 378.581 95.4975 378.396 95.1794 378.21 95.072 377.802 95.2575 377.484Z" fill="#44546A"/>
     <rect x="72.5001" y="312.5" width="194" height="79" stroke="#000000" stroke-miterlimit="8" fill="none"/>
     <rect x="76.5001" y="315.5" width="126" height="50" stroke="#44546A" stroke-miterlimit="8" fill="none"/>
@@ -595,7 +594,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(94.5979 361)">Virtual customer</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(94.5979 361)">Virtual customer</text>
     <g clip-path="url(#clip56)">
       <g clip-path="url(#clip57)">
         <g clip-path="url(#clip58)">
@@ -638,8 +637,7 @@
         </g>
       </g>
     </g>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(534.508 220)">Receipt</text>
-    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="14" transform="translate(578.781 220)">service</text>
+    <text font-family="Segoe UI,Segoe UI_MSFontService,sans-serif" font-weight="400" font-size="13" transform="translate(534.508 220)">Receipt service</text>
     <g clip-path="url(#clip64)">
       <g clip-path="url(#clip65)">
         <g clip-path="url(#clip66)">
