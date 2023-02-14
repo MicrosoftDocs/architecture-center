@@ -39,7 +39,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - In the multiple queue approach, when you use a single pool of consumer processes that listen on all queues rather than a dedicated consumer pool for each queue, the consumer must apply an algorithm that ensures it always services messages from higher priority queues before messages from lower priority queues.
 
-- Monitor the processing speed on high and low priority queues to ensure that messages in the queues are processed at the expected rates.
+- Monitor the processing speed on high and low priority queues to ensure that messages in those queues are processed at the expected rates.
 
 - If you need to guarantee that low priority messages will be processed, implement the multiple message queue approach with multiple pools of consumers. Alternatively, in a queue that supports message prioritization, you can dynamically increase the priority of a queued message as it ages. This approach works only if the message queue provides that feature.
 
