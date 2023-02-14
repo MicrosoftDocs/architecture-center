@@ -3520,6 +3520,8 @@ items:
                         href: guide/hpc/autodesk-inventor.yml
                       - name: Autodesk VRED
                         href: guide/hpc/hpc-autodesk-vred.md 
+                  - name: AVL FIRE M
+                    href: guide/hpc/hpc-avl-fire-m.yml
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
                   - name: Engys HELYX 
