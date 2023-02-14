@@ -14,7 +14,7 @@ However, the processing tasks performed by each module, or the deployment requir
 
 ## Solution
 
-Break down the processing that's required for each stream into a set of separate components (or *filters*), each performing a single task. If you standardize the format of the data that each component receives and sends, you can combine these filters in a pipeline. Doing so helps you avoid code duplication and makes it easy to remove or replace components, or integrate additional components, if the processing requirements change. This diagram shows a solution that's implemented with pipes and filters:
+Break down the processing that's required for each stream into a set of separate components (or *filters*), each performing a single task. To achieve a standard format of the data that each component receives and sends, the filters can be combined in the pipeline. Doing so avoids code duplication and makes it easy to remove or replace components, or integrate additional components, if the processing requirements change. This diagram shows a solution that's implemented with pipes and filters:
 
 ![Diagram that shows a solution that's implemented with pipes and filters.](./_images/pipes-and-filters-solution.png)
 
