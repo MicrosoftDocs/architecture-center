@@ -41,7 +41,7 @@ You need to approximate and assign an availability goal to each dependency in 
 
 Finally, use the formulas for composite SLAs and multi-region availability to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. For more information, see:
 
-- [Composite SLAs](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
+- [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional availability formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
 
 ## Choose the right services
