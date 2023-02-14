@@ -51,15 +51,15 @@ For more information, see:
 
 **Use one virtual network per environment.** We recommend using one virtual network per environment (SAP deployment tier). The architecture uses a different virtual network for production, development, quality assurance, and sandbox. This network design is ideal for large enterprise architectures.
 
-**Use a central firewall.** All the network traffic to the spoke virtual networks, including remote function call (RFC) connections, should pass through a central firewall in the Hub virtual network. Network communication between the spoke virtual networks (spoke-to-spoke communication) passes through the hub virtual network firewall in the Azure Firewall subnet of the Hub virtual network. Similarly, network communication between the spoke virtual networks and on-premises network also pass through the hub virtual network firewall. We used virtual network peering to connect the various spoke virtual networks to the hub virtual network. All the communication between the spoke virtual networks passes through the hub virtual network firewall. You could also use a network virtual appliance instead of a firewall. For more information, see [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/).
+**Use a central firewall.** All the network traffic to the spoke virtual networks, including remote function call (RFC) connections, should pass through a central firewall in the Hub virtual network. Network communication between the spoke virtual networks (spoke-to-spoke communication) passes through the hub virtual network firewall in the Azure Firewall subnet of the Hub virtual network. Similarly, network communication between the spoke virtual networks and on-premises network also pass through the hub virtual network firewall. We used virtual network peering to connect the various spoke virtual networks to the hub virtual network. All the communication between the spoke virtual networks passes through the Hub virtual network firewall. You could also use a network virtual appliance instead of a firewall. For more information, see [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/).
 
-Network traffic that stays in a virtual network shouldn't pass through a firewall. For example, don't put a firewall between the SAP application subnet and SAP database subnet. You can't place a firewall or network virtual appliances between the SAP application and the database management system (DBMS) layer of SAP systems running the SAP kernel.
+Network traffic that stays in a virtual network shouldn't pass through a firewall. For example, don't put a firewall between the SAP application subnet and SAP database subnet. You can't place a firewall or network virtual appliances (NVAs) between the SAP application and the database management system (DBMS) layer of SAP systems running the SAP kernel.
 
-**Avoid peering spoke virtual networks.** Virtual network peering between the spoke virtual networks should be avoided if possible. Spoke-to-spoke virtual network peering allows spoke-to-spoke communication to bypass the hub virtual network firewall. You should only configure spoke-to-spoke virtual network peering when you have high-bandwidth requirements. Examples include database replication between SAP environments. All other network traffic should run through the hub virtual network and firewall. For more information, see [inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
+**Avoid peering spoke virtual networks.** Virtual network peering between the spoke virtual networks should be avoided if possible. Spoke-to-spoke virtual network peering allows spoke-to-spoke communication to bypass the Hub virtual network firewall. You should only configure spoke-to-spoke virtual network peering when you have high-bandwidth requirements, for example, with database replication between SAP environments. All other network traffic should run through the Hub virtual network and firewall. For more information, see [inbound and outbound internet connections for SAP on Azure](./sap-internet-inbound-outbound.yml).
 
 #### Subnets
 
-It's a best practice to divide each SAP environment (production, pre-production, development, sandbox) into subnets and use subnets to group related services. Here are our recommendations for subnetting an SAP landscape.
+It's a best practice to divide each SAP environment (production, pre-production, development, sandbox) into subnets and to use subnets to group related services. Here are our recommendations for subnetting an SAP landscape.
 
 ##### Number of subnets
 
@@ -75,7 +75,7 @@ The application subnet contains virtual machines running SAP application servers
 
 ##### Database subnet
 
-The database subnet holds virtual machines running databases. In the diagram, a pair of VMs for a highly available setup in synchronous replication are a representation for all database VMs of one SAP environment.
+The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represent all the database virtual machines of one SAP environment.
 
 ##### Perimeter subnets
 
@@ -214,7 +214,7 @@ For smaller SAP solutions, it might be beneficial to simply the network design. 
 **Principal authors:**
 
 - [Robert Biro](https://www.linkedin.com/in/robert-biro-38991927) | Senior Architect
-- [Pankaj Meshram](https://ww.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager
+- [Pankaj Meshram](https://www.linkedin.com/in/pankaj-meshram-6922981a) | Principal Program Manager
 
 ## Next steps
 

@@ -15,6 +15,8 @@ Spot VMs can be up to 90 percent cheaper than regular (pay-as-you-go) VMs. The d
 - [Azure Spot VM pricing tool](https://azure.microsoft.com/pricing/spot-advisor/)
 - [Spot VM pricing overview](/azure/virtual-machines/spot-vms#pricing)
 
+You can also query the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to programmatically obtain the spot pricing for any SKU of interest. 
+
 ## Understand interruptible workloads
 
 Interruptible workloads are the best use case for spot VMs. Interruptible workloads have a few common characteristics. They have minimal to no time constraints, low organizational priority, and short processing times. They run processes that can stop suddenly and resume later without harming essential organizational processes. Examples of interruptible workloads are batch processing applications, data analytics, and workloads that create a continuous integration-continuous deployment agent for a non-production environment. These features contrast with regular or mission-critical workloads that have service level agreements (SLAs), sticky sessions, and stateful data. The table provides examples for both workload types.

@@ -187,4 +187,4 @@ Principal author:
 - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
 - [IBM z/OS mainframe migration with Asysco AMT](asysco-zos-migration.yml)
 - [High-volume batch transaction processing](process-batch-transactions.yml)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

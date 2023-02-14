@@ -255,6 +255,6 @@ View the [Profisee Azure Data Factory templates](https://github.com/profisee/azu
 - [Hybrid ETL with Azure Data Factory](../../example-scenario/data/hybrid-etl-with-adf.yml)
 - [DevTest Image Factory](../../solution-ideas/articles/dev-test-image-factory.yml)
 - [Automated enterprise BI](./enterprise-bi-adf.yml)
-- [Modernize mainframe & midrange data](../migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)
 - [Data warehousing and analytics](../../example-scenario/data/data-warehouse.yml)

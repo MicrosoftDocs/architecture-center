@@ -2,9 +2,9 @@ This solution uses a multiline-model architecture to deploy machine learning mod
 
 ## Architecture
 
-![Diagram that shows the architecture for the multiple-line machine learning model.](./media/multiline-deployment-pipeline.png)
+[ ![Architecture diagram that shows the architecture for the multiple-line machine learning model.](./media/multiline-deployment-pipeline.svg)](./media/multiline-deployment-pipeline.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/Multiline-deployment-pipeline.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/multiline-deployment-pipeline.vsdx) of this architecture.*
 
 ### Dataflow
 

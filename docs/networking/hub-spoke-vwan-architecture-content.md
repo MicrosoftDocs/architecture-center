@@ -156,6 +156,8 @@ Azure Virtual WAN provides a full mesh connectivity among spokes by preserving t
 
 Hubs in Azure VWAN can be converted to secure HUBs by leveraging Azure Firewall. User-defined routes (UDRs) can still be leveraged in the same way to achieve network isolation. Azure VWAN enables encryption of traffic between the on-premises networks and Azure virtual networks over ExpressRoute.
 
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 ### Spoke connectivity and shared services
 
 Connectivity among spokes is already achieved using Azure Virtual WAN. However, using UDRs in the spoke traffic is useful to isolate virtual networks. Any shared service can also be hosted on the same Virtual WAN as a spoke.

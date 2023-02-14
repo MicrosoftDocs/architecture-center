@@ -4,8 +4,9 @@ In this solution, we'll use the clinical and socioeconomic in-patient data gener
 
 ## Architecture
 
-![Architecture diagram shows how data is ingested, stored, processed through machine learning and published.](../media/population-health-management-for-healthcare.png)
-*Download an [SVG](../media/population-health-management-for-healthcare.svg) of this architecture.*
+[ ![Architecture diagram shows how data is ingested, stored, processed through machine learning and published.](../media/population-health-management-for-healthcare.svg)](../media/population-health-management-for-healthcare.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/population-health-management-for-healthcare.vsdx) of this architecture.*
 
 ### Dataflow
 

@@ -4,8 +4,9 @@ This solution is built on the Azure managed service: [Media Services](/azure/med
 
 ## Architecture
 
-![Architecture diagram shows the flow from the live source through Azure live encoder to the streaming endpoint.](../media/digital-media-live-stream.png)
-*Download an [SVG](../media/digital-media-live-stream.svg) of this architecture.*
+[ ![Architecture diagram shows the flow from the live source through Azure live encoder to the streaming endpoint.](../media/digital-media-live-stream.svg)](../media/digital-media-live-stream.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/digital-media-live-stream.vsdx) of this architecture.*
 
 ### Components
 
