@@ -71,6 +71,13 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Credentials such as database or cache connection strings are stored in Azure Key Vault as secrets. Azure App Service is configured to access the Key Vault with its managed identities to avoid storing secrets in application settings or code.
 - Network security is considered throughout the design. All traffic from the publicly available web application to the internal services is routed through the Virtual Network, and all back-end services (database, cache, and key vault) do not allow public network access.
 
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+- The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down just as easily.
+- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
+
 ### Operational Excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
@@ -79,14 +86,7 @@ Azure Monitor integrates with Azure App Service to support logging from all web 
 
 Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/))
 
-### Cost optimization
-
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
-
-- The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down just as easily.
-- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
-
-## Performance efficiency
+### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
@@ -108,6 +108,8 @@ The easiest way to deploy the solution to your subscription is to use the **Depl
 Principal author:
 
 - [Avishay Balter](https://www.linkedin.com/in/avishay-balter-67913138) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
