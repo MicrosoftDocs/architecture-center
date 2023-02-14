@@ -47,7 +47,7 @@ Consider the following points when you decide how to implement this pattern:
 
 - The system can logically determine message priorities. For example, rather than having explicit high and low priority messages, you could designate messages as "paying customer" or "non-paying customer." Your system could then allocate more resources to processing messages from paying customers.
 
-- There might be a financial and processing cost associated with checking a queue for a message. (Some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages.) This cost increases when you check multiple queues.
+- There might be a financial and processing cost associated with checking a queue for a message. For instance, some commercial messaging systems charge a small fee each time a message is posted or retrieved, and each time a queue is queried for messages. This cost increases when you check multiple queues.
 
 - You can dynamically adjust the size of a pool of consumers based on the length of the queue that the pool is servicing. For more information, see [Autoscaling guidance](/previous-versions/msp-n-p/dn589774(v=pandp.10)).
 
