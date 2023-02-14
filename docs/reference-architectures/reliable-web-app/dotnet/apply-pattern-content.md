@@ -2,13 +2,13 @@ The reliable web app pattern is a set of best practices built on the the [Azure 
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-This article shows you how to apply the reliable web app pattern. There's a companion article that [defines the reliable web application pattern for .NET](./pattern-overview.yml) and a [reference implementation of the reliable web app pattern](https://aka.ms/eap/rwa/dotnet) that you can deploy. The reference implementation is an employee-facing, line of business, concert ticketing app, and the guidance refers to it throughout.
+This article shows you how to apply the reliable web app pattern. There's a companion article that provides an [overview](pattern-overview.yml) of the reliable web application pattern implementation for .NET and a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern that you can deploy. The reference implementation is an employee-facing, line of business, concert ticketing app, and the guidance refers to it throughout.
 
 ## Architecture and code
 
 Architecture and code are symbiotic. A well-architected web application needs quality code and quality code needs a well-architected solution. Flaws in one limit the benefits of the other. The guidance here situates code changes within the pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/) to reenforce the interdependence of code and architecture. The following diagram shows the architecture of the reference implementation that applies the reliable web app pattern.
 
-![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)
+[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost, see:*
 
@@ -17,7 +17,7 @@ Architecture and code are symbiotic. A well-architected web application needs qu
 
 ## Reliability
 
-A reliable web application is one that is both resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your web application when they need to. You should use the retry and circuit-breaker patterns as a critical first step toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
+A reliable web application is one that is resilient and available. Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Availability is whether your users can access your web application when they need to. You should use the retry and circuit-breaker patterns as a critical first step toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
 
 ### Use the retry pattern
 
@@ -52,7 +52,7 @@ services.AddDbContextPool<ConcertDataContext>(options => options.UseSqlServer(sq
 
 **2. Use the Polly when the client library doesn't support retries.** You might need to make calls to a dependency that isn't an Azure service or doesn't support the retry pattern natively. In that case, you should use the Polly library to implement the retry pattern. [Polly](https://github.com/App-vNext/Polly) is a .NET resilience and transient-fault-handling library. With it, you can use fluent APIs to describe behavior in a central location of the application.
 
-*Reference implementation:* The reference implementation uses Polly to set up the ASP.NET Core Dependency Injection. Polly enforces the retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a policy. The code extracts this policy in the `GetRetryPolicy()` method, and the `GetRetryPolicy()` method applies the retry pattern every time the front-end web app calls web API services. The following code applies the retry pattern to all service calls to the concert search service.
+*Reference implementation:* The reference implementation uses Polly to set up the ASP.NET Core Dependency Injection. Polly enforces the retry pattern every time the code constructs an object that calls the `IConcertSearchService` object. In the Polly framework, that behavior is known as a policy. The code extracts this policy in the `GetRetryPolicy` method, and the `GetRetryPolicy` method applies the retry pattern every time the front-end web app calls web API services. The following code applies the retry pattern to all service calls to the concert search service.
 
 ```csharp
 private void AddConcertSearchService(IServiceCollection services)
@@ -91,11 +91,11 @@ The policy handler for the `RelecloudApiConcertSearchService` instance applies t
 
 ### Use the circuit-breaker pattern
 
-You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the circuit breaker pattern.
+You should pair the retry pattern with the circuit breaker pattern. The circuit breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker).
 
-*Simulate the circuit-breaker pattern:* You can simulate the circuit-breaker pattern in the reference implementation. For instructions, see [simulate the circuit-breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
+*Simulate the circuit-breaker pattern:* You can simulate the circuit-breaker pattern in the reference implementation. For instructions, see [Simulate the circuit-breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
 
-*Reference implementation:* The reference implementation adds the circuit-breaker pattern with the `GetCircuitBreakerPolicy()` method as seen in the following code snippet.
+*Reference implementation:* The reference implementation adds the circuit-breaker pattern with the `GetCircuitBreakerPolicy` method as seen in the following code snippet.
 
 ```csharp
 private static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
@@ -128,7 +128,7 @@ Managed identities are similar to the identity component in connection strings i
 
 *Reference implementation:* The reference implementation grants the managed identity of App Service elevated access to Azure SQL Database because the deployed code uses Entity Framework Code First Migrations to manage the schema. You should grant the managed identities only the permissions necessary to support the needs of the code, such as the ability to read or write data.
 
-**Accounting:** Accounting in cybersecurity refers to the process of tracking and logging actions within an environment. With managed identities in Azure, you can gain better visibility into which supported Azure resources are accessing other resources and set appropriate permissions for each resource or service. While connection strings with secrets stored in Azure Key Vault can provide secure access to a resource, they don't offer the same level of accounting visibility. As a result, it can be more challenging to govern and control access using only connection strings. Managed identities provide a secure and traceable way to control access to Azure resources. For more information, see:
+**Accounting:** Accounting in cybersecurity refers to the process of tracking and logging actions within an environment. With managed identities in Azure, you can gain better visibility into which supported Azure resources are accessing other resources and set appropriate permissions for each resource or service. Although connection strings with secrets stored in Azure Key Vault can provide secure access to a resource, they don't offer the same level of accounting visibility. As a result, it can be more challenging to govern and control access using only connection strings. Managed identities provide a traceable way to control access to Azure resources. For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
