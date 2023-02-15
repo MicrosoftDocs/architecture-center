@@ -22,42 +22,44 @@ products:
 
 [:::image type="icon" source="../_images/github.png" border="false"::: Sample code][sample application]
 
-Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
+You can use application roles to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
 
-* Administrator. Can perform all CRUD operations on any survey that belongs to that tenant.
-* Creator. Can create new surveys.
-* Reader. Can read any surveys that belong to that tenant.
+* SurveyAdmin. Can perform all CRUD operations on any survey that belongs to the tenant.
+* SurveyCreator. Can create new surveys.
+* Reader. Can read any survey that belongs to the tenant.
 
-You can see that roles ultimately get translated into permissions, during [authorization][authorization]. But the first question is how to assign and manage roles. We identified three main options:
+Roles are ultimately translated into permissions during [authorization][authorization]. The first step is to assign and manage roles. There are three commonly used ways to assign roles:
 
-* [Azure AD App Roles](#roles-using-azure-ad-app-roles)
-* [Azure AD security groups](#roles-using-azure-ad-security-groups)
-* [Application role manager](#roles-using-an-application-role-manager).
+* [Azure AD app roles](#assign-roles-by-using-azure-ad-app-roles)
+* [Azure AD security groups](#assign-roles-by-using-azure-ad-security-groups)
+* [Application role manager](#assign-roles-by-using-an-application-role-manager)
 
-## Roles using Azure AD App Roles
+## Assign roles by using Azure AD app roles
 
-This is the approach that we used in the Tailspin Surveys app.
+This approach is used in the Tailspin Surveys app.
 
-In this approach, The SaaS provider defines the application roles by adding them to the application manifest. After a customer signs up, an admin for the customer's AD directory assigns users to the roles. When a user signs in, the user's assigned roles are sent as claims.
+When you use this approach, the SaaS provider defines the application roles by adding them to the application manifest. After a customer signs up, an admin for the customer's Azure AD directory assigns users to the roles. When a user signs in, the user's assigned roles are sent as claims.
 
 > [!NOTE]
-> If the customer has Azure AD Premium, the admin can assign a security group to a role, and user members of the group will inherit the app role. This is a convenient way to manage roles, because the group owner doesn't need to be an admin or app owner.
+> If the customer has Azure AD Premium, the admin can assign a security group to a role. As a result, user members of the group inherit the app role. This is a convenient way to manage roles because the group owner doesn't need to be an admin or app owner.
 
 Advantages of this approach:
 
-* Simple programming model.
-* Roles are specific to the application. The role claims for one application are not sent to another application.
-* If the customer removes the application from their Azure AD tenant, the roles go away.
-* The application doesn't need any extra Azure AD permissions, other than reading the user's profile.
+* The programming model is simple.
+* Roles are specific to the application. The role claims for one application aren't sent to another application.
+* If the customer removes the application from the Azure AD tenant, the roles disappear.
+* The application doesn't need any extra Azure AD permissions, other than the ability to read the user's profile.
 
-Drawbacks:
+Disadvantages:
 
-* Customers without Azure AD Premium cannot assign app roles to security groups. For these customers, all app role assignments to users must be done individually, by an administrator or an owner of the app.
-* If you have a backend web API which is separate from the web app, the app role assignments for the web app don't apply to the web API. For more discussion of this point, see [Securing a backend web API].
+* Customers that don't have Azure AD Premium can't assign app roles to security groups. For these customers, all app role assignments to users must be done individually, by an administrator or an owner of the app.
+* If you have a backend web API that's separate from the web app, the app role assignments for the web app don't apply to the web API. For more information, see [Securing a backend web API].
 
 ### Implementation
 
-**Define the roles.** The SaaS provider declares the app roles in the [application manifest][application manifest]. For example, here is the manifest entry for the Surveys app:
+#### Define the roles 
+
+The SaaS provider defines the app roles in the [application manifest][application manifest]. For example, here's the manifest entry for the Surveys app:
 
 ```json
 "appRoles": [
@@ -84,44 +86,48 @@ Drawbacks:
 ],
 ```
 
-The `value`  property appears in the role claim. The `id` property is the unique identifier for the defined role. Always generate a new GUID value for `id`.
+The `value` property appears in the role claim. The `id` property is the unique identifier for the defined role. Always generate a new GUID value for `id`.
 
-**Assign users**. When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner (under Enterprise apps) can assign app roles to users.
+#### Assign users 
+
+When a new customer signs up, the application is registered in the customer's Azure AD tenant. At this point, an Azure AD admin for that tenant or an app owner can assign app roles to users (under **Enterprise applications**).
 
 > [!NOTE]
 > As noted earlier, customers with Azure AD Premium can also assign app roles to security groups.
 
-The following screenshot from the Azure portal shows users and groups for the Survey application. Admin and Creator are groups, assigned the SurveyAdmin and SurveyCreator app roles, respectively. Alice is a user who was assigned the SurveyAdmin app role directly. Bob and Charles are users that have not been directly assigned an app role.
+The following screenshot from the Azure portal shows users and groups for the Survey application. Admin and Creators are groups. They're assigned the SurveyAdmin and SurveyCreator app roles, respectively. Alice is a user who was directly assigned the SurveyAdmin app role. Bob and Charles are users who haven't been directly assigned an app role.
 
-![Users and Groups](./images/running-the-app/users-and-groups.png)
+![Screenshot that shows users and groups in the Azure portal.](./images/running-the-app/users-and-groups.png)
 
-As shown in the following screenshot, Charles is part of the Admin group, so he inherits the SurveyAdmin role. In the case of Bob, he has not been assigned an app role yet.
+As shown in the following screenshot, Charles is part of the Admin group, so he inherits the SurveyAdmin role. Bob isn't yet assigned an app role.
 
-![Admin group members](./images/running-the-app/admin-members.png)
+![Screenshot that shows the Admin group members.](./images/running-the-app/admin-members.png)
 
 > [!NOTE]
-> An alternative approach is for the application to assign app roles programmatically, using the Azure AD Graph API. However, this requires the application to obtain write permissions for the customer's Azure AD directory, which is a high privilege that is usually unnecessary.
+> An alternative approach is to enable the application to assign app roles programmatically by using the Microsoft Graph API. However, this approach requires the application to obtain write permissions for the customer's Azure AD directory, which is a high privilege that's usually unnecessary.
 
-**Get role claims**. When a user signs in, the application receives the user's assigned role(s) in a claim with type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` (the `roles` claim in a JWT token).
+#### Get role claims
 
-A user can be assigned multiple roles, or no role. In your authorization code, don't assume the user has exactly one role claim. Instead, write code that checks whether a particular claim value is present:
+When a user signs in, the application receives the user's assigned roles in a claim with type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` (the `roles` claim in a JWT token).
+
+A user can be assigned multiple roles, or no role. In your authorization code, don't assume that a user has exactly one role claim. Instead, write code that checks whether a particular claim value is present:
 
 ```csharp
 if (context.User.HasClaim(ClaimTypes.Role, "Admin")) { ... }
 ```
 
-## Roles using Azure AD security groups
+## Assign roles by using Azure AD security groups
 
-In this approach, roles are represented as Azure AD security groups. The application assigns permissions to users based on their security group memberships.
+When you use this approach, roles are represented as Azure AD security groups. The application assigns permissions to users based on their security group memberships.
 
-Advantages:
+Advantages of this approach:
 
-* For customers who do not have Azure AD Premium, this approach enables the customer to use security groups to manage role assignments.
+* Customers who don't have Azure AD Premium can use security groups to manage role assignments.
 
 Disadvantages:
 
-* Complexity. Because every tenant sends different group claims, the app must keep track of which security groups correspond to which application roles, for each tenant.
-* As users belong to more groups, access tokens grow to include more claims. After a certain limit, Azure AD includes an "overage" claim to limit the token size; see [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens). Application roles avoid this issue because they are scoped to the specific application.
+* This approach is complicated. Because every tenant sends different group claims, the app must track which security groups correspond to each application role, for each tenant.
+* As users are added to more groups, access tokens grow to include more claims. After a certain limit, Azure AD adds an overage claim to limit the token size. For more information, see [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens). Using application roles can help you avoid this issue because roles are scoped to specific applications.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -129,7 +135,7 @@ Disadvantages:
 
 <!-- markdownlint-enable MD024 -->
 
-In the application manifest, set the `groupMembershipClaims` property to "SecurityGroup". This is needed to get group membership claims from Azure AD.
+In the application manifest, set the `groupMembershipClaims` property to `SecurityGroup`. You need to provide this value to get group membership claims from Azure AD.
 
 ```json
 {
@@ -138,33 +144,33 @@ In the application manifest, set the `groupMembershipClaims` property to "Securi
 }
 ```
 
-When a new customer signs up, the application instructs the customer to create security groups for the roles needed by the application. The customer then needs to enter the group object IDs into the application. The application stores these in a table that maps group IDs to application roles, per tenant.
+When a new customer signs up, the application instructs the customer to create security groups for the roles that are needed by the application. The customer then needs to enter the group object IDs into the application. The application stores these IDs in a table that maps group IDs to application roles, on a per-tenant basis.
 
 > [!NOTE]
-> Alternatively, the application could create the groups programmatically, using the Microsoft Graph API. This could be less error prone, but requires the application to obtain privileged read/write permissions for the customer's directory. Many customers might be unwilling to grant this level of access.
+> Alternatively, the application can create the groups programmatically by using the Microsoft Graph API. This approach might be less error prone, but the application needs to obtain privileged read/write permissions for the customer's directory. Some customers might be unwilling to grant this level of access.
 
 When a user signs in:
 
 1. The application receives the user's groups as claims. The value of each claim is the object ID of a group.
-2. Azure AD limits the number of groups sent in the token. If the number of groups exceeds this limit, Azure AD sends a special "overage" claim. If that claim is present, the application must query the Azure AD Graph API to get all of the groups to which that user belongs. For details, see [Groups overage claim](/azure/active-directory/develop/id-tokens#groups-overage-claim).
-3. The application looks up the object IDs in its own database, to find the corresponding application roles to assign to the user.
+2. Azure AD limits the number of groups that can be sent in the token. If the number of groups exceeds the limit, Azure AD sends an overage claim. If that claim is present, the application must query the Microsoft Graph API to get all the groups that include the user. For more information, see [Groups overage claim](/azure/active-directory/develop/id-tokens#groups-overage-claim).
+3. To find the corresponding application roles to assign to the user, the application looks up the object IDs in its own database.
 4. The application adds a custom claim value to the user principal that expresses the application role. For example: `survey_role` = "SurveyAdmin".
 
 Authorization policies should use the custom role claim, not the group claim.
 
-## Roles using an application role manager
+## Assign roles by using an application role manager
 
-With this approach, application roles are not stored in Azure AD at all. Instead, the application stores the role assignments for each user in its own DB &mdash; for example, using the **RoleManager** class in ASP.NET Identity.
+When you use this approach, application roles aren't stored in Azure AD at all. Instead, the application stores the role assignments for each user in its own database, for example, by using the **RoleManager** class in ASP.NET **Identity**.
 
-Advantages:
+Advantages of this approach:
 
 * The app has full control over the roles and user assignments.
 
-Drawbacks:
+Disadvantages:
 
-* More complex, harder to maintain.
-* Cannot use Azure AD security groups to manage role assignments.
-* Stores user information in the application database, where it can get out of sync with the tenant's Azure AD directory, as users are added or removed.
+* This approach is more complex and requires more maintenance.
+* You can't use Azure AD security groups to manage role assignments.
+* User information is stored in the application database, where it becomes out of sync with the tenant's Azure AD directory as users are added and removed.
 
 [**Next**][authorization]
 
