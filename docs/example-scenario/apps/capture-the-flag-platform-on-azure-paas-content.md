@@ -78,7 +78,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - The CTFd environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down just as easily.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
 
-### Operational Excellence
+### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
