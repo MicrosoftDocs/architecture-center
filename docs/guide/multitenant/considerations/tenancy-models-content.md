@@ -7,7 +7,7 @@ When you consider the various models of multitenancy, it's helpful to first take
 First, you need to define a *tenant* for your organization. Consider who your customer is. In other words, who are you providing your services to? There are two common models:
 
 - **Business to business (B2B)**. If your customers are other organizations, you're likely to map your tenants to those customers. However, consider whether your customers have divisions (teams or departments) and whether they have a presence in multiple countries/regions. You might need to map a single customer to multiple tenants if there are different requirements for these subgroups. Similarly, a customer might want to maintain two instances of your service so they can keep their development and production environments separated from each other. Generally, a single tenant has multiple users. For example, all of your customer's employees will be users in a single tenant.
-- **Business to consumer (B2C)**. If your customers are consumers, it's often more complicated to relate customers, tenants, and users. In some scenarios, each consumer might be a separate tenant. However, consider whether your solution might be used by families, groups of friends, clubs, associations, or other groupings that might need to access and manage their data together. For example, a music streaming service might support both individual users and families, and it might treat each of these account types differently when it separates them into tenants.
+- **Business to consumer (B2C)**. If your customers are consumers, it's often more complicated to relate customers, tenants, and users. In some scenarios, each consumer might be a separate tenant. However, consider whether your solution might be used by families, groups of friends, clubs, associations, or other groups that might need to access and manage their data together. For example, a music streaming service might support both individual users and families, and it might treat each of these account types differently when it separates them into tenants.
 
 Your definition of _tenant_ will affect some of the things that you need to consider or emphasize when you architect your solution. For example, consider these different types of tenants:
 
@@ -32,7 +32,7 @@ Conversely, if you expect that your business will have only a few customers, you
 
 Next, you need to determine what *tenant* means for your particular solution, and whether you should distinguish between _logical_ and _physical_ tenants.
 
-For example, consider a music streaming service. Initially, you might build a solution that can easily handle thousands (or even tens of thousands) of users. As you continue to grow, however, you might find that you need to duplicate your solution or some of its components in order to scale to your new customer demand. This means that you'll need to determine how to assign specific customers to specific instances of your solution. You might do this randomly, or geographically, or by filling up a single instance and then starting another. However, you'll probably need to maintain a record of your customers and which infrastructure their data and applications are available on so that you can route their traffic to the correct infrastructure. In this example, you might represent each customer as a separate tenant, and then map the users to the deployment that contains their data. You have a one-to-many mapping between tenants and deployments, and you can move tenants among deployments at your own discretion.
+For example, consider a music streaming service. Initially, you might build a solution that can easily handle thousands (or even tens of thousands) of users. As you continue to grow, however, you might find that you need to duplicate your solution or some of its components in order to scale to your new customer demand. This means that you'll need to determine how to assign specific customers to specific instances of your solution. You might assign customers randomly, or geographically, or by filling up a single instance and then starting another. However, you'll probably need to maintain a record of your customers and which infrastructure their data and applications are available on so that you can route their traffic to the correct infrastructure. In this example, you might represent each customer as a separate tenant, and then map the users to the deployment that contains their data. You have a one-to-many mapping between tenants and deployments, and you can move tenants among deployments at your own discretion.
 
 In contrast, consider a company that creates cloud software for legal firms. Your customers might insist on having their own dedicated infrastructure to maintain their compliance standards. Therefore, you need to be prepared to deploy and manage many different instances of your solution from the start. In this example, a deployment always contains a single tenant, and a tenant is mapped to its own dedicated deployment.
 
@@ -70,7 +70,7 @@ Your solution architecture can influence your available options for isolation. F
 - Your middle tier could be a shared application layer, with shared message queues.
 - Your data tier could be isolated databases, tables, or blob containers.
 
-You can consider using different levels of isolation on each tier. Your decision about what's shared and what's isolated should be based on many considerations, including cost, complexity, your customers' requirements, and the number of resources that you can deploy before reaching Azure quotas and limits.
+You can consider using different levels of isolation on each tier. You should base your decision about what's shared and what's isolated on many considerations, including cost, complexity, your customers' requirements, and the number of resources that you can deploy before reaching Azure quotas and limits.
 
 ## Common tenancy models
 
@@ -86,7 +86,7 @@ Your application is responsible for initiating and coordinating the deployment o
 
 **Benefits:** A key benefit of this approach is that data for each tenant is isolated, which reduces the risk of accidental leakage. This safeguard can be important to some customers that have high regulatory compliance overhead. Additionally, tenants are unlikely to affect each other's system performance, an issue that's sometimes called the _noisy neighbor_ problem. Updates and changes can be rolled out progressively across tenants, which reduces the likelihood of a system-wide outage.
 
-**Risks:** If you use this approach, cost efficiency is low, because you don't share infrastructure among your tenants. If a single tenant requires a certain infrastructure cost, 100 tenants will probably require 100 times that cost. Additionally, ongoing maintenance (like applying new configuration or software updates) will probably be time-consuming. Consider automating your operational processes, and consider applying changes progressively through your environments. You should also consider other cross-deployment operations, like reporting and analytics across your whole estate. Likewise, be sure to plan for how you can query and manipulate data across multiple deployments.
+**Risks:** If you use this approach, cost efficiency is low, because you don't share infrastructure among your tenants. If a single tenant requires a certain infrastructure cost, 100 tenants probably require 100 times that cost. Additionally, ongoing maintenance (like applying new configuration or software updates) will probably be time-consuming. Consider automating your operational processes, and consider applying changes progressively through your environments. You should also consider other cross-deployment operations, like reporting and analytics across your whole estate. Likewise, be sure to plan for how you can query and manipulate data across multiple deployments.
 
 ### Fully multitenant deployments
 
@@ -102,7 +102,7 @@ At the opposite extreme, you can consider a fully multitenant deployment, where 
 
 - Determine how to [track and associate your Azure costs to tenants](measure-consumption.md), if this is important to you. Maintenance can be simpler with a single deployment, because you only have to update one set of resources. However, it's also often riskier, because changes might affect your entire customer base.
 
-- You might also need to consider scale. You're more likely to reach [Azure resource scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) when you have a shared set of infrastructure. For example, if you use a storage account as part of your solution, as your scale increases, the number of requests to that storage account might reach the limit of what the storage account can handle. To avoid reaching a resource quota limit, you can consider deploying multiple instances of your resources (for example, multiple AKS clusters or storage accounts), or you can even consider distributing your tenants across resources that you deploy into multiple Azure subscriptions.
+- You might also need to consider scale. You're more likely to reach [Azure resource scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) when you have a shared set of infrastructure. For example, if you use a storage account as part of your solution, as your scale increases, the number of requests to that storage account might reach the limit of what the storage account can handle. To avoid reaching a resource quota limit, you can consider deploying multiple instances of your resources (for example, multiple AKS clusters or storage accounts). You can even consider distributing your tenants across resources that you deploy into multiple Azure subscriptions.
 
 - There's probably a limit to how far you can scale a single deployment, and the costs of doing so might increase non-linearly. For example, if you have a single shared database, when you run at very high scale you might exhaust its throughput and need to pay increasingly more for increased throughput to keep up with your demand.
 
@@ -133,7 +133,7 @@ You can also consider horizontally partitioning your deployments. In a horizonta
 
 ## Test your isolation model
 
-Whichever isolation model you select, ensure you test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) effects are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
+Whichever isolation model you choose, be sure to test your solution to verify that one tenant's data isn't accidentally leaked to another and that any [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) effects are acceptable. Consider using [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify the resiliency of your solution even when components are malfunctioning.
 
 ## Contributors
 
@@ -153,4 +153,4 @@ Other contributors:
 
 ## Next steps
 
-Consider the [lifecycle of your tenants](tenant-lifecycle.md).
+Consider the [lifecycle of your tenants](tenant-lifecycle.md)
