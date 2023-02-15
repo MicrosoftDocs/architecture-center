@@ -4,7 +4,7 @@ This architecture builds on the [AKS baseline architecture](/azure/architecture/
 
 ## Architecture
 
-[ ![Architecture diagram showing mutli-region deployment.](./images/aks-multi-cluster.svg)](./images/aks-multi-cluster.svg#lightbox)
+[ ![Architecture diagram showing multi-region deployment.](./images/aks-multi-cluster.svg)](./images/aks-multi-cluster.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster.vsdx) of this architecture.*
 
