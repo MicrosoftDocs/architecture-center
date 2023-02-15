@@ -48,7 +48,7 @@ The following steps provide a high-level overview how AFD customers can utilize 
    - Geo: Based on client geography, route to an endpoint in same geo
    - Subnet: Custom route specific client IP ranges to specific endpoint IP ranges
 1. Point your custom domain to the Traffic Manager domain to initiate traffic flow to AFD and Verizon’s CDN.
-1. ATM’s built-in endpoint health monitoring will now auto fail-over to in the rare event an outage with AFD is detected. Please see: [Azure Traffic Manager endpoint monitoring](../traffic-manager/traffic-manager-monitoring.md) for details.
+1. ATM’s built-in endpoint health monitoring will now auto fail-over to in the rare event an outage with AFD is detected. Please see: [Azure Traffic Manager endpoint monitoring](/traffic-manager/traffic-manager-monitoring) for details.
 
 ## Next steps
 
