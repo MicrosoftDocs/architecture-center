@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
 ms.author: anharvey
-ms.date: 10/28/2021
+ms.date: 2/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
