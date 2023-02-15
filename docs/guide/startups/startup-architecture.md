@@ -72,8 +72,9 @@ In early startup stages, any architecture extension should be just-in-time. The 
 
 Your architecture could be expanded in many ways, such as:
 
-- Enhancing resiliency through a [highly available multi-region deployment](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
-- Enhancing security through a [network hardened technology stack](/azure/architecture/example-scenario/security/hardened-web-app)
+- Enhancing resiliency through a [highly available multi-region deployment](../../reference-architectures/app-service-web-app/multi-region.yml)
+- Enhancing security through a [network hardened technology stack](../../example-scenario/security/hardened-web-app.yml)
+
 ## Extract
 
 In the extraction phase, the pace of growth slows as you reach the limits of the market opportunity. Because you expanded through the previous phase, there's now a lot to lose, so you take a more cautious approach. Margin expansion, cost reduction, and efficiency improvements characterize the extraction phase. During the extraction phase, be careful not to compromise the product for the customers you won in the expansion phase.
