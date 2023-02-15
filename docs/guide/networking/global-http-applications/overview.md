@@ -35,8 +35,9 @@ In this article, we describe the factors that you need to consider when planning
 - What is Traffic Manager
 - Diagram: TM -> { FD, generic other path } -> generic applications
 - Your application needs to be ready to accept traffic from either pathway (AFD or otherwise)
-  - Do you use X-Azure-FDID header? If so, how will this work when traffic follows a different path in?
-  - Do you use Private Link to connect from AFD to your origin? If so, how will this work when the traffic doesn't go through AFD?
+  - Origin security
+    - Do you use X-Azure-FDID header? If so, how will this work when traffic follows a different path in?
+    - Do you use Private Link to connect from AFD to your origin? If so, how will this work when the traffic doesn't go through AFD?
 
 ## Key considerations
 
@@ -59,11 +60,11 @@ In this article, we describe the factors that you need to consider when planning
 
 - TODO
 
-### Public IP address ownership
+### Internet security
 
 - When you use AFD, you get a lot of benefits by virtue of it being a multitenant service that only accepts valid HTTP traffic. Layer 3/4 traffic and non-HTTP protocols just don't get to you. So equally, attacks that rely on these protocols don't reach your application. If you've restricted your origin to only accept traffic from AFD, you significantly limit your exposure to internet threats.
 - But if you use a secondary path into your application, this can be a significant shift in your exposure.
-  - Consider whether you need to expose a dedicated public IP address, and whether you need to then start to use DDoS protection, intrusion detection, layer 3/4 firewalls, etc.
+  - Consider whether you need to expose your applications to the internet. This might require dedicated public IP address. Consider whether you need to then start to use DDoS protection, intrusion detection, layer 3/4 firewalls, etc.
 
 ### Failover time
 
