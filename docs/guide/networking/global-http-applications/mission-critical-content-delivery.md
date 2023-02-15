@@ -31,7 +31,9 @@ In this article, we describe an approach for using Azure Front Door with a partn
 
 ## Approach
 
-Microsoft has partnered with Verizon's CDN, and you can integrate Verizon's CDN platform into your Azure-based solution. Although Verizon's CDN is partnered with Azure and can be configured from within the Azure portal and APIs, their CDN platform is isolated from Microsoft’s infrastructure. This isolation provides a high degree of resiliency from disaster scenarios. In the event of an outage or disaster, traffic can be automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
+Microsoft has partnered with Verizon's CDN, and you can integrate Verizon's CDN platform into your Azure-based solution. Although Verizon's CDN is partnered with Azure and can be configured from within the Azure portal and APIs, their CDN platform is isolated from Microsoft’s infrastructure.
+
+This isolation provides a high degree of resiliency from disaster scenarios. In the event of an outage or disaster, traffic can be automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
 :::image type="content" source="./media/front-door-verizon-cdn.png" alt-text="Traffic Manager with weighted routing between AFD and Verizon’s CDN." border="false":::
 
@@ -56,15 +58,15 @@ The following steps provide a high-level overview how you can configure this mul
 
 ## Considerations
 
-### Health detection and failover
+### Cost
+
+- Paying for multiple CDNs. This might or might not be a problem. Look into the CDNs you're using and how their billing works
+
+### Monitoring health and triggering failover
 
 There are numerous tools customers can utilize to monitor availability/performance, and these solutions will then automatically shift traffic over to another preconfigured CDN if a less than ideal threshold is identified. One of the key technologies to enable multi-CDN availability are DNS based load balancing solutions (e.g., Azure Traffic Manager).
 
  alternatively, customers can utilize third party load balancing solutions that are isolated from Microsoft or Verizon. 
-
-### DNS
-
-Moreover, since DNS is a key element with serving web application traffic, it is also an industry best practice to utilize multiple DNS resolvers to ensure the utmost availability.
 
 ### Feature parity
 
@@ -74,6 +76,10 @@ Moreover, since DNS is a key element with serving web application traffic, it is
 
 - We recommend customers test the failover between CDNs, and then observe for anomalies or performance characteristics associated with their applications/infrastructures. One common issue that can arise for customers running multiple CDNs in an active/passive mode is the CDN configured in passive mode will need to perform a cache fill from your origin storage systems during a failover. During these scenarios of a cache fill, origin storage systems could become overloaded. As such, increasing the performance criteria for these storage systems and/or pre-filling the passive CDN with a percentage of your most popular content can mitigate against origin storage performance impacts.
 
+### Choice of CDN
+
+- Verizon is a good choice because it can be controlled and billed through Azure while running on separate infrastructure
+- You can use another CDN if you prefer too, or even several CDNs
 
 ## Next steps
 

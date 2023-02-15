@@ -50,15 +50,29 @@ In this article, we describe the factors that you need to consider when planning
 
 ### Domain names and TLS certificates
 
-- TODO
+- Very important to use your own domain - don't rely on or use the provider-generated domains
+- Azure Front Door provides managed TLS certificates. However, in this kind of architecture you should use your own certificate, for a couple of reasons:
+  - Front Door's domain verification process for certificate generation and renewal assumes that your domain points directly to Front Door, which isn't true in this kind of approach.
+  - Also, your other CDNs might not be able to generate and renew managed certificates, probably for similar reasons.
+  - If you have multiple providers all issuing certificates independently you could cause problems for your clients.
 
 ### Web application firewall
 
-- TODO
+- If you use the Front Door WAF to protect your application, consider what happens if the traffic isn't going through Front Door anymore
+- Do your alternative paths also have WAFs? If so, can you configure them the same way as your Front Door WAF?
+  - Do they need to be tested and tuned independently to avoid false positive detections?
+  - If you choose not to use a WAF for your alternative path, are you making yourself more vulnerable to threats?
+  - If somebody discovers your secondary path, could they send malicious traffic through your secondary path even when your primary path is live?
 
-### Monitoring health
+### Rules engine
 
-- TODO
+- Do you do custom routing logic by using the Front Door rules engine? If so, how will you handle this when traffic traverses the alternate path?
+
+### Monitoring health and triggering failover
+
+- Traffic Manager needs to detect a failure in Front Door and then serve new records
+- Your DNS TTL and TM probe config affects this
+- Can't control all downstream DNS caches either
 
 ### Internet security
 
@@ -66,11 +80,9 @@ In this article, we describe the factors that you need to consider when planning
 - But if you use a secondary path into your application, this can be a significant shift in your exposure.
   - Consider whether you need to expose your applications to the internet. This might require dedicated public IP address. Consider whether you need to then start to use DDoS protection, intrusion detection, layer 3/4 firewalls, etc.
 
-### Failover time
+### DNS
 
-- Traffic Manager needs to detect a failure in Front Door and then serve new records
-- Your DNS TTL and TM probe config affects this
-- Can't control all downstream DNS caches either
+Because DNS is a key element with serving web application traffic, it is also an industry best practice to utilize multiple DNS resolvers to ensure the utmost availability.
 
 ## Common scenarios
 
