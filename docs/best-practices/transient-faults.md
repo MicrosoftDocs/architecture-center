@@ -1,5 +1,5 @@
 ---
-title: Retry general guidance
+title: Transient fault handling
 titleSuffix: Best practices for cloud applications
 description: Learn how to handle transient faults when connecting to resources, caused by loss of network connectivity, temporary unavailability, or timeouts.
 author: martinekuan
