@@ -333,7 +333,7 @@ SAS token authentication implementation summary for Azure IoT Hub device SDK for
 
 -   [DeviceClient.registerConnectionStateCallback(IotHubConnectionStateCallback callback, Object callbackContext) Method](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.registerconnectionstatecallback?view=azure-java-stable&preserve-view=true)
 
--   [Custom SAS token provider sample - SDK Sample](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/custom-sas-token-provider-sample)
+-   [Custom SAS token provider sample - SDK Sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/custom-sas-token-provider-sample)
 
 ### Azure IoT Hub device SDK for Python
 
