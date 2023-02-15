@@ -2237,6 +2237,8 @@ items:
                 href: example-scenario/ai/student-attrition-prediction.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
+              - name: Scalable secure open source Capture the Flag (CTF)
+                href: example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml
               - name: Teacher-provisioned virtual labs in Azure
                 href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
               - name: Training and guidance with mixed reality
