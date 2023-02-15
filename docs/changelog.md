@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 02/06/2023
+ms.date: 02/13/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,12 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Highly available zone-redundant Azure Spring Apps](./reference-architectures/microservices/spring-apps-multi-zone.yml)
+- [Use deployment scripts to check resource properties](./guide/devops/deployment-scripts-property-check.yml)
+- [Deploy Engys ELEMENTS on an Azure virtual machine](./guide/hpc/engys-elements.yml)
+- [Deploy IBM Sterling Order Management Software (OMS) on Azure](./reference-architectures/ibm/deploy-ibm-sterling-oms.yml)
+- [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)
+- [Deploy Sandi HiFUN on an Azure virtual machine](./guide/hpc/hpc-sandi-hifun.yml)
 - [Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics](./example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
 - [Use Profisee MDM to migrate SQL Server MDS to Azure](./example-scenario/profisee-mds/profisee-mds-migration-utility.yml)
 - [Replicate mainframe data by using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
@@ -34,6 +40,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#47223927f](https://github.com/MicrosoftDocs/architecture-center/commit/47223927f))
 - [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#7911bb1fd](https://github.com/MicrosoftDocs/architecture-center/commit/7911bb1fd))
 - [Overview of SAP guidance and resources](./reference-architectures/sap/sap-overview.yml)  ([#895766387](https://github.com/MicrosoftDocs/architecture-center/commit/895766387))
 - [CI/CD baseline architecture with Azure Pipelines](./example-scenario/apps/devops-dotnet-baseline.yml)  ([#2d56f29fe](https://github.com/MicrosoftDocs/architecture-center/commit/2d56f29fe))
@@ -128,7 +135,7 @@ The following new and updated articles have recently been published in the Azure
 - [Enhanced-security hybrid messaging — web access](./example-scenario/hybrid/secure-hybrid-messaging-web.yml)  ([#75fc736cd](https://github.com/MicrosoftDocs/architecture-center/commit/75fc736cd))
 - [Monitor hybrid availability, performance](./hybrid/hybrid-perf-monitoring.yml)  ([#75fc736cd](https://github.com/MicrosoftDocs/architecture-center/commit/75fc736cd))
 - [Manage hybrid Azure workloads using Windows Admin Center](./hybrid/hybrid-server-os-mgmt.yml)  ([#75fc736cd](https://github.com/MicrosoftDocs/architecture-center/commit/75fc736cd))
-- [Blue/green app deployments](./example-scenario/blue-green-spring/blue-green-spring.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
+- [Blue/green deployments on Azure Spring Apps](./example-scenario/blue-green-spring/blue-green-spring.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
 - [Use Service Fabric to decompose apps](./example-scenario/infrastructure/service-fabric-microservices.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
 - [Deploy microservices with Azure Container Apps](./example-scenario/serverless/microservices-with-container-apps.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
 - [Multicloud solutions with the Serverless Framework](./example-scenario/serverless/serverless-multicloud.yml)  ([#a0f58cf22](https://github.com/MicrosoftDocs/architecture-center/commit/a0f58cf22))
