@@ -41,10 +41,10 @@ The following steps provide a high-level overview how AFD customers can utilize 
 1. Configure a Verizon CDN profile, and then link it to your endpoints.
 1. Configure ATM with the required routing logic to load balance between Front Door and Verizon’s CDN.
 
-   [Routing Methods](../traffic-manager/traffic-manager-routing-methods.md) to Consider:
+   [Routing Methods](/azure/traffic-manager/traffic-manager-routing-methods) to Consider:
    - Priority: Create Primary/Fallback endpoints. If primary becomes unhealthy all traffic will failover to fallback endpoint
    - Weight: Distribute traffic (equally/unevenly) among endpoints by setting weight
-   - Performance: Route traffic to least latent endpoints (please see [Real User Measurements in Azure Traffic Manager](../traffic-manager/traffic-manager-rum-overview.md))
+   - Performance: Route traffic to least latent endpoints (please see [Real User Measurements in Azure Traffic Manager](/traffic-manager/traffic-manager-rum-overview))
    - Geo: Based on client geography, route to an endpoint in same geo
    - Subnet: Custom route specific client IP ranges to specific endpoint IP ranges
 1. Point your custom domain to the Traffic Manager domain to initiate traffic flow to AFD and Verizon’s CDN.

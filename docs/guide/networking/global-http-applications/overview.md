@@ -29,20 +29,52 @@ You can switch between Azure Front Door and other application delivery services 
 
 In this article, we describe the factors that you need to consider when planning a mission-critical global HTTP application architecture with Azure Front Door.
 
-## Understand your use of Azure Front Door
+## Alternate traffic paths
+
+- Need to send traffic to Front Door when it's available, and automatically fail over when it's not
+- What is Traffic Manager
+- Diagram: TM -> { FD, generic other path } -> generic applications
+- Your application needs to be ready to accept traffic from either pathway (AFD or otherwise)
+  - Do you use X-Azure-FDID header? If so, how will this work when traffic follows a different path in?
+  - Do you use Private Link to connect from AFD to your origin? If so, how will this work when the traffic doesn't go through AFD?
+
+## Key considerations
+
+### Understand your use of Azure Front Door
 
 - Front Door has many features
 - It's important to understand which features you use and rely on
-- The exact set of features that you use might dictate the approach you follow
+- The exact set of features that you use might dictate the approach you follow, and which alternate paths might be appropriate
+- To you send traffic to another path, you need to ensure that you have equivalent features in the other service
 
-## Azure Front Door's resiliency
+### Domain names and TLS certificates
 
-- AFD already is a highly available service and we continue to invest in ongoing improvements to 
+- TODO
 
-## Automated failover architecture
+### Web application firewall
 
-> [!WARNING]
-> Implementing a multi-CDN architecture can be complex and costly. Due to potential caveats that may arise with utilizing multiple CDNs, we suggest consulting with a Microsoft cloud solutions architect, FastTrack for Azure engineers, or site reliability engineering team to determine which choice is best for your needs. 
+- TODO
+
+### Monitoring health
+
+- TODO
+
+### Public IP address ownership
+
+- When you use AFD, you get a lot of benefits by virtue of it being a multitenant service that only accepts valid HTTP traffic. Layer 3/4 traffic and non-HTTP protocols just don't get to you. So equally, attacks that rely on these protocols don't reach your application. If you've restricted your origin to only accept traffic from AFD, you significantly limit your exposure to internet threats.
+- But if you use a secondary path into your application, this can be a significant shift in your exposure.
+  - Consider whether you need to expose a dedicated public IP address, and whether you need to then start to use DDoS protection, intrusion detection, layer 3/4 firewalls, etc.
+
+### Failover time
+
+- Traffic Manager needs to detect a failure in Front Door and then serve new records
+- Your DNS TTL and TM probe config affects this
+- Can't control all downstream DNS caches either
+
+## Common scenarios
+
+- [Global traffic ingress](./mission-critical-global-http-ingress.md)
+- [Caching](./mission-critical-content-delivery.md)
 
 ## Next steps
 
