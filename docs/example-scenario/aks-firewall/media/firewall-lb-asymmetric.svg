@@ -45,7 +45,7 @@
 		.st38 {fill:#000000;font-family:Segoe UI Semibold;font-size:0.916672em}
 		.st39 {marker-end:url(#mrkr4-129);stroke:#000000;stroke-linecap:butt;stroke-width:1.5}
 		.st40 {fill:#eaeaea;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
-		.st41 {fill:#000000;font-family:Segoe UI Semibold;font-size:0.75em}
+		.st41 {fill:#000000;font-family:Segoe UI Semibold;font-size:0.666664em}
 		.st42 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -345,9 +345,9 @@
 				<text x="8.72" y="363.48" class="st22">Public standard <tspan x="13.02" dy="1.2em" class="st23">load balancer</tspan></text>			</g>
 			<g id="shape1057-106" transform="translate(0,-30.9571)">
 				<title>Sheet.1057</title>
-				<desc>No instance level PiP</desc>
+				<desc>No instance level public IP</desc>
 				<rect x="0" y="354.957" width="70.875" height="23.0429" class="st8"/>
-				<text x="9.24" y="363.48" class="st22">No instance <tspan x="17.21" dy="1.2em" class="st23">level PiP</tspan></text>			</g>
+				<text x="9.24" y="363.48" class="st22">No instance <tspan x="5.08" dy="1.2em" class="st23">level public IP</tspan></text>			</g>
 			<g id="shape1058-110" transform="translate(50.6741,0)">
 				<title>Sheet.1058</title>
 				<desc>Virtual Machine</desc>
@@ -370,11 +370,11 @@
 				<title>Directed line 1.1063</title>
 				<path d="M0 378 L16.79 378" class="st29"/>
 			</g>
-			<g id="shape1064-136" transform="translate(57.375,-175.882)">
+			<g id="shape1064-136" transform="translate(29.8125,-175.882)">
 				<title>Sheet.1064</title>
-				<desc>PiP</desc>
-				<rect x="0" y="363.925" width="31.8423" height="14.0748" class="st8"/>
-				<text x="9.11" y="373.96" class="st22">PiP</text>			</g>
+				<desc>Public IP</desc>
+				<rect x="0" y="363.925" width="63.9047" height="14.0748" class="st8"/>
+				<text x="13.15" y="373.96" class="st22">Public IP</text>			</g>
 			<g id="shape1065-139" transform="translate(145.688,666.169) rotate(180)">
 				<title>Top/bottom to side.1065</title>
 				<path d="M0 370.32 L0 369.96 L0 365.06 A4.5 4.5 0 0 1 4.5 360.56 L55.55 360.56" class="st31"/>
@@ -633,9 +633,9 @@
 			<text x="7.19" y="363.48" class="st22">Public standard <tspan x="14.04" dy="1.2em" class="st23">load blancer</tspan></text>		</g>
 		<g id="shape1126-270" transform="translate(305.196,-105.376)">
 			<title>Sheet.1126</title>
-			<desc>No instance level PiP</desc>
+			<desc>No instance level public IP</desc>
 			<rect x="0" y="354.957" width="70.875" height="23.0429" class="st8"/>
-			<text x="9.24" y="363.48" class="st22">No instance <tspan x="17.21" dy="1.2em" class="st23">level PiP</tspan></text>		</g>
+			<text x="9.24" y="363.48" class="st22">No instance <tspan x="5.08" dy="1.2em" class="st23">level public IP</tspan></text>		</g>
 		<g id="shape1127-274" transform="translate(355.871,-74.4187)">
 			<title>Sheet.1127</title>
 			<desc>Virtual Machine</desc>
@@ -653,11 +653,11 @@
 			<title>Directed line 1.1063</title>
 			<path d="M0 378 L14.76 378" class="st29"/>
 		</g>
-		<g id="shape1132-293" transform="translate(363.696,-250.3)">
+		<g id="shape1132-293" transform="translate(338.063,-250.3)">
 			<title>Sheet.1132</title>
-			<desc>PiP</desc>
-			<rect x="0" y="363.925" width="31.8423" height="14.0748" class="st8"/>
-			<text x="9.11" y="373.96" class="st22">PiP</text>		</g>
+			<desc>Public IP</desc>
+			<rect x="0" y="363.925" width="57.4762" height="14.0748" class="st8"/>
+			<text x="9.94" y="373.96" class="st22">Public IP</text>		</g>
 		<g id="shape1137-296" transform="translate(499.282,-208.452)">
 			<title>Sheet.1137</title>
 			<desc>Azure Firewall</desc>
@@ -730,9 +730,9 @@
 			<text x="8.44" y="369.95" class="st37">1</text>		</g>
 		<g id="shape1149-344" transform="translate(491.734,-250.3)">
 			<title>Sheet.1149</title>
-			<desc>PiP</desc>
-			<rect x="0" y="363.925" width="31.8423" height="14.0748" class="st8"/>
-			<text x="9.11" y="373.96" class="st22">PiP</text>		</g>
+			<desc>Public IP</desc>
+			<rect x="0" y="363.925" width="52.2036" height="14.0748" class="st8"/>
+			<text x="7.3" y="373.96" class="st22">Public IP</text>		</g>
 		<g id="shape1150-347" transform="translate(871.04,190.125) rotate(90)">
 			<title>Directed line 1.1150</title>
 			<path d="M7.68 378 L8.04 378 L26.46 378" class="st31"/>
@@ -744,36 +744,36 @@
 		</g>
 		<g id="shape1147-357" transform="translate(406.059,-163.588)">
 			<title>Sheet.1147</title>
-			<desc>UDR: Firewall PiP Next hop: Internet</desc>
-			<rect x="0" y="342" width="81.5625" height="36" class="st40"/>
-			<text x="4" y="351.9" class="st41">UDR: Firewall  PiP <tspan x="4" dy="1.2em" class="st23">Next hop:     </tspan><tspan
-						x="4" dy="1.2em" class="st23">Internet</tspan></text>		</g>
-		<g id="shape1141-362" transform="translate(441.333,-206)">
+			<desc>UDR: Firewall public IP Next hop: Internet</desc>
+			<rect x="0" y="339.088" width="63.0662" height="38.9117" class="st40"/>
+			<text x="4" y="346.54" class="st41">UDR: Firewall  <tspan x="4" dy="1.2em" class="st23">public IP </tspan><tspan x="4"
+						dy="1.2em" class="st23">Next hop:     </tspan><tspan x="4" dy="1.2em" class="st23">Internet</tspan></text>		</g>
+		<g id="shape1141-363" transform="translate(441.333,-206)">
 			<title>Number.1074</title>
 			<desc>4</desc>
 			<ellipse cx="11.5215" cy="366.479" rx="11.5215" ry="11.5215" class="st36"/>
 			<text x="8.44" y="369.95" class="st37">4</text>		</g>
-		<g id="shape1152-365" transform="translate(496,-185.333)">
+		<g id="shape1152-366" transform="translate(496,-185.333)">
 			<title>Sheet.1152</title>
 			<desc>Private IP</desc>
 			<rect x="0" y="363.925" width="52.875" height="14.0748" class="st8"/>
 			<text x="5.94" y="373.96" class="st22">Private IP</text>		</g>
-		<g id="shape1153-368" transform="translate(851.286,295.286) rotate(135)">
+		<g id="shape1153-369" transform="translate(851.286,295.286) rotate(135)">
 			<title>Directed line 1.1153</title>
 			<path d="M7.68 378 L8.04 378 L119.5 378" class="st31"/>
 		</g>
-		<g id="shape1154-373" transform="translate(565.333,-300.042)">
+		<g id="shape1154-374" transform="translate(565.333,-300.042)">
 			<title>Sheet.1154</title>
 			<desc>Allowed as Firewall can see inbound+outbound</desc>
 			<rect x="0" y="351" width="99.225" height="27" class="st8"/>
 			<text x="7.87" y="355.5" class="st22">Allowed as Firewall <tspan x="33.21" dy="1.2em" class="st23">can see </tspan><tspan
 						x="5.75" dy="1.2em" class="st23">inbound+outbound</tspan></text>		</g>
-		<g id="shape1155-378" transform="translate(520.667,-290.042)">
+		<g id="shape1155-379" transform="translate(520.667,-290.042)">
 			<title>Number.1155</title>
 			<desc>5</desc>
 			<ellipse cx="11.5215" cy="366.479" rx="11.5215" ry="11.5215" class="st36"/>
 			<text x="8.44" y="369.95" class="st37">5</text>		</g>
-		<g id="shape3-381" transform="translate(2.66667,0.666667)">
+		<g id="shape3-382" transform="translate(2.66667,0.666667)">
 			<title>logo png.3</title>
 			<rect x="0" y="311.848" width="125.24" height="66.1523" class="st8"/>
 			<image x="0" y="311.848" width="125.24" height="66.1523" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -1150,12 +1150,12 @@
 						BAAAAAAAgFr/vPz/GhoivpSh09AAAAAASUVORK5CYII="/>
 			<rect x="0" y="311.848" width="125.24" height="66.1523" class="st8"/>
 		</g>
-		<g id="shape1156-385" transform="translate(367.875,-278.708)">
+		<g id="shape1156-386" transform="translate(353.813,-278.708)">
 			<title>Sheet.1156</title>
-			<desc>DNAT: Load balancer PiP SNAT: Firewall PiP</desc>
-			<rect x="0" y="354.957" width="115.875" height="23.0429" class="st8"/>
-			<text x="4" y="363.78" class="st24">DNAT: Load balancer PiP <tspan x="4" dy="1.2em" class="st23">SNAT: Firewall PiP</tspan></text>		</g>
-		<g id="shape1157-389" transform="translate(462,-134.042)">
+			<desc>DNAT: Load balancer public IP SNAT: Firewall public IP</desc>
+			<rect x="0" y="354.957" width="129.937" height="23.0429" class="st8"/>
+			<text x="4" y="363.78" class="st24">DNAT: Load balancer public IP <tspan x="4" dy="1.2em" class="st23">SNAT: Firewall public IP</tspan></text>		</g>
+		<g id="shape1157-390" transform="translate(462,-134.042)">
 			<title>Sheet.1157</title>
 			<desc>UDR: 0.0.0.0/0 Next hop: Firewall private IP</desc>
 			<rect x="0" y="354.957" width="105.667" height="23.0429" class="st8"/>
