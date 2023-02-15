@@ -315,12 +315,12 @@
 			</g>
 			<g id="shape1061-36" v:mID="1061" v:groupContext="shape" transform="translate(12.06,-39.782)">
 				<title>Sheet.1061</title>
-				<desc>Azure Filewall</desc>
+				<desc>Azure Firewall</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="22.5" cy="594.72" width="45" height="34.56"/>
 				<rect x="0" y="577.44" width="45" height="34.56" class="st2"/>
 				<text x="8.56" y="591.42" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
-							x="4.84" dy="1.2em" class="st11">Filewall</tspan></text>			</g>
+							x="4.26" dy="1.2em" class="st11">Firewall</tspan></text>			</g>
 		</g>
 		<g id="group1070-40" transform="translate(196.071,-459.643)" v:mID="1070" v:groupContext="group">
 			<title>Sheet.1070</title>
@@ -904,12 +904,12 @@
 			</g>
 			<g id="shape1438-245" v:mID="1438" v:groupContext="shape" transform="translate(12.06,-39.782)">
 				<title>Sheet.1438</title>
-				<desc>Azure Filewall</desc>
+				<desc>Azure Firewall</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="22.5" cy="594.72" width="45" height="34.56"/>
 				<rect x="0" y="577.44" width="45" height="34.56" class="st2"/>
 				<text x="8.56" y="591.42" class="st10" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure <tspan
-							x="4.84" dy="1.2em" class="st11">Filewall</tspan></text>			</g>
+							x="4.26" dy="1.2em" class="st11">Firewall</tspan></text>			</g>
 		</g>
 		<g id="group1439-249" transform="translate(203.271,-239.209)" v:mID="1439" v:groupContext="group">
 			<title>Sheet.1439</title>
