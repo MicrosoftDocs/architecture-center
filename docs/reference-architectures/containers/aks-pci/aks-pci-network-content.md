@@ -64,7 +64,9 @@ As part of your documentation, maintain a network flow diagram that shows the in
 
 This image shows the network diagram of the reference implementation.
 
-:::image type="content" source="./images/network-topology-small.png" alt-text="Diagram of the network topology." lightbox="./images/network-topology.png":::
+:::image type="content" source="./images/network-topology-small.svg" alt-text="Diagram of the network topology." lightbox="./images/network-topology-small.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-pci-network.vsdx) of this diagram.*
 
 **Figure 1.1.2 - Network flow**
 
