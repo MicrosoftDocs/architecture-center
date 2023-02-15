@@ -2,7 +2,7 @@
 title: High-performance computing (HPC) deployments
 description: Review a list of applications and solutions related to HPC deployments.
 author: martinekuan
-ms.author: architectures
+ms.author: martinek
 ms.date: 11/18/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -43,6 +43,7 @@ The articles listed here describe the steps for running various HPC applications
 |[Autodesk Inventor](autodesk-inventor.yml)|Learn how Autodesk Inventor provides professional-grade mechanical design, documentation, and product simulation tools.|
 |[Autodesk VRED for HPC on Azure](hpc-autodesk-vred.md)|See how automotive designers and engineers can use Autodesk VRED to create product presentations, design reviews, and virtual prototypes by using interactive CPU and GPU ray tracing.|
 |[Barracuda Virtual Reactor](barracuda-virtual-reactor.yml)|Simulate the 3D transient behavior in fluid-particle systems, including multiphase hydrodynamics, heat balance, and chemical reactions.|
+|[AVL FIRE M](hpc-avl-fire-m.yml)| Learn how the AVL FIRE M computational fluid dynamics (CFD) simulation application performs on an Azure virtual machine.|
 |[GROMACS](gromacs.yml)|Learn how GROMACS (GROningen MAChine for Simulations) is used primarily for dynamic simulations of biomolecules and provides a rich set of calculation types and preparation and analysis tools.|
 |[HALO AI](indica-labs-halo-ai.yml)|Decipher and assess the complex patterns of histologically stained tissues in a way that's similar to how a pathologist thinks. HALO AI is a collection of train-by-example classification and segmentation tools underpinned by advanced deep learning neural network algorithms.|
 |[Luxion KeyShot](luxion-keyshot.yml)|Use photon mapping to create 3D renderings, animations, and interactive visuals that make simulation of global illumination in complex scenes more efficient.|
