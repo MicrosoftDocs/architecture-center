@@ -167,15 +167,15 @@ For Blob Storage, the web app uses zone-redundant storage (ZRS). Zone-redundant 
 [Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (such as Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure DNS with Azure Private Link enables your solution to communicate via an enhanced security link with Azure services like SQL Database. The web app uses Private Link for these reasons:
 
 - **Enhanced security communication.** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
-- **Minimal effort:** The private endpoints support the web application platform and database platform the web app uses. Both platforms mirror existing on-premises setup for minimal change.
+- **Minimal effort.** The private endpoints support the web application platform and database platform the web app uses. Both platforms mirror existing on-premises configurations for minimal change.
 
 ## Deploy the reference implementation
 
-You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://aka.ms/eap/rwa/dotnet). Follow the deployment guide to set up a local development environment and deploy the solution to Azure.
+You can deploy the reference implementation by following the instructions in the [reliable web app pattern for .NET repository](https://aka.ms/eap/rwa/dotnet). Use the deployment guide to set up a local development environment and deploy the solution to Azure.
 
-## Next Steps
+## Next steps
 
-This article covered the architecture and planning details around the reliable web app pattern for .NET. The following article shows you how to apply the reliable web app pattern with specific design patterns structured around the well-architected pillars.
+This article covers the architecture and planning details for the reliable web app pattern for .NET. The following article shows you how to apply the reliable web app pattern with specific design patterns structured around the Well-Architected Framework pillars.
 
 >[!div class="nextstepaction"]
 > [How to apply the reliable web app pattern for .NET](apply-pattern.yml)
