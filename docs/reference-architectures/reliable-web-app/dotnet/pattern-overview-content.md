@@ -37,7 +37,7 @@ A service level objective (SLO) for availability defines how available you want 
 
 For each dependency in the critical path, you need to assign an availability goal. [Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/) from Azure provide a good starting point. SLAs don't factor in, for example, downtime associated with the application code running on those services, deployment/operations methodologies, or architecture choices to connect the services. So the availability metric you assign to a dependency shouldn't exceed the SLA.
 
-For example, Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
+Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
 
 [![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](images/slo-dependencies.png)](images/slo-dependencies.png)
 
@@ -89,7 +89,7 @@ The Azure services you choose should support your short-term objectives while pr
 - **Telemetry.** It collects information about how users are using the app and allows you to easily track custom events.
 - **Solving an on-premises visibility gap.** The on-premises solution didn't have APM. Application Insights provides easy integration with the application platform and code.
 
-Azure Monitor is a comprehensive suite of monitoring tools that collect data from various Azure services. See the following resources to learn more about its capabilities:
+Azure Monitor is a comprehensive suite of monitoring tools that collect data from various Azure services. For more information, see:
 
 - [Smart detection in Application Insights](/azure/azure-monitor/alerts/proactive-diagnostics)
 - [Application Map: Triage distributed applications](/azure/azure-monitor/app/app-map?tabs=net)
