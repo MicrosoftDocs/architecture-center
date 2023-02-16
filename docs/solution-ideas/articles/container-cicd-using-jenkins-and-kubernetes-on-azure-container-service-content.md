@@ -4,6 +4,10 @@ Containers make it easy for you to continuously build and deploy applications. B
 
 By setting up a continuous build to produce your container images and orchestration, you can increase the speed and reliability of your deployment.
 
+Jenkins can be deployed on an [Azure Virtual Machine](/azure/virtual-machines). Alternately, [Jenkins X](https://jenkins-x.io/) can be deployed on Azure Kubernetes Service. Jenkins X is Jenkins sub project that can be deployed directly to cloud native platforms. Instructions to deploy Jenkin X to AKS can be found [here](https://jenkins-x.io/v3/admin/platforms/azure/).   
+
+Dynamic build agents for Jenkins can be provisioned on Azure Kubernetes Service. [The Jenkins agent](https://www.jenkins.io/doc/book/using/using-agents/) connects to the Jenkins controller. the Jenkins controller can provision tasks to run on Jenkins agents. 
+
 ## Potential use cases
 
 * Modernize application development practices to a microservice, container-based approach.
