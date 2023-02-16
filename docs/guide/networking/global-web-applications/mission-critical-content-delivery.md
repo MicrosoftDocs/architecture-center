@@ -85,15 +85,11 @@ There are numerous tools customers can utilize to monitor availability/performan
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
  * [Dave Burkhardt](https://linkedin.com/in/david-burkhardt-13b79b3) | Principal Product Manager, Azure Networking
  * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
  * [Harikrishnan M B](https://linkedin.com/in/harikrishnanmb/) | Product Manager 2, Azure Networking
-
-Other contributors:
-
- * TODO
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
