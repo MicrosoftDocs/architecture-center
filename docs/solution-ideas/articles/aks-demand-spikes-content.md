@@ -12,7 +12,7 @@ This approach can be used to manage the following scenarios:
 
 ## Architecture
 
-![Architecture Diagram](../media/aks-demand-spikes.svg)
+![Architecture diagram of AKS demand spikes.](../media/aks-demand-spikes.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-demand-spikes.vsdx) of this architecture.*
 
