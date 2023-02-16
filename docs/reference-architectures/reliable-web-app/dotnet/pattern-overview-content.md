@@ -13,17 +13,17 @@ This article defines objectives of the reliable web app pattern and details the 
 
 ## Pattern objectives and implementation
 
-The reliable web app pattern is a set of objectives that follow the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. How you implement this pattern varies based on the web application and language. The following table outlines the pattern objectives and how the reference implementation met these objectives.
+The reliable web app pattern is a set of objectives that implement the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. Your implementation of this pattern will vary based on your web application and the language it's written in. The following table outlines the pattern's objectives and how the reference implementation meets these objectives.
 
 | Objectives | Implementation for .NET |
 | --- | --- |
-|▪ Low-cost high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improve operational excellence<br>▪ Cost-optimized environments<br>▪ Well Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
+|▪ Low-cost, high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improved operational excellence<br>▪ Cost-optimized environments<br>▪ Well-Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
 
 ## Business context
 
 This guidance mirrors the journey of a fictional company (Relecloud) that wants to take an on-premises, line of business (LOB) web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn't provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
 
-| Short term goals | Long term goals |
+| Short-term goals | Long-term goals |
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes to the LOB web application. <br> ▪ Mature development team practices for modern development and operations. <br> ▪ Create cost-optimized production and development environments. <br> ▪ Implement reliability and security best practices in the cloud. <br> ▪ Service-level objective of 99.9%.| ▪ Open the application directly to online customers through multiple web and mobile experiences. <br> ▪ Improve availability. <br> ▪ Reduce time required to deliver new features. <br> ▪ Independently scale different components of the system based on traffic.
 
@@ -33,9 +33,9 @@ The on-premises starting point is web application is a monolithic, eCommerce, AS
 
 ## Service level objective
 
-A service level objective (SLO) for availability defines how available you want a web app to be for users. Relecloud has a target SLO of 99.9% for availability. You need to define what it means to be available for your web application. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of available, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
+A service level objective (SLO) for availability defines how available you want a web app to be for users. Relecloud has a target SLO of 99.9% for availability. You need to define what it means to be available for your web application. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
-For each dependency in the critical path, you need to assign an availability goal. [Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/) from Azure provide a good starting point. SLAs don't factor in, for example, downtime associated with the application code run on those services, deployment/operations methodologies, or architecture choices to connect the services. So the availability metric you assign to a dependency shouldn't exceed the SLA.
+For each dependency in the critical path, you need to assign an availability goal. [Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/) from Azure provide a good starting point. SLAs don't factor in, for example, downtime associated with the application code running on those services, deployment/operations methodologies, or architecture choices to connect the services. So the availability metric you assign to a dependency shouldn't exceed the SLA.
 
 For example, Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
 
@@ -48,15 +48,15 @@ Finally, use the formulas for composite SLAs and multi-region availability to es
 
 ## Choose the right services
 
-The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that meet the SLO for the production environment, require minimal migration effort, and support aspired modernizations efforts. At this phase, it's important select Azure services that mirror key on-premises choices. For example, you should keep the same database engine (SQL Server -> Azure SQL Database) and app hosting platform (IIS on Windows Server -> Azure Web Apps). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal.
+The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that meet the SLO for the production environment, require minimal migration effort, and support planned modernization efforts. At this phase, it's important select Azure services that mirror key on-premises choices. For example, you should keep the same database engine (SQL Server -> Azure SQL Database) and app hosting platform (IIS on Windows Server -> Azure Web Apps). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal.
 
 ### Application platform
 
-[Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it met the following requirements:
+[Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
-- **High SLA:** It has a 99.95% uptime SLA and met the production environment SLO.
-- **Reduced management overhead:** It's a fully managed solution that handles scaling, health checks, and load balancing.
-- **.NET support:** It supports the version of .NET the application was written in.
+- **High SLA.** It has a high SLA that meets the production environment SLO. For more information, see [SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_5).
+- **Reduced management overhead.** It's a fully managed solution that handles scaling, health checks, and load balancing.
+- **.NET support.** It supports the version of .NET that the application is written in.
 - **Containerization capability:** The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services.
 - **Autoscaling:** The web app can automatically scale up, down, in, and out based on user traffic and settings.
 
