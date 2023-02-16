@@ -29,6 +29,9 @@ You can switch between Azure Front Door and other application delivery services 
 
 In this article, we describe the factors that you need to consider when planning a mission-critical global HTTP application architecture with Azure Front Door.
 
+> [!IMPORTANT]
+> Implementing a mission critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs. Most customers don't need the architecture described in this article.
+
 ## Approach
 
 When you design a mission-critical global web application, consider having multiple redundant traffic paths. The following diagram shows a general approach to delivering mission-critical web application traffic:
@@ -39,15 +42,15 @@ In this approach, you introduce several components and make significant changes 
 
 1. **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer.
 
-  Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door most of the time. Traffic Manager can automatically fail over to your alternate traffic path if Azure Front Door is unavailable.
+   Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door most of the time. Traffic Manager can automatically fail over to your alternate traffic path if Azure Front Door is unavailable.
   
-  You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
+   You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
 
 1. There are two *paths* for traffic to ingress to your application:
 
-  - **Azure Front Door** processes and routes most of your application traffic. If Azure Front Door is unavailable, traffic is automatically redirected through another path.
+   - **Azure Front Door** processes and routes most of your application traffic. If Azure Front Door is unavailable, traffic is automatically redirected through another path.
 
-  - **Another service** is used as a backup for Azure Front Door. Traffic flows through this service if Azure Front Door is unavailable.
+   - **Another service** is used as a backup for Azure Front Door. Traffic flows through this service if Azure Front Door is unavailable.
   
     The specific service you choose depends on many factors, which are described in more detail below.
 

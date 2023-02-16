@@ -33,6 +33,11 @@ Points for consideration:
 
 :::image type="content" source="./media/front-door-application-gateway.png" alt-text="Traffic Manager with priority routing (AFD on higher priority) and AFD on least latency routing." border="false":::
 
+<!-- TODO -->
+- If you depend on caching, see the CDN scenario
+- If cost is a factor, consider the CDN scenario because it's consumption-based pricing
+- If you use caching but it's not a critical part of your solution, consider whether you can scale out/up your origins to cope with the increased load caused by a higher number of cache misses
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
