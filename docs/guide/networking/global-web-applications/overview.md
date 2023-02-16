@@ -105,16 +105,19 @@ If you alternative path also provides a WAF, consider the following questions:
 > [!WARNING]
 > You might consider not using a WAF for your alternative ingress path, and considr accepting the increaed risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice.
 > 
-> When you deploy an architecture like the one described in this article, your alternate traffic path is always exposed to the internet and is ready to accept traffic at any moment. If an attacker discovers the secondary traffic path to your application, they might exploit this information and send malicious traffic through your secondary path even when the primary path includes a WAF.
+> When you deploy an architecture like the one described in this article, your alternate traffic path is always exposed to the internet and is ready to accept traffic at any moment. If an attacker discovers an unprotected secondary traffic path to your application, they might send malicious traffic through your secondary path even when the primary path includes a WAF.
 > 
 > Instead, it's best to secure *all* paths to your application servers.
 
 ### Origin security
 
-- DDoS protection and other layer 3/4 prevention
-- Do you use X-Azure-FDID header? If so, how will this work when traffic follows a different path in?
-- Do you use Private Link to connect from AFD to your origin? If so, how will this work when the traffic doesn't go through AFD?
+When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Furthermore, because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to carefully consider whether you increase your origin's exposure to threats.
 
+If you use Private Link to connect from Azure Front Door to your origin server, how will traffic flow through your alternative path? Will you use private IP addresses to access your origins, or must you use public IP addresses?
+
+If your origin uses the Azure Front Door service tag and the `X-Azure-FDID` header to validate that traffic has flowed through Azure Front Door, consider how your origins can be reconfigured to validate that traffic has flowed through either of your valid paths. Also, ensure that you test that you haven't accidentally opened your origin to traffic through other paths, including from other customers' Azure Front Door profiles.
+
+When you plan your origin security, check whether your alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to reduce the risk of denial of service attacks against your origins. Additionally, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. These products often aren't required when your application is only exposed through Azure Front Door, but might be important security controls to apply in a more complex architecture.
 
 ### Monitoring health and triggering failover
 
