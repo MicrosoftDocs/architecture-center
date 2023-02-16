@@ -128,25 +128,25 @@ Azure has several load balancers. Evaluate your current system capabilities and 
 
 - **Global protection.** It provides improved global web app protection without sacrificing performance.
 - **Botnet protection.** The team can monitor and configure to address security concerns from botnets.
-- **Parity with on-premises**: The service allowed us to maintain parity with our on-premises solution, which was running behind a web application firewall managed by IT.
+- **Parity with on-premises.** The service allows the team to maintain parity with the on-premises solution, which was running behind a web application firewall managed by IT.
 
 ### Configuration storage
 
-[Azure App Configuration](/azure/azure-app-configuration/overview) is a service to centrally manage application settings and feature flags. The goal was to replace the file-based configuration with a central configuration store that integrated with the application platform and code. App Config provided the following benefits.
+[Azure App Configuration](/azure/azure-app-configuration/overview) is a service for centrally managing application settings and feature flags. The goal is to replace the file-based configuration with a central configuration store that integrates with the application platform and code. App Config provides the following benefits:
 
-- **Flexibility:** It supports feature flags. Feature flags allow users to opt in and opt-out of early preview features in a production environment without redeploying the app.
-- **Supports git pipeline:** The source of truth for configuration data needed to be a git repository. The pipeline needed to update the data in the central configuration store.
-- **Supports managed identities:** It supports managed identities to simplify and secure our connection to our configuration store.
+- **Flexibility.** It supports feature flags. Feature flags allow users to opt in and out of early preview features in a production environment without redeploying the app.
+- **Supports Git pipeline.** The source of truth for configuration data needed to be a Git repository. The pipeline needed to update the data in the central configuration store.
+- **Supports managed identities.** It supports managed identities to simplify and help secure the connection to the configuration store.
 
-Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide if this service is a fit for your app.
+Review [App Configuration best practices](/azure/azure-app-configuration/howto-best-practices#app-configuration-bootstrap) to decide whether this service is a good fit for your app.
 
 ### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. The web app uses Key Vault because it provided the following features:
+[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third-party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. The web app uses Key Vault because it provides the following features:
 
-- **Encryption:** It supports encryption at rest and in transit.
-- **Supports managed identities:** The application services can use managed identities to access the secret store.
-- **Monitoring and logging:** It facilitates audit access and generate alert us when stored secrets change.
+- **Encryption.** It supports encryption at rest and in transit.
+- **Managed identities.** The application services can use managed identities to access the secret store.
+- **Monitoring and logging.** It facilitates audit access and generates alerts when stored secrets change.
 - **Certificate support:** It supports importing PFX and PEM formatted certificates.
 - **Integration:** It provides native integration with the Azure configuration store (Azure App Configuration) and web hosting platform (Azure App Service).
 
