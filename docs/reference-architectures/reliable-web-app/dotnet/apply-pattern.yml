@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reliable web application pattern (.NET)
+  title: How to apply the reliable web app pattern (.NET)
   titleSuffix: Azure Reference Architectures
   description: Learn how to modernize your .NET application in the Azure cloud by applying low-cost, high-value updates to your ASP.NET application.
   author: KSchlobohm
