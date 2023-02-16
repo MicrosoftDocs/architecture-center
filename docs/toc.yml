@@ -405,11 +405,11 @@ items:
                 - name: Global HTTP applications
                   items:
                     - name: Overview
-                      href: guide/networking/global-http-applications/overview.md
+                      href: guide/networking/global-web-applications/overview.md
                     - name: Mission-critical global HTTP ingress
-                      href: guide/networking/global-http-applications/mission-critical-global-http-ingress.md
+                      href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
                     - name: Mission-critical content delivery
-                      href: guide/networking/global-http-applications/mission-critical-content-delivery.md
+                      href: guide/networking/global-web-applications/mission-critical-content-delivery.md
       - name: Multitenant applications
         items:
           - name: Overview
@@ -6010,14 +6010,14 @@ items:
                 href: guide/networking/private-link-ip-constraints.yml
               - name: Cross-tenant secure access to apps 
                 href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
-              - name: Global HTTP applications
+              - name: Global web applications
                 items:
                   - name: Overview
-                    href: guide/networking/global-http-applications/overview.md
+                    href: guide/networking/global-web-applications/overview.md
                   - name: Mission-critical global HTTP ingress
-                    href: guide/networking/global-http-applications/mission-critical-global-http-ingress.md
+                    href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
                   - name: Mission-critical content delivery
-                    href: guide/networking/global-http-applications/mission-critical-content-delivery.md
+                    href: guide/networking/global-web-applications/mission-critical-content-delivery.md
           - name: Architectures
             items:
               - name: Azure DNS Private Resolver
