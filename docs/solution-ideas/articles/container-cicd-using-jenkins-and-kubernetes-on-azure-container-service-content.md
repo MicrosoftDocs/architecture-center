@@ -21,15 +21,15 @@ Dynamic build agents for Jenkins can be provisioned on Azure Kubernetes Service.
 
 ### Dataflow
 
-1. Change application source code.
-1. Commit code to GitHub.
+1. Developer makes changes to the application source code using Visual Studio code.
+1. Developer Commits code to GitHub.
 1. Continuous Integration Trigger to Jenkins.
 1. Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.
 1. Jenkins builds and pushes Docker container to Azure Container Registry.
 1. Jenkins deploys your new containerized app to Kubernetes on Azure.
-1. Container Service (AKS), backed by Azure Cosmos DB.
+1. The app connects to Azure Cosmos DB.
 1. Grafana displays visualization of infrastructure and application metrics via Azure Monitor.
-1. Monitor application and make improvements.
+1. Developer / operators monitors application and make improvements.
 
 ### Components
 
