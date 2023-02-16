@@ -32,7 +32,8 @@ In this article, we describe the factors that you need to consider when planning
 ## Alternate traffic paths
 
 - Need to send traffic to Front Door when it's available, and automatically fail over when it's not
-- What is Traffic Manager
+- In this documentation we talk about Traffic Manager
+  - You might also use another global load balancer
 - Diagram: TM -> { FD, generic other path } -> generic applications
 - Your application needs to be ready to accept traffic from either pathway (AFD or otherwise)
   - Origin security
