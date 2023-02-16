@@ -6605,6 +6605,9 @@ items:
                 href: patterns/category/design-implementation.md
               - name: Application guidance
                 items: 
+                  - name: Characteristics of modern web apps
+                    href: /dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
+                    maintainContext: true
                   - name: Enterprise app patterns
                     items:
                       - name: Reliable web app pattern
@@ -6615,9 +6618,6 @@ items:
                                 href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
                               - name: Apply the pattern
                                 href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
-                  - name: Characteristics of modern web apps
-                    href: /dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
-                    maintainContext: true
               - name: App Service considerations
                 items:
                   - name: Deployment best practices

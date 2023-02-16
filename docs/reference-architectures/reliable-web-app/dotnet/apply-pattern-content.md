@@ -480,12 +480,12 @@ For a hands-on introduction to .NET web applications on Azure, see this [guidanc
 
 ### Cloud best practices
 
-For Azure best practices, see:
+For Azure adoption and architectural guidance, see:
 
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview). Can help your organization prepare and execute a strategy to build solutions on Azure.
-- [Well Architected Framework](/azure/architecture/framework/). Describes the best practices and design principles that you should apply when you design Azure solutions that align with Microsoft-recommended best practices.
-- [Azure architectures](/azure/architecture/browse/). Provides architecture diagrams and technology descriptions for reference architectures, real-world examples of cloud architectures, and solution ideas for common workloads on Azure.
-- [Azure Architecture Center fundamentals](/azure/architecture/guide/). Provides a library of content that presents a structured approach for designing applications on Azure that are scalable, highly secure, resilient, and highly available.
+- [Well-Architected Framework](/azure/architecture/framework/). A set of guiding tenets that can be used to improve the quality of a workload.
+
+For applications that require a higher SLO than the reliable web app pattern, see the guidance for architecting and operating [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
 
 ### Migration guidance
 
