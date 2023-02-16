@@ -161,6 +161,8 @@ private bool IsTransient(Exception ex)
 
 ## Related resources
 
+- [Reliable web app pattern for .NET](../reference-architectures/reliable-web-app/dotnet/pattern-overview.yml) shows you how to apply the retry pattern to an ASP.NET web application converging on the cloud.
+
 - For most Azure services, the client SDKs include built-in retry logic. For more information, see [Retry guidance for Azure services](../best-practices/retry-service-specific.md).
 
 - [Circuit Breaker pattern](./circuit-breaker.yml). If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. Combining the Retry and Circuit Breaker patterns provides a comprehensive approach to handling faults.
