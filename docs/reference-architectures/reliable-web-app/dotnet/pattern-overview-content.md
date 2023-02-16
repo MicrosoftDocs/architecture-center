@@ -147,26 +147,26 @@ Review [App Configuration best practices](/azure/azure-app-configuration/howto-b
 - **Encryption.** It supports encryption at rest and in transit.
 - **Managed identities.** The application services can use managed identities to access the secret store.
 - **Monitoring and logging.** It facilitates audit access and generates alerts when stored secrets change.
-- **Certificate support:** It supports importing PFX and PEM formatted certificates.
-- **Integration:** It provides native integration with the Azure configuration store (Azure App Configuration) and web hosting platform (Azure App Service).
+- **Certificate support.** It supports importing PFX and PEM certificates.
+- **Integration.** It provides native integration with the Azure configuration store (App Configuration) and web hosting platform (App Service).
 
-You can incorporate Azure Key Vault in .NET apps using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app).
+You can incorporate Key Vault in .NET apps by using the [ConfigurationBuilder object](/azure/azure-app-configuration/quickstart-dotnet-core-app).
 
 ### Object storage
 
-[Azure Storage](/azure/storage/common/storage-introduction) provides file storage. Azure Blob Storage stores the resulting ticket images. On-premises, the web app had disk storage mounted to each web server and wanted to externalize.
+[Azure Storage](/azure/storage/common/storage-introduction) provides file storage. Azure Blob Storage stores the resulting ticket images. On-premises, the web app had disk storage mounted to each web server, and the team wanted to use an external data storage solution.
 
-For Blob Storage, the web app uses Zone-redundant storage (ZRS). Zone-redundant storage replicates data synchronously across three Azure availability zones in the primary region. Each availability zone is in a separate physical location with independent power, cooling, and networking. The app uses Blob Storage to meet the following requirements:
+For Blob Storage, the web app uses zone-redundant storage (ZRS). Zone-redundant storage replicates data synchronously across three Azure availability zones in the primary region. Each availability zone is in a separate physical location that has independent power, cooling, and networking. The app uses Blob Storage to meet the following requirements:
 
-- **Eliminate anonymous access:** The web app can eliminate endpoints for accessing storage exposed to the public internet with anonymous access.
-- **Encryption:** It encrypts data at rest and in transit.
-- **Resiliency:** Blob storage should make our ticketing images resilient against loss.
+- **Eliminate anonymous access.** The web app can eliminate endpoints for accessing storage exposed to the public internet with anonymous access.
+- **Encryption.** It encrypts data at rest and in transit.
+- **Resiliency.** Blob Storage should make the ticketing images resilient against loss.
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure SQL Database. The web app uses Azure Private Link for the following reasons:
+[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (such as Azure Cache for Redis and SQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure DNS with Azure Private Link enables your solution to communicate via an enhanced security link with Azure services like SQL Database. The web app uses Private Link for these reasons:
 
-- **Secure communication:** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to protect against data leakage.
+- **Enhanced security communication.** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to help protect against data leakage.
 - **Minimal effort:** The private endpoints support the web application platform and database platform the web app uses. Both platforms mirror existing on-premises setup for minimal change.
 
 ## Deploy the reference implementation
