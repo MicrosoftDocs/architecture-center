@@ -90,7 +90,7 @@ After an initial release, you should run performance and capacity tests whenever
 
 Automate the process of deploying each application to your test, staging, and production environments. Have systems in place to detect any problems during rollout, and have an automated way to roll forward fixes or roll back changes.
 
-**Use continuous integration.** Continuous integration (CI) is the practice of merging all developer code into a central code base on a regular schedule, and then automatically performing standard build and test processes. CI ensures that an entire team can work on a code base at the same time without conflicts. CI also helps you find code defects as early as possible. Preferably, a CI process should run every time that you commit or check in code. It should at least run once per day.
+**Use continuous integration.** Continuous integration (CI) is the practice of merging all developer code into a central code base on a regular schedule, and then automatically performing standard build and test processes. CI ensures that an entire team can work on a code base at the same time without conflicts. CI also helps you find code defects as early as possible. Preferably, a CI process should run every time that you commit or check in code. It should run at least once per day.
 
 Consider adopting a [trunk-based development model][trunk-based]. In this model, developers commit to a single branch (the trunk). There's a requirement that commits never break a build. This model facilitates CI, because you do all feature work in the trunk, and you resolve any merge conflicts when each commit happens.
 
@@ -100,7 +100,7 @@ Continuous *deployment* is a process that automatically takes any updates that h
 
 **Make small, incremental changes.** Large code changes have a greater potential to introduce bugs than smaller ones do. Whenever possible, keep changes small. Doing so limits the potential effects of each change and simplifies the task of understanding and debugging problems.
 
-**Control exposure to changes.** Make sure you're in control of when updates become visible to your end users. Consider using feature toggles to control when you turn on features for end users.
+**Control exposure to changes.** Make sure that you're in control of when updates become visible to your end users. Consider using feature toggles to control when you turn on features for end users.
 
 **Implement release management strategies to reduce deployment risk.** Deploying an application update to production always entails some risk. To minimize this risk, use strategies like [canary releases][canary-release] or [blue/green deployments][blue-green] to deploy updates to a subset of users. Confirm that each update works as expected, and then roll out each update to the rest of the system.
 
@@ -152,7 +152,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Manage all resources in a change management system.** If you include all aspects of your DevOps process in a management and versioning system, you can easily track and audit changes. Include code, infrastructure, configuration, documentation, and scripts. Treat all these types of resources as code throughout the process of testing, building, and reviewing.
 
-**Use checklists.** Operations checklists can help you follow processes. It's easy to miss something in a large manual, and following a checklist can force attention to details that you might otherwise overlook. Maintain the checklists, and continually look for ways to automate tasks and streamline processes.
+**Use checklists.** Operations checklists can help you follow processes. It's easy to miss something in a large manual, but following a checklist can force attention to details that you might otherwise overlook. Maintain the checklists, and continually look for ways to automate tasks and streamline processes.
 
 ## Next steps
 
