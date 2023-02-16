@@ -76,7 +76,9 @@ Some key questions you should consider are:
 
 Your application should use a custom domain name. In a mission-critical solution, it's even more important to use a custom domain name. By using a custom domain name, you have control over how traffic flows to your application, and you reduce the dependencies you take on a single provider.
 
-It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](TODO). If your domain name's DNS servers are unavailable, clients can't reach your service.
+It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, clients can't reach your service.
+
+In a mission-critical solution, it's also a good practice to use multiple DNS resolvers to increase the overall resiliency of your solution even further.
 
 ### TLS certificates
 
@@ -98,7 +100,9 @@ If you alternative path also provides a WAF, consider the following questions:
 - Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
 
 > [!WARNING]
-> You might consider not using a WAF for your alternative ingress path, and accept the increaed risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice. When you deploy an architecture like that described in this article, your alternate traffic path is always live and ready to accept traffic. If an attacker discovers the secondary traffic path to your application, they might exploit this information and send malicious trafic through your secondary path even when the primary path includes a WAF.
+> You might consider not using a WAF for your alternative ingress path, and considr accepting the increaed risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice.
+> 
+> When you deploy an architecture like the one described in this article, your alternate traffic path is always exposed to the internet and is ready to accept traffic at any moment. If an attacker discovers the secondary traffic path to your application, they might exploit this information and send malicious traffic through your secondary path even when the primary path includes a WAF.
 > 
 > Instead, it's best to secure *all* paths to your application servers.
 
@@ -120,10 +124,6 @@ If you alternative path also provides a WAF, consider the following questions:
 - When you use AFD, you get a lot of benefits by virtue of it being a multitenant service that only accepts valid HTTP traffic. Layer 3/4 traffic and non-HTTP protocols just don't get to you. So equally, attacks that rely on these protocols don't reach your application. If you've restricted your origin to only accept traffic from AFD, you significantly limit your exposure to internet threats.
 - But if you use a secondary path into your application, this can be a significant shift in your exposure.
   - Consider whether you need to expose your applications to the internet. This might require dedicated public IP address. Consider whether you need to then start to use DDoS protection, intrusion detection, layer 3/4 firewalls, etc.
-
-### DNS
-
-Because DNS is a key element with serving web application traffic, it is also an industry best practice to utilize multiple DNS resolvers to ensure the utmost availability.
 
 ## Common scenarios
 
