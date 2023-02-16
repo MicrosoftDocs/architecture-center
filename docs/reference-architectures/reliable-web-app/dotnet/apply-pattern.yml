@@ -3,8 +3,9 @@ metadata:
   title: Reliable web application pattern (.NET)
   titleSuffix: Azure Reference Architectures
   description: Learn how to modernize your .NET application in the Azure cloud by applying low-cost, high-value updates to your ASP.NET application.
-  author: KSchlobohm
-  ms.author: ssumner
+  author: stephen-sumner
+  ms.author: keschlob
+  ms.reviewer: ssumner
   ms.date: 02/17/2023
   ms.topic: reference-architecture
   ms.service: architecture-center

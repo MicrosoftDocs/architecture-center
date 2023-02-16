@@ -3,8 +3,9 @@ metadata:
   title: Reliable web application pattern (.NET)
   titleSuffix: Azure Reference Architectures
   description: How to improve your .NET application in the cloud with the reliable web app pattern. The pattern features low-cost, high-value code and infrastructure enhancements.
-  author: KSchlobohm
-  ms.author: ssumner
+  author: stephen-sumner
+  ms.author: keschlob
+  ms.reviewer: ssumner
   ms.date: 02/17/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
