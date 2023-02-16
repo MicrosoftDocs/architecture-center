@@ -37,14 +37,21 @@ When you design a mission-critical global web application, consider having multi
 
 In this approach, you introduce several components and make significant changes to other components in your solution:
 
-- **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer.
+1. **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer.
 
   Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door most of the time. Traffic Manager can automatically fail over to your alternate traffic path if Azure Front Door is unavailable.
   
   You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
-- **Azure Front Door** processes and routes most of your application traffic. If Azure Front Door is unavailable, traffic is automatically redirected through another path.
-- **Another service** is used as a backup for Azure Front Door. Traffic flows through this service if Azure Front Door is unavailable. The specific service you choose depends on many factors, which are described in more detail below.
-- **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
+
+1. There are two *paths* for traffic to ingress to your application:
+
+  - **Azure Front Door** processes and routes most of your application traffic. If Azure Front Door is unavailable, traffic is automatically redirected through another path.
+
+  - **Another service** is used as a backup for Azure Front Door. Traffic flows through this service if Azure Front Door is unavailable.
+  
+    The specific service you choose depends on many factors, which are described in more detail below.
+
+1. **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
 ## Key considerations
 
