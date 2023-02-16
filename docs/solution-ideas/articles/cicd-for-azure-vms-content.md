@@ -61,4 +61,5 @@ This section assumes you have read the [considerations section in Azure Pipeline
 
 ## Related resources
 
+- [CI/CD baseline architecture with Azure Pipelines](../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
