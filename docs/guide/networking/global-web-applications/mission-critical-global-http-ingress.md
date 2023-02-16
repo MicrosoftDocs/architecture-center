@@ -21,8 +21,6 @@ ms.custom:
 
 # Mission-critical global HTTP ingress
 
-## Azure Traffic Manager + Azure Front Door + Azure Application Gateway
-
 This DNS based load balancing solution utilizes Azure Traffic Manager (ATM) to monitor AFD, in the very unlikely event of an availability issue, and then will fail-over the traffic to Application Gateway (AppGW). 
 
 Points for consideration:
@@ -41,8 +39,9 @@ Points for consideration:
 
 Principal author:
 
- * [Dave Burkhardt](http://linkedin.com/in/david-burkhardt-13b79b3) | Principal Product Manager, Azure Networking
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Dave Burkhardt](https://linkedin.com/in/david-burkhardt-13b79b3) | Principal Product Manager, Azure Networking
+ * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ * [Harikrishnan M B](https://linkedin.com/in/harikrishnanmb/) | Product Manager 2, Azure Networking
 
 Other contributors:
 
