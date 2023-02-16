@@ -37,7 +37,11 @@ When you design a mission-critical global web application, consider having multi
 
 In this approach, you introduce several components and require changes to other components in your solution:
 
-- **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer that supports several distinct [routing methods](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door most of the time. Traffic Manager can automatically fail over to your alternate traffic path if Azure Front Door is unavailable. You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
+- **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer.
+
+  Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door most of the time. Traffic Manager can automatically fail over to your alternate traffic path if Azure Front Door is unavailable.
+  
+  You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
 - **Azure Front Door** processes and routes most of your application traffic. If Azure Front Door is unavailable, traffic is automatically redirected through another path.
 - **Another service** is used as a backup for Azure Front Door. Traffic flows through this service if Azure Front Door is unavailable. The specific service you choose depends on many factors, which are described in more detail below.
 - **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
@@ -48,19 +52,34 @@ When you architect your solution to use multiple ingress paths, you need to care
 
 ### Understand your use of Azure Front Door
 
-- Front Door has many features
-- It's important to understand which features you use and rely on
-- The exact set of features that you use might dictate the approach you follow, and which alternate paths might be appropriate
-- To you send traffic to another path, you need to ensure that you have equivalent features in the other service
-- Do you do custom routing logic by using the Front Door rules engine? If so, how will you handle this when traffic traverses the alternate path?
+Azure Front Door provides many capabilities to make your application more resilient, performant, and secure. It's important that you understand which capabilities and features you use and rely on. When you have an understanding of how you use Azure Front Door, you can determine which alternative services provide the minimum capabilities that you need, and you can decide on an architectural approach. If you plan to send traffic through multiple paths to reach your application, you need to ensure that each path has equivalent capabilities. Or, you need to make an informed decision about which capabilities are essential and which aren't.
 
-### Domain names and TLS certificates
+Some key questions you should consider are:
 
-- Very important to use your own domain - don't rely on or use the provider-generated domains
-- Azure Front Door provides managed TLS certificates. However, in this kind of architecture you should use your own certificate, for a couple of reasons:
-  - Front Door's domain verification process for certificate generation and renewal assumes that your domain points directly to Front Door, which isn't true in this kind of approach.
-  - Also, your other CDNs might not be able to generate and renew managed certificates, probably for similar reasons.
-  - If you have multiple providers all issuing certificates independently you could cause problems for your clients.
+- Do you use Azure Front Door's caching features? If caching is unavailable, are your origin servers likely to struggle to keep up with your traffic?
+- Do you do use the Azure Front Door rules engine to perform custom routing logic, or to rewrite requests?
+- Do you use the Azure Front Door web application firewall (WAF) to secure your applications?
+- Do you restrict traffic based on IP address or geography?
+- Do you use Azure Front Door's managed TLS certificates?
+- How do you restrict access to your origin application servers to ensure it comes through Azure Front Door? Do you use Private Link, or do you rely on public IP addresses with service tags and identifier headers?
+- Do your application servers accept traffic from anywhere other than Azure Front Door? If they do, which protocols do they accept?
+- Do your clients use HTTP/2 to access your application?
+
+### Domain names and DNS
+
+Your application should use a custom domain name. In a mission-critical solution, it's even more important to use a custom domain name. By using a custom domain name, you have control over how traffic flows to your application, and you reduce the dependencies you take on a single provider.
+
+It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](TODO). If your domain name's DNS servers are unavailable, clients can't reach your service.
+
+### TLS certificates
+
+Azure Front Door provides managed TLS certificates. However, in this kind of architecture it's a good idea to provision and use your own TLS certificates. This is a good practice for several reasons:
+
+- To issue and renews managed TLS certificates, Azure Front Door verifies your ownership of the domain. The domain verification process generally assumes that your domain's CNAME records point directly to Azure Front Door. In a complex architecture like that described in this article, this assumption often isn't correct. Issuing and renewing managed TLS certificates on Azure Front Door might not work smoothly in these situations, and you increase the risk of outages due to TLS certificate problems.
+- Similarly, even if your other services provide managed TLS certificates, they might not be able to verify domain ownership either.
+- If each service that you use issues their own managed TLS certificates independently, you might cause problems for your clients. For example, clients might not expect to see different TLS certificates issued by different authorities, or with different expiry dates or thumbprints.
+
+When you provision and use your own TLS certificates, you reduce the number of potential problems you might introduce in this kind of architecture. However, you also need to take care to renew and update your certificates before they expire.
 
 ### Web application firewall
 
