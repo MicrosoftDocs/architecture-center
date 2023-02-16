@@ -2,7 +2,7 @@ The reliable web app pattern is a set of best practices built on the [Azure Well
 
 For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-This article shows you how to apply the reliable web app pattern. There's a companion article that provides an [overview of the pattern](pattern-overview.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing app. The guidance refers to the code and architecture of the reference implementation throughout..
+This article shows you how to apply the reliable web app pattern. There's a companion article that provides an [overview of the pattern](pattern-overview.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing app. The guidance refers to the code and architecture of the reference implementation throughout.
 
 ## Architecture and code
 
