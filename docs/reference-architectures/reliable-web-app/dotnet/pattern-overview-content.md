@@ -76,58 +76,58 @@ The Azure services you choose should support your short-term objectives while pr
 - **Reliability.** The general-purpose tier provides a [high SLA](https://www.azure.cn/support/sla/sql-data/) and multi-region redundancy. It can support a high user load.
 - **Reduced management overhead.** It provides a managed SQL database instance.
 - **Migration support.** It supports database migration from on-premises SQL Server.
-- **Consistency with on-premises configurations:** Azure SQL Server supports the existing stored procedures, functions, and views.
-- **Resiliency:** It supports backups and point-in-time restore.
-- **Expertise and minimal rework:** Azure SQL Database is the database platform that maximized in-house expertise and minimal rework.
+- **Consistency with on-premises configurations.** It supports the existing stored procedures, functions, and views.
+- **Resiliency.** It supports backups and point-in-time restore.
+- **Expertise and minimal rework.** SQL Database takes advantage of in-house expertise and requires minimal rework.
 
 ### Application performance monitoring
 
 [Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. The web app uses Application Insights for the following reasons:
 
-- **Anomaly detection:** It automatically detects performance anomalies
-- **Troubleshooting:** It helps diagnose issues in our running app.
-- **Telemetry:** It collects information about how users are using the app and allows us to easily track custom events.
-- **Solving an on-premises visibility gap:** The on-premises solution didn't have APM, and Application Insights provided an easy integration to the application platform and code.
+- **Anomaly detection.** It automatically detects performance anomalies.
+- **Troubleshooting.** It helps you diagnose problems in the running app.
+- **Telemetry.** It collects information about how users are using the app and allows you to easily track custom events.
+- **Solving an on-premises visibility gap.** The on-premises solution didn't have APM. Application Insights provides easy integration with the application platform and code.
 
-Azure Monitor is a comprehensive suite of monitoring tools to collect data from various Azure services. Review the following concepts to quickly come up to speed on its capabilities:
+Azure Monitor is a comprehensive suite of monitoring tools that collect data from various Azure services. See the following resources to learn more about its capabilities:
 
-- [Smart detection in application insights](/azure/azure-monitor/alerts/proactive-diagnostics)
-- [Application Map: Triaging Distributed Applications](/azure/azure-monitor/app/app-map?tabs=net)
+- [Smart detection in Application Insights](/azure/azure-monitor/alerts/proactive-diagnostics)
+- [Application Map: Triage distributed applications](/azure/azure-monitor/app/app-map?tabs=net)
 - [Profile live App Service apps with Application Insights](/azure/azure-monitor/profiler/profiler)
 - [Usage analysis with Application Insights](/azure/azure-monitor/app/usage-overview)
-- [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)
-- [Application Insights Overview dashboard](https://learn.mi/azure/azure-monitor/app/overview-dashboard)
+- [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)
+- [Application Insights Overview dashboard](/azure/azure-monitor/app/overview-dashboard)
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 
 ### Cache
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store based on the Redis software. Our load is heavily skewed toward viewing concerts and venue details. The web app needed a cache that provided the following benefits:
+[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store based on the Redis software. The web app's load is heavily skewed toward viewing concerts and venue details. It needs a cache that provides the following benefits:
 
-- **Reduce management overhead:** It's a fully managed service.
-- **Speed and volume:** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
-- **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
-- **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-- **Enabling non-sticky sessions:** Externalizing session state supports non-sticky sessions.
+- **Reduced management overhead.** It's a fully managed service.
+- **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
+- **Diverse supportability.** It's a unified cache location for all instances of the web app to use.
+- **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+- **Non-sticky sessions.** Externalizing session state supports non-sticky sessions.
 
 ### Global load balancer
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-seven, global load balancer that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions us to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provided the following benefits:
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-7 global load balancer that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
 
-- **Routing flexibility:** It allows the application team to configure ingress needs to support future changes inside the application.
-- **Traffic acceleration:** It uses anycast to reach the nearest Azure point of presence and find the fastest route to our web app.
-- **Custom domains:** It supports custom domain names with flexible domain validation.
-- **Health probes:** The application needed intelligent health probe monitoring. Azure Front Door then uses these responses from the probe to determine the "best" origin to route your client requests.
-- **Monitoring support:** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
-- **DDoS protection:** It has built-in layer 3-4 DDoS protection.
+- **Routing flexibility.** It allows the application team to configure ingress needs to support future changes in the application.
+- **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
+- **Custom domains.** It supports custom domain names with flexible domain validation.
+- **Health probes.** The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+- **DDoS protection.** It has built-in layer 3-4 DDoS protection.
 
-Azure has several load balancer options. Make note of your current system capabilities and what requirements you have for your new app running in Azure, then [choose the best load balancer option for your app](/azure/architecture/guide/technology-choices/load-balancing-overview).
+Azure has several load balancers. Evaluate your current system capabilities and the requirements for the new app running on Azure, and then [choose the best load balancer for your app](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-### Web application firewall
+### Web Application Firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. Azure Web Application Firewall provided the following benefits.
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
 
-- **Global protection:** It provides global web app protection without sacrificing performance.
-- **Botnet protection:** The team can monitor and configure to address security concerns from botnets.
+- **Global protection.** It provides improved global web app protection without sacrificing performance.
+- **Botnet protection.** The team can monitor and configure to address security concerns from botnets.
 - **Parity with on-premises**: The service allowed us to maintain parity with our on-premises solution, which was running behind a web application firewall managed by IT.
 
 ### Configuration storage
