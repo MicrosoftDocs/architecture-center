@@ -14,7 +14,7 @@ This solution utilizes the following functionality:
 
 ## Architecture
 
-![Architecture Diagram](../media/aks-iot-data-streaming.svg)
+![Architecture diagram of instant IoT data streaming with AKS.](../media/aks-iot-data-streaming.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-iot-data-streaming.vsdx) of this architecture.*
 
