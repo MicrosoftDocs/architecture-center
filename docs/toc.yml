@@ -2237,6 +2237,8 @@ items:
                 href: example-scenario/ai/student-attrition-prediction.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
+              - name: Scalable secure open source Capture the Flag (CTF)
+                href: example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml
               - name: Teacher-provisioned virtual labs in Azure
                 href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
               - name: Training and guidance with mixed reality
@@ -3467,7 +3469,7 @@ items:
           - name: Solution ideas
             items:
               - name: Blockchain workflow application
-                href: /updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
+                href: https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
               - name: Supply chain management with QBS
                 href: guide/blockchain/quorum-blockchain-service.yml
               - name: Supply chain track and trace
