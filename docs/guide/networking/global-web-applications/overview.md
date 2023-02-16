@@ -35,7 +35,7 @@ When you design a mission-critical global web application, consider having multi
 
 :::image type="content" source="./media/overview/alternate-traffic-paths.png" alt-text="Diagram showing traffic being directed by Traffic Manager to Azure Front Door or to another service, and then to the origin server." border="false":::
 
-In this approach, you introduce several components and require changes to other components in your solution:
+In this approach, you introduce several components and make significant changes to other components in your solution:
 
 - **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer.
 
@@ -83,11 +83,17 @@ When you provision and use your own TLS certificates, you reduce the number of p
 
 ### Web application firewall
 
-- If you use the Front Door WAF to protect your application, consider what happens if the traffic isn't going through Front Door anymore
-- Do your alternative paths also have WAFs? If so, can you configure them the same way as your Front Door WAF?
-  - Do they need to be tested and tuned independently to avoid false positive detections?
-  - If you choose not to use a WAF for your alternative path, are you making yourself more vulnerable to threats?
-  - If somebody discovers your secondary path, could they send malicious traffic through your secondary path even when your primary path is live?
+If you use Azure Front Door's WAF to protect your application, consider what happens if the traffic doesn't go through Azure Front Door.
+
+If you alternative path also provides a WAF, consider the following questions:
+
+- Can it be configured in the same way as your Azure Front Door WAF?
+- Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
+
+> [!WARNING]
+> You might consider not using a WAF for your alternative ingress path, and accept the increaed risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice. When you deploy an architecture like that described in this article, your alternate traffic path is always live and ready to accept traffic. If an attacker discovers the secondary traffic path to your application, they might exploit this information and send malicious trafic through your secondary path even when the primary path includes a WAF.
+> 
+> Instead, it's best to secure *all* paths to your application servers.
 
 ### Origin security
 
