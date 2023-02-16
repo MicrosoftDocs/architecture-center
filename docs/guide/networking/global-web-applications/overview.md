@@ -117,19 +117,22 @@ If you use Private Link to connect from Azure Front Door to your origin server, 
 
 If your origin uses the Azure Front Door service tag and the `X-Azure-FDID` header to validate that traffic has flowed through Azure Front Door, consider how your origins can be reconfigured to validate that traffic has flowed through either of your valid paths. Also, ensure that you test that you haven't accidentally opened your origin to traffic through other paths, including from other customers' Azure Front Door profiles.
 
-When you plan your origin security, check whether your alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to reduce the risk of denial of service attacks against your origins. Additionally, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. These products often aren't required when your application is only exposed through Azure Front Door, but might be important security controls to apply in a more complex architecture.
+When you plan your origin security, check whether your alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to reduce the risk of denial of service attacks against your origins. Additionally, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need additional intrusion detection strategies. These controls often aren't required when your application is only exposed through Azure Front Door, but are often important elements in a more complex architecture.
 
-### Monitoring health and triggering failover
+### Monitor health and trigger traffic failover
 
-- Traffic Manager needs to detect a failure in Front Door and then serve new records
-- Your DNS TTL and TM probe config affects this
-- Can't control all downstream DNS caches either
+When planning a mission-critical web application architecture, consider how the different components of your solution monitor the health of downstream components, when they consider them to be unhealthy, and how long it takes for an outage to be detected and for traffic to be routed through an alternative path.
 
-### Internet security
+In Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
 
-- When you use AFD, you get a lot of benefits by virtue of it being a multitenant service that only accepts valid HTTP traffic. Layer 3/4 traffic and non-HTTP protocols just don't get to you. So equally, attacks that rely on these protocols don't reach your application. If you've restricted your origin to only accept traffic from AFD, you significantly limit your exposure to internet threats.
-- But if you use a secondary path into your application, this can be a significant shift in your exposure.
-  - Consider whether you need to expose your applications to the internet. This might require dedicated public IP address. Consider whether you need to then start to use DDoS protection, intrusion detection, layer 3/4 firewalls, etc.
+If an outage occures in Azure Front Door, then multiple factors influence the overall amount of time that the outage affects your traffic, including:
+
+- The time to live (TTL) on your DNS records.
+- How frequently Traffic Manager runs its health checks.
+- How many failed probes Traffic Manager is configured to see before it reroutes traffic.
+- How long clients and upstream DNS servers cache Traffic Manager's DNS responses for.
+
+You also need to which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable even when it's already switched to the alternative traffic path.
 
 ## Common scenarios
 
