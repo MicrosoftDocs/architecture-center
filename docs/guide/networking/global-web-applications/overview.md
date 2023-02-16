@@ -89,6 +89,21 @@ Because DNS is a key element with serving web application traffic, it is also an
 - [Global traffic ingress](./mission-critical-global-http-ingress.md)
 - [Caching](./mission-critical-content-delivery.md)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Dave Burkhardt](http://linkedin.com/in/david-burkhardt-13b79b3) | Principal Product Manager, Azure Networking
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * TODO
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 There are other industry solutions to achieve high availability with CDNs services, but we wanted to start by advising the most expedient and less complex solutions that are within Azure’s ecosystem. Nonetheless, please leverage your Microsoft Cloud Solutions Architects or Fast Track engineers to help you determine which solution is best for your organization.

@@ -31,7 +31,7 @@ In this article, we describe an approach for using Azure Front Door with a partn
 
 ## Approach
 
-Microsoft has partnered with Verizon's CDN, and you can integrate Verizon's CDN platform into your Azure-based solution. Although Verizon's CDN is partnered with Azure and can be configured from within the Azure portal and APIs, their CDN platform is isolated from Microsoft’s infrastructure.
+Microsoft has partnered with Verizon's CDN, and you can integrate Verizon's CDN platform (Edgio) into your Azure-based solution. Although Verizon's CDN is partnered with Azure and can be configured from within the Azure portal and APIs, their CDN platform is isolated from Microsoft’s infrastructure.
 
 This isolation provides a high degree of resiliency from disaster scenarios. In the event of an outage or disaster, traffic can be automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
@@ -80,6 +80,21 @@ There are numerous tools customers can utilize to monitor availability/performan
 
 - Verizon is a good choice because it can be controlled and billed through Azure while running on separate infrastructure
 - You can use another CDN if you prefer too, or even several CDNs
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+ * [Dave Burkhardt](http://linkedin.com/in/david-burkhardt-13b79b3) | Principal Product Manager, Azure Networking
+ * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+
+Other contributors:
+
+ * TODO
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
