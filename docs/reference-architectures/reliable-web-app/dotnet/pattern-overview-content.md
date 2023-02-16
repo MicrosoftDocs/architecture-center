@@ -57,25 +57,25 @@ The Azure services you choose should support your short-term objectives while pr
 - **High SLA.** It has a high SLA that meets the production environment SLO. For more information, see [SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_5).
 - **Reduced management overhead.** It's a fully managed solution that handles scaling, health checks, and load balancing.
 - **.NET support.** It supports the version of .NET that the application is written in.
-- **Containerization capability:** The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services.
-- **Autoscaling:** The web app can automatically scale up, down, in, and out based on user traffic and settings.
+- **Containerization capability.** The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services.
+- **Autoscaling.** The web app can automatically scale up, down, in, and out based on user traffic and settings.
 
 ### Identity management
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with our application. Azure AD provides the application with the following abilities:
 
-- **Authentication and authorization:** The application needed to authenticate and authorize call center employees.
-- **Scalable:** It scale to support larger scenarios.
-- **User-identity control:** Call center employees can use their existing enterprise identity.
-- **Support authorization protocols:** It supports OAuth 2.0 for managed identities and OpenID Connect for future B2C support.
+- **Authentication and authorization.** The application needs to authenticate and authorize call center employees.
+- **Scalable.** It scales to support larger scenarios.
+- **User-identity control.** Call center employees can use their existing enterprise identities.
+- **Support authorization protocols.** It supports OAuth 2.0 for managed identities and OpenID Connect for future B2C support.
 
 ### Database
 
-[Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) is a general-purpose relational database and managed service in that supports relational and spatial data, JSON, spatial, and XML. The web app used SQL Server on premises and wanted to keep the database schema, stored procedures, and functions. There are different SQL products in Azure, but the web app uses Azure SQL Database because it met the following requirements:
+[Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) is a general-purpose relational database and managed service in that supports relational and spatial data, JSON, spatial, and XML. The web app used SQL Server on-premises, and the team wants to use the existing database schema, stored procedures, and functions. Several SQL products are available on Azure, but the web app uses Azure SQL Database because it meets the following requirements:
 
-- **Reliability:** The general-purpose tier provides a 99.99% uptime SLA and multi-region redundancy. It can support a high user load.
-- **Reduced management overhead:** It provides a managed SQL database instance.
-- **Migration support:** It supports database migration from on-premises SQL Server.
+- **Reliability.** The general-purpose tier provides a [high SLA](https://www.azure.cn/support/sla/sql-data/) and multi-region redundancy. It can support a high user load.
+- **Reduced management overhead.** It provides a managed SQL database instance.
+- **Migration support.** It supports database migration from on-premises SQL Server.
 - **Consistency with on-premises configurations:** Azure SQL Server supports the existing stored procedures, functions, and views.
 - **Resiliency:** It supports backups and point-in-time restore.
 - **Expertise and minimal rework:** Azure SQL Database is the database platform that maximized in-house expertise and minimal rework.
