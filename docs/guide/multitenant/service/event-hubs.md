@@ -23,7 +23,7 @@ This article describes Event Hubs features and isolation models that you can use
 
 ## Isolation models
 
-When you use Event Hubs in your multitenant system, you need to decide the level of isolation that you want. Event Hubs supports two isolation models.
+When you use Event Hubs in your multitenant system, you need to decide the level of isolation that you want. Event Hubs supports different models of multitenancy.
 
 - **Trusted multitenancy:** All tenants share an Event Hubs namespace. This choice can be appropriate when all the tenants are in your organization.
 - **Hostile multitenancy:** Each tenant has its own namespace that isn't shared. This choice can be appropriate when you want to ensure that your tenants don't have [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems.
@@ -45,7 +45,7 @@ The following table summarizes the differences between the main tenancy isolatio
 
 ### Dedicated namespace
 
-In this model, you provide an [Event Hubs namespace](/azure/event-hubs/event-hubs-features#namespace) for each tenant. This approach provides the maximum level of isolation and the ability to provide acceptable performance for all tenants.
+In this model, you provision an [Event Hubs namespace](/azure/event-hubs/event-hubs-features#namespace) for each tenant. This approach provides the maximum level of isolation and the ability to provide acceptable performance for all tenants.
 
 You can use the following techniques to fine-tune eventing capabilities to satisfy tenant requirements:
 
@@ -61,17 +61,17 @@ The disadvantage of this isolation model is that, as the number of tenants grows
 
 ### Shared namespace, dedicated event hubs
 
-Even if a namespace is shared by multiple tenants, you can give tenants exclusive access to one or more event hubs. You can use shared access signatures or Azure Active Directory (Azure AD) identities to control access.
+Even if a namespace is shared by multiple tenants, you can isolate tenants to a dedicated event hub. You can use shared access signatures or Azure Active Directory (Azure AD) identities to control access.
 
-Each tenant requires one or more event hubs, so tenant growth leads to higher operational costs and reduced organizational agility. There's a [limit](/azure/event-hubs/compare-tiers#quotas) on the number of event hubs per namespace. Thus the number of namespaces that your system requires depends on the number of event hubs that your tenants require.
+As the number of tenants grows within your system, the number of event hubs also increases to accommodate each tenant. This growth can lead to higher operational costs and lower organizational agility. There's a [limit](/azure/event-hubs/compare-tiers#quotas) on the number of event hubs per namespace. Thus the number of namespaces that your system requires depends on the number of event hubs that your tenants require.
 
-When a namespace is shared, noisy neighbor problems are more likely. For example, it's possible that the event entities of a tenant could consume a disproportionate amount of the namespace resources and hinder other tenants. Event Hub namespaces have limits on their processing units (premium tier) or capacity units (dedicated tier) and on the number of brokered connections to a namespace. Consider whether a single tenant might consume too many resources.
+When a namespace is shared, [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems are more likely. For example, it's possible that the event entities of a tenant could consume a disproportionate amount of the namespace resources and hinder other tenants. Event Hub namespaces have limits on their processing units (premium tier) or capacity units (dedicated tier) and on the number of brokered connections to a namespace. Consider whether a single tenant might consume too many resources.
 
 ### Shared namespace and event hubs
 
 You can have a namespace and event entities that are shared by all your tenants. This model decreases operational complexity and lowers resource costs.
 
-However, having a shared namespace can lead to the noisy neighbor problem and result in higher latency for some tenants. You also have to implement your applications to serve multiple tenants. Shared event hubs and Kafka topics don't provide data isolation between tenants, so you have to satisfy data isolation requirements in your application logic.
+However, having a shared namespace can lead to the [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problem and result in higher latency for some tenants. You also have to implement your applications to serve multiple tenants. Shared event hubs and Kafka topics don't provide data isolation between tenants, so you have to satisfy data isolation requirements in your application logic.
 
 > [!NOTE]
 > Don't use [Event Hubs partitions](/azure/event-hubs/event-hubs-features#partitions) to try to isolate your tenants. Partitioning in Event Hubs enables the processing of events and scalability, but it isn't an isolation model. You can send events directly to partitions, but doing so isn't recommended because it downgrades the availability of an event hub to partition level. For more information, see [Availability and consistency in Event Hubs](/azure/event-hubs/event-hubs-availability-and-consistency).
@@ -117,7 +117,7 @@ For more information, see [Authenticate access to Event Hubs resources using sha
 
 ### Customer-managed keys
 
-If your tenants require their own keys to encrypt and decrypt events, you can configure customer-managed keys in Event Hubs Premium.
+If your tenants require their own keys to encrypt and decrypt events, you can configure customer-managed keys in some versions of Event Hubs.
 
 This feature requires that you use the [dedicated namespace](#dedicated-namespace) isolation model. Encryption can only be enabled for new or empty namespaces.
 
@@ -127,7 +127,7 @@ For more information, see [Configure customer-managed keys for encrypting Azure 
 
 You can use the Event Hubs Capture feature to automatically capture streaming data from Event Hubs and store it to an Azure Blob Storage or Data Lake Storage account.
 
-This capability is useful for archiving events. You can deploy tenant-specific namespaces and enable Event Hubs Capture to archive events to tenant-specific Azure Storage accounts. You can also enable Event Hubs Capture on tenant-specific event hubs in a shared namespace.
+This capability is useful for archiving events. For example, if you're required to archive events for a tenant for compliance reasons, you can deploy tenant-specific namespaces and enable Event Hubs Capture to archive events to tenant-specific Azure Storage Accounts. You can also enable Event Hubs Capture on tenant-specific event hubs in a shared namespace.
 
 For more information, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](/azure/event-hubs/event-hubs-capture-overview)
 
@@ -140,7 +140,7 @@ For example, if you isolate your tenants at the namespace level, you can replica
 For more information, see [Azure Event Hubs - Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
 > [!NOTE]
-> Geo-disaster recovery helps protect continuity of operations by replicating the configuration of the primary namespace to the secondary namespace. However, Geo-disaster recovery replicates neither event data nor RBAC assignments. For more information, see [Multi-site and multi-region federation](/azure/event-hubs/event-hubs-federation-overview).
+> To help protect continuity of operations, Geo-disaster recovery replicates the configuration of the primary namespace to the secondary namespace. It doesn't replicate the event data, nor does it replicate any Azure AD RBAC assignments that you use for your primary namespace. For more information, see [Multi-site and multi-region federation](/azure/event-hubs/event-hubs-federation-overview).
 
 ### IP firewall rules
 
