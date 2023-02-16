@@ -48,11 +48,11 @@ In this approach, you introduce several components and make significant changes 
 
 1. There are two *paths* for traffic to ingress to your application:
 
-   - **Azure Front Door** processes and routes most of your application traffic. If Azure Front Door is unavailable, traffic is automatically redirected through another path.
+   - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
-   - **Another service** is used as a backup for Azure Front Door. Traffic flows through this service if Azure Front Door is unavailable.
+   - **Another service** is used as a backup for Azure Front Door. Traffic only flows through this service if Azure Front Door is unavailable.
   
-    The specific service you choose depends on many factors, which are described in more detail below.
+     The specific service that you select for your secondary path depends on many factors, which are described in more detail later throughout this article.
 
 1. **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
