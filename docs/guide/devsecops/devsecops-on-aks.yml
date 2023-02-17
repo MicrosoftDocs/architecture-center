@@ -1,7 +1,6 @@
 ### YamlMime:Architecture
 metadata:
   title: DevSecOps on Azure Kubernetes Service (AKS)
-  titleSuffix: Azure Solution Ideas
   description: Learn how DevSecOps helps you incorporate security best practices from the start of software development.
   author: martinekuan
   ms.author: asegala
@@ -9,7 +8,7 @@ metadata:
   ms.reviewer: ssumner
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: solution-idea
+  ms.subservice: azure-guide
   ms.category:
     - devops
     - hybrid
@@ -17,7 +16,7 @@ metadata:
     - acom-architecture
     - e2e-hybrid
     - kr2b-contr-experiment
-  social_image_url: /azure/architecture/solution-ideas/articles/media/devsecops-in-azure.png
+  social_image_url: /azure/architecture/guide/devsecops/media/devsecops-azure-aks.png
 name: DevSecOps on Azure Kubernetes Service (AKS)
 azureCategories:
   - devops
@@ -29,6 +28,6 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-policy
-thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-azure.png
+thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-azure-aks.png
 content: |
-   [!include[](devsecops-in-azure-content.md)]
+   [!include[](devsecops-on-aks-content.md)]

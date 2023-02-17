@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 DevSecOps, also called Secure DevOps, builds on the practice of DevOps by incorporating security at different stages of a traditional DevOps lifecycle. Some of the benefits of building security in DevOps practices include:
 
 - Making your applications and systems more secure by providing visibility into security threats and preventing vulnerabilities from reaching deployed environments
@@ -19,7 +17,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 
 ## Process flow
 
-:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where devsecops can be employed, devsecops in Azure." source="../media/devsecops-azure-aks.png" lightbox="../media/devsecops-azure-aks.png":::
+:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.png" lightbox="./media/devsecops-azure-aks.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-azure-aks.vsdx) of this architecture.*
 
@@ -72,7 +70,7 @@ The security team is responsible for developing security standards and enforcing
 
 Security controls are implemented in each phase of the software development lifecycle (SDLC). This implementation is a key piece of a DevSecOps strategy and of the shift-left approach.
 
-:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where devsecops can be employed, devsecops in Azure." source="../media/devsecops-stages.png" lightbox="../media/devsecops-stages.png":::
+:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-stages.png" lightbox="./media/devsecops-stages.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-stages.vsdx) of this architecture.*
 
@@ -268,17 +266,17 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 
 Principal authors:
 
+- [Adnan Khan](https://www.linkedin.com/in/adnan-khan-04311939/) | Sr. Cloud Solution Architect
 - [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for Visual Studio Code
-- Adnan Khan | Sr. Cloud Solution Architect
 
 Other contributors:
 
-- [John Poole](https://www.linkedin.com/in/johnrpoole/) | Sr. Cloud Solution Architect
-- [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3/) | Sr. Solution Architect
 - [Ayobami Ayodeji](https://www.linkedin.com/in/ayobamiayodeji/) | Program Manager 2
-- [Abed Sau](https://www.linkedin.com/in/abed-sau/) | Sr. Cloud Solution Architect
 - [Ahmed Bham](https://www.linkedin.com/in/ahmedbham-solutionsarchitect/) | Sr. Cloud Solution Architect
 - [Chad Kittel](https://www.linkedin.com/in/chadkittel/) | Principal Software Engineer
+- [John Poole](https://www.linkedin.com/in/johnrpoole/) | Sr. Cloud Solution Architect
+- [Bahram Rushenas](https://www.linkedin.com/in/bahram-rushenas-306b9b3/) | Sr. Solution Architect
+- [Abed Sau](https://www.linkedin.com/in/abed-sau/) | Sr. Cloud Solution Architect
 
 ## Next steps
 
@@ -290,7 +288,7 @@ Other contributors:
 
 ## Related resources
 
-- [DevSecOps in GitHub](./devsecops-in-github.yml)
-- [DevSecOps for Infrastructure as Code (IaC)](./devsecops-infrastructure-as-code.yml)
-- [DevSecOps with a rolling main branching strategy](./devsecops-rolling-branch.yml)
+- [DevSecOps in GitHub](../../solution-ideas/articles/devsecops-in-github.yml)
+- [DevSecOps for Infrastructure as Code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
+- [DevSecOps with a rolling main branching strategy](../../solution-ideas/articles/devsecops-rolling-branch.yml)
 - [Shift left](https://devops.com/devops-shift-left-avoid-failure)

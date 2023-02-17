@@ -3387,21 +3387,21 @@
                 "acom-architecture",
                 "all-items",
                 "data-flow",
-                "solution-idea"
+                "azure-guide"
             ],
-            "type": "solution-idea",
-            "file_url": "solution-ideas/articles/devsecops-in-azure.yml",
-            "http_url": "/azure/architecture/solution-ideas/articles/devsecops-in-azure",
+            "type": "azure-guide",
+            "file_url": "guide/devsecops/devsecops-on-aks.yml",
+            "http_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
             "word_count": 778,
             "read_time": "4 min read",
-            "Title": "DevSecOps in Azure",
+            "Title": "DevSecOps on AKS",
             "MetaDescription": "DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning",
             "category": [
                 "devops",
                 "hybrid"
             ],
-            "image": "/azure/architecture/solution-ideas/media/devsecops-in-azure.png",
-            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\solution-ideas\\media\\devsecops-in-azure.png",
+            "image": "/azure/architecture/guide/devsecops/media/devsecops-azure-aks.png",
+            "imagepath": "C:\\jvPnpRepos\\architecture-center-pr\\docs\\guide\\devsecops\\media\\devsecops-azure-aks.png",
             "publish_date": "12/16/2019",
             "components": [
                 "<p><a href=\"https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory</a> provides identity and access management services for your organization, allowing control over access to the resources inside Azure, GitHub Enterprise, and Azure DevOps.</p>",
@@ -3418,7 +3418,7 @@
                 "<p>Using <a href=\"https://learn.microsoft.com/azure/azure-monitor/overview\">Azure Monitor</a> lets you get insights on the availability and performance of your application and infrastructure. It also gives you access to signals to monitor your solution's health and spot abnormal activity early.</p>",
                 "<p>Using <a href=\"https://learn.microsoft.com/azure/active-directory-b2c/overview\">Azure AD B2C</a> you can provide identity services to consumers (end-users) of your application, even if they're not part of your organization.</p>"
             ],
-            "Summary": "<p>Security is a prime concern for businesses that store any sort of custom or client data. The solution that is covering the management and interface of this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://learn.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.png\" />\n<em>Download an <a href=\"https://learn.microsoft.com/azure/architecture/solution-ideas/media/devsecops-in-azure.svg\">SVG</a> of this architecture.</em></p>",
+            "Summary": "<p>Security is a prime concern for businesses that store any sort of custom or client data. The solution that is covering the management and interface of this data should be developed with security in mind. DevSecOps involves utilizing security best practices from the beginning of development, shifting the focus on security away from auditing at the end and towards development in the beginning using a shift-left strategy.</p>\n<p><img alt=\"Architecture Diagram\" src=\"https://learn.microsoft.com/azure/architecture/guide/devsecops/media/devsecops-azure-aks.png\" />\n<em>Download an <a href=\"https://learn.microsoft.com/azure/architecture/guide/devsecops/media/devsecops-azure-aks.svg\">SVG</a> of this architecture.</em></p>",
             "Flow": {
                 "FlowStep_A": "Azure Active Directory (AD) can be configured as the identity provider for GitHub. Multi-factor authentication can be enabled for extra security.",
                 "FlowStep_B": "Developers commit to GitHub Enterprise, driven by work items and bugs tracked with Azure Boards.",
@@ -3434,7 +3434,7 @@
                 "FlowStep_L": "Continuous monitoring with Azure Monitor extends to release pipelines to gate or rollback releases based on monitoring data. Azure Monitor also ingests security logs and can alert on suspicious activity.",
                 "FlowStep_M": "As addition and final part of a DevSecOps flow, Azure Security Center will be able to do active threat monitoring on the Azure Kubernetes Service, on both Node level (VM threats) and internals."
             },
-            "name": "devsecops-in-azure",
+            "name": "devsecops-on-aks",
             "popularity": 0,
             "topic": "DevOps",
             "hybrid-topic": "Apps"
@@ -3553,7 +3553,7 @@
                 "<p><a href=\"https://learn.microsoft.com/azure/virtual-machines/windows/shared-image-galleries\">Shared Image Gallery</a> acts as a VM image repository for IaaS solutions. VM Image Builder can build directly into a Shared Image Gallery, facilitating an Azure Pipelines CI/CD process of versioning the VM-based application.</p>",
                 "<p><a href=\"https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories\">GitHub</a> is a code hosting platform for version control and collaboration. A GitHub repository contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/devops/pipelines/\">Azure Pipelines</a> deploys the VM application images. Pipelines can also deploy the VM resources themselves, through <a href=\"https://learn.microsoft.com/azure/azure-resource-manager/templates/overview\">Azure Resource Manager (ARM) templates</a>. This <a href=\"https://learn.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code\">infrastructure-as-code</a> can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.</p>",
-                "<p><a >DevSecOps in Azure</a>.</p>",
+                "<p><a >DevSecOps on AKS</a>.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/devops/boards/\">Azure Boards</a> is a service for managing work for software projects. Azure Boards brings a rich set of capabilities, including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.</p>",
                 "<p><a href=\"https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis\">Azure Active Directory (Azure AD)</a> enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In this scenario, a separate Azure AD per subscription creates a distinct separation of concerns between Azure users.</p>",
                 "<p><a href=\"https://azure.microsoft.com/services/azure-policy/\">Azure Policy</a> governs resources to meet organizational standards and compliance. In a DevTest role, Azure Policy can regulate and limit the number and costs of VMs in the subscription. Auditing can provide insights and track the usage of the DevTest VMs.</p>",
