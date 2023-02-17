@@ -40,9 +40,9 @@ When you design a mission-critical global web application, consider having multi
 
 In this approach, you introduce several components and make significant changes to other components in your solution:
 
-1. **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected. [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer.
+1. **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected.
 
-   Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door most of the time. Traffic Manager can automatically fail over to your alternate traffic path if Azure Front Door is unavailable.
+   [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door by default. Traffic Manager can automatically swich traffic to your alternate path if Azure Front Door is unavailable.
   
    You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
 
@@ -70,10 +70,10 @@ Some key questions you should consider are:
 - Do you do use the Azure Front Door rules engine to perform custom routing logic, or to rewrite requests?
 - Do you use the Azure Front Door web application firewall (WAF) to secure your applications?
 - Do you restrict traffic based on IP address or geography?
-- Do you use Azure Front Door's managed TLS certificates?
+- Who issues and managed your TLS certificates?
 - How do you restrict access to your origin application servers to ensure it comes through Azure Front Door? Do you use Private Link, or do you rely on public IP addresses with service tags and identifier headers?
 - Do your application servers accept traffic from anywhere other than Azure Front Door? If they do, which protocols do they accept?
-- Do your clients use HTTP/2 to access your application?
+- Do your clients use Azure Front Door's HTTP/2 support?
 
 ### Domain names and DNS
 
@@ -103,7 +103,7 @@ If you alternative path also provides a WAF, consider the following questions:
 - Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
 
 > [!WARNING]
-> You might consider not using a WAF for your alternative ingress path, and considr accepting the increaed risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice.
+> You might consider not using a WAF for your alternative ingress path, and consider accepting the increaed risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice.
 > 
 > When you deploy an architecture like the one described in this article, your alternate traffic path is always exposed to the internet and is ready to accept traffic at any moment. If an attacker discovers an unprotected secondary traffic path to your application, they might send malicious traffic through your secondary path even when the primary path includes a WAF.
 > 
