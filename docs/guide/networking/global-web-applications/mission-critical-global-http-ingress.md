@@ -85,7 +85,7 @@ Azure Front Door is a global service, while Application Gateway is a regional se
 
 ### Public IP address
 
-As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Furthermore, Microsoft manages the IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can [protect your origin against a variety of attack types](TODO DDOS).
+As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Furthermore, Microsoft manages the IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can [protect your origin against a variety of attack types](/frontdoor/front-door-ddos).
 
 In contrast, Application Gateway requires that you deploy a dedicated public IP address, and you must protect your network and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
 
@@ -99,14 +99,15 @@ To mitigate this risk, you should use consider how you [scale your Application G
 
 If you use Azure Front Door's caching features, then it's important to be aware that after your traffic switches to the alternative path and uses Application Gateway, content will no longer be served from the Azure Front Door caches. If your solution serves large amount of cached content, the lack of a cache might overload your origin, or cause other reliability or performance issues.
 
-If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door.
+If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner CDN as a fallback to Azure Front Door.
 
 Alternatively, if you use caching but it's not an essential part of your application delivery strategy, consider whether you can scale out or scale up your origins to cope with the increased load caused by the higher number of cache misses during a failover.
 
-### Access origins through a private IP address
+### Connection to origin servers
 
-- AFD - Private Link
-- AppGW - private endpoint in your VNet configured as the backend in AppGW
+Azure Front Door Premium provides [Private Link connectivity](/azure/frontdoor/origin-security?#private-link-origins) to your origins, which reduces the public internet-facing surface area of your solution.
+
+If you use Private Link to connect to your origins, consider deploying a private endpoint into your virtual network, and configure Application Gateway to use the private endpoint as the backend for your application.
 
 ## Contributors
 
