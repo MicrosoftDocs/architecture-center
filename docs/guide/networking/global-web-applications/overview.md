@@ -136,8 +136,12 @@ You also need to which of these elements are within your control, and whether up
 
 ## Common scenarios
 
-- [Global traffic ingress](./mission-critical-global-http-ingress.md)
-- [Caching](./mission-critical-content-delivery.md)
+Based on our experience working with customers, we've observed two common scenarios where mission-critical web traffic needs the kind of architecture described in this article. We provide more detailed guidance for each of these scenarios.
+
+- [Global HTTP ingress](./mission-critical-global-http-ingress.md) commonly applies to mission-critical dynamic applications and APIs. In this scenario, the core requirement is to route traffic to the origin server reliably and efficiently. Frequently, a WAF is an important security control used in these solutions.
+- [Global content delivery](./mission-critical-content-delivery.md) commonly applies to static content delivery, media, and high-scale eCommerce applications. In this scenario, caching is a critical part of the solution architecture, and failures to cache can result in significantly degraded performance or reliability.
+
+Every customer's solution architecture and requirements are different, so it's important to carefully consider how you design your own mission-critical web application.
 
 ## Contributors
 
@@ -153,4 +157,4 @@ Principal authors:
 
 ## Next steps
 
-There are other industry solutions to achieve high availability with CDNs services, but we wanted to start by advising the most expedient and less complex solutions that are within Azure’s ecosystem. Nonetheless, please leverage your Microsoft Cloud Solutions Architects or Fast Track engineers to help you determine which solution is best for your organization.
+Review the [global HTTP ingress](./mission-critical-global-http-ingress.md) and [global content delivery](./mission-critical-content-delivery.md) scenarios to understand whether they apply to your solution.
