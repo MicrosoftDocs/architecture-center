@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 DevSecOps, also called Secure DevOps, builds on the practice of DevOps by incorporating security at different stages of a traditional DevOps lifecycle. Some of the benefits of building security in DevOps practices include:
 
 - Making your applications and systems more secure by providing visibility into security threats and preventing vulnerabilities from reaching deployed environments
