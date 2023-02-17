@@ -21,30 +21,21 @@ ms.custom:
 
 # Mission-critical global HTTP ingress
 
-This DNS based load balancing solution utilizes Azure Traffic Manager (ATM) to monitor AFD, in the very unlikely event of an availability issue, and then will fail-over the traffic to Application Gateway (AppGW). 
+TODO
 
 ## Approach
 
-TODO
+This DNS-based load balancing solution uses Azure Traffic Manager to monitor Azure Front Door. In the very unlikely event of an availability issue, Traffic Manager redirects traffic through Azure Application Gateway.
 
-# [Priority-based regional routing](#tab/priority)
-
-TODO
-
-:::image type="content" source="./media/front-door-application-gateway.png" alt-text="Traffic Manager with priority routing (AFD on higher priority) and AFD on least latency routing." border="false":::
-
-# [Performance-based regional routing](#tab/performance)
-
-TODO
-
-:::image type="content" source="./media/front-door-application-gateway.png" alt-text="Traffic Manager with priority routing (AFD on higher priority) and AFD on least latency routing." border="false":::
-
----
+:::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
 
 ## Considerations
 
+The following sections describe some important considerations for this type of architecture. You should also review [Mission-critical global web applications](./overview.md) for other important considerations about using Azure Front Door in a mission-critical solution.
+
 ### Traffic Manager configuration
-- You can consider using a nested ATM structure (a second ATM between the first ATM and the Application Gateways) for finer control over the routing logic
+
+- Nested ATM structure (a second ATM between the first ATM and the Application Gateways) for finer control over the routing logic
 
 ### Azure Front Door and Application Gateway features
 
