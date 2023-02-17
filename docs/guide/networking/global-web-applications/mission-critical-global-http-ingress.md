@@ -23,6 +23,8 @@ ms.custom:
 
 Mission-critical dynamic applications and APIs need to maintain a high level of uptime, even when network components are unavailable or degraded. If your solution uses Azure Front Door for web traffic ingress, routing, and security, and you need to maintain a mission-critical status, then you might need to consider an architecture that combines multiple Azure services together to achieve your requirements.
 
+However, when you implement this type of architecture, you need to carefully consider the full implications. You need to implement separate network path to your application servers, and each path needs to be configured and tested separately.
+
 This article describes an approach to support global HTTP traffic ingress though Azure Front Door and Azure Application Gateway.
 
 > [!NOTE]
@@ -62,7 +64,7 @@ The following sections describe some important considerations for this type of a
 
 This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traffic-manager-nested-profiles) to achieve both priority-based and performance-based routing together for your application's alternative traffic path. In a simple scenario with an origin in a single region, you might only need a single Traffic Manager profile configured to use priority-based routing.
 
-### Azure Front Door and Application Gateway features
+### Feature parity
 
 This type of architecture is most useful if you want your alternative traffic path to use features like request processing rules, a WAF, and TLS offload. Both Azure Front Door and  Application Gateway provide similar capabilities.
 
@@ -81,7 +83,7 @@ Azure Front Door is a global service, while Application Gateway is a regional se
 - **Performance:** Azure Front Door's points of presence are deployed globally, and TCP and TLS connections from clients [terminate at their closest point of presence](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway their TCP and TLS connections terminate at the Application Gateway itself.
 - **Cost:** You typically need to deploy an Application Gateway instance into each region where you have an origin. Because each Application Gateway instance is billed separately, the cost can become high when you have origins deployed into several regions.
 
-  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Because CDN traffic usually billed on a consumption basis, this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
+  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
 
 ### Public IP address
 
