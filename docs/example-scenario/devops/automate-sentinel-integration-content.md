@@ -1,14 +1,14 @@
-Security operations center (SOC) teams experience challenges when integrating Microsoft Sentinel with Azure DevOps. The process involves many steps and the setup can take days with constant repetition. You can automate this part of the development.
+Security operations center (SOC) teams sometimes experience challenges when they integrate Microsoft Sentinel with Azure DevOps. The process involves many steps, and the setup can take days and involve repetition. You can automate this part of the development.
 
-Cloud modernization means engineers must constantly learn new skills and techniques for securing and protecting vital business assets. Engineers must build robust and scalable solutions that keep pace with the ever-changing security landscape and business needs. The security solution must be flexible, agile, and carefully planned from the earliest stages of development, known as shift-left.
+To modernize for the cloud, engineers must constantly learn new skills and techniques for securing and protecting vital business assets. Engineers must build robust and scalable solutions that keep pace with the changing security landscape and with business needs. A security solution must be flexible, agile, and carefully planned from the earliest stages of development. This early-planning methodology is known as *shift-left*.
 
-This article shows you how to automate Microsoft Sentinel integration and deployment operations with Azure DevOps. You implement Azure DevOps by using several Microsoft Sentinel capabilities to secure your deployment. Then, you use a DevSecOps framework to manage and deploy Microsoft Sentinel artifacts at scale.
+This article describes how to automate Microsoft Sentinel integration and deployment operations with Azure DevOps. You implement Azure DevOps by using Microsoft Sentinel capabilities to help secure your deployment. You then use a DevSecOps framework to manage and deploy Microsoft Sentinel artifacts at scale.
 
-You can even expand the solution to cover complex organizations that have multiple entities, subscriptions, and various operating models. Some of the operating models supported by this solution include local SOC, global SOC, cloud service provider (CSP), and managed security service provider (MSSP).
+You can expand the solution for complex organizations that have multiple entities, subscriptions, and various operating models. Some of the operating models supported by this solution include local SOC, global SOC, cloud service provider (CSP), and managed security service provider (MSSP).
 
-This article supports the following audiences:
+This article is intended for the following audiences:
 
-* SOC specialists, as in analysts and threat hunters
+* SOC specialists, like analysts and threat hunters
 * Security information and event management (SIEM) engineers
 * Cybersecurity architects
 * Developers
@@ -793,11 +793,13 @@ By using the Microsoft Sentinel deployment pipeline samples, you can set up a re
 
 ## Contributors
 
-*This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Kevin Kisoka](https://fr.linkedin.com/in/kevinkisoka) | Associate Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -811,7 +813,7 @@ Principal authors:
 
 ## Related resources
 
-* [Dev SecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)
-* [Hybrid security monitoring using Microsoft Defender for cloud and Microsoft Sentinel](/azure/architecture/hybrid/hybrid-security-monitoring)
-* [Design a CI/CD pipeline using Azure DevOps](/azure/architecture/example-scenario/apps/devops-dotnet-baseline)
-* [Advanced ARM template functionality](/azure/architecture/guide/azure-resource-manager/advanced-templates)
+* [Dev SecOps in GitHub](../../solution-ideas/articles/devsecops-in-github.yml)
+* [Hybrid security monitoring using Microsoft Defender for cloud and Microsoft Sentinel](../../hybrid/hybrid-security-monitoring.yml)
+* [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
+* [Advanced ARM template functionality](../../guide/azure-resource-manager/advanced-templates/index.md)
