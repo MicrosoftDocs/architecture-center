@@ -1,6 +1,6 @@
 # Autonomous Vehicle Operations (AVOps) Reference Architecture
 
-This article outlines the different Azure building blocks that can help with the development of Automated Driving.  Autonomous Vehicle Operations (AVOps) reference architecture provides recommendations as a quick starter for anyone wanting to development solutions on Azure for Automated Driving (AD).
+This architecture provides guidance on the building blocks and recommendations for developing an automated driving solution.
 
 ## Architecture
 
