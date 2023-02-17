@@ -35,9 +35,21 @@ This approach might suit your needs if the following statements apply to your so
 
 ## Approach
 
-This DNS-based load balancing solution uses Azure Traffic Manager to monitor Azure Front Door. In the very unlikely event of an availability issue, Traffic Manager redirects traffic through Application Gateway.
+This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles to monitor Azure Front Door. In the very unlikely event of an availability issue, Traffic Manager redirects traffic through Application Gateway.
 
 :::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
+
+The solution includes the following components:
+
+- **Traffic Manager using priority routing mode** sends traffic to Azure Front Door by default. If Azure Front Door is unavailable, it uses a second Traffic Manager profile to determine where to direct the request.
+
+- **Azure Front Door** processes and routes most of your application traffic. Azure Front Door provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
+
+- **Traffic Manager using performance routing mode** sends traffic to the Application Gateway instance with the best performance from the client's location.
+
+- **Application Gateway** is deployed into each region, and sends traffic to the origin servers within that region.
+
+- **Your origin application servers** need to be ready to accept traffic from both Azure Front Door and Azure Application Gateway.
 
 ## Considerations
 
@@ -52,7 +64,14 @@ The following sections describe some important considerations for this type of a
 - This combination is useful if you want to keep using features like rules engine, WAF, TLS offload in the event of a failover. 
 - Need to configure them in both places.
 
+- AppGW doesn't provide global PoPs, so you lose the benefit of dynamic acceleration
+
 - While there are similarities between the features that AFD and AppGW offer, not all features have parity (e.g., rules engine, WAF etc.). Similarly, AFD has additional capabilities that may not be offered with AppGW (e.g., caching). Be mindful of these differences as they could affect how the application delivery behavior after failover. 
+
+### Access origins through a private IP address
+
+- AFD - Private Link
+- AppGW - private endpoint in your VNet configured as the backend in AppGW
 
 ### Regional distribution
 
