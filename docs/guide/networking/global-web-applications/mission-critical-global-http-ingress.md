@@ -66,7 +66,7 @@ This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traf
 
 This type of architecture is most useful if you want your alternative traffic path to use features like request processing rules, a WAF, and TLS offload. Both Azure Front Door and  Application Gateway provide similar capabilities.
 
-However, it's important to consider the following:
+However, it's important to consider the following issues:
 
 - When you use any of these features, you need to configure them on both Azure Front Door and Application Gateway. For example, if you make a configuration change to your Azure Front Door WAF, you need to apply the same configuration change to your Application Gateway WAF too.
 - While there are similarities between the features that Azure Front Door and Application Gateway offer, many features don't have exact parity. Be mindful of these differences, because they could affect how the application is delivered based on the traffic path it follows.
@@ -76,19 +76,32 @@ Furthermore, it's important to remember that Azure Front Door and Application Ga
 
 ### Regional distribution
 
-- Unlike AFD which is a global service, AppGW is a regional service, which means you would need to spin up an AppGW instance in each Azure region you have an origin. This can become very costly if you have origins across multiple regions.
+Azure Front Door is a global service, while Application Gateway is a regional service. This difference is important for several reasons:
+
+- **Performance:** Azure Front Door's points of presence are deployed globally, and TCP and TLS connections from clients [terminate at their closest point of presence](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway their TCP and TLS connections terminate at the Application Gateway itself.
+- **Cost:** You typically need to deploy an Application Gateway instance into each region where you have an origin. Because each Application Gateway instance is billed separately, the cost can become high when you have origins deployed into several regions.
+
+  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Because CDN traffic usually billed on a consumption basis, this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
+
+### Public IP address
+
+As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Furthermore, Microsoft manages the IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can [protect your origin against a variety of attack types](TODO DDOS).
+
+In contrast, Application Gateway requires that you deploy a dedicated public IP address, and you must protect your network and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
 
 ### Scaling
 
-- It is recommended that your AppGW is also appropriately scaled to serve traffic incase of a failover or has autoscaling enabled.
+When you deploy Application Gateway, you deploy dedicated compute resources for your solution. If large amounts of traffic arrive at your Application Gateway unexpectedly, you might observe performance or reliability issues.
+
+To mitigate this risk, you should use consider how you [scale your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Either use autoscaling, or ensure that you have manually scaled it to handle the amount of traffic that you might receive after failing over.
 
 ### Caching
 
-- If you have enabled caching with AFD, after failover to AppGW, your content will no longer be served from AFD’s 185+ global edge PoPs. So, depending on the size of your content library if you, you could potentially overload your origin when a failover occurs – meaning, performance of your internet application/services will load slowly, but your traffic will not be offline if AFD is down. 
+If you use Azure Front Door's caching features, then it's important to be aware that after your traffic switches to the alternative path and uses Application Gateway, content will no longer be served from the Azure Front Door caches. If your solution serves large amount of cached content, the lack of a cache might overload your origin, or cause other reliability or performance issues.
 
-- If you depend on caching, see the CDN scenario
-- If cost is a factor, consider the CDN scenario because it's consumption-based pricing
-- If you use caching but it's not a critical part of your solution, consider whether you can scale out/up your origins to cope with the increased load caused by a higher number of cache misses
+If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door.
+
+Alternatively, if you use caching but it's not an essential part of your application delivery strategy, consider whether you can scale out or scale up your origins to cope with the increased load caused by the higher number of cache misses during a failover.
 
 ### Access origins through a private IP address
 

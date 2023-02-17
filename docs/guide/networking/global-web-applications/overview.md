@@ -135,6 +135,9 @@ If Azure Front Door is unavailable, then multiple factors influence the overall 
 
 You also need to which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
+> [!TIP]
+> Mission-critical solutions require automated failover approaches. Manual failover processes are generally too slow for mission-critical solutions to remain responsive.
+
 ## Common scenarios
 
 Based on our experience working with customers, we've observed two common scenarios where mission-critical web traffic needs the kind of architecture described in this article. We provide more detailed guidance for each of these scenarios.
