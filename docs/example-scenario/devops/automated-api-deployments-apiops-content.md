@@ -1,15 +1,8 @@
-APIOps applies GitOps and [DevOps](/devops) to API deployments. It uses version control to manage APIs and creates an audit trail of changes to APIs, policies, and operations. With APIOps, API developers can review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster for better specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs. 
-
-This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/) provides Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) creates the CI/CD pipeline.
-
-## Potential use cases
-
-- Any organization developing and managing APIs
-- Highly regulated industries: insurance, banking, finance, government.
+APIOps applies GitOps and [DevOps](/devops) to API deployments. It uses version control to manage APIs and creates an audit trail of changes to APIs, policies, and operations. This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/) provides Git functionality, and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) creates the CI/CD pipeline.
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png" lightbox="media/automated-api-deployments-architecture-diagram.png":::
+:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png" lightbox="media/automated-api-deployments-architecture-diagram.png" border="false":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture-diagram.vsdx) of this architecture._
 
@@ -48,6 +41,15 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 The original implementation of this solution used a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). We extended the utilities, such as the extractor and the creator, to deploy changes to the API. The implementation is now more technology agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
 
 This solution uses [Azure Repos](/azure/devops/repos/) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) provides the pipelines. You can use any comparable technologies.
+
+## Scenario details
+
+ With APIOps, API developers can review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster for better specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs. 
+
+### Potential use cases
+
+- Any organization developing and managing APIs
+- Highly regulated industries: insurance, banking, finance, government
 
 ## Considerations
 
@@ -156,7 +158,7 @@ Principal author:
 
 - [Rishabh Saha](https://www.linkedin.com/in/rishabhsaha) | Senior Cloud Solution Architect
 
-*To see non-public LinkedIn profiles, sign into LinkedIn.*
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
