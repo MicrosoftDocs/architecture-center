@@ -59,7 +59,7 @@ The following table summarizes the differences between the main tenancy models f
 | [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per Azure AD B2C tenant, requests per client IP address | A combination of requests, number of Azure AD B2C tenants per subscription, and number of directories for a single user, depending on your partitioning strategy | Number of Azure AD B2C tenants per subscription, maximum number of directories for a single user |
 | **Operational complexity** | Low | Medium to high, depending on your partitioning strategy | Very high |
 | **Number of Azure AD B2C tenants required** | 1 | Between 1 and *n*, depending on your partitioning strategy | *n*, where n is equal to the number of application tenants |
-| **Example scenario** | You're building a SaaS offering for consumers with low or no data residency requirements, such as a music or video streaming service | You're building a SaaS offering for businesses, such as accounting and record keeping software. You need to support data residency requirements or custom federated identity providers | You're building a SaaS offering for businesses, such as a government record-keeping software. Your customers mandate a high degree of data isolation from other application tenants |
+| **Example scenario** | You're building a SaaS offering for consumers with low or no data residency requirements, such as a music or video streaming service | You're building a SaaS offering for businesses, such as accounting and record keeping software. You need to support data residency requirements or a large number of custom federated identity providers | You're building a SaaS offering for businesses, such as a government record-keeping software. Your customers mandate a high degree of data isolation from other application tenants |
 
 ### Shared Azure AD B2C tenant
 
@@ -72,7 +72,7 @@ A shared Azure AD B2C tenant should be considered if the following apply to your
 
 - You don't have data residency or strict data isolation requirements.
 - Your application needs are within the Azure AD B2C [service limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits).
-- You don't need to allow each of your application tenants to bring a custom identity provider. This is usually the case when your application only uses local accounts, or when you have a fixed set of identity providers or social logins you'd like to support and these will be shared across all your application tenants.
+- You are able to use [home realm discovery](#home-realm-discovery) to automatically select a custom federated identity provider for a user to sign in with, if you have them.
 - You have a unified sign-in experience for all application tenants.
 - Your end users need access to more than one application tenant under the same account.
 
@@ -91,7 +91,7 @@ Vertical partitioning is similar to the [Data Sharding pattern](../../../pattern
 You should consider provisioning your Azure AD B2C tenants using a vertically partitioned strategy if the following considerations apply to your scenario:
 
 - You have data residency requirements, or you need to separate your users by geography.
-- You need to enable your customers to bring their own custom federated identity providers, such as by using the SAML or OpenID Connect protocols.
+- You have a large number of federated identity providers and cannot use [home realm discovery](#home-realm-discovery) to automatically select one for a user to sign in with
 - Your application is, or can be, aware of multitenancy and knows which Azure AD B2C tenant your users will need to sign into
 - You're concerned about your larger application tenants reaching the [Azure AD B2C limits](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow).
 - You have a long-term strategy planned for deploying and [maintaining](#maintenance) a medium to large number of Azure AD B2C tenants.
@@ -127,9 +127,13 @@ The diagram below illustrates the Azure AD B2C tenant per application tenant mod
 
 ## Identity federation
 
-Each unique federated identity provider must be [configured](/azure/active-directory-b2c/user-flow-overview) by using either a user flow or in a custom policy. Typically, during sign-in, the user would select which identity provider they wish to authenticate against. If you're using a shared tenant isolation model or you have a large number of federated identity providers, you should consider using [home realm discovery](https://github.com/azure-ad-b2c/samples/tree/master/policies/default-home-realm-discovery) to automatically select an identity provider during sign-in.
+Each unique federated identity provider must be [configured](/azure/active-directory-b2c/user-flow-overview) by using either a user flow or in a custom policy. Typically, during sign-in, the user would select which identity provider they wish to authenticate against. If you're using a shared tenant isolation model or you have a large number of federated identity providers, you should consider using [home realm discovery](#home-realm-discovery) to automatically select an identity provider during sign-in.
 
 Additionally, you can also use identity federation as a tool for managing multiple Azure AD B2C tenants by federating the Azure AD B2C tenants with each other. This allows your application to trust a single Azure AD B2C tenant, and avoids it being aware that your customers are divided between *n* number of Azure AD B2C tenants. This approach is most commonly used in the vertically partitioned isolation model when your users are partitioned by region and has many considerations itself. Refer to the documentation on [global identity solutions](/azure/active-directory-b2c/azure-ad-b2c-global-identity-solutions) for an overview of this approach.
+
+### Home realm discovery
+
+Home realm discovery is the concept of automatically selecting which federated identity provider a user should be signed in with instead of the user having to manually select one. This concept is key for enabling the use of a shared Azure AD B2C tenant when you need to enable your customers to bring their own federated identity provider, as you likely would not want them to have to select from a list of *n* number of identity providers. This process can be done for a user in Azure AD B2C based on many different factors, but the most common approach is to use the user's email domain suffix to decide which identity provider they should be signed in with. For more information on the concept, see the Azure AD page on [home realm discovery](/azure/active-directory/manage-apps/home-realm-discovery-policy) and see the Azure AD B2C samples GitHub repository for an [example](https://github.com/azure-ad-b2c/samples/tree/master/policies/default-home-realm-discovery) of how to build it in Azure AD B2C.
 
 ## Data residency
 
