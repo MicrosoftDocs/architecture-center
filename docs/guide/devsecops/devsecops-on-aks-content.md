@@ -19,7 +19,7 @@ As a prerequisite to this article, we recommend you review [Build and deploy app
 
 ## Process flow
 
-:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.png" lightbox="../media/devsecops-azure-aks.png":::
+:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-azure-aks.png" lightbox="./media/devsecops-azure-aks.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-azure-aks.vsdx) of this architecture.*
 
@@ -72,7 +72,7 @@ The security team is responsible for developing security standards and enforcing
 
 Security controls are implemented in each phase of the software development lifecycle (SDLC). This implementation is a key piece of a DevSecOps strategy and of the shift-left approach.
 
-:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-stages.png" lightbox="../media/devsecops-stages.png":::
+:::image type="content" alt-text="Architecture diagram shows the flow from the developer to the end user and where DevSecOps can be employed, DevSecOps on AKS." source="./media/devsecops-stages.png" lightbox="./media/devsecops-stages.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-stages.vsdx) of this architecture.*
 
@@ -290,7 +290,7 @@ Other contributors:
 
 ## Related resources
 
-- [DevSecOps in GitHub](./devsecops-in-github.yml)
-- [DevSecOps for Infrastructure as Code (IaC)](./devsecops-infrastructure-as-code.yml)
-- [DevSecOps with a rolling main branching strategy](./devsecops-rolling-branch.yml)
+- [DevSecOps in GitHub](../../solution-ideas/articles/devsecops-in-github.yml)
+- [DevSecOps for Infrastructure as Code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
+- [DevSecOps with a rolling main branching strategy](../../solution-ideas/articles/devsecops-rolling-branch.yml)
 - [Shift left](https://devops.com/devops-shift-left-avoid-failure)
