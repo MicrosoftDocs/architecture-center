@@ -25,9 +25,21 @@ This DNS based load balancing solution utilizes Azure Traffic Manager (ATM) to m
 
 ## Approach
 
-:::image type="content" source="./media/front-door-application-gateway.png" alt-text="Traffic Manager with priority routing (AFD on higher priority) and AFD on least latency routing." border="false":::
+TODO
+
+# [Priority-based regional routing](#tab/priority)
 
 TODO
+
+:::image type="content" source="./media/front-door-application-gateway.png" alt-text="Traffic Manager with priority routing (AFD on higher priority) and AFD on least latency routing." border="false":::
+
+# [Performance-based regional routing](#tab/performance)
+
+TODO
+
+:::image type="content" source="./media/front-door-application-gateway.png" alt-text="Traffic Manager with priority routing (AFD on higher priority) and AFD on least latency routing." border="false":::
+
+---
 
 ## Considerations
 
