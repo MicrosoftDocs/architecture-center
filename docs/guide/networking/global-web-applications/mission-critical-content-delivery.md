@@ -21,11 +21,11 @@ ms.custom:
 
 # Mission-critical global content delivery
 
-Some applications heavily depend on caching for performance acceleration as well as to improve the resiliency of their application servers. Content delivery networks (CDNs), including Azure Front Door, provide caching at the network edge.
+Some applications heavily depend on caching for performance acceleration and to improve the resiliency of their application servers. Content delivery networks (CDNs), including Azure Front Door, provide caching at the network edge.
 
-It's common for mission-critical solutions to use multiple CDNs when serving their traffic. Azure Front Door provides a high uptime SLA, but by using multiple CDNs, you can achieve an even higher level of uptime. In the event that one CDN has a disaster, outage, or performance issue, your traffic can be diverted to another CDN.
+It's common for mission-critical solutions to use multiple CDNs when serving their traffic. Azure Front Door provides a high uptime SLA, but by using multiple CDNs, you can achieve an even higher level of uptime. If one CDN has a disaster, outage, or performance issue, your traffic is automatically diverted to another CDN.
 
-However, when you implement multiple CDNs, you need to carefully consider the full implications. Each CDN provides a separate network path to your application servers, and needs to be configured and tested separately.
+However, when you implement multiple CDNs, you need to carefully consider the full implications. Each CDN provides a separate network path to your application servers, and you need to configure and test each CDN separately.
 
 This article describes an approach for using Azure Front Door with a partner CDN, Verizon.
 
@@ -50,13 +50,13 @@ The following sections describe some important considerations for this type of a
 
 ### Choice of CDN
 
-In this example, we suggest using Verizon's CDN. Verizon's CDN is often a good choice because it can be deployed, configured, and billed through Azure, reducing your operatonal complexity. It runs on separate physical infrastructure to Azure Front Door, which means it's resilient to outages or problems on Microsoft's infrastructure.
+In this example, we suggest using Verizon's CDN. Verizon's CDN is often a good choice because it can be deployed, configured, and billed through Azure, reducing your operational complexity. It runs on separate physical infrastructure to Azure Front Door, which means it's resilient to outages or problems on Microsoft's infrastructure.
 
 You might choose to use a different CDN, or even to use multiple CDNs, depending on your requirements and risk tolerance.
 
 ### Cost
 
-When yuo deploy a multi-CDN architecture, you will be billed for multiple CDNs. Ensure you understand how you'll be billed for each CDN in your solution, as well as all of the other components you deploy.
+When you deploy a multi-CDN architecture, you're billed for multiple CDNs. Ensure you understand how you'll be billed for each CDN in your solution, and all of the other components you deploy.
 
 ### Feature parity
 
@@ -68,9 +68,9 @@ Carefully consider the features of Azure Front Door that you use, and whether yo
 
 It's important to test the failover between Azure Front Door and your alternative CDN. In particular, watch for anomalies or performance issues associated with your applications and infrastructure. A common issue that can arise for customers running multiple CDNs in an active/passive mode is that the CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover. During the cache fill, origin systems could become overloaded.
 
-If this is a risk for your solution, consider either:
-- Increasing the performance of your origins, especially during a cache fill.
-- Pre-filling the passive CDN, to serve a percentage of your most popular content through the passive CDN even before a failover event. One approach to consider is Traffic Manager's [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
+If performance issues from cache fills are a risk for your solution, consider either of the following approaches:
+- Scale out or scale up your origins to cope with additional traffic, especially during a cache fill.
+- Pre-fill the passive CDN. Pre-filling means that you serve a percentage of your most popular content through the passive CDN even before a failover event occurs. One approach to consider is Traffic Manager's [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
 
 ## Contributors
 
@@ -86,4 +86,4 @@ Principal authors:
 
 ## Next steps
 
-There are other industry solutions to achieve high availability with CDNs services, but we wanted to start by advising the most expedient and less complex solutions that are within Azure’s ecosystem. Nonetheless, please leverage your Microsoft Cloud Solutions Architects or Fast Track engineers to help you determine which solution is best for your organization.
+Review the [global HTTP ingress](./mission-critical-global-http-ingress.md) scenario to understand whether it applies to your solution.

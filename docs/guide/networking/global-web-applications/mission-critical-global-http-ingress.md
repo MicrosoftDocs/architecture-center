@@ -25,7 +25,7 @@ Mission-critical dynamic applications and APIs need to maintain a high level of 
 
 However, when you implement this type of architecture, you need to carefully consider the full implications. You need to implement separate network path to your application servers, and each path needs to be configured and tested separately.
 
-This article describes an approach to support global HTTP traffic ingress though Azure Front Door and Azure Application Gateway.
+This article describes an approach to support global HTTP traffic ingress through Azure Front Door and Azure Application Gateway.
 
 > [!NOTE]
 > This article should be read in conjunction with [Mission-critical global web applications](./overview.md), which provides important context and overall considerations that apply.
@@ -36,7 +36,7 @@ This approach might suit your needs if the following statements apply to your so
 
 - Azure Front Door provides global traffic routing. This might mean that you have multiple instances of your application in separate Azure regions, or that you serve all global users from a single region.
 - You need to use a web application firewall (WAF) to protect your application, regardless of the path your traffic follows to reach your origin servers.
-- Caching at the network edge is not a critical part of your application delivery. If caching is important, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach.
+- Caching at the network edge isn't critical part of your application delivery. If caching is important, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach.
 
 ## Approach
 
@@ -95,7 +95,7 @@ In contrast, Application Gateway requires that you deploy a dedicated public IP 
 
 When you deploy Application Gateway, you deploy dedicated compute resources for your solution. If large amounts of traffic arrive at your Application Gateway unexpectedly, you might observe performance or reliability issues.
 
-To mitigate this risk, you should use consider how you [scale your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Either use autoscaling, or ensure that you have manually scaled it to handle the amount of traffic that you might receive after failing over.
+To mitigate this risk, consider how you [scale your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Either use autoscaling, or ensure that you've manually scaled it to handle the amount of traffic that you might receive after failing over.
 
 ### Caching
 
