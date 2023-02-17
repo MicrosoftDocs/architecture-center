@@ -23,9 +23,9 @@ ms.custom:
 
 Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use Azure Front Door to accelerate their performance, route traffic between regions, and secure their workloads.
 
-Azure Front Door is a highly available service, with an industry-leading SLA. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, like all cloud-based services, Azure Front Door is not immune to occasional outages. We take a great deal of care to avoid these issues, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. However, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
+Azure Front Door is a highly available service, with an [industry-leading SLA](TODO). Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, like all cloud-based services, Azure Front Door isn't immune to occasional outages. We take a great deal of care to avoid these issues, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. However, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
 
-You can switch between Azure Front Door and other application delivery services during an outage or a disaster. However, these architectures need to be carefully considered. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
+You can switch between Azure Front Door and other application delivery services during an outage or a disaster. However, you need to carefully consider these architectures. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
 
 In this article, we describe the factors that you need to consider when planning a mission-critical global HTTP application architecture with Azure Front Door.
 
@@ -36,13 +36,13 @@ In this article, we describe the factors that you need to consider when planning
 
 When you design a mission-critical global web application, consider having multiple redundant traffic paths. The following diagram shows a general approach to delivering mission-critical web application traffic:
 
-:::image type="content" source="./media/overview/alternate-traffic-paths.png" alt-text="Diagram showing traffic being directed by Traffic Manager to Azure Front Door or to another service, and then to the origin server." border="false":::
+:::image type="content" source="./media/overview/alternate-traffic-paths.png" alt-text="Diagram showing Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
 
 In this approach, you introduce several components and make significant changes to other components in your solution:
 
-1. **Azure Traffic Manager** is used to direct traffic to Azure Front Door or to the alternative service that you've selected.
+1. **Azure Traffic Manager** directs traffic to Azure Front Door or to the alternative service that you've selected.
 
-   [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door by default. Traffic Manager can automatically swich traffic to your alternate path if Azure Front Door is unavailable.
+   [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door by default. Traffic Manager can automatically switch traffic to your alternate path if Azure Front Door is unavailable.
   
    You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
 
@@ -58,7 +58,7 @@ In this approach, you introduce several components and make significant changes 
 
 ## Key considerations
 
-When you architect your solution to use multiple ingress paths, you need to carefully consider the responsibilities of each layer of the solution.
+When you architect your solution to use multiple ingress paths, you need to consider the responsibilities and configuration of each component in the solution.
 
 ### Understand your use of Azure Front Door
 
@@ -97,7 +97,7 @@ When you provision and use your own TLS certificates, you reduce the number of p
 
 If you use Azure Front Door's WAF to protect your application, consider what happens if the traffic doesn't go through Azure Front Door.
 
-If you alternative path also provides a WAF, consider the following questions:
+If your alternative path also provides a WAF, consider the following questions:
 
 - Can it be configured in the same way as your Azure Front Door WAF?
 - Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
@@ -111,28 +111,33 @@ If you alternative path also provides a WAF, consider the following questions:
 
 ### Origin security
 
-When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Furthermore, because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to carefully consider whether you increase your origin's exposure to threats.
+When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Furthermore, because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to evaluate whether you've accidentally increased your origin's exposure to threats.
 
 If you use Private Link to connect from Azure Front Door to your origin server, how will traffic flow through your alternative path? Will you use private IP addresses to access your origins, or must you use public IP addresses?
 
 If your origin uses the Azure Front Door service tag and the `X-Azure-FDID` header to validate that traffic has flowed through Azure Front Door, consider how your origins can be reconfigured to validate that traffic has flowed through either of your valid paths. Also, ensure that you test that you haven't accidentally opened your origin to traffic through other paths, including from other customers' Azure Front Door profiles.
 
-When you plan your origin security, check whether your alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to reduce the risk of denial of service attacks against your origins. Additionally, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need additional intrusion detection strategies. These controls often aren't required when your application is only exposed through Azure Front Door, but are often important elements in a more complex architecture.
+When you plan your origin security, check whether your alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to reduce the risk of denial of service attacks against your origins. Also, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need more intrusion detection strategies. These controls often aren't required when your application is only exposed through Azure Front Door, but are often important elements in a more complex architecture.
 
 ### Monitor health and trigger traffic failover
 
-When planning a mission-critical web application architecture, consider how the different components of your solution monitor the health of downstream components, when they consider them to be unhealthy, and how long it takes for an outage to be detected and for traffic to be routed through an alternative path.
+When planning a mission-critical web application architecture, consider the following elements:
+
+- How the different components of your solution monitor the health of downstream components.
+- When health monitors consider downstream components to be unhealthy.
+- How long it takes for an outage to be detected.
+- How long it takes for traffic to be routed through an alternative path.
 
 In Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
 
-If an outage occures in Azure Front Door, then multiple factors influence the overall amount of time that the outage affects your traffic, including:
+If Azure Front Door is unavailable, then multiple factors influence the overall amount of time that the outage affects your traffic, including:
 
 - The time to live (TTL) on your DNS records.
 - How frequently Traffic Manager runs its health checks.
 - How many failed probes Traffic Manager is configured to see before it reroutes traffic.
 - How long clients and upstream DNS servers cache Traffic Manager's DNS responses for.
 
-You also need to which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable even when it's already switched to the alternative traffic path.
+You also need to which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
 ## Common scenarios
 
@@ -141,7 +146,7 @@ Based on our experience working with customers, we've observed two common scenar
 - [Global HTTP ingress](./mission-critical-global-http-ingress.md) commonly applies to mission-critical dynamic applications and APIs. In this scenario, the core requirement is to route traffic to the origin server reliably and efficiently. Frequently, a WAF is an important security control used in these solutions.
 - [Global content delivery](./mission-critical-content-delivery.md) commonly applies to static content delivery, media, and high-scale eCommerce applications. In this scenario, caching is a critical part of the solution architecture, and failures to cache can result in significantly degraded performance or reliability.
 
-Every customer's solution architecture and requirements are different, so it's important to carefully consider how you design your own mission-critical web application.
+Every customer's solution architecture and requirements are different, so it's important to consider how you design your own mission-critical web application.
 
 ## Contributors
 
