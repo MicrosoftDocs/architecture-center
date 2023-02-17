@@ -109,7 +109,7 @@ When you provision and use your own TLS certificates, you reduce the number of p
 
 When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Furthermore, because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to evaluate whether you've accidentally increased your origin's exposure to threats.
 
-If you use Private Link to connect from Azure Front Door to your origin server, how will traffic flow through your alternative path? Will you use private IP addresses to access your origins, or must you use public IP addresses?
+If you use Private Link to connect from Azure Front Door to your origin server, how does traffic flow through your alternative path? Can you use private IP addresses to access your origins, or must you use public IP addresses?
 
 If your origin uses the Azure Front Door service tag and the `X-Azure-FDID` header to validate that traffic has flowed through Azure Front Door, consider how your origins can be reconfigured to validate that traffic has flowed through either of your valid paths. Also, ensure that you test that you haven't accidentally opened your origin to traffic through other paths, including from other customers' Azure Front Door profiles.
 

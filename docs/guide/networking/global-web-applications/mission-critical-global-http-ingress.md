@@ -99,7 +99,7 @@ To mitigate this risk, consider how you [scale your Application Gateway instance
 
 ### Caching
 
-If you use Azure Front Door's caching features, then it's important to be aware that after your traffic switches to the alternative path and uses Application Gateway, content will no longer be served from the Azure Front Door caches. If your solution serves large amount of cached content, the lack of a cache might overload your origin, or cause other reliability or performance issues.
+If you use Azure Front Door's caching features, then it's important to be aware that after your traffic switches to the alternative path and uses Application Gateway, content is no longer served from the Azure Front Door caches. If your solution serves large amount of cached content, the lack of a cache might overload your origin, or cause other reliability or performance issues.
 
 If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner CDN as a fallback to Azure Front Door.
 

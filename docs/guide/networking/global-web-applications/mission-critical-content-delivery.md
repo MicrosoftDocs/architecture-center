@@ -38,11 +38,11 @@ This approach might suit your needs if you rely heavily on caching to deliver yo
 
 ## Approach
 
-Microsoft has partnered with Verizon's CDN, and you can integrate Verizon's CDN platform (Edgio) into your Azure-based solution. Although Verizon's CDN is partnered with Azure and can be configured from within the Azure portal and APIs, their CDN platform is isolated from Microsoft’s infrastructure.
+Microsoft has partnered with Verizon's CDN, and you can integrate Verizon's CDN platform (Edgio) into your Azure-based solution. Verizon's CDN is a Microsoft Azure partner, and you can configure it from within the Azure portal and APIs. However, their CDN platform is isolated from Microsoft's infrastructure.
 
-This isolation provides a high degree of resiliency from disaster scenarios. In the event of an outage or disaster, traffic can be automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
+This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
-:::image type="content" source="./media/front-door-verizon-cdn.png" alt-text="Traffic Manager with weighted routing between AFD and Verizon’s CDN." border="false":::
+:::image type="content" source="./media/front-door-verizon-cdn.png" alt-text="Traffic Manager with weighted routing between AFD and Verizon's CDN." border="false":::
 
 ## Considerations
 
@@ -68,8 +68,9 @@ Carefully consider the features of Azure Front Door that you use, and whether yo
 
 It's important to test the failover between Azure Front Door and your alternative CDN. In particular, watch for anomalies or performance issues associated with your applications and infrastructure. A common issue that can arise for customers running multiple CDNs in an active/passive mode is that the CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover. During the cache fill, origin systems could become overloaded.
 
-If performance issues from cache fills are a risk for your solution, consider either of the following approaches:
-- Scale out or scale up your origins to cope with additional traffic, especially during a cache fill.
+If your solution is at risk from performance issues during cache fills, consider either of the following approaches:
+
+- Scale out or scale up your origins to cope with higher traffic levels, especially during a cache fill.
 - Pre-fill the passive CDN. Pre-filling means that you serve a percentage of your most popular content through the passive CDN even before a failover event occurs. One approach to consider is Traffic Manager's [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
 
 ## Contributors
