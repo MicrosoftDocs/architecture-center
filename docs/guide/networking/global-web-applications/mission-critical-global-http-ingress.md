@@ -25,6 +25,9 @@ Mission-critical dynamic applications and APIs need to maintain a high level of 
 
 This article describes an approach to support global HTTP traffic ingress though Azure Front Door and Azure Application Gateway.
 
+> [!NOTE]
+> This article should be read in conjunction with [Mission-critical global web applications](./overview.md), which provides important context and overall considerations that apply.
+
 ## Requirements
 
 This approach might suit your needs if the following statements apply to your solution:
@@ -57,27 +60,26 @@ The following sections describe some important considerations for this type of a
 
 ### Traffic Manager configuration
 
-- Nested ATM structure (a second ATM between the first ATM and the Application Gateways) for finer control over the routing logic
+This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traffic-manager-nested-profiles) to achieve both priority-based and performance-based routing together for your application's alternative traffic path. In a simple scenario with an origin in a single region, you might only need a single Traffic Manager profile configured to use priority-based routing.
 
 ### Azure Front Door and Application Gateway features
 
-- This combination is useful if you want to keep using features like rules engine, WAF, TLS offload in the event of a failover. 
-- Need to configure them in both places.
+This type of architecture is most useful if you want your alternative traffic path to use features like request processing rules, a WAF, and TLS offload. Both Azure Front Door and  Application Gateway provide similar capabilities.
 
-- AppGW doesn't provide global PoPs, so you lose the benefit of dynamic acceleration
+However, it's important to consider the following:
 
-- While there are similarities between the features that AFD and AppGW offer, not all features have parity (e.g., rules engine, WAF etc.). Similarly, AFD has additional capabilities that may not be offered with AppGW (e.g., caching). Be mindful of these differences as they could affect how the application delivery behavior after failover. 
+- When you use any of these features, you need to configure them on both Azure Front Door and Application Gateway. For example, if you make a configuration change to your Azure Front Door WAF, you need to apply the same configuration change to your Application Gateway WAF too.
+- While there are similarities between the features that Azure Front Door and Application Gateway offer, many features don't have exact parity. Be mindful of these differences, because they could affect how the application is delivered based on the traffic path it follows.
+- Application Gateway doesn't provide caching. For more information about this difference, see [Caching](#caching).
 
-### Access origins through a private IP address
-
-- AFD - Private Link
-- AppGW - private endpoint in your VNet configured as the backend in AppGW
+Furthermore, it's important to remember that Azure Front Door and Application Gateway are distinct products and have different use cases. In particular, [Application Gateway is a regional service](#regional-distribution), while Azure Front Door has points of presence globally. The two products behave differently. Ensure you understand the details of each product and how you use them.
 
 ### Regional distribution
 
 - Unlike AFD which is a global service, AppGW is a regional service, which means you would need to spin up an AppGW instance in each Azure region you have an origin. This can become very costly if you have origins across multiple regions.
 
 ### Scaling
+
 - It is recommended that your AppGW is also appropriately scaled to serve traffic incase of a failover or has autoscaling enabled.
 
 ### Caching
@@ -87,6 +89,11 @@ The following sections describe some important considerations for this type of a
 - If you depend on caching, see the CDN scenario
 - If cost is a factor, consider the CDN scenario because it's consumption-based pricing
 - If you use caching but it's not a critical part of your solution, consider whether you can scale out/up your origins to cope with the increased load caused by a higher number of cache misses
+
+### Access origins through a private IP address
+
+- AFD - Private Link
+- AppGW - private endpoint in your VNet configured as the backend in AppGW
 
 ## Contributors
 
