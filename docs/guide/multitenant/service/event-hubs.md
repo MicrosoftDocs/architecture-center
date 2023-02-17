@@ -65,7 +65,8 @@ Even if a namespace is shared by multiple tenants, you can isolate tenants to a 
 
 As the number of tenants grows within your system, the number of event hubs also increases to accommodate each tenant. This growth can lead to higher operational costs and lower organizational agility. There's a [limit](/azure/event-hubs/compare-tiers#quotas) on the number of event hubs per namespace. Thus the number of namespaces that your system requires depends on the number of event hubs that your tenants require.
 
-When a namespace is shared, [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems are more likely. For example, it's possible that the event entities of a tenant could consume a disproportionate amount of the namespace resources and hinder other tenants. Event Hub namespaces have limits on their processing units (premium tier) or capacity units (dedicated tier) and on the number of brokered connections to a namespace. Consider whether a single tenant might consume too many resources.
+When a namespace is shared, [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems are more likely. For example, it's possible that the event entities of a tenant could consume a disproportionate amount of the namespace resources and hinder other tenants. Event hub namespaces have limits on their processing units (premium tier) or capacity units (dedicated tier) and on the number of brokered connections to a namespace. Consider whether a single tenant might consume too many resources.
+
 
 ### Shared namespace and event hubs
 
@@ -102,7 +103,8 @@ For more information, see [Resource governance with application groups](/azure/e
 
 Event Hubs is integrated with Azure AD. Clients can authenticate to Event Hubs resources by using a managed identity with Azure AD. Event Hubs defines a set of built-in roles that you can grant to your tenants to access Event Hubs entities. For example, by using Azure AD authentication, you can grant a tenant access to an event hub that has the messages for that tenant. You can use this technique to isolate a tenant from other tenants.
 
-Kafka applications can use [managed identity OAuth](/azure/event-hubs/authenticate-managed-identity#event-hubs-for-kafka) to access Event Hub resources.
+Kafka applications can use [managed identity OAuth](/azure/event-hubs/authenticate-managed-identity#event-hubs-for-kafka) to access Event Hubs resources.
+
 
 For more information, see the following articles:
 
