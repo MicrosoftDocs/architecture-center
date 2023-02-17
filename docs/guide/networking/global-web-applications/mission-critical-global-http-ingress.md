@@ -21,11 +21,21 @@ ms.custom:
 
 # Mission-critical global HTTP ingress
 
-TODO
+Mission-critical dynamic applications and APIs need to maintain a high level of uptime, even when network components are unavailable or degraded. If your solution uses Azure Front Door for web traffic ingress, routing, and security, and you need to maintain a mission-critical status, then you might need to consider an architecture that combines multiple Azure services together to achieve your requirements.
+
+This article describes an approach to support global HTTP traffic ingress though Azure Front Door and Azure Application Gateway.
+
+## Requirements
+
+This approach might suit your needs if the following statements apply to your solution:
+
+- Azure Front Door provides global traffic routing. This might mean that you have multiple instances of your application in separate Azure regions, or that you serve all global users from a single region.
+- You need to use a web application firewall (WAF) to protect your application, regardless of the path your traffic follows to reach your origin servers.
+- Caching at the network edge is not a critical part of your application delivery. If caching is important, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach.
 
 ## Approach
 
-This DNS-based load balancing solution uses Azure Traffic Manager to monitor Azure Front Door. In the very unlikely event of an availability issue, Traffic Manager redirects traffic through Azure Application Gateway.
+This DNS-based load balancing solution uses Azure Traffic Manager to monitor Azure Front Door. In the very unlikely event of an availability issue, Traffic Manager redirects traffic through Application Gateway.
 
 :::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
 
