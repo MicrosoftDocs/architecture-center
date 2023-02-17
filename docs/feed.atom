@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-02-06T17:01:28.289Z</updated>
+    <updated>2023-02-13T17:01:52.376Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Highly available zone-redundant Azure Spring Apps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/microservices/spring-apps-multi-zone</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/microservices/spring-apps-multi-zone"/>
+        <updated>2023-02-10T15:37:36.000Z</updated>
+        <summary type="html"><![CDATA[Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use deployment scripts to check resource properties]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/devops/deployment-scripts-property-check</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/devops/deployment-scripts-property-check"/>
+        <updated>2023-02-09T21:16:25.000Z</updated>
+        <summary type="html"><![CDATA[Use Bicep and a deployment script to pause a deployment in order to wait for a resource property to return a specific value.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Engys ELEMENTS on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/engys-elements</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/engys-elements"/>
+        <updated>2023-02-09T21:12:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Engys ELEMENTS computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy IBM Sterling Order Management Software (OMS) on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/ibm/deploy-ibm-sterling-oms</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/ibm/deploy-ibm-sterling-oms"/>
+        <updated>2023-02-08T23:28:36.000Z</updated>
+        <summary type="html"><![CDATA[Run IBM Sterling Order Management Software (OMS) on Azure. Design and implement cloud solutions for Sterling OMS that use Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure Sandbox]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/azure-sandbox/azure-sandbox"/>
+        <updated>2023-02-08T23:12:00.000Z</updated>
+        <summary type="html"><![CDATA[Accelerate your Azure project with a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Sandi HiFUN on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-sandi-hifun</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-sandi-hifun"/>
+        <updated>2023-02-08T00:15:25.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Sandi HiFUN computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory</id>
@@ -39,6 +87,14 @@
         <updated>2023-02-02T22:47:45.000Z</updated>
         <summary type="html"><![CDATA[Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data partitioning strategies]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning-strategies</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/data-partitioning-strategies"/>
+        <updated>2023-02-07T19:47:58.000Z</updated>
+        <summary type="html"><![CDATA[View guidance on separating data partitions to be managed and accessed separately in different services, such as Azure Search, Azure storage queues, and more.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Hub-spoke network topology in Azure]]></title>
@@ -665,7 +721,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Blue/green app deployments]]></title>
+        <title type="html"><![CDATA[Blue/green deployments on Azure Spring Apps]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/blue-green-spring/blue-green-spring</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/blue-green-spring/blue-green-spring"/>
         <updated>2022-12-15T19:26:19.000Z</updated>
