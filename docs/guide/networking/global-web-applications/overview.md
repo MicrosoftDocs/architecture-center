@@ -56,11 +56,7 @@ In this approach, you introduce several components and make significant changes 
 
 1. **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
-## Key considerations
-
-When you architect your solution to use multiple ingress paths, you need to consider the responsibilities and configuration of each component in the solution.
-
-### Understand your use of Azure Front Door
+## Understand your use of Azure Front Door
 
 Azure Front Door provides many capabilities to make your application more resilient, performant, and secure. It's important that you understand which capabilities and features you use and rely on. When you have an understanding of how you use Azure Front Door, you can determine which alternative services provide the minimum capabilities that you need, and you can decide on an architectural approach. If you plan to send traffic through multiple paths to reach your application, you need to ensure that each path has equivalent capabilities. Or, you need to make an informed decision about which capabilities are essential and which aren't.
 
@@ -74,24 +70,6 @@ Some key questions you should consider are:
 - How do you restrict access to your origin application servers to ensure it comes through Azure Front Door? Do you use Private Link, or do you rely on public IP addresses with service tags and identifier headers?
 - Do your application servers accept traffic from anywhere other than Azure Front Door? If they do, which protocols do they accept?
 - Do your clients use Azure Front Door's HTTP/2 support?
-
-### Domain names and DNS
-
-Your application should use a custom domain name. In a mission-critical solution, it's even more important to use a custom domain name. By using a custom domain name, you have control over how traffic flows to your application, and you reduce the dependencies you take on a single provider.
-
-It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, clients can't reach your service.
-
-In a mission-critical solution, it's also a good practice to use multiple DNS resolvers to increase the overall resiliency of your solution even further.
-
-### TLS certificates
-
-Azure Front Door provides managed TLS certificates. However, in this kind of architecture it's a good idea to provision and use your own TLS certificates. This is a good practice for several reasons:
-
-- To issue and renews managed TLS certificates, Azure Front Door verifies your ownership of the domain. The domain verification process generally assumes that your domain's CNAME records point directly to Azure Front Door. In a complex architecture like that described in this article, this assumption often isn't correct. Issuing and renewing managed TLS certificates on Azure Front Door might not work smoothly in these situations, and you increase the risk of outages due to TLS certificate problems.
-- Similarly, even if your other services provide managed TLS certificates, they might not be able to verify domain ownership either.
-- If each service that you use issues their own managed TLS certificates independently, you might cause problems for your clients. For example, clients might not expect to see different TLS certificates issued by different authorities, or with different expiry dates or thumbprints.
-
-When you provision and use your own TLS certificates, you reduce the number of potential problems you might introduce in this kind of architecture. However, you also need to take care to renew and update your certificates before they expire.
 
 ### Web application firewall
 
@@ -109,7 +87,25 @@ If your alternative path also provides a WAF, consider the following questions:
 > 
 > Instead, it's best to secure *all* paths to your application servers.
 
-### Origin security
+## Domain names and DNS
+
+Your application should use a custom domain name. In a mission-critical solution, it's even more important to use a custom domain name. By using a custom domain name, you have control over how traffic flows to your application, and you reduce the dependencies you take on a single provider.
+
+It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, clients can't reach your service.
+
+In a mission-critical solution, it's also a good practice to use multiple DNS resolvers to increase the overall resiliency of your solution even further.
+
+## TLS certificates
+
+Azure Front Door provides managed TLS certificates. However, in this kind of architecture it's a good idea to provision and use your own TLS certificates. This is a good practice for several reasons:
+
+- To issue and renews managed TLS certificates, Azure Front Door verifies your ownership of the domain. The domain verification process generally assumes that your domain's CNAME records point directly to Azure Front Door. In a complex architecture like that described in this article, this assumption often isn't correct. Issuing and renewing managed TLS certificates on Azure Front Door might not work smoothly in these situations, and you increase the risk of outages due to TLS certificate problems.
+- Similarly, even if your other services provide managed TLS certificates, they might not be able to verify domain ownership either.
+- If each service that you use issues their own managed TLS certificates independently, you might cause problems for your clients. For example, clients might not expect to see different TLS certificates issued by different authorities, or with different expiry dates or thumbprints.
+
+When you provision and use your own TLS certificates, you reduce the number of potential problems you might introduce in this kind of architecture. However, you also need to take care to renew and update your certificates before they expire.
+
+## Origin security
 
 When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Furthermore, because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to evaluate whether you've accidentally increased your origin's exposure to threats.
 
@@ -119,7 +115,7 @@ If your origin uses the Azure Front Door service tag and the `X-Azure-FDID` head
 
 When you plan your origin security, check whether your alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to reduce the risk of denial of service attacks against your origins. Also, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need more intrusion detection strategies. These controls often aren't required when your application is only exposed through Azure Front Door, but are often important elements in a more complex architecture.
 
-### Monitor health and trigger traffic failover
+## Monitor component health and trigger traffic failover
 
 When planning a mission-critical web application architecture, consider the following elements:
 
