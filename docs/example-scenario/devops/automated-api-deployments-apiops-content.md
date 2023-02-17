@@ -34,7 +34,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) enables continuous integration (CI) and continuous delivery (CD) to test and build your code and ship it to any target.
 
-- [Azure Repos](/azure/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
+- [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
 
 ### Alternatives
 
@@ -53,17 +53,11 @@ This solution uses [Azure Repos](/azure/devops/repos/) to provide Git functional
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework (WAF). WAF gives you guiding tenets to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-### Performance efficiency
-
-APIOps has many benefits, but as API Management landscapes grow, so does the complexity of managing them. This solution helps meet challenges like:
-
-- Keeping an overview of all environments and API Management instances.
-- Tracking critical changes to APIs and policies.
-- Creating an audit trail for all deployed changes.
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 This solution provides several security-related benefits. Individual developers—and even operators—don't directly access the API Management instance to apply changes or updates. Instead, users push changes to a Git repository, and the extractor and publishing pipelines read and apply them to the API Management instance. This approach follows the security best practice of _least privilege_ by not giving teams write permissions to the API Management service instance. In diagnostic or troubleshooting scenarios, you can grant elevated permissions for a limited time on a case-by-case basis.
 
@@ -78,7 +72,7 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
@@ -88,11 +82,23 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 APIOps can increase DevOps productivity for API development and deployments. One of the most useful features is the ability to use Git operations to quickly roll back changes that behave unexpectedly. The commit graph contains all commits, so it can help with the post-mortem analysis.
 
 API operators often manage multiple environments for the same set of APIs. It's typical to have several stages of an API deployed to different API Management instances or in a shared API Management instance. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
 When someone makes a PR in the Git repository, the API operator knows they have new code to review. For example, when a developer takes the OpenAPI specification and builds the API implementation, they add this new code to the repository. The operators can review the PR and make sure that the API that's been submitted for review meets best practices and standards.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+APIOps has many benefits, but as API Management landscapes grow, so does the complexity of managing them. This solution helps meet challenges like:
+
+- Keeping an overview of all environments and API Management instances.
+- Tracking critical changes to APIs and policies.
+- Creating an audit trail for all deployed changes.
 
 ## Deploy this scenario
 
@@ -152,7 +158,7 @@ Deploying this solution involves these steps:
 
 ## Contributors
 
-_This article is being updated and maintained by Microsoft. It was originally written by the following contributors._
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal author:
 
