@@ -15,11 +15,11 @@ This article outlines a solution for performing stateful backups of containerize
    - In a region where AKS and Azure NetApp Files are available. For regions where these products are available, see [Products available by region][Products available by region].
    - In a virtual network that has direct access to a subnet that's delegated for Azure NetApp Files. For more information, see [Guidelines for Azure NetApp Files network planning][Guidelines for Azure NetApp Files network planning - Subnets].
 
-1. A user signs up for an Astra Control Service account. Astra Control Service uses a *service principal* that has contributor access to locate the AKS clusters. A service principal is an Azure service account. Astra Control Service uses Astra Trident to create Kubernetes storageClasses that map to the Azure NetApp Files capacity pools. The mapping takes into account the service level of the capacity pools. This step doesn't use Azure or Kubernetes role-based access control.
+1. A user signs up for an Astra Control Service account. Astra Control Service uses a *service principal* that has contributor access to locate the AKS clusters. A service principal is an Azure service account. Astra Control Service uses Astra Trident to create Kubernetes `StorageClass` objects that map to the Azure NetApp Files capacity pools. The mapping takes into account the service level of the capacity pools. This step doesn't use Azure or Kubernetes role-based access control.
 
-1. The user installs applications on the AKS clusters. Possible deployment methods include Helm charts, operators, and YAML manifests that are grouped by labels or namespaces. Astra Control Service provisions persistent volumes on the storageClasses.
+1. The user installs applications on the AKS clusters. Possible deployment methods include Helm charts, operators, and YAML manifests that are grouped by labels or namespaces. Astra Control Service provisions persistent volumes on the `StorageClass` objects.
 
-1. Astra Control Service manages applications and their associated resources, such as pods, services, deployments, and PersistentVolumeClaim (PVC) objects. Users define applications by using one of these methods:
+1. Astra Control Service manages applications and their associated resources, such as pods, services, deployments, and `PersistentVolumeClaim` (PVC) objects. Users define applications by using one of these methods:
 
    - Confining them to a namespace
    - Using a custom Kubernetes label to group resources
@@ -37,7 +37,7 @@ This article outlines a solution for performing stateful backups of containerize
 
 - [AKS][AKS] is a fully managed Kubernetes service that makes it easy to deploy and manage containerized applications. AKS offers serverless Kubernetes technology, an integrated continuous integration and continuous delivery (CI/CD) experience, and enterprise-grade security and governance.
 - [Azure NetApp Files][Azure NetApp Files service page] is an Azure storage service. This service provides enterprise-grade network file system (NFS) and server message block (SMB) file shares. Azure NetApp Files makes it easy to migrate and run complex, file-based applications with no code changes. This service is well suited for users with persistent volumes in Kubernetes environments.
-- [Azure Virtual Network][Azure Virtual Network] is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network][Azure Virtual Network] is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like virtual machines can securely communicate with each other, the internet, and on-premises networks.
 - [Astra Control Service][NetApp Astra Control Service] is a fully managed application-aware data management service. Astra Control Service manages, protects, and moves data-rich Kubernetes workloads in public clouds and on-premises environments. This service provides data protection, disaster recovery, and migration for Kubernetes workloads. Astra Control Service uses the industry-leading [data management technology of Azure NetApp Files for snapshots, backups, cross-region replication, and cloning][How Azure NetApp Files snapshots work].
 
 ### Alternatives
@@ -60,7 +60,7 @@ With containerized applications, it can be challenging to protect data and perfo
 
 - Simple. Establishing data protection policies and on-demand backups should be intuitive. These policies and backups shouldn't be dependent on the details of the underlying infrastructure.
 - Portable. To make cross-region mobility possible for applications, multiple Kubernetes clusters should be able to consume the backups.
-- Application-aware. Your solution should protect the entire application, including standard Kubernetes resources like secrets, ConfigMaps, and persistent volumes. You also need to protect custom Kubernetes resources. When possible, backup and recovery procedures should quiesce the application. This practice prevents the loss of in-flight data during backups.
+- Application-aware. Your solution should protect the entire application, including standard Kubernetes resources like secrets, `ConfigMap` objects, and persistent volumes. You also need to protect custom Kubernetes resources. When possible, backup and recovery procedures should quiesce the application. This practice prevents the loss of in-flight data during backups.
 
 [NetApp Astra Control Service][NetApp Astra Control Service] is a solution for performing stateful backups that meets these goals. Astra Control Service offers data protection, disaster recovery, and application mobility. It provides stateful AKS workloads with a rich set of storage and application-aware data management services. The data protection technology of Azure NetApp Files underlies these services.
 
@@ -91,7 +91,7 @@ Azure NetApp Files supports cross-region replication for disaster recovery. You 
 
 - For general information, see [Cross-region replication of Azure NetApp Files volumes][Cross-region replication of Azure NetApp Files volumes].
 - For requirements for cross-region replication, see [Manage disaster recovery using cross-region replication][Manage disaster recovery using cross-region replication].
-- For information on configuring cross-region replication, see [Create volume replication for Azure NetApp Files][Create volume replication for Azure NetApp Files].
+- For information about configuring cross-region replication, see [Create volume replication for Azure NetApp Files][Create volume replication for Azure NetApp Files].
 
 ### Cost optimization
 
@@ -123,7 +123,7 @@ In each virtual network, you can only delegate one subnet for Azure NetApp Files
 
 When you use a basic configuration for Azure NetApp Files network features, there's a limit of 1,000 IP addresses per virtual network. The standard network features configuration doesn't limit the number of IP addresses.  For more information, see [Configurable network features][Configurable network features]. For a complete list of resource limits for Azure NetApp Files, see [Resource limits for Azure NetApp Files][Resource limits for Azure NetApp Files].
 
-Azure NetApp Files offers multiple performance tiers. When you use Astra Control Service to discover AKS clusters, the onboarding process creates curated storageClasses that map to the Standard, Premium, and Ultra service tiers. When users deploy applications, they choose a storage tier that suits their requirements. Multiple capacity pools can coexist. Provisioned volumes have a performance guarantee that corresponds to the service tier. For a list of service levels that Azure NetApp Files supports, see [Service levels for Azure NetApp Files][Service levels for Azure NetApp Files].
+Azure NetApp Files offers multiple performance tiers. When you use Astra Control Service to discover AKS clusters, the onboarding process creates curated `StorageClass` objects that map to the Standard, Premium, and Ultra service tiers. When users deploy applications, they choose a storage tier that suits their requirements. Multiple capacity pools can coexist. Provisioned volumes have a performance guarantee that corresponds to the service tier. For a list of service levels that Azure NetApp Files supports, see [Service levels for Azure NetApp Files][Service levels for Azure NetApp Files].
 
 ## Deploy this scenario
 
@@ -139,12 +139,10 @@ To deploy this scenario, follow these steps:
 1. Create a [service principal][Create an Azure service principal] for Astra Control Service to use to discover AKS clusters and perform backup, restore, and data management operations.
 1. [Register for Astra Control Service][Register for an Astra Control Service account] by creating a NetApp Cloud Central account.
 1. [Add AKS clusters to Astra Control Service][Start managing Kubernetes clusters from Astra Control Service] to start managing applications.
-1. [Detect applications][Start managing apps] in Astra Control Service.
-1. [Establish protection policies][Protect apps with snapshots and backups] to back up and restore applications.
+1. [Detect applications][Start managing apps] in Astra Control Service. The way you discover and manage applications depends on the way you deploy and identify them. Typical identification strategies include grouping application objects in a dedicated namespace, assigning labels to objects that make up an application, and using Helm charts. Astra Control Service supports all three strategies.
+1. [Establish protection policies][Protect apps with snapshots and backups] to back up and restore applications. Before you define protection policies, clearly identify your workloads. An essential prerequisite is that Astra Control Service can uniquely detect each application. For more information, see [Manage apps][Manage apps].
 
-The way you discover and manage applications depends on the way you deploy and identify them. Typical identification strategies include grouping application objects in a dedicated namespace, assigning labels to objects that make up an application, and using Helm charts. Astra Control Service supports all three strategies. Before you define protection policies, clearly identify your workloads. An essential prerequisite is that Astra Control Service can uniquely detect each application. For more information, see [Manage apps][Manage apps].
-
-For the steps to take to protect applications, see [Disaster Recovery of AKS Workloads with Astra Control Service and Azure NetApp Files][Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files].
+For steps that you can take to protect applications, see [Disaster Recovery of AKS Workloads with Astra Control Service and Azure NetApp Files][Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files].
 
 For detailed information about Astra Control Service, see [Astra Control Service documentation][Astra Control Service documentation].
 
@@ -187,7 +185,7 @@ Principal author:
 [Configurable network features]: /azure/azure-netapp-files/azure-netapp-files-network-topologies#configurable-network-features
 [Create an Azure account for free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [Create an Azure service principal]: https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html#create-an-azure-service-principal-2
-[Create a NetApp account]: https://bluexp.netapp.com
+[Create a NetApp account]: /azure/azure-netapp-files/azure-netapp-files-create-netapp-account
 [Create volume replication for Azure NetApp Files]: /azure/azure-netapp-files/cross-region-replication-create-peering
 [Cross-region replication in Azure: Business continuity and disaster recovery]: /azure/reliability/cross-region-replication-azure
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
