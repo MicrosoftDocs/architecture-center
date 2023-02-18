@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Understand how to approach architecture when you're working in a startup.
 author: mootpointer
 ms.author: anharvey
-ms.date: 10/28/2021
+ms.date: 2/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -46,7 +46,7 @@ When your startup is in the exploration stage, your imperative is to invest smal
 
 This stage requires discipline. It's easy to overinvest in an idea that you could test with less time and energy. A technologist finds it especially easy to fall into this trap. To make architectural choices that ease exploration, remember that you're exploring. You don't yet know if the current product idea is one that will scale.
 
-From an architecture perspective, choose services that optimize for speed, cost, and options. Use managed services and platforms as a service (PaaS) like Azure App Service to get started quickly without worrying about complex infrastructure. Manage costs by choosing smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you.
+From an architecture perspective, choose services that optimize for speed, cost, and options. Use managed services and platforms as a service (PaaS) like Azure App Service to get started quickly without worrying about complex infrastructure. Manage costs by choosing free tiers and smaller instance sizes while you're exploring. Containers support developing with whatever tools make sense for you and give you flexible deployment options for the future.
 
 ### Build your first stack
 
@@ -55,6 +55,8 @@ As with your first product version, your first technology stack should be firmly
 During the exploration phase, you need to optimize for speed, cost, and optionality. Speed is about how fast you can build and move forward with an idea, or move onto the next idea. Cost is how much you're spending to run your infrastructure. Optionality describes how fast you can change directions given the current architecture.
 
 It's important to balance cost, speed, and optionality. Too much focus on cost limits speed and optionality. Too much focus on speed can lead to increased costs and fewer options. Designing for too many options builds complexity, which increases costs and reduces speed.
+
+Consider using our [suggested first technology stack](../../example-scenario/startups/core-startup-stack.yml). This architecture uses PaaS services for ease of implementation, can be started with a minimal scale, and uses container and open source technologies that can easily be deployed on different technology stacks as you mature.
 
 ## Expand
 
@@ -67,6 +69,11 @@ As you iterate on your product, you'll inevitably find areas where your architec
 You might need architectural changes to accommodate items on your roadmap. Resist the temptation to make those changes too far in advance. Extensions risk adding complexity to your architecture and infrastructure costs to your balance sheet.
 
 In early startup stages, any architecture extension should be just-in-time. The extension should take only as much time and energy as needed to test the next hypothesis. Be ready to remove extensions to reduce complexity. Look for product features that your customers aren't using as opportunities to simplify your architecture and reduce your infrastructure spending.
+
+Your architecture could be expanded in many ways, such as:
+
+- Enhancing resiliency through a [highly available multi-region deployment](../../reference-architectures/app-service-web-app/multi-region.yml)
+- Enhancing security through a [network hardened technology stack](../../example-scenario/security/hardened-web-app.yml)
 
 ## Extract
 

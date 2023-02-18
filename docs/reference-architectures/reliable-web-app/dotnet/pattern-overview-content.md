@@ -54,7 +54,7 @@ The Azure services you choose should support your short-term objectives while pr
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable compute options. For more information, see the [compute decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
-- **High SLA.** It has a high SLA that meets the production environment SLO. For more information, see [SLA for App Service](https://azure.microsoft.com/support/legal/sla/app-service/v1_5).
+- **High SLA.** It has a high SLA that meets the production environment SLO.
 - **Reduced management overhead.** It's a fully managed solution that handles scaling, health checks, and load balancing.
 - **.NET support.** It supports the version of .NET that the application is written in.
 - **Containerization capability.** The web app can converge on the cloud without containerizing, but the application platform also supports containerization without changing Azure services.
@@ -73,7 +73,7 @@ The Azure services you choose should support your short-term objectives while pr
 
 [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql) is a general-purpose relational database and managed service in that supports relational and spatial data, JSON, spatial, and XML. The web app used SQL Server on-premises, and the team wants to use the existing database schema, stored procedures, and functions. Several SQL products are available on Azure, but the web app uses Azure SQL Database because it meets the following requirements:
 
-- **Reliability.** The general-purpose tier provides a [high SLA](https://www.azure.cn/support/sla/sql-data/) and multi-region redundancy. It can support a high user load.
+- **Reliability.** The general-purpose tier provides a high SLA and multi-region redundancy. It can support a high user load.
 - **Reduced management overhead.** It provides a managed SQL database instance.
 - **Migration support.** It supports database migration from on-premises SQL Server.
 - **Consistency with on-premises configurations.** It supports the existing stored procedures, functions, and views.

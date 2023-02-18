@@ -152,7 +152,7 @@ Principal author:
 
 ## Related resources
 
-- [DevSecOps in Azure][DevSecOps in Azure]
+- [DevSecOps on AKS][DevSecOps on AKS]
 - [DevSecOps for Infrastructure as Code (IaC)][DevSecOps for Infrastructure as Code (IaC)]
 - [Shift left][Shift left]
 - [Fail fast][Fail fast]
@@ -197,7 +197,7 @@ Principal author:
 [GitHub Enterprise highly available failover configuration]: https://docs.github.com/enterprise-server@3.5/admin/enterprise-management/configuring-high-availability
 [GitHub Advanced Security]: https://docs.github.com/enterprise-server@3.5/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
 [Configure Dependabot security updates]: https://docs.github.com/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
-[DevSecOps in Azure]: ./devsecops-in-azure.yml
+[DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
 [GitHub pricing]: https://github.com/pricing
 [GitHub DevSecOps training materials]: https://github.com/devsecops/awesome-devsecops
 [GitHub DevSecOps getting started tips]: https://resources.github.com/whitepapers/Architects-guide-to-DevOps
