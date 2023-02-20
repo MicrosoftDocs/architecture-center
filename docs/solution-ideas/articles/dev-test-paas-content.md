@@ -62,7 +62,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
 
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
 
 - [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In the current scenario, Azure AD works with Azure RBAC to restrict access per environment.
 
@@ -103,6 +103,6 @@ Tools like [Entity Framework](/ef) can provide source control for database schem
 
 ## Related resources
 
-- [DevSecOps in Azure](./devsecops-in-azure.yml)
+- [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
 - [DevTest and DevOps for microservices](dev-test-microservice.yml)

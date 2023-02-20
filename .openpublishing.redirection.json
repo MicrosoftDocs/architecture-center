@@ -2536,6 +2536,11 @@
       "source_path": "docs/solution-ideas/articles/data-sovereignty-and-gravity.yml",
       "redirect_url": "https://azure.microsoft.com/resources/data-residency-data-sovereignty-and-compliance-in-the-microsoft-cloud/",
       "redirect_document_id": false
+    },   
+    {
+      "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
+      "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
+      "redirect_document_id": false
     }
   ]
 }
