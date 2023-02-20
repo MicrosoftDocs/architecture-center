@@ -21,7 +21,7 @@ ms.custom:
 
 # Mission-critical global HTTP ingress
 
-Mission-critical dynamic applications and APIs need to maintain a high level of uptime, even when network components are unavailable or degraded. If your solution uses Azure Front Door for web traffic ingress, routing, and security, and you need to maintain a mission-critical status, then you might need to consider an architecture that combines multiple Azure services together to achieve your requirements.
+Mission-critical dynamic applications and APIs need to maintain a high level of uptime, even when network components are unavailable or degraded. When you architect your mission-critical workload's web traffic ingress, routing, and security, then you should consider combining multiple Azure services together to achieve a highly availability and to avoid having a single point of failure.
 
 However, when you implement this type of architecture, you need to carefully consider the full implications. You need to implement separate network path to your application servers, and each path needs to be configured and tested separately.
 

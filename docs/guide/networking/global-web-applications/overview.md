@@ -56,11 +56,22 @@ In this approach, you introduce several components and make significant changes 
 
 1. **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
+## Tradeoffs
+
+This type of architecture can increase your overall availability and resiliency to outages. However, there are some significant tradeoffs that you need to consider. When evaluating a complex architecture, you need to weigh up the potential benefits against the known costs, and make an informed decision about whether the benefits are worth the costs.
+
+<!-- TODO -->
+- Cost
+- Operational complexity
+
+> [!WARNING]
+> If you're not careful in how you design and implement a complex high-availabilty solution, you can actually make your availability worse. Increasing the number of components in your architecture means you have a higher level of operational complexity, and every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
+
 ## Understand your use of Azure Front Door
 
 Azure Front Door provides many capabilities to make your application more resilient, performant, and secure. It's important that you understand which capabilities and features you use and rely on. When you have an understanding of how you use Azure Front Door, you can determine which alternative services provide the minimum capabilities that you need, and you can decide on an architectural approach. If you plan to send traffic through multiple paths to reach your application, you need to ensure that each path has equivalent capabilities. Or, you need to make an informed decision about which capabilities are essential and which aren't.
 
-Some key questions you should consider are:
+When planning an alternative traffic path, here are some key questions you should consider:
 
 - Do you use Azure Front Door's caching features? If caching is unavailable, are your origin servers likely to struggle to keep up with your traffic?
 - Do you do use the Azure Front Door rules engine to perform custom routing logic, or to rewrite requests?
@@ -137,6 +148,30 @@ You also need to which of these elements are within your control, and whether up
 
 > [!TIP]
 > Mission-critical solutions require automated failover approaches. Manual failover processes are generally too slow for mission-critical solutions to remain responsive.
+
+## Availability of Azure Traffic Manager
+
+Azure Traffic Manager is a highly available service, but it also has a service level agreement that doesn't guarantee availablity at all times. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate even if Traffic Manager isn't responding to requests.
+
+Traffic Manager returns cacheable DNS responses. If your DNS records' TTLs allow for caching, short outages of Traffic Manager might not be a concern, because downstream DNS resolvers might have cached a previous response. However, you should consider whether you plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
+
+## Deployments
+
+When you're planning how to operate a mission-critical traffic ingress solution, you should also plan for how you deploy or configure your services when they're degraded. For most Azure services, SLAs apply to the uptime of the service itself, and not to management operations or deployments.
+
+Consider whether your deployment and configuration processes need to be made resilient to service outages.
+
+<!-- Adds to the complexity and importance of safe deployment practices Sometimes, with the tradeoffs, comes a win. Theoretically, having multiple ingresses paths could be a boon to safe deployment practices as you could practice no-in-place upgrades a bit easier, in that you could upgrade the "cold" routing path first, failover, and then upgrade the prior routing path components, and then fail back. Not sure it's worth mentioning, but the idea of using this "complex" topology to the app's advantage -- not just in failover situations, might be a good "side win/outcome" here.  mission-critical doesn't allow in-place upgrades at the stamp level (immutable infra only), but at the global level breaks down and says "fine, do it, but be careful" -- this is potentially one way to "be careful."Might benefit from a "failure mode" image as well to draw out these single points of failure.  The first image in each is the end state -- which is fine, but we never visualize the "reason" we're on this article -- the "not so mission-critical" topology. -->
+
+## Development and testing
+
+For a mission-critical solution, your testing practices need to verify that your solution meets your requirements regardless of the path that your flows through. Consider each part of the solution and how you test it for each type of outage.
+
+Ensure that your testing processes include these elements:
+
+- Can you verify that traffic is correctly redirected through the alternative path when the primary path is unavailable?
+- Can both paths support the level of production traffic you expect to receive?
+- Are both paths adequately secured, to avoid opening or exposing vulnerabilities when you're in a degraded state?
 
 ## Common scenarios
 
