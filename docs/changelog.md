@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 02/13/2023
+ms.date: 02/20/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)
+- [How to apply the reliable web app pattern (.NET)](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)
+- [Reliable web app pattern planning (.NET)](./reference-architectures/reliable-web-app/dotnet/pattern-overview.yml)
+- [Capture-the-Flag with CTFd on Azure PaaS](./example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml)
+- [Deploy AVL FIRE M on an Azure virtual machine](./guide/hpc/hpc-avl-fire-m.yml)
 - [Highly available zone-redundant Azure Spring Apps](./reference-architectures/microservices/spring-apps-multi-zone.yml)
 - [Use deployment scripts to check resource properties](./guide/devops/deployment-scripts-property-check.yml)
 - [Deploy Engys ELEMENTS on an Azure virtual machine](./guide/hpc/engys-elements.yml)
@@ -40,6 +45,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Architecture for startups](./guide/startups/startup-architecture.md)  ([#9a53db238](https://github.com/MicrosoftDocs/architecture-center/commit/9a53db238))
+- [Application roles](./multitenant-identity/app-roles.md)  ([#54fd1b4e8](https://github.com/MicrosoftDocs/architecture-center/commit/54fd1b4e8))
+- [Web app private connectivity to Azure SQL Database](./example-scenario/private-web-app/private-web-app.yml)  ([#58bb15ae0](https://github.com/MicrosoftDocs/architecture-center/commit/58bb15ae0))
+- [Compensating Transaction pattern](./patterns/compensating-transaction.yml)  ([#53405d85b](https://github.com/MicrosoftDocs/architecture-center/commit/53405d85b))
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#47223927f](https://github.com/MicrosoftDocs/architecture-center/commit/47223927f))
 - [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#7911bb1fd](https://github.com/MicrosoftDocs/architecture-center/commit/7911bb1fd))
 - [Overview of SAP guidance and resources](./reference-architectures/sap/sap-overview.yml)  ([#895766387](https://github.com/MicrosoftDocs/architecture-center/commit/895766387))
@@ -407,3 +416,4 @@ The following new and updated articles have recently been published in the Azure
 - [R developer&amp;apos;s guide - R programming](./data-guide/technology-choices/r-developers-guide.md)  ([#3cb7f03e7](https://github.com/MicrosoftDocs/architecture-center/commit/3cb7f03e7))
 - [Use subject matter expertise in machine teaching](./solution-ideas/articles/machine-teaching.yml)  ([#22935be85](https://github.com/MicrosoftDocs/architecture-center/commit/22935be85))
 - [The Team Data Science Process lifecycle](./data-science-process/lifecycle.md)  ([#e8a2d2b1b](https://github.com/MicrosoftDocs/architecture-center/commit/e8a2d2b1b))
+
