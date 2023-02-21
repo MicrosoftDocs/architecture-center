@@ -34,7 +34,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 
 This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability.
 
-:::image type="content" source="./images/expressroute-connection-overview.svg" alt-text="Diagram of a VPN gateway." lightbox="./images/expressroute-connection-overview.png" :::
+:::image type="content" source="./images/expressroute-connection-overview.svg" alt-text="Diagram of a VPN gateway." lightbox="./images/expressroute-connection-overview.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-networking-connect-to-azure.vsdx) of this diagram.*
 
