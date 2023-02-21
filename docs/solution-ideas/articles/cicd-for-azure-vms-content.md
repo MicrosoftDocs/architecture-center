@@ -34,6 +34,8 @@ This section assumes you have read [Azure Pipelines baseline architecture](../..
 
 ### Components
 
+This section assumes you have read [Azure Pipelines baseline architecture components section](../../example-scenario/apps/devops-dotnet-baseline.yml#components) and only focuses on the specifics of deploying a workload to Azure Virtual Machines.
+
 - [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provide on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux servers. Virtual Machines are used in this architecture to host workloads.
 
 - [Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets can also be used to host workloads.

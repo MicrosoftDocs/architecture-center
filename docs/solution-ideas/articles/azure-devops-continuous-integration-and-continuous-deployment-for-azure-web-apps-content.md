@@ -13,7 +13,7 @@ Architecture diagram of an Azure pipeline deploying to Azure App Services. The d
 
 ### Dataflow
 
-This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#dataflow) and only focuses on Web App specific details.
+This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#dataflow) and only focuses on the considerations specifics to deploying a workload to Azure App Services.
 
 1. **PR pipeline** - *Same as the baseline*
 
@@ -28,6 +28,8 @@ This section assumes you have read [Azure Pipelines baseline architecture](../..
 1. **Monitoring** - *same as the baseline*
 
 ### Components
+
+This section assumes you have read [Azure Pipelines baseline architecture components section](../../example-scenario/apps/devops-dotnet-baseline.yml#components) and only focuses on the considerations specifics to deploying a workload to Azure App Services.
 
 - [Azure App Service](/azure/app-service/): Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. Azure Web Apps are actually applications hosted in Azure App Service.
 
@@ -53,8 +55,5 @@ This section assumes you have read the [considerations section in Azure Pipeline
 
 ## Related resources
 
-* [CI/CD for Windows desktop apps](/azure/architecture/solution-ideas/articles/azure-devops-ci-cd-for-desktop-apps)
-* [CI/CD for containers](/azure/architecture/solution-ideas/articles/cicd-for-containers)
-* [CI/CD for Azure VMs](/azure/architecture/solution-ideas/articles/cicd-for-azure-vms)
-* [CI/CD for microservices architectures](/azure/architecture/microservices/ci-cd)
-* [Java CI/CD using Jenkins and Azure Web Apps](/azure/architecture/solution-ideas/articles/java-cicd-using-jenkins-and-azure-web-apps)
+- [CI/CD baseline architecture with Azure Pipelines](../../example-scenario/apps/devops-dotnet-baseline.yml)
+- [CI/CD for IaaS applications](./cicd-for-azure-vms.yml)
