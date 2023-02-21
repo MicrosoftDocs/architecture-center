@@ -2,9 +2,9 @@
 title: AKS triage - cluster health
 titleSuffix: Azure Architecture Center
 description: Learn to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.
-author: kevingbb
+author: rongzhang
 ms.author: architectures
-ms.date: 07/28/2022
+ms.date: 02/21/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -28,13 +28,15 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 ![AKS Diagnostics](images/aks-diagnostics.png)
 
-**Diagnostics** shows a list of results from various test runs. If there are any issues found, **More info** can show you information about the underlying issue.
+**Diagnostics** shows a list of tiles of issue categories. A short description and example are given on each tile, based on your issue, it can help target on which tile you can click to troubleshoot. For example, if you see your node is in **Not Ready** stage due to an expired certificate, you can click **Identity and Security** tile to run the diagnostics and it will show you information about the underlying issue.
 
-This image indicates that network and connectivity issues are caused by Azure CNI subnet configuration.
+This image indicates that an expired certificate may cause node not ready and how to resolove this issue. 
 
-![AKS Diagnostics Results - Networking](images/aks-diagnostics-results.svg)
+![AKS Diagnostics Results - Identity and Security](images/aks-diagnostics-results.png)
 
-![AKS Diagnostics Results - Networking - Azure CNI](images/aks-diagnostics-network.svg)
+And when you click **View details**, the tile expands and presents to you what could be wrong with your cluster certificate. The arrows on the top left corner of each tile can be expanded to show more detailed recommendations of fixes. 
+
+![AKS Diagnostics Results - Identity and Security - Cluster Certificate Expired](images/aks-diagnostics-expiredCert.png)
 
 To learn more about this feature, see [Azure Kubernetes Service Diagnostics overview](/azure/aks/concepts-diagnostics).
 
