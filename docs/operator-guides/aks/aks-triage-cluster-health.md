@@ -38,7 +38,7 @@ And when you click **View details**, the tile expands and presents to you what c
 
 ![AKS Diagnostics Results - Identity and Security - Cluster Certificate Expired](images/aks-diagnostics-expiredCert.png)
 
-To learn more about this feature, see [Azure Kubernetes Service Diagnostics overview](/azure/aks/concepts-diagnostics).
+To learn more about this feature, see [Azure Kubernetes Service Diagnostics overview](/azure/aks/aks-diagnostics).
 
 ## Next steps
 
