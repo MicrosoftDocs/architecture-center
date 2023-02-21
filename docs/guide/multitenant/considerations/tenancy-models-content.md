@@ -54,7 +54,7 @@ One of the biggest considerations in the design of a multitenant architecture is
 
 Rather than thinking of isolation as a discrete property, you should think about it as being on a continuum. You can deploy components of your architecture that are more or less isolated than other components in the same architecture, depending on your requirements. The following diagram demonstrates a continuum of isolation:
 
-![Diagram that shows a continuum of isolation, ranging from fully isolated (nothing shared) to fully shared (everything shared).](media/tenancy-models/isolated-shared.png)
+![Diagram that shows a continuum of isolation, ranging from fully isolated (shared nothing) to fully shared (shared everything).](media/tenancy-models/isolated-shared.png)
 
 The level of isolation affects many aspects of your architecture, including the following:
 
