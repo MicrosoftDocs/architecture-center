@@ -30,7 +30,7 @@ Conversely, if you expect that your business will have only a few customers, you
 
 ## Tenants and deployments
 
-Next, you need to determine what *tenant* means for your particular solution, and whether you should distinguish between _logical_ and _physical_ tenants.
+Next, you need to determine what *tenant* means for your particular solution, and whether you should distinguish between logical tenants and deployments.
 
 For example, consider a music streaming service. Initially, you might build a solution that can easily handle thousands (or even tens of thousands) of users. As you continue to grow, however, you might find that you need to duplicate your solution or some of its components in order to scale to new customer demand. This means that you need to determine how to assign specific customers to specific instances of your solution. You might assign customers randomly, or geographically, or by filling up a single instance and then starting another. However, you probably need to maintain a record of your customers and which infrastructure their data and applications are available on so that you can route their traffic to the correct infrastructure. In this example, you might represent each customer as a separate tenant, and then map the users to the deployment that contains their data. You have a one-to-many mapping between tenants and deployments, and you can move tenants among deployments at your own discretion.
 
