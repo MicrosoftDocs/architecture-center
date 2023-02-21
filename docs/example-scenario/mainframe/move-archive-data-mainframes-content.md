@@ -111,6 +111,6 @@ See these resources:
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md) 
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) 
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure) 
 - [Re-engineer IBM z/OS batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml) 
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)

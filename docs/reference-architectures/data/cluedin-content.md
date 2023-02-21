@@ -137,7 +137,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The pricing for CluedIn is open and transparent. You can see the pricing on their [website](https://www.cluedin.com/).
+The pricing for CluedIn is open and transparent. You can see the pricing on their [website](https://www.cluedin.com/cluedin-azure-costs).
 
 #### Azure sizing and starting a trial
 

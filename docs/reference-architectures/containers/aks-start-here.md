@@ -23,7 +23,7 @@ Kubernetes is an open-source system for automating deployment, scaling, and mana
 
 Organizations are at various points in their understanding, rationalizing, and adoption of Kubernetes on Azure. Your organization's journey will likely follow a similar path to many other technologies you've adopted; learning, aligning your organization around roles &amp; responsibilities, and deploying production-ready workloads. From there, you'll iterate; growing your product as your customer and business demands change.
 
-:::image type="content" source="images/aks-journey.svg" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate.":::
+:::image type="content" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate." source="images/aks-journey.svg" lightbox="images/aks-journey.svg":::
 
 ## Introduction to Azure Kubernetes Service (AKS)
 

@@ -225,7 +225,7 @@ Principal author:
 ## Related resources
 
 - [DevTest and DevOps for IaaS solutions][DevTest and DevOps for IaaS solutions]
-- [DevSecOps in Azure][DevSecOps in Azure]
+- [DevSecOps on AKS][DevSecOps on AKS]
 - [A computer-aided engineering service][A computer-aided engineering service]
 
 [Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
@@ -243,7 +243,7 @@ Principal author:
 [Custom Script Extensions]: /azure/virtual-machines/extensions/custom-script-windows
 [Deployment Stamps pattern]: ../../patterns/deployment-stamp.yml
 [Designing resilient applications for Azure]: /azure/architecture/framework/resiliency/principles
-[DevSecOps in Azure]: ../../solution-ideas/articles/devsecops-in-azure.yml
+[DevSecOps on AKS]: ../../guide/devsecops/devsecops-on-aks.yml
 [DevTest and DevOps for IaaS solutions]: ../../solution-ideas/articles/dev-test-iaas.yml
 [Geode pattern]: ../../patterns/geodes.yml
 [How to find a Marketplace image version]: /azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties

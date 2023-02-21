@@ -138,6 +138,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - If you require the use of DNSSEC, consider that Azure DNS currently does **not** support it.
 - For DNSSEC validation, deploy a custom DNS server and enable DNSEC validation.
+- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### DevOps
 

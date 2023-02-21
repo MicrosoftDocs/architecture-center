@@ -156,7 +156,7 @@ Explore related architectures:
 - [Back up files and applications on Azure Stack Hub](./azure-stack-backup.yml)
 - [Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml)
-- [Windows Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
+- [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
 
 [architectural-diagram]: ./images/azure-file-share.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx

@@ -3,6 +3,8 @@ When you host your apps or microservices in [Azure Spring Apps](/azure/spring-cl
 
 When you deploy a common reverse proxy service like [Azure Application Gateway](/azure/application-gateway) or [Azure Front Door](/azure/frontdoor) in front of Azure Spring Apps, you should ensure that your apps can be reached only through this reverse proxy. This safeguard helps to prevent malicious users from trying to bypass the WAF or circumvent throttling limits, for example.
 
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 In this article, you'll learn how to enforce access restrictions so that your applications hosted in Azure Spring Apps are accessible only through your reverse proxy service. The recommended way to enforce these restrictions depends on how you deploy your Azure Spring Apps instance and which reverse proxy you use:
 
 - When you **[deploy Azure Spring Apps in an Azure virtual network](/azure/spring-cloud/how-to-deploy-in-azure-virtual-network)**, you can [access your apps privately from within the network](/azure/spring-cloud/access-app-virtual-network).

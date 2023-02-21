@@ -70,3 +70,4 @@ This section assumes you have read the [considerations section in Azure Pipeline
 
 - [CI/CD baseline architecture with Azure Pipelines](../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [CI/CD for IaaS applications](./cicd-for-azure-vms.yml)
+

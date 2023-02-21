@@ -326,7 +326,7 @@ For more information about the services featured in this solution, see the follo
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-[Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+[Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/

@@ -76,6 +76,10 @@ For other scalability topics, see the Azure Architecture Center [Performance eff
 
 It's a common practice to deploy web apps, API apps, and mobile apps to an Azure App Service plan by using continuous deployment pipelines. Because a secured bot's app service is protected with a private endpoint, externally hosted build agents don't have the access that's required to deploy updates. To work around this, you might need to use a solution such as Azure Pipeline [self-hosted DevOps agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
 
+### Security
+
+[Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 ## Deploy this scenario
 
 ### Prerequisites
@@ -97,6 +101,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
     export TEAMS_IP_RANGE='52.112.0.0/14'
+    export FIREWALL_NAME='afw-'${LOCATION}'-'${PREFIX}
 
     # Create a resource group
     az group create --name ${RG_NAME} --location ${LOCATION}
@@ -122,7 +127,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     --name ${SUBNET_PVT_NAME} \
     --resource-group ${RG_NAME} \
     --vnet-name ${VNET_NAME} \
-    --address-prefix 10.0.3.0/24 \
+    --address-prefix 10.0.3.0/24
     ```
 
     When you create a private endpoint subnet, the private endpoint policies are disabled by default.
@@ -207,6 +212,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
    az network private-endpoint create \
      --name pvt-${PREFIX}Endpoint \
      --resource-group ${RG_NAME} \
+     --location ${LOCATION} \
      --vnet-name ${VNET_NAME} \
      --subnet ${SUBNET_PVT_NAME} \
      --connection-name conn-${PREFIX} \

@@ -19,7 +19,7 @@ This solution applies to systems that run stateful applications:
 
 ## Architecture
 
-:::image type="content" source="./media/data-protection-kubernetes-astra-azure-netapp-files-architecture.png" alt-text="Architecture diagram that shows how to deploy A K S with Astra Control Service for data protection and mobility." border="false" lightbox="./media/data-protection-kubernetes-astra-azure-netapp-files-architecture.svg":::
+:::image type="content" source="./media/data-protection-kubernetes-astra-azure-netapp-files-architecture.svg" alt-text="Architecture diagram that shows how to deploy A K S with Astra Control Service for data protection and mobility." border="false" lightbox="./media/data-protection-kubernetes-astra-azure-netapp-files-architecture.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
@@ -67,7 +67,7 @@ You can use a custom multi-pronged approach to separately back up or replicate p
 
 In certain environments, you can reduce costs by avoiding cross-peered virtual network traffic. To eliminate this traffic, simplify the solution. Specifically, bring the AKS clusters and the subnet that you delegate for Azure NetApp Files into the same virtual network, as this diagram illustrates:
 
-:::image type="content" source="./media/data-protection-kubernetes-astra-azure-netapp-files-single.png" alt-text="Architecture diagram that shows how to use A K S with Astra Control Service in a single virtual network." border="false" lightbox="./media/data-protection-kubernetes-astra-azure-netapp-files-single.svg":::
+:::image type="content" source="./media/data-protection-kubernetes-astra-azure-netapp-files-single.svg" alt-text="Architecture diagram that shows how to use A K S with Astra Control Service in a single virtual network." border="false" lightbox="./media/data-protection-kubernetes-astra-azure-netapp-files-single.svg":::
 
 *Download a [Visio file][Visio version of architecture diagram that uses a single virtual network] of this architecture.*
 
@@ -175,7 +175,7 @@ Principal authors:
 [Astra Control Service documentation]: https://docs.netapp.com/us-en/astra-control-service/index.html
 [Azure Kubernetes Service (AKS)]: /azure/aks/intro-kubernetes
 [Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction
-[Azure NetApp Files Performance Calculator]: https://cloud.netapp.com/azure-netapp-files/tco
+[Azure NetApp Files Performance Calculator]: https://bluexp.netapp.com/azure-netapp-files/sizer
 [Azure NetApp Files service page]: https://azure.microsoft.com/services/netapp
 [Azure Pricing calculator]: https://azure.microsoft.com/pricing/calculator
 [Azure Virtual Network]: https://azure.microsoft.com/services/virtual-network
@@ -215,7 +215,7 @@ Principal authors:
 [Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster]: /azure/aks/tutorial-kubernetes-deploy-cluster
 [Understand Azure NetApp Files backup]: /azure/azure-netapp-files/backup-introduction
 [View a summary of app and cluster health]: https://docs.netapp.com/us-en/astra-control-service/use/view-dashboard.html
-[Visio version of architecture diagram]: https://arch-center.azureedge.net/US-1900555-data-protection-kubernetes-astra-azure-netapp-files.vsdx
-[Visio version of architecture diagram that uses a single virtual network]: https://arch-center.azureedge.net/US-1900555-data-protection-kubernetes-astra-azure-netapp-files-single.vsdx
+[Visio version of architecture diagram]: https://arch-center.azureedge.net/data-protection-kubernetes-astra-azure-netapp-files.vsdx
+[Visio version of architecture diagram that uses a single virtual network]: https://arch-center.azureedge.net/data-protection-kubernetes-astra-azure-netapp-files-single.vsdx
 [What is Azure NetApp Files]: /azure/azure-netapp-files/azure-netapp-files-introduction
 [What volume snapshots are]: /azure/azure-netapp-files/snapshots-introduction#what-volume-snapshots-are

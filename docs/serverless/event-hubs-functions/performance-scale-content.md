@@ -100,7 +100,7 @@ To learn more about how batching is enabled, see the [attribute and annotation](
 
 Several configuration settings in the [host.json](/azure/azure-functions/functions-bindings-event-hubs#hostjson-settings) file play a key role in the performance characteristics of the Event Hubs trigger binding for Azure Functions:
 
-- **maxBatchSize:** This setting represents the maximum number of events the function receives when invoked. It is important to recognize that this isn't the minimum number of events, only the maximum. If the number of events received is less than this amount, the function is still invoked with as many events as are available. You can't set the minimum batch size.
+- **maxEventBatchSize:** This setting represents the maximum number of events the function receives when invoked. It is important to recognize that this isn't the minimum number of events, only the maximum. If the number of events received is less than this amount, the function is still invoked with as many events as are available. You can't set the minimum batch size.
 
 - **prefetchCount:** One of the most important settings when optimizing for performance is the prefetch count. This value is referenced by the underlying AMQP channel to determine how many messages to fetch and cache for the client. The prefetch count should be greater than or equal to the `maxBatchSize` value and is commonly set to a multiple of that amount. Setting this value to a number less than the `maxBatchSize` setting could have a negative impact on performance.
 

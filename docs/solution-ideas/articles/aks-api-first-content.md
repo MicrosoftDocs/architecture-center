@@ -12,8 +12,9 @@ This solution enables you to do the following:
 
 ## Architecture
 
-![Diagram that shows the API-first architecture.](../media/aks-api-first.png)
-*Download an [SVG file](../media/aks-api-first.svg) of this architecture.*
+![Diagram that shows the API-first architecture.](../media/aks-api-first.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-api-first.vsdx) of this architecture.*
 
 ### Dataflow
 

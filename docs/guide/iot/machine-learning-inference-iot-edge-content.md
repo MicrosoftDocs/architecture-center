@@ -291,7 +291,7 @@ Other contributor:
 - [Understand IoT Edge automatic deployments for single devices or at scale](/azure/iot-edge/module-deployment-monitoring)
 - [Open Neural Network Exchange](https://github.com/onnx)
 - [ONNX Tutorials](https://github.com/onnx/tutorials)
-- [Deploy a machine learning model on IoT and edge devices](https://github.com/microsoft/onnxruntime/blob/gh-pages/docs/tutorials/iot-edge.md)
+- [Deploy a machine learning model on IoT and edge devices](https://github.com/microsoft/onnxruntime/blob/gh-pages/docs/tutorials/iot-edge/index.md)
 
 ## Related resources
 
