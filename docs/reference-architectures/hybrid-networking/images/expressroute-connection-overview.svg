@@ -1097,7 +1097,7 @@
 			<desc>Microsoft peering for Office 365, Dynamics 365, Azure public ...</desc>
 			<rect x="0" y="301.2" width="250.393" height="28.9875" class="st52"/>
 			<text x="4" y="312.39" class="st53">Microsoft peering for Office 365, Dynamics 365, <tspan x="4" dy="1.2em"
-						class="st54">Azure public services (public Ips)</tspan></text>		</g>
+						class="st54">Azure public services (public IPs)</tspan></text>		</g>
 		<g id="shape1257-395" transform="translate(96.5893,-60.1875)">
 			<title>Sheet.1257</title>
 			<desc>Azure private peering for virtual networks</desc>
