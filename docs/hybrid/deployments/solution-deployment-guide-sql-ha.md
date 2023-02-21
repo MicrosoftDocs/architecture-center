@@ -41,7 +41,7 @@ In this solution, you'll build a sample environment to:
 ## Architecture for SQL Server 2016
 
 ![SQL Server 2016 SQL HA Azure Stack Hub](media/solution-deployment-guide-sql-ha/solution-deployment-guide-sql-ha.svg)
-.
+
 *Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-sql-ha.vsdx) of this architecture.*
 
 ## Prerequisites for SQL Server 2016
