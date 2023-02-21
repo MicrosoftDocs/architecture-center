@@ -100,7 +100,9 @@ At the opposite extreme, you can consider a fully multitenant deployment, where 
 
 - Be sure to separate data for each tenant, and don't leak data among tenants. You might need to manage sharding data. Additionally, you might need to be concerned about the effects that individual tenants can have on the overall system. For example, if a large tenant tries to perform a heavy query or operation, it might affect other tenants.
 
-- Determine how to [track and associate your Azure costs to tenants](measure-consumption.md), if doing so is important to you. Maintenance can be simpler with a single deployment, because you only have to update one set of resources. However, it's also often riskier, because changes might affect your entire customer base.
+- Determine how to [track and associate your Azure costs to tenants](measure-consumption.md), if doing so is important to you.
+
+- Maintenance can be simpler with a single deployment, because you only have to update one set of resources. However, it's also often riskier, because changes might affect your entire customer base.
 
 - You might also need to consider scale. You're more likely to reach [Azure resource scale limits](/azure/azure-resource-manager/management/azure-subscription-service-limits) when you have a shared set of infrastructure. For example, if you use a storage account as part of your solution, as your scale increases, the number of requests to that storage account might reach the limit of what the storage account can handle. To avoid reaching a resource quota limit, you can consider deploying multiple instances of your resources (for example, multiple AKS clusters or storage accounts). You can even consider distributing your tenants across resources that you deploy into multiple Azure subscriptions.
 
