@@ -101,6 +101,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     export SUBNET_PVT_NAME='PrivateEndpointSubnet'
     export LOCATION='eastus'
     export TEAMS_IP_RANGE='52.112.0.0/14'
+    export FIREWALL_NAME='afw-'${LOCATION}'-'${PREFIX}
 
     # Create a resource group
     az group create --name ${RG_NAME} --location ${LOCATION}
@@ -126,7 +127,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
     --name ${SUBNET_PVT_NAME} \
     --resource-group ${RG_NAME} \
     --vnet-name ${VNET_NAME} \
-    --address-prefix 10.0.3.0/24 \
+    --address-prefix 10.0.3.0/24
     ```
 
     When you create a private endpoint subnet, the private endpoint policies are disabled by default.
@@ -211,6 +212,7 @@ You must have an existing Azure account. If you don't have an Azure subscription
    az network private-endpoint create \
      --name pvt-${PREFIX}Endpoint \
      --resource-group ${RG_NAME} \
+     --location ${LOCATION} \
      --vnet-name ${VNET_NAME} \
      --subnet ${SUBNET_PVT_NAME} \
      --connection-name conn-${PREFIX} \
