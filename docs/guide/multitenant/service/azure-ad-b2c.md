@@ -133,7 +133,13 @@ Additionally, you can also use identity federation as a tool for managing multip
 
 ### Home realm discovery
 
-Home realm discovery is the concept of automatically selecting which federated identity provider a user should be signed in with instead of the user having to manually select one. This concept is key for enabling the use of a shared Azure AD B2C tenant when you need to enable your customers to bring their own federated identity provider, as you likely would not want them to have to select from a list of *n* number of identity providers. This process can be done for a user in Azure AD B2C based on many different factors, but the most common approach is to use the user's email domain suffix to decide which identity provider they should be signed in with. For more information on the concept, see the Azure AD page on [home realm discovery](/azure/active-directory/manage-apps/home-realm-discovery-policy) and see the Azure AD B2C samples GitHub repository for an [example](https://github.com/azure-ad-b2c/samples/tree/master/policies/default-home-realm-discovery) of how to build it in Azure AD B2C.
+Home realm discovery is the process of automatically selecting a federated identity provider for a user's sign-in event. By automatically selecting the user's identity provider, you avoid prompting the user to manually select a provider.
+
+Home realm discovery is important when you use a shared Azure AD B2C tenant and also enable your customers to bring their own federated identity provider. You likely want to avoid a user having to select from a list of identity providers, because it adds extra complexity to the sign-in process. Also, a user might accidentally select an incorrect provider, which then causes their sign-in attempt to fail.
+
+You can configure home realm discovery based on many different factors. The most common approach is to use the user's email address domain suffix to decide which identity provider they should be signed in with. For example, `user@contoso.com` includes a domain suffix of `contoso.com`, which can be matched to the Contoso federated identity provider.
+
+For more information on the concept, see the Azure AD documentation for [home realm discovery](/azure/active-directory/manage-apps/home-realm-discovery-policy), and see the Azure AD B2C samples GitHub repository for an [example](https://github.com/azure-ad-b2c/samples/tree/master/policies/default-home-realm-discovery) of how to build it in Azure AD B2C.
 
 ## Data residency
 
