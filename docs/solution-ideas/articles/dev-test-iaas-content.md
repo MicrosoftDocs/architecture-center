@@ -57,7 +57,7 @@ This section assumes you have read the [considerations section in Azure Pipeline
 
 - Consider using [Azure DevTest Labs policies and procedures to control costs](/azure/devtest-labs/devtest-lab-overview#lab-policies-and-procedures-to-control-costs)
 
-### Operational Excellence
+### Operational Excellence 
 
 - Consider implementing environments beyond just staging and production to enable things like rollbacks, manual acceptance testing, and performance testing. The act of using staging as the rollback environment keeps you from being able to use that environment for other purposes.
 
