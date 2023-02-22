@@ -1,24 +1,5 @@
 DevSecOps makes security best practices an integral part of DevOps while maintaining efficiency in an Azure framework, starting with the first steps of development. DevSecOps redirects the security focus by using a [shift-left][Shift left] strategy. Instead of auditing code and the software supply chain for vulnerabilities at the end of the development process, it shifts to the beginning. Besides producing robust code, this [fail fast][Fail fast] approach helps resolve problems early on, when they're easier and less expensive to fix.
 
-With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:
-
-- Browser-based IDEs with built-in security extensions.
-- Agents that continuously monitor security advisories and replace vulnerable and out-of-date dependencies.
-- Search capabilities that scan source code for vulnerabilities.
-- Action-based workflows that automate every step of development, testing, and deployment.
-- Spaces that provide a way to privately discuss and resolve security threats and then publish the information.
-
-These features provide a superb service for building secure cloud solutions combined with the monitoring and evaluation power of Azure.
-
-## Potential use cases
-
-GitHub DevSecOps installations cover many security scenarios. Possibilities include the following cases:
-
-- Developers who want to take advantage of pre-configured environments that offer security capabilities.
-- Administrators who rely on having up-to-date, prioritized security reports at their fingertips, along with details on affected code and suggested fixes.
-- Streamlined organizations that need systems to automatically acquire new, uncompromised security devices when secrets are left exposed in code.
-- Development teams that could benefit from automatic upgrades when newer or more secure versions of external packages become available.
-
 ## Architecture
 
 :::image type="complex" source="../media/devsecops-in-github-data-flow.png" alt-text="Architecture diagram highlighting the security checks that run in various GitHub and Azure components in a GitHub DevSecOps environment." border="false":::
@@ -26,6 +7,8 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 :::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
+
+### Dataflow
 
 1. When developers access GitHub resources, GitHub redirects them to Azure AD for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
 1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs that are equipped with required security scanning extensions.
@@ -38,7 +21,7 @@ GitHub DevSecOps installations cover many security scenarios. Possibilities incl
 
 ### Components
 
-- [Azure AD][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. Azure AD can be configured as the identity provider for GitHub, and multi-factor authentication can be enabled for extra security.
+- [Azure Active Directory (Azure AD)][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. Azure AD can be configured as the identity provider for GitHub, and multi-factor authentication can be enabled for extra security.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
 - [GitHub Security][GitHub Security] works to eliminate threats in many ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
@@ -83,32 +66,30 @@ When GitHub identifies a vulnerability, it takes the steps illustrated in the fo
 1. The merged branch triggers CI/CD tasks in GitHub Actions.
 1. GitHub Actions deploy the new app version to a test or staging environment.
 
+## Scenario Details
+
+With many security capabilities, GitHub offers tools that support every part of a DevSecOps workflow:
+
+- Browser-based IDEs with built-in security extensions
+- Agents that continuously monitor security advisories and replace vulnerable and out-of-date dependencies
+- Search capabilities that scan source code for vulnerabilities
+- Action-based workflows that automate every step of development, testing, and deployment
+- Spaces that provide a way to privately discuss and resolve security threats and then publish the information
+
+These features provide a superb service for building secure cloud solutions combined with the monitoring and evaluation power of Azure.
+
+## Potential use cases
+
+GitHub DevSecOps installations cover many security scenarios. Possibilities include the following cases:
+
+- Developers who want to take advantage of pre-configured environments that offer security capabilities
+- Administrators who rely on having up-to-date, prioritized security reports at their fingertips, along with details on affected code and suggested fixes
+- Streamlined organizations that need systems to automatically acquire new, uncompromised security devices when secrets are left exposed in code
+- Development teams that could benefit from automatic upgrades when newer or more secure versions of external packages become available
+
 ## Considerations
 
 To keep GitHub DevSecOps solutions aligned with the tenets of the [Azure Well-Architected Framework][Azure Well-Architected Framework], consider the following points when deciding how to implement this architecture.
-
-### Operational excellence
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-- Run automated tests and maintenance in environments that use vulnerability management capabilities, since these capabilities change code and its dependencies on your behalf. Automated testing identifies any issues that result from these changes.
-- Take advantage of Azure Policy features. Besides denying deployments and logging compliance issues, these policies can also modify resources, making them compliant, even if they aren't deployed that way. For example, if you try to deploy a storage account in Azure that uses HTTP, Azure Policy detects the situation. Policies can then automatically change the deployment and force the storage account to use HTTPS.
-- Azure Resource Manager uses JSON templates to describe the resources involved in deployment. Teams can also manage these template documents by using DevOps tools, like version control, code collaboration, and CI/CD workflows.
-- One concern with DevSecOps is that code scans can generate noisy results filled with false positives, leading to the following types of problems:
-  - Developers waste time investigating nonexistent problems.
-  - Addressing security issues interrupts workflow.
-  - Having lost trust in security tools because of the inaccuracies, developers ignore results.
-
-  Overcome these obstacles by integrating security into the software lifecycle:
-  - Employ tools like Codespaces that embed scanning checks in IDEs, meaning developers use them in familiar environments.
-  - Make security checks a regular part of code review instead of an afterthought.
-  - Put developers in charge of high-precision scans, but leave noisier checks to security teams.
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-For long-running or complex Actions, host your own runners for CI/CD jobs. You can then choose computers with powerful processing capabilities and ample memory. See [About self-hosted runners][About self-hosted runners].
 
 ### Reliability
 
@@ -132,10 +113,34 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
-- Project managers on tight schedules may worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
+- Project managers on tight schedules might worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
   - Shift testing left, closer to the source. Teams will have fewer mistakes as a result.
-  - Address issues during programming, rather than months down the line in production. Then developers don't need to refresh their knowledge of the code.
+  - Address issues during programming, rather than months down the line in production. That way, developers don't need to refresh their knowledge of the code.
 - GitHub Security features vary based on an organization's licensing, and whether a repository's visibility is public or private. See [Plans for all developers][GitHub pricing].
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+- Run automated tests and maintenance in environments that use vulnerability management capabilities, since these capabilities change code and its dependencies on your behalf. Automated testing identifies any issues that result from these changes.
+- Take advantage of Azure Policy features. Besides denying deployments and logging compliance issues, these policies can also modify resources, making them compliant, even if they aren't deployed that way. For example, if you try to deploy a storage account in Azure that uses HTTP, Azure Policy detects the situation. Policies can then automatically change the deployment and force the storage account to use HTTPS.
+- Azure Resource Manager uses JSON templates to describe the resources involved in deployment. Teams can also manage these template documents by using DevOps tools, like version control, code collaboration, and CI/CD workflows.
+- One concern with DevSecOps is that code scans can generate noisy results filled with false positives, leading to the following types of problems:
+  - Developers waste time investigating nonexistent problems.
+  - Addressing security issues interrupts workflow.
+  - Having lost trust in security tools because of the inaccuracies, developers ignore results.
+
+Overcome these obstacles by integrating security into the software lifecycle:
+
+- Employ tools like Codespaces that embed scanning checks in IDEs, meaning developers use them in familiar environments.
+- Make security checks a regular part of code review instead of an afterthought.
+- Put developers in charge of high-precision scans, but leave noisier checks to security teams.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+For long-running or complex Actions, host your own runners for CI/CD jobs. You can then choose computers with powerful processing capabilities and ample memory. See [About self-hosted runners][About self-hosted runners].
 
 ## Contributors
 
@@ -143,7 +148,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Principal author:
 
- * [Frank Migacz](https://www.linkedin.com/in/fmigacz) | App Innovation
+- [Frank Migacz](https://www.linkedin.com/in/fmigacz) | App Innovation
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
