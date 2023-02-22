@@ -8,7 +8,7 @@ For combining FSLogix with Azure Virtual Desktop as a desktop virtualization sol
 
 It's common to copy a profile to and from the network, when a user signs in and out of a remote environment. Because user profiles can often be large, sign in and sign out times often became unacceptable. FSLogix Containers redirect user profiles to a network location. Profiles are placed in VHDx files and mounted at run time. Mounting and using a profile on the network eliminates delays often associated with solutions that copy files.
 
-![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.png)
+![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
@@ -86,7 +86,7 @@ The following list describes some important things to keep in mind when using Az
 - With the FSLogix [ObjectSpecific](/fslogix/configure-per-user-per-group-ht) per-group setting, you can filter different Azure Files storage accounts to accommodate more users. The maximum limit of IOPs per storage account doesn't mean you cannot stack them. This applies to both personal and pooled host pool scenarios. The architecture diagram below explains it in more details.
 - You are able to use multiple storage accounts in one Azure virtual network (VNet). For example, you can assign different network shares to specific groups of users in your environment using AD groups.
 
-:::image type="content" border="false" source="./images/fslogix-files.png" alt-text="Diagram showing Files scenario" lightbox="./images/fslogix-files.png":::
+:::image type="content" border="false" source="./images/fslogix-files.svg" alt-text="Diagram showing Files scenario" lightbox="./images/fslogix-files.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
@@ -109,7 +109,7 @@ Create volumes with Standard network features [where available](/azure/azure-net
 
 If the AVD Windows 10 Multi-session user per vCPU [recommendations](/windows-server/remote/remote-desktop-services/virtual-machine-recs) sizing for the D32as_v4 VM is calculated based on the light or medium workload, more than 120,000 users would fit within 1,000 virtual machines before approaching the 1,000 IP limit, as shown in the following figure.
 
-:::image type="content" border="false" source="./images/fslogix-netapp-files-pooled.png" alt-text="Diagram showing NetApp Files pooled scenario" lightbox="./images/fslogix-netapp-files-pooled.png":::
+:::image type="content" border="false" source="./images/fslogix-netapp-files-pooled.svg" alt-text="Diagram showing NetApp Files pooled scenario" lightbox="./images/fslogix-netapp-files-pooled.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
