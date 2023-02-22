@@ -264,10 +264,9 @@ During this phase, operation monitoring and security monitoring tasks are perfor
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Adnan Khan](https://www.linkedin.com/in/adnan-khan-04311939/) | Sr. Cloud Solution Architect
-- [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for Visual Studio Code
 
 Other contributors:
 
