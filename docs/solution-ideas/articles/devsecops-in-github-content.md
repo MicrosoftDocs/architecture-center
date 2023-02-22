@@ -114,7 +114,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
 - Project managers on tight schedules might worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
-  - Shift testing left, closer to the source. Teams have fewer mistakes as a result.
+  - Shift testing left, closer to the source. Teams will have fewer mistakes as a result.
   - Address issues during programming, rather than months down the line in production. That way, developers don't need to refresh their knowledge of the code.
 - GitHub Security features vary based on an organization's licensing, and whether a repository's visibility is public or private. See [Plans for all developers][GitHub pricing].
 
