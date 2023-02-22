@@ -19,11 +19,11 @@ ms.custom:
   - guide
 ---
 
-# Mission-critical global web applications
+# Highly available mission-critical global web applications
 
-Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use Azure Front Door to accelerate their performance, route traffic between regions, and secure their workloads.
+Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use content delivery networks (CDNs) to accelerate their performance, route traffic between regions, and secure their workloads. Microsoft's CDN offering is Azure Front Door.
 
-Azure Front Door is a highly available service, with an industry-leading SLA. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, like all cloud-based services, Azure Front Door isn't immune to occasional outages. We take a great deal of care to avoid these issues, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. However, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
+Azure Front Door is a highly available service, with an industry-leading SLA of 99.99% uptime, which is much higher than many other CDNs. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, no cloud-based service is infallible. We take a great deal of care to avoid outages, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. However, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
 
 You can switch between Azure Front Door and other application delivery services during an outage or a disaster. However, you need to carefully consider these architectures. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
 

@@ -402,7 +402,7 @@ items:
               items:
                 - name: Continuous validation
                   href: guide/testing/mission-critical-deployment-testing.md
-                - name: Global web applications
+                - name: Highly available global web applications
                   items:
                     - name: Overview
                       href: guide/networking/global-web-applications/overview.md
