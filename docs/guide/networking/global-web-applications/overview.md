@@ -1,5 +1,5 @@
 ---
-title: Highly available mission-critical global web applications
+title: High availablity for mission-critical global web applications
 titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global web applications.
 author: johndowns
@@ -19,7 +19,7 @@ ms.custom:
   - guide
 ---
 
-# Highly available mission-critical global web applications
+# High availability for mission-critical global web applications
 
 Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use content delivery networks (CDNs) to accelerate their performance, route traffic between regions, and secure their workloads. Microsoft's CDN offering is Azure Front Door.
 
