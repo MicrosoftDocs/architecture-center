@@ -39,7 +39,7 @@ This architecture is suitable for hybrid applications running large-scale, missi
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-networking-connect-to-azure.vsdx) of this diagram.*
 
 > [!NOTE]
-> In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
+> In the context of ExpressRoute, the Microsoft edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
 > 
 
 ### Benefits
