@@ -1,5 +1,5 @@
 ---
-title: Mission-critical global web applications
+title: Highly available mission-critical global web applications
 titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global web applications.
 author: johndowns
