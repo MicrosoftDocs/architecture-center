@@ -11,7 +11,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 ### Dataflow
 
 1. When developers access GitHub resources, GitHub redirects them to Azure AD for SAML authentication. In a single sign-on (SSO) procedure, the [Microsoft Authenticator app][Microsoft Authenticator] then uses FIDO2 strong authentication. The passwordless [FIDO2 security keys][FIDO2 security keys] align with the latest [Fast Identity Online (FIDO) Alliance][FIDO Alliance] specifications.
-1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs that are equipped with required security scanning extensions.
+1. Developers begin working on tasks in Codespaces. These pre-built development environments organized into containers provide correctly configured IDEs equipped with required security scanning extensions.
 1. When developers commit new code, GitHub Actions automatically scan the code to quickly find vulnerabilities and coding errors.
 1. Pull requests (PRs) trigger code builds and automated testing through GitHub Actions. GitHub encrypts secrets and credentials at rest and obfuscates these entries in logs.
 1. GitHub Actions deploy build artifacts to Azure App Service while making changes to other cloud resources, such as service endpoints.
@@ -21,7 +21,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. Azure AD can be configured as the identity provider for GitHub, and multi-factor authentication can be enabled for extra security.
+- [Azure Active Directory (Azure AD)][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. You can configure Azure AD as the identity provider for GitHub, and you can enable multi-factor authentication for extra security.
 - [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
 - [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
 - [GitHub Security][GitHub Security] works to eliminate threats in many ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
@@ -35,7 +35,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 
 [GitHub Security][GitHub Security] provides multiple features for addressing security risks:
 
-- [Secret scanning][GitHub secret scanning] inspects repositories or commits for any tokens, keys, or secrets that appear in code. Teams can be notified that secrets have leaked into public view, and service providers can be notified that one of their secrets leaked. Service providers can optionally revoke or renew the secrets.
+- [Secret scanning][GitHub secret scanning] inspects repositories or commits for any tokens, keys, or secrets that appear in code. It can notify teams that secrets have leaked into public view, and can notify service providers that one of their secrets leaked. Service providers can optionally revoke or renew the secrets.
 - [Code scanning][GitHub code scanning] inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. GitHub starts the process of obtaining an uncompromised string after verifying its validity with the database. These checks use [CodeQL][CodeQL], a code analysis platform that improves upon traditional analyzers by allowing you to query code as if it were data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes. [Try CodeQL on LGTM][Try CodeQL].
 - [GitHub Dependabot][GitHub Dependabot] checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, if your project uses an open-source library, Dependabot examines that library. Suppose the library doesn't encrypt sensitive cleartext that it stores in a database. In this case, Dependabot creates a PR to upgrade the library to a version that encrypts the data.
 - [Vulnerability management][GitHub vulnerability management] identifies and updates known vulnerabilities in code and in software packages that the code uses. It runs checks whenever the following events occur:
@@ -102,7 +102,7 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Using self-hosted Actions runners for public repositories isn't advised. A malicious user could join your repo and create a PR that runs unsafe code on computers in your network. GitHub-hosted runners remove this risk.
+- We don't advise using self-hosted Actions runners for public repositories. A malicious user could join your repo and create a PR that runs unsafe code on computers in your network. GitHub-hosted runners remove this risk.
 - Scan your code using the CodeQL analysis engine to discover potential vulnerabilities and coding errors. CodeQL can run both on a schedule and when events occur, such as a commit or a PR creation, making it easy for users to identify security issues from within their PRs. See [About code scanning][GitHub code scanning].
 - [Configure Dependabot security updates][Configure Dependabot security updates], which can remove known threats from projects.
 - Configure GitHub Enterprise Server to include [GitHub Advanced Security][GitHub Advanced Security], which is available for enterprise accounts on GitHub Enterprise Cloud and GitHub Enterprise Server 3.0 or higher. This provides extra features that help users find and fix security problems in their code. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
@@ -114,7 +114,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - GitHub bills customers for GitHub Actions by the minute. In addition, the choice of operating system that hosts Actions jobs affects the per-minute consumption rate and per-minute cost. Wherever possible, choose Linux to host Actions. See [About billing for GitHub actions][About billing for GitHub actions].
 - Project managers on tight schedules might worry that adding security measures will delay development. Experience the opposite by saving time with these guidelines:
-  - Shift testing left, closer to the source. Teams will have fewer mistakes as a result.
+  - Shift testing left, closer to the source. Teams have fewer mistakes as a result.
   - Address issues during programming, rather than months down the line in production. That way, developers don't need to refresh their knowledge of the code.
 - GitHub Security features vary based on an organization's licensing, and whether a repository's visibility is public or private. See [Plans for all developers][GitHub pricing].
 
