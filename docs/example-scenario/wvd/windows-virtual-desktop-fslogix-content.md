@@ -117,7 +117,7 @@ If the AVD Windows 10 Multi-session user per vCPU [recommendations](/windows-ser
 
 Users are mapped to specific desktop pods. Each pod has just under 1,000 virtual machines, leaving room for IP addresses propagating from the management VNet. Azure NetApp Files can easily handle 900+ personal desktops per single-session host pool. The actual number of virtual machines is equal to 1,000 minus the number of management hosts found in the Hub VNet.
 
-:::image type="content" border="false" source="./images/fslogix-netapp-files-personal.png" alt-text="Diagram showing NetApp Files personal scenario" lightbox="./images/fslogix-netapp-files-personal.png":::
+:::image type="content" border="false" source="./images/fslogix-netapp-files-personal.svg" alt-text="Diagram showing NetApp Files personal scenario" lightbox="./images/fslogix-netapp-files-personal.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
