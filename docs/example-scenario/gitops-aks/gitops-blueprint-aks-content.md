@@ -1,4 +1,4 @@
-GitOps is a set of principles for operating and managing software systems. Though GitOps can be applied to any software system, GitOps is extensively used in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation. 
+GitOps is a set of principles for operating and managing software systems using source control as the system's source-of-truth. Though GitOps can be applied to any software system, GitOps is extensively used in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation. 
 
 This article describes some common options for using GitOps with an Azure Kubernetes Services (AKS) cluster. 
 
@@ -8,19 +8,21 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 ![Diagram of GitOps with Flux v2, GitHub and AKS](media/GitOps_Flux_GitHub_AKS.png)
 
-In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS. Flux:
+In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
 
-#### Dataflow
+### Dataflow 
 
-1. Pulls desired changes from GitHub.
-1. Detects any configuration drift.
-1. Reconciles the state in the Kubernetes cluster.
+1. Developer commits configuration changes to GitHub repository.
+1. Flux detects configuration drift in the Git repository, and pulls the configuration changes.
+1. Flux Reconciles the state in the Kubernetes cluster.
+
+Flux is an  inside-out process, which is important for security, no cluster endpoints need to be exposed.
 
 You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesConfiguration/fluxConfigurations resource type) at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
 
 #### Alternatives
 
-1. Flux can be used with other Git Repositories and CI/CD tools such as Azure DevOps, GitLabs, BitBucket etc. 
+1. Flux can be used with other Git Repositories such as Azure DevOps, GitLabs, BitBucket etc. 
 1. Instead of Git Repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets/) defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others. 
 1. [Flux can also be configured against Azure Blob Storage Container as a source to produce artifacts](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
@@ -56,6 +58,8 @@ The data flow for this scenario is as follows:
 #### Alternatives
 
 The configuration source repository could be any Git compatible repository, including Azure DevOps.
+
+Argo CD need not automatically sync the desired target state to the AKS cluster. Argo CD is implemented as a kubernetes controller which continuously monitors running applications and compares the current, live state in AKS cluster against the desired target state specified in the Git repo. Argo CD reports & visualizes the differences, while providing facilities to automatically or manually sync the live state back to the desired target state.
 
 ### Scenario 4:  Implementing CI/CD using GitOps with Argo CD, GitHub actions and AKS
 
@@ -132,9 +136,9 @@ The architecture scenarios shown previously use one or more of the following com
 According to [GitOps principles](https://opengitops.dev/), the desired state of a GitOps managed system must be:
 
 1. **Declarative**: A system managed by GitOps must have its desired state expressed declaratively.
-1. **Versioned and Immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
-1. **Pulled Automatically**: Software agents automatically pull the desired state declarations from the source.
-1. **Continuously Reconciled**:  Software agents continuously observe actual system state and attempt to apply the desired state.
+1. **Versioned and immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
+1. **Pulled automatically**: Software agents automatically pull the desired state declarations from the source.
+1. **Continuously reconciled**:  Software agents continuously observe actual system state and attempt to apply the desired state.
 
 In GitOps, [infrastructure as code (IaC)](https://wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components such as virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
@@ -148,13 +152,15 @@ Policy management / enforcement tools can be combined with GitOps to enforce pol
 
 This solution benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change.
 
-GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters (for example, to apply the same configuration across primary and DR clusters, or across a farm or clusters). GitOps enhances developer productivity.  
+GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters. 
 
-The most common and widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are CNCF projects, and can be used with Azure Kubernetes Service.
+With GitOps, the developer is shielded from complexities of managing a container environment. Developers continue to work with familiar tools such as Git to manage updates and new features. Hence GitOps enhances developer productivity.
+
+Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are CNCF projects and can be used with Azure Kubernetes Service.
 
 ### Native GitOps extensions to Azure Kubernetes Service
 
-Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different extensions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
+Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
 
 ### Other GitOps tools and add-ons. 
 
