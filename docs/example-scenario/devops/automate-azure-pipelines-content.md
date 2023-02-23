@@ -14,7 +14,7 @@ This article explains how to automate the process of creating developer, test, a
 1. In response to the Git command, Azure DevOps Services dispatches a notification via a webhook.
 1. The webhook triggers a logic app.
 1. The logic app determines whether the push command was in the main branch or a feature branch of the repository. If the logic app detects a commit in the main branch, it searches for pipelines that correspond to the repository.
-1. If a pipeline for the repository already exists in Azure Repos, the logic app uses the Azure DevOps Services REST API to update the pipeline. If no pipeline exists, the logic app creates one.
+1. If a pipeline for the repository already exists in Azure Pipelines, the logic app uses the Azure DevOps Services REST API to update the pipeline. If no pipeline exists, the logic app creates one.
 1. The multistage pipeline builds, publishes, and deploys an artifact to Azure resources. The published artifact has a .NET Angular zip folder that's ready for deployment to the App Service instance. The artifact also contains ARM templates and parameter files that provision the Azure infrastructure.
 1. The multistage pipeline deploys the artifact to an Azure staging environment.
 1. The multistage pipeline deploys the artifact to an Azure production environment.
@@ -110,8 +110,8 @@ Principal author:
 ## Next steps
 
 - [Build a CI/CD pipeline for chatbots with ARM templates](../apps/devops-cicd-chatbot.yml)
-- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-baseline.yml)
-- [DevOps journey at Microsoft](https://azure.microsoft.com/solutions/devops/devops-at-microsoft)
+- [CI/CD baseline architecture with Azure Pipelines](../apps/devops-dotnet-baseline.yml)
+- [The DevOps journey at Microsoft](https://azure.microsoft.com/solutions/devops/devops-at-microsoft)
 - [Create a build pipeline with Azure Pipelines](/training/modules/create-a-build-pipeline)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started)
@@ -122,7 +122,7 @@ Principal author:
 
 ## Related resources
 
-- [CI/CD pipeline for container-based workloads](../apps/devops-with-aks.yml)
+- [Build and deploy apps on AKS using DevOps and GitOps](../apps/devops-with-aks.yml)
 - [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
 - [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)
