@@ -65,7 +65,7 @@ You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesCo
 
 ### Alternatives
 
-1. Flux can be used with other Git Repositories and CI/CD tools such as Azure DevOps, GitLabs, BitBucket etc. 
+1. Flux can be used with other Git Repositories such as Azure DevOps, GitLabs, BitBucket etc. 
 1. Instead of Git Repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets/) defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others. 
 1. [Flux can also be configured against Azure Blob Storage Container as a source to produce artifacts](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
