@@ -4,7 +4,7 @@ This article describes how to automate Microsoft Sentinel integration and deploy
 
 The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
-:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram of the Architecture for automating a Microsoft Sentinel Infra as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
+:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram of the Architecture for automating a Microsoft Sentinel infrastructure as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -166,8 +166,6 @@ We recommended using managed identities where possible. In the case of non-manag
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-#### DevOps
-
 Microsoft Sentinel solutions are composed of three blocks, which ensure complete and successful operations.  
 
 The first block is the environment definition, which makes up the essential architecture elements. Your main concern with this block is to consider the number of production and non-production environments to be deployed, and then ensure the setup is homogeneous in all cases.
@@ -214,11 +212,11 @@ When choosing options for the agents and runners in your Microsoft Sentinel solu
 * Do you want to isolate resources for production environment DevOps activities from the rest of the environments?
 * Do you need to test certain cases that require access to critical resources or resources that are available only on an internal network?
 
-#### Orchestration and automation of release processes
+### Orchestration and automation of release processes
 
 You can set up the deployment process with Azure DevOps or GitHub. Azure DevOps supports using a YAML pipeline or a release pipeline. For more information on using a YAML pipeline in Azure DevOps, see [Use Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started). For more information on using a release pipeline in Azure DevOps, see [Release pipelines](/azure/devops/pipelines/release/). For more information on using GitHub with GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions).
 
-##### Azure DevOps
+#### Azure DevOps
 
 You can do the following deployment activities in an Azure DevOps deployment.
 
@@ -226,7 +224,7 @@ You can do the following deployment activities in an Azure DevOps deployment.
 * Manage service connections for different environments by using Azure DevOps groups.
 * On your critical environments, set up deployment approvals by using the service connection feature and Azure DevOps groups to assign specific user permissions in your team.
 
-##### GitHub
+#### GitHub
 
 You can do the following deployment activities in a GitHub deployment.
 
@@ -234,7 +232,7 @@ You can do the following deployment activities in a GitHub deployment.
 * Manage service principal credentials by using GitHub Secrets.
 * Integrate deployment approval through the workflow that's associated with GitHub.
 
-#### Automatic deployment with Microsoft Sentinel infrastructure
+### Automatic deployment with Microsoft Sentinel infrastructure
 
 You can deploy one or more Microsoft Sentinel environments, depending on your enterprise architecture:
 
@@ -242,11 +240,11 @@ You can deploy one or more Microsoft Sentinel environments, depending on your en
 * A centralized instance on the production environment provides access to one or more organizations on the same tenant.
 * Groups that need multiple environments like production, preproduction, integration, and so on can create and destroy them as needed.
 
-##### Physical versus logical environment definitions
+#### Physical versus logical environment definitions
 
 You have two choices in setting up your environment definitions, physical or logical. Both have different options and advantages:
 
-* Physical definition - The elements of the Microsoft Sentinel architecture are defined with the following options for Infrastructure as Code (IaC):
+* Physical definition - The elements of the Microsoft Sentinel architecture are defined with the following options for infrastructure as code (IaC):
   * Bicep templates
   * Azure Resource Manager templates (ARM templates)
   * Terraform
@@ -258,7 +256,7 @@ Consider these points when you define your logical environments:
 * Environment identifications
 * Connectors and configurations
 
-##### Code repository
+#### Code repository
 
 Given the environment approaches that are shown in the previous section, consider the following GitHub code repository organization.
 
@@ -288,7 +286,7 @@ The privilege level for running an environment deployment is Level 2. This level
 
 Organizations that want environments on demand for testing and development and the ability to then destroy the environments after finishing their testing, can implement an Azure DevOps pipeline or GitHub actions. They can set scheduled triggers to destroy the environments as needed by using Azure DevOps events or GitHub actions.
 
-##### Microsoft Sentinel connectors automatic configuration  
+#### Microsoft Sentinel connectors automatic configuration  
 
 Microsoft Sentinel connectors are an essential part of the solution that supports connecting with different elements in the enterprise architecture landscape, like Azure AD, Microsoft 365, Microsoft Defender, threat intelligence platform solutions, and so on.  
 
@@ -314,7 +312,7 @@ Enabling connectors as part of the DevOps model must be supported by the service
 | Windows Firewall | Level 4 | None | Optional |
 | Windows Security Events via AMA | Level 4 | None | Optional |
 
-#### Microsoft Sentinel artifacts deployment  
+### Microsoft Sentinel artifacts deployment  
 
 In the implementation of Microsoft Sentinel artifacts, DevOps gains greater relevance, because each company creates multiple artifacts for preventing and remediating attacks.
 
@@ -332,7 +330,7 @@ For example, if you're creating a new playbook by using an Azure ARM template an
 
 By following this practice, your team can evaluate your MITRE coverage based on the jobs that are done during setup for the different artifact types that you use.
 
-##### Build artifacts
+#### Build artifacts
 
 The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions that you can take.
 
@@ -352,7 +350,7 @@ The objective of your build process is to ensure that you generate the highest q
   * [PSScriptAnalyzer](/powershell/module/psscriptanalyzer/?view=ps-modules)  
 * Generate the MITRE manifest metadata report based on the metadata files that are included with the artifacts.
 
-##### Export artifacts
+#### Export artifacts
 
 Usually, multiple teams work over several Microsoft Sentinel instances to generate necessary artifacts and validate them. With the goal of reusing existing artifacts, your company can set up automatic processes for getting the artifact definitions from existing environments. Automation can also supply information on any artifacts that are created by different development teams during setup.
 
@@ -362,7 +360,7 @@ The following diagram shows an example artifact extraction process.
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
-##### Deploy artifacts
+#### Deploy artifacts
 
 The objectives of your deployment process are to:
 
@@ -400,7 +398,7 @@ Depending on the automation language you choose, some automation capabilities mi
 \* Features in development that are not yet documented<br>
 \** Automation methods that are supported by [Microsoft Operational Insights](/rest/api/loganalytics/workspaces) or [Microsoft Insights Resource Provider APIs](/azure/templates/microsoft.insights/workbooks?tabs=bicep)
 
-##### Azure Automation
+#### Azure Automation
 
 The following diagram shows the components of simplifying Microsoft Sentinel access with managed service identity.
 
@@ -423,9 +421,9 @@ Use Azure Automation for setting up playbooks. Use PowerShell scripts for the fo
   * Python-based solutions
 * Implementing solutions in hybrid scenarios, where remediation actions can affect your cloud and on-premises resources.
 
-##### Microsoft Sentinel repositories
+#### Microsoft Sentinel repositories
 
-Experienced DevOps teams might consider managing Microsoft Sentinel in Infra as Code (IaC) with CI/CD pipelines that are built in Azure DevOps. Product groups understand the challenges that customers and partners face in building Azure DevOps security architecture, so the following two initiatives can help:  
+Experienced DevOps teams might consider managing Microsoft Sentinel in infrastructure as code (IaC) with CI/CD pipelines that are built in Azure DevOps. Product groups understand the challenges that customers and partners face in building Azure DevOps security architecture, so the following two initiatives can help:  
 
 * Documenting the reference architecture
 * Developing a new solution, announced at Ignite 2021, that's called "Microsoft Sentinel Repositories"
