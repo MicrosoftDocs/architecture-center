@@ -45,7 +45,7 @@ Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo
 
 ## Native GitOps extensions to Azure Kubernetes Service
 
-Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different extensions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
+Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
 
 ## Scenario 1: GitOps with Flux and AKS
 
