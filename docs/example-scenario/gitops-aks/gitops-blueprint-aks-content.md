@@ -30,7 +30,7 @@ You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesCo
 
 ![Diagram of implementing CI/CD using GitOps with Flux, GitHub and AKS.](media/gitops-cicd-flux.png)
 
-This scenario is a pull-based DevOps pipeline for a typical web application. This pipeline uses GitHub Actions for build. For deployment, it uses Flux as a GitOps operator to pull/sync the app. The data flows through the scenario as follows:
+This scenario is a pull-based DevOps pipeline for a typical web application. This pipeline uses GitHub Actions for build. For deployment, it uses Flux as the GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
 #### Dataflow
 
@@ -65,7 +65,7 @@ Argo CD need not automatically sync the desired target state to the AKS cluster.
 
 ![Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS.](media/gitops-cicd-argocd.png)
 
-This scenario is a pull-based DevOps pipeline for a typical web application. This pipeline uses GitHub Actions for build. For deployment, it uses Argo CD as a GitOps operator to pull/sync the app. The data flows through the scenario as follows:
+This scenario is a pull-based DevOps pipeline for a typical web application. This pipeline uses GitHub Actions for build. For deployment, it uses Argo CD as the GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
 #### Dataflow
 
