@@ -6,7 +6,7 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 ### Scenario 1: GitOps with Flux and AKS
 
-![Diagram of GitOps with Flux v2, GitHub and AKS](media/GitOps_Flux_GitHub_AKS.png)
+![Diagram of GitOps with Flux v2, GitHub and AKS](media/gitops-flux.png)
 
 In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
 
@@ -28,7 +28,7 @@ You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesCo
 
 ### Scenario 2: Implementing CI/CD using GitOps with Flux, GitHub and AKS
 
-![Diagram of implementing CI/CD using GitOps with Flux, GitHub and AKS.](media/GitOps_CICD_Flux_GitHub_AKS.png)
+![Diagram of implementing CI/CD using GitOps with Flux, GitHub and AKS.](media/gitops-cicd-flux.png)
 
 This scenario covers a pull-based DevOps pipeline for a web application. This pipeline uses GitHub Actions for build. For deployment, it uses Flux as a GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
@@ -43,7 +43,7 @@ This scenario covers a pull-based DevOps pipeline for a web application. This pi
 
 ### Scenario 3:  GitOps with Argo CD, GitHub repository and AKS
 
-![Diagram of GitOps with Argo CD, GitHub and AKS.](media/GitOps_ArgoCD_GitHub_AKS.png)
+![Diagram of GitOps with Argo CD, GitHub and AKS.](media/gitops-argocd.png)
 
 In this scenario, Kubernetes administrator(s) may make changes to kubernetes configuration objects (such as secrets / configmaps / etc.) and commit the changes directly to GitHub repository. 
 
@@ -63,7 +63,7 @@ Argo CD need not automatically sync the desired target state to the AKS cluster.
 
 ### Scenario 4:  Implementing CI/CD using GitOps with Argo CD, GitHub actions and AKS
 
-![Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS.](media/GitOps_CICD_ArgoCD_GitHub_AKS.png)
+![Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS.](media/gitops-cicd-argocd.png)
 
 This scenario covers a pull-based DevOps pipeline for a web application. This pipeline uses GitHub Actions for build. For deployment, it uses Argo CD as a GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
