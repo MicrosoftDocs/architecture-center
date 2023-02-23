@@ -114,7 +114,6 @@ Principal author:
 
 <!-- links -->
 
-[source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 
 ## Related resources
