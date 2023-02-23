@@ -16,7 +16,7 @@ In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster
 1. Flux detects configuration drift in the Git repository, and pulls the configuration changes.
 1. Flux Reconciles the state in the Kubernetes cluster.
 
-Flux is an  inside-out process, which is important for security, no cluster endpoints need to be exposed.
+Flux is an  inside-out process, which is important for security. No cluster endpoints need to be exposed for Flux to detect, pull and reconcile configuration changes.
 
 You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesConfiguration/fluxConfigurations resource type) at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
 
