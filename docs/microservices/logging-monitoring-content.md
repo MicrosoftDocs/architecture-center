@@ -1,5 +1,5 @@
 <!-- cSpell:ignore kusto kube kubelet Backoff Fluentd TICK Serilog Telegraf Dropoff Istio linkerd kubectl -->
-This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS). The topics include telemetry collection, monitoring a cluster's status, metrics, logging, structured logging, and distributed tracing. The latter is shown in the following diagram.
+This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS). Specific topics include telemetry collection, monitoring a cluster's status, metrics, logging, structured logging, and distributed tracing. The latter is illustrated in the following diagram.
 
 ![Diagram that shows the architecture of a drone delivery application.](./images/drone-delivery-impl.png)
 
@@ -7,7 +7,7 @@ This article describes best practices for monitoring a microservices application
 
 ## Telemetry collection
 
-In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you must collect telemetry from the application. Telemetry can be divided into _logs_, _traces_, and _metrics_.
+In any complex application, at some point something will go wrong. In a microservices application, you need to track what's happening across dozens or even hundreds of services. To make sense of what's happening, you need to collect telemetry from the application. Telemetry can be divided into these categories: _logs_, _traces_, and _metrics_.
 
 **Logs** are text-based records of events that occur while the application is running. They include things like application logs (trace statements) or web server logs. Logs are primarily useful for forensics and root cause analysis.
 
