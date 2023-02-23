@@ -51,7 +51,9 @@ Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) 
 
 ![Diagram of GitOps with Flux v2, GitHub and AKS](media/GitOps_Flux_GitHub_AKS.png)
 
-In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS. Flux:
+In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
+
+### Dataflow 
 
 1. Developer commits configuration changes to Git repository.
 1. Flux detects configuration drift in the Git repository, and pulls the configuration changes.
