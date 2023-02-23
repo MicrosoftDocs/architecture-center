@@ -28,7 +28,7 @@ Cross-reference the following 10 steps with the annotated architecture diagram s
 7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that comes from the web app to go to the Azure Firewall or third-party NVA.
 
    > [!NOTE]
-   > Azure Route Server(/azure/route-server/overview) is an alternative to manually maintained custom route tables that uses Border Gateway Protocol (BGP) to automate route propagation to your Azure virtual network subnets.
+   > [Azure Route Server](/azure/route-server/overview) is an alternative to manually maintained custom route tables that uses Border Gateway Protocol (BGP) to automate route propagation to your Azure virtual network subnets.
 
 8. One or more private DNS zones link to the virtual network that contains the web app (*Spoke Virtual Network 1* in the example) to allow DNS resolution of PaaS resources deployed with private endpoints.
 9. A private endpoint for an Azure SQL Database virtual server is created in a virtual network subnet (*subnet-privatelink-2* in the example). A corresponding DNS record is created on the matching Azure Private DNS zone.
