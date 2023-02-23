@@ -1,4 +1,4 @@
-This example scenario helps users collaborate with other organizations, by providing identity and governance controls for external users.
+This example scenario helps users collaborate with other organizations, by providing identity and governance controls for external users when using Azure Active Directory (Azure AD) B2B collaboration.
 
 ## Architecture
 
