@@ -184,7 +184,7 @@ Consider these dependencies between artifacts:
   * How to version your artifacts
   * How to identify, test, and deploy an updated or entirely new analytics rule
 
-#### Build, test, and deploy infrastructure
+### Build, test, and deploy infrastructure
 
 In managing Microsoft Sentinel solutions and DevOps, it's important to consider the connectivity and security aspects of your enterprise architecture.
 
@@ -194,7 +194,7 @@ Depending on your company's requirements, you can use Microsoft-hosted, self-hos
 * Microsoft-hosted agents. This option is the fastest way to work with Azure DevOps agents, because it's a shared infrastructure for your entire organization. For more information on using Microsoft-hosted agents in your pipeline, see [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted?tabs=yaml). Microsoft-hosted agents can work in hybrid-networking environments, granting access for the IP ranges. To download the IP ranges that these agents grant access to, see [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
 * Self-hosted agents. This option gives you dedicated resources and more control when installing dependent software for your builds and deployments. Self-hosted agents can work over VMs, scale sets, and containers on Azure. For more information on self-hosted agents, see [Azure Pipelines agents](/azure/devops/pipelines/agents/agents?tabs=browser#install).
 
-##### GitHub runners
+#### GitHub runners
 
 GitHub can use GitHub-hosted runners or self-hosted runners for activities that are related to building, testing, and deploying. Depending on your company's needs, you can use GitHub-hosted, self-hosted, or a combination of both models.
 
@@ -292,7 +292,7 @@ Organizations that want environments on demand for testing and development and t
 
 Microsoft Sentinel connectors are an essential part of the solution that supports connecting with different elements in the enterprise architecture landscape, like Azure AD, Microsoft 365, Microsoft Defender, threat intelligence platform solutions, and so on.  
 
-When defining an environment, the connectors configuration makes it possible to set up environments with homogeneous configurations.
+When you define an environment, you can use the connectors configuration to set up environments with homogeneous configurations.
 
 Enabling connectors as part of the DevOps model must be supported by the service principal level model. This focus ensures the right level of permissions as shown in the following table.
 
@@ -316,7 +316,7 @@ Enabling connectors as part of the DevOps model must be supported by the service
 
 #### Microsoft Sentinel artifacts deployment  
 
-Microsoft Sentinel artifacts is where DevOps gains greater relevance, because each company creates multiple artifacts for preventing and remediating attacks.
+In the implementation of Microsoft Sentinel artifacts, DevOps gains greater relevance, because each company creates multiple artifacts for preventing and remediating attacks.
 
 Implementing the artifacts can be the responsibility of one team or multiple teams. Automatic build and artifacts deployment is often the most common process requirement and determines the approach and conditions for your agents and runners.
 
@@ -515,8 +515,8 @@ To manage Microsoft Sentinel with Azure DevOps, evaluate the following design de
 
 | Use case | Pros |
 | ---- | --- |
-| Unified repository with single version of code for all tenants | This case facilitates having unified versions for the code in the repository.<br><br>In this case, with a unified version of the code managing specific version for tenant could require support it over branches for each case. |
-| Unified Repository with specific code folders by tenant. | This case complements the single-repository case. Here, a folder structure can split dedicated artifacts by tenant. |
+| Unified repository with a single version of code for all tenants | This case facilitates having unified versions for the code in the repository.<br><br>In this case, a unified version of the code managing a specific version for tenants could require support over branches for each case. |
+| Unified repository with specific code folders by tenant | This case complements the single-repository case. Here, a folder structure can split dedicated artifacts by tenant. |
 | Dedicated repository by tenant | This approach provides isolation when managing code artifacts. It makes the evolution easier between tenants with different teams or requirements.<br><br>Consolidating changes requires establishing a process between repositories, which might require effort to maintain. |
 
 ###### Build and deployment processes
