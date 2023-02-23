@@ -37,7 +37,9 @@ In this solution, you'll create a sample environment to:
 
 ## Architecture for MongoDB with Azure Stack Hub
 
-![The diagram shows a highly available MongoDB architecture in Azure Stack Hub.](media/solution-deployment-guide-mongodb-ha/image1.png)
+![The diagram shows a highly available MongoDB architecture in Azure Stack Hub.](media/solution-deployment-guide-mongodb-ha/solution-deployment-guide-mongodb-ha.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-mongodb-ha.vsdx) of this architecture.*
 
 ## Prerequisites for MongoDB with Azure Stack Hub
 
