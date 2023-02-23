@@ -306,7 +306,7 @@ To distribute traffic between two (or more) deployments of the application, we'l
 
 Instead of using Azure Traffic Manager you can also use other global load-balancing solutions hosted on-premises. In the sample scenario, we'll use Azure Traffic Manager to distribute traffic between two instances of our application. They can run on Azure Stack Hub instances in the same or different locations:
 
-![Diagram that shows on-premises traffic manager.](media/solution-deployment-guide-highly-available-kubernetes/aks-azure-traffic-manager-on-premises.svg)
+![Diagram that shows an on-premises traffic manager.](media/solution-deployment-guide-highly-available-kubernetes/aks-azure-traffic-manager-on-premises.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of this diagram.*
 
