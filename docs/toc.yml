@@ -17,12 +17,9 @@ items:
               href: landing-zones/bicep/landing-zone-bicep.md
             - name: Terraform landing zone implementation
               href: landing-zones/terraform/landing-zone-terraform.md
-        - name: Subscription vending implementations
-          items: 
-            - name: Subscription vending (Bicep)
-              href: landing-zones/bicep/subscription-vending.yml
-            - name: Subscription vending (Terraform)
-              href: landing-zones/terraform/subscription-vending.yml
+        - name: Subscription vending
+          href: \landing-zones\subscription-vending.yml
+
   - name: Application architecture fundamentals
     items:
       - name: Introduction
