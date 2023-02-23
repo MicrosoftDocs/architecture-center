@@ -18,7 +18,7 @@ Consider Azure DevOps and CI/CD processes for:
 
 ![Architectural diagram: deployment of a chatbot with continuous integration and continuous deployment (CI/CD) using Azure Pipelines and ARM templates.](./media/ci-cd-pipeline-deployment-arm-templates.png)
 
-In this example:
+### Workflow
 
 1. Developers create a new chatbot, ARM templates for infrastructure, and code the multi-stage YAML pipeline, all hosted from a GitHub repository.
 1. As a second step in day-0, they will provision the initial required infrastructure in Azure using the generated ARM templates.
