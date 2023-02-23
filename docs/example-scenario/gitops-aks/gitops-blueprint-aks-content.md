@@ -146,7 +146,7 @@ Kubernetes describes everything from cluster state to application deployments de
 
 One of the principles of GitOps is to continuously reconcile the system state with the desired state, stored in your code repository. GitOps agents will monitor the cluster state and will attempt to reconcile the cluster state with desired state. Operations performed outside the cluster, such as manual creation of Kubernetes objects, can be reverted by the GitOps agents (such as [Admission Controllers](https://www.openpolicyagent.org/docs/latest/kubernetes-introduction/)) to ensure that the deployments are limited only through code changes in the source repository. 
 
-Policy management / enforcement tools can be combined with GitOps to enforce policies and provide feedback for proposed policy changes. Notifications can be configured for various teams so that the teams are updated on the GitOps operation status (such as if a deployment is succeeded, or if a reconciliation failed).
+Policy management / enforcement tools can be combined with GitOps to enforce policies and provide feedback for proposed policy changes. Notifications can be configured for various teams so that the teams are updated on the GitOps operation status; such as if a deployment is succeeded, or if a reconciliation failed.
 
 ### Potential use cases
 
