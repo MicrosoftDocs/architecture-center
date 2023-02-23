@@ -23,7 +23,7 @@ This solution benefits any organization that wants the advantages of deploying a
 
 GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters. 
 
-With GitOps, the developer is shielded from complexities of managing a container environment. Developers continue to work with familar tools such as Git to manage updates and new features. Hence GitOps enhances developer productivity.
+With GitOps, the developer is shielded from complexities of managing a container environment. Developers continue to work with familiar tools such as Git to manage updates and new features. Hence GitOps enhances developer productivity.
 
 The most common and widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are CNCF projects, and can be used with Azure Kubernetes Service.
 
