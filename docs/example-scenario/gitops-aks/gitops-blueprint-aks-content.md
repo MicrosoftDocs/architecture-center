@@ -10,8 +10,6 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
 
-### Dataflow 
-
 1. Developer commits configuration changes to GitHub repository.
 1. Flux detects configuration drift in the Git repository, and pulls the configuration changes.
 1. Flux Reconciles the state in the Kubernetes cluster.
@@ -32,8 +30,6 @@ You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesCo
 
 This scenario is a pull-based DevOps pipeline for a typical web application. This pipeline uses GitHub Actions for build. For deployment, it uses Flux as the GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
-#### Dataflow
-
 1. The app code is developed using an IDE such as Visual Studio Code.
 1. The app code is committed to a GitHub repository.
 1. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
@@ -46,8 +42,6 @@ This scenario is a pull-based DevOps pipeline for a typical web application. Thi
 ![Diagram of GitOps with Argo CD, GitHub and AKS.](media/gitops-argocd.png)
 
 In this scenario, Kubernetes administrator(s) may make changes to kubernetes configuration objects (such as secrets / configmaps / etc.) and commit the changes directly to GitHub repository. 
-
-#### Dataflow
 
 The data flow for this scenario is as follows:
 
@@ -67,8 +61,6 @@ Argo CD need not automatically sync the desired target state to the AKS cluster.
 
 This scenario is a pull-based DevOps pipeline for a typical web application. This pipeline uses GitHub Actions for build. For deployment, it uses Argo CD as the GitOps operator to pull/sync the app. The data flows through the scenario as follows:
 
-#### Dataflow
-
 1. The app code is developed using an IDE such as Visual Studio code.
 1. The app code is committed to a GitHub repository.
 1. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
@@ -85,8 +77,6 @@ The configuration source repository could be any Git compatible repository, incl
 ![Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks-new.png)
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks.vsdx) of this architecture.*
-
-#### Dataflow
 
 This solution follows a strong GitOps approach.
 
