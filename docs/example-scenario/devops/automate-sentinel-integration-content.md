@@ -529,6 +529,8 @@ To manage Microsoft Sentinel with Azure DevOps, evaluate the following design de
 
 ### Cost optimization 
 
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 The cost of the solution depends on the following factors:
 
 * The volume of data that your company feeds into the Microsoft Sentinel Log Analytics workspace monthly
