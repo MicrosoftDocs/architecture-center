@@ -55,7 +55,7 @@ In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster
 
 ### Dataflow 
 
-1. Developer commits configuration changes to Git repository.
+1. Developer commits configuration changes to GitHub repository.
 1. Flux detects configuration drift in the Git repository, and pulls the configuration changes.
 1. Flux Reconciles the state in the Kubernetes cluster.
 
