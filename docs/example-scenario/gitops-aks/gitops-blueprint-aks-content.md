@@ -84,7 +84,6 @@ This scenario covers a pull-based DevOps pipeline for a web application. This pi
 1. Flux operator syncs with, or pulls from, the Git repository.
 1. Flux deploys the app to the AKS cluster using manifest files. (Flux can deploy to AKS using Kubernetes manifests / helm charts / Kustomization files).
 
-
 ## Scenario 3:  GitOps with Argo CD, GitHub repository and AKS
 
 ![Diagram of GitOps with Argo CD, GitHub and AKS.](media/GitOps_ArgoCD_GitHub_AKS.png)
@@ -102,6 +101,8 @@ The data flow for this scenario is as follows:
 ### Alternatives
 
 The configuration source repository could be any Git compatible repository, including Azure DevOps.
+
+Argo CD need not automatically sync the desired target state to the AKS cluster. Argo CD is implemented as a kubernetes controller which continuously monitors running applications and compares the current, live state in AKS cluster against the desired target state specified in the Git repo. Argo CD reports & visualizes the differences, while providing facilities to automatically or manually sync the live state back to the desired target state.
 
 ## Scenario 4:  Implementing CI/CD using GitOps with Argo CD, GitHub actions and AKS
 
