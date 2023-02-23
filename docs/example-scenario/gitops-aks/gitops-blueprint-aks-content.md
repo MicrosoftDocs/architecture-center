@@ -25,7 +25,7 @@ GitOps provides consistency and standardization of the cluster state, and is use
 
 With GitOps, the developer is shielded from complexities of managing a container environment. Developers continue to work with familiar tools such as Git to manage updates and new features. Hence GitOps enhances developer productivity.
 
-The most common and widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are CNCF projects, and can be used with Azure Kubernetes Service.
+Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are CNCF projects and can be used with Azure Kubernetes Service.
 
 ## Components
 
