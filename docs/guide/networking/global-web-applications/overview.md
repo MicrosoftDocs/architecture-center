@@ -23,7 +23,7 @@ ms.custom:
 
 Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use content delivery networks (CDNs) to accelerate their performance, route traffic between regions, and secure their workloads. Microsoft's CDN offering is Azure Front Door.
 
-Azure Front Door is a highly available service, with an industry-leading SLA of 99.99% uptime, which is much higher than many other CDNs. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, no cloud-based service is infallible. We take a great deal of care to avoid outages, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. However, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
+Azure Front Door is a highly available service. It has an industry-leading SLA of 99.99% uptime, which is much higher than many other CDNs. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, no cloud-based service is infallible. We take a great deal of care to avoid outages, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. Occasionally, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
 
 You can switch between Azure Front Door and other application delivery services during an outage or a disaster. However, you need to carefully consider these architectures. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
 
@@ -55,17 +55,6 @@ In this approach, you introduce several components and make significant changes 
      The specific service that you select for your secondary path depends on many factors, which are described in more detail later throughout this article.
 
 1. **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
-
-## Tradeoffs
-
-This type of architecture can increase your overall availability and resiliency to outages. However, there are some significant tradeoffs that you need to consider. When evaluating a complex architecture, you need to weigh up the potential benefits against the known costs, and make an informed decision about whether the benefits are worth the costs.
-
-<!-- TODO -->
-- Cost
-- Operational complexity
-
-> [!WARNING]
-> If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture means you have a higher level of operational complexity, and every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
 ## Understand your use of Azure Front Door
 
@@ -161,8 +150,6 @@ When you're planning how to operate a mission-critical traffic ingress solution,
 
 Consider whether your deployment and configuration processes need to be made resilient to service outages.
 
-<!-- Adds to the complexity and importance of safe deployment practices Sometimes, with the tradeoffs, comes a win. Theoretically, having multiple ingresses paths could be a boon to safe deployment practices as you could practice no-in-place upgrades a bit easier, in that you could upgrade the "cold" routing path first, failover, and then upgrade the prior routing path components, and then fail back. Not sure it's worth mentioning, but the idea of using this "complex" topology to the app's advantage -- not just in failover situations, might be a good "side win/outcome" here.  mission-critical doesn't allow in-place upgrades at the stamp level (immutable infra only), but at the global level breaks down and says "fine, do it, but be careful" -- this is potentially one way to "be careful."Might benefit from a "failure mode" image as well to draw out these single points of failure.  The first image in each is the end state -- which is fine, but we never visualize the "reason" we're on this article -- the "not so mission-critical" topology. -->
-
 ## Development and testing
 
 For a mission-critical solution, your testing practices need to verify that your solution meets your requirements regardless of the path that your flows through. Consider each part of the solution and how you test it for each type of outage.
@@ -172,6 +159,20 @@ Ensure that your testing processes include these elements:
 - Can you verify that traffic is correctly redirected through the alternative path when the primary path is unavailable?
 - Can both paths support the level of production traffic you expect to receive?
 - Are both paths adequately secured, to avoid opening or exposing vulnerabilities when you're in a degraded state?
+
+## Tradeoffs
+
+This type of architecture can increase your overall availability and resiliency to outages. However, there are some significant tradeoffs that you need to consider. When evaluating a complex architecture, you should weigh up the potential benefits against the known costs, and make an informed decision about whether the benefits are worth those costs.
+
+The main costs associated with an architecture like the one described above are:
+
+- **Financial cost:** When you deploy multiple redundant paths to your application, you need to consider the cost of deploying and running the resources. We provide two example scenarios for different use cases, each of which has a different cost profile.
+- **Operational complexity:** Every time you add additional components to your solution, you increase your management overhead. Further, every time you make a change to one component, you need to consider whether other components might be affected.
+
+  For example, suppose you decide to add some application features that require you to use new capabilities of Azure Front Door. You need to check whether your alternative traffic path also provides an equivalent capability, and if not, you need to decide how to handle the difference in behavior between the two traffic paths. In real-world applications, these complexities can have a high cost, and can present a major risk to your system's stability.
+
+> [!WARNING]
+> If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture means you have a higher level of operational complexity, and every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
 ## Common scenarios
 

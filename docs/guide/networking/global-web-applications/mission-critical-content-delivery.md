@@ -44,9 +44,9 @@ This isolation provides a high degree of resiliency from disaster scenarios. If 
 
 :::image type="content" source="./media/front-door-verizon-cdn.png" alt-text="Traffic Manager with weighted routing between AFD and Verizon's CDN." border="false":::
 
-## Considerations
+## Considerations and tradeoffs
 
-The following sections describe some important considerations for this type of architecture. You should also review [Mission-critical global web applications](./overview.md) for other important considerations about using Azure Front Door in a mission-critical solution.
+The following sections describe some important considerations for this type of architecture. You should also review [Mission-critical global web applications](./overview.md) for other important considerations and tradeoffs when you use Azure Front Door in a mission-critical solution.
 
 ### Choice of CDN
 
