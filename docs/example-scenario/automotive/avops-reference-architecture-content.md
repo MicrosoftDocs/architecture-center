@@ -11,7 +11,7 @@ The AVOps Reference Architecture consists of four main building blocks.  The upc
 
 - DataOps (Data Curation and Extraction of ingested sensor data / measurements like videos / images, Lidar and Radar and centralized Data management capabilities)
 - MLOps (Machine Learning Ops) to train perception model
-- ValidationOps to validate AD functions based on trained model and raw ground truth data
+- ValOps to validate AD functions based on trained model and raw ground truth data
 - AVOps Platform Layer that provides overarching functionalities like Meta-Data Search, Data Catalog, Overall orchestration, platform governance, and standardized infrastructure templates.
 
 The reference architecture contains guidance about these logical building blocks and processes for AVOps, technology recommendations, partner, or open-source solutions for specific areas like simulation and data models. 
@@ -42,14 +42,14 @@ Challenges
 
 ### Dataflow
 Here's the high-level process flow of data through the reference architecture:
-1. Measurement data recorded by loggers in the vehicle, which can include different data streams for different sensors (camera, radar, ultrasound, lidar..) and vehicle telemetry, stored on a data box in the vehicle and then uploaded to the landing data lake. Ingestion to Azure could be via [Azure Data Box](https://learn.microsoft.com/azure/databox/), [Azure Stack Edge](https://learn.microsoft.com/azure/databox-online/) or through a dedicated connection such as [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/).  
+1. Measurement data include different data streams for different sensors such as camera, radar, ultrasound, lidar and vehicle telemetry.  Data loggers in the vehicle, stores the measurement data on the logger storage device.   The logger storage data is then uploaded to the landing data lake. Ingestion to Azure could be via [Azure Data Box](https://learn.microsoft.com/azure/databox/), [Azure Stack Edge](https://learn.microsoft.com/azure/databox-online/) or through a dedicated connection such as [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/).  
 
     Measurements could also be synthetic data from simulations or from any other source (the common data formats for measurements are MDF4, TDMS and Rosbag). The DataOps stage processes ingested measurements to validate and perform data quality checks (e. g. checksum) to remove low quality data. The DataOps stage extracts raw information meta-data recorded by a test driver along a test drive and stores the information in a centralized meta-data catalog.  This information helps downstream processes to identify specific scenes and sequences
 1. Data then goes through an extract, transform, load (ETL) pipeline with [Azure Data Factory](https://learn.microsoft.com/azure/data-factory/introduction) where the output stores Raw and binary data on [Azure Data Lake Gen2](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction). The DataOps stage stores meta-data in [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) (depending on final scenario extended by [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview) and [Azure Cognitive Search](https://learn.microsoft.com/azure/cognitive-services/))
 1. Data enrichment helps improve the accuracy and reliability of the data by adding additional information, insights and context to the data collected.
 1. The DataOps stage takes extracted measurement data and provides them to labeling partners (Human in the Loop) via [Azure Data Share](https://learn.microsoft.com/azure/data-share/). Auto Labeling (covered by third party partners) stores accesses data via a separate Data Lake account (“Label Lake”)
 1. The DataOps stage takes labeled datasets and provides them to downstream [MLOps](#mlops) processes, mainly to create a perception and sensor fusion models.   These models perform functions used by autonomous vehicles to detect scenes (that is, lane change, blocked roads, pedestrian, traffic lights, and traffic signs)
-1. [ValOps](#validationops) takes trained models and validates them via Open Loop and Closed Loop testing
+1. [ValOps](#ValOps) takes trained models and validates them via Open Loop and Closed Loop testing
 1. Tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) visualizes  ingested and processed data 
 
 The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake.  
@@ -79,15 +79,15 @@ One of the main parts of the AVOps reference architecture is the development of 
 
 Transfer of containerized machine learning model to a format understood by SoC (system on a chip) hardware and validation / simulation software requires an extra step in the MLOps pipeline that needs support from SoC manufacturers.
 
-### ValidationOps
+### ValOps
 
-Validation Operations (ValidationOps) involve testing the developed models in simulated environments via [managed scenarios](#scenario-management) to ensure they meet desired performance standards, accuracy, and safety requirements before expensive real-world environmental testing. The goal of the validation process in the cloud is to identify and address any potential issues before deploying the autonomous vehicle in a live environment. ValidationOps include:
+Validation Operations (ValOps) involve testing the developed models in simulated environments via [managed scenarios](#scenario-management) to ensure they meet desired performance standards, accuracy, and safety requirements before expensive real-world environmental testing. The goal of the validation process in the cloud is to identify and address any potential issues before deploying the autonomous vehicle in a live environment. ValOps include:
 
 1. Simulation validation: Cloud-based simulation ([Open Loop](#open-loop-testing)/[Closed Loop Testing](#closed-loop-testing-and-simulation)) environments allow for virtual testing of autonomous vehicle models, which runs at scale and at a lower cost than real-world testing.
 1. Performance validation: Cloud-based infrastructure can run large-scale tests to evaluate the performance of autonomous vehicle models. Performance validation can include stress tests, load tests, and benchmarks.
 
 
-In general, using the AVOps - ValidationOps reference for validation allows organizations to take advantage of the scalability, flexibility, and cost-effectiveness of cloud-based infrastructure, while also speeding up the time-to-market for autonomous vehicle models.
+In general, using the AVOps - ValOps reference for validation allows organizations to take advantage of the scalability, flexibility, and cost-effectiveness of cloud-based infrastructure, while also speeding up the time-to-market for autonomous vehicle models.
 
 #### Open Loop testing
 Re-Simulation is massively complex and has required years of development. Seeking government approval of Autonomous Driving (AD) raises strict requirements in areas such as safety, data privacy, data versioning and auditing. Resimulation is an open loop test and validation system for AD functions. It processes recorded raw data from various car sensors through a graph in the cloud. The produced result from resimulation validates data processing algorithms or detect regressions. The OEMs combine the sensors together into a Directed acyclic graph that represents the real-world vehicle.
@@ -104,10 +104,10 @@ Resimulation or “sensor reprocessing” is a large-scale  parallel compute job
 #### Closed Loop testing and simulation
 Closed loop testing of autonomous vehicles refers to testing their capabilities with real-time feedback from the environment. In other words, the vehicle's actions are based on both its pre-programmed behavior and the dynamic conditions it's encountering, and it adjusts its actions accordingly. Closed loop testing executes in a more complex and realistic environment and used to assess the vehicle's ability to handle real-world scenarios, including dealing with unexpected situations. The goal of closed loop testing is to verify that the vehicle can operate safely and effectively in various conditions, and to refine its control algorithms and decision-making processes as needed.
 
-ValidationOps pipeline integrates Closed-Loop testing and simulations third party and ISV applications.
+ValOps pipeline integrates Closed-Loop testing and simulations third party and ISV applications.
 
 #### Scenario Management 
-The ValidationOps stage uses a catalog of specific real scenarios to validate the AD capabilities to simulate the behavior of AVs. The objective is to accelerate the creation of scenario catalogs, by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Use third party tools for Scenario Management or as an alternative use an OSS lightweight project like CARLA that also supports [OPENDrive (xodr) format](https://www.asam.net/standards/detail/opendrive/), see [carla-simulator/scenario_runner: Traffic scenario definition and execution engine](https://github.com/carla-simulator/scenario_runner).
+The ValOps stage uses a catalog of specific real scenarios to validate the AD capabilities to simulate the behavior of AVs. The objective is to accelerate the creation of scenario catalogs, by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Use third party tools for Scenario Management or as an alternative use an OSS lightweight project like CARLA that also supports [OPENDrive (xodr) format](https://www.asam.net/standards/detail/opendrive/), see [carla-simulator/scenario_runner: Traffic scenario definition and execution engine](https://github.com/carla-simulator/scenario_runner).
 
 
 #### MLOps Components
@@ -116,7 +116,7 @@ The ValidationOps stage uses a catalog of specific real scenarios to validate th
 * [GitHub for Enterprises](https://github.com/enterprise) as an alternative as the main tool for DevOps practice that includes CI/CD, testing and automation.
 * [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments
 
-#### ValidationOps Components
+#### ValOps Components
 * [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) runs large-scale applications batch inference for open-loop validation within a resin framework. For access measurement files, recommended using [BlobFuse2](https://learn.microsoft.com/azure/storage/blobs/blobfuse2-what-is).  Alternative is to use NFS but performance needs to evaluated for the use case.
 * [BlobFuse2](https://learn.microsoft.com/azure/storage/blobs/blobfuse2-what-is)
 * [Azure Batch](https://learn.microsoft.com/azure/batch/) runs large-scale applications batch inference for open-loop validation within a resin framework
