@@ -1,4 +1,4 @@
-APIOps applies GitOps and [DevOps](/devops) to API deployments. It uses version control to manage APIs and creates an audit trail of changes to APIs, policies, and operations. This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/) provides Git functionality, and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) creates the CI/CD pipeline.
+APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops) to API deployment. Like DevOps, APIOps helps team members easily make changes and deploy them in an iterative and automated way. This architecture demonstrates how you can improve the entire API lifecycle and API quality by using APIOps.
 
 ## Architecture
 
@@ -10,7 +10,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 1. API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
-2. If a developer changes an API in the API Management instance, it creates a pull request (PR) for operators to review and merge the changes in the Git repository.
+2. If a developer changes an API in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
 
 3. API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
 
@@ -18,7 +18,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 5. The PR can be automatically approved or reviewed, depending on the level of control that's required.
 
-6. After approving and merging the changes, the publishing pipeline deploys the latest changes to the API Management instance.
+6. After changes are approved and merged, the publishing pipeline deploys the latest changes to the API Management instance.
 
 7. API operators create and modify API Management policies, diagnostics, products, and other relevant objects, and then commit the changes.
 
@@ -44,7 +44,11 @@ This solution uses [Azure Repos](/azure/devops/repos/) to provide Git functional
 
 ## Scenario details
 
- With APIOps, API developers can review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster for better specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs. 
+APIOps uses version control to manage APIs and create an audit trail of changes to APIs, policies, and operations. 
+
+API developers who use an APIOps methodology review and audit APIs earlier and more frequently, catching and resolving deviations from API standards faster to improve specifications and API quality. The more APIs that you build and deploy with an APIOps approach, the greater the consistency between APIs. 
+
+This APIOps architecture uses [Azure API Management](/azure/api-management) as the API management platform. [Azure DevOps](https://azure.microsoft.com/solutions/devops) organizes API management. [Azure Repos](/azure/devops/repos/) provides Git functionality, and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) creates the CI/CD pipeline.
 
 ### Potential use cases
 
