@@ -2,7 +2,7 @@ This reference architecture demonstrates how Azure Arc extends Kubernetes cluste
 
 ## Architecture
 
-![An Azure Arc for Kubernetes topology diagram.][Architecture diagram]
+[ ![Architecture diagram shows an Azure Arc for Kubernetes topology.](./images/arc-hybrid-kubernetes.svg)](./images/arc-hybrid-kubernetes.svg#lightbox)
 
 *Download a [Visio file][Architecture visio] of this architecture.*
 
@@ -177,7 +177,6 @@ Related architectures:
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml)
 - [Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)
 
-[Architecture diagram]: ./images/arc-hybrid-kubernetes.png
 [Architecture visio]: https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx
 [Azure Arc]: /azure/azure-arc
 [Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/
