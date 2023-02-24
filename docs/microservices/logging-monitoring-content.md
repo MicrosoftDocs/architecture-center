@@ -1,5 +1,5 @@
 <!-- cSpell:ignore kusto kube kubelet Backoff Fluentd TICK Serilog Telegraf Dropoff Istio linkerd kubectl -->
-This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS). Specific topics include telemetry collection, monitoring a cluster's status, metrics, logging, structured logging, and distributed tracing. The latter is illustrated in the following diagram.
+This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS). Specific topics include telemetry collection, monitoring a cluster's status, metrics, logging, structured logging, and distributed tracing. The latter is illustrated in this diagram:
 
 ![Diagram that shows the architecture of a drone delivery application.](./images/drone-delivery-impl.png)
 
@@ -11,7 +11,7 @@ In any complex application, at some point something will go wrong. In a microser
 
 **Logs** are text-based records of events that occur while an application is running. They include things like application logs (trace statements) and web server logs. Logs are primarily useful for forensics and root cause analysis.
 
-**Traces**, also called _operations_, connect the steps of a single request across multiple calls within and across microservices. They can provide structured observability into the interactions of system components. Traces can begin early in the request process, like within the UI of an application, and can propagate through network services, across a network of microservices that handle the request.
+**Traces**, also called _operations_, connect the steps of a single request across multiple calls within and across microservices. They can provide structured observability into the interactions of system components. Traces can begin early in the request process, such as within the UI of an application, and can propagate through network services across a network of microservices that handle the request.
 
 - **Spans** are units of work within a trace. Each span is connected with a single trace and can be nested with other spans. They often correspond to individual _requests_ in a cross-service operation, but they can also define work in individual components within a service. Spans also track outbound calls from one service to another. (Sometimes spans are called _dependency records_.)
 
@@ -21,17 +21,17 @@ In any complex application, at some point something will go wrong. In a microser
 
 - **Container** metrics. For containerized applications, you need to collect metrics at the container level, not just at the VM level.
 
-- **Application** metrics. These metrics are relevant to understanding the behavior of a service. Examples include the number of queued inbound HTTP requests, request latency, and message-queue length. Applications can also create custom metrics that are specific to the domain, like the number of business transactions processed per minute.
+- **Application** metrics. These metrics are relevant to understanding the behavior of a service. Examples include the number of queued inbound HTTP requests, request latency, and message-queue length. Applications can also use custom metrics that are specific to the domain, like the number of business transactions processed per minute.
 
-- **Dependent service** metrics. Services sometimes call external services or endpoints, like managed PaaS services or SaaS services. Third-party services might not provide metrics. If they don't, you need to rely on your own application metrics to track statistics for latency and error rate.
+- **Dependent service** metrics. Services sometimes call external services or endpoints, like managed PaaS or SaaS services. Third-party services might not provide metrics. If they don't, you need to rely on your own application metrics to track statistics for latency and error rate.
 
 ## Monitoring cluster status
 
-Use [Azure Monitor][azure-monitor] to monitor the overall health of your clusters. The following screenshot shows a cluster that has critical errors in user-deployed pods.
+Use [Azure Monitor][azure-monitor] to monitor the health of your clusters. The following screenshot shows a cluster that has critical errors in user-deployed pods:
 
 ![Screenshot that shows the Monitor dashboard.](./images/monitoring/pod-status.png)
 
-From here, you can drill in further to find the problem. For example, if the pod status is `ImagePullBackoff`, Kubernetes couldn't pull the container image from the registry. This problem could be caused by an invalid container tag or an authentication error that tries to pull from the registry.
+From here, you can drill in further to find the problem. For example, if the pod status is `ImagePullBackoff`, Kubernetes couldn't pull the container image from the registry. This problem could be caused by an invalid container tag or an authentication error during a pull from the registry.
 
 If a container crashes, the container `State` becomes `Waiting`, with a `Reason` of `CrashLoopBackOff`. For a typical scenario, where a pod is part of a replica set and the retry policy is `Always`, this problem won't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze).
 
