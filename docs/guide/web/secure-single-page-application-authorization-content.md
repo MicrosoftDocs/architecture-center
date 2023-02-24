@@ -35,7 +35,7 @@ By using an `HttpOnly` cookie to store the access token, the token is protected 
 
 As this example utilizes a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
 
-It's possible to configure this example without using custom domains for the API Management instance and Static Web App, but that would require the cookie setting to be amended to `SameSite=None`. However, this change provides a less secure implementation since the cookie is added to all requests to any instance of the API Management gateway without being limited to your own domain. More on SameSite cookies can be read [here](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
+It's possible to configure this example without using custom domains for the API Management instance and Static Web App, but that would require the cookie setting to be amended to `SameSite=None`. However, this change provides a less secure implementation since the cookie is added to all requests to any instance of the API Management gateway. More on SameSite cookies can be read [here](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
 
 To learn more about using custom domains on Azure resources, see [Manage custom domains for Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/custom-domain), and [Configure a custom domain name for your Azure API Management instance](https://learn.microsoft.com/azure/api-management/configure-custom-domain). For more information on how to configure DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](https://learn.microsoft.com/azure/dns/dns-operations-dnszones-portal).
 
@@ -163,7 +163,7 @@ Once the single-page application has the access token, it can be used to call th
 }" />
 ```
 
-Once the access token has been decrypted, it can be used to call the downstream API. To do this the access token needs to be added to the request to the API, as an `Authorization` header. The following policy snippet performs this task:
+Once the access token has been decrypted, it can be used to call the downstream API. To successfully make a call the access token needs to be added to the request to the API, as an `Authorization` header. The following policy snippet performs this task:
 
 ```XML
 <!-- 
