@@ -125,7 +125,7 @@ The architecture scenarios shown previously use one or more of the following com
 
 According to [GitOps principles](https://opengitops.dev/#principles), the desired state of a GitOps managed system must be:
 
-1. **Declarative**: A system managed by GitOps must have its desired state expressed declaratively.
+1. **Declarative**: A system managed by GitOps must have its desired state expressed declaratively, which is typically stored in a Git repository.
 1. **Versioned and immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
 1. **Pulled automatically**: Software agents automatically pull the desired state declarations from the source.
 1. **Continuously reconciled**:  Software agents continuously observe actual system state and attempt to apply the desired state.
