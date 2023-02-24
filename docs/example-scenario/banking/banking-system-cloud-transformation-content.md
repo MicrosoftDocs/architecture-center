@@ -1,6 +1,6 @@
 This article summarizes the process and components the Microsoft Commercial Software Engineering (CSE) team used to build a solution for a banking customer. For the sake of anonymity, the article refers to the customer as Contoso Bank. It's a major international financial services industry (FSI) organization that wanted to modernize one of its financial transaction systems.
 
-## Architecture
+## Architecture   
 
 :::image type="content" border="false" source="./images/banking-system-solution-arch.png" alt-text="Diagram showing a full solution architecture for a banking system cloud transformation." lightbox="./images/banking-system-solution-arch.png":::
 
