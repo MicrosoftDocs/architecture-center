@@ -815,7 +815,7 @@ Alternate retries switch between primary and secondary storage service location 
 
 ### Policy configuration
 
-Retry policies are configured programmatically. A typical procedure is to create and populate a **TableRequestOptions**, **BlobRequestOptions**, **FileRequestOptions**, or **QueueRequestOptions** instance.
+Retry policies are configured programmatically. A typical procedure is to create and populate a **TableRequestOptions**, [**BlobClientOptions**](/azure/storage/blobs/storage-retry-policy#configure-retry-options), **FileRequestOptions**, or **QueueRequestOptions** instance.
 
 ```csharp
 TableRequestOptions interactiveRequestOption = new TableRequestOptions()
