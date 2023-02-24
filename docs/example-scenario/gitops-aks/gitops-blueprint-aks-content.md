@@ -72,7 +72,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. Thi
 
 The configuration source repository could be any Git compatible repository, including Azure DevOps.
 
-### Scenario 5: Enforcing policies using Sycier tower and GitOps operator. 
+### Scenario 5: Enforcing policies using Syncier tower and GitOps operator. 
 
 ![Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks-new.png)
 
