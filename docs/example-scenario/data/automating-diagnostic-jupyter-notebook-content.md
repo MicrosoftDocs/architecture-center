@@ -83,7 +83,7 @@ As a best practice, make each notebook modular to promote reusability. You can s
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - [Julie Koesmarno](https://www.linkedin.com/in/juliekoesmarno) | Principal Program Manager
 
