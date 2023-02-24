@@ -22,7 +22,7 @@ In this example scenario, deployment of SWIFT's Alliance Cloud in Azure involves
 
 In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. Customers have no access or visibility into the Juniper vSRX configuration or operation, but customers do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
 
-The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. Customers can choose the option best suited to tier message-traffic volumes and the required level of resilience. More details about these connectivity options can be found [here].
+The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. Customers can choose the option best suited to message-traffic volumes and the required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
 The footprint of SWIFT's Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second similar configuration, in standby mode, in a different Azure region. For each customer, there's an instance of the SIL and Alliance Connect Virtual.
 
@@ -32,6 +32,7 @@ The SIL subscription contains resources that are managed by the customer. The SI
 * An Azure subnet for Azure Firewall with an Azure network security group.
 * An Azure subnet for the SIL with an Azure network security group
 * A configuration of Azure Firewall that allows appropriate traffic to SIL.
+* An Azure subnet for the additional virtual machines (depicted by HA- VM 1 & HA- VM 2 in the architecture diagram) for the high availability monitoring and routing.
 * Azure policies for compliance with SWIFT's Customer Security Programme (CSP) – Customer Security Controls Framework (CSCF).
 
 The resources for the SIL can be deployed by using an Azure Resource Manager template (ARM template) to create the core infrastructure, as described in this architecture. You can modify the ARM template for the SIL to meet your specific needs. But your configuration needs to adhere to policies that CSP–CSCF requires. You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply the necessary policies to comply with CSP–CSCF.
