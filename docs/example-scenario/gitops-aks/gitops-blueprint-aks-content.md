@@ -49,11 +49,13 @@ The data flow for this scenario is as follows:
 1. Argo CD syncs with, or pulls from, the Git repository.
 1. Argo CD deploys the app to the AKS cluster.
 
+Argo CD need not automatically sync the desired target state to the AKS cluster. Argo CD is implemented as a kubernetes controller which continuously monitors running applications and compares the current, live state in AKS cluster against the desired target state specified in the Git repo. Argo CD reports & visualizes the differences, while providing facilities to automatically or manually sync the live state back to the desired target state.
+
+Argo CD provides a browser based user interface through which application configurations can be added, synchronization state with respect to the cluster can be observed, and synchronization can be initiated against the cluster. These actions can be performed using the Argo CD command line interface as well. Both the user interface and command line interface provides features to view history of configuration changes and to roll back to a previous version. 
+
 #### Alternatives
 
 The configuration source repository could be any Git compatible repository, including Azure DevOps.
-
-Argo CD need not automatically sync the desired target state to the AKS cluster. Argo CD is implemented as a kubernetes controller which continuously monitors running applications and compares the current, live state in AKS cluster against the desired target state specified in the Git repo. Argo CD reports & visualizes the differences, while providing facilities to automatically or manually sync the live state back to the desired target state.
 
 ### Scenario 4:  Implementing CI/CD using GitOps with Argo CD, GitHub actions and AKS
 
