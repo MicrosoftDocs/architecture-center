@@ -1,25 +1,26 @@
 ### YamlMime:Architecture
 metadata:
-  title: Automate multistage Azure pipelines with Azure Pipelines
+  title: Automate multistage pipeline setup in Azure
   titleSuffix: Azure Example Scenarios
-  description: Eliminate tedious tasks by automating your pipeline with Azure DevOps REST APIs, Azure Logic Apps, and Azure Pipelines.
-  author: martinekuan
+  description: Reduce tedious work by automating the process of setting up pipelines in Azure. Use the Azure DevOps REST API and Azure Logic Apps for the automation.
+  author: rajba
   ms.author: Raj.Balakrishnan
   ms.date: 06/08/2022
-  ms.topic: example-scenario
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp
 azureCategories:
   - devops
+  - developer-tools
 products:
   - azure-app-service
   - azure-application-insights
+  - azure-devops
   - azure-logic-apps
-  - azure-monitor
   - azure-pipelines
-name: Automate multistage Azure pipelines with Azure Pipelines
-summary: Eliminate tedious tasks by automating your pipeline with Azure DevOps REST APIs, Azure Logic Apps, and Azure Pipelines.
+name: Automate multistage pipeline setup in Azure
+summary: Reduce tedious work by automating the process of setting up pipelines in Azure. Use the Azure DevOps REST API and Azure Logic Apps for the automation.
 thumbnailUrl: /azure/architecture/browse/thumbs/automate-azure-pipelines-thumbnail.png
 content: |
   [!include[](automate-azure-pipelines-content.md)]
