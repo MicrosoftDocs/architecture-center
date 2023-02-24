@@ -25,7 +25,7 @@ As the backend handles the token acquisition, no other code or library, such as 
 
 ## Scenario details
 
-Single-page applications are written in JavaScript and run within the context of a client-side browser. This means the user can access any code running in the browser through this pattern. Malicious code running in the browser or an XSS vulnerability can also access any data, such as an access token, stored in the browser session or local storage through this pattern. This vulnerability means that any sensitive data, such as access tokens, can be accessed and used to impersonate the user.
+Single-page applications are written in JavaScript and run within the context of a client-side browser. This pattern means the user can access any code running in the browser. Malicious code running in the browser or an XSS vulnerability can also access any data. Data such as an access token stored in the browser session or local storage is accessible through this pattern. This vulnerability means that any sensitive data, such as access tokens, can be accessed and used to impersonate the user.
 
 This pattern increases the security of the application by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token, meaning access tokens no longer need to be stored in the browser session or local storage, and aren't accessible to malicious code running in the browser.
 
@@ -35,15 +35,15 @@ By using an `HttpOnly` cookie to store the access token, the token is protected 
 
 As this example utilizes a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, the cookie is not added to the API request, and the proxied API request remains unauthenticated.
 
-It's possible to configure this example without using custom domains for the API Management instance and Static Web App, but that would require the cookie setting to be amended to `SameSite=None`. This change however, provides a less secure implementation as the cookie will be added to all requests to any instance of API Management gateway and not constrained to your own domain. More on SameSite cookies can be read [here](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
+It's possible to configure this example without using custom domains for the API Management instance and Static Web App, but that would require the cookie setting to be amended to `SameSite=None`. However, this change provides a less secure implementation because the cookie is added to all requests to any instance of the API Management gateway and is not constrained to your own domain. More on SameSite cookies can be read [here](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
 
 To learn more about using custom domains on Azure resources, see [Manage custom domains for Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/custom-domain), and [Configure a custom domain name for your Azure API Management instance](https://learn.microsoft.com/azure/api-management/configure-custom-domain). For more information on how to configure DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](https://learn.microsoft.com/azure/dns/dns-operations-dnszones-portal).
 
 ## Authentication flow
 
-To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. This flow is invoked by redirecting the user to the Azure Active Directory authorize endpoint. The user is then prompted to authenticate themselves, and then redirected back to the Azure API Management callback endpoint with an authorization code. This authorization code can then securely exchanged by the API Management policy for an access token.
+To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. This flow is invoked by redirecting the user to the Azure Active Directory authorize endpoint. The user is then prompted to authenticate themselves, and then redirected back to the Azure API Management callback endpoint with an authorization code. This authorization code is then securely exchanged by the API Management policy for an access token.
 
-This process uses the OAuth2 Authorization Code flow, and requires a redirect URI to be configured in Azure Active Directory. This redirect URI must be the Azure API Management callback endpoint. The Azure API Management policy then securely exchanges the authorization code for an access token by calling the Azure Active Directory token endpoint. This action is performed by the following callback policy snippet:
+This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.com/azure/active-directory/fundamentals/auth-oauth2), and requires a redirect URI to be configured in Azure Active Directory. This redirect URI must be the Azure API Management callback endpoint. The Azure API Management policy then securely exchanges the authorization code for an access token by calling the Azure Active Directory token endpoint. The following callback policy snippet performs this action:
 
 ```XML
 <!-- 
@@ -100,7 +100,7 @@ Once the access token has been obtained, it's encrypted using AES encryption. Th
 }" />
 ```
 
-Finally, once the access token has been encrypted, it's set into a cookie and returned to the single-page application. The following policy snippet performs this task::
+Finally, once the access token has been encrypted, it's set into a cookie and returned to the single-page application. The following policy snippet performs this task:
 
 ```XML
 <!-- 
@@ -126,7 +126,7 @@ Finally, once the access token has been encrypted, it's set into a cookie and re
 </return-response>
 ```
 
-Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it will be automatically added with each request to the API. The access token can then be decrypted ready to be used to call the downstream API. This process is performed by the following proxy policy snippet:
+Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it is automatically added with each request to the API. The access token can then be decrypted ready to be used to call the downstream API. The following proxy policy snippet performs this process:
 
 ```XML
 <!-- 
@@ -209,6 +209,7 @@ Principal author:
 
 ## Next steps
 
+- [Example implementation and deployment guide](https://github.com/Azure/no-token-in-the-browser-pattern)
 - [Policies in Azure API Management](https://learn.microsoft.com/azure/api-management/api-management-howto-policies)
 - [How to set or edit Azure API Management policies](https://learn.microsoft.com/azure/api-management/set-edit-policies)
 - [Use named values in Azure API Management policies](https://learn.microsoft.com/azure/api-management/api-management-howto-properties)
