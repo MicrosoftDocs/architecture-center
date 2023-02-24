@@ -68,10 +68,10 @@ Carefully consider the features of Azure Front Door that you use, and whether yo
 
 It's important to test the failover between Azure Front Door and your alternative CDN. In particular, watch for anomalies or performance issues associated with your applications and infrastructure. A common issue that can arise for customers running multiple CDNs in an active/passive mode is that the CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover. During the cache fill, origin systems could become overloaded.
 
-If your solution is at risk from performance issues during cache fills, consider either of the following approaches:
+If your solution is at risk from performance issues during cache fills, consider either of the following approaches to reduce the risk:
 
 - Scale out or scale up your origins to cope with higher traffic levels, especially during a cache fill.
-- Pre-fill the passive CDN. Pre-filling means that you serve a percentage of your most popular content through the passive CDN even before a failover event occurs. One approach to consider is Traffic Manager's [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
+- Pre-fill the passive CDN. Pre-filling means that you serve a percentage of your most popular content through the passive CDN even before a failover event occurs. For example, you could consider using Traffic Manager's [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
 
 ## Contributors
 
