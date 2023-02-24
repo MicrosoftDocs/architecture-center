@@ -10,11 +10,11 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 1. API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
-2. If a developer changes an API in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
+2. If an API change is detected in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
 
 3. API developers clone the Git repository, create a branch, and create API definitions by using the OpenAPI specification or tools of their choice.
 
-4. API developers push the changes to the repository and create a PR for review.
+4. If a developer pushes changes to the repository, a PR is created for review.
 
 5. The PR can be automatically approved or reviewed, depending on the level of control that's required.
 
