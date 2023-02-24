@@ -70,7 +70,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. Thi
 
 #### Alternatives
 
-The configuration source repository could be any Git compatible repository, including Azure DevOps.
+The configuration source repository could be any Git repository, including Azure DevOps.
 
 ### Scenario 5: Enforcing policies using Syncier tower and GitOps operator. 
 
