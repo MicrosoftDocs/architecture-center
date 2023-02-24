@@ -123,7 +123,7 @@ The architecture scenarios shown previously use one or more of the following com
 
 ## GitOps principles
 
-According to [GitOps principles](https://opengitops.dev/), the desired state of a GitOps managed system must be:
+According to [GitOps principles](https://opengitops.dev/#principles), the desired state of a GitOps managed system must be:
 
 1. **Declarative**: A system managed by GitOps must have its desired state expressed declaratively.
 1. **Versioned and immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
