@@ -8,7 +8,7 @@ For combining FSLogix with Azure Virtual Desktop as a desktop virtualization sol
 
 It's common to copy a profile to and from the network, when a user signs in and out of a remote environment. Because user profiles can often be large, sign in and sign out times often became unacceptable. FSLogix Containers redirect user profiles to a network location. Profiles are placed in VHDx files and mounted at run time. Mounting and using a profile on the network eliminates delays often associated with solutions that copy files.
 
-![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.png)
+![Diagram showing the FSLogix conceptual architecture.](./images/fslogix-concept.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
@@ -61,7 +61,7 @@ Azure offers multiple storage solutions that you can use to store your FSLogix p
 > [!NOTE]
 > While the best practice is have the user profiles stored in Azure, you can also leverage any other storage solution you already have in place in your environment (for example **DFS Namespaces**), and that the sessions hosts can reach, to replicate the user profiles to those locations using **Cloud Cache** as explained below.
 
-[Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported with FSLogix and Azure Virtual Desktop as well. It is a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Azure Virtual Desktop.
+[Storage spaces direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) is supported with FSLogix and Azure Virtual Desktop as well. It's a self-managed storage solution that is out of scope for this article. Customers can get most value out of either Azure Files or Azure NetApp Files while simplifying management of Azure Virtual Desktop.
 
 ## Best practices
 
@@ -83,10 +83,10 @@ The following list describes some important things to keep in mind when using Az
 - You can pre-provision space to your Azure Files Premium share to accommodate more IOPs for your users proactively. This allows you to use more IOPs during the initial user-logins.
 - Azure Files Premium tier has a built-in bursting mechanism that gives you thrice more IOPs for the first 60 minutes of a session.
 - Azure Files sync can be used to replicate existing profile containers into Azure Files easily.
-- With the FSLogix [ObjectSpecific](/fslogix/configure-per-user-per-group-ht) per-group setting, you can filter different Azure Files storage accounts to accommodate more users. The maximum limit of IOPs per storage account doesn't mean you cannot stack them. This applies to both personal and pooled host pool scenarios. The architecture diagram below explains it in more details.
-- You are able to use multiple storage accounts in one Azure virtual network (VNet). For example, you can assign different network shares to specific groups of users in your environment using AD groups.
+- With the FSLogix [ObjectSpecific](/fslogix/configure-per-user-per-group-ht) per-group setting, you can filter different Azure Files storage accounts to accommodate more users. The maximum limit of IOPs per storage account doesn't mean you cannot stack them. This applies to both personal and pooled host pool scenarios. The architecture diagram below explains in more detail.
+- You're able to use multiple storage accounts in one Azure virtual network (VNet). For example, you can assign different network shares to specific groups of users in your environment using AD groups.
 
-:::image type="content" border="false" source="./images/fslogix-files.png" alt-text="Diagram showing Files scenario" lightbox="./images/fslogix-files.png":::
+:::image type="content" border="false" source="./images/fslogix-files.svg" alt-text="Diagram showing Files scenario." lightbox="./images/fslogix-files.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
@@ -101,7 +101,7 @@ The table below shows you how you can further optimize your AVD environment. Det
 
 ### Azure NetApp Files best practices
 
-Azure NetApp Files has been proven to be a great managed storage solution for FSLogix Profiles and Azure Virtual Desktop. The low latency and the high amount of IOPs is a great mixture for enterprises at scale.
+Azure NetApp Files has been proven to be a great managed storage solution for FSLogix Profiles and Azure Virtual Desktop. The low latency and the high number of IOPs is a great mixture for enterprises at scale.
 
 Create volumes with Standard network features [where available](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-regions). Volumes with [Basic network features](/azure/azure-netapp-files/configure-network-features) allow up to 1000 IP connections per active VNet. These are the open connections per VM over the VNet to the share; that is, this limitation is applicable per VM and not per session. This also includes VNET Peerings. The following subsections can help you to proactively design your environment. Read [Benefits of using Azure NetApp Files with Azure Virtual Desktop](/azure/azure-netapp-files/solutions-windows-virtual-desktop) for more information.
 
@@ -109,7 +109,7 @@ Create volumes with Standard network features [where available](/azure/azure-net
 
 If the AVD Windows 10 Multi-session user per vCPU [recommendations](/windows-server/remote/remote-desktop-services/virtual-machine-recs) sizing for the D32as_v4 VM is calculated based on the light or medium workload, more than 120,000 users would fit within 1,000 virtual machines before approaching the 1,000 IP limit, as shown in the following figure.
 
-:::image type="content" border="false" source="./images/fslogix-netapp-files-pooled.png" alt-text="Diagram showing NetApp Files pooled scenario" lightbox="./images/fslogix-netapp-files-pooled.png":::
+:::image type="content" border="false" source="./images/fslogix-netapp-files-pooled.svg" alt-text="Diagram showing NetApp Files pooled scenario." lightbox="./images/fslogix-netapp-files-pooled.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
@@ -117,7 +117,7 @@ If the AVD Windows 10 Multi-session user per vCPU [recommendations](/windows-ser
 
 Users are mapped to specific desktop pods. Each pod has just under 1,000 virtual machines, leaving room for IP addresses propagating from the management VNet. Azure NetApp Files can easily handle 900+ personal desktops per single-session host pool. The actual number of virtual machines is equal to 1,000 minus the number of management hosts found in the Hub VNet.
 
-:::image type="content" border="false" source="./images/fslogix-netapp-files-personal.png" alt-text="Diagram showing NetApp Files personal scenario" lightbox="./images/fslogix-netapp-files-personal.png":::
+:::image type="content" border="false" source="./images/fslogix-netapp-files-personal.svg" alt-text="Diagram showing NetApp Files personal scenario." lightbox="./images/fslogix-netapp-files-personal.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/windows-virtual-desktop-fslogix.vsdx) of this architecture.*
 
@@ -219,7 +219,7 @@ You can use this PowerShell script to add the exclusions for Microsoft Defender 
 
 [Cloud Cache](/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In there was a provider failure, Cloud Cache provides business continuity.
 
-Because the local cache file will service most IO requests, the performance of the local cache file will determine the user experience. It's critical that the storage used for this file be high-performing and highly available. Any storage used for the local cache file should either be a physically attached storage, or have reliability and performance characteristics that meet or exceed a high-performing physically attached storage.
+Because the local cache file will service most IO requests, the performance of the local cache file will determine the user experience. It's critical that the storage used for this file is high-performing and highly available. Any storage used for the local cache file should either be a physically attached storage, or have reliability and performance characteristics that meet or exceed a high-performing physically attached storage.
 
 Cloud Cache is only one of many options that may be considered for business continuity when using profile containers. Cloud Cache provides real-time duplication of the user profile that will actively fail over if connectivity to a Cloud Cache provider is lost.
 
@@ -230,14 +230,14 @@ There are a number of considerations when implementing Cloud Cache. It should:
 - enable the use of Azure Page Blob storage via REST API.
 - It can be an effective profile tool when configuring multi-geo environments, and
 - requires high-performing and highly available host-attached (or equivalent) storage to support local cache,
-- It is executed on the host, utilizing processor, memory, network, and storage resources.
+- It's executed on the host, utilizing processor, memory, network, and storage resources.
 - When used as a solution for high availability, Cloud Cache requires multiple, full copies of the user profile, in addition to the local cache file.
 
-Because of the resource utilization, it may be more cost effective to consider alternate backup/disaster recovery solutions for FSLogix profile containers. Cloud Cache is generally used when one of its features provides unique value, such as real-time profile high availability. If an environment can be adequately serviced with an alternate form of backup, it is often more economical than Cloud Cache.
+Because of the resource utilization, it may be more cost effective to consider alternate backup/disaster recovery solutions for FSLogix profile containers. Cloud Cache is generally used when one of its features provides unique value, such as real-time profile high availability. If an environment can be adequately serviced with an alternate form of backup, it's often more economical than Cloud Cache.
 
 ## Business continuity and disaster recovery (BCDR)
 
-In an enterprise architecture, it is common to make user profiles resilient. To configure an FSLogix profile solution to be as efficient as possible, the amount of data being moved around should be reduced to the bare minimum:
+In an enterprise architecture, it's common to make user profiles resilient. To configure an FSLogix profile solution to be as efficient as possible, the amount of data being moved around should be reduced to the bare minimum:
 
 - The first step to create an efficient FSLogix profile solution is the use of [OneDrive folder backup](/onedrive/redirect-known-folders) to put document-based profile folders into OneDrive. This means you can take advantage of built-in OneDrive features to protect the users' documents.
 
@@ -245,7 +245,7 @@ In an enterprise architecture, it is common to make user profiles resilient. To 
 
 - Azure Files offers the replication option of a storage account fail-over against the other region configured in your storage account redundancy plan. This is only supported for the standard storage account type using Geo-Redundant Storage (GRS). Other options to use are AzCopy or any other file copy mechanism such as *RoboCopy*.
 
-- Azure NetApp Files offers cross-region replication. With this feature, you are able to replicate your FSLogix file share to another region over the Azure backbone.
+- Azure NetApp Files offers cross-region replication. With this feature, you're able to replicate your FSLogix file share to another region over the Azure backbone.
 
 ## Backup and restore
 
@@ -257,12 +257,12 @@ Azure Files Premium tier integrates with Azure Backup and is supported in conjun
 
 As explained earlier in this article, FSLogix Profile Container works with virtual disks. The virtual hard disks are in the VHD or VHDx file format; both are supported with this tool. By default, the disks created will be in a *Dynamically Expanding* format rather than *Fixed* format. This could result in situations where the size of the disk is higher than the actual files inside the virtual disk. So it's common to do maintenance after shrinking the virtual hard disks on a schedule, for example, on a monthly basis. This can be possible with a script that can decrease the amount of your profiles. This script can be designed to work at an enterprise scale, to reduce the size of thousands of disks in the shortest time possible. It can be run from any machine in your environment. It does not need to be run from a file server hosting the disks. It does not need the Hyper-V role installed.
 
-This tool is multi-threaded and will take advantage of multiple CPU cores on the machine from which you run the script. It is not advised running more than twice the number of threads of the available cores on your machine. You could also use the number of threads to throttle the load on your storage.
+This tool is multi-threaded and will take advantage of multiple CPU cores on the machine from which you run the script. It's not advised running more than twice the number of threads of the available cores on your machine. You could also use the number of threads to throttle the load on your storage.
 
 Download the tool [here](https://github.com/FSLogix/Invoke-FslShrinkDisk).
 
 > [!NOTE]
-> This script is not supported by the Microsoft product group. It is community driven. This script does not support reducing the size of a Fixed file format.
+> This script is not supported by the Microsoft product group. It's community driven. This script does not support reducing the size of a Fixed file format.
 
 ## Best practice settings for enterprises
 

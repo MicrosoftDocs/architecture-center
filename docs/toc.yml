@@ -4647,7 +4647,7 @@ items:
                 href: guide/devops/deployment-scripts-property-check.yml
           - name: Architectures
             items:
-              - name: Automate multistage Azure Pipelines
+              - name: Automate multistage pipeline setup
                 href: example-scenario/devops/automate-azure-pipelines.yml
               - name: Automate API deployments with APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
