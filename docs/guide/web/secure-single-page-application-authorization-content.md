@@ -4,7 +4,7 @@ This guide demonstrates how you can use Azure API Management to implement a stat
 
 This pattern uses [Azure API Management](https://azure.microsoft.com/products/api-management) in a [Backend for Frontend](https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends) pattern to handle the OAuth2 access token acquisition from Azure Active Directory; [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption and decryption of the access token into an `HttpOnly` cookie; and to proxy all API calls requiring authorization.
 
-As the backend handles the token acquisition, no other code or library, such as [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application itself. This design means that no tokens are stored in the browser session or local storage. By encrypting and storing the access token in an `HttpOnly` cookie protects it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks, and scoping it to the API domain and setting `SameSite=strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
+As the backend handles the token acquisition, no other code or library, such as [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application itself. This design means that no tokens are stored in the browser session or local storage. By encrypting and storing the access token in an `HttpOnly` cookie protects it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks, and scoping it to the API domain and setting `SameSite=Strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
 
 ## Architecture
 
@@ -31,7 +31,7 @@ This pattern increases the security of the application by moving the token acqui
 
 Azure API Management Policies handle the acquisition of the access token and encryption and decryption of the cookie in this example. Policies are a collection of statements that are run sequentially on the request or response of an API and are made up of a set of XML elements and C# scripts.
 
-By using an `HttpOnly` cookie to store the access token, the token is protected from XSS attacks and isn't accessible by JavaScript. Scoping the cookie to the API domain and setting `SameSite=strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This pattern allows the access token to be automatically added to the Authorization header of all API calls made from the single-page application by the backend.
+By using an `HttpOnly` cookie to store the access token, the token is protected from XSS attacks and isn't accessible by JavaScript. Scoping the cookie to the API domain and setting `SameSite=Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This pattern allows the access token to be automatically added to the Authorization header of all API calls made from the single-page application by the backend.
 
 As this example utilizes a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
 
