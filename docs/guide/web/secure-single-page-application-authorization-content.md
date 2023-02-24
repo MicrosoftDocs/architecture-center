@@ -33,7 +33,7 @@ Azure API Management Policies handle the acquisition of the access token and enc
 
 By using an `HttpOnly` cookie to store the access token, the token is protected from XSS attacks and isn't accessible by JavaScript. Scoping the cookie to the API domain and setting `SameSite=strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This pattern allows the access token to be automatically added to the Authorization header of all API calls made from the single-page application by the backend.
 
-As this example utilizes a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, then the cookie won't be added to the API request, and the proxied API request will be unauthenticated.
+As this example utilizes a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, the cookie is not added to the API request, and the proxied API request remains unauthenticated.
 
 It's possible to configure this example without using custom domains for the API Management instance and Static Web App, but that would require the cookie setting to be amended to `SameSite=None`. This change however, provides a less secure implementation as the cookie will be added to all requests to any instance of API Management gateway and not constrained to your own domain. More on SameSite cookies can be read [here](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
 
@@ -76,7 +76,7 @@ This process uses the OAuth2 Authorization Code flow, and requires a redirect UR
 <set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("serverResponse")).Body.As<JObject>())" />
 <set-variable name="jwt" value="@((string)(context.Variables.GetValueOrDefault<JObject>("token"))["access_token"])" />
 ```
-Once the access token has been obtained, it's encrypted using AES encryption. This is also performed within the callback policy using the following policy snippet:
+Once the access token has been obtained, it's encrypted using AES encryption. The encryption is performed within the callback policy using the following policy snippet:
 
 ```XML
 <!-- 
@@ -100,7 +100,7 @@ Once the access token has been obtained, it's encrypted using AES encryption. Th
 }" />
 ```
 
-Finally, once the access token has been encrypted, it's set into a cookie and returned to the single-page application. This is performed by the following policy snippet:
+Finally, once the access token has been encrypted, it's set into a cookie and returned to the single-page application. The following policy snippet performs this task::
 
 ```XML
 <!-- 
@@ -126,7 +126,7 @@ Finally, once the access token has been encrypted, it's set into a cookie and re
 </return-response>
 ```
 
-Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it will automatically be sent with each request to the API. The access token can then be decrypted ready to be used to call the downstream API. This process is performed by the following proxy policy snippet:
+Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it will be automatically added with each request to the API. The access token can then be decrypted ready to be used to call the downstream API. This process is performed by the following proxy policy snippet:
 
 ```XML
 <!-- 
@@ -163,7 +163,7 @@ Once the single-page application has the access token, it can be used to call th
 }" />
 ```
 
-Once the access token has been decrypted, it can be used to call the downstream API. To do this the access token needs to be added to the request to the API, as an `Authorization` header. This is performed by the following policy snippet:
+Once the access token has been decrypted, it can be used to call the downstream API. To do this the access token needs to be added to the request to the API, as an `Authorization` header. The following policy snippet performs this task:
 
 ```XML
 <!-- 
@@ -187,7 +187,7 @@ This example isn't a production-ready solution, merely a demonstration of what i
 
 - This example doesn't cater for access token expiry nor the use of refresh or ID tokens.
 - The cookie contents in the sample are encrypted using AES encryption. The key is stored as a secret in the Named Values section of the API Management instance. This Named Value can be linked and stored in an [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to provide better protection of the key. Encryption keys should be rotated on a periodic basis as part of a [Key Management](https://en.wikipedia.org/wiki/Key_management) policy.
-- This example only proxies calls to a single downstream API, which only requires one access token. This allows a stateless approach as the access token is contained within the cookie. However, due to the size limitation of HTTP cookies, if you need to proxy calls to multiple downstream APIs, you'll need a stateful approach. This process involves storing access tokens in a cache and retrieving them based on the API being called and a key provided in the cookie rather than a single access token. This action can be achieved using the API Management [Cache](https://learn.microsoft.com/azure/api-management/api-management-howto-cache) or an external [Redis cache](https://learn.microsoft.com/azure/api-management/api-management-howto-cache-external).
+- This example only proxies calls to a single downstream API, which only requires one access token, allowing a stateless approach. However, due to the size limitation of HTTP cookies, if you need to proxy calls to multiple downstream APIs, you need a stateful approach. This process involves storing access tokens in a cache and retrieving them based on the API being called and a key provided in the cookie rather than a single access token. This action can be achieved using the API Management [Cache](https://learn.microsoft.com/azure/api-management/api-management-howto-cache) or an external [Redis cache](https://learn.microsoft.com/azure/api-management/api-management-howto-cache-external).
 - As this example only demonstrates the retrieval of data using a `GET` request it doesn't include protection from [CSRF](https://owasp.org/www-community/attacks/csrf) attacks, which would be required if other http methods such as `POST`, `PUT`, `PATCH`, or `DELETE` were to be implemented.
 
 ## Components
