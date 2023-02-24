@@ -13,7 +13,7 @@ This scenario covers a diagnostic/troubleshooting development and operations flo
 - Team members use Azure Data Studio to write, view, and run the diagnostic or troubleshooting notebooks in Jupyter Notebook format. The notebooks include code for troubleshooting issues and descriptions that explain the troubleshooting steps. The notebook author can write the code in languages like Python, PowerShell, or .NET Interactive (C# and other .NET languages). .NET Interactive Jupyter Notebooks in Visual Studio Code support polyglot, which allows you to use  more than one language in a single notebook.  
 - GitHub or Azure DevOps is used as source control for the reusable notebooks. You can use GitHub Actions or Azure DevOps Actions to complete additional checks to meet organizational policies, like credential scans.  
 - A task management system or an incident response system is used to log, assign, and resolve issues. You can use any task management system, like Microsoft Planner.
-- When a new issue is created, a specific condition in Logic Apps triggers the next step: running an Automation job.
+- When a new issue is created, a specific condition in Azure Logic Apps triggers the next step: running an Automation job.
 - The Automation job runbook runs the relevant diagnostic notebooks when a certain condition occurs. For example, if a task returns a message stating that the disk is full.
 
    The runbook can be in Python or the PowerShell runtime.
@@ -61,15 +61,17 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 User-assigned [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) is a good way to grant Automation runbooks  access to the other required Azure resources. For example, when the Automation runbook runs [Invoke-SqlNotebook](https://github.com/dfinke/PowerShellNotebook#executing-a-notebook) against an Azure SQL database, the Automation account requires the appropriate access to the database. This authorization is best managed via a user-assigned managed identity that corresponds to a user or a role in Azure SQL.
 
-### DevOps
-
-If you use Azure DevOps as a host for your repository, be sure to use Git for source control (instead of Team Foundation Version Control). We recommend Azure DevOps because both Azure Data Studio and Visual Studio Code support Git natively.
-
 ### Cost optimization 
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 A [pricing estimate is available here](https://azure.com/e/bffff468f99641009bae1fcd743f05d0). The price depends on the size of the notebook output and the workflow definition in Logic Apps (for example, how often it triggers and how long it runs).
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+If you use Azure DevOps as a host for your repository, be sure to use Git for source control (instead of Team Foundation Version Control). We recommend Azure DevOps because both Azure Data Studio and Visual Studio Code support Git natively.
 
 ### Performance efficiency
 
