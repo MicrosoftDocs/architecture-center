@@ -32,7 +32,7 @@ The SIL subscription contains resources that are managed by the customer. The SI
 * An Azure subnet for Azure Firewall with an Azure network security group.
 * An Azure subnet for the SIL with an Azure network security group
 * A configuration of Azure Firewall that allows appropriate traffic to SIL.
-* An Azure subnet for the additional virtual machines (depicted by HA- VM 1 & HA- VM 2 in the architecture diagram) for the high availability monitoring and routing.
+* An Azure subnet for the additional virtual machines (depicted by HA-VM 1 and HA-VM 2 in the architecture diagram) for the high availability monitoring and routing.
 * Azure policies for compliance with SWIFT's Customer Security Programme (CSP) – Customer Security Controls Framework (CSCF).
 
 The resources for the SIL can be deployed by using an Azure Resource Manager template (ARM template) to create the core infrastructure, as described in this architecture. You can modify the ARM template for the SIL to meet your specific needs. But your configuration needs to adhere to policies that CSP–CSCF requires. You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply the necessary policies to comply with CSP–CSCF.
