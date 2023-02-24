@@ -21,7 +21,7 @@ ms.custom:
 
 # Mission-critical global HTTP ingress
 
-Mission-critical dynamic applications and APIs need to maintain a high level of uptime, even when network components are unavailable or degraded. When you architect your mission-critical workload's web traffic ingress, routing, and security, then you can consider combining multiple Azure services together to achieve a highly availability and to avoid having a single point of failure.
+Mission-critical dynamic applications and APIs need to maintain a high level of uptime, even when network components are unavailable or degraded. When you architect your mission-critical workload's web traffic ingress, routing, and security, you can consider combining multiple Azure services together to achieve a higher level of availability and to avoid having a single point of failure.
 
 However, when you implement this type of architecture, you need to carefully consider the full implications. You need to implement separate network path to your application servers, and each path needs to be configured and tested separately.
 
@@ -46,9 +46,9 @@ This DNS-based load balancing solution uses multiple Azure Traffic Manager profi
 
 The solution includes the following components:
 
-- **Traffic Manager using priority routing mode** sends traffic to Azure Front Door by default. If Azure Front Door is unavailable, it uses a second Traffic Manager profile to determine where to direct the request.
+- **Traffic Manager using priority routing mode** sends traffic to Azure Front Door by default. If Azure Front Door is unavailable, a second Traffic Manager profile determines where to direct the request. The second profile is described below.
 
-- **Azure Front Door** processes and routes most of your application traffic. Azure Front Door provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
+- **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
 - **Traffic Manager using performance routing mode** sends traffic to the Application Gateway instance with the best performance from the client's location.
 
@@ -70,17 +70,17 @@ This type of architecture is most useful if you want your alternative traffic pa
 
 However, it's important to consider the following issues:
 
-- When you use any of these features, you need to configure them on both Azure Front Door and Application Gateway. For example, if you make a configuration change to your Azure Front Door WAF, you need to apply the same configuration change to your Application Gateway WAF too.
+- When you use any of these features, you need to configure them on both Azure Front Door and Application Gateway. For example, if you make a configuration change to your Azure Front Door WAF, you need to apply the same configuration change to your Application Gateway WAF too. Your operational complexity becomes much more complex when you need to reconfigure and test two separate systems.
 - While there are similarities between the features that Azure Front Door and Application Gateway offer, many features don't have exact parity. Be mindful of these differences, because they could affect how the application is delivered based on the traffic path it follows.
 - Application Gateway doesn't provide caching. For more information about this difference, see [Caching](#caching).
 
-Furthermore, it's important to remember that Azure Front Door and Application Gateway are distinct products and have different use cases. In particular, [Application Gateway is a regional service](#regional-distribution), while Azure Front Door has points of presence globally. The two products behave differently. Ensure you understand the details of each product and how you use them.
+Furthermore, it's important to remember that Azure Front Door and Application Gateway are distinct products and have different use cases. In particular, [the two products are are different in how they're deployed to Azure regions](#regional-distribution). Ensure you understand the details of each product and how you use them.
 
 ### Regional distribution
 
 Azure Front Door is a global service, while Application Gateway is a regional service. This difference is important for several reasons:
 
-- **Performance:** Azure Front Door's points of presence are deployed globally, and TCP and TLS connections from clients [terminate at their closest point of presence](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway their TCP and TLS connections terminate at the Application Gateway itself.
+- **Performance:** Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at the closest point of presence to the client](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
 - **Cost:** You typically need to deploy an Application Gateway instance into each region where you have an origin. Because each Application Gateway instance is billed separately, the cost can become high when you have origins deployed into several regions.
 
   If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
