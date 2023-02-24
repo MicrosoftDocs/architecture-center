@@ -95,6 +95,12 @@ It's also a good practice to use a high-quality and resilient DNS service for yo
 
 In a mission-critical solution, it's also a good practice to use multiple DNS resolvers to increase the overall resiliency of your solution even further.
 
+### CNAME chaining
+
+Solutions that combine Traffic Manager, Azure Front Door, and other services use a multi-layer DNS CNAME resolution process, also called *CNAME chaining*. For example, when you resolve your own custom domain, you might see five or more CNAME records before an IP address is returned.
+
+Adding additional links to a CNAME chain can affect DNS name resolution performance. However, DNS responses are usually cached, which reduces the performance impact.
+
 ## TLS certificates
 
 Azure Front Door provides managed TLS certificates. However, in this kind of architecture it's a good idea to provision and use your own TLS certificates. This is a good practice for several reasons:
@@ -170,6 +176,7 @@ The main costs associated with an architecture like the one described above are:
 - **Operational complexity:** Every time you add additional components to your solution, you increase your management overhead. Further, every time you make a change to one component, you need to consider whether other components might be affected.
 
   For example, suppose you decide to add some application features that require you to use new capabilities of Azure Front Door. You need to check whether your alternative traffic path also provides an equivalent capability, and if not, you need to decide how to handle the difference in behavior between the two traffic paths. In real-world applications, these complexities can have a high cost, and can present a major risk to your system's stability.
+- **Performance:** As described above, this type of solution requires additional CNAME lookups during name resolution. In most applications, this isn't a significant concern, but you should evaluate whether your application performance is affected by introducing additional layers into your ingress path.
 
 > [!WARNING]
 > If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture means you have a higher level of operational complexity, and every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
