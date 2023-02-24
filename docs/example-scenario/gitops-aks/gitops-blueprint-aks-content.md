@@ -121,7 +121,7 @@ The architecture scenarios shown previously use one or more of the following com
 
 1. [Syncier Security Tower](https://securitytower.syncier.com/) is a tool that Syncier developed and makes publicly available to help overcome GitOps security and compliance challenges. To help ensure that only trusted images run in the cluster, Syncier Security Tower comes with a set of best-practice policies that are grouped by well-known security standards.
 
-## Scenario details
+## GitOps principles
 
 According to [GitOps principles](https://opengitops.dev/), the desired state of a GitOps managed system must be:
 
