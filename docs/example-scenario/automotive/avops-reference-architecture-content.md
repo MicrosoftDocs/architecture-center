@@ -49,7 +49,7 @@ Here's the high-level process flow of data through the reference architecture:
 1. Data enrichment helps improve the accuracy and reliability of the data by adding additional information, insights and context to the data collected.
 1. The DataOps stage takes extracted measurement data and provides them to labeling partners (Human in the Loop) via [Azure Data Share](https://learn.microsoft.com/azure/data-share/). Auto Labeling (covered by third party partners) stores accesses data via a separate Data Lake account (“Label Lake”)
 1. The DataOps stage takes labeled datasets and provides them to downstream [MLOps](#mlops) processes, mainly to create a perception and sensor fusion models.   These models perform functions used by autonomous vehicles to detect scenes (that is, lane change, blocked roads, pedestrian, traffic lights, and traffic signs)
-1. [ValOps](#ValOps) takes trained models and validates them via Open Loop and Closed Loop testing
+1. [ValOps](#valops) takes trained models and validates them via Open Loop and Closed Loop testing
 1. Tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) visualizes  ingested and processed data 
 
 The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake.  
