@@ -65,7 +65,7 @@ This type of architecture can increase your overall availability and resiliency 
 - Operational complexity
 
 > [!WARNING]
-> If you're not careful in how you design and implement a complex high-availabilty solution, you can actually make your availability worse. Increasing the number of components in your architecture means you have a higher level of operational complexity, and every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
+> If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture means you have a higher level of operational complexity, and every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
 ## Understand your use of Azure Front Door
 
@@ -92,7 +92,7 @@ If your alternative path also provides a WAF, consider the following questions:
 - Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
 
 > [!WARNING]
-> You might consider not using a WAF for your alternative ingress path, and consider accepting the increaed risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice.
+> You might consider not using a WAF for your alternative ingress path, and consider accepting the increased risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice.
 > 
 > When you deploy an architecture like the one described in this article, your alternate traffic path is always exposed to the internet and is ready to accept traffic at any moment. If an attacker discovers an unprotected secondary traffic path to your application, they might send malicious traffic through your secondary path even when the primary path includes a WAF.
 > 
@@ -151,7 +151,7 @@ You also need to which of these elements are within your control, and whether up
 
 ## Availability of Azure Traffic Manager
 
-Azure Traffic Manager is a highly available service, but it also has a service level agreement that doesn't guarantee availablity at all times. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate even if Traffic Manager isn't responding to requests.
+Azure Traffic Manager is a highly available service, but it also has a service level agreement that doesn't guarantee availability at all times. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate even if Traffic Manager isn't responding to requests.
 
 Traffic Manager returns cacheable DNS responses. If your DNS records' TTLs allow for caching, short outages of Traffic Manager might not be a concern, because downstream DNS resolvers might have cached a previous response. However, you should consider whether you plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
