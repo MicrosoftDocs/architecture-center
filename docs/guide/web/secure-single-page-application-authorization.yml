@@ -5,7 +5,7 @@ metadata:
   description: Implement a no token in the browser pattern for a JavaScript single-page application using Azure API Management.
   author: irarainey
   ms.author: irarainey
-  ms.date: 01/30/2023
+  ms.date: 02/24/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -21,4 +21,4 @@ name: Protect access tokens in a single-page application using Azure API Managem
 summary: Implement a no token in the browser pattern for a JavaScript single-page application using Azure API Management.
 thumbnailUrl: /azure/architecture/browse/thumbs/no-token-in-the-browser.png
 content: |
-  [!include[](no-token-in-the-browser-content.md)]
+  [!include[](secure-single-page-application-authorization-content.md)]
