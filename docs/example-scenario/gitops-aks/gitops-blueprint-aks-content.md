@@ -16,7 +16,7 @@ In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster
 
 Flux is an  inside-out process, which is important for security. No cluster endpoints need to be exposed for Flux to detect, pull and reconcile configuration changes.
 
-You can use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesConfiguration/fluxConfigurations resource type) at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
+Flux can be applied as a native extension to Azure Kubernetes Service. You can also use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesConfiguration/fluxConfigurations resource type) at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
 
 #### Alternatives
 
