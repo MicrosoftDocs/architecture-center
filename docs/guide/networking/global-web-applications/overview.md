@@ -142,7 +142,7 @@ If Azure Front Door is unavailable, then multiple factors influence the overall 
 You also need to which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
 > [!TIP]
-> Mission-critical solutions require automated failover approaches. Manual failover processes are generally too slow for mission-critical solutions to remain responsive.
+> Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are generally too slow for mission-critical solutions to remain responsive.
 
 ## Availability of Azure Traffic Manager
 
@@ -179,7 +179,7 @@ The main costs associated with an architecture like the one described above are:
 - **Performance:** As described above, this type of solution requires additional CNAME lookups during name resolution. In most applications, this isn't a significant concern, but you should evaluate whether your application performance is affected by introducing additional layers into your ingress path.
 
 > [!WARNING]
-> If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture means you have a higher level of operational complexity, and every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
+> If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture increases the number of failure points. It also means you have a higher level of operational complexity. When you add extra components, every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
 ## Common scenarios
 
