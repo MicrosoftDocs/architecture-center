@@ -25,12 +25,12 @@ Most modern applications rely on web protocols, HTTP and HTTPS, for application 
 
 Azure Front Door is a highly available service. It has an industry-leading SLA of 99.99% uptime, which is much higher than many other CDNs. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, no cloud-based service is infallible. We take a great deal of care to avoid outages, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. Occasionally, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
 
-You can switch between Azure Front Door and other application delivery services during an outage or a disaster. However, you need to carefully consider these architectures. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
+You can switch between Azure Front Door and other CDNs or application delivery services during an outage or a disaster. However, you need to carefully consider these architectures. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
 
 In this article, we describe the factors that you need to consider when planning a mission-critical global HTTP application architecture with Azure Front Door.
 
 > [!IMPORTANT]
-> Implementing a mission critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs. Most customers don't need the architecture described in this article.
+> Implementing a high availability mission-critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs. Most customers don't need the architecture described in this article.
 
 ## Approach
 
@@ -44,9 +44,9 @@ In this approach, you introduce several components and make significant changes 
 
    [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door by default. Traffic Manager can automatically switch traffic to your alternate path if Azure Front Door is unavailable.
   
-   You can also consider using a different global traffic routing system, but Traffic Manager works well for most situations.
+   You can also consider using a different global traffic routing system, such as a global load balancer. However, Traffic Manager works well for many situations.
 
-1. There are two *paths* for traffic to ingress to your application:
+1. You have two *paths* for traffic to ingress to your application:
 
    - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door provides the *primary path* to your application.
 
@@ -123,14 +123,16 @@ When you plan your origin security, check whether your alternative traffic path 
 
 ## Monitor component health and trigger traffic failover
 
-When planning a mission-critical web application architecture, consider the following elements:
+When planning a highly available mission-critical web application architecture, consider the following elements:
 
 - How the different components of your solution monitor the health of downstream components.
 - When health monitors consider downstream components to be unhealthy.
 - How long it takes for an outage to be detected.
 - How long it takes for traffic to be routed through an alternative path.
 
-In Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
+There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door, and to trigger an automatic failover to a backup platform if an outage occurs.
+
+For most customers, a DNS based solution such as Azure Traffic Manager will be suitable. With Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
 
 If Azure Front Door is unavailable, then multiple factors influence the overall amount of time that the outage affects your traffic, including:
 
@@ -146,7 +148,7 @@ You also need to which of these elements are within your control, and whether up
 
 ## Availability of Azure Traffic Manager
 
-Azure Traffic Manager is a highly available service, but it also has a service level agreement that doesn't guarantee availability at all times. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate even if Traffic Manager isn't responding to requests.
+Azure Traffic Manager is a highly available service, but as with all DNS-based traffic managers, it also has a service level agreement that doesn't guarantee 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate even if Traffic Manager isn't responding to requests.
 
 Traffic Manager returns cacheable DNS responses. If your DNS records' TTLs allow for caching, short outages of Traffic Manager might not be a concern, because downstream DNS resolvers might have cached a previous response. However, you should consider whether you plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
@@ -158,7 +160,7 @@ Consider whether your deployment and configuration processes need to be made res
 
 ## Development and testing
 
-For a mission-critical solution, your testing practices need to verify that your solution meets your requirements regardless of the path that your flows through. Consider each part of the solution and how you test it for each type of outage.
+For a mission-critical solution, your testing practices need to verify that your solution meets your requirements regardless of the path that your application traffic flows through. Consider each part of the solution and how you test it for each type of outage.
 
 Ensure that your testing processes include these elements:
 
@@ -185,8 +187,8 @@ The main costs associated with an architecture like the one described above are:
 
 Based on our experience working with customers, we've observed two common scenarios where mission-critical web traffic needs the kind of architecture described in this article. We provide more detailed guidance for each of these scenarios.
 
-- [Global HTTP ingress](./mission-critical-global-http-ingress.md) commonly applies to mission-critical dynamic applications and APIs. In this scenario, the core requirement is to route traffic to the origin server reliably and efficiently. Frequently, a WAF is an important security control used in these solutions.
 - [Global content delivery](./mission-critical-content-delivery.md) commonly applies to static content delivery, media, and high-scale eCommerce applications. In this scenario, caching is a critical part of the solution architecture, and failures to cache can result in significantly degraded performance or reliability.
+- [Global HTTP ingress](./mission-critical-global-http-ingress.md) commonly applies to mission-critical dynamic applications and APIs. In this scenario, the core requirement is to route traffic to the origin server reliably and efficiently. Frequently, a WAF is an important security control used in these solutions.
 
 Every customer's solution architecture and requirements are different, so it's important to consider how you design your own mission-critical web application.
 
