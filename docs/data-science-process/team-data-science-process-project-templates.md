@@ -21,7 +21,7 @@ categories:
 
 # Team Data Science Process project planning
 
-The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. This article provides links to Microsoft Project and Excel templates that help you plan and manage these project stages.
+The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. 
 
 The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
