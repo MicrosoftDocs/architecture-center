@@ -260,6 +260,8 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
 
+<img role="presentation" alt="Diagram shows example HPC architecture for Azure Batch" src="images/cloud-native-job-scheduler-azure-batch.jpg">
+
 ### Azure CycleCloud
 
 [Azure CycleCloud](/azure/cyclecloud) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
@@ -272,6 +274,25 @@ CycleCloud allows you to:
 - Customize and optimize clusters through advanced policy and governance features, including cost controls, Active Directory integration, monitoring, and reporting
 - Use your current job scheduler and applications without modification
 - Take advantage of built-in autoscaling and battle-tested reference architectures for a wide range of HPC workloads and industries
+
+##### Hybrid / cloud bursting model
+<img role="presentation" alt="Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid." src="images/industry-standard-hpc-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg">
+##### Cloud native model
+<img role="presentation" alt="Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
+." src="images/industry-standard-hpc-job-scheduler-cloud-native-model-azure-cyclecloud.jpg">
+
+#### Comparison chart
+
+|               |Azure Batch             |Azure CycleCloud     |
+|---------------|------------------------|------------------------|
+|Scheduler |Batch APIs and tools and command-line scripts in the Azure Portal (Cloud Native).  |Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler.|
+|Compute Resources |Azure Batch – Software as a Service Nodes – Platform as a Service |Azure CycleCloud - Platform as a Service Software – Platform as a Service |
+|Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
+|Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
+|Integration |Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
+|User type |Developers |Classic HPC administrators and users |
+|Work Type |Throughput (batch), workflows |Tightly coupled (MPI). Throughput |
+|Windows Support |Yes |Varies, depending on scheduler choice |
 
 ### Workload managers
 
