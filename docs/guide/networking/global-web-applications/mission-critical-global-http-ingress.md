@@ -66,7 +66,7 @@ This approach uses [nested Traffic Manager profiles](/azure/traffic-manager/traf
 
 ### Feature parity
 
-This type of architecture is most useful if you want your alternative traffic path to use features like request processing rules, a WAF, and TLS offload. Both Azure Front Door and  Application Gateway provide similar capabilities.
+This type of architecture is most useful if you want your alternative traffic path to use features like request processing rules, a WAF, and TLS offload. Both Azure Front Door and Application Gateway provide similar capabilities.
 
 However, it's important to consider the following issues:
 
@@ -74,7 +74,7 @@ However, it's important to consider the following issues:
 - While there are similarities between the features that Azure Front Door and Application Gateway offer, many features don't have exact parity. Be mindful of these differences, because they could affect how the application is delivered based on the traffic path it follows.
 - Application Gateway doesn't provide caching. For more information about this difference, see [Caching](#caching).
 
-Furthermore, it's important to remember that Azure Front Door and Application Gateway are distinct products and have different use cases. In particular, [the two products are are different in how they're deployed to Azure regions](#regional-distribution). Ensure you understand the details of each product and how you use them.
+Furthermore, it's important to remember that Azure Front Door and Application Gateway are distinct products and have different use cases. In particular, [the two products are different in how they're deployed to Azure regions](#regional-distribution). Ensure you understand the details of each product and how you use them.
 
 ### Regional distribution
 
@@ -87,7 +87,7 @@ Azure Front Door is a global service, while Application Gateway is a regional se
 
 ### Public IP address
 
-As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Furthermore, Microsoft manages the IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can [protect your origin against a variety of attack types](/frontdoor/front-door-ddos).
+As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Furthermore, Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against a variety of attack types](/frontdoor/front-door-ddos).
 
 In contrast, Application Gateway requires that you deploy a dedicated public IP address, and you must protect your network and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
 
