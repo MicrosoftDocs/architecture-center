@@ -38,7 +38,7 @@ When you design a mission-critical global web application, consider having multi
 
 :::image type="content" source="./media/overview/alternate-traffic-paths.png" alt-text="Diagram showing Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
 
-In this approach, you introduce several components and make significant changes to other components in your solution:
+When you follow this approach, you introduce several components and make significant changes to other components in your solution:
 
 1. **Azure Traffic Manager** directs traffic to Azure Front Door or to the alternative service that you've selected.
 

@@ -46,11 +46,11 @@ This DNS-based load balancing solution uses multiple Azure Traffic Manager profi
 
 The solution includes the following components:
 
-- **Traffic Manager using priority routing mode** sends traffic to Azure Front Door by default. If Azure Front Door is unavailable, a second Traffic Manager profile determines where to direct the request. The second profile is described below.
+- **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, a second Traffic Manager profile determines where to direct the request. The second profile is described below.
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
-- **Traffic Manager using performance routing mode** sends traffic to the Application Gateway instance with the best performance from the client's location.
+- **Traffic Manager using performance routing mode** has an endpoint for each Application Gateway instance. This Traffic Manager sends requests to the Application Gateway instance with the best performance from the client's location.
 
 - **Application Gateway** is deployed into each region, and sends traffic to the origin servers within that region.
 

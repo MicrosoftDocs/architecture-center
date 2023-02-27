@@ -44,6 +44,16 @@ This isolation provides a high degree of resiliency from disaster scenarios. If 
 
 :::image type="content" source="./media/front-door-verizon-cdn.png" alt-text="Traffic Manager with weighted routing between AFD and Verizon's CDN." border="false":::
 
+The solution includes the following components:
+
+- **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, Traffic Manager sends the request through the partner CDN instead.
+
+- **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
+
+- **Azure CDN from Verizon** is configured to send traffic to each origin servers.
+
+- **Your origin application servers** need to be ready to accept traffic from both Azure Front Door and Azure CDN from Verizon, at any time.
+
 ## Considerations and tradeoffs
 
 The following sections describe some important considerations for this type of architecture. You should also review [Mission-critical global web applications](./overview.md) for other important considerations and tradeoffs when you use Azure Front Door in a mission-critical solution.
@@ -71,7 +81,7 @@ It's important to test the failover between Azure Front Door and your alternativ
 If your solution is at risk from performance issues during cache fills, consider either of the following approaches to reduce the risk:
 
 - Scale out or scale up your origins to cope with higher traffic levels, especially during a cache fill.
-- Pre-fill the passive CDN. Pre-filling means that you serve a percentage of your most popular content through the passive CDN even before a failover event occurs. For example, you could consider using Traffic Manager's [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
+- Pre-fill both CDNs. Pre-filling means that you serve a percentage of your most popular content through the passive CDN even before a failover event occurs. For example, you could consider using [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
 
 ## Contributors
 
