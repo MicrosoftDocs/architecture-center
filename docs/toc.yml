@@ -18,7 +18,7 @@ items:
             - name: Terraform landing zone implementation
               href: landing-zones/terraform/landing-zone-terraform.md
         - name: Subscription vending
-          href: \landing-zones\subscription-vending.yml
+          href: landing-zones/subscription-vending.yml
 
   - name: Application architecture fundamentals
     items:
