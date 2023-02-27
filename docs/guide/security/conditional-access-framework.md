@@ -92,9 +92,11 @@ The following table describes the Platform component of a policy name:
 |-------------|--------------------|
 |AnyPlatform|The policy targets any platform. You typically configure this by selecting **Any Device**. (In Conditional Access policies, both the word *platform* and the word *device* are used.)|
 |iOS|The policy targets Apple iOS platforms.|
+|Windows|This policy targets Windows platform.|
 |Android|The policy targets Google Android platforms.|
 |WindowsPhone|The policy targets Windows Phone platforms.|
 |macOS|The policy targets the macOS platforms|
+|Linux|This policy targets the Linux platforms.|
 |iOSAndroid|The policy targets both iOS and Android platforms.|
 |Unknown|The policy targets any platform not listed previously. You typically configure this by including **Any Device** and excluding all the individual platforms.|
 
@@ -104,7 +106,8 @@ The following table describes the Grant Control component of a policy name:
 
 |Grant type|Description/Examples|
 |----------|--------------------|
-|Multi-factor authentication|The policy requires multi-factor authentication.|
+|MFA|The policy requires multi-factor authentication.|
+|AuthStrength|The policy requires authentication strength|
 |Compliant|The policy requires a compliant device, as determined by Endpoint Manager, so the device needs to be managed by Endpoint Manager.|
 |CompliantorAADHJ|The policy requires a compliant device OR a Hybrid Azure AD joined device. A standard company computer that's domain joined is also Hybrid Azure AD  joined. Mobile phones and Windows 10 computers that are co-managed or Azure AD joined can be compliant.|
 |CompliantandAADHJ|The policy requires a device that's compliant AND Hybrid Azure AD joined.|
@@ -112,6 +115,8 @@ The following table describes the Grant Control component of a policy name:
 |MFAandCompliant|The policy requires a compliant device AND multi-factor authentication.|
 |MFAorAADHJ|The policy requires a Hybrid Azure AD joined computer OR multi-factor authentication if it's not a Hybrid Azure AD joined computer.|
 |MFAandAADHJ|The policy requires a Hybrid Azure AD joined computer AND multi-factor authentication.|
+|RequireApprovedClient|The policy requires approved client app.|
+|RequireAppProtection|The policy requires app protection|
 |Unmanaged|The policy targets devices that aren't known by Azure AD. For example, you can use this grant type to allow access to Exchange Online from any device.|
 
 ## Named locations
