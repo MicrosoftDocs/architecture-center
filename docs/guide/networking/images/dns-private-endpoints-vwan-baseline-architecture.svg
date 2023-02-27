@@ -39,8 +39,8 @@
 		.st24 {fill:#000000;font-family:Arial;font-size:0.666664em}
 		.st25 {font-size:1em}
 		.st26 {stroke:#4672c4;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
-		.st27 {fill:#000000;font-family:Calibri;font-size:0.666664em}
-		.st28 {stroke:#4672c4;stroke-dasharray:0,5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st27 {stroke:#4672c4;stroke-dasharray:0,5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st28 {fill:#000000;font-family:Calibri;font-size:0.666664em}
 		.st29 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -670,49 +670,74 @@
 			</v:userDefs>
 			<path d="M9 297.04 L9 264.23" class="st26"/>
 		</g>
-		<g id="group187-243" transform="translate(169.618,-36.8125)" v:mID="187" v:groupContext="group">
-			<title>Sheet.187</title>
-			<g id="shape128-244" v:mID="128" v:groupContext="shape" transform="translate(1.125,0)">
+		<g id="shape189-243" v:mID="189" v:groupContext="shape" transform="translate(394.907,36.5852) rotate(56.9514)">
+			<title>Sheet.189</title>
+			<path d="M0 297.04 L45.5 297.04" class="st26"/>
+		</g>
+		<g id="shape190-246" v:mID="190" v:groupContext="shape" transform="translate(585.748,335.863) rotate(117.641)">
+			<title>Sheet.190</title>
+			<path d="M0 297.04 L43.64 297.04" class="st26"/>
+		</g>
+		<g id="shape191-249" v:mID="191" v:groupContext="shape" transform="translate(144.25,-144.812)">
+			<title>Sheet.191</title>
+			<path d="M0 297.04 L180 297.04" class="st26"/>
+		</g>
+		<g id="shape192-252" v:mID="192" v:groupContext="shape" transform="translate(478.251,-135.73) rotate(49.541)">
+			<title>Sheet.192</title>
+			<path d="M0 297.04 L26.8 297.04" class="st26"/>
+		</g>
+		<g id="shape193-255" v:mID="193" v:groupContext="shape" transform="translate(404.859,319.81) rotate(114.089)">
+			<title>Sheet.193</title>
+			<path d="M0 297.04 L32.54 297.04" class="st27"/>
+		</g>
+		<g id="shape194-258" v:mID="194" v:groupContext="shape" transform="translate(295.126,447.053) rotate(146.957)">
+			<title>Sheet.194</title>
+			<path d="M0 297.04 L57.11 297.04" class="st27"/>
+		</g>
+		<g id="group195-261" transform="translate(170.386,-96.245)" v:mID="195" v:groupContext="group">
+			<title>Sheet.195</title>
+			<g id="shape196-262" v:mID="196" v:groupContext="shape" transform="translate(1.125,0)">
 				<title>Rectangle.128</title>
 				<v:userDefs>
 					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 				</v:userDefs>
-				<rect x="0" y="250.017" width="131.625" height="47.0199" class="st2"/>
+				<rect x="0" y="273.527" width="131.625" height="23.51" class="st2"/>
 			</g>
-			<g id="shape130-246" v:mID="130" v:groupContext="shape">
-				<title>Sheet.130</title>
-				<desc>DNS: Enabled DNS Proxy: Enabled Internet traffic: Azure Firew...</desc>
+			<g id="shape197-264" v:mID="197" v:groupContext="shape">
+				<title>Sheet.197</title>
+				<desc>Internet traffic: Azure Firewall Private traffic: Bypass Azur...</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="0"/>
-				<v:textRect cx="74.5568" cy="273.527" width="149.12" height="47.0199"/>
-				<rect x="0" y="250.017" width="149.114" height="47.0199" class="st8"/>
-				<text x="4" y="261.22" class="st27" v:langID="1033"><v:paragraph/><v:tabList/>DNS: <v:tabChar/><tspan dx="2.286em"
-							class="st25">           </tspan>Enabled<v:newlineChar/><tspan x="4" dy="1.2em" class="st25">              </tspan>DNS Proxy:        Enabled<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st25">Internet traffic:    Azure Firewall<v:newlineChar/></tspan><tspan x="4"
-							dy="1.2em" class="st25">Private traffic:      Bypass Azure Firewall</tspan><v:tabChar/></text>			</g>
+				<v:textRect cx="74.5568" cy="285.282" width="149.12" height="23.51"/>
+				<rect x="0" y="273.527" width="149.114" height="23.51" class="st8"/>
+				<text x="4" y="284.73" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Internet traffic:    Azure Firewall<v:newlineChar/><tspan
+							x="4" dy="1.2em" class="st25">Private traffic:      Bypass Azure Firewall</tspan><v:tabChar/></text>			</g>
 		</g>
-		<g id="shape189-253" v:mID="189" v:groupContext="shape" transform="translate(394.907,36.5852) rotate(56.9514)">
-			<title>Sheet.189</title>
-			<path d="M0 297.04 L45.5 297.04" class="st26"/>
+		<g id="shape198-268" v:mID="198" v:groupContext="shape" transform="translate(352.041,-49.9097) rotate(44.3906)">
+			<title>Sheet.198</title>
+			<path d="M0 297.04 L38.15 297.04" class="st26"/>
 		</g>
-		<g id="shape190-256" v:mID="190" v:groupContext="shape" transform="translate(585.748,335.863) rotate(117.641)">
-			<title>Sheet.190</title>
-			<path d="M0 297.04 L43.64 297.04" class="st26"/>
+		<g id="shape199-271" v:mID="199" v:groupContext="shape" transform="translate(557.2,346.645) rotate(128.349)">
+			<title>Sheet.199</title>
+			<path d="M0 297.04 L34.03 297.04" class="st26"/>
 		</g>
-		<g id="shape191-259" v:mID="191" v:groupContext="shape" transform="translate(144.25,-144.812)">
-			<title>Sheet.191</title>
-			<path d="M0 297.04 L180 297.04" class="st26"/>
-		</g>
-		<g id="shape192-262" v:mID="192" v:groupContext="shape" transform="translate(478.251,-135.73) rotate(49.541)">
-			<title>Sheet.192</title>
-			<path d="M0 297.04 L26.8 297.04" class="st26"/>
-		</g>
-		<g id="shape193-265" v:mID="193" v:groupContext="shape" transform="translate(404.859,319.81) rotate(114.089)">
-			<title>Sheet.193</title>
-			<path d="M0 297.04 L32.54 297.04" class="st28"/>
-		</g>
-		<g id="shape194-268" v:mID="194" v:groupContext="shape" transform="translate(295.126,447.053) rotate(146.957)">
-			<title>Sheet.194</title>
-			<path d="M0 297.04 L57.11 297.04" class="st28"/>
+		<g id="group201-274" transform="translate(168.443,-36.8125)" v:mID="201" v:groupContext="group">
+			<title>Sheet.201</title>
+			<g id="shape128-275" v:mID="128" v:groupContext="shape" transform="translate(2.50693,0)">
+				<title>Rectangle.128</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<rect x="0" y="261.344" width="131.625" height="35.6925" class="st2"/>
+			</g>
+			<g id="shape130-277" v:mID="130" v:groupContext="shape">
+				<title>Sheet.130</title>
+				<desc>DNS: Enabled DNS Servers: Default (Azure provided) DNS Proxy:...</desc>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="0"/>
+				<v:textRect cx="74.5568" cy="279.19" width="149.12" height="35.6925"/>
+				<rect x="0" y="261.344" width="149.114" height="35.6925" class="st8"/>
+				<text x="4" y="272.54" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>DNS:       Enabled<v:newlineChar/><tspan
+							x="4" dy="1.2em" class="st25">  </tspan>DNS Servers:  Default (Azure provided)<v:newlineChar/><tspan
+							x="4" dy="1.2em" class="st25">  </tspan>DNS Proxy:     Enabled<v:tabChar/><v:newlineChar/></text>			</g>
 		</g>
 	</g>
 </svg>
