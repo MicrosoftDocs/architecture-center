@@ -42,7 +42,7 @@ Microsoft has partnered with Verizon's CDN, and you can integrate Verizon's CDN 
 
 This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
-:::image type="content" source="./media/front-door-verizon-cdn.png" alt-text="Traffic Manager with weighted routing between AFD and Verizon's CDN." border="false":::
+:::image type="content" source="./media/mission-critical-content-delivery/front-door-verizon-cdn.png" alt-text="Traffic Manager routing between Azure Front Door and Verizon's CDN." border="false":::
 
 The solution includes the following components:
 
