@@ -150,7 +150,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure DNS zone costs are based on the number of DNS zones hosted in Azure and the number of received DNS queries.
-- Use the [Azure pricing calculator][17] to estimate costs. Pricing models for Azure DNS is explained here.
+- Use the [Azure pricing calculator][17] to estimate costs. Pricing models for Azure DNS is explained [here](https://azure.microsoft.com/pricing/details/dns/).
 - The billing model for [Azure ExpressRoute][18] is based either on metered data, which charges you per gigabyte for outbound data transfer, or unlimited data, which charges a monthly fee including all data transfer.
 - If you're using VPN, instead of ExpressRoute, the cost is dependent on the SKU of the [virtual network gateway][19] and is charged per hour.
 
