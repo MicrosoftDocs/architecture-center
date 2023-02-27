@@ -1,4 +1,4 @@
-Advanced's Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
+Advanced's Automated COBOL Refactoring solution refactors COBOL applications, as well those written in CA-Gen, CA-Telon, Natural, ADSO and other legacy languages, to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
 
 ## Mainframe architecture
 
@@ -92,11 +92,11 @@ This example features the following Azure components. Several of these component
 
 There are many reasons to look for alternatives to the COBOL-based mainframe applications that are still common:
 
-- COBOL developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL increase.
+- COBOL developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL and other legacy languages increase.
 - The applications weren't designed for modern IT, resulting in difficult integrations and limited flexibility.
 - IBM mainframe hardware and software are expensive, and licensing and maintenance fees for ancillary mainframe applications and databases are rising.
 
-Advanced's Automated COBOL Refactoring solution refactors COBOL applications to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
+Advanced's Automated COBOL Refactoring solution refactors COBOL applications, as well those written other legacy languages, to deliver cloud-enabled applications and databases that are functionally equivalent to their legacy counterparts. This reduces costs, allows for deeper integration, and enables customization to meet business requirements. In addition, it unlocks a whole new world of quality and scalability, from automated testing to quality assurance, and the ability to benefit from containerized deployments and orchestration with Docker and Kubernetes.
 
 The refactored applications:
 
