@@ -20,4 +20,4 @@ products:
   - azure-firewall
 thumbnailUrl: /azure/architecture/browse/thumbs/dns-private-endpoints-vwan-baseline-architecture.png
 content: |
-   [!include[](private-link-vwan-dns-guide.md)]
+   [!include[](private-link-vwan-dns-guide-content.md)]
