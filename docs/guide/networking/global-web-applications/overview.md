@@ -30,7 +30,7 @@ You can switch between Azure Front Door and other CDNs or application delivery s
 In this article, we describe the factors that you need to consider when planning a mission-critical global HTTP application architecture with Azure Front Door.
 
 > [!IMPORTANT]
-> Implementing a high availability mission-critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs. Most customers don't need the architecture described in this article.
+> Implementing a highly available, mission-critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs. Most customers don't need the architecture described in this article.
 
 ## Approach
 
@@ -130,9 +130,7 @@ When planning a highly available mission-critical web application architecture, 
 - How long it takes for an outage to be detected.
 - How long it takes for traffic to be routed through an alternative path.
 
-There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door, and to trigger an automatic failover to a backup platform if an outage occurs.
-
-For most customers, a DNS based solution such as Azure Traffic Manager will be suitable. With Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
+There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door, and to trigger an automatic failover to a backup platform if an outage occurs. For most customers, a DNS based solution such as Azure Traffic Manager is suitable. With Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
 
 If Azure Front Door is unavailable, then multiple factors influence the overall amount of time that the outage affects your traffic, including:
 

@@ -54,7 +54,7 @@ The solution includes the following components:
 
 - **Application Gateway** is deployed into each region, and sends traffic to the origin servers within that region.
 
-- **Your origin application servers** need to be ready to accept traffic from both Azure Front Door and Azure Application Gateway.
+- **Your origin application servers** need to be ready to accept traffic from both Azure Front Door and Azure Application Gateway, at any time.
 
 ## Considerations and tradeoffs
 
