@@ -69,9 +69,35 @@ You can use Conditional Access to enforce other restrictions. For example, you c
 ## Scenario details
 
 This approach can be used for:
-•	Migrating SWIFT connectivity from on-premises to Azure.
-•	Establishing new SWIFT connectivity by using Azure.
-Potential use cases
+
+- Migrating SWIFT connectivity from on-premises to Azure.
+- Establishing new SWIFT connectivity by using Azure.
+
+### Potential use cases
+
 This solution is targeted to:
-•	Existing SWIFT customers who run SIL on premises and want to run Alliance Cloud in Azure.
-•	New SWIFT customers who can benefit by deploying directly to Azure.
+
+- Existing SWIFT customers who run SIL on-premises and want to run Alliance Cloud in Azure.
+- New SWIFT customers who can benefit by deploying directly to Azure.
+
+## Considerations 
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+The following considerations apply to this solution. If you want more detailed information, your account team at Microsoft can help guide your Azure implementation for SWIFT.
+
+### Reliability
+
+This example scenario provides high availability. Multiple instances of SIL and Alliance Cloud, together with Alliance Connect Virtual, are deployed to support higher availability by providing back-up locations. To increase resiliency and availability, we recommend that you deploy a second similar configuration in a different Azure zone, in the same Azure region. For Alliance Cloud in Azure and Alliance Connect Virtual instances, the systems (SIL VM, HA VM 1, and VA vSRX) should be deployed in the same Azure zone (for example, AZ1) as shown in the preceding architecture diagram.
+
+To increase resilience beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure paired regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region in the same geography. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. 
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+The traffic between the SIL and the Juniper vSRX is limited to specific and known traffic. You can use network security groups and the packet capture capabilities that are provided by Network Watcher, and combined with Azure Security Center and Azure Sentinel. You can use network security group flow logs in Azure Network Watcher to send flow data to Azure Storage accounts. [Azure Sentinel](/azure/sentinel/overview) provides built-in orchestration and automation of common tasks. This functionality can collect the flow logs, detect and investigate threats, and respond to incidents.
+
+[Azure Bastion](/azure/bastion/bastion-overview) enables connectivity transparently from the Azure portal to a virtual machine via RDP or Secure Shell Protocol (SSH). Because Azure Bastion requires administrators to sign in to the Azure portal, you can use Conditional Access to enforce multi-factor authentication and other access restrictions. For example, you can specify the public IP address from which administrators can sign in.
+
+Azure Bastion must be deployed to a dedicated subnet and requires a public IP address. Access to this public IP address is restricted by Azure Bastion via a managed network security group. Deploying Azure Bastion also enables just-in-time access, which opens required ports on demand, only when remote access is required.
