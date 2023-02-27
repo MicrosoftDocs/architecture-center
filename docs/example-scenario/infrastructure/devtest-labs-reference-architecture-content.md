@@ -2,7 +2,7 @@ This article provides an architecture approach to prepare your [Azure DevTest La
 
 ## Architecture
 
-In the reference architecture for DTL in an enterprise, the platform foundation is typically set up by the platform administrator per the guidelines provided in ESLZ for centralized networking, identity, and governance. For information about the setup of ESLZ platform, see [Implement enterprise-scale landing zones in Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
+In the architecture for DTL in an enterprise, the platform foundation is typically set up by the platform administrator per the guidelines provided in ESLZ for centralized networking, identity, and governance. For information about the setup of ESLZ platform, see [Implement enterprise-scale landing zones in Azure](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation).
 
 The application team’s responsibility lies with provisioning the core DTL resources in the **DevTest subscriptions**, shown in the bottom-right of the following diagram. Doing so uses the already set up foundation. The policies applied to **Management groups** trickle down to the DevTest subscription and resources.
 
@@ -14,23 +14,23 @@ Although DTL alone doesn't have built-in limits, other Azure resources used in t
 
 ### Dataflow
 
-1. The Network Administrator creates a spoke virtual network and other network resources like NSG, UDR in the network resource group that is peered with the hub virtual network. The peering is created by Azure policies assigned to the Corp management group per the ESLZ automation. This peering lets corporate users access the lab VMs over VPN/ExpressRoute with a private IP.
-1. The Lab Owner configures built-in Lab policies per project requirements. You can review all available policies at [Manage all policies for a lab in Azure DevTest Labs](/azure/devtest-labs/devtest-lab-set-lab-policy). Here are a few policies relevant to this article:
-   1. Configure the virtual network setting so that all lab VMs are created in the spoke virtual network.
-   1. Configure lab settings so that all lab VMs are created in the designated Lab resource group. In this way, they won't be distributed across multiple resource groups.
-   1. Enable Browser Connect to use the Bastion host deployed in hub virtual network to secure RDP/SSH access to lab VMs over Internet without public IP.
-   1. Configure Lab users and assign appropriate roles based on least privilege. DTL provides three built-in roles: Owner, Contributor, and User.
-   1. Configure the domain join artifact as a mandatory artifact in the lab if there's a requirement to domain join the Lab virtual machine.
-   1. Configure a private Github/ADO repository in the lab for artifacts and environment templates. The repository can be used to store application codebase as well.
-1. The Application Team can spin up the Lab resources (VMs and PaaS environments) manually or they can set up Azure Pipelines to deploy resources using DTL tasks.
+- The Network Administrator creates a spoke virtual network and other network resources like NSG, UDR in the network resource group that is peered with the hub virtual network. The peering is created by Azure policies assigned to the Corp management group per the ESLZ automation. This peering lets corporate users access the lab VMs over VPN/ExpressRoute with a private IP.
+- The lab Owner configures built-in lab policies per project requirements. You can review all available policies at [Manage all policies for a lab in Azure DevTest Labs](/azure/devtest-labs/devtest-lab-set-lab-policy). Here are a few policies relevant to this article:
+   - Configure the virtual network setting so that all lab VMs are created in the spoke virtual network.
+   - Configure lab settings so that all lab VMs are created in the designated lab resource group. In this way, they won't be distributed across multiple resource groups.
+   - Enable Browser Connect to use the Bastion host deployed in hub virtual network to secure RDP/SSH access to lab VMs over Internet without public IP.
+   - Configure lab users and assign appropriate roles based on least privilege. DTL provides three built-in roles: Owner, Contributor, and User.
+   - Configure the domain join artifact as a mandatory artifact in the lab if there's a requirement to domain join the Lab virtual machine.
+   - Configure a private Github/ADO repository in the lab for artifacts and environment templates. The repository can be used to store application codebase as well.
+- The Application Team can spin up the lab resources (VMs and PaaS environments) manually or they can set up Azure Pipelines to deploy resources using DTL tasks.
 
 ### Resource topology
 
-Within the DevTest subscription, streamlining the resource group organization for Labs improves the maintainability of the resources. Traditionally in an enterprise, the network-related resources are controlled by network administrators and are isolated from the application resources using separate resource groups.
+Within the DevTest subscription, streamlining the resource group organization for labs improves the maintainability of the resources. Traditionally in an enterprise, the network-related resources are controlled by network administrators and are isolated from the application resources using separate resource groups.
 
 Lab resources can be distributed within two resource groups within the DevTest subscription, as shown in the above diagram:
 
-- Network resource group (rg-network-dtl) containing the virtual network, NSG, Routes. The network resources can be shared across multiple Labs within the same Subscription.
+- Network resource group (rg-network-dtl) containing the virtual network, NSG, Routes. The network resources can be shared across multiple labs within the same Subscription.
 - Lab resource group (rg-team-lab1) containing the core lab resources. By default, DTL creates a resource group for every new virtual machine and is good if you want this isolation. If not, you can change this configuration to deploy all VMs in the same resource group. Multiple teams might share a DTL or spin up a separate DTL based on the team or project requirement.
 
 On provisioning a DTL, the following infra resources get created automatically:
@@ -50,7 +50,7 @@ On provisioning a DTL, the following infra resources get created automatically:
 - [DTL policies](/azure/devtest-labs/devtest-lab-set-lab-policy) let you control costs and minimize waste in your labs by managing policies (settings) for each lab. Using DTL policy, you can minimize lab waste by specifying which VM sizes are allowed in the lab. If this policy is active, only VM sizes from the list can be used to create VMs.
 - [Hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) configurations provide benefits that include cost savings, overcoming subscription limits, and workload isolation. The hub virtual network acts as a central point of connectivity to many spoke virtual networks and to on-premises networks. The spoke virtual networks peer with the hub and can be used to isolate workloads. DTL can be placed in the spoke network so that Enterprises can have a central control over security features, such as a firewall in the hub as a DMZ, Express Route/VPN connectivity, and segregated management for the workload. Traditionally, the virtual networks, including the spoke virtual network, is provided by the platform administrator. The app team can provision the DTL in the specified subnet. More details are provided in [Networking Topology](#networking-topology).
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) is a fully managed service that provides more secure and seamless Remote Desktop Protocol (RDP) and Secure Shell Protocol (SSH) access to VMs without any exposure through public IP addresses. DTL can use the Bastion host to securely RDP/SSH to VMs without exposing them directly over the Internet as discussed in [Networking Topology](#networking-topology). By default, DTL allows connectivity to VM through Public IP or [Shared Public IP](/azure/devtest-labs/devtest-lab-shared-ip).
-- [DTL artifacts](/azure/devtest-labs/add-artifact-vm) let you specify actions that are performed when the VM is provisioned, such as running Windows PowerShell scripts, running Bash commands, and installing software. Artifact parameters let you customize the artifact for your scenario. The public artifact repository, maintained by DevTest Labs, provides many common tools for both Windows and Linux. A link to this repository is automatically added to your lab.
+- [DTL artifacts](/azure/devtest-labs/add-artifact-vm) let you specify actions that are performed when the virtual machine is provisioned, such as running Windows PowerShell scripts, running Bash commands, and installing software. Artifact parameters let you customize the artifact for your scenario. The public artifact repository, maintained by DevTest Labs, provides many common tools for both Windows and Linux. A link to this repository is automatically added to your lab.
 - A [formula](/azure/devtest-labs/devtest-lab-manage-formulas) in Azure DevTest Labs is a list of default property values used to create a virtual machine.
 - [DTL environments](/azure/devtest-labs/devtest-lab-create-environment-from-arm) let users deploy complex infrastructures in a consistent way within the confines of the lab. You can use Azure Resource Manager templates to create environments with sets of resources in DevTest Labs. These environments can contain any Azure resources that Resource Manager templates can create.
 
@@ -58,7 +58,7 @@ On provisioning a DTL, the following infra resources get created automatically:
 
 Customers can build a solution similar to DevTest Labs by putting together multiple services with Azure native features like Policies, RBAC Groups, VM Extensions, and Automation.
 
-The primary advantage of using DevTest Labs is its out-of-the-box integrated features and intuitive interface, which makes it easy for new users (Admins and Developers) who don't have deep skills on Azure. In this way, DTL, saves time and effort in implementation and maintenance.
+The primary advantage of using DevTest Labs is its out-of-the-box integrated features and intuitive interface, which makes it easy for new users (Admins and Developers) who don't have deep skills on Azure. In this way, DTL saves time and effort in implementation and maintenance.
 
 ## Scenario details
 
@@ -101,7 +101,7 @@ The following links address governance and compliance for DTL:
 
 Enterprise organizations typically follow a least-privileged approach to operational access designed through Azure AD, [Azure role-based access control](/azure/role-based-access-control/overview) (RBAC), and custom role definitions. The RBAC roles enable management of DTL resources, such as create virtual machines, create environments, and start, stop, restart, delete, and apply artifacts.
 
-- Access to Labs can be configured to segregate duties within your team into different [roles](/azure/devtest-labs/devtest-lab-add-devtest-user). Three of these RBAC roles are Owner, DevTest Labs User, and Contributor. The DTL resource should be owned by those who understand the project and team requirements for budget, machines, and required software. A common model is the project-lead or the app-admin as the Lab Owner and the team members as Lab Users. The Contributor role can be assigned to app-infra members who need permissions to manage lab resources. Lab Owner is responsible for configuring the policies and adding the required users to the lab.
+- Access to labs can be configured to segregate duties within your team into different [roles](/azure/devtest-labs/devtest-lab-add-devtest-user). Three of these RBAC roles are Owner, DevTest Labs User, and Contributor. The DTL resource should be owned by those who understand the project and team requirements for budget, machines, and required software. A common model is the project-lead or the app-admin as the lab owner and the team members as lab users. The Contributor role can be assigned to app-infra members who need permissions to manage lab resources. Lab owner is responsible for configuring the policies and adding the required users to the lab.
 - For enterprises that require users to connect with domain-based identities, a domain controller added to the Platform subscription can be used to domain-join DTL VMs. [DTL artifacts](/azure/devtest-labs/devtest-lab-concepts#artifacts) provide a way to domain-join VMs automatically. By default, DTL virtual machines use a local admin account.
 - DTL supports [managed identities](/azure/devtest-labs/configure-lab-identity) for its Azure resources. Use managed identities with DTL to access Key Vault, Storage, and to deploy VMs and PaaS resources. Assign [user-assigned managed identities](/azure/devtest-labs/enable-managed-identities-lab-vms) on your lab VMs in DTL to let lab VM users access Azure resources.
 
@@ -134,7 +134,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 In the context of DTL, automation involves:
 
 - Provisioning of DTL instance. Consistent and repeatable deployment of DTL with policies using [ARM/Bicep templates](/azure/templates/microsoft.devtestlab/labs?tabs=bicep) stored in GIT repository. Automation can be achieved through any CI/CD framework.
-- Provisioning of resources within DTL using Azure DevOps. Automation with the Azure Pipelines Marketplace extension, [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) to create and delete Lab VMs, custom images, and environments.
+- Provisioning of resources within DTL using Azure DevOps. Automation with the Azure Pipelines Marketplace extension, [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) to create and delete lab VMs, custom images, and environments.
 - Provisioning of Artifacts and PaaS [Environments](/azure/devtest-labs/devtest-lab-create-environment-from-arm) with DTL built-in automation. Configure [private custom repository](/azure/devtest-labs/devtest-lab-add-artifact-repo) (ADO or GitHub) in the lab or use the [public repository](https://github.com/Azure/azure-devtestlab) available for storing and automating artifacts and environment templates deployment.
 
 There are many other ways to automate Azure and DevTest Labs, including REST APIs, PowerShell, Azure CLI, and Azure SDK.
@@ -147,7 +147,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 #### Management group and subscription topology
 
-A well-designed topology for [Management Groups](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization) & [Subscriptions](/azure/cloud-adoption-framework/decision-guides/subscriptions), along with organizational structure and compliance requirements, ensures proper isolation and maximum flexibility for future growth. The management group and subscription setup are the responsibility of the Platform owner who provides the required access to the Application administrator or Lab Owner to provision the lab.
+A well-designed topology for [Management Groups](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization) & [Subscriptions](/azure/cloud-adoption-framework/decision-guides/subscriptions), along with organizational structure and compliance requirements, ensures proper isolation and maximum flexibility for future growth. The management group and subscription setup are the responsibility of the Platform owner who provides the required access to the Application administrator or lab Owner to provision the lab.
 
 As shown in the preceding architecture diagram, application teams can deploy DTL in a subscription under a landing zone management group or sandbox management group, based on these few decision points:
 
