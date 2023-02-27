@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 02/20/2023
+ms.date: 02/27/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -45,6 +45,11 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#97e88e162](https://github.com/MicrosoftDocs/architecture-center/commit/97e88e162))
+- [Automating diagnostic Jupyter Notebook execution](./example-scenario/data/automating-diagnostic-jupyter-notebook.yml)  ([#af68726d4](https://github.com/MicrosoftDocs/architecture-center/commit/af68726d4))
+- [Automate multistage pipeline setup in Azure](./example-scenario/devops/automate-azure-pipelines.yml)  ([#cf2c219ce](https://github.com/MicrosoftDocs/architecture-center/commit/cf2c219ce))
+- [Automate Sentinel integration with Azure DevOps](./example-scenario/devops/automate-sentinel-integration.yml)  ([#45641a8d1](https://github.com/MicrosoftDocs/architecture-center/commit/45641a8d1))
+- [Asynchronous messaging options](./guide/technology-choices/messaging.yml)  ([#fe745bff1](https://github.com/MicrosoftDocs/architecture-center/commit/fe745bff1))
 - [Architecture for startups](./guide/startups/startup-architecture.md)  ([#9a53db238](https://github.com/MicrosoftDocs/architecture-center/commit/9a53db238))
 - [Application roles](./multitenant-identity/app-roles.md)  ([#54fd1b4e8](https://github.com/MicrosoftDocs/architecture-center/commit/54fd1b4e8))
 - [Web app private connectivity to Azure SQL Database](./example-scenario/private-web-app/private-web-app.yml)  ([#58bb15ae0](https://github.com/MicrosoftDocs/architecture-center/commit/58bb15ae0))

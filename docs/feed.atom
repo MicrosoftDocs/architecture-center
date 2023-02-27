@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-02-20T17:02:37.990Z</updated>
+    <updated>2023-02-27T17:09:49.940Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -127,6 +127,46 @@
         <updated>2023-02-02T22:47:45.000Z</updated>
         <summary type="html"><![CDATA[Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automated API deployments using APIOps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/devops/automated-api-deployments-apiops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/devops/automated-api-deployments-apiops"/>
+        <updated>2023-02-25T00:23:45.000Z</updated>
+        <summary type="html"><![CDATA[Use APIOps with an Azure API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automating diagnostic Jupyter Notebook execution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/automating-diagnostic-jupyter-notebook</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/automating-diagnostic-jupyter-notebook"/>
+        <updated>2023-02-24T20:16:41.000Z</updated>
+        <summary type="html"><![CDATA[Learn now to automate diagnostic or routine notebooks with an Azure serverless architecture.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate multistage pipeline setup in Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/devops/automate-azure-pipelines</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/devops/automate-azure-pipelines"/>
+        <updated>2023-02-24T17:19:00.000Z</updated>
+        <summary type="html"><![CDATA[Reduce tedious work by automating the process of setting up pipelines in Azure. Use the Azure DevOps REST API and Azure Logic Apps for the automation.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Automate Sentinel integration with Azure DevOps]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/devops/automate-sentinel-integration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/devops/automate-sentinel-integration"/>
+        <updated>2023-02-24T16:41:20.000Z</updated>
+        <summary type="html"><![CDATA[Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Asynchronous messaging options]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/technology-choices/messaging</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/messaging"/>
+        <updated>2023-02-22T18:27:35.000Z</updated>
+        <summary type="html"><![CDATA[Learn about asynchronous messaging options in Azure, including the different types of messages and the entities that participate in a messaging infrastructure.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Architecture for startups]]></title>
