@@ -1,37 +1,52 @@
-The subscription vending Terraform module
+# Subscription Vending Design Considerations
 
-TEST COMMIT
+This article provides guidance for the architectural components of automated subscription vending.
+For information about subscription vending, please see the [article](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) in the Cloud Adoption Framework.
+
+## Overview
+
+Automated subscription vending is a process that enables the creation of subscriptions in a consistent and repeatable manner.
+The process is automated by using a combination of Azure APIs and Infrastructure as Code (IaC).
+The following diagram shows the components of the automated subscription vending process.
+
+```
 
 
-## Design
+               Creates data
+               file and PR
+    ┌───────┐  in...      ┌──────┐         ┌────────┐
+    │       │             │      │         │        │
+    │ ITSM  ├────────────►│ SCM  ├────────►│ CI/CD  │
+    │       │             │      │         │        │
+    └───────┘             └──────┘         └────────┘
 
-[ADD CONTENT]
+                                   Automated
+                                   subscription
+                                   creation
 
-## Modules
+```
 
-[ADD CONTENT]
+## IT Service Management Tool
 
-## Module description
+The ITSM tool is used to create a request for a new subscription.
+It managed the business logic and authorization for the request.
+Once the request is approved, the ITSM tool passes this data into the Source Control Management (SCM) tool and creates a pull request (PR).
 
-|Layer| Module | Description | Useful Links |
-|---|---|---|
-|  |  |
-|  |  |
+## Source Code Management
 
-## How to deploy
+The SCM tool is usually combined with the CI/CD tool and contains the Infrastructre as Code (IaC) for the subscription.
+In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
 
-[ADD CONTENT]
+### Infrastructure as Code
 
-## How to customize
+We provide IaC modules for Bicep and Terraform.
 
-Designed to be customizable, please refer to the documentation in the registry for latest information. Please raise an issue or feature request (link) if needed.
+## CI/CD
 
-## How to manage
+The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure DevOps Pipelines.
 
-[ADD CONTENT]
+### Workload Identities
 
-## Example Usage
-
-[ADD CONTENT]
-
-Note link to TF registry for latest
+In order to create the subscription, the CI/CD tool needs to authenticate to Azure.
+We recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure.
+This removes the requirement to manage secrets.
