@@ -1,12 +1,15 @@
-The subscription vending Terraform module  
+The subscription vending Terraform module
+
+TEST COMMIT
+
 
 ## Design
 
-[ADD CONTENT]  
+[ADD CONTENT]
 
 ## Modules
 
-[ADD CONTENT]  
+[ADD CONTENT]
 
 ## Module description
 
@@ -17,7 +20,7 @@ The subscription vending Terraform module
 
 ## How to deploy
 
-[ADD CONTENT]  
+[ADD CONTENT]
 
 ## How to customize
 
@@ -25,7 +28,7 @@ Designed to be customizable, please refer to the documentation in the registry f
 
 ## How to manage
 
-[ADD CONTENT]  
+[ADD CONTENT]
 
 ## Example Usage
 
