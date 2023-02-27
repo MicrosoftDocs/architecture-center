@@ -122,6 +122,16 @@ Azure helps you avoid unnecessary costs by identifying resource needs, analyzing
 
 To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

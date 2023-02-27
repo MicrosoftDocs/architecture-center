@@ -260,7 +260,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 
 Principal author:
 
- - [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

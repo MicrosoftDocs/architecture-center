@@ -292,8 +292,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |Architecture|Summary|Technology focus|
 |--|--|--|
 |[Unisys ClearPath Forward mainframe rehost to Azure using Unisys virtualization](../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)|Use virtualization technologies from Unisys and Azure to migrate from a Unisys ClearPath Forward Libra (legacy Burroughs A Series/MCP) mainframe.|Mainframe|
-|[Unisys Dorado mainframe migration to Azure with Astadia and Micro Focus](../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)|Migrate Unisys Dorado mainframe systems by using Astadia and Micro Focus products. Move to Azure without rewriting code, switching data models, or updating screens.|Mainframe|
-|[Unisys mainframe migration with Avanade AMT](../reference-architectures/migration/unisys-mainframe-migration.yml)|Learn options for using the Avanade AMT framework to migrate Unisys mainframe workloads to Azure.|Mainframe|
 
 ## Related resources
 
