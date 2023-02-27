@@ -15,14 +15,14 @@ _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-
 
 ### Workflow
 
-In this example scenario, deployment of SWIFT Alliance Cloud in Azure involves using two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource:
+In this example scenario, deployment of SWIFT Alliance Cloud on Azure involves using two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource:
 
 * SWIFT customers are primarily responsible for supplying the resources for the SIL in one Azure subscription.
 * In a second Azure subscription, SWIFT provides the virtual firewall, Juniper vSRX. This component is part of the solution for managed connectivity of Alliance Connect Virtual.
 
 In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. Customers have no access or visibility into the Juniper vSRX configuration or operation, but customers do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
 
-The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. Customers can choose the option best suited to message-traffic volumes and the required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. You can choose the option best suited to message-traffic volumes and the required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
 The footprint of SWIFT Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second replicated configuration, in standby mode, in a different Azure region. For each customer, there's an instance of the SIL and Alliance Connect Virtual.
 
@@ -35,7 +35,7 @@ The SIL subscription contains resources that are managed by the customer. The SI
 * An Azure subnet for the additional virtual machines (depicted by HA-VM 1 and HA-VM 2 in the architecture diagram) for high availability monitoring and routing.
 * Azure policies for compliance with SWIFT's Customer Security Programme (CSP) – Customer Security Controls Framework (CSCF).
 
-The resources for the SIL can be deployed by using an Azure Resource Manager template (ARM template) to create the core infrastructure, as described in this architecture. You can modify the ARM template for the SIL to meet your specific needs. But your configuration needs to adhere to policies that CSP–CSCF requires. You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply the necessary policies to comply with CSP–CSCF.
+You can deploy the resources for the SIL by using an Azure Resource Manager template (ARM template) to create the core infrastructure, as described in this architecture. You can modify the ARM template for the SIL to meet your specific needs. But your configuration needs to adhere to policies that CSP–CSCF requires. You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to apply the necessary policies to comply with CSP–CSCF.
 
 The Alliance Connect Virtual subscription contains resources that you deploy. You deploy them by using an ARM template, also known as the Cloud Infrastructure Definition (CID) file, that's provided by SWIFT. SWIFT manages the configuration and operation of the Juniper vSRX.
 
@@ -59,12 +59,12 @@ You can use Conditional Access to enforce other restrictions. For example, you c
 
 ### Components
 
-- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides secure and seamless RDP and SSH access to VMs. This fully managed service doesn't expose public IP addresses.
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides enhanced-security, seamless RDP and SSH access to VMs. This fully managed service doesn't expose public IP addresses.
 - [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365.
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps you to manage policies in a central location. By using this service, you can track compliance status, govern resources, and discover the changes that made a resource non-compliant. You can also enforce policies on your resources and ensure that future configurations are compliant with standards and regulations.
-- [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks.
-- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
+- [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps you manage policies in a central location. By using this service, you can track compliance status, govern resources, and discover the changes that made a resource non-compliant. You can also enforce policies on your resources and ensure that future configurations are compliant with standards and regulations.
+- [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can communicate with each other, the internet, and on-premises networks with enhanced security.
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure as a service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 
 ## Scenario details
 
@@ -90,7 +90,7 @@ The following considerations apply to this solution. If you want more detailed i
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This example scenario provides high availability. Multiple instances of SIL and Alliance Cloud, together with Alliance Connect Virtual, are deployed to support higher availability by providing back-up locations. To increase resiliency and availability, we recommend that you deploy a second similar configuration in a different Azure zone, in the same Azure region. For Alliance Cloud in Azure and Alliance Connect Virtual instances, the systems (SIL VM, HA VM 1, and VA vSRX) should be deployed in the same Azure zone (for example, AZ1) as shown in the preceding architecture diagram.
+This example scenario provides high availability. Multiple instances of SIL and Alliance Cloud, together with Alliance Connect Virtual, are deployed to support higher availability by providing back-up locations. To increase resiliency and availability, we recommend that you deploy a second similar configuration in a different Azure zone, in the same Azure region. For Alliance Cloud on Azure and Alliance Connect Virtual instances, the systems (SIL VM, HA VM 1, and VA vSRX) should be deployed in the same Azure zone (for example, AZ1) as shown in the preceding architecture diagram.
 
 To increase resilience beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure paired regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region in the same geography. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. 
 
@@ -98,7 +98,7 @@ To increase resilience beyond a single Azure region, we recommend that you deplo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The traffic between the SIL and the Juniper vSRX is limited to specific and known traffic. You can use network security groups and the packet capture capabilities that are provided by Network Watcher, and combined with Azure Security Center and Azure Sentinel. You can use network security group flow logs in Azure Network Watcher to send flow data to Azure Storage accounts. [Azure Sentinel](/azure/sentinel/overview) provides built-in orchestration and automation of common tasks. This functionality can collect the flow logs, detect and investigate threats, and respond to incidents.
+The traffic between the SIL and the Juniper vSRX is limited to specific and known traffic. You can use network security groups and the packet capture capabilities that are provided by Azure Network Watcher, and combined with Azure Security Center and Azure Sentinel. You can use network security group flow logs in Network Watcher to send flow data to Azure Storage accounts. [Azure Sentinel](/azure/sentinel/overview) provides built-in orchestration and automation of common tasks. This functionality can collect the flow logs, detect and investigate threats, and respond to incidents.
 
 [Azure Bastion](/azure/bastion/bastion-overview) enables connectivity transparently from the Azure portal to a virtual machine via RDP or Secure Shell Protocol (SSH). Because Azure Bastion requires administrators to sign in to the Azure portal, you can use Conditional Access to enforce multi-factor authentication and other access restrictions. For example, you can specify the public IP address from which administrators can sign in.
 
@@ -106,13 +106,13 @@ Azure Bastion must be deployed to a dedicated subnet and requires a public IP ad
 
 #### Enforce SWIFT CSP–CSCF policies
 
-[Azure Policy](/azure/governance/policy/overview) enables customers to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, Azure Policy can be used to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. Customers can use built-in policies or create policies themselves.
+You can use [Azure Policy](/azure/governance/policy/overview) to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, Azure Policy can be used to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. You can use built-in policies or create policies themselves.
 
 SWIFT has a policy framework that helps you enforce a subset of SWIFT CSP–CSCF requirements by using Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT Secure Zone components and another subscription for other potentially related components. Separate subscriptions enable you to apply the SWIFT CSP–CSCF Azure policies only to subscriptions that contain a SWIFT Secure Zone.
 
-We recommend deploying SWIFT components in a subscription that's separate from any back-office applications. Separate subscriptions ensure that SWIFT CSP–CSCF only applies to SWIFT components and not to customer-specific components.
+We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. Separate subscriptions ensure that SWIFT CSP–CSCF applies only to SWIFT components and not to customer-specific components.
 
-Consider using the latest implementation of SWIFT CSP controls in Azure. But first consult with the Microsoft team that's working with you.
+Consider using the latest implementation of SWIFT CSP controls, but first consult with the Microsoft team that you're working with.
 
 ### Cost optimization
 
@@ -128,7 +128,7 @@ Customers are responsible for operating the SIL software and the underlying Azur
 
 In the Alliance Connect Virtual subscription, SWIFT is responsible for the configuration of Juniper vSRX. SWIFT also operates the VPN between the Juniper vSRX and SWIFTNet. The customer is responsible for operating and monitoring the underlying infrastructure resources.
 
-Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools focus on the infrastructure that's deployed in Azure. These tools don't monitor the SWIFT software. You can use a monitoring agent to collect event logs, performance counters, and other logs, and send these logs and metrics to Azure Monitor. For more information, see [Azure Monitor Agent overview](/azure/azure-monitor/agents/agents-overview). 
+Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools focus on the infrastructure that's deployed on Azure. These tools don't monitor the SWIFT software. You can use a monitoring agent to collect event logs, performance counters, and other logs, and send these logs and metrics to Azure Monitor. For more information, see [Azure Monitor Agent overview](/azure/azure-monitor/agents/agents-overview). 
 
 [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) use data from Azure Monitor to proactively notify you when issues are found with your infrastructure or application. They allow you to identify and address problems before your users notice them. 
 
