@@ -166,14 +166,11 @@ The scenarios described can be extended to other GitOps tools as well. Jenkins-x
 
 ## Considerations
 
-The following considerations apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Scalability
+### Reliability
 
-GitOps has many benefits, but as cluster landscapes grow, so does the number of repositories. The solution described in scenario 5 (with Syncier tower) helps meet challenges like:
-* Keeping an overview of all environments and clusters.
-* Tracking critical images.
-* Checking that certain policies are active in every cluster.
+
 
 ### Security
 
@@ -186,13 +183,15 @@ Apart from the task of setting up repository permissions, consider implementing 
 * Immutable history: Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
 * Further security measures: Require your GitHub users to activate two-factor authentication. Also, allow only signed commits, which can't be altered after the fact.
 
-### Operations
+### Operational excellence
 
 GitOps can increase DevOps productivity. One of the most useful features is the ability to quickly roll back changes that are behaving unexpectedly, just by performing Git operations. The commit graph still contains all commits, so it can help with the post-mortem analysis.
 
 GitOps teams often manage multiple environments for the same application. It's typical to have several stages of an application deployed to different Kubernetes clusters or namespaces. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
 
-Optionally, you can use Syncier Security Tower to simplify cluster operations. Syncier Security Tower can extract the application versions deployed to multiple clusters from the repository and displays it in a user-friendly way. An overview shows which container images and versions are deployed in each environment. DevOps teams can use advanced Syncier Security Tower features to get insights into who changed what and when in an application, or browse and filter based on factors like change type or resource kind. Syncier Security Tower provides a control center to activate policies and compare compliance state over different clusters.
+Optionally, you can use Syncier Security Tower to simplify cluster operations. Syncier Security Tower can extract the application versions deployed to multiple clusters from the repository and displays it in a user-friendly way.  DevOps teams can use advanced Syncier Security Tower features to get insights into who changed what and when in an application, or browse and filter based on factors like change type or resource kind. Syncier Security Tower provides a control center to activate policies and compare compliance state over different clusters.
+
+### Cost optimization
 
 ## Deploy scenario 1
 
