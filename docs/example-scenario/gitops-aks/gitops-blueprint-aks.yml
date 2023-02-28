@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: GitOps solutions for an Azure Kubernetes Services (AKS) cluster. This solution explores AKS GitOps options using Argo CD and Flux v2.
   author: francisnazareth
-  ms.author: makor
+  ms.author: fnazaret
   ms.date: 02/28/2023
   ms.topic: example-scenario
   ms.service: architecture-center
