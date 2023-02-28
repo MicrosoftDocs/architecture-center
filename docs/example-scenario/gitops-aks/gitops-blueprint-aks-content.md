@@ -14,7 +14,9 @@ Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) 
 
 Flux can deploy to AKS using Kubernetes manifests / helm charts / Kustomization files. Flux is an  inside-out process, which is important for security. No cluster endpoints need to be exposed for Flux to detect, pull and reconcile configuration changes.
 
-In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
+In this scenario, Kubernetes administrator(s) may make changes to kubernetes configuration objects (such as secrets / configmaps / etc.) and commit the changes directly to GitHub repository.
+
+The data flow for this scenario is as follows:
 
 1. Developer commits configuration changes to GitHub repository.
 1. Flux detects configuration drift in the Git repository, and pulls configuration changes.
