@@ -15,12 +15,12 @@ _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-
 
 ### Workflow
 
-In this example scenario, deployment of SWIFT Alliance Cloud on Azure involves using two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource:
+In this example scenario, SWIFT Alliance Cloud is deployed into two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource:
 
-* SWIFT customers are primarily responsible for supplying the resources for the SIL in one Azure subscription.
+* You're primarily responsible for supplying the resources for the SIL in one Azure subscription.
 * In a second Azure subscription, SWIFT provides the virtual firewall, Juniper vSRX. This component is part of the solution for managed connectivity of Alliance Connect Virtual.
 
-In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. Customers have no access or visibility into the Juniper vSRX configuration or operation, but customers do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
+In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You don't have access or visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
 
 The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. You can choose the option best suited to message-traffic volumes and the required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
@@ -39,11 +39,11 @@ You can deploy the resources for the SIL by using an Azure Resource Manager temp
 
 The Alliance Connect Virtual subscription contains resources that you deploy. You deploy them by using an ARM template, also known as the Cloud Infrastructure Definition (CID) file, that's provided by SWIFT. SWIFT manages the configuration and operation of the Juniper vSRX.
 
-SWIFT customers establish improved-security connectivity to the SIL subscription by:
+You're responsible for establishing improved-security connectivity to the SIL. You can use one of these methods:
 
-* Using ExpressRoute to connect on-premises resources to Azure via private connectivity.
-* Using site-to-site VPN to connect customer premises to Azure via the internet.
-* Using Remote Desktop Protocol (RDP) over the internet to connect customers that have internet connectivity. (You can alternatively use Azure Bastion for these connections.  We recommended this option for new SWIFT on Azure customers.)
+* Use ExpressRoute to connect on-premises resources to Azure via private connectivity.
+* Use site-to-site VPN to connect your premises to Azure via the internet.
+* Use Remote Desktop Protocol (RDP) over the internet for internet connectivity. (You can alternatively use Azure Bastion for these connections. We recommended Azure Bastion for new SWIFT on Azure customers.)
 
 :::image type="content" alt-text="Diagram that shows three ways to connect to the Azure accounts that support the SWIFT Integration Layer for SWIFT Alliance Cloud." source="./media/swift-alliance-cloud-on-azure-connectivity.png" lightbox="./media/swift-alliance-cloud-on-azure-connectivity.png" border="false":::
 
@@ -51,7 +51,7 @@ replace diagram
 
 <!-- _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure-connectivity.vsdx) that contains this architecture diagram._ -->
 
-The SWIFT customer uses one of the three methods of connectivity to connect to the SIL software that runs on the SIL VM. The recommended configurations of Azure Firewall and network security groups allow only appropriate traffic to pass to the SIL VM. 
+You use one of the three methods of connectivity to connect to the SIL software that runs on the SIL VM. The recommended configurations of Azure Firewall and network security groups allow only appropriate traffic to pass to the SIL VM. 
 
 Alternatively, you can use Azure Bastion to restrict traffic. (The corresponding subnet can be part of the connectivity hub virtual network. As a general guideline, we recommend this option for new SWIFT on Azure customers.) Azure Bastion provides connectivity from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can enforce multifactor authentication. 
 
@@ -75,7 +75,7 @@ This approach can be used for:
 
 ### Potential use cases
 
-This solution is targeted to:
+This solution applies to:
 
 - Existing SWIFT customers who run SIL on-premises and want to run Alliance Cloud in Azure.
 - New SWIFT customers who can benefit by deploying directly to Azure.
@@ -90,7 +90,7 @@ The following considerations apply to this solution. If you want more detailed i
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This example scenario provides high availability. Multiple instances of SIL and Alliance Cloud, together with Alliance Connect Virtual, are deployed to support higher availability by providing back-up locations. To increase resiliency and availability, we recommend that you deploy a second similar configuration in a different Azure zone, in the same Azure region. For Alliance Cloud on Azure and Alliance Connect Virtual instances, the systems (SIL VM, HA VM 1, and VA vSRX) should be deployed in the same Azure zone (for example, AZ1) as shown in the preceding architecture diagram.
+This example scenario provides high availability. Multiple instances of SIL and Alliance Cloud, together with Alliance Connect Virtual, are deployed to support higher availability by providing back-up locations. To increase resiliency and availability, we recommend that you deploy a second similar configuration in a different Azure zone, in the same Azure region. For Alliance Cloud on Azure and Alliance Connect Virtual instances, the systems (SIL VM, HA-VM 1, and VA vSRX) should be deployed in the same Azure zone (for example, AZ1) as shown in the preceding architecture diagram.
 
 To increase resilience beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure paired regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region in the same geography. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. 
 
@@ -124,9 +124,9 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-Customers are responsible for operating the SIL software and the underlying Azure resources in the SIL subscription.
+You're responsible for operating the SIL software and the underlying Azure resources in the SIL subscription.
 
-In the Alliance Connect Virtual subscription, SWIFT is responsible for the configuration of Juniper vSRX. SWIFT also operates the VPN between the Juniper vSRX and SWIFTNet. The customer is responsible for operating and monitoring the underlying infrastructure resources.
+In the Alliance Connect Virtual subscription, SWIFT is responsible for the configuration of Juniper vSRX. SWIFT also operates the VPN between the Juniper vSRX and SWIFTNet. You're responsible for operating and monitoring the underlying infrastructure resources.
 
 Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools focus on the infrastructure that's deployed on Azure. These tools don't monitor the SWIFT software. You can use a monitoring agent to collect event logs, performance counters, and other logs, and send these logs and metrics to Azure Monitor. For more information, see [Azure Monitor Agent overview](/azure/azure-monitor/agents/agents-overview). 
 
