@@ -260,7 +260,7 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 
 Principal author:
 
- - [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Program Manager
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -291,7 +291,7 @@ For more information about the services featured in this solution, see the follo
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - Reference architectures:
 
-  - [Unisys mainframe migration to Azure using Asysco][Unisys mainframe migration]
+  - [Unisys mainframe migration to Azure using Avanade AMT][Unisys mainframe migration]
   - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
   - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]

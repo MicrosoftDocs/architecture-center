@@ -170,7 +170,7 @@ For more information about designing scalable solutions, see [Performance effici
 
 Principal author:
 
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Principal Cloud Solution Architect, US National CSA Team
 
 Other contributor:
 
