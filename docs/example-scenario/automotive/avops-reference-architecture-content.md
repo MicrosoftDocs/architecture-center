@@ -2,17 +2,12 @@
 This architecture provides guidance on the building blocks and recommendations for developing an automated driving solution.
 
 ## Architecture
-
-![AVOps Reference architecture.](.\images\marketing-arch.png)
-
-From an industry perspective, the development of autonomous driving typically involves three key stages: data collection and curation, algorithm development and simulation, model building and validation, and deployment. The above diagram highlights a typical industry flow for ADAS/AV development.
-
 The AVOps Reference Architecture consists of four main building blocks.  The upcoming chapters shall describe the four main building blocks in detail:
 
 - DataOps (Data Curation and Extraction of ingested sensor data / measurements like videos / images, Lidar and Radar and centralized Data management capabilities)
 - MLOps (Machine Learning Ops) to train perception model
 - ValOps to validate AD functions based on trained model and raw ground truth data
-- AVOps Platform Layer that provides overarching functionalities like Meta-Data Search, Data Catalog, Overall orchestration, platform governance, and standardized infrastructure templates.
+- AVOps centralized function that provides overarching functionalities like Meta-Data Search, Data Catalog, Overall orchestration, platform governance, and standardized infrastructure templates.
 
 The reference architecture contains guidance about these logical building blocks and processes for AVOps, technology recommendations, partner, or open-source solutions for specific areas like simulation and data models. 
 
@@ -55,20 +50,28 @@ Here's the high-level process flow of data through the reference architecture:
 The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake.  
 
 ![Data Collection](.\images\data-collection.png)
-### AVOps Platform Layer
-Building autonomous vehicle operations is a complex architecture that includes many organizations, third parties, various roles, and various stages in the development.  Thus, implementing a good governance model is imperative. Utilizing the guidance from the [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/), AVOps utilizes the concept within the Azure Cloud Adoption Framework called the [Azure Landing Zone](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).  The Platform Layer acts as the Platform Landing Zone that represents key services such as scale, security governance, networking, and identity.  In addition, the Platform Layer handles Infrastructure Provisioning, Cost Management, Metadata and Data Catalog, Lineage, Overall Orchestration and Event Handling.  Centralizing these services creates efficiency and easing of operations.
 
-For that reason, a platform layer has a set of these responsibilities:
-- Providing Azure Resource Manager / Bicep templates incl. standard services like storage and compute used by each area and subarea of the AVOps reference architecture 
-- Central Service Bus / Event Hubs instances allows an event driven orchestration of the AVOps data loop 
-- Meta-Data Catalog 
-- Capabilities for E2E lineage and traceability across all AVOps components 
 
-![Platform Layer](.\images\platform-layer.png)
+![AVOps Reference architecture.](.\images\marketing-arch.png)
+
+From an industry perspective, the development of autonomous driving typically involves three key stages: data collection and curation, algorithm development and simulation, model building and validation, and deployment. The above diagram highlights a typical industry flow for ADAS/AV development.  The AVOps reference architecture consists of four key sections.  
+- The Data Ingestion & Curation phase maps to [DataOps](#dataops) 
+- The Iteratively Test, Train & Simulate phase maps to [MLOps](#mlops)
+- Build & Validate Phase maps to [ValOps](#valops)
 
 ### DataOps
 DataOps (Data Operations) are a set of practices, processes, and tools aimed at improving the quality, speed, and reliability of data operations.  The goal of the DataOps flow for autonomous driving is to ensure that the data used to control the vehicle is of high quality, accurate, and reliable. By following a consistent DataOps flow, organizations can improve the speed and accuracy of their data operations and make better decisions to control their autonomous vehicles.  
-
+#### DataOps Components
+* [Azure Data Box](https://learn.microsoft.com/azure/databox/) used to transfer collected vehicle data to Azure through a regional carrier
+* [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/) extends on-premises network into the Microsoft cloud over a private connection
+* [Azure Data Lake Gen2](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) used to data per stages (for example, raw, extracted)
+* [Azure Data Factory](https://learn.microsoft.com/azure/data-factory/introduction) orchestrated data flow, performs ETL through [batch compute](https://learn.microsoft.com/azure/batch/), and data integration service that creates data-driven workflows for orchestrating data movement and transforming data 
+* [Azure Batch](https://learn.microsoft.com/azure/batch/) runs large-scale applications such as for data wrangling, filtering and preparation of data, and metadata extraction
+* [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) used to store metadata results such as stored measurement
+* [Azure Data Share](https://learn.microsoft.com/azure/data-share/) shares data with third party organizations such as labeling companies in a safe and secure manner
+* [Azure Databricks](https://learn.microsoft.com/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.  Used as an analytics workbench for a Data Engineer
+* [Azure Synapse](https://learn.microsoft.com/azure/synapse-analytics/overview-what-is) accelerates time to insight across data warehouses and big data systems.
+* [Azure Cognitive Search](https://learn.microsoft.com/azure/cognitive-services/) - Provides the data catalog search services
 ### MLOps
 AVOps reference architecture utilizes MLOps in several places of the reference architecture.  AVOps utilizes MLOps when machine learning comes into the picture:
 - Feature Extraction Models (like CLIP, YOLO) to classify scenes (for example, if pedestrian is part of the scene) during [DataOps](#dataops) pipeline 
@@ -78,7 +81,11 @@ AVOps reference architecture utilizes MLOps in several places of the reference a
 One of the main parts of the AVOps reference architecture is the development of the Azure Machine Learning based perception model that generates object detection model based on detected and extracted scenes. 
 
 Transfer of containerized machine learning model to a format understood by SoC (system on a chip) hardware and validation / simulation software requires an extra step in the MLOps pipeline that needs support from SoC manufacturers.
-
+#### MLOps Components
+* [Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) used to develop machine learning algorithms such as feature extraction, auto labeling, object detection and classification, and sensor fusion.  
+* [Azure DevOps](https://learn.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) used as the main tool for DevOps practice that includes CI/CD, testing and automation.
+* [GitHub for Enterprises](https://github.com/enterprise) as an alternative as the main tool for DevOps practice that includes CI/CD, testing and automation.
+* [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments
 ### ValOps
 
 Validation Operations (ValOps) involve testing the developed models in simulated environments via [managed scenarios](#scenario-management) to ensure they meet desired performance standards, accuracy, and safety requirements before expensive real-world environmental testing. The goal of the validation process in the cloud is to identify and address any potential issues before deploying the autonomous vehicle in a live environment. ValOps include:
@@ -86,11 +93,9 @@ Validation Operations (ValOps) involve testing the developed models in simulated
 1. Simulation validation: Cloud-based simulation ([Open Loop](#open-loop-testing)/[Closed Loop Testing](#closed-loop-testing-and-simulation)) environments allow for virtual testing of autonomous vehicle models, which runs at scale and at a lower cost than real-world testing.
 1. Performance validation: Cloud-based infrastructure can run large-scale tests to evaluate the performance of autonomous vehicle models. Performance validation can include stress tests, load tests, and benchmarks.
 
-
 In general, using the AVOps - ValOps reference for validation allows organizations to take advantage of the scalability, flexibility, and cost-effectiveness of cloud-based infrastructure, while also speeding up the time-to-market for autonomous vehicle models.
-
 #### Open Loop testing
-Re-Simulation is massively complex and has required years of development. Seeking government approval of Autonomous Driving (AD) raises strict requirements in areas such as safety, data privacy, data versioning and auditing. Resimulation is an open loop test and validation system for AD functions. It processes recorded raw data from various car sensors through a graph in the cloud. The produced result from resimulation validates data processing algorithms or detect regressions. The OEMs combine the sensors together into a Directed acyclic graph that represents the real-world vehicle.
+Re-Simulation can be considered an open loop test for automatic driving and is a complex process that may have regulatory requirements for safety, data privacy, data versioning and auditing. Resimulation is an open loop test and validation system for AD functions. It processes recorded raw data from various car sensors through a graph in the cloud. The produced result from resimulation validates data processing algorithms or detect regressions. The OEMs combine the sensors together into a Directed acyclic graph that represents the real-world vehicle.
 Resimulation or “sensor reprocessing” is a large-scale  parallel compute job. Resiumulation processes 10 s~100-s PBs of data using tens of thousands of cores and requiring high I/O throughput of >30GB/sec. Datasets fused from multiple sensor types to represent a singular view of what the on-vehicle computer vision systems “saw” when navigating the real world. An open loop test validates the performance of the algorithms against ground truth using replay and scoring. The output is used later in the workflow for algorithm training:
 - Datasets sourced from test fleet vehicles that collect raw sensor data (for example, camera, lidar, radar, ultrasonic)
 - Data volume is highly dependent on camera resolution and number of sensors on vehicle
@@ -100,28 +105,29 @@ Resimulation or “sensor reprocessing” is a large-scale  parallel compute job
 - A second “reinjection” or “rerun” of the job increasingly performed after model & software are updated
 - Ground truth data is used to validate the results
 - Results are written to Storage and offloaded to Azure Data Explorer (for visualization)
-
 #### Closed Loop testing and simulation
 Closed loop testing of autonomous vehicles refers to testing their capabilities with real-time feedback from the environment. In other words, the vehicle's actions are based on both its pre-programmed behavior and the dynamic conditions it's encountering, and it adjusts its actions accordingly. Closed loop testing executes in a more complex and realistic environment and used to assess the vehicle's ability to handle real-world scenarios, including dealing with unexpected situations. The goal of closed loop testing is to verify that the vehicle can operate safely and effectively in various conditions, and to refine its control algorithms and decision-making processes as needed.
 
 ValOps pipeline integrates Closed-Loop testing and simulations third party and ISV applications.
-
 #### Scenario Management 
 The ValOps stage uses a catalog of specific real scenarios to validate the AD capabilities to simulate the behavior of AVs. The objective is to accelerate the creation of scenario catalogs, by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Use third party tools for Scenario Management or as an alternative use an OSS lightweight project like CARLA that also supports [OPENDrive (xodr) format](https://www.asam.net/standards/detail/opendrive/), see [carla-simulator/scenario_runner: Traffic scenario definition and execution engine](https://github.com/carla-simulator/scenario_runner).
-
-
-#### MLOps Components
-* [Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) used to develop machine learning algorithms such as feature extraction, auto labeling, object detection and classification, and sensor fusion.  
-* [Azure DevOps](https://learn.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops) used as the main tool for DevOps practice that includes CI/CD, testing and automation.
-* [GitHub for Enterprises](https://github.com/enterprise) as an alternative as the main tool for DevOps practice that includes CI/CD, testing and automation.
-* [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments
-
 #### ValOps Components
 * [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) runs large-scale applications batch inference for open-loop validation within a resin framework. For access measurement files, recommended using [BlobFuse2](https://learn.microsoft.com/azure/storage/blobs/blobfuse2-what-is).  Alternative is to use NFS but performance needs to evaluated for the use case.
 * [BlobFuse2](https://learn.microsoft.com/azure/storage/blobs/blobfuse2-what-is)
 * [Azure Batch](https://learn.microsoft.com/azure/batch/) runs large-scale applications batch inference for open-loop validation within a resin framework
 * [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview) provides exploration of measurements and KPI (that is, resimulation and job runs).
+### Centralized AVOps Functions
+Building autonomous vehicle operations is a complex architecture that includes many organizations, third parties, various roles, and various stages in the development.  Thus, implementing a good governance model is imperative. Utilizing the guidance from the [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/), AVOps reference architecture recommends a centralized team in an organization adopts the concept within the Azure Cloud Adoption Framework called the [Azure Landing Zone](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/).  
 
+It's also recommended that a centralized team in an organization handles functions such as Infrastructure Provisioning, Cost Management, Metadata and Data Catalog, Lineage, Overall Orchestration and Event Handling.  Centralizing these services creates efficiency and easing of operations.  This architecture assumes these responsibilities from the centralized teams.  
+
+For that reason, AVOps recommends a centralized team in an organization handling a set of these responsibilities:
+- Providing Azure Resource Manager / Bicep templates incl. standard services like storage and compute used by each area and subarea of the AVOps reference architecture 
+- Central Service Bus / Event Hubs instances allows an event driven orchestration of the AVOps data loop 
+- Meta-Data Catalog 
+- Capabilities for E2E lineage and traceability across all AVOps components 
+
+![Centralized AVOps Functions](.\images\centralized-avops-functions.png)
 ### Potential use cases
 
 - Automotive OEMs, Tier1s, and/or ISVs that are developing solutions for automated driving 
@@ -155,10 +161,10 @@ There are several strategies that organizations can use to reduce costs associat
 1. Optimize cloud infrastructure: Careful planning and management of cloud infrastructure can help reduce costs, such as choosing cost-effective instance types and scaling infrastructure to meet changing workloads. Utilize the guidance from the [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/).
 1. Use spot instances: Spot instances allow organizations to bid on spare capacity, which can result in significant cost savings compared to on-demand instances.
 1. Utilize auto-scaling: Auto-scaling enables organizations to automatically adjust their cloud infrastructure based on demand, reducing the need for manual intervention and helping to keep costs in check. For more information about scaling, see [Design Scaling](https://learn.microsoft.com/azure/architecture/framework/scalability/design-scale).
-1. Utilize cost-effective storage: Organizations must consider how  using hot/cool/archive tiers for storage.  Storage can be a significant cost for autonomous driving development, so it's important to choose cost-effective storage options, such as cold storage or infrequent access storage. For more information of data lifecycle management, see [Data lifecycle Management](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview)
+1. Utilize cost-effective storage: Organizations must consider how  using hot/cool/archive tiers for storage.  Storage can be a significant cost for autonomous driving development, so it's important to choose cost-effective storage options, such as cold storage or infrequent access storage. For more information of data lifecycle management, see [data lifecycle management](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview)
 1. Utilize cost management and optimization tools: [Azure Cost Management](https://azure.microsoft.com/products/cost-management/#overview) provides cost management and optimization tools that can help organizations identify and address areas for cost reduction, such as identifying unused or underutilized resources.
 1. Consider Azure Services: Organizations can use Azure services, such as [Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models, which can be more cost-effective than building and maintaining in-house infrastructure.
-1. Use shared resources: When possible, organizations can use shared resources, such as shared databases or shared compute resources, to reduce costs associated with autonomous driving development.  [Platform Layer](#avops-platform-layer) aims to solve this challenge by implementing a central bus, event hub and a Meta-Data Catalog.  In addition, services such as [Azure Data Share](https://learn.microsoft.com/azure/data-share/) help organizations achieve this goal.
+1. Use shared resources: When possible, organizations can use shared resources, such as shared databases or shared compute resources, to reduce costs associated with autonomous driving development.  [AVOps Centralized Functions](#centralized-avops-functions) aims to solve this challenge by implementing a central bus, event hub and a Meta-Data Catalog.  In addition, services such as [Azure Data Share](https://learn.microsoft.com/azure/data-share/) help organizations achieve this goal.
 
 By following these strategies, organizations can reduce the costs associated with autonomous driving development in the cloud, freeing up resources that organizations can use to further enhance the development process.
 
