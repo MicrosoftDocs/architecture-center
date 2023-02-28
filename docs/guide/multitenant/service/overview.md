@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article introduces the guidance we provide for using many distinct Azure services in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/22/2022
+ms.date: 02/28/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -20,12 +20,12 @@ ms.custom:
 
 # Service-specific guidance for a multitenant solution
 
-When you're building a solution on Azure, you combine multiple distinct Azure services together to achieve your business goals. Although Azure services work in a consistent manner, there are specific considerations for how you design and implement each service. When you design a multitenant solution, there are further considerations to review, for each service.
+When you're building a solution on Azure, you combine multiple distinct Azure services together to achieve your business and technical goals. Although Azure services work in a consistent manner, there are specific considerations for how you design and implement each service. When you design a multitenant solution, there are further considerations to review, for each service.
 
 In this section, we provide guidance about the features of each service that are helpful for multitenant solutions. We also discuss the levels of tenant isolation that each service supports. Where applicable, we link to more details and sample implementations in the service's documentation.
 
 > [!NOTE]
-> The content in this section focuses specifically on the aspects of each service that are useful when building a multitenant solution on Azure. For comprehensive information about each service and its features, refer to the service's documentation.
+> The content in this section focuses specifically on the aspects of each service that relate to building a multitenant solution on Azure. For comprehensive information about each service and its features, refer to the service's documentation.
 
 ## Intended audience
 
