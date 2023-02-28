@@ -139,7 +139,7 @@ If Azure Front Door is unavailable, then multiple factors influence the overall 
 - How many failed probes Traffic Manager is configured to see before it reroutes traffic.
 - How long clients and upstream DNS servers cache Traffic Manager's DNS responses for.
 
-You also need to which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
+You also need to determine which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
 > [!TIP]
 > Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are generally too slow for mission-critical solutions to remain responsive.
