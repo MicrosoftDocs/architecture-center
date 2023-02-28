@@ -170,9 +170,13 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
 One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. By adopting GitOps and using the Git repository as the single source of truth for Kubernetes configuration and application logic, a new cluster with the application code and configuration can be spun up quite quickly in case of availability issues with existing clusters. GitOps would allow to create and apply the cluster configuration and application deployment as a scale unit and can establish the [deployment stamp](/azure/architecture/patterns/deployment-stamp) pattern.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 With the GitOps approach, individual developers or administrators don't directly access the Kubernetes clusters to apply changes or updates. Instead, users push changes to a Git repository, and the GitOps operator (Flux or Argo CD) reads them and applies them to the cluster. This approach follows the security best practice of least privilege by not giving DevOps teams write permissions to the Kubernetes API. In diagnostic or troubleshooting scenarios, you can grant cluster permissions for a limited time on a case-by-case basis.
 
@@ -185,6 +189,8 @@ Apart from the task of setting up repository permissions, consider implementing 
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 GitOps can increase DevOps productivity. One of the most useful features is the ability to quickly roll back changes that are behaving unexpectedly, just by performing Git operations. The commit graph still contains all commits, so it can help with the post-mortem analysis.
 
 GitOps teams often manage multiple environments for the same application. It's typical to have several stages of an application deployed to different Kubernetes clusters or namespaces. The Git repository, which is the single source of truth, shows which versions of applications are currently deployed to a cluster.
@@ -192,6 +198,7 @@ GitOps teams often manage multiple environments for the same application. It's t
 Optionally, you can use Syncier Security Tower to simplify cluster operations. Syncier Security Tower can extract the application versions deployed to multiple clusters from the repository and displays it in a user-friendly way.  DevOps teams can use advanced Syncier Security Tower features to get insights into who changed what and when in an application, or browse and filter based on factors like change type or resource kind. Syncier Security Tower provides a control center to activate policies and compare compliance state over different clusters.
 
 ### Cost optimization
+
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - [On the free tier](/azure/aks/free-standard-pricing-tiers), AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes.
