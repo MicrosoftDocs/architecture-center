@@ -1,7 +1,7 @@
 > [!NOTE]
 > For general updates on SWIFT product availability in the cloud, see the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
 
-This article provides an overview of deploying SWIFT's Alliance Lite2 connectivity stack on Azure. You can deploy the solution in a single Azure subscription. For better management and governance of the solution, however, we recommend that you use two Azure subscriptions: 
+This article provides an overview of deploying SWIFT's Alliance Lite2 connectivity stack on Azure. You can deploy the solution in a single Azure subscription. For better management and governance of the solution, however, we recommend that you use two subscriptions: 
 - One subscription contains the Alliance Lite2 AutoClient resources. 
 - The other subscription contains the Alliance Connect Virtual resources to connect to SWIFT's network.
 
@@ -15,13 +15,13 @@ This article provides an overview of deploying SWIFT's Alliance Lite2 connectivi
 
 In this example scenario, SWIFT Alliance Lite2 is deployed into two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource:
 
-- SWIFT customers are primarily responsible for supplying the resources for the SIL in one Azure subscription.
+- You're primarily responsible for supplying the resources for the Alliance Lite2 AutoClient in one Azure subscription.
 
 - In a second Azure subscription, SWIFT provides the virtual firewall, Juniper vSRX. This component is part of the solution for managed connectivity of Alliance Connect Virtual.
 
-In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. Customers have no access or visibility into the Juniper vSRX configuration or operation, but customers do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
+In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT.
 
-The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute or the internet. For information about SWIFT connectivity options, see [Two-subscription design](#two-subscription-design) in this article.
+The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. For information about SWIFT connectivity options, see [Two-subscription design](#two-subscription-design) in this article.
 
 The two-subscription design separates the resources based on who's responsible for them. For more information, see [Two-subscription design](#two-subscription-design) and [Operational excellence](#operational-excellence) in this article.
 
@@ -35,20 +35,20 @@ The Lite2 AutoClient subscription has a single resource group. It contains:
 - Azure policies for SWIFT.
 - Azure policies for compliance with SWIFT's Customer Security Programme (CSP) – Customer Security Controls Framework (CSCF).
 
-You're responsible for establishing secured connectivity to the Alliance Lite2 AutoClient subscription. You can use one of these methods:
+You're responsible for establishing enhanced-security connectivity to the Alliance Lite2 AutoClient subscription. You can use one of these methods:
 
 - Use ExpressRoute to connect your premises to Azure via private connectivity.
 - Use Azure site-to-site VPN to connect your premises to Azure via the internet.
-- Use direct RDP over the internet for internet connectivity. (You can alternatively use Azure Bastion for these connections. We recommended Azure Bastion for new SWIFT on Azure customers.)
+- Use direct RDP over the internet for internet connectivity. (You can alternatively use Azure Bastion for these connections. We recommend Azure Bastion for new SWIFT on Azure customers.)
 
 :::image type="content" source="media/lite2-access-secure-zone.png" alt-text="Diagram that shows SWIFT Alliance Lite2 connectivity." lightbox="media/lite2-access-secure-zone.png" border="false":::
 
 
 You use RDP, with one of the preceding three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Lite2 AutoClient VM. You also configure the recommended Azure firewall and Azure network security group to allow only RDP traffic to pass to the Lite2 AutoClient VM. 
 
-Alternatively, you can use Azure Bastion to restrict traffic. (The corresponding subnet can be part of the connectivity hub virtual network. As a general guideline, we recommend this option for new SWIFT on Azure customers.) Azure Bastion provides connectivity from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can enforce multifactor authentication. 
+Alternatively, you can use Azure Bastion to restrict traffic. (The corresponding subnet can be part of the connectivity hub virtual network. As a general guideline, we recommend this option for new SWIFT on Azure customers.) For more information, see the [Security](#security) section of this article. 
 
-You can use Conditional Access to enforce other restrictions. For example, you can restrict the public IP address that administrators can use to sign in. Azure Bastion must be deployed to a dedicated subnet and requires a public IP address. It restricts access to this public IP address by using a managed network security group. Azure Bastion also provides just-in-time access, which opens required ports on demand only when remote access is required. Traffic from Lite2 AutoClient to SWIFTNet flows through the virtual network peer via Juniper vSRX. This component has an established VPN tunnel to SWIFTNet over the internet or the dedicated ExpressRoute connection (depending upon the Alliance Connect Virtual Connectivity option).
+Traffic from Lite2 AutoClient to SWIFTNet flows through the virtual network peer via Juniper vSRX. This component has an established VPN tunnel to SWIFTNet over the internet or the dedicated ExpressRoute connection (depending upon the Alliance Connect Virtual Connectivity option).
 
 ### Components
 
@@ -74,7 +74,7 @@ This solution applies to:
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-The following considerations apply to this solution. If you want more detailed information, your account team at Microsoft can help guide your Azure implementation for SWIFT.
+The following considerations apply to this solution. If you want more detailed information, your account team at Microsoft can help guide your Azure implementation of SWIFT.
 
 ### Reliability
 
