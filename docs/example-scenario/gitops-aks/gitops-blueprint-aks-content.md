@@ -111,11 +111,7 @@ This solution follows a strong GitOps approach.
    - Introduces risk acceptance whenever policies can't be applied for good reasons.
    - Provides security policies to OPA Gatekeeper.
 
-### Other GitOps tools and add-ons
-
-The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used for gradual shifting of production workloads deployed through GitOps.
-
-## Components
+### Components
 
 The architecture scenarios shown previously use one or more of the following components:
 
@@ -131,7 +127,7 @@ The architecture scenarios shown previously use one or more of the following com
 
 1. [Syncier Security Tower](https://securitytower.syncier.com/) is a tool that Syncier developed and makes publicly available to help overcome GitOps security and compliance challenges. To help ensure that only trusted images run in the cluster, Syncier Security Tower comes with a set of best-practice policies that are grouped by well-known security standards.
 
-## GitOps principles
+## Scenario details
 
 According to [GitOps principles](https://opengitops.dev/#principles), the desired state of a GitOps managed system must be:
 
@@ -148,12 +144,6 @@ One of the principles of GitOps is to continuously reconcile the system state wi
 
 Policy management / enforcement tools can be combined with GitOps to enforce policies and provide feedback for proposed policy changes. Notifications can be configured for various teams so that the teams are updated on the GitOps operation status; such as if a deployment is succeeded, or if a reconciliation failed.
 
-## Potential use cases
-
-This solution benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change.
-
-With GitOps, the developer is shielded from complexities of managing a container environment. Developers continue to work with familiar tools such as Git to manage updates and new features. Hence GitOps enhances developer productivity.
-
 ### GitOps as the source of truth
 
 GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters.
@@ -165,6 +155,16 @@ You may want to enforce that the cluster state changes only through GitOps. This
 AKS clusters are often desired to be deployed with baseline configurations. For example, initial deployment of a set of shared services or configuration may be a pre-requisite before deploying workloads. These shared-services may be configuring AKS add-ons such as [Azure AD workload identity](/azure/aks/workload-identity-overview), [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure), 3rd party such as [Prisma defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud), [Splunk daemonset](https://github.com/splunk/splunk-connect-for-kubernetes), or open source tools such as [KEDA](https://keda.sh), [External-dns](https://github.com/kubernetes-sigs/external-dns) or [Cert-manager](https://cert-manager.io/docs/).
 
 Since Flux can be enabled as an extension that is applied at the time of cluster creation, Flux can bootstrap the baseline configuration to the AKS cluster. The [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks) suggests using GitOps for bootstrapping. Using the Flux extension, clusters can be bootstrapped nearly at the time of deployment.
+
+### Other GitOps tools and add-ons
+
+The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used for gradual shifting of production workloads deployed through GitOps.
+
+### Potential use cases
+
+This solution benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change.
+
+With GitOps, the developer is shielded from complexities of managing a container environment. Developers continue to work with familiar tools such as Git to manage updates and new features. Hence GitOps enhances developer productivity.
 
 ## Considerations
 
@@ -209,9 +209,9 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Azure DevOps offers a free tier for certain scenarios. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-## Scenario deployments
+## Deploy a scenario
 
-### Deploy scenario 1
+### Scenario 1
 
 The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2.
 
@@ -219,17 +219,17 @@ The following tutorial provide steps for deploying applications to AKS using Git
 
 Review the [reference implementation for the AKS baseline](https://github.com/mspnp/aks-baseline/tree/main/cluster-manifests) to see an example of how the Flux extension is used to bootstrap AKS cluster deployment.
 
-### Deploy scenario 2
+### Scenario 2
 
  The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2, and for implementing CI/CD with GitOps and Flux v2 to AKS.
 
 * [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
  
- ### Deploy scenarios 3 & 4
+ ### Scenarios 3 & 4
  
 The pull-based CI/CD scenario in [AKS baseline automation implementation](https://github.com/Azure/aks-baseline-automation#deploy-sample-applications-using-gitops-pull-method) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
  
-### Deploy scenario 5
+### Scenario 5
 
 Please follow the getting started guide for Syncier security tower to deploy scenario 5 to AKS.
 
