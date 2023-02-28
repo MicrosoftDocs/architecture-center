@@ -10,7 +10,7 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)) projects and can be used with Azure Kubernetes Service.
 
-Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep). You can also use Azure Policy to apply Flux v2 configurations (Microsoft.KubernetesConfiguration/fluxConfigurations resource type) at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
+Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep). You can also use Azure Policy to apply Flux v2 configurations at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
 
 Flux can deploy to AKS using Kubernetes manifests / helm charts / Kustomization files. Flux is an  inside-out process, which is important for security. No cluster endpoints need to be exposed for Flux to detect, pull and reconcile configuration changes.
 
