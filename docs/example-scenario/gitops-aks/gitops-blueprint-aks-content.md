@@ -200,7 +200,9 @@ The following tutorial provide steps for deploying applications to AKS using Git
  
  ## Deploy scenarios 3 & 4
  
- The [pull based CI/CD scenario](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md) in AKS baseline automation provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
+ The [pull based CI/CD scenario](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md) in [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
+ 
+* [Tutorial Pull-based CI/CD with Argo CD]([/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md)) 
  
 ## Pricing
 Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
