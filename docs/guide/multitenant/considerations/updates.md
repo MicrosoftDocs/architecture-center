@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes considerations for updating your multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/20/2021
+ms.date: 02/28/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,18 +24,27 @@ ms.custom:
 
 # Considerations for updating a multitenant solution
 
-One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your Azure infrastructure, your code/applications, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy, since some of your tenants may be reluctant to allow changes to their environments, or they might have requirements that limit the times when you can update their service. You need to identify your tenants' requirements, clarify your own requirements to operate your service, find a balance that works for everyone, and then communicate this clearly. On this page, we provide guidance for technical decision-makers about the approaches you can consider to update your tenants' software, and the tradeoffs involved.
+One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your Azure infrastructure, your code/applications, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy, since some of your tenants may be reluctant to allow changes to their environments, or they might have requirements that limit the conditions under which you can update their service.
+
+When planning an strategy to update your solution, you need to:
+
+* Identify your tenants' requirements.
+* Clarify your own requirements to operate your service.
+* Find a balance that both you and your tenants can accept.
+* Communicate your strategy clearly.
+
+In this article, we provide guidance for technical decision-makers about the approaches you can consider to update your tenants' software, and the tradeoffs involved.
 
 ## Your customers' requirements
 
 Consider the following questions:
 
-- Do your customers have expectations or requirements about when they can be updated? These might be formally communicated to you in contracts or service-level agreements, or they might be informal.
-- Do your customers expect service-defined or even self-defined maintenance windows? They might need to communicate to their own customers about any potential outages.
-- Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solution that includes IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
-- Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a physical store or a retail website, they may want to avoid updates around Black Friday, as the risks are higher than potential benefits.
-- What's your track record of successfully completing updates without any impact to your customers? You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
-- Will customers want to roll back updates if there's a breaking change?
+- **Expectations and requirements:** Do your customers have expectations or requirements about when they can be updated? These might be formally communicated to you in contracts or service-level agreements, or they might be informal.
+- **Maintenance windows:** Do your customers expect service-defined or even self-defined maintenance windows? They might need to communicate to their own customers about any potential outages.
+- **Regulations:** Do your customers have any regulatory concerns that require additional approval before updates can be applied? For example, if you provide a health solution that includes IoT components, you might need to get approval from the United States Food and Drug Administration (FDA) before applying an update.
+- **Sensitivity:** Are any of your customers particularly sensitive or resistant to having updates applied? Try to understand why. For example, if they run a physical store or a retail website, they might want to avoid updates around Black Friday, because the risks are higher than potential benefits.
+- **History:** What's your track record of successfully completing updates without any impact to your customers? You should follow good DevOps, testing, deployment, and monitoring practices to reduce the likelihood of outages, and to ensure that you quickly identify any issues that updates introduce. If your customers know that you're able to update their environments smoothly, they're less likely to object.
+- **Rollback:** Will customers want to roll back updates if there's a breaking change? Can you support a rollback?
 
 ## Your requirements
 

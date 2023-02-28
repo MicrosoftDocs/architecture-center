@@ -20,7 +20,7 @@ To implement the Deployment Stamps pattern, it's important to use automated depl
 
 ## Intended audience
 
-The pages in this section are intended to be useful for solution architects and lead developers of multitenant applications, including independent software vendors (ISVs) and startups who develop SaaS solutions. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
+The articles in this section are intended to be useful for solution architects and lead developers of multitenant applications, including independent software vendors (ISVs) and startups who develop SaaS solutions. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
 
 ## Next steps
 
