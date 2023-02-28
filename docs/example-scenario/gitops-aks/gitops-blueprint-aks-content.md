@@ -8,6 +8,8 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 ![Diagram of GitOps with Flux v2, GitHub and AKS](media/gitops-flux.png)
 
+Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)) projects and can be used with Azure Kubernetes Service.
+
 In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
 
 1. Developer commits configuration changes to GitHub repository.
@@ -105,7 +107,7 @@ This solution follows a strong GitOps approach.
    - Introduces risk acceptance whenever policies can't be applied for good reasons.
    - Provides security policies to OPA Gatekeeper.
 
-### Components
+## Components
 
 The architecture scenarios shown previously use one or more of the following components:
 
@@ -138,21 +140,30 @@ One of the principles of GitOps is to continuously reconcile the system state wi
 
 Policy management / enforcement tools can be combined with GitOps to enforce policies and provide feedback for proposed policy changes. Notifications can be configured for various teams so that the teams are updated on the GitOps operation status; such as if a deployment is succeeded, or if a reconciliation failed.
 
-### Potential use cases
+## Potential use cases
 
 This solution benefits any organization that wants the advantages of deploying applications and infrastructure as code, with an audit trail of every change.
 
-GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters. 
-
 With GitOps, the developer is shielded from complexities of managing a container environment. Developers continue to work with familiar tools such as Git to manage updates and new features. Hence GitOps enhances developer productivity.
 
-Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)) projects and can be used with Azure Kubernetes Service.
+### GitOps as the source of truth
 
-### Native GitOps extensions to Azure Kubernetes Service
+GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters. 
+
+You may want to enforce cluster state changes only through GitOps. This could be achieved by restricting direct access to cluster (through RBAC policies and Azure AD integration), through admissions controllers, or through other tools. 
+
+## Native GitOps extensions to Azure Kubernetes Service
 
 Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
 
-### Other GitOps tools and add-ons. 
+### Bootstrapping initial configuration through GitOps. 
+
+Customers may want the AKS clusters to follow baseline configurations. For example, initial deployment of a set of shared services may be a pre-requisite before deploying workloads to AKS. These Shared-Services may be AKS add-ons such as [AAD Pod identity](/azure/aks/use-azure-ad-pod-identity), [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure), 3rd party such as [Prisma defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud), [Splunk daemonset](https://github.com/splunk/splunk-connect-for-kubernetes), or open source tools such as [KEDA](https://keda.sh), [External-dns](https://github.com/kubernetes-sigs/external-dns) or [Cert-manager](https://cert-manager.io/docs/).
+
+Since Flux can be enabled as an extension that is applied at the time of cluster creation, Flux can bootstrap the baseline configuration to the AKS cluster. [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) uses GitOps for bootstrapping. Flux extension allows clusters to be bootstrapped nearly at the time of deployment. AKS baseline encourages this concept to be in place.
+
+
+## Other GitOps tools and add-ons. 
 
 The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used For gradual shifting of production workloads deployed through GitOps.
 
