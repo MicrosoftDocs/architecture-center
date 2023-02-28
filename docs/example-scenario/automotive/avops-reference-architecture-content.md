@@ -12,8 +12,8 @@ Here's the high-level process flow of data through the reference architecture:
 1. Data then goes through an extract, transform, load (ETL) pipeline with [Azure Data Factory](https://learn.microsoft.com/azure/data-factory/introduction) where the output stores Raw and binary data on [Azure Data Lake Gen2](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction). The DataOps stage stores meta-data in [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) (depending on final scenario extended by [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview) and [Azure Cognitive Search](https://learn.microsoft.com/azure/cognitive-services/))
 1. Data enrichment helps improve the accuracy and reliability of the data by adding additional information, insights and context to the data collected.
 1. The DataOps stage takes extracted measurement data and provides them to labeling partners (Human in the Loop) via [Azure Data Share](https://learn.microsoft.com/azure/data-share/). Auto Labeling (covered by third party partners) stores accesses data via a separate Data Lake account (“Label Lake”)
-1. The DataOps stage takes labeled datasets and provides them to downstream [MLOps](#mlops) processes, mainly to create a perception and sensor fusion models.   These models perform functions used by autonomous vehicles to detect scenes (that is, lane change, blocked roads, pedestrian, traffic lights, and traffic signs)
-1. [ValOps](#valops) takes trained models and validates them via Open Loop and Closed Loop testing
+1. The DataOps stage takes labeled datasets and provides them to downstream [MLOps](#machine-learning-operations-mlops) processes, mainly to create a perception and sensor fusion models.   These models perform functions used by autonomous vehicles to detect scenes (that is, lane change, blocked roads, pedestrian, traffic lights, and traffic signs)
+1. [ValOps](#validation-operations-valops) takes trained models and validates them via Open Loop and Closed Loop testing
 1. Tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) visualizes  ingested and processed data 
 ### Data Collection
 The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake.  
@@ -34,7 +34,7 @@ DataOps are a set of practices, processes, and tools aimed at improving the qual
 * [Azure Cognitive Search](https://learn.microsoft.com/azure/cognitive-services/) - Provides the data catalog search services
 ### Machine Learning Operations (MLOps)
 AVOps reference architecture utilizes MLOps in several places of the reference architecture.  AVOps utilizes MLOps when machine learning comes into the picture:
-- Feature Extraction Models (like CLIP, YOLO) to classify scenes (for example, if pedestrian is part of the scene) during [DataOps](#dataops) pipeline 
+- Feature Extraction Models (like CLIP, YOLO) to classify scenes (for example, if pedestrian is part of the scene) during [DataOps](#data-operations-dataops) pipeline 
 - Auto Labeling Models to label ingested images / pictures, lidar and radar data 
 - Perception and Computer Vision Models to detect objects and scenes
 - Sensor Fusions Model that combines different sensor streams 
