@@ -186,13 +186,22 @@ GitOps teams often manage multiple environments for the same application. It's t
 
 Optionally, you can use Syncier Security Tower to simplify cluster operations. Syncier Security Tower can extract the application versions deployed to multiple clusters from the repository and displays it in a user-friendly way. An overview shows which container images and versions are deployed in each environment. DevOps teams can use advanced Syncier Security Tower features to get insights into who changed what and when in an application, or browse and filter based on factors like change type or resource kind. Syncier Security Tower provides a control center to activate policies and compare compliance state over different clusters.
 
-## Deploy this scenario
+## Deploy scenario 1
 
-The following tutorials provide steps for deploying applications to AKS using GitOps with Flux v2, and to implement CI/CD with GitOps and Flux v2 to AKS. 
+The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2
 
 * [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
-* [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
 
+## Deploy scenario 2
+
+ The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2, and for implementing CI/CD with GitOps and Flux v2 to AKS.
+
+* [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
+ 
+ ## Deploy scenarios 3 & 4
+ 
+ The [pull based CI/CD scenario](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md) in AKS baseline automation provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
+ 
 ## Pricing
 Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
 
