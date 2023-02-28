@@ -19,6 +19,6 @@ products:
   - github
 name: GitOps for Azure Kubernetes Service
 summary: See a GitOps solution for an Azure Kubernetes Services (AKS) cluster. This solution explores AKS GitOps options using Argo CD and Flux v2.
-thumbnailUrl: /azure/architecture/browse/thumbs/gitops-blueprint-aks-thumbnail-new.png
+thumbnailUrl: /azure/architecture/browse/thumbs/gitops-flux.png
 content: |
   [!include[](gitops-blueprint-aks-content.md)]
