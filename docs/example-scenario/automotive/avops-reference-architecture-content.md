@@ -1,18 +1,6 @@
 
 This architecture provides guidance on the building blocks and recommendations for developing an automated driving solution.
 
-## Architecture
-The AVOps Reference Architecture consists of four main building blocks.  The upcoming chapters shall describe the four main building blocks in detail:
-
-- DataOps (Data Curation and Extraction of ingested sensor data / measurements like videos / images, Lidar and Radar and centralized Data management capabilities)
-- MLOps (Machine Learning Ops) to train perception model
-- ValOps to validate AD functions based on trained model and raw ground truth data
-- AVOps centralized function that provides overarching functionalities like Meta-Data Search, Data Catalog, Overall orchestration, platform governance, and standardized infrastructure templates.
-
-The reference architecture contains guidance about these logical building blocks and processes for AVOps, technology recommendations, partner, or open-source solutions for specific areas like simulation and data models. 
-
-## Scenario details
-
 How do we operate a backend to enable Autonomous Vehicles at scale? 
 Autonomous Vehicles operations (AVOps) usually require a huge amount of storage and compute to
 - Capture and process data and scenes from test vehicles (as learning material for perception model required by vehicles to drive autonomously) 
@@ -20,7 +8,6 @@ Autonomous Vehicles operations (AVOps) usually require a huge amount of storage 
 - Perform safety validation based on open and closed loop simulations
 
 AVOps allows organizations to take advantage of the scalability, flexibility, and cost-effectiveness of cloud-based infrastructure, while also speeding up the time-to-market for Automated Vehicles.
-
 
 Challenges
 
@@ -31,9 +18,9 @@ Challenges
 - Verification and validation: thoroughly testing the software to ensure it behaves as expected in a wide range of scenarios and environments.
 - Data availability:  globally dispersed teams and third parties make sharing of data a challenge.
 
+## Architecture
 
 ![AVOps Reference architecture.](.\images\high-level-architecture-avops.png)
-*Download a [Visio file](https://arch-center.azureedge.net/AVOps.vsdx) of this architecture.*
 
 ### Dataflow
 Here's the high-level process flow of data through the reference architecture:
@@ -47,18 +34,23 @@ Here's the high-level process flow of data through the reference architecture:
 1. [ValOps](#valops) takes trained models and validates them via Open Loop and Closed Loop testing
 1. Tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) visualizes  ingested and processed data 
 
+## Architecture Building Blocks
+From an industry perspective, the development of autonomous driving typically involves three key stages: data collection and curation, algorithm development and simulation, model building and validation, and deployment. AVOps addresses an automated driving development lifecycle.  
+
+![AV Development lifecycle](.\images\marketing-arch.png)
+The AVOps Reference Architecture consists of four main building blocks.  The upcoming chapters shall describe the four main building blocks in detail:
+
+- DataOps (Data Curation and Extraction of ingested sensor data / measurements like videos / images, Lidar and Radar and centralized Data management capabilities)
+- MLOps (Machine Learning Ops) to train perception model
+- ValOps to validate AD functions based on trained model and raw ground truth data
+- AVOps centralized functions that provide overarching functionalities like Meta-Data Search, Data Catalog, Overall orchestration, platform governance, and standardized infrastructure templates.
+
+The reference architecture contains guidance about these logical building blocks and processes for AVOps, technology recommendations, partner, or open-source solutions for specific areas like simulation and data models. 
+
+### Data Collection
 The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake.  
 
 ![Data Collection](.\images\data-collection.png)
-
-
-![AVOps Reference architecture.](.\images\marketing-arch.png)
-
-From an industry perspective, the development of autonomous driving typically involves three key stages: data collection and curation, algorithm development and simulation, model building and validation, and deployment. The above diagram highlights a typical industry flow for ADAS/AV development.  The AVOps reference architecture consists of four key sections.  
-- The Data Ingestion & Curation phase maps to [DataOps](#dataops) 
-- The Iteratively Test, Train & Simulate phase maps to [MLOps](#mlops)
-- Build & Validate Phase maps to [ValOps](#valops)
-
 ### DataOps
 DataOps (Data Operations) are a set of practices, processes, and tools aimed at improving the quality, speed, and reliability of data operations.  The goal of the DataOps flow for autonomous driving is to ensure that the data used to control the vehicle is of high quality, accurate, and reliable. By following a consistent DataOps flow, organizations can improve the speed and accuracy of their data operations and make better decisions to control their autonomous vehicles.  
 #### DataOps Components
