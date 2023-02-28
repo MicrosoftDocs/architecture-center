@@ -152,7 +152,7 @@ With GitOps, the developer is shielded from complexities of managing a container
 
 GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters. 
 
-You may want to enforce cluster state changes only through GitOps. This could be achieved by restricting direct access to cluster (through RBAC policies and Azure AD integration), through admissions controllers, or through other tools. 
+You may want to enforce that the cluster state changes only through GitOps. This could be achieved by restricting direct access to cluster (through RBAC policies and Azure AD integration), through admissions controllers, or through other tools. 
 
 ### Bootstrapping initial configuration through GitOps. 
 
@@ -170,7 +170,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-
+One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. By adopting GitOps and using the Git repository as the single source of truth for kubernetes configuration and application logic, a new cluster with the application code and configuration can be spun up quite quickly in case of availability issues with existing clusters. GitOps would allow to create and apply the cluster configuration and application deployment as a scale unit, and can establish the [deployment stamp](/azure/architecture/patterns/deployment-stamp) pattern. 
 
 ### Security
 
