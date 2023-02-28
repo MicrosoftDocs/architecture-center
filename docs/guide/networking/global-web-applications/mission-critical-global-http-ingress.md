@@ -70,7 +70,7 @@ This type of architecture is most useful if you want your alternative traffic pa
 
 However, it's important to consider the following issues:
 
-- When you use any of these features, you need to configure them on both Azure Front Door and Application Gateway. For example, if you make a configuration change to your Azure Front Door WAF, you need to apply the same configuration change to your Application Gateway WAF too. Your operational complexity becomes much more complex when you need to reconfigure and test two separate systems.
+- When you use any of these features, you need to configure them on both Azure Front Door and Application Gateway. For example, if you make a configuration change to your Azure Front Door WAF, you need to apply the same configuration change to your Application Gateway WAF too. Your operational complexity becomes much higher when you need to reconfigure and test two separate systems.
 - While there are similarities between the features that Azure Front Door and Application Gateway offer, many features don't have exact parity. Be mindful of these differences, because they could affect how the application is delivered based on the traffic path it follows.
 - Application Gateway doesn't provide caching. For more information about this difference, see [Caching](#caching).
 
@@ -78,12 +78,26 @@ Furthermore, it's important to remember that Azure Front Door and Application Ga
 
 ### Regional distribution
 
-Azure Front Door is a global service, while Application Gateway is a regional service. This difference is important for several reasons:
+Azure Front Door is a global service, while Application Gateway is a regional service.
 
-- **Performance:** Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at the closest point of presence to the client](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
-- **Cost:** You typically need to deploy an Application Gateway instance into each region where you have an origin. Because each Application Gateway instance is billed separately, the cost can become high when you have origins deployed into several regions.
+Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at the closest point of presence to the client](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
 
-  If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
+### Cost
+
+You typically need to deploy an Application Gateway instance into each region where you have an origin. Because each Application Gateway instance is billed separately, the cost can become high when you have origins deployed into several regions.
+
+If cost is a significant factor for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner content delivery network (CDN) as a fallback to Azure Front Door. Some CDNs bill for traffic on a consumption basis, so this approach might be more cost-effective. However, you might lose some of the other advantages of using Application Gateway for your solution.
+
+Alternatively, you could consider deploying an alternative architecture where Traffic Manager can route traffic directly to platform as a service (PaaS) application services, avoiding the need for Application Gateway and reducing your costs. You could consider this approach if you use a service like Azure App Service or Azure Container Apps for your solution. However, if you follow this approach, there are several important tradeoffs to consider:
+
+- **WAF:** Azure Front Door and Application Gateway both provide WAF capabilities. If you expose your application services directly to the internet, you might not be able to protect your application with a WAF.
+- **TLS offload:** Azure Front Door and Application Gateway both terminate TLS connections. Your application services need to be configured to terminate TLS connections. 
+- **Routing:** Both Azure Front Door and Application Gateway perform routing across multiple origins or backends, including path-based routing, and they support complex routing rules. If your application services are exposed directly to the internet, you can't perform traffic routing.
+
+> [!WARNING]
+> If you consider exposing your application directly to the internet, create a thorough threat model and ensure that the architecture meets your security, performance, and resiliency requirements.
+>
+> If you use virtual machines to host your solution, you should not expose the virtual machines to the internet.
 
 ### Public IP address
 
