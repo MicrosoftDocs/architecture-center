@@ -1,6 +1,6 @@
-GitOps is a set of principles for operating and managing software systems using source control as the system's source-of-truth. Though GitOps can be applied to any software system, GitOps is extensively used in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation. 
+GitOps is a set of principles for operating and managing software systems using source control as the system's source-of-truth. Though GitOps can be applied to any software system, GitOps is extensively used in Kubernetes cluster management and application delivery. GitOps applies development practices like version control, collaboration, compliance, and continuous integration/continuous deployment (CI/CD) to infrastructure automation.
 
-This article describes some common options for using GitOps with an Azure Kubernetes Services (AKS) cluster. 
+This article describes some common options for using GitOps with an Azure Kubernetes Services (AKS) cluster.
 
 ## Architecture
 
@@ -10,9 +10,9 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)) projects and can be used with Azure Kubernetes Service.
 
-Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep). You can also use Azure Policy to apply Flux v2 configurations at scale on AKS clusters. More details can be found [here](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
+Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep). You can also use Azure Policy to apply Flux v2 configurations at scale on AKS clusters. For more details, see [Deploy applications consistently at scale using Flux v2 configurations and Azure Policy](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
 
-Flux can deploy to AKS using Kubernetes manifests / helm charts / Kustomization files. Flux is an  inside-out process, which is important for security. No cluster endpoints need to be exposed for Flux to detect, pull and reconcile configuration changes.
+Flux can deploy Kubernetes manifests, Helm charts, and Kustomization files to AKS. Flux is a poll-based process; meaning no cluster endpoints need to be exposed to your build agents for Flux to detect, pull, and reconcile configuration changes.
 
 In this scenario, Kubernetes administrator(s) may make changes to kubernetes configuration objects (such as secrets / configmaps / etc.) and commit the changes directly to GitHub repository.
 
@@ -20,12 +20,12 @@ The data flow for this scenario is as follows:
 
 1. Developer commits configuration changes to GitHub repository.
 1. Flux detects configuration drift in the Git repository, and pulls configuration changes.
-1. Flux Reconciles the state in the Kubernetes cluster.
+1. Flux reconciles the state in the Kubernetes cluster.
 
 #### Alternatives
 
-- Flux can be used with other Git Repositories such as Azure DevOps, GitLabs, BitBucket etc. 
-- Instead of Git Repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets/) defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others. 
+- Flux can be used with other Git repositories such as Azure DevOps, GitLabs, BitBucket, etc.
+- Instead of Git repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets/) defines a Source to produce an Artifact for objects from storage solutions like Amazon S3, Google Cloud Storage buckets, or any other solution with a S3 compatible API such as Minio, Alibaba Cloud OSS and others.
 - Flux can also be configured against [Azure Blob Storage Container as a source to produce artifacts](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
 ### Scenario 2: Implementing CI/CD using GitOps with Flux, GitHub and AKS
@@ -132,11 +132,11 @@ According to [GitOps principles](https://opengitops.dev/#principles), the desire
 1. **Declarative**: A system managed by GitOps must have its desired state expressed declaratively, which is typically stored in a Git repository.
 1. **Versioned and immutable**: Desired state is stored in a way that enforces immutability, versioning and retains a complete version history.
 1. **Pulled automatically**: Software agents automatically pull the desired state declarations from the source.
-1. **Continuously reconciled**:  Software agents continuously observe actual system state and attempt to apply the desired state.
+1. **Continuously reconciled**: Software agents continuously observe actual system state and attempt to apply the desired state.
 
 In GitOps, [infrastructure as code (IaC)](https://wikipedia.org/wiki/Infrastructure_as_code) uses code to declare the desired state of infrastructure components such as virtual machines (VMs), networks, and firewalls. This code is version controlled and auditable.
 
-Kubernetes describes everything from cluster state to application deployments declaratively with manifests. GitOps for Kubernetes places the cluster infrastructure desired state under version control. A component within the cluster continuously syncs the declarative state. Rather than having direct access to the cluster, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least privilege access.
+Kubernetes describes everything from cluster state to application deployments declaratively with manifests. GitOps for Kubernetes places the cluster infrastructure desired state under version control. A component within the cluster, typically called an operator, continuously syncs the declarative state. Rather than having direct access to the cluster, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least privilege access.
 
 One of the principles of GitOps is to continuously reconcile the system state with the desired state, stored in your code repository. GitOps agents will monitor the cluster state and will attempt to reconcile the cluster state with desired state. Operations performed outside the cluster, such as manual creation of Kubernetes objects, can be reverted by the GitOps agents (such as [Admission Controllers](https://www.openpolicyagent.org/docs/latest/kubernetes-introduction/)) to ensure that the deployments are limited only through code changes in the source repository. 
 
@@ -152,17 +152,17 @@ With GitOps, the developer is shielded from complexities of managing a container
 
 GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters. 
 
-You may want to enforce that the cluster state changes only through GitOps. This could be achieved by restricting direct access to cluster (through RBAC policies and Azure AD integration), through admissions controllers, or through other tools. 
+You may want to enforce that the cluster state changes only through GitOps. This could be achieved by restricting direct access to cluster (through RBAC policies and Azure AD integration), through admissions controllers, or through other tools.
 
-### Bootstrapping initial configuration through GitOps. 
+### Bootstrapping initial configuration through GitOps
 
-Customers may want the AKS clusters to follow baseline configurations. For example, initial deployment of a set of shared services may be a pre-requisite before deploying workloads to AKS. These Shared-Services may be AKS add-ons such as [AAD Pod identity](/azure/aks/use-azure-ad-pod-identity), [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure), 3rd party such as [Prisma defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud), [Splunk daemonset](https://github.com/splunk/splunk-connect-for-kubernetes), or open source tools such as [KEDA](https://keda.sh), [External-dns](https://github.com/kubernetes-sigs/external-dns) or [Cert-manager](https://cert-manager.io/docs/).
+AKS clusters are often desired to be deployed with baseline configurations. For example, initial deployment of a set of shared services or configuration may be a pre-requisite before deploying workloads. These shared-services may be configuring AKS add-ons such as [Azure AD workload identity](/azure/aks/workload-identity-overview), [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure), 3rd party such as [Prisma defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud), [Splunk daemonset](https://github.com/splunk/splunk-connect-for-kubernetes), or open source tools such as [KEDA](https://keda.sh), [External-dns](https://github.com/kubernetes-sigs/external-dns) or [Cert-manager](https://cert-manager.io/docs/).
 
-Since Flux can be enabled as an extension that is applied at the time of cluster creation, Flux can bootstrap the baseline configuration to the AKS cluster. [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) uses GitOps for bootstrapping. Flux extension allows clusters to be bootstrapped nearly at the time of deployment. AKS baseline encourages this concept to be in place.
+Since Flux can be enabled as an extension that is applied at the time of cluster creation, Flux can bootstrap the baseline configuration to the AKS cluster. The [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks) suggests using GitOps for bootstrapping. Using the Flux extension, clusters can be bootstrapped nearly at the time of deployment.
 
-## Other GitOps tools and add-ons. 
+## Other GitOps tools and add-ons
 
-The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used For gradual shifting of production workloads deployed through GitOps.
+The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used for gradual shifting of production workloads deployed through GitOps.
 
 ## Considerations
 
@@ -170,7 +170,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. By adopting GitOps and using the Git repository as the single source of truth for kubernetes configuration and application logic, a new cluster with the application code and configuration can be spun up quite quickly in case of availability issues with existing clusters. GitOps would allow to create and apply the cluster configuration and application deployment as a scale unit, and can establish the [deployment stamp](/azure/architecture/patterns/deployment-stamp) pattern. 
+One of the key pillars of reliability is resiliency. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. By adopting GitOps and using the Git repository as the single source of truth for Kubernetes configuration and application logic, a new cluster with the application code and configuration can be spun up quite quickly in case of availability issues with existing clusters. GitOps would allow to create and apply the cluster configuration and application deployment as a scale unit and can establish the [deployment stamp](/azure/architecture/patterns/deployment-stamp) pattern.
 
 ### Security
 
@@ -178,7 +178,7 @@ With the GitOps approach, individual developers or administrators don't directly
 
 Apart from the task of setting up repository permissions, consider implementing the following security measures in Git repositories that sync to AKS clusters:
 
-* Branch protection: Protect the branches that represent the state of the Kubernetes clusters from having changes pushed to them directly. Require every change to be proposed by a PR that is reviewed by at least one other person. Also use PRs to do automatic checks. 
+* Branch protection: Protect the branches that represent the state of the Kubernetes clusters from having changes pushed to them directly. Require every change to be proposed by a PR that is reviewed by at least one other person. Also use PRs to do automatic checks.
 * PR review: Require PRs to have at least one reviewer, to enforce the four-eyes principle. You can also use the GitHub code owners feature to define individuals or teams that are responsible for reviewing specific files in a repository.
 * Immutable history: Only allow new commits on top of existing changes. Immutable history is especially important for auditing purposes.
 * Further security measures: Require your GitHub users to activate two-factor authentication. Also, allow only signed commits, which can't be altered after the fact.
@@ -193,20 +193,23 @@ Optionally, you can use Syncier Security Tower to simplify cluster operations. S
 
 ### Cost optimization
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs.
 
-- [On the free tier](/azure/aks/free-standard-pricing-tiers), AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes. 
+- [On the free tier](/azure/aks/free-standard-pricing-tiers), AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes.
 
 - GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing](https://github.com/pricing) page.
 
 - Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs. 
 
-## Sample deployments
+## Scenario deployments
 ### Deploy scenario 1
 
-The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2
+The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2.
 
 * [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
+
+
+Review the [reference implementation for the AKS baseline](https://github.com/mspnp/aks-baseline/tree/main/cluster-manifests) to see an example of how the Flux extension is used to bootstrap AKS cluster deployment.
 
 ### Deploy scenario 2
 
@@ -216,18 +219,18 @@ The following tutorial provide steps for deploying applications to AKS using Git
  
  ### Deploy scenarios 3 & 4
  
- The pull based CI/CD scenario in [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
+The pull-based CI/CD scenario in [AKS baseline automation implementation](https://github.com/Azure/aks-baseline-automation#deploy-sample-applications-using-gitops-pull-method) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
  
-* [Tutorial Pull-based CI/CD with Argo CD]([/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md)) 
 
 ### Deploy scenario 5
 
-Please follow the getting started guide for Syncier security tower to deploy scenario 5 to AKS. 
+Please follow the getting started guide for Syncier security tower to deploy scenario 5 to AKS.
 
 * [Syncier - getting started guide](https://securitytower.syncier.com/docs/guide/get-started/)
  
 ## Contributors
-This article is maintained by Microsoft. It was originally written by the following contributors.
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
