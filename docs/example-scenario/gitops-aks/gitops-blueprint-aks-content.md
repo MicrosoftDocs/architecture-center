@@ -57,6 +57,8 @@ Argo CD need not automatically sync the desired target state to the AKS cluster.
 
 Argo CD provides a browser based user interface through which application configurations can be added, synchronization state with respect to the cluster can be observed, and synchronization can be initiated against the cluster. These actions can be performed using the Argo CD command line interface as well. Both the user interface and command line interface provides features to view history of configuration changes and to roll back to a previous version.
 
+Argo CD user interface / API server is not exposed by default. To access the API server / user interface, creating an [ingress controller with internal IP](/azure/aks/ingress-basic?tabs=azure-cli#create-an-ingress-controller-using-an-internal-ip-address) is recommended. Alternately, an [internal load balancer](/azure/aks/internal-lb) could be used to expose Argo CD user interface / API server. 
+
 #### Alternatives
 
 The configuration source repository could be any Git compatible repository, including Azure DevOps.
