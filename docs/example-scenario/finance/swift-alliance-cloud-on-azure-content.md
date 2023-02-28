@@ -7,11 +7,9 @@ This article provides an overview of deploying the Alliance Cloud connectivity s
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram that shows how to deploy Azure resources in a SWIFT Alliance Cloud solution." source="./media/swift-alliance-cloud-on-azure-architecture.png" lightbox="./media/swift-alliance-cloud-on-azure-architecture.png" border="false":::
+:::image type="content" alt-text="Diagram that shows how to deploy Azure resources in a SWIFT Alliance Cloud solution." source="./media/swift-alliance-cloud-azure.png" lightbox="./media/swift-alliance-cloud-azure.png" border="false":::
 
-replace diagram. update link 
-
-_Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure.vsdx) that contains this architecture diagram. This diagram is on page AC (All-GoldSilverBronze)._
+*Download a [Visio file](https://arch-center.azureedge.net/diagrams-swift-alliance-cloud-in-azure.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -45,9 +43,7 @@ You're responsible for establishing improved-security connectivity to the SIL. Y
 * Use site-to-site VPN to connect your premises to Azure via the internet.
 * Use Remote Desktop Protocol (RDP) over the internet for internet connectivity. (You can alternatively use Azure Bastion for these connections. We recommended Azure Bastion for new SWIFT on Azure customers.)
 
-:::image type="content" alt-text="Diagram that shows three ways to connect to the Azure accounts that support the SWIFT Integration Layer for SWIFT Alliance Cloud." source="./media/swift-alliance-cloud-on-azure-connectivity.png" lightbox="./media/swift-alliance-cloud-on-azure-connectivity.png" border="false":::
-
-replace diagram 
+:::image type="content" alt-text="Diagram that shows three ways to connect to the Azure accounts that support the SWIFT Integration Layer for SWIFT Alliance Cloud." source="./media/swift-alliance-cloud-connectivity.png" lightbox="./media/swift-alliance-cloud-connectivity.png" border="false":::
 
 <!-- _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure-connectivity.vsdx) that contains this architecture diagram._ -->
 
