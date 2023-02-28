@@ -220,7 +220,7 @@ The following tutorial provide steps for deploying applications to AKS using Git
  
 * [Tutorial Pull-based CI/CD with Argo CD]([/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md)) 
 
-### Deploy scenario #5
+### Deploy scenario 5
 
 Please follow the getting started guide for Syncier security tower to deploy scenario 5 to AKS. 
 
