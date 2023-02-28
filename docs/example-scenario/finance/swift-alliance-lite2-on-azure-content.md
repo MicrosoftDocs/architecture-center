@@ -7,11 +7,9 @@ This article provides an overview of deploying SWIFT's Alliance Lite2 connectivi
 
 ## Architecture
 
-diagram
+:::image type="content" source="media/diagrams-swift-alliance-lite2-azure.png" alt-text="Diagram that shows an architecture for SWIFT Alliance Lite2." lightbox="media/diagrams-swift-alliance-lite2-azure.png" border="false":::
 
-*Download a [Visio file]() of this architecture diagram (Page-Lite 2 (All-GoldSilverBronze) in the Visio file).*
-
-update link. check note. 
+*Download a [Visio file](https://arch-center.azureedge.net/diagrams-swift-alliance-lite2-on-azure.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -43,7 +41,8 @@ You're responsible for establishing secured connectivity to the Alliance Lite2 A
 - Use Azure site-to-site VPN to connect your premises to Azure via the internet.
 - Use direct RDP over the internet for internet connectivity. (You can alternatively use Azure Bastion for these connections. We recommended Azure Bastion for new SWIFT on Azure customers.)
 
-image 
+:::image type="content" source="media/lite2-access-secure-zone.png" alt-text="Diagram that shows SWIFT Alliance Lite2 connectivity." lightbox="media/lite2-access-secure-zone.png" border="false":::
+
 
 You use RDP, with one of the preceding three connectivity approaches, to connect to Alliance Lite2 AutoClient software running on the Lite2 AutoClient VM. You also configure the recommended Azure firewall and Azure network security group to allow only RDP traffic to pass to the Lite2 AutoClient VM. 
 

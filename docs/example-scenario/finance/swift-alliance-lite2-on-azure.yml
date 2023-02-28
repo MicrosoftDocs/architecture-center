@@ -20,6 +20,6 @@ products:
   - azure-expressroute
 name: SWIFT Alliance Lite2 on Azure
 summary: Deploy Azure infrastructure for SWIFT Alliance Lite2.
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-lite2.png
+thumbnailUrl: /azure/architecture/browse/thumbs/diagrams-swift-alliance-lite2-azure.png
 content: |
   [!include[](swift-alliance-lite2-on-azure-content.md)]
