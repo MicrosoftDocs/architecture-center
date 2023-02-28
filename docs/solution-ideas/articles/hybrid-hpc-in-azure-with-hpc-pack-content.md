@@ -33,7 +33,7 @@ This solution shows the process for using HPC Pack to create a hybrid (on-premis
 
 The following links provide documentation on deploying and managing the Azure products that are included in this solution idea:
 
-* [Documentation Home Page](https://technet.microsoft.com/library/cc514029\(v=ws.11\).aspx)
+* [Documentation Home Page](/powershell/high-performance-computing/overview)
 * [HPC Pack Azure Deployment Options](/powershell/high-performance-computing/microsoft-hpc-pack-node-deployment)
 
 ## Next steps
