@@ -21,7 +21,7 @@ This article describes how to use Azure HPC Pack to create a hybrid high-perform
 ### Components
 
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Create Linux and Windows virtual machines in seconds.
-* [Microsoft HPC Pack](https://www.visualstudio.com/vs): Free HPC solution built on Microsoft Azure and Windows Server technologies.
+* [Microsoft HPC Pack](/powershell/high-performance-computing/overview) : Free HPC solution built on Microsoft Azure and Windows Server technologies.
 
 ## Scenario details
 
@@ -34,7 +34,7 @@ This solution shows the process for using HPC Pack to create a hybrid (on-premis
 The following links provide documentation on deploying and managing the Azure products that are included in this solution idea:
 
 * [Documentation Home Page](https://technet.microsoft.com/library/cc514029\(v=ws.11\).aspx)
-* [HPC Pack Azure Deployment Options](/azure/virtual-machines/windows/hpcpack-cluster-options)
+* [HPC Pack Azure Deployment Options](/powershell/high-performance-computing/microsoft-hpc-pack-node-deployment)
 
 ## Next steps
 
