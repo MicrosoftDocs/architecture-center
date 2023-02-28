@@ -12,6 +12,8 @@ This article presents an example of a simple core startup stack, and discusses i
 
 A startup, Contoso, has built an application prototype with a [Ruby on Rails](https://rubyonrails.org) back end and a [React](https://reactjs.org) front end written in [TypeScript](https://www.typescriptlang.org). The Contoso team has been running demos on their laptops. Now they want to deploy their app for their first customer sales meetings.
 
+> **_NOTE:_**  The technology choices here of Ruby, React and TypeScript are just illustrative.  This startup architecture equally applies to many other languages and frameworks.
+
 While the app is ambitious, it doesn't yet need a complex, microservice-driven architecture. Contoso opted for a simple monolithic design that includes the recommended startup stack components.
 
 ![Diagram that shows the core startup stack architecture Contoso used to deploy their application.](images/startup-stack-architecture.png)
@@ -22,8 +24,8 @@ While the app is ambitious, it doesn't yet need a complex, microservice-driven a
 
 In this core startup stack architecture:
 
-- [Azure App Service](/azure/app-service/overview) provides a simple app server to deploy scalable applications without configuring servers, load balancers, or other infrastructure.
-- [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.
+- [Azure App Service](/azure/app-service/overview) provides a simple app server to deploy scalable applications without configuring servers, load balancers, or other infrastructure.  App Service supports container deployments as in the example here, and also supports container-less deployments for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python.
+- [Azure Database for PostgreSQL](/azure/postgresql/overview) is an Azure database service for a leading open-source relational database management system (RDBMS). You can concentrate on developing your application rather than managing database servers.  Azure also has managed database services for [SQL](/azure/azure-sql/database/sql-database-paas-overview), [MySQL](/azure/mysql/overview), [MariaDB](/azure/mariadb/overview), [MongoDB](https://www.mongodb.com/mongodb-on-azure), [Apache Cassandra](/azure/cosmos-db/cassandra/introduction), [Gremlin](/azure/cosmos-db/gremlin/introduction) and [Redis](/azure/azure-cache-for-redis/cache-overview).
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) segments network traffic and keeps internal services protected from internet threats. Your app servers use [virtual network integration](/azure/app-service/web-sites-integrate-with-vnet) to communicate with the database without exposure to the internet.
 - [GitHub Actions](https://docs.github.com/actions) builds continuous integration and continuous deployment (CI/CD) into your source code management. GitHub Actions has extensive support for different languages, and strong integration with Azure services.
 - [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview) stores static assets and moves load away from the app servers.
@@ -46,7 +48,7 @@ With few customers at the start, a CDN might seem premature. However, adding a C
 
 Your code needs to run somewhere. Ideally, this platform should make deployments easy, while requiring the least possible operational input. The app server should scale horizontally, but some manual scaling intervention is fine while you're still in the explore stage.
 
-Like most of this stack, the app server should essentially run itself. Traditionally, the app server was a virtual machine, or a web server instance running on a bare-metal server. Now, you can look to platform-as-a-service (PaaS) options and containers to remove operational overhead.
+Like most of this stack, the app server should essentially run itself. Traditionally, the app server was a virtual machine, or a web server instance running on a bare-metal server. Now, you can look to platform-as-a-service (PaaS) options such as App Service above and containers to remove operational overhead.
 
 ### Static content
 
