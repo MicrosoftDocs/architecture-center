@@ -199,7 +199,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 - GitHub offers a free service, but to use advanced security-related features like code owners or required reviewers, you need the Team plan. For more information, see the [GitHub pricing](https://github.com/pricing) page.
 
-- Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs. 
+- Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs.
 
 ## Scenario deployments
 ### Deploy scenario 1
@@ -229,6 +229,7 @@ Please follow the getting started guide for Syncier security tower to deploy sce
 * [Syncier - getting started guide](https://securitytower.syncier.com/docs/guide/get-started/)
  
 ## Contributors
+
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
