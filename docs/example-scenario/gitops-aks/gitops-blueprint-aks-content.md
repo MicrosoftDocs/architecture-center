@@ -214,11 +214,17 @@ The following tutorial provide steps for deploying applications to AKS using Git
 
 * [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
  
- ### Deploy scenario 4
+ ### Deploy scenarios 3 & 4
  
  The pull based CI/CD scenario in [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
  
 * [Tutorial Pull-based CI/CD with Argo CD]([/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md)) 
+
+### Deploy scenario #5
+
+Please follow the getting started guide for Syncier security tower to deploy scenario 5 to AKS. 
+
+* [Syncier - getting started guide](https://securitytower.syncier.com/docs/guide/get-started/)
  
 ## Contributors
 This article is maintained by Microsoft. It was originally written by the following contributors.
