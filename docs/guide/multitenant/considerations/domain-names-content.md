@@ -86,7 +86,7 @@ You can also consider rewriting host headers, so that regardless of the incoming
 
 It's important to validate the ownership of custom domains before onboarding them. Otherwise, you risk a customer accidentally or maliciously _parking_ a domain name.
 
-Let's consider Contoso's onboarding process for Adventure Works, who have asked to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the _s_. So, they set it up as `invoices.adventurework.com`. Not only does the traffic not flow correctly, but when another company named _Adventure Work_ tries to add their custom domain to Contoso's platform, they're told the domain name is already in use.
+Let's consider Contoso's onboarding process for Adventure Works, who have asked to use `invoices.adventureworks.com` as their custom domain name. Unfortunately, somebody made a typo when they tried to onboard the custom domain name, and they missed the _s_. So, they set it up as `invoices.adventurework.com`. Not only does the traffic not flow correctly for Adventure Works, but when another company named _Adventure Work_ tries to add their custom domain to Contoso's platform, they're told the domain name is already in use.
 
 When working with custom domains, especially within a self-service or automated process, it's common to require a domain verification step. This might require that the CNAME records be set up before the domain can be added. Alternatively, Contoso might generate a random string and ask Adventure Works to add a DNS TXT record with the string value. That would prevent the domain name from being added, until the verification is completed.
 
@@ -102,20 +102,23 @@ Let's consider how Fabrikam's relationship with Contoso might change:
 1. The attacker onboards the custom domain name `invoices.fabrikam.com` to their new tenant. Since Contoso performs CNAME-based domain validation, they check Fabrikam's DNS server. They see that the DNS server returns a CNAME record for `invoices.fabrikam.com`, which points to `fabrikam.contoso.com`. Contoso considers the custom domain validation to be successful.
 1. If any Fabrikam employees tried to access the site, requests would appear to work. If the attacker sets up their Contoso tenant with Fabrikam's branding, employees might be fooled into accessing the site and providing sensitive data, which the attacker can then access.
 
-A common strategy to protect against dangling DNS attacks is to require that the CNAME record is deleted, before the domain name can be removed from the tenant's account. You could also consider prohibiting the reuse of tenant identifiers, and you can then strengthen your custom domain onboarding process by using a randomly generated TXT record (that is different for each onboarding attempt).
+Common strategies to protect against dangling DNS attacks are:
+
+* Require that the CNAME record is deleted *before* the domain name can be removed from the tenant's account.
+* Prohibit the reuse of tenant identifiers, and also require that the tenant create a TXT record with a name matching the domain name and a randomly generated value, which changes for each onboarding attempt.
 
 ## TLS/SSL certificates
 
-Transport Layer Security (TLS) is an essential component, when working with modern applications. It provides trust and security to your web applications. The ownership and management of TLS certificates is something that needs careful consideration, for multitenant applications.
+Transport Layer Security (TLS) is an essential component when working with modern applications. It provides trust and security to your web applications. The ownership and management of TLS certificates is something that needs careful consideration for multitenant applications.
 
-Typically, the owner of a domain name will be responsible for issuing and renewing its certificates. For example, Contoso is responsible for issuing and renewing TLS certificates for `us.contoso.com`, as well as a wildcard certificate for `*.contoso.com`. Similarly, Fabrikam would generally be responsible for managing any records for the `fabrikam.com` domain, including `invoices.fabrikam.com`. The CAA (Certificate Authority Authorization) DNS record type can be used by a domain owner, to ensure that only specific authorities can create certificates for their domain.
+Typically, the owner of a domain name will be responsible for issuing and renewing its certificates. For example, Contoso is responsible for issuing and renewing TLS certificates for `us.contoso.com`, as well as a wildcard certificate for `*.contoso.com`. Similarly, Fabrikam would generally be responsible for managing any records for the `fabrikam.com` domain, including `invoices.fabrikam.com`. The CAA (Certificate Authority Authorization) DNS record type can be used by a domain owner. CAA records ensure that only specific authorities can create certificates for the domain.
 
-If you plan to allow customers to bring their own domains, consider whether you plan to issue the certificate on the customer's behalf, or whether the customers must bring their own certificates. Each option has benefits and drawbacks. If you issue a certificate for a customer, you can handle the renewal of the certificate, so the customer doesn't have to remember to keep it updated. However, if the customers have CAA records on their domain names, they might need to authorize you to issue certificates on their behalf. If you expect customers should issue and provide you with their own certificates, you are responsible for receiving and managing the private keys in a secure manner, and you might have to remind your customers to renew the certificate before it expires, to avoid an interruption in their service.
+If you plan to allow customers to bring their own domains, consider whether you plan to issue the certificate on the customer's behalf, or whether the customers must bring their own certificates. Each option has benefits and drawbacks.
+
+- If you issue a certificate for a customer, you can handle the renewal of the certificate, so the customer doesn't have to remember to keep it updated. However, if the customers have CAA records on their domain names, they might need to authorize you to issue certificates on their behalf.
+- If you expect customers should issue and provide you with their own certificates, you are responsible for receiving and managing the private keys in a secure manner, and you might have to remind your customers to renew the certificate before it expires, to avoid an interruption in their service.
 
 Several Azure services support automatic management of certificates for custom domains. For example, Azure Front Door and App Service provide certificates for custom domains, and they automatically handle the renewal process. This removes the burden of managing certificates, from your operations team. However, you still need to consider the question of ownership and authority, such as whether CAA records are in effect and configured correctly. Also, you need to ensure your customers' domains are configured to allow the certificates that are managed by the platform.
-
-> [!TIP]
-> Many services use Azure Front Door to manage domain names. For information about how to use Azure Front Door in a multitenant solution, see [Use Azure Front Door in a multitenant solution](../service/front-door.md).
 
 ## Contributors
 
@@ -133,5 +136,8 @@ Other contributors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
+
+> [!TIP]
+> Many services use Azure Front Door to manage domain names. For information about how to use Azure Front Door in a multitenant solution, see [Use Azure Front Door in a multitenant solution](../service/front-door.md).
 
 Return to the [architectural considerations overview](overview.yml). Or, review the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
