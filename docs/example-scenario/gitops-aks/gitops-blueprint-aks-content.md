@@ -193,25 +193,6 @@ Optionally, you can use Syncier Security Tower to simplify cluster operations. S
 
 ### Cost optimization
 
-## Deploy scenario 1
-
-The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2
-
-* [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
-
-## Deploy scenario 2
-
- The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2, and for implementing CI/CD with GitOps and Flux v2 to AKS.
-
-* [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
- 
- ## Deploy scenarios 3 & 4
- 
- The pull based CI/CD scenario in [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
- 
-* [Tutorial Pull-based CI/CD with Argo CD]([/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md)) 
- 
-## Pricing
 Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator) to estimate costs.
 
 - [On the free tier](/azure/aks/free-standard-pricing-tiers), AKS offers free cluster management. Costs are limited to the compute, storage, and networking resources AKS uses to host nodes. 
@@ -220,6 +201,25 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/cal
 
 - Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs. 
 
+## Sample deployments
+### Deploy scenario 1
+
+The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2
+
+* [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
+
+### Deploy scenario 2
+
+ The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2, and for implementing CI/CD with GitOps and Flux v2 to AKS.
+
+* [Tutorial: Implement CI/CD with GitOps (Flux v2)](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd)
+ 
+ ### Deploy scenario 4
+ 
+ The pull based CI/CD scenario in [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
+ 
+* [Tutorial Pull-based CI/CD with Argo CD]([/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd](https://github.com/Azure/aks-baseline-automation/blob/main/workloads/docs/app-flask-pull-gitops.md)) 
+ 
 ## Contributors
 This article is maintained by Microsoft. It was originally written by the following contributors.
 
