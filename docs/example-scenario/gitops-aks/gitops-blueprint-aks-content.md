@@ -111,6 +111,10 @@ This solution follows a strong GitOps approach.
    - Introduces risk acceptance whenever policies can't be applied for good reasons.
    - Provides security policies to OPA Gatekeeper.
 
+### Other GitOps tools and add-ons
+
+The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used for gradual shifting of production workloads deployed through GitOps.
+
 ## Components
 
 The architecture scenarios shown previously use one or more of the following components:
@@ -161,10 +165,6 @@ You may want to enforce that the cluster state changes only through GitOps. This
 AKS clusters are often desired to be deployed with baseline configurations. For example, initial deployment of a set of shared services or configuration may be a pre-requisite before deploying workloads. These shared-services may be configuring AKS add-ons such as [Azure AD workload identity](/azure/aks/workload-identity-overview), [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure), 3rd party such as [Prisma defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud), [Splunk daemonset](https://github.com/splunk/splunk-connect-for-kubernetes), or open source tools such as [KEDA](https://keda.sh), [External-dns](https://github.com/kubernetes-sigs/external-dns) or [Cert-manager](https://cert-manager.io/docs/).
 
 Since Flux can be enabled as an extension that is applied at the time of cluster creation, Flux can bootstrap the baseline configuration to the AKS cluster. The [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks) suggests using GitOps for bootstrapping. Using the Flux extension, clusters can be bootstrapped nearly at the time of deployment.
-
-## Other GitOps tools and add-ons
-
-The scenarios described can be extended to other GitOps tools as well. Jenkins-x is another GitOps tool that provides instructions to [integrate to Azure](https://jenkins-x.io/v3/admin/platforms/azure/). Progressive delivery tools such as [Flagger](https://fluxcd.io/flagger/) can be used for gradual shifting of production workloads deployed through GitOps.
 
 ## Considerations
 
