@@ -4,11 +4,11 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 ## Architecture
 
+Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)) projects and can be used with Azure Kubernetes Service. The following scenarios show how they can be used.
+
 ### Scenario 1: GitOps with Flux and AKS
 
 ![Diagram of GitOps with Flux v2, GitHub and AKS](media/gitops-flux.png)
-
-Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)) projects and can be used with Azure Kubernetes Service.
 
 Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep). You can also use Azure Policy to apply Flux v2 configurations at scale on AKS clusters. For more details, see [Deploy applications consistently at scale using Flux v2 configurations and Azure Policy](/azure/azure-arc/kubernetes/use-azure-policy-flux-2).
 
@@ -41,11 +41,11 @@ This scenario is a pull-based DevOps pipeline for a typical web application. Thi
 1. Flux operator detects configuration drift in the Git repository and pulls configuration changes.
 1. Flux deploys the app to the AKS cluster using manifest files.
 
-### Scenario 3:  GitOps with Argo CD, GitHub repository and AKS
+### Scenario 3: GitOps with Argo CD, GitHub repository and AKS
 
 ![Diagram of GitOps with Argo CD, GitHub and AKS.](media/gitops-argocd.png)
 
-In this scenario, Kubernetes administrator(s) may make changes to kubernetes configuration objects (such as secrets / configmaps / etc.) and commit the changes directly to GitHub repository. 
+In this scenario, Kubernetes administrator(s) may make changes to kubernetes configuration objects (such as secrets / configmaps / etc.) and commit the changes directly to GitHub repository.
 
 The data flow for this scenario is as follows:
 
@@ -55,13 +55,13 @@ The data flow for this scenario is as follows:
 
 Argo CD need not automatically sync the desired target state to the AKS cluster. Argo CD is implemented as a kubernetes controller which continuously monitors running applications and compares the current, live state in AKS cluster against the desired target state specified in the Git repository. Argo CD reports & visualizes the differences, while providing facilities to automatically or manually sync the live state back to the desired target state.
 
-Argo CD provides a browser based user interface through which application configurations can be added, synchronization state with respect to the cluster can be observed, and synchronization can be initiated against the cluster. These actions can be performed using the Argo CD command line interface as well. Both the user interface and command line interface provides features to view history of configuration changes and to roll back to a previous version. 
+Argo CD provides a browser based user interface through which application configurations can be added, synchronization state with respect to the cluster can be observed, and synchronization can be initiated against the cluster. These actions can be performed using the Argo CD command line interface as well. Both the user interface and command line interface provides features to view history of configuration changes and to roll back to a previous version.
 
 #### Alternatives
 
 The configuration source repository could be any Git compatible repository, including Azure DevOps.
 
-### Scenario 4:  Implementing CI/CD using GitOps with Argo CD, GitHub actions and AKS
+### Scenario 4: Implementing CI/CD using GitOps with Argo CD, GitHub actions and AKS
 
 ![Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS.](media/gitops-cicd-argocd.png)
 
@@ -78,7 +78,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. Thi
 
 The configuration source repository could be any Git repository, including Azure DevOps.
 
-### Scenario 5: Enforcing policies using Syncier tower and GitOps operator. 
+### Scenario 5: Enforcing policies using Syncier tower and GitOps operator
 
 ![Diagram of GitOps for AKS, with GitHub source control, Flux GitOps controller, Syncier Security Tower GitOps control kit, and Gatekeeper admission controller.](media/gitops-blueprint-aks-new.png)
 
@@ -117,7 +117,7 @@ The architecture scenarios shown previously use one or more of the following com
 
 1. [GitHub](https://github.com) is a code hosting platform for version control and collaboration. GitHub offers Git distributed version control, source code management, and other features.
 
-1. [Flux](https://fluxcd.io/) is a GitOps tool that automates the deployment of applications on Kubernetes. Flux automates configuration updates when there is new code to deploy. Flux is provided as a native extension to Azure Kubernetes Service. 
+1. [Flux](https://fluxcd.io/) is a GitOps tool that automates the deployment of applications on Kubernetes. Flux automates configuration updates when there is new code to deploy. Flux is provided as a native extension to Azure Kubernetes Service.
 
 1. [Argo CD](https://argo-cd.readthedocs.io/) is a declarative, GitOps continuous delivery tool for Kubernetes.
 
@@ -138,7 +138,7 @@ In GitOps, [infrastructure as code (IaC)](https://wikipedia.org/wiki/Infrastruct
 
 Kubernetes describes everything from cluster state to application deployments declaratively with manifests. GitOps for Kubernetes places the cluster infrastructure desired state under version control. A component within the cluster, typically called an operator, continuously syncs the declarative state. Rather than having direct access to the cluster, most operations happen through code changes that can be reviewed and audited. This approach supports the security principle of least privilege access.
 
-One of the principles of GitOps is to continuously reconcile the system state with the desired state, stored in your code repository. GitOps agents will monitor the cluster state and will attempt to reconcile the cluster state with desired state. Operations performed outside the cluster, such as manual creation of Kubernetes objects, can be reverted by the GitOps agents (such as [Admission Controllers](https://www.openpolicyagent.org/docs/latest/kubernetes-introduction/)) to ensure that the deployments are limited only through code changes in the source repository. 
+One of the principles of GitOps is to continuously reconcile the system state with the desired state, stored in your code repository. GitOps agents will monitor the cluster state and will attempt to reconcile the cluster state with desired state. Operations performed outside the cluster, such as manual creation of Kubernetes objects, can be reverted by the GitOps agents (such as [Admission Controllers](https://www.openpolicyagent.org/docs/latest/kubernetes-introduction/)) to ensure that the deployments are limited only through code changes in the source repository.
 
 Policy management / enforcement tools can be combined with GitOps to enforce policies and provide feedback for proposed policy changes. Notifications can be configured for various teams so that the teams are updated on the GitOps operation status; such as if a deployment is succeeded, or if a reconciliation failed.
 
@@ -150,7 +150,7 @@ With GitOps, the developer is shielded from complexities of managing a container
 
 ### GitOps as the source of truth
 
-GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters. 
+GitOps provides consistency and standardization of the cluster state, and is useful to ensure strong security guarantees. GitOps can also be used to ensure consistent state across multiple clusters. For example, to apply the same configuration across primary and DR clusters, or across a farm of clusters.
 
 You may want to enforce that the cluster state changes only through GitOps. This could be achieved by restricting direct access to cluster (through RBAC policies and Azure AD integration), through admissions controllers, or through other tools.
 
@@ -202,12 +202,12 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - Azure DevOps offers a free tier for certain scenarios. Use Azure pricing calculator to estimate Azure Devops costs.
 
 ## Scenario deployments
+
 ### Deploy scenario 1
 
 The following tutorial provide steps for deploying applications to AKS using GitOps with Flux v2.
 
 * [Tutorial: Deploy applications using GitOps with Flux v2](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2?tabs=azure-cli)
-
 
 Review the [reference implementation for the AKS baseline](https://github.com/mspnp/aks-baseline/tree/main/cluster-manifests) to see an example of how the Flux extension is used to bootstrap AKS cluster deployment.
 
@@ -221,7 +221,6 @@ Review the [reference implementation for the AKS baseline](https://github.com/ms
  
 The pull-based CI/CD scenario in [AKS baseline automation implementation](https://github.com/Azure/aks-baseline-automation#deploy-sample-applications-using-gitops-pull-method) provides step-by-step guidance on deploying a sample workload with Argo CD and AKS.
  
-
 ### Deploy scenario 5
 
 Please follow the getting started guide for Syncier security tower to deploy scenario 5 to AKS.
@@ -237,7 +236,7 @@ Principal authors:
 
 - [Francis Simy Nazareth](https://www.linkedin.com/in/francis-simy-nazereth-971440a/) | Principal Cloud Solutions Architect
 
-## Next Steps 
+## Next Steps
 
 - [Build and deploy apps on AKS using DevOps and GitOps](/azure/architecture/example-scenario/apps/devops-with-aks)
 - [Argo CD documentation](https://argo-cd.readthedocs.io/)
