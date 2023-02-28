@@ -15,7 +15,11 @@ Departments that use this solution include:
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for an IaaS application.](../media/dev-test-iaas.png)
+![Diagram showing the configuration of DevTest and DevOps for an IaaS application.](../media/dev-test-iaas.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-iaas.vsdx) of this architecture.*
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-iaas.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -57,7 +61,7 @@ This scenario uses a separate DevTest and Production [Azure Active Directory (Az
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
 
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml).
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml).
 
 - [Azure Boards](https://azure.microsoft.com/services/devops/boards) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities, including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
 
@@ -73,9 +77,12 @@ In situations where VM Image Builder and a Shared Image Gallery don't work, you 
 
 ## Next steps
 
-- [DevSecOps in Azure](./devsecops-in-azure.yml)
-- [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
-- [DevTest and DevOps for microservices](dev-test-microservice.yml)
-- [Set up Azure DevOps](/azure/devops/get-started/)
+- [Set up Azure DevOps](/azure/devops/get-started)
 - [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
 - [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+
+## Related resources
+
+- [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
+- [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
+- [DevTest and DevOps for microservices](dev-test-microservice.yml)

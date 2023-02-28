@@ -17,7 +17,7 @@ A health monitoring check typically combines two factors:
 
 The response code indicates the status of the application and, optionally, any components or services it uses. The latency or response time check is performed by the monitoring tool or framework. The figure provides an overview of the pattern.
 
-![Overview of the pattern](./_images/health-endpoint-monitoring-pattern.png)
+![Overview diagram of the pattern.](./_images/health-endpoint-monitoring-pattern.png)
 
 Other checks that might be carried out by the health monitoring code in the application include:
 
@@ -109,12 +109,21 @@ In the event of a major outage, client traffic should be routable to an applicat
 
 However, Traffic Manager will only wait for a [certain amount of time](/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) to receive a response from the monitoring URL. Therefore, you should ensure that your health verification code executes in this time, allowing for network latency for the round trip from Traffic Manager to your application and back again.
 
-## Related guidance
+## Next steps
 
 The following guidance can be useful when implementing this pattern:
 
 - [Health monitoring Guidance in microservices-based applications](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health)
 - Well-Architected Framework's [Monitoring application health for reliability](/azure/architecture/framework/resiliency/monitoring)
 - [Receiving alert notifications][portal-alerts]
+
+## 
+
+See the following additional cloud design patterns:
+
+- [External Configuration Store pattern](/azure/architecture/patterns/external-configuration-store)
+- [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker)
+- [Gateway Routing pattern](/azure/architecture/patterns/gateway-routing)
+- [Gatekeeper pattern](/azure/architecture/patterns/gatekeeper)
 
 [portal-alerts]: /azure/azure-monitor/alerts/alerts-metric

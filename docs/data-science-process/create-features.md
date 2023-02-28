@@ -117,9 +117,25 @@ Feature engineering and selection can also combine to make the learning more com
 
 It's not always necessarily to perform feature engineering or feature selection. It depends on the data, the algorithm selected, and the objective of the experiment.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Mark Tabladillo](https://www.linkedin.com/in/marktab/) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 To create features for data in specific environments, see the following articles:
 
-* [Create features for data in SQL Server](create-features-sql-server.md)
-* [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
+- [Create features for data in SQL Server](create-features-sql-server.md)
+- [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
+
+## Related resources
+
+- [Feature selection in the Team Data Science Process](select-features.md)
+- [Modeling stage of the Team Data Science Process lifecycle](lifecycle-modeling.md)
+- [What is the Team Data Science Process?](overview.yml)

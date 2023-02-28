@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Turbostream on an Azure virtual machine
+  description: Find out how Turbostream, simulation software that's based on a CFD solver, performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 10/18/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Turbostream on a virtual machine
+summary: Find out how Turbostream performs on an Azure VM.
+thumbnailUrl: /azure/architecture/browse/thumbs/turbostream-thumbnail.png
+content: |
+  [!include[](turbostream-content.md)]

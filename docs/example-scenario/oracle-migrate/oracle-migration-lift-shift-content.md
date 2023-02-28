@@ -49,6 +49,16 @@ You can't use Oracle Real Application Cluster (RAC) by itself in Azure. If you u
 * [FlashGrid Cluster for Oracle RAC on Azure](https://www.flashgrid.io/products/flashgrid-for-oracle-rac-on-azure/)
 * [FlashGrid Cluster for Oracle RAC on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-skycluster)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 To begin migrating your Oracle database to Azure VMs, see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions).

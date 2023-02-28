@@ -1,16 +1,8 @@
-This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to fully automate and create data analytics environments. It uses an Azure Databricks cluster to analyze the data.
-
-The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to Traffic Flow Management Service (TFMS) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
+This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terraform, Terraform Cloud, and GitHub Actions to fully automate and create data analytics environments. It uses an Azure Databricks cluster to analyze the data. The solution uses the Federal Aviation Administration (FAA) System Wide Information Management (SWIM) system. It connects to Traffic Flow Management Service (TFMS) via a Kafka server. For information about SWIM and TFMS, see the [FAA SWIM page](https://www.faa.gov/air_traffic/technology/swim).
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 *Progress Chef and HashiCorp Terraform are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries.
-
-The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources. 
 
 ## Architecture
 
@@ -49,7 +41,15 @@ Both are managed services and offer multiple benefits, like SLAs, simplified con
 
 As an alternative to Power BI, you can use Tableau or another visualization option.
 
-## SWIM architecture
+## Scenario details
+
+### Potential use cases
+
+This solution consumes multiple data sources for flight data patterns. It's ideal for the aerospace, aircraft, and aviation industries.
+
+The solution environment is flexible, so it can be extended to analyze other SWIM data sources or similar streamed data sources.
+
+### SWIM architecture
 
 SWIM is a NAS information system. It's an FAA cloud-based service that provides publicly available FAA SWIM content to FAA-approved consumers via Solace JMS messaging.
 
@@ -57,7 +57,11 @@ SWIM provides a single point of access for aviation data. Data producers publish
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 #### CI/CD pipeline architecture
 
@@ -85,6 +89,8 @@ In this solution, two GitHub Actions workflows automate the infrastructure that 
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 A key requirement for this architecture is that all traffic must be internal and highly secure. To meet this requirement:
 
 - VNet injection is used to deploy Azure Databricks. This deployment method keeps communication between the cluster and Kafka internal.
@@ -94,6 +100,8 @@ A key requirement for this architecture is that all traffic must be internal and
 For more information about improving the security of your solution, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 If you run this project, your account will be billed. For information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
@@ -126,7 +134,7 @@ Principal author:
 
 - [Marcelo Zambrana](https://www.linkedin.com/in/marcelozambrana) | Senior Cloud Solution Architect
 
-Other contributors:
+Other contributor:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 
@@ -134,7 +142,7 @@ Other contributors:
 
 - [What is Azure Databricks?](/azure/databricks/scenarios/what-is-azure-databricks)
 - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Introduction to Power BI](/learn/modules/introduction-power-bi)
+- [Introduction to Power BI](/training/modules/introduction-power-bi)
 
 ## Related resources
 

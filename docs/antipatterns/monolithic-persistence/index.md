@@ -2,10 +2,10 @@
 title: Monolithic Persistence antipattern
 titleSuffix: Azure Architecture Center
 description: Understand the Monolithic Persistence antipattern, which can hurt performance by putting all of an application&apos;s data into a single data store.
-author: EdPrice-MSFT
+author: martinekuan
 categories: azure
 ms.date: 06/05/2017
-ms.topic: conceptual
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: anti-pattern
 azureCategories: 
@@ -76,7 +76,7 @@ public class PolyController : ApiController
 
 - Separate data by the way it is used and how it is accessed. For example, don't store log information and business data in the same data store. These types of data have significantly different requirements and patterns of access. Log records are inherently sequential, while business data is more likely to require random access, and is often relational.
 
-- Consider the data access pattern for each type of data. For example, store formatted reports and documents in a document database such as [Cosmos DB][cosmos-db], but use [Azure Cache for Redis][azure-cache] to cache temporary data.
+- Consider the data access pattern for each type of data. For example, store formatted reports and documents in a document database such as [Azure Cosmos DB][cosmos-db], but use [Azure Cache for Redis][azure-cache] to cache temporary data.
 
 - If you follow this guidance but still reach the limits of the database, you may need to scale up the database. Also consider scaling horizontally and partitioning the load across database servers. However, partitioning may require redesigning the application. For more information, see [Data partitioning][DataPartitioningGuidance].
 

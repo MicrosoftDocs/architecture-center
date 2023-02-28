@@ -41,9 +41,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure Azure Application Gateway](/learn/modules/configure-azure-application-gateway)
-- [Configure Azure Load Balancer](/learn/modules/configure-azure-load-balancer)
-- [Introduction to Azure Virtual Networks](/learn/modules/introduction-to-azure-virtual-networks)
+- [Configure Azure Application Gateway](/training/modules/configure-azure-application-gateway)
+- [Configure Azure Load Balancer](/training/modules/configure-azure-load-balancer)
+- [Introduction to Azure Virtual Networks](/training/modules/introduction-to-azure-virtual-networks)
 
 ## Related resources
 

@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Location-based access control for FSI applications
+  titleSuffix: Azure Architecture Center
+  description: Use Azure Active Directory (Azure AD) named locations application context to control access to financial services industry (FSI) data and applications.
+  author: kunalkodkani-MSFT
+  ms.author: kunalk
+  ms.date: 11/15/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - identity
+  - security
+products:
+  - azure-active-directory
+  - microsoft-authenticator
+name: Location-based access control for FSI applications
+summary: Use Azure Active Directory (Azure AD) named locations application context to control access to financial services industry (FSI) data and applications.
+thumbnailUrl: /azure/architecture/browse/thumbs/authentication-context.png
+content: |
+  [!include[](location-based-access-content.md)]
+  

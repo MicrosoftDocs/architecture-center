@@ -98,7 +98,7 @@ In our example application, we create the employee-facing component by using Pow
 Here are benefits of the low-code approach:
 
 - A low-code application can be ready in less time. Power Apps developers commonly use Power Apps Studio to create an application quickly with a point-and-click approach—they don’t need to write code. If the application is created by citizen developers, they don't have to wait for professional developers to be available. They can create and update the application on their own schedule.
-- A low-code application can easily connect to many kinds of data. In this example, the low-code application uses Azure SQL Database for its data, just like the pro-code part of the solution. Low-code applications can also work with many other data stores, such as Dataverse—designed for use with Power Platform—or Cosmos DB. An application accesses a data store by using a connector. A developer can quickly add a connector to an application by dragging and dropping the connector into the application.
+- A low-code application can easily connect to many kinds of data. In this example, the low-code application uses Azure SQL Database for its data, just like the pro-code part of the solution. Low-code applications can also work with many other data stores, such as Dataverse—designed for use with Power Platform—or Azure Cosmos DB. An application accesses a data store by using a connector. A developer can quickly add a connector to an application by dragging and dropping the connector into the application.
 - Connectors make it possible for a low-code application to work with many other technologies. For example, Microsoft provides connectors to applications and data from many sources, such as Oracle, Salesforce, Dropbox, and SAP. There are more than 450 connectors. An application can even use connectors to access functionality that's provided by other cloud services, such as sending tweets with Twitter.
 
 Low-code development is a technology that gives your organization more ways to build applications and to build them quickly. It's an essential way to create better applications in less time.
@@ -111,7 +111,7 @@ When appropriate, professional and citizen developers can work together to creat
 >
 > An important example of this is deploying applications within Microsoft Teams. Pro-code applications created by using Azure can use this option, as can low-code applications that are built on Power Platform. Teams is used by hundreds of millions of people every month, so why not connect your applications to this popular technology?
 >
-> For low-code applications, there’s another powerful option: using [Dataverse for Teams](/learn/paths/work-power-platform-teams). It's part of Microsoft Teams, which is part of Microsoft 365, so typically there's no extra license required to use it. Dataverse for Teams also includes subsets of Power Automate, Power Virtual Agents, and Power BI.
+> For low-code applications, there’s another powerful option: using [Dataverse for Teams](/training/paths/work-power-platform-teams). It's part of Microsoft Teams, which is part of Microsoft 365, so typically there's no extra license required to use it. Dataverse for Teams also includes subsets of Power Automate, Power Virtual Agents, and Power BI.
 >
 > Here are some benefits of using Dataverse for Teams:
 >

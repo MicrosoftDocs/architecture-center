@@ -3,10 +3,10 @@ metadata:
   title: Automate Sentinel integration with Azure DevOps
   titleSuffix: Azure Example Scenarios
   description: Automate your Microsoft Sentinel integration and deployment with Azure DevOps for your Security Operation Center. 
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: kekisoka
   ms.date: 06/08/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp

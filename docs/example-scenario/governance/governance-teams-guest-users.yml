@@ -3,10 +3,10 @@ metadata:
   title: Governance of Teams guest users
   titleSuffix: Azure Architecture Center
   description: Learn how to use Microsoft Teams and Azure AD entitlement management to collaborate with other organizations, while maintaining control over resource use.
-  author: EdPrice-MSFT 
-  ms.author: martin.boam 
-  ms.date: 08/05/2022
-  ms.topic: conceptual
+  author: martinekuan
+  ms.author: martin.boam
+  ms.date: 02/23/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom:

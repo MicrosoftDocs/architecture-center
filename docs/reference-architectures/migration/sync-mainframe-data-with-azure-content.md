@@ -1,18 +1,12 @@
-Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
-
-This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services. Specifically, the solution covers:
-
-- Extraction: Connecting to and extracting from a source database.
-- Transformation:
-  - Staging: Temporarily storing data in its original format and preparing it for transformation.
-  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
-- Loading: Inserting data into a target database.
+This reference architecture outlines an implementation plan for replicating and syncing data during modernization to Azure. It discusses technical aspects like data stores, tools, and services.
 
 ## Architecture
 
-:::image type="complex" source="./images/sync-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false":::
+:::image type="complex" source="./images/sync-mainframe-data-with-azure.png" alt-text="Architecture diagram showing how to sync on-premises and Azure databases during mainframe modernization." border="false" lightbox="./images/sync-mainframe-data-with-azure.png":::
    The diagram contains two parts, one for on-premises components, and one for Azure components. The on-premises part contains rectangles, one that pictures databases and one that contains integration tools. A server icon that represents the self-hosted integration runtime is also located in the on-premises part. The Azure part also contains rectangles. One is for pipelines. Others are for services that the solution uses for staging and preparing data. Another contains Azure databases. Arrows point from on-premises components to Azure components. These arrows represent the flow of data in the replication and sync processes. One of the arrows goes through the on-premises data gateway.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/sync-mainframe-data-with-azure.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -89,7 +83,7 @@ The solution uses the following components:
 
 - [Azure Data Factory][Azure Data Factory] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate ETL and [ELT][ELT] workflows.
 
-- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies (that are used in enterprise data warehousing), Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Cosmos DB, and Azure Machine Learning.
+- [Azure Synapse Analytics] is an enterprise analytics service that accelerates time to insight, across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies (that are used in enterprise data warehousing), Spark technologies used for big data, Data Explorer for log and time series analytics, Pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning.
 
 - [SQL Server Integration Services (SSIS)][SQL Server Integration Services] is a platform for building enterprise-level data integration and transformation solutions. You can use SSIS to manage, replicate, cleanse, and mine data.
 
@@ -121,7 +115,19 @@ The solution uses the following components:
 
 - An [IR][Integration runtime in Azure Data Factory] is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs][Self-hosted integration runtime] to copy data between cloud data stores and data stores in on-premises networks. You can also use [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines).
 
-## Potential use cases
+## Scenario details
+
+Data availability and integrity play an important role in mainframe and midrange modernization. [Data-first strategies][Modernize mainframe & midrange data] help to keep data intact and available during migration to Azure. To avoid impacting applications during modernization, sometimes you need to replicate data quickly or keep on-premises data in sync with Azure databases.
+
+Specifically, this solution covers:
+
+- Extraction: Connecting to and extracting from a source database.
+- Transformation:
+  - Staging: Temporarily storing data in its original format and preparing it for transformation.
+  - Preparation: Transforming and manipulating data by using mapping rules that meet target database requirements.
+- Loading: Inserting data into a target database.
+
+### Potential use cases
 
 Data replication and sync scenarios that can benefit from this solution include:
 
@@ -134,6 +140,8 @@ Data replication and sync scenarios that can benefit from this solution include:
 When you use Data Factory to extract data, take steps to [tune the performance of the copy activity][Performance tuning steps].
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Keep these points in mind when considering this architecture.
 
@@ -228,7 +236,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 [MariaDB]: https://mariadb.org/
 [Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data
 [Migration guide]: https://datamigration.microsoft.com/
-[Modernize mainframe & midrange data]: ./modernize-mainframe-data-to-azure.yml
+[Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [MySQL Community Edition]: https://www.mysql.com/products/community/
 [Network transports and transactions]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
 [Performance tuning steps]: /azure/data-factory/copy-activity-performance#performance-tuning-steps

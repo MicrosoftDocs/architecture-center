@@ -2,10 +2,10 @@
 metadata:
   title: Patterns and implementations for a banking cloud transformation
   description: Details about the patterns and implementations used when the commercial software engineer team created the banking system cloud transformation solution.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:

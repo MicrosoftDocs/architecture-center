@@ -70,9 +70,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Configure blob storage](/learn/modules/configure-blob-storage)
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
-- [Introduction to Azure DevOps](/learn/modules/get-started-with-devops)
+- [Configure blob storage](/training/modules/configure-blob-storage)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
+- [Introduction to Azure DevOps](/training/modules/get-started-with-devops)
 
 ## Related resources
 

@@ -2,6 +2,8 @@ This reference architecture shows how to perform batch scoring with R models usi
 
 ![Architecture diagram showing batch scoring with R models on Azure.][0]
 
+*Download a [Visio file](https://arch-center.azureedge.net/batch-scoring-r-models.vsdx) of this architecture.*
+
 ### Workflow
 
 This architecture consists of the following components.
@@ -101,6 +103,16 @@ Azure Batch and doAzureParallel support the use of low-priority VMs. These VMs c
 ## Deploy this scenario
 
 To deploy this reference architecture, follow the steps described in the [GitHub][github] repo.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Angus Taylor](https://www.linkedin.com/in/angus-taylor-99ab4a74) | Senior Data Scientist
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

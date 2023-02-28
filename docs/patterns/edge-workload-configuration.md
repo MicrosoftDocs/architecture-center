@@ -6,8 +6,8 @@ keywords: edge, workload, configuration
 author: microsoftCSE
 categories: azure
 ms.author: hecamm
-ms.date: 03/21/2022
-ms.topic: conceptual
+ms.date: 10/12/2022
+ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: design-pattern
 ms.custom:
@@ -118,6 +118,16 @@ After an edge device indicates via reported properties that a configuration was 
 When a new configuration is created in the configuration management service, it is stored in Azure Cosmos DB and the desired properties of the edge module are changed in the IoT hub where the device resides. The configuration is then transmitted by IoT Hub to the edge device. The edge module is expected to apply the configuration and report via the module twin the state of the configuration. The configuration state service then listens to twin change events, and upon detecting that a module reports a configuration state change, records the corresponding change in the Azure Cosmos DB database.
 
 The edge component can use either the external configuration controller or internal configuration provider. In either implementation, the configuration is either transmitted in the module twin desired properties, or in case large configurations need to be transmitted, the module twin desired properties contain a URL to [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) or to another service that can be used to retrieve the configuration. The module then signals in the module twin reported properties whether the new configuration was applied successfully and what configuration is currently applied.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Heather Camm](https://www.linkedin.com/in/heather-camm-2367ba15/) | Senior Program Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

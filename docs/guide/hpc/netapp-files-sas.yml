@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy SAS Grid 9.4 on Azure NetApp Files
+  description: Learn about running SAS Grid 9.4 on Azure, using Azure NetApp Files for SASDATA storage, and about storage options for SASWORK.
+  author: gvanteylingen
+  ms.author: b-gevant
+  ms.date: 02/09/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - analytics
+  - compute
+  - ai-machine-learning
+products:
+  - azure-netapp-files
+  - azure-virtual-machines
+name: Deploy SAS Grid 9.4 on Azure NetApp Files
+summary: Learn about running SAS Grid 9.4 on Azure, using Azure NetApp Files for SASDATA storage.
+thumbnailUrl: /azure/architecture/browse/thumbs/sas-azure-netapp-files-thumb.png
+content: |
+  [!include[](netapp-files-sas-content.md)]

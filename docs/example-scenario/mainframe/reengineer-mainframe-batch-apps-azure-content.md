@@ -163,6 +163,16 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 See [Azure mainframes batch application](https://azure.com/e/c7fa52f13c2f4806ac05316813ed97a0) for an example cost estimate of services.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architecture Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, contact datasqlninja@microsoft.com.

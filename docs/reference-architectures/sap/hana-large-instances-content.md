@@ -187,6 +187,16 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Running SAP Applications on the Microsoft Platform Blog][running-sap-blog]
 - [Stack Overflow SAP][stack-overflow]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author: 
+
+ - [Ben Trinh](https://www.linkedin.com/in/bentrinh/) | Principal Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
@@ -207,14 +217,14 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
-[hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+[hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [hli-infrastructure]: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
 [HLI-SKUs]: /azure/virtual-machines/workloads/sap/hana-available-skus
 [hli-troubleshoot]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
 [HLI-vms-pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/linux
 [ip]: /archive/blogs/saponsqlserver/setting-up-hana-system-replication-on-azure-hana-large-instances
 [monitor]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
-[netweaver]: ./sap-netweaver.yml
+[netweaver]: /azure/architecture/guide/sap/sap-netweaver
 [network-best-practices]: /azure/security/azure-security-network-security-best-practices
 [nfs]: /azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
 [os-hardening]: /azure/security/azure-security-iaas
@@ -238,7 +248,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [sap-security]: https://www.tutorialspoint.com/sap_hana/sap_hana_security_overview.htm
 [scenarios]: /azure/virtual-machines/workloads/sap/hana-supported-scenario
 [scripts]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
-[s4hana]: ./sap-s4hana.yml
+[s4hana]: /azure/architecture/guide/sap/sap-s4hana
 [sku]: /azure/expressroute/expressroute-about-virtual-network-gateways
 [skus]: /azure/virtual-machines/workloads/sap/hana-available-skus
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines

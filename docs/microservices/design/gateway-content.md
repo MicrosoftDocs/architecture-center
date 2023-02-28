@@ -21,13 +21,13 @@ A gateway helps to address these issues by decoupling clients from services. Gat
 
 [Gateway Aggregation](../../patterns/gateway-aggregation.yml). Use the gateway to aggregate multiple individual requests into a single request. This pattern applies when a single operation requires calls to multiple backend services. The client sends one request to the gateway. The gateway dispatches requests to the various backend services, and then aggregates the results and sends them back to the client. This helps to reduce chattiness between the client and the backend.
 
-[Gateway Offloading](../../patterns/gateway-offloading.yml). Use the gateway to offload functionality from individual services to the gateway, particularly cross-cutting concerns. It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. This is particularly true for features that requires specialized skills to implement correctly, such as authentication and authorization.
+[Gateway Offloading](../../patterns/gateway-offloading.yml). Use the gateway to offload functionality from individual services to the gateway, particularly cross-cutting concerns. It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. This is particularly true for features that require specialized skills to implement correctly, such as authentication and authorization.
 
 Here are some examples of functionality that could be offloaded to a gateway:
 
 - SSL termination
 - Authentication
-- IP allow/block list
+- IP allowlist or blocklist
 - Client rate limiting (throttling)
 - Logging and monitoring
 - Response caching
@@ -41,7 +41,7 @@ Here are some options for implementing an API gateway in your application.
 
 - **Reverse proxy server**. Nginx and HAProxy are popular reverse proxy servers that support features such as load balancing, SSL, and layer 7 routing. They are both free, open-source products, with paid editions that provide additional features and support options. Nginx and HAProxy are both mature products with rich feature sets and high performance. You can extend them with third-party modules or by writing custom scripts in Lua. Nginx also supports a JavaScript-based scripting module referred to as [NGINX JavaScript](https://www.nginx.com/blog/introduction-nginscript/). This module was formally named nginScript.
 
-- **Service mesh ingress controller**. If you are using a service mesh such as linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
+- **Service mesh ingress controller**. If you are using a service mesh such as Linkerd or Istio, consider the features that are provided by the ingress controller for that service mesh. For example, the Istio ingress controller supports layer 7 routing, HTTP redirects, retries, and other features.
 
 - [Azure Application Gateway](/azure/application-gateway/). Application Gateway is a managed load balancing service that can perform layer-7 routing and SSL termination. It also provides a web application firewall (WAF).
 
@@ -53,7 +53,7 @@ When choosing a gateway technology, consider the following:
 
 **Deployment**. Azure Application Gateway and API Management are managed services. Nginx and HAProxy will typically run in containers inside the cluster, but can also be deployed to dedicated VMs outside of the cluster. This isolates the gateway from the rest of the workload, but incurs higher management overhead.
 
-**Management**. When services are updated or new services are added, the gateway routing rules may need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP allow lists, and other aspects of configuration.
+**Management**. When services are updated or new services are added, the gateway routing rules might need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP allowlists, and other aspects of configuration.
 
 ## Deploying Nginx or HAProxy to Kubernetes
 
@@ -73,7 +73,14 @@ Also consider running the gateway on a dedicated set of nodes in the cluster. Be
 
 ## Next steps
 
-The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as a opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
+The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as an opaque box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
 
 > [!div class="nextstepaction"]
 > [Data considerations for microservices](./data-considerations.yml)
+
+## Related resources
+
+- [Design APIs for microservices](api-design.yml)
+- [Design a microservices architecture](index.yml)
+- [Using domain analysis to model microservices](../model/domain-analysis.md)
+- [Microservices assessment and readiness](../../guide/technology-choices/microservices-assessment.md)

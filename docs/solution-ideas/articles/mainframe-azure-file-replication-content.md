@@ -107,6 +107,6 @@ Principal author:
 ## Related resources
 
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](./migrate-mainframe-apps-with-tmaxsoft-openframe.yml)
-- [Unisys mainframe migration with Asysco](../../reference-architectures/migration/unisys-mainframe-migration.yml)
+- [Unisys mainframe migration with Avanade AMT](../../reference-architectures/migration/unisys-mainframe-migration.yml)

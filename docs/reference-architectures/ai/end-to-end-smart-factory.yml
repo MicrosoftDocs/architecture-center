@@ -2,10 +2,10 @@
 metadata:
   title: End-to-end computer vision at the edge for manufacturing
   description: Use Azure IoT Edge, MLOps, and human-in-the-loop notifications to train and deploy an ML computer vision solution for manufacturing.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: tinglee
   ms.date: 06/13/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:

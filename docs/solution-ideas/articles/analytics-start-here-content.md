@@ -12,11 +12,11 @@ Data can be processed in batches or in real-time, on-premises or in the cloud, b
 ## Learn about analytics on Azure
 
 If you're new to analytics on Azure, the best place to learn more is with
-[Microsoft Learn](/learn/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or data analyst.
+[Microsoft Learn](/training/?WT.mc_id=learnaka), a free, online training platform. You'll find videos, tutorials, and hands-on learning for specific products and services, plus learning paths based on your job role, such as developer or data analyst.
 
--   [Browse Azure data topics](/learn/browse/?products=azure&filter-products=data&terms=data)
+-   [Browse Azure data topics](/training/browse/?products=azure&filter-products=data&terms=data)
 
--   [Explore Azure database and analytics services](/learn/modules/azure-database-fundamentals/)
+-   [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals/)
 
 ## Organizational readiness
 
@@ -76,7 +76,7 @@ Analytics is a broad category and covers a range of solutions. The following res
 The vast majority of organizations need a hybrid approach to analytics because their data is hosted both on-premises and in the cloud. Organizations often
 [extend on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md). To connect environments, organizations must [choose a hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml).
 
-A hybrid approach might include mainframe and midrange systems as a data source for Azure solutions. For example, your organization may want to [modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) or provide [mainframe access to Azure databases](./mainframe-access-azure-databases.yml).
+A hybrid approach might include mainframe and midrange systems as a data source for Azure solutions. For example, your organization may want to [modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure) or provide [mainframe access to Azure databases](./mainframe-access-azure-databases.yml).
 
 ### Example solutions
 

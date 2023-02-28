@@ -1,25 +1,8 @@
-Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+This solution migrates Unisys Dorado mainframe systems to Azure with Astadia and Micro Focus products, without rewriting code, switching data models, or updating screens.
 
-This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
+## Architecture
 
-- Rewriting application code.
-- Redesigning data architecture or switching from a network-based to a relational-based model.
-- Changing application screens.
-
-## Potential use cases
-
-Many cases can benefit from the Astadia and Micro Focus pattern:
-
-- Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL. Reasons include compliance factors, prohibitive costs, complexity, or other considerations.
-- Organizations looking for approaches to modernizing workloads that offer these capabilities:
-
-  - A way to migrate application layer source code.
-  - Modern platform as a service (PaaS) services, including:
-
-    - Azure SQL Database with its built-in high availability.
-    - Azure Data Factory with its automated and serverless file routing and transformation.
-
-## Legacy architecture
+### Legacy architecture
 
 This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe systems typically contain:
 
@@ -29,7 +12,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 *Download a [Visio file][Visio version of Sperry architecture diagram] of this architecture.*
 
-### Workflow
+#### Workflow
 
 - On-premises users interact with the mainframe (**A**):
 
@@ -63,7 +46,7 @@ This diagram shows the components that Unisys Sperry OS 1100/2200 mainframe syst
 
 - Mainframe file structures include Common Internet File System (CIFS), flat files, and virtual tape. These file structures map easily to Azure data constructs within structured files or Blob Storage (**F**). Data Factory provides a modern PaaS data transformation service that fully integrates with this architecture pattern.
 
-## Azure Architecture
+### Azure architecture
 
 This architecture demonstrates the solution, after it was migrated to Azure:
 
@@ -73,7 +56,7 @@ This architecture demonstrates the solution, after it was migrated to Azure:
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
 
-### Workflow
+#### Workflow
 
 1. Transport Layer Security (TLS) connections that use port 443 provide access to web-based applications:
 
@@ -114,13 +97,13 @@ This architecture demonstrates the solution, after it was migrated to Azure:
 
 1. Azure Site Recovery provides disaster recovery capabilities. This service mirrors the VMs to a secondary Azure region. In the rare case of an Azure datacenter failure, the system then provides quick failover.
 
-### Components
+#### Components
 
 This architecture uses the following components:
 
-- [VMs][What is a virtual machine?] are on-demand, scalable computing resources. An Azure VM provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
+- [VMs][What is a virtual machine?] are on-demand, scalable computing resources. An [Azure VM](https://azure.microsoft.com/products/virtual-machines) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware.
 
-- [Azure solid-state drive (SSD) managed disks][Introduction to Azure managed disks] are block-level storage volumes that Azure manages. VMs use these disks. Available types include:
+- [Azure solid-state drive (SSD) managed disks](https://azure.microsoft.com/products/storage/disks) are block-level storage volumes that Azure manages. VMs use these disks. Available types include:
 
   - Ultra Disks
   - Premium SSD Managed Disks
@@ -129,39 +112,62 @@ This architecture uses the following components:
 
   Premium SSDs or Ultra Disks work best with this architecture.
 
-- [Virtual Network][What is Azure Virtual Network?] is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network operating in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
 
-- [Virtual network interface cards][Create, change, or delete a network interface] provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
+  Virtual network interface cards provide a way for VMs to communicate with internet, Azure, and on-premises resources. You can add network interface cards to a VM to give Solaris child VMs their own dedicated network interface devices and IP addresses.
 
-- [Azure Files][What is Azure Files?] is a service that's part of [Azure Storage][Introduction to the core Azure Storage services]. Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage][Introduction to the core Azure Storage services]. Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
 
-- [Blob Storage][Introduction to Azure Blob storage] is a service that's part of Storage. Blob Storage provides optimized cloud object storage that manages massive amounts of unstructured data.
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs) is a service that's part of Storage. Blob Storage provides optimized cloud object storage that manages massive amounts of unstructured data.
 
-- [SQL Database][What is Azure SQL Database?] is a fully managed PaaS database engine. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. SQL Database offers 99.99 percent availability and runs on the latest stable version of the SQL Server database engine and patched operating system. Because SQL Database offers built-in PaaS capabilities, you can focus on domain-specific database administration and optimization activities that are critical for your business.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is a fully managed PaaS database engine. With AI-powered, automated features, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. SQL Database offers 99.99 percent availability and runs on the latest stable version of the SQL Server database engine and patched operating system. Because SQL Database offers built-in PaaS capabilities, you can focus on domain-specific database administration and optimization activities that are critical for your business.
 
-- [Data Factory][What is Azure Data Factory?] is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract-transform-load (ETL) and extract-load-transform (ELT) workflows.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service. You can use this fully managed, serverless solution to create, schedule, and orchestrate extract-transform-load (ETL) and extract-load-transform (ELT) workflows.
 
 - [IIS][Internet Information Server with Windows 2019] is an extensible web server. Its modular architecture provides a flexible web hosting environment.
 
-- [Load Balancer][What is Azure Load Balancer?] distributes inbound traffic to back-end pool instances. Load Balancer directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in an Azure Virtual Machine Scale Set.
+- [Azure Load Balancer](https://azure.microsoft.com/solutions/load-balancing-with-azure) distributes inbound traffic to back-end pool instances. Load Balancer directs traffic according to configured load-balancing rules and health probes. The back-end pool instances can be Azure VMs or instances in an Azure Virtual Machine Scale Set.
 
-- [ExpressRoute][What is Azure ExpressRoute?] extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections to cloud components like Azure services and Microsoft 365.
 
-- [Azure Bastion][What is Azure Bastion?] provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs. This service uses SSL without exposing public IP addresses.
+- [Azure Bastion](https://azure.microsoft.com/products/azure-bastion) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to VMs. This service uses SSL without exposing public IP addresses.
 
-- [Private Link][What is Azure Private Link?] provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services.
+- [Azure Private Link](https://azure.microsoft.com/products/private-link) provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure PaaS services or to customer or partner services.
 
-- [Azure network security groups][Network security groups] filter traffic in an Azure virtual network. Security rules determine the type of traffic that can flow to and from Azure resources in the network.
+- [Azure network security groups](/azure/virtual-network/network-security-groups-overview) filter traffic in an Azure virtual network. Security rules determine the type of traffic that can flow to and from Azure resources in the network.
 
-- [Site Recovery][About Site Recovery] keeps applications and workloads running during outages. This service works by replicating VMs from a primary site to a secondary location.
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) keeps applications and workloads running during outages. This service works by replicating VMs from a primary site to a secondary location.
 
-- An [autofailover group][Use auto-failover groups to enable transparent and coordinated failover of multiple databases] manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
+- An [autofailover group](/azure/azure-sql/database/auto-failover-group-overview) manages the replication and failover of databases to another region. With this feature, you can start failover manually. You can also set up a user-defined policy to delegate failover to Azure.
+
+## Scenario details
+
+Unisys Dorado mainframe systems are full-featured operating environments. You can scale them up vertically to handle mission-critical workloads. But emulating or modernizing these systems into Azure can provide similar or better performance and SLA guarantees. Azure systems also offer added flexibility, reliability, and the benefit of future capabilities.
+
+This architecture uses emulation technology from two Microsoft partners, [Astadia][Astadia] and [Micro Focus][Micro Focus]. The solution provides an accelerated way to move to Azure. There's no need for these steps:
+
+- Rewriting application code.
+- Redesigning data architecture or switching from a network-based to a relational-based model.
+- Changing application screens.
+
+### Potential use cases
+
+Many cases can benefit from the Astadia and Micro Focus pattern:
+
+- Businesses with Unisys Dorado mainframe systems that can't modify original source code, such as COBOL. Reasons include compliance factors, prohibitive costs, complexity, or other considerations.
+- Organizations looking for approaches to modernizing workloads that offer these capabilities:
+
+  - A way to migrate application layer source code.
+  - Modern platform as a service (PaaS) services, including:
+
+    - Azure SQL Database with its built-in high availability.
+    - Azure Data Factory with its automated and serverless file routing and transformation.
 
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution.
 
-### Availability considerations
+### Availability
 
 - Availability sets for VMs ensure enough VMs are available to meet mission-critical batch process needs.
 - Load Balancer improves reliability by rerouting traffic to a spare VM set if the active set fails.
@@ -172,7 +178,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - Azure Storage redundancy
   - Azure Files redundancy
 
-### Operational considerations
+### Operational
 
 - Besides scalability and availability, these Azure PaaS components also provide updates to services:
 
@@ -190,7 +196,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
   - App troubleshooting and telemetry through [Application Insights][What is Application Insights?].
   - Network component management through [Azure Network Watcher][What is Azure Network Watcher?].
 
-### Performance considerations
+### Performance efficiency
 
 - SQL Database, Storage accounts, and other Azure PaaS components provide high performance in these areas:
 
@@ -200,7 +206,7 @@ The following considerations, based on the [Microsoft Azure Well-Architected Fra
 
 - The use of VMs in this architecture aligns with the framework's [performance efficiency pillar][Overview of the performance efficiency pillar], since you can optimize the VM configuration to boost performance.
 
-### Scalability considerations
+### Scalability
 
 Various Azure PaaS components provide scalability:
 
@@ -209,11 +215,15 @@ Various Azure PaaS components provide scalability:
 - Azure Storage
 - Azure Files
 
-### Security considerations
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 All the components in this architecture work with Azure security components as needed. Examples include network security groups, virtual networks, and TLS encryption.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To estimate the cost of implementing this solution, use the [Azure pricing calculator][Pricing calculator].
 
@@ -244,6 +254,16 @@ To estimate the cost of implementing this solution, use the [Azure pricing calcu
 - [Contact Astadia][Contact Astadia] for pricing information on OpenTS, OpenMCS, and OpenDMS.
 - [Contact Micro Focus][Contact Micro Focus] for pricing on Micro Focus COBOL.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - Contact [legacy2azure@microsoft.com][Email address for information on migrating legacy systems to Azure] for more information.
@@ -271,7 +291,7 @@ For more information about the services featured in this solution, see the follo
 - [Mainframe rehosting on Azure virtual machines][Mainframe rehosting on Azure virtual machines]
 - Reference architectures:
 
-  - [Unisys mainframe migration to Azure using Asysco][Unisys mainframe migration]
+  - [Unisys mainframe migration to Azure using Avanade AMT][Unisys mainframe migration]
   - [Micro Focus Enterprise Server on Azure VMs][Micro Focus Enterprise Server on Azure VMs]
   - [Modernize mainframe & midrange data][Modernize mainframe & midrange data]
   - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame][Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]
@@ -290,7 +310,7 @@ For more information about the services featured in this solution, see the follo
 [Azure SQL Database pricing]: https://azure.microsoft.com/pricing/details/sql-database/single/
 [Azure Storage Overview pricing]: https://azure.microsoft.com/pricing/details/storage/
 [Contact Astadia]: https://www.astadia.com/contact
-[Contact Micro Focus]: https://www.microfocus.com/en-us/contact
+[Contact Micro Focus]: https://www.microfocus.com/contact
 [Create, change, or delete a network interface]: /azure/virtual-network/virtual-network-network-interface
 [Data Factory pricing]: https://azure.microsoft.com/pricing/details/data-factory/
 [Email address for information on migrating legacy systems to Azure]: mailto:legacy2azure@microsoft.com
@@ -306,7 +326,7 @@ For more information about the services featured in this solution, see the follo
 [Micro Focus Enterprise Server on Azure VMs]: ./micro-focus-server.yml
 [Microsoft Azure Well-Architected Framework]: /azure/architecture/framework/index
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-[Modernize mainframe & midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+[Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Network security groups]: /azure/virtual-network/network-security-groups-overview
 [Overview of the performance efficiency pillar]: /azure/architecture/framework/scalability/overview
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/

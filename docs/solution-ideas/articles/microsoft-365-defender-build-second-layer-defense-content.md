@@ -144,13 +144,13 @@ Other contributors:
 
 ## Next steps
 
-- [Defend against threats with Microsoft 365](/learn/paths/m365-security-threat-protection)
-- [Detect and respond to cyber attacks with Microsoft 365 Defender](/learn/paths/defender-detect-respond)
+- [Defend against threats with Microsoft 365](/training/paths/m365-security-threat-protection)
+- [Detect and respond to cyber attacks with Microsoft 365 Defender](/training/paths/defender-detect-respond)
 - [Get started with Microsoft 365 Defender](/microsoft-365/security/defender/get-started)
-- [Implement threat intelligence in Microsoft 365](/learn/paths/implement-microsoft-365-threat-intelligence)
-- [Manage security with Microsoft 365](/learn/paths/m365-security-management)
-- [Protect against malicious threats with Microsoft Defender for Office 365](/learn/paths/defender-office-365-malicious-threats)
-- [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/learn/paths/defender-identity-protect-on-premises)
+- [Implement threat intelligence in Microsoft 365](/training/paths/implement-microsoft-365-threat-intelligence)
+- [Manage security with Microsoft 365](/training/paths/m365-security-management)
+- [Protect against malicious threats with Microsoft Defender for Office 365](/training/paths/defender-office-365-malicious-threats)
+- [Protect on-premises identities with Microsoft Defender for Cloud for Identity](/training/paths/defender-identity-protect-on-premises)
 
 ## Related resources
 
@@ -160,4 +160,3 @@ For more details about this reference architecture, see the other articles in th
 - Part 2: [Map threats to your IT environment](./map-threats-it-environment.yml)
 - Part 3: [Build the first layer of defense with Azure Security services](./azure-security-build-first-layer-defense.yml)
 - Part 5: [Integration between Azure and Microsoft 365 Defender security services](./microsoft-365-defender-security-integrate-azure.yml)
-

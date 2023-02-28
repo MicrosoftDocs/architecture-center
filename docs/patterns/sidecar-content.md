@@ -2,7 +2,7 @@ Deploy components of an application into a separate process or container to prov
 
 This pattern is named *Sidecar* because it resembles a sidecar attached to a motorcycle. In the pattern, the sidecar is attached to a parent application and provides supporting features for the application. The sidecar also shares the same lifecycle as the parent application, being created and retired alongside the parent. The sidecar pattern is sometimes referred to as the sidekick pattern and is a decomposition pattern.
 
-## Context and Problem
+## Context and problem
 
 Applications and services often require related functionality, such as monitoring, logging, configuration, and networking services. These peripheral tasks can be implemented as separate components or services.
 
@@ -30,14 +30,14 @@ Advantages of using a sidecar pattern include:
 
 The sidecar pattern is often used with containers and referred to as a sidecar container or sidekick container.
 
-## Issues and Considerations
+## Issues and considerations
 
 - Consider the deployment and packaging format you will use to deploy services, processes, or containers. Containers are particularly well suited to the sidecar pattern.
 - When designing a sidecar service, carefully decide on the interprocess communication mechanism. Try to use language- or framework-agnostic technologies unless performance requirements make that impractical.
 - Before putting functionality into a sidecar, consider whether it would work better as a separate service or a more traditional daemon.
 - Also consider whether the functionality could be implemented as a library or using a traditional extension mechanism. Language-specific libraries may have a deeper level of integration and less network overhead.
 
-## When to Use this Pattern
+## When to use this pattern
 
 Use this pattern when:
 
@@ -62,6 +62,6 @@ The sidecar pattern is applicable to many scenarios. Some common examples:
 - Ambassador sidecar. Deploy an [ambassador](./ambassador.yml) service as a sidecar. The application calls through the ambassador, which handles request logging, routing, circuit breaking, and other connectivity related features.
 - Offload proxy. Place an NGINX proxy in front of a node.js service instance, to handle serving static file content for the service.
 
-## Related guidance
+## Related resources
 
 - [Ambassador pattern](./ambassador.yml)

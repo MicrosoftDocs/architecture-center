@@ -1,23 +1,4 @@
-Many possibilities exist for working with *geospatial data*, or information that includes a geographic component. For instance, geographic information system (GIS) software and standards are widely available. These technologies can store, process, and provide access to geospatial data. But it's often hard to configure and maintain systems that work with geospatial data. You also need expert knowledge to integrate those systems with other systems.
-
-This article outlines a manageable solution for making large volumes of geospatial data available for analytics. The approach is based on [Advanced Analytics Reference Architecture][Advanced analytics architecture] and uses these Azure services:
-
-- Azure Databricks with GIS Spark libraries processes data.
-- Azure Database for PostgreSQL queries data that users request through APIs.
-- Azure Data Explorer runs fast exploratory queries.
-- Azure Maps creates visuals of geospatial data in web applications.
-- The Azure Maps Power BI visual feature of Power BI provides customized reports.
-
-## Potential use cases
-
-This solution applies to many areas:
-
-- Processing, storing, and providing access to large amounts of raster data, such as maps or climate data.
-- Identifying the geographic position of enterprise resource planning (ERP) system entities.
-- Combining entity location data with GIS reference data.
-- Storing Internet of Things (IoT) telemetry from moving devices.
-- Running analytical geospatial queries.
-- Embedding curated and contextualized geospatial data in web apps.
+This article outlines a manageable solution for making large volumes of geospatial data available for analytics.
 
 ## Architecture
 
@@ -106,7 +87,7 @@ Throughout the process:
 
 ### Alternatives
 
-- Instead of developing your own APIs, consider using [Martin][Urbica Martin]. This open-source tile server makes vector tiles available to web apps. Written in [Rust][Rust], Martin connects to PostgreSQL tables. You can deploy it as a container.
+- Instead of developing your own APIs, consider using [Martin](https://github.com/maplibre/martin). This open-source tile server makes vector tiles available to web apps. Written in [Rust][Rust], Martin connects to PostgreSQL tables. You can deploy it as a container.
 
 - If your goal is to provide a standardized interface for GIS data, consider using [GeoServer][GeoServer]. This open framework implements industry-standard [Open Geospatial Consortium (OGC)][Open Geospatial Consortium] protocols such as [Web Feature Service (WFS)][Web Feature Service]. It also integrates with common spatial data sources. You can deploy GeoServer as a container on a virtual machine. When customized web apps and exploratory queries are secondary, GeoServer provides a straightforward way to publish geospatial data.
 
@@ -132,9 +113,32 @@ Throughout the process:
   - Azure Data Explorer
   - Power BI
 
+## Scenario details
+
+Many possibilities exist for working with *geospatial data*, or information that includes a geographic component. For instance, geographic information system (GIS) software and standards are widely available. These technologies can store, process, and provide access to geospatial data. But it's often hard to configure and maintain systems that work with geospatial data. You also need expert knowledge to integrate those systems with other systems.
+
+This article outlines a manageable solution for making large volumes of geospatial data available for analytics. The approach is based on [Advanced Analytics Reference Architecture][Advanced analytics architecture] and uses these Azure services:
+
+- Azure Databricks with GIS Spark libraries processes data.
+- Azure Database for PostgreSQL queries data that users request through APIs.
+- Azure Data Explorer runs fast exploratory queries.
+- Azure Maps creates visuals of geospatial data in web applications.
+- The Azure Maps Power BI visual feature of Power BI provides customized reports
+
+### Potential use cases
+
+This solution applies to many areas:
+
+- Processing, storing, and providing access to large amounts of raster data, such as maps or climate data.
+- Identifying the geographic position of enterprise resource planning (ERP) system entities.
+- Combining entity location data with GIS reference data.
+- Storing Internet of Things (IoT) telemetry from moving devices.
+- Running analytical geospatial queries.
+- Embedding curated and contextualized geospatial data in web apps.
+
 ## Considerations
 
-The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution:
+The following considerations, based on the [Microsoft Azure Well-Architected Framework][Microsoft Azure Well-Architected Framework], apply to this solution.
 
 ### Availability
 
@@ -190,6 +194,8 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Protect vector tile data. Vector tiles embed coordinates and attributes for multiple entities in one file. If you generate vector tiles, use a dedicated set of tiles for each permission level in your access control system. With this approach, only users within each permission level have access to that level's data file.
 
 - To improve security, use Key Vault in these situations:
@@ -204,7 +210,9 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
   - See how to [redirect HTTP requests for your app to the HTTPS port][Enforce HTTPS].
   - Learn about [best practices for authentication in web apps][Basic web application authentication].
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - To estimate the cost of implementing this solution, see a sample [cost profile][Pricing: Azure Architecture for GIS data processing and serving]. This profile is for a single implementation of the environment described in [Scalability considerations][Scalability considerations]. It doesn't include the cost of Azure Data Explorer.
 - To adjust the parameters and explore the cost of running this solution in your environment, use the [Azure pricing calculator][Pricing calculator].
@@ -213,9 +221,9 @@ The [autoscale feature of Monitor][Overview of autoscale in Microsoft Azure] als
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
-* [Richard Bumann](https://ch.linkedin.com/in/rlb18) | Solution Architect
+- [Richard Bumann](https://ch.linkedin.com/in/rlb18) | Solution Architect
 
 ## Next steps
 
@@ -249,6 +257,9 @@ To start implementing this solution, see this information:
 - [Health data consortium on Azure][Health data consortium on Azure]
 - [DataOps for the modern data warehouse][DataOps for the modern data warehouse]
 - [Azure Data Explorer interactive analytics][Azure Data Explorer interactive analytics]
+- [Geospatial reference architecture - Azure Orbital][Geospatial reference architecture - Azure Orbital]
+- [Geospatial analysis for telecom][Geospatial analysis for telecom]
+- [Spaceborne data analysis with Azure Synapse Analytics][Spaceborne data analysis with Azure Synapse Analytics]
 
 ### Related guides
 
@@ -277,11 +288,11 @@ To start implementing this solution, see this information:
 [Azure Monitor Logs overview]: /azure/azure-monitor/logs/data-platform-logs
 [Azure Monitor Metrics overview]: /azure/azure-monitor/essentials/data-platform-metrics
 [Azure Monitor overview]: /azure/azure-monitor/overview
-[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#availability
-[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#scalability
+[Basic web app availability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?=cli#reliability
+[Basic web application scalability considerations]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency
 [Basic web application authentication]: ../../reference-architectures/app-service-web-app/basic-web-app.yml?tabs=cli#authentication
 [Big data analytics with Azure Data Explorer]: ../../solution-ideas/articles/big-data-azure-data-explorer.yml
-[Chapter 4. PostGIS Usage]: https://postgis.net/docs/postgis_usage.html#RT_Loading_Rasters
+[Chapter 4. PostGIS Usage]: https://postgis.net/docs/using_raster_dataman.html#RT_Loading_Rasters
 [Compare the machine learning products and technologies from Microsoft - Azure Databricks]: ../../data-guide/technology-choices/data-science-and-machine-learning.md#azure-databricks
 [Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal]: /azure/event-hubs/configure-customer-managed-key
 [Connect to a WFS service]: /azure/azure-maps/spatial-io-connect-wfs-service

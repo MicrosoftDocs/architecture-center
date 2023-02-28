@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
-  title: Optimized storage – time based with Data Lake
+  title: Optimized storage – time based with Data Lake Storage
   titleSuffix: Azure Architecture
-  description: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
+  description: Optimize storage with a high-availability solution that uses one Azure storage service for quick access to high-demand data and another for low-demand data.
   author: nabilshams
   ms.author: nasiddi
   ms.date: 06/06/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
 azureCategories:
@@ -20,8 +20,8 @@ products:
   - azure-functions
   - azure-cosmos-db
   - azure-data-lake
-name: Optimized storage – time based with Data Lake
-summary: Architecture for a high-availability solution that uses two Azure storage services, one for quick access to high-demand data, the other for low-demand data.
+name: Optimized storage – time based with Data Lake Storage
+summary: Optimize storage with a high-availability solution that uses one Azure storage service for quick access to high-demand data and another for low-demand data.
 thumbnailUrl: /azure/architecture/browse/thumbs/optimized-storage-time-based-data-lake.png
 content: |
   [!include[](optimized-storage-time-based-data-lake-content.md)]

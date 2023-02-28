@@ -74,7 +74,7 @@ Consider the following points when implementing the Saga pattern:
 - The Saga pattern may initially be challenging, as it requires a new way of thinking on how to coordinate a transaction and maintain data consistency for a business process spanning multiple microservices.
 - The Saga pattern is particularly hard to debug, and the complexity grows as participants increase.
 - Data can't be rolled back, because saga participants commit changes to their local databases.
-- The implementation must be capable of handling a set of potential transient failures, and provide *idempotence* for reducing side-effects and ensuring data consistency. Idempotence means that the same operation can be repeated multiple times without changing the initial result.
+- The implementation must be capable of handling a set of potential transient failures, and provide *idempotence* for reducing side-effects and ensuring data consistency. Idempotence means that the same operation can be repeated multiple times without changing the initial result. For more information, see the [guidance on ensuring idempotence when processing messages and updating state together](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
 - It's best to implement observability to monitor and track the saga workflow.
 - The lack of participant data isolation imposes durability challenges. The saga implementation must include countermeasures to reduce anomalies.
 
@@ -108,7 +108,12 @@ The Saga pattern is less suitable for:
 
 [Orchestration-based Saga on Serverless](https://github.com/Azure-Samples/saga-orchestration-serverless) is a saga implementation reference using the orchestration approach that simulates a money transfer scenario with successful and failed workflows.
 
-## Related patterns
+## Next steps
+
+- [Distributed data](/dotnet/architecture/cloud-native/distributed-data)
+- Richardson, Chris. 2018: *Microservices Patterns*. Manning Publications.
+
+## Related resources
 
 The following patterns might also be useful when implementing this pattern:
 
@@ -117,8 +122,3 @@ The following patterns might also be useful when implementing this pattern:
 - [Retry](../../patterns/retry.yml) lets an application handle transient failures when it tries to connect to a service or network resource, by transparently retrying the failed operation. Retry can improve the stability of the application.
 - [Circuit breaker](../../patterns/circuit-breaker.yml) handles faults that take a variable amount of time to recover from, when connecting to a remote service or resource. Circuit breaker can improve the stability and resiliency of an application.
 - [Health endpoint monitoring](../../patterns/health-endpoint-monitoring.yml) implements functional checks in an application that external tools can access through exposed endpoints at regular intervals. Health endpoint monitoring can help verify that applications and services are performing correctly.
-
-## Related resources
-
-- [Distributed data](/dotnet/architecture/cloud-native/distributed-data)
-- Richardson, Chris. 2018: *Microservices Patterns*. Manning Publications.

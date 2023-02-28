@@ -1,24 +1,12 @@
-When organizations collaborate, they share information. But most parties don't want to give other parties access to all parts of the data. Mechanisms exist for safeguarding data at rest and in transit. However, encrypting data in use poses different challenges. This article presents a solution that Azure confidential computing (ACC) offers for encrypting in-use data.
-
-By using confidential computing and containers, the solution provides a way for a provider-hosted application to securely collaborate with a hospital and a third-party diagnostic provider. Azure Kubernetes Service (AKS) hosts confidential computing nodes. Azure Attestation establishes trust with the diagnostic provider. By using these Azure components, the architecture isolates the sensitive data of the hospital patients while the specific shared data is being processed in the cloud. The hospital data is then inaccessible to the diagnostic provider. Through this architecture, the provider-hosted application can also take advantage of advanced analytics. The diagnostic provider makes these analytics available as confidential computing services of machine learning (ML) applications.
-
-## Potential use cases
-
-Many industries protect their data by using confidential computing for these purposes:
-
-- Securing financial data
-- Protecting patient information
-- Running ML processes on sensitive information
-- Performing algorithms on encrypted datasets from many sources
-- Protecting container data and code integrity
+This article presents a solution that Azure confidential computing (ACC) offers for encrypting in-use data.
 
 ## Architecture
 
-:::image type="complex" source="./media/confidential-healthcare-inference.png" alt-text="Diagram of a confidential healthcare platform demonstration. The platform includes a hospital, medical platform provider, and diagnostic provider." border="false":::
+:::image type="complex" source="./media/confidential-healthcare-inference.svg" alt-text="Diagram of a confidential healthcare platform demonstration. The platform includes a hospital, medical platform provider, and diagnostic provider." border="false":::
 Diagram showing how data flows between three parties in a healthcare setting. Three rectangles represent the three parties: a hospital, a medical platform, and a diagnostic provider. Each rectangle contains icons that represent various components, such as a website, a client application, Azure Attestation, a web API, data storage, and a runtime. The medical platform and diagnostic provider rectangles also contain smaller rectangles that represent confidential nodes and A K S clusters. Arrows connect these components and show the flow of data. Numbered callouts correspond to the steps that this article describes after the diagram.
 :::image-end:::
 
-*Download an [SVG file][Confidential Healthcare Inference svg] of this architecture.*
+*Download a [Visio file][Confidential Healthcare Inference vsdx] of this architecture.*
 
 The diagram outlines the architecture. Throughout the system:
 
@@ -61,9 +49,54 @@ The solution involves the following steps:
 
 - [Graphene](https://graphene.readthedocs.io/en/latest/cloud-deployment.html#azure-kubernetes-service-aks) is a lightweight, open-source guest OS. Graphene can run a single Linux application in an isolated environment with benefits comparable to running a complete OS. It has good tooling support for converting existing Docker container applications to Graphene Shielded Containers (GSC).
 
+## Scenario details
+
+When organizations collaborate, they share information. But most parties don't want to give other parties access to all parts of the data. Mechanisms exist for safeguarding data at rest and in transit. However, encrypting data in use poses different challenges. 
+
+By using confidential computing and containers, the solution provides a way for a provider-hosted application to securely collaborate with a hospital and a third-party diagnostic provider. Azure Kubernetes Service (AKS) hosts confidential computing nodes. Azure Attestation establishes trust with the diagnostic provider. By using these Azure components, the architecture isolates the sensitive data of the hospital patients while the specific shared data is being processed in the cloud. The hospital data is then inaccessible to the diagnostic provider. Through this architecture, the provider-hosted application can also take advantage of advanced analytics. The diagnostic provider makes these analytics available as confidential computing services of machine learning (ML) applications.
+
+### Potential use cases
+
+Many industries protect their data by using confidential computing for these purposes:
+
+- Securing financial data
+- Protecting patient information
+- Running ML processes on sensitive information
+- Performing algorithms on encrypted datasets from many sources
+- Protecting container data and code integrity
+
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Azure confidential computing virtual machines (VMs) are available in 2nd-generation D family sizes for general purpose needs. These sizes are known collectively as D-Series v2 or DCsv2 series. This scenario uses Intel SGX-enabled DCs_v2-series virtual machines with Gen2 operating system (OS) images. But you can only deploy certain sizes in certain regions. For more information, see [Quickstart: Deploy an Azure Confidential Computing VM in the Marketplace](/azure/confidential-computing/quick-create-marketplace) and [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
+
+A [sample cost profile](https://azure.com/e/5e776a5dbebf4f20974ebbfa0e247747) is available for the Contoso Medical SaaS Platform, as pictured in the diagram. It includes the following components:
+
+- System node pool and SGX node pool: no disks, all ephemeral
+- AKS Load Balancer
+- Azure Virtual Network: nominal
+- Azure Container Registry
+- Storage account for single-page application (SPA)
+
+The profile doesn't include the following components:
+
+- Azure Attestation Service: free
+- Azure Monitor Logs: usage based
+- SCONE ISV licensing
+- Compliance services required for solutions working with sensitive data, including:
+
+  - Microsoft Defender for Cloud and Microsoft Defender for Kubernetes
+  - Azure DDoS Protection: Network Protection
+  - Azure Firewall
+  - Azure Application Gateway and Azure Web Application Firewall
+  - Azure Key Vault
 
 ## Deploy this scenario
 
@@ -85,36 +118,11 @@ Deploying this scenario involves the following high-level steps:
 
 These steps focus on the enclave containers. A secured infrastructure would extend beyond this implementation and include compliance requirements, such as added protections required by HIPAA.
 
-## Pricing
-
-To explore the cost of running this scenario, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator), which preconfigures all Azure services.
-
-A [sample cost profile](https://azure.com/e/5e776a5dbebf4f20974ebbfa0e247747) is available for the Contoso Medical SaaS Platform, as pictured in the diagram. It includes the following components:
-
-- System node pool and SGX node pool: no disks, all ephemeral
-- AKS Load Balancer
-- Azure Virtual Network: nominal
-- Azure Container Registry
-- Storage account for single-page application (SPA)
-
-The profile doesn't include the following components:
-
-- Azure Attestation Service: free
-- Azure Monitor Logs: usage based
-- SCONE ISV licensing
-- Compliance services required for solutions working with sensitive data, including:
-
-  - Microsoft Defender for Cloud and Microsoft Defender for Kubernetes
-  - Azure DDoS Protection: standard
-  - Azure Firewall
-  - Azure Application Gateway and Azure Web Application Firewall
-  - Azure Key Vault
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Amar Gowda](https://www.linkedin.com/in/nramar) | Principal Product Manager
 
@@ -134,6 +142,6 @@ Principal authors:
 
 - [Health data consortium on Azure](../data/azure-health-data-consortium.yml)
 - [HIPAA and HITRUST compliant health data AI](../../solution-ideas/articles/security-compliance-blueprint-hipaa-hitrust-health-data-ai.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
-[Confidential Healthcare Inference svg]: ./media/confidential-healthcare-inference.svg
+[Confidential Healthcare Inference vsdx]: https://arch-center.azureedge.net/healthcare-inference.vsdx

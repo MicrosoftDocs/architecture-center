@@ -18,7 +18,7 @@ Despite these limitations, a monolithic design can make sense as a starting poin
 - Easier to debug, because the code runs within a single process and memory space.
 - Easier to reason about, because there are fewer moving parts.
 
-As the application grows in complexity, however, these advantages can disappear. Large monoliths often become progressively harder to build, debug, and reason about. At some point, the problems outweigh the benefits. This is the point when it can make sense to migrate the application to a microservices architecture. Unlike monoliths, microservices are typically decentralized, loosely coupled units of execution. The following diagram shows a typical microservices architecture:
+As the application grows in complexity, however, these advantages can disappear. Large monoliths often become progressively harder to build, debug, and reason about. At some point, the problems outweigh the benefits. This is the point when it can make sense to migrate the application to a [microservices architecture](/azure/architecture/guide/architecture-styles/microservices). Unlike monoliths, microservices are typically decentralized, loosely coupled units of execution. The following diagram shows a typical microservices architecture:
 
 ![A typical microservices architecture](./images/monolith/figure2.png)
 
@@ -77,11 +77,11 @@ For more information about anti-corruption layers, see [Anti-Corruption Layer pa
 
 The next step is to separate the presentation layer from the backend layer. In a traditional n-tier application, the application (business) layer tends to be the components that are core to the application and have domain logic within them. These coarse-grained APIs interact with the data access layer to retrieve persisted data from within a database. These APIs establish a natural boundary to the presentation tier, and help to decouple the presentation tier into a separate application space.
 
-The follow diagram shows the presentation layer (UI) split out from the application logic and data access layers.
+The following diagram shows the presentation layer (UI) split out from the application logic and data access layers.
 
 ![API gateway pattern](./images/monolith/figure5.png)
 
-This diagram also introduces another layer, the API gateway, that sits between the presentation layer and the application logic. The API gateway is a façade layer that provides a consistent and uniform interface for the presentation layer to interact with, while allowing downstream services to evolve independently, without affecting the application. The API Gateway may use a technology such as [Azure API Management](/azure/api-management/), and allows the application to interact in a RESTful manner.
+This diagram also introduces another layer, the API gateway, that sits between the presentation layer and the application logic. The API gateway is a façade layer that provides a consistent and uniform interface for the presentation layer to interact with, while allowing downstream services to evolve independently, without affecting the application. The API Gateway may use a technology such as [Azure API Management](/azure/api-management), and allows the application to interact in a RESTful manner.
 
 The presentation tier can be developed in any language or framework that the team has expertise in, such as a single page application or an MVC application. These applications interact with the microservices via the gateway, using standard HTTP calls. For more information about API Gateways, see [Using API gateways in microservices](./design/gateway.yml).
 
@@ -95,6 +95,23 @@ As you continue to peel away the monolith, eventually there will come the point 
 
 This approach is an example of the [Strangler Fig pattern](../patterns/strangler-fig.yml) and allows for a controlled decomposition of a monolith into a set of microservices. Over time, as existing functionality is moved into microservices, the monolith will shrink in size and complexity, to the point that it no longer exists.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Lavan Nallainathan](https://www.linkedin.com/in/lavan-nallainathan-8771b05b) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops/) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.yml).
+When the application has been decomposed into constituent microservices, it becomes possible to use modern orchestration tools such as [Azure DevOps](/azure/devops) to manage the lifecycle of each service. For more information, see [CI/CD for microservices architectures](./ci-cd.yml).
+
+## Related resources
+
+- [Using tactical DDD to design microservices](model/tactical-ddd.yml)
+- [Microservices architecture design](index.yml)
+- [Microservices assessment and readiness](../guide/technology-choices/microservices-assessment.md)
+- [Design patterns for microservices](design/patterns.yml)

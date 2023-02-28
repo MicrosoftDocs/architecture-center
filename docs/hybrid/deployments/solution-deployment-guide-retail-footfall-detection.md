@@ -1,13 +1,12 @@
 ---
 title: Deploy AI-based footfall detection solution in Azure and Azure Stack Hub
 description: Learn how to deploy an AI-based footfall detection solution for analyzing visitor traffic in retail stores using Azure and Azure Stack Hub.
-author: BryanLa
+author: ronmiab
+ms.author: robess
 ms.service: architecture-center
 ms.subservice: azure-guide
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: bryanla
-ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 products:
   - azure-stack-hubx
@@ -20,7 +19,6 @@ categories:
 # Intent: As an Azure Stack Hub operator, I want to deploy a footfall detection solution using Azure and Azure Stack Hub so I can analyze visitor traffic in retail stores.
 
 # Keyword: AI footfall detection azure stack hub
-
 ---
 
 # Deploy an AI-based footfall detection solution using Azure and Azure Stack Hub
@@ -44,20 +42,20 @@ In this solution, you learn how to:
 
 Before getting started with this deployment guide, make sure you:
 
-- Review the [Footfall detection pattern](/hybrid/app-solutions/pattern-retail-footfall-detection) topic.
+- Review the [Footfall detection architecture](/azure/architecture/solution-ideas/articles/hybrid-footfall-detection).
 - Obtain user access to an Azure Stack Development Kit (ASDK) or Azure Stack Hub integrated system instance, with:
   - The [Azure App Service on Azure Stack Hub resource provider](/azure-stack/operator/azure-stack-app-service-overview) installed. You need operator access to your Azure Stack Hub instance, or work with your administrator to install.
   - A subscription to an offer that provides App Service and Storage quota. You need operator access to create an offer.
 - Obtain access to an Azure subscription.
-  - If you don't have an Azure subscription, sign up for a [free trial account](https://azure.microsoft.com/free/) before you begin.
+  - If you don't have an Azure subscription, sign up for a [free trial account](https://azure.microsoft.com/free) before you begin.
 - Create two service principals in your directory:
   - One set up for use with Azure resources, with access at the Azure subscription scope.
   - One set up for use with Azure Stack Hub resources, with access at the Azure Stack Hub subscription scope.
   - To learn more about creating service principals and authorizing access, see [Use an app identity to access resources](/azure-stack/operator/azure-stack-create-service-principals). If you prefer to use Azure CLI, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - Deploy Azure Cognitive Services in Azure or Azure Stack Hub.
-  - First, [learn more about Cognitive Services](https://azure.microsoft.com/services/cognitive-services/).
+  - First, [learn more about Cognitive Services](https://azure.microsoft.com/services/cognitive-services).
   - Then visit [Deploy Azure Cognitive Services to Azure Stack Hub](/azure-stack/user/azure-stack-solution-template-cognitive-services) to deploy Cognitive Services on Azure Stack Hub. You first need to sign up for access to the preview.
-- Clone or download an unconfigured Azure Custom Vision AI Dev Kit. For details, see the [Vision AI DevKit](https://azure.github.io/Vision-AI-DevKit-Pages/).
+- Clone or download an unconfigured Azure Custom Vision AI Dev Kit. For details, see the [Vision AI DevKit](https://azure.github.io/Vision-AI-DevKit-Pages).
 - Sign up for a Power BI account.
 - An Azure Cognitive Services Face API subscription key and endpoint URL. You can get both with the [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api) free trial. Or, follow the instructions in [Create a Cognitive Services account](/azure/cognitive-services/cognitive-services-apis-create-account).
 - Install the following development resources:
@@ -65,7 +63,7 @@ Before getting started with this deployment guide, make sure you:
   - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
   - [Porter](https://porter.sh/). You use Porter to deploy cloud apps using CNAB bundle manifests that are provided for you.
   - [Visual Studio Code](https://code.visualstudio.com/)
-  - [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  - [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
   - [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - [Python](https://www.python.org/)
 
@@ -120,7 +118,7 @@ First you use the Porter CLI to generate a credential set, then deploy the cloud
 
 ## Prepare the Custom Vision AI DevKit
 
-Next, set up the Custom Vision AI Dev Kit as shown in the [Vision AI DevKit quickstart](https://azure.github.io/Vision-AI-DevKit-Pages/docs/quick_start/). You also set up and test your camera, using the connection string provided in the previous step.
+Next, set up the Custom Vision AI Dev Kit as shown in the [Vision AI DevKit quickstart](https://azure.github.io/Vision-AI-DevKit-Pages/docs/quick_start). You also set up and test your camera, using the connection string provided in the previous step.
 
 ## Deploy the camera app
 
@@ -170,7 +168,7 @@ Now that data is flowing to Azure Stream Analytics from the camera, we need to m
 
 4. Select **Renew authorization** and sign in to your Power BI account.
 
-    ![Renew authorization prompt in Power BI](media/solution-deployment-guide-retail-footfall-detection/image2.png)
+    ![Screenshot that shows the renew authorization prompt in Power BI.](media/solution-deployment-guide-retail-footfall-detection/image2.png)
 
 5. Save the output settings.
 
@@ -206,3 +204,13 @@ porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployme
 
 - Learn more about [Hybrid app design considerations](/hybrid/app-solutions/overview-app-design-considerations)
 - Review and propose improvements to [the code for this sample on GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis).
+- See [Overview of a hybrid workload](/azure/architecture/framework/hybrid/hybrid-overview) in Azure Well-Architected Framework.
+- See the [hybrid and multicloud scenario](/azure/cloud-adoption-framework/scenarios/hybrid) in Azure Cloud Adoption Framework.
+
+## Related resources
+
+- [Configure hybrid cloud connectivity using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-connectivity)
+- [Configure hybrid cloud identity for Azure and Azure Stack Hub apps](/azure/architecture/hybrid/deployments/solution-deployment-guide-identity)
+- [Deploy an app that scales cross-cloud using Azure and Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling)
+- [Deploy a high availability Kubernetes cluster on Azure Stack Hub](/azure/architecture/hybrid/deployments/solution-deployment-guide-highly-available-kubernetes)
+- [Deploy a hybrid app with on-premises data that scales cross-cloud](/azure/architecture/hybrid/deployments/solution-deployment-guide-cross-cloud-scaling-onprem-data)

@@ -1,4 +1,4 @@
-This guide outlines a strategy for implementing [zero-trust][Zero trust definition] security for web apps. This type of security model verifies the trustworthiness of network packets that flow to applications. A multilayered approach works best, where network security makes up one layer. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
+This guide outlines a strategy for implementing [zero-trust][Zero trust definition] security for web apps for inspection and encryption. The zero-trust paradigm includes many other concepts, such as constant verification of the identity of the actors or reducing the size of the implicit trust areas to a minimum. This article refers to the encryption and inspection component of a zero-trust architecture for traffic inbound from the public Internet. Please read other [zero-trust documents][Zero trust definition] for more aspects of deploying your application securely, such as authentication. For the purpose of this article, a multilayered approach works best, where network security makes up one of the layers of the zero-trust model. In this layer, network appliances inspect packets to ensure that only legitimate traffic reaches applications.
 
 Typically, different types of network appliances inspect different aspects of network packets:
 
@@ -142,7 +142,7 @@ The following diagram shows the packet flow in a case that uses Virtual WAN. In 
 1. Azure Firewall Premium requests DNS resolution from a DNS server in the shared services virtual network.
 1. The DNS server answers the resolution request.
 1. Azure Firewall Premium runs security checks on the packets. If they pass the tests, Azure Firewall Premium forwards the packets to the application VM.
-1. The VM responds and sets the destination IP address to Application Gateway. The Application Gateway subnet redirects the packets to Azure Firewall Premium.
+1. The VM responds and sets the destination IP address to Application Gateway. The Application subnet redirects the packets to Azure Firewall Premium.
 1. Azure Firewall Premium forwards the packets to Application Gateway.
 1. Application Gateway sends the packets to the VPN.
 1. The VPN answers the client.

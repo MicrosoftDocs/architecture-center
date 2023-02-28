@@ -152,6 +152,16 @@ IoT Hub supports the following [protocols](/azure/iot-hub/iot-hub-devguide-proto
 An industrial device or system that supports any of the preceding protocols can send data directly to IoT Hub. Most industrial environments don't allow this direct connection, because of firewalls and network security policies.
 
 In these cases, you can [install an IoT Edge field gateway in a DMZ](../../reference-architectures/dmz/secure-vnet-dmz.yml) between the PCN and the internet. For more information, see [Security considerations](iiot-considerations.md#security).
+  
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -163,7 +173,6 @@ In these cases, you can [install an IoT Edge field gateway in a DMZ](../../refer
 - [Extract actionable insights from IoT data](../../industries/manufacturing/extract-insights-iot-data.yml)
 - [IoT analytics with Azure Data Explorer](../../solution-ideas/articles/iot-azure-data-explorer.yml)
 - [Industry specific Azure IoT reference architectures](../../reference-architectures/iot/industry-iot-hub-page.md)
-- [Data analysis workloads for regulated industries](../../example-scenario/data/data-analysis-regulated-industries.yml)
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 - [IoT and data analytics in manufacturing](../../example-scenario/data/big-data-with-iot.yml)
 - [Architectural approaches for IoT in a multitenant solution](../multitenant/approaches/iot.md)
-

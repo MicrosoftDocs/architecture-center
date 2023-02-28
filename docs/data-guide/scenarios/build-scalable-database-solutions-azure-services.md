@@ -71,8 +71,8 @@ Principal author:
 
 ## Next steps
 
-- [Choose a data storage approach in Azure](/learn/modules/choose-storage-approach-in-azure)
-- [Developing with Azure Cosmos DB Table API and Azure Table storage](/azure/cosmos-db/table-support)
+- [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure)
+- [Developing with Azure Cosmos DB for Table and Azure Table storage](/azure/cosmos-db/table-support)
 
 ## Related resources
 
@@ -81,4 +81,3 @@ Principal author:
 - [Select an Azure data store for your application](../../guide/technology-choices/data-store-decision-tree.md)
 - [Criteria for choosing a data store](../../guide/technology-choices/data-store-considerations.md)
 - [Time series data](time-series.yml)
-

@@ -2,18 +2,6 @@
 
 This solution demonstrates real-time asset tracking and management.
 
-It uses Azure IoT Central to receive data from IoT sensors and export it to Azure Event Hubs, which creates data streams. Other Azure services—such as Azure Stream Analytics, Azure Functions, and Azure Notification Hubs—receive the streams. They transform and analyze the streamed data, and create rule-based alerts. They also store the data for use by reporting tools and custom applications.
-
-## Potential use cases
-
-This solution is ideal for the manufacturing and automotive industries. These other use cases have similar design patterns:
-
-- **Management and inventory:** Track vehicles and assets.
-- **Driver scoring:** Use metrics such as location, speed, out-of-route distance, and hard braking to monitor driver behavior.
-- **Vehicle monitoring and maintenance:** Schedule preventive and breakdown maintenance based on real-time engine alerts.
-- **App-based alerts:** Use app-based alerts to monitor for speeding and geofence violations, and other events.
-- **Reporting analytics:** Generate reports on asset history, alerts, and trip history.
-
 ## Architecture
 
 :::image type="content" source="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" lightbox="../media/real-time-asset-tracking-mgmt-iot-central-content.svg" alt-text="The solution diagram shows devices sending data to IoT Central, which exports it to Event Hubs for use by various alerting and reporting services.":::
@@ -47,6 +35,20 @@ This solution is ideal for the manufacturing and automotive industries. These ot
 - [Azure Maps](https://azure.microsoft.com/services/azure-maps) has geospatial APIs for adding maps, spatial analytics, and mobility solutions to your apps. It's available to verify and standardize address data. Your apps can use real-time location intelligence powered by mobility technology partners TomTom, AccuWeather, and Moovit.
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. You can use it to produce beautiful reports and publish them on the web and across mobile devices.
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded) puts Power BI into your applications, so that you can quickly and easily provide interactive reports, dashboards, and analytics in your applications, and brand them as your own.
+
+## Scenario details
+
+This solution uses Azure IoT Central to receive data from IoT sensors and export it to Azure Event Hubs, which creates data streams. Other Azure services—such as Azure Stream Analytics, Azure Functions, and Azure Notification Hubs—receive the streams. They transform and analyze the streamed data, and create rule-based alerts. They also store the data for use by reporting tools and custom applications.
+
+### Potential use cases
+
+This solution is ideal for the manufacturing and automotive industries. These other use cases have similar design patterns:
+
+- **Management and inventory:** Track vehicles and assets.
+- **Driver scoring:** Use metrics such as location, speed, out-of-route distance, and hard braking to monitor driver behavior.
+- **Vehicle monitoring and maintenance:** Schedule preventive and breakdown maintenance based on real-time engine alerts.
+- **App-based alerts:** Use app-based alerts to monitor for speeding and geofence violations, and other events.
+- **Reporting analytics:** Generate reports on asset history, alerts, and trip history.
 
 ## Contributors
 

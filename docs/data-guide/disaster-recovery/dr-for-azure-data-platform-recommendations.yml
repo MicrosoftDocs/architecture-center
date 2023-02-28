@@ -1,0 +1,22 @@
+### YamlMime:Architecture
+metadata:
+  title: DR for Azure Data Platform - Recommendations
+  titleSuffix: Azure Architecture Center
+  description: Fourth article in a series covering disaster recovery for an Azure data platform
+  author: claytonsiemens77
+  ms.author: architectures
+  ms.date: 10/07/2022
+  ms.topic: solution-idea
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+name: DR for Azure Data Platform - Recommendations
+azureCategories:
+  - analytics
+summary: Overview of solution idea recommendations.
+products:
+  - azure-active-directory
+  - azure-analysis-services
+  - azure-sql-database
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
+content: |
+   [!include[](dr-for-azure-data-platform-recommendations-content.md)]

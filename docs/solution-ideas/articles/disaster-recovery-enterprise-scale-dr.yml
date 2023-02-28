@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Enterprise-scale disaster recovery
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: This large-enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers runs on an on-premises datacenter and fails over to Azure infrastructure.
-  author: EdPrice-MSFT
-  ms.author: laclama
+  author: martinekuan
+  ms.author: architectures
   ms.date: 05/26/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:

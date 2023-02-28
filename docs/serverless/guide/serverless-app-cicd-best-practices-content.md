@@ -1,4 +1,4 @@
-<!-- cSpell:ignore dkshir cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
+<!-- cSpell:ignore PageWriter-MSFT cicd brotli iname fabrikamdronestatus Jamstack setvariable CDNS -->
 Serverless computing abstracts the servers, infrastructure, and operating systems, allowing developers to focus on application development. A robust *CI/CD* or *Continuous Integration*/*Continuous Delivery* of such applications allows companies to ship fully tested and integrated software versions within minutes of development. It provides a backbone of modern DevOps environment.
 
 What does CI/CD actually stand for?
@@ -30,13 +30,13 @@ The project files for this sample application are kept in GitHub. If you don't h
 
 ## Automate your build and deploy
 
-Using a CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true) can help you to automate the build and deploy processes. You can create multiple stages in the pipeline, each stage running based on the result of the previous one. The stages can run in either a [Windows or Linux container](/azure/devops/pipelines/process/container-phases?tabs=yaml&view=azure-devops&preserve-view=true). The script must make sure the tools and environments are set properly in the container. Azure Pipelines can run a variety of build tools, and can work with quite a few [online version control systems](/azure/devops/pipelines/repos/?view=azure-devops&preserve-view=true).
+Using a CI/CD service such as [Azure Pipelines](/azure/devops/pipelines/) can help you to automate the build and deploy processes. You can create multiple stages in the pipeline, each stage running based on the result of the previous one. The stages can run in either a [Windows or Linux container](/azure/devops/pipelines/process/container-phases?tabs=yaml). The script must make sure the tools and environments are set properly in the container. Azure Pipelines can run a variety of build tools, and can work with quite a few [online version control systems](/azure/devops/pipelines/repos/).
 
 ### Integrate build tools
 
 Modern build tools can simplify your build process, and provide functionality such as pre-configuration, [minification](https://techterms.com/definition/minification) of the JavaScript files, and static site generation. Static site generators can build markup files before they are deployed to the hosting servers, resulting in a fast user experience. You can select from a variety of these tools, based on the type of your application's programming language and platform, as well as additional functionality needed. [This article](https://blog.logrocket.com/the-best-static-websites-generators-compared-5f1f9eeeaf1a/) provides a list of popular build tools for a modern application.
 
-The sample is a React application, built using [Gatsby.js](https://www.gatsbyjs.org/), which is a static site generator and front-end development framework. These tools can be run locally during development and testing phases, and then integrated with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops&preserve-view=true) for the final deployment.
+The sample is a React application, built using [Gatsby.js](https://www.gatsbyjs.org/), which is a static site generator and front-end development framework. These tools can be run locally during development and testing phases, and then integrated with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) for the final deployment.
 
 The sample uses the Gatsby file [gatsby-ssr.js](https://www.gatsbyjs.org/docs/ssr-apis/) for rendering, and [gatsby-config.js](https://www.gatsbyjs.org/docs/gatsby-config/) for site configuration. Gatsby converts all JavaScript files under the `pages` subdirectory of the `src` folder to HTML files. Additional components go in the `components` subdirectory. The sample also uses the [gatsby-plugin-typescript](https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/) plugin that allows using [TypeScript](https://www.typescriptlang.org/) for type safety, instead of JavaScript.
 
@@ -48,7 +48,7 @@ Automating the build process reduces the human errors that can be introduced in 
 
 #### Build stage
 
-Since Azure Pipelines is [integrated with the GitHub repository](/azure/devops/pipelines/repos/github?tabs=yaml&view=azure-devops&preserve-view=true), any changes in the tracked directory of the main branch trigger the first stage of the pipeline, the build stage:
+Since Azure Pipelines is [integrated with the GitHub repository](/azure/devops/pipelines/repos/github?tabs=yaml), any changes in the tracked directory of the main branch trigger the first stage of the pipeline, the build stage:
 
 ```yaml
 trigger:
@@ -99,7 +99,7 @@ This is followed by *tasks* and *scripts* required to successfully build the pro
     ```
 
 - Computing the version of the current build for [cache management](#manage-website-cache),
-- Publishing the built files for use by the [deploy stage](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml&view=azure-devops&preserve-view=true):
+- Publishing the built files for use by the [deploy stage](/azure/devops/pipelines/artifacts/pipeline-artifacts?tabs=yaml):
 
     ```yaml
         - task: PublishPipelineArtifact@1
@@ -210,6 +210,16 @@ A better approach is to invalidate this cache by [using versioning during deploy
 1. Except for the index.html and 404.html, all other website files are fingerprinted and cached for a year. This is based on the assumption that resources such as images and videos, do not need frequent changes. If these files are updated and rebuilt, their names are updated by a new fingerprint GUID. This results in an update to the index.html with an updated reference to the changed resource file. The CDN then retrieves the updated index.html, and since it does not find the reference resource file in its cache, it also retrieves the changed resource files.
 
 This ensures that the CDN always gets new updated files, and removes the need to purge the cache for a new build.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Dhanashri Kshirsagar](https://www.linkedin.com/in/dhanashrikr/) | Senior Content PM
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

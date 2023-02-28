@@ -12,7 +12,7 @@ To move data into a data warehouse, data is periodically extracted from various 
 
 The following reference architectures show end-to-end data warehouse architectures on Azure:
 
-- [Enterprise BI in Azure with Azure Synapse Analytics](../../reference-architectures/data/enterprise-bi-synapse.yml). This reference architecture implements an extract, load, and transform (ELT) pipeline that moves data from an on-premises SQL Server database into Azure Synapse.
+- [Enterprise BI in Azure with Azure Synapse Analytics](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse). This reference architecture implements an extract, load, and transform (ELT) pipeline that moves data from an on-premises SQL Server database into Azure Synapse.
 - [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.yml). This reference architecture shows an ELT pipeline with incremental loading, automated using Azure Data Factory.
 
 ## When to use this solution
@@ -166,18 +166,6 @@ The following tables summarize the key differences in capabilities.
 
 [3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
 
-## Next steps
-
-Read more about securing your data warehouse:
-
-- [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
-
-- [Secure a database in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
-
-- [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
-
-- [Enterprise-level Hadoop security with domain-joined HDInsight clusters](/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -185,3 +173,21 @@ Read more about securing your data warehouse:
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+Read more about securing your data warehouse:
+
+- [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
+- [Secure a database in Azure Synapse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
+- [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+- [Enterprise-level Hadoop security with domain-joined HDInsight clusters](/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+
+## Related resources
+
+- [Enterprise BI in Azure with Azure Synapse Analytics](../../example-scenario/analytics/enterprise-bi-synapse.yml)
+- [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.yml)
+- [Logical data warehouse with Azure Synapse serverless SQL pools](../../solution-ideas/articles/logical-data-warehouse.yml)
+- [Enterprise data warehouse](../../solution-ideas/articles/enterprise-data-warehouse.yml)

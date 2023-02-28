@@ -2,20 +2,11 @@
 
 This solution allows studios to leverage on-premises capacity to its fullest with the Azure FXT Edge Filer for NAS acceleration. When demand grows beyond on-premises capacity, burst render provides access to tens of thousands of cores using Azure Virtual Machine Scale Sets. An Express Route connection and HPC Cache minimize latency while studios securely manage storage in a single place without replication.
 
-## Potential use cases
-
-Graphics designers, artists, and animation designers need high performance systems to make sure they deliver the best quality work and can accommodate change requests without waiting hours for the processing to finish. Areas that studios can see the benefits from high performance computing include:
-
-* Animation and modeling.
-
-* 3D Rendering.
-
-* Compositing and color grading.
-
 ## Architecture
 
-![Architecture Diagram](../media/azure-batch-rendering.png)
-*Download an [SVG](../media/azure-batch-rendering.svg) of this architecture.*
+![Diagram that shows HPC media rendering solution architecture.](../media/azure-batch-rendering.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-batch-rendering.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -31,6 +22,18 @@ Graphics designers, artists, and animation designers need high performance syste
 * Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud).
 * [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt): Faster, more accessible data storage for high-performance computing at the edge
 * [Azure Batch](https://azure.microsoft.com/services/batch): Cloud-scale job scheduling and compute management
+
+## Scenario details
+
+### Potential use cases
+
+Graphics designers, artists, and animation designers need high performance systems to make sure they deliver the best quality work and can accommodate change requests without waiting hours for the processing to finish. Areas that studios can see the benefits from high performance computing include:
+
+* Animation and modeling.
+
+* 3D Rendering.
+
+* Compositing and color grading.
 
 ## Next steps
 

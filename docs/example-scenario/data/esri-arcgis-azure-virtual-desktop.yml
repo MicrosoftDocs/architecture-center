@@ -5,8 +5,8 @@ metadata:
   description: View a reference architecture that shows how to deploy ArcGIS Pro in Azure Virtual Desktop to support the hyperscale of Azure.
   author: rovin-ms
   ms.author: rovin
-  ms.date: 07/07/2022
-  ms.topic: conceptual
+  ms.date: 01/10/2023
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp 

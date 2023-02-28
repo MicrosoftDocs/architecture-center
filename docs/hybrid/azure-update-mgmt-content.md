@@ -6,7 +6,7 @@ This reference architecture illustrates how to design a hybrid update management
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
-## Workflow
+### Workflow
 
 The architecture consists of the following services:
 
@@ -24,7 +24,7 @@ The architecture consists of the following services:
 - [Azure Automation](https://azure.microsoft.com/services/automation)
 - [Azure Virtual Machines](https://azure.microsoft.com/free/virtual-machines)
 - [Azure Monitor](https://azure.microsoft.com/services/monitor)
-- [Azure Arc](https://azure.microsoft.com/services/azure-arc/)
+- [Azure Arc](https://azure.microsoft.com/services/azure-arc)
 
 ## Scenario details
 
@@ -169,6 +169,8 @@ Each Windows computer managed by Update Management is listed in the **Hybrid Wor
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Manageability
 
 #### Manage updates for Azure VMs and non-Azure machines
@@ -281,6 +283,8 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Update Management permissions: The Update Management component of Automation and the Log Analytics workspace component of Monitor can use Azure role-based access control (Azure RBAC) with built-in roles from Azure Resource Manager. For segregation of the duties, these roles can be assigned to different users, groups, and security principals. For a list of the roles in Automation accounts, refer to [Manage role permissions and security][32].
 - Encryption of sensitive assets in Automation: An Automation account can contain sensitive assets such as credentials, certificates, and encrypted variables that runbooks might use. Each secure asset is encrypted by default using a data encryption key that's generated for each Automation account. These keys are encrypted and stored in Automation with an account encryption key that can be stored in the Azure Key Vault for customers who want to manage encryption with their own keys. By default, an account encryption key is encrypted by using Microsoft-managed keys. Use the following guidelines to [apply encryption of secure assets in Azure Automation][33].
 - Runbook permissions for a Hybrid Runbook Worker: By default, runbook permissions for a Hybrid Runbook Worker run in a system context on the machine where they're deployed. A runbook provides its own authentication to local resources. Authentication can be configured using managed identities for Azure resources or by specifying a Run As account to provide a user context for all runbooks.
@@ -295,10 +299,21 @@ Azure Automation can process up to 1,000 computers per update deployment. If you
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 - Use the [Azure pricing calculator][38] to estimate costs. For more information about Automation pricing models, refer to [Automation pricing][39].
 - Azure Automation costs are priced for job execution per minute or for configuration management per node. Every month, the first 500 minutes of process automation and configuration management on five nodes are free.
 - An Azure Log Analytics workspace might generate more costs related to the amount of log data that's stored in Azure Log Analytics. The pricing is based on consumption, and the costs are associated with data ingestion and data retention. For ingesting data into Azure Log Analytics, use the capacity reservation or pay-as-you-go model that includes 5 gigabytes (GB) free a month for each billing account. Data retention for the first 31 days is free of charge.
 - Use the Azure pricing calculator to estimate costs. For more information about Log Analytics pricing models, refer to [Azure Monitor pricing][40].
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+- [Mike Martin](https://www.linkedin.com/in/techmike2kx) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

@@ -128,7 +128,7 @@ Other contributors:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 - [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
 - [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
-- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
+- [Create a Linux virtual machine in Azure](/training/modules/create-linux-virtual-machine-in-azure)
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
@@ -136,5 +136,5 @@ For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@m
 
 - [Mainframe migration overview](/azure/cloud-adoption-framework/infrastructure/mainframe-migration)
 - [Make the switch from mainframes to Azure](/azure/cloud-adoption-framework/infrastructure/mainframe-migration/migration-strategies)
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)

@@ -2,16 +2,19 @@ Information security has always been a complex subject, and it evolves quickly w
 
 Security is one of the most important aspects of any architecture. Good security provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Losing these assurances can harm your business operations and revenue, and your organization's reputation.
 
+> [!NOTE]
+> Learn how cloud security is an ongoing journey of incremental progress and maturity, in [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure). Learn how to build security into your solution, in the Azure Well-Architected Framework [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Here are some broad categories to consider when you design a security system: 
 
 ![Image that shows categories to consider when you design a security system.](images/security-overview.png) 
 
 Azure provides a wide range of security tools and capabilities. These are just some of the key security services available in Azure:
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud/). A unified infrastructure security management system that strengthens the security posture of your datacenters. It also provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
+- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/defender-for-cloud). A unified infrastructure security management system that strengthens the security posture of your datacenters. It also provides advanced threat protection across your hybrid workloads in the cloud and on-premises.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory). The Microsoft cloud-based identity and access management service.  
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor). A global, scalable entry-point that uses the Microsoft global edge network to create fast, highly secure, and widely scalable web applications.
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall). A cloud-native, intelligent network firewall security service that provides threat protection for your cloud workloads that run in Azure.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). A high-security secret store for tokens, passwords, certificates, API keys, and other secrets. You can also use Key Vault to create and control the encryption keys used to encrypt your data.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault). A high-security secret store for tokens, passwords, certificates, API keys, and other secrets. You can also use Key Vault to create and control the encryption keys used to encrypt your data.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link). A service that enables you to access Azure PaaS services, Azure-hosted services that you own, or partner services over a private endpoint in your virtual network. 
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway). An advanced web traffic load balancer that enables you to manage traffic to your web applications. 
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy). A service that helps you enforce organizational standards and assess compliance. 
@@ -20,13 +23,13 @@ For a more comprehensive description of Azure security tools and capabilities, s
 
 ## Introduction to security on Azure
 
-If you're new to security on Azure, the best way to learn more is with [Microsoft Learn](/learn/?WT.mc_id=learnaka), a free online training platform. Microsoft Learn provides interactive training for Microsoft products and more.
+If you're new to security on Azure, the best way to learn more is with [Microsoft Learn training](/training/?WT.mc_id=learnaka). This free online platform provides interactive training for Microsoft products and more.
 
 Here are two learning paths to get you started:
 
-- [Microsoft Azure Fundamentals: Describe general security and network security features](/learn/paths/az-900-describe-general-security-network-security-features)
+- [Microsoft Azure Fundamentals: Describe general security and network security features](/training/paths/az-900-describe-general-security-network-security-features)
 
-- [Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft security solutions](/learn/paths/describe-capabilities-of-microsoft-security-solutions)
+- [Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft security solutions](/training/paths/describe-capabilities-of-microsoft-security-solutions)
 
 ## Path to production
 
@@ -55,6 +58,8 @@ For information about security for sensitive IaaS workloads, see [Security consi
 ### Identity and access management
 
 - [Secure OAuth 2.0 On-Behalf-Of refresh tokens for web services](../../example-scenario/secrets/secure-refresh-tokens.yml)
+- [Resilient identity and access management with Azure AD](/azure/architecture/guide/resilience/resilience-overview)
+- [Azure Active Directory identity management and access management for AWS](../../reference-architectures/aws/aws-azure-ad-security.yml)
 
 ### Threat protection
 
@@ -88,8 +93,21 @@ Get the latest updates on [Azure security services and features](https://azure.m
 - [Secure your Microsoft Teams channel bot and web app behind a firewall](../../example-scenario/teams/securing-bot-teams-channel.yml)
 - [Web app private connectivity to Azure SQL database](../../example-scenario/private-web-app/private-web-app.yml)
 
+[Browse all our security architectures](/azure/architecture/browse/?azure_categories=security).
+
 ### AWS or Google Cloud professionals
 
 - [Security and identity with Azure and AWS](../../aws-professional/security-identity.md)
 - [AWS to Azure services comparison - Security](../../aws-professional/services.md#security-identity-and-access)
 - [Google Cloud to Azure services comparison - Security](../../gcp-professional/services.md#security-and-identity)
+
+## Next steps
+
+Security architecture is part of a comprehensive set of security guidance that also includes:
+
+- [Security in the Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/secure): A high-level overview of a cloud security end state.
+- [Azure Well-Architected Framework](/azure/architecture/framework/security/overview): Guidance on securing your workloads on Azure.
+- [Azure security benchmarks](/security/benchmark/azure/): Prescriptive best practices and controls for Azure security.
+- [End-to-end security in Azure](/azure/security/fundamentals/end-to-end): Documentation that introduces you to the security services in Azure.
+- [Top 10 security best practices for Azure](/azure/cloud-adoption-framework/secure/security-top-10): Top Azure security best practices that Microsoft recommends based on lessons learned across customers and our own environments.
+- [Microsoft Cybersecurity Architectures](/security/cybersecurity-reference-architecture/mcra): The diagrams describe how Microsoft security capabilities integrate with Microsoft platforms and 3rd-party platforms.

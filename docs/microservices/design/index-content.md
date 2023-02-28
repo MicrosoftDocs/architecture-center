@@ -27,7 +27,9 @@ To illustrate best practices for a microservices architecture, we created a refe
 
 ## Scenario
 
-Fabrikam, Inc. is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA.
+Fabrikam, Inc. is starting a drone delivery service. The company manages a fleet of drone aircraft. Businesses register with the service, and users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. While the delivery is in progress, the customer can track the location of the drone, with a continuously updated ETA. 
+
+This solution is ideal for the aerospace and aircraft industries.
 
 This scenario involves a fairly complicated domain. Some of the business concerns include scheduling drones, tracking packages, managing user accounts, and storing and analyzing historical data. Moreover, Fabrikam wants to get to market quickly and then iterate quickly, adding new functionality and capabilities. The application needs to operate at cloud scale, with a high service level objective (SLO). Fabrikam also expects that different parts of the system will have very different requirements for data storage and querying. All of these considerations lead Fabrikam to choose a microservices architecture for the Drone Delivery application.
 
@@ -44,3 +46,11 @@ Our reference implementation uses Kubernetes with [Azure Kubernetes Service](/az
 
 > [!div class="nextstepaction"]
 > [Choose a compute option](./compute-options.md)
+
+## Related resources
+
+- [Design interservice communication for microservices](./interservice-communication.yml)
+- [Design APIs for microservices](./api-design.yml)
+- [Use API gateways in microservices](./gateway.yml)
+- [Data considerations for microservices](./data-considerations.yml)
+- [Design patterns for microservices](./patterns.yml)

@@ -3,9 +3,9 @@ metadata:
   title: Deploy highly available NVAs
   description: Learn how to deploy network virtual appliances for high availability architectures for ingress, egress, and both in Azure.
   author: telmosampaio
-  ms.author: telmosampaio
+  ms.author: telmosampaio, kmayer
   ms.date: 06/23/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:

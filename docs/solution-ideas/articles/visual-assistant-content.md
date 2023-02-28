@@ -1,22 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution presents a visual assistant that provides rich information that's based on the content of an image. The assistant's capabilities include reading business cards, deciphering barcodes, and recognizing well-known people, places, objects, artwork, and monuments.
-
-## Potential use cases
-
-Organizations can use this solution to provide:
-
-- Appointment scheduling.
-- Order and delivery tracking in manufacturing, automotive, and transportation applications.
-- Barcode purchases in retail.
-- Payment processing in finance and retail.
-- Subscription renewals in retail.
-- The identification of well-known people, places, objects, art, and monuments, in the education, media, and entertainment industries.
+This solution presents a visual assistant that provides rich information that's based on the content of an image.
 
 ## Architecture
 
-![Architecture diagram that shows the flow of data between a browser and a bot, and between the bot and search services.](../media/visual-assistant.png)
-*Download an [SVG](../media/visual-assistant.svg) of this architecture.*
+[ ![Architecture diagram that shows the flow of data between a browser and a bot, and between the bot and search services.](../media/visual-assistant.svg)](../media/visual-assistant.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/visual-assistant.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -39,15 +29,30 @@ Organizations can use this solution to provide:
 - [Azure Cognitive Service for Language](https://azure.microsoft.com/services/cognitive-services/language-service) is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services) that offers many natural language processing services.
 - [Conversational language understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service) is a feature of Cognitive Service for Language. This cloud-based API service offers machine-learning intelligence capabilities for building conversational apps. You can use LUIS to predict the meaning of a conversation and pull out relevant, detailed information.
 
+## Scenario details
+
+This solution presents a visual assistant that provides rich information that's based on the content of an image. The assistant's capabilities include reading business cards, deciphering barcodes, and recognizing well-known people, places, objects, artwork, and monuments.
+
+### Potential use cases
+
+Organizations can use this solution to provide:
+
+- Appointment scheduling.
+- Order and delivery tracking in manufacturing, automotive, and transportation applications.
+- Barcode purchases in retail.
+- Payment processing in finance and retail.
+- Subscription renewals in retail.
+- The identification of well-known people, places, objects, art, and monuments, in the education, media, and entertainment industries.
+
 ## Next steps
 
 - To design an app that detects context that matters to you, see [Quickstart: Create an object detection project with the Custom Vision client library](/azure/cognitive-services/custom-vision-service/quickstarts/object-detection).
 - To explore the search capabilities that Bing provides, see [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison).
 - To build LUIS into your bot, see [Add natural language understanding to your bot](/azure/bot-service/bot-builder-howto-v4-luis).
-- To explore a Learn module about how LUIS works, see [Create a language model with Conversational Language Understanding](/learn/modules/create-language-model-with-language-understanding).
-- To learn how to build with Bot Service, see [Build a bot with the Language Service and Azure Bot Service](/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service).
-- To create a bot that incorporates QnA Maker and Bot Service, see [Create conversational AI solutions](/learn/paths/create-bots-with-the-azure-bot-service).
-- To solidify your understanding of LUIS, Bot Service, and the Bing Visual Search API, see [Exam AI-900: Microsoft Azure AI Fundamentals](/learn/certifications/exams/ai-900).
+- To explore a Learn module about how LUIS works, see [Create a language model with Conversational Language Understanding](/training/modules/create-language-model-with-language-understanding).
+- To learn how to build with Bot Service, see [Build a bot with the Language Service and Azure Bot Service](/training/modules/build-faq-chatbot-qna-maker-azure-bot-service).
+- To create a bot that incorporates QnA Maker and Bot Service, see [Create conversational AI solutions](/training/paths/create-bots-with-the-azure-bot-service).
+- To solidify your understanding of LUIS, Bot Service, and the Bing Visual Search API, see [Exam AI-900: Microsoft Azure AI Fundamentals](/certifications/exams/ai-900).
 - To certify your knowledge about Cognitive Services, see [Microsoft Certified: Azure AI Engineer Associate](/certifications/azure-ai-engineer).
 - To learn more about the components in this solution, see these resources:
 

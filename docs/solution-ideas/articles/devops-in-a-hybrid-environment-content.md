@@ -13,8 +13,9 @@ Organizations have adopted this solution to:
 
 ## Architecture
 
-![Architecture diagram shows the developer to Azure Boards, GitHub, then to Azure Pipelines into Terraform and Azure A D: devops in a hybrid environment](../media/devops-in-a-hybrid-environment.png)
-*Download an [SVG](../media/devops-in-a-hybrid-environment.svg) of this architecture.*
+[ ![Architecture diagram shows the developer to Azure Boards, GitHub, then to Azure Pipelines into Terraform and Azure A D: devops in a hybrid environment.](../media/devops-in-a-hybrid-environment.svg)](../media/devops-in-a-hybrid-environment.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/devops-in-a-hybrid-environment.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -29,9 +30,9 @@ Organizations have adopted this solution to:
 
 ### Components
 
-* [Azure Boards](/azure/devops/boards/github/connect-to-github?view=azure-devops): Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.
+* [Azure Boards](/azure/devops/boards/github/connect-to-github): Use Azure Board to plan work and track its progress, using Agile tools such as Kanban boards.
 * Source code is hosted on [GitHub Enterprise](https://github.com/enterprise), where developers can collaborate within your organization and the open source communities. GitHub Enterprise offers advanced security features to identify vulnerabilities in the code you write and in open source dependencies.
-* [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops&preserve-view=true)  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.
+* [Azure Pipelines](/azure/devops/pipelines/)  runs Continuous Integration and Continuous Delivery jobs for your application, as well as the creation of your infrastructure with the integration with Terraform.
 * You can use [Azure Key Vault](/azure/key-vault/basic-concepts) to store certificates, connection strings, tokens, and other secrets. These are read by your application at run-time, so they're abstracted away from your developers
 * [Terraform](/azure/terraform/terraform-install-configure) is a third-party product developed by HashiCorp that allows infrastructure automation on Azure, on-premises, and other environments
 * Using [Azure Monitor](/azure/azure-monitor/overview) lets you get insights on the availability and performance of your application and infrastructure.
@@ -47,7 +48,7 @@ Principal author:
 
  * [Alessandro Segala](https://www.linkedin.com/in/alessandrosegala) | Product Marketing Manager for VS Code
 
-## Next steps
+## Related resources
 
 * [Run containers in a hybrid environment](../../hybrid/hybrid-containers.yml)
 * [CI/CD for Azure Web Apps](./azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml)

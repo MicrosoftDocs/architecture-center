@@ -12,8 +12,9 @@ This solution enables you to do the following:
 
 ## Architecture
 
-![Diagram that shows the API-first architecture.](../media/aks-api-first.png)
-*Download an [SVG file](../media/aks-api-first.svg) of this architecture.*
+![Diagram that shows the API-first architecture.](../media/aks-api-first.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-api-first.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -35,6 +36,16 @@ The example scenario uses several Azure components:
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database): A fully managed relational database with built-in intelligence.
 - [Azure Storage](https://azure.microsoft.com/services/storage): Azure Storage offers a durable, highly available, massively scalable cloud storage solution and includes object, file, disk, queue, and table storage.
 - [Azure Functions](https://azure.microsoft.com/services/functions): An event-driven serverless compute platform that can also solve complex orchestration problems.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Stella Lin](https://www.linkedin.com/in/fengxiaoyuelin/) | Principal Product Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

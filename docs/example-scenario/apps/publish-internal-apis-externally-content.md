@@ -122,7 +122,7 @@ The components deployed using the above Resource Manager template needs to be fu
 5. An API App (App Services for simplicity) - `srasprest` (URL: `https://srasprest.contoso.org`) – ASP.NET MVC-based web API. After the deployment, configure
    - web app to use the TLS certificate
    - Application Insights to the above apps: api-insights
-   - Create a Cosmos DB service for web APIs hosted internal to VNet: `noderestapidb`
+   - Create an Azure Cosmos DB service for web APIs hosted internal to VNet: `noderestapidb`
    - Create DNS entries on the Private DNS zone created
    - You could make use of Azure Pipelines to configure the agents on Virtual Machines to deploy the code for Web App on internal Network
    - For testing the API App internally, create a test VM within the VNet subnet
@@ -164,9 +164,9 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [ntwkcons]: /azure/app-service/environment/network-info
 [apim-port-nsg]: /azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues
 [apim-policy]: /azure/api-management/api-management-transformation-policies#SetHTTPheader
-[hosted-agent]: /azure/devops/pipelines/agents/v2-windows?view=azure-devops
+[hosted-agent]: /azure/devops/pipelines/agents/v2-windows
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[devops]: /azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
+[devops]: /azure/devops/index
 [appinsights]: /azure/azure-monitor/app/app-insights-overview
 [cosmos-db]: /azure/cosmos-db/introduction
 [dnsguide]: /azure/dns/private-dns-getstarted-cli

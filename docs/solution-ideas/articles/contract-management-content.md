@@ -2,24 +2,15 @@
 
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This architecture demonstrates how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in contract management.
-
-## Potential use cases
-
-Many companies create products for multiple sectors. Because these companies work with various vendors and buyers, their business opportunities increase exponentially. Knowledge mining can help organizations scour thousands of pages of sources to create a competitive bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
-
-Industries that rely on knowledge mining for contract management include:
-
-- Marketing.
-- Retail.
-- Logistics.
-- Manufacturing.
+This article describes how to use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in contract management to help your organization scour thousands of pages of material to create an accurate bid.
 
 ## Architecture
 
 There are three steps in knowledge mining: ingest, enrich, and explore.
 
-![Architecture Diagram: knowledge mining in contract management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-contract-management.png)
+[ ![Architecture Diagram: knowledge mining in contract management, with three steps: ingest, enrich, and explore.](../media/knowledge-mining-contract-management.png)](../media/knowledge-mining-contract-management.png#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/knowledge-mining-contract-management.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -46,11 +37,26 @@ The following key technologies are used to implement tools for technical content
 - [Azure Cognitive Services Translator](https://azure.microsoft.com/services/cognitive-services/translator) is part of the Cognitive Services family of REST APIs. You can use Translator for real-time document and text translation.
 - [Azure Form Recognizer](https://azure.microsoft.com/services/cognitive-services/form-recognizer) is part of Azure Applied AI Services. Form Recognizer uses machine-learning models to extract key-value pairs, text, and tables from documents such as invoices, receipts, ID cards, and business cards.
 
+## Scenario details
+
+This architecture shows how you can use [knowledge mining](https://azure.microsoft.com/solutions/knowledge-mining) in contract management.
+
+### Potential use cases
+
+Many companies create products for multiple sectors. Because these companies work with various vendors and buyers, their business opportunities increase exponentially. Knowledge mining can help organizations scour thousands of pages of sources to create a competitive bid. Minor details in the bidding process can make the difference between a healthy profit or lost opportunity on a project.
+
+Industries that rely on knowledge mining for contract management include:
+
+- Marketing
+- Retail
+- Logistics
+- Manufacturing
+
 ## Next steps
 
 - To build an initial knowledge mining prototype with Azure Cognitive Search, use the [knowledge mining solution accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining).
 - Build an Azure Cognitive Search [custom skill](/azure/search/cognitive-search-custom-skill-interface).
-- Explore the learning path [Knowledge mining with Azure Cognitive Search](/learn/paths/implement-knowledge-mining-azure-cognitive-search).
+- Explore the learning path [Knowledge mining with Azure Cognitive Search](/training/paths/implement-knowledge-mining-azure-cognitive-search).
 - To learn more about the components in this solution, see these resources:
 
   - [Azure Cognitive Search documentation](/azure/search)
@@ -65,4 +71,3 @@ The following key technologies are used to implement tools for technical content
 - [Knowledge mining for content research](./content-research.yml)
 - [Knowledge mining for customer support and feedback analysis](./customer-feedback-and-analytics.yml)
 - [Knowledge mining in digital asset management](./digital-asset-management.yml)
-

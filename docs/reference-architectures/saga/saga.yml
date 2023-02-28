@@ -3,10 +3,10 @@ metadata:
   title: Saga pattern
   titleSuffix: Azure Design Patterns
   description: Use the Saga design pattern to ensure data consistency on distributed transactions in microservices architectures.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: design-pattern
   ms.service: architecture-center
   ms.subservice: design-pattern
   ms.category:

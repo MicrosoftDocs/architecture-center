@@ -106,11 +106,11 @@ See these resources:
 - [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
 - [What is Azure Files?](/azure/storage/files/storage-files-introduction)
 - [What is Azure Data Box?](/azure/databox/data-box-overview)
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
 
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md) 
-- [Modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) 
+- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure) 
 - [Re-engineer IBM z/OS batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml) 
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)

@@ -50,7 +50,7 @@ Other options for the web tier and functions include:
 
 Other options for the data tier include:
 
-- [Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as MongoDB, Cassandra, Graph data, or simple table storage.
 
 ## Scenario details
 
@@ -67,6 +67,8 @@ This solution is optimized for the retail industry. Other relevant use cases inc
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 - Consider using the [typical design patterns for availability](/azure/architecture/framework/resiliency/reliability-patterns) when building your cloud application. 
@@ -80,6 +82,8 @@ This solution is optimized for the retail industry. Other relevant use cases inc
 - For other scalability topics, see the [performance efficiency checklist](/azure/architecture/framework/scalability/performance-efficiency) available in the Azure Architecture Center.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Consider using the [typical design patterns for security](/azure/architecture/framework/security/security-patterns) where appropriate.
 - Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
@@ -95,6 +99,8 @@ This solution is optimized for the retail industry. Other relevant use cases inc
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
 

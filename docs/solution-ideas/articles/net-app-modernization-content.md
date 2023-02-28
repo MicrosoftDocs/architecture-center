@@ -44,5 +44,5 @@ By following this process, customers can connect to the online retail catalog vi
 
 - [Learn more](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) about the migration process used in this example.
 - Learn how [Stackify](https://customers.microsoft.com/story/726302-stackify) uses Azure SQL Database and Azure App Service to power their .NET applications.
-- [Learn how](/learn/paths/migrate-sql-workloads-azure/) to migrate your on-premises SQL workloads to Azure.
-- Explore [learning paths](/learn/browse/?products=azure-app-service&roles=developer) and training modules for developers using Azure App Service
+- [Learn how](/training/paths/migrate-sql-workloads-azure/) to migrate your on-premises SQL workloads to Azure.
+- Explore [learning paths](/training/browse/?products=azure-app-service&roles=developer) and training modules for developers using Azure App Service

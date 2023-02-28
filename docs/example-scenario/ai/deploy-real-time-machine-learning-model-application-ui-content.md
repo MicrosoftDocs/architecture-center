@@ -1,14 +1,14 @@
 This solution expands on [Citizen AI with the Power Platform](../ai/citizen-ai-power-platform.yml), which provides a high-level example of a low-code, end-to-end *lambda architecture* for real-time and batch data streaming. It covers how to deploy machine learning models for real-time and batch inference. This article also covers how to consume these models by using an end-user application or analyzing results in Power BI.
 
-This article guides you through a model-view-presenter (MVP) architecture by using semi-structured data stored in [Azure Data Lake Storage](/azure/machine-learning/concept-data). You use this data in [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) for training a machine learning model. You deploy the model to a real-time endpoint deployed on an [Azure Container Instance](/azure/machine-learning/how-to-deploy-azure-container-instance) or [Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python) cluster. Finally, Power Apps consumes the model by using a low-code, custom user app.
-
 ## Architecture
 
-:::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.png" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint." lightbox="media/deploy-real-time-machine-learning-model-application-ui.png" :::
+:::image type="content" source="media/deploy-real-time-machine-learning-model-application-ui.svg" alt-text="Diagram that shows a machine learning model created in Machine Learning that obtains car data from Data Lake Storage and provides inferences to an endpoint." lightbox="media/deploy-real-time-machine-learning-model-application-ui.svg" :::
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-real-time-machine-learning-model-application-ui.vsdx) of this architecture.*
 
 ### Dataflow
+
+This article guides you through a model-view-presenter (MVP) architecture by using semi-structured data stored in [Azure Data Lake Storage](/azure/machine-learning/concept-data). You use this data in [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) for training a machine learning model. You deploy the model to a real-time endpoint deployed on an [Azure Container Instance](/azure/machine-learning/how-to-deploy-azure-container-instance) or [Azure Kubernetes Service (AKS)](/azure/machine-learning/how-to-deploy-azure-kubernetes-service?tabs=python) cluster. Finally, Power Apps consumes the model by using a low-code, custom user app.
 
 1. **Ingest:** Semi-structured data, like JSON, XML, CSV, and logs, is loaded into Data Lake Storage. You can extend the scope of data ingestion by using [Azure Synapse pipelines](/azure/data-factory/concepts-pipelines-activities) to pull batch data from a wide variety of sources. You can extend the scope to more data types—without changing the architecture design—both on-premises and in the cloud. This data includes:
 
@@ -137,17 +137,19 @@ Other contributors:
 - [Brady Leavitt](https://www.linkedin.com/in/bradyleavitt) | Technical Specialist, AI/ML
 - [Jason Martinez](https://www.linkedin.com/in/jason-martinez-502766123) | Technical Writer
 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Build intelligent applications infused with world-class AI](/events/build-may-2021/azure/breakouts/brk220)
 - [Create and attach an Azure Kubernetes Service cluster](/azure/machine-learning/how-to-create-attach-kubernetes?tabs=python)
-- [Create machine learning models](/learn/paths/create-machine-learn-models)
+- [Create machine learning models](/training/paths/create-machine-learn-models)
 - [Data in Azure Machine Learning](/azure/machine-learning/concept-data)
 - [Deploy a model to Azure Container Instances with CLI (v1)](/azure/machine-learning/how-to-deploy-azure-container-instance)
 - [Deploy and score a machine learning model by using an online endpoint](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 - [How Azure Machine Learning works: resources and assets (v2)](/azure/machine-learning/concept-azure-machine-learning-architecture)
-- [Introduction to data for machine learning](/learn/modules/introduction-to-data-for-machine-learning)
-- [Introduction to machine learning operations (MLOps)](/learn/paths/introduction-machine-learn-operations)
+- [Introduction to data for machine learning](/training/modules/introduction-to-data-for-machine-learning)
+- [Introduction to machine learning operations (MLOps)](/training/paths/introduction-machine-learn-operations)
 
 ## Related resources
 

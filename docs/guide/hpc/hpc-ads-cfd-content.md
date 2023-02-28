@@ -11,7 +11,7 @@ Code Leo is a URANS-based flow solver that delivers accurate and fast flow simul
 
 Code Leo was originally designed for CPUs, but ADS CFD extended it to take advantage of the advanced GPU architecture when GPUs became more cost-effective. It's been validated for decades by industry leaders like Air Force Research Laboratory and NASA. Code Leo users can switch easily between CPU and GPU solvers.
 
-ADS CFD software is used primarily in the aerospace and turbomachinery industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of integrated engine/aircraft configurations so that next-generation aircraft designs can be completed on time and with confidence.
+ADS CFD software is used primarily in the aerospace and turbomachinery (energy) industries for performance and durability assessments of jet engines and aircraft. One of the main use cases is the analysis and optimization of integrated engine/aircraft configurations so that next-generation aircraft designs can be completed on time and with confidence.
 
 ## Architecture
 
@@ -157,7 +157,7 @@ Other contributors:
 - [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
 - [Linux virtual machines in Azure](/azure/virtual-machines/linux/overview)
 - [Virtual networks and virtual machines in Azure](/azure/virtual-network/network-overview)
-- [Learning path: Run high-performance computing (HPC) applications on Azure](/learn/paths/run-high-performance-computing-applications-azure)
+- [Learning path: Run high-performance computing (HPC) applications on Azure](/training/paths/run-high-performance-computing-applications-azure)
 - [Code Leo case studies](https://new.aerodynamic-solutions.com/case-studies)
 
 ## Related resources

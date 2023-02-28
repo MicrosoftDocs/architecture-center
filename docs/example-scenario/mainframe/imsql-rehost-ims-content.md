@@ -49,7 +49,7 @@ I. Partitions run separate workloads and segregate work types within the environ
 
 ### Alternatives
 
-- You can use Azure SQL Server IaaS as an alternative to SQL Managed Instance. We recommend SQL Managed Instance in this architecture because of benefits like high availability, seamless integration with various Azure services, and management of underlying security patches and maintenance.
+- You can use SQL Server in an Azure virtual machine as an alternative to SQL Managed Instance. We recommend SQL Managed Instance in this architecture because of benefits like high availability, seamless integration with various Azure services, and management of underlying security patches and maintenance.
 
 - You can use an Azure single-VM architecture as an alternative to Virtual Machine Scale Sets. You might want to use single VMs for workloads that have constant load and performance demands and don't need scaling. This architecture uses Virtual Machine Scale Sets to handle typical IMS workloads.
 
@@ -124,8 +124,7 @@ Other contributor:
 
 ## Next steps 
 
-- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide/UserGuide.html#_imsql_user_guide)
-- [IMSql installation guide](https://www.raincode.com/docs/IMSql/InstallationGuide/InstallationUserGuide.html#Installation-of-IMSql)
+- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide.html#_imsql_user_guide)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

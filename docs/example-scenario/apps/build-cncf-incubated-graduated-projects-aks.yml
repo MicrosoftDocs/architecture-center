@@ -3,10 +3,10 @@ metadata:
   title: Build CNCF projects by using Azure Kubernetes Service
   titleSuffix: Azure Example Scenarios
   description: Conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS. 
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/26/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp 

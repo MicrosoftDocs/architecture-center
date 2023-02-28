@@ -2,9 +2,9 @@
 metadata:
   title: SKU optimization for consumer brands
   description: Retail industry assortment optimization. SKU optimization through insights from AI and ML.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 07/26/2022
+  ms.date: 10/28/2022
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

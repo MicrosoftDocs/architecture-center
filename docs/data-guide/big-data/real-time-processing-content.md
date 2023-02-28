@@ -50,7 +50,7 @@ For more information, see [Stream processing](../technology-choices/stream-proce
 
 ### Analytical data store
 
-- **Azure Synapse Analytics**, **Azure Data Explorer**, **HBase**, **Spark**, or **Hive**. Processed real-time data can be stored in a relational database such Synapse Analytics, Azure Data Explorer, a NoSQL store such as HBase, or as files in distributed storage over which Spark or Hive tables can be defined and queried.
+- **Azure Synapse Analytics**, **Azure Data Explorer**, **HBase**, **Spark**, or **Hive**. Processed real-time data can be stored in a relational database by Synapse Analytics, Azure Data Explorer, a NoSQL store such as HBase, or as files in distributed storage over which Spark or Hive tables can be defined and queried.
 
 For more information, see [Analytical data stores](../technology-choices/analytical-data-stores.md).
 
@@ -70,8 +70,16 @@ Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 
+## Next steps
+
+- [Real-time event processing with Azure Stream Analytics](/azure/stream-analytics/stream-analytics-real-time-event-processing-reference-architecture)
+- [Choose a real-time analytics and streaming processing technology on Azure](/azure/stream-analytics/streaming-technologies)
+- [Explore fundamentals of real-time analytics](/training/modules/explore-fundamentals-stream-processing)
+- [No-code stream processing through Azure Stream Analytics](/azure/stream-analytics/no-code-stream-processing)
+
 ## Related resources
 
-The following reference architecture shows an end-to-end stream processing pipeline:
-
 - [Stream processing with Azure Stream Analytics](../../reference-architectures/data/stream-processing-stream-analytics.yml)
+- [Choose a real-time message ingestion technology in Azure](../technology-choices/real-time-ingestion.md)
+- [Real-time analytics on big data architecture](../../solution-ideas/articles/real-time-analytics.yml)
+- [Real-time asset tracking and management](../../solution-ideas/articles/real-time-asset-tracking-mgmt-iot-central.yml)

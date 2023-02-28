@@ -5,7 +5,7 @@ description: An overview of Microsoft Azure Kubernetes Service (AKS) guidance of
 author: ckittel
 ms.author: architectures
 ms.date: 07/28/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:
@@ -23,14 +23,14 @@ Kubernetes is an open-source system for automating deployment, scaling, and mana
 
 Organizations are at various points in their understanding, rationalizing, and adoption of Kubernetes on Azure. Your organization's journey will likely follow a similar path to many other technologies you've adopted; learning, aligning your organization around roles &amp; responsibilities, and deploying production-ready workloads. From there, you'll iterate; growing your product as your customer and business demands change.
 
-:::image type="content" source="images/aks-journey.svg" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate.":::
+:::image type="content" alt-text="Visualizes your journey through learn, align, baseline, workload, and then into a loop of operate, best practices, iterate." source="images/aks-journey.svg" lightbox="images/aks-journey.svg":::
 
 ## Introduction to Azure Kubernetes Service (AKS)
 
-If you're new to Kubernetes or AKS, the best place to learn about the service is with Microsoft Learn. Microsoft Learn is a free, online training platform that provides interactive learning for Microsoft products and more. The **Introduction to Kubernetes on Azure** learning path will provide you with foundational knowledge that will take you through core concepts of containers, AKS cluster management, and workload deployment.
+If you're new to Kubernetes or AKS, the best place to learn about the service is Microsoft Learn. This free online platform provides interactive training for Microsoft products and more. The **Introduction to Kubernetes on Azure** learning path will provide you with foundational knowledge that will take you through core concepts of containers, AKS cluster management, and workload deployment.
 
 > [!div class="nextstepaction"]
-> [Introduction to Kubernetes on Azure](/learn/paths/intro-to-kubernetes-on-azure/)
+> [Introduction to Kubernetes on Azure](/training/paths/intro-to-kubernetes-on-azure/)
 
 ## Path to production
 
@@ -39,7 +39,7 @@ You understand the benefits and trade-offs of Kubernetes, and have decided that 
 **Microsoft's AKS Baseline Cluster** is the starting point to help you build production-ready AKS clusters.
 
 > [!div class="nextstepaction"]
-> [Microsoft's AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml)
+> [Microsoft's AKS Baseline Cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
 We recommend you start from the baseline implementation and modify it to align to your workload's specific needs.
 
@@ -75,7 +75,7 @@ As organizations such as yours have adopted Azure, the [Cloud Adoption Framework
 > [!div class="nextstepaction"]
 > [Kubernetes in the Cloud Adoption Framework](/azure/cloud-adoption-framework/innovate/kubernetes/)
 
-As part of on going operations, you may wish to spot check your cluster against current recommended best practices. The best place to start is to ensure your cluster is aligned with Microsoft's [AKS Baseline Cluster](../../reference-architectures/containers/aks/secure-baseline-aks.yml).
+As part of ongoing operations, you might want to spot check your cluster against current recommended best practices. Start by aligning your cluster with Microsoft's [AKS Baseline Cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks).
 
 See [Best Practices for Cluster Operations](/azure/aks/best-practices) and [Best Practices for AKS Workloads](/azure/aks/best-practices#developer-best-practices).
 

@@ -1,10 +1,10 @@
 ---
 title: DataOps architecture design
 description: DataOps is a lifecycle approach to data analytics that uses agile practices to deliver high-quality data.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/25/2022
-ms.topic: conceptual
+ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 categories:
@@ -40,18 +40,18 @@ There are many tools and capabilities to implement DataOps processes, like:
 
 ## Introduction to DataOps on Azure
 
-If you're new to DataOps, the best place to start is with Microsoft Learn. This free online training platform offers videos, tutorials, and hands-on learning for various products and services.
+If you're new to DataOps, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on learning for various products and services.
 
 The following resources can help you learn about the core services for DataOps:
 
-- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/learn/modules/data-integration-azure-data-factory)
-- [Data engineering with Azure Databricks](/learn/paths/data-engineer-azure-databricks)
-- [Introduction to Azure Synapse Analytics](/learn/modules/introduction-azure-synapse-analytics)
-- [Analyze and optimize data warehouse storage in Azure Synapse Analytics](/learn/modules/analyze-optimize-data-warehouse-storage-azure-synapse-analytics)
-- [Read and write data in Azure Databricks](/learn/modules/read-write-data-azure-databricks)
-- [Integrate Azure Databricks with Azure Synapse](/learn/modules/integrate-azure-databricks-other-azure-services)
-- [Turn insight into action by combining SAP and other data](/learn/modules/turn-insight-into-action-combine-sap-other-data)
-- [Examine data visualizations with Power BI](/learn/modules/examine-data-visualizations-power-bi)
+- [Integrate data with Azure Data Factory or Azure Synapse Pipeline](/training/modules/data-integration-azure-data-factory)
+- [Data engineering with Azure Databricks](/training/paths/data-engineer-azure-databricks)
+- [Introduction to Azure Synapse Analytics](/training/modules/introduction-azure-synapse-analytics)
+- [Analyze and optimize data warehouse storage in Azure Synapse Analytics](/training/modules/analyze-optimize-data-warehouse-storage-azure-synapse-analytics)
+- [Read and write data in Azure Databricks](/training/modules/read-write-data-azure-databricks)
+- [Integrate Azure Databricks with Azure Synapse](/training/modules/integrate-azure-databricks-other-azure-services)
+- [Turn insight into action by combining SAP and other data](/training/modules/turn-insight-into-action-combine-sap-other-data)
+- [Examine data visualizations with Power BI](/training/modules/examine-data-visualizations-power-bi)
 
 ## Path to production
 
@@ -97,7 +97,7 @@ Apply DevOps principles to data pipelines built according to the modern data war
 Modernize IBM mainframe and midrange data and use a data-first approach to migrate this data to Azure.
 
 > [!div class="nextstepaction"]
-> [Modernize mainframe and midrange data](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+> [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 
 ### Change data directly from Power BI
 
@@ -117,7 +117,7 @@ DataOps uses many tools and techniques to deliver data. The following resources 
 ### Example solutions
 
 - [Azure Data Explorer monitoring](../solution-ideas/articles/monitor-azure-data-explorer.yml)
-- [Data analysis workloads for regulated industries](../example-scenario/data/data-analysis-regulated-industries.yml)
+- [Data analysis workloads for regulated industries](/azure/architecture/example-scenario/data/data-warehouse)
 - [Data management across Azure Data Lake with Azure Purview](../solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml)
 - [Hybrid ETL with Azure Data Factory](../example-scenario/data/hybrid-etl-with-adf.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)

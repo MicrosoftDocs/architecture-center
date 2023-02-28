@@ -66,7 +66,6 @@ Principal author:
 
 * [Secure DevOps](https://www.microsoft.com/securityengineering/devsecops)
 * [Security strategy essentials](https://github.com/githubtraining/security-strategy-essentials)
-* [CodeQL U-Boot Challenge (C/C++)](https://lab.github.com/githubtraining/codeql-u-boot-challenge-(cc++))
 * [Learn GitHub Actions](https://docs.github.com/actions/learn-github-actions)
 * [Azure Boards documentation](/azure/devops/boards)
 * [Azure Container Registry documentation](/azure/container-registry)
@@ -74,5 +73,5 @@ Principal author:
 
 ## Related resources
 
-* [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+* [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
 * [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)

@@ -8,7 +8,7 @@ Whether you're just starting to evaluate identity solutions or looking to expand
 
 ## Introduction to identity on Azure
 
-If you're new to IAM, the best place to start is with Microsoft Learn. This free online training platform offers videos, tutorials, and hands-on learning for various products and services.
+If you're new to IAM, the best place to start is Microsoft Learn. This free online platform offers videos, tutorials, and hands-on training for various products and services.
 
 The following resources can help you learn the core concepts of IAM.
 
@@ -132,33 +132,33 @@ The following resources provide practical recommendations and information for sp
 [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services]: /azure/active-directory-domain-services/compare-identity-solutions?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Create an AD DS resource forest in Azure]: ../reference-architectures/identity/adds-forest.yml
 [Deploy AD DS in an Azure virtual network]: ../reference-architectures/identity/adds-extend-domain.yml
-[Describe identity concepts]: /learn/modules/describe-identity-principles-concepts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[Describe identity concepts]: /training/modules/describe-identity-principles-concepts?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design an account strategy]: /microsoft-365/education/deploy/design-account-strategy?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design authentication and credential strategies]: /microsoft-365/education/deploy/design-credential-authentication-strategies?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design identity governance]: /microsoft-365/education/deploy/design-identity-governance?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design a multi-tenant architecture for large institutions]: /microsoft-365/education/deploy/design-multi-tenant-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Design Tenant Configuration]: /microsoft-365/education/deploy/design-tenant-configurations?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Explore the Microsoft identity platform]: /learn/modules/explore-microsoft-identity-platform?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[Explore the Microsoft identity platform]: /training/modules/explore-microsoft-identity-platform?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Extend on-premises AD FS to Azure]: ../reference-architectures/identity/adfs.yml
 [Four steps to a strong identity foundation with Azure Active Directory]: /azure/active-directory/hybrid/four-steps?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Google Cloud to Azure services comparison—Security and identity]: ../gcp-professional/services.md#security-and-identity
 [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads]: /azure/active-directory/hybrid/cloud-governed-management-for-on-premises?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Identity management in multitenant applications]: ../multitenant-identity/index.yml
-[Implement Microsoft identity – Associate]: /learn/paths/m365-identity-associate?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[Implement Microsoft identity – Associate]: /training/paths/m365-identity-associate?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Integrate on-premises AD with Azure]: ../reference-architectures/identity/index.yml
 [Integrate on-premises AD domains with Azure AD]: ../reference-architectures/identity/azure-ad.yml
 [Introduction to Azure Active Directory Tenants]: /microsoft-365/education/deploy/intro-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Limit cross-tenant private endpoint connections in Azure]: /azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft Identity and access management solutions]: /learn/paths/describe-capabilities-of-microsoft-identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[Microsoft Security, Compliance, and Identity Fundamentals: Describe the capabilities of Microsoft Identity and access management solutions]: /training/paths/describe-capabilities-of-microsoft-identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Migrate application authentication to Azure Active Directory]: /azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Move application authentication to Azure Active Directory]: /azure/active-directory/manage-apps/migrate-adfs-apps-to-azure?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[MS-500 part 1 - Implement and manage identity and access]: /learn/paths/implement-manage-identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[MS-500 part 1 - Implement and manage identity and access]: /training/paths/implement-manage-identity-access?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Multi-cloud security and identity with Azure and Amazon Web Services (AWS)]: ../aws-professional/security-identity.md
 [Resilient identity and access management with Azure AD]: ../guide/resilience/resilience-overview.yml
 [Resource organization]: /azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Resources for migrating applications to Azure Active Directory]: /azure/active-directory/manage-apps/migration-resources?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Review the application activity report]: /azure/active-directory/manage-apps/migrate-adfs-application-activity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
-[SC-300: Implement an identity management solution]: /learn/paths/implement-identity-management-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+[SC-300: Implement an identity management solution]: /training/paths/implement-identity-management-solution?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [Secure development with single-page applications (SPAs)]: ../guide/resilience/azure-ad-secure-single-page-application.yml
 [Updated Guidance for M365 EDU Deployment during COVID-19]: /microsoft-365/education/deploy/guidance-for-m365-edu-deployment-during-covid19?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
 [What is Azure AD Connect?]: /azure/active-directory/hybrid/whatis-azure-ad-connect?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json

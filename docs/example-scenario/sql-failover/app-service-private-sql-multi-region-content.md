@@ -16,6 +16,7 @@ In the general case, the traffic flow and basic configuration look like the [sin
 
 #### Dataflow
 
+1. Azure Web Application Firewall rules are evaluated.
 1. Azure Front Door routes requests from the internet to a web app.
 1. By using Azure App Service regional VNet Integration, the web app connects to a delegated subnet named **AppSvcSubnet** in Azure Virtual Network.
 1. Azure Private Link sets up a [private endpoint for the Azure SQL Database][How to set up Private Link for Azure SQL Database] in a virtual network subnet named **PrivateLinkSubnet**. The web app connects to this private endpoint.
@@ -24,9 +25,7 @@ In the general case, the traffic flow and basic configuration look like the [sin
 
 #### Configuration
 
-For the web app to work with Azure DNS private zones, this architecture uses App Service VNet Integration. When the web app and database run in the same region, the configuration is straightforward. As [Azure DNS private zones][Azure DNS Private Zones] explains, when you enable **Route All** on the web app's regional VNet Integration settings, the DNS resolution works correctly within the region.
-
-For cross-region private connectivity, the web app can reach the database in the other region by setting up [global peering][Virtual network peering] between the virtual networks. When the primary database fails over to the secondary region, the web app in the primary region can still reach the private endpoint of the secondary database in the peered network.
+For the web app to work with [Azure DNS private zones][Azure DNS private zones], this architecture uses App Service VNet Integration. When the web app and database run in the same region, the configuration is straightforward. For cross-region private connectivity, the web app can reach the database in the other region by setting up [global peering][Virtual network peering] between the virtual networks. When the primary database fails over to the secondary region, the web app in the primary region can still reach the private endpoint of the secondary database in the peered network.
 
 ### Specific cases
 
@@ -119,6 +118,8 @@ In this case:
 
 - [Azure Front Door][What is Azure Front Door?] is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications with contents that reach a global audience through Azure.
 
+- [Web Application Firewall (WAF) on Azure Front Door](/azure/frontdoor/web-application-firewall) defends against common exploits and vulnerabilities such as SQL injection. Azure Front Door Premium tier integrates with Web Application Firewall premium tier which supports [Managed Rules](/azure/web-application-firewall/afds/waf-front-door-drs).
+
 - [Virtual Network][What is Azure Virtual Network?] is the fundamental building block for private networks in Azure. Azure resources like virtual machines (VMs) can securely communicate with each other, the internet, and on-premises networks through Virtual Network.
 
 ### Alternatives
@@ -170,9 +171,12 @@ A partial region failover involves cross-region connectivity, which increases la
 
 Some implementations can temporarily tolerate this behavior. After the failed app or database is restored, connectivity returns to normal inside a single region. However, in environments with strict latency requirements, even short-lived cross-region connectivity may pose a problem.
 
+> [!NOTE]
+> The use of private endpoints itself also increases latency when accessing Azure SQL Database, as mentioned in the [performance efficiency section of the single-region version][Web app private connectivity to Azure SQL database].
+
 ### Security
 
-As with the single-region scenario, the web apps in this solution use fully private connections to securely connect to both backend databases. The public internet can't access either of the database servers. This type of setup eliminates a common attack vector.
+As with the single-region scenario, the web apps in this solution use fully private connections to securely connect to both backend databases. The public internet can't access either of the database servers. This type of setup eliminates a common attack vector. Secure connections, combined with WAF integration ensures all requests are inspected for common exploits at the edge.
 
 ## Cost optimization
 

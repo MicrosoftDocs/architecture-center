@@ -18,9 +18,9 @@ When you operate on Azure, you have a wide and diverse set of segmentation optio
 
 6. [Azure Firewall](/azure/firewall/): Azure Firewall is a cloud native stateful Firewall as a service. This firewall can be deployed in your virtual networks or in [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) hub deployments for filtering traffic that flows between cloud resources, the Internet, and on-premise. You create rules or policies (using Azure Firewall or [Azure Firewall Manager](/azure/firewall-manager/overview)) specifying allow/deny traffic using layer 3 to layer 7 controls. You can also filter traffic that goes to the internet using both Azure Firewall and third parties. Direct some or all traffic through third-party security providers for advanced filtering and user protection.
 
-The following three patterns are common when it comes to organizing your workload in Azure from a networking perspective. Each of these patterns provides a different type of isolation and connectivity. Choosing which model works best for your organization is a decision you should make based on your organization's needs. With each of these models, we describe how segmentation can be done using the above Azure Networking services.
+The following patterns are common, when it comes to organizing your workload in Azure from a networking perspective. Each of these patterns provides a different type of isolation and connectivity. Choosing which model works best for your organization is a decision you should make based on your organization's needs. With each of these models, we describe how segmentation can be done using the above Azure Networking services.
 
-It's also possible that the right design for your organization is something other than the ones we list here. And that outcome is expected, because there's no one (or three) size(s) that fits everyone. You might end up using principles from across these patterns to create what's best for your organization. The Azure platform provides the flexibility and tooling you need.
+It's also possible that the right design for your organization is something other than the ones we list here. And that outcome is expected, because there's no one size that fits everyone. You might end up using principles from across these patterns to create what's best for your organization. The Azure platform provides the flexibility and tooling you need.
 
 ## Pattern 1: Single virtual network
 
@@ -48,7 +48,7 @@ This pattern is a more advanced virtual network organization where you choose a 
 
 The recommended Azure cloud native segmentation control is Azure Firewall. Azure Firewall works across both Virtual Networks and subscriptions to govern traffic flows using layer 3 to layer 7 controls. You get to define how your communication rules look like (for example, virtual network X can't talk with virtual network Y but can talk with virtual network Z, no Internet for Virtual network X except for access to `*.github.com`, and so on) and apply it consistently. With Azure Firewall Manager, you can centrally manage policies across multiple Azure Firewalls and enable DevOps teams to further customize local policies. You can also use Azure Firewall Manager when you choose Azure Virtual WAN as a managed hub network.
 
-The following table shows a comparison of the three pattern topologies:
+The following table shows a comparison of the pattern topologies:
 
 | | Pattern 1 | Pattern 2 | Pattern 3 |
 |--|--|--|--|
@@ -66,6 +66,16 @@ This pattern explains how to manage and protect multiple virtual networks, which
 
 While AVNM is a great solution for protecting an organization's entire network with a minimum set of network rules, NSGs and ASGs still need to be used to apply granular network rules to each virtual network, in addition to AVNM. This process can vary from system, to system based on their security requirements.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Tre Mansdoerfer](https://www.linkedin.com/in/tremansdoerfer) | Program Manager for Azure Networking
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Learn more about the component technologies:
@@ -82,4 +92,4 @@ Explore related architectures:
 - [Azure firewall architecture guide](../../example-scenario/firewalls/index.yml)
 - [Firewall and Application Gateway for virtual networks](../../example-scenario/gateway/firewall-application-gateway.yml)
 - [Azure Automation in a hybrid environment](../../hybrid/azure-automation-hybrid.yml)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../containers/aks/secure-baseline-aks.yml)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)

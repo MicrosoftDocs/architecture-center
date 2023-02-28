@@ -1,6 +1,6 @@
 What is the right size for a microservice? You often hear something to the effect of, "not too big and not too small" &mdash; and while that's certainly correct, it's not very helpful in practice. But if you start from a carefully designed domain model, it's much easier to reason about microservices.
 
-![Diagram of bounded contexts](../images/bounded-contexts.png)
+![Diagram of bounded contexts.](../images/bounded-contexts.png)
 
 This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.yml).
 
@@ -58,7 +58,9 @@ Non-functional requirements led the team to create one additional service. All o
 
 The following diagram shows the design at this point:
 
-![Design diagram](../images/drone-delivery.png)
+![Diagram that shows the design of microservices for the Drone Delivery application.](../images/drone-delivery.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/microservice-boundaries.vsdx) of this architecture.*
 
 ## Next steps
 
@@ -66,3 +68,10 @@ At this point, you should have a clear understanding of the purpose and function
 
 > [!div class="nextstepaction"]
 > [Design a microservices architecture](../design/index.yml)
+
+## Related resources
+
+- [Microservices architecture design](../../microservices/index.yml)
+- [Using tactical DDD to design microservices](tactical-ddd.yml)
+- [Using domain analysis to model microservices](domain-analysis.md)
+- [Choose an Azure compute option for microservices](../../microservices/design/compute-options.md)

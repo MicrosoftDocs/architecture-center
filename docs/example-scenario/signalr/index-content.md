@@ -16,11 +16,13 @@ This scenario describes how to architect a solution that processes changes to un
 
 ### Alternatives
 
-Alternatives exist to address this scenario, including [Pusher](https://pusher.com/). It's the category leader in robust APIs for app developers who build scalable real-time communication features.
+Alternatives exist to address this scenario, including [Pusher](https://pusher.com). It's the category leader in robust APIs for app developers who build scalable real-time communication features.
 
-There's also [PubNub](https://pubnub.com/). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
+There's also [PubNub](https://pubnub.com). PubNub makes it easy for you to add real-time capabilities to your apps, without worrying about the infrastructure. Build apps that allow your users to engage in real time across mobile, browser, desktop, and server.
 
-Although Pusher and PubNub are the most widely adopted platforms for real-time messaging, for this scenario, you'll do everything in Azure. We recommend SignalR as the go-to platform, because it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9&nbsp;thousand GitHub stars and 2.2&nbsp;thousand GitHub forks.
+[Ably](https://ably.com) is another alternative. It provides serverless publish/subscribe (pub/sub) messaging, which scales reliably with your needs. The messaging is delivered at the edge using WebSockets. The Ably platform provides a highly available, elastically scalable, and globally distributed real-time infrastructure, at the call of an API.
+
+Although Pusher, PubNub, and Ably are the most widely adopted platforms for real-time messaging, for this scenario, you'll do everything in Azure. We recommend SignalR as the go-to platform, because it allows bi-directional communication between server and client. It's also an open-source tool, with 7.9&nbsp;thousand GitHub stars and 2.2&nbsp;thousand GitHub forks.
 
 For more information, see the [SignalR open-source repository](https://github.com/SignalR/SignalR) on GitHub.
 
@@ -40,6 +42,8 @@ These other use cases have similar design patterns:
 - Creating chat rooms
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 Here are a couple of things to keep in mind as you develop this scenario, including how to configure parameters in the Azure Service Bus connection string in ServiceBusTrigger:
 
@@ -74,6 +78,8 @@ This architecture can also help if an individual subsystem of the solution fails
 Front Door is a possible failure point in the system. If the service fails, clients can't access your application during the downtime. Review the [Front Door service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. You must perform this step manually, and your application will be unavailable until the DNS changes are propagated.
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Let's assume that your business has 1,000 orders a day and needs to share location data with all of them concurrently. Your estimated Azure usage for deploying this scenario will be close to USD192 per month, based on pricing at the date of publication.
 

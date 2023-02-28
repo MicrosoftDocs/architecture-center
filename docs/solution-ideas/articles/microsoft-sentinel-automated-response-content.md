@@ -138,7 +138,7 @@ Other contributors:
 - [Simulating risk detections in Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk)
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [Tutorial: Create automated approval-based workflows by using Azure Logic Apps](/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow)
-- [Introduction to Microsoft Sentinel](/learn/modules/intro-to-azure-sentinel)
+- [Introduction to Microsoft Sentinel](/training/modules/intro-to-azure-sentinel)
 
 ## Related resources
 

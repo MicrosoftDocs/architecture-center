@@ -46,7 +46,7 @@ NAT gateway is recommended as the default for enabling outbound connectivity for
 
 ## Reliability
 
-NAT gateway resources are highly available and span multiple fault domains. NAT gateway can be deployed to "no zone" in which Azure automatically selects a zone to place NAT gateway. NAT gateway can also be isolated to a specific zone by a user.
+NAT gateway resources are highly available in one availability zone and span multiple fault domains. NAT gateway can be deployed to "no zone" in which Azure automatically selects a zone to place NAT gateway. NAT gateway can also be isolated to a specific zone by a user.
 
 Availability zone isolation cannot be provided, unless each subnet only has resources within a specific zone. Instead, deploy a subnet for each of the availability zones where VMs are deployed, align the zonal VMs with matching zonal NAT gateways, and build separate zonal stacks.  For example, a virtual machine in availability zone 1 is on a subnet with other resources that are also only in availability zone 1. A NAT gateway is configured in availability zone 1 to serve that subnet. See the following diagram.
 
@@ -62,6 +62,16 @@ A common approach is to design an outbound-only network virtual appliance (NVA) 
 
 Microsoft Defender for Cloud can monitor for any suspicious outbound connectivity through a NAT gateway. This is an alert feature in [Microsoft Defender for Cloud](/azure/security-center).
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841/) | Senior Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Microsoft Well-Architected Framework](/azure/architecture/framework)
@@ -72,4 +82,4 @@ Microsoft Defender for Cloud can monitor for any suspicious outbound connectivit
 - [Azure Firewall architecture overview](/azure/architecture/example-scenario/firewalls)
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Multi-region load balancing with Traffic Manager and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
-- [Building solutions for high availability using Availability Zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Building solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

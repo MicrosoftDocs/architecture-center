@@ -30,7 +30,7 @@ Clearly the next step is dig into the `GetDroneUtilization` operation and look f
 
 In this screenshot, both the average and maximum values are shown. It's important to look at more than just the average, because the average can hide spikes in the data. Here, the average CPU utilization stays below 50%, but there are a couple of spikes to 80%. That's close to capacity but still within tolerances. Something else is causing the bottleneck.
 
-The next chart reveals the true culprit. This chart shows HTTP response codes from the Delivery service's backend database, which in this case is Cosmos DB. The blue line represents success codes (HTTP 2xx), while the green line represents HTTP 429 errors. An HTTP 429 return code means that Cosmos DB is temporarily throttling requests, because the caller is consuming more resource units (RU) than provisioned.
+The next chart reveals the true culprit. This chart shows HTTP response codes from the Delivery service's backend database, which in this case is Azure Cosmos DB. The blue line represents success codes (HTTP 2xx), while the green line represents HTTP 429 errors. An HTTP 429 return code means that Azure Cosmos DB is temporarily throttling requests, because the caller is consuming more resource units (RU) than provisioned.
 
 ![Graph of throttled requests](./images/backend-services/read-requests-1.png)
 
@@ -38,21 +38,21 @@ To get further insight, the development team used Application Insights to view t
 
 ![Screenshot of end-to-end transaction view](./images/backend-services/read-e2e-1.png)
 
-This view shows the calls related to a single client request, along with timing information and response codes. The top-level calls are from the gateway to the backend services. The call to `GetDroneUtilization` is expanded to show calls to external dependencies &mdash; in this case, to Cosmos DB. The call in red returned an HTTP 429 error.
+This view shows the calls related to a single client request, along with timing information and response codes. The top-level calls are from the gateway to the backend services. The call to `GetDroneUtilization` is expanded to show calls to external dependencies &mdash; in this case, to Azure Cosmos DB. The call in red returned an HTTP 429 error.
 
-Note the large gap between the HTTP 429 error and the next call. When the Cosmos DB client library receives an HTTP 429 error, it automatically backs off and waits to retry the operation. What this view shows is that during the 672 ms this operation took, most of that time was spent waiting to retry Cosmos DB.
+Note the large gap between the HTTP 429 error and the next call. When the Azure Cosmos DB client library receives an HTTP 429 error, it automatically backs off and waits to retry the operation. What this view shows is that during the 672 ms this operation took, most of that time was spent waiting to retry Azure Cosmos DB.
 
 Here's another interesting graph for this analysis. It shows RU consumption per physical partition versus provisioned RUs per physical partition:
 
 ![Graph of RU consumption per partition](./images/backend-services/read-consumed-1.png)
 
-To make sense of this graph, you need to understand how Cosmos DB manages partitions. Collections in Cosmos DB can have a *partition key*. Each possible key value defines a logical partition of the data within the collection. Cosmos DB distributes these logical partitions across one or more *physical* partitions. The management of physical partitions is handled automatically by Cosmos DB. As you store more data, Cosmos DB might move logical partitions into new physical partitions, in order to spread load across the physical partitions.
+To make sense of this graph, you need to understand how Azure Cosmos DB manages partitions. Collections in Azure Cosmos DB can have a *partition key*. Each possible key value defines a logical partition of the data within the collection. Azure Cosmos DB distributes these logical partitions across one or more *physical* partitions. The management of physical partitions is handled automatically by Azure Cosmos DB. As you store more data, Azure Cosmos DB might move logical partitions into new physical partitions, in order to spread load across the physical partitions.
 
-For this load test, the Cosmos DB collection was provisioned with 900 RUs. The chart shows 100 RU per physical partition, which implies a total of nine physical partitions. Although Cosmos DB automatically handles the sharding of physical partitions, knowing the partition count can give insight into performance. The development team will use this information later, as they continue to optimize. Where the blue line crosses the purple horizontal line, RU consumption has exceeded the provisioned RUs. That's the point where Cosmos DB will begin to throttle calls.
+For this load test, the Azure Cosmos DB collection was provisioned with 900 RUs. The chart shows 100 RU per physical partition, which implies a total of nine physical partitions. Although Azure Cosmos DB automatically handles the sharding of physical partitions, knowing the partition count can give insight into performance. The development team will use this information later, as they continue to optimize. Where the blue line crosses the purple horizontal line, RU consumption has exceeded the provisioned RUs. That's the point where Azure Cosmos DB will begin to throttle calls.
 
 ## Test 2: Increase resource units
 
-For the second load test, the team scaled out the Cosmos DB collection from 900 RU to 2500 RU. Throughput increased from 19 requests/second to 23 requests/second, and average latency dropped from 669 ms to 569 ms.
+For the second load test, the team scaled out the Azure Cosmos DB collection from 900 RU to 2500 RU. Throughput increased from 19 requests/second to 23 requests/second, and average latency dropped from 669 ms to 569 ms.
 
 | Metric | Test 1 | Test 2 |
 |--------|--------|--------|
@@ -66,15 +66,15 @@ These aren't huge gains, but looking at the graph over time shows a more complet
 
 Whereas the previous test showed an initial spike followed by a sharp drop, this test shows more consistent throughput. However, the maximum throughput is not significantly higher.
 
-All requests to Cosmos DB returned a 2xx status, and the HTTP 429 errors went away:
+All requests to Azure Cosmos DB returned a 2xx status, and the HTTP 429 errors went away:
 
-![Graph of Cosmos DB calls](./images/backend-services//read-requests-2.png)
+![Graph of Azure Cosmos DB calls](./images/backend-services//read-requests-2.png)
 
 The graph of RU consumption versus provisioned RUs shows there is plenty of headroom. There are about 275 RUs per physical partition, and the load test peaked at about 100 RUs consumed per second.
 
 ![Graph of RU consumption versus provisioned RUs showing there is plenty of headroom.](./images/backend-services//read-consumed-2.png)
 
-Another interesting metric is the number of calls to Cosmos DB per successful operation:
+Another interesting metric is the number of calls to Azure Cosmos DB per successful operation:
 
 | Metric | Test 1 | Test 2 |
 |--------|--------|--------|
@@ -112,11 +112,11 @@ To summarize, the second load test shows improvement. However, the `GetDroneUtil
 
 ![Screenshot of the second load test showing improvement.](./images/backend-services//read-e2e-2.png)
 
-As mentioned earlier, the `GetDroneUtilization` operation involves a cross-partition query to Cosmos DB. This means the Cosmos DB client has to fan out the query to each physical partition and collect the results. As the end-to-end transaction view shows, these queries are being performed in serial. The operation takes as long as the sum of all the queries &mdash; and this problem will only get worse as the size of the data grows and more physical partitions are added.
+As mentioned earlier, the `GetDroneUtilization` operation involves a cross-partition query to Azure Cosmos DB. This means the Azure Cosmos DB client has to fan out the query to each physical partition and collect the results. As the end-to-end transaction view shows, these queries are being performed in serial. The operation takes as long as the sum of all the queries &mdash; and this problem will only get worse as the size of the data grows and more physical partitions are added.
 
 ## Test 3: Parallel queries
 
-Based on the previous results, an obvious way to reduce latency is to issue the queries in parallel. The Cosmos DB client SDK has a setting that controls the maximum degree of parallelism.
+Based on the previous results, an obvious way to reduce latency is to issue the queries in parallel. The Azure Cosmos DB client SDK has a setting that controls the maximum degree of parallelism.
 
 | Value | Description |
 | ----- | ----------- |
@@ -137,11 +137,11 @@ From the load test graph, not only is the overall throughput much higher (the or
 
 ![Graph of Visual Studio load test results showing higher overall throughput that keeps pace with load.](./images/backend-services//read-throughput-3.png)
 
-We can verify that the Cosmos DB client is making queries in parallel by looking at the end-to-end transaction view:
+We can verify that the Azure Cosmos DB client is making queries in parallel by looking at the end-to-end transaction view:
 
-![Screenshot of end-to-end transaction view showing that the Cosmos DB client is making queries in parallel.](./images/backend-services//read-e2e-3.png)
+![Screenshot of end-to-end transaction view showing that the Azure Cosmos DB client is making queries in parallel.](./images/backend-services//read-e2e-3.png)
 
-Interestingly, a side effect of increasing the throughput is that the number of RUs consumed per second also increases. Although Cosmos DB did not throttle any requests during this test, the consumption was close to the provisioned RU limit:
+Interestingly, a side effect of increasing the throughput is that the number of RUs consumed per second also increases. Although Azure Cosmos DB did not throttle any requests during this test, the consumption was close to the provisioned RU limit:
 
 ![Graph of RU consumption close to the provisioned RU limit.](./images/backend-services//read-consumed-3.png)
 
@@ -162,7 +162,7 @@ WHERE c.ownerId = <ownerIdValue> and
       c.month = <monthValue>
 ```
 
-This query selects records that match a particular owner ID and month/year. In the original design, none of these properties is the partition key. That requires the client to fan out the query to each physical partition and gather the results. To improve query performance, the development team changed the design so that owner ID is the partition key for the collection. That way, the query can target a specific physical partition. (Cosmos DB handles this automatically; you don't have to manage the mapping between partition key values and physical partitions.)
+This query selects records that match a particular owner ID and month/year. In the original design, none of these properties is the partition key. That requires the client to fan out the query to each physical partition and gather the results. To improve query performance, the development team changed the design so that owner ID is the partition key for the collection. That way, the query can target a specific physical partition. (Azure Cosmos DB handles this automatically; you don't have to manage the mapping between partition key values and physical partitions.)
 
 After switching the collection to the new partition key, there was a dramatic improvement in RU consumption, which translates directly into lower costs.
 
@@ -194,14 +194,14 @@ Toward the end of the load test, average CPU reached about 90%, and maximum CPU 
 
 For this scenario, the following bottlenecks were identified:
 
-- Cosmos DB throttling requests due to insufficient RUs provisioned.
+- Azure Cosmos DB throttling requests due to insufficient RUs provisioned.
 - High latency caused by querying multiple database partitions in serial.
 - Inefficient cross-partition query, because the query did not include the partition key.
 
 In addition, CPU utilization was identified as a potential bottleneck at higher scale. To diagnose these issues, the development team looked at:
 
 - Latency and throughput from the load test.
-- Cosmos DB errors and RU consumption.
+- Azure Cosmos DB errors and RU consumption.
 - The end-to-end transaction view in Application Insight.
 - CPU and memory utilization in Azure Monitor container insights.
 

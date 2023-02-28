@@ -117,6 +117,16 @@ Here are pricing considerations for specific components:
   - [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
   - For [Azure Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network), IP addresses carry a nominal charge.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Jonathon Frost](https://www.linkedin.com/in/jjfrost/) | Principal Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - For more information, contact <legacy2azure@microsoft.com>.
@@ -134,7 +144,7 @@ Here are pricing considerations for specific components:
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 - Migrating IBM system workloads:
   - [High-volume batch transaction processing](./process-batch-transactions.yml)
-  - [IBM z/OS mainframe migration with Asysco AMT](./asysco-zos-migration.yml)
+  - [IBM z/OS mainframe migration with Avanade AMT](./asysco-zos-migration.yml)
   - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
   - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
   - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
@@ -143,5 +153,5 @@ Here are pricing considerations for specific components:
 - IBM System i (AS/400) information:
   - [IBM Power Systems Servers: Powering the hybrid enterprise](https://www.ibm.com/it-infrastructure/power)
   - [IBM i: A platform for innovators, by innovators](https://www.ibm.com/it-infrastructure/power/os/ibm-i)
-  - [IBM Power System case studies](https://www.ibm.com/it-infrastructure/power/resources/case-studies)
+  - [IBM Power System case studies](https://www.ibm.com/power#3137816)
   - [IBM Power Systems: enterprise servers](https://www.ibm.com/it-infrastructure/power/enterprise)

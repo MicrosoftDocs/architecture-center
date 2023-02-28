@@ -57,7 +57,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Container Registry](https://azure.microsoft.com/services/container-registry)** stores private container images. You can also use other container registries like Docker Hub.
 
-**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB API for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
+**[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)** stores data using the open-source [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction). Microservices are typically stateless and write their state to external data stores. Azure Cosmos DB is a NoSQL database with open-source APIs for MongoDB and Cassandra.
 
 **[Azure Service Bus](https://azure.microsoft.com/services/service-bus)** offers reliable cloud messaging as a service and simple hybrid integration. Service Bus supports asynchronous messaging patterns that are common with microservices applications.
 
@@ -78,6 +78,8 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
 Fabrikam, Inc. (a fictional company) has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time.  When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. The application is composed of containerized microservices and was originally deployed to Azure Kubernetes Service.
+
+This solution is ideal for the aircraft and aerospace industries.
 
 With Azure Container Apps, Fabrikam can run their containerized applications on a flexible, serverless platform purpose-built to support microservices. Azure Container Apps runs on Azure Kubernetes Service, and includes several open-source projects: Kubernetes Event Driven Autoscaling (KEDA), Distributed Application Runtime (Dapr), and Envoy. This open-source foundation enables teams to build and run portable applications powered by Kubernetes and open standards. With these built-in platform capabilities, teams can avoid the management complexity of working with the Kubernetes platform and APIs directly.
 
@@ -111,6 +113,8 @@ Other common uses of Container Apps include:
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 ### Availability
 
 Container Apps allows you to more easily deploy, manage, maintain and monitor the applications.  Availability can be ensured by these key features:
@@ -123,30 +127,38 @@ Container Apps allows you to more easily deploy, manage, maintain and monitor th
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
 To achieve operational excellence, the Container Apps service offers these features:
 
 - GitHub Actions integration for setting up automated CI/CD deployments.
 - Multi-revision mode with traffic splitting for testing changes to your application code and scale rules.
 - Integration with Azure Monitor and Log Analytics to provide insight into your containerized application.
 
-### Performance
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Performance considerations in this solution:
 
 - The workload is distributed among multiple microservice applications.
-- Each microservice is independent sharing nothing with the other microservices so that they can independently scale.
+- Each microservice is independent, sharing nothing with the other microservices, so that they can independently scale.
 - Autoscaling can be enabled as the workload increases.
-- Requests are dynamically load-balanced.
+- Requests are dynamically load balanced.
 - Metrics, including CPU and memory utilization, bandwidth information and storage utilization, are available through Azure Monitor.
 - Log analytics provides log aggregation to gather information across each Container Apps environment.
 
 ### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 Container Apps will attempt to restart failing containers and abstracts away hardware from users. Transient failures and high-availability of backing compute resources are handled by Microsoft.
 
 Performance monitoring through Log Analytics and Azure Monitor allows you to evaluate the application under load.  Metrics and logging information give you the data needed to recognize trends to prevent failures and perform root-cause analysis of failures when they occur.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 - Secrets:  Your Container Apps can store and retrieve sensitive values as secrets. Once a secret is defined for a Container App, it's available for use by the application and any associated scale rules. If you're running in multi-revision mode, all revisions will share the same secrets. Because secrets are considered an application-scope change, if you change the value of a secret, no new revision is created. However, for any running revisions to load the new secret value, you'll need to restart them. In this scenario, application and environment variable values are used.
 
@@ -177,7 +189,7 @@ Follow the steps in the README.md in the [sample repository](https://github.com/
 
 Principal author:
 
- * [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy) | Technical Writer
+- [Catherine Bundy](https://www.linkedin.com/in/catherine-bundy) | Technical Writer
 
 ## Next steps
 

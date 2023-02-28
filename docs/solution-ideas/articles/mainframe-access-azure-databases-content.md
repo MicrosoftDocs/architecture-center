@@ -2,20 +2,20 @@
 
 This solution outlines a way for IBM mainframe and midrange applications to access remote Azure databases. The approach requires zero or minimal changes in application code.
 
-IBM Db2 clients and servers use the Distributed Relational Database Architecture (DRDA) protocol to communicate. In this solution, Microsoft Service for DRDA connects Db2 clients to SQL Server–based databases by supporting this protocol.
+IBM Db2 clients and servers use the Distributed Relational Database Architecture (DRDA) protocol to communicate. In this solution, Microsoft Service for DRDA connects Db2 clients on IBM z/OS and IBM i to SQL Server–based databases by supporting this protocol.
 
 ## Potential use cases
 
 Various scenarios can benefit from this solution:
 
 - *Coexistent* environments that have modernized data as part of a [data-first][Five reasons a data-first strategy works] migration but still run mainframe or midrange applications.
-- *Hybrid* situations, or environments that combine on-premises and cloud datacenters. This case covers systems with mainframe applications in COBOL, PL/I, or assembly language that need access to an Azure SQL Server database.
+- *Hybrid* situations, or environments that combine on-premises and cloud datacenters. This case covers systems with mainframe applications in COBOL, PL/I, or assembly language that need access to an SQL Server database hosted in Azure.
 - Mainframe or midrange systems with workloads that need remote access to SQL Server databases.
 
 ## Architecture
 
 :::image type="complex" source="../media/mainframe-access-azure-databases-architecture.png" alt-text="Architecture diagram showing how mainframe applications can access Azure databases." border="false":::
-   A vertical line divides the diagram into two parts, one for mainframe components and one for Azure components. The mainframe part has the label I B M and contains two components. The first component is a cylinder that represents a database. The second component is a rectangle filled with the names of mainframe languages and environments. Arrows point back and forth between the cylinder and the rectangle. The Azure part of the diagram contains two rectangles with arrows pointing back and forth between them. The first rectangle represents software and contains a computer icon. The second rectangle contains two icons. One icon has the label PaaS and shows a database in a cloud. The other icon has the label IaaS and shows a computer. Arrows also point back and forth between the mainframe database cylinder and the rectangle that represents software in the Azure part.
+   Vertical lines divide the diagram into two parts, one for mainframe components and one for Azure components. The mainframe part has the label IBM and contains two components. The first component contains two cylinders that represent databases (Db2 for z/OS and Db2 for i). The second component is a rectangle that contains the names of mainframe languages and environments. Arrows point back and forth between the cylinder and the rectangle. The Azure part of the diagram contains two rectangles with arrows pointing back and forth between them. The first rectangle represents software and contains a computer icon. The second rectangle contains two icons. One icon has the label PaaS and shows a database in a cloud. The other icon has the label IaaS and shows a computer. Arrows also point back and forth between the mainframe database cylinder and the rectangle that represents software in the Azure part.
 :::image-end:::
 
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
@@ -44,7 +44,7 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 - [SQL Database][What is Azure SQL Database?] is a relational database service that's part of the [Azure SQL][What is Azure SQL?] family. As a fully managed service, SQL Database handles database management functions like upgrading, patching, backups, and monitoring. SQL Database also provides AI-powered, automated features that optimize performance and durability. Serverless compute and Hyperscale storage options automatically scale resources on demand.
 
-- [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines offers the flexibility and hybrid connectivity of Azure. But this database solution also provides the performance, security, and analytics of SQL Server. With SQL Server on Azure Virtual Machines, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases, including SQL Server 2019.
+- [SQL Server on Azure Virtual Machines][What is SQL Server on Azure Virtual Machines (Windows)] provides a way to migrate SQL Server workloads to the cloud with 100 percent code compatibility. As part of the Azure SQL family, SQL Server on Azure Virtual Machines offers the flexibility and hybrid connectivity of Azure. But this database solution also provides the performance, security, and analytics of SQL Server. With SQL Server on Azure Virtual Machines, you can migrate existing apps or build new apps. You can also access the latest SQL Server updates and releases.
 
 - [SQL Server][SQL Server technical documentation] provides a solution for storing and querying structured and unstructured data. This database engine features industry-leading performance and security.
 
@@ -52,15 +52,18 @@ This solution uses the following components. See the [Azure pricing calculator][
 
 - [HIS][What is HIS] software connects IBM systems with Azure systems. HIS runs on an on-premises or Azure VM. HIS provides integration services for networks, data, applications, messaging, and security features.
 
-- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i5/OS. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
+- [Microsoft Service for DRDA][Microsoft Service for DRDA] is a component of HIS. Microsoft Service for DRDA is an Application Server (AS) that DRDA Application Requester (AR) clients use. Examples of DRDA AR clients include IBM Db2 for z/OS and Db2 for i. These clients use the AS to convert Db2 SQL statements and run them on SQL Server.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
+ * [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect
  * [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwas-839a851a3) | Senior Engineering Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -96,7 +99,7 @@ Principal author:
 [Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data
 [Migrate databases and data]: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies#migrate-databases-and-data
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ./migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-[Modernize mainframe and midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+[Modernize mainframe and midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
 [Replicate and sync mainframe data in Azure]: ../../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 [SQL Server technical documentation]: /sql/sql-server

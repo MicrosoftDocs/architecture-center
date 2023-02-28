@@ -74,7 +74,7 @@ To increase scalability even further, you can use an aggregated-configuration da
 
 Most Microsoft365DSC resources support authentication via user name and password. But we don't recommend that type of authentication because Microsoft best practices recommend multifactor authentication. Application credentials is the preferred method, where supported by the Microsoft 365 resources. For example, SharePoint Online, Azure Active Directory (Azure AD), and other resources support application credentials.
 
-If you build a Microsoft365DSC solution on Azure DevOps, you can also take advantage of the security in [Azure Pipelines](/azure/devops/pipelines/security/overview?view=azure-devops) and an [approval process](/azure/devops/pipelines/release/approvals/approvals?view=azure-devops) to safeguard deployment to your production tenant.
+If you build a Microsoft365DSC solution on Azure DevOps, you can also take advantage of the security in [Azure Pipelines](/azure/devops/pipelines/security/overview) and an [approval process](/azure/devops/pipelines/release/approvals/approvals) to safeguard deployment to your production tenant.
 
 ### DevOps
 

@@ -2,10 +2,10 @@
 metadata:
   title: Machine learning operations (MLOps) framework to upscale machine learning lifecycle with Azure Machine Learning
   description: Learn how to apply the machine learning operations (MLOps) maturity model to implement a machine learning solution for predicting product shipping levels.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:

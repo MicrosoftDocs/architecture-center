@@ -91,10 +91,10 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Create a Linux virtual machine in Azure](/learn/modules/create-linux-virtual-machine-in-azure)
-- [Create a Windows virtual machine in Azure](/learn/modules/create-windows-virtual-machine-in-azure)
-- [Create reports and dashboards with Power BI](/learn/modules/explore-power-bi)
-- [Deploy and configure servers, instances, and databases for Azure SQL](/learn/modules/azure-sql-deploy-configure)
+- [Create a Linux virtual machine in Azure](/training/modules/create-linux-virtual-machine-in-azure)
+- [Create a Windows virtual machine in Azure](/training/modules/create-windows-virtual-machine-in-azure)
+- [Create reports and dashboards with Power BI](/training/modules/explore-power-bi)
+- [Deploy and configure servers, instances, and databases for Azure SQL](/training/modules/azure-sql-deploy-configure)
 
 ## Related resources
 

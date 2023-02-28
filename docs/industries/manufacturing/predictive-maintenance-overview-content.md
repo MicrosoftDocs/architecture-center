@@ -71,7 +71,7 @@ Whatever your PdM needs, Azure has the tools, the scale, and the capabilities to
 
 A lot of equipment found on the factory floor generates data. Start collecting it as soon as possible. As failures occur, have the data scientists analyze the data to create models to detect future failures. As knowledge builds about failure detection, move to predictive mode where you fix components during planned downtime. The [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) provides a solid walkthrough of building the machine learning pieces of the solution.
 
-To see an example solution, review the solution, guide, and playbook for [PdM in Aerospace](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). If you need to learn about building models, we recommend visiting [Foundations of data science for machine learning](/learn/paths/machine-learning-foundations-using-data-science). The [Introduction to Azure Machine Learning](/learn/modules/intro-to-azure-ml) Learn module introduces you to Azure tools.
+To see an example solution, review the solution, guide, and playbook for [PdM in Aerospace](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). If you need to learn about building models, we recommend visiting [Foundations of data science for machine learning](/training/paths/machine-learning-foundations-using-data-science). The [Introduction to Azure Machine Learning](/training/modules/intro-to-azure-ml) Learn module introduces you to Azure tools.
 
 ## Components
 
@@ -100,7 +100,7 @@ To see an example solution, review the solution, guide, and playbook for [PdM in
 
 Microsoft's infrastructure can help you build solutions that run on the device, at the edge, and in the cloud. There are many resources to help you get started.
 
-To begin, pick out the top one to three failures that you want to prevent and begin your discovery process with those items. Then, identify how to get the data that helps identify the failures. Combine that data with the skills that you get from the [Foundations of data science for machine learning](/learn/paths/machine-learning-foundations-using-data-science) course to build your PdM models.
+To begin, pick out the top one to three failures that you want to prevent and begin your discovery process with those items. Then, identify how to get the data that helps identify the failures. Combine that data with the skills that you get from the [Foundations of data science for machine learning](/training/paths/machine-learning-foundations-using-data-science) course to build your PdM models.
 
 ## Contributors
 

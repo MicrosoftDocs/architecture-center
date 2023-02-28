@@ -52,13 +52,13 @@ Decide on the development language to use. Azure Functions supports C#, F#, Powe
 ### Define triggers and bindings
 A trigger invokes a Function, and every Function must have exactly one trigger. Binding to a Function declaratively connects another resource to the Function. For more information about Functions triggers and bindings, see:
 - [Azure Functions triggers and bindings concepts](/azure/azure-functions/functions-triggers-bindings)
-- [Execute an Azure Function with triggers](/learn/modules/execute-azure-function-with-triggers/)
-- [Chain Azure Functions together using input and output bindings](/learn/modules/chain-azure-functions-data-using-bindings/)
+- [Execute an Azure Function with triggers](/training/modules/execute-azure-function-with-triggers/)
+- [Chain Azure Functions together using input and output bindings](/training/modules/chain-azure-functions-data-using-bindings/)
 
 ### Create the Functions application
 Functions follow the single responsibility principle: do only one thing. For more information about Functions development, see:
 - [Azure Functions developers guide](/azure/azure-functions/functions-reference)
-- [Create serverless applications](/learn/paths/create-serverless-applications/)
+- [Create serverless applications](/training/paths/create-serverless-applications/)
 - [Strategies for testing your code in Azure Functions](/azure/azure-functions/functions-test-a-function)
 - [Functions best practices](/azure/azure-functions/functions-best-practices#general-best-practices)
 
@@ -121,7 +121,7 @@ For information about factors that impact Functions app scalability, see:
 
 ### Implement SRE practices
 Site Reliability Engineering (SRE) is a proven approach to maintaining crucial system and application reliability, while iterating at the speed the marketplace demands. For more information, see:
-- [Introduction to Site Reliability Engineering (SRE)](/learn/modules/intro-to-site-reliability-engineering)
+- [Introduction to Site Reliability Engineering (SRE)](/training/modules/intro-to-site-reliability-engineering)
 - [DevOps at Microsoft: Game streaming SRE](https://azure.microsoft.com/resources/devops-at-microsoft-game-streaming-sre)
 
 ## Next steps

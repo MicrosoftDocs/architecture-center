@@ -1,14 +1,12 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution features a bot assistant with search integration. The bot can help customers interact with a business application. It can also provide suggestions based on visual information.
-
-## Potential use cases
-
-This solution can be used broadly, but is ideal for the retail industry and the travel and hospitality industries.
+This solution idea uses Azure services with a bot assistant to improve interactions with customers and provide suggestions based on visual information.
 
 ## Architecture
 
-![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services.](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.png)
+[ ![Architecture diagram that shows how data flows between a user, a bot, and other components, such as language understanding and search services.](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.svg)](../media/retail-assistant-or-vacation-planner-with-visual-capabilities.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/retail-assistant-or-vacation-planner-with-visual-capabilities.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -31,9 +29,17 @@ This solution can be used broadly, but is ideal for the retail industry and the 
 - The [Bing Visual Search API](https://www.microsoft.com/bing/apis/bing-visual-search-api) returns data that's related to a given image, such as similar images, shopping sources for purchasing the item in the image, and webpages that include the image.
 - The [Bing Custom Search API](https://www.microsoft.com/bing/apis/bing-custom-search-api) provides a way to create tailored ad-free search experiences for topics.
 
+## Scenario details
+
+This solution features a bot assistant with search integration. The bot can help customers interact with a business application. It can also provide suggestions based on visual information.
+
+### Potential use cases
+
+This solution can be used broadly, but is ideal for the retail industry and the travel and hospitality industries.
+
 ## Next steps
 
-- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [What is Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
 - [Bing Search API documentation](/azure/cognitive-services/bing-web-search)
 - [What is the Bing Visual Search API?](/azure/cognitive-services/bing-visual-search)

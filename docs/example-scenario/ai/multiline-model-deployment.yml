@@ -3,10 +3,10 @@ metadata:
   title: Deploy machine learning models to multiple lines 
   titleSuffix: Azure Example Scenarios
   description: Use a multiline-model architecture to deploy machine learning models to multiple data sources. 
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: paulbutler 
   ms.date: 05/25/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.custom: fcp 

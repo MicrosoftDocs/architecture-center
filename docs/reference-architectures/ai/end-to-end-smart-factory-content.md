@@ -1,15 +1,4 @@
-This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing. Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time.
-
-In this example, cameras send images to an Azure IoT Edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
-
-## Potential use cases
-
-Manufacturing processes use IoT computer vision in safety and quality assurance applications. IoT computer vision systems can:
-
-- Help ensure compliance with manufacturing guidelines like proper labeling.
-- Identify manufacturing defects like surface unevenness.
-- Enhance security by monitoring building or area entrances.
-- Uphold worker safety by detecting personal protective equipment (PPE) usage and other safety practices.
+This example architecture shows an end-to-end approach to internet-of-things (IoT) computer vision in manufacturing. 
 
 ## Architecture
 
@@ -58,6 +47,21 @@ For model orchestration, you can use either Azure Pipelines or Azure Data Factor
 
 - The Azure Pipelines advantage is its close ties with the ML model code. You can trigger the training pipeline easily with code changes through CI/CD.
 - The benefit of Data Factory is that each pipeline can provision the required compute resources. Data Factory doesn't hold on to the Azure Pipelines agents to run ML training, which could congest the normal CI/CD flow.
+
+## Scenario details
+
+Fully automated smart factories use artificial intelligence (AI) and machine learning (ML) to analyze data, run systems, and improve processes over time.
+
+In this example, cameras send images to an Azure IoT Edge device that runs an ML model. The model calculates inferences, and sends actionable output to the cloud for further processing. Human interventions are part of the intelligence the ML model captures. The ML process is a continuous cycle of training, testing, tuning, and validating the ML algorithms.
+
+### Potential use cases
+
+Manufacturing processes use IoT computer vision in safety and quality assurance applications. IoT computer vision systems can:
+
+- Help ensure compliance with manufacturing guidelines like proper labeling.
+- Identify manufacturing defects like surface unevenness.
+- Enhance security by monitoring building or area entrances.
+- Uphold worker safety by detecting personal protective equipment (PPE) usage and other safety practices.
 
 ## Considerations
 
@@ -115,11 +119,15 @@ For general guidance on designing scalable solutions, see the [performance effic
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 Access management in Dataverse and other Azure services helps ensure that only authorized users can access the environment, data, and reports. This solution uses Azure Key Vault to manage passwords and secrets. Storage is encrypted using [customer-managed keys](/azure/storage/common/customer-managed-keys-overview).
 
 For general guidance on designing secure IoT solutions, see the [Azure Security Documentation](/azure/security) and the [Azure IoT reference architecture](../iot.yml#security).
 
 ### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In general, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs. For other considerations, see [Cost optimization](/azure/architecture/framework/cost/index).
 

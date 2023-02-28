@@ -6,13 +6,15 @@ To migrate an Oracle database to an Azure environment, you have to:
 
 * Decide data migration method to evaluate downtime window.
 
-* Figure out how to archive business continuity and disaster recovery requirements.
+* Figure out how to achieve business continuity and disaster recovery requirements.
 
 ## Architecture
 
 This flow chart shows you the steps to move an Oracle database to either a PostgreSQL or a SQL database in Azure. The steps and the details are similar for both migration paths. Pay attention to the schema conversion and the data migration sections.
 
 ![Flow chart depicting the steps you have to take to convert your Oracle Database to a SQL or PostgreSQL database in Azure.](media/oracle-migration-process-to-sql-pg.png)
+
+*Download a [Visio file](https://arch-center.azureedge.net/oracle-migration-overview.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -36,7 +38,7 @@ This flow chart shows you the steps to move an Oracle database to either a Postg
 
 ## Oracle database discoveries
 
-The Microsoft Data Migration Jumpstart Engineering team maintains an inventory of Oracle scripts. You can run the scripts on your Oracle databases to evaluate how many tables, stored procedures, views, packages, etc. exist in the environment. This table shows the assessment principles:
+You can create and run scripts on your Oracle databases to evaluate how many tables, stored procedures, views, and packages exist in the environment. This table shows an example of the assessment principles:
 
 | Category | Simple | Medium | Large | Complex | Custom |
 | ---------| ------ | ------ | ----- | ------- | ------ |
@@ -54,6 +56,16 @@ The migration decision tree helps you find the appropriate path of your Oracle d
 
 ![A decision tree that lays out the decisions you have to make to figure out what migration path is best for you.](media/oracle-migration-tree.png)
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Amber Zhao](https://www.linkedin.com/in/amberzhao/) | Principal Customer Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Related resources
 
 What you do next depends on where you wind up on the decision tree:
@@ -64,4 +76,4 @@ What you do next depends on where you wind up on the decision tree:
 
 * **Refactor**: You have legacy Oracle code and you prefer using an Azure Managed Service. Go to [Oracle database migration: Refactor](oracle-migration-refactor.yml).
 
-* **Rearchitect**: If you're planning to retire your old code and redesign your architecture, Azure SQL Database Managed Instance is a good option. Go to [Oracle database migration: Rearchitect](oracle-migration-rearchitect.yml)
+* **Rearchitect**: If you're planning to retire your old code and redesign your architecture, Azure SQL Database Managed Instance is a good option. Go to [Oracle database migration: Rearchitect](oracle-migration-rearchitect.yml).

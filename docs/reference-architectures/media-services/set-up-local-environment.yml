@@ -3,10 +3,10 @@ metadata:
   title: Gridwich local development environment setup
   titleSuffix: Azure Reference Architectures
   description: Set up a local development environment to work with Gridwich.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
-  ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.date: 12/23/2022
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.custom:

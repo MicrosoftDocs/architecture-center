@@ -12,8 +12,9 @@ This approach can be used to manage the following scenarios:
 
 ## Architecture
 
-![Architecture Diagram](../media/aks-demand-spikes.png)
-*Download an [SVG](../media/aks-demand-spikes.svg)*
+![Architecture diagram of AKS demand spikes.](../media/aks-demand-spikes.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-demand-spikes.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -36,6 +37,16 @@ This scenario is implemented several Azure components:
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/): A DNS-based traffic load balancer for distributing traffic optimally to services across global Azure regions
 - [Azure CDN](https://azure.microsoft.com/services/cdn): A global CDN solution for delivering high-bandwidth content.
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs): Send push notifications to any platform from any back end.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Stella Lin](https://www.linkedin.com/in/fengxiaoyuelin/) | Principal Product Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

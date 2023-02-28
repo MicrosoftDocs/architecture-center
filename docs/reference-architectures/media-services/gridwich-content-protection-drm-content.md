@@ -197,9 +197,9 @@ For more information about Media Services content protection, see [Protect your 
 
 Microsoft Learn modules:
 
-- [Create a build pipeline with Azure Pipelines](/learn/modules/create-a-build-pipeline)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
-- [Introduction to Azure DevOps](/learn/modules/get-started-with-devops)
+- [Create a build pipeline with Azure Pipelines](/training/modules/create-a-build-pipeline)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Introduction to Azure DevOps](/training/modules/get-started-with-devops)
 
 ## Related resources
 

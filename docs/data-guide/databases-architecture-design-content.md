@@ -19,19 +19,17 @@ We also provide solution ideas for you to build on, which include links to all t
 
 ## Learn about databases on Azure
 
-If you're new to databases on Azure, the best place to start is Microsoft Learn.
-On this free online training platform, you'll find videos and tutorials that offer hands-on learning.
-Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
+If you're new to databases on Azure, the best place to start is Microsoft Learn. This free online platform provides videos and tutorials for hands-on learning. Microsoft Learn offers learning paths that are based on your job role, such as developer or data analyst.
 
-[You can browse Azure data modules](/learn/browse/?products=azure&terms=database) or use this learning path to understand [Azure SQL fundamentals](/learn/paths/azure-sql-fundamentals).
+[You can browse Azure data modules](/training/browse/?products=azure&terms=database) or use this learning path to understand [Azure SQL fundamentals](/training/paths/azure-sql-fundamentals).
 
 Here are some Learn modules you might find useful:
 
-- [Choose a data storage approach in Azure](/learn/modules/choose-storage-approach-in-azure)
-- [Design your migration to Azure](/learn/modules/design-your-migration-to-azure)
-- [Deploy Azure SQL Database](/learn/modules/deploy-azure-sql-database)
-- [Explore Azure database and analytics services](/learn/modules/azure-database-fundamentals)
-- [Secure your Azure SQL Database](/learn/modules/secure-your-azure-sql-database)
+- [Choose a data storage approach in Azure](/training/modules/choose-storage-approach-in-azure)
+- [Design your migration to Azure](/training/modules/design-your-migration-to-azure)
+- [Deploy Azure SQL Database](/training/modules/deploy-azure-sql-database)
+- [Explore Azure database and analytics services](/training/modules/azure-database-fundamentals)
+- [Secure your Azure SQL Database](/training/modules/secure-your-azure-sql-database)
 
 ## Path to production
 
@@ -69,8 +67,8 @@ Review these best practices when designing your solutions.
 | [Use the best data store for the job](/azure/architecture/guide/design-principles/use-best-data-store) | Pick the storage technology that is the best fit for your data and how it will be used. |
 | [Security in Azure Cosmos DB](/azure/cosmos-db/database-security) | Security best practices help prevent, detect, and respond to database breaches. |
 | [Secure data solutions](../data-guide/scenarios/securing-data-solutions.md) | Address concerns around increased accessibility to data in the cloud and how to secure it. |
-| [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB's point-in-time restore feature. |
-| [Achieve high availability with Cosmos DB](/azure/cosmos-db/high-availability) | Cosmos DB provides multiple features and configuration options to achieve high availability. |
+| [Continuous backup with point-in-time restore in Azure Cosmos DB](/azure/cosmos-db/continuous-backup-restore-introduction) | Learn about Azure Cosmos DB point-in-time restore feature. |
+| [Achieve high availability with Azure Cosmos DB](/azure/cosmos-db/high-availability) | Azure Cosmos DB provides multiple features and configuration options to achieve high availability. |
 | [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla) | The database shouldn't be a single point of failure in your architecture. |
 
 ## Azure SQL Database security baselines
@@ -104,7 +102,7 @@ These architectures use database technologies.
 
 - [SQL Managed Instance with customer-managed keys](../example-scenario/data/sql-managed-instance-cmk.yml)
 - [Optimized storage with logical data classification](../solution-ideas/articles/optimized-storage-logical-data-classification.yml)
-- [Globally distributed applications using Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)
+- [Globally distributed applications using Azure Cosmos DB](../solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db.yml)
 
 Here are some other resources:
 
@@ -125,7 +123,7 @@ These solution ideas are some of the example approaches that you can adapt to yo
 - [Messaging](../solution-ideas/articles/messaging.yml)
 - [Mining equipment monitoring](../solution-ideas/articles/monitor-mining-equipment.yml)
 - [Multi-region web app with private connectivity to database](../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
-- [Serverless apps using Cosmos DB](../solution-ideas/articles/serverless-apps-using-cosmos-db.yml)
+- [Serverless apps using Azure Cosmos DB](../solution-ideas/articles/serverless-apps-using-cosmos-db.yml)
 
 ### Similar database products
 

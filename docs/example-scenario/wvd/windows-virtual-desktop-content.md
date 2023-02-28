@@ -1,17 +1,5 @@
 [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a desktop and application virtualization service that runs in Azure. This article is intended to help desktop infrastructure architects, cloud architects, desktop administrators, and system administrators explore Azure Virtual Desktop and build virtualized desktop infrastructure (VDI) solutions at enterprise scale. Enterprise-scale solutions generally cover 1,000 or more virtual desktops.
 
-## Potential use cases
-
-The greatest demand for enterprise virtual desktop solutions comes from:
-
-- Security and regulation applications, such as financial services, healthcare, and government.
-
-- Elastic workforce needs, such as remote work, mergers and acquisitions, short-term employees, contractors, and partner access.
-
-- Specific employees, such as bring your own device (BYOD) and mobile users, call centers, and branch workers.
-
-- Specialized workloads, such as design and engineering, legacy apps, and software development testing.
-
 ## Architecture
 
 A typical architectural setup for Azure Virtual Desktop is illustrated in the following diagram:
@@ -42,7 +30,7 @@ For more information about FSLogix Profile Container - Azure Files and Azure Net
 
 Microsoft manages the following Azure Virtual Desktop services, as part of Azure:
 
-- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Windows Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Azure Active Directory.
+- **Web Access**: By using the [Web Access](/azure/virtual-desktop/connect-web) service within Azure Virtual Desktop you can access virtual desktops and remote apps through an HTML5-compatible web browser just as you would with a local PC, from anywhere and on any device. You can secure web access by using multifactor authentication in Azure Active Directory.
 
 - **Gateway**: The Remote Connection Gateway service connects remote users to Azure Virtual Desktop apps and desktops from any internet-connected device that can run an Azure Virtual Desktop client. The client connects to a gateway, which then orchestrates a connection from a VM back to the same gateway.
 
@@ -62,17 +50,23 @@ You manage the following components of Azure Virtual Desktop solutions:
 
 - **Active Directory Domain Services**: Azure Virtual Desktop VMs must domain-join an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service, and AD DS must be in sync with Azure AD to associate users between the two services. You can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Azure AD.
 
-- **Azure Virtual Desktop session hosts**: A host pool can run the following operating systems:
-
-  - Windows 7 Enterprise
-  - Windows 10 Enterprise
-  - Windows 10 Enterprise Multi-session
-  - Windows Server 2012 R2 and later
-  - Custom Windows system images with pre-loaded apps, group policies, or other customizations
-
-  You can choose VM sizes, including GPU-enabled VMs. Each session host has an Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access.
+- **Azure Virtual Desktop session hosts**: Session hosts are VMs that users connect to for their desktops and applications. Several versions of Windows are supported and you can create images with your applications and customizations. You can choose VM sizes, including GPU-enabled VMs. Each session host has an Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access. To see which versions of Windows are supported, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
 
 - **Azure Virtual Desktop workspace**: The Azure Virtual Desktop workspace or tenant is a management construct for managing and publishing host pool resources.
+
+## Scenario details
+
+### Potential use cases
+
+The greatest demand for enterprise virtual desktop solutions comes from:
+
+- Security and regulation applications, such as financial services, healthcare, and government.
+
+- Elastic workforce needs, such as remote work, mergers and acquisitions, short-term employees, contractors, and partner access.
+
+- Specific employees, such as bring your own device (BYOD) and mobile users, call centers, and branch workers.
+
+- Specialized workloads, such as design and engineering, legacy apps, and software development testing.
 
 ## Personal and pooled desktops
 
@@ -101,7 +95,7 @@ The relationships between host pools, workspaces, and other key logical componen
 
 *The numbers in the following descriptions correspond to those in the preceding diagram.*
 
-- *(1)* An application group that contains a published desktop can't contain any other published resources and is called a desktop application group.
+- *(1)* An application group that contains a published desktop can only contain MSIX packages mounted to the host pool (the packages will be available in the *Start* menu of the session host), it can't contain any other published resources and is called a desktop application group.
 - *(2)* Application groups assigned to the same host pool must be members of the same workspace.
 - *(3)* A user account can be assigned to an application group either directly or via an Azure AD group. It's possible to assign no users to an application group, but then it can't service any.
 - *(4)* It's possible to have an empty workspace, but it can't service users.
@@ -126,6 +120,8 @@ The relationships between host pools, workspaces, and other key logical componen
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 The numbers in the following sections are approximate. They're based on a variety of large customer deployments and are subject to change over time.
 
 Also, note that:
@@ -137,11 +133,11 @@ Also, note that:
 
 Azure Virtual Desktop, much like Azure, has certain service limitations that you need to be aware of. To avoid having to make changes in the scaling phase, it's a good idea to address some of these limitations during the design phase.
 
-| Azure Virtual Desktop object | Parent container object | Service limit |
+| Azure Virtual Desktop object | Per Parent container object | Service limit |
 |--- |--- |---: |
 | Workspace | Azure Active Directory tenant | 1300 |
 | HostPool | Workspace | 400 |
-| Application group | Azure AD tenant | 500\* |
+| Application group | Azure Active Directory tenant | 500\* |
 | RemoteApp | Application group | 500 |
 | Role assignment | Any Azure Virtual Desktop object | 200 |
 | Session host | HostPool | 10,000 |
@@ -164,11 +160,9 @@ For more information about Azure subscription limitations, see [Azure subscripti
 
 Use simulation tools to test deployments with both stress tests and real-life usage simulations. Make sure that the system is responsive and resilient enough to meet user needs, and remember to vary the load sizes when testing.
 
-## Deploy this scenario
+### Cost optimization
 
-Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
-
-## Cost optimization
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 You can architect your Azure Virtual Desktop solution to realize cost savings. Here are five different options to help manage costs for enterprises:
 
@@ -177,6 +171,11 @@ You can architect your Azure Virtual Desktop solution to realize cost savings. H
 - **Azure Reserved VM Instances**: You can prepay for your VM usage and save money. Combine [Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) with Azure Hybrid Benefit for up to 80 percent savings over list prices.
 - **Session-host load-balancing**: When you're setting up session hosts, *breadth-first* mode, which spreads users randomly across the session hosts, is the standard default mode. Alternatively, you can use *depth-first* mode to fill up a session-host server with the maximum number of users before it moves on to the next session host. You can adjust this setting for maximum cost benefits.
 
+## Deploy this scenario
+
+Use the [ARM templates](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to automate the deployment of your Azure Virtual Desktop environment. These ARM templates support only Azure Resource Manager's Azure Virtual Desktop objects. These ARM templates don't support Azure Virtual Desktop (classic).
+
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -184,6 +183,10 @@ You can architect your Azure Virtual Desktop solution to realize cost savings. H
 Principal author:
 
  * [Tom Hickling](https://www.linkedin.com/in/tomhickling) | Senior Product Manager, Azure Virtual Desktop Engineering
+
+ Other contributor:
+
+  * [Nelson Del Villar](https://www.linkedin.com/in/nelsondelvillar/) | Senior Customer Engineer, Azure Core Infrastructure
 
 ## Next steps
 

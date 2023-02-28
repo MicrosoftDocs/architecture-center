@@ -35,7 +35,7 @@ This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and h
 
 ## Scenario details
 
-Conceptually, the DevSecOps for infrastructure as code (IaC) is similar to [DevSecOps for application code on Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
+Conceptually, the DevSecOps for infrastructure as code (IaC) is similar to [DevSecOps for application code on AKS](../../guide/devsecops/devsecops-on-aks.yml). But you need a different set of pipelines and tools to manage and automate continuous integration and continuous delivery (CI/CD) for IaC.
 
 When you adopt IaC, it's important to create automation tests as you develop the code. These tests reduce the complexity of testing IaC when your workload scales. You can use local infrastructure configuration states like Terraform states and plans to develop [test-driven development (TDD) for IaC](/azure/cloud-adoption-framework/ready/considerations/test-driven-development). These configuration states emulate the actual deployments. You can run integration tests for IaC on actual infrastructure deployments using the [Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
 
@@ -66,13 +66,13 @@ Principal authors:
 
 - Consider the preferred [IaC tools](https://azure.microsoft.com/solutions/devsecops/#overview) to use for DevSecOps and ensure that they come with extensions to perform IaC security scanning.
 - Consider the preferred IaC language or templates, [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) or [Terraform on Azure](/azure/developer/terraform).
-- [The GitHub Guide to Organizations](https://resources.github.com/downloads/github-guide-to-organizations.pdf)
+- [The GitHub Guide to Organizations](https://www.scribd.com/document/513270621/github-guide-to-organizations)
 - [Use GitHub Actions to connect to Azure](/azure/developer/github/connect-from-azure?tabs=azure-portal%2Cwindows)
 - [GitHub Actions](https://docs.github.com/en/actions)
 - [Innovation Security](/azure/cloud-adoption-framework/secure/innovation-security)
 - [AzOps for ARM templates](https://github.com/Azure/AzOps)
 - [Terraform Landing Zones Module and Solutions](https://github.com/aztfmod)
-- [Introduction to infrastructure as code using Bicep](/learn/modules/introduction-to-infrastructure-as-code-using-bicep)
+- [Introduction to infrastructure as code using Bicep](/training/modules/introduction-to-infrastructure-as-code-using-bicep)
 
 ## Related resources
 

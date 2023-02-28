@@ -1,13 +1,5 @@
 This article describes an alternative approach to data warehouse projects that's called *exploratory data analysis (EDA)*. This approach can reduce the challenges of extract, transform, load (ETL) operations. It focuses first on generating business insights and then turns to solving the modeling and ETL tasks.
 
-## Potential use cases
-
-Other scenarios that can benefit from this analytics pattern:
-
-- **Prescriptive analytics**. Ask questions of your data, like _Next Best Action_, or _what do we do next?_ Use data to be more _data-driven_ and less _gut-driven_. The data might be unstructured and from many external sources of varying quality. You might want to use the data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. You might dispose of the data after you answer your questions.  
-
-- **Self-service ETL**. Do ETL/ELT when you do your data sandboxing (EDA) activities. Transform data and make it valuable. Doing so can improve the scale of your ETL developers.  
-
 ## Architecture
 
 ![Diagram that shows a sample EDA architecture.](media/exploratory-data-analytics/exploratory-data-analytics.png)
@@ -42,7 +34,19 @@ You can implement the left side of the diagram (data ingestion) by using any ext
 
 - Instead of using a lakehouse model with Synapse SQL serverless pools, you can use [Azure Synapse dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) to store enterprise data. Review the use cases and considerations in this article and related resources to decide which technology to use.
 
-## About exploratory data analysis
+## Scenario details
+
+This solution shows an implementation of the EDA approach to data warehouse projects. This approach can reduce the challenges of ETL operations. It focuses first on generating business insights and then turns to solving modeling and ETL tasks.
+
+### Potential use cases
+
+Other scenarios that can benefit from this analytics pattern:
+
+- **Prescriptive analytics**. Ask questions of your data, like _Next Best Action_, or _what do we do next?_ Use data to be more _data-driven_ and less _gut-driven_. The data might be unstructured and from many external sources of varying quality. You might want to use the data as fast as possible to evaluate your business strategy without actually loading the data into a data warehouse. You might dispose of the data after you answer your questions.  
+
+- **Self-service ETL**. Do ETL/ELT when you do your data sandboxing (EDA) activities. Transform data and make it valuable. Doing so can improve the scale of your ETL developers.  
+
+### About exploratory data analysis
 
 Before we look more closely at how EDA works, it's worth summarizing the traditional approach to data warehouse projects. The traditional approach looks like this:
 
@@ -74,7 +78,7 @@ These methods are the core of true _self-service analytics_. By using the data l
 
 ## Considerations
 
-The following considerations apply to this scenario.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Availability
 
@@ -91,7 +95,9 @@ Serverless pools are available on-demand. They don't require scaling up, down, i
 
 Synapse SQL serverless uses standard T-SQL for querying and operations. You could use Synapse workspace UI, Azure Data Studio, or SQL Server Management Studio as the T-SQL tool.  
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - [Data Lake Storage](https://azure.microsoft.com/pricing/details/storage/data-lake) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes one TB of data stored, with further transactional assumptions. The one TB refers to the size of the data lake, not the size of the original legacy database.
 
@@ -109,7 +115,7 @@ Principal authors:
 
 ## Next steps
 
-- [Data Engineer learning paths](/learn/roles/data-engineer)
+- [Data Engineer learning paths](/training/roles/data-engineer)
 - [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 - [Azure Synapse SQL architecture](/azure/synapse-analytics/sql/overview-architecture)
@@ -126,4 +132,4 @@ Principal authors:
   - [Data warehousing and analytics](data-warehouse.yml)
   - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
   - [Big data analytics with enterprise-grade security by using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
-  - [Enterprise business intelligence](../../reference-architectures/data/enterprise-bi-synapse.yml)
+  - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

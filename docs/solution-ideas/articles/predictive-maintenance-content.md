@@ -2,18 +2,15 @@
 
 This predictive maintenance solution monitors aircraft and predicts the remaining useful life of aircraft engine components.
 
-## Potential use cases
-
-While it's customized for aircraft monitoring, it can easily be generalized for other predictive maintenance scenarios.
-
 ## Architecture
 
-![Architecture diagram: predictive maintenance for aircraft components using Microsoft Azure cloud services.](../media/predictive-maintenance.png)
-*Download an [SVG](../media/predictive-maintenance.svg) of this architecture.*
+[ ![Architecture diagram: predictive maintenance for aircraft components using Microsoft Azure cloud services.](../media/../media/predictive-maintenance.svg)](../media/predictive-maintenance.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/predictive-maintenance.vsdx) of this architecture.*
 
 ### Dataflow
 
-  1. The simulation data is streamed by a newly deployed Azure Web Job, AeroDataGenerator.
+  1. The simulation data is streamed by a newly deployed Azure Web Job, AeroDataGenerator. Alternatively, it could process offline data by periodically importing sensor log files or data into the solution.
   1. This synthetic data feeds into the [Azure Event Hubs](/azure/event-hubs) service as data points.
   1. Two [Azure Stream Analytics](/azure/stream-analytics) jobs analyze the data to provide near real-time analytics on the input stream from the event hub. One of the Stream Analytics jobs archives all raw incoming events to the Azure Storage service for later processing by the [Azure Data Factory](/azure/data-factory) service, and the other publishes results onto a Power BI dashboard.
   1. The [HDInsight](/azure/hdinsight) service is used to run Hive scripts orchestrated by Azure Data Factory. The scripts provide aggregations on the raw events that were archived by the Stream Analytics job.
@@ -32,11 +29,15 @@ While it's customized for aircraft monitoring, it can easily be generalized for 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics)
 * [Power BI Dashboard](https://powerbi.microsoft.com)
 
-## Solution details
+## Scenario details
 
 This solution demonstrates how to combine real-time data from sensors with advanced analytics to monitor aircraft parts in real time. It predicts the remaining useful life of aircraft engine components.
 
 Air travel is central to modern life, however, aircraft engines are expensive and keeping them up and running requires frequent maintenance by highly skilled technicians. Modern aircraft engines are equipped with highly sophisticated sensors to track their functioning. With data from these sensors combined with advanced analytics, it's possible to both monitor the aircraft in real time, and predict the remaining useful life of an engine component. These predictions enable maintenance to be scheduled quickly to prevent mechanical failures.
+
+## Potential use cases
+
+While it's customized for aircraft monitoring and the aerospace industry, it can easily be generalized for other predictive maintenance scenarios.
 
 ## Deploy this scenario
 
@@ -57,7 +58,7 @@ See product documentation:
 Try out the code:
 
 * [Azure AI Gallery Solution - Predictive Maintenance](https://gallery.azure.ai/Solution/Predictive-Maintenance-10)
-* [Creating and configuring a HDInsight cluster](/learn/modules/creating-and-configuring-hdinsight-cluster)
+* [Creating and configuring a HDInsight cluster](/training/modules/creating-and-configuring-hdinsight-cluster)
 
 ## Related resources
 

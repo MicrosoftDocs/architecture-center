@@ -2,10 +2,6 @@
 
 Mining companies can have Azure continually monitor the performance data from their equipment or from other assets. Analysis of the data identifies anomalies and results in recommendations for maintenance and repair. Such monitoring can prevent failures and reduce operating costs.
 
-## Potential use cases
-
-- Monitor mining equipment and other equipment that can provide the needed data. This solution is ideal for the energy industry.
-
 ## Architecture
 
 :::image type="content" source="../media/monitor-mining-equipment.png" alt-text="Diagram showing the architecture for monitoring mining equipment." lightbox="../media/monitor-mining-equipment.png":::
@@ -41,6 +37,12 @@ Data is loaded from these different data sources using several Azure components:
 - [Azure Functions](https://azure.microsoft.com/services/functions) allows you to run small pieces of code (called "functions") without worrying about application infrastructure. Azure Functions is a great solution for processing bulk data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and micro-services.
 - [Power BI](/power-bi/) is a suite of business analytics tools to analyze data and provide insights. Power BI can query a semantic model stored in Analysis Services, or it can query Azure Synapse directly.
 - [Power Apps](/powerapps/powerapps-overview) is a suite of apps, services, and connectors for building custom business apps. It includes an underlying data platform ([Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro)) and a rapid development environment.
+
+## Scenario details
+
+### Potential use cases
+
+- Monitor mining equipment and other equipment that can provide the needed data. This solution is ideal for the energy industry.
 
 ## Contributors
 
@@ -78,7 +80,7 @@ See the following related database architectural guidance:
 - [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 - [Data lakes](../../data-guide/scenarios/data-lake.md)
 - [Choosing a big data storage technology in Azure](../../data-guide/technology-choices/data-storage.md)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 - [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
 - [Master Data Management powered by CluedIn](../../reference-architectures/data/cluedin.yml)
 - [DataOps for the modern data warehouse](../../example-scenario/data-warehouse/dataops-mdw.yml)

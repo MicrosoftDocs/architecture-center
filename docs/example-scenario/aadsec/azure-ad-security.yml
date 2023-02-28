@@ -3,10 +3,10 @@ metadata:
   title: Azure Active Directory IDaaS in security operations
   titleSuffix: Azure Architecture Center
   description: Learn how security operations teams can use Azure Active Directory identity and access features in an adaptive, integrated zero-trust security architecture.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 08/23/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:

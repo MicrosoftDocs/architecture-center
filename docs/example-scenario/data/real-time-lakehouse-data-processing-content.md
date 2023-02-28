@@ -145,8 +145,8 @@ Other contributor:
 - [What is Azure Synapse Link for Azure Cosmos DB?](/azure/cosmos-db/synapse-link)
 - [Best practices for dedicated SQL pool](/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool)
 - [Best practices for serverless SQL pool](/azure/synapse-analytics/sql/best-practices-serverless-sql-pool)
-- [Model, query, and explore data in Azure Synapse](/learn/paths/model-query-explore-data-for-azure-synapse)
-- [Build data analytics solutions using Azure Synapse serverless SQL pools](/learn/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools)
+- [Model, query, and explore data in Azure Synapse](/training/paths/model-query-explore-data-for-azure-synapse)
+- [Build data analytics solutions using Azure Synapse serverless SQL pools](/training/paths/build-data-analytics-solutions-using-azure-synapse-serverless-sql-pools)
 ## Related resources
 
 - [High throughput stream ingestion to Azure Synapse](stream-ingestion-synapse.yml)

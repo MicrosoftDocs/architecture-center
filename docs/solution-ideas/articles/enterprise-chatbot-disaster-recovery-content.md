@@ -1,12 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-To plan disaster recovery for an enterprise-grade conversational bot (chatbot), start by reviewing the service level agreement (SLA). The SLA should describe the *Recovery Point Objective (RPO)* and *Recovery Time Objective (RTO)* targets for the chatbot. Then, implement the patterns in this article to build highly available and disaster-resilient chatbot solutions to meet the SLA.
-
-The core components of a typical enterprise-grade chatbot solution in Azure are discussed in [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml).
-
-## Potential use cases
-
-This solution is ideal for the telecommunications industry. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
+This article shows how to set up disaster recovery and high availability for an enterprise-grade conversational bot in Azure, with regional and non-regional services.
 
 ## Architecture
 
@@ -62,12 +56,32 @@ Key technologies used to implement this architecture:
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault)
 - [Azure Cognitive Search](https://azure.microsoft.com/services/search)
 
+## Scenario details
+
+To plan disaster recovery for an enterprise-grade conversational bot (chatbot), start by reviewing the service level agreement (SLA). The SLA should describe the *Recovery Point Objective (RPO)* and *Recovery Time Objective (RTO)* targets for the chatbot. Then, implement the patterns in this article to build highly available and disaster-resilient chatbot solutions to meet the SLA.
+
+The core components of a typical enterprise-grade chatbot solution in Azure are discussed in [Enterprise-grade conversational bot](../../reference-architectures/ai/conversational-bot.yml).
+
+### Potential use cases
+
+This solution is ideal for the telecommunications industry. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Sowmyan Soman](https://www.linkedin.com/in/sowmyancs/) | Principal Cloud Solution Architect
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 Product documentation:
 
 - Cognitive Services - [Authoring and publishing regions and the associated keys](/azure/cognitive-services/luis/luis-reference-regions)
-- Cosmos DB - [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)
+- Azure Cosmos DB - [High availability with Azure Cosmos DB](/azure/cosmos-db/high-availability)
 - Key Vault - [Azure Key Vault availability and redundancy](/azure/key-vault/key-vault-disaster-recovery-guidance)
 - Storage - [Disaster recovery and account failover](/azure/storage/common/storage-disaster-recovery-guidance)
 

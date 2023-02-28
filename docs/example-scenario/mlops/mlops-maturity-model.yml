@@ -2,10 +2,10 @@
 metadata:
   title: Machine Learning operations maturity model
   description: A detailed explanation of the MLOps maturity model stages which lists defining characteristics of each stage.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/25/2022
-  ms.topic: conceptual
+  ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
   ms.category:

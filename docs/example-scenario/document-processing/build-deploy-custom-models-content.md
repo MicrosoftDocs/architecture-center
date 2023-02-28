@@ -1,15 +1,8 @@
-Document processing is a broad area. It can be difficult to meet all your document processing needs with the prebuilt models available in Azure Form Recognizer and Azure Cognitive Service for Language. You might need to build custom models to automate document processing for different applications and domains.
-
-Major challenges in model customization include:
-
-- Labeling or tagging text data with relevant key-value pair entities to classify text for extraction.
-- Deploying models securely at scale for easy integration with consuming applications.
-
 This article describes Azure solutions for building, training, deploying, and using custom document processing models. These Azure services also offer user interface (UI) capabilities to do labeling or tagging for text processing.
 
 ## Architecture
 
-![Diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.png)
+[ ![Architecture diagram showing several alternatives for a custom document processing model build and deployment process.](images/build-deploy-custom-models.svg)](images/build-deploy-custom-models.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/BuildandDeployCustomModels.vsdx) of this architecture.*
 
@@ -33,7 +26,7 @@ This article describes Azure solutions for building, training, deploying, and us
 
 1. To deploy the custom models and use them for inference:
 
-   - Form Recognizer has built-in model deployment. [Use Form Recognizer SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Form Recognizer request URL, depending on the API version. Form Recognizer doesn't require any further deployment steps.
+   - Form Recognizer has built-in model deployment. [Use Form Recognizer SDKs or the REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api) to apply custom models for inferencing. Include the [model ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) or [custom model name](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) in the Form Recognizer request URL, depending on the API version. Form Recognizer doesn't require any further deployment steps.
 
    - Language Studio provides an option to deploy custom language models. Get the REST endpoint [prediction URL](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=language-studio#send-an-entity-recognition-request-to-your-model) by selecting the model to deploy. You can do model inferencing by using either the REST endpoint or the [Azure SDK client libraries](/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/call-api?tabs=client#send-an-entity-recognition-request-to-your-model).
 
@@ -75,7 +68,16 @@ You can add more workflows to this scenario based on specific use cases.
 
 - Use pre-processing code to do text processing steps like cleaning, stop words removal, lemmatization, stemming, and text summarization on extracted data, per document processing requirements. You can expose the code as REST APIs for automation. Do these steps manually or automate them by integrating with the [Logic Apps](/azure/logic-apps/logic-apps-custom-api-host-deploy-call) or [Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app) ingestion process.
 
-## Potential use cases
+## Scenario details
+
+Document processing is a broad area. It can be difficult to meet all your document processing needs with the prebuilt models available in Azure Form Recognizer and Azure Cognitive Service for Language. You might need to build custom models to automate document processing for different applications and domains.
+
+Major challenges in model customization include:
+
+- Labeling or tagging text data with relevant key-value pair entities to classify text for extraction.
+- Deploying models securely at scale for easy integration with consuming applications.
+
+### Potential use cases
 
 The following use cases can take advantage of custom models for document processing:
 
@@ -187,7 +189,7 @@ Principal author:
 ## Next steps
 
 - [Get started: Form Recognizer Studio](/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio)
-- [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api?pivots=programming-language-python)
+- [Use Form Recognizer SDKs or REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api)
 - [Quickstart: Get started with Language Studio](/azure/cognitive-services/language-service/language-studio)
 - [What is optical character recognition (OCR)?](/azure/cognitive-services/computer-vision/overview-ocr)
 - [How to configure Azure Functions with a virtual network](/azure/azure-functions/configure-networking-how-to)
@@ -200,4 +202,3 @@ Principal author:
 - [Knowledge mining for content research](../../solution-ideas/articles/content-research.yml)
 - [Automate document processing by using Azure Form Recognizer](../ai/automate-document-processing-azure-form-recognizer.yml)
 - [Automate COVID-19 test forms](../ai/form-recognizer-covid.yml)
-

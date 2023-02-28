@@ -15,7 +15,9 @@ This architecture is useful for organizations who require:
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for a PaaS application.](../media/dev-test-paas.png)
+:::image type="content" border="false" source="../media/dev-test-paas.png" alt-text="Diagram showing the configuration of DevTest and DevOps for a PaaS application." lightbox="../media/dev-test-paas.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-paas.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -60,7 +62,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
 
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps in Azure](devsecops-in-azure.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
+- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml) and [DevSecOps in GitHub](devsecops-in-github.yml).
 
 - [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In the current scenario, Azure AD works with Azure RBAC to restrict access per environment.
 
@@ -94,10 +96,13 @@ Tools like [Entity Framework](/ef) can provide source control for database schem
 
 ## Next steps
 
-- [DevSecOps in Azure](./devsecops-in-azure.yml)
-- [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
-- [DevTest and DevOps for microservices](dev-test-microservice.yml)
 - [Set up Azure DevOps](/azure/devops/get-started)
 - [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
 - [Create an SQL database in minutes by using the Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 - [How to create a web app with Azure Cache for Redis](/azure/azure-cache-for-redis/cache-web-app-howto)
+
+## Related resources
+
+- [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
+- [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
+- [DevTest and DevOps for microservices](dev-test-microservice.yml)

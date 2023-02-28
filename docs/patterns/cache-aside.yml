@@ -2,10 +2,10 @@
 metadata:
   title: Cache-Aside pattern
   description: Learn how to load data on demand into a cache, which can improve performance and maintain consistency between cached data and the underlying data store.
-  author: EdPrice-MSFT
+  author: martinekuan
   ms.author: architectures
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: design-pattern
   ms.service: architecture-center
   ms.subservice: design-pattern
   ms.custom: fcp

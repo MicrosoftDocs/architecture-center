@@ -178,7 +178,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal authors:
 
-- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Senior Cloud Solution Architect, US National CSA Team
+- [Manasa Ramalinga](https://www.linkedin.com/in/trmanasa) | Principal Cloud Solution Architect, US National CSA Team
 
 Other contributors:
 
@@ -200,7 +200,7 @@ Other contributors:
 - [Azure Time Series Insights documentation](/azure/time-series-insights/index)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 - [Detect and visualize anomalies in your data with the Anomaly Detector API - Jupyter Notebook demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
-- [Identify anomalies by routing data via IoT Hub to a built-in machine learning model in Azure Stream Analytics](/learn/modules/examine-iot-hub-message-routing)
+- [Identify anomalies by routing data via IoT Hub to a built-in machine learning model in Azure Stream Analytics](/training/modules/examine-iot-hub-message-routing)
 - [Recipe: Predictive maintenance with the Cognitive Services for Big Data](/azure/cognitive-services/big-data/recipes/anomaly-detection)
 
 ## Related resources

@@ -55,6 +55,8 @@ This solution is ideal for the education industry. This architecture can be used
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Build your solution as per the five pillars of the [Azure Well Architected Framework](/azure/architecture/framework).
 
 ### Scalability
@@ -69,12 +71,16 @@ Build your solution as per the five pillars of the [Azure Well Architected Frame
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Lab VM’s are not provisioned in the customer’s subscription and are instead managed by Microsoft. Because of this, Azure services such as Azure Policy do not affect the VM or related objects like virtual network adapters (vNICs) and storage.
 - Each lab hosts VMs on a single virtual network, so all VMs can communicate with one another to the extent allowed by firewalls.
 - Lab VMs can egress to the internet. Ingress occurs only via managed load balancer or proxy, to RDP and SSH ports on the VMs.
 - Lab Services does not expose the Availability Zone configuration for lab VMs to the customer.
 
-## Cost optimization
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - The two primary drivers of cost within Lab Services are how many hours the lab VMs are powered on, and what size they are. Larger sizes and GPU-enabled sizes are higher cost, so it makes sense to select the minimum size VM that's adequate for the labs.
 - Lab Services helps contain compute costs via teacher-controlled schedules and quota hours. There are no VM storage costs despite the VM’s being persistent.
@@ -106,7 +112,7 @@ Principal author:
 - Customer stories from:
   - [Sheffield Hallam University](https://customers.microsoft.com/story/1410363304401416399-sheffield-hallam-university-higher-education-azure-virtual-desktop)
   - [Imperial College London](https://customers.microsoft.com/story/1373865514221253184-imperial-college-london-higher-education-azure-virtual-desktop)
-  - [College of Professional and Continuing Education (CPCE) of PolyU - Hong Kong](https://news.microsoft.com/en-hk/2021/04/13/polyu-cpce-and-microsoft-hong-kong-launch-virtual-labs-for-limitless-learning)
+  - [College of Professional and Continuing Education (CPCE) of PolyU - Hong Kong SAR](https://news.microsoft.com/en-hk/2021/04/13/polyu-cpce-and-microsoft-hong-kong-launch-virtual-labs-for-limitless-learning)
   - [Institute of Technology Sligo - Ireland](https://pulse.microsoft.com/making-a-difference-en-ie/na/fa2-it-sligo-levelling-the-playing-field-in-education-with-cloud-technology-2).
 
 ## Related resources

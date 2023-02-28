@@ -4,7 +4,27 @@ Microsoft Azure's Predictive Maintenance solution demonstrates how to combine re
 
 This solution is built with [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics), [Event Hubs](https://azure.microsoft.com/services/event-hubs), [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning), [HDInsight](https://azure.microsoft.com/services/hdinsight), [Azure SQL Database](https://azure.microsoft.com/services/sql-database), [Data Factory](https://azure.microsoft.com/services/data-factory), and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
-## Potential use cases
+## Architecture
+
+![Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure.](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/aircraft-engine-monitoring-for-predictive-maintenance.vsdx) of this architecture.*
+
+### Components
+
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from Azure Event Hubs. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw assembly-line data and passes it on to Stream Analytics.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) predicts potential failures based on real-time assembly-line data from Stream Analytics.
+* [HDInsight](https://azure.microsoft.com/services/hdinsight) runs Hive scripts to provide aggregations on the raw events that were archived by Stream Analytics.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database) stores prediction results received from Machine Learning and publishes data to Power BI.
+* [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration, scheduling, and monitoring of the batch processing pipeline.
+* [Power BI](https://powerbi.microsoft.com) enables visualization of real-time assembly-line data from Stream Analytics and the predicted failures and alerts from Data Warehouse.
+
+## Scenario details
+
+### Potential use cases
+
+This solution is ideal for the aircraft and aerospace industries.
 
 With the right information, it's possible to determine the condition of equipment in order to predict when maintenance should be performed. Predictive maintenance can be used for the following items:
 
@@ -12,21 +32,6 @@ With the right information, it's possible to determine the condition of equipmen
 * Real-time flight assistance.
 * Prognostics.
 * Cost reduction.
-
-## Architecture
-
-![Architecture diagram: aircraft engine monitoring for predictive aircraft maintenance with Azure.](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.png)
-*Download an [SVG](../media/aircraft-engine-monitoring-for-predictive-maintenance-in-aerospace.svg) of this architecture.*
-
-### Components
-
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
-* [Event Hubs](https://azure.microsoft.com/services/event-hubs) ingests raw assembly-line data and passes it on to Stream Analytics.
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) predicts potential failures based on real-time assembly-line data from Stream Analytics.
-* [HDInsight](https://azure.microsoft.com/services/hdinsight) runs Hive scripts to provide aggregations on the raw events that were archived by Stream Analytics.
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database) stores prediction results received from Machine Learning and publishes data to Power BI.
-* [Data Factory](https://azure.microsoft.com/services/data-factory) handles orchestration, scheduling, and monitoring of the batch processing pipeline.
-* [Power BI](https://powerbi.microsoft.com) enables visualization of real-time assembly-line data from Stream Analytics and the predicted failures and alerts from Data Warehouse.
 
 ## Next steps
 
@@ -47,4 +52,4 @@ Read other Azure Architecture Center articles about predictive maintenance and p
 * [Predictive maintenance](./predictive-maintenance.yml)
 * [Predictive maintenance for industrial IoT](./iot-predictive-maintenance.yml)
 * [Predictive marketing with machine learning](./predictive-marketing-campaigns-with-machine-learning-and-spark.yml)
-* [Predict length of stay and patient flow](./predict-length-of-stay-and-patient-flow-with-healthcare-analytics.yml)
+* [Predict length of stay and patient flow](/azure/architecture/example-scenario/digital-health/predict-patient-length-of-stay)

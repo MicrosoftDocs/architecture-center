@@ -1,8 +1,8 @@
-This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with Azure and Microsoft services and tools like Azure Machine Learning, Microsoft Power Platform, and Microsoft Dynamics.
+This example workload shows several ways that small businesses (SMBs) can modernize legacy data stores and explore big data tools and capabilities, without overextending current budgets and skillsets. These end-to-end Azure data warehousing solutions integrate easily with tools like Azure Machine Learning, Microsoft Power Platform, Microsoft Dynamics, and other Microsoft technologies.
 
 ## Architecture
 
-![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage, and other services.](media/small-medium-data-warehouse/small-medium-data-warehouse.svg)
+![Diagram showing how legacy data can migrate and modernize with Azure Synapse, SQL Database, Data Lake Storage Gen2, and other services.](media/small-medium-data-warehouse/small-medium-data-warehouse.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/modern-data-warehouse-small-business.vsdx) of this architecture.*
 
@@ -28,7 +28,7 @@ The following dataflow demonstrates the ingestion of your chosen data type:
 
 1. The data can also enter the centralized Data Lake for further analysis, storage, and reporting.
 
-1. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage. Serverless pools are available on demand, and don't require any provisioned resources.
+1. Serverless analysis tools are available in the Azure Synapse Analytics workspace. These tools use serverless SQL pool or Apache Spark compute capabilities to process the data in Data Lake Storage Gen2. Serverless pools are available on demand, and don't require any provisioned resources.
 
    Serverless pools are ideal for:
    - Ad hoc data science explorations in T-SQL format.
@@ -42,9 +42,9 @@ Azure Synapse is tightly integrated with potential consumers of your fused datas
 - [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) is an analytics service that combines data integration, enterprise data warehousing, and big data analytics. In this solution:
 
   - An [Azure Synapse Workspace](/azure/synapse-analytics/quickstart-create-workspace) promotes collaboration between data engineers, data scientists, data analysts, and business intelligence (BI) professionals.
-  - [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) orchestrate and ingest data into SQL Database and Data Lake Storage.
-  - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Data Lake Storage on demand.
-  - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage with Spark languages like Spark SQL, pySpark, and Scala.
+  - [Azure Synapse pipelines](/azure/synapse-analytics/get-started-pipelines) orchestrate and ingest data into SQL Database and Data Lake Storage Gen2.
+  - [Azure Synapse serverless SQL pools](/azure/synapse-analytics/get-started-analyze-sql-on-demand) analyze unstructured and semi-structured data in Data Lake Storage Gen2 on demand.
+  - [Azure Synapse serverless Apache Spark pools](/azure/synapse-analytics/get-started-analyze-spark) do code-first explorations in Data Lake Storage Gen2 with Spark languages like Spark SQL, pySpark, and Scala.
 
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an intelligent, scalable, relational database service built for the cloud. In this solution, SQL Database holds the enterprise data warehouse and performs ETL/ELT activities that use stored procedures.
 
@@ -52,7 +52,7 @@ Azure Synapse is tightly integrated with potential consumers of your fused datas
 
 - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics) is a real-time, serverless analytics service for streaming data. Stream Analytics offers rapid, elastic scalability, enterprise-grade reliability and recovery, and built-in machine learning capabilities.
 
-- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. Machine Learning is one example of the Azure and Microsoft services that can consume fused, processed data from Data Lake Storage.
+- [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a toolset for data science model development and lifecycle management. Machine Learning is one example of the Azure and Microsoft services that can consume fused, processed data from Data Lake Storage Gen2.
 
 ### Alternatives
 
@@ -84,7 +84,9 @@ Several scenarios can benefit from this workload:
 
 - Meshing existing Dynamics or Power Platform [Dataverse](https://powerplatform.microsoft.com/dataverse) data with batched and real-time [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake) sources.
 
-- Using innovative techniques to interact with centralized Data Lake Storage data. Techniques include serverless analysis, knowledge mining, data fusion between domains, and end-user data exploration.
+- Using innovative techniques to interact with centralized Data Lake Storage Gen2 data. Techniques include serverless analysis, knowledge mining, data fusion between domains, and end-user data exploration.
+
+- Setting up eCommerce companies to adopt a data warehouse to optimize their operations.
 
 This solution isn't recommended for:
 
@@ -92,10 +94,11 @@ This solution isn't recommended for:
 
 - Migrating on-premises data warehouses that are > 1 TB or projected to grow to that size within a year.
 
-
 ## Considerations
 
-The following considerations apply to this scenario:
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+The following considerations apply to this scenario.
 
 ### Availability
 
@@ -105,13 +108,15 @@ SQL Database is a PaaS service that can meet your high availability (HA) and dis
 
 SQL Database uses [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms) to develop and maintain legacy artifacts like stored procedures.
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c0af42b09987434abec93f0131079984) in the Azure pricing calculator. Adjust the values to see how your requirements affect the costs.
 
 - [SQL Database](https://azure.microsoft.com/pricing/details/azure-sql-database/single) bases costs on the selected Compute and Service tiers, and the number of vCores and Database Transaction Units (DTUs). The example shows a single database with provisioned Compute and eight vCores, based on the assumption that you need to run stored procedures in SQL Database.
 
-- [Data Lake Storage](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
+- [Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing depends on the amount of data you store and how often you use the data. The sample pricing includes 1 TB of data stored, with further transactional assumptions. The 1 TB refers to the size of the data lake, not the original legacy database size.
 
 - [Azure Synapse pipelines](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) base costs on the number of data pipeline activities, integration runtime hours, data flow cluster size, and execution and operation charges. Pipeline costs increase with additional data sources and amounts of data processed. The example assumes one data source batched every hour for 15 minutes on an Azure-hosted integration runtime.
 
@@ -127,16 +132,16 @@ See a [pricing sample for a SMB data warehousing scenario](https://azure.com/e/c
 
 *This article is being updated and maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 - Galina Polyakova | Senior Cloud Solution Architect
 
 ## Next steps
 
-- For training content and labs, see the [Data Engineer Learning Paths](/learn/roles/data-engineer).
+- For training content and labs, see the [Data Engineer Learning Paths](/training/roles/data-engineer).
 - [Tutorial: Get started with Azure Synapse Analytics](/azure/synapse-analytics/get-started)
 - [Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
-- [Create a storage account for Azure Data Lake Storage](/azure/storage/blobs/create-data-lake-storage-account)
+- [Create a storage account for Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account)
 - [Azure Event Hubs Quickstart - Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create)
 - [Quickstart - Create a Stream Analytics job by using the Azure portal](/azure/stream-analytics/stream-analytics-quick-create-portal)
 - [Quickstart: Get started with Azure Machine Learning](/azure/machine-learning/quickstart-create-resources)
@@ -149,4 +154,4 @@ Principal authors:
   - [Data warehousing and analytics](data-warehouse.yml)
   - [Analytics end-to-end with Azure Synapse](../dataplate2e/data-platform-end-to-end.yml)
   - [Big data analytics with enterprise-grade security using Azure Synapse](../../solution-ideas/articles/big-data-analytics-enterprise-grade-security.yml)
-  - [Enterprise business intelligence](../../reference-architectures/data/enterprise-bi-synapse.yml)
+  - [Enterprise business intelligence](/azure/architecture/example-scenario/analytics/enterprise-bi-synapse)

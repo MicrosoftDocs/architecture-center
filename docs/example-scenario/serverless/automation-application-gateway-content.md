@@ -56,8 +56,8 @@ This architecture works best for:
 
 #### Networking
 
-- [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Protection Standard provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
-- [Azure Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
+- [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection): Azure DDoS (Basic) Protection is free and enabled on all public IPs. Azure DDoS Network Protection provides more capabilities, like ingesting logs to other locations and the ability to engage the DDoS Protection Rapid Response team.
+- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway): Azure Web Application Firewall provides protection for public-facing applications against exploits like SQL injection and XSS attacks.
 - [Azure Private Link](https://azure.microsoft.com/services/private-link): Azure Private Link provides access to Azure PaaS services via a private endpoint on the Microsoft backbone to further enhance network access security.
 
 #### Application
@@ -124,8 +124,8 @@ Principal author:
 
 ## Next steps
 
-- [Architect modern applications in Azure](/learn/paths/architect-modern-apps)
-- [Implement network security in Azure](/learn/paths/implement-network-security)
+- [Architect modern applications in Azure](/training/paths/architect-modern-apps)
+- [Implement network security in Azure](/training/paths/implement-network-security)
 - [Azure Serverless Computing Cookbook](https://azure.microsoft.com/resources/azure-serverless-computing-cookbook)
 
 ## Related resources

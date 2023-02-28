@@ -5,8 +5,8 @@ metadata:
   description: This article describes how to use MSIX to enable CI/CD for building, deploying, and updating Windows desktop applications.
   author: qmatteoq
   ms.author: mpagani
-  ms.date: 04/20/2022
-  ms.topic: conceptual
+  ms.date: 01/09/2023
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.custom: fcp

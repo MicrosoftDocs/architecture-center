@@ -48,19 +48,23 @@ This solution is ideal for the retail, game, finance, and insurance industries. 
 
 ## Considerations
 
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
 Consider these points when implementing this solution:
 
 ### Scalability
 
 The majority of the components used in this example scenario are managed services that will automatically scale. A couple of notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
-You can provision Cosmos DB to [autoscale](/azure/cosmos-db/how-to-provision-autoscale-throughput?tabs=api-async) for SQL API only. If you plan to use other APIs see guidance on estimating your requirements, see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in Cosmos DB.
+You can provision Azure Cosmos DB to [autoscale](/azure/cosmos-db/how-to-provision-autoscale-throughput?tabs=api-async) in Azure Cosmos DB for NoSQL only. If you plan to use other APIs, see guidance on estimating your requirements in [Request units](/azure/cosmos-db/request-units). To fully take advantage of the scaling in Azure Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in Azure Cosmos DB.
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in Cosmos DB.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in Azure Cosmos DB.
 
 For general guidance on designing scalable solutions, see the [performance efficiency checklist][scalability] in the Azure Architecture Center.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 [Managed identities for Azure resources][msi] are used to provide access to other resources internal to your account and then assigned to your Azure Functions. Only allow access to the requisite resources in those identities to ensure that nothing extra is exposed to your functions (and potentially to your customers).
 
@@ -72,7 +76,9 @@ All of the components in this scenario are managed, so at a regional level they 
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Pricing
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
@@ -88,8 +94,8 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 Principal authors:
 
-* [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
-* [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
+- [David Stanford](https://www.linkedin.com/in/das0) | Principal Program Manager
+- [Ashish Chauhan](https://www.linkedin.com/in/a69171115) | Senior Solution Architect
 
 ## Next steps
 
@@ -105,11 +111,11 @@ Product documentation
 For a guided learning path, see:
 
 - [Build a serverless web app in Azure][serverless]
-- [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision)
-- [Use AI to recognize objects in images by using the Custom Vision service](/learn/modules/train-custom-vision-ai/)
-- [Classify endangered bird species with Custom Vision](/learn/modules/cv-classify-bird-species/)
-- [Classify images with the Microsoft Custom Vision Service](/learn/modules/classify-images-with-custom-vision-service/)
-- [Detect objects in images with the Custom Vision service](/learn/modules/detect-objects-images-custom-vision/)
+- [Classify images with the Custom Vision service](/training/modules/classify-images-custom-vision)
+- [Use AI to recognize objects in images by using the Custom Vision service](/training/modules/train-custom-vision-ai/)
+- [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
+- [Classify images with the Microsoft Custom Vision Service](/training/modules/classify-images-with-custom-vision-service/)
+- [Detect objects in images with the Custom Vision service](/training/modules/detect-objects-images-custom-vision/)
 
 Before deploying this example scenario in a production environment, review recommended practices for [optimizing the performance and reliability of Azure Functions][functions-best-practices].
 
@@ -123,7 +129,7 @@ Before deploying this example scenario in a production environment, review recom
 [small-pricing]: https://azure.com/e/db65c031511b4b3dadf5d143e1d80b0b
 [medium-pricing]: https://azure.com/e/a7705630b96f4ef7bedb39b2a870ceb5
 [large-pricing]: https://azure.com/e/22d0db3728bd4f78bdd709ff652b73ac
-[serverless]: /learn/paths/create-serverless-applications/
+[serverless]: /training/paths/create-serverless-applications/
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/framework/resiliency/principles
 [security]: /azure/security

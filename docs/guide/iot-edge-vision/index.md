@@ -80,6 +80,16 @@ For example, a person entering an unauthorized area might need immediate interve
 
 Scoring data locally and sending only relevant data to the cloud can improve the return on investment (ROI) of a computer vision initiative. IoT Edge custom vision modules can score image data per ML models, and send only images deemed relevant with reasonable confidence to the cloud for further processing. Sending only selected images reduces the amount of data going to the cloud and lowers costs.
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Keith Hill](https://www.linkedin.com/in/keith-hill-072060102/) | Senior PM Manager
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 To continue with this series about IoT Edge vision AI, go on to the next article:

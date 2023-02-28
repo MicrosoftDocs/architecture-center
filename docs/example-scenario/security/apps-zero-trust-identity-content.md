@@ -162,12 +162,12 @@ Other contributor:
 ## Next steps
 
 - [Embrace proactive security with Zero Trust](https://www.microsoft.com/security/business/zero-trust)
-- [Microsoft Learn: Establish the guiding principles and core components of Zero Trust](/learn/paths/zero-trust-principles/)
+- [Microsoft Learn: Establish the guiding principles and core components of Zero Trust](/training/paths/zero-trust-principles/)
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
 - [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
 
 ## Related resources
 
 - [Zero Trust network for web applications with Azure Firewall and Application Gateway](../../example-scenario/gateway/application-gateway-before-azure-firewall.yml)
-- [Microsoft security best practices for identity and access management](/security/compass/identity?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Microsoft security best practices for identity and access management](/security/compass/identity?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [What is the Azure Active Directory architecture?](/azure/active-directory/fundamentals/active-directory-architecture?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)

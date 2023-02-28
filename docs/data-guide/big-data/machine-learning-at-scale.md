@@ -1,7 +1,7 @@
 ---
 title: Machine learning at scale
 description: Learn how machine learning uses mathematical algorithms to analyze data relationships, train predictive models, and deploy and iterate on models at scale.
-author: EdPrice-MSFT
+author: martinekuan
 ms.author: architectures
 ms.date: 07/25/2022
 ms.topic: conceptual
@@ -79,6 +79,14 @@ For a list of technology choices for ML in Azure, see:
 Principal author:
 
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+## Next steps
+
+- [Training: Introduction to machine learning](/training/modules/introduction-to-machine-learning)
+- [Azure Machine Learning documentation](/azure/machine-learning)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [Azure Cognitive Services documentation](/azure/cognitive-services)
+- [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 
 ## Related resources
 

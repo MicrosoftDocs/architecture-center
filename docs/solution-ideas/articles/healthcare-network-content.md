@@ -1,20 +1,14 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution describes how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud. Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
-
-## Potential use cases
-
-In this solution, a healthcare facility uses LTE or 5G-enabled IoT devices to track both patient health and building performance. The devices use built-in Azure Sphere certified chips to stream data to on-premises edge servers, which communicate with the Azure cloud. On-premises network administrators can view network health through the packet cores on the edge servers.
-
-Other examples of this approach include:
-
-- Predictive maintenance for machines in a coffeehouse.
-- Safety and compliance monitoring for perishable food and drink temperatures in a food manufacturing plant.
-- Detecting the optimal point for resource extraction in the energy sector, based on data collected by autonomous exploration vehicles.
+This solution describes how buildings and campuses can securely and reliably connect, and scale their on-premises Internet of Things (IoT) devices to the cloud.
 
 ## Architecture
 
-:::image type="content" source="../media/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices. The devices connect to radio access network (RAN) devices, IoT Edge servers, and several Azure services through Azure IoT Hub." border="false":::
+:::image type="content" source="../media/healthcare-architecture.png" alt-text="Screenshot showing a healthcare facility with two hospitals that collect patient and facility data with IoT devices." border="false" lightbox="../media/healthcare-architecture.png":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/healthcare-architecture.vsdx) of this architecture.*
+
+### Workflow
 
 1. Hospital buildings use various connected devices to monitor both patient health and facility performance.
 
@@ -50,6 +44,20 @@ This solution uses the following Azure components:
 - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins) is an IoT platform that creates digital representations of real-world things, places, processes, and people in the cloud.
 - [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights) is an end-to-end IoT analytics platform to monitor, analyze, and visualize industrial IoT analytics data at scale.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage) is a scalable and secure data lake for high-performance analytics workloads.
+
+## Scenario details
+
+Cloud services can store and analyze the IoT data to diagnose anomalies and take corrective or preventive actions. Azure cloud services can further analyze and store the data, and use machine learning to optimize building settings.
+
+### Potential use cases
+
+In this solution, a healthcare facility uses LTE or 5G-enabled IoT devices to track both patient health and building performance. The devices use built-in Azure Sphere certified chips to stream data to on-premises edge servers, which communicate with the Azure cloud. On-premises network administrators can view network health through the packet cores on the edge servers.
+
+Other examples of this approach include:
+
+- Predictive maintenance for machines in a coffeehouse.
+- Safety and compliance monitoring for perishable food and drink temperatures in a food manufacturing plant.
+- Detecting the optimal point for resource extraction in the energy sector, based on data collected by autonomous exploration vehicles.
 
 ## Contributors
 

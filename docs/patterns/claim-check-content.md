@@ -14,6 +14,13 @@ Store the entire message payload into an external service, such as a database. G
 
 ![Diagram of the Claim-Check pattern.](./_images/claim-check.png)
 
+1. Send message
+1. Store message on the data store
+1. Enqueue the message's reference
+1. Read the message's reference
+1. Retrieve the message
+1. Process the message
+
 ## Issues and considerations
 
 Consider the following points when deciding how to implement this pattern:
@@ -98,6 +105,7 @@ You can find example code for this approach [here][example-4].
 - The Enterprise Integration Patterns site has a [description][enterprise-integration-patterns] of this pattern.
 - For another example, see [Dealing with large Service Bus messages using claim check pattern](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) (blog post).
 - An alternative pattern for handling large messages is [Split][splitter] and [Aggregate][aggregator].
+- Libraries like NServiceBus provide support for this pattern out-of-the-box with their ["data bus" functionality](https://docs.particular.net/samples/azure/blob-storage-databus/).
 
 ## Related resources
 

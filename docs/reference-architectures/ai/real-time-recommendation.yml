@@ -2,10 +2,10 @@
 metadata:
   title: Build a real-time recommendation API on Azure
   description: Use machine learning to automate recommendations. Use Azure Databricks and Azure Data Science Virtual Machines (DSVM) to train the models.
-  author: EdPrice-MSFT
-  ms.author: architectures
+  author: miguelgfierro
+  ms.author: migonza
   ms.date: 07/28/2022
-  ms.topic: conceptual
+  ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
   ms.category:

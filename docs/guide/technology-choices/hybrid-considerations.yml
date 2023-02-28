@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure hybrid options
+  description: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
+  author: lanicolas
+  ms.author: lanicola
+  ms.date: 09/13/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - hybrid
+  - iot
+products:
+  - azure-arc
+  - azure-iot-edge
+  - azure-stack-edge
+  - azure-stack-hci
+  - azure-stack-hub
+name: Azure hybrid options
+summary: Learn about Azure hybrid solutions, including alternatives to deploy and host hybrid services on-premises, at the edge, in Azure, and in other clouds.
+thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-decision-tree.png
+content: |
+  [!include[](hybrid-considerations-content.md)]

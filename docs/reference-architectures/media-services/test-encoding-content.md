@@ -49,6 +49,7 @@ You can test your deployed application in Azure or locally, and in both cases, y
        }
    ]
    ```
+
    You should see a `response.encode.mediaservicesv3.success` event.
 
    ![Screenshot showing a Success event.](media/success-viewer.png)
@@ -71,6 +72,8 @@ To set up your local environment, see [Gridwich local development environment](s
 
            EventGrid: [POST] http://localhost:7071/api/EventGrid
    ```
+
+   Note: the port number could be different.
 
 1. Send the payload to the local function to trigger the encoding.
 
@@ -105,6 +108,8 @@ To set up your local environment, see [Gridwich local development environment](s
                }
                ]'
    ```
+
+   If needed, change the port number from 7071 to the one seen in the command window.
 
 1. Check the Event Grid messages, job status, and blobs created.
 
@@ -175,9 +180,9 @@ Product documentation:
 
 Microsoft Learn modules:
 
-- [Explore Azure Event Grid](/learn/modules/azure-event-grid)
-- [Explore Azure Functions](/learn/modules/explore-azure-functions)
-- [Explore Azure Storage services](/learn/modules/azure-storage-fundamentals)
+- [Explore Azure Event Grid](/training/modules/azure-event-grid)
+- [Explore Azure Functions](/training/modules/explore-azure-functions)
+- [Explore Azure Storage services](/training/modules/azure-storage-fundamentals)
 
 ## Related resources
 

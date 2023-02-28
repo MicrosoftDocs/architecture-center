@@ -1,14 +1,4 @@
-Azure platform as a service (PaaS) offerings manage compute resources for you and affect how you monitor deployments. Azure includes multiple monitoring services, each of which performs a specific role. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your applications and the Azure resources they consume.
-
 This scenario addresses the monitoring services you can use and describes a dataflow model for use with multiple data sources. When it comes to monitoring, many tools and services work with Azure deployments. In this scenario, we choose readily available services precisely because they are easy to consume. Other monitoring options are discussed later in this article.
-
-## Potential use cases
-
-Other relevant use cases include:
-
-- Instrumenting a web application for monitoring telemetry.
-- Collecting front-end and back-end telemetry for an application deployed on Azure.
-- Monitoring metrics and quotas associated with services on Azure.
 
 ## Architecture
 
@@ -36,9 +26,27 @@ This scenario uses a managed Azure environment to host an application and data t
 - [Azure Monitor][azure-monitor] provides base-level infrastructure [metrics and logs][metrics] for most services in Azure. You can interact with the metrics in several ways, including charting them in Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Monitor also offers its data directly into [Log Analytics and other services], where you can query and combine it with data from other sources on premises or in the cloud.
 - [Log Analytics][log-analytics] helps correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support the app. This scenario uses the [Azure Log Analytics agent][Azure Log Analytics agent] to push SQL Server audit logs into Log Analytics. You can write queries and view data in the Log Analytics blade of the Azure portal.
 
+## Scenario details
+
+Azure platform as a service (PaaS) offerings manage compute resources for you and affect how you monitor deployments. Azure includes multiple monitoring services, each of which performs a specific role. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your applications and the Azure resources they consume.
+
+This scenario addresses the monitoring services you can use and describes a dataflow model for use with multiple data sources. When it comes to monitoring, many tools and services work with Azure deployments. In this scenario, we choose readily available services precisely because they are easy to consume. Other monitoring options are discussed later in this article.
+
+### Potential use cases
+
+Other relevant use cases include:
+
+- Instrumenting a web application for monitoring telemetry.
+- Collecting front-end and back-end telemetry for an application deployed on Azure.
+- Monitoring metrics and quotas associated with services on Azure.
+
 ## Considerations
 
-### DevOps
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 #### Monitoring
 
@@ -70,9 +78,11 @@ This scenario focuses on PaaS solutions for monitoring in large part because the
 
 Application Insights has [limits][app-insights-limits] on how many requests can be processed per second. If you exceed the request limit, you may experience message throttling. To prevent throttling, implement [filtering][message-filtering] or [sampling][message-sampling] to reduce the data rate
 
-High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [Scalability considerations](./basic-web-app.yml#scalability) section in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
+High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [scalability considerations](../app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency) in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Sensitive information and compliance requirements affect data collection, retention, and storage. Learn more about how [Application Insights][application-insights] and [Log Analytics][log-analytics] handle telemetry.
 
@@ -87,6 +97,8 @@ The following security considerations may also apply:
 
 ### Cost optimization
 
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
 Monitoring charges can add up quickly. Consider pricing up front, understand what you are monitoring, and check the associated fees for each service. Azure Monitor provides [basic metrics][basic metrics] at no cost, while monitoring costs for [Application Insights][application-insights-pricing] and [Log Analytics][log-analytics] are based on the amount of data ingested and the number of tests you run.
 
 To help you get started, use the [pricing calculator][pricing] to estimate costs. Change the various pricing options to match your expected deployment.
@@ -97,7 +109,15 @@ After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of 
 
 Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
 
-For more guidance please refer to the cost section in [Microsoft Azure Well-Architected Framework][aaf-cost].
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Shawn Gibbs](https://www.linkedin.com/in/shawngibbs) | Principal Software Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
@@ -121,7 +141,6 @@ Check out these resources designed to help you get started with your own monitor
 
 <!-- links -->
 
-[aaf-cost]: /azure/architecture/framework/cost/overview
 [availability-tests]: /azure/application-insights/app-insights-monitor-web-app-availability
 [application-insights]: /azure/application-insights/app-insights-overview
 [azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
@@ -139,7 +158,7 @@ Check out these resources designed to help you get started with your own monitor
 [cross-resource queries]: https://azure.microsoft.com/blog/query-across-resources
 [alerts]: /azure/monitoring-and-diagnostics/monitoring-overview-alerts
 [Alerts (Preview)]: /azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts
-[Azure Monitor Data Source For Grafana]: https://grafana.com/plugins/grafana-azure-monitor-datasource
+[Azure Monitor Data Source For Grafana]: https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource
 [Azure Automation]: /azure/automation/automation-intro
 [ITSM solutions]: https://azure.microsoft.com/blog/itsm-connector-for-azure-is-now-generally-available
 [management solution]: /azure/monitoring/monitoring-solutions
@@ -150,12 +169,12 @@ Check out these resources designed to help you get started with your own monitor
 [pricing]: https://azure.microsoft.com/pricing/calculator
 [Sampling in Application Insights]: /azure/application-insights/app-insights-sampling
 [Live Metrics Stream]: /azure/application-insights/app-insights-live-stream
-[Basic web application reference architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.yml#scalability
+[Basic web application reference architecture]: ../app-service-web-app/basic-web-app.yml?tabs=cli#performance-efficiency  
 [Start monitoring your ASP.NET Web Application]: /azure/application-insights/quick-monitor-portal
 [Collect data about Azure Virtual Machines]: /azure/log-analytics/log-analytics-quick-collect-azurevm
 [Monitoring Azure applications and resources]: /azure/monitoring-and-diagnostics/monitoring-overview
 [Find and diagnose run-time exceptions with Azure Application Insights]: /azure/application-insights/app-insights-tutorial-runtime-exceptions
-[data-dog]: https://www.datadoghq.com/blog/azure-monitoring-enhancements
+[data-dog]: <https://www.datadoghq.com/blog/azure-monitoring-enhancements>
 [app-insights-limits]: /azure/azure-subscription-service-limits#application-insights
 [message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
 [message-sampling]: /azure/application-insights/app-insights-sampling

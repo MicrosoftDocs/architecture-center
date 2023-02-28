@@ -124,10 +124,10 @@ Other contributors:
 
 - [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
 - [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-- [Explore identity and Azure AD](/learn/modules/explore-identity-azure-active-directory)
-- [Design an identity security strategy](/learn/modules/design-identity-security-strategy)
-- [Implement Microsoft identity](/learn/paths/m365-identity-associate)
-- [Manage identity and access in Azure Active Directory](/learn/paths/manage-identity-and-access)
+- [Explore identity and Azure AD](/training/modules/explore-identity-azure-active-directory)
+- [Design an identity security strategy](/training/modules/design-identity-security-strategy)
+- [Implement Microsoft identity](/training/paths/m365-identity-associate)
+- [Manage identity and access in Azure Active Directory](/training/paths/manage-identity-and-access)
 
 ## Related resources
 

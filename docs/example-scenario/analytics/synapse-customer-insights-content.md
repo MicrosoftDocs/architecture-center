@@ -96,7 +96,7 @@ Principal author:
 * [Nalini Chandhi](https://www.linkedin.com/in/nalinichandhi) | Sr. Technical Specialist
 
 ## Next steps
-- [Unlock customer intent with Dynamics 365 Customer Insights](/learn/paths/build-customer-insights)
+- [Unlock customer intent with Dynamics 365 Customer Insights](/training/paths/build-customer-insights)
 - [Product overview for Dynamics 365 Customer Insights](/dynamics365/customer-insights/overview)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [What is Azure Synapse Analytics?](/azure/synapse-analytics/overview-what-is)

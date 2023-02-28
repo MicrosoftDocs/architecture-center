@@ -120,7 +120,7 @@ public static class AsyncProcessingWorkAcceptor
         [ServiceBus("outqueue", Connection = "ServiceBusConnectionAppSetting")] IAsyncCollector<ServiceBusMessage> OutMessages,
         ILogger log)
     {
-        if (String.IsNullOrEmpty(customer.id) || String.IsNullOrEmpty(customer.customername))
+        if (String.IsNullOrEmpty(customer.id) || string.IsNullOrEmpty(customer.customername))
         {
             return new BadRequestResult();
         }
@@ -131,39 +131,40 @@ public static class AsyncProcessingWorkAcceptor
 
         var messagePayload = JsonConvert.SerializeObject(customer);
         var message = new ServiceBusMessage(messagePayload);
-        message.ApplicationProperties["RequestGUID"] = reqid;
-        message.ApplicationProperties["RequestSubmittedAt"] = DateTime.Now;
-        message.ApplicationProperties["RequestStatusURL"] = rqs;
+        message.ApplicationProperties.Add("RequestGUID", reqid);
+        message.ApplicationProperties.Add("RequestSubmittedAt", DateTime.Now);
+        message.ApplicationProperties.Add("RequestStatusURL", rqs);
 
-        await OutMessages.AddAsync(message);  
+        await OutMessages.AddAsync(message);
 
-        return (ActionResult) new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");
+        return new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");
     }
 }
 ```
 
 ### AsyncProcessingBackgroundWorker function
 
-The `AsyncProcessingBackgroundWorker` function picks up the operation from the queue, does some work based on the message payload, and writes the result to the SAS signature location.
+The `AsyncProcessingBackgroundWorker` function picks up the operation from the queue, does some work based on the message payload, and writes the result to a storage account.
 
 ```csharp
 public static class AsyncProcessingBackgroundWorker
 {
     [FunctionName("AsyncProcessingBackgroundWorker")]
     public static async Task RunAsync(
-        [ServiceBusTrigger("outqueue", Connection = "ServiceBusConnectionAppSetting")]ServiceBusMessage myQueueItem,
+        [ServiceBusTrigger("outqueue", Connection = "ServiceBusConnectionAppSetting")] BinaryData customer,
+        IDictionary<string, object> applicationProperties,
         [Blob("data", FileAccess.ReadWrite, Connection = "StorageConnectionAppSetting")] BlobContainerClient inputContainer,
         ILogger log)
     {
         // Perform an actual action against the blob data source for the async readers to be able to check against.
-        // This is where your actual service worker processing will be performed.
+        // This is where your actual service worker processing will be performed
 
-        var id = myQueueItem.ApplicationProperties["RequestGUID"] as string;
+        var id = applicationProperties["RequestGUID"] as string;
 
         BlobClient blob = inputContainer.GetBlobClient($"{id}.blobdata");
 
         // Now write the results to blob storage.
-        await blob.UploadAsync(myQueueItem.Body);
+        await blob.UploadAsync(customer);
     }
 }
 ```
@@ -173,7 +174,7 @@ public static class AsyncProcessingBackgroundWorker
 The `AsyncOperationStatusChecker` function implements the status endpoint. This function first checks whether the request was completed
 
 - If the request was completed, the function either returns a valet-key to the response, or redirects the call immediately to the valet-key URL.
-- If the request is still pending, then we should return a 202 accepted with a self-referencing Location header, putting an ETA for a completed response in the http Retry-After header.
+- If the request is still pending, then we should return a [200 code, including the current state](/azure/architecture/best-practices/api-design#asynchronous-operations).
 
 ```csharp
 public static class AsyncOperationStatusChecker
@@ -186,11 +187,11 @@ public static class AsyncOperationStatusChecker
     {
 
         OnCompleteEnum OnComplete = Enum.Parse<OnCompleteEnum>(req.Query["OnComplete"].FirstOrDefault() ?? "Redirect");
-        OnPendingEnum OnPending = Enum.Parse<OnPendingEnum>(req.Query["OnPending"].FirstOrDefault() ?? "Accepted");
+        OnPendingEnum OnPending = Enum.Parse<OnPendingEnum>(req.Query["OnPending"].FirstOrDefault() ?? "OK");
 
         log.LogInformation($"C# HTTP trigger function processed a request for status on {thisGUID} - OnComplete {OnComplete} - OnPending {OnPending}");
 
-        // Check to see if the blob is present.
+        // Check to see if the blob is present
         if (await inputBlob.ExistsAsync())
         {
             // If it's present, depending on the value of the optional "OnComplete" parameter choose what to do.
@@ -198,20 +199,20 @@ public static class AsyncOperationStatusChecker
         }
         else
         {
-            // If it's NOT present, check the optional "OnPending" parameter.
+            // If it's NOT present, then we need to back off. Depending on the value of the optional "OnPending" parameter, choose what to do.
             string rqs = $"http://{Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")}/api/RequestStatus/{thisGUID}";
 
             switch (OnPending)
             {
-                case OnPendingEnum.Accepted:
+                case OnPendingEnum.OK:
                     {
-                        // Return an HTTP 202 status code.
-                        return (ActionResult)new AcceptedResult() { Location = rqs };
+                        // Return an HTTP 200 status code.
+                        return new OkObjectResult(new { status = "In progress", Location = rqs });
                     }
 
                 case OnPendingEnum.Synchronous:
                     {
-                        // Back off and retry. Time out if the backoff period hits one minute
+                        // Back off and retry. Time out if the backoff period hits one minute.
                         int backoff = 250;
 
                         while (!await inputBlob.ExistsAsync() && backoff < 64000)
@@ -229,7 +230,7 @@ public static class AsyncOperationStatusChecker
                         else
                         {
                             log.LogInformation($"Synchronous mode {thisGUID}.blob - NOT FOUND after timeout {backoff} ms");
-                            return (ActionResult)new NotFoundResult();
+                            return new NotFoundResult();
                         }
                     }
 
@@ -248,14 +249,15 @@ public static class AsyncOperationStatusChecker
             case OnCompleteEnum.Redirect:
                 {
                     // Redirect to the SAS URI to blob storage
-                    return (ActionResult)new RedirectResult(inputBlob.GenerateSASURI());
+
+                    return new RedirectResult(inputBlob.GenerateSASURI());
                 }
 
             case OnCompleteEnum.Stream:
                 {
                     // Download the file and return it directly to the caller.
                     // For larger files, use a stream to minimize RAM usage.
-                    return (ActionResult)new OkObjectResult(await inputBlob.DownloadContentAsync());
+                    return new OkObjectResult(await inputBlob.DownloadContentAsync());
                 }
 
             default:
@@ -266,15 +268,17 @@ public static class AsyncOperationStatusChecker
     }
 }
 
-public enum OnCompleteEnum {
+public enum OnCompleteEnum
+{
 
     Redirect,
     Stream
 }
 
-public enum OnPendingEnum {
+public enum OnPendingEnum
+{
 
-    Accepted,
+    OK,
     Synchronous
 }
 ```

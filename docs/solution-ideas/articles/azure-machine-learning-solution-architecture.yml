@@ -1,12 +1,12 @@
 ### YamlMime:Architecture
 metadata:
   title: Azure Machine Learning architecture
-  titleSuffix: Azure Solution Ideas
+  titleSuffix: Azure Architecture Center
   description: Learn how to build, deploy, and manage high-quality models with Azure Machine Learning, a service for the end-to-end ML lifecycle.
-  author: EdPrice-MSFT
-  ms.author: cgronlun
+  author: martinekuan
+  ms.author: architectures
   ms.date: 05/17/2022
-  ms.topic: conceptual
+  ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
   ms.category:
@@ -18,7 +18,7 @@ metadata:
     - machine learning architecture
     - interactive-diagram
     - pricing-calculator
-    - "https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture"
+    - "https://learn.microsoft.com/azure/architecture/solution-ideas/articles/azure-machine-learning-solution-architecture"
     - internal-intro
   social_image_url: /azure/architecture/solution-ideas/articles/media/azure-machine-learning-solution-architecture.png  
 name: Azure Machine Learning architecture

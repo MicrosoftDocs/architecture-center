@@ -1,21 +1,7 @@
-Branding is important to companies, because a company's value depends on the market's image of that company. As your company moves to make predictive, data-driven decisions, rather than reactive decisions, you need to monitor and understand what's happening in real time. To gain a competitive advantage, you need to use social media analysis to identify and understand public opinion. Along with identifying sentiment in tweets, you might also choose to recognize faces and images.
 
-This article presents a solution for gauging public opinion in tweets. The goal is to create a transformation pipeline that outputs clusters of comments and trending subjects. The pipeline delivers value by seamlessly integrating open-source solutions like Apache NiFi and Azure HDInsight with Azure sentiment analysis and face recognition services. The solution applies to a broad range of industries—monitoring social networks isn't limited to one sector.
+This article presents a solution for gauging public opinion in tweets. The goal is to create a transformation pipeline that outputs clusters of comments and trending subjects. 
 
 *Apache®, [Apache NiFi](https://nifi.apache.org), [Apache Hadoop](https://hadoop.apache.org), [Apache Hive](https://hive.apache.org), and [Apache Airflow](https://airflow.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
-
-## Potential use cases
-
-This solution is ideal for any area that monitors branding on social networks, including:
-
-- Marketing
-- Communications
-- Politics
-- Media and entertainment
-- Real estate and facilities
-- Food service (travel and hospitality)
-- Fashion
-- Retail
 
 ## Architecture
 
@@ -118,6 +104,25 @@ You can substitute alternatives for most solution components. For example:
 - For your main file repository, you can use Elasticsearch in place of Azure Cosmos DB.
 - For dashboard services, you can use Kibana instead of Power BI.
 
+## Scenario details
+
+Branding is important to companies, because a company's value depends on the market's image of that company. As your company moves to make predictive, data-driven decisions, rather than reactive decisions, you need to monitor and understand what's happening in real time. To gain a competitive advantage, you need to use social media analysis to identify and understand public opinion. Along with identifying sentiment in tweets, you might also choose to recognize faces and images.
+
+This solution gauges public opinion in tweets. A transformation pipeline outputs clusters of comments and trending subjects. The pipeline delivers value by seamlessly integrating open-source solutions like Apache NiFi and Azure HDInsight with Azure sentiment analysis and face recognition services. The solution applies to a broad range of industries—monitoring social networks isn't limited to one sector.
+
+### Potential use cases
+
+This solution is ideal for any area that monitors branding on social networks, including:
+
+- Marketing
+- Communications
+- Politics
+- Media and entertainment
+- Real estate and facilities
+- Food service (travel and hospitality)
+- Fashion
+- Retail
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -174,9 +179,9 @@ Principal authors:
 - [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 - [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
-- [Create and consume Cognitive Services](/learn/modules/create-manage-cognitive-services)
-- [Analyze text with the Language service](/learn/modules/analyze-text-with-text-analytics-service)
-- [Detect and analyze faces with the Face service](/learn/modules/detect-analyze-faces)
+- [Create and consume Cognitive Services](/training/modules/create-manage-cognitive-services)
+- [Analyze text with the Language service](/training/modules/analyze-text-with-text-analytics-service)
+- [Detect and analyze faces with the Face service](/training/modules/detect-analyze-faces)
 
 ## Related resources
 
