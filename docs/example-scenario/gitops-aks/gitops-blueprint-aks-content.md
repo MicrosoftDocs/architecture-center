@@ -10,6 +10,8 @@ This article describes some common options for using GitOps with an Azure Kubern
 
 Two of the widely used GitOps operators are [Flux](https://fluxcd.io/) and [Argo CD](https://argo-cd.readthedocs.io/). Both are Cloud Native Computing Foundation ([CNCF](https://www.cncf.io/)) projects and can be used with Azure Kubernetes Service.
 
+Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
+
 In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
 
 1. Developer commits configuration changes to GitHub repository.
@@ -152,16 +154,11 @@ GitOps provides consistency and standardization of the cluster state, and is use
 
 You may want to enforce cluster state changes only through GitOps. This could be achieved by restricting direct access to cluster (through RBAC policies and Azure AD integration), through admissions controllers, or through other tools. 
 
-## Native GitOps extensions to Azure Kubernetes Service
-
-Flux is provided as a native [cluster extension](/azure/aks/cluster-extensions) to Azure Kubernetes Service. Cluster extensions provides a platform for different solutions to be installed and managed on an AKS cluster. Flux can be enabled as an extension to Azure Kubernetes Service through Azure Portal, Azure CLI, through IaC scripts (such as Terraform or Bicep), or across multiple AKS clusters at scale using Azure Policy. 
-
 ### Bootstrapping initial configuration through GitOps. 
 
 Customers may want the AKS clusters to follow baseline configurations. For example, initial deployment of a set of shared services may be a pre-requisite before deploying workloads to AKS. These Shared-Services may be AKS add-ons such as [AAD Pod identity](/azure/aks/use-azure-ad-pod-identity), [Secret Store CSI Driver Provider](https://github.com/Azure/secrets-store-csi-driver-provider-azure), 3rd party such as [Prisma defender](https://docs.paloaltonetworks.com/prisma/prisma-cloud), [Splunk daemonset](https://github.com/splunk/splunk-connect-for-kubernetes), or open source tools such as [KEDA](https://keda.sh), [External-dns](https://github.com/kubernetes-sigs/external-dns) or [Cert-manager](https://cert-manager.io/docs/).
 
 Since Flux can be enabled as an extension that is applied at the time of cluster creation, Flux can bootstrap the baseline configuration to the AKS cluster. [AKS baseline automation](https://github.com/Azure/aks-baseline-automation) uses GitOps for bootstrapping. Flux extension allows clusters to be bootstrapped nearly at the time of deployment. AKS baseline encourages this concept to be in place.
-
 
 ## Other GitOps tools and add-ons. 
 
