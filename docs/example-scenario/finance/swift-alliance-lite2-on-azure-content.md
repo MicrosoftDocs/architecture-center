@@ -25,7 +25,7 @@ In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunne
 
 The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute or the internet. For information about SWIFT connectivity options, see [Two-subscription design](#two-subscription-design) in this article.
 
-The two-subscription design separates the resources based on who's responsible for them. For more information, see [Two-subscription design](#two-subscription-design) and [Operations]() in this article.
+The two-subscription design separates the resources based on who's responsible for them. For more information, see [Two-subscription design](#two-subscription-design) and [Operational excellence](#operational-excellence) in this article.
 
 The Lite2 AutoClient subscription has a single resource group. It contains:
 
