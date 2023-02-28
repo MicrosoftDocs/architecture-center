@@ -11,7 +11,7 @@ This article describes some common options for using GitOps with an Azure Kubern
 In this scenario, Flux is the GitOps operator and controller. Flux pulls cluster desired state changes from GitHub, and syncs them into AKS.
 
 1. Developer commits configuration changes to GitHub repository.
-1. Flux detects configuration drift in the Git repository, and pulls the configuration changes.
+1. Flux detects configuration drift in the Git repository, and pulls configuration changes.
 1. Flux Reconciles the state in the Kubernetes cluster.
 
 Flux is an  inside-out process, which is important for security. No cluster endpoints need to be exposed for Flux to detect, pull and reconcile configuration changes.
@@ -34,7 +34,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. Thi
 1. The app code is committed to a GitHub repository.
 1. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
 1. GitHub Actions updates a Kubernetes manifest deployment file with the current image version based on the version number of the container image in the Azure Container Registry.
-1. Flux operator syncs with, or pulls from, the Git repository.
+1. Flux operator detects configuration drift in the Git repository and pulls configuration changes.
 1. Flux deploys the app to the AKS cluster using manifest files. (Flux can deploy to AKS using Kubernetes manifests / helm charts / Kustomization files).
 
 ### Scenario 3:  GitOps with Argo CD, GitHub repository and AKS
@@ -46,10 +46,10 @@ In this scenario, Kubernetes administrator(s) may make changes to kubernetes con
 The data flow for this scenario is as follows:
 
 1. The Kubernetes administrator makes configuration changes in YAML files and commits the changes to the GitHub repository.
-1. Argo CD syncs with, or pulls from, the Git repository.
+1. Argo CD pulls from the Git repository.
 1. Argo CD deploys the app to the AKS cluster.
 
-Argo CD need not automatically sync the desired target state to the AKS cluster. Argo CD is implemented as a kubernetes controller which continuously monitors running applications and compares the current, live state in AKS cluster against the desired target state specified in the Git repo. Argo CD reports & visualizes the differences, while providing facilities to automatically or manually sync the live state back to the desired target state.
+Argo CD need not automatically sync the desired target state to the AKS cluster. Argo CD is implemented as a kubernetes controller which continuously monitors running applications and compares the current, live state in AKS cluster against the desired target state specified in the Git repository. Argo CD reports & visualizes the differences, while providing facilities to automatically or manually sync the live state back to the desired target state.
 
 Argo CD provides a browser based user interface through which application configurations can be added, synchronization state with respect to the cluster can be observed, and synchronization can be initiated against the cluster. These actions can be performed using the Argo CD command line interface as well. Both the user interface and command line interface provides features to view history of configuration changes and to roll back to a previous version. 
 
@@ -67,7 +67,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. Thi
 1. The app code is committed to a GitHub repository.
 1. GitHub Actions builds a container image from the app code and pushes the container image to Azure Container Registry.
 1. GitHub Actions updates a Kubernetes manifest deployment file with the current image version based on the version number of the container image in the Azure Container Registry.
-1. Argo CD syncs with, or pulls from, the Git repository.
+1. Argo CD pulls from the Git repository.
 1. Argo CD deploys the app to the AKS cluster.
 
 #### Alternatives
