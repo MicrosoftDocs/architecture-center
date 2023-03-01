@@ -60,7 +60,7 @@ See [Updates](updates.md) for other considerations about updating tenants' deplo
 
 Consider whether your tenants might have seasonal business patterns, or otherwise change the level of consumption for your solution.
 
-For example, if you provide a solution to retailers, you might expect that certain times of the year will be particularly busy in some geographic regions, and quiet at other times. Consider whether this sesonality affects the way you design and scale your solution. Be aware of how seasonality might affect [noisy neighbor issues](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), such as when a subset of tenants increase a sudden and unexpected increase in load and reduces the performance of other tenants. You can consider applying mitigations, which might include scaling individual tenants' infrastructure, moving tenants between deployments, and provisioning a sufficient level of capacity to handle spikes and troughs in traffic.
+For example, if you provide a solution to retailers, you might expect that certain times of the year will be particularly busy in some geographic regions, and quiet at other times. Consider whether this seasonality affects the way you design and scale your solution. Be aware of how seasonality might affect [noisy neighbor issues](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), such as when a subset of tenants experience a sudden and unexpected increase in load that reduces the performance of other tenants. You can consider applying mitigations, which might include scaling individual tenants' infrastructure, moving tenants between deployments, and provisioning a sufficient level of capacity to handle spikes and troughs in traffic.
 
 ## Move tenants between infrastructure
 
