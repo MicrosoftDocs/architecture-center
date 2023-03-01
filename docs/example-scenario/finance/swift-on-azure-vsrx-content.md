@@ -3,10 +3,10 @@
 
 This series of articles provides guidance for using SWIFT components on Azure. This article discusses the basic components of the architecture examples in the series.
 
-The intended audience for the articles is program managers, architects, and engineers who are implementing SWIFT components on Azure. This documentation is organized into the following structure:
+The intended audience for the articles is program managers, architects, and engineers who implement SWIFT components on Azure. This documentation is organized into the following structure:
 
-- A high-level overview of the Azure architecture for deploying SWIFT components (this article).
-- A detailed reference architecture for each of the components (links in the [Related resources](#related-resources) section).
+- A high-level overview of the Azure architecture for deploying SWIFT components (this article)
+- A detailed reference architecture for each of the components (links in the [Related resources](#related-resources) section)
 
 ## Architecture
 
@@ -20,11 +20,11 @@ A SWIFT deployment on Azure contains various components. The key components are 
 
 ### Customer datacenter or colocation
 
-This part of the architecture represents the on-premises site from which business users interact with SWIFT components. Any other business-processing applications that are running on-premises can also connect with SWIFT components. There must be network connectivity between this site and Azure, where SWIFT components are deployed.
+This part of the architecture represents the on-premises site from which business users interact with SWIFT components. Any other business-processing applications that run on-premises can also connect with SWIFT components. There must be network connectivity between this site and Azure, where SWIFT components are deployed.
 
 #### SWIFT Hardware Security Module
 
-To ensure compliance with SWIFT's Customer Security Programme (CSP) - Customer Security Controls Framework (CSCF), the SWIFT Hardware Security Module (HSM) has to be physically hosted. It can either be on-premises or in a colocation datacenter. Network connectivity between a site running HSM and Azure is required for deployment of SWIFT components.
+To ensure compliance with SWIFT's Customer Security Programme (CSP) - Customer Security Controls Framework (CSCF), the SWIFT Hardware Security Module (HSM) has to be physically hosted. It can either be on-premises or in a colocation datacenter. Network connectivity between Azure and a site that runs HSM is required for deployment of SWIFT components.
 
 #### Alliance Connect Virtual (vSRX) in a high availability configuration
 
@@ -59,26 +59,26 @@ If your configuration is based on Alliance Access, you need these components:
 
 If your configuration is based on Alliance Messaging Hub (AMH), you need these components:
 
-- AMH, Workbench, SAG/SNL, and an Alliance Connect Virtual network connectivity solution.
-- An on-premises HSM appliance to help secure messages that are sent via SWIFTNet.
+- AMH, Workbench, SAG/SNL, and an Alliance Connect Virtual network connectivity solution
+- An on-premises HSM appliance to help secure messages that are sent via SWIFTNet
 
 #### Alliance Lite2
 
 If your configuration is based on Alliance Lite2, you need these components:
 
-- An Alliance Lite2 AutoClient virtual machine and an Alliance Connect Virtual network connectivity solution.
-- Physical token management from on-premises.
+- An Alliance Lite2 AutoClient virtual machine and an Alliance Connect Virtual network connectivity solution
+- Physical token management from on-premises
 
 #### Alliance Cloud
 
 If your configuration is based on Alliance Cloud, you need these components:
 
-- A SWIFT Integration Layer (SIL) virtual machine and an Alliance Connect Virtual network connectivity solution.
-- Physical token management from on-premises.
+- A SWIFT Integration Layer (SIL) virtual machine and an Alliance Connect Virtual network connectivity solution
+- Physical token management from on-premises
 
 ### Shared Azure services (optional)
 
-This section describes shared services that complement all of SWIFT's components. Shared services can include monitoring, security, compliance, and other key management and operational services. Some of the key services are shown here:
+This section describes shared services that complement all SWIFT components. Shared services can include monitoring, security, compliance, and other key management and operational services. Some of the key services are shown here:
 
 :::image type="content" alt-text="Diagram that shows shared Azure services." source="./media/swift-shared-services.png" border="false":::
  
@@ -98,7 +98,7 @@ For more information, see [Overview of the SWIFT CSP-CSCF v2020 blueprint sample
 
 #### Logic Apps
 
-Logic Apps is the Azure [integration platform as a service (iPaaS)](https://azure.microsoft.com/products/category/integration). It's a flexible, containerized cloud-scale workflow engine. Logic Apps provides native processing of SWIFT messaging, which can help you modernize your payments infrastructure in the cloud. It provides hybrid integration capabilities to on-premises applications via a virtual network to help you integrate a wide array of Azure services. Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa, and they provide validation based on the document schemas.
+Logic Apps is an Azure [integration platform as a service (iPaaS)](https://azure.microsoft.com/products/category/integration). It's a flexible, containerized cloud-scale workflow engine. Logic Apps provides native processing of SWIFT messaging, which can help you modernize your payments infrastructure in the cloud. It provides hybrid integration capabilities to on-premises applications via a virtual network to help you integrate a wide array of Azure services. Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa, and they provide validation based on the document schemas.
 
 You can use a Logic Apps service to process payment transactions quickly. For example, you can integrate your back-end SAP systems to SWIFT, via Logic Apps, to process payment transactions and business acknowledgments. As part of this processing, Logic Apps validates the transactions and checks for duplicates and anomalies.
 
