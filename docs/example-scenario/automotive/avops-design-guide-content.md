@@ -1,4 +1,20 @@
-
+---
+title: Autonomous vehicle operations solution guide
+titleSuffix: Azure architecture center
+description: Autonomous Vehicle Operations design guide that shows how one would use Azure services to build Automated driving solution
+author: rmats808
+ms.date: 3/3/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+categories: developer-tools
+products:
+  - azure-batch
+  - azure-data-factory
+  - azure-data-share
+  - azure-machine-learning
+  - azure-data-lake-gen2
+---
 ## Introduction
 How do we operate a backend to enable Autonomous Vehicles at scale? 
 Autonomous Vehicles operations (AVOps) usually require a huge amount of storage and compute to
