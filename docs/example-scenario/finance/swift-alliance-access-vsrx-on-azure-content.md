@@ -31,9 +31,17 @@ After you deploy the Alliance Access infrastructure on Azure, follow SWIFT's ins
 - **Azure Virtual Network:** Virtual Network forms a private network boundary around the SWIFT deployment. You should choose a network address space that doesn't conflict with your on-premises sites, like back office, Hardware Security Module (HSM), and user sites.
 - **Virtual Network subnet:** Alliance Access components should be deployed in separate subnets to allow traffic control between them via Azure network security groups.
 - **Azure route table:** You can control network connectivity between Alliance Access VMs and your on-premises sites by using an Azure route table. 
-- **Azure Firewall:** Any outbound connectivity from Alliance Access VMs to the internet should be routed by Azure Firewall. Typical examples of such connectivity are time sync and anti-virus definition update.
-- **Azure Virtual Machines:** Azure Virtual Machines provides compute services for running Alliance Access. Use these guidelines for choosing the right SKU:
-  - Use a compute-optimized SKU for the Alliance Web Platform front-end.
+- **Azure Firewall:** Any outbound connectivity from Alliance Access VMs to the internet should be routed by Azure Firewall. Typical examples of such connectivity are time syncs and antivirus definition updates.
+- **Azure Virtual Machines:** Virtual Machines provides compute services for running Alliance Access. Use these guidelines for choosing the right SKU:
+  - Use a compute-optimized SKU for the Alliance Web Platform front end.
   - Use a memory-optimized SKU for Alliance Access with an embedded Oracle database.
-- **Azure Managed Disk:** By using Premium SSD managed disks, Alliance Access components get high-throughput, low-latency disk performance. The components also have the ability to back up and restore disks that are attached to VMs.
-- **Azure proximity placement group:** Customers can consider using Azure [proximity placement groups] to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
+- **Azure managed disks:** If you use Premium SSD managed disks, Alliance Access components get high-throughput, low-latency disk performance. The components can also back up and restore disks that are attached to VMs.
+- **Azure proximity placement groups:** Customers can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
+
+SWIFT customers establish a secure connection from their on-premises or colocation site to the Alliance Access subscription.
+
+- ExpressRoute can be used to connect the customer's premises to Azure over a private connection.
+- Site-to-site VPN can be used to connect the customer's premises to Azure over the internet.
+- Remote Desktop Protocol (RDP) can be used over the internet to connect customers. (Alternatively, Azure Bastion can be used for these connections.) The customer's Azure environment can be peered.
+
+secure-zone-alliance-connect-virtual.png

@@ -141,8 +141,8 @@ SWIFT customer resources on Azure should comply with CSP–CSCF. CSP–CSCF cont
 Principal authors: 
 
 - [Gansu Adhinarayanan](https://www.linkedin.com/in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist 
-- [Ravi Sharma](https://www.linkedin.com/in/ravisharma4sap) | Senior Cloud Solution Architect 
 - [Mahesh Kshirsagar](https://www.linkedin.com/in/mahesh-kshirsagar-msft/?originalSubdomain=uk) | Senior Cloud Solution Architect
+- [Ravi Sharma](https://www.linkedin.com/in/ravisharma4sap) | Senior Cloud Solution Architect 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
