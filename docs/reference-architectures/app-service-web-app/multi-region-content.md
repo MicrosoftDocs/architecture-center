@@ -40,7 +40,7 @@ There are several general approaches to achieve high availability across regions
 
 - Active/Passive with hot standby: traffic goes to one region, while the other waits on hot standby. *Hot standby* means the App Service in the secondary region is allocated and is always running.
 
-- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the App Service in the secondary region aren't allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
+- Active/Passive with cold standby: traffic goes to one region, while the other waits on cold standby. Cold standby means the App Service in the secondary region isn't allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
 
 - Active/Active: both regions are active, and requests are load balanced between them. If one region becomes unavailable, it's taken out of rotation.
 
