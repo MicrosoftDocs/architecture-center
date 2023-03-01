@@ -15,12 +15,12 @@ This article provides an overview of deploying the Alliance Cloud connectivity s
 
 In this example scenario, SWIFT Alliance Cloud is deployed into two Azure subscriptions. The two-subscription design separates resources based on the primary responsibility for each resource:
 
-* You're primarily responsible for supplying the resources for the SIL in one Azure subscription.
+* SWIFT customers are primarily responsible for supplying the resources for the SIL in one Azure subscription.
 * In a second Azure subscription, SWIFT provides the virtual firewall, Juniper vSRX. This component is part of the solution for managed connectivity of Alliance Connect Virtual.
 
-In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You don't have access or visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
+In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. Customers don't have access or visibility into the Juniper vSRX configuration or operation, but customers do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
 
-The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. You can choose the option best suited to message-traffic volumes and the required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. Customers can choose the option that's best suited to message-traffic volumes and the required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
 The footprint of SWIFT Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second replicated configuration, in standby mode, in a different Azure region. For each customer, there's an instance of the SIL and Alliance Connect Virtual.
 
@@ -37,17 +37,17 @@ You can deploy the resources for the SIL by using an Azure Resource Manager temp
 
 The Alliance Connect Virtual subscription contains resources that you deploy. You deploy them by using an ARM template, also known as the Cloud Infrastructure Definition (CID) file, that's provided by SWIFT. SWIFT manages the configuration and operation of the Juniper vSRX.
 
-You're responsible for establishing improved-security connectivity to the SIL. You can use one of these methods:
+SWIFT customers establish improved-security connectivity to the SIL subscription by:
 
-* Use ExpressRoute to connect on-premises resources to Azure via private connectivity.
-* Use site-to-site VPN to connect your premises to Azure via the internet.
-* Use Remote Desktop Protocol (RDP) over the internet for internet connectivity. (You can alternatively use Azure Bastion for these connections. We recommended Azure Bastion for new SWIFT on Azure customers.)
+* Using ExpressRoute to connect on-premises resources to Azure via private connectivity.
+* Using site-to-site VPN to connect the customer premises to Azure via the internet.
+* Using Remote Desktop Protocol (RDP) over the internet to connect customers that have internet connectivity. (Alternatively, Azure Bastion can be used for these connections. We recommended Azure Bastion for new SWIFT on Azure customers.)
 
 :::image type="content" alt-text="Diagram that shows three ways to connect to the Azure accounts that support the SWIFT Integration Layer for SWIFT Alliance Cloud." source="./media/swift-alliance-cloud-connectivity.png" lightbox="./media/swift-alliance-cloud-connectivity.png" border="false":::
 
 <!-- _Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-cloud-on-azure-connectivity.vsdx) that contains this architecture diagram._ -->
 
-You use one of the three methods of connectivity to connect to the SIL software that runs on the SIL VM. The recommended configurations of Azure Firewall and network security groups allow only appropriate traffic to pass to the SIL VM. 
+The SWIFT customer uses one of the three methods of connectivity to connect to the SIL software that runs on the SIL VM. The recommended configurations of Azure Firewall and network security groups allow only appropriate traffic to pass to the SIL VM. 
 
 Alternatively, you can use Azure Bastion to restrict traffic. (The corresponding subnet can be part of the connectivity hub virtual network. As a general guideline, we recommend this option for new SWIFT on Azure customers.) Azure Bastion provides connectivity from the Azure portal to a virtual machine via RDP or SSH. Because Azure Bastion requires administrators to sign in to the Azure portal, you can enforce multifactor authentication. 
 
@@ -102,7 +102,7 @@ Azure Bastion must be deployed to a dedicated subnet and requires a public IP ad
 
 #### Enforce SWIFT CSP–CSCF policies
 
-You can use [Azure Policy](/azure/governance/policy/overview) to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, you can use Azure Policy to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. You can use built-in policies or create policies themselves.
+Customers can use [Azure Policy](/azure/governance/policy/overview) to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, customers can use Azure Policy to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. Customers can use built-in policies or create policies themselves.
 
 SWIFT has a policy framework that helps you enforce a subset of SWIFT CSP–CSCF requirements by using Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. If you use separate subscriptions, you can apply the SWIFT CSP–CSCF Azure policies only to subscriptions that contain a SWIFT secure zone.
 
@@ -120,9 +120,9 @@ To explore the cost of running this scenario, use the [Azure pricing calculator]
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-You're responsible for operating the SIL software and the underlying Azure resources in the SIL subscription.
+Customers are responsible for operating the SIL software and the underlying Azure resources in the SIL subscription.
 
-In the Alliance Connect Virtual subscription, SWIFT is responsible for the configuration of Juniper vSRX. SWIFT also operates the VPN between the Juniper vSRX and SWIFTNet. You're responsible for operating and monitoring the underlying infrastructure resources.
+In the Alliance Connect Virtual subscription, SWIFT is responsible for the configuration of Juniper vSRX. SWIFT also operates the VPN between the Juniper vSRX and SWIFTNet. The customer is responsible for operating and monitoring the underlying infrastructure resources.
 
 Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. These tools monitor the infrastructure that's deployed on Azure. They don't monitor the SWIFT software. You can use a monitoring agent to collect event logs, performance counters, and other logs and send these logs and metrics to Azure Monitor. For more information, see [Azure Monitor Agent overview](/azure/azure-monitor/agents/agents-overview). 
 
