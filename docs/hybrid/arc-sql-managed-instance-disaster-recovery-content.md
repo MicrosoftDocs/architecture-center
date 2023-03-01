@@ -2,7 +2,7 @@ This article demonstrates how to deploy an Azure Arc-enabled SQL managed instanc
 
 ## Architecture
 
-:::image type="content" source="./images/azure-arc-sql-managed-instance-dr.png" alt-text="Diagram that shows an Azure Arc-enabled SQL Managed Instance topology." lightbox="./images/azure-arc-sql-managed-instance-dr.png" :::
+:::image type="content" source="./images/azure-arc-sql-managed-instance-dr.svg" alt-text="Diagram that shows an Azure Arc-enabled SQL Managed Instance topology." lightbox="./images/azure-arc-sql-managed-instance-dr.svg" :::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/azure-arc-sql-managed-instance-dr.pptx) of this architecture.*
 
