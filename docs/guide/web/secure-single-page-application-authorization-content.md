@@ -74,7 +74,6 @@ This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.c
 // ====================================================================================================
 -->
 <set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("serverResponse")).Body.As<JObject>())" />
-<set-variable name="jwt" value="@((string)(context.Variables.GetValueOrDefault<JObject>("token"))["access_token"])" />
 ```
 Once the access token has been obtained, it's encrypted using AES encryption. The encryption is performed within the callback policy using the following policy snippet:
 
@@ -91,7 +90,7 @@ Once the access token has been obtained, it's encrypted using AES encryption. Th
     var rng = new RNGCryptoServiceProvider();
     var iv = new byte[16];
     rng.GetBytes(iv);
-    byte[] jwtBytes = Encoding.UTF8.GetBytes(context.Variables.GetValueOrDefault<string>("jwt"));
+    byte[] jwtBytes = Encoding.UTF8.GetBytes((string)(context.Variables.GetValueOrDefault<JObject>("token"))["access_token"]);
     byte[] encryptedToken = jwtBytes.Encrypt("Aes", Convert.FromBase64String("{{enc-key}}"), iv);
     byte[] combinedContent = new byte[iv.Length + encryptedToken.Length];
     Array.Copy(iv, 0, combinedContent, 0, iv.Length);
