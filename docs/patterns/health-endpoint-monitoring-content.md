@@ -1,40 +1,43 @@
-Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. This can help to verify that applications and services are performing correctly.
+When you need to verify that applications and services are performing correctly, the Health Endpoint Monitoring pattern can be useful. This pattern implements functional checks in an application. External tools can access these checks through exposed endpoints at regular intervals.
 
 ## Context and problem
 
-It's a good practice, and often a business requirement, to monitor web applications and back-end services, to ensure they're available and performing correctly. However, it's sometimes more difficult to monitor services running in the cloud than it is to monitor on-premises services. For example, you don't have full control of the hosting environment, and the services typically depend on other services provided by platform vendors and others.
+It's a good practice to monitor web applications and back-end services. Monitoring helps ensure that applications and services are available and performing correctly. Business requirements often include monitoring.
 
-There are many factors that affect cloud-hosted applications such as network latency, the performance and availability of the underlying compute and storage systems, and the network bandwidth between them. The service can fail entirely or partially due to any of these factors. Therefore, you must verify at regular intervals that the service is performing correctly to ensure the required level of availability, which might be part of your service level agreement (SLA).
+It's sometimes more difficult to monitor cloud services than on-premises services. One reason is that you don't have full control of the hosting environment. Another is that the services typically depend on other services that platform vendors and others provide.
+
+Many factors affect cloud-hosted applications. Examples include network latency, the performance and availability of the underlying compute and storage systems, and the network bandwidth between them. A service can fail entirely or partially due to any of these factors. To ensure a required level of availability, you must verify at regular intervals that your service is performing correctly. Your service level agreement (SLA) might specify the level that you need to meet.
 
 ## Solution
 
-Implement health monitoring by sending requests to an endpoint on the application. The application should perform the necessary checks, and return an indication of its status.
+Implement health monitoring by sending requests to an endpoint on the application. The application should perform the necessary checks and then return an indication of its status.
 
 A health monitoring check typically combines two factors:
 
-- The checks (if any) performed by the application or service in response to the request to the health verification endpoint.
-- Analysis of the results by the tool or framework that performs the health verification check.
+- The checks (if any) that the application or service performs in response to the request to the health verification endpoint
+- The analysis of the results by the tool or framework that performs the health verification check
 
-The response code indicates the status of the application and, optionally, any components or services it uses. The latency or response time check is performed by the monitoring tool or framework. The figure provides an overview of the pattern.
+The response code indicates the status of the application and, optionally, any components or services it uses. The latency or response time check is performed by the monitoring tool or framework. The following figure provides an overview of the pattern.
 
 ![Overview diagram of the pattern.](./_images/health-endpoint-monitoring-pattern.png)
 
-Other checks that might be carried out by the health monitoring code in the application include:
+The health monitoring code in the application might also run other checks:
 
-- Checking cloud storage or a database for availability and response time.
-- Checking other resources or services located in the application, or located elsewhere but used by the application.
+- Checking cloud storage or a database for availability and response time
+- Checking other resources or services that are located in the application
+- Checking other resources or services that are located outside the application but are used by the application
 
-Services and tools are available that monitor web applications by submitting a request to a configurable set of endpoints, and evaluating the results against a set of configurable rules. It's relatively easy to create a service endpoint whose sole purpose is to perform some functional tests on the system.
+Services and tools are available that monitor web applications by submitting a request to a configurable set of endpoints. These services and tools then evaluate the results against a set of configurable rules. It's relatively easy to create a service endpoint whose sole purpose is to perform some functional tests on the system.
 
-Typical checks that can be performed by the monitoring tools include:
+Typical checks that the monitoring tools perform include:
 
 - Validating the response code. For example, an HTTP response of 200 (OK) indicates that the application responded without error. The monitoring system might also check for other response codes to give more comprehensive results.
-- Checking the content of the response to detect errors, even when a 200 (OK) status code is returned. This can detect errors that affect only a section of the returned web page or service response. For example, checking the title of a page or looking for a specific phrase that indicates the correct page was returned.
-- Measuring the response time, which indicates a combination of the network latency and the time that the application took to execute the request. An increasing value can indicate an emerging problem with the application or network.
-- Checking resources or services located outside the application, such as a content delivery network used by the application to deliver content from global caches.
+- Checking the content of the response to detect errors, even when a 200 (OK) status code is returned. By checking the content, you can detect errors that affect only a section of the returned web page or service response. For example, you might check the title of a page or look for a specific phrase that indicates that the correct page was returned.
+- Measuring the response time. Its value includes the network latency and the time that the application took to execute the request. An increasing value can indicate an emerging problem with the application or network.
+- Checking resources or services that are located outside the application. An example is a content delivery network that the application uses to deliver content from global caches.
 - Checking for expiration of SSL certificates.
-- Measuring the response time of a DNS lookup for the URL of the application to measure DNS latency and DNS failures.
-- Validating the URL returned by the DNS lookup to ensure correct entries. This can help to avoid malicious request redirection through a successful attack on the DNS server.
+- Measuring the response time of a DNS lookup for the URL of the application. This check measures DNS latency and DNS failures.
+- Validating the URL that's returned by the DNS lookup. Validating ensures that entries are correct. This check can also help to avoid malicious request redirection through a successful attack on the DNS server.
 
 It's also useful, where possible, to run these checks from different on-premises or hosted locations to measure and compare response times. Ideally you should monitor applications from locations that are close to customers to get an accurate view of the performance from each location. In addition to providing a more robust checking mechanism, the results can help you decide on the deployment location for the application&mdash;and whether to deploy it in more than one datacenter.
 
