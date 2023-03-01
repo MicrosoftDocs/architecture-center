@@ -26,7 +26,7 @@ ms.custom:
 
 One of the benefits of cloud technology is continuous improvement and evolution. As a service provider, you need to apply updates to your solution: you might need to make changes to your Azure infrastructure, your code/applications, your database schemas, or any other component. It's important to plan how you update your environments. In a multitenant solution, it's particularly important to be clear about your update policy because some of your tenants might be reluctant to allow changes to their environments, or they might have requirements that limit the conditions under which you can update their service.
 
-When planning an strategy to update your solution, you need to:
+When planning a strategy to update your solution, you need to:
 
 * Identify your tenants' requirements.
 * Clarify your own requirements to operate your service.
