@@ -6,7 +6,7 @@ This series of articles provides guidance on using SWIFT components on Azure. Th
 The intended audience for the articles is program managers, architects, and engineers who are implementing SWIFT components on Azure. This documentation is organized into the following structure:
 
 - A high-level overview of the Azure architecture to deploy SWIFT components (this article).
-- A detailed reference architecture for each of the components (links in the [Related resources] section).
+- A detailed reference architecture for each of the components (links in the [Related resources](#related-resources) section).
 
 ## Architecture
 
@@ -16,7 +16,7 @@ The following high-level reference architecture shows connectivity to the SWIFT 
 
 *Download a [Visio file](https://arch-center.azureedge.net/diagrams-swift-architecure-virtual-landing-page.vsdx) of this architecture.*
 
-A SWIFT deployment on Azure contains various components. The key components are described in the next section.
+A SWIFT deployment on Azure contains various components. The key components are described in the following sections.
 
 ### Customer datacenter or colocation
 
@@ -42,7 +42,7 @@ SWIFT offers three Alliance virtual connectivity options. You can choose the opt
 
 - **Alliance Connect Virtual Silver.** With this option, you use Azure ExpressRoute as your primary connection and the internet line as a backup. The dedicated ExpressRoute lines provide guaranteed bandwidths to SWIFT. Costs are significantly reduced when you use a local internet connection as the backup channel when you use two VPN instances.
 
-- **Alliance Connect Virtual Gold.** This option provides the highest service level and resiliency of the Alliance Connect products. Connectivity to SWIFT uses two ExpressRoute connections of equal capacity. This option is designed for the customers that handle mor than 40,000 messages per day and require the highest levels of resiliency.
+- **Alliance Connect Virtual Gold.** This option provides the highest service level and resiliency of the Alliance Connect products. Connectivity to SWIFT uses two ExpressRoute connections of equal capacity. This option is designed for the customers that handle more than 40,000 messages per day and require the highest levels of resiliency.
 
 We recommend that you read more about these options on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
  
@@ -80,4 +80,57 @@ If your configuration is based on Alliance Cloud, you need these components:
 
 This solution area includes services that complement all of SWIFT's components. Shared services can include monitoring, security, compliance, and other key management and operational services. Some of the key services are shown here:
 
-image 
+:::image type="content" alt-text="Diagram that shows shared Azure services." source="./media/swift-shared-services.png" border="false":::
+ 
+- You can use [Azure Policy](https://azure.microsoft.com/services/azure-policy) to enforce additional security controls and SWIFT CSP requirements.
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) supports native SWIFT messaging. It provides more than 400 connectors to help you natively process and transform messaging.
+- You can use [Azure Monitor](https://azure.microsoft.com/services/monitor) to monitor the SWIFT infrastructure that's running on Azure.
+- You can use [Azure Active Directory](https://azure.microsoft.com/services/active-directory) to integrate authentication and access control for users who access SWIFT components.
+- You can use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to store the keys and certificates that are used for SWIFT components. Key Vault is a required component when you run Alliance Connect Virtual.
+
+The proposed architecture illustrates the use of native Azure services, but you can use other Azure or partner services that meet the requirements.
+
+#### Azure policies
+
+In response to the cyberthreat landscape, SWIFT introduced the CSP, a set of mandatory security controls. Microsoft offers a blueprint to help you assess controls in the CSP framework. Azure Blueprints is a free service that simplifies and supports control implementation. It also enables continuous monitoring and audit. By using Azure Blueprints, you can define a repeatable set of Azure resources and policies that implement and adhere to standards, patterns, and control requirements. You can use Azure Blueprints to set up governed Azure environments, at scale, that can help you keep your production implementations secure and compliant. Consider using the latest implementation of SWIFT CSP controls, but first consult with the Microsoft team that you're working with.
+
+For more information, see [Overview of the SWIFT CSP-CSCF v2020 blueprint sample](/azure/governance/blueprints/samples/swift-2020). 
+
+#### Logic Apps
+
+Logic Apps is the Azure [integration platform as a service (iPaaS)](https://azure.microsoft.com/products/category/integration). It's a flexible, containerized cloud-scale workflow engine. Logic Apps provides native processing of SWIFT messaging, which can help you modernize your payments infrastructure in the cloud. It provides hybrid integration capabilities to on-premises applications via a virtual network to help you integrate a wide array of Azure services. Logic Apps provides more than 400 [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for intelligent automation, integration, data movement, and more. The SWIFT connectors transform SWIFT flat file messages into XML and vice versa, and they provide validation based on the document schemas.
+
+You can use a Logic Apps service to process payment transactions quickly. For example, you can integrate your back-end SAP systems to SWIFT, via Logic Apps, to process payment transactions and business acknowledgments. As part of this processing, Logic Apps validates the transactions and checks for duplicates and anomalies.
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors: 
+
+- [Gansu Adhinarayanan](https://www.linkedin.com/in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist 
+- [Ravi Sharma](https://www.linkedin.com/in/ravisharma4sap) | Senior Cloud Solution Architect 
+- [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [SWIFT Interfaces and Integration](https://www.swift.com/our-solutions/interfaces-and-integration)
+- [What is Azure Policy?](/azure/governance/policy/overview)
+- [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [What is Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+- [About Azure Key Vault](/azure/key-vault/general/overview)
+
+## Related resources
+
+Explore the following Azure architectures for SWIFT messaging interfaces:
+
+- [SWIFT Alliance Connect on Azure](swift-on-azure-srx.yml)
+- [SWIFT Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml) 
+- [SWIFT Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml) 
+- [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml) 
+- [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) 
+- [SWIFT Alliance Cloud on Azure](swift-alliance-cloud-on-azure.yml)
+- [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)
