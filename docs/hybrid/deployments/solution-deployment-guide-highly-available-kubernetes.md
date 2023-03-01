@@ -173,7 +173,7 @@ When deploying self-hosted Agents for Azure Pipelines, you may deploy either on 
 
 The pattern [Deployment (CI/CD) considerations](/hybrid/app-solutions/pattern-highly-available-kubernetes#deployment-cicd-considerations) section contains a decision flow that helps you to understand whether to use Microsoft-hosted agents or self-hosted agents:
 
-[![Diagram that shows a decision flow self hosted agents.](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg)](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg#lightbox)
+[![Diagram that shows a decision flow of self hosted agents.](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg)](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of all diagrams in this article.*
 
