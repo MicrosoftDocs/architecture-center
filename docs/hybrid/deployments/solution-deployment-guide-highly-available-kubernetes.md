@@ -175,13 +175,13 @@ The pattern [Deployment (CI/CD) considerations](/hybrid/app-solutions/pattern-hi
 
 [![Diagram that shows a decision flow self hosted agents.](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg)](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of this diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of all diagrams in this article.*
 
 In this sample solution, the topology includes a self-hosted build agent on each Azure Stack Hub instance. The agent can access the Azure Stack Hub Management Endpoints and the Kubernetes cluster API endpoints.
 
 [![Diagram that shows outbound traffic.](media/solution-deployment-guide-highly-available-kubernetes/azure-stack-architecture-only-outbound-traffic.svg)](media/solution-deployment-guide-highly-available-kubernetes/azure-stack-architecture-only-outbound-traffic.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of this diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of all diagrams in this article.*
 
 This design fulfills a common regulatory requirement, which is to have only outbound connections from the application solution.
 
@@ -308,7 +308,7 @@ Instead of using Azure Traffic Manager you can also use other global load-balanc
 
 ![Diagram that shows an on-premises traffic manager.](media/solution-deployment-guide-highly-available-kubernetes/aks-azure-traffic-manager-on-premises.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of this diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of all diagrams in this article.*
 
 In Azure, we configure Traffic Manager to point to the two different instances of our application:
 
