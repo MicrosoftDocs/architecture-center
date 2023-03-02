@@ -43,17 +43,21 @@ To learn more about using custom domains on Azure resources, see [Manage custom 
 
 To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. This flow is invoked by redirecting the user to the Azure Active Directory authorize endpoint. The user is then prompted to authenticate themselves, and then redirected back to the Azure API Management callback endpoint with an authorization code. The API Management policy securely exchanges this authorization code for an access token.
 
-This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.com/azure/active-directory/fundamentals/auth-oauth2), and requires a redirect URI to be configured in Azure Active Directory. This redirect URI must be the Azure API Management callback endpoint. The Azure API Management policy then securely exchanges the authorization code for an access token by calling the Azure Active Directory token endpoint. The following callback policy snippet performs this action:
+This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.com/azure/active-directory/fundamentals/auth-oauth2), and requires a redirect URI to be configured in Azure Active Directory. This redirect URI must be the Azure API Management callback endpoint. The Azure API Management policy then securely exchanges the authorization code for an access token by calling the Azure Active Directory token endpoint. The following diagram shows the sequence of events for this flow.
+
+![Diagram of the No Token in the Browser set token sequence.](./images/no-token-in-browser-set-token-sequence.png)
+
+The flow can be broken down into the following steps:
+
+1. To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. This flow is invoked by the user clicking a button which redirects to the Microsoft identity platform authorize endpoint, with the `redirect_uri` set to the `/auth/callback` api endpoint of the API Management gateway.
+
+2. The user is prompted to authenticate themselves. Upon successful authentication, the Microsoft identity platform responds with a redirect.
+
+3. The browser is redirected to the `redirect_uri` which is the Azure API Management callback endpoint. The authorization code is passed to the callback endpoint.
+
+4. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by calling the Azure Active Directory token endpoint passing the required information such as the client ID, client secret, and authorization code.
 
 ```XML
-<!-- 
-// ====================================================================================================
-// Call the token server to exchange the auth code for an access token.
-// This request will return a JSON object with the access token. No refresh token will be returned
-// as it was not requested in the original scope request. To request a refresh token, add the
-// "offline_access" scope to the original request.
-// ====================================================================================================
--->
 <send-request ignore-error="false" timeout="20" response-variable-name="response" mode="new">
     <set-url>https://login.microsoftonline.com/{{tenant-id}}/oauth2/v2.0/token</set-url>
     <set-method>POST</set-method>
@@ -62,26 +66,15 @@ This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.c
     </set-header>
     <set-body>@($"grant_type=authorization_code&code={context.Request.OriginalUrl.Query.GetValueOrDefault("code")}&client_id={{client-id}}&client_secret={{client-secret}}&redirect_uri=https://{context.Request.OriginalUrl.Host}/auth/callback")</set-body>
 </send-request>
-<!-- 
-// ====================================================================================================
-// Extract the access token from the token server response.
-// This sample does not request a refresh token. If a refresh token is requested, it will be returned
-// in the response together with the access_token and should be extracted separately.
-// ====================================================================================================
--->
-<set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("response")).Body.As<JObject>())" />
 ```
-Once the access token has been obtained, it's encrypted using AES encryption. The encryption is performed within the callback policy using the following policy snippet:
+5. The access token is returned and stored in a variable named `token`.
 
 ```XML
-<!-- 
-// ====================================================================================================
-// Generate a random IV to encrypt the access token and set it into a variable. This ensures that the
-// encrypted content is different each time a token in encrypted.
-// This sample uses AES encryption with key is stored in a Named Value in APIM. Any encryption key
-// should be rotated regularly to ensure the security of the encryption.
-// ====================================================================================================
--->
+<set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("response")).Body.As<JObject>())" />
+```
+6. The access token is then encrypted using AES encryption and stored in a variable named `cookie`.
+
+```XML
 <set-variable name="cookie" value="@{
     var rng = new RNGCryptoServiceProvider();
     var iv = new byte[16];
@@ -95,21 +88,9 @@ Once the access token has been obtained, it's encrypted using AES encryption. Th
 }" />
 ```
 
-Finally, once the access token has been encrypted, it's set into a cookie and returned to the single-page application. The following policy snippet performs this task:
+6. The outbound policy of the callback endpoint is then invoked to redirect to the single-page application, setting the encrypted access token in a secure `HttpOnly` cookie, defined with the `SameSite=Strict` attribute and scoped to the domain of the API Management gateway. As no explicit expiry date is set, the cookie will be created as a session cookie and expire when the browser is closed.
 
 ```XML
-<!-- 
-// ========================================================================================================
-// Create a return response to redirect back to the calling application.
-// Set the encrypted and base64url encoded access token into a cookie.
-// Cookies are created as session cookies by default. If you are not implementing a refresh token
-// to the pattern then it setting the expiry of the cookie to match that of the access token could
-// be considered. This would ensure that the cookie is removed when the access token expires.
-//
-// Details on configurable token lifetimes can be found here:
-// https://learn.microsoft.com/azure/active-directory/develop/active-directory-configurable-token-lifetimes
-// ========================================================================================================
--->
 <return-response>
     <set-status code="302" reason="Temporary Redirect" />
     <set-header name="Set-Cookie" exists-action="override">
@@ -121,29 +102,30 @@ Finally, once the access token has been encrypted, it's set into a cookie and re
 </return-response>
 ```
 
-Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it's automatically added with each request to the API. The access token can then be decrypted ready to be used to call the downstream API. The following proxy policy snippet performs this process:
+## API Call Flow
+
+Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it's automatically added with each request to the API. The access token can then be decrypted ready to be used to call the downstream API. The following diagram shows the sequence of events for this flow.
+
+![Diagram of the No Token in the Browser call api sequence.](./images/no-token-in-browser-call-api-sequence.png)
+
+The flow can be broken down into the following steps:
+
+1. The user clicks a button in the single-page application to call the downstream API. This invokes a JavaScript function which calls the `/graph/me` api endpoint of the API Management gateway.
+
+2. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it's automatically added by the browser with the request to the API.
+
+3. Receiving the API request, the inbound policy of the `/graph/me` api endpoint is invoked. The policy decrypts the access token from the cookie and stores it in a variable named `access_token`.
 
 ```XML
-<!-- 
-// ====================================================================================================
-// 1. Extract cookies from the request header.
-// 2. Split all cookies and select the one we're interested in.
-// 3. Remove cookie name to leave only the contents.
-// 4. Decode the cookie content from base64url to base64.
-// 5. Decode the base64 cookie content to bytes.
-// 6. Extract the IV from the encrypted cookie content.
-// 7. Decrypt the encrypted cookie content into a variable.
-// ====================================================================================================
--->
 <set-variable name="access_token" value="@{
     try {
         string cookie = context.Request.Headers
-                                    .GetValueOrDefault("Cookie")?
-                                    .Split(';')
-                                    .ToList()?
-                                    .Where(p => p.Contains("{{cookie-name}}"))
-                                    .FirstOrDefault()
-                                    .Replace("{{cookie-name}}=", "");
+            .GetValueOrDefault("Cookie")?
+            .Split(';')
+            .ToList()?
+            .Where(p => p.Contains("{{cookie-name}}"))
+            .FirstOrDefault()
+            .Replace("{{cookie-name}}=", "");
         byte[] encryptedBytes = Convert.FromBase64String(System.Net.WebUtility.UrlDecode(cookie));
         byte[] iv = new byte[16];
         byte[] tokenBytes = new byte[encryptedBytes.Length - 16];
@@ -157,15 +139,9 @@ Once the single-page application has the access token, it can be used to call th
     }
 }" />
 ```
-
-Once the access token has been decrypted, it can be used to call the downstream API. To successfully make a call the access token needs to be added to the request to the API, as an `Authorization` header. The following policy snippet performs this task:
+4. The access token is then added to the request to the downstream API as an `Authorization` header.
 
 ```XML
-<!-- 
-// ====================================================================================================
-// Set the decrypted access token as an Authorization header.
-// ====================================================================================================
--->
 <choose>
     <when condition="@(!string.IsNullOrEmpty(context.Variables.GetValueOrDefault<string>("access_token")))">
         <set-header name="Authorization" exists-action="override">
@@ -174,7 +150,12 @@ Once the access token has been decrypted, it can be used to call the downstream 
     </when>
 </choose>
 ```
- Full examples of these policies, together with OpenApi specifications, and a full deployment guide can be found in this related [GitHub repository](https://github.com/Azure/no-token-in-the-browser-pattern/).
+
+5. The request is then proxied to the downstream API with the access token added to the Authorization header.
+
+6. The response from the downstream API is then returned directly to the single-page application.
+
+Full examples of these policies, together with OpenApi specifications, and a full deployment guide can be found in this related [GitHub repository](https://github.com/Azure/no-token-in-the-browser-pattern/).
 
 ## Enhancements
 
