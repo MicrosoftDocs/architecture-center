@@ -125,18 +125,6 @@ Alternatively, you could consider deploying an alternative architecture where Tr
 >
 > If you use virtual machines to host your solution, you should not expose the virtual machines to the internet.
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal authors:
-
- * [Dave Burkhardt](https://linkedin.com/in/david-burkhardt-13b79b3) | Principal Product Manager, Azure Networking
- * [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- * [Harikrishnan M B](https://linkedin.com/in/harikrishnanmb/) | Product Manager 2, Azure Networking
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 Review the [global content delivery](./mission-critical-content-delivery.md) scenario to understand whether it applies to your solution.
