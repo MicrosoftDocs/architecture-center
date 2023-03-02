@@ -34,7 +34,7 @@ There are three deployment modes available for Azure Database for PostgreSQL tha
 
 ## Features of Azure Database for PostgreSQL that support multitenancy
 
-When you're building a multitenant application using Azure Database for PostgresSQL, there are a number of features that you can use to enhance the solution.
+When you're building a multitenant application using Azure Database for PostgreSQL, there are a number of features that you can use to enhance the solution.
 
 > [!NOTE]
 > Some features are only available in specific [deployment modes](#deployment-modes). These features are indicated in the guidance below.
