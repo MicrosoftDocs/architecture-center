@@ -188,4 +188,4 @@ Explore the functionality and architecture of other SWIFT modules:
 - [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml) 
 - [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) 
 - [SWIFT Alliance Cloud on Azure](swift-alliance-cloud-on-azure.yml)
-- [SWIFT Alliance Lite2 on Azure](finance/swift-alliance-lite2-on-azure)
+- [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)
