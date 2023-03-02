@@ -54,17 +54,13 @@ This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.c
 // "offline_access" scope to the original request.
 // ====================================================================================================
 -->
-<send-request ignore-error="false" timeout="20" response-variable-name="serverResponse" mode="new">
+<send-request ignore-error="false" timeout="20" response-variable-name="response" mode="new">
     <set-url>https://login.microsoftonline.com/{{tenant-id}}/oauth2/v2.0/token</set-url>
     <set-method>POST</set-method>
     <set-header name="Content-Type" exists-action="override">
         <value>application/x-www-form-urlencoded</value>
     </set-header>
-    <set-body>@(string.Format("grant_type=authorization_code&code={0}&client_id={1}&client_secret={2}&redirect_uri=https://{3}/auth/callback",
-                    context.Request.OriginalUrl.Query.GetValueOrDefault("code"),
-                    "{{client-id}}",
-                    "{{client-secret}}",
-                    context.Request.OriginalUrl.Host))</set-body>
+    <set-body>@($"grant_type=authorization_code&code={context.Request.OriginalUrl.Query.GetValueOrDefault("code")}&client_id={{client-id}}&client_secret={{client-secret}}&redirect_uri=https://{context.Request.OriginalUrl.Host}/auth/callback")</set-body>
 </send-request>
 <!-- 
 // ====================================================================================================
@@ -73,7 +69,7 @@ This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.c
 // in the response together with the access_token and should be extracted separately.
 // ====================================================================================================
 -->
-<set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("serverResponse")).Body.As<JObject>())" />
+<set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("response")).Body.As<JObject>())" />
 ```
 Once the access token has been obtained, it's encrypted using AES encryption. The encryption is performed within the callback policy using the following policy snippet:
 
@@ -86,12 +82,12 @@ Once the access token has been obtained, it's encrypted using AES encryption. Th
 // should be rotated regularly to ensure the security of the encryption.
 // ====================================================================================================
 -->
-<set-variable name="cookieContent" value="@{
+<set-variable name="cookie" value="@{
     var rng = new RNGCryptoServiceProvider();
     var iv = new byte[16];
     rng.GetBytes(iv);
-    byte[] jwtBytes = Encoding.UTF8.GetBytes((string)(context.Variables.GetValueOrDefault<JObject>("token"))["access_token"]);
-    byte[] encryptedToken = jwtBytes.Encrypt("Aes", Convert.FromBase64String("{{enc-key}}"), iv);
+    byte[] tokenBytes = Encoding.UTF8.GetBytes((string)(context.Variables.GetValueOrDefault<JObject>("token"))["access_token"]);
+    byte[] encryptedToken = tokenBytes.Encrypt("Aes", Convert.FromBase64String("{{enc-key}}"), iv);
     byte[] combinedContent = new byte[iv.Length + encryptedToken.Length];
     Array.Copy(iv, 0, combinedContent, 0, iv.Length);
     Array.Copy(encryptedToken, 0, combinedContent, iv.Length, encryptedToken.Length);
@@ -117,7 +113,7 @@ Finally, once the access token has been encrypted, it's set into a cookie and re
 <return-response>
     <set-status code="302" reason="Temporary Redirect" />
     <set-header name="Set-Cookie" exists-action="override">
-        <value>@($"{{cookie-name}}={context.Variables.GetValueOrDefault<string>("cookieContent")}; Secure; SameSite=Strict; Path=/; Domain={{cookie-domain}}; HttpOnly")</value>
+        <value>@($"{{cookie-name}}={context.Variables.GetValueOrDefault<string>("cookie")}; Secure; SameSite=Strict; Path=/; Domain={{cookie-domain}}; HttpOnly")</value>
     </set-header>
     <set-header name="Location" exists-action="override">
         <value>{{return-uri}}</value>
@@ -141,14 +137,14 @@ Once the single-page application has the access token, it can be used to call th
 -->
 <set-variable name="access_token" value="@{
     try {
-        string cookieContent = context.Request.Headers
+        string cookie = context.Request.Headers
                                     .GetValueOrDefault("Cookie")?
                                     .Split(';')
                                     .ToList()?
                                     .Where(p => p.Contains("{{cookie-name}}"))
                                     .FirstOrDefault()
                                     .Replace("{{cookie-name}}=", "");
-        byte[] encryptedBytes = Convert.FromBase64String(System.Net.WebUtility.UrlDecode(cookieContent));
+        byte[] encryptedBytes = Convert.FromBase64String(System.Net.WebUtility.UrlDecode(cookie));
         byte[] iv = new byte[16];
         byte[] tokenBytes = new byte[encryptedBytes.Length - 16];
         Array.Copy(encryptedBytes, 0, iv, 0, 16);
@@ -173,7 +169,7 @@ Once the access token has been decrypted, it can be used to call the downstream 
 <choose>
     <when condition="@(!string.IsNullOrEmpty(context.Variables.GetValueOrDefault<string>("access_token")))">
         <set-header name="Authorization" exists-action="override">
-            <value>@("Bearer " + context.Variables.GetValueOrDefault<string>("access_token"))</value>
+            <value>@($"Bearer {context.Variables.GetValueOrDefault<string>("access_token")}")</value>
         </set-header>
     </when>
 </choose>
