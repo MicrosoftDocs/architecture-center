@@ -290,7 +290,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 ### Microsoft Defender for Cloud
 
 - [Microsoft Defender for Cloud][azure-security-center]
-- [Microsoft Defender for Cloud Cloud Smart Alert Correlation][azure-security-center-cloud-smart-alert-correlation]
+- [Microsoft Defender for Cloud Smart Alert Correlation][azure-security-center-cloud-smart-alert-correlation]
 - [Microsoft Defender for Cloud Connect Data][azure-security-center-connect-data]
 - [Microsoft Defender for Cloud Coverage][azure-security-center-coverage]
 - [Microsoft Defender for Cloud Endpoint Protection][azure-security-center-endpoint-protection]
