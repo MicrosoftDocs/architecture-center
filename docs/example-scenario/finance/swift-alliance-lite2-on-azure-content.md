@@ -126,7 +126,7 @@ Azure provides a comprehensive set of monitoring capabilities in Azure Monitor. 
 
 [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) use your data in Azure Monitor to notify you when problems are found with your infrastructure or application. They allow you to identify and address problems before your users notice them. 
 
-You can use [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) to edit and run log queries with data in Azure Monitor Logs.
+You can use [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) to edit and run log queries against data in Azure Monitor Logs.
 
 ## Deploy this scenario
 
