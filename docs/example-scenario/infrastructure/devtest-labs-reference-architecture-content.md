@@ -90,6 +90,8 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 This [security baseline](/security/benchmark/azure/baselines/devtest-labs-security-baseline) applies guidance from the Azure Security Benchmark version 2.0 to DTL.
 
+#### Governance and compliance
+
 The following links address governance and compliance for DTL:
 
 - Addresses the [governance and management](/azure/devtest-labs/devtest-lab-guidance-governance-resources) of resources in DTL
@@ -104,6 +106,19 @@ Enterprise organizations typically follow a least-privileged approach to operati
 - Access to labs can be configured to segregate duties within your team into different [roles](/azure/devtest-labs/devtest-lab-add-devtest-user). Three of these RBAC roles are Owner, DevTest Labs User, and Contributor. The DTL resource should be owned by those who understand the project and team requirements for budget, machines, and required software. A common model is the project-lead or the app-admin as the lab owner and the team members as lab users. The Contributor role can be assigned to app-infra members who need permissions to manage lab resources. Lab owner is responsible for configuring the policies and adding the required users to the lab.
 - For enterprises that require users to connect with domain-based identities, a domain controller added to the Platform subscription can be used to domain-join DTL VMs. [DTL artifacts](/azure/devtest-labs/devtest-lab-concepts#artifacts) provide a way to domain-join VMs automatically. By default, DTL virtual machines use a local admin account.
 - DTL supports [managed identities](/azure/devtest-labs/configure-lab-identity) for its Azure resources. Use managed identities with DTL to access Key Vault, Storage, and to deploy VMs and PaaS resources. Assign [user-assigned managed identities](/azure/devtest-labs/enable-managed-identities-lab-vms) on your lab VMs in DTL to let lab VM users access Azure resources.
+
+#### Networking topology
+
+Organizations often operate with regional [hub-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology#traditional-azure-networking-topology) where the hub and spokes are deployed into separate virtual networks and subscriptions are connected through [peering](/azure/virtual-network/virtual-network-peering-overview).
+
+As seen in the preceding architecture diagram, DTL resources use the existing spoke virtual networks that are peered with the hub virtual network. The hub virtual network, which is part of the Platform subscription, enables secure connectivity through RDP/SSH access to:
+
+- DTL virtual machines using private IP for internal users through VPN/ER. Connectivity to on-premises environments is also required in hybrid application scenarios where some of the required components are still on-premises, such as database and Active Directory domain.
+- DTL virtual machines using private IP for external users through [Bastion Host over the internet](/azure/bastion/vnet-peering). Organizations can also configure [remote desktop gateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) in DTL instead of using traditional RDP connection over Internet if they don't prefer to browser-connect through Bastion.
+
+The hub-spoke design helps minimize direct exposure of DTL resources to the public internet, provides workload isolation, and makes the architecture extensible. Certain resources, such as a firewall and DNS, can be shared across spoke networks.
+
+DTL also provides the capability of directly connecting with VMs through Public IP or [Shared IP](/azure/devtest-labs/devtest-lab-shared-ip) if permitted by organizational compliance.
 
 ### Cost optimization
 
@@ -141,10 +156,6 @@ There are many other ways to automate Azure and DevTest Labs, including REST API
 
 Integration of DTL with Azure DevOps for development and operations is described at [Integrate Azure DevTest Labs and Azure DevOps](/azure/devtest-labs/devtest-lab-dev-ops). Also, Azure Architecture Center provides an article for [DevTest and DevOps for IaaS](/azure/architecture/solution-ideas/articles/dev-test-iaas).
 
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
 #### Management group and subscription topology
 
 A well-designed topology for [Management Groups](/azure/cloud-adoption-framework/ready/enterprise-scale/management-group-and-subscription-organization) & [Subscriptions](/azure/cloud-adoption-framework/decision-guides/subscriptions), along with organizational structure and compliance requirements, ensures proper isolation and maximum flexibility for future growth. The management group and subscription setup are the responsibility of the Platform owner who provides the required access to the Application administrator or lab Owner to provision the lab.
@@ -153,19 +164,6 @@ As shown in the preceding architecture diagram, application teams can deploy DTL
 
 - If the global organizational compliance defined in the landing zone management group is valid for DevTest workloads, then the DTL can be deployed in a non-production landing zone subscription under a Corp or Online management group based on the requirement for connectivity with an on-premises environment. In this case, all Azure policies applied to the landing zone management groups for compliance will be inherited by all the subscriptions under it. This includes DTL Resources along with its admin configured policies.
 - DTL can also be configured in a sandbox environment for exploration, training, and investigation. In this case, DTL can be deployed in a subscription under a sandbox management group, which has minimal restrictions and lets users have the freedom to explore.
-
-#### Networking topology
-
-Organizations often operate with regional [hub-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology#traditional-azure-networking-topology) where the hub and spokes are deployed into separate virtual networks and subscriptions are connected through [peering](/azure/virtual-network/virtual-network-peering-overview).
-
-As seen in the preceding architecture diagram, DTL resources use the existing spoke virtual networks that are peered with the hub virtual network. The hub virtual network, which is part of the Platform subscription, enables secure connectivity through RDP/SSH access to:
-
-- DTL virtual machines using private IP for internal users through VPN/ER. Connectivity to on-premises environments is also required in hybrid application scenarios where some of the required components are still on-premises, such as database and Active Directory domain.
-- DTL virtual machines using private IP for external users through [Bastion Host over the internet](/azure/bastion/vnet-peering). Organizations can also configure [remote desktop gateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) in DTL instead of using traditional RDP connection over Internet if they don't prefer to browser-connect through Bastion.
-
-The hub-spoke design helps minimize direct exposure of DTL resources to the public internet, provides workload isolation, and makes the architecture extensible. Certain resources, such as a firewall and DNS, can be shared across spoke networks.
-
-DTL also provides the capability of directly connecting with VMs through Public IP or [Shared IP](/azure/devtest-labs/devtest-lab-shared-ip) if permitted by organizational compliance.
 
 ## Contributors
 
