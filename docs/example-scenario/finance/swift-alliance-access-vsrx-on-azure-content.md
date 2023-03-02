@@ -144,7 +144,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 - Azure Monitor provides a comprehensive set of monitoring capabilities. This tool can monitor the Azure infrastructure but not the SWIFT software. You can use a monitoring agent to collect event logs, performance counters, and other logs, and have these logs and metrics sent to Azure Monitor. For more information, see [Overview of the Azure monitoring agents](/azure/azure-monitor/platform/agents-overview).
 - [Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) uses your Azure Monitor data to notify you when it detects problems with your infrastructure or application. The alerts enable you to identify and address problems before the users of your system notice them.
 - You can use [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) to edit and run log queries against data in Azure Monitor Logs.
-- You should use [ARM templates](/azure/azure-resource-manager/templates/overview) templates to provision Azure infrastructure components.
+- You should use [ARM templates](/azure/azure-resource-manager/templates/overview) to provision Azure infrastructure components.
 - You should consider using [Azure virtual machine extensions](/azure/virtual-machines/extensions/overview) to configure other solution components for your Azure infrastructure.
 - The Alliance Access VM is the only component that stores business data and possibly requires backup and restore capabilities. Data in Alliance Access is stored in an Oracle database. You can use built-in tools for backup and restore.
 
