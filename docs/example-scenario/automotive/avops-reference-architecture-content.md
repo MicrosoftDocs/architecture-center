@@ -1,5 +1,8 @@
 
 This architecture provides guidance on the building blocks and recommendations for developing an automated driving solution.
+### Potential use cases
+
+- Automotive OEMs, Tier1s, and/or ISVs that are developing solutions for automated driving 
 ## Architecture
 
 ![AVOps Reference architecture.](.\images\high-level-architecture-avops.png)
@@ -16,7 +19,8 @@ Here's the high-level process flow of data through the reference architecture:
 1. [ValOps](#validation-operations-valops) takes trained models and validates them via Open Loop and Closed Loop testing
 1. Tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) visualizes  ingested and processed data 
 ### Data Collection
-The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake.  
+The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake. 
+Data collection is one the main [challenges](./avops-design-guide-content.md#challenges) for Autonomous Vehicle Operations. 
 
 ![Data Collection](.\images\data-collection.png)
 ### Data Operations (DataOps)
@@ -88,10 +92,6 @@ For that reason, AVOps recommends a centralized team in an organization handling
 - Capabilities for E2E lineage and traceability across all AVOps components 
 
 ![Centralized AVOps Functions](.\images\centralized-avops-functions.png)
-### Potential use cases
-
-- Automotive OEMs, Tier1s, and/or ISVs that are developing solutions for automated driving 
-
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -118,7 +118,8 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 There are several strategies that organizations can use to reduce costs associated with autonomous driving development:
 
 1. Optimize cloud infrastructure: Careful planning and management of cloud infrastructure can help reduce costs, such as choosing cost-effective instance types and scaling infrastructure to meet changing workloads. Utilize the guidance from the [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/).
-1. Use spot instances: Spot instances allow organizations to bid on spare capacity, which can result in significant cost savings compared to on-demand instances.
+1. Use [Spot Instances](https://learn.microsoft.com/azure/virtual-machines/spot-vms): An organization can determine which workloads in the AVOps deployment doesn't require processing within a specific period of time.  The compute for these workloads can take advantage of Spot Instances.  
+Spot instances allow organizations to bid on spare capacity, which can result in significant cost savings compared to on-demand instances.
 1. Utilize auto-scaling: Auto-scaling enables organizations to automatically adjust their cloud infrastructure based on demand, reducing the need for manual intervention and helping to keep costs in check. For more information about scaling, see [Design Scaling](https://learn.microsoft.com/azure/architecture/framework/scalability/design-scale).
 1. Utilize cost-effective storage: Organizations must consider how  using hot/cool/archive tiers for storage.  Storage can be a significant cost for autonomous driving development, so it's important to choose cost-effective storage options, such as cold storage or infrequent access storage. For more information of data lifecycle management, see [data lifecycle management](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview)
 1. Utilize cost management and optimization tools: [Azure Cost Management](https://azure.microsoft.com/products/cost-management/#overview) provides cost management and optimization tools that can help organizations identify and address areas for cost reduction, such as identifying unused or underutilized resources.
