@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: CI/CD for Azure Web Apps
+  title: CI/CD for Azure Web Apps with Azure Pipelines 
   titleSuffix: Azure Architecture Center
   description: Learn how to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a CI/CD pipeline.
   author: martinekuan
@@ -25,7 +25,7 @@ metadata:
     - is-deployable
     - "https://azure.microsoft.com/solutions/architecture/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps"
   social_image_url: /azure/architecture/solution-ideas/articles/media/azure-devops-cicd-for-azure-web-apps.png
-name: CI/CD for Azure Web Apps
+name: CI/CD for Azure Web Apps with Azure Pipelines 
 azureCategories:
   - devops
   - web

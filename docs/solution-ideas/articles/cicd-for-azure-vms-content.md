@@ -1,70 +1,67 @@
+> [!IMPORTANT]
+> CI/CD for IaaS applications is a variant of [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml). This article focuses on the specifics of deploying web applications to Azure Virtual Machines.
+
 Azure Virtual Machines is an option for hosting custom applications when you want flexible and granular management of your compute. Virtual machines (VMs) should be subject to the same level of engineering rigor as Platform-as-a-Service (PaaS) offerings throughout the development lifecycle. For example, implementing automated build and release pipelines to push changes to the VMs.
 
-This article describes a high-level DevOps workflow for deploying application changes to VMs using continuous integration (CI) and continuous deployment (CD) practices using Azure Pipelines. 
+This article describes a high-level DevOps workflow for deploying application changes to VMs using continuous integration (CI) and continuous deployment (CD) practices using Azure Pipelines.
 
 ## Architecture
 
-![Diagram showing continuous integration and continuous deployment pipeline for virtual machines.](../media/cicd-for-azure-vms.svg)
+:::image type="complex" source="../media/azure-pipelines-iaas-variant-architecture.svg" lightbox="../media/azure-pipelines-iaas-variant-architecture.svg" alt-text="Architecture diagram of a CI/CD pipeline using Azure Pipelines." border="false"::: 
+Architecture diagram of an Azure pipeline deploying to Azure Virtual Machines. The diagram shows the following steps: 1. An engineer pushing code changes to an Azure DevOps Git repository. 2. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 3. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing a Web Deploy package as an artifact. 3. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 4. Shows the CD pipeline deploying to a Virtual Machine of Virtual Machine Scale Set. 5. Shows the CD pipeline releasing to a production environment by deploying to a production environment. 6. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.
+:::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/cicd-for-azure-vms.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-pipelines-iaas-variant-architecture.vsdx) of this architecture.*
+
+### Dataflow
+
+This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#dataflow) and only focuses on the specifics of deploying a workload to Azure Virtual Machines.
+
+1. **PR pipeline** - *Same as the baseline*
+
+1. **CI pipeline** - Same as the baseline, except the build artifacts created for deploying a Web App to IaaS is a Web Deploy package
+
+1. **CD pipeline trigger** - *Same as the baseline*
+
+1. **CD release to staging** - Same as the baseline with 2 exceptions: 1) the build artifact that is downloaded is the Web Deploy Package and 2) the package is deployed to a staging Azure Virtual Machine.
+
+1. **CD release to production** - Same as the baseline with 2 exceptions:
+
+    a. The release to production is done by updating Azure Traffic Manager to swap staging and production. This strategy can be accomplished by having a Traffic Manager profile with two endpoints, where production is enabled and staging is disabled. To swap staging and production, disable production and enable staging.  
+    b. A rollback can be accomplished by updating Azure Traffic Manager to swap production and staging back.
+
+1. **Monitoring** - *same as the baseline*
 
 ### Components
 
-The architecture uses these components.
+This section assumes you have read [Azure Pipelines baseline architecture components section](../../example-scenario/apps/devops-dotnet-baseline.yml#components) and only focuses on the specifics of deploying a workload to Azure Virtual Machines.
 
-##### GitHub repository
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) provide on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux servers. Virtual Machines are used in this architecture to host workloads.
 
-GitHub serves as the code repository that provides version control and a platform for collaborative projects. 
+- [Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets can also be used to host workloads.
 
-##### Azure Pipelines
+- [Azure Traffic Manager](https://azure.microsoft.com/products/traffic-manager) is a DNS-based traffic load balancer that you can use to distribute traffic to configured endpoints. In this architecture, Traffic Manager is the single entrypoint for clients and is configured with multiple endpoints, representing the production Virtual Machine and the staging Virtual Machine. The production Virtual Machine endpoint is enabled and staging is disabled.
 
-Azure Pipelines can automatically build application source code and infrastructure code from your code repository. It has a Build system for producing packages and other build artifacts and a Release Management system for setting up a pipeline to deploy your changes through dev, test, and production environments. The pipeline uses Infrastructure-as-Code (IaC) templates to provision or update your infrastructure as necessary in each environment, and then deploys the updated build. 
+### Alternatives
 
-> For product documentation, see [Azure Pipelines](https://azure.microsoft.com/services/devops): runs automated builds, tests, and deployments.
+This article focuses on the use of Azure Traffic Manager as the load balancer. Azure offers various [Load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview) that you could consider.
 
-An alternate technology option for CI/CD pipelines is GitHub Actions. There are advantages because the source code and the pipeline are set side-by-side. However, in this design, Azure Pipelines was chosen because of its integration with Azure DevTest Labs and VM Applications (discussed next). 
+## Considerations
 
-##### VM Applications
+This section assumes you have read the [considerations section in Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#considerations) and only focuses on the considerations specifics to deploying a workload to Azure Virtual Machines.
 
-Azure VM Applications is recommended for simplified deployment of application changes. When there's a new version of an application, you can just deploy the VM application package without ever affecting the VM image. VM Applications facilitate CI/CD processes for package deployment through Azure Pipelines.
+### Operational Excellence
 
-> For product documentation, see [VM Applications](/azure/virtual-machines/vm-applications). 
+- Because Traffic Manager is DNS-based, client caching of IP addresses introduces latency. Even though you might enable one endpoint and disable another in Traffic Manager, clients will continue to use their cached IP address until the DNS Time-to-live (TTL) expires. Consider [load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview) that act at layer 4 or layer 7.
 
-##### Azure DevTest Labs
-
-For VMs, using Azure DevTest Labs is highly recommended for running automated test pipelines. DevTest Labs can quickly provision development and test stages with reusable templates and artifacts. Also, automatically tear down test resources that aren't in use. DevTest Labs is integrated with Azure Pipelines.
-
-> For product documentation, see [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab).
-
-##### Azure Virtual Machines
-
-Infrastructure-as-a-Service (IaaS) compute with Linux or Windows image that runs the application.
-
-> For product documentation, see [Virtual Machines](https://azure.microsoft.com/services/virtual-machines).
-
-##### Azure Monitor
-
-An observability resource  that collects and stores metrics and logs, application telemetry, and platform metrics for the Azure services. Use this data to monitor the application, set up alerts, dashboards, and perform root cause analysis of failures. 
-
-> For product documentation, see [Azure Monitor](https://azure.microsoft.com/services/monitor):  collects and stores metrics and logs, including application telemetry.
-
-### Workflow
-
-1. Azure Pipelines triggers automated build and test jobs (continuous integration).
-1. The application is packaged through VM Application. It's versioned and pushed to VM application registry.
-1. Azure Pipelines orchestrates the deployment of infrastructure changes and the updated VM application (continuous deployment). 
-1. Azure DevTest Labs provisions the compute and orchestrates the application deployment development and test environments.
-1. The changes are deployed to pre-production and production environments.
-1. Azure Monitor collects observability data such as, logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data. 
-
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
+- Consider implementing environments beyond just staging and production to enable things like rollbacks, manual acceptance testing, and performance testing. The act of using staging as the rollback environment keeps you from being able to use that environment for other purposes.
 
 ## Next steps
 
-* [Integrate DevTest Labs into Azure Pipelines](/azure/devtest-labs/devtest-lab-integrate-ci-cd)
-* [Create and deploy VM Applications](/azure/virtual-machines/vm-applications-how-to?tabs=portal)
+- [Integrate DevTest Labs into Azure Pipelines](/azure/devtest-labs/devtest-lab-integrate-ci-cd)
+- [Create and deploy VM Applications](/azure/virtual-machines/vm-applications-how-to?tabs=portal)
 
 ## Related resources
 
-* [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
+- [CI/CD baseline architecture with Azure Pipelines](../../example-scenario/apps/devops-dotnet-baseline.yml)
+- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
