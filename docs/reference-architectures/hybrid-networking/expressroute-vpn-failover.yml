@@ -16,6 +16,7 @@ metadata:
     - networking
     - reference-architecture
     - e2e-hybrid
+    - devx-track-azurepowershell
 name: Connect an on-premises network to Azure using ExpressRoute
 azureCategories:
   - hybrid
