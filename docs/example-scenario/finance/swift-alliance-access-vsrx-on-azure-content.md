@@ -44,7 +44,7 @@ You need to establish an enhanced-security connection from your on-premises or c
 - Use site-to-site VPN to connect your premises to Azure over the internet.
 - Use Remote Desktop Protocol (RDP) over the internet to connect. (Alternatively, you can use Azure Bastion for these connections.) Your Azure environment can be peered.
 
-[![Diagram that shows three connectivity methods.](media/secure-zone-alliance-connect-virtual.png)
+![Diagram that shows three connectivity methods.](media/secure-zone-alliance-connect-virtual.png)
 
 Your business and application systems can connect with Alliance Access VMs as shown in the previous diagram. However, business users can connect only to the Alliance Web Platform. The recommended Azure firewall and Azure network security group are configured to allow only appropriate traffic to pass to the Alliance Web Platform.
 
