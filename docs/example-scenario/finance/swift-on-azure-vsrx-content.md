@@ -109,8 +109,8 @@ You can use a Logic Apps service to process payment transactions quickly. For ex
 Principal authors: 
 
 - [Gansu Adhinarayanan](https://www.linkedin.com/in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist 
-- [Ravi Sharma](https://www.linkedin.com/in/ravisharma4sap) | Senior Cloud Solution Architect 
 - [Mahesh Kshirsagar](https://uk.linkedin.com/in/mahesh-kshirsagar-msft) | Senior Cloud Solution Architect
+- [Ravi Sharma](https://www.linkedin.com/in/ravisharma4sap) | Senior Cloud Solution Architect 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

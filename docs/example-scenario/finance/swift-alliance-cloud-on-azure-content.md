@@ -69,13 +69,6 @@ This approach can be used for:
 - Migrating SWIFT connectivity from on-premises to Azure.
 - Establishing new SWIFT connectivity by using Azure.
 
-### Potential use cases
-
-This solution applies to:
-
-- Existing SWIFT customers who run SIL on-premises and want to run Alliance Cloud in Azure.
-- New SWIFT customers who can benefit by deploying directly to Azure.
-
 ## Considerations 
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
