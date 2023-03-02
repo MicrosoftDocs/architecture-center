@@ -4,7 +4,7 @@ metadata:
   description: Create content-based recommendation systems that use Azure Machine Learning and Databricks to deliver personalized recommendations.
   author: gramhagen
   ms.author: scgraham
-  ms.date: 09/01/2022
+  ms.date: 03/02/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
