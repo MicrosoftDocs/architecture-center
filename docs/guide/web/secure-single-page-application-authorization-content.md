@@ -49,13 +49,13 @@ This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.c
 
 The flow can be broken down into the following steps:
 
-1. To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. This flow is invoked by the user clicking a button which redirects to the Microsoft identity platform authorize endpoint, with the `redirect_uri` set to the `/auth/callback` api endpoint of the API Management gateway.
+1. To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. The user invokes the flow by clicking a button that redirects to the Microsoft identity platform authorize endpoint, with the `redirect_uri` set to the `/auth/callback` api endpoint of the API Management gateway.
 
 2. The user is prompted to authenticate themselves. Upon successful authentication, the Microsoft identity platform responds with a redirect.
 
-3. The browser is redirected to the `redirect_uri` which is the Azure API Management callback endpoint. The authorization code is passed to the callback endpoint.
+3. The browser is redirected to the `redirect_uri`, which is the Azure API Management callback endpoint. The authorization code is passed to the callback endpoint.
 
-4. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by calling the Azure Active Directory token endpoint passing the required information such as the client ID, client secret, and authorization code.
+4. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by making a call to the Azure Active Directory token endpoint. It passes the required information, such as the client ID, client secret, and authorization code.
 
 ```XML
 <send-request ignore-error="false" timeout="20" response-variable-name="response" mode="new">
@@ -88,7 +88,7 @@ The flow can be broken down into the following steps:
 }" />
 ```
 
-6. The outbound policy of the callback endpoint is then invoked to redirect to the single-page application, setting the encrypted access token in a secure `HttpOnly` cookie, defined with the `SameSite=Strict` attribute and scoped to the domain of the API Management gateway. As no explicit expiry date is set, the cookie will be created as a session cookie and expire when the browser is closed.
+6. The outbound policy of the callback endpoint is then invoked to redirect to the single-page application, setting the encrypted access token in a secure `HttpOnly` cookie, defined with the `SameSite=Strict` attribute and scoped to the domain of the API Management gateway. As no explicit expiry date is set, the cookie is created as a session cookie and expire when the browser is closed.
 
 ```XML
 <return-response>
@@ -104,17 +104,17 @@ The flow can be broken down into the following steps:
 
 ## API Call Flow
 
-Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it's automatically added with each request to the API. The access token can then be decrypted ready to be used to call the downstream API. The following diagram shows the sequence of events for this flow.
+Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it gets automatically added to the request. The access token can then be decrypted ready to be used to call the downstream API. The following diagram shows the sequence of events for this flow.
 
 ![Diagram of the No Token in the Browser call api sequence.](./images/no-token-in-browser-call-api-sequence.png)
 
 The flow can be broken down into the following steps:
 
-1. The user clicks a button in the single-page application to call the downstream API. This invokes a JavaScript function which calls the `/graph/me` api endpoint of the API Management gateway.
+1. The user clicks a button in the single-page application to call the downstream API, which invokes a JavaScript function that calls the `/graph/me` api endpoint of the API Management gateway.
 
 2. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it's automatically added by the browser with the request to the API.
 
-3. Receiving the API request, the inbound policy of the `/graph/me` api endpoint is invoked. The policy decrypts the access token from the cookie and stores it in a variable named `access_token`.
+3. When the API Management gateway receives the request, the inbound policy of the `/graph/me` endpoint is invoked. The policy decrypts the access token from the cookie and stores it in a variable named `access_token`.
 
 ```XML
 <set-variable name="access_token" value="@{
