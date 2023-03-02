@@ -143,8 +143,8 @@ After the SWIFT Alliance Connect Virtual and Alliance Lite2 AutoClient infrastru
 Principal authors: 
 
 - [Gansu Adhinarayanan](https://www.linkedin.com/in/ganapathi-gansu-adhinarayanan-a328b121) | Director - Partner Technology Strategist 
-- [Ravi Sharma](https://www.linkedin.com/in/ravisharma4sap) | Senior Cloud Solution Architect 
 - [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841) | Senior Cloud Solution Architect
+- [Ravi Sharma](https://www.linkedin.com/in/ravisharma4sap) | Senior Cloud Solution Architect 
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 

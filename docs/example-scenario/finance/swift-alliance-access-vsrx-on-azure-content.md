@@ -7,7 +7,7 @@ This article provides an overview of deploying SWIFT Alliance Access on Azure. A
 
 ## Architecture
 
-[![Diagram of the architecture for SWIFT Alliance Access.](media/alliance-access-with-alliance-connect-virtual.png)](media/alliance-access-with-alliance-connect-virtual.png#lightbox)
+[![Diagram that shows the architecture for SWIFT Alliance Access.](media/alliance-access-with-alliance-connect-virtual.png)](media/alliance-access-with-alliance-connect-virtual.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/diagrams-swift-alliance-access-with-alliance-connect-virtual-in-azure.vsdx) that contains this architecture diagram.*
 
@@ -38,10 +38,58 @@ After you deploy the Alliance Access infrastructure on Azure, follow SWIFT's ins
 - **Azure managed disks:** If you use Premium SSD managed disks, Alliance Access components get high-throughput, low-latency disk performance. The components can also back up and restore disks that are attached to VMs.
 - **Azure proximity placement groups:** Customers can consider using Azure [proximity placement groups](/azure/virtual-machines/co-location) to ensure that all Alliance Access VMs are close to each other. Proximity placement groups reduce network latency between Alliance Access components.
 
-SWIFT customers establish a secure connection from their on-premises or colocation site to the Alliance Access subscription.
+SWIFT customers establish an enhanced-security connection from their on-premises or colocation site to the Alliance Access subscription.
 
 - ExpressRoute can be used to connect the customer's premises to Azure over a private connection.
 - Site-to-site VPN can be used to connect the customer's premises to Azure over the internet.
 - Remote Desktop Protocol (RDP) can be used over the internet to connect customers. (Alternatively, Azure Bastion can be used for these connections.) The customer's Azure environment can be peered.
 
-secure-zone-alliance-connect-virtual.png
+[![Diagram that shows three connectivity methods.](media/secure-zone-alliance-connect-virtual.png)]
+
+The SWIFT customer's business and application systems can connect with Alliance Access VMs as shown in the previous diagram. However, business users can connect only to the Alliance Web Platform. The recommended Azure firewall and Azure network security group are configured to allow only appropriate traffic to pass to the Alliance Web Platform.
+
+### Components  
+
+- [Virtual Network](https://azure.microsoft.com/products/virtual-network)  
+- [Virtual Machines](https://azure.microsoft.com/products/virtual-machines)  
+- [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) 
+- [Azure managed disks](https://azure.microsoft.com/products/storage/disks)
+
+### Alternatives
+
+This architecture shows all SWIFT components running on Azure, except for HSM. You can also run SWIFT [Alliance Access with the Alliance Connect](swift-alliance-access-on-azure.yml) networking solution on Azure.
+
+## Scenario details
+
+Alliance Access is one of the messaging interfaces that SWIFT offers for enhanced-security financial messaging.
+
+### Potential use cases
+
+This solution is optimal for the finance industry.
+
+This approach is intended for both existing and new SWIFT customers. It can be used for the following scenarios:
+
+- Migrating Alliance Access from on-premises to Azure
+- Creating a new Alliance Access environment on Azure
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+If you want more information about the following considerations, your account team at Microsoft can help guide your Azure implementation of SWIFT.
+
+### Reliability
+
+Reliability ensures that your application can meet the commitments that you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
+When you deploy SWIFT components on-premises, you need to make decisions about availability and resiliency. For on-premises resiliency, we recommend that you deploy components into at least two datacenters. This approach helps prevent a datacenter failure from compromising your business. The same considerations apply on Azure, although some different concepts apply.
+
+Alliance Access/Entry and Alliance Web Platform with the embedded database can be deployed into an Azure cloud infrastructure. The Azure infrastructure needs to comply with the corresponding application's requirements for performance and latency.
+
+For the database recovery process, refer to the Alliance Access administration guide, section 14. You can get this guide on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect-virtual).
+
+#### Azure resiliency concepts
+
+Azure provides service level agreements (SLAs) for VM availability. These SLAs vary, depending on whether you deploy a single VM, multiple VMs in an [availability set](/azure/virtual-machines/availability-set-overview), or multiple VMs spread over multiple [availability zones](/azure/reliability/availability-zones-overview). To mitigate the risk of a regional outage, you should deploy SWIFT Alliance Access in multiple Azure regions.
+ 
+For more information, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
