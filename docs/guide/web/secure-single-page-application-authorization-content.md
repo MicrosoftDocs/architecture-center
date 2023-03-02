@@ -1,5 +1,3 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
-
 This guide demonstrates how you can use Azure API Management to implement a stateless no token in the browser pattern for a JavaScript single-page application, protecting access tokens from XSS attacks and malicious code running in the browser.
 
 This pattern uses [Azure API Management](https://azure.microsoft.com/products/api-management) in a [Backend for Frontend](https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends) pattern to handle the OAuth2 access token acquisition from Azure Active Directory; [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption and decryption of the access token into an `HttpOnly` cookie; and to proxy all API calls requiring authorization.
@@ -154,6 +152,8 @@ The flow can be broken down into the following steps:
 5. The request is then proxied to the downstream API with the access token added to the Authorization header.
 
 6. The response from the downstream API is then returned directly to the single-page application.
+
+## Deploy this scenario
 
 Full examples of these policies, together with OpenApi specifications, and a full deployment guide can be found in this related [GitHub repository](https://github.com/Azure/no-token-in-the-browser-pattern/).
 
