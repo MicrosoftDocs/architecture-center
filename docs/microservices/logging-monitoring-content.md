@@ -53,7 +53,7 @@ A single operation can generate many telemetry events, so if an application expe
 
 If your data rate is high enough to trigger throttling, and sampling or aggregation aren't acceptable, consider exporting metrics to a time-series database, like Azure Data Explorer, Prometheus, or InfluxDB, running in the cluster.
 
-- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is an Azure-native, highly scalable data exploration service for log and telemetry data. It features support for multiple data formats, a rich query language, and connections for consuming data in popular tools like [Jupyter Notebooks](/azure/data-explorer/kqlmagic) and [Grafana](/azure/data-explorer/grafana). Azure Data Explorer has built-in connectors to ingest log and metrics data via Azure Event Hubs. For more information, see [Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code?tabs=diagnostic-metrics).
+- [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is an Azure-native, highly scalable data exploration service for log and telemetry data. It features support for multiple data formats, a rich query language, and connections for consuming data in popular tools like [Jupyter Notebooks](/azure/data-explorer/kqlmagic) and [Grafana](/azure/data-explorer/grafana). Azure Data Explorer has built-in connectors to ingest log and metrics data via Azure Event Hubs. For more information, see [Ingest and query monitoring data in Azure Data Explorer](/azure/data-explorer/ingest-data-no-code).
 
 - InfluxDB is a push-based system. An agent needs to push the metrics. You can use [TICK stack][tick stack] to set up the monitoring of Kubernetes. Next, you can push metrics to InfluxDB by using [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/), which is an agent for collecting and reporting metrics. You can use InfluxDB for irregular events and string data types.
 
@@ -236,7 +236,7 @@ In this scenario, the distributed transaction includes these steps:
 
 The following screenshot shows the [application map](/azure/azure-monitor/app/app-map) for the drone delivery application. This map shows calls to the public API endpoint that result in a workflow that involves five microservices.
 
-:::image type="content" source="images/monitoring/application-map.png" alt-text="Screenshot that shows the application map for the drone delivery application." lightbox="images/monitoring/application-map.png" border="false":::
+:::image type="content" source="images/monitoring/application-map.png" alt-text="Screenshot that shows the application map for the drone delivery application." border="false":::
 
 The arrows from `fabrikam-workflow` and `fabrikam-ingestion` to a Service Bus queue show where the messages are sent and received. You can't tell from the diagram which service is sending messages and which is receiving. The arrows just show that both services are calling Service Bus. But information about which service is sending and which is receiving is available in the details:
 
@@ -250,7 +250,7 @@ This visualization shows the steps from the ingestion service to the queue, from
 
 This example shows calls to a back-end service that are failing:
 
-:::image type="content" source="images/monitoring/application-map-errors.png" alt-text="Screenshot that shows an application map with errors." lightbox="images/monitoring/application-map-errors.png" border="false":::
+:::image type="content" source="images/monitoring/application-map-errors.png" alt-text="Screenshot that shows an application map with errors." border="false":::
 
 This map shows that a large fraction (36%) of calls to the Drone Scheduler service failed during the period of the query. The end-to-end transaction view reveals that an exception occurs when an HTTP PUT request is sent to the service:
 
