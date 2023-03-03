@@ -290,7 +290,7 @@ The cloud native model example diagram below, shows how the workload in the clou
 
 #### Comparison chart
 
-|               |Azure Batch             |Azure CycleCloud     |
+|Feature              |Azure Batch             |Azure CycleCloud     |
 |---------------|------------------------|------------------------|
 |Scheduler |Batch APIs and tools and command-line scripts in the Azure Portal (Cloud Native).  |Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler.|
 |Compute Resources |Azure Batch – Software as a Service Nodes – Platform as a Service |Azure CycleCloud - Platform as a Service Software – Platform as a Service |
