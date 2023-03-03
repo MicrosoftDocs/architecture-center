@@ -47,7 +47,7 @@ For more information, see the following articles:
 | Pricing model | [Ingress/Egress](https://azure.microsoft.com/pricing/details/virtual-network/) | [Hourly + Egress](https://azure.microsoft.com/pricing/details/vpn-gateway/) |
 | Encryption | Software-level encryption is recommended. | Custom IPsec/IKE policy can be applied to new or existing connections. See [About cryptographic requirements and Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto). |
 | Bandwidth limitations | No bandwidth limitations. | Varies based on SKU. See [Gateway SKUs by tunnel, connection, and throughput](/azure/vpn-gateway/vpn-gateway-about-vpngateways#benchmark). |
-| Private? | Yes. Routed through Microsoft backbone and private. No public internet involved. | Public IP involved. |
+| Private? | Yes. Routed through Microsoft backbone and private. No public internet involved. | Public IP involved, but routed through Microsoft backbone if [Microsoft global network](/azure/virtual-network/ip-services/routing-preference-overview) is enabled. |
 | Transitive relationship | Peering connections are non-transitive. Transitive networking can be achieved using NVAs or gateways in the hub virtual network. See [Hub-spoke network topology](./hub-spoke.yml) for an example. | If virtual networks are connected via VPN gateways and BGP is enabled in the virtual network connections, transitivity works. |
 | Initial setup time | Fast | ~30 minutes |
 | Typical scenarios | Data replication, database failover, and other scenarios needing frequent backups of large data. | Encryption-specific scenarios that are not latency sensitive and do not need high throughout. |
