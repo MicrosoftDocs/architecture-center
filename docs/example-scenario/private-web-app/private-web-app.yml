@@ -26,6 +26,6 @@ products:
   - azure-sql-database
   - azure-virtual-network
   - azure-web-apps
-thumbnailUrl: /azure/architecture/browse/thumbs/appsvc-private-sql-solution-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/private-web-application-app-service-private-sql.png
 content: |
    [!include[](private-web-app-content.md)]
