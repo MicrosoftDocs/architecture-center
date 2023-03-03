@@ -40,7 +40,7 @@ If you're new to this topic, we suggest you review the following recommended res
 
 ## Isolation models
 
-When working with Azure AD B2C, you need to decide how you isolate your user pools from different application tenants.
+When working with Azure AD B2C, you need to decide how you isolate your user accounts between different application tenants.
 
 You need to consider questions like:
 
@@ -72,7 +72,7 @@ A shared Azure AD B2C tenant should be considered if the following apply to your
 
 - You don't have data residency or strict data isolation requirements.
 - Your application needs are within the Azure AD B2C [service limits](/azure/active-directory-b2c/service-limits?pivots=b2c-custom-policy#userconsumption-related-limits).
-- You are able to use [home realm discovery](#home-realm-discovery) to automatically select a custom federated identity provider for a user to sign in with, if you have them.
+- If you have federated identity providers, you are able to use [home realm discovery](#home-realm-discovery) to automatically select one for a user to sign in with. Or, you are okay with them manually selecting one from a list themselves.
 - You have a unified sign-in experience for all application tenants.
 - Your end users need access to more than one application tenant under the same account.
 
@@ -86,7 +86,10 @@ Provisioning vertically partitioned Azure AD B2C tenants is a strategy designed 
 
 It's important to note that the deployment & maintenance requirements for this tenancy model are still higher than when you use a single Azure AD B2C tenant, but they are lower than if you were to use an Azure AD B2C tenant per application tenant. As such, you will still need to design and implement a deployment and [maintenance](#maintenance) strategy for multiple tenants across your environment.
 
-Vertical partitioning is similar to the [Data Sharding pattern](../../../patterns/sharding.yml). To vertically partition your Azure AD B2C tenants, you need to organize your application tenants into logical groupings. This grouping should be based on a common, stable factor of the application tenant such as region, size, or an application tenant's custom requirements. It should not, however, be based on factors that are volatile or could change over time, as it is challenging to move users between Azure AD B2C tenants. For example, if your aim is to solve your data residency requirements, you could choose to deploy an Azure AD B2C tenant for each region that contains application tenants. Or, if you group by size, you could choose to have most of your application tenants' identities reside on a single Azure AD B2C tenant, while having your largest application tenants reside on their own dedicated Azure AD B2C tenants.
+Vertical partitioning is similar to the [Data Sharding pattern](../../../patterns/sharding.yml). To vertically partition your Azure AD B2C tenants, you need to organize your application tenants into logical groupings, often called a *partitioning strategy*. Your partitioning strategy should be based on a common, stable factor of the application tenant such as region, size, or an application tenant's custom requirements. For example, if your aim is to solve your data residency requirements, you could choose to deploy an Azure AD B2C tenant for each region that contains application tenants. Or, if you group by size, you could choose to have most of your application tenants' identities reside on a single Azure AD B2C tenant, while having your largest application tenants reside on their own dedicated Azure AD B2C tenants.
+
+>[!IMPORTANT]
+> Your partitioning strategy should not be based on factors that are volatile or that could change over time, as it is challenging to move users between Azure AD B2C tenants. For example, if you are building a SaaS offering that has multiple SKUs or product tiers, you would not want to partition your users based on the SKU they selected, as that could potentially change if the customer were to upgrade their product.
 
 You should consider provisioning your Azure AD B2C tenants using a vertically partitioned strategy if the following considerations apply to your scenario:
 
@@ -147,7 +150,7 @@ When provisioning an Azure AD B2C tenant, you select a region for your tenant to
 
 ## Authorization
 
-For a strong identity solution, you not only have to consider *authentication*, but *authorization* as well. There are several approaches in which you can build out an authorization strategy for your application. The [AppRoles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles) demonstrates how to use Azure AD B2C's [application roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to implement authorization in your application. It also discusses alternative authorization approaches you can take.
+For a strong identity solution, you not only have to consider *authentication*, but *authorization* as well. There are several approaches in which you can build out an authorization strategy for your application using the Microsoft identity platform. The [AppRoles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles) demonstrates how to use Azure AD B2C's [application roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to implement authorization in your application. It also discusses alternative authorization approaches you can take.
 
 There is no single approach to authorization, and you should consider the needs of your application and your customers when deciding on an approach.
 
