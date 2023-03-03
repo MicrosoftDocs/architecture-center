@@ -141,7 +141,7 @@ For the metrics, use the Metrics Collector Module that belongs to the [Industria
 
 For the logs, as all Edge modules run as Docker containers, use the [Fluentd log driver](https://docs.docker.com/config/containers/logging/fluentd/) to redirect these logs to a Fluentd server deployed at the Edge, namely [Fluent-Bit](https://docs.fluentbit.io/manual) which is an open-source log processor and forwarder that allows collecting logs from different sources, enriching them with filters, and sending them to multiple destinations. This Fluent-Bit server is then configured to push the logs to an [Azure Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). The high level architecture of this approach is illustrated in the following diagram.
 
-![push-model-approach-architecture](media/observability-on-iotedge-0.png)
+![Diagram showing the architecture of a push model approach.](media/observability-on-iotedge-0.png)
 
 ## Contributors
 
