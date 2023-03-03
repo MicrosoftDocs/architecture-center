@@ -173,7 +173,6 @@ Make sure to configure the following antivirus exclusions for FSLogix Profile Co
 
 - Exclude processes:
 
-  - %ProgramFiles%\FSLogix\Apps\frxccd.exe
   - %ProgramFiles%\FSLogix\Apps\frxccds.exe
   - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
 
