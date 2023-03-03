@@ -260,7 +260,10 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
 
-<img role="presentation" alt="Diagram shows example HPC architecture for Azure Batch" src="images/cloud-native-job-scheduler-azure-batch.jpg">
+In Azure Batch all the services are running on the Cloud, the image below shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
+
+![Diagram shows example HPC architecture for Azure Batch](images/cloud-native-job-scheduler-azure-batch.jpg)
+
 
 ### Azure CycleCloud
 
@@ -276,10 +279,14 @@ CycleCloud allows you to:
 - Take advantage of built-in autoscaling and battle-tested reference architectures for a wide range of HPC workloads and industries
 
 ##### Hybrid / cloud bursting model
-<img role="presentation" alt="Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid." src="images/industry-standard-hpc-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg">
+In this Hybrid example diagram, we can see clearly how these services are distributed between the cloud and the on-premises environment. Having the opportunity to run jobs in both workloads.
+![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-hpc-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
+
 ##### Cloud native model
-<img role="presentation" alt="Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
-." src="images/industry-standard-hpc-job-scheduler-cloud-native-model-azure-cyclecloud.jpg">
+The cloud native model example diagram below, shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
+
+![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
+.](images/industry-standard-hpc-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
 
 #### Comparison chart
 
@@ -289,7 +296,7 @@ CycleCloud allows you to:
 |Compute Resources |Azure Batch – Software as a Service Nodes – Platform as a Service |Azure CycleCloud - Platform as a Service Software – Platform as a Service |
 |Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
 |Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
-|Integration |Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
+|Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
 |User type |Developers |Classic HPC administrators and users |
 |Work Type |Throughput (batch), workflows |Tightly coupled (MPI). Throughput |
 |Windows Support |Yes |Varies, depending on scheduler choice |
