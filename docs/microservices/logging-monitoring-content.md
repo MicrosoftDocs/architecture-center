@@ -1,7 +1,7 @@
 <!-- cSpell:ignore kusto kube kubelet Backoff Fluentd TICK Serilog Telegraf Dropoff Istio linkerd kubectl -->
 This article describes best practices for monitoring a microservices application that runs on Azure Kubernetes Service (AKS). Specific topics include telemetry collection, monitoring a cluster's status, metrics, logging, structured logging, and distributed tracing. The latter is illustrated in this diagram:
 
-![Diagram that shows the architecture of a drone delivery application.](./images/drone-delivery-impl.png)
+[ ![Diagram that shows the architecture of a drone delivery application.](./images/drone-delivery-impl.png) ](./images/drone-delivery-impl.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/design-microservice-drone-delivery-imp.vsdx) of this architecture.*
 
@@ -29,15 +29,15 @@ In any complex application, at some point something will go wrong. In a microser
 
 Use [Azure Monitor][azure-monitor] to monitor the health of your clusters. The following screenshot shows a cluster that has critical errors in user-deployed pods:
 
-![Screenshot that shows the Monitor dashboard.](./images/monitoring/pod-status.png)
+[ ![Screenshot that shows the Monitor dashboard.](./images/monitoring/pod-status.png) ](./images/monitoring/pod-status.png)
 
 From here, you can drill in further to find the problem. For example, if the pod status is `ImagePullBackoff`, Kubernetes couldn't pull the container image from the registry. This problem could be caused by an invalid container tag or an authentication error during a pull from the registry.
 
-If a container crashes, the container `State` becomes `Waiting`, with a `Reason` of `CrashLoopBackOff`. For a typical scenario, where a pod is part of a replica set and the retry policy is `Always`, this problem won't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze).
+If a container crashes, the container `State` becomes `Waiting`, with a `Reason` of `CrashLoopBackOff`. For a typical scenario, where a pod is part of a replica set and the retry policy is `Always`, this problem doesn't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze).
 
 There are multiple container-specific workbooks available in the workbooks pane of an AKS resource. You can use these workbooks for a quick overview, troubleshooting, management, and insights. The following screenshot shows a list of workbooks that are available by default for AKS workloads.
 
-![Screenshot that shows the workbooks for an AKS resource.](./images/monitoring/aks-workbooks.png)
+[ ![Screenshot that shows the workbooks for an AKS resource.](./images/monitoring/aks-workbooks.png) ](./images/monitoring/aks-workbooks.png)
 
 ## Metrics
 
@@ -47,9 +47,9 @@ We recommend that you use [Monitor][azure-monitor] to collect and view metrics f
 
 - Use [Application Insights](/azure/application-insights/app-insights-overview) to collect application metrics. Application Insights is an extensible application performance management (APM) service. To use it, you install an instrumentation package in your application. This package monitors the app and sends telemetry data to Application Insights. It can also pull telemetry data from the host environment. The data is then sent to Monitor. Application Insights also provides built-in correlation and dependency tracking. (See [Distributed tracing](#distributed-tracing), later in this article.)
 
-Application Insights has a maximum throughput that's measured in events per second, and it throttles if the data rate exceeds the limit. For details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights). Create different Application Insights instances for each environment, so that dev/test environments don't compete against the production telemetry for quota.
+Application Insights has a maximum throughput that's measured in events per second, and it throttles telemetry if the data rate exceeds the limit. For details, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights). Create different Application Insights instances for each environment, so that dev/test environments don't compete against the production telemetry for quota.
 
-A single operation can generate many telemetry events, so if an application experiences a high volume of traffic, its telemetry capture is likely to be throttled. To mitigate this problem, you can perform sampling to reduce the telemetry traffic. The tradeoff is that your metrics will be less precise, unless the instrumentation supports [pre-aggregation](https://opentelemetry.io/docs/reference/specification/overview/#recording-metrics-with-predefined-aggregation). In that case, there will be fewer trace samples for troubleshooting, but the metrics will maintain accuracy. For more information, see [Sampling in Application Insights](/azure/application-insights/app-insights-sampling). You can also reduce the data volume by pre-aggregating metrics. That is, you can calculate statistical values, like the average and standard deviation, and send those values instead of the raw telemetry. The following blog post describes an approach to using Application Insights at scale: [Azure Monitoring and Analytics at Scale](/archive/blogs/azurecat/azure-monitoring-and-analytics-at-scale).
+A single operation can generate many telemetry events, so if an application experiences a high volume of traffic, its telemetry capture is likely to be throttled. To mitigate this problem, you can perform sampling to reduce the telemetry traffic. The tradeoff is that your metrics will be less precise, unless the instrumentation supports [pre-aggregation](https://opentelemetry.io/docs/reference/specification/overview/#recording-metrics-with-predefined-aggregation). In that case, there will be fewer trace samples for troubleshooting, but the metrics maintain accuracy. For more information, see [Sampling in Application Insights](/azure/application-insights/app-insights-sampling). You can also reduce the data volume by pre-aggregating metrics. That is, you can calculate statistical values, like the average and standard deviation, and send those values instead of the raw telemetry. This blog post describes an approach to using Application Insights at scale: [Azure Monitoring and Analytics at Scale](/archive/blogs/azurecat/azure-monitoring-and-analytics-at-scale).
 
 If your data rate is high enough to trigger throttling, and sampling or aggregation aren't acceptable, consider exporting metrics to a time-series database, like Azure Data Explorer, Prometheus, or InfluxDB, running in the cluster.
 
@@ -125,7 +125,7 @@ Application Insights maps the OpenTelemetry context to its internal data model:
 
 Take the following considerations into account:
 
-- Application Insights throttles telemetry if the data rate exceeds a maximum limit. For details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights). A single operation can generate several telemetry events, so if an application experiences a high volume of traffic, it's likely to be throttled.
+- Application Insights throttles telemetry if the data rate exceeds a maximum limit. For details, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights). A single operation can generate several telemetry events, so if an application experiences a high volume of traffic, it's likely to be throttled.
 - Because Application Insights batches data, you can lose a batch if a process fails with an unhandled exception.
 - Application Insights billing is based on data volume. For more information, see [Manage pricing and data volume in Application Insights](/azure/application-insights/app-insights-pricing).
 
@@ -159,7 +159,7 @@ traces
 
 If you view the result in the Azure portal, you can see that `DeliveryInfo` is a structured record that contains the serialized representation of the `DeliveryInfo` model:
 
-![Screenshot that shows the Log Analytics workspace.](./images/monitoring/structured-logs.png)
+[ ![Screenshot that shows the Log Analytics workspace.](./images/monitoring/structured-logs.png) ](./images/monitoring/structured-logs.png)
 
 Here's the JSON from this example:
 ```json
@@ -216,7 +216,7 @@ requests
 | project requestTimestamp, requestDuration, logTimestamp = timestamp, deliveryId, message
 ```
 
-If you use a library or framework that's already instrumented with OpenTelemetry, it handles creating spans and requests, but the application code might also create units of work. For example, a method that loops through an array of entities that performs work on each one might create a span for each iteration of the processing loop. For information about adding instrumentation to application and library code, see the [OpenTelemery instrumentaion documentation](https://opentelemetry.io/docs/instrumentation/go/instrumentation).
+If you use a library or framework that's already instrumented with OpenTelemetry, it handles creating spans and requests, but the application code might also create units of work. For example, a method that loops through an array of entities that performs work on each one might create a span for each iteration of the processing loop. For information about adding instrumentation to application and library code, see the [OpenTelemery instrumentation documentation](https://opentelemetry.io/docs/instrumentation/go/instrumentation).
 
 ## Distributed tracing
 
@@ -226,7 +226,7 @@ One of the challenges when you use microservices is understanding the flow of ev
 
 This example describes the path of a distributed transaction through a set of microservices. The example is based on a [drone delivery application](./design/index.yml#reference-implementation).
 
-![Diagram that shows the architecture of a drone delivery application.](./images/drone-delivery-impl.png)
+[ ![Diagram that shows the architecture of a drone delivery application.](./images/drone-delivery-impl.png) ](./images/drone-delivery-impl.png)
 
 In this scenario, the distributed transaction includes these steps:
 
@@ -236,25 +236,25 @@ In this scenario, the distributed transaction includes these steps:
 
 The following screenshot shows the [application map](/azure/azure-monitor/app/app-map) for the drone delivery application. This map shows calls to the public API endpoint that result in a workflow that involves five microservices.
 
-![Screenshot that shows the application map for the drone delivery application.](./images/monitoring/application-map.png)
+[ ![Screenshot that shows the application map for the drone delivery application.](./images/monitoring/application-map.png) ](./images/monitoring/application-map.png)
 
-The arrows from `fabrikam-workflow` and `fabrikam-ingestion` to a Service Bus queue show where the messages are sent and received. You can't tell from the diagram which service is sending messages and which is receiving. The arrows just show that both services are calling Service Bus, but that information is available in the details:
+The arrows from `fabrikam-workflow` and `fabrikam-ingestion` to a Service Bus queue show where the messages are sent and received. You can't tell from the diagram which service is sending messages and which is receiving. The arrows just show that both services are calling Service Bus. But information about which service is sending and which is receiving is available in the details:
 
 ![Screenshot that shows the application map details.](./images/monitoring/application-map-sb-ops.png)
 
 Because every call includes an operation ID, you can also view the end-to-end steps of a single transaction, including timing information and the HTTP calls at each step. Here's the visualization of one such transaction:
 
-![Screenshot that shows an end-to-end transaction.](./images/monitoring/transaction.png)
+[ ![Screenshot that shows an end-to-end transaction.](./images/monitoring/transaction.png) ](./images/monitoring/transaction.png)
 
 This visualization shows the steps from the ingestion service to the queue, from the queue to the Workflow service, and from the Workflow service to the other back-end services. The last step is the Workflow service marking the Service Bus message as completed.
 
 This example shows calls to a back-end service that are failing:
 
-![Screenshot of an application map with errors.](./images/monitoring/application-map-errors.png)
+[ ![Screenshot of an application map with errors.](./images/monitoring/application-map-errors.png) ](./images/monitoring/application-map-errors.png)
 
 This map shows that a large fraction (36%) of calls to the Drone Scheduler service failed during the period of the query. The end-to-end transaction view reveals that an exception occurs when an HTTP PUT request is sent to the service:
 
-![Screenshot of the end-to-end transaction. It shows that an exception occurs when an HTTP PUT request is sent to the service.](./images/monitoring/transaction-errors.png)
+[ ![Screenshot of the end-to-end transaction. It shows that an exception occurs when an HTTP PUT request is sent to the service.](./images/monitoring/transaction-errors.png) ](./images/monitoring/transaction-errors.png)
 
 If you drill in further, you can see that the exception is a socket exception: "No such device or address."
 
@@ -280,7 +280,7 @@ Here are some common causes of errors:
 - Service discovery. Examine the Kubernetes service configuration and port mappings.
 - API mismatch. Look for HTTP 400 errors. If APIs are versioned, look at the version that's being called.
 - Error in pulling a container image. Look at the pod specification. Also make sure that the cluster is authorized to pull from the container registry.
-- RBAC issues.
+- RBAC problems.
 
 ## Next steps
 
