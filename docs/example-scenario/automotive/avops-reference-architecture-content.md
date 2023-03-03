@@ -6,6 +6,7 @@ This architecture provides guidance on the building blocks and recommendations f
 ## Architecture
 
 ![AVOps Reference architecture.](.\images\high-level-architecture-avops.png)
+*Download a [visio file](https://arch-center.azureedge.net/AVOps.vsdx) with all the diagrams in this article.*
 
 ### Dataflow
 Here's the high-level process flow of data through the reference architecture:
