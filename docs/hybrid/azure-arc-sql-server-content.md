@@ -191,7 +191,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - [Azure hybrid options][Azure hybrid options]
 - [Multicloud blockchain DLT][Multicloud blockchain DLT]
 
-[architectural-diagram]: images/administer-sql-server-azure-arc.png
+[architectural-diagram]: images/administer-sql-server-azure-arc.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_arc_sql_srvr.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework/
 [sql-server]: /sql/sql-server/
