@@ -3,8 +3,8 @@ metadata:
   title: Web app private connectivity to Azure SQL Database
   titleSuffix: Azure Example Scenarios
   description: Lock down access to an Azure SQL Database with Azure Private Link connectivity from a multi-tenant Azure App Service through regional VNet Integration.
-  author: jelledruyts
-  ms.author: ssumner
+  author: stephen-sumner
+  ms.author: jelled
   ms.date: 03/01/2023
   ms.reviewer: ssumner
   ms.topic: example-scenario
