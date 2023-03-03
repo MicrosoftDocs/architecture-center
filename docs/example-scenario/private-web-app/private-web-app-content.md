@@ -2,9 +2,9 @@ This example scenario describes how to securely connect a web app to a backend d
 
 ## Architecture
 
-![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](media\private-web-application-app-service-private-sql-v-6.png)
+![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](media\private-web-application-app-service-private-sql.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql-v6.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/private-web-application-app-service-private-sql.vsdx) of this architecture.*
 
 ### Workflow
 
