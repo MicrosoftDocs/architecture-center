@@ -4,7 +4,7 @@ In this article, we discuss Azure architectural considerations related to the an
 
 The architecture is shown in this diagram and follows the principle of [enterprise-scale landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture), specifically the enterprise-scale analytics and AI reference architecture.
 
-[![Diagram of a scalable AI platform for regulated industries.](media/scale-ai-and-machine-learning-in-regulated-industries.svg)](media/scale-ai-and-machine-learning-in-regulated-industries.svg#lightbox)
+[![Diagram of a scalable AI platform for regulated industries.](media/scalable-ai-platform-in-regulated-industries-v1.png)](media/scalable-ai-platform-in-regulated-industries-v1.png#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/scalable-ai-platform-in-regulated-industries-v1.vsdx) of this architecture.*
 
