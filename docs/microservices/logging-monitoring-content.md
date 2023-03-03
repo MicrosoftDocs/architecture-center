@@ -33,7 +33,7 @@ Use [Azure Monitor][azure-monitor] to monitor the health of your clusters. The f
 
 From here, you can drill in further to find the problem. For example, if the pod status is `ImagePullBackoff`, Kubernetes couldn't pull the container image from the registry. This problem could be caused by an invalid container tag or an authentication error during a pull from the registry.
 
-If a container crashes, the container `State` becomes `Waiting`, with a `Reason` of `CrashLoopBackOff`. For a typical scenario, where a pod is part of a replica set and the retry policy is `Always`, this problem doesn't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze).
+If a container crashes, the container `State` becomes `Waiting`, with a `Reason` of `CrashLoopBackOff`. For a typical scenario, where a pod is part of a replica set and the retry policy is `Always`, this problem doesn't show as an error in the cluster status. However, you can run queries or set up alerts for this condition. For more information, see [Understand AKS cluster performance with Azure Monitor Container insights](/azure/azure-monitor/insights/container-insights-analyze).
 
 There are multiple container-specific workbooks available in the workbooks pane of an AKS resource. You can use these workbooks for a quick overview, troubleshooting, management, and insights. The following screenshot shows a list of workbooks that are available by default for AKS workloads.
 
@@ -43,7 +43,7 @@ There are multiple container-specific workbooks available in the workbooks pane 
 
 We recommend that you use [Monitor][azure-monitor] to collect and view metrics for your AKS clusters and any other dependent Azure services.
 
-- For cluster and container metrics, enable [Azure Monitor container insights](/azure/monitoring/monitoring-container-insights-overview). When this feature is enabled, Monitor collects memory and processor metrics from controllers, nodes, and containers via the Kubernetes Metrics API. For more information about the metrics that are available through Monitor container insights, see [Understand AKS cluster performance with Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-analyze).
+- For cluster and container metrics, enable [Azure Monitor Container insights](/azure/monitoring/monitoring-container-insights-overview). When this feature is enabled, Monitor collects memory and processor metrics from controllers, nodes, and containers via the Kubernetes Metrics API. For more information about the metrics that are available through Monitor Container insights, see [Understand AKS cluster performance with Azure Monitor Container insights](/azure/azure-monitor/insights/container-insights-analyze).
 
 - Use [Application Insights](/azure/application-insights/app-insights-overview) to collect application metrics. Application Insights is an extensible application performance management (APM) service. To use it, you install an instrumentation package in your application. This package monitors the app and sends telemetry data to Application Insights. It can also pull telemetry data from the host environment. The data is then sent to Monitor. Application Insights also provides built-in correlation and dependency tracking. (See [Distributed tracing](#distributed-tracing), later in this article.)
 
@@ -75,7 +75,7 @@ There are some additional challenges for Kubernetes-based architectures:
 
 In Kubernetes, the standard approach to logging is for a container to write logs to stdout and stderr. The container engine redirects these streams to a logging driver. To make querying easier, and to prevent possible loss of log data if a node stops responding, the usual approach is to collect the logs from each node and send them to a central storage location.
 
-Azure Monitor integrates with AKS to support this approach. Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto query language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here's a Kusto query for showing the container logs for a specified pod:
+Azure Monitor integrates with AKS to support this approach. Monitor collects container logs and sends them to a Log Analytics workspace. From there, you can use the [Kusto Query Language](/azure/kusto/query/) to write queries across the aggregated logs. For example, here's a Kusto query for showing the container logs for a specified pod:
 
 ```kusto
 let ContainerIdList = KubePodInventory
@@ -86,7 +86,7 @@ ContainerLog
 | where ContainerID in (ContainerIdList)
 ```
 
-Azure Monitor is a managed service, and configuring an AKS cluster to use Monitor is a simple configuration change in the CLI or Azure Resource Manager template. (For more information, see [How to enable Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-onboard).) Another advantage of using Azure Monitor is that it consolidates your AKS logs with other Azure platform logs to provide a unified monitoring experience.
+Azure Monitor is a managed service, and configuring an AKS cluster to use Monitor is a simple configuration change in the CLI or Azure Resource Manager template. (For more information, see [How to enable Azure Monitor Container insights](/azure/azure-monitor/insights/container-insights-onboard).) Another advantage of using Azure Monitor is that it consolidates your AKS logs with other Azure platform logs to provide a unified monitoring experience.
 
 Azure Monitor is billed per gigabyte (GB) of data ingested into the service. (See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).) At  high volumes, cost might become a consideration. There are many open-source alternatives available for the Kubernetes ecosystem. For example, many organizations use Fluentd with Elasticsearch. Fluentd is an open-source data collector, and Elasticsearch is a document database that's used for search. A challenge with these options is that they require extra configuration and management of the cluster. For a production workload, you might need to experiment with configuration settings. You'll also need to monitor the performance of the logging infrastructure.
 
