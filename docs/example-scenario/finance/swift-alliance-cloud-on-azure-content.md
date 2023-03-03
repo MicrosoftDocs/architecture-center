@@ -18,9 +18,9 @@ In this example scenario, SWIFT Alliance Cloud is deployed into two Azure subscr
 * You're primarily responsible for supplying the resources for the SIL in one Azure subscription.
 * In a second Azure subscription, SWIFT provides the virtual firewall, Juniper vSRX. This component is part of the solution for managed connectivity of Alliance Connect Virtual.
 
-In this context, SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You don't have access or visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
+SWIFT configures the Juniper vSRX and establishes the VPN tunnel from the Juniper vSRX to SWIFT. You don't have access or visibility into the Juniper vSRX configuration or operation, but you do have visibility and operational responsibility for the underlying Azure infrastructure resources. High availability is enabled because the vSRX components depicted in the preceding diagram are deployed redundantly in two Azure availability zones. Additionally, HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
 
-The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute connection or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. You can choose the option that's best suited to message-traffic volumes and the required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+The connection between SWIFTNet and these customer-specific networking components can use the dedicated Azure ExpressRoute line or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. You can choose the option that's best suited to your message-traffic volumes and required level of resilience. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
 The footprint of SWIFT Alliance Cloud is based on a single tenant. To increase resiliency and availability, each customer deploys a second replicated configuration, in standby mode, in a different Azure region. For each customer, there's an instance of the SIL and Alliance Connect Virtual.
 
@@ -29,7 +29,7 @@ The SIL subscription contains resources that you manage. The SIL subscription ha
 * An Azure virtual network.
 * An Azure subnet for Azure Firewall with an Azure network security group.
 * An Azure subnet for the SIL with an Azure network security group.
-* A configuration of Azure Firewall that allows appropriate traffic to SIL.
+* A configuration of Azure Firewall that allows appropriate traffic to the SIL.
 * An Azure subnet for the additional virtual machines (depicted by HA-VM 1 and HA-VM 2 in the architecture diagram) for high availability monitoring and routing.
 * Azure policies for compliance with SWIFT's Customer Security Programme (CSP) – Customer Security Controls Framework (CSCF).
 
@@ -37,7 +37,7 @@ You can deploy the resources for the SIL by using an Azure Resource Manager temp
 
 The Alliance Connect Virtual subscription contains resources that you deploy. You deploy them by using an ARM template, also known as the Cloud Infrastructure Definition (CID) file, that's provided by SWIFT. SWIFT manages the configuration and operation of the Juniper vSRX.
 
-You're responsible for establishing improved-security connectivity to the SIL. You can use one of these methods:
+You're responsible for establishing enhanced-security connectivity to the SIL. You can use one of these methods:
 
 * Use ExpressRoute to connect on-premises resources to Azure via private connectivity.
 * Use site-to-site VPN to connect your premises to Azure via the internet.
@@ -56,7 +56,7 @@ You can use Conditional Access to enforce other restrictions. For example, you c
 ### Components
 
 - [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides enhanced-security, seamless RDP and SSH access to VMs. This fully managed service doesn't expose public IP addresses.
-- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft cloud services like Azure and Office 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute) extends your on-premises networks into the Microsoft Cloud over a private connection that's facilitated by a connectivity provider. You can use ExpressRoute to establish connections to Microsoft Cloud services like Azure and Office 365.
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall) enforces application and network connectivity policies. This network security service centrally manages the policies across multiple virtual networks and subscriptions.
 - [Azure Policy](https://azure.microsoft.com/services/azure-policy) helps you manage policies in a central location. By using this service, you can track compliance status, govern resources, and discover the changes that made a resource non-compliant. You can also enforce policies on your resources and ensure that future configurations are compliant with standards and regulations.
 - [Virtual Network](https://azure.microsoft.com/services/virtual-network) is the fundamental building block for private networks in Azure. Through Virtual Network, Azure resources like VMs can communicate with each other, the internet, and on-premises networks, all with enhanced security.
@@ -77,11 +77,11 @@ The following considerations apply to this solution. If you want more detailed i
 
 ### Reliability
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 This example scenario provides high availability. Multiple instances of SIL and Alliance Cloud, together with Alliance Connect Virtual, are deployed to support higher availability by providing back-up locations. To increase resiliency and availability, we recommend that you deploy a second similar configuration in a different Azure zone, in the same Azure region. For Alliance Cloud on Azure and Alliance Connect Virtual instances, the systems (SIL VM, HA-VM 1, and VA vSRX) should be deployed in the same Azure zone (for example, AZ1) as shown in the preceding architecture diagram.
 
-To increase resilience beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure paired regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region in the same geography. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. 
+To increase resiliency beyond a single Azure region, we recommend that you deploy in multiple Azure regions by using [Azure paired regions](/azure/best-practices-availability-paired-regions). Each Azure region is paired with another region in the same geography. Azure serializes platform updates (planned maintenance) across region pairs so that only one paired region is updated at a time. If an outage affects multiple regions, at least one region in each pair is prioritized for recovery. 
 
 ### Security
 
@@ -95,11 +95,11 @@ Azure Bastion must be deployed to a dedicated subnet and requires a public IP ad
 
 #### Enforce SWIFT CSP–CSCF policies
 
-You can use [Azure Policy](/azure/governance/policy/overview) to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, you can use Azure Policy to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. You can use built-in policies or create policies themselves.
+You can use [Azure Policy](/azure/governance/policy/overview) to set policies that need to be enforced within an Azure subscription to meet compliance or security requirements. For example, you can use Azure Policy to block administrators from deploying certain resources or to enforce network configuration rules that block traffic to the internet. You can use built-in policies or create your own policies.
 
 SWIFT has a policy framework that helps you enforce a subset of SWIFT CSP–CSCF requirements by using Azure policies within your subscription. For simplicity, you can create a separate subscription in which you deploy SWIFT secure zone components and another subscription for other potentially related components. If you use separate subscriptions, you can apply the SWIFT CSP–CSCF Azure policies only to subscriptions that contain a SWIFT secure zone.
 
-We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. Separate subscriptions ensure that SWIFT CSP–CSCF applies only to SWIFT components and not to customer-specific components.
+We recommend that you deploy SWIFT components in a subscription that's separate from any back-office applications. Using separate subscriptions ensures that SWIFT CSP–CSCF applies only to SWIFT components and not to customer-specific components.
 
 Consider using the latest implementation of SWIFT CSP controls, but first consult with the Microsoft team that you're working with.
 

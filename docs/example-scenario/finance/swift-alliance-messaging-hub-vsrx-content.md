@@ -108,7 +108,7 @@ Reliability ensures that your application can meet the commitments that you make
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Use the latest implementation of SWIFT Content Security Policy (CSP) controls in Azure. You should, however, consult your Microsoft team first.
+- Use the latest implementation of SWIFT Customer Security Programme (CSP) controls in Azure. You should, however, consult your Microsoft team first.
 - Use Defender for Cloud to help protect against threats that exploit server and application vulnerabilities. Defender for Cloud can help you quickly identify threats, streamline threat investigation, and automate remediation.
 - Use Azure Active Directory (Azure AD) and role-based access control (RBAC) to limit access to application components.
 - Use Microsoft Sentinel to analyze security events and other events that solution components report. This service can help you respond quickly to anomalies and potential threats.
