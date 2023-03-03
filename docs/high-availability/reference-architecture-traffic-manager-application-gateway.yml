@@ -20,6 +20,6 @@ products:
   - azure-traffic-manager
 name: Multi-region load balancing with Traffic Manager and Application Gateway
 summary: Multi-region load balancing with Application Gateway and Traffic Manager.
-thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-multi-region.png
+thumbnailUrl: /azure/architecture/browse/thumbs/high-availability-multi-region-v-9.png
 content: |
   [!include[](reference-architecture-traffic-manager-application-gateway-content.md)]
