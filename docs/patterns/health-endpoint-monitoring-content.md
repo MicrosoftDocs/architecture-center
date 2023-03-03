@@ -10,7 +10,7 @@ Many factors affect cloud-hosted applications. Examples include network latency,
 
 ## Solution
 
-Implement health monitoring by sending requests to an endpoint on the application. The application should perform the necessary checks and then return an indication of its status.
+Implement health monitoring by sending requests to an endpoint on your application. The application should perform the necessary checks and then return an indication of its status.
 
 A health monitoring check typically combines two factors:
 
@@ -45,7 +45,7 @@ Where possible, it's also useful to run these checks from different on-premises 
 - Where to deploy your application
 - Whether to deploy it in more than one datacenter
 
-To ensure your application works correctly for all customers, run tests against all the service instances that customers use. For example, if customer storage is spread across more than one storage account, the monitoring process should check each account.
+To ensure that your application works correctly for all customers, run tests against all the service instances that customers use. For example, if customer storage is spread across more than one storage account, the monitoring process should check each account.
 
 ## Issues and considerations
 
@@ -53,13 +53,13 @@ Consider the following points when you decide how to implement this pattern:
 
 - Think about how to validate the response. For example, determine whether a 200 (OK) status code is sufficient to verify that the application is working correctly. Checking the status code is the minimum implementation of this pattern. A status code provides a basic measure of application availability. But a code supplies little information about the operations, trends, and possible upcoming issues in the application.
 
-- Determine the number of endpoints to expose for an application. One approach is to expose at least one endpoint for the core services that the application uses and another for lower priority services. With this approach, you can assign different levels of importance to each monitoring result. Also consider exposing extra endpoints. You can expose one for each core service to increase monitoring granularity. For example, a health verification check might check the database, the storage, and an external geocoding service that an application uses. Each might require a different level of uptime and response time. The geocoding service or some other background task might be unavailable for a few minutes. But the application might still be healthy.
+- Determine the number of endpoints to expose for an application. One approach is to expose at least one endpoint for the core services that the application uses and another for lower-priority services. With this approach, you can assign different levels of importance to each monitoring result. Also consider exposing extra endpoints. You can expose one for each core service to increase monitoring granularity. For example, a health verification check might check the database, the storage, and an external geocoding service that an application uses. Each might require a different level of uptime and response time. The geocoding service or some other background task might be unavailable for a few minutes. But the application might still be healthy.
 
 - Decide whether to use the same endpoint for monitoring and for general access. You can use the same endpoint for both but design a specific path for health verification checks. For example, you can use */health* on the general access endpoint. With this approach, monitoring tools can run some functional tests in the application. Examples include registering a new user, signing in, and placing a test order. At the same time, you can also verify that the general access endpoint is available.
 
 - Determine the type of information to collect in the service in response to monitoring requests. You also need to determine how to return this information. Most existing tools and frameworks look only at the HTTP status code that the endpoint returns. To return and validate additional information, you might have to create a custom monitoring utility or service.
 
-- Figure out how much information to collect. Performing excessive processing during the check can overload the application and affect other users. The processing time might also exceed the timeout of the monitoring system. As a result, the system might mark the application as unavailable. Most applications include instrumentation such as error handlers and performance counters. These tools can log performance and detailed error information, which might be sufficient. Considering using this data instead of returning additional information from a health verification check.
+- Figure out how much information to collect. Performing excessive processing during the check can overload the application and affect other users. The processing time might also exceed the timeout of the monitoring system. As a result, the system might mark the application as unavailable. Most applications include instrumentation such as error handlers and performance counters. These tools can log performance and detailed error information, which might be sufficient. Consider using this data instead of returning additional information from a health verification check.
 
 - Consider caching the endpoint status. Running the health check frequently might be expensive. For example, if the health status is reported through a dashboard, you don't want every request to the dashboard to trigger a health check. Instead, periodically check the system health, and cache the status. Expose an endpoint that returns the cached status.
 
