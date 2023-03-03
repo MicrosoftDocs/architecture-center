@@ -13,19 +13,19 @@ This article describes a recommended solution for deploying SWIFT Alliance Messa
 
 This Azure solution uses the same topology as the on-premises environment. On-premises environments fall into two categories:
 
-- On-premises site (Business users). The location that business users and business applications use to access AMH.
-- On-premises site (Hardware Security Module). The location that hosts the Hardware Security Module (HSM) appliance that SWIFT provides.
+- Business users. The location that business users and business applications use to access AMH.
+- Hardware Security Module. The location that hosts the Hardware Security Module (HSM) appliance that SWIFT provides.
 
 ### Workflow
 
 - A business user or an application at the organization's on-premises site (Business users) connects to AMH by using network connectivity. 
 - AMH processes the user request by coordinating with SWIFT Alliance Gateway (SAG) and SWIFTNet Link (SNL). 
-- The SAG and SNL components connect with the organization's on-premises site (HSM) to sign the message. 
+- The SAG and SNL components connect to the organization's on-premises site (HSM) to sign the message. 
 - The Alliance Connect Virtual subscription contains the additional components that are required to enable connectivity with SWIFTNet. 
 - High availability is enabled because the vSRX components in the architecture are deployed redundantly into two Azure availability zones. 
 - HA-VM 1 and HA-VM 2 monitor and maintain the route tables to provide higher resiliency and improve the availability of the solution.
 - The Alliance Connect Virtual networking solution forwards the message to SWIFTNet.
-- The connection between SWIFTNet and customer-specific networking components can use the dedicated Azure ExpressRoute line or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. You can choose the option best suited to message-traffic volumes and the required level of resiliency. For more information about these options, see [Alliance Connect: Bronze, Silver and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+- The connection between SWIFTNet and customer-specific networking components can use the dedicated Azure ExpressRoute line or the internet. SWIFT offers three connectivity options: Bronze, Silver, and Gold. You can choose the option best suited to your message-traffic volumes and required level of resiliency. For more information about these options, see [Alliance Connect: Bronze, Silver, and Gold packages](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 - Azure services that run in your optional shared Azure services subscription provide additional management and operational services.
 
 AMH needs network connectivity with SAG and SNL.
