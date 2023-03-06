@@ -53,7 +53,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you need serving storage that can serve as a hot path for your data? If yes, narrow your options to those that are optimized for a speed serving layer.
 
-- Do you need massively parallel processing (MPP) support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale out.
+- Do you need massively parallel processing (MPP) support, where queries are automatically distributed across several processes or nodes? If yes, select an option that supports query scale-out.
 
 - Do you prefer to use a relational data store? If so, narrow your options to those with a relational database model. However, note that some non-relational stores support SQL syntax for querying, and tools such as PolyBase can be used to query non-relational data stores.
 
@@ -83,7 +83,7 @@ The following tables summarize the key differences in capabilities.
 | Capability | SQL Database | Azure Synapse SQL pool | Azure Synapse Spark pool | Azure Data Explorer | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Azure Cosmos DB |
 |--------------------------------------------------|--------------|--------------------|---------------------------|----------------------------|------------------------|-------------------------|-----------|-----------|
 | Redundant regional servers for high availability |     Yes      |        No         |        No         |       Yes   |            Yes             |           No           |           Yes            |    Yes    |
-|             Supports query scale out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
+|             Supports query scale-out             |      No      |        Yes         |        Yes         |         Yes         |         Yes             |          Yes           |           Yes           |    Yes    |
 |          Dynamic scalability (scale up)          |     Yes      |        Yes       |        Yes         |        Yes           |             No             |           No           |           Yes           |    Yes    |
 |        Supports in-memory caching of data        |     Yes      |        Yes         |        Yes         |            Yes         |        No             |          Yes           |           Yes           |    No     |
 
