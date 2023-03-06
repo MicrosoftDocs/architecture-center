@@ -6,7 +6,9 @@ Use Azure VMware Solution foundation block capacity planning to size and plan fo
 
 This high-level diagram covers Azure VMware Solution capacity planning.
 
-![Diagram showing Azure VMware Solution capacity planning.](../media/azure-vmware-solution-sizing.png)
+![Diagram showing Azure VMware Solution capacity planning.](../media/azure-vmware-solution-sizing.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-vmware-solution-capacity.vsdx) of this architecture.*
 
 ### Workflow
 
