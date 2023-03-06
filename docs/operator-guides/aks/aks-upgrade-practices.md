@@ -13,6 +13,7 @@ products:
   - azure-kubernetes-service
 ms.custom:
   - e2e-aks
+  - devx-track-azurecli
 ---
 
 # Patch and upgrade AKS worker nodes
