@@ -122,5 +122,5 @@ Principal author:
 - [Risk grid computing in banking](risk-grid-banking-overview.yml)
 - [Risk grid computing solution](risk-grid-banking-solution-guide.yml)
 - [Data management in banking](data-management-banking-overview.yml)
-- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario)
 - [Big compute architecture style](../../guide/architecture-styles/big-compute.yml)

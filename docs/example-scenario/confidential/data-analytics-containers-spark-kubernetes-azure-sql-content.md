@@ -137,7 +137,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
   
-- Deploy [Always Encrypted with secure enclaves in Azure SQL Database - Demos](https://github.com/microsoft/sql-server-samples/blob/master/samples/features/security/always-encrypted-with-secure-enclaves/azure-sql-database/README.md). These demos use a confidential dataset, ContosoHR, which is included. This scenario decrypts confidential data into plaintext inside the Spark containers enclave.
+- Deploy [Always Encrypted with secure enclaves in Azure SQL Database - Demos](https://github.com/microsoft/sql-server-samples/blob/master/samples/features/security/always-encrypted-with-secure-enclaves/azure-sql-database-sgx/README.md). These demos use a confidential dataset, ContosoHR, which is included. This scenario decrypts confidential data into plaintext inside the Spark containers enclave.
 
 - Deploy an Intel SGX-enabled AKS cluster node pool. For instructions, see [Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
 

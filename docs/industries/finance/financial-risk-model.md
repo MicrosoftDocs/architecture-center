@@ -431,7 +431,7 @@ Principal authors:
 - [Data management in banking](data-management-banking-overview.yml)
 - [Risk grid computing in banking](risk-grid-banking-overview.yml)
 - [HPC risk analysis template](../../solution-ideas/articles/hpc-risk-analysis.yml)
-- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh)
+- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario)
 - [Knowledge mining in auditing, risk, and compliance management](../../solution-ideas/articles/auditing-and-risk-compliance.yml)
 - [Loan credit risk and default modeling](../../solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml)
 - [Loan credit risk with SQL Server](../../solution-ideas/articles/loan-credit-risk-with-sql-server.yml)
