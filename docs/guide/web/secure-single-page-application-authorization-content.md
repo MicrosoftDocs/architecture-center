@@ -1,104 +1,107 @@
-This guide demonstrates how you can use Azure API Management to implement a stateless no token in the browser pattern for a JavaScript single-page application, protecting access tokens from XSS attacks and malicious code running in the browser.
+This guide shows how to use Azure API Management to implement a stateless No Token in the Browser architecture for a JavaScript single-page application. Doing so helps to protect access tokens from cross-site scripting (XSS) attacks and keep malicious code from running in the browser.
 
-This pattern uses [Azure API Management](https://azure.microsoft.com/products/api-management) in a [Backend for Frontend](https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends) pattern to handle the OAuth2 access token acquisition from Azure Active Directory; [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption and decryption of the access token into an `HttpOnly` cookie; and to proxy all API calls requiring authorization.
+This architecture uses [API Management](https://azure.microsoft.com/products/api-management) to:
 
-As the backend handles the token acquisition, no other code or library, such as [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application itself. This design means that no tokens are stored in the browser session or local storage. By encrypting and storing the access token in an `HttpOnly` cookie protects it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks, and scoping it to the API domain and setting `SameSite=Strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
+- Implement a [Backends for Frontends](https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends) pattern that gets an OAuth2 access token from Azure Active Directory (Azure AD).
+- Use Advanced Encryption Standard [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt and decrypt the access token.
+- Store the token in an `HttpOnly` cookie.
+- Proxy all API calls that require authorization.
+
+Because the backend handles token acquisition, no other code or library, like [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js), is required in the single-page application. When you use this design, no tokens are stored in the browser session or local storage. Encrypting and storing the access token in an `HttpOnly` cookie helps to protect it from [XSS](https://owasp.org/www-community/attacks/xss/) attacks. Scoping it to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests.
 
 ## Architecture
 
-![Diagram of the No Token in the Browser architecture.](./images/no-token-in-the-browser.png)
+![Diagram diagram that shows the No Token in the Browser architecture.](./images/no-token-in-the-browser.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/no-token-in-the-browser.vsdx) of this architecture.*
 
 ### Workflow
 
-1. User selects sign-in in single-page application.
-2. Single-page application invokes Authorization Code flow with a redirect to Azure Active Directory authorize endpoint.
-3. User authenticates themselves.
-4. Authorization Code flow response redirects to Azure API Management callback endpoint with authorization code.
-5. Azure API Management policy exchanges authorization code for access token by calling Azure Active Directory token endpoint.
-6. Azure API Management policy redirects back to single-page application and sets encrypted access token in an HttpOnly cookie.
-7. User invokes external API call from single-page application through Azure API Management proxied endpoint.
-8. Azure API Management policy receives API request, decrypts cookie, and makes downstream API call with access token added as Authorization header.
+1. A user selects **Sign in** in the single-page application.
+2. The single-page application invokes Authorization Code flow with a redirect to the Azure AD authorization endpoint.
+3. Users authenticate themselves.
+4. An Authorization Code flow response is redirected to the API Management callback endpoint with an authorization code.
+5. The API Management policy exchanges the authorization code for an access token by calling the Azure AD token endpoint.
+6. The Azure API Management policy redirects to the application and places the encrypted access token in an `HttpOnly` cookie.
+7. The user invokes an external API call from the application via an API Management proxied endpoint.
+8. The API Management policy receives the API request, decrypts the cookie, and makes a downstream API call, adding the access token as an `Authorization` header.
 
 ## Scenario details
 
-Single-page applications are written in JavaScript and run within the context of a client-side browser. This pattern means the user can access any code running in the browser. Malicious code running in the browser or an XSS vulnerability can also access any data. Data such as an access token stored in the browser session or local storage is accessible through this pattern. This vulnerability means that any sensitive data, such as access tokens, can be accessed and used to impersonate the user.
+Single-page applications are written in JavaScript and run in the context of a client-side browser. With this implementation, the user can access any code running in the browser. Malicious code running in the browser or an XSS attack can also access data. Data that's stored in the browser session or local storage can be accessed, so sensitive data, like access tokens, can be used to impersonate the user.
 
-This pattern increases the security of the application by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token, meaning access tokens no longer need to be stored in the browser session or local storage, and aren't accessible to malicious code running in the browser.
+The architecture described here increases the security of the application by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token. Access tokens don't need to be stored in the browser session or local storage, and they can't be accessed by malicious code that's running in the browser.
 
-Azure API Management Policies handle the acquisition of the access token and encryption and decryption of the cookie in this example. Policies are a collection of statements that are run sequentially on the request or response of an API and are made up of a set of XML elements and C# scripts.
+In this architecture, API Management policies handle the acquisition of the access token and encryption and decryption of the cookie. Policies are collections of statements that are run sequentially on the request or response of an API and that are made up of XML elements and C# scripts.
 
-By using an `HttpOnly` cookie to store the access token, the token is protected from XSS attacks and isn't accessible by JavaScript. Scoping the cookie to the API domain and setting `SameSite=Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This pattern allows the access token to be automatically added to the Authorization header of all API calls made from the single-page application by the backend.
+Storing the cooking in an `HttpOnly` cookie helps to protect the token from XSS attacks and to ensure that it can't be accessed by JavaScript. Scoping the cookie to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This design enables the access token to be automatically added to the `Authorization` header of all API calls made from the single-page application by the backend.
 
-As this example utilizes a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
+Because this architecture uses a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
 
-It's possible to configure this example without using custom domains for the API Management instance and Static Web App, but that would require the cookie setting to be amended to `SameSite=None`. However, this change provides a less secure implementation since the cookie is added to all requests to any instance of the API Management gateway. More on SameSite cookies can be read [here](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
+You can configure this architecture without using custom domains for the API Management instance and static web app, but then you'd need to use `SameSite=None` for the cookie setting. This implementation results in a less secure implementation because the cookie is added to all requests to any instance of the API Management gateway. For more information, see [SameSite cookies](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
 
-To learn more about using custom domains on Azure resources, see [Manage custom domains for Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/custom-domain), and [Configure a custom domain name for your Azure API Management instance](https://learn.microsoft.com/azure/api-management/configure-custom-domain). For more information on how to configure DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](https://learn.microsoft.com/azure/dns/dns-operations-dnszones-portal).
+To learn more about using custom domains for Azure resources, see [Custom domains with Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/custom-domain), and [Configure a custom domain name for your Azure API Management instance](https://learn.microsoft.com/azure/api-management/configure-custom-domain). For more information about configuring DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](https://learn.microsoft.com/azure/dns/dns-operations-dnszones-portal).
 
 ## Authentication flow
 
-To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. This flow is invoked by redirecting the user to the Azure Active Directory authorize endpoint. The user is then prompted to authenticate themselves, and then redirected back to the Azure API Management callback endpoint with an authorization code. The API Management policy securely exchanges this authorization code for an access token.
+This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.com/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting the user to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
 
-This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.com/azure/active-directory/fundamentals/auth-oauth2), and requires a redirect URI to be configured in Azure Active Directory. This redirect URI must be the Azure API Management callback endpoint. The Azure API Management policy then securely exchanges the authorization code for an access token by calling the Azure Active Directory token endpoint. The following diagram shows the sequence of events for this flow.
-
-![Diagram of the No Token in the Browser set token sequence.](./images/no-token-in-browser-set-token-sequence.png)
+![Diagram that shows the No Token in the Browser set token sequence.](./images/no-token-in-browser-set-token-sequence.png)
 
 The flow can be broken down into the following steps:
 
-1. To obtain an access token to allow the single-page application to access the API, the user must first authenticate themselves. The user invokes the flow by clicking a button that redirects to the Microsoft identity platform authorize endpoint, with the `redirect_uri` set to the `/auth/callback` api endpoint of the API Management gateway.
+1. To obtain an access token to allow the single-page application to access the API, users must first authenticate themselves. Users invoke the flow by selecting a button that redirects them to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway.
 
-2. The user is prompted to authenticate themselves. Upon successful authentication, the Microsoft identity platform responds with a redirect.
+2. Users are prompted to authenticate themselves. If authentication succeeds, the Microsoft identity platform responds with a redirect.
 
-3. The browser is redirected to the `redirect_uri`, which is the Azure API Management callback endpoint. The authorization code is passed to the callback endpoint.
+3. The browser is redirected to the `redirect_uri`, which is the API Management callback endpoint. The authorization code is passed to the callback endpoint.
 
-4. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by making a call to the Azure Active Directory token endpoint. It passes the required information, such as the client ID, client secret, and authorization code.
+4. The inbound policy of the callback endpoint is invoked. The policy exchanges the authorization code for an access token by making a call to the Azure AD token endpoint. It passes the required information, like the client ID, client secret, and authorization code:
 
-```XML
-<send-request ignore-error="false" timeout="20" response-variable-name="response" mode="new">
+   ```XML
+   <send-request ignore-error="false" timeout="20" response-variable-name="response" mode="new">
     <set-url>https://login.microsoftonline.com/{{tenant-id}}/oauth2/v2.0/token</set-url>
     <set-method>POST</set-method>
     <set-header name="Content-Type" exists-action="override">
         <value>application/x-www-form-urlencoded</value>
     </set-header>
     <set-body>@($"grant_type=authorization_code&code={context.Request.OriginalUrl.Query.GetValueOrDefault("code")}&client_id={{client-id}}&client_secret={{client-secret}}&redirect_uri=https://{context.Request.OriginalUrl.Host}/auth/callback")</set-body>
-</send-request>
-```
-5. The access token is returned and stored in a variable named `token`.
+   </send-request>
+   ```
+5. The access token is returned and stored in a variable named `token`:
 
-```XML
-<set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("response")).Body.As<JObject>())" />
-```
-6. The access token is then encrypted using AES encryption and stored in a variable named `cookie`.
+      ```XML
+      <set-variable name="token" value="@((context.Variables.GetValueOrDefault<IResponse>("response")).Body.As<JObject>())" />
+      ```
+6. The access token is encrypted with AES encryption and stored in a variable named `cookie`:
 
-```XML
-<set-variable name="cookie" value="@{
-    var rng = new RNGCryptoServiceProvider();
-    var iv = new byte[16];
-    rng.GetBytes(iv);
-    byte[] tokenBytes = Encoding.UTF8.GetBytes((string)(context.Variables.GetValueOrDefault<JObject>("token"))["access_token"]);
-    byte[] encryptedToken = tokenBytes.Encrypt("Aes", Convert.FromBase64String("{{enc-key}}"), iv);
-    byte[] combinedContent = new byte[iv.Length + encryptedToken.Length];
-    Array.Copy(iv, 0, combinedContent, 0, iv.Length);
-    Array.Copy(encryptedToken, 0, combinedContent, iv.Length, encryptedToken.Length);
-    return System.Net.WebUtility.UrlEncode(Convert.ToBase64String(combinedContent));
-}" />
-```
+   ```XML
+   <set-variable name="cookie" value="@{
+       var rng = new RNGCryptoServiceProvider();
+       var iv = new byte[16];
+       rng.GetBytes(iv);
+       byte[] tokenBytes = Encoding.UTF8.GetBytes((string)(context.Variables.GetValueOrDefault<JObject>("token"))["access_token"]);
+       byte[] encryptedToken = tokenBytes.Encrypt("Aes", Convert.FromBase64String("{{enc-key}}"), iv);
+       byte[] combinedContent = new byte[iv.Length + encryptedToken.Length];
+       Array.Copy(iv, 0, combinedContent, 0, iv.Length);
+       Array.Copy(encryptedToken, 0, combinedContent, iv.Length, encryptedToken.Length);
+       return System.Net.WebUtility.UrlEncode(Convert.ToBase64String(combinedContent));
+      }" />
+      ```
 
-6. The outbound policy of the callback endpoint is then invoked to redirect to the single-page application, setting the encrypted access token in a secure `HttpOnly` cookie, defined with the `SameSite=Strict` attribute and scoped to the domain of the API Management gateway. As no explicit expiry date is set, the cookie is created as a session cookie and expire when the browser is closed.
+6. The outbound policy of the callback endpoint is invoked to redirect to the single-page application. It sets the encrypted access token in an `HttpOnly` cookie that has `SameSite` set to `Strict` and is scoped to the domain of the API Management gateway. Because no explicit expiration date is set, the cookie is created as a session cookie and expires when the browser is closed.
 
-```XML
-<return-response>
-    <set-status code="302" reason="Temporary Redirect" />
-    <set-header name="Set-Cookie" exists-action="override">
-        <value>@($"{{cookie-name}}={context.Variables.GetValueOrDefault<string>("cookie")}; Secure; SameSite=Strict; Path=/; Domain={{cookie-domain}}; HttpOnly")</value>
-    </set-header>
-    <set-header name="Location" exists-action="override">
-        <value>{{return-uri}}</value>
-    </set-header>
-</return-response>
-```
+   ```XML
+   <return-response>
+       <set-status code="302" reason="Temporary Redirect" />
+       <set-header name="Set-Cookie" exists-action="override">
+           <value>@($"{{cookie-name}}={context.Variables.GetValueOrDefault<string>("cookie")}; Secure; SameSite=Strict; Path=/; Domain={{cookie-domain}}; HttpOnly")</value>
+       </set-header>
+       <set-header name="Location" exists-action="override">
+           <value>{{return-uri}}</value>
+       </set-header>
+   </return-response>
+   ```
 
 ## API Call Flow
 
