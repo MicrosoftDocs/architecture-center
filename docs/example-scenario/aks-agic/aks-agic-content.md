@@ -1,5 +1,7 @@
 In this solution, [Azure Web Application Firewall (WAF)](/azure/web-application-firewall/ag/ag-overview) provides centralized protection for web applications deployed on a multi-tenant Azure Kubernetes Service (AKS) cluster from common exploits and vulnerabilities. Web applications running on [Azure Kubernetes Service (AKS) cluster](/azure/aks/intro-kubernetes) and exposed via the [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview) can be protected from malicious attacks, such as SQL injection and cross-site scripting, by using a [WAF Policy](/azure/web-application-firewall/ag/create-waf-policy-ag) on Azure Application Gateway. WAF Policy on Azure Application Gateway comes pre-configured with OWASP core rule sets and can be changed to other supported OWASP CRS versions.
 
+test
+
 ## Architecture
 
 :::image type="content" border="false" source="./media/aks-agic.png" alt-text="Diagram displays a diagram of this Application Gateway Ingress Controller solution." lightbox="./media/aks-agic.png":::
@@ -399,3 +401,4 @@ Principal authors:
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [CI/CD pipeline for container-based workloads](../apps/devops-with-aks.yml)
 - [Building a telehealth system on Azure](../apps/telehealth-system.yml)
+
