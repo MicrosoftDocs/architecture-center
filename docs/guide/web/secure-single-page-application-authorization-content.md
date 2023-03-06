@@ -48,7 +48,7 @@ This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.c
 
 ![Diagram that shows the No Token in the Browser set token sequence.](./images/no-token-in-browser-set-token-sequence.png)
 
-The flow can be broken down into the following steps:
+The flow contains these steps:
 
 1. To obtain an access token to allow the single-page application to access the API, users must first authenticate themselves. Users invoke the flow by selecting a button that redirects them to the Microsoft identity platform authorization endpoint. The `redirect_uri` is set to the `/auth/callback` API endpoint of the API Management gateway.
 
@@ -86,7 +86,7 @@ The flow can be broken down into the following steps:
        Array.Copy(iv, 0, combinedContent, 0, iv.Length);
        Array.Copy(encryptedToken, 0, combinedContent, iv.Length, encryptedToken.Length);
        return System.Net.WebUtility.UrlEncode(Convert.ToBase64String(combinedContent));
-      }" />
+    }" />
       ```
 
 6. The outbound policy of the callback endpoint is invoked to redirect to the single-page application. It sets the encrypted access token in an `HttpOnly` cookie that has `SameSite` set to `Strict` and is scoped to the domain of the API Management gateway. Because no explicit expiration date is set, the cookie is created as a session cookie and expires when the browser is closed.
@@ -103,54 +103,54 @@ The flow can be broken down into the following steps:
    </return-response>
    ```
 
-## API Call Flow
+## API call flow
 
-Once the single-page application has the access token, it can be used to call the downstream API. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it gets automatically added to the request. The access token can then be decrypted ready to be used to call the downstream API. The following diagram shows the sequence of events for this flow.
+When the single-page application has the access token, it can use the token to call the downstream API. Because the cookie is scoped to the domain of the single-page application and is configured with the `SameSite=Strict` attribute, it's automatically added to the request. The access token can then be decrypted so it can be used to call the downstream API. The following diagram shows the sequence of events for this flow.
 
-![Diagram of the No Token in the Browser call api sequence.](./images/no-token-in-browser-call-api-sequence.png)
+![Diagram of the No Token in the Browser API call sequence.](./images/no-token-in-browser-call-api-sequence.png)
 
-The flow can be broken down into the following steps:
+The flow contains these steps:
 
-1. The user clicks a button in the single-page application to call the downstream API, which invokes a JavaScript function that calls the `/graph/me` api endpoint of the API Management gateway.
+1. A user selects a button in the single-page application to call the downstream API, which invokes a JavaScript function that calls the `/graph/me` API endpoint of the API Management gateway.
 
-2. As the cookie is scoped to the domain of the single-page application and has the `SameSite=Strict` attribute set, it's automatically added by the browser with the request to the API.
+2. Because the cookie is scoped to the domain of the single-page application and has `SameSite` set to `Strict`, it's automatically added by the browser with the request to the API.
 
-3. When the API Management gateway receives the request, the inbound policy of the `/graph/me` endpoint is invoked. The policy decrypts the access token from the cookie and stores it in a variable named `access_token`.
+3. When the API Management gateway receives the request, the inbound policy of the `/graph/me` endpoint is invoked. The policy decrypts the access token from the cookie and stores it in a variable named `access_token`:
 
-```XML
-<set-variable name="access_token" value="@{
-    try {
-        string cookie = context.Request.Headers
-            .GetValueOrDefault("Cookie")?
-            .Split(';')
-            .ToList()?
-            .Where(p => p.Contains("{{cookie-name}}"))
-            .FirstOrDefault()
-            .Replace("{{cookie-name}}=", "");
-        byte[] encryptedBytes = Convert.FromBase64String(System.Net.WebUtility.UrlDecode(cookie));
-        byte[] iv = new byte[16];
-        byte[] tokenBytes = new byte[encryptedBytes.Length - 16];
-        Array.Copy(encryptedBytes, 0, iv, 0, 16);
-        Array.Copy(encryptedBytes, 16, tokenBytes, 0, encryptedBytes.Length - 16);
-        byte[] decryptedBytes = tokenBytes.Decrypt("Aes", Convert.FromBase64String("{{enc-key}}"), iv);
-        char[] convertedBytesToChar = Encoding.UTF8.GetString(decryptedBytes).ToCharArray();
-        return Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(convertedBytesToChar));
-    } catch (Exception ex) {
-        return null;
-    }
-}" />
-```
-4. The access token is then added to the request to the downstream API as an `Authorization` header.
+   ```XML
+   <set-variable name="access_token" value="@{
+       try {
+           string cookie = context.Request.Headers
+               .GetValueOrDefault("Cookie")?
+               .Split(';')
+               .ToList()?
+               .Where(p => p.Contains("{{cookie-name}}"))
+               .FirstOrDefault()
+               .Replace("{{cookie-name}}=", "");
+           byte[] encryptedBytes = Convert.FromBase64String(System.Net.WebUtility.UrlDecode(cookie));
+           byte[] iv = new byte[16];
+           byte[] tokenBytes = new byte[encryptedBytes.Length - 16];
+           Array.Copy(encryptedBytes, 0, iv, 0, 16);
+           Array.Copy(encryptedBytes, 16, tokenBytes, 0, encryptedBytes.Length - 16);
+           byte[] decryptedBytes = tokenBytes.Decrypt("Aes", Convert.FromBase64String("{{enc-key}}"), iv);
+           char[] convertedBytesToChar = Encoding.UTF8.GetString(decryptedBytes).ToCharArray();
+           return Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(convertedBytesToChar));
+       } catch (Exception ex) {
+           return null;
+       }
+   }" />
+   ```
+4. The access token is then added to the request to the downstream API as an `Authorization` header:
 
-```XML
-<choose>
-    <when condition="@(!string.IsNullOrEmpty(context.Variables.GetValueOrDefault<string>("access_token")))">
-        <set-header name="Authorization" exists-action="override">
-            <value>@($"Bearer {context.Variables.GetValueOrDefault<string>("access_token")}")</value>
-        </set-header>
-    </when>
-</choose>
-```
+   ```XML
+   <choose>
+       <when condition="@(!string.IsNullOrEmpty(context.Variables.GetValueOrDefault<string>("access_token")))">
+           <set-header name="Authorization" exists-action="override">
+               <value>@($"Bearer {context.Variables.GetValueOrDefault<string>("access_token")}")</value>
+           </set-header>
+       </when>
+   </choose>
+   ```
 
 5. The request is then proxied to the downstream API with the access token added to the Authorization header.
 
