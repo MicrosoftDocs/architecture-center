@@ -6644,7 +6644,7 @@ items:
                 maintainContext: true
               - name: Eventual consistency in Power Platform
                 href: guide/power-platform/eventual-consistency.yml
-              - name: Secure single-page application authorization
+              - name: Single-page application authorization
                 href: guide/web/secure-single-page-application-authorization.yml
           - name: Architectures
             items:

@@ -2,7 +2,7 @@ This guide shows how to use Azure API Management to implement a stateless No Tok
 
 This architecture uses [API Management](https://azure.microsoft.com/products/api-management) to:
 
-- Implement a [Backends for Frontends](https://learn.microsoft.com/azure/architecture/patterns/backends-for-frontends) pattern that gets an OAuth2 access token from Azure Active Directory (Azure AD).
+- Implement a [Backends for Frontends](/azure/architecture/patterns/backends-for-frontends) pattern that gets an OAuth2 access token from Azure Active Directory (Azure AD).
 - Use Advanced Encryption Standard [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt and decrypt the access token.
 - Store the token in an `HttpOnly` cookie.
 - Proxy all API calls that require authorization.
@@ -26,6 +26,12 @@ Because the backend handles token acquisition, no other code or library, like [M
 7. The user invokes an external API call from the application via an API Management proxied endpoint.
 8. The API Management policy receives the API request, decrypts the cookie, and makes a downstream API call, adding the access token as an `Authorization` header.
 
+## Components
+
+- [Azure AD](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
+- [API Management](https://azure.microsoft.com/services/api-management/) is a hybrid multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
+- [Azure Static Web Apps](https://azure.microsoft.com/products/app-service/static) is a service that automatically builds and deploys full-stack web apps to Azure from a code repository. Deployments are triggered by changes made to application source code in GitHub or in Azure DevOps repositories.
+
 ## Scenario details
 
 Single-page applications are written in JavaScript and run in the context of a client-side browser. With this implementation, the user can access any code running in the browser. Malicious code running in the browser or an XSS attack can also access data. Data that's stored in the browser session or local storage can be accessed, so sensitive data, like access tokens, can be used to impersonate the user.
@@ -40,11 +46,11 @@ Because this architecture uses a `SameSite=Strict` cookie, it's important that t
 
 You can configure this architecture without using custom domains for the API Management instance and static web app, but then you'd need to use `SameSite=None` for the cookie setting. This implementation results in a less secure implementation because the cookie is added to all requests to any instance of the API Management gateway. For more information, see [SameSite cookies](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
 
-To learn more about using custom domains for Azure resources, see [Custom domains with Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/custom-domain), and [Configure a custom domain name for your Azure API Management instance](https://learn.microsoft.com/azure/api-management/configure-custom-domain). For more information about configuring DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](https://learn.microsoft.com/azure/dns/dns-operations-dnszones-portal).
+To learn more about using custom domains for Azure resources, see [Custom domains with Azure Static Web Apps](/azure/static-web-apps/custom-domain), and [Configure a custom domain name for your Azure API Management instance](/azure/api-management/configure-custom-domain). For more information about configuring DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](/azure/dns/dns-operations-dnszones-portal).
 
 ## Authentication flow
 
-This process uses the [OAuth2 Authorization Code flow](https://learn.microsoft.com/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting the user to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
+This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting the user to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
 
 ![Diagram that shows the No Token in the Browser set token sequence.](./images/no-token-in-browser-set-token-sequence.png)
 
@@ -152,29 +158,22 @@ The flow contains these steps:
    </choose>
    ```
 
-5. The request is then proxied to the downstream API with the access token added to the Authorization header.
+5. The request is proxied to the downstream API with the access token added to the `Authorization` header.
 
-6. The response from the downstream API is then returned directly to the single-page application.
+6. The response from the downstream API is returned directly to the single-page application.
 
 ## Deploy this scenario
 
-Full examples of these policies, together with OpenApi specifications, and a full deployment guide can be found in this related [GitHub repository](https://github.com/Azure/no-token-in-the-browser-pattern/).
+For complete examples of these policies, together with OpenAPI specifications and a full deployment guide, see this [GitHub repository](https://github.com/Azure/no-token-in-the-browser-pattern).
 
 ## Enhancements
 
-This example isn't a production-ready solution, merely a demonstration of what is possible using these services. The following points should be considered to enhance any solution before using it in production.
+This solution isn't production-ready. It's a demonstration of what you can do by using the services in the architecture. Take into account the following considerations before using the solution in production.
 
-- This example doesn't cater for access token expiry nor the use of refresh or ID tokens.
-- The cookie contents in the sample are encrypted using AES encryption. The key is stored as a secret in the Named Values section of the API Management instance. This Named Value can be linked and stored in an [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to provide better protection of the key. Encryption keys should be rotated on a periodic basis as part of a [Key Management](https://en.wikipedia.org/wiki/Key_management) policy.
-- This example only proxies calls to a single downstream API, which only requires one access token, allowing a stateless approach. However, due to the size limitation of HTTP cookies, if you need to proxy calls to multiple downstream APIs, you need a stateful approach. This process involves storing access tokens in a cache and retrieving them based on the API being called and a key provided in the cookie rather than a single access token. This action can be achieved using the API Management [Cache](https://learn.microsoft.com/azure/api-management/api-management-howto-cache) or an external [Redis cache](https://learn.microsoft.com/azure/api-management/api-management-howto-cache-external).
-- As this example only demonstrates the retrieval of data using a `GET` request it doesn't include protection from [CSRF](https://owasp.org/www-community/attacks/csrf) attacks, which would be required if other http methods such as `POST`, `PUT`, `PATCH`, or `DELETE` were to be implemented.
-
-## Components
-
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory): Identity services, single sign-on, and multifactor
-- [Azure API Management](https://azure.microsoft.com/services/api-management/) is a hybrid, multicloud management platform for APIs across all environments. API Management creates consistent, modern API gateways for existing backend services.
-authentication across Azure workloads.
-- [Azure Static Web Apps](/azure/static-web-apps), for automatically building and deploying web applications to Azure, triggered by changes made to application source code in GitHub or in Azure DevOps repositories.
+- This example doesn't implement access token expiration or the use of refresh or ID tokens.
+- The cookie contents in the sample are encrypted via AES encryption. The key is stored as a secret on the **Named values** pane of the API Management instance. To better protect this named value, you can link it and store it in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). You should periodically rotate encryption keys as part of your [key management](https://en.wikipedia.org/wiki/Key_management) policy.
+- This example only proxies calls to a single downstream API, so it requires only one access token, allowing a stateless approach. However, because of the size limitation of HTTP cookies, if you need to proxy calls to multiple downstream APIs, you need a stateful approach. Rather than using a single access token, this approach involves storing access tokens in a cache and retrieving them based on the API that's being called and a key that's provided in the cookie. You can implement this approach by using the API Management [cache](/azure/api-management/api-management-howto-cache) or an external [Redis cache](/azure/api-management/api-management-howto-cache-external).
+- Because this example demonstrates the retrieval of data only via a GET request, it doesn't provide protection against [CSRF](https://owasp.org/www-community/attacks/csrf) attacks. If you use other HTTP methods, like POST, PUT, PATCH, or DELETE, this protection is required.
 
 ## Contributors
 
@@ -184,16 +183,20 @@ Principal author:
 
 - [Ira Rainey](https://www.linkedin.com/in/ira-rainey) | Senior Software Engineer
 
+Other contributor:
+ 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer 
+
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Example implementation and deployment guide](https://github.com/Azure/no-token-in-the-browser-pattern)
-- [Policies in Azure API Management](https://learn.microsoft.com/azure/api-management/api-management-howto-policies)
-- [How to set or edit Azure API Management policies](https://learn.microsoft.com/azure/api-management/set-edit-policies)
-- [Use named values in Azure API Management policies](https://learn.microsoft.com/azure/api-management/api-management-howto-properties)
-- [OAuth 2.0 authentication with Azure Active Directory](https://learn.microsoft.com/azure/active-directory/fundamentals/auth-oauth2)
-- [What is Azure Static Web Apps?](https://learn.microsoft.com/azure/static-web-apps/overview)
+- [Policies in Azure API Management](/azure/api-management/api-management-howto-policies)
+- [How to set or edit Azure API Management policies](/azure/api-management/set-edit-policies)
+- [Use named values in Azure API Management policies](/azure/api-management/api-management-howto-properties)
+- [OAuth 2.0 authentication with Azure Active Directory](/azure/active-directory/fundamentals/auth-oauth2)
+- [What is Azure Static Web Apps?](/azure/static-web-apps/overview)
 
 ## Related resources
 
