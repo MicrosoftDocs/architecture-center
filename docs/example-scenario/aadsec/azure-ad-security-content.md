@@ -2,6 +2,8 @@ This architecture shows how security operations center (SOC) teams can incorpora
 
 Network security dominated SOC operations when all services and devices were contained on managed networks in organizations. However, [Gartner](https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g) predicts that through 2022, the market size of cloud services will grow at a rate nearly three times that of overall IT services. As more companies embrace cloud computing, there's a shift toward treating [user identity](/azure/security/fundamentals/identity-management-best-practices#treat-identity-as-the-primary-security-perimeter) as the primary security boundary.
 
+test
+
 Securing identities in the cloud is a high priority.
 
 - Verizon's [2020 data breach investigations report](https://enterprise.verizon.com/resources/reports/dbir/2020/summary-of-findings/) stated that 37% involved use of stolen credentials, and 22% of data breaches involved phishing.
@@ -162,3 +164,4 @@ Azure Active Directory pricing ranges from free, for features like SSO and MFA, 
 - [Azure IoT reference architecture](/azure/architecture/reference-architectures/iot)
 - [COVID-19 safe environments with IoT Edge monitoring and alerting](/azure/architecture/solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection)
 - [Security considerations for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+
