@@ -92,7 +92,7 @@ This example features the following Azure components. Several of these component
 
 There are many reasons to look for alternatives to the COBOL-based mainframe applications that are still common:
 
-- COBOL developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL and other legacy languages increase.
+- COBOL and CA-Gen/Natural/Telon/ASDO developers are retiring and no one is trained to replace them, resulting in a steadily diminishing talent pool. As the talent shortage grows, the costs and risks of relying on COBOL and other legacy languages increase.
 - The applications weren't designed for modern IT, resulting in difficult integrations and limited flexibility.
 - IBM mainframe hardware and software are expensive, and licensing and maintenance fees for ancillary mainframe applications and databases are rising.
 
