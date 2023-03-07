@@ -15,7 +15,8 @@ categories:
 
 # Autonomous Vehicle Operations (AVOps) design guide
 
-This article provides an overview of the stages, architecture, and challenges involved with creating a back end to enable autonomous vehicles at scale.
+This article provides an overview of the stages, architecture, and challenges involved with creating a back end to enable autonomous vehicles at scale. To learn more about the information here, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models, see [Automated vehicle solution idea](avops-architecture.yml).
+
 Autonomous Vehicles Operations (AVOps) typically require substantial amounts of storage and compute to:
 - Capture and process data and scenes from test vehicles, as learning material for the perception models that vehicles need to drive autonomously. 
 - Train perception models to recognize an environment, as the base functionality for driving autonomously.
@@ -74,7 +75,11 @@ Other contributors:
 
 ## Next steps
 
-The solution idea contains guidance about these AVOps elements and processes, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models. 
+- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/cse/2023/03/02/large-scale-data-operations-platform-for-autonomous-vehicles/)
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
-> [!div class="nextstepaction"] 
-> [Automated vehicle solution idea](avops-architecture.yml)
+## Related resources
+
+- [Automated vehicle solution idea](avops-architecture.yml)
+- [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
+- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml)
