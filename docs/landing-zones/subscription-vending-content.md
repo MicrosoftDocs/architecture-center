@@ -1,11 +1,14 @@
-This article provides guidance for the architectural components of automated subscription vending.
-For information about subscription vending, please see the [article](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) in the Cloud Adoption Framework.
+This article provides guidance for the architectural components of automated subscription vending. Automated subscription vending is a process that enables the creation of subscriptions in a consistent and repeatable manner. You should use a combination of Azure APIs and infrastructure as code (IaC) to automate the process.
 
-## Overview
+It builds on the [subscription vending](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) article in the Cloud Adoption Framework.
 
-Automated subscription vending is a process that enables the creation of subscriptions in a consistent and repeatable manner. You should use a combination of Azure APIs and infrastructure as code (IaC) to automate the process. The following diagram shows the components of the automated subscription vending process.
+The following diagram shows the components of the automated subscription vending process.
 
+**Option 1 - result on top, tool on bottom**
 [![Diagram showing the components of the subscription vending approach.](images/sub-vending-aac.png)](images/sub-vending-aac.png)
+
+**Option 2 - tool on top, result on bottom**
+[![Diagram showing the components of the subscription vending approach.](images/subscription-vending-tools-process.png)](images/subscription-vending-tools-process.png)
 
 ## Data collection
 
