@@ -5,23 +5,7 @@ For information about subscription vending, please see the [article](https://lea
 
 Automated subscription vending is a process that enables the creation of subscriptions in a consistent and repeatable manner. You should use a combination of Azure APIs and infrastructure as code (IaC) to automate the process. The following diagram shows the components of the automated subscription vending process.
 
-```text
-
-
-               Maybe middleware!
-               Creates data
-               file and PR
-    ┌───────┐  in...      ┌──────┐         ┌────────┐
-    │       │             │      │         │        │
-    │ Data  ├────────────►│ SCM  ├────────►│ CI/CD  │
-    │ (ITSM)│             │      │         │        │
-    └───────┘             └──────┘         └────────┘
-
-                                   Automated
-                                   subscription
-                                   creation
-
-```
+[![Diagram showing the components of the subscription vending approach.](images/sub-vending-aac.png)](images/sub-vending-aac.png)
 
 ## Data collection
 
@@ -80,4 +64,3 @@ This removes the requirement to manage secrets.
 ## Post-deployment (place holder)
 
 ### Cost management (place holder)
-
