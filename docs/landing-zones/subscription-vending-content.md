@@ -9,15 +9,16 @@ Automated subscription vending is a process that enables the creation of subscri
 The process is automated by using a combination of Azure APIs and Infrastructure as Code (IaC).
 The following diagram shows the components of the automated subscription vending process.
 
-```
+```text
 
 
+               Maybe middleware!
                Creates data
                file and PR
     ┌───────┐  in...      ┌──────┐         ┌────────┐
     │       │             │      │         │        │
-    │ ITSM  ├────────────►│ SCM  ├────────►│ CI/CD  │
-    │       │             │      │         │        │
+    │ Data  ├────────────►│ SCM  ├────────►│ CI/CD  │
+    │ (ITSM)│             │      │         │        │
     └───────┘             └──────┘         └────────┘
 
                                    Automated
@@ -26,20 +27,45 @@ The following diagram shows the components of the automated subscription vending
 
 ```
 
-## IT Service Management Tool
+## Data collection
 
-The ITSM tool is used to create a request for a new subscription.
-It managed the business logic and authorization for the request.
-Once the request is approved, the ITSM tool passes this data into the Source Control Management (SCM) tool and creates a pull request (PR).
+This process requires data collection.
+The authorization of the request, the cost center, the subscription name, and many other fields are required.
+
+An IT Service Management tool can be used to orchestrate this process.
+Alternatively, we can use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to collect the data.
+
+
+The tool is used to create a request for a new subscription.
+It manages the business logic and authorization for the request.
+Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request (PR). This could be via a middleware layer, such as Azure Functions or Logic Apps.
 
 ## Source Code Management
 
-The SCM tool is usually combined with the CI/CD tool and contains the Infrastructre as Code (IaC) for the subscription.
+The SCM tool is usually combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription.
 In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
+
+Using a simple Git flow process we can create a new branch for each subscription request, when create the YAML file and use a pull request to merge the changes.
+
+```mermaid
+---
+title: Example subscription request
+---
+gitGraph
+  commit id: "as-is"
+  branch newsub
+  checkout newsub
+  commit id: "new-sub.yaml"
+  checkout main
+  merge newsub id: "PR"
+```
 
 ### Infrastructure as Code
 
 We provide IaC modules for Bicep and Terraform.
+
+- [Bicep module](https://aka.ms/lz-vending/bicep)
+- [Terraform module](https://aka.ms/lz-vending/tf)
 
 ## CI/CD
 
