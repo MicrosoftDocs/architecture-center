@@ -14,17 +14,24 @@ The following diagram shows the components of the automated subscription vending
 
 The subscription vending process requires data collection. The tool is used to create a request for a new subscription. It manages the business logic and authorization for the request. Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request (PR). This could be via a middleware layer, such as Azure Functions or Logic Apps.
 
-**Data to collect.** You should collect data on the authorization of the request, the cost center, the subscription name, and many other fields.
+**Collect required data.** You should collect data on the authorization of the request, the cost center, the subscription name, and many other fields.
 
-**Tools.** You can use an IT Service Management tool to orchestrate the data collection process. Alternatively, you can also use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to collect the data.
+**Use ITSM or app.** You can use an IT Service Management tool to orchestrate the data collection process. Alternatively, you can also use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to collect the data.
 
 ### IPAM (place holder)
 
-## Source Code Management
+## Source Code Management (SCM) tool
 
 The SCM tool is usually combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription. In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
 
-Using a simple Git flow process we can create a new branch for each subscription request, and create the YAML/JSON file for the new subscription to be created, based on the data collected previously, and use a pull request to merge the changes; and also optionally an additional approval gate before submitting the subscription to the depoloyment tooling to be created.
+**Use Git flow.** You should use a Git flow process to intake the data a merge the changes. The git flow should execute the following actions:
+
+1. Create a new branch for each subscription request.
+1. Use the data collected to create the YAML/JSON file for the new subscription.
+1. Create a pull request.
+1. Receive approval.
+1. Merge the changes.
+1. Submit the subscription to the deployment tool.
 
 ```mermaid
 ---
