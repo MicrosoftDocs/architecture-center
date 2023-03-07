@@ -29,4 +29,4 @@ name: Autonomous Vehicle Operations (AVOps) Design Guide
 summary: Autonomous Vehicle Operations design guide that shows how one would use Azure services to build Automated driving solution
 thumbnailUrl: /azure/architecture/browse/thumbs/analytics-dataflow.png
 content: |
-    [!include[](avops-reference-architecture-content.md)]
+    [!include[](avops-design-guide-content.md)]
