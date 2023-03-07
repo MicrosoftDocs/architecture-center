@@ -1,6 +1,6 @@
-This article provides guidance for automating subscription vending and discuss the architectural components you need. Subscription vending should be an automated process so the mechanism the platform team uses to create workload subscriptions is consistent and repeatable. The automation should use a combination of Azure APIs and infrastructure as code (IaC) to automate the process.
+This article provides guidance for automating the subscription vending approach. It describes the technical steps and the architectural components you need to automate. It builds on the [subscription vending](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) article in the Cloud Adoption Framework.
 
-It builds on the [subscription vending](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) article in the Cloud Adoption Framework.
+Subscription vending should be an automated process so the mechanism the platform team uses to create workload subscriptions is consistent and repeatable. The automation should use a combination of Azure APIs and infrastructure as code (IaC) to automate the process.
 
 The following diagram shows the components of the automated subscription vending process.
 
@@ -8,7 +8,7 @@ The following diagram shows the components of the automated subscription vending
 
 ## Collect data
 
-The subscription vending process requires data collection. The tool is used to create a request for a new subscription. It manages the business logic and authorization for the request. Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request (PR). This could be via a middleware layer, such as Azure Functions or Logic Apps.
+The subscription vending process requires data collection. The tool is used to create a request for a new subscription. It manages the business logic and authorization for the request. Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request. You might need a middleware layer, such as Azure Functions or Logic Apps, to complete the data transfer.
 
 **Collect required data.** You should collect data on the authorization of the request, the cost center, the subscription name, and many other fields.
 
@@ -18,9 +18,9 @@ The subscription vending process requires data collection. The tool is used to c
 
 ## Create pull request
 
-The SCM tool is usually combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription. In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
+The SCM tool is combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription. In order to scale, we recommend using semi-structured data files (JSON or YAML) to store the subscription data. You should use one file per subscription.
 
-**Use Git flow.** You should use a Git flow process to intake the data a merge the changes. The git flow should execute the following actions:
+**Use Git flow.** You should use a Gitflow process to intake the data a merge the changes. The Gitflow should execute the following actions:
 
 1. Create a new branch for each subscription request.
 1. Use the data collected to create the YAML/JSON file for the new subscription.
@@ -44,10 +44,12 @@ gitGraph
 
 ### Infrastructure as Code
 
-We provide IaC modules for Bicep and Terraform, please see the links below and the associated Wiki pages for more information.
+We provide IaC modules for Bicep and Terraform. For more information, see:
 
 - [Bicep module](https://aka.ms/lz-vending/bicep)
+- [Bicep wiki](https://github.com/Azure/bicep-lz-vending/wiki)
 - [Terraform module](https://aka.ms/lz-vending/tf)
+- [Terraform wiki](https://github.com/Azure/terraform-azurerm-lz-vending/wiki)
 
 ### IPAM (???)
 
@@ -55,7 +57,7 @@ We provide IaC modules for Bicep and Terraform, please see the links below and t
 
 ## Create subscription
 
-The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure DevOps Pipelines.
+The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure Pipelines.
 
 ### Workload identities
 
