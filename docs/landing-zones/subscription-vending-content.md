@@ -4,7 +4,7 @@ It builds on the [subscription vending](https://learn.microsoft.com/azure/cloud-
 
 The following diagram shows the components of the automated subscription vending process.
 
-[![Diagram showing the components of the subscription vending approach.](images/sub-vending-aac.png)](images/sub-vending-aac.png)
+[![Diagram showing the components of the subscription vending approach.](images/sub-vending.png)](images/sub-vending.png)
 
 ## Collect data
 
@@ -25,7 +25,7 @@ The SCM tool is usually combined with the CI/CD tool and contains the Infrastruc
 1. Create a new branch for each subscription request.
 1. Use the data collected to create the YAML/JSON file for the new subscription.
 1. Create a pull request.
-1. Receive approval.
+1. Receive approval (optional).
 1. Merge the changes.
 1. Submit the subscription to the deployment tool.
 
