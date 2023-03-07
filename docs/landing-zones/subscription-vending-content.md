@@ -14,7 +14,7 @@ When the workload team makes a subscription request, you need to collect data to
 
 **Use IT service management tool.** You can use an IT Service Management tool to orchestrate the data collection process. Alternatively, you can also use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to collect the data. The tool should create a request for a new subscription and manage the business logic and authorization for the request. Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request. You might need a middleware layer, such as Azure Functions or Logic Apps, to complete the data transfer.
 
-**Use IP address management tool.** (place holder)
+**Use IP address management tool.**
 
 ## Create pull request
 
@@ -25,7 +25,7 @@ The subscription vending automation should use the request data to create a pull
 
 **You should use one file per subscription.**
 
-**Use GitFlow.** You should use a GitFlow model to intake the subscription request data and merge the changes. The Gitflow should execute the following actions:
+**Use a GitFlow.** You should use a GitFlow model to intake the subscription request data and merge the changes. The Gitflow should execute the following actions:
 
 1. Create a new branch for each subscription request.
 1. Use the data collected to create the YAML/JSON file for the new subscription.
@@ -64,6 +64,6 @@ You should use a CI/CD pipeline to create the subscription. The CI/CD tool provi
 
 **Assign workload identity.** In order to create the subscription, the CI/CD tool needs to authenticate to Azure. We recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure. Workload identities remove the requirement to manage secrets.
 
-## Post-deployment (place holder)
+## Post-deployment
 
-### Cost management (place holder)
+### Cost management
