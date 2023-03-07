@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
-  title: Subscription vending
-  description: Subscription vending
+  title: Subscription vending design considerations
+  description: Subscription vending design considerations
   author: ssumner
   ms.author: ssumner
   ms.date: 03/31/2023
@@ -12,8 +12,8 @@ azureCategories:
   - devops
 products:
   - azure
-name: Subscription vending
-summary: Subscription vending
+name: Subscription vending design considerations
+summary: Subscription vending design considerations
 thumbnailUrl: /azure/architecture/browse/thumbs/ci-cd-monolith.png
 content: |
   [!include[](subscription-vending-content.md)]

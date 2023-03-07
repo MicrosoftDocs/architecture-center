@@ -1,13 +1,9 @@
-# Subscription Vending Design Considerations
-
 This article provides guidance for the architectural components of automated subscription vending.
 For information about subscription vending, please see the [article](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) in the Cloud Adoption Framework.
 
 ## Overview
 
-Automated subscription vending is a process that enables the creation of subscriptions in a consistent and repeatable manner.
-The process is automated by using a combination of Azure APIs and Infrastructure as Code (IaC).
-The following diagram shows the components of the automated subscription vending process.
+Automated subscription vending is a process that enables the creation of subscriptions in a consistent and repeatable manner. You should use a combination of Azure APIs and infrastructure as code (IaC) to automate the process. The following diagram shows the components of the automated subscription vending process.
 
 ```text
 
@@ -29,8 +25,7 @@ The following diagram shows the components of the automated subscription vending
 
 ## Data collection
 
-This process requires data collection.
-The authorization of the request, the cost center, the subscription name, and many other fields are required.
+This process requires data collection. The authorization of the request, the cost center, the subscription name, and many other fields are required.
 
 An IT Service Management tool can be used to orchestrate this process.
 Alternatively, we can use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to collect the data.
@@ -38,6 +33,8 @@ Alternatively, we can use a low-code / no-code tool like [Microsoft PowerApps](h
 The tool is used to create a request for a new subscription.
 It manages the business logic and authorization for the request.
 Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request (PR). This could be via a middleware layer, such as Azure Functions or Logic Apps.
+
+### IPAM (place holder)
 
 ## Source Code Management
 
@@ -66,6 +63,10 @@ We provide IaC modules for Bicep and Terraform, please see the links below and t
 - [Bicep module](https://aka.ms/lz-vending/bicep)
 - [Terraform module](https://aka.ms/lz-vending/tf)
 
+
+### IPAM (place holder)
+
+
 ## CI/CD
 
 The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure DevOps Pipelines.
@@ -75,3 +76,8 @@ The CI/CD tool provides the automation to create the subscription. We recommend 
 In order to create the subscription, the CI/CD tool needs to authenticate to Azure.
 We recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure.
 This removes the requirement to manage secrets.
+
+## Post-deployment (place holder)
+
+### Cost management (place holder)
+
