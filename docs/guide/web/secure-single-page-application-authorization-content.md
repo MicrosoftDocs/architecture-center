@@ -1,4 +1,4 @@
-This guide shows how to use Azure API Management to implement a stateless No Token in the Browser architecture for a JavaScript single-page application. Doing so helps to protect access tokens from cross-site scripting (XSS) attacks and keep malicious code from running in the browser.
+This guide shows how to use Azure API Management to implement a stateless No Token in the Browser pattern for a JavaScript single-page application. Doing so helps to protect access tokens from cross-site scripting (XSS) attacks and keep malicious code from running in the browser.
 
 This architecture uses [API Management](https://azure.microsoft.com/products/api-management) to:
 
@@ -11,16 +11,16 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 ## Architecture
 
-![Diagram diagram that shows the No Token in the Browser architecture.](./images/no-token-in-the-browser.png)
+![Diagram that shows the No Token in the Browser pattern.](./images/no-token-in-the-browser.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/no-token-in-the-browser.vsdx) of this architecture.*
 
 ### Workflow
 
 1. A user selects **Sign in** in the single-page application.
-2. The single-page application invokes Authorization Code flow with a redirect to the Azure AD authorization endpoint.
+2. The single-page application invokes Authorization Code flow by using a redirect to the Azure AD authorization endpoint.
 3. Users authenticate themselves.
-4. An Authorization Code flow response is redirected to the API Management callback endpoint with an authorization code.
+4. An Authorization Code flow response with an authorization code is redirected to the API Management callback endpoint.
 5. The API Management policy exchanges the authorization code for an access token by calling the Azure AD token endpoint.
 6. The Azure API Management policy redirects to the application and places the encrypted access token in an `HttpOnly` cookie.
 7. The user invokes an external API call from the application via an API Management proxied endpoint.
@@ -34,25 +34,25 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 ## Scenario details
 
-Single-page applications are written in JavaScript and run in the context of a client-side browser. With this implementation, the user can access any code running in the browser. Malicious code running in the browser or an XSS attack can also access data. Data that's stored in the browser session or local storage can be accessed, so sensitive data, like access tokens, can be used to impersonate the user.
+Single-page applications are written in JavaScript and run in the context of a client-side browser. In this implementation, users can access any code running in the browser. Malicious code running in the browser or an XSS attack can also access data. Data that's stored in the browser session or local storage can be accessed, so sensitive data, like access tokens, can be used to impersonate the user.
 
-The architecture described here increases the security of the application by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token. Access tokens don't need to be stored in the browser session or local storage, and they can't be accessed by malicious code that's running in the browser.
+The architecture described here increases the security of applications by moving the token acquisition and storage to the backend, and by using an encrypted `HttpOnly` cookie to store the access token. Access tokens don't need to be stored in the browser session or local storage, and they can't be accessed by malicious code that's running in the browser.
 
-In this architecture, API Management policies handle the acquisition of the access token and encryption and decryption of the cookie. Policies are collections of statements that are run sequentially on the request or response of an API and that are made up of XML elements and C# scripts.
+In this architecture, API Management policies handle the acquisition of the access token and the encryption and decryption of the cookie. *Policies* are collections of statements that are run sequentially on the request or response of an API and that are made up of XML elements and C# scripts.
 
 Storing the cooking in an `HttpOnly` cookie helps to protect the token from XSS attacks and to ensure that it can't be accessed by JavaScript. Scoping the cookie to the API domain and setting `SameSite` to `Strict` ensures that the cookie is automatically sent with all proxied API first-party requests. This design enables the access token to be automatically added to the `Authorization` header of all API calls made from the single-page application by the backend.
 
-Because this architecture uses a `SameSite=Strict` cookie, it's important that the domain of the API Management gateway must be the same as the domain of the single-page application. This restriction is due to a cookie only being sent to the API Management gateway when the API request comes from a site with the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
+Because this architecture uses a `SameSite=Strict` cookie, the domain of the API Management gateway must be the same as the domain of the single-page application. That's because a cookie is sent to the API Management gateway only when the API request comes from a site in the same domain. If the domains are different, the cookie isn't added to the API request, and the proxied API request remains unauthenticated.
 
 You can configure this architecture without using custom domains for the API Management instance and static web app, but then you'd need to use `SameSite=None` for the cookie setting. This implementation results in a less secure implementation because the cookie is added to all requests to any instance of the API Management gateway. For more information, see [SameSite cookies](https://developer.mozilla.org/docs/Web/HTTP/Headers/Set-Cookie/SameSite).
 
-To learn more about using custom domains for Azure resources, see [Custom domains with Azure Static Web Apps](/azure/static-web-apps/custom-domain), and [Configure a custom domain name for your Azure API Management instance](/azure/api-management/configure-custom-domain). For more information about configuring DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](/azure/dns/dns-operations-dnszones-portal).
+To learn more about using custom domains for Azure resources, see [Custom domains with Azure Static Web Apps](/azure/static-web-apps/custom-domain) and [Configure a custom domain name for your Azure API Management instance](/azure/api-management/configure-custom-domain). For more information about configuring DNS records for custom domains, see [How to manage DNS Zones in the Azure portal](/azure/dns/dns-operations-dnszones-portal).
 
 ## Authentication flow
 
-This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting the user to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
+This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
 
-![Diagram that shows the No Token in the Browser set token sequence.](./images/no-token-in-browser-set-token-sequence.png)
+![Diagram that shows the No Token in the Browser set-token sequence.](./images/no-token-in-browser-set-token-sequence.png)
 
 The flow contains these steps:
 
@@ -113,11 +113,11 @@ The flow contains these steps:
 
 When the single-page application has the access token, it can use the token to call the downstream API. Because the cookie is scoped to the domain of the single-page application and is configured with the `SameSite=Strict` attribute, it's automatically added to the request. The access token can then be decrypted so it can be used to call the downstream API. The following diagram shows the sequence of events for this flow.
 
-![Diagram of the No Token in the Browser API call sequence.](./images/no-token-in-browser-call-api-sequence.png)
+![Diagram that shows the No Token in the Browser API call sequence.](./images/no-token-in-browser-call-api-sequence.png)
 
 The flow contains these steps:
 
-1. A user selects a button in the single-page application to call the downstream API, which invokes a JavaScript function that calls the `/graph/me` API endpoint of the API Management gateway.
+1. A user selects a button in the single-page application to call the downstream API. This action invokes a JavaScript function that calls the `/graph/me` API endpoint of the API Management gateway.
 
 2. Because the cookie is scoped to the domain of the single-page application and has `SameSite` set to `Strict`, it's automatically added by the browser with the request to the API.
 
