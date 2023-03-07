@@ -21,11 +21,11 @@ When the workload team makes a subscription request, you need to collect data to
 The subscription vending automation should use the request data to create a pull request in your source code management tool. You need to connect your source code management tool to your CI/CD pipeline. The source code management tool contains the infrastructure as code (IaC) for the subscription deployment.
 
 **Use JSON or YAML files.** You should use semi-structured data files
-(JSON or YAML) to store the subscription data. These files type allow your automation to scale.
+(JSON or YAML) to store the subscription data. These files type allow your automation to scale. They make it easy to add or modify parameters without strict schema definitions. Many programming languages have built-in support for JSON and YAML, and there are many tools available for working with these files (editors, linters, validators, and formatters).
 
 **You should use one file per subscription.**
 
-**Use Git flow.** You should use a Gitflow process to intake the data a merge the changes. The Gitflow should execute the following actions:
+**Use GitFlow.** You should use a GitFlow model to intake the subscription request data and merge the changes. The Gitflow should execute the following actions:
 
 1. Create a new branch for each subscription request.
 1. Use the data collected to create the YAML/JSON file for the new subscription.
@@ -60,7 +60,7 @@ gitGraph
 
 ## Create subscription
 
-You should use a CI/CD pipeline to create subscription. The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure Pipelines.
+You should use a CI/CD pipeline to create the subscription. The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure Pipelines.
 
 **Assign workload identity.** In order to create the subscription, the CI/CD tool needs to authenticate to Azure. We recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure. Workload identities remove the requirement to manage secrets.
 
