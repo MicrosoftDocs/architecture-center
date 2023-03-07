@@ -5,7 +5,7 @@ This architecture provides guidance on the building blocks and recommendations f
 - Automotive OEMs, Tier1s, and/or ISVs that are developing solutions for automated driving 
 ## Architecture
 
-![AVOps Reference architecture.](.\media\high-level-architecture-avops.png)
+![AVOps Reference architecture.](../media/high-level-architecture-avops.png)
 *Download a [visio file](https://arch-center.azureedge.net/AVOps.vsdx) with all the diagrams in this article.*
 
 ### Dataflow
@@ -21,9 +21,9 @@ Here's the high-level process flow of data through the reference architecture:
 1. Tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) visualizes  ingested and processed data 
 ### Data Collection
 The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake. 
-Data collection is one the main [challenges](./avops-design-guide-content.md#challenges) for Autonomous Vehicle Operations. 
+Data collection is one the main [challenges](avops-design-guide-content.md#challenges) for Autonomous Vehicle Operations. 
 
-![Data Collection](.\images\data-collection.png)
+![Data Collection](..\media\data-collection.png)
 ### Data Operations (DataOps)
 DataOps are a set of practices, processes, and tools aimed at improving the quality, speed, and reliability of data operations.  The goal of the DataOps flow for autonomous driving is to ensure that the data used to control the vehicle is of high quality, accurate, and reliable. By following a consistent DataOps flow, organizations can improve the speed and accuracy of their data operations and make better decisions to control their autonomous vehicles.  
 #### DataOps Components
@@ -92,7 +92,7 @@ For that reason, AVOps recommends a centralized team in an organization handling
 - Meta-Data Catalog 
 - Capabilities for E2E lineage and traceability across all AVOps components 
 
-![Centralized AVOps Functions](.\images\centralized-avops-functions.png)
+![Centralized AVOps Functions](..\media\centralized-avops-functions.png)
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
