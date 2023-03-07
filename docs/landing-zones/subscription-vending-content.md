@@ -12,14 +12,11 @@ The following diagram shows the components of the automated subscription vending
 
 ## Data collection
 
-This process requires data collection. The authorization of the request, the cost center, the subscription name, and many other fields are required.
+The subscription vending process requires data collection. The tool is used to create a request for a new subscription. It manages the business logic and authorization for the request. Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request (PR). This could be via a middleware layer, such as Azure Functions or Logic Apps.
 
-An IT Service Management tool can be used to orchestrate this process.
-Alternatively, we can use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to collect the data.
+**Data to collect.** You should collect data on the authorization of the request, the cost center, the subscription name, and many other fields.
 
-The tool is used to create a request for a new subscription.
-It manages the business logic and authorization for the request.
-Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request (PR). This could be via a middleware layer, such as Azure Functions or Logic Apps.
+**Tools.** You can use an IT Service Management tool to orchestrate the data collection process. Alternatively, you can also use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to collect the data.
 
 ### IPAM (place holder)
 
