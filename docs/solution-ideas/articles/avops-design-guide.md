@@ -1,60 +1,62 @@
 ---
-title: Autonomous vehicle operations solution guide
-titleSuffix: Azure architecture center
-description: Autonomous Vehicle Operations design guide that shows how one would use Azure services to build Automated driving solution
+title: Autonomous Vehicle Operations (AVOps) design guide
+description: Get an overview about using Azure services to build an Autonomous Vehicle Operations (AVOps) solution.
 author: rmats808
-ms.date: 3/3/2023
+ms.author: rmatsumura
+ms.date: 03/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
-categories: developer-tools
 products:
-  - azure-batch
-  - azure-data-factory
-  - azure-data-share
   - azure-machine-learning
-  - azure-data-lake-gen2
+categories: 
+  - developer-tools
 ---
-# Autonomous vehicle operations solution guide
 
-## Introduction
-How do we operate a backend to enable Autonomous Vehicles at scale? 
-Autonomous Vehicles operations (AVOps) usually require a huge amount of storage and compute to
-- Capture and process data and scenes from test vehicles (as learning material for perception model required by vehicles to drive autonomously) 
-- Train perception model to recognize the environment as base functionality to drive autonomously 
-- Perform safety validation based on open and closed loop simulations
+# Autonomous Vehicle Operations (AVOps) design guide
 
-## Industry Perspective
-From an industry perspective, the development of autonomous driving typically involves three key stages: data collection and curation, algorithm development and simulation, model building and validation, and deployment. AVOps addresses an automated driving development lifecycle.  
+This article provides an overview of the stages, architecture, and challenges involved with creating a back end to enable autonomous vehicles at scale.
+Autonomous Vehicles Operations (AVOps) typically require substantial amounts of storage and compute to:
+- Capture and process data and scenes from test vehicles, as learning material for the perception models that vehicles need to drive autonomously. 
+- Train perception models to recognize an environment, as the base functionality for driving autonomously.
+- Perform safety validation based on open-loop and closed-loop simulations.
 
-![Diagram that shows the AV Development lifecycle](..\media\marketing-arch.png)
+## Key stages
 
-- ***Data Ingestion & Curation*** - Collecting and refining the *interesting* data sets for ADAS/AV Development
-- ***Iteratively Test, Train & Simulate*** - Simulating and training ADAS/AV models across many *Ground Truth* scenarios
-- ***Build & Validate*** - In-Vehicle software Verification & Validation (V&V) with connected vehicles
+The development of an autonomous driving solution typically involves three key stages: 
 
-## Architecture Building Blocks
-![AV Development lifecycle](..\media\avops-design-guide-arch.png)
+- **Ingest and curate data.** Collection and refinement of selected data sets for advanced driver-assistance system / autonomous vehicle (ADAS/AV) development.
+- **Iteratively test, train, and simulate.** Simulation and training of ADAS/AV models across numerous ground truth scenarios.
+- **Build and validate.** In-vehicle software verification and validation (V&V) with connected vehicles.
 
-The AVOps Reference Architecture consists of four main building blocks.  The upcoming chapters shall describe the four main building blocks in detail:
+AVOps implements an autonomous driving development lifecycle:  
 
-- ***DataOps*** - Data ingestion of measurements (videos / images, lidar and radar), data curation and extraction, and labeling of data
-- ***MLOps*** - Train algorithms such as perception models and post-perception models
-- ***ValOps*** - To validate AD functions based on trained models and raw ground truth data
-- ***AVOps centralized functions*** - Provide overarching functionalities like Meta-Data Search, Data Catalog, Overall orchestration, platform governance, and standardized infrastructure templates.
+![Diagram that shows the autonomous driving development lifecycle.](..\media\autonomous-driving-development-lifecycle.png)
+
+## Elements of the architecture
+
+The AVOps architecture consists of the following four main elements. The next article in this series describes these elements in more detail. 
+
+- **DataOps.** Ingest measurement data (videos, images, lidar, and radar), curate and extract data, and label data.
+- **MLOps.** Train algorithms, like perception models and post-perception models.
+- **ValOps.** Validate autonomous driving functions based on trained models and raw ground truth data.
+- **AVOps centralized functions.** Provide overarching functionalities like metadata search, data catalog, overall orchestration, platform governance, and standardized infrastructure templates.
+
+![Diagram that shows the elements of an AVOps architecture.](..\media\avops-design-guide-arch.png)
 
 ## Challenges
 
-- Data collection: collecting and analyzing large amounts of data to identify patterns and improve the vehicle's performance over time.  Most of costs for vehicle development are due to data management and testing.
-- Data management: handling the large amounts of data generated by the vehicle's sensors and systems while determining what data is useful.
-- Scenario coverage: ensuring the OEM has tested the vehicle in a wide range of scenarios, including different weather conditions, lighting, and road conditions.
-- Complexity: managing the large and diverse set of algorithms and systems required for autonomous operation.
-- Verification and validation: thoroughly testing the software to ensure it behaves as expected in a wide range of scenarios and environments.
-- Data availability:  globally dispersed teams and third parties make sharing of data a challenge.
+- **Data collection.** Collecting and analyzing large amounts of data to identify patterns and improve the vehicle's performance over time. Most of the costs of vehicle development are spent on data management and testing.
+- **Data management.** Handling the large amounts of data generated by the vehicle's sensors and systems, and determining which data is useful.
+- **Scenario coverage.** Ensuring that the OEM has tested the vehicle in a range of scenarios, including different weather, lighting, and road conditions.
+-**Complexity.** Managing the large and diverse set of algorithms and systems that are required for autonomous operation.
+- **Verification and validation.** Thoroughly testing the software to ensure that it behaves as expected in a range of scenarios and environments.
+- **Data availability.** Sharing data. Globally dispersed teams and third parties make sharing a challenge.
 
-AVOps allows organizations to take advantage of the scalability, flexibility, and cost-effectiveness of cloud-based infrastructure, while also speeding up the time-to-market for Automated Vehicles. 
+AVOps allows organizations to take advantage of the scalability, flexibility, and cost-effectiveness of cloud-based infrastructure and reduces the time to market for automated vehicles. 
 
-### Contributors 
+## Contributors 
+
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors: 
@@ -64,13 +66,15 @@ Principal authors:
 
 Other contributors: 
 
+ - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
  - [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect
  - [Gabriel Sallah](https://www.linkedin.com/in/gabrielsallah/) | HPC/AI Global Black Belt Specialist
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-## Next Step
-The reference architecture contains guidance about these logical building blocks and processes for AVOps, technology recommendations, partner, or open-source solutions for specific areas like simulation and data models. 
+## Next steps
+
+The solution idea contains guidance about these AVOps elements and processes, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models. 
 
 > [!div class="nextstepaction"] 
-> [Architecture of Automated vehicle solution](avops-reference-architecture.yml)
+> [Automated vehicle solution idea](avops-reference-architecture.yml)
