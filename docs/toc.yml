@@ -2096,9 +2096,9 @@ items:
           - name: Guides
             items:
               - name: Autonomous Vehicle Operations design guide
-              - href: /azure/architecture/solution-ideas/avops-design-guide.md
+                href: /azure/architecture/solution-ideas/avops-design-guide.md
               - name: Autonomous Vehicle Operations solution idea
-              - href: /azure/architecture/solution-ideas/avops-architecture.yml
+                href: /azure/architecture/solution-ideas/avops-architecture.yml
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
