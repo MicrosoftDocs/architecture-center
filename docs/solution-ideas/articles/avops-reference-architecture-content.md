@@ -5,7 +5,7 @@ This architecture provides guidance on the building blocks and recommendations f
 - Automotive OEMs, Tier1s, and/or ISVs that are developing solutions for automated driving 
 ## Architecture
 
-![AVOps Reference architecture.](.\images\high-level-architecture-avops.png)
+![AVOps Reference architecture.](.\media\high-level-architecture-avops.png)
 *Download a [visio file](https://arch-center.azureedge.net/AVOps.vsdx) with all the diagrams in this article.*
 
 ### Dataflow
