@@ -25,14 +25,14 @@ Autonomous Vehicles operations (AVOps) usually require a huge amount of storage 
 ## Industry Perspective
 From an industry perspective, the development of autonomous driving typically involves three key stages: data collection and curation, algorithm development and simulation, model building and validation, and deployment. AVOps addresses an automated driving development lifecycle.  
 
-![AV Development lifecycle](.\images\marketing-arch.png)
+![AV Development lifecycle](..\media\marketing-arch.png)
 
 - ***Data Ingestion & Curation*** - Collecting and refining the *interesting* data sets for ADAS/AV Development
 - ***Iteratively Test, Train & Simulate*** - Simulating and training ADAS/AV models across many *Ground Truth* scenarios
 - ***Build & Validate*** - In-Vehicle software Verification & Validation (V&V) with connected vehicles
 
 ## Architecture Building Blocks
-![AV Development lifecycle](.\images\avops-design-guide-arch.png)
+![AV Development lifecycle](..\media\avops-design-guide-arch.png)
 
 The AVOps Reference Architecture consists of four main building blocks.  The upcoming chapters shall describe the four main building blocks in detail:
 
