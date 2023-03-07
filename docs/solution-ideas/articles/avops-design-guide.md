@@ -15,6 +15,8 @@ products:
   - azure-machine-learning
   - azure-data-lake-gen2
 ---
+# Autonomous vehicle operations solution guide
+
 ## Introduction
 How do we operate a backend to enable Autonomous Vehicles at scale? 
 Autonomous Vehicles operations (AVOps) usually require a huge amount of storage and compute to
@@ -25,7 +27,7 @@ Autonomous Vehicles operations (AVOps) usually require a huge amount of storage 
 ## Industry Perspective
 From an industry perspective, the development of autonomous driving typically involves three key stages: data collection and curation, algorithm development and simulation, model building and validation, and deployment. AVOps addresses an automated driving development lifecycle.  
 
-![AV Development lifecycle](..\media\marketing-arch.png)
+![Diagram that shows the AV Development lifecycle](..\media\marketing-arch.png)
 
 - ***Data Ingestion & Curation*** - Collecting and refining the *interesting* data sets for ADAS/AV Development
 - ***Iteratively Test, Train & Simulate*** - Simulating and training ADAS/AV models across many *Ground Truth* scenarios
