@@ -53,19 +53,18 @@ We provide IaC modules for Bicep and Terraform, please see the links below and t
 - [Bicep module](https://aka.ms/lz-vending/bicep)
 - [Terraform module](https://aka.ms/lz-vending/tf)
 
+### IPAM (???)
 
-### IPAM (place holder)
+[to add ? ]
 
-
-## CI/CD
+## CI/CD pipeline
 
 The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure DevOps Pipelines.
 
-### Workload Identities
+### Workload identities
 
 In order to create the subscription, the CI/CD tool needs to authenticate to Azure.
-We recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure.
-This removes the requirement to manage secrets.
+We recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure. Workload identities remove the requirement to manage secrets.
 
 ## Post-deployment (place holder)
 
