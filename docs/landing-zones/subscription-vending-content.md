@@ -44,7 +44,7 @@ Once the request is approved, the tool passes this data into the Source Code Man
 The SCM tool is usually combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription.
 In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
 
-Using a simple Git flow process we can create a new branch for each subscription request, when create the YAML file and use a pull request to merge the changes.
+Using a simple Git flow process we can create a new branch for each subscription request, and create the YAML/JSON file for the new subscription to be created, based on the data collected previously, and use a pull request to merge the changes; and also optionally an additional approval gate before submitting the subscription to the depoloyment tooling to be created.
 
 ```mermaid
 ---
@@ -54,7 +54,7 @@ gitGraph
   commit id: "as-is"
   branch newsub
   checkout newsub
-  commit id: "new-sub.yaml"
+  commit id: "new-sub.yaml/json"
   checkout main
   merge newsub id: "PR"
 ```
