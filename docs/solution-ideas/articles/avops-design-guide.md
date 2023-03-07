@@ -71,4 +71,4 @@ Other contributors:
 The reference architecture contains guidance about these logical building blocks and processes for AVOps, technology recommendations, partner, or open-source solutions for specific areas like simulation and data models. 
 
 > [!div class="nextstepaction"] 
-> [Architecture of Automated vehicle solution](./avops-reference-architecture-content.md)
+> [Architecture of Automated vehicle solution](avops-reference-architecture.yml)

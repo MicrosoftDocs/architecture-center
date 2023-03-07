@@ -21,7 +21,7 @@ Here's the high-level process flow of data through the reference architecture:
 1. Tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/) visualizes  ingested and processed data 
 ### Data Collection
 The Collection image shows an example scenario of an offline/online collection of vehicle data to a data lake. 
-Data collection is one the main [challenges](avops-design-guide-content.md#challenges) for Autonomous Vehicle Operations. 
+Data collection is one the main [challenges](avops-design-guide.md#challenges) for Autonomous Vehicle Operations. 
 
 ![Data Collection](..\media\data-collection.png)
 ### Data Operations (DataOps)
