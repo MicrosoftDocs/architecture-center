@@ -18,6 +18,6 @@ products:
   - azure-app-service-static
 name: Protect access tokens in a single-page application by using Azure API Management 
 summary: Implement a No Token in the Browser architecture for a JavaScript single-page application by using API Management.
-thumbnailUrl: /azure/architecture/browse/thumbs/no-token-in-the-browser.png
+thumbnailUrl: /azure/architecture/browse/thumbs/no-token.png
 content: |
   [!include[](secure-single-page-application-authorization-content.md)]

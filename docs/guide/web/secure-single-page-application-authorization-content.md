@@ -11,14 +11,14 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 ## Architecture
 
-![Diagram that shows an architecture that doesn't store tokens in the browser.](./images/no-token-in-the-browser.png)
+![Diagram that shows an architecture that doesn't store tokens in the browser.](./images/no-token.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/no-token-in-the-browser.vsdx) of this architecture.*
 
 ### Workflow
 
 1. A user selects **Sign in** in the single-page application.
-2. The single-page application invokes Authorization Code flow by using a redirect to the Azure AD authorization endpoint.
+2. The single-page application invokes Authorization Code flow via a redirect to the Azure AD authorization endpoint.
 3. Users authenticate themselves.
 4. An Authorization Code flow response with an authorization code is redirected to the API Management callback endpoint.
 5. The API Management policy exchanges the authorization code for an access token by calling the Azure AD token endpoint.
