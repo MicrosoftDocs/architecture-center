@@ -42,7 +42,7 @@ The AVOps architecture consists of the following four main elements. The next ar
 - **ValOps.** Validate autonomous driving functions based on trained models and raw ground truth data.
 - **AVOps centralized functions.** Provide overarching functionalities like metadata search, data catalog, overall orchestration, platform governance, and standardized infrastructure templates.
 
-![Diagram that shows the elements of an AVOps architecture.](..\media\avops-design-guide-arch.png)
+![Diagram that shows the elements of an AVOps architecture.](..\media\avops-design-guide-architecture.png)
 
 ## Challenges
 
@@ -77,4 +77,4 @@ Other contributors:
 The solution idea contains guidance about these AVOps elements and processes, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models. 
 
 > [!div class="nextstepaction"] 
-> [Automated vehicle solution idea](avops-reference-architecture.yml)
+> [Automated vehicle solution idea](avops-architecture.yml)
