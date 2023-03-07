@@ -4,13 +4,9 @@ It builds on the [subscription vending](https://learn.microsoft.com/azure/cloud-
 
 The following diagram shows the components of the automated subscription vending process.
 
-**Option 1 - result on top, tool on bottom (the top row will be the article headers)**
 [![Diagram showing the components of the subscription vending approach.](images/sub-vending-aac.png)](images/sub-vending-aac.png)
 
-**Option 2 - tool on top, result on bottom (the top row will be the article headers)**
-[![Diagram showing the components of the subscription vending approach.](images/subscription-vending-tools-process.png)](images/subscription-vending-tools-process.png)
-
-## Data collection
+## Collect data
 
 The subscription vending process requires data collection. The tool is used to create a request for a new subscription. It manages the business logic and authorization for the request. Once the request is approved, the tool passes this data into the Source Code Management (SCM) tool and creates a pull request (PR). This could be via a middleware layer, such as Azure Functions or Logic Apps.
 
@@ -20,7 +16,7 @@ The subscription vending process requires data collection. The tool is used to c
 
 ### IPAM (place holder)
 
-## Source Code Management (SCM) tool
+## Create pull request
 
 The SCM tool is usually combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription. In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
 
@@ -57,7 +53,7 @@ We provide IaC modules for Bicep and Terraform, please see the links below and t
 
 [to add ? ]
 
-## CI/CD pipeline
+## Create subscription
 
 The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure DevOps Pipelines.
 
