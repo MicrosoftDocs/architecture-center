@@ -4,10 +4,10 @@ It builds on the [subscription vending](https://learn.microsoft.com/azure/cloud-
 
 The following diagram shows the components of the automated subscription vending process.
 
-**Option 1 - result on top, tool on bottom**
+**Option 1 - result on top, tool on bottom (the top row will be the article headers)**
 [![Diagram showing the components of the subscription vending approach.](images/sub-vending-aac.png)](images/sub-vending-aac.png)
 
-**Option 2 - tool on top, result on bottom**
+**Option 2 - tool on top, result on bottom (the top row will be the article headers)**
 [![Diagram showing the components of the subscription vending approach.](images/subscription-vending-tools-process.png)](images/subscription-vending-tools-process.png)
 
 ## Data collection
@@ -25,8 +25,7 @@ Once the request is approved, the tool passes this data into the Source Code Man
 
 ## Source Code Management
 
-The SCM tool is usually combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription.
-In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
+The SCM tool is usually combined with the CI/CD tool and contains the Infrastructure as Code (IaC) for the subscription. In order to scale, we recommend using semi-structured data files, e.g. JSON / YAML, to store the subscription data, using one file per subscription.
 
 Using a simple Git flow process we can create a new branch for each subscription request, and create the YAML/JSON file for the new subscription to be created, based on the data collected previously, and use a pull request to merge the changes; and also optionally an additional approval gate before submitting the subscription to the depoloyment tooling to be created.
 
