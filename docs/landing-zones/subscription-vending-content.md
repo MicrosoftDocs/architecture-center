@@ -21,18 +21,18 @@ When the workload team makes a subscription request, you need to collect data to
 The subscription vending automation should use the request data to create a pull request in your source code management tool. You need to connect your source code management tool to your CI/CD pipeline. The source code management tool contains the infrastructure as code (IaC) for the subscription deployment.
 
 **Use JSON or YAML files.** You should use semi-structured data files
-(JSON or YAML) to store the subscription data. These files type allow your automation to scale. They make it easy to add or modify parameters without strict schema definitions. Many programming languages have built-in support for JSON and YAML, and there are many tools available for working with these files (editors, linters, validators, and formatters).
+(JSON or YAML) to store the subscription data. These files type allow your automation to scale.
 
 **You should use one file per subscription.**
 
 **Use a GitFlow.** You should use a GitFlow model to intake the subscription request data and merge the changes. The Gitflow should execute the following actions:
 
-1. Create a new branch for each subscription request.
-1. Use the data collected to create the YAML/JSON file for the new subscription.
-1. Create a pull request.
-1. Receive approval (optional).
-1. Merge the changes.
-1. Submit the subscription to the deployment tool.
+1. Create a new branch for each subscription request
+1. Use the data collected to create the YAML/JSON file for the new subscription
+1. Create a pull request
+1. Receive approval (optional)
+1. Merge the changes
+1. Submit the subscription to the deployment tool
 
 ```mermaid
 ---
@@ -47,16 +47,15 @@ gitGraph
   merge newsub id: "PR"
 ```
 
-**Use IaC modules.** We provide IaC modules for Bicep and Terraform. For more information, see:
+**Use IaC modules.** You should use the IaC modules for Bicep and Terraform. For more information, see:
 
 - [Bicep module](https://aka.ms/lz-vending/bicep)
 - [Bicep wiki](https://github.com/Azure/bicep-lz-vending/wiki)
 - [Terraform module](https://aka.ms/lz-vending/tf)
 - [Terraform wiki](https://github.com/Azure/terraform-azurerm-lz-vending/wiki)
 
-### IPAM (???)
+**IPAM.** 
 
-[to add ? ]
 
 ## Create subscription
 
