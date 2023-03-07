@@ -1,4 +1,4 @@
-This guide shows how to use Azure API Management to implement a stateless No Token in the Browser pattern for a JavaScript single-page application. Doing so helps to protect access tokens from cross-site scripting (XSS) attacks and keep malicious code from running in the browser.
+This guide shows how to use Azure API Management to implement a stateless architecture, for a JavaScript single-page application, that doesn't store tokens in the browser session. Doing so helps to protect access tokens from cross-site scripting (XSS) attacks and keep malicious code from running in the browser.
 
 This architecture uses [API Management](https://azure.microsoft.com/products/api-management) to:
 
@@ -11,7 +11,7 @@ Because the backend handles token acquisition, no other code or library, like [M
 
 ## Architecture
 
-![Diagram that shows the No Token in the Browser pattern.](./images/no-token-in-the-browser.png)
+![Diagram that shows an architecture that doesn't store tokens in the browser.](./images/no-token-in-the-browser.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/no-token-in-the-browser.vsdx) of this architecture.*
 
@@ -52,7 +52,7 @@ To learn more about using custom domains for Azure resources, see [Custom domain
 
 This process uses the [OAuth2 Authorization Code flow](/azure/active-directory/fundamentals/auth-oauth2). To obtain an access token that allows the single-page application to access the API, users must first authenticate themselves. You invoke the authentication flow by redirecting users to the Azure AD authorization endpoint. You need to configure a redirect URI in Azure AD. This redirect URI must be the API Management callback endpoint. Users are prompted to authenticate themselves by using Azure AD and are redirected back to the API Management callback endpoint with an authorization code. The API Management policy then exchanges the authorization code for an access token by calling the Azure AD token endpoint. The following diagram shows the sequence of events for this flow.
 
-![Diagram that shows the No Token in the Browser set-token sequence.](./images/no-token-in-browser-set-token-sequence.png)
+![Diagram that shows the authentication flow.](./images/no-token-in-browser-set-token-sequence.png)
 
 The flow contains these steps:
 
@@ -113,13 +113,13 @@ The flow contains these steps:
 
 When the single-page application has the access token, it can use the token to call the downstream API. Because the cookie is scoped to the domain of the single-page application and is configured with the `SameSite=Strict` attribute, it's automatically added to the request. The access token can then be decrypted so it can be used to call the downstream API. The following diagram shows the sequence of events for this flow.
 
-![Diagram that shows the No Token in the Browser API call sequence.](./images/no-token-in-browser-call-api-sequence.png)
+![Diagram that shows the API call sequence.](./images/no-token-in-browser-call-api-sequence.png)
 
 The flow contains these steps:
 
 1. A user selects a button in the single-page application to call the downstream API. This action invokes a JavaScript function that calls the `/graph/me` API endpoint of the API Management gateway.
 
-2. Because the cookie is scoped to the domain of the single-page application and has `SameSite` set to `Strict`, it's automatically added by the browser with the request to the API.
+2. Because the cookie is scoped to the domain of the single-page application and has `SameSite` set to `Strict`, the browser automatically adds the cookie when it sends the request to the API.
 
 3. When the API Management gateway receives the request, the inbound policy of the `/graph/me` endpoint is invoked. The policy decrypts the access token from the cookie and stores it in a variable named `access_token`:
 
@@ -146,7 +146,7 @@ The flow contains these steps:
        }
    }" />
    ```
-4. The access token is then added to the request to the downstream API as an `Authorization` header:
+4. The access token is added to the request to the downstream API as an `Authorization` header:
 
    ```XML
    <choose>
@@ -164,15 +164,15 @@ The flow contains these steps:
 
 ## Deploy this scenario
 
-For complete examples of these policies, together with OpenAPI specifications and a full deployment guide, see this [GitHub repository](https://github.com/Azure/no-token-in-the-browser-pattern).
+For complete examples of the policies described here, together with OpenAPI specifications and a full deployment guide, see this [GitHub repository](https://github.com/Azure/no-token-in-the-browser-pattern).
 
 ## Enhancements
 
-This solution isn't production-ready. It's a demonstration of what you can do by using the services in the architecture. Take into account the following considerations before using the solution in production.
+This solution isn't production-ready. It's meant to demonstrate what you can do by using the services described here. Consider the following factors before using the solution in production.
 
 - This example doesn't implement access token expiration or the use of refresh or ID tokens.
-- The cookie contents in the sample are encrypted via AES encryption. The key is stored as a secret on the **Named values** pane of the API Management instance. To better protect this named value, you can link it and store it in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). You should periodically rotate encryption keys as part of your [key management](https://en.wikipedia.org/wiki/Key_management) policy.
-- This example only proxies calls to a single downstream API, so it requires only one access token, allowing a stateless approach. However, because of the size limitation of HTTP cookies, if you need to proxy calls to multiple downstream APIs, you need a stateful approach. Rather than using a single access token, this approach involves storing access tokens in a cache and retrieving them based on the API that's being called and a key that's provided in the cookie. You can implement this approach by using the API Management [cache](/azure/api-management/api-management-howto-cache) or an external [Redis cache](/azure/api-management/api-management-howto-cache-external).
+- The contents of the cookie in the sample are encrypted via AES encryption. The key is stored as a secret on the **Named values** pane of the API Management instance. To better protect this named value, you can use a reference to a secret that's stored in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). You should periodically rotate encryption keys as part of your [key management](https://en.wikipedia.org/wiki/Key_management) policy.
+- This example only proxies calls to a single downstream API, so it requires only one access token. This scenario allows a stateless approach. However, because of the size limitation of HTTP cookies, if you need to proxy calls to multiple downstream APIs, you need a stateful approach. Rather than using a single access token, this approach involves storing access tokens in a cache and retrieving them based on the API that's being called and a key that's provided in the cookie. You can implement this approach by using the API Management [cache](/azure/api-management/api-management-howto-cache) or an external [Redis cache](/azure/api-management/api-management-howto-cache-external).
 - Because this example demonstrates the retrieval of data only via a GET request, it doesn't provide protection against [CSRF](https://owasp.org/www-community/attacks/csrf) attacks. If you use other HTTP methods, like POST, PUT, PATCH, or DELETE, this protection is required.
 
 ## Contributors
