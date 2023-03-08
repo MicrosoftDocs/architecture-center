@@ -4,7 +4,7 @@ metadata:
   description: Discover infrastructure considerations for an Azure Kubernetes Service cluster on a dual-stack network using both IPv4 and IPv6 addresses.
   author: andy-anhnguyen
   ms.author: anhnguye 
-  ms.date: 12/05/2022
+  ms.date: 03/08/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.category:
