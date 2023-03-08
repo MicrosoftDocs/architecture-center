@@ -152,7 +152,6 @@ Related architectures:
 - [Monitor a microservices architecture in Azure Kubernetes Service (AKS)](../microservices/logging-monitoring.yml)
 - [Enterprise monitoring with Azure Monitor](../example-scenario/monitoring/enterprise-monitoring.yml)
 
-[architectural-diagram]: ./images/hybrid-containers.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-containers.vsdx
 [azure-app-service]: /azure/app-service/
 [azure-arc-kubernetes]: /azure/azure-arc/kubernetes/
