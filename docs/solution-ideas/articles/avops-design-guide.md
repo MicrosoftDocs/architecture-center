@@ -24,7 +24,7 @@ Autonomous Vehicles Operations (AVOps) typically require substantial amounts of 
 
 ## Key stages
 
-The development of an autonomous driving solution typically involves three key stages: 
+The development of an autonomous driving (AD) solution typically involves three key stages: 
 
 - **Ingest and curate data.** Collection and refinement of selected data sets for advanced driver-assistance system / autonomous vehicle (ADAS/AV) development.
 - **Iteratively test, train, and simulate.** Simulation and training of ADAS/AV models across numerous ground truth scenarios.
@@ -32,7 +32,7 @@ The development of an autonomous driving solution typically involves three key s
 
 AVOps implements an autonomous driving development lifecycle:  
 
-![Diagram that shows the autonomous driving development lifecycle.](..\media\autonomous-driving-development-lifecycle.png)
+:::image type="content" source="..\media\autonomous-driving-development-lifecycle.png" alt-text="Diagram that shows the autonomous driving development lifecycle." lightbox="..\media\autonomous-driving-development-lifecycle.png" border="false":::
 
 ## Elements of the architecture
 
@@ -43,7 +43,7 @@ The AVOps architecture consists of the following four main elements. The next ar
 - **ValOps.** Validate autonomous driving functions based on trained models and raw ground truth data.
 - **AVOps centralized functions.** Provide overarching functionalities like metadata search, data catalog, overall orchestration, platform governance, and standardized infrastructure templates.
 
-![Diagram that shows the elements of an AVOps architecture.](..\media\avops-design-guide-architecture.png)
+:::image type="content" source="..\media\avops-design.png" alt-text="Diagram that shows the elements of an AVOps architecture." lightbox="..\media\avops-design.png" border="false":::
 
 ## Challenges
 
