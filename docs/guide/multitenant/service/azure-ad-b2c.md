@@ -38,6 +38,16 @@ If you're new to this topic, we suggest you review the following recommended res
 >
 > Azure AD B2C also includes the concept of a tenant to refer to individual directories, and it uses the term *multitenancy* to refer to interactions between multiple Azure AD B2C tenants. Although the terms are the same, the concepts are not. When we refer to an Azure AD B2C tenant in this article, we disambiguate it by using the full term *Azure AD B2C tenant*.
 
+## Identity in multitenant solutions
+
+It is important to understand where Azure AD B2C fits within the broader picture of identity solutions. Azure AD B2C is a customer identity and access management (CIAM) service that is used to manage end-user accounts and access to application(s). [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is an identity and access management (IAM) service that is used to manage internal user accounts and access to application(s).
+
+In many multitenant solutions, it is common to use different types of identity services for different parts of a solution.
+
+For example, your customers would likely need identities of their own to sign in and use the application(s) normally. This would be enabled by using Azure AD B2C. Your internal users also might need to sign in to the application to perform management or other administrative operations. You would likely want them to use their pre-existing enterprise identities for this, which would be enabled by Azure AD. The diagram below illustrates this example:
+
+![](./media/azure-ad-b2c/azure-ad-and-azure-ad-b2c.png)
+
 ## Isolation models
 
 When working with Azure AD B2C, you need to decide how you isolate your user accounts between different application tenants.
