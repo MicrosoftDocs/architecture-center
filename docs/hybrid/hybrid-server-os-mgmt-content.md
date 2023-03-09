@@ -13,7 +13,7 @@ The second diagram illustrates Windows Admin Center deployed on-premises.
 
 ![Deploy Windows Admin Center to a VM on-premises. Use Azure network adapter to integrate with resources in Azure.][architectural-diagram-onprem]
 
-*Download a [Visio file][architectural-diagram-visio-source] of these architectures.*
+*Download a [Visio file][architectural-diagram-visio-source] of all architectures diagrams in this article.*
 
 ### Workflow
 
@@ -226,7 +226,7 @@ More about Azure Automation:
 [architectural-diagram-azure]: ./images/hybrid-server-os-mgmt-wac-azure.svg
 [architectural-diagram-onprem]: ./images/hybrid-server-os-mgmt-wac-onprem.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-server-os-mgmt.vsdx
-[onprem-installation-type]: ./images/hybrid-server-os-mgmt-wac-onprem-install-type.png
+[onprem-installation-type]: ./images/hybrid-server-os-mgmt-wac-onprem-install-type.svg
 [wac-case-studies]: /windows-server/manage/windows-admin-center/understand/case-studies
 [user-access-options]: /windows-server/manage/windows-admin-center/plan/user-access-options
 [wac-deploy-install]: /windows-server/manage/windows-admin-center/deploy/install
