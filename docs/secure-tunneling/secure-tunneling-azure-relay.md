@@ -45,6 +45,33 @@ Secure Tunneling enables users to establish secure, bidirectional connections to
 - Smart building
   - System integrators in smart building scenario need to securely access the local web servers built in the remote devices over public internet to configure the device settings improving their operational efficiencies.
 
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+- Review the security considerations in the appropriate [Security in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview-security).
+- For Azure Container Register, refer to the [Azure security baseline for Container Registry](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/container-registry-security-baseline).
+- Network security is considered throughout the design. Azure Relay is designed to be security conscious with the possibility of introducing Private endpoints, IP firewall. The sample example used is a minimal architecture but can be extended to use the Azure Relay service recommendation. For more information, see [Network security for Azure Relay](https://learn.microsoft.com/en-us/azure/azure-relay/network-security?source=recommendations).
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+- The Secure Tunneling with Azure environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down just as easily.
+- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+Azure Monitor integrates with all the resources used to support logging. This sample is minimal and does not specifically use Azure Monitor diagnostics settings to collect logs and send them to a Log Analytics workspace but can be incorporated if required. From there, you can use the [Kusto query language](/azure/data-explorer/kusto/query) to write queries across the aggregated logs.
+
+Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)). For more information, see [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview).
+
 ## Deploy this scenario
 
 There is a sample deployment with a simulated device of the Secure Tunneling with Azure Relay on [GitHub](https://github.com/Azure-Samples/secure-tunneling-azure-relay). This sample enables communication between the user and device using HTTP but any protocol that sits above the TCP stack, such as SSH or RDP, can be supported.
