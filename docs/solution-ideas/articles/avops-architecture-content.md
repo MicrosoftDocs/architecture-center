@@ -3,9 +3,9 @@ This architecture provides guidance and recommendations for developing an automa
 
 ## Architecture
 
-![Diagram that shows an AVOps architecture.](../media/high-level-architecture.png)
+:::image type="content" source="../media/high-level-architecture.png" alt-text="Diagram that shows an AVOps architecture." lightbox="../media/high-level-architecture.png" border="false":::
 
-*Download a [visio file](https://arch-center.azureedge.net/AVOps.vsdx) with all the diagrams in this article.*
+*Download a [Visio file](https://arch-center.azureedge.net/avops-design-and-architecture.vsdx) that contains the architecture diagrams in this article.*
 
 ### Dataflow
 
@@ -15,15 +15,15 @@ This architecture provides guidance and recommendations for developing an automa
 1. Data is processed by an [Azure Data Factory](/azure/data-factory/introduction) extract, transform, load (ETL) pipeline. The output is stored as raw and binary data in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Metadata is stored in [Azure Cosmos DB](/azure/cosmos-db). Depending on the scenario, it might be sent to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) or [Azure Cognitive Search](/azure/cognitive-services/).
 1. Additional information, insights, and context are added to the data to improve its accuracy and reliability.
 1. Extracted measurement data is provided to labeling partners (human-in-the-loop) via [Azure Data Share](/azure/data-share/). Third-party partners perform auto labeling, storing and accessing data via a separate Data Lake account.
-1. Labeled datasets flow to downstream [MLOps](#machine-learning-operations-mlops) processes, mainly to create perception and sensor fusion models. These models perform functions used by autonomous vehicles to detect scenes (that is, lane changes, blocked roads, pedestrians, traffic lights, and traffic signs).
-1. In the [ValOps](#validation-operations-valops) stage, trained models are validated via open-loop and closed-loop testing.
+1. Labeled datasets flow to downstream [MLOps](#mlops) processes, mainly to create perception and sensor fusion models. These models perform functions used by autonomous vehicles to detect scenes (that is, lane changes, blocked roads, pedestrians, traffic lights, and traffic signs).
+1. In the [ValOps](#valops) stage, trained models are validated via open-loop and closed-loop testing.
 1. Tools like [Foxglove](https://foxglove.dev/), running on [Azure Kubernetes Service](/azure/aks/intro-kubernetes) or [Azure Container Instances](/azure/container-instances/), visualize ingested and processed data. 
 
 ### Data collection
 
 Data collection is one of the main [challenges](avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
-![Diagram that shows offline and online data collection.](..\media\data-collection.png)
+:::image type="content" source="..\media\data-collection.png" alt-text="Diagram that shows offline and online data collection." lightbox="..\media\data-collection.png" border="false":::
 
 ### DataOps
 
@@ -46,7 +46,7 @@ Data operations (DataOps) is a set of practices, processes, and tools for improv
 
 Machine learning operations (MLOps) include:
 
-- Feature extraction models (like CLIP and YOLO) for classifying scenes (for example, if a pedestrian is in the scene) during the [DataOps](#data-operations-dataops) pipeline.
+- Feature extraction models (like CLIP and YOLO) for classifying scenes (for example, if a pedestrian is in the scene) during the [DataOps](#dataops) pipeline.
 - Auto labeling models for labeling ingested images, lidar, and radar data. 
 - Perception and computer vision models for detecting objects and scenes.
 - A sensor fusion model that combines sensor streams.
@@ -98,7 +98,7 @@ During the ValOps stage, a catalog of real scenarios is used to validate autonom
 
 #### ValOps components
 
-* [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) runs large-scale batch inference for open-loop validation within a Resin framework. We recommend that you use [BlobFuse2](https://learn.microsoft.com/azure/storage/blobs/blobfuse2-what-is) to access the measurement files. You can also use NFS, but you need to evaluate performance for the use case.
+* [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) runs large-scale batch inference for open-loop validation within a Resin framework. We recommend that you use [BlobFuse2](/azure/storage/blobs/blobfuse2-what-is) to access the measurement files. You can also use NFS, but you need to evaluate performance for the use case.
 * [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale batch inference for open-loop validation within a Resin framework.
 * [Azure Data Explorer](https://azure.microsoft.com/products/data-explorer) provides an analytics service for measurements and KPIs (that is, re-simulation and job runs).
 
@@ -137,7 +137,7 @@ It's important to understand the division of responsibility between the automoti
 * [Row Level Security (RLS)](/azure/active-directory/conditional-access) for Azure Data Explorer.
 * Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 * Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
-* [Certificate management](https://learn.microsoft.com/azure/iot-hub/iot-hub-x509-certificate-concepts) to help secure the connection of vehicles.
+* [Certificate management](/azure/iot-hub/iot-hub-x509-certificate-concepts) to help secure the connection of vehicles.
 * Least privilege access. Limit user access with Just-In-Time and Just-Enough-Administration ([JIT](/azure/defender-for-cloud/just-in-time-access-usage)/[JEA](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7.3)), risk-based adaptive policies, and data protection.
 
 ### Cost optimization
@@ -150,7 +150,7 @@ You can use these strategies to reduce the costs associated with developing auto
 - Use [Spot Virtual Machines](/azure/virtual-machines/spot-vms). You can determine which workloads in your AVOps deployment don't require processing within a specific time frame and use Spot Virtual Machines for these workloads. Spot Virtual Machines allows you to take advantage of unused Azure capacity for significant cost savings. If Azure needs the capacity back, the Azure infrastructure evicts spot virtual machines.
 - Use autoscaling. Autoscaling enables you to automatically adjust your cloud infrastructure based on demand, reducing the need for manual intervention and helping to keep costs in check. For more information about scaling, see [Design for scaling](/azure/architecture/framework/scalability/design-scale).
 - Consider using hot, cool, and archive tiers for storage. Storage can be a significant cost in an autonomous driving solution, so you need to choose cost-effective storage options, like cold storage or infrequent-access storage. For more information, see [data lifecycle management](/azure/storage/blobs/lifecycle-management-overview).
-- Use cost management and optimization tools. [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management/#overview) provides tools that can help you identify and address areas for cost reduction, like identifying unused or underutilized resources.
+- Use cost management and optimization tools. [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management/) provides tools that can help you identify and address areas for cost reduction, like identifying unused or underutilized resources.
 - Consider Azure services. For example, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models. Using these services can be more cost-effective than building and maintaining in-house infrastructure.
 - Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce costs associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
 

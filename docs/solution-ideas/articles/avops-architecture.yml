@@ -1,14 +1,14 @@
 ### YamlMime:Architecture
 metadata:
-  title: Autonomous Vehicle Operations (AVOps) Reference Architecture
+  title: Create an Autonomous Vehicle Operations (AVOps) solution
   titleSuffix: Azure Architecture Center
-  description: Autonomous Vehicle Operations reference architecture that shows how one would use Azure services to build Automated driving solution
+  description: Learn about an architecture that you can use to build automated driving solution by using Azure services.
   author: rmats808
-  ms.author: rmatsumura@microsoft.com
-  ms.date: 02/09/2023
-  ms.topic: example-scenario
+  ms.author: rmatsumura
+  ms.date: 03/14/2023
+  ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: example-scenario
+  ms.subservice: solution-idea
 azureCategories:
   - ai-machine-learning
   - analytics
@@ -19,14 +19,14 @@ azureCategories:
   - security
   - storage
 products:
-  - azure-batch
+  - azure-machine-learning  
   - azure-data-factory
   - azure-data-share
-  - azure-machine-learning
+  - azure-batch
   - github
 
-name: Autonomous Vehicle Operations (AVOps) Reference Architecture
-summary: Autonomous Vehicle Operations reference architecture that shows how one would use Azure services to build Automated driving solution
+name: Create an Autonomous Vehicle Operations (AVOps) solution
+summary: Learn about an architecture that you can use to build automated driving solution by using Azure services.
 thumbnailUrl: /azure/architecture/browse/thumbs/analytics-dataflow.png
 content: |
     [!include[](avops-architecture-content.md)]
