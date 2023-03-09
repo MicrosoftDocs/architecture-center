@@ -44,9 +44,9 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
      1. Creates a PR with the upgraded dependency.
   1. When the PR is approved, the new branch merges with the base branch.
   1. The merged branch triggers CI/CD tasks in GitHub Actions.
- 1. GitHub Actions deploy the new app version to a test or staging environment.
+  1. GitHub Actions deploy the new app version to a test or staging environment.
 
-Please see the Security subsection of Considerations for more details.
+Please see the [Security](#security) subsection of Considerations for more details.
 
 ## Scenario Details
 
