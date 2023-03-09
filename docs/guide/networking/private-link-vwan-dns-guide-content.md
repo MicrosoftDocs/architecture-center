@@ -27,9 +27,9 @@ The architecture has the following attributes that have to be taken into conside
 - Two regions, each with a regional secured virtual hub
 - Hub-to-hub connectivity is enabled. This is base functionality and not a setting.
 - Branch-to-branch: Disabled - Branch-to-branch communication flows through the hubs
-- Each secured regional virtual hub has the following configurations:
-  - Internet traffic: Azure Firewall - All traffic out to the internet flows through the Firewall on a regional hub
-  - Private traffic: Azure Firewall - Traffic within the network flows through the Firewall
+- Each secured regional virtual hub has the following security configuration for virtual network connections:
+  - Internet traffic: Secured by Azure Firewall - All traffic out to the internet flows through the Firewall on a regional hub
+  - Private traffic: Secured by Azure Firewall - Traffic within the network flows through the Firewall
 - Each regional virtual hub is secured with Azure Firewall. Each firewall has the following configurations:
   - DNS Servers: Default (Azure provided) - Azure Firewall will proxy DNS requests to Azure DNS
   - DNS Proxy: Enabled - Azure Firewall listens for DNS queries on port 53. Clients in subnet spokes should be configured to use the Azure Firewall DNS proxy, otherwise [the results can be unpredictable](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
@@ -52,8 +52,8 @@ The diagram shows a Virtual Network, Azure DNS, a Private DNS Zone and a storage
 :::image-end:::
 *Figure 2: A basic DNS configuration for private endpoints*
 
-1. Client issues request to mystorageacct.privatelink.blob.core.windows.net
-2. Azure DNS, the configured DNS Server for the VNet is queried for the IP address for mystorageacct.privatelink.blob.core.windows.net.
+1. Client issues request to mystorageacct.blob.core.windows.net
+2. Azure DNS, the configured DNS Server for the VNet is queried for the IP address for mystorageacct.blob.core.windows.net.
 
     Running the following command from the virtual machine illustrates that the virtual machine is configured to use Azure DNS (168.63.129.16) as the DNS provider.
 
@@ -92,7 +92,7 @@ The diagram shows a Virtual Hub with and Azure Firewall with DNS Proxy enabled. 
 :::image-end:::
 *Figure 3: Private DNS Zones can't be linked to Virtual Hubs*
 
-1. Client issues request to mystorageacct.privatelink.blob.core.windows.net
+1. Client issues request to mystorageacct.blob.core.windows.net
 
     Running the following command from the virtual machine illustrates that the virtual machine is configured to use Azure Firewall as the DNS provider.
 
@@ -105,7 +105,7 @@ The diagram shows a Virtual Hub with and Azure Firewall with DNS Proxy enabled. 
              DNS Servers: 10.0.1.132    
     ```
 
-2. Azure Firewall DNS Proxy is enabled in the Virtual Hub, so the DNS query of mystorageacct.privatelink.blob.core.windows.net is proxied to Azure DNS.
+2. Azure Firewall DNS Proxy is enabled in the Virtual Hub, so the DNS query of mystorageacct.blob.core.windows.net is proxied to Azure DNS.
 3. Because you can't link a Private DNS Zone to the Azure VWAN virtual hub, Azure DNS can't resolve mystorageacct.blob.core.windows.net to the private IP address of the private endpoint. Azure DNS responds with the public IP address of the storage account.
 
     Running the following command from the virtual machine resolves the storage account's DNS to the public IP of the storage account.
