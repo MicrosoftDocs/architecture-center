@@ -30,7 +30,7 @@ In some mission-critical solutions, you might need to add redundancy to your glo
 >
 > Most customers don't need the architecture described in this article.
 
-## Traffic ingress resiliency
+## Traffic ingress
 
 When your clients send traffic to your application, it traverses a *path*. Typically, the path includes parts of the internet, before the requests are routed to the Microsoft global network.
 
