@@ -152,9 +152,7 @@ You can use these strategies to reduce the costs associated with developing auto
 - Consider using hot, cool, and archive tiers for storage. Storage can be a significant cost in an autonomous driving solution, so you need to choose cost-effective storage options, like cold storage or infrequent-access storage. For more information, see [data lifecycle management](/azure/storage/blobs/lifecycle-management-overview).
 - Use cost management and optimization tools. [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management/#overview) provides tools that can help you identify and address areas for cost reduction, like identifying unused or underutilized resources.
 - Consider Azure services. For example, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models. Using these services can be more cost-effective than building and maintaining in-house infrastructure.
-- Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce costs associated with autonomous driving development. [AVOps Centralized Functions](#centralized-avops-functions) aims to solve this challenge by implementing a central bus, event hub and a Meta-Data Catalog.  In addition, services such as [Azure Data Share](https://learn.microsoft.com/azure/data-share/) help organizations achieve this goal.
-
-By following these strategies, organizations can reduce the costs associated with autonomous driving development in the cloud, freeing up resources that organizations can use to further enhance the development process.
+- Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce costs associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
 
 ### Contributors 
 
@@ -167,6 +165,7 @@ Principal authors:
 
 Other contributors: 
 
+ - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
  - [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect
  - [Gabriel Sallah](https://www.linkedin.com/in/gabrielsallah/) | HPC/AI Global Black Belt Specialist
 
@@ -174,6 +173,4 @@ Other contributors:
 
 ## Related resources
 
-Related architecture guides:
-
-* [Data analytics for automotive test fleets](https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics)
+* [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
