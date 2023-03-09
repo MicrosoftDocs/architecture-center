@@ -10,10 +10,10 @@ This architecture provides guidance and recommendations for developing an automa
 
 ### Dataflow
 
-1. Measurement data includes data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/), [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/) ingests data into Azure.
+1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/), [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/) ingests data into Azure.
 
-    Measurements can also be synthetic data from simulations or from other sources. (MDF4, TDMS, and rosbag are common data formats for measurements.) In the DataOps stage, ingested measurements are processed. Validation and data quality checks, like checksum, are performed to remove low quality data. In this stage, raw information metadata recorded by a test driver during a test drive is extracted. This data is stored in a centralized metadata catalog. This information helps downstream processes identify specific scenes and sequences.
-1. Data is processed by an [Azure Data Factory](/azure/data-factory/introduction) extract, transform, load (ETL) pipeline. The output is stored as raw and binary data in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Metadata is stored in [Azure Cosmos DB](/azure/cosmos-db). Depending on the scenario, it might be sent to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) or [Azure Cognitive Search](/azure/cognitive-services/).
+    Measurement data can also be synthetic data from simulations or from other sources. (MDF4, TDMS, and rosbag are common data formats for measurements.) In the DataOps stage, ingested measurements are processed. Validation and data quality checks, like checksum, are performed to remove low quality data. In this stage, raw information metadata recorded by a test driver during a test drive is extracted. This data is stored in a centralized metadata catalog. This information helps downstream processes identify specific scenes and sequences.
+1. Data is processed by an [Azure Data Factory](/azure/data-factory/introduction) extract, transform, and load (ETL) pipeline. The output is stored as raw and binary data in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Metadata is stored in [Azure Cosmos DB](/azure/cosmos-db). Depending on the scenario, it might be sent to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) or [Azure Cognitive Search](/azure/cognitive-services/).
 1. Additional information, insights, and context are added to the data to improve its accuracy and reliability.
 1. Extracted measurement data is provided to labeling partners (human-in-the-loop) via [Azure Data Share](/azure/data-share/). Third-party partners perform auto labeling, storing and accessing data via a separate Data Lake account.
 1. Labeled datasets flow to downstream [MLOps](#mlops) processes, mainly to create perception and sensor fusion models. These models perform functions used by autonomous vehicles to detect scenes (that is, lane changes, blocked roads, pedestrians, traffic lights, and traffic signs).
@@ -38,9 +38,9 @@ Data operations (DataOps) is a set of practices, processes, and tools for improv
 * [Azure Data Factory](https://azure.microsoft.com/products/data-factory) performs ETL via [batch compute](/azure/batch/) and creates data-driven workflows for orchestrating data movement and transforming data.
 * [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
 * [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) stores metadata results, like stored measurements.
-* [Data Share](https://azure.microsoft.com/products/data-share/) shares data with partner organizations, like labeling companies, with enhanced security.
+* [Data Share](https://azure.microsoft.com/products/data-share/) is used to share data with partner organizations, like labeling companies, with enhanced security.
 * [Azure Databricks](https://azure.microsoft.com/products/databricks/) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
-* [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
+* [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time-to-insight across data warehouses and big data systems.
 * [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
 
 ### MLOps
@@ -48,13 +48,13 @@ Data operations (DataOps) is a set of practices, processes, and tools for improv
 Machine learning operations (MLOps) include:
 
 - Feature extraction models (like CLIP and YOLO) for classifying scenes (for example, if a pedestrian is in the scene) during the [DataOps](#dataops) pipeline.
-- Auto labeling models for labeling ingested images, lidar, and radar data. 
+- Auto labeling models for labeling ingested images and lidar and radar data. 
 - Perception and computer vision models for detecting objects and scenes.
 - A sensor fusion model that combines sensor streams.
 
 The perception model is an important component of this architecture. This Azure Machine Learning model generates an object detection model by using detected and extracted scenes.
 
-The transfer of the containerized machine learning model to a format that can be read by SoC (system on a chip) hardware and validation/simulation software is a step in the MLOps pipeline. This step requires the support of the SoC manufacturer.
+The transfer of the containerized machine learning model to a format that can be read by SoC (system on a chip) hardware and validation/simulation software occurs in the MLOps pipeline. This step requires the support of the SoC manufacturer.
 
 #### MLOps components
 
@@ -65,7 +65,7 @@ The transfer of the containerized machine learning model to a format that can be
 
 ### ValOps
 
-Validation operations (ValOps) is the process of testing developed models in simulated environments via [managed scenarios](#scenario-management) before you perform expensive real-world environmental testing. These tests help to ensure that the models meet your desired performance standards, accuracy standards, and safety requirements. The goal of the validation process in the cloud is to identify and address any potential issues before you deploy the autonomous vehicle in a live environment. ValOps includes:
+Validation operations (ValOps) is the process of testing developed models in simulated environments via [managed scenarios](#scenario-management) before you perform expensive real-world environmental testing. ValOps tests help to ensure that the models meet your desired performance standards, accuracy standards, and safety requirements. The goal of the validation process in the cloud is to identify and address any potential issues before you deploy the autonomous vehicle in a live environment. ValOps includes:
 
 - Simulation validation. Cloud-based simulation ([open-loop](#open-loop-testing) and [closed-loop testing](#closed-loop-testing-and-simulation)) environments enable virtual testing of autonomous vehicle models. This testing runs at scale and is less expensive than real-world testing.
 - Performance validation. Cloud-based infrastructure can run large-scale tests to evaluate the performance of autonomous vehicle models. Performance validation can include stress tests, load tests, and benchmarks.
@@ -74,7 +74,7 @@ Using ValOps for validation can help you take advantage of the scalability, flex
 
 #### Open-loop testing
 
-Re-simulation, or *sensor processing*, is an open-loop test and validation system for automatic driving functions. It's complex process, and there might be regulatory requirements for safety, data privacy, data versioning, and auditing. Re-simulation processes recorded raw data from various car sensors via a graph in the cloud. Re-simulation validates data processing algorithms or detects regressions. OEMs combine sensors in a directed acyclic graph that represents a real-world vehicle.
+Re-simulation, or *sensor processing*, is an open-loop test and validation system for automatic driving functions. It's a complex process, and there might be regulatory requirements for safety, data privacy, data versioning, and auditing. Re-simulation processes recorded raw data from various car sensors via a graph in the cloud. Re-simulation validates data processing algorithms or detects regressions. OEMs combine sensors in a directed acyclic graph that represents a real-world vehicle.
 
 Re-simulation is a large-scale  parallel compute job. It processes 10s or 100s of PBs of data by using tens of thousands of cores. It requires I/O throughput of more than 30 GBps. Data from multiple sensors is combined into datasets that represent a view of what the on-vehicle computer vision systems record when the vehicle navigates the real world. An open-loop test validates the performance of the algorithms against ground truth by using replay and scoring. The output is used later in the workflow for algorithm training.
 
@@ -95,7 +95,7 @@ The ValOps pipeline integrates closed-loop testing, third-party simulations, and
 
 #### Scenario management 
 
-During the ValOps stage, a catalog of real scenarios is used to validate autonomous driving capabilities to simulate the behavior of autonomous vehicles. The objective is to speed up the creation of scenario catalogs by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Use third-party tools for scenario management or a lightweight open source simulator like CARLA, which supports [OpenDRIVE (xodr) format](https://www.asam.net/standards/detail/opendrive/). For more information, see [ScenarioRunner for CARLA](https://github.com/carla-simulator/scenario_runner).
+During the ValOps stage, a catalog of real scenarios is used to validate the autonomous driving solution's ability to simulate the behavior of autonomous vehicles. The objective is to speed up the creation of scenario catalogs by automatically reading the route network, which is a part of a scenario, from publicly accessible and freely available digital maps. Use third-party tools for scenario management or a lightweight open source simulator like CARLA, which supports [OpenDRIVE (xodr) format](https://www.asam.net/standards/detail/opendrive/). For more information, see [ScenarioRunner for CARLA](https://github.com/carla-simulator/scenario_runner).
 
 #### ValOps components
 
@@ -109,7 +109,7 @@ An AVOps architecture is complex and involves various third parties, roles, and 
 
 We recommend that you create a centralized team to handle functions like infrastructure provisioning, cost management, the metadata and data catalog, lineage, and overall orchestration and event handling. Centralizing these services creates efficiency and simplifies operations.  
 
-We recommend that a centralized team handles these responsibilities:
+We recommend that you use a centralized team to handle these responsibilities:
 
 - Providing ARM/Bicep templates, including templates for standard services like storage and compute used by each area and subarea of the AVOps architecture 
 - Implementation of central Azure Service Bus / Azure Event Hubs instances for an event-driven orchestration of the AVOps data loop
@@ -134,7 +134,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-It's important to understand the division of responsibility between the automotive OEM and the cloud provider. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to the cloud provider. Azure platform as a service (PaaS) provides built-in improved security on the physical stack, including the operating system. You can apply the following capabilities in addition to the infrastructure security components. These capabilities enable a Zero-Trust approach.
+It's important to understand the division of responsibility between the automotive OEM and the cloud provider. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to the cloud provider. Azure platform as a service (PaaS) provides built-in improved security on the physical stack, including the operating system. You can apply the following improvements in addition to the infrastructure security components. These improvements enable a Zero-Trust approach.
 
 * Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
 * Encryption at rest and in transit. For more information, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
@@ -143,21 +143,21 @@ It's important to understand the division of responsibility between the automoti
 * Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 * Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
 * [Certificate management](/azure/iot-hub/iot-hub-x509-certificate-concepts) to help secure the connection of vehicles.
-* Least privilege access. Limit user access with Just-In-Time and Just-Enough-Administration ([JIT](/azure/defender-for-cloud/just-in-time-access-usage)/[JEA](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7.3)), risk-based adaptive policies, and data protection.
+* Least privilege access. Limit user access with Just-In-Time ([JIT](/azure/defender-for-cloud/just-in-time-access-usage)) and Just-Enough-Administration ([JEA](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7.3)), risk-based adaptive policies, and data protection.
 
 ### Cost optimization
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-You can use these strategies to reduce the costs associated with developing autonomous driving solutions:
+You can use these strategies to reduce the costs that are associated with developing autonomous driving solutions:
 
 - Optimize cloud infrastructure. Careful planning and management of cloud infrastructure can help you reduce costs. For example, use cost-effective instance types and scale infrastructure to meet changing workloads. Follow the guidance in the [Azure Cloud Adoption Framework](/azure/cloud-adoption-framework/).
 - Use [Spot Virtual Machines](/azure/virtual-machines/spot-vms). You can determine which workloads in your AVOps deployment don't require processing within a specific time frame and use Spot Virtual Machines for these workloads. Spot Virtual Machines allows you to take advantage of unused Azure capacity for significant cost savings. If Azure needs the capacity back, the Azure infrastructure evicts spot virtual machines.
-- Use autoscaling. Autoscaling enables you to automatically adjust your cloud infrastructure based on demand, reducing the need for manual intervention and helping to keep costs in check. For more information about scaling, see [Design for scaling](/azure/architecture/framework/scalability/design-scale).
+- Use autoscaling. Autoscaling enables you to automatically adjust your cloud infrastructure based on demand, reducing the need for manual intervention and helping you reduce costs. For more information, see [Design for scaling](/azure/architecture/framework/scalability/design-scale).
 - Consider using hot, cool, and archive tiers for storage. Storage can be a significant cost in an autonomous driving solution, so you need to choose cost-effective storage options, like cold storage or infrequent-access storage. For more information, see [data lifecycle management](/azure/storage/blobs/lifecycle-management-overview).
 - Use cost management and optimization tools. [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management/) provides tools that can help you identify and address areas for cost reduction, like identifying unused or underutilized resources.
 - Consider Azure services. For example, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models. Using these services can be more cost-effective than building and maintaining in-house infrastructure.
-- Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce costs associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
+- Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce the costs associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
 
 ## Contributors 
 
