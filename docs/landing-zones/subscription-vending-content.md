@@ -4,7 +4,7 @@ Subscription vending should be an automated process so the mechanism the platfor
 
 The following diagram shows the components of the automated subscription vending process.
 
-[![Diagram showing the components of the subscription vending approach.](images/subcription-vending-architecture.png)](images/subcription-vending-architecture.png)
+[![Diagram showing the components of the subscription vending approach.](images/subscription-vending-architecture.png)](images/subscription-vending-architecture.png)
 
 ## Collect data
 
