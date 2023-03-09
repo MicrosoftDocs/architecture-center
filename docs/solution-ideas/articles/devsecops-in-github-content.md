@@ -18,19 +18,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 1. Azure Policy evaluates Azure resources that are in deployment. Defined policies then potentially deny releases, modify cloud resources, or create warning events in activity logs.
 1. Microsoft Defender for Cloud identifies attacks targeting applications that are running in deployed projects.
 1. Azure Monitor continuously tracks and evaluates app behavior. When threats materialize, this service sends alerts to start the process of rolling code back to previous commits.
-
-### Components
-
-- [Azure Active Directory (Azure AD)][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. You can configure Azure AD as the identity provider for GitHub, and you can enable multi-factor authentication for extra security.
-- [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
-- [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
-- [GitHub Security][GitHub Security] works to eliminate threats in many ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
-- [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
-- [App Service][App Service] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
-- [Azure Policy][Azure Policy] helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
-- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
-- [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
-- When [GitHub Security][GitHub Security] identifies a vulnerability, it takes the steps illustrated in the following diagram:
+1. When GitHub Security identifies a vulnerability, it takes the steps illustrated in the following diagram:
   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
     Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
   :::image-end:::
@@ -46,7 +34,19 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
   1. The merged branch triggers CI/CD tasks in GitHub Actions.
   1. GitHub Actions deploy the new app version to a test or staging environment.
 
-Please see the [Security](#security) subsection of Considerations for more details.
+[GitHub Security](https://github.com/features/security) provides multiple features for addressing security risks. Please see the [Security](#security) subsection of Considerations for more details.
+
+### Components
+
+- [Azure Active Directory (Azure AD)][Azure AD] is a multi-tenant, cloud-based identity service that controls access to Azure and other cloud apps like [Microsoft 365][Microsoft 365] and GitHub. You can configure Azure AD as the identity provider for GitHub, and you can enable multi-factor authentication for extra security.
+- [GitHub][GitHub] provides a code-hosting platform that developers can use for collaborating on both open-source and [inner-source][Inner source] projects.
+- [Codespaces][Codespaces] is an online development environment, hosted by GitHub and powered by [Visual Studio Code][Visual Studio Code]. This tool provides a complete development solution in the cloud.
+- [GitHub Security][GitHub Security] works to eliminate threats in many ways. Agents and services identify vulnerabilities in repositories and in dependent packages. They also upgrade dependencies to up-to-date, secure versions.
+- [GitHub Actions][GitHub Actions] are custom workflows that provide continuous integration (CI) and continuous deployment (CD) capabilities directly in repositories. Computers called *runners* host these CI/CD jobs.
+- [App Service][App Service] provides a framework for building, deploying, and scaling web apps. This platform offers built-in infrastructure maintenance, security patching, and scaling.
+- [Azure Policy][Azure Policy] helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
+- [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
 
 ## Scenario Details
 
@@ -90,7 +90,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - Configure GitHub Enterprise Server to include [GitHub Advanced Security][GitHub Advanced Security], which is available for enterprise accounts on GitHub Enterprise Cloud and GitHub Enterprise Server 3.0 or higher. This provides extra features that help users find and fix security problems in their code. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
 - Augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools][Third party code scanning] that produce [Static Analysis Results Interchange Format (SARIF)][SARIF] files. GitHub then creates alerts when those tools identify potential security issues.
 
-### GitHub Security
+#### GitHub Security
 
 [GitHub Security][GitHub Security] provides multiple features for addressing security risks:
 
