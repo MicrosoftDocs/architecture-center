@@ -1,4 +1,4 @@
-
+# Data Operations (DataOps) Reference Architecture
 This article outlines the different Azure building blocks that can help with data operations in the development of Automated Driving.  Data Operations (DataOps) reference architecture provides recommendations as a quick starter for anyone wanting to develop data operation solutions on Azure for Automated Driving (AD).
 
 ## Architecture
@@ -33,10 +33,22 @@ Here's the high-level process flow of data through the reference architecture:
 1. Trained models are validated via Open Loop and Closed Loop testing
 1. Visualization of ingested and processed Rosbag file can be served by tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/)
 
+## Data Flow between zones
+
 The image below shows an example scenario of an offline/online collection of vehicle data to a data lake.  
-
+## Data collection
 ![Data Collection](.\images\data-collection.png)
+## Data collection components
 
+## Data Landing Zone to Raw
+
+## Raw to Extracted
+
+## Extracted to Curated
+
+## Curated to Labeled
+
+## 
 ### Components
 #### DataOps Components
 * [Azure Data Box](https://learn.microsoft.com/azure/databox/) used to transfer collected vehicle data to Azure through a regional carrier
