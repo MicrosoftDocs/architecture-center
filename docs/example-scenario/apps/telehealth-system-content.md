@@ -1,4 +1,4 @@
-wThis article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services.
+This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services.
 
 ## Architecture
 
