@@ -6,7 +6,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
    Architecture diagram highlighting security checks that run in a GitHub DevSecOps environment. After Azure Active Directory (Azure AD) authenticates developers, Codespaces runs security scans. GitHub Actions then test security and encrypt sensitive data. In production, Azure Policy, Microsoft Defender for Cloud, and Azure Monitor evaluate deployed software for risks.
 :::image-end:::
 
-*Download a [Visio file][visio-download] of this architecture.*
+*Download a [Visio file][visio-download] of all diagrams in this architecture.*
 
 ### Dataflow
 
@@ -30,41 +30,23 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 - [Azure Policy][Azure Policy] helps teams manage and prevent IT issues through policy definitions that can enforce rules for cloud resources. For instance, if your project is about to deploy a virtual machine with an unrecognized SKU, Azure Policy alerts you to the problem and stops the deployment.
 - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management and advanced threat protection across hybrid cloud workloads.
 - [Azure Monitor][Azure Monitor] collects and analyzes app telemetry, such as performance metrics and activity logs. When this service identifies irregular conditions, it alerts apps and personnel.
-
-#### GitHub Security
-
-[GitHub Security][GitHub Security] provides multiple features for addressing security risks:
-
-- [Secret scanning][GitHub secret scanning] inspects repositories or commits for any tokens, keys, or secrets that appear in code. It can notify teams that secrets have leaked into public view, and can notify service providers that one of their secrets leaked. Service providers can optionally revoke or renew the secrets.
-- [Code scanning][GitHub code scanning] inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. GitHub starts the process of obtaining an uncompromised string after verifying its validity with the database. These checks use [CodeQL][CodeQL], a code analysis platform that improves upon traditional analyzers by allowing you to query code as if it were data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes. [Try CodeQL on LGTM][Try CodeQL].
-- [GitHub Dependabot][GitHub Dependabot] checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, if your project uses an open-source library, Dependabot examines that library. Suppose the library doesn't encrypt sensitive cleartext that it stores in a database. In this case, Dependabot creates a PR to upgrade the library to a version that encrypts the data.
-- [Vulnerability management][GitHub vulnerability management] identifies and updates known vulnerabilities in code and in software packages that the code uses. It runs checks whenever the following events occur:
-
-  - A repository's dependencies change (for instance, when a project switches from .NET to .NET Core).
-  - A notification appears from [Mend][Mend]. This third-party service tracks vulnerabilities by continuously scanning open-source repositories.
-  - A new vulnerability enters the [GitHub Advisory Database][GitHub Advisory Database]. Entries in this database originate from the following sources:
-
-    - The [National Vulnerability Database][National Vulnerability Database]: A standardized repository of vulnerabilities that the U.S. government maintains.
-    - [GitHub tracking][GitHub tracking]: A combination of machine learning and human review that GitHub conducts to detect vulnerabilities in public commits.
-    - [GitHub security advisories][GitHub security advisories]: Information about vulnerabilities that development teams make public on GitHub.
-    - [Repository security advisories][Repository security advisories]: Discuss, fix, and disclose security vulnerabilities in your repositories.
-    - [PHP Security Advisories Database][PHP Security Advisories Database]: References to known security vulnerabilities in PHP projects and libraries.
-
-When GitHub identifies a vulnerability, it takes the steps illustrated in the following diagram.
-:::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
+- When [GitHub Security][GitHub Security] identifies a vulnerability, it takes the steps illustrated in the following diagram:
+  :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
     Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
-:::image-end:::
+  :::image-end:::
 
-*Download a [Visio file][visio-download] of this diagram.*
+  *Download a [Visio file][visio-download] of all diagrams in this architecture.*
 
-1. GitHub sends an email alert to the organization owners and repository administrators.
-1. GitHub Dependabot, a DevOps bot agent, automatically completes the following three tasks:
-    1. Creates a new branch in the repository.
-    1. Upgrades the necessary dependencies to the minimum possible secure version needed to eliminate the vulnerability.
-    1. Creates a PR with the upgraded dependency.
-1. When the PR is approved, the new branch merges with the base branch.
-1. The merged branch triggers CI/CD tasks in GitHub Actions.
-1. GitHub Actions deploy the new app version to a test or staging environment.
+  1. GitHub sends an email alert to the organization owners and repository administrators.
+  1. GitHub Dependabot, a DevOps bot agent, automatically completes the following three tasks:
+     1. Creates a new branch in the repository.
+     1. Upgrades the necessary dependencies to the minimum possible secure version needed to eliminate the vulnerability.
+     1. Creates a PR with the upgraded dependency.
+  1. When the PR is approved, the new branch merges with the base branch.
+  1. The merged branch triggers CI/CD tasks in GitHub Actions.
+ 1. GitHub Actions deploy the new app version to a test or staging environment.
+
+Please see the Security subsection of Considerations for more details.
 
 ## Scenario Details
 
@@ -78,7 +60,7 @@ With many security capabilities, GitHub offers tools that support every part of 
 
 These features provide a superb service for building secure cloud solutions combined with the monitoring and evaluation power of Azure.
 
-## Potential use cases
+### Potential use cases
 
 GitHub DevSecOps installations cover many security scenarios. Possibilities include the following cases:
 
@@ -107,6 +89,25 @@ Security provides assurances against deliberate attacks and the abuse of your va
 - [Configure Dependabot security updates][Configure Dependabot security updates], which can remove known threats from projects.
 - Configure GitHub Enterprise Server to include [GitHub Advanced Security][GitHub Advanced Security], which is available for enterprise accounts on GitHub Enterprise Cloud and GitHub Enterprise Server 3.0 or higher. This provides extra features that help users find and fix security problems in their code. GitHub Enterprise can integrate automatic security and dependency scanning through GitHub Advanced Security and GitHub Open Source Security.
 - Augment the code-scanning capabilities of GitHub by adding [third-party code-scanning tools][Third party code scanning] that produce [Static Analysis Results Interchange Format (SARIF)][SARIF] files. GitHub then creates alerts when those tools identify potential security issues.
+
+### GitHub Security
+
+[GitHub Security][GitHub Security] provides multiple features for addressing security risks:
+
+- [Secret scanning][GitHub secret scanning] inspects repositories or commits for any tokens, keys, or secrets that appear in code. It can notify teams that secrets have leaked into public view, and can notify service providers that one of their secrets leaked. Service providers can optionally revoke or renew the secrets.
+- [Code scanning][GitHub code scanning] inspects code for known vulnerabilities and coding errors. As an example, if a developer leaves a database connection string exposed in code, this feature discovers the secret. GitHub starts the process of obtaining an uncompromised string after verifying its validity with the database. These checks use [CodeQL][CodeQL], a code analysis platform that improves upon traditional analyzers by allowing you to query code as if it were data. Scans automatically run at scheduled times or after certain events occur, like commits or pushes. [Try CodeQL on LGTM][Try CodeQL].
+- [GitHub Dependabot][GitHub Dependabot] checks for outdated or vulnerable packages and applications. This automated agent updates software, replacing out-of-date or insecure dependencies with newer, secure versions. For instance, if your project uses an open-source library, Dependabot examines that library. Suppose the library doesn't encrypt sensitive cleartext that it stores in a database. In this case, Dependabot creates a PR to upgrade the library to a version that encrypts the data.
+- [Vulnerability management][GitHub vulnerability management] identifies and updates known vulnerabilities in code and in software packages that the code uses. It runs checks whenever the following events occur:
+
+  - A repository's dependencies change (for instance, when a project switches from .NET to .NET Core).
+  - A notification appears from [Mend][Mend]. This third-party service tracks vulnerabilities by continuously scanning open-source repositories.
+  - A new vulnerability enters the [GitHub Advisory Database][GitHub Advisory Database]. Entries in this database originate from the following sources:
+
+    - The [National Vulnerability Database][National Vulnerability Database]: A standardized repository of vulnerabilities that the U.S. government maintains.
+    - [GitHub tracking][GitHub tracking]: A combination of machine learning and human review that GitHub conducts to detect vulnerabilities in public commits.
+    - [GitHub security advisories][GitHub security advisories]: Information about vulnerabilities that development teams make public on GitHub.
+    - [Repository security advisories][Repository security advisories]: Discuss, fix, and disclose security vulnerabilities in your repositories.
+    - [PHP Security Advisories Database][PHP Security Advisories Database]: References to known security vulnerabilities in PHP projects and libraries.
 
 ### Cost optimization
 
