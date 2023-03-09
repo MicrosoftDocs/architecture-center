@@ -18,7 +18,7 @@ When a workload team makes a subscription request, you need to collect enough da
 
 Your data capture portal should result in a logged and trackable request for a new subscription, complete with all necessary data to fulfill the requirements of that subscription, such as a ticket in your ITSM tool. Business logic and authorization tracking should be tied to this request. Once the request is through all approval gates (be them automated or manual), then the automated subscription creation process can begin. Ideally, your request tracking tool can perform a push notification with the necessary data to start this process after approval is met. You might need a middleware layer, such as Azure Functions or Logic Apps, to initiate the process.
 
-**Use IP address management tool.**
+**Use IP address management tool.** As part of a workload subscription request, expected network space and network line of sight requirements are often needed to be understood. If you have an IP address management tool, this intake can validate available appropriate IP space and reserve it. A system like IPAM is just one example of an external system that may need to be interfaced with in this process. It's ideal if your subscription request intake, processing, and tracking system is capable of orchestrating interactions like these.
 
 ## Initiate platform automation
 
@@ -42,7 +42,8 @@ We recommend implementing this process as a file-based, PR-driven, source-contro
 **Perform request linting**. The pull request can kick off any automated linting process that you create to do automated validation on the request.  For example, ensuring that the IP ranges requested are still available & reserved in your IPAM system.  This linting is mostly focused on making sure the YAML/JSON data file is correctly structured to prevent a garbage-in, garbage-out scenario. Push as much business validation up to the request collection process as possible, as a validation exception this late in the process is harder to address, and likely need to be surfaced back into the request tracking system.
 
 **Implement any necessary review gates.** The pull request becomes the first action signal for the platform team. The assumption is that if this pull request is merged, the subscription will be deployed. If desired, a human-intervention gate can be added at this step for final reviews.
-1. Merge the changes
+
+**Merge the changes.** Once the PR merger to `main` is done, this will then initiate a continuous deployment pipeline to create the actual subscription.  If no human-intervention gates are required, and any optional linting builds are complete, this could be an auto-merge PR.
 
 ```mermaid
 ---
