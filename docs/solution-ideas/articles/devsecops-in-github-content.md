@@ -18,22 +18,24 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 1. Azure Policy evaluates Azure resources that are in deployment. Defined policies then potentially deny releases, modify cloud resources, or create warning events in activity logs.
 1. Microsoft Defender for Cloud identifies attacks targeting applications that are running in deployed projects.
 1. Azure Monitor continuously tracks and evaluates app behavior. When threats materialize, this service sends alerts to start the process of rolling code back to previous commits.
-1. When GitHub Security identifies a vulnerability, it takes the steps illustrated in the following diagram:
-  
-    :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
-    Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
-    :::image-end:::
-  
-    *Download a [Visio file][visio-download] of all diagrams in this architecture.*
 
-    1. GitHub sends an email alert to the organization owners and repository administrators.
-    1. GitHub Dependabot, a DevOps bot agent, automatically completes the following three tasks:
-       1. Creates a new branch in the repository.
-       1. Upgrades the necessary dependencies to the minimum possible secure version needed to eliminate the vulnerability.
-       1. Creates a PR with the upgraded dependency.
-    1. When the PR is approved, the new branch merges with the base branch.
-    1. The merged branch triggers CI/CD tasks in GitHub Actions.
-    1. GitHub Actions deploy the new app version to a test or staging environment.
+When GitHub Security identifies a vulnerability, it takes the steps illustrated in the following diagram:
+
+   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
+Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
+   :::image-end:::
+  
+   *Download a [Visio file][visio-download] of all diagrams in this architecture.*  
+
+    
+1. GitHub sends an email alert to the organization owners and repository administrators.
+1. GitHub Dependabot, a DevOps bot agent, automatically completes the following three tasks:  
+   a. Creates a new branch in the repository.  
+   b. Upgrades the necessary dependencies to the minimum possible secure version needed to eliminate the vulnerability.  
+   c. Creates a PR with the upgraded dependency.  
+1. When the PR is approved, the new branch merges with the base branch.
+1. The merged branch triggers CI/CD tasks in GitHub Actions.
+1. GitHub Actions deploy the new app version to a test or staging environment.
 
 ### Components
 
