@@ -181,7 +181,7 @@ When planning a multitenant deployment of Azure AD B2C, it's important to think 
 - [**Federated identity providers**](#identity-federation). Do you need to add or remove identity providers over time? If you're allowing each of your customers to bring their own identity provider, how do you manage that at scale?
 - **App registrations.** Many Azure AD app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate these when necessary?
 - [**Policy keys**](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy). If you use custom policies, how do you rotate the policy keys when necessary?
-- **User credentials.** How do you manage user information and credentials? What happens if one of your users is locked out or forgets their password and requires administrator intervention?
+- **User credentials.** How do you manage user information and credentials? What happens if one of your users is locked out or forgets their password and requires administrator or customer service intervention?
 
 Remember that these questions must be considered for *every* Azure AD B2C tenant that you deploy. You should also consider how your processes change when you have multiple Azure AD B2C tenants to maintain. For example, deploying custom policy changes to *one* Azure AD B2C tenant manually is easy, but deploying them to *five* manually becomes time-consuming and risky.
 
