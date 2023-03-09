@@ -6,7 +6,9 @@ The following diagram shows the components of the automated subscription vending
 
 [![Diagram showing the components of the subscription vending approach.](images/subscription-vending-architecture.png)](images/subscription-vending-architecture.png)
 
-## Collect data
+[![Diagram showing the components of the subscription vending approach.](images/sample-landing-zone-architecture.png)](images/sample-landing-zone-architecture.png)
+
+## Data collection
 
 When a workload team makes a subscription request, you need to collect enough data to automate the subscription vending process.
 
@@ -22,17 +24,29 @@ Once the request is through all ITSM-automated and any manual approval gates, th
 
 A system like IPAM is just one example of an external system that may need to be interfaced with in this process. It's ideal if your subscription request intake, processing, and tracking system is capable of orchestrating interactions like these at the data collection and approval step. If not, those interactions can then be handled in subsequent steps that involve creating custom workflows.
 
-## Initiate platform automation
+## Platform automation
 
 Once subscription request data has been captured, validated, and ready to be acted on, the next step is to initiate platform automation. The goal is to get the collected subscription request data captured in a consistent format that can be used in deployment pipelines for the actual subscription creation.
 
 We recommend implementing this process as a file-based, PR-driven, source-controlled flow.
+
+### Data collection to CI pipeline
+
+TODO
+
+### CI/CD pipeline to source control
 
 **Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data necessary to create a subscription. The structure of the file should be documented and extensible to support future needs.
 
 [example]
 
 **You should use one file per subscription.** Each subscription should get its own dedicated configuration file.  The subscription is the unit of deployment in the vending process.
+
+### Source control to CI/CD pipeline
+
+### Source control management tool
+
+TODO
 
 **Use a pull request-based system.** The automation that creates the config file should do the following:
 
@@ -41,16 +55,15 @@ We recommend implementing this process as a file-based, PR-driven, source-contro
 1. Create a pull request from your branch into `main`
 1. Update ITSM tooling with state change and reference to this pull request
 
-The above represents a logic flow that should be implemented in an automated way. We recommend this process is built as a deployment pipeline which is responsible for orchestrating the above steps.  Each subscription request is then a trigger of this pipeline with the necessary parameters passed in. Alternatively, this could be done as a code-based solution hosted in Azure if the workflow becomes sufficiently complex.
+The above represents a logic flow that should be implemented in an automated way. We recommend this process is built as a deployment pipeline which is responsible for orchestrating the above steps. Each subscription request is then a trigger of this pipeline with the necessary parameters passed in. Alternatively, this could be done as a code-based solution hosted in Azure if the workflow becomes sufficiently complex.
 
 This automation is a single system that is responsible for taking the collected data for any given subscription request and initiating the platform automation. It is owned and maintained by the platform team that is responsible for subscription creation in the organization.
 
-**Perform request linting**. The pull request can kick off any automated linting process that you create to do automated validation on the request.  For example, ensuring that the IP ranges requested are still available & reserved in your IPAM system or making sure the YAML/JSON data file is correctly structured to prevent a garbage-in, garbage-out scenario. Push as much business validation up to the request collection process as possible, as a validation exception this late in the process is harder to address and need to be surfaced back into the request tracking system.
+**Perform request linting**. The pull request can trigger any automated linting process that you create to do automated validation on the request.  For example, ensuring that the IP ranges requested are still available & reserved in your IPAM system or making sure the YAML/JSON data file is correctly structured to prevent a garbage-in, garbage-out scenario. Push as much business validation up to the request collection process as possible, as a validation exception this late in the process is harder to address and need to be surfaced back into the request tracking system.
 
 **Implement any necessary review gates.** The pull request becomes the first action signal for the platform team responsible for the subscription creation process. The assumption is that if this pull request is merged, the subscription will be created. To that end, a human-intervention gate can be added at this step for final reviews and potential last-minute alterations to the data file.
 
 **Merge the changes.** Once the PR merger to `main` is done, this will then initiate a continuous deployment pipeline to create the actual subscription. If no human-intervention gates are required and all linting builds are complete this could be an auto-merge PR.
-
 
 ## Create subscription
 
@@ -95,10 +108,11 @@ With the subscription in place, the application team is now able to deploy and o
 
 As governance requirements of a workload change, you might need to move subscriptions to a different management group that best meets new workload needs. Consider building similar automation for some of these routine operations. Platform teams benefit from not only automating subscription creation effort, but also core and common brownfield subscription management operations.  Consider the following:
 
-* Management group association changes
-* Platform updates that [keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
-* Applying new [resource tagging](/azure/cloud-adoption-framework/govern/resource-consistency/tagging#enforce) requirements
+- Management group association changes
+- Platform updates that [keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
+- Applying new [resource tagging](/azure/cloud-adoption-framework/govern/resource-consistency/tagging#enforce) requirements
 
 ## Next steps
 
 TODO
+### Cost management
