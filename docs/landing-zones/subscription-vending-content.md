@@ -8,7 +8,7 @@ The following diagram shows the components of the automated subscription vending
 
 ## Collect data
 
-When the workload team makes a subscription request, you need to collect data to automate the subscription vending process, and you should use a tool to manage this process.
+When a workload team makes a subscription request, you need to collect enough data to automate the subscription vending process.
 
 **Collect required data.** You should collect data on the authorization of the request, the cost center, the subscription name, and many other fields.
 
@@ -23,16 +23,15 @@ The subscription vending automation should use the request data to create a pull
 **Use JSON or YAML files.** You should use semi-structured data files
 (JSON or YAML) to store the subscription data. These files type allow your automation to scale.
 
-**You should use one file per subscription.**
+**You should use one file per subscription.** Each subscription should get its own dedicated configuration file.  The subscription is the unit of deployment in the vending process.
 
 **Use a GitFlow.** You should use a GitFlow model to intake the subscription request data and merge the changes. The Gitflow should execute the following actions:
 
 1. Create a new branch for each subscription request
-1. Use the data collected to create the YAML/JSON file for the new subscription
+1. Use the data collected to create the YAML/JSON data file for the new subscription
 1. Create a pull request
 1. Receive approval (optional)
 1. Merge the changes
-1. Submit the subscription to the deployment tool
 
 ```mermaid
 ---
@@ -48,16 +47,6 @@ gitGraph
 ```
 
 **Use IaC modules.** You should use the IaC modules for Bicep and Terraform. For more information, see:
-
-- [Bicep module](https://aka.ms/lz-vending/bicep)
-- [Bicep wiki](https://github.com/Azure/bicep-lz-vending/wiki)
-- [Terraform module](https://aka.ms/lz-vending/tf)
-- [Terraform wiki](https://github.com/Azure/terraform-azurerm-lz-vending/wiki)
-
-**IPAM.** 
-
-
-## Create subscription
 
 You should use a CI/CD pipeline to create the subscription. The CI/CD tool provides the automation to create the subscription. We recommend using either GitHub Actions or Azure Pipelines.
 
