@@ -1,5 +1,5 @@
 ```mermaid
-graph LR
+graph TD
     Start([Application Owner requires <br> Azure Subscription/s])
 
     Start-->DC2
