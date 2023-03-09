@@ -40,13 +40,21 @@ If you're new to this topic, we suggest you review the following recommended res
 
 ## Identity in multitenant solutions
 
-It is important to understand where Azure AD B2C fits within the broader picture of identity solutions. Azure AD B2C is a customer identity and access management (CIAM) service that is used to manage end-user accounts and access to application(s). [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is an identity and access management (IAM) service that is used to manage internal user accounts and access to application(s).
+In multitenant solutions, it's common to combine multiple identity services together to achieve different sets of your requirements. Many solutions have two distinct sets of identities:
 
-In many multitenant solutions, it is common to use different types of identity services for different parts of a solution.
+- **Customer identities**, which deal with end-user accounts including how your tenants' users get access to your applicatons.
+- **Internal identities**, which handle how your own team manages your solution.
 
-For example, your customers would likely need identities of their own to sign in and use the application(s) normally. This would be enabled by using Azure AD B2C. Your internal users also might need to sign in to the application to perform management or other administrative operations. You would likely want them to use their pre-existing enterprise identities for this, which would be enabled by Azure AD. The diagram below illustrates this example:
+These different identity requirements also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is an identity and access management (IAM) service, which you and your team use to manage your Azure resources and to control your application.
 
-![](./media/azure-ad-b2c/azure-ad-and-azure-ad-b2c.png)
+Consider an example multitenant solution built by Fabrikam. Their solution uses a combination of the two technologies to achieve their requirements:
+
+- Fabrikam implements Azure AD B2C so that their customers (tenants) can sign in to the applications.
+- The employees of Fabrikam use their organization's Azure AD directory to gain access to their solution for management and administration purposes. They use the same identities that they use for accessing other Fabrikam resources, like Microsoft Office.
+
+The diagram below illustrates this example:
+
+![A diagram depicting two applications with two distinct methods of signing in. One method is using Azure A D B 2 C for customers to sign in, and the other is using Azure A D for internal users to sign in.](./media/azure-ad-b2c/azure-ad-and-azure-ad-b2c.png)
 
 ## Isolation models
 
@@ -150,7 +158,7 @@ Home realm discovery is the process of automatically selecting a federated ident
 
 Home realm discovery is important when you use a shared Azure AD B2C tenant and also enable your customers to bring their own federated identity provider. You likely want to avoid a user having to select from a list of identity providers, because it adds extra complexity to the sign-in process. Also, a user might accidentally select an incorrect provider, which then causes their sign-in attempt to fail.
 
-You can configure home realm discovery based on many different factors. The most common approach is to use the user's email address domain suffix to decide which identity provider they should be signed in with. For example, `user@contoso.com` includes a domain suffix of `contoso.com`, which can be matched to the Contoso federated identity provider.
+You can configure home realm discovery based on many different factors. The most common approach is to use the user's email address domain suffix to decide which identity provider they should be signed in with. For example, consider Northwind Traders, a customer of Fabrikam's multitenant solution. The user `user@northwindtraders.com` includes a domain suffix of `northwindtraders.com`, which can be matched to the Northwind Traders' federated identity provider.
 
 For more information on the concept, see the Azure AD documentation for [home realm discovery](/azure/active-directory/manage-apps/home-realm-discovery-policy), and see the Azure AD B2C samples GitHub repository for an [example](https://github.com/azure-ad-b2c/samples/tree/master/policies/default-home-realm-discovery) of how to build it in Azure AD B2C.
 
