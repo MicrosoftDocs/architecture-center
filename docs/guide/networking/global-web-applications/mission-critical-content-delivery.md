@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/15/2023
+ms.date: 03/10/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

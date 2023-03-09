@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.
 author: johndowns
 ms.author: jodowns
-ms.date: 02/15/2023
+ms.date: 03/10/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -48,11 +48,11 @@ The solution includes the following components:
 
 - **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, a second Traffic Manager profile determines where to direct the request. The second profile is described below.
 
-- **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
+- **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. Azure Front Door's WAF protects your application against common security threats. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
 - **Traffic Manager using performance routing mode** has an endpoint for each Application Gateway instance. This Traffic Manager sends requests to the Application Gateway instance with the best performance from the client's location.
 
-- **Application Gateway** is deployed into each region, and sends traffic to the origin servers within that region.
+- **Application Gateway** is deployed into each region, and sends traffic to the origin servers within that region. Application Gateway's WAF protects any traffic that flows through the secondary path.
 
 - **Your origin application servers** need to be ready to accept traffic from both Azure Front Door and Azure Application Gateway, at any time.
 
@@ -82,11 +82,17 @@ Azure Front Door is a global service, while Application Gateway is a regional se
 
 Azure Front Door's points of presence are deployed globally, and TCP and TLS connections [terminate at the closest point of presence to the client](/azure/frontdoor/front-door-traffic-acceleration). This behavior improves the performance of your application. In contrast, when clients connect to Application Gateway, their TCP and TLS connections terminate at the Application Gateway that receives the request, regardless of where the traffic originated.
 
-### Public IP address
+### Connections from clients
 
-As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Furthermore, Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against a variety of attack types](/frontdoor/front-door-ddos).
+As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Furthermore, Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against a variety of attack types](/frontdoor/front-door-ddos), and your origins can be [configured to use Private Link connectivity](#private-link-connections-to-origin-servers).
 
-In contrast, Application Gateway requires that you deploy a dedicated public IP address, and you must protect your network and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
+In contrast, Application Gateway is an internet-facing service with a dedicated public IP address. You must protect your network and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
+
+### Private Link connections to origin servers
+
+Azure Front Door Premium provides [Private Link connectivity](/azure/frontdoor/origin-security?#private-link-origins) to your origins, which reduces the public internet-facing surface area of your solution.
+
+If you use Private Link to connect to your origins, consider deploying a private endpoint into your virtual network, and configure Application Gateway to use the private endpoint as the backend for your application.
 
 ### Scaling
 
@@ -101,12 +107,6 @@ If you use Azure Front Door's caching features, then it's important to be aware 
 If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner CDN as a fallback to Azure Front Door.
 
 Alternatively, if you use caching but it's not an essential part of your application delivery strategy, consider whether you can scale out or scale up your origins to cope with the increased load caused by the higher number of cache misses during a failover.
-
-### Connection to origin servers
-
-Azure Front Door Premium provides [Private Link connectivity](/azure/frontdoor/origin-security?#private-link-origins) to your origins, which reduces the public internet-facing surface area of your solution.
-
-If you use Private Link to connect to your origins, consider deploying a private endpoint into your virtual network, and configure Application Gateway to use the private endpoint as the backend for your application.
 
 ### Cost
 
