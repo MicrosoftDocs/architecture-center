@@ -1,3 +1,4 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 This architecture provides guidance and recommendations for developing an automated driving solution.
 
@@ -59,7 +60,7 @@ The transfer of the containerized machine learning model to a format that can be
 
 * [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning) is used to develop machine learning algorithms, like feature extraction, auto labeling, object detection and classification, and sensor fusion.  
 * [Azure DevOps](https://azure.microsoft.com/products/devops) provides support for DevOps tasks like CI/CD, testing, and automation.
-* [GitHub for Enterprises](https://github.com/enterprise) is an alternative choice for DevOps tasks like CI/CD, testing, and automation.
+* [GitHub for enterprises](https://github.com/enterprise) is an alternative choice for DevOps tasks like CI/CD, testing, and automation.
 * [Azure Container Registry](https://azure.microsoft.com/products/container-registry) enables you to build, store, and manage container images and artifacts in a private registry.
 
 ### ValOps
@@ -117,6 +118,10 @@ We recommend that a centralized team handles these responsibilities:
 
 ![Diagram that shows centralized AVOps functions.](..\media\centralized-avops-functions.png)
 
+## Scenario details
+
+You can use this architecture to build an automated driving solution on Azure.
+
 ### Potential use cases
 
 Automotive OEMs, Tier 1 vendors, and ISVs that develop solutions for automated driving. 
@@ -129,7 +134,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-It's important to understand the division of responsibility between the automotive OEM and Microsoft. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to Microsoft. Azure platform as a service (PaaS) provides built-in improved security on the physical stack, including the operating system. You can apply the following capabilities in addition to the infrastructure security components. These capabilities enable a Zero-Trust approach.
+It's important to understand the division of responsibility between the automotive OEM and the cloud provider. In the vehicle, the OEM owns the whole stack, but as the data moves to the cloud, some responsibilities transfer to the cloud provider. Azure platform as a service (PaaS) provides built-in improved security on the physical stack, including the operating system. You can apply the following capabilities in addition to the infrastructure security components. These capabilities enable a Zero-Trust approach.
 
 * Private endpoints for network security. For more information, see [Private endpoints for Azure Data Explorer](/azure/data-explorer/security-network-private-endpoint) and [Allow access to Azure Event Hubs namespaces via private endpoints](/azure/event-hubs/private-link-service).
 * Encryption at rest and in transit. For more information, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
@@ -154,7 +159,7 @@ You can use these strategies to reduce the costs associated with developing auto
 - Consider Azure services. For example, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models. Using these services can be more cost-effective than building and maintaining in-house infrastructure.
 - Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce costs associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
 
-### Contributors 
+## Contributors 
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
@@ -171,6 +176,15 @@ Other contributors:
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
+## Next steps
+
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is Azure Batch?](/azure/batch/batch-technical-overview)
+- [Azure Data Factory documentation](/azure/data-factory/)
+- [What is Azure Data Share?](/azure/data-share/overview)
+
 ## Related resources
 
+* [AVOps design guide](avops-design-guide.md)
 * [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
+* [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)

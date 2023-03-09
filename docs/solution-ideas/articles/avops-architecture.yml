@@ -27,6 +27,6 @@ products:
 
 name: Create an Autonomous Vehicle Operations (AVOps) solution
 summary: Learn about an architecture that you can use to build automated driving solution by using Azure services.
-thumbnailUrl: /azure/architecture/browse/thumbs/analytics-dataflow.png
+thumbnailUrl: /azure/architecture/browse/thumbs/avops-architecture-thumb.png
 content: |
     [!include[](avops-architecture-content.md)]
