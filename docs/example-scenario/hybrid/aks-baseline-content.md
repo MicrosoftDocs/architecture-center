@@ -6,7 +6,7 @@ This article includes recommendations for networking, security, identity, manage
 
 The following image shows the baseline architecture for Azure Kubernetes Service on Azure Stack HCI or Windows Server 2019/2022 datacenter failover cluster:
 
-:::image type="content" source="media/aks-baseline.png" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Stack HCI." lightbox="media/aks-baseline.png":::
+:::image type="content" source="media/aks-azurestackhci-baseline-v8.svg" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Stack HCI." lightbox="media/aks-azurestackhci-baseline-v8.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/AKS-AzureStackHCI-Baseline-V8.vsdx) of this architecture.*
 
