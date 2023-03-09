@@ -2,7 +2,9 @@ This article describes how to architect and operate a highly available Kubernete
 
 ## Architecture 
 
-:::image type="content" source="media/application-architecture.png" alt-text="Diagram that shows an architecture for a high-availability Kubernetes infrastructure." lightbox="media/application-architecture.png" border="false":::
+:::image type="content" source="media/application-architecture.svg" alt-text="Diagram that shows an architecture for a high-availability Kubernetes infrastructure." lightbox="media/application-architecture.svg" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/high-availability-kubernetes-diagrams.vsdx) of all diagrams in this article.*
 
 ### Workflow
 
@@ -15,7 +17,7 @@ The preceding diagram shows the architecture of the sample application running o
 
 The sample application is used to illustrate the application architecture. All components are examples. The architecture contains only a single application deployment. To achieve high availability, the deployment runs at least twice on two Azure Stack Hub instances. They can run either in a single location or in two or more sites:
 
-:::image type="content" source="media/aks-azure-architecture.png" alt-text="Diagram that shows the infrastructure architecture." lightbox="media/aks-azure-architecture.png" border="false":::
+:::image type="content" source="media/aks-azure-architecture.svg" alt-text="Diagram that shows the infrastructure architecture." lightbox="media/aks-azure-architecture.svg" border="false":::
 
 Services like Azure Container Registry and Azure Monitor are hosted outside of Azure Stack Hub in Azure or on-premises. This hybrid design protects the solution against the outage of a single Azure Stack Hub instance.
 
@@ -146,7 +148,7 @@ Some enterprise environments might require the use of _transparent_ or _non-tran
 
 Finally, cross-cluster traffic must flow between Azure Stack Hub instances. The solution described here consists of individual Kubernetes clusters that run on individual Azure Stack Hub instances. Traffic between them, like the replication traffic between two databases, is considered external traffic. External traffic must be routed through either a site-to-site VPN or Azure Stack Hub public IP addresses:
 
-:::image type="content" source="media/aks-cluster-traffic.png" alt-text="Diagram that shows how traffic is routed." border="false":::
+:::image type="content" source="media/aks-cluster-traffic.svg" alt-text="Diagram that shows how traffic is routed." border="false":::
 
 #### Cluster
 
@@ -251,11 +253,11 @@ Azure Stack Hub infrastructure is already resilient to failures, and it provides
 
 It's a good practice to deploy your production Kubernetes cluster, and also the workload, to two or more clusters. These clusters should be hosted in different locations or datacenters and use technologies like Traffic Manager to route users based on cluster response time or geography.
 
-:::image type="content" source="media/aks-azure-traffic-manager.png" alt-text="Diagram that shows how Traffic Manager is used to control traffic flows." border="false":::
+:::image type="content" source="media/aks-azure-traffic-manager.svg" alt-text="Diagram that shows how Traffic Manager is used to control traffic flows." border="false":::
 
 Customers who have a single Kubernetes cluster typically connect to the service IP or DNS name of a given application. In a multi-cluster deployment, customers should connect to a Traffic Manager DNS name that points to the services/ingress on each Kubernetes cluster.
 
-:::image type="content" source="media/aks-azure-traffic-manager-on-premises.png" alt-text="Diagram that shows how to use Traffic Manager to route traffic to on-premises clusters." lightbox="media/aks-azure-traffic-manager-on-premises.png" border="false":::
+:::image type="content" source="media/aks-azure-traffic-manager-on-premises.svg" alt-text="Diagram that shows how to use Traffic Manager to route traffic to on-premises clusters." lightbox="media/aks-azure-traffic-manager-on-premises.svg" border="false":::
 
 > [!NOTE]
 > This architecture is also a [best practice for managed AKS clusters on Azure](/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment).
@@ -280,7 +282,7 @@ Azure Stack Hub provides two identity provider choices. The provider you use dep
 
 The identity provider manages users and groups, including authentication and authorization for accessing resources. Access can be granted to Azure Stack Hub resources like subscriptions, resource groups, and individual resources like VMs and load balancers. For consistency, consider using the same groups, either direct or nested, for all Azure Stack Hub instances. Here's an example configuration:
 
-:::image type="content" source="media/azure-stack-azure-ad-nested-groups.png" alt-text="Diagram that shows nested Azure AD groups with Azure Stack Hub." lightbox="media/azure-stack-azure-ad-nested-groups.png" border="false":::
+:::image type="content" source="media/azure-stack-azure-ad-nested-groups.svg" alt-text="Diagram that shows nested Azure AD groups with Azure Stack Hub." lightbox="media/azure-stack-azure-ad-nested-groups.svg" border="false":::
 
 This example contains a dedicated group (using Azure AD or AD FS) for a specific purpose, for example, to provide Contributor permissions for the resource group that contains the Kubernetes cluster infrastructure on a specific Azure Stack Hub instance (here, "Seattle K8s Cluster Contributor"). These groups are then nested into an overall group that contains the subgroups for each Azure Stack Hub instance.
 
@@ -334,7 +336,7 @@ A self-hosted agent can run on top of Azure Stack Hub (as an IaaS VM) or in a ne
 
 The following flow chart can help you decide whether you need a self-hosted or a Microsoft-hosted build agent:
 
-:::image type="content" source="media/aks-flow-chart.png" alt-text="Flow chart that can help you decide which type of build agent to use." lightbox="media/aks-flow-chart.png" border="false":::
+:::image type="content" source="media/aks-flow-chart.svg" alt-text="Flow chart that can help you decide which type of build agent to use." lightbox="media/aks-flow-chart.svg" border="false":::
 
 - Can the Azure Stack Hub management endpoints be accessed via the internet?
   - Yes: You can use Azure Pipelines with Microsoft-hosted agents to connect to Azure Stack Hub.
@@ -345,11 +347,11 @@ The following flow chart can help you decide whether you need a self-hosted or a
 
 If the Azure Stack Hub management endpoints and Kubernetes API can be accessed via the internet, the deployment can use a Microsoft-hosted agent. This deployment results in the following application architecture:
 
-:::image type="content" source="media/aks-azure-stack.png" alt-text="Diagram that provides an overview of the architecture that can be accessed via the internet." lightbox="media/aks-azure-stack.png" border="false":::
+:::image type="content" source="media/aks-azure-stack.svg" alt-text="Diagram that provides an overview of the architecture that can be accessed via the internet." lightbox="media/aks-azure-stack.svg" border="false":::
 
 If the Resource Manager endpoints, Kubernetes API, or both can't be accessed directly via the internet, you can use a self-hosted build agent to run the pipeline steps. This design requires less connectivity. It can be deployed with only on-premises network connectivity to Resource Manager endpoints and the Kubernetes API:
 
-:::image type="content" source="media/aks-self-hosted.png" alt-text="Diagram that shows a self-hosted architecture." lightbox="media/aks-self-hosted.png" border="false":::
+:::image type="content" source="media/aks-self-hosted.svg" alt-text="Diagram that shows a self-hosted architecture." lightbox="media/aks-self-hosted.svg" border="false":::
 
 > [!NOTE]
 > In scenarios where Azure Stack Hub, Kubernetes, or both of them don't have internet-facing management endpoints, you can still use Azure DevOps for your deployments. You can use a self-hosted agent pool, which is an Azure DevOps agent that runs on-premises or on Azure Stack Hub itself. Or you can use a completely self-hosted Azure DevOps server on-premises. The self-hosted agent needs only outbound HTTPS (TCP 443) internet connectivity.
