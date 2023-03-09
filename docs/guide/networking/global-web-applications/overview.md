@@ -21,16 +21,20 @@ ms.custom:
 
 # Global routing redundancy for highly available mission-critical global web applications
 
-Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use content delivery networks (CDNs) to accelerate their performance, route traffic between regions, and secure their workloads. Microsoft's CDN offering is Azure Front Door.
+Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use content delivery networks (CDNs) to accelerate their performance, route traffic between regions, and secure their workloads. Microsoft's CDN offering is Azure Front Door, and Azure Front Door provides a range of capabilities to enrich applications.
+
+In some mission-critical solutions, you might need to add redundancy to your global traffic ingress path. By adding redundancy, you can improve the resiliency of this part of your solution. However, implementing multiple redundant traffic ingress paths comes with significant costs and drawbacks, and it's something you need to consider carefully. In this article, we describe the factors that you need to consider when planning how to route traffic to your mission-critical global HTTP application with Azure Front Door.
+
+> [!IMPORTANT]
+> Implementing a highly available, mission-critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs.
+>
+> Most customers don't need the architecture described in this article.
+
+## Traffic ingress resiliency
 
 Azure Front Door is a highly available service. It has an industry-leading SLA of 99.99% uptime, which is much higher than many other CDNs. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, no cloud-based service is infallible. We take a great deal of care to avoid outages, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. Occasionally, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
 
 You can switch between Azure Front Door and other CDNs or application delivery services during an outage or a disaster. However, you need to carefully consider these architectures. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
-
-In this article, we describe the factors that you need to consider when planning a mission-critical global HTTP application architecture with Azure Front Door.
-
-> [!IMPORTANT]
-> Implementing a highly available, mission-critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs. Most customers don't need the architecture described in this article.
 
 ## Approach
 
