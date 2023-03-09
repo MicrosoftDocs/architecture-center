@@ -121,9 +121,9 @@ Provisioning an Azure AD B2C tenant for each application tenant allows you to cu
 Additionally, there are several service limits that you must keep in mind. Azure subscriptions enable you to deploy a [limited number](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of Azure AD B2C tenants. If you need to deploy more than the limit allows, you need to consider an appropriate [subscription design pattern](../approaches/resource-organization.yml#bin-packing) to allow you to balance your Azure AD B2C tenants across multiple subscriptions. There are other [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well, such as how many directories a single user can create and how many directories they can belong to.
 
 > [!WARNING]
-> Because of the complexity involved in this approach, we highly recommend customers consider the other isolation models first. This option is included in this article for the sake of completeness, but it is not the right approach for most use cases.
+> Because of the complexity involved in this approach, we strongly recommend that you consider the other isolation models first. This option is included in this article for the sake of completeness, but it's not the right approach for most use cases.
 >
-> A common misconception is to assume that, because you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), you need to include identity within each stamp. This is not necessarily true, and often another isolation model can be used instead. Please proceed with a high level of diligence and clear business justification if you use this isolation model, as the deployment & maintenance overhead is *significant*.
+> A common misconception is to assume that, because you use the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), you need to include identity services within each stamp. This is not necessarily true, and often another isolation model can be used instead. Please proceed with a high level of diligence and clear business justification if you use this isolation model, as the deployment & maintenance overhead is *significant*.
 
 You should only consider provisioning an Azure AD B2C tenant for every application tenant if the following statements apply to your scenario:
 
