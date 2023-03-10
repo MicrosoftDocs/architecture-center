@@ -10,13 +10,13 @@ This architecture provides guidance and recommendations for developing an automa
 
 ### Dataflow
 
-1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/), [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/) ingests data into Azure.
+1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/) or [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/), ingests data into Azure.
 
-    Measurement data can also be synthetic data from simulations or from other sources. (MDF4, TDMS, and rosbag are common data formats for measurements.) In the DataOps stage, ingested measurements are processed. Validation and data quality checks, like checksum, are performed to remove low quality data. In this stage, raw information metadata recorded by a test driver during a test drive is extracted. This data is stored in a centralized metadata catalog. This information helps downstream processes identify specific scenes and sequences.
-1. Data is processed by an [Azure Data Factory](/azure/data-factory/introduction) extract, transform, and load (ETL) pipeline. The output is stored as raw and binary data in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Metadata is stored in [Azure Cosmos DB](/azure/cosmos-db). Depending on the scenario, it might be sent to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) or [Azure Cognitive Search](/azure/cognitive-services/).
+    Measurement data can also be synthetic data from simulations or from other sources. (MDF4, TDMS, and rosbag are common data formats for measurements.) In the DataOps stage, ingested measurements are processed. Validation and data quality checks, like checksum, are performed to remove low quality data. In this stage, raw information metadata that's recorded by a test driver during a test drive is extracted. This data is stored in a centralized metadata catalog. This information helps downstream processes identify specific scenes and sequences.
+1. Data is processed by an [Azure Data Factory](/azure/data-factory/introduction) extract, transform, and load (ETL) pipeline. The output is stored as raw and binary data in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Metadata is stored in [Azure Cosmos DB](/azure/cosmos-db). Depending on the scenario, it might then be sent to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) or [Azure Cognitive Search](/azure/cognitive-services/).
 1. Additional information, insights, and context are added to the data to improve its accuracy and reliability.
 1. Extracted measurement data is provided to labeling partners (human-in-the-loop) via [Azure Data Share](/azure/data-share/). Third-party partners perform auto labeling, storing and accessing data via a separate Data Lake account.
-1. Labeled datasets flow to downstream [MLOps](#mlops) processes, mainly to create perception and sensor fusion models. These models perform functions used by autonomous vehicles to detect scenes (that is, lane changes, blocked roads, pedestrians, traffic lights, and traffic signs).
+1. Labeled datasets flow to downstream [MLOps](#mlops) processes, mainly to create perception and sensor fusion models. These models perform functions that are used by autonomous vehicles to detect scenes (that is, lane changes, blocked roads, pedestrians, traffic lights, and traffic signs).
 1. In the [ValOps](#valops) stage, trained models are validated via open-loop and closed-loop testing.
 1. Tools like [Foxglove](https://foxglove.dev/), running on [Azure Kubernetes Service](/azure/aks/intro-kubernetes) or [Azure Container Instances](/azure/container-instances/), visualize ingested and processed data. 
 
@@ -40,21 +40,21 @@ Data operations (DataOps) is a set of practices, processes, and tools for improv
 * [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) stores metadata results, like stored measurements.
 * [Data Share](https://azure.microsoft.com/products/data-share/) is used to share data with partner organizations, like labeling companies, with enhanced security.
 * [Azure Databricks](https://azure.microsoft.com/products/databricks/) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
-* [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time-to-insight across data warehouses and big data systems.
+* [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
 * [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
 
 ### MLOps
 
 Machine learning operations (MLOps) include:
 
-- Feature extraction models (like CLIP and YOLO) for classifying scenes (for example, if a pedestrian is in the scene) during the [DataOps](#dataops) pipeline.
+- Feature extraction models (like CLIP and YOLO) for classifying scenes (for example, whether a pedestrian is in the scene) during the [DataOps](#dataops) pipeline.
 - Auto labeling models for labeling ingested images and lidar and radar data. 
 - Perception and computer vision models for detecting objects and scenes.
 - A sensor fusion model that combines sensor streams.
 
 The perception model is an important component of this architecture. This Azure Machine Learning model generates an object detection model by using detected and extracted scenes.
 
-The transfer of the containerized machine learning model to a format that can be read by SoC (system on a chip) hardware and validation/simulation software occurs in the MLOps pipeline. This step requires the support of the SoC manufacturer.
+The transfer of the containerized machine learning model to a format that can be read by system on a chip (SoC) hardware and validation/simulation software occurs in the MLOps pipeline. This step requires the support of the SoC manufacturer.
 
 #### MLOps components
 
@@ -76,7 +76,7 @@ Using ValOps for validation can help you take advantage of the scalability, flex
 
 Re-simulation, or *sensor processing*, is an open-loop test and validation system for automatic driving functions. It's a complex process, and there might be regulatory requirements for safety, data privacy, data versioning, and auditing. Re-simulation processes recorded raw data from various car sensors via a graph in the cloud. Re-simulation validates data processing algorithms or detects regressions. OEMs combine sensors in a directed acyclic graph that represents a real-world vehicle.
 
-Re-simulation is a large-scale  parallel compute job. It processes 10s or 100s of PBs of data by using tens of thousands of cores. It requires I/O throughput of more than 30 GBps. Data from multiple sensors is combined into datasets that represent a view of what the on-vehicle computer vision systems record when the vehicle navigates the real world. An open-loop test validates the performance of the algorithms against ground truth by using replay and scoring. The output is used later in the workflow for algorithm training.
+Re-simulation is a large-scale  parallel compute job. It processes tens or hundreds of PBs of data by using tens of thousands of cores. It requires I/O throughput of more than 30 GB/s. Data from multiple sensors is combined into datasets that represent a view of what the on-vehicle computer vision systems record when the vehicle navigates the real world. An open-loop test validates the performance of the algorithms against ground truth by using replay and scoring. The output is used later in the workflow for algorithm training.
 
 - Datasets are sourced from test fleet vehicles that collect raw sensor data (for example, camera, lidar, radar, and ultrasonic data).
 - Data volume depends on camera resolution and the number of sensors on the vehicle.
@@ -89,7 +89,7 @@ Re-simulation is a large-scale  parallel compute job. It processes 10s or 100s o
 
 #### Closed-loop testing and simulation
 
-Closed-loop testing of autonomous vehicles is the process of testing vehicle capabilities while including real-time feedback from the environment. The vehicle's actions are based on both its pre-programmed behavior and the dynamic conditions that it's encountering, and it adjusts its actions accordingly. Closed-loop testing runs in a more complex and realistic environment. It's used to assess the vehicle's ability to handle real-world scenarios, including reacting to unexpected situations. The goal of closed-loop testing is to verify that the vehicle can operate safely and effectively in various conditions, and to refine its control algorithms and decision-making processes as needed.
+Closed-loop testing of autonomous vehicles is the process of testing vehicle capabilities while including real-time feedback from the environment. The vehicle's actions are based both on its pre-programmed behavior and on the dynamic conditions that it encounters, and it adjusts its actions accordingly. Closed-loop testing runs in a more complex and realistic environment. It's used to assess the vehicle's ability to handle real-world scenarios, including how it reacts to unexpected situations. The goal of closed-loop testing is to verify that the vehicle can operate safely and effectively in various conditions, and to refine its control algorithms and decision-making processes as needed.
 
 The ValOps pipeline integrates closed-loop testing, third-party simulations, and ISV applications.
 
@@ -107,7 +107,7 @@ During the ValOps stage, a catalog of real scenarios is used to validate the aut
 
 An AVOps architecture is complex and involves various third parties, roles, and development stages, so it's important to implement a good governance model. 
 
-We recommend that you create a centralized team to handle functions like infrastructure provisioning, cost management, the metadata and data catalog, lineage, and overall orchestration and event handling. Centralizing these services creates efficiency and simplifies operations.  
+We recommend that you create a centralized team to handle functions like infrastructure provisioning, cost management, the metadata and data catalog, lineage, and overall orchestration and event handling. Centralizing these services is efficient and simplifies operations.  
 
 We recommend that you use a centralized team to handle these responsibilities:
 
@@ -155,9 +155,9 @@ You can use these strategies to reduce the costs that are associated with develo
 - Use [Spot Virtual Machines](/azure/virtual-machines/spot-vms). You can determine which workloads in your AVOps deployment don't require processing within a specific time frame and use Spot Virtual Machines for these workloads. Spot Virtual Machines allows you to take advantage of unused Azure capacity for significant cost savings. If Azure needs the capacity back, the Azure infrastructure evicts spot virtual machines.
 - Use autoscaling. Autoscaling enables you to automatically adjust your cloud infrastructure based on demand, reducing the need for manual intervention and helping you reduce costs. For more information, see [Design for scaling](/azure/architecture/framework/scalability/design-scale).
 - Consider using hot, cool, and archive tiers for storage. Storage can be a significant cost in an autonomous driving solution, so you need to choose cost-effective storage options, like cold storage or infrequent-access storage. For more information, see [data lifecycle management](/azure/storage/blobs/lifecycle-management-overview).
-- Use cost management and optimization tools. [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management/) provides tools that can help you identify and address areas for cost reduction, like identifying unused or underutilized resources.
-- Consider Azure services. For example, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models. Using these services can be more cost-effective than building and maintaining in-house infrastructure.
-- Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce the costs associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
+- Use cost management and optimization tools. [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management/) provides tools that can help you identify and address areas for cost reduction, like unused or underutilized resources.
+- Consider using Azure services. For example, you can use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models. Using these services can be more cost-effective than building and maintaining in-house infrastructure.
+- Use shared resources. When possible, you can use shared resources, like shared databases or shared compute resources, to reduce the costs that are associated with autonomous driving development. The [centralized functions](#centralized-avops-functions) in this architecture, for example, implement a central bus, event hub, and metadata catalog. Services like [Azure Data Share](/azure/data-share/) can also help you achieve this goal.
 
 ## Contributors 
 
