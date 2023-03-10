@@ -32,7 +32,8 @@ The architecture has the following attributes that have to be taken into conside
   - Private traffic: Secured by Azure Firewall - Traffic within the network flows through the Firewall
 - Each regional virtual hub is secured with Azure Firewall. Each firewall has the following configurations:
   - DNS Servers: Default (Azure provided) - Azure Firewall will proxy DNS requests to Azure DNS
-  - DNS Proxy: Enabled - Azure Firewall listens for DNS queries on port 53. Clients in subnet spokes should be configured to use the Azure Firewall DNS proxy, otherwise [the results can be unpredictable](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
+  - DNS Proxy: Enabled - Azure Firewall listens for DNS queries on port 53.
+- Each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy, otherwise [the DNS query results can be unpredictable](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
 - Each Azure Firewall is logging to Log Analytics - Azure Firewall enables logging DNS requests, which is a requirement for this topology.
 
 ### Challenge with DNS Proxy: Enabled
