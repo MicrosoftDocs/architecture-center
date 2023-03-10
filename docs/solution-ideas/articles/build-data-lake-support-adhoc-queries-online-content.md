@@ -114,7 +114,7 @@ Azure Event Hubs is highly versatile when it comes to decoupling a transactional
 
 ### DevOps
 
-For deploying the used services in this example workload automatically, it's best to use [continuous integration and continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks). Consider using a solution such as Azure DevOps or GitHub Actions, as described in the [Azure DevOps Starter](/azure/devops-project/overview) documentation.
+For deploying the used services in this example workload automatically, it's best to use [continuous integration and continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks). Consider using a solution such as Azure DevOps or GitHub Actions.
 
 ### Cost optimization
 
