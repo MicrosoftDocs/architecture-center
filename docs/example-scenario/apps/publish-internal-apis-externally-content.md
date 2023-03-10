@@ -44,7 +44,7 @@ In this scenario, an organization hosts multiple APIs using [Azure Application S
 
 ## Potential use cases
 
-- Synchronize customer address information internally after a the customer makes a change.
+- Synchronize customer address information internally after the customer makes a change.
 - Attract developers to your platform by exposing unique data assets.
 
 ## Considerations
@@ -73,7 +73,7 @@ App Service Environments could make use of [Traffic Manager][ase-trafficmanager]
 
 #### Resiliency
 
-Though this example scenario talks more about configuration, the APIs hosted on the App Service Environments should be resilient enough to handle errors in the requests, which eventually is managed by the API Management service and Application Gateway. Consider [Retry and Circuit breaker patterns][api-pattern] in the API design. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+Though this example scenario talks more about configuration, the APIs hosted on the App Service Environments should be resilient enough to handle errors in the requests, which are eventually managed by the API Management service and Application Gateway. Consider [Retry and Circuit breaker patterns][api-pattern] in the API design. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ### Security
 
@@ -157,7 +157,7 @@ You need to further configure the components deployed using the preceding Resour
 
 8. Configure Application Gateway (WAF V1) to access the API service: apim-gateway on Port 80. Add TLS certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use the TLS cert.
 
-Once the preceding steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're are able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
+Once the preceding steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
 
 *It's not a good practice to use same URL for Internal and External endpoints for the APIM services (though in this demo, both URLs are same). If you want to choose to have different URLs for internal and external endpoints, you can make use of App Gateway WAF v2, which supports http redirection and much more.*
 
