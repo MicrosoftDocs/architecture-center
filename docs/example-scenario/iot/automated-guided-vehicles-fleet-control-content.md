@@ -155,8 +155,7 @@ Use Azure Active Directory for identity and access control and use Azure Key Vau
 ### DevOps
 
 For deploying the microservices to Kubernetes or Azure App Service automatically, it's best to use [CI/CD processes](/azure/architecture/example-scenario/apps/devops-with-aks).
-Consider using a solution such as Azure DevOps or GitHub Actions, as described in the [Azure DevOps Starter](/azure/devops-project/overview)
-documentation.
+Consider using a solution such as Azure DevOps or GitHub Actions.
 
 ### Cost optimization
 
