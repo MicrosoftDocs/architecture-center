@@ -30,7 +30,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 - [Integration Services](https://azure.microsoft.com/products/category/integration) is a collection of services that you can use to integrate applications, data, and processes.
 - [Logic Apps](https://azure.microsoft.com/products/logic-apps) is a serverless platform for building enterprise workflows that integrate applications, data, and services.
-- [API Management](https://azure.microsoft.com/products/api-management) is a managed service for publishing catalogs of HTTP APIs, to promote reuse and discoverability.
+- [API Management](https://azure.microsoft.com/products/api-management) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs.
 - [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for DNS domains.
 - [Azure AD](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Enterprise employees can use Azure AD to access external and internal resources.
 
@@ -66,7 +66,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-Reliability that ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 Review the SLA for each service:
 
@@ -81,7 +81,7 @@ Regularly [back up][apim-backup] your API Management configuration. Store your b
 
 - In a disaster recovery event, provision a new API Management instance, restore the backup to the new instance, and repoint the DNS records.
 
-- Keep a passive instance of the API Management service in another Azure region. Regularly restore backups to that instance, to keep it in sync with the active service. To restore the service during a disaster recovery event, you need only repoint the DNS records. This approach incurs additional costs because you pay for the passive instance, but reduces the time to recover.
+- Keep a passive instance of the API Management service in another Azure region. Regularly restore backups to that instance, to keep it in sync with the active service. To restore the service during a disaster recovery event, you need only repoint the DNS records. This approach incurs additional costs because you pay for the passive instance, but it reduces recovery time.
 
 For logic apps, we recommend a configuration-as-code approach to backing up and restoring. Because logic apps are serverless, you can quickly recreate them from Azure Resource Manager templates. Save the templates in source control, integrate the templates with your continuous integration/continuous deployment (CI/CD) process. In a disaster recovery event, deploy the template to a new region.
 
@@ -176,7 +176,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 To increase the scalability of API Management, add [caching policies][apim-caching] where appropriate. Caching also helps reduce the load on back-end services.
 
-To offer greater capacity, you can scale out Azure API Management Basic, Standard, and Premium tiers in an Azure region. To analyze the usage for your service, on the **Metrics** menu, select the **Capacity Metric** option and then scale up or scale down as appropriate. The upgrade or scale process can take from 15 to 45 minutes to apply.
+To offer greater capacity, you can scale out Azure API Management Basic, Standard, and Premium tiers in an Azure region. To analyze the usage for your service, select **Capacity Metric** on the **Metrics** menu and then scale up or scale down as appropriate. The upgrade or scale process can take from 15 to 45 minutes to apply.
 
 Recommendations for scaling an API Management service:
 
