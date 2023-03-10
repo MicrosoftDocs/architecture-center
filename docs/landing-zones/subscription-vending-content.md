@@ -1,77 +1,80 @@
-[Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) is a concept set forth in the Cloud Adoption Framework that encourages defining a process for programmatically issuing subscriptions to application teams that need to deploy workloads. Automating this procedure is encouraged and this article provides core implementation guidance.
+Subscriptions vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. You should automate as much of the subscription vending process as you can. This article provides core implementation guidance.
 
-Subscription vending should be an automated process so the mechanism the platform team uses to create workload subscriptions is consistent and repeatable. The automation should use a combination of deployment pipelines and infrastructure as code (IaC) to automate the process.
+[![Diagram showing how the subscriptions vending fits in an organization.](images/sample-landing-zone-architecture.png)](images/sample-landing-zone-architecture.png)
+*Figure 1. An example of how subscription vending facilitates subscription creation.*
 
-The following diagram shows the components of the automated subscription vending process.
+## Architecture components
 
-[![Diagram showing the components of the subscription vending approach.](images/subscription-vending-architecture.png)](images/subscription-vending-architecture.png)
+Your subscription vending automation needs to accomplish three tasks. (1) It should collect subscription request data and have a process to approve or deny requests. (2) A request approval should initiate your platform automation. (3) The platform automation should use the request data and infrastructure-as-code to create the subscription. The following diagram is an example of a Gitflow-based implementation.
 
-[![Diagram showing the components of the subscription vending approach.](images/sample-landing-zone-architecture.png)](images/sample-landing-zone-architecture.png)
+[![Diagram showing the components of the subscription vending approach.](images/subscription-vending-components.png)](images/subscription-vending-components.png)
 
-## Data collection
+A Gitflow-based subscription vending process is a natural extension of the approach platform teams take to declaratively manage the platform.
 
-When a workload team makes a subscription request, you need to collect enough data to automate the subscription vending process.
+## Collect data and approve
 
-**Collect required data.** You start by providing a mechanism to application teams to capture as much detail as necessary to perform the business justification and subscription creation. You should then expect to collect data such as: the authorization of the request, the cost center, networking requirements, data sensitivity, environment (dev/test, pre-production, production), and any other required fields that will be necessary to drive approval and the resulting subscription & core resource creation.
+When an application team makes a subscription request, you need to collect enough data to automate the subscription vending process.
 
-**Use IT service management tool.** If you already have an IT Service Management (ITSM) tool in active use in your organization, use that to collect the data. Alternatively, you can also use a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/) to build a custom portal to collect the data. The rest of this article will assume an ITSM tool is in use.
+**Use a data collection tool.** You need to create a mechanism for application teams to request subscriptions and collect data. You can use an IT Service Management (ITSM) to collect the data or build a customer portal with a low-code / no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/). The rest of this article assumes an ITSM tool is in use.
 
-Your data capture portal should result in a logged and trackable request for a new subscription, complete with all necessary data to fulfill the requirements of that subscription, such as a ticket in your ITSM tool. Business logic and authorization tracking should be bound to this request.
+**Collect the required data.** The goal of data collection is to receive business approval and define the values of the subscription parameter file. The data collect tool capture as much detail as necessary to perform the business justification and subscription creation. You need to capture the request authorizer, cost center, networking requirements (internet and on-premises connectivity), key workload components (application platform, data requirements), data sensitivity, environment (development, test, pre-production, production), and any other required fields.
+
+Your data collection tool should result in a logged and trackable request for a new subscription. For example, an ITSM generates a ticket. The request should contain all necessary data to fulfill the requirements of that subscription. You should bind business logic and authorization tracking to the request.
+
+**Interface with other internal systems.** Where needed/possible, the ITSM tool should interface with other tools or systems in your organizations to programatically enrich the request with data from other systems. Identity, finance, security, networking.
+
+A system like IPAM is just one example of an external system that may need to be interfaced with in this process. As part of the subscription request, expected network space and network line of sight requirements are often needed to be understood. If you have an IP address management tool, this intake process can validate available & appropriate IP space and reserve it.
+
+It's ideal if your subscription request intake, processing, and tracking system is capable of orchestrating interactions like these at the data collection and approval step. If not, those interactions can then be handled in subsequent steps that involve creating custom workflows.
 
 Once the request is through all ITSM-automated and any manual approval gates, then the automated subscription creation process can begin. Ideally, your ITSM tool can perform a push notification with the necessary data to start this process after approval is met. You might need a middleware layer, such as Azure Functions or Logic Apps, to initiate the process.
 
-**Use IP address management tool.** As part of a workload subscription request, expected network space and network line of sight requirements are often needed to be understood. If you have an IP address management tool, this intake process can validate available & appropriate IP space and reserve it.
+**OUTPUT** Upon approval, trigger with data transfer. With high-level needs such as subscription owner alias.
 
-A system like IPAM is just one example of an external system that may need to be interfaced with in this process. It's ideal if your subscription request intake, processing, and tracking system is capable of orchestrating interactions like these at the data collection and approval step. If not, those interactions can then be handled in subsequent steps that involve creating custom workflows.
+## Initiate platform automation
 
-## Platform automation
+**input** notification to go with data to act on it.
 
 Once subscription request data has been captured, validated, and ready to be acted on, the next step is to initiate platform automation. The goal is to get the collected subscription request data captured in a consistent format that can be used in deployment pipelines for the actual subscription creation.
 
-We recommend implementing this process as a file-based, PR-driven, source-controlled flow.
-
-### Data collection to CI pipeline
-
-TODO
-
-### CI/CD pipeline to source control
+We recommend implementing this Git-based process as a file-based, PR-driven, source-controlled flow.
 
 **Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data necessary to create a subscription. The structure of the file should be documented and extensible to support future needs.
 
-[example]
+[example] (networking, business unit code, tech and bio)
 
-**You should use one file per subscription.** Each subscription should get its own dedicated configuration file.  The subscription is the unit of deployment in the vending process.
+**Use one file per subscription.** Each subscription should get its own dedicated configuration file.  The subscription is the unit of deployment in the vending process.
 
-### Source control to CI/CD pipeline
-
-### Source control management tool
-
-TODO
-
-**Use a pull request-based system.** The automation that creates the config file should do the following:
+**Use a pull request system.** The process that creates the subscription parameter file should automate the following:
 
 1. Create a new branch for each subscription request
-1. Use the data collected to create the YAML/JSON data file for the new subscription in the branch
+1. Use the data collected to create a YAML/JSON subscription parameter file for the new subscription in the branch
 1. Create a pull request from your branch into `main`
 1. Update ITSM tooling with state change and reference to this pull request
 
-The above represents a logic flow that should be implemented in an automated way. We recommend this process is built as a deployment pipeline which is responsible for orchestrating the above steps. Each subscription request is then a trigger of this pipeline with the necessary parameters passed in. Alternatively, this could be done as a code-based solution hosted in Azure if the workflow becomes sufficiently complex.
+You should build this process as a pipeline to complement the Gitflow-based implementation. In the architecture component diagram, the *request pipeline* defines and executes this process. Each subscription request triggers this request pipeline and passes in the necessary parameters. Alternatively, this could be done as a code-based solution hosted in Azure if the workflow becomes sufficiently complex.
 
-This automation is a single system that is responsible for taking the collected data for any given subscription request and initiating the platform automation. It is owned and maintained by the platform team that is responsible for subscription creation in the organization.
+The platform team owns and maintains this implementation responsible for subscription creation in the organization.
 
 **Perform request linting**. The pull request can trigger any automated linting process that you create to do automated validation on the request.  For example, ensuring that the IP ranges requested are still available & reserved in your IPAM system or making sure the YAML/JSON data file is correctly structured to prevent a garbage-in, garbage-out scenario. Push as much business validation up to the request collection process as possible, as a validation exception this late in the process is harder to address and need to be surfaced back into the request tracking system.
 
 **Implement any necessary review gates.** The pull request becomes the first action signal for the platform team responsible for the subscription creation process. The assumption is that if this pull request is merged, the subscription will be created. To that end, a human-intervention gate can be added at this step for final reviews and potential last-minute alterations to the data file.
 
-**Merge the changes.** Once the PR merger to `main` is done, this will then initiate a continuous deployment pipeline to create the actual subscription. If no human-intervention gates are required and all linting builds are complete this could be an auto-merge PR.
+**Trigger deployment pipeline.** Once the PR merger to `main` is done, this will then initiate a continuous deployment pipeline to create the actual subscription. If no human-intervention gates are required and all linting builds are complete this could be an auto-merge PR.
+
+**Output** Final and fully-approved subscription parameters necessary to create subscriptions. For example, mapped Owner RBAC role to subscription owner alias.
 
 ## Create subscription
 
-Up until this point, everything has been focused on capturing, reviewing, approving, and documenting the intent to have a subscription created, with as much automation as practical.  This final phase is where the subscription is actually created and configured; which also should be automated.
+**Input** everything deployment modules need to deploy. All parameters satisfied.
+
+Up until this point, everything has been focused on capturing, reviewing, approving, and documenting the intent to have a subscription created, with as much automation as practical. This final phase is where the subscription is actually created and configured. This creation process should be automated.
 
 The process picks up when the new subscription configuration data file merged into `main`.  This is the authoritative push notification to actually deploy new resources (subscription and base configuration) in Azure, final commits to external tracking systems (e.g. IPAM), and updating status in the ITSM tooling tracking this request.
 
-**Use IaC.** Your deployments should use a declarative approach, using IaC templates that the platform subscription team creates and maintains, to describe the necessary Azure components to be deployed. Use the Azure Landing Zone subscription vending implementations, available as [Bicep modules](https://aka.ms/lz-vending/bicep) and [Terraform modules](https://aka.ms/lz-vending/tf) as your starting point.
+**Use infrastructure as code.** Your deployments should use a declarative approach, using IaC templates that the platform subscription team creates and maintains, to describe the necessary Azure components to be deployed.
+
+Use the Azure Landing Zone subscription vending implementations, available as [Bicep modules](https://aka.ms/lz-vending/bicep) and [Terraform modules](https://aka.ms/lz-vending/tf) as your starting point.
 
 Like all of the automation so far, you should also use a CI/CD pipeline to orchestrate this resource creation and configuration phase. The pipeline will trigger based off of the merge to `main`. The pipeline is responsible for the following:
 
@@ -92,17 +95,19 @@ Be aware that you do need a commercial agreement to create an Azure Subscription
 
 **Pipeline identity.** In order to perform all of these operations, the CI/CD pipeline needs to be properly permissioned across all systems it interfaces with - Azure RBAC, Azure AD, and external systems alike. For Azure recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure.
 
+**OUtput** subscription under governance ready for workload.
+
 ## Post-deployment
 
-TODO
+TODO intro :
+
+### Application team handoff
+
+With the subscription in place, the application team is now able to deploy and operate their workload with the governance set in place through the automated subscription vending processes described above. Deploying, managing, and operating the workload then becomes the next focus of the application team that requested this subscription. Those pipelines and processes are not related to the subscription vending process outlined above; this process is solely responsible for automating the instantiation "ready-to-use" subscription.
 
 ### Cost management
 
 TODO
-
-### Application team handoff
-
-With the subscription in place, the application team is now able to deploy and operate their workload with the governance set in place through the automated subscription vending processes described above. Deploying, managing, and operating the workload then becomes the next focus of the application team that requested this subscription.  Those pipelines and processes are not related to the subscription vending process outlined above; this process is solely responsible for automating the instantiation "ready-to-use" subscription.
 
 ### Change over time
 
@@ -112,7 +117,11 @@ As governance requirements of a workload change, you might need to move subscrip
 - Platform updates that [keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
 - Applying new [resource tagging](/azure/cloud-adoption-framework/govern/resource-consistency/tagging#enforce) requirements
 
+## Variations
+
+ITSM tool. Where things can shift. Goal is for the team to define a process flow. The flow above used this flow. You need to build a process flow and build subscription vending automation that executes that flow. [LINK to Jacks flow diagram here]
+
 ## Next steps
 
-TODO
-### Cost management
+- [Bicep modules](https://aka.ms/lz-vending/bicep)
+- [Terraform modules](https://aka.ms/lz-vending/tf)
