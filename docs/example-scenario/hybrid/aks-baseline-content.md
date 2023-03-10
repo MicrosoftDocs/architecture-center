@@ -8,7 +8,7 @@ The following image shows the baseline architecture for Azure Kubernetes Service
 
 :::image type="content" source="media/aks-azurestackhci-baseline-v8.svg" alt-text="Conceptual image of Baseline architecture for Azure Kubernetes Service on Azure Stack HCI." lightbox="media/aks-azurestackhci-baseline-v8.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/AKS-AzureStackHCI-Baseline-V8.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/aks-azurestackhci-baseline-v8.vsdx) of this architecture.*
 
 The architecture consists of the following components and capabilities:
 
