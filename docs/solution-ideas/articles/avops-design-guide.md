@@ -71,7 +71,7 @@ Other contributors:
  - [David Peterson](https://www.linkedin.com/in/david-peterson-64456021/) | Chief Architect
  - [Gabriel Sallah](https://www.linkedin.com/in/gabrielsallah/) | HPC/AI Global Black Belt Specialist
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
