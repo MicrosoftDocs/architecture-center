@@ -57,7 +57,7 @@ This recommendation doesn't imply that anyone can push live updates to a product
 
 **Instrument each application for insight.** To understand the health of your applications, you need to know how they perform and whether they experience any errors or problems. Always include instrumentation as a design requirement, and build instrumentation into each application from the start. Instrumentation must include event logging for root cause analysis, but also telemetry and metrics to monitor the health and usage of each application.
 
-**Track your technical debt.** Many projects prioritize release schedules over code quality to one degree or another. Always track when code quality potentially suffers. Document any shortcuts or other suboptimal implementations, and schedule time to revisit these issues.
+**Track your technical debt.** Many projects prioritize release schedules over code quality to one degree or another. Always document when shortcuts are taken or other suboptimal implementations, and schedule time to revisit these issues.
 
 **Consider pushing updates directly to production.** To reduce your overall release cycle time, consider pushing properly tested code commits directly to production. Use [feature toggles][feature-toggles] to control which features you enable. Then you can move quickly from development to release by using the toggles to enable or disable features. Toggles are also useful when you perform tests like [canary releases][canary-release], where you deploy a particular feature to a subset of your production environment.
 
@@ -84,7 +84,7 @@ After an initial release, you should run performance and capacity tests whenever
 **Automate deployments.** Automation provides many benefits, including:
 
 - Enabling faster and more reliable deployments.
-- Ensuring consistent deployments to any supported environment.
+- Ensuring consistent deployments to any supported environment, including test, staging, and production.
 - Removing the risk of human error that manual deployments can introduce.
 - Making it easy to schedule releases for convenient times, which minimizes any effects of potential downtime.
 
