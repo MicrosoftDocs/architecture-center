@@ -3102,8 +3102,6 @@ items:
                 href: example-scenario/ai/risk-stratification-surgery.yml
               - name: Implement the healthcare blueprint for AI
                 href: industries/healthcare/healthcare-ai-blueprint.yml
-              - name: Index file contents and metadata in Azure Cognitive Search
-                href: example-scenario/data/search-blob-metadata.yml
               - name: Many models ML with Spark
                 href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
               - name: Many models with Machine Learning
@@ -3112,6 +3110,8 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Multiple indexers with Azure Cognitive Search
+                href: example-scenario/data/search-blob-metadata.yml
               - name: Network security for MLOps
                 href: example-scenario/ai/network-security-mlops.yml
               - name: Predict hospital readmissions with ML
