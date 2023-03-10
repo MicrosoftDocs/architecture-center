@@ -17,6 +17,6 @@ products:
   - windows-server
 name: Network architecture for AKS on Azure Stack HCI
 summary: Learn how to design and implement network concepts for deploying Azure Kubernetes Service (AKS) nodes on AKS hybrid clusters.
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-journey.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-network.png
 content: |
   [!include[](aks-network-content.md)]
