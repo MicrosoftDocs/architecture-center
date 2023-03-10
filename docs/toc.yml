@@ -3102,6 +3102,8 @@ items:
                 href: example-scenario/ai/risk-stratification-surgery.yml
               - name: Implement the healthcare blueprint for AI
                 href: industries/healthcare/healthcare-ai-blueprint.yml
+              - name: Index file contents and metadata in Azure Cognitive Search
+                href: example-scenario/data/search-blob-metadata.yml
               - name: Many models ML with Spark
                 href: example-scenario/ai/many-models-machine-learning-azure-spark.yml
               - name: Many models with Machine Learning

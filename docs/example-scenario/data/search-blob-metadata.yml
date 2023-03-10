@@ -2,7 +2,7 @@
 metadata:
   title: Index file contents and metadata in Azure Cognitive Search
   titleSuffix: Azure Architecture Center
-  description: Combine file contents in Blob storage with metadata in Table storage to search for relevant documents in Azure Cognitive Search.
+  description: Build an Azure Cognitive Search index using file contents from Azure Blob Storage and metadata from Azure Table storage.
   author: jelledruyts
   ms.author: jelled
   ms.date: 01/27/2023
@@ -12,12 +12,13 @@ metadata:
 azureCategories:
   - databases
   - ai-machine-learning
+  - storage  
 products:
   - azure-cognitive-search
   - azure-blob-storage
   - azure-table-storage
 name: Index file contents and metadata in Azure Cognitive Search
-summary: Combine file contents in Blob storage with metadata in Table storage to search for relevant documents in Azure Cognitive Search.
+summary: Build an Azure Cognitive Search index using file contents from Azure Blob Storage and metadata from Azure Table storage.
 thumbnailUrl: /azure/architecture/browse/thumbs/search-blob-metadata.png
 content: |
   [!include[](search-blob-metadata-content.md)]
