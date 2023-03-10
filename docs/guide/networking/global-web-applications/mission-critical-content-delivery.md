@@ -50,7 +50,7 @@ The solution includes the following components:
 
 - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door routes traffic to the appropriate origin application server, and it provides the primary path to your application. If Azure Front Door is unavailable, traffic is automatically redirected through the secondary path.
 
-- **Azure CDN from Verizon** is configured to send traffic to each origin servers.
+- **Azure CDN from Verizon** is configured to send traffic to each origin server.
 
 - **Your origin application servers** need to be ready to accept traffic from both Azure Front Door and Azure CDN from Verizon, at any time.
 
@@ -66,13 +66,13 @@ You might choose to use a different CDN, or even to use multiple CDNs, depending
 
 ### Cost
 
-When you deploy a multi-CDN architecture, you're billed for multiple CDNs. Ensure you understand how you'll be billed for each CDN in your solution, and all of the other components you deploy.
+When you deploy a multi-CDN architecture, you're billed for multiple CDNs. Ensure you understand how you're charged for each CDN in your solution, and all of the other components you deploy.
 
 ### Feature parity
 
 Azure Front Door and Verizon's CDN provide distinct capabilities, and features aren't equivalent between the two products. For example, there are differences between the products' handling of TLS certificates, WAF, and HTTP rules.
 
-Carefully consider the features of Azure Front Door that you use, and whether your alternative CDN has equivalent capabilities. For more information, see [Understand your use of Azure Front Door](./overview.md#understand-your-use-of-azure-front-door).
+Carefully consider the features of Azure Front Door that you use, and whether your alternative CDN has equivalent capabilities. For more information, see [Consistency of ingress paths](./overview.md#consistency-of-ingress-paths).
 
 ### Cache fill
 

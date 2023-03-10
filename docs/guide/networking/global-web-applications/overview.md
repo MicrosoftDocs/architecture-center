@@ -138,7 +138,7 @@ When planning a highly available mission-critical web application architecture, 
 - How do the different components of your solution monitor the health of downstream components?
 - When should health monitors consider downstream components to be unhealthy?
 - How long does it take for an outage to be detected?
-- After an outage is detected, how long does it takes for traffic to be routed through an alternative path?
+- After an outage is detected, how long does it take for traffic to be routed through an alternative path?
 
 There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door, and to trigger an automatic failover to a backup platform if an outage occurs. For most customers, a DNS based solution such as Azure Traffic Manager is suitable. With Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
 
@@ -179,7 +179,7 @@ Ensure that your testing processes include these elements:
 - Can both paths support the level of production traffic you expect to receive?
 - Are both paths adequately secured, to avoid opening or exposing vulnerabilities when you're in a degraded state?
 
-## Health modelling
+## Health modeling
 
 In a mission-critical solution, a health model helps you to represent the overall health status. When you use multiple traffic ingress paths, you need to monitor the health of each path. If your traffic is rerouted to the secondary ingress path, your health model should reflect the fact that the system is still operational but that it's running in a degraded state. For more information about health modeling, see [Health modeling for mission-critical workloads](../../../reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md)
 
