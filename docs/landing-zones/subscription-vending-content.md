@@ -1,6 +1,6 @@
 Subscriptions vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. You should automate as much of the subscription vending process as you can. This article provides core implementation guidance.
 
-[![Diagram showing how the subscriptions vending fits in an organization.](images/sample-landing-zone-architecture.png)](images/sample-landing-zone-architecture.png)
+[![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. An example of how subscription vending facilitates subscription creation.*
 
 ## Architecture components
