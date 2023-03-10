@@ -13,8 +13,20 @@ This section defines the scenario and redefines the challenge for this scenario 
 - The VNet has a workload subnet that contains a virtual machine (VM) client.
 - The VNet contains a private endpoint subnet that contains a private endpoint for the Storage Account.
 
-**Scenario** - The scenario we want to solve for is to enable the VM client to connect to the Storage Account via the Storage Account's private endpoint that is in the same VNet.<br />
-**Challenge** - It isn't possible to link a Private DNS Zone to a virtual hub. Because of that, Azure DNS Servers don't know how to resolve the fully qualified domain name (FQDN) of the Storage Account to the private IP address of the private endpoint.
+### Scenario
+
+The scenario we want to solve for is to enable the VM client to connect to the Storage Account via the Storage Account's private endpoint that is in the same VNet.
+
+### Challenge
+
+You need a Private DNS zone in the DNS flow that is able to resolve the fully qualified domain name (FQDN) of the Storage Account to the private IP address of the private endpoint. The challenge is twofold:
+
+1. It isn't possible to link a Private DNS Zone to a virtual hub.
+1. You can link a Private DNS Zone to the workload network, so you might think that would work. Unfortunately, the [baseline architecture](./private-link-vwan-dns-guide.yml#default-network-architecture) stipulates that each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy. 
+
+Because you cannot link a Private DNS Zone to a virtual hub, and the workload VNet is configured to use the Azure Firewall DNS proxy, Azure DNS Servers don't know how to resolve the (FQDN) of the Storage Account to the private IP address of the private endpoint.
+
+### Initial architecture
 
 :::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region-challenge.svg" alt-text="Diagram showing the single region challenge."::: 
 Diagram showing the single region challenge.
@@ -33,7 +45,7 @@ Diagram showing the single region challenge.
 
 ## Solution - Virtual WAN hub DNS extension
 
-The solution to the challenge is to implement a [Virtual WAN extension](./private-link-vwan-extension.yml) for DNS. The single responsibility for the DNS extension is to enable to the use of Private DNS Zones in an architecture with a Virtual WAN hub.
+A solution to the challenge is to implement a [Virtual WAN extension](./private-link-vwan-extension.yml) for DNS. The single responsibility for the DNS extension is to enable to the use of Private DNS Zones in an architecture with a Virtual WAN hub.
 
 The DNS extension is implemented as a VNet that is peered to VWAN hub. It's possible to link a private DNS Zone to this VNet. The extension VNet contains a DNS private resolver that enables services outside of this VNet like Azure Firewall to query the private zone. The following is a high-level list of the components of a Virtual WAN extension for DNS, along with some required configuration changes:
 
@@ -60,7 +72,7 @@ The diagram shows a virtual hub secured by Azure Firewall connected to two virtu
 
 1. Because DNS Proxy is enabled on the Azure Firewall, it's listening for DNS requests on port 53. It forwards the query to the configured custom DNS server of 10.200.1.4, which is the private IP address of the DNS private resolver input endpoint.
 
-    :::image type="content" source="./images/firewall-policy-dns-settings.png" alt-text="Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set":::
+    :::image type="Complex" source="./images/firewall-policy-dns-settings.png" alt-text="Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set":::
     Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set to Custom. The entry points to the private IP address of the DNS private resolver input endpoint.
     :::image-end:::
     *Figure 4: DNS configuration in Azure Firewall policy*
@@ -85,7 +97,7 @@ The diagram shows a virtual hub secured by Azure Firewall connected to two virtu
 
 ### Adding spoke networks
 
-When adding spoke networks, configure them as follows to ensure they propagate to the Default route table in its regional hub, and both internet and private traffic are secured by Azure Firewall.
+When adding spoke networks, configure them as follows to ensure they are associated to the Default route table in its regional hub, and both internet and private traffic are secured by Azure Firewall.
 
 - When adding a spoke virtual network connections to the virtual hub, configure default routing by applying the following settings:
 
@@ -104,7 +116,7 @@ When adding spoke networks, configure them as follows to ensure they propagate t
 
 ### Virtual WAN DNS extension
 
-- Make sure you install the virtual WAN DNS extension with nothing configured in the Private DNS Zone prior to adding any PaaS service you want to configure private endpoint DNS records for
+- Make sure you deploy the components of the DNS extension prior to adding any PaaS service you want to configure private endpoint DNS records for.
 
 #### Virtual network
 
@@ -115,15 +127,14 @@ When adding spoke networks, configure them as follows to ensure they propagate t
 
 Consider the following guidance regarding the DNS private resolver in the Virtual WAN DNS extension.
 
-- When naming a DNS private resolver, use **dnspr** as the prefix. For example, the west resolver is named dnspr-westus3.
 - There should be one DNS extension with one DNS private resolver per region.
 - The DNS private resolver only requires an inbound endpoint and no outbound endpoints for this scenario. This allows you to forward traffic to the resolver. The private IP for the endpoint is what we configure for the custom dns service in the Azure Firewall policy (see figure 4).
 
     :::image type="content" source="./images/dns-private-resolver-inbound-endpoints.png" alt-text="Screenshot of the inbound endpoints for the DNS private resolver showing one endpoint.":::
     *Figure 9: Inbound endpoints for the DNS private resolver*
 
-- The subnet for DNS private resolver has to be a /24.
-- The Network Security Group in the subnet for the DNS private resolver should only allow UDP traffic from its region to port 53. You should block all other inbound and outbound traffic.
+- Follow the [virtual network restrictions](/azure/dns/dns-private-resolver-overview#virtual-network-restrictions) for the DNS private resolver.
+- The Network Security Group in the subnet for the DNS private resolver should only allow UDP traffic from its regional hub to port 53. You should block all other inbound and outbound traffic.
 
 #### Private DNS Zone
 

@@ -7,7 +7,7 @@
 	<v:documentProperties v:langID="1033" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(0):26"/>
-			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(1):5"/>
+			<v:ud v:nameU="msvWarnOnPersonalInfo" v:val="VT0(0):5"/>
 		</v:userDefs>
 	</v:documentProperties>
 
@@ -189,11 +189,11 @@
 		</g>
 		<g id="shape7-14" v:mID="7" v:groupContext="shape" transform="translate(508.845,-91.2107)">
 			<title>Sheet.7</title>
-			<desc>mystorageacct</desc>
+			<desc>stgworkload00</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="44.1818" cy="531.523" width="88.37" height="19.125"/>
 			<rect x="0" y="521.96" width="88.3636" height="19.125" class="st5"/>
-			<text x="13.81" y="534.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>mystorageacct</text>		</g>
+			<text x="13.36" y="534.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>stgworkload00</text>		</g>
 		<g id="shape8-17" v:mID="8" v:groupContext="shape" transform="translate(301.964,-18.25)">
 			<title>Rectangle</title>
 			<v:userDefs>
@@ -310,12 +310,12 @@
 		</g>
 		<g id="shape56-68" v:mID="56" v:groupContext="shape" transform="translate(319.214,-89.5268)">
 			<title>Sheet.56</title>
-			<desc>Private Link Endpoint 10.0.1.4</desc>
+			<desc>Private Link Endpoint 10.0.2.4</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="531.523" width="112.45" height="19.125"/>
 			<rect x="0" y="521.96" width="112.446" height="19.125" class="st5"/>
 			<text x="11.97" y="528.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private Link Endpoint<v:newlineChar/><tspan
-						x="39.55" dy="1.2em" class="st16">10.0.1.4</tspan></text>		</g>
+						x="39.55" dy="1.2em" class="st16">10.0.2.4</tspan></text>		</g>
 		<g id="group57-72" transform="translate(314.821,-75.25)" v:mID="57" v:groupContext="group">
 			<title>Sheet.57</title>
 			<g id="group58-73" transform="translate(0,3.42857)" v:mID="58" v:groupContext="group">
@@ -518,12 +518,12 @@
 			<title>Sheet.103</title>
 			<g id="shape92-151" v:mID="92" v:groupContext="shape">
 				<title>Sheet.92</title>
-				<desc>Name Type Value mystorageacct A 10.0.1.4</desc>
+				<desc>Name Type Value stgworkload00 A 10.0.2.4</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="0"/>
 				<v:textRect cx="103.688" cy="510.71" width="207.38" height="60.75"/>
 				<rect x="0" y="480.335" width="207.375" height="60.75" class="st5"/>
 				<text x="4" y="493.34" class="st27" v:langID="1033"><v:paragraph/><v:tabList/>Name              Type     Value<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st16">mystorageacct     A        10.0.1.4</tspan></text>			</g>
+							x="4" dy="1.2em" class="st16">stgworkload00     A        10.0.2.4</tspan></text>			</g>
 			<g id="group97-155" transform="translate(3,-21.75)" v:mID="97" v:groupContext="group">
 				<title>Sheet.97</title>
 				<g id="shape95-156" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(0,-32.375)">

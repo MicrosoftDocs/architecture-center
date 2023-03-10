@@ -171,7 +171,7 @@
 			<use xlink:href="#lend2" transform="scale(-3.52,-3.52) "/>
 		</marker>
 	</defs>
-	<g v:mID="16" v:index="5" v:groupContext="foregroundPage">
+	<g v:mID="16" v:index="6" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
 		</v:userDefs>
@@ -218,11 +218,11 @@
 		</g>
 		<g id="shape7-16" v:mID="7" v:groupContext="shape" transform="translate(83.9716,-103.188)">
 			<title>Sheet.7</title>
-			<desc>mystorageacct</desc>
+			<desc>stgworkload00</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="44.1818" cy="497.692" width="88.37" height="19.125"/>
 			<rect x="0" y="488.13" width="88.3636" height="19.125" class="st6"/>
-			<text x="13.81" y="500.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>mystorageacct</text>		</g>
+			<text x="13.36" y="500.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>stgworkload00</text>		</g>
 		<g id="shape8-19" v:mID="8" v:groupContext="shape" transform="translate(193.056,-44.882)">
 			<title>Rectangle</title>
 			<v:userDefs>
@@ -545,12 +545,12 @@
 			<text x="9.82" y="495.66" class="st27" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>linked</text>		</g>
 		<g id="shape92-152" v:mID="92" v:groupContext="shape" transform="translate(582.875,-112.945)">
 			<title>Sheet.92</title>
-			<desc>Name Type Value mystorageacct A 10.1.2.4</desc>
+			<desc>Name Type Value stgworkload00 A 10.1.2.4</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="0"/>
 			<v:textRect cx="84.548" cy="476.88" width="169.1" height="60.75"/>
 			<rect x="0" y="446.505" width="169.096" height="60.75" class="st6"/>
 			<text x="4" y="457.7" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Name              Type     Value<v:newlineChar/><tspan
-						x="4" dy="1.2em" class="st17">mystorageacct     A        10.1.2.4</tspan></text>		</g>
+						x="4" dy="1.2em" class="st17">stgworkload00     A        10.1.2.4</tspan></text>		</g>
 		<g id="shape95-156" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(585.19,-169.5)">
 			<title>Dynamic connector.95</title>
 			<v:userDefs>
@@ -994,7 +994,7 @@
 			<v:textRect cx="74.5568" cy="497.692" width="149.12" height="19.125"/>
 			<rect x="0" y="488.13" width="149.114" height="19.125" class="st6"/>
 			<text x="41.59" y="500.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>West US Region</text>		</g>
-		<g id="group450-333" transform="translate(333.21,-273.063)" v:mID="450" v:groupContext="group">
+		<g id="group450-333" transform="translate(210,-267.75)" v:mID="450" v:groupContext="group">
 			<title>Sheet.450</title>
 			<g id="shape451-334" v:mID="451" v:groupContext="shape">
 				<title>Sheet.451</title>
@@ -1147,7 +1147,7 @@
 			</v:userDefs>
 			<path d="M0 505 A2.25 2.25 0 0 1 4.5 505 A2.25 2.25 0 1 1 0 505 Z" class="st6"/>
 		</g>
-		<g id="shape469-367" v:mID="469" v:groupContext="shape" transform="translate(370.389,-301.804)">
+		<g id="shape469-367" v:mID="469" v:groupContext="shape" transform="translate(373.5,-301.804)">
 			<title>Sheet.469</title>
 			<desc>Custom DNS</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -1174,7 +1174,7 @@
 						class="st52"/>
 			</g>
 		</g>
-		<g id="shape470-373" v:mID="470" v:groupContext="shape" transform="translate(370.335,-292.75)">
+		<g id="shape470-373" v:mID="470" v:groupContext="shape" transform="translate(373.5,-292.75)">
 			<title>Sheet.470</title>
 			<desc>server</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -1569,7 +1569,7 @@
 			<v:textRect cx="22.125" cy="492.657" width="44.26" height="29.1964"/>
 			<rect x="0" y="478.059" width="44.25" height="29.1964" class="st6"/>
 			<text x="4" y="495.66" class="st27" v:langID="1033"><v:paragraph/><v:tabList/>peered</text>		</g>
-		<g id="shape545-536" v:mID="545" v:groupContext="shape" transform="translate(243,-264.402)">
+		<g id="shape545-536" v:mID="545" v:groupContext="shape" transform="translate(239.25,-280.152)">
 			<title>Sheet.545</title>
 			<desc>peered</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -1598,7 +1598,7 @@
 			<v:textRect cx="8.4375" cy="492.657" width="16.88" height="29.1964"/>
 			<rect x="0" y="478.059" width="16.875" height="29.1964" class="st6"/>
 			<text x="4" y="495.66" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>*</text>		</g>
-		<g id="shape550-549" v:mID="550" v:groupContext="shape" transform="translate(272.812,-266.902)">
+		<g id="shape550-549" v:mID="550" v:groupContext="shape" transform="translate(271.125,-283.5)">
 			<title>Sheet.550</title>
 			<desc>*</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -1618,9 +1618,28 @@
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="84.548" cy="480.613" width="169.1" height="53.284"/>
 			<rect x="0" y="453.971" width="169.096" height="53.284" class="st60"/>
-			<text x="4" y="465.61" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>* All peered connections have the <v:newlineChar/><tspan
+			<text x="4" y="465.61" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>* All peered connections have the<v:newlineChar/><tspan
 						x="4" dy="1.2em" class="st17">   </tspan>following configuration settings:<v:newlineChar/><tspan x="4"
 						dy="1.2em" class="st17">       </tspan>Associate Route Table: Default<v:newlineChar/><tspan x="4"
 						dy="1.2em" class="st17">       </tspan>Propagates to none: Yes</text>		</g>
+		<g id="shape553-561" v:mID="553" v:groupContext="shape" transform="translate(104.684,-255.726) rotate(-8.4089)">
+			<title>Sheet.553</title>
+			<path d="M0 507.25 L173.31 507.25" class="st41"/>
+		</g>
+		<g id="shape554-566" v:mID="554" v:groupContext="shape" transform="translate(150.248,-254.304)">
+			<title>Sheet.554</title>
+			<desc>DNS server</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="27.2512" cy="492.657" width="54.51" height="29.1964"/>
+			<rect x="0" y="478.059" width="54.5023" height="29.1964" class="st6"/>
+			<text x="4.84" y="495.66" class="st27" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DNS server</text>		</g>
+		<g id="shape555-569" v:mID="555" v:groupContext="shape" transform="translate(311.583,-322.563)">
+			<title>Sheet.555</title>
+			<desc>Azure Firewall 10.100.0.132</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)"/>
+			<v:textRect cx="56.2232" cy="497.692" width="112.45" height="19.125"/>
+			<rect x="0" y="488.13" width="112.446" height="19.125" class="st6"/>
+			<text x="26.63" y="494.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Firewall<v:newlineChar/><tspan
+						x="29.41" dy="1.2em" class="st17">10.100.0.132</tspan></text>		</g>
 	</g>
 </svg>

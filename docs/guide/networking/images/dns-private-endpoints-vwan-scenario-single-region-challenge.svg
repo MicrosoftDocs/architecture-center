@@ -222,11 +222,11 @@
 		</g>
 		<g id="shape7-16" v:mID="7" v:groupContext="shape" transform="translate(24.4716,-117.635)">
 			<title>Sheet.7</title>
-			<desc>mystorageacct</desc>
+			<desc>stgworkload00</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="44.1818" cy="472.692" width="88.37" height="19.125"/>
 			<rect x="0" y="463.13" width="88.3636" height="19.125" class="st6"/>
-			<text x="13.81" y="475.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>mystorageacct</text>		</g>
+			<text x="13.36" y="475.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>stgworkload00</text>		</g>
 		<g id="shape8-19" v:mID="8" v:groupContext="shape" transform="translate(133.556,-44.882)">
 			<title>Rectangle</title>
 			<v:userDefs>
@@ -981,12 +981,12 @@
 							x="4.19" dy="1.2em" class="st17">privatelink.blob.core.windows.net</tspan></text>			</g>
 			<g id="shape92-321" v:mID="92" v:groupContext="shape" transform="translate(14.4643,5.68434E-14)">
 				<title>Sheet.92</title>
-				<desc>Name Type Value mystorageacct A 10.1.2.4</desc>
+				<desc>Name Type Value stgworkload00 A 10.1.2.4</desc>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="0"/>
 				<v:textRect cx="84.548" cy="451.88" width="169.1" height="60.75"/>
 				<rect x="0" y="421.505" width="169.096" height="60.75" class="st6"/>
 				<text x="4" y="432.7" class="st53" v:langID="1033"><v:paragraph/><v:tabList/>Name              Type     Value<v:newlineChar/><tspan
-							x="4" dy="1.2em" class="st17">mystorageacct     A        10.1.2.4</tspan></text>			</g>
+							x="4" dy="1.2em" class="st17">stgworkload00     A        10.1.2.4</tspan></text>			</g>
 			<g id="shape95-325" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(16.7789,-56.5555)">
 				<title>Dynamic connector.95</title>
 				<v:userDefs>
