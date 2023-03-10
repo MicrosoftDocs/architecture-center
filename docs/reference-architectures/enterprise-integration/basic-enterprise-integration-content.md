@@ -1,16 +1,12 @@
+This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems can include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-
-This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
-
-Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. This architecture is sufficient for basic integration scenarios where the workflow is triggered by synchronous calls to backend services. A more sophisticated architecture using [queues and events](../../example-scenario/integration/queues-events.yml) builds on this basic architecture.
+## Architecture
 
 ![Architecture diagram showing Simple enterprise integration](./_images/simple-enterprise-integration.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/simple-enterprise-integration.vsdx) of this architecture.*
 
-## Architecture
-
-The architecture has the following components:
+### Workflow
 
 - **Backend systems**. The right-hand side of the diagram shows the various backend systems that the enterprise has deployed or relies on. These might include SaaS systems, other Azure services, or web services that expose REST or SOAP endpoints.
 
@@ -29,6 +25,22 @@ The architecture has the following components:
 - **Azure DNS**. [Azure DNS][dns] is a hosting service for DNS domains. Azure DNS provides name resolution by using the Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing that you use for your other Azure services. To use a custom domain name, such as contoso.com, create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in API Management][apim-domain].
 
 - **Azure Active Directory (Azure AD)**. Use [Azure AD][aad] to authenticate clients that call the API gateway. Azure AD supports the OpenID Connect (OIDC) protocol. Clients obtain an access token from Azure AD, and API Gateway [validates the token][apim-jwt] to authorize the request. When using the Standard or Premium tier of API Management, Azure AD can also secure access to the developer portal.
+
+### Components
+
+- [Integration Services]() 
+- [Logic Apps]()
+- [API Management]()
+- [Azure DNS]()
+- [Azure AD]()
+
+## Scenario details
+
+Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. 
+
+### Potential use cases
+
+This architecture is sufficient for basic integration scenarios where the workflow is triggered by synchronous calls to backend services. A more sophisticated architecture using [queues and events](../../example-scenario/integration/queues-events.yml) builds on this basic architecture.
 
 ## Recommendations
 
