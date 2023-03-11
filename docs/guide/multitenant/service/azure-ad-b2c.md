@@ -1,14 +1,13 @@
 ---
-title: Azure Active Directory B2C considerations for multitenancy
-titleSuffix: Azure Architecture Center
-description: This article describes different considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
+title: Using Azure Active Directory B2C in a multitenant architecture
+description: Learn about considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
 author: landonpierce
 ms.author: landonpierce 
+ms.topic: conceptual
 ms.date: 03/16/2023
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
- - azure
  - azure-active-directory-b2c
 categories:
  - web 
@@ -16,9 +15,9 @@ ms.category:
   - fcp
 ms.custom:
   - guide
-  - fcp
 ---
-# Azure Active Directory B2C considerations for multitenancy
+
+# Considerations for using Azure Active Directory B2C in a multitenant architecture
 
 Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity as a service. User identity is typically one of the biggest considerations when designing a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring your tenants stay within the boundaries that you define for them. In this article, we describe different considerations and approaches for using Azure AD B2C in a multitenant solution.
 
