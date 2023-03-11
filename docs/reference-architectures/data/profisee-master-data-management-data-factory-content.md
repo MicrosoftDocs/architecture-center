@@ -11,7 +11,7 @@ This pattern presents a modern approach to MDM. All technologies are deployable 
 
 :::image type="content" source="images/profisee-data-flow.png" border="false" alt-text="Diagram showing the master data management Profisee data flow.":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/profisee-master-data-managment-data-factory.vsdx) of the diagrams used in this architecture.*
 
 ### Dataflow
 
@@ -78,7 +78,7 @@ The preceding image shows the details for integrating with the Profisee MDM solu
 
 1. **Load source data to MDM:** Azure Data Factory extracts data from the data lake, transforms it to match the master data model, and streams it into the MDM repository via a REST sink.
 
-2. **MDM processing:** The MDM platform processes source master data through a sequence of activities to verify, standardize, and enrich the data, and to execute data-quality processes. Finally, MDM performs matching and survivorship to identify and group duplicate records and create master records. Optionally, data stewards can perform data stewardship. The result is a set of master data for use in downstream analytics.
+2. **MDM processing:** The MDM platform processes source master data through a sequence of activities to verify, standardize, and enrich the data, and to execute data-quality processes. Finally, MDM performs matching and survivorship to identify and group duplicate records and create master records. Optionally, data stewards can perform tasks that result in a set of master data for use in downstream analytics.
 
 3. **Load master data for analytics:** Azure Data Factory uses its REST source to stream master data from Profisee to Azure Synapse Analytics.
 
@@ -234,8 +234,8 @@ To deploy this scenario:
 1. Deploy Profisee into Azure using an [ARM template](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
 2. Create an [Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 3. Configure your Azure Data Factory to [connect to a Git repository](/azure/data-factory/source-control).
-4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory).
-5. Create a new Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
+4. Add [Profisee's Azure Data Factory templates](https://github.com/profisee/azuredatafactory) to your Azure Data Factory Git repository.
+5. Create a new Azure Data Factory Pipeline [using a template](/azure/data-factory/solution-templates-introduction).
 
 ## Contributors
 
