@@ -28,13 +28,13 @@ The data flow for this scenario is:
 
 #### Alternatives for scenario 1
 
-- You can uses Flux with other Git repositories such as Azure DevOps, GitLab, and BitBucket.
+- You can use Flux with other Git repositories such as Azure DevOps, GitLab, and BitBucket.
 - Instead of Git repositories, [Flux Bucket API](https://fluxcd.io/flux/components/source/buckets) defines a source to produce an artifact for objects from storage solutions like Amazon S3 and Google Cloud Storage buckets. You can also use a solution that has an S3-compatible API. Two examples are Minio and Alibaba Cloud OSS, but there are others.
 - You can also configure Flux against an Azure Blob Storage container as a source to produce artifacts. For more information, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-gitops-flux2).
 
 ### Scenario 2: Use GitOps with Flux, GitHub, and AKS to implement CI/CD
 
-:::image type="content" source="media/gitops-cicd-flux.png" alt-text="Diagram of implementing CI/CD by using GitOps with Flux, GitHub and AKS." border="false":::
+:::image type="content" source="media/gitops-ci-cd-flux.png" alt-text="Diagram of implementing CI/CD by using GitOps with Flux, GitHub and AKS." border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
@@ -51,7 +51,7 @@ This scenario is a pull-based DevOps pipeline for a typical web application. The
 
 ### Scenario 3: GitOps with Argo CD, GitHub repository and AKS
 
-:::image type="content" source="media/gitops-argocd.png" alt-text="Diagram of GitOps with Argo CD, GitHub and AKS." border="false":::
+:::image type="content" source="media/gitops-argo-cd.png" alt-text="Diagram of GitOps with Argo CD, GitHub and AKS." border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
@@ -77,7 +77,7 @@ Any repository that's compatible with Git, including Azure DevOps, can serve as 
 
 ### Scenario 4: Use GitOps with Argo CD, GitHub Actions, and AKS to Implement CI/CD
 
-:::image type="content" source="media/gitops-cicd-argocd.png" alt-text="Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS." border="false":::
+:::image type="content" source="media/gitops-ci-cd-argo-cd.png" alt-text="Diagram of implementing CI/CD using GitOps with Argo CD, GitHub and AKS." border="false":::
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/gitops-blueprint-aks-content.md.vsdx) of this architecture.*
 
