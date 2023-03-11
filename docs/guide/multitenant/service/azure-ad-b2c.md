@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes different considerations and approaches for using Azure Active Directory B2C in a multitenant architecture. 
 author: landonpierce
 ms.author: landonpierce 
-ms.date: 11/11/2022 
+ms.date: 03/16/2023
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
