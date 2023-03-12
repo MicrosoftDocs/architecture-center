@@ -81,7 +81,7 @@ Azure Cognitive Search provides a [99.9% availability SLA](https://go.microsoft.
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Azure Cognitive Search provides [robust security controls](/azure/search/search-security-overview) that span network security, authentication/authorization, data residency and protection, and administrative controls to maintain security, privacy, and compliance."
+Azure Cognitive Search provides [robust security controls](/azure/search/search-security-overview) that span network security, authentication/authorization, data residency and protection, and administrative controls to maintain security, privacy, and compliance.
 
 Whenever possible, you should use [Azure AD authentication](/azure/search/search-security-rbac) for accessing the search service itself, and [connect your search service to other Azure resources (like Blob and Table storage in this scenario) using a managed identity](/azure/search/search-howto-managed-identities-data-sources).
 
