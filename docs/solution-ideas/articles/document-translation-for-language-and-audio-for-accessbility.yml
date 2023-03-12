@@ -1,0 +1,29 @@
+### YamlMime:Architecture
+metadata:
+  title: Document translation for language and audio
+  titleSuffix: Azure Solution Ideas
+  description: Use Azure Cognitive Services in a user-friendly manner by offering options for translation of documents, accommodating both language and audio preferences to meet accessibility standards and reach a global audience.
+  author: saviramittal
+  ms.author: saviramittal
+  ms.date: 03/12/2023
+  ms.topic: solution-idea
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+  ms.category:
+    - ai-machine-learning
+  ms.custom:
+    - fcp
+    - ai-machine-learning
+    - aml-project-improvement
+name: Document translation for language and audio
+azureCategories:
+  - ai-machine-learning
+summary: Use Azure Cognitive Services in a user-friendly manner by offering options for translation of documents, accommodating both language and audio preferences to meet accessibility standards and reach a global audience.
+products:
+  - azure-computer-vision
+  - azure-speech
+  - azure-translation
+  - azure-blb-storage
+thumbnailUrl: /azure/architecture/browse/thumbs/document-translation-for-language-and-audio-for-accessbility.png
+content: |
+  [!include[](document-translation-for-language-and-audio-for-accessbility.md)]
