@@ -11,7 +11,7 @@ You should architect your subscription vending automation to accomplish three pr
 Numerous approaches exist for implementing subscription vending automation. The example implementation utilizes a Gitflow implementation with two pipelines. The Gitflow design aligns with the declarative approach that platform teams use to manage the platform.
 
 [![Diagram showing the components of the subscription vending approach.](images/subscription-vending-components.png)](images/subscription-vending-components.png)
-*Figure 1. Example implementation of subscription vending automation. For a visualization of the flow, see [subscription vending process flow](https://github.com/MicrosoftDocs/architecture-center-pr/blob/main/docs/landing-zones/images/subscription-vending-process-flow.md)*
+*Figure 1. Example implementation of subscription vending automation. For a visualization of the flow, see [subscription vending process flow](images/subscription-vending-process-flow.md)*
 
 The example implementation (*see Figure 1*), the data collection tool gathers subscription request data. When the request receives approval, it triggers the request pipeline. The request pipeline creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline creates a new branch, commits the subscription parameter file and opens pull request in source control. The new branch mergers into the main branch in source control. The merge triggers the deployment pipeline to create the subscription with the infrastructure-as-code modules. The deployment should create the subscription in the right management group with the necessary governance (*see Figure 2*).
 
