@@ -102,6 +102,7 @@ Co-authors:
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
 - [Azure Cognitive Services documentation](/azure/cognitive-services)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Which AI Am I?](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/which-ai-am-i-azure-ai-applied-services-part-1/ba-p/3506572)
 
 ### Related resources
 
