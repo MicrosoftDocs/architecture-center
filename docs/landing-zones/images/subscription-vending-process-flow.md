@@ -7,6 +7,8 @@ ms.date: 03/17/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+categories:
+  - devops
 azureCategories:
   - devops
 products:
