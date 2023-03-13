@@ -1,13 +1,18 @@
 ---
 title: Subscription vending example implementation process flow
 description: Subscription vending example implementation process flow
-author: ssumner
+author: stephen-sumner
 ms.author: ssumner
 ms.date: 03/17/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+azureCategories:
+  - devops
+products:
+  - azure
 ---
+# Subscription vending example implementation process flow
 
 ```mermaid
 graph TD
