@@ -58,11 +58,20 @@ The notification and data from the data collection tools should trigger the plat
     "subscriptionWorkload": {
       "value": "Production"
     },
+    "existingSubscriptionId": {
+      "value": ""
+    },
     "subscriptionManagementGroupAssociationEnabled": {
       "value": true
     },
     "subscriptionManagementGroupId": {
       "value": "alz-landingzones-corp"
+    },
+    "subscriptionTags": {
+      "value": {
+        "Cost-Center": "ABC123",
+        "Usage": "Example"
+      }
     },
     "virtualNetworkEnabled": {
       "value": true
@@ -109,7 +118,10 @@ The notification and data from the data collection tools should trigger the plat
     },
     "virtualNetworkPeeringEnabled": {
       "value": true
-    }
+    },
+    "hubNetworkResourceId": {
+      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-hub-network-001/providers/Microsoft.Network/virtualNetworks/vnet-hub-001"
+    },
 ...
 ```
 
