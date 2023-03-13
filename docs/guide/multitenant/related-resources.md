@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article provides a set of links and resources for architects and developers of multitenant solutions.
 author: johndowns
 ms.author: jodowns
-ms.date: 01/18/2023
+ms.date: 03/13/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -101,7 +101,6 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 
 * [Tenancy in Azure Active Directory](/azure/active-directory/develop/single-and-multi-tenant-apps): When developing apps, developers can choose to configure their app to be either single-tenant or multitenant, during app registration, in Azure Active Directory.
 * [Custom-branded identity solution with Azure AD B2C](/azure/active-directory-b2c/overview): Azure Active Directory B2C is a customer identity access management solution that is capable of supporting millions of users and billions of authentications per day.
-* [Identity management in multitenant applications](../../multitenant-identity/index.yml): This series of articles describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 * [Build a multi-tenant daemon with the Microsoft identity platform endpoint](/samples/azure-samples/ms-identity-aspnet-daemon-webapp/build-multi-tenant-daemon-aad): This sample application shows how to use the [Microsoft identity platform](/azure/active-directory/develop/v2-overview) endpoint to access the data of Microsoft business customers in a long-running, non-interactive process. It uses the OAuth2 client credentials grant to acquire an access token, which it then uses to call the Microsoft Graph and access organizational data.
 * [Authenticate and authorize multitenant apps using Azure Active Directory (Azure AD)](/training/modules/cna-set-up-azure-ad-use-scale): Learn how Azure Active Directory enables you to improve the functionality of cloud-native apps in multitenant scenarios.
 * [Azure Architecture Walkthrough: Building a multi-tenant Azure Architecture for a B2C scenario](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-architecture-walkthrough-building-a-multi-tenant-azure/ba-p/1278357): a walk through the architecture behind a multi-tenant mobile app with Azure Active Directory B2C and API Management.
@@ -123,10 +122,11 @@ While the entirety of the [Azure Well-Architected Framework](/azure/architecture
 ### Kubernetes
 
 * [Three Tenancy Models For Kubernetes](https://kubernetes.io/blog/2021/04/15/three-tenancy-models-for-kubernetes/): Kubernetes clusters are typically used by several teams in an organization. This article explains three tenancy models for Kubernetes.
-* [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes is not a multi-tenant system out of the box. While it is possible to configure multi-tenancy, this can be challenging. This article explains Kubernetes multi-tenancy types.
-* [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multi-tenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, since Kubernetes is not a multi-tenant system per se, getting multi-tenancy right comes with some challenges. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multi-tenancy.
-* [Capsule: Kubernetes multi-tenancy made simple](https://github.com/clastix/capsule): Capsule helps to implement a multi-tenancy and policy-based environment in your Kubernetes cluster. It is not intended to be yet another PaaS, instead, it has been designed as a micro-services-based ecosystem with the minimalist approach, leveraging only on upstream Kubernetes.
-* [Loft: Add Multi-Tenancy To Your Clusters](https://github.com/loft-sh/kiosk): Loft provides lightweight Kubernetes extensions for multi-tenancy.
+* [Understanding Kubernetes Multi Tenancy](https://cloudian.com/guides/kubernetes-storage/understanding-kubernetes-multi-tenancy/): Kubernetes is not a multitenant system out of the box. While it's possible to configure multitenancy, this can be challenging. This article explains Kubernetes multitenancy types.
+* [Kubernetes Multi-Tenancy – A Best Practices Guide](https://loft.sh/blog/kubernetes-multi-tenancy-a-best-practices-guide/): Kubernetes multitenancy is a topic that more and more organizations are interested in as their Kubernetes usage spreads out. However, since Kubernetes is not a multitenant system per se, getting multitenancy right comes with some challenges. This article describes these challenges and how to overcome them as well as some useful tools for Kubernetes multitenancy.
+* [Capsule: Kubernetes multi-tenancy made simple](https://github.com/clastix/capsule): Capsule helps to implement a multitenancy and policy-based environment in your Kubernetes cluster. It is not intended to be yet another PaaS, instead, it has been designed as a micro-services-based ecosystem with the minimalist approach, leveraging only on upstream Kubernetes.
+* [Loft: Add Multi-Tenancy To Your Clusters](https://github.com/loft-sh/kiosk): Loft provides lightweight Kubernetes extensions for multitenancy.
+* [Crossplane: The cloud native control plane framework](https://www.crossplane.io/): Crossplane enables you to build control planes for your own solution, by using a Kubernetes-based approach.
 
 ## Contributors
 
