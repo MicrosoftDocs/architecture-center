@@ -36,9 +36,84 @@ The goal of data collection is to receive business approval and define the value
 
 The notification and data from the data collection tools should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and deploy it with the infrastructure-as-code modules to create the subscription. The platform team owns and maintains this implementation responsible for subscription creation in the organization.
 
-**Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data necessary to create a subscription. The structure of the file should be documented and extensible to support future needs.
+**Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data necessary to create a subscription. The structure of the file should be documented and extensible to support future needs. The following JSON file defines the values of the subscription parameters in the Bicep template.
 
-[example] (networking, business unit code, tech and bio)
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "subscriptionAliasEnabled": {
+      "value": true
+    },
+    "subscriptionDisplayName": {
+      "value": "sub-bicep-lz-vending-example-001"
+    },
+    "subscriptionAliasName": {
+      "value": "sub-bicep-lz-vending-example-001"
+    },
+    "subscriptionBillingScope": {
+      "value": "providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/123456"
+    },
+    "subscriptionWorkload": {
+      "value": "Production"
+    },
+    "subscriptionManagementGroupAssociationEnabled": {
+      "value": true
+    },
+    "subscriptionManagementGroupId": {
+      "value": "alz-landingzones-corp"
+    },
+    "virtualNetworkEnabled": {
+      "value": true
+    },
+    "virtualNetworkResourceGroupName": {
+      "value": "rg-networking-001"
+    },
+    "virtualNetworkResourceGroupTags": {
+      "value": {
+        "Cost-Center": "ABC123",
+        "Usage": "Example",
+        "Managed-By": "Platform Team"
+      }
+    },
+    "virtualNetworkResourceGroupLockEnabled": {
+      "value": true
+    },
+    "virtualNetworkLocation": {
+      "value": "uksouth"
+    },
+    "virtualNetworkName": {
+      "value": "vnet-example-001"
+    },
+    "virtualNetworkTags": {
+      "value": {
+        "Cost-Center": "ABC123",
+        "Usage": "Example",
+        "Managed-By": "Platform Team"
+      }
+    },
+    "virtualNetworkAddressSpace": {
+      "value": [
+        "10.0.0.0/16"
+      ]
+    },
+    "virtualNetworkDnsServers": {
+      "value": [
+        "10.4.1.4",
+        "10.2.1.5"
+      ]
+    },
+    "virtualNetworkDdosPlanId": {
+      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-hub-network-001/providers/Microsoft.Network/ddosProtectionPlans/ddos-001"
+    },
+    "virtualNetworkPeeringEnabled": {
+      "value": true
+    }
+...
+```
+
+*[See code in context](https://github.com/azure/bicep-lz-vending/wiki/Example-1-Hub-and-Spoke#arm-json-parameter-file). For more examples, see [Bicep examples](https://github.com/azure/bicep-lz-vending/wiki/examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest#example)*
 
 **Use one file per subscription request.** Each subscription request should get its own dedicated configuration file.  The subscription is the unit of deployment in the vending process.
 
