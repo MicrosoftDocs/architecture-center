@@ -21,9 +21,7 @@ Microsoft cognitive services are cloud-based APIs that you can use in artificial
 
 **Key benefits**:
 
-- Minimal development effort for state-of-the-art AI services.
-- Use pre-defined algorithms
-- Create custom algorithms on top of the pre-built libraries.
+- Minimal development effort for state-of-the-art AI services. (Using pre-defined algorithms or by creating custom algorithms on top of the pre-built libraries)
 - Easy integration into apps via HTTP REST interfaces.
 - Enable developers and data scientists of all skill levels to easily add AI capabilities to their apps
 
@@ -32,7 +30,7 @@ Microsoft cognitive services are cloud-based APIs that you can use in artificial
 - Only available over the web. Internet connectivity is generally required. An exception is the Custom Vision Service, whose trained model you can export for prediction on devices and at the IoT edge.
 - Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
 
-**Common Use Cases**:
+## Common Use Cases
 
 - Transcribe audible speech into readable, searchable text.
 - Convert text to lifelike speech for more natural interfaces.
@@ -50,7 +48,7 @@ Microsoft cognitive services are cloud-based APIs that you can use in artificial
 - Create rich, personalized experiences for every user.
 - Apply advanced coding and language models to a variety of use cases.
 
-## What are your options when choosing the cognitive services?
+## Categories of Azure cognitive services?
 
 In Azure, there are dozens of Cognitive Services available. The current listing of these is available in a directory categorized by the functional area they support:
 
@@ -81,7 +79,7 @@ Once the first decision is made you go deeper into your requirements.
 - Are you trying to observe & assess docs/text/documents (**Vision API's**)
 - Or do you want to observe and take some decision on the display (**Decision API's**).
 
-## Contributors
+### Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
@@ -90,25 +88,25 @@ Principal authors:
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
 - [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-track Engineer
 - [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
-- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
-- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
 
 Co-authors:
 
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-track Engineer
-- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
 - [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
+- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
+- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
+- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
+- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-track Engineer
 
-## Next steps
+### Next steps
 
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
 - [Azure Cognitive Services documentation](/azure/cognitive-services)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
 
-## Related resources
+### Related resources
 
-- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Automate document processing through Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Build Chatbot for Hotel booking](../../example-scenario/ai/commerce-chatbot.yml)
+- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
 - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
-- [Enterprise bot for employee productivity](../../solution-ideas/articles/enterprise-productivity-chatbot.yml)
-- [Analyze video content with Computer Vision and Azure Machine Learning](../../example-scenario/ai/analyze-video-computer-vision-machine-learning.yml)
-- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)
