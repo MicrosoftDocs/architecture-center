@@ -2,12 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-03-06T17:01:37.979Z</updated>
+    <updated>2023-03-13T16:01:50.554Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Autonomous Vehicle Operations (AVOps) design guide]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/machine-learning/avops-design-guide</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/machine-learning/avops-design-guide"/>
+        <updated>2023-03-11T00:56:29.000Z</updated>
+        <summary type="html"><![CDATA[Get an overview about using Azure services to build an Autonomous Vehicle Operations (AVOps) solution.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Create an Autonomous Vehicle Operations (AVOps) solution]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/avops-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/avops-architecture"/>
+        <updated>2023-03-11T00:56:29.000Z</updated>
+        <summary type="html"><![CDATA[Learn about an architecture that you can use to build automated driving solution by using Azure services.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Protect access tokens in a single-page application by using Azure API Management]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/web/secure-single-page-application-authorization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/web/secure-single-page-application-authorization"/>
+        <updated>2023-03-08T19:18:51.000Z</updated>
+        <summary type="html"><![CDATA[Implement a No Token in the Browser architecture for a JavaScript single-page application using API Management.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[GitOps for Azure Kubernetes Service]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks"/>
+        <updated>2023-03-12T07:04:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn techniques for using GitOps principles to operate and manage an Azure Kubernetes Services (AKS) cluster. The solutions use Flux v2 and Argo CD.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevOps checklist]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/checklist/dev-ops</id>
+        <link href="https://learn.microsoft.com/azure/architecture/checklist/dev-ops"/>
+        <updated>2023-03-10T22:46:16.000Z</updated>
+        <summary type="html"><![CDATA[Use this checklist to assess your DevOps culture and process. DevOps integrates development, QA, and IT operations into a unified set of processes.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DevSecOps with GitHub Security]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-github</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/devsecops-in-github"/>
+        <updated>2023-03-09T22:48:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn how GitHub tools like Codespaces and Actions make security practices an integral part of DevOps while maintaining efficiency in an Azure framework.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Connected factory signal processing pipeline]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/iot/connected-factory-signal-pipeline</id>
