@@ -1,3 +1,14 @@
+---
+title: Subscription vending example implementation process flow
+description: Subscription vending example implementation process flow
+author: ssumner
+ms.author: ssumner
+ms.date: 03/17/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+---
+
 ```mermaid
 graph TD
     Start([Application Owner requires <br> Azure Subscription/s])
