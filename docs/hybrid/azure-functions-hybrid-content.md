@@ -127,7 +127,7 @@ See the following architectural guidance for Azure Virtual Networks:
 - [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 - [Deploy AD DS in an Azure virtual network](/azure/architecture/reference-architectures/identity/adds-extend-domain)
 
-[architectural-diagram]: ./images/azure-functions-hybrid.png
+[architectural-diagram]: ./images/azure-functions-hybrid.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-functions-hybrid.vsdx
 [azure-arc-kubernetes]: /azure/azure-arc/kubernetes/
 [azure-architecture-center-serverless]: ../serverless-quest/serverless-overview.md
