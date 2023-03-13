@@ -1,19 +1,15 @@
-This article provides implementation guidance for automating the subscription vending process.
-
-Subscriptions vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. You should automate as much of the subscription vending process as you can.
+This article provides implementation guidance for automating subscription vending. Subscriptions vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. You should automate as much of the subscription vending process as you can.
 
 ![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. Modify the templates to fit your implementation needs.
 
 ## Architecture
 
-You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should (1) collect subscription request data, (2) initiate platform automation, and (3) create the subscription using infrastructure-as-code.
-
-Numerous approaches exist for implementing subscription vending automation. The example implementation utilizes a Gitflow implementation with two pipelines. The Gitflow design aligns with the declarative approach that platform teams use to manage the platform.
+You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should (1) collect subscription request data, (2) initiate platform automation, and (3) create the subscription using infrastructure-as-code. Numerous approaches exist for implementing subscription vending automation. The example implementation utilizes a Gitflow implementation (*see Figure 1*).
 
 [![Diagram showing the components of the subscription vending approach.](images/subscription-vending-components.png)](images/subscription-vending-components.png)
-*Figure 1. Example implementation of subscription vending automation. For a visualization of the flow, see [subscription vending process flow](https://github.com/stephen-sumner/architecture-center-pr/blob/docs/landing-zones/images/subscription-vending-process-flow.md)*
+*Figure 1. Example implementation of subscription vending automation. For a visualization of the flow, see [subscription vending process flow](https://github.com/stephen-sumner/architecture-center-pr/docs/landing-zones/images/subscription-vending-process-flow.md)*
 
-The example implementation (*see Figure 1*), the data collection tool gathers subscription request data. When the request receives approval, it triggers the request pipeline. The request pipeline creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline creates a new branch, commits the subscription parameter file and opens pull request in source control. The new branch mergers into the main branch in source control. The merge triggers the deployment pipeline to create the subscription with the infrastructure-as-code modules. The deployment should create the subscription in the right management group with the necessary governance (*see Figure 2*).
+The request pipeline, source control, and deployment pipeline are the platform automation. The Gitflow design aligns with the declarative approach that platform teams use to manage the platform. The data collection tool gathers subscription request data. When the request receives approval, it triggers the request pipeline. The request pipeline creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline creates a new branch, commits the subscription parameter file and opens pull request in source control. The new branch mergers into the main branch in source control. The merge triggers the deployment pipeline to create the subscription with the infrastructure-as-code modules. The deployment should create the subscription in the right management group with the necessary governance (*see Figure 2*).
 
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 2. Subscription vending automation in an example Azure environment.*
