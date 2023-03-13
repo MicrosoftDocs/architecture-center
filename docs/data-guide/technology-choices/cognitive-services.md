@@ -58,7 +58,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you have the data to train a model? If yes, consider the custom services that enable you to train their underlying models with data that you provide, for improved accuracy and performance.
 
-![Diagram that shows how to select between various APIs in Cognitive Services]()
+![Diagram that shows how to select between various APIs in Cognitive Services](../images/CognitiveServicesIntroPageFlow.png)
 
 ## Contributors
 
