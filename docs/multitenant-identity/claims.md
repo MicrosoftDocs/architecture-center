@@ -101,11 +101,6 @@ Here are some basic patterns for checking claims.
    This code checks whether the user has a Role claim with the value "Admin". It correctly handles the case where the user has no Role claim or multiple Role claims.
 
    The **ClaimTypes** class defines constants for commonly used claim types. However, you can use any string value for the claim type.
-* To get a single value for a claim type, when you expect there to be at most one value:
-
-  ```csharp
-  string email = User.FindFirst(ClaimTypes.Email)?.Value;
-  ```
 
 * To get all the values for a claim type:
 
