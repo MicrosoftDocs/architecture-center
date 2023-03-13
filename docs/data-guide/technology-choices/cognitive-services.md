@@ -11,36 +11,46 @@ ms.subservice: azure-guide
 products:
   - azure-custom-vision
 ms.custom:
-  - AI
-  - guide
+  - cognitive services
+  - AI guide
 ---
 
 # Choose a Microsoft cognitive services technology
 
-Microsoft cognitive services are cloud-based APIs that you can use in artificial intelligence (AI) applications and data flows. They provide you with pretrained models that are ready to use in your application, requiring no data and no model training on your part. The cognitive services are developed by Microsoft's AI and Research team and leverage the latest deep learning algorithms. They are consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
+Microsoft cognitive services are cloud-based APIs that you can use in artificial intelligence (AI) applications and data flows. They provide you with pretrained models that are ready to use in your application, requiring no data and no model training on your part. The cognitive services are developed by Microsoft's AI and Research team and the latest deep learning algorithms. They are consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
 
-The cognitive services include:
-
-- Text analysis
-- Computer vision
-- Video analytics
-- Speech recognition and generation
-- Natural language understanding
-- Intelligent search
-
-Key benefits:
+**Key benefits**:
 
 - Minimal development effort for state-of-the-art AI services.
+- Use pre-defined algorithms
+- Create custom algorithms on top of the pre-built libraries.
 - Easy integration into apps via HTTP REST interfaces.
-- Built-in support for consuming cognitive services in Azure Data Lake Analytics.
+- Enable developers and data scientists of all skill levels to easily add AI capabilities to their apps
 
-Considerations:
+**Considerations**:
 
 - Only available over the web. Internet connectivity is generally required. An exception is the Custom Vision Service, whose trained model you can export for prediction on devices and at the IoT edge.
-
 - Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
 
-## What are your options when choosing amongst the cognitive services?
+**Common Use Cases**:
+
+- Transcribe audible speech into readable, searchable text.
+- Convert text to lifelike speech for more natural interfaces.
+- Integrate real-time speech translation into your apps.
+- Identify and verify the people speaking based on audio.
+- Identify commonly-used and domain-specific terms.
+- Automatically detect sentiments and opinions from text.
+- Distill information into easy-to-navigate questions and answers.
+- Enable your apps to interact with users through natural language.
+- Translate more than 100 languages and dialects.
+- Identify and analyze content within images and videos.
+- Customize image recognition to fit your business needs.
+- Identify potential problems early on.
+- Detect potentially offensive or unwanted content.
+- Create rich, personalized experiences for every user.
+- Apply advanced coding and language models to a variety of use cases.
+
+## What are your options when choosing the cognitive services?
 
 In Azure, there are dozens of Cognitive Services available. The current listing of these is available in a directory categorized by the functional area they support:
 
@@ -49,16 +59,27 @@ In Azure, there are dozens of Cognitive Services available. The current listing 
 - [Decision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)
 - [Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)
 - [Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/)
+- [Open AI](https://azure.microsoft.com/products/cognitive-services/openai-service)
 
 ## Key selection criteria
 
 To narrow the choices, start by answering these questions:
 
-- What type of data are you dealing with? Narrow your options based on the type of input data you are working with. For example, if your input is text, select from the services that have an input type of text.
+- Are you processing something related to spoken Language or Are you processing Text/Images/Documents ?
 
 - Do you have the data to train a model? If yes, consider the custom services that enable you to train their underlying models with data that you provide, for improved accuracy and performance.
 
+The diagram below provides a basic flow chart on how you would go about selecting the API service based on your use case
+To narrow the choices, start by answering these questions:
+
 ![Diagram that shows how to select between various APIs in Cognitive Services](../images/CognitiveServicesIntroPageFlow.png)
+
+Once the first decision is made you go deeper into your requirements.
+
+- In case your decision had something to do with spoken Languages was it anything to do with Speech-To-Text, Text-To-Speech, Speech-To-Speech (**Speech API's**)
+- Or perform some kind of language analysis/Text Assessment/ Text-To-Text (**Language API's**)
+- Are you trying to observe & assess docs/text/documents (**Vision API's**)
+- Or do you want to observe and take some decision on the display (**Decision API's**).
 
 ## Contributors
 

@@ -214,6 +214,16 @@ items:
             items:
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
+              - name: Types of API Services  
+                items:
+                - name: Language API Services
+                  href: data-guide/cognitive-services/LanguageAPI.md
+                - name: Speech API Services
+                  href: data-guide/cognitive-services/SpeechAPI.md
+                - name: Vision API Services
+                  href: data-guide/cognitive-services/VisionAPI.md
+                - name: Decision API Services
+                  href: data-guide/cognitive-services/DecisionAPI.md
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.yml
               - name: Machine learning
