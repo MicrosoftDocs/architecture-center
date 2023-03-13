@@ -1,7 +1,7 @@
 ---
 title: Different Types of Speech API Services
 description: Learn about Azure Cognitive Service for Speech that provides speech-to-text and text-to-speech capabilities.
-author: krmeht
+author: kruti-m
 ms.author: architectures
 categories: azure
 ms.date: 03/14/2023
@@ -25,7 +25,7 @@ The key differentiation factor among the choice you make between the 2 is the us
 - **A Speech resource** - choose this resource type if you only plan to use the Speech service, or if you want to manage access and billing for the resource separately from other services.
 - **A Cognitive Services resource** - choose this resource type if you plan to use the Speech service in combination with other cognitive services, and you want to manage access and billing for these services together.
 
-The following flow chart helps you how to go about choosing the Speech services based on your processing needs
+The following flow chart helps you how to go about choosing the Speech service based on your processing needs
 ![Diagram that shows how to select Speech Services](../images/CognitiveServicesSpeechAPI.png)
 
 ## Key considerations
