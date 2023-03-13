@@ -2,6 +2,8 @@ This article provides implementation guidance for automating the subscription ve
 
 Subscriptions vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. You should automate as much of the subscription vending process as you can.
 
+![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. Modify the templates to fit your implementation needs.
+
 ## Architecture
 
 You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should:
@@ -63,63 +65,42 @@ The *request pipeline* in the example implementation executes these steps (*see 
 
 ## How to create subscription
 
-The *deployment pipeline* in the example implementation uses the merge
-
-This final phase is where the subscription vending automation creates and configures the workload subscription. This creation process should be automated.
-
-Up until this point, everything has been focused on capturing, reviewing, approving, and documenting the intent to have a subscription created, with as much automation as practical.
-
-The process picks up when the JSON/YAML subscription parameter file merges into the `main` branch. This is the authoritative push notification to actually deploy new resources (subscription and base configuration) in Azure, final commits to external tracking systems (e.g. IPAM), and updating status in the ITSM tooling tracking this request.
+The last task of the subscription vending automation is to create and configures the workload subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code template with the JSON/YAML subscription parameter file (*see figure 1*).
 
 **Use infrastructure as code.** Your deployments should use infrastructure as code templates to create the subscription. The platform team should create and maintain these templates to ensure proper governance.
 
-![GitHub icon](../_images/github.png) There are Azure Landing Zone subscription vending modules in [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf). You should use these as your starting point. Modify these templates to fit your implementation needs.
+![GitHub icon](../_images/github.png) Reference the subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules and modify to your implementation.
 
-**Use a deployment pipeline.** The deployment pipeline orchestrates the creation and configuration of the workload subscription. The pipeline is responsible for the following:
+**Use a deployment pipeline.** The deployment pipeline orchestrates the creation and configuration of the workload subscription. The pipeline is should execute the following tasks:
 
-- Create or update Azure AD resources to represent subscription ownership
-- Create and configure management group placement
-  - Subscription owner designation
-  - Subscription-level RBAC to configured security groups
-  - Microsoft Defender for Cloud enrollment
-- Deploy and configure resources.  Some comment examples are:
-  - Virtual networks and their peering to platform resources, such as a regional hub
-  - Subscription-level Azure Policy
-  - Highly privileged workload identities for workload team deployments
-- Updating external systems, such as IPAM to commit on IP reservations
-- Updating the ITSM request with final subscription name, GUID, and anything else necessary to communicate back to the requester that the task is complete.
+| Task category | Pipeline task |
+| --- | --- |
+| **Identity** |• Create or update Azure AD resources to represent subscription ownership<br>• Configure privileged workload identities for workload team deployments
+| **Governance** |• Place in management group hierarchy<br>• Assign subscription owner<br>• Configure subscription-level role-based access controls (RBACs) to configured security groups.<br>• Assign subscription-level Azure Policy<br>• Configure the Microsoft Defender for Cloud enrollment.|
+| **Networking** |• Deploy virtual networks<br>• Configure virtual network peering to platform resources (regional hub)
+| **Reporting** |• Update external systems, such as IPAM to commit on IP reservations<br>• Update the data collection tool request with final subscription name and globally unique identifier (GUID)<br>• Notify the application team that they subscription is ready.
 
-Be aware that you do need a commercial agreement to create an Azure Subscription programmatically. If you do not have a commercial agreement, you'll need to introduce a manual process above to create the actual Azure Subscription, but you can automate all other aspects of subscription configuration without a commercial agreement.
+You need a commercial agreement to create a subscription programmatically. If you do not have a commercial agreement, you need to introduce a manual process above to create the subscription, but you can automate all other aspects of subscription configuration without a commercial agreement.
 
-**Pipeline identity.** In order to perform all of these operations, the CI/CD pipeline needs to be properly permissioned across all systems it interfaces with - Azure RBAC, Azure AD, and external systems alike. For Azure recommend using either managed identity or OpenID Connect (OIDC) to authenticate to Azure.
-
-**OUtput** subscription under governance ready for workload.
+**Establish workload identity.** The deployment pipeline needs permission to perform these operations with all systems it interfaces with. You should either use managed identity or OpenID Connect (OIDC) to authenticate to Azure.
 
 ## Post-deployment
 
-TODO intro :
+The subscription vending automation ends with subscription creation and automation. The platform team should hand off the the new subscription to the application team to create the subscription budget and deploy the workload. However, the platform team maintains control over subscription governance and manges changes over time.
 
-### Application team handoff
-
-With the subscription in place, the application team is now able to deploy and operate their workload with the governance set in place through the automated subscription vending processes described above. Deploying, managing, and operating the workload then becomes the next focus of the application team that requested this subscription. Those pipelines and processes are not related to the subscription vending process outlined above; this process is solely responsible for automating the instantiation "ready-to-use" subscription.
-
-### Cost management
+**Enforce cost management.**
 
 TODO
 
-### Change over time
+**Manage subscription governance.** You should update the subscription as the governance requirements of the workload change. For example, you might need to move a subscription to a different management group. You should considering building similar automation for some of these routine operations. For more information, see
 
-As governance requirements of a workload change, you might need to move subscriptions to a different management group that best meets new workload needs. Consider building similar automation for some of these routine operations. Platform teams benefit from not only automating subscription creation effort, but also core and common brownfield subscription management operations.  Consider the following:
-
-- Management group association changes
-- Platform updates that [keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
-- Applying new [resource tagging](/azure/cloud-adoption-framework/govern/resource-consistency/tagging#enforce) requirements
-
-## Variations
-
-ITSM tool. Where things can shift. Goal is for the team to define a process flow. The flow above used this flow. You need to build a process flow and build subscription vending automation that executes that flow. [LINK to Jacks flow diagram here]
+- [Moving management groups and subscription](/azure/governance/management-groups/overview#moving-management-groups-and-subscriptions)
+- [Keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
+- [Resource tagging](/azure/cloud-adoption-framework/govern/resource-consistency/tagging#enforce)
 
 ## Next steps
+
+
 
 - [Bicep modules](https://aka.ms/lz-vending/bicep)
 - [Terraform modules](https://aka.ms/lz-vending/tf)
