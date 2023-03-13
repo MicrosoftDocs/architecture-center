@@ -57,31 +57,32 @@ The notification and data from the data collection tools should trigger the plat
 
 The *request pipeline* in the example implementation executes these steps (*see figure 1*). You could also use a code-based solution hosted in Azure if the workflow becomes complex.
 
-**Validate subscription parameter file**. The pull request should trigger a linting process to validate the request data. The goal to ensure the deployment is successful. It should validate the YAML/JSON subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make any alterations to the subscription parameter file. The output should be a JSON/YAML subscription parameter file with all the data to create a subscription. For example, mapped Owner RBAC role to subscription owner alias.
+**Validate the subscription parameter file**. The pull request should trigger a linting process to validate the request data. The goal to ensure the deployment is successful. It should validate the YAML/JSON subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make any alterations to the subscription parameter file. The output should be a JSON/YAML subscription parameter file with all the data to create a subscription. For example, mapped Owner RBAC role to subscription owner alias.
 
-**Trigger deployment pipeline.** When the pull request merges into `main` the main branch, it should trigger the deployment pipeline.
+**Trigger the deployment pipeline.** When the pull request merges into `main` the main branch, it should trigger the deployment pipeline.
 
 ## How to create subscription
 
-**Input** everything deployment modules need to deploy. All parameters satisfied.
+The *deployment pipeline* in the example implementation uses the merge
 
-Up until this point, everything has been focused on capturing, reviewing, approving, and documenting the intent to have a subscription created, with as much automation as practical. This final phase is where the subscription is actually created and configured. This creation process should be automated.
+This final phase is where the subscription vending automation creates and configures the workload subscription. This creation process should be automated.
 
-The process picks up when the new subscription configuration data file merged into `main`. This is the authoritative push notification to actually deploy new resources (subscription and base configuration) in Azure, final commits to external tracking systems (e.g. IPAM), and updating status in the ITSM tooling tracking this request.
+Up until this point, everything has been focused on capturing, reviewing, approving, and documenting the intent to have a subscription created, with as much automation as practical.
 
-**Use infrastructure as code.** Your deployments should use a declarative approach, using IaC templates that the platform subscription team creates and maintains, to describe the necessary Azure components to be deployed.
+The process picks up when the JSON/YAML subscription parameter file merges into the `main` branch. This is the authoritative push notification to actually deploy new resources (subscription and base configuration) in Azure, final commits to external tracking systems (e.g. IPAM), and updating status in the ITSM tooling tracking this request.
 
-Use the Azure Landing Zone subscription vending implementations, available as [Bicep modules](https://aka.ms/lz-vending/bicep) and [Terraform modules](https://aka.ms/lz-vending/tf) as your starting point.
+**Use infrastructure as code.** Your deployments should use infrastructure as code templates to create the subscription. The platform team should create and maintain these templates to ensure proper governance.
 
-Like all of the automation so far, you should also use a CI/CD pipeline to orchestrate this resource creation and configuration phase. The pipeline will trigger based off of the merge to `main`. The pipeline is responsible for the following:
+![GitHub icon](../_images/github.png) There are Azure Landing Zone subscription vending modules in [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf). You should use these as your starting point. Modify these templates to fit your implementation needs.
 
-- Creating or updating any Azure AD resources to represent subscription ownership
-- Creating and configuring the subscription. This includes items such as:
-  - Management group placement
+**Use a deployment pipeline.** The deployment pipeline orchestrates the creation and configuration of the workload subscription. The pipeline is responsible for the following:
+
+- Create or update Azure AD resources to represent subscription ownership
+- Create and configure management group placement
   - Subscription owner designation
   - Subscription-level RBAC to configured security groups
   - Microsoft Defender for Cloud enrollment
-- Deploying and configuring any base resources required.  Some comment examples are:
+- Deploy and configure resources.  Some comment examples are:
   - Virtual networks and their peering to platform resources, such as a regional hub
   - Subscription-level Azure Policy
   - Highly privileged workload identities for workload team deployments
