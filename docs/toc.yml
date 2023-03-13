@@ -222,8 +222,8 @@ items:
                   href: data-guide/cognitive-services/SpeechAPI.md
                 - name: Vision API Services
                   href: data-guide/cognitive-services/VisionAPI.md
-                - name: Decision API Services
-                  href: data-guide/cognitive-services/DecisionAPI.md
+                - name: Decision API and Applied AI Services
+                  href: data-guide/cognitive-services/DecisionAndAppliedAI.md
               - name: Natural language processing
                 href: data-guide/technology-choices/natural-language-processing.yml
               - name: Machine learning
