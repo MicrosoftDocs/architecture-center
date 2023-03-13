@@ -652,7 +652,7 @@ List<string[]> tags = new List<string[]>
 };
 
 List<BlogPost> posts = new List<BlogPost>();
-int blogKey = 1;
+int blogKey = 0;
 int numberOfPosts = 20;
 Random random = new Random();
 for (int i = 0; i < numberOfPosts; i++)
