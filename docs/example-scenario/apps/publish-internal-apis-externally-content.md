@@ -157,7 +157,7 @@ You need to further configure the components deployed using the preceding Resour
 
 8. Configure Application Gateway (WAF V1) to access the API service: apim-gateway on Port 80. Add TLS certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use the TLS cert.
 
-Once the preceding steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
+Once the preceding steps are successfully completed, Configure the DNS entries in the web registrar CNAME entries of api.contoso.org and portal.contoso.org with App Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
 
 *It's not a good practice to use same URL for Internal and External endpoints for the APIM services (though in this demo, both URLs are same). If you want to choose to have different URLs for internal and external endpoints, you can make use of App Gateway WAF v2, which supports http redirection and much more.*
 
@@ -172,6 +172,8 @@ Principal author:
 Other contributors:
 
 - [Shawn Kupfer](https://www.linkedin.com/in/shawn-kupfer-12422b4/) | Technical Writer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
