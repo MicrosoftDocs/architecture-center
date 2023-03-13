@@ -26,7 +26,7 @@ Because there isn't point-to-point communication, this pattern helps reduce coup
 
 ## When to use this pattern
 
-Use the choreography pattern if you expect to update, remove, or add new services frequently. The entire app can be modified with lesser effort and minimal disruption to existing services.
+Use the choreography pattern if you expect to update or replace services frequently, and add or remove some services eventually. The entire app can be modified with less effort and minimal disruption to existing services.
 
 Consider this pattern if you experience performance bottlenecks in the central orchestrator.
 
