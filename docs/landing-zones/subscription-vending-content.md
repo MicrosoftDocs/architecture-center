@@ -6,13 +6,9 @@ Subscriptions vending standardizes the process for requesting, deploying, and go
 
 ## Architecture
 
-You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should:
+You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should (1) collect subscription request data, (2) initiate platform automation, and (3) create the subscription using infrastructure-as-code.
 
-1. Collect subscription request data
-1. Initiate platform automation
-1. Create the subscription using infrastructure-as-code.
-
-Numerous approaches exist for implementing subscription vending automation. The guidance presented here utilizes a Gitflow implementation with two pipelines. The Gitflow design aligns with the declarative approach that platform teams use to manage the platform.
+Numerous approaches exist for implementing subscription vending automation. The example implementation utilizes a Gitflow implementation with two pipelines. The Gitflow design aligns with the declarative approach that platform teams use to manage the platform.
 
 [![Diagram showing the components of the subscription vending approach.](images/subscription-vending-components.png)](images/subscription-vending-components.png)
 *Figure 1. Example implementation of subscription vending automation. For a visualization of the flow, see [subscription vending process flow](https://github.com/MicrosoftDocs/architecture-center-pr/blob/main/docs/landing-zones/images/subscription-vending-process-flow.md)*
