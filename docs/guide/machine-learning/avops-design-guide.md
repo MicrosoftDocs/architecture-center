@@ -15,7 +15,7 @@ categories:
 
 # Autonomous Vehicle Operations (AVOps) design guide
 
-This article provides an overview of the stages, architecture, and challenges involved with creating a back end to enable an autonomous vehicle solution at scale. To learn more about the information here, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models, see the [automated vehicle operations solution idea](../../solution-ideas/articles/avops-architecture.yml).
+This article provides an overview of the stages, architecture, and challenges involved with creating a back end to enable an autonomous vehicle solution at scale. To learn more about the information here, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models, see the [Automated Vehicle Operations solution idea](../../solution-ideas/articles/avops-architecture.yml).
 
 Autonomous Vehicle Operations (AVOps) typically require a substantial amount of storage and compute to:
 - Capture and process data and scenes from test vehicles, as learning material for the perception models that vehicles need to drive autonomously. 
