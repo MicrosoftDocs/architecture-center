@@ -112,6 +112,7 @@ The subscription vending automation ends with subscription creation and configur
 - [Moving management groups and subscription](/azure/governance/management-groups/overview#moving-management-groups-and-subscriptions)
 - [Keep policies and policy initiatives up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date#keep-policies-and-policy-initatives-up-to-date)
 - [Resource tagging](/azure/cloud-adoption-framework/govern/resource-consistency/tagging#enforce)
+- [Tailor the Azure landing zone architecture to meet requirements](/azure/cloud-adoption-framework/ready/landing-zone/tailoring-alz)
 
 ## Next steps
 
