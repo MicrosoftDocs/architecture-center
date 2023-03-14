@@ -149,8 +149,11 @@ For the logs, as all Edge modules run as Docker containers, use the [Fluentd log
 
 Principal authors:
 
-- [Martin Weber](https://ch.linkedin.com/in/martin-weber-ch) | Senior Software Engineer
 - [Francisco Beltrao](https://ch.linkedin.com/in/francisco-beltrao-58521a) | Principal Software Engineer Lead
+- [Jean-Baptiste Ranson](https://www.linkedin.com/in/jb-ranson) | Senior Software Engineer
+- [Martin Weber](https://ch.linkedin.com/in/martin-weber-ch) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

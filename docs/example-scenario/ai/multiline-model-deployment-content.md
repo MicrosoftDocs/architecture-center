@@ -102,7 +102,6 @@ Principal author:
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 - [Azure Machine Learning pipelines](/azure/machine-learning/concept-ml-pipelines)
 - [What is Azure Pipelines?](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
-- [Get started with Azure DevOps Starter](/azure/devops-project/azure-devops-project-github)
 - [Use automated machine learning in Azure Machine Learning](/training/modules/use-automated-machine-learning)
 - [Implement CI/CD with Azure DevOps](/training/modules/implement-ci-cd-azure-devops)
 
