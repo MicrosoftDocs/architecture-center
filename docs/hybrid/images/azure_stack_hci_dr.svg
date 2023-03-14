@@ -17,7 +17,7 @@
 		.st1 {fill:#ffffff;stroke:none;stroke-width:0.25}
 		.st2 {fill:#ebebeb;stroke:#0078d4;stroke-dasharray:0.01,4.5;stroke-width:1.5}
 		.st3 {fill:none;stroke:#0078d4;stroke-width:1.5}
-		.st4 {fill:none;stroke:#000000;stroke-dasharray:0.01,4.5;stroke-width:1.5}
+		.st4 {fill:none;stroke:#000000;stroke-dasharray:0.01,6;stroke-width:2}
 		.st5 {fill:#3c3c41;font-family:Segoe UI;font-size:1.00001em;font-weight:bold}
 		.st6 {font-size:1em}
 		.st7 {fill:url(#grad0-17);stroke:none;stroke-width:12.2222}
