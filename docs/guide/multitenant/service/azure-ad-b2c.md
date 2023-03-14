@@ -69,7 +69,7 @@ The following table summarizes the differences among the main tenancy models for
 | [**Limits to consider**](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#userconsumption-related-limits) | Requests per Azure AD B2C tenant, requests per client IP address | A combination of requests, number of Azure AD B2C tenants per subscription, and number of directories for a single user, depending on your partitioning strategy | Number of Azure AD B2C tenants per subscription, maximum number of directories for a single user |
 | **Operational complexity** | Low | Medium to high, depending on your partitioning strategy | Very high |
 | **Number of Azure AD B2C tenants required** | One | Between one and *n*, depending on your partitioning strategy | *n*, where n is the number of application tenants |
-| **Example scenario** | You're building a SaaS offering for consumers that has low or no data residency requirements, like a music or video streaming service. | You're building a SaaS offering, like an accounting and record keeping application, for businesses. You need to support data residency requirements or a large number of custom federated identity providers. | You're building a SaaS offering, like a government record-keeping application, for businesses. Your customers mandate a high degree of data isolation from other application tenants. |
+| **Example scenario** | You're building a SaaS offering for consumers that has low or no data residency requirements, like a music or video streaming service. | You're building a SaaS offering, like an accounting and record keeping application for businesses. You need to support data residency requirements or a large number of custom federated identity providers. | You're building a SaaS offering, like a government record-keeping application for businesses. Your customers mandate a high degree of data isolation from other application tenants. |
 
 ### Shared Azure AD B2C tenant
 
@@ -99,7 +99,7 @@ The deployment and maintenance requirements for this tenancy model are still hig
 Vertical partitioning is similar to the [Data Sharding pattern](../../../patterns/sharding.yml). To vertically partition your Azure AD B2C tenants, you need to organize your application tenants into logical groups. This categorization of tenants is often called a *partitioning strategy*. Your partitioning strategy should be based on a common, stable factor of the application tenant, like region, size, or an application tenant's custom requirements. For example, if your goal is to solve your data residency requirements, you might decide to deploy an Azure AD B2C tenant for each region that contains application tenants. Or, if you group by size, you might decide to locate most of your application tenants' identities on a single Azure AD B2C tenant, but locate your largest application tenants on their own dedicated Azure AD B2C tenants.
 
 >[!IMPORTANT]
-> Avoid basing your partitioning strategy on factors that could change over time. It's difficult to move users between Azure AD B2C tenants. For example, if you create a SaaS offering that has multiple SKUs or product tiers, you shouldn't partition your users based on the SKU they select, because the SKU might change if the customer upgrades their product.
+> Avoid basing your partitioning strategy on factors that can change over time. It's difficult to move users between Azure AD B2C tenants. For example, if you create a SaaS offering that has multiple SKUs or product tiers, you shouldn't partition your users based on the SKU they select, because the SKU might change if the customer upgrades their product.
 
 You should consider provisioning your Azure AD B2C tenants by using a vertically partitioned strategy if:
 
@@ -156,7 +156,7 @@ For more information, see [Home Realm Discovery](/azure/active-directory/manage-
 
 ## Data residency
 
-When you provision an Azure AD B2C tenant, you select, for the purpose of [data residency](/azure/active-directory-b2c/data-residency), a region in which to deploy the tenant. This selection is important because it specifies the region in which your customer data resides when it's at rest. If you have data residency requirements for a subset of your customers, consider using the vertically partitioned strategy.
+When you provision an Azure AD B2C tenant, you select, for the purpose of [data residency](/azure/active-directory-b2c/data-residency), a region in which to deploy the tenant. This choice is important because it specifies the region in which your customer data resides when it's at rest. If you have data residency requirements for a subset of your customers, consider using the vertically partitioned strategy.
 
 ## Authorization
 
