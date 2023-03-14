@@ -4,9 +4,9 @@ Azure public multi-access edge compute (MEC) is a great platform for hosting app
 
 ## Architecture
 
-![Diagram that shows an architecture for deploying workloads in active/standby mode to achieve high availability and disaster recovery.](./media/edge-zones-disaster-discovery-architecture.svg)
+![Diagram that shows an architecture for deploying workloads in active/standby mode to achieve high availability and disaster recovery.](./media/edge-zones-disaster-recovery-architecture.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/edge-zones-disaster-discovery-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/edge-zones-disaster-recovery-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
