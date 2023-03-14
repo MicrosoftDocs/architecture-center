@@ -5423,6 +5423,8 @@ items:
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
                     href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
+                  - name: Mainframe file and tape backup to Azure using Luminex
+                    href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
                   - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
                     href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
                   - name: Model9 mainframe modernization

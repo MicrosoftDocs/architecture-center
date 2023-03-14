@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Mainframe file and tape backup to Azure using Luminex
+  titleSuffix: Azure Architecture Center
+  description: Use Luminex products to transfer mainframe data to and from Azure to meet backup, archival, and other business needs.
+  author: vatseyb
+  ms.author: bhuvivatsey
+  ms.date: 03/15/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - migration
+  - storage
+products:
+  - azure-event-hubs
+  - azure-expressroute
+  - azure-sql-database
+  - azure-storage
+  - power-bi
+name: Mainframe file and tape backup to Azure using Luminex
+summary: Use Luminex products to transfer mainframe data to and from Azure to meet backup, archival, and other business needs.
+thumbnailUrl: /azure/architecture/browse/thumbs/luminex-mainframe-file-tape-transfer-thumbnail.png
+content: |
+  [!include[](luminex-mainframe-file-tape-transfer-content.md)]
