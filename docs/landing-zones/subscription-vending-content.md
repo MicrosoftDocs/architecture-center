@@ -1,4 +1,4 @@
-This article provides implementation guidance for automating subscription vending. Subscriptions vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. You should automate as much of the subscription vending process as you can.
+This article provides implementation guidance for automating subscription vending. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. You should automate as much of the subscription vending process as you can.
 
 ![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. Modify the templates to fit your implementation needs.
 
@@ -43,9 +43,6 @@ The notification and data from the data collection tools should trigger the plat
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "subscriptionAliasEnabled": {
-      "value": true
-    },
     "subscriptionDisplayName": {
       "value": "sub-bicep-lz-vending-example-001"
     },
@@ -55,77 +52,9 @@ The notification and data from the data collection tools should trigger the plat
     "subscriptionBillingScope": {
       "value": "providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/123456"
     },
-    "subscriptionWorkload": {
-      "value": "Production"
-    },
-    "existingSubscriptionId": {
-      "value": ""
-    },
-    "subscriptionManagementGroupAssociationEnabled": {
-      "value": true
-    },
-    "subscriptionManagementGroupId": {
-      "value": "alz-landingzones-corp"
-    },
-    "subscriptionTags": {
-      "value": {
-        "Cost-Center": "ABC123",
-        "Usage": "Example"
-      }
-    },
-    "virtualNetworkEnabled": {
-      "value": true
-    },
-    "virtualNetworkResourceGroupName": {
-      "value": "rg-networking-001"
-    },
-    "virtualNetworkResourceGroupTags": {
-      "value": {
-        "Cost-Center": "ABC123",
-        "Usage": "Example",
-        "Managed-By": "Platform Team"
-      }
-    },
-    "virtualNetworkResourceGroupLockEnabled": {
-      "value": true
-    },
-    "virtualNetworkLocation": {
-      "value": "uksouth"
-    },
-    "virtualNetworkName": {
-      "value": "vnet-example-001"
-    },
-    "virtualNetworkTags": {
-      "value": {
-        "Cost-Center": "ABC123",
-        "Usage": "Example",
-        "Managed-By": "Platform Team"
-      }
-    },
-    "virtualNetworkAddressSpace": {
-      "value": [
-        "10.0.0.0/16"
-      ]
-    },
-    "virtualNetworkDnsServers": {
-      "value": [
-        "10.4.1.4",
-        "10.2.1.5"
-      ]
-    },
-    "virtualNetworkDdosPlanId": {
-      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-hub-network-001/providers/Microsoft.Network/ddosProtectionPlans/ddos-001"
-    },
-    "virtualNetworkPeeringEnabled": {
-      "value": true
-    },
-    "hubNetworkResourceId": {
-      "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-hub-network-001/providers/Microsoft.Network/virtualNetworks/vnet-hub-001"
-    },
-...
+  // Insert more parameters here
   }
 }
-```
 
 *[See code in context](https://github.com/azure/bicep-lz-vending/wiki/Example-1-Hub-and-Spoke#arm-json-parameter-file). For more examples, see [Bicep examples](https://github.com/azure/bicep-lz-vending/wiki/examples) and [Terraform examples](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest#example)*
 
@@ -159,6 +88,7 @@ The last task of the subscription vending automation is to create and configures
 | **Identity** |• Create or update Azure AD resources to represent subscription ownership<br>• Configure privileged workload identities for workload team deployments
 | **Governance** |• Place in management group hierarchy<br>• Assign subscription owner<br>• Configure subscription-level role-based access controls (RBACs) to configured security groups.<br>• Assign subscription-level Azure Policy<br>• Configure the Microsoft Defender for Cloud enrollment.|
 | **Networking** |• Deploy virtual networks<br>• Configure virtual network peering to platform resources (regional hub)
+| **Budgets** |• Create budgets for the subscription owners using the collected data.|
 | **Reporting** |• Update external systems, such as IPAM to commit on IP reservations<br>• Update the data collection tool request with final subscription name and globally unique identifier (GUID)<br>• Notify the application team that they subscription is ready.
 
 You need a commercial agreement to create a subscription programmatically. If you don't have a commercial agreement, you need to introduce a manual process to create the subscription, but you can automate all other aspects of subscription configuration without a commercial agreement.
