@@ -119,9 +119,9 @@ If you're using .NET Core, we recommend that you also consider the [Application 
 
 Application Insights maps the OpenTelemetry context to its internal data model:
 
-- Trace = Operation
-- Trace ID = Operation ID
-- Span = Request or Dependency
+- Trace -> Operation
+- Trace ID -> Operation ID
+- Span -> Request or Dependency
 
 Take the following considerations into account:
 
