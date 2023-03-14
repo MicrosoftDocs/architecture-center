@@ -1,7 +1,7 @@
 ---
 title: Choose a cognitive services technology
 description: Learn about Microsoft cognitive services that you can use in artificial intelligence applications and data flows.
-author: martinekuan
+author: kruti-m
 ms.author: architectures
 categories: azure
 ms.date: 07/25/2022

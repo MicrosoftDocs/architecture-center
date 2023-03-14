@@ -1,7 +1,7 @@
 ---
 title: Different Types of Speech API Services
 description: Learn about Azure Cognitive Service for Speech that provides speech-to-text and text-to-speech capabilities.
-author: krmeht
+author: kruti-m
 ms.author: architectures
 categories: azure
 ms.date: 03/14/2023
