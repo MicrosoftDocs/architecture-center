@@ -37,7 +37,7 @@ In multitenant solutions, it's common to combine multiple identity services to a
 - **Customer identities**, which are for end-user accounts. They control how your tenants' users get access to your applications.
 - **Internal identities**, which handle how your own team manages your solution.
 
-These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is an identity and access management (IAM) service, which you and your team use to manage your Azure resources and to control your application.
+These different identity types also typically use distinct identity services. Azure AD B2C is a customer identity and access management (CIAM) service that your tenants' users use to access the solution. [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) is an identity and access management (IAM) service that you and your team use to manage your Azure resources and to control your application.
 
 Consider an example multitenant solution built by Fabrikam. The solution uses a combination of the two technologies to achieve Fabrikam's requirements:
 
@@ -92,7 +92,7 @@ This diagram illustrates the shared Azure AD B2C tenant model:
 
 ### Vertically partitioned Azure AD B2C tenants
 
-The provisioning of vertically partitioned Azure AD B2C tenants is a strategy that's designed to minimize, when possible, the number of Azure AD B2C tenants needed. It's a middle ground between the other tenancy models. Vertical partitioning offers greater flexibility in customization for specific tenants when that's required, but it doesn't create the operational overhead that's associated with provisioning an Azure AD B2C tenant for every application tenant.
+The provisioning of vertically partitioned Azure AD B2C tenants is a strategy that's designed to minimize, when possible, the number of Azure AD B2C tenants needed. It's a middle ground between the other tenancy models. Vertical partitioning offers greater flexibility in customization for specific tenants when that's required. It doesn't, however, create the operational overhead that's associated with provisioning an Azure AD B2C tenant for every application tenant.
 
 The deployment and maintenance requirements for this tenancy model are still higher than those of a single Azure AD B2C tenant, but they're lower than they will be if you use one Azure AD B2C tenant per application tenant. You still need to design and implement a deployment and [maintenance](#maintenance) strategy for multiple tenants across your environment.
 
@@ -118,7 +118,7 @@ The following diagram illustrates the vertically partitioned Azure AD B2C tenant
 
 If you provision an Azure AD B2C tenant for each application tenant, you can customize many factors for each tenant. However, this approach creates a significant increase in overhead. You need to develop a deployment and [maintenance](#maintenance) strategy for a potentially large number of Azure AD B2C tenants.
 
-You also need to be aware of service limits. Azure subscriptions allow you to deploy only a [limited number](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of Azure AD B2C tenants. If you need to deploy more than the limit allows, you need to consider an appropriate [subscription design pattern](../approaches/resource-organization.yml#bin-packing) so you can balance your Azure AD B2C tenants across multiple subscriptions. There are other [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well, like the number of directories a single user can create and the number of directories a user can belong to.
+You also need to be aware of service limits. Azure subscriptions allow you to deploy only a [limited number](/azure/active-directory-b2c/service-limits?pivots=b2c-user-flow#azure-ad-b2c-configuration-limits) of Azure AD B2C tenants. If you need to deploy more than the limit allows, you need to consider an appropriate [subscription design](../approaches/resource-organization.yml#bin-packing) so you can balance your Azure AD B2C tenants across multiple subscriptions. There are other [Azure AD limits](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) that apply as well, like the number of directories a single user can create and the number of directories a user can belong to.
 
 > [!WARNING]
 > Because of the complexity of this approach, we strongly recommend that you consider the other isolation models first. This option is included here for the sake of completeness, but it's not the right approach for most use cases.
@@ -200,11 +200,11 @@ For more information about automated deployments and management of Azure AD B2C,
 
 [Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature in Azure AD External Identities that you can use to invite guest users into your *organizational* Azure AD tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Azure AD tenant.
 
-You can also use External Identities with Azure AD B2C, but External Identities provides a different set of features in that scenario. It's specifically intended for the use of the customers of your product. These users are managed inside a separate Azure AD B2C tenant, which is distinct from your organizational Azure AD tenant.
+You can also use External Identities with Azure AD B2C, but External Identities provides a different set of features in that scenario. It's intended for the use of the customers of your product. These users are managed inside a separate Azure AD B2C tenant, which is distinct from your organizational Azure AD tenant.
 
 Depending on your user personas and scenarios, you might need to use Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, like staff in your organization, users that work for a vendor, and customers, all within the same app, you can use Azure AD B2B and Azure AD B2C together to achieve this requirement.
 
-See these resources for more information:
+For more information, see these resources:
 
 - [Use Azure AD or Azure AD B2C?](../approaches/identity.md#use-azure-ad-or-azure-ad-b2c)
 - [Comparing External Identities feature sets](/azure/active-directory/external-identities/external-identities-overview#comparing-external-identities-feature-sets)
