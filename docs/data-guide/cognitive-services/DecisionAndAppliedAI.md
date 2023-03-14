@@ -2,7 +2,6 @@
 title: Different Types of Decision API & Applied AI Services
 description: Learn about Azure Cognitive Service for Decision which helps with recommendations for informed and efficient decision-making.Azure OpenAI Service offers industry-leading coding and language AI models that you can fine-tune for your use cases. 
 author: kruti-m
-ms.author: architectures
 categories: azure
 ms.date: 03/14/2023
 ms.topic: conceptual
