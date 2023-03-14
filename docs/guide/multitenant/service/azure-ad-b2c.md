@@ -4,7 +4,7 @@ description: Learn about considerations and approaches for using Azure Active Di
 author: landonpierce
 ms.author: landonpierce 
 ms.topic: conceptual
-ms.date: 03/16/2023
+ms.date: 03/17/2023
 ms service: architecture-center
 ms.subservice: azure-guide
 products:
@@ -22,13 +22,6 @@ ms.custom:
 Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
 
 One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for an application. Identity federation is the process of establishing trust between two identity providers to allow your users to sign in with a pre-existing account. If you use Azure AD B2C, you might implement identity federation to enable your users to sign in by using their social or enterprise accounts. If you use federation, your users don't need to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) specific that's to your application.
-
-If you're new to this topic, we recommend that you review the following resources:
-
-- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-- [Multitenant identity considerations](../considerations/identity.md)
-- [Multitenant identity approaches](../approaches/identity.md)
-- [Tenancy models](../considerations/tenancy-models.yml)
 
 > [!NOTE]
 > In this article, two similarly named topics are discussed: application tenants and Azure AD B2C tenants.
@@ -239,6 +232,15 @@ Other contributors:
 
 ## Next steps 
 
+If you're new to this topic, we recommend that you review the following resources:
+
+- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
+- [Multitenant identity considerations](../considerations/identity.md)
+- [Multitenant identity approaches](../approaches/identity.md)
+- [Tenancy models](../considerations/tenancy-models.yml)
+
+You might also find these resources useful:
+
 - [Azure AD B2C custom policy samples](https://github.com/azure-ad-b2c/samples)
 - [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
 - [Tutorial: Create an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
@@ -248,5 +250,5 @@ Other contributors:
 ## Related resources
 
 - [Service-specific guidance for a multitenant solution](overview.md)
-- [Checklist for architecting and building multitenant solutions on Azure](checklist.md)
-- [Architectural considerations for a multitenant solution](/considerations/overview.yml)
+- [Checklist for architecting and building multitenant solutions on Azure](/azure/architecture/guide/multitenant/checklist)
+- [Architectural considerations for a multitenant solution](/azure/architecture/guide/multitenant/considerations/overview)
