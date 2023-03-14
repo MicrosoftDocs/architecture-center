@@ -2,7 +2,7 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 ## Architecture
 
-![Architecture diagram showing Simple enterprise integration](./_images/simple-enterprise-integration.png)
+![Architecture diagram showing simple enterprise integration](./_images/simple-enterprise-integration.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/simple-enterprise-integration.vsdx) of this architecture.*
 
