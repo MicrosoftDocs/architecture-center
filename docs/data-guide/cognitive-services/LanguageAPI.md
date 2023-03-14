@@ -1,7 +1,7 @@
 ---
 title: Different Types of Language API Services
 description: Learn about Azure Cognitive Service for Language for understanding and analyzing text.
-author: kruti-m
+author: krmeht
 ms.author: architectures
 categories: azure
 ms.date: 03/14/2023
@@ -25,27 +25,27 @@ The following table helps summarize the API service based on your processing nee
 | What do you need to process | Type of Service to Use |
 |----------|-----------------|
 |**Translation Needs**| |
-|Translate text from an industry specific point of view|[Cognitive Services Customize Translator](https://learn.microsoft.com/azure/cognitive-services/translator/custom-translator/overview)|
-|Translate text from a generic point of view|[Cognitive Services  Translator](https://learn.microsoft.com/azure/cognitive-services/translator/text-translation-overview)|
-|Translate natural language into SQL queries|[Azure OpenAI Natural Language to SQL](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/work-with-code#explaining-an-sql-query)|
-|Enable my apps to interact using Natural Language|[Cognitive Services Conversational Language understanding](https://learn.microsoft.com/azure/cognitive-services/language-service/conversational-language-understanding/overview)|
+|Translate text from an industry specific point of view|[Cognitive Services Customize Translator](/azure/cognitive-services/translator/custom-translator/overview)|
+|Translate text from a generic point of view|[Cognitive Services  Translator](/azure/cognitive-services/translator/text-translation-overview)|
+|Translate natural language into SQL queries|[Azure OpenAI Natural Language to SQL](/azure/cognitive-services/openai/how-to/work-with-code#explaining-an-sql-query)|
+|Enable my apps to interact using Natural Language|[Cognitive Services Conversational Language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview)|
 |**Identification Needs**||
-|Identify Sensitive and PII|[Cognitive Services Extract PII](https://learn.microsoft.com/azure/cognitive-services/language-service/personally-identifiable-information/overview)|
-|Identify Sensitive, PII and PHI|[Cognitive Services Extract Health Information](https://learn.microsoft.com/azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=relation-extraction)|
-|Identify entities in text and categorize them into pre-defined types|[Cognitive Services Extract named entities](https://learn.microsoft.com/azure/cognitive-services/language-service/named-entity-recognition/overview)|
-|Extract domain specific entities or information | [Cognitive Services Custom named entity recognition](https://learn.microsoft.com/azure/cognitive-services/language-service/custom-named-entity-recognition/overview) |
-|Extract the main Key Phrases from text |[Cognitive Services Extract Key Phrases](https://learn.microsoft.com/azure/cognitive-services/language-service/key-phrase-extraction/overview)|
+|Identify Sensitive and PII|[Cognitive Services Extract PII](/azure/cognitive-services/language-service/personally-identifiable-information/overview)|
+|Identify Sensitive, PII and PHI|[Cognitive Services Extract Health Information](/azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=relation-extraction)|
+|Identify entities in text and categorize them into pre-defined types|[Cognitive Services Extract named entities](/azure/cognitive-services/language-service/named-entity-recognition/overview)|
+|Extract domain specific entities or information | [Cognitive Services Custom named entity recognition](/azure/cognitive-services/language-service/custom-named-entity-recognition/overview) |
+|Extract the main Key Phrases from text |[Cognitive Services Extract Key Phrases](/azure/cognitive-services/language-service/key-phrase-extraction/overview)|
 |Extract document summary|[Azure OpenAI Summarize Text-GPT3](https://learn.microsoft.com/azure/cognitive-services/openai/quickstart?pivots=programming-language-studio#try-text-summarization)|
 |**Classification Needs**||
-| Classify text using sentiment analysis | [Cognitive Services Sentiment Analysis](https://learn.microsoft.com/azure/cognitive-services/language-service/sentiment-opinion-mining/quickstart?source=recommendations&tabs=windows&pivots=programming-language-csharp) |
-| Classify text using custom classes | [Cognitive Services Custom Text Classification](https://learn.microsoft.com/azure/cognitive-services/language-service/custom-text-classification/quickstart?tabs=multi-classification&pivots=language-studio)|
-| Classify items into categories provided at inference time | [Azure OpenAI Classify Text](https://learn.microsoft.com/azure/cognitive-services/openai/how-to/completions#classification) |
-| Classify text by detecting the language | [Cognitive Services Detect Language](https://learn.microsoft.com/azure/cognitive-services/language-service/language-detection/overview) |
+| Classify text using sentiment analysis | [Cognitive Services Sentiment Analysis](/azure/cognitive-services/language-service/sentiment-opinion-mining/quickstart?source=recommendations&tabs=windows&pivots=programming-language-csharp) |
+| Classify text using custom classes | [Cognitive Services Custom Text Classification](/azure/cognitive-services/language-service/custom-text-classification/quickstart?tabs=multi-classification&pivots=language-studio)|
+| Classify items into categories provided at inference time | [Azure OpenAI Classify Text](/azure/cognitive-services/openai/how-to/completions#classification) |
+| Classify text by detecting the language | [Cognitive Services Detect Language](/azure/cognitive-services/language-service/language-detection/overview) |
 | **Understanding the Context Needs** | |
-|Link the identity of an entity found with a knowledge base | [Cognitive Services Find Linked Entities](https://learn.microsoft.com/azure/search/cognitive-search-skill-entity-linking-v3) |
-| Understand Questions and Answers (generic) | [Cognitive Services Answer Questions](https://learn.microsoft.com/azure/cognitive-services/language-service/question-answering/overview) |
-| Understand Questions and Answers (specific) | [Cognitive Services Custom Question Answering](https://learn.microsoft.com/azure/cognitive-services/language-service/question-answering/overview) |
-| Combine Multiple Cognitive Services | [Cognitive Services Orchestration workflow](https://learn.microsoft.com/azure/cognitive-services/language-service/orchestration-workflow/overview) |
+|Link the identity of an entity found with a knowledge base | [Cognitive Services Find Linked Entities](/azure/search/cognitive-search-skill-entity-linking-v3) |
+| Understand Questions and Answers (generic) | [Cognitive Services Answer Questions](/azure/cognitive-services/language-service/question-answering/overview) |
+| Understand Questions and Answers (specific) | [Cognitive Services Custom Question Answering](/azure/cognitive-services/language-service/question-answering/overview) |
+| Combine Multiple Cognitive Services | [Cognitive Services Orchestration workflow](/azure/cognitive-services/language-service/orchestration-workflow/overview) |
 
 At a high Level you can think of Language API's to be categorized as follows
 
@@ -85,6 +85,6 @@ Co-authors:
 
 - [Create Language Understanding solution with Azure Cognitive Services](/training/paths/create-language-solution-azure-cognitive-services/)
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
-- [Learning path: Identify principals and practices for Responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
-- [Learning path: Introduction to responsible bots](https://learn.microsoft.com/training/modules/responsible-bots-introduction/)
+- [Learning path: Identify principals and practices for Responsible AI](/training/paths/responsible-ai-business-principles/)
+- [Learning path: Introduction to responsible bots](/training/modules/responsible-bots-introduction/)
 

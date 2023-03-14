@@ -1,7 +1,7 @@
 ---
 title: Different Types of Vision API Services
 description: Learn about Azure Cognitive Service for Vision for understanding and analyzing text.
-author: kruti-m
+author: krmeht
 ms.author: architectures
 categories: azure
 ms.date: 03/14/2023
@@ -75,7 +75,7 @@ Co-authors:
 
 ### Next steps
 
-- [What is Azure Cognitive Service for Vision](https://learn.microsoft.com/azure/cognitive-services/computer-vision/overview)
+- [What is Azure Cognitive Service for Vision](/azure/cognitive-services/computer-vision/overview)
 - [Vision API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-vision-api-s-azure-ai-applied-services/ba-p/3506727)
 
 ### Learning Paths

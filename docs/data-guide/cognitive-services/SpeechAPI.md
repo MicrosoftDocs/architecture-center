@@ -1,7 +1,7 @@
 ---
 title: Different Types of Speech API Services
 description: Learn about Azure Cognitive Service for Speech that provides speech-to-text and text-to-speech capabilities.
-author: kruti-m
+author: krmeht
 ms.author: architectures
 categories: azure
 ms.date: 03/14/2023
@@ -82,10 +82,10 @@ Co-authors:
 
 ### Next steps
 
-- [What is Azure Cognitive Service for Speech](https://learn.microsoft.com/azure/cognitive-services/speech-service/overview)
+- [What is Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/overview)
 - [Speech API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-speech-api-s-azure-ai-applied-services/ba-p/3509510)
 
 ### Learning Paths
 
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
-- [Learning path: Process and Translate Speech with Azure Cognitive Speech Services](https://learn.microsoft.com/training/paths/process-translate-speech-azure-cognitive-speech-services/)
+- [Learning path: Process and Translate Speech with Azure Cognitive Speech Services](/training/paths/process-translate-speech-azure-cognitive-speech-services/)

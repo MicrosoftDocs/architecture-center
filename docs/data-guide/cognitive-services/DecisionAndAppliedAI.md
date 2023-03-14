@@ -1,7 +1,7 @@
 ---
 title: Different Types of Decision API & Applied AI Services
 description: Learn about Azure Cognitive Service for Decision which helps with recommendations for informed and efficient decision-making.Azure OpenAI Service offers industry-leading coding and language AI models that you can fine-tune for your use cases. 
-author: kruti-m
+author: krmeht
 ms.author: architectures
 categories: azure
 ms.date: 03/14/2023
@@ -57,9 +57,9 @@ The service is capable of scanning *text, image, and video* content for potentia
 
 5. **Applied OpenAI Services**
 Azure Cognitive Services with task-specific AI, built-in business logic, programming, orchestration and customization to bring you ready-to-deploy AI solutions. Common use cases include
-    - [Azure Cognitive Search](https://learn.microsoft.com/azure/search/search-what-is-azure-search) - Azure Cognitive Search is the only cloud search service with built-in AI capabilities that enrich all types of information to help you identify and explore relevant content at scale.
-    - [Content Filtering](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/content-filter)
-    - [Embeddings](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/understand-embeddings)
+    - [Azure Cognitive Search](/azure/search/search-what-is-azure-search) - Azure Cognitive Search is the only cloud search service with built-in AI capabilities that enrich all types of information to help you identify and explore relevant content at scale.
+    - [Content Filtering](/azure/cognitive-services/openai/concepts/content-filter)
+    - [Embeddings](/azure/cognitive-services/openai/concepts/understand-embeddings)
 
 ### Contributors
 
@@ -80,15 +80,15 @@ Co-authors:
 ### Next steps
 
 - [Power Virtual Agents-Bots](https://learn.microsoft.com/power-virtual-agents/fundamentals-what-is-power-virtual-agents)
-- [Anomaly Detector](https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/)
-- [Content Moderator](https://learn.microsoft.com/azure/cognitive-services/content-moderator/)
-- [Personalizer](https://learn.microsoft.com/azure/cognitive-services/personalizer/)
-- [Azure Open AI](https://learn.microsoft.com/azure/cognitive-services/openai/overview)
+- [Anomaly Detector](/azure/cognitive-services/anomaly-detector/)
+- [Content Moderator](/azure/cognitive-services/content-moderator/)
+- [Personalizer](/azure/cognitive-services/personalizer/what-is-personalizer)
+- [Azure Open AI](/azure/cognitive-services/openai/overview)
 - [Decision API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-decision-api-s-azure-ai-applied/ba-p/3520408)
 
 ### Learning Paths
 
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
-- [Learning path: Identify principals and practices for Responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
-- [Learning path: Introduction to responsible bots](https://learn.microsoft.com/training/modules/responsible-bots-introduction/)
-- [Learning path: Get started with artificial intelligence](https://learn.microsoft.com/training/paths/get-started-with-artificial-intelligence-on-azure/)
+- [Learning path: Identify principals and practices for Responsible AI](/training/paths/responsible-ai-business-principles/)
+- [Learning path: Introduction to responsible bots](/training/modules/responsible-bots-introduction/)
+- [Learning path: Get started with artificial intelligence](/training/paths/get-started-with-artificial-intelligence-on-azure/)
