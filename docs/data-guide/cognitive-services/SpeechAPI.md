@@ -15,12 +15,19 @@ ms.custom:
   - analytics
   - guide
 ---
+
+# Different Types of Speech API Services
+
+**When to use Speech API's/ When to use Language API's?**
+
 Azure Cognitive Services provides with Speech API's and Language API's which often overlap with the functionalities they cater.
 
 - Speech API's - Assist in spoken language transformations
 - Language API's - Understand conversations and unstructured text
 
 The key differentiation factor among the choice you make between the 2 is the use case intent. If you only wish to transform the format in either real-time or in batches its recommended to go with Speech services approach. If you wish to dig deeper insights in terms detailed analysis of either spoken or written languages (Transform+Analyze+Filter) its recommended to go with Language services approach.Language support varies by Speech service functionality.
+
+## Resource Categories
 
 - **A Speech resource** - choose this resource type if you only plan to use the Speech service, or if you want to manage access and billing for the resource separately from other services.
 - **A Cognitive Services resource** - choose this resource type if you plan to use the Speech service in combination with other cognitive services, and you want to manage access and billing for these services together.

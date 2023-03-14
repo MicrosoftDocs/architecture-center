@@ -15,10 +15,17 @@ ms.custom:
   - analytics
   - guide
 ---
+
+# Different Types of Language API Services
+
 Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
+
+## Resource Categories
 
 - **A Language resource** - Choose this resource type if you only plan to use natural language processing services, or if you want to manage access and billing for the resource separately from other services
 - **A Cognitive Service resource** - Choose this resource type if you plan to use the Language service in combination with other cognitive services, and you want to manage access and billing for these services together.
+
+## Key considerations
 
 The following table helps summarize the API service based on your processing needs
 
