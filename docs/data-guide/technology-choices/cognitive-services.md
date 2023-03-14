@@ -52,12 +52,12 @@ Microsoft cognitive services are cloud-based APIs that you can use in artificial
 
 In Azure, there are dozens of Cognitive Services available. The current listing of these is available in a directory categorized by the functional area they support:
 
-- [Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)
-- [Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)
-- [Decision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)
-- [Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)
 - [Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/)
+- [Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)
+- [Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)
+- [Decision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)
 - [Open AI](https://azure.microsoft.com/products/cognitive-services/openai-service)
+- [Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)
 
 ## Key selection criteria
 
@@ -74,10 +74,10 @@ To narrow the choices, start by answering these questions:
 
 Once the first decision is made you go deeper into your requirements.
 
-- In case your decision had something to do with spoken Languages was it anything to do with Speech-To-Text, Text-To-Speech, Speech-To-Speech (**Speech API's**)
-- Or perform some kind of language analysis/Text Assessment/ Text-To-Text (**Language API's**)
-- Are you trying to observe & assess docs/text/documents (**Vision API's**)
-- Or do you want to observe and take some decision on the display (**Decision API's**).
+- In case your decision had something to do with spoken Languages was it anything to do with Speech-To-Text, Text-To-Speech, Speech-To-Speech [**Speech API's**](../cognitive-services/SpeechAPI.md)
+- Or perform some kind of language analysis/Text Assessment/ Text-To-Text [**Language API's**](../cognitive-services/LanguageAPI.md)
+- Are you trying to observe & assess docs/text/documents [**Vision API's**](../cognitive-services/VisionAPI.md)
+- Or do you want to observe and take some decision on the display [**Decision API's &/or Applied AI**](../cognitive-services/DecisionAndAppliedAI.md)
 
 ### Contributors
 
