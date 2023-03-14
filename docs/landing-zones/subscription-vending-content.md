@@ -22,7 +22,7 @@ Based on the needs of the workload, the deployment could create an empty virtual
 
 The goal of collecting data is to receive business approval and define the values of the JSON/YAML subscription parameter file. You should use a data collection tool to collect the required data when the application team submits the subscription request. The data collection tool should interface with other systems in the subscription vending workflow to initiate the platform automation.
 
-**Use a data collection tool.** You can use an IT Service Management (ITSM) tool to collect the data or build a customer portal with a low-code or no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/). The data collection tool should provide business logic approve or deny the subscription request.
+**Use a data collection tool.** You can use an IT Service Management (ITSM) tool to collect the data or build a customer portal with a low-code or no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/). The data collection tool should provide business logic to approve or deny the subscription request.
 
 **Collect the required data.** You need to collect enough data to define the values of the JSON/YAML subscription parameter so you can automate the deployment. The specific values you collect depend on your needs. You should capture the request authorizer, cost center, and networking requirements (internet connectivity needed, on-premises connectivity needed). It might be helpful to ask the application team for anticipated workload components (application platform, data requirements), data sensitivity, and number of environments (development, test, preproduction, production).
 
@@ -80,7 +80,7 @@ The *request pipeline* in the example implementation executes these steps (*see 
 
 The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see Figure 1*).
 
-**Use infrastructure as code.** Your deployments should use infrastructure as code to create the subscription. The platform team should create and maintain these templates to ensure proper governance. You should use the subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules and modify them to fit your implementation needs.
+**Use infrastructure as code.** Your deployment should use infrastructure as code to create the subscription. The platform team should create and maintain these templates to ensure proper governance. You should use the subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules and modify them to fit your implementation needs.
 
 **Use a deployment pipeline.** The deployment pipeline orchestrates the creation and configuration of the new subscription. The pipeline should execute the following tasks:
 
@@ -100,7 +100,7 @@ You need a commercial agreement to create a subscription programmatically. If yo
 
 The subscription vending automation ends with subscription creation and configuration. The platform team should hand off the new subscription to the application team after creation, and the application team should update the subscription budget, create the workload resources, and deploy the workload. The platform team controls the governance of the subscription and manages changes to subscription governance over time.
 
-**Enforce cost management.** Subscription budgets provide spend notifications that are critical to cost management. The deployment should create a preliminary subscription budget based on the subscription request data. The application team receives the subscription, they should update the budget to meet the needs of the workload. For more information, see:
+**Enforce cost management.** Subscription budgets provide notifications that are critical to cost management. The deployment should create a preliminary subscription budget based on the subscription request data. The application team receives the subscription, they should update the budget to meet the needs of the workload. For more information, see:
 
 - [Create and manage budgets](/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
 - [Manage costs with Azure Budgets](/azure/cost-management-billing/manage/cost-management-budget-scenario)
@@ -115,7 +115,7 @@ The subscription vending automation ends with subscription creation and configur
 
 ## Next steps
 
-Subscription vending simplifies and standardizes subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker. For more information, see:
+Subscription vending simplifies and standardizes the subscription creation process and places it under the governance of the organization. You should implement subscription vending automation to help your application teams access application landing zones faster and onboard workloads quicker. For more information, see:
 
 - [Bicep modules](https://aka.ms/lz-vending/bicep)
 - [Terraform modules](https://aka.ms/lz-vending/tf)
