@@ -382,12 +382,8 @@ public static class RedisCacheExtensions
 
         if (o != null)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                binaryFormatter.Serialize(memoryStream, o);
-                objectDataAsStream = memoryStream.ToArray();
-            }
+            var jsonString = JsonSerializer.Serialize(o);
+            objectDataAsStream = Encoding.ASCII.GetBytes(jsonString);
         }
 
         return objectDataAsStream;
@@ -399,11 +395,8 @@ public static class RedisCacheExtensions
 
         if (stream != null)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (MemoryStream memoryStream = new MemoryStream(stream))
-            {
-                result = (T)binaryFormatter.Deserialize(memoryStream);
-            }
+            var jsonString = Encoding.ASCII.GetString(stream);
+            result = JsonSerializer.Deserialize<T>(jsonString);
         }
 
         return result;
@@ -415,7 +408,6 @@ The following code illustrates a method named `RetrieveBlogPost` that uses these
 
 ```csharp
 // The BlogPost type
-[Serializable]
 public class BlogPost
 {
     private HashSet<string> tags;
@@ -652,7 +644,7 @@ List<string[]> tags = new List<string[]>
 };
 
 List<BlogPost> posts = new List<BlogPost>();
-int blogKey = 1;
+int blogKey = 0;
 int numberOfPosts = 20;
 Random random = new Random();
 for (int i = 0; i < numberOfPosts; i++)

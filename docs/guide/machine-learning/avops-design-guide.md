@@ -15,7 +15,7 @@ categories:
 
 # Autonomous Vehicle Operations (AVOps) design guide
 
-This article provides an overview of the stages, architecture, and challenges involved with creating a back end to enable an autonomous vehicle solution at scale. To learn more about the information here, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models, see the [automated vehicle solution idea](../../solution-ideas/articles/avops-architecture.yml).
+This article provides an overview of the stages, architecture, and challenges involved with creating a back end to enable an autonomous vehicle solution at scale. To learn more about the information here, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models, see the [Automated Vehicle Operations solution idea](../../solution-ideas/articles/avops-architecture.yml).
 
 Autonomous Vehicle Operations (AVOps) typically require a substantial amount of storage and compute to:
 - Capture and process data and scenes from test vehicles, as learning material for the perception models that vehicles need to drive autonomously. 
@@ -75,11 +75,17 @@ Other contributors:
 
 ## Next steps
 
+To learn more about the information here, technology recommendations, and partner and open-source solutions for specific areas like simulation and data models, see the solution idea:
+
+> [!div class="nextstepaction"] 
+> [Solution idea for AVOps solution](../../solution-ideas/articles/avops-architecture.yml)
+
+You might also find the following resources useful: 
+
 - [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/cse/2023/03/02/large-scale-data-operations-platform-for-autonomous-vehicles/)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
 
 ## Related resources
 
-- [Automated vehicle solution idea](../../solution-ideas/articles/avops-architecture.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml)
