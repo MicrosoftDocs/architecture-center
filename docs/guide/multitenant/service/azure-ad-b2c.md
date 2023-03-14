@@ -186,9 +186,9 @@ Remember that you need to consider these questions for every Azure AD B2C tenant
 
 ### Deployments and DevOps
 
-A well-defined DevOps process can help you minimize the amount of overhead involved in maintaining your Azure AD B2C tenants. You should implement DevOps practices early in your development process. Ideally, you should try to automate all or most of your maintenance tasks, including deploying changes to your custom policies or user flows. You should also aim to create multiple Azure AD B2C tenants to progressively test changes in lower environments before deploying them to your production tenants. Your DevOps pipelines might perform these maintenance activities. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenant(s)](/azure/active-directory-b2c/microsoft-graph-operations).
+A well-defined DevOps process can help you minimize the overhead required for maintaining your Azure AD B2C tenants. You should implement DevOps practices early in your development process. Ideally, you should try to automate all or most of your maintenance tasks, including deploying changes to your custom policies or user flows. You should also plan to create multiple Azure AD B2C tenants to progressively test changes in lower environments before you deploy them to your production tenants. Your DevOps pipelines might perform these maintenance activities. You can use the Microsoft Graph API to [programmatically manage your Azure AD B2C tenants](/azure/active-directory-b2c/microsoft-graph-operations).
 
-For more information on automated deployments and management of Azure AD B2C, see the following resources:
+For more information about automated deployments and management of Azure AD B2C, see the following resources.
 
 - [Azure AD B2C operational best practices](/azure/active-directory-b2c/best-practices#operations)
 - [Deploy custom policies with Azure Pipelines](/azure/active-directory-b2c/deploy-custom-policies-devops)
@@ -201,21 +201,21 @@ For more information on automated deployments and management of Azure AD B2C, se
   - [Policy keys reference](/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)
 
 > [!IMPORTANT]
-> Some of the endpoints used to manage Azure AD B2C programmatically are not generally available. APIs under the `/beta` version in Microsoft Graph are subject to change at any time, and are subject to prerelease terms of service.
+> Some of the endpoints that are used to manage Azure AD B2C programmatically aren't generally available. APIs in the beta version of Microsoft Graph are subject to change at any time, and are subject to prerelease terms of service.
 
-## Compare Azure AD B2B to Azure AD B2C
+## Comparing Azure AD B2B to Azure AD B2C
 
-[Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature within Azure AD External Identities that allows you to invite guest users into your *organizational* Azure AD tenant for collaboration purposes. Typically, you use B2B collaboration when you need to grant an external user, such as a vendor, access to resources within your Azure AD tenant.
+[Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature in Azure AD External Identities that you can use to invite guest users into your *organizational* Azure AD tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Azure AD tenant.
 
-Azure AD B2C is also grouped within Azure AD External Identities, but provides a different set of features. It's specifically intended for the customers of your product to use. These users are managed inside a separate Azure AD B2C tenant, which is distinct from your organizational Azure AD tenant.
+You can also use External Identities with Azure AD B2C, but External Identities provides a different set of features in that scenario. It's specifically intended for the use of the customers of your product. These users are managed inside a separate Azure AD B2C tenant, which is distinct from your organizational Azure AD tenant.
 
-Depending on your user personas and scenarios, you might need to use Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, such as staff within your organization, users that work for a vendor, and customers, all within the same app, you could use both Azure AD B2B and Azure AD B2C to achieve this requirement.
+Depending on your user personas and scenarios, you might need to use Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, like staff in your organization, users that work for a vendor, and customers, all within the same app, you can use Azure AD B2B and Azure AD B2C together to achieve this requirement.
 
-Here are some additional resources to review for more information on this subject:
+See these resources for more information:
 
-- [Use Azure AD or Azure AD B2C](../approaches/identity.md#use-azure-ad-or-azure-ad-b2c)
+- [Use Azure AD or Azure AD B2C?](../approaches/identity.md#use-azure-ad-or-azure-ad-b2c)
 - [Comparing External Identities feature sets](/azure/active-directory/external-identities/external-identities-overview#comparing-external-identities-feature-sets)
-- [Woodgrove Demo](https://aka.ms/CIAMdemo) - An example application that uses Azure AD B2B and Azure AD B2C.
+- [Woodgrove demo](https://aka.ms/CIAMdemo). An example application that uses Azure AD B2B and Azure AD B2C.
 
 ## Contributors
 
@@ -223,21 +223,30 @@ Here are some additional resources to review for more information on this subjec
 
 Principal author:
 
-- [Landon Pierce](https://www.linkedin.com/in/landon-pierce/) | Customer Engineer, FastTrack for Azure
+- [Landon Pierce](https://www.linkedin.com/in/landon-pierce) | Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
-- [Michael Bazarewsky](https://www.linkedin.com/in/mikebaz/) | Senior Customer Engineer, FastTrack for Azure
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Michael Bazarewsky](https://www.linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
 - [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
-- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823/) | Principal Customer Engineer, FastTrack for Azure
-- [Simran Jeet Kaur](https://www.linkedin.com/in/sjkaur/) | Customer Engineer, FastTrack for Azure
-- [LaBrina Loving](https://www.linkedin.com/in/chixcancode/) | Principal Customer Engineering Manager, FastTrack for Azure
-- [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv/) | Principal Customer Engineer, FastTrack for Azure
+- [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Engineer, FastTrack for Azure
+- [Simran Jeet Kaur](https://www.linkedin.com/in/sjkaur) | Customer Engineer, FastTrack for Azure
+- [LaBrina Loving](https://www.linkedin.com/in/chixcancode) | Principal Customer Engineering Manager, FastTrack for Azure
+- [Arsen Vladimirsky](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
-## Next steps and other resources
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps 
 
 - [Azure AD B2C custom policy samples](https://github.com/azure-ad-b2c/samples)
 - [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
 - [Tutorial: Create an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
-- [Azure AD B2C Authentication protocols](/azure/active-directory-b2c/protocols-overview)
+- [Azure AD B2C authentication protocols](/azure/active-directory-b2c/protocols-overview)
 - [Azure AD B2C limitations](https://github.com/AzureAD/microsoft-identity-web/wiki/b2c-limitations)
+
+## Related resources
+
+- [Service-specific guidance for a multitenant solution](overview.md)
+- [Checklist for architecting and building multitenant solutions on Azure](checklist.md)
+- [Architectural considerations for a multitenant solution](/considerations/overview.yml)
