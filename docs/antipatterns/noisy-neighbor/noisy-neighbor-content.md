@@ -1,4 +1,4 @@
-Multitenant systems share resources between tenants, which means that the activity of one tenant can have a negative impact on another tenant's use of the system.
+Multitenant systems share resources between tenants. Because tenants use the same shared resources, the activity of one tenant can have a negative impact on another tenant's use of the system.
 
 ## Problem description
 
@@ -18,7 +18,7 @@ This can happen when you have multiple tenants that all have similar usage patte
 
 ## How to fix the problem
 
-Noisy neighbor problems are an inherent risk in multitenant systems, and it's not possible to completely eliminate the possibility of being affected by a noisy neighbor. However, there are some steps that both clients and service providers can take to reduce the likelihood of noisy neighbor problems, or to mitigate their effects when they are observed.
+Noisy neighbor problems are an inherent risk in multitenant systems, and it's not possible to completely eliminate the possibility of being affected by a noisy neighbor. However, there are some steps that both clients and service providers can take to reduce the likelihood of noisy neighbor problems, or to mitigate their effects when they're observed.
 
 ### Actions that clients can take
 
