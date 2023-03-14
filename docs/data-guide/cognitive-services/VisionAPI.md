@@ -15,6 +15,8 @@ ms.custom:
   - analytics
   - guide
 ---
+# Different Types of Vision API Services
+
 Vision API is one of the broadest categories under Cognitive Services. At a high Level Vision API's are categorized as follows
 
 1. **Computer Vision** -With this API you can access advanced algorithms that process images and return information based on the visual features you're interested in. It provides 4 major services namely Optical Character Recognition(OCR), Face, Image Analysis and Spatial Analysis. Form recognizer is an advanced version of OCR.

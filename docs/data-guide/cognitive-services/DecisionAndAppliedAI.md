@@ -17,9 +17,24 @@ ms.custom:
   - guide
 ---
 
+# Different Types of Decision API & Applied AI Services
+
 Azure Cognitive Service for Decision is a cloud-based service that provides Natural Language Processing (NLP) features to provide recommendations for informed and efficient decision-making. They help with making smart decisions faster.
 
 Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio
+
+## Resource Categories
+
+There are several resource categories for these API services. A few of them are as follows:
+
+1. Azure Bot Service
+2. Anomaly Detector
+3. Personalizer
+4. Content Moderator
+5. Cognitive Search
+
+> [!NOTE]
+> Resource categories under these API services are ever evolving rapidly. Please make sure you check the latest documents for additional categories
 
 ## Key considerations
 
