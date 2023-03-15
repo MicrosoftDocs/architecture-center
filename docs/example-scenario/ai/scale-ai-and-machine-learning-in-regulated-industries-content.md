@@ -27,9 +27,9 @@ The architecture consists of the workflow described in the following sections. E
 1. **Data visualization resource group** – This resource group hosts data visualization solutions shared across data landing zones. Solutions can be Power BI, Tableau, or any other visualization solution.
 1. **Additional infrastructure controls and governance** – Microsoft Defender for Cloud and Azure Monitor are used as baseline security and monitoring solutions.
 
-#### Data landing zone
+#### Data landing zones
 
-10. **Data landing zone** – A data landing zone is a subscription that represents a unit of scale within the data platform. Data landing zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics and AI platform. There can be one or many data landing zones within the environment. Azure Policy is applied to keep access and configurations of various Azure services secure. The data landing zone is peered (through VNET peering) with all other data landing zones and the data management zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
+10. **Data landing zone 001** – A data landing zone is a subscription that represents a unit of scale within the data platform. Data landing zones are deployed based on the core data landing zone architecture (blueprint), including all key capabilities to host an analytics and AI platform. There can be one or many data landing zones within the environment. Azure Policy is applied to keep access and configurations of various Azure services secure. The data landing zone is peered (through VNET peering) with all other data landing zones and the data management zone. Private endpoints are used whenever possible to ensure that the deployed services aren't accessible via public internet.
 1. **Networking resource group** – Azure Virtual Networks, network security groups, and all other networking-related resources needed for the data landing zone are provisioned within this resource group.
 1. **Deployment resource group** – A deployment resource group hosts private Azure DevOps CI/CD agents (virtual machines) needed for the data landing zone and a Key Vault for storing any deployment-related secrets.
 1. **Data storage resource group** – A data storage resource group contains the main data storage accounts for this data landing zone, deployed as Azure Data Lake Storage Gen2, with hierarchical namespace. They're spread across three main areas:
@@ -54,7 +54,7 @@ The architecture consists of the workflow described in the following sections. E
 1. **Additional data products** – These resource groups host other data products, since one data landing zone can host one or many data products.
 1. **Shared compute resource group** – Any shared compute that is needed for hosting and deploying data products is provisioned within this resource group. An Azure Kubernetes Service cluster is an example.
 1. **Additional infrastructure controls and governance** – Microsoft Defender for Cloud, and Azure Monitor are used as baseline security and monitoring solutions.
-1. **Additional data landing zones** – These landing zones are a placeholder for extra Azure subscriptions that would be used for hosting new data landing zones. They're based on criteria mentioned before, such as data residency requirements, or a different business unit that has its own cross-functional team and a set of use cases to be delivered.
+1. **Data landing zone 002** – This landing zone is a placeholder for extra Azure subscriptions that would be used for hosting new data landing zones. They're based on criteria mentioned before, such as data residency requirements, or a different business unit that has its own cross-functional team and a set of use cases to be delivered.
 
 ### Components
 
@@ -88,16 +88,6 @@ If you set up data science projects and develop machine learning models in life 
 
 In regulated industries, IT systems are classified based on the classification of the data sources those systems access. AI and machine learning environments running on Azure are classified as HBI, and are required to comply with an extensive set of ISRM policies and controls.
 
-### Potential use cases
-
-The architectural considerations discussed in this article have their source in the life sciences and healthcare industries. However, they're also relevant for organizations in other regulated industries, including these industries:
-
-- Financial services
-- Healthcare providers
-- Oil and gas
-
-Implementation of enterprise-scale analytics and AI reference architecture in regulated environments follows similar design patterns.
-
 ### Design principles
 
 This architecture is based on the following principles:
@@ -109,6 +99,16 @@ This architecture is based on the following principles:
 - Single control and management plane (through the Azure portal) provides a consistent experience across all Azure resources and provisioning channels subject to role-based access and policy-driven controls. Azure-native platform services and capabilities are used whenever possible.
 - Cross-functional teams take ownership of the design, development, and operations to shorten the time to market and the agility within the platform. Core principles like DevOps, Infrastructure as Code (IaC), and resilient designs are used to avoid human error and single points of failure.
 - Domain and data source subject matter experts can use data domains to pull in data assets from Azure, third-party, or on-premises environments. A data domain is a resource group within a data landing zone that cross-functional teams can use for custom data ingestion. There can be one or many data domains within a data landing zone. Data domains can be viewed similarly to domains in Domain-Driven Design where they provide a context boundary and are self-sufficient and isolated. An example of a data domain would be clinical trial data or supply chain data.
+
+### Potential use cases
+
+The architectural considerations discussed in this article have their source in the life sciences and healthcare industries. However, they're also relevant for organizations in other regulated industries, including these industries:
+
+- Financial services
+- Healthcare providers
+- Oil and gas
+
+Implementation of enterprise-scale analytics and AI reference architecture in regulated environments follows similar design patterns.
 
 ## Considerations
 
