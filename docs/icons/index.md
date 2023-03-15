@@ -41,8 +41,7 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 |Month|Change description|
 |--------------|--------------|
-|March 2023|Added 6 icons for various services and components.|
-|March 2023|Added 7 icons for various services and components.|
+|March 2023|Added 13 icons for various services and components.|
 |January 2023|Added ~106 icons for various services and components.|
 |November 2022|Updated icon names from Azure Security Center to Microsoft Defender for Cloud.|
 |January 2021|There are ~26 icons that have been added to the existing set.|
