@@ -207,7 +207,7 @@ For more information about automated deployments and management of Azure AD B2C,
 
 [Azure AD B2B collaboration](/azure/active-directory/external-identities/what-is-b2b) is a feature of Azure AD External Identities that you can use to invite guest users into your *organizational* Azure AD tenant so that you can collaborate with them. Typically, you use B2B collaboration when you need to grant an external user, like a vendor, access to resources in your Azure AD tenant.
 
-You can also use External Identities with Azure AD B2C, but External Identities provides a different set of features in that scenario. It's intended for the use of the customers of your product. These users are managed inside a separate Azure AD B2C tenant, which is distinct from your organizational Azure AD tenant.
+[Azure AD External Identities](/azure/active-directory/external-identities/external-identities-overview) is the set of approaches that you can use to interact with users outside of your organization. Azure AD B2C is one of the Azure AD External Identities capabilities, but it provides a different set of features than other external identities approaches. Azure AD B2C is intended to be used by the customers of your product. Your Azure AD B2C tenant is distinct from your organizational Azure AD tenant.
 
 Depending on your user personas and scenarios, you might need to use Azure AD B2B, Azure AD B2C, or even both at the same time. For example, if your application needs to authenticate multiple types of users, like staff in your organization, users that work for a vendor, and customers, all within the same app, you can use Azure AD B2B and Azure AD B2C together to meet this requirement.
 
