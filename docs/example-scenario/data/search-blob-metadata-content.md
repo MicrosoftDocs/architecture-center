@@ -1,46 +1,44 @@
-This article demonstrates how you can allow users to search for documents based on their file contents, as well as any additional metadata associated with each file.
+This article demonstrates how to create a search experience that enables users to search for documents based on document content in addition to any metadata that's associated with the files.
 
-You can achieve this by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure Cognitive Search](/azure/search/search-what-is-azure-search). In this example workload we create a single [search index](/azure/search/search-what-is-an-index) from files in [Blob storage](/azure/storage/blobs/storage-blobs-overview), with their metadata stored in [Table storage](/azure/storage/tables/table-storage-overview).
+You can achieve this by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure Cognitive Search](/azure/search/search-what-is-azure-search). This example workload shows how to create a single [search index](/azure/search/search-what-is-an-index) that's based on files in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
 
 ## Architecture
 
-![Diagram of the "Index file contents and metadata in Azure Cognitive Search" architecture.](./media/architecture-search-blob-metadata.png)
+![Diagram that shows an architecture that enables search based on file content and metadata.](./media/search-blob-metadata.png)
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/search-blob-metadata.pptx) of this architecture.*
 
 ### Dataflow
 
-The following dataflow corresponds to the above diagram:
-
-1. Files are stored in Blob storage, optionally along with a limited amount of metadata (for example, the document's author).
-2. Additional metadata is stored in Table storage, which allows significantly more information to be stored for each document.
-3. An indexer reads the contents of each file along with any blob metadata and stores it in the search index.
+1. Files are stored in Blob Storage, possibly together with a limited amount of metadata (for example, the document's author).
+2. Additional metadata is stored in Table Storage, which allows the storage of significantly more information for each document.
+3. An indexer reads the contents of each file, together with any blob metadata, and stores the data in the search index.
 4. Another indexer reads the additional metadata from the table and stores it in the same search index.
-5. A search query is sent to the search service and returns matching documents based on their content as well as their metadata.
+5. A search query is sent to the search service. The query returns matching documents, based on both document content and document metadata.
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) provides very cost-effective cloud storage for file data (such as PDF, HTML, CSV, Microsoft Office files, ...).
-- [Azure Table storage](https://azure.microsoft.com/products/storage/tables/) allows you to store non-relational structured data; in this scenario it's used to store the metadata for each document.
-- [Azure Cognitive Search](https://azure.microsoft.com/products/search/) is a fully managed search service that gives developers infrastructure, APIs, and tools for building a rich search experience.
+- [Blob Storage](https://azure.microsoft.com/products/storage/blobs/) provides cost-effective cloud storage for file data, including data in formats like PDF, HTML, and CSV, and Microsoft Office files.
+- [Table Storage](https://azure.microsoft.com/products/storage/tables/) provides storage for non-relational structured data. In this scenario, it's used to store the metadata for each document.
+- [Azure Cognitive Search](https://azure.microsoft.com/products/search/) is a fully managed search service that provides infrastructure, APIs, and tools for building a rich search experience.
 
 ### Alternatives
 
-This scenario uses [indexers in Azure Cognitive Search](/azure/search/search-indexer-overview) to automatically discover new content in supported data sources (such as Blob and Table storage) and add it to the search index. Alternatively, you can also use the APIs provided by Azure Cognitive Search to [push data into the search index](/azure/search/search-what-is-data-import#pushing-data-to-an-index). In that case, however, you have to write code not only to push the data into the search index, but also to parse and extract text from the binary documents you want to search through. The [Blob storage indexer supports a large number of document formats](/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats), which significantly simplifies the text extraction and indexing process.
+This scenario uses [indexers in Azure Cognitive Search](/azure/search/search-indexer-overview) to automatically discover new content in supported data sources (like blob and table storage) and add it to the search index. Alternatively, you can use the APIs provided by Azure Cognitive Search to [push data to the search index](/azure/search/search-what-is-data-import#pushing-data-to-an-index). If you do, however, you need to write code to push the data into the search index and also to parse and extract text from the binary documents that you want to search through. The [Blob Storage indexer supports many document formats](/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats), which significantly simplifies the text extraction and indexing process.
 
-Furthermore, by using indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can inject cognitive services to perform [Optical Character Recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images found in the documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, [translate](/azure/search/cognitive-search-skill-text-translation) them, or define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in any way that is relevant to your business scenario.
+Also, if you use indexers, you can optionally [enrich the data as part of an indexing pipeline](/azure/search/cognitive-search-concept-intro). For example, you can inject cognitive services to perform [optical character recognition (OCR)](/azure/search/cognitive-search-skill-ocr) or [visual analysis](/azure/search/cognitive-search-skill-image-analysis) of the images in documents, [detect the language](/azure/search/cognitive-search-skill-language-detection) of documents, [translate](/azure/search/cognitive-search-skill-text-translation) them, or define your own [custom skills](/azure/search/cognitive-search-create-custom-skill-example) to enrich the data in any way that's relevant to your business scenario.
 
-In this architecture, we've chosen to use Blob and Table storage as they are very cost-effective and efficient. This also allows us to keep the documents and metadata together in a single Storage account. Alternative supported data sources for the documents themselves could be [Azure Data Lake Storage Gen2](/azure/search/search-howto-index-azure-data-lake-storage) or [Azure Files](/azure/search/search-file-storage-integration); their metadata could be stored in any other supported data source which holds structured data, such as [Azure SQL Database](/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers) or [Azure Cosmos DB](/azure/search/search-howto-index-cosmosdb).
+This architecture uses blob and table storage because they're cost-effective and efficient. This design also enables combined storage of the documents and metadata in a single storage account. Alternative supported data sources for the documents themselves include [Azure Data Lake Storage](/azure/search/search-howto-index-azure-data-lake-storage) and [Azure Files](/azure/search/search-file-storage-integration). Document metadata can be stored in any other supported data source that holds structured data, like [Azure SQL Database](/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers) and [Azure Cosmos DB](/azure/search/search-howto-index-cosmosdb).
 
 ## Scenario details
 
-### Searching file contents
+### Searching file content
 
-In this example workload, we allow users to search for documents based on their file contents, as well as additional metadata that we store separately for each document. In addition to the actual text contents of a document, a user might want to search for the document's *author*, the *document type* (such as a paper or a report), and its *business impact* (such as *high*, *medium* or *low* impact).
+This solution enables users to search for documents based on both file content and additional metadata that's stored separately for each document. In addition to searching the text content of a document, a user might want to search for the document's author, the document type (like *paper* or *report*), or its business impact (like *high*, *medium*, or *low*).
 
-[Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a fully managed search service which can create [search indexes](/azure/search/search-what-is-an-index) containing the information we want to allow users to search for.
+[Azure Cognitive Search](/azure/search/search-what-is-azure-search) is a fully managed search service that can create [search indexes](/azure/search/search-what-is-an-index) that contain the information that you want to allow users to search for.
 
-Because the files we want to search are binary documents, we can easily store them in [Azure Blob storage](/azure/storage/blobs/storage-blobs-overview). This has the additional advantage that Azure Cognitive Search can use its built-in [Blob storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) to automatically extract text from them and add their contents to the search index.
+Because the files being searched in this scenario are binary documents, you can store them in [Blob Storage](/azure/storage/blobs/storage-blobs-overview). If you do, Azure Cognitive Search can use its built-in [Blob Storage indexer](/azure/search/search-howto-indexing-azure-blob-storage) to automatically extract text from them and add their content to the search index.
 
 ### Searching file metadata
 
