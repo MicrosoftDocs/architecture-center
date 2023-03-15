@@ -14,7 +14,7 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 1. DASDs are mounted on the mainframe.
 
-1. A tape is a type of SASD that's attached to the Mainframe as external storage.
+1. A tape is a type of SASD that's attached to the mainframe as external storage.
 
 1. The MDI platform is used to send information that can be stored on files to Azure. Examples include System Management Facilities (SMF) data, virtual storage access method (VSAM) files, sequential files, and generation data groups (GDGs).
 
@@ -26,8 +26,8 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 1. MDI zKonnect and other services stream the file data for big data analysis on Azure. For instance, system data like mainframe logs and SMF data is streamed to Azure Event Hubs. Azure services ingest the data and then process, transform, and project it.
 
-1. MDI uses Luminex CGX devices to transfer file data to Azure:
-   - The transfer process can use job control language (JCL) statements that Luminex provides. These statements specify information about input files, the Azure destination, keys and security information, data transformation, and cloud file formats. Organizations that use the Luminex procedure for data transfer can use their own JCL statements.
+1. MDI uses Luminex CGX devices to process, transfer, and cache file data:
+   - The transfer process to Azure can use job control language (JCL) statements that Luminex provides. These statements specify information about input files, the Azure destination, keys and security information, data transformation, and cloud file formats. Organizations that use the Luminex procedure for data transfer can use their own JCL statements.
    - Alternatively, the process can be monitored from the MDI UI. The operations team can also use a combination of the scheduler, the mainframe and the MDI UI for monitoring and troubleshooting. The MDI UI provides information like the job name, the job ID, the user or group, the start time, and the elapsed time.
    - MDI retry mechanisms engage when the file transfer doesn't initially succeed.
    - If requested, the files are cached in local storage before the transfer. After the transfer finishes, the local storage is removed.
@@ -42,7 +42,7 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction). Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. This solution uses Luminex MDI and MVT to transfer mainframe files to Azure Files.
 
-- [Blob Storage](https://azure.microsoft.com/products/storage/blobs) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this solution, Blob Storage provides a solution for the hot and cold archival of the mainframe data.
+- [Blob Storage](https://azure.microsoft.com/products/storage/blobs) is a service that's part of Storage. Blob Storage provides optimized cloud object storage for massive amounts of unstructured data. In this solution, Blob Storage provides a way to archive hot and cold mainstream data.
 
 - In this solution, Luminex products can transfer mainframe data to several Azure databases:
 
@@ -51,15 +51,15 @@ This article presents a solution for using Luminex products to transfer mainfram
   - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql) is a fully managed relational database service that's based on the community edition of the open-source PostgreSQL database engine.
   - [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a fully managed relational database service that's based on the community edition of the open-source MySQL database engine.
 
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform. In this solution, Luminex zKonnect streams mainframe data to Event Hubs in near real time. Event Hubs provides an endpoint that's compatible with Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications use these APIs as an alternative to running their own Apache Kafka clusters.
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs) is a fully managed big data streaming platform. In this solution, [Luminex zKonnect](https://luminexmdi.com/solutions/luminex-mdi-zkonnect/) streams mainframe data to Event Hubs in near real time. Event Hubs provides an endpoint that's compatible with Apache Kafka producer and consumer APIs. Most existing Apache Kafka client applications use these APIs as an alternative to running their own Apache Kafka clusters.
 
 - [Power BI](https://powerbi.microsoft.com/) is a collection of software services and apps that display analytics information. This solution takes mainframe data that comes from various sources and has varying structures. It then uses Power BI to turn the data into coherent, visually immersive, and interactive insights.
 
-- [Azure Data Lake Storage](https://azure.microsoft.com/en-us/products/storage/data-lake-storage/) provides a way to perform big data analytics with low-cost, tiered storage and high throughput.
+- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) provides a way to perform big data analytics with low-cost, tiered storage and high throughput.
 
 ### Alternatives
 
-- Instead of using third-party solutions for data transfer, you can use you can use a Microsoft solution. For information about transferring data from mainframe and midrange systems to Azure, see [Move archive data from mainframe systems to Azure](./move-archive-data-mainframes.yml). For information about specific Microsoft solutions, see the following resources:
+- Instead of using third-party solutions for data transfer, you can use a Microsoft solution. For information about transferring data from mainframe and midrange systems to Azure, see [Move archive data from mainframe systems to Azure](./move-archive-data-mainframes.yml). For information about specific Microsoft solutions, see the following resources:
   - [Copy files from Mainframe to Azure Data Platform using ADF FTP Connector](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/copy-files-from-mainframe-to-azure-data-platform-using-adf-ftp/ba-p/3042555)
   - [Mainframe files transfer to Azure Data Platform using SFTP](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/mainframe-files-transfer-to-azure-data-platform-using-sftp/ba-p/3302194)
   - [Mainframe Dataset (Files) Transfer to Azure Storage (Blob) using Mainframe JCL](https://techcommunity.microsoft.com/t5/modernization-best-practices-and/mainframe-dataset-files-transfer-to-azure-storage-blob-using/ba-p/3597823)
@@ -68,39 +68,40 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 - You can also use MVT and CGX devices for z/VM and z/VSE mainframes.
 
-- When you transfer tapes to Azure, you can compress and encrypt them to help provide safe data transmission at all stages. You can easily configure this functionality.
+- When you transfer tapes to Azure, you can compress and encrypt them to help transmit data safely at all stages. You can easily configure this functionality.
 
 - You can also use this solution for bidirectional data interchange. In particular, you can recall the tape data to the mainframe and transform it into its original form.
   - With MDI, the process is similar to the transfer to Azure. You submit JCL statements that provide the specifics of the reverse transfer. The data can be transferred as tapes or as sequential files. The JCL configuration specifies the format.
   - With MVT CloudTAPE, the data is automatically recalled if you request it from the mainframe.
 
-- Luminex CGX devices also support Enterprise Systems Connection (ESCON) channel connectivity. The existing mainframe backup software sees the channel gateway as a recognized mainframe tape device. As a result, no software change is needed.
+- Luminex CGX devices also support [Enterprise Systems Connection (ESCON)](https://wikipedia.org/wiki/ESCON) channel connectivity. The existing mainframe backup software sees the channel gateway as a recognized mainframe tape device. As a result, no software change is needed.
 
 - When you transfer data from the datacenter to Azure, we recommend that you use Azure ExpressRoute, but you can also use the internet.
 
 ## Scenario details
 
-Mainframe physical storage can be located on the mainframe processor or external to the mainframe. Processor storage, which is like memory for the mainframe, is located on the processor. Disk drives and tape drives are examples of external storage. 
+Mainframe physical storage can be located on the mainframe processor or external to the mainframe. Processor storage, which is like memory for the mainframe, is located on the processor. Disk drives and tape drives are examples of external storage. Datasets in storage are organized into various logical record and block structures. These structures are defined by parameters like the dataset organization (DSORG) and record format (RECFM). Records in the dataset can be fixed or variable in length and stored in binary or text.
 
-Secondary storage devices like DASDs and SASDs store data that's frequently and infrequently accessed. On DASDs and SASDs, datasets are organized into various logical record and block structures. These structures are defined by parameters like the dataset organization (DSORG) and record format (RECFM). Records in the dataset can be fixed or variable in length and stored in binary or text.
+Secondary storage devices like [DASDs](https://wikipedia.org/wiki/Direct-access_storage_device) and [SASDs](https://wikipedia.org/wiki/Sequential_access) store data that's frequently and infrequently accessed. DASDs and SASDs differ in the way they provide access to data:
 
-DASDs and SASDs differ in the way they provide access to data. DASDs are used for immediate data location and retrieval. With direct access, you can read or write data by going directly to a specific physical location on the device. As a result, DASDs are fast and efficient. SASDs, such as tapes, are inherently slower than DASDs. To access tape data, you start at one location and then go through successive locations until you find the data that you need. Mainframes use virtual tapes (VTL) and physical tapes. Currently, virtual tapes are preferred over physical tapes.
+- DASDs are used for immediate data location and retrieval. With direct access, you can read or write data by going directly to a specific physical location on the device. As a result, DASDs are fast and efficient.
+- SASDs, such as tapes, are inherently slower than DASDs. To access tape data, you start at one location and then go through successive locations until you find the data that you need. Mainframes use physical tapes and [virtual tape libraries (VTLs)](https://eikipedia.org/wiki/Virtual_tape_library), which are also called virtual tapes. Currently, virtual tapes are preferred over physical tapes.
 
 The type of storage that you use depends on your needs. Many organizations need cold storage for compliance, regulatory, reporting, audit, and other purposes. Some organizations have data retention policies that require you to store data for nearly 100 years. Examples of this type of data include copies of prescriptions, patient records, customer reward history, and other information. Data that you store for the long term is mostly high in volume and accessed infrequently. Long-term storage generally costs less than active storage, which you typically access multiple times a day and which is frequently updated. Security considerations also affect your choice of storage, because cyberthreats are a constant presence.
 
 Azure offers various storage solutions. You can use cold storage for infrequently accessed data and hot storage for frequently accessed data. The solution in this article uses the [Luminex](https://luminex.com) products MDI and MVT to transfer mainframe data to and from Azure to meet backup, archival, and other business needs.  
 
-- [MDI](https://luminexmdi.com/) is a data transfer and co-processing platform. MDI uses Luminex Channel Gateway X (CGX) devices to process, transfer, and cache mainframe files. MDI provides secure and efficient exchange of data and workload sharing between z/OS mainframes and distributed systems. By using MDI products like Cloud Data Sharing, Big Data Transfer, and zKonnect, you can move files to Azure for backup, archival, data normalization, merging, and analysis. You can configure the transferred data to arrive in ASCII or EBCDIC format in Azure. [MDI Cloud Data Sharing](https://luminexmdi.com/solutions/luminex-mdi-cloud-data-sharing/) provides a way to migrate mainframe files like VSAM files, sequential files, and GDGs to Azure. MDI also supports integration with Azure messaging services. Applications that are hosted on Azure can use the mainframe files that are stored on Azure for modernization, reduced latency, and improved performance.
+- [MDI](https://luminexmdi.com/) is a data transfer and co-processing platform. MDI uses Luminex [Channel Gateway X (CGX)](https://luminex.com/wp-content/uploads/2021/09/Luminex_CGX_Specifications.pdf) devices to process, transfer, and cache mainframe files. MDI provides secure and efficient exchange of data and workload sharing between z/OS mainframes and distributed systems. By using MDI products like Cloud Data Sharing, Big Data Transfer, and zKonnect, you can move files to Azure for backup, archival, data normalization, merging, and analysis. You can configure the transferred data to arrive in ASCII or EBCDIC format in Azure. [MDI Cloud Data Sharing](https://luminexmdi.com/solutions/luminex-mdi-cloud-data-sharing/) provides a way to migrate mainframe files like VSAM files, sequential files, and GDGs to Azure. MDI also supports integration with Azure messaging services. Applications that are hosted on Azure can use the mainframe files that are stored on Azure for modernization, reduced latency, and improved performance.
 
 - [MVT](https://luminex.com/solutions/virtual-tape/) is a tape archival and backup platform. MVT uses Luminex CGX control unit software that emulates mainframe 3490 and 3590 tape drives, so you can use existing tape applications without change. The CGX environment provides a suite of products for tape encryption, vaulting, migration, replication, retrieval, disaster recovery, and high availability. Specifically, the [CloudTAPE](https://luminex.com/solutions/virtual-tape/cloudtape) product provides a way to migrate tape data to Azure.
 
-MDI and MVT both use high-speed Channel Gateway X (CGX) controller devices to connect directly to the mainframe. These controllers are based on [Fiber Connection (FICON)](https://wikipedia.org/wiki/FICON), a transport protocol that mainframe servers and attached enterprise-class storage controllers support. FICON uses Fiber Channel as the underlying transport protocol. The CGX controllers also take advantage of network attached storage (NAS) and internal storage systems to supply the high levels of performance, scalability, reliability, security, and availability that enterprises demand. With FICON transport, I/O can be shared across multiple systems. This approach delivers optimal protocol efficiency. It also helps provide data integrity and security even with increased distances between server and storage devices.
+MDI and MVT both use high-speed Channel Gateway X (CGX) controller devices to connect directly to the mainframe. These controllers are based on [Fiber Connection (FICON)](https://wikipedia.org/wiki/FICON), a transport protocol that mainframe servers and attached enterprise-class storage controllers support. FICON uses Fiber Channel as the underlying transport protocol. The CGX controllers also take advantage of network attached storage (NAS) and internal storage systems to supply the high levels of performance, scalability, reliability, security, and availability that enterprises demand. With FICON transport, I/O can be shared across multiple systems. FICON delivers optimal protocol efficiency. It also helps provide data integrity and security, even with increased distances between server and storage devices.
 
 If you have high-data volumes, you can cluster CGX controllers. Typically, one CGX device offers a data-transfer speed of up to 800 MB/s. CGX controllers are available with up to four fiber channel ports or 1, 10, or 25 GbE. These controllers also offer up to four ports for connectivity to attached storage systems.
 
 With MDI and MVT, no zIIP specialty engines are needed for data transfer, and no TCP/IP ports need to be opened to enable communication between the mainframe and Luminex devices. You plug the Luminex CGX devices directly into the mainframe just like any other mainframe storage device. If necessary, your existing legacy backup and tape management software can run in parallel. For MVT CloudTAPE and MDI Cloud Data Sharing, the millions of instructions per second (MIPS) consumption is minimal, because the transfer uses light-weight processes.
 
-Azure is a proven landing place for your storage, backup, and long-term archival needs. File structures, such as VSAM datasets, flat files, and tape data, map to Azure data constructs within databases, structured files, and blob storage. Using Azure and Luminex for backup and recovery helps eliminate the cost associated with physical tape infrastructure, media, shipping, and off-site storage for vaulting. Features like redundant geographic replication and Azure auto-failover groups help provide data protection. Azure storage can store volume-intense data with cost efficiency, scalability, replication, and self-sustainability. Other functionality is also available for retrieving data, gaining insights from data, and visualizing data.
+Azure is a proven landing place for your storage, backup, and long-term archival needs. File structures, such as VSAM datasets, flat files, and tape data, map to Azure data constructs within databases, structured files, and blob storage. Using Azure and Luminex for backup and recovery helps eliminate the cost associated with physical tape infrastructure, media, shipping, and off-site storage for vaulting. Features like redundant geographic replication and Azure auto-failover groups help provide data protection. Azure storage can store volume-intense data with cost efficiency, scalability, replication, and self-sustainability. Functionality is also available in Azure for retrieving data, gaining insights from data, and visualizing data.
 
 ### Potential use cases
 
@@ -112,7 +113,7 @@ Many scenarios can benefit from this solution. Possibilities include organizatio
 - Extending their mainframe modernization by moving mainframe tapes to the cloud. Organizations that want to downsize their datacenter, not abandon it, might have this goal. If an organization doesn't use mainframe tapes heavily, the tapes might be a suitable candidate for migration.
 - Transforming migrated data into a different format for cloud storage, such as converting EBCDIC data to ASCII, VSAM files to JSON, and sequential data to CSV format.
 - Transferring tape metadata to Azure storage metadata.
-- Providinge new and refactored applications that are hosted on Azure with easy access to data.
+- Providing new and refactored applications that are hosted on Azure with easy access to data.
 - Expanding their cloud footprint.
 - Easily monitoring, displaying, and reporting on mainframe files and tape data, and integrating this data with Azure services.
 - Monetizing current and historical unlocked mainframe data and using it in cloud business intelligence and analytics tools.
@@ -143,7 +144,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Pay-as-you-go pricing and muti-tiered models in Azure provide options to suit various cost and performance needs. For instance, if you access data infrequently, the Azure cool access tier is a good option for low-cost storage.
-- The pricing of this solution depends on your volumne of tape data, your datacenter location, and your bandwidth. The cost also depends on which Azure services you use. These factors determine the hardware that use use, such as the number of Luminex CGX controllers. The factors also affect your software, service, licensing, and support costs.
+- The pricing of this solution depends on your volumne of tape data, your datacenter location, and your bandwidth. The cost also depends on which Azure services you use. These factors determine the hardware that you use, such as the number of Luminex CGX controllers. The factors also affect your software, service, licensing, and support costs.
 - The data interchange doesn't require additional zIIP processors. As a result, you save on costs when you run the software.
 - After the Luminex infrastructure is in place, you can use the Luminex hardware for other uses. For instance, you might already use MDI Cloud Data Sharing for file transfer. If you augment your environment with MDI zKonnect for streaming, you can save on costs, because you can purchase additional Luminex software and infrastructure at a significantly reduced price.
 - If you already have Azure ExpressRoute infrastructure in place, you can use it for this solution.
