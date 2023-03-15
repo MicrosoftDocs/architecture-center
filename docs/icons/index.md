@@ -5,7 +5,7 @@ description: Icons for use in building architecture diagrams for Azure
 author: Zimmergren
 ms.author: tozimmergren
 ms.reviewer: tozimmergren
-ms.date: 03/07/2023
+ms.date: 03/15/2023
 ms.service: architecture-center
 azureCategories: developer-tools
 categories: developer-tools
@@ -41,6 +41,7 @@ Helping our customers design and architect new solutions is core to the Azure Ar
 
 |Month|Change description|
 |--------------|--------------|
+|March 2023|Added 6 icons for various services and components.|
 |March 2023|Added 7 icons for various services and components.|
 |January 2023|Added ~106 icons for various services and components.|
 |November 2022|Updated icon names from Azure Security Center to Microsoft Defender for Cloud.|
@@ -56,7 +57,7 @@ I agree to the above terms.
 </div>
 
  > [!div class="button"]
- > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V12.zip)
+ > [Download SVG icons](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V13.zip)
 
 ## More icon sets from Microsoft
 
