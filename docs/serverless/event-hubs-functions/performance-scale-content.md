@@ -38,16 +38,15 @@ An Event Hubs namespace corresponds to a Kafka cluster. For information about ho
 
 ### Understanding throughput units (TUs)
 
-In the Event Hubs Standard tier, throughput is classified as the amount of data that enters and is read from the namespace per unit of time. TUs are pre-purchased units of throughput capacity. A single TU provides:
-
-- For ingress, up to 1 MB per second and 1000 events per second. Neither limit can be exceeded.
-- For egress, up to 2 MB per second or 4096 events per second. Neither limit can be exceeded.
+In the Event Hubs Standard tier, throughput is classified as the amount of data that enters and is read from the namespace per unit of time. TUs are pre-purchased units of throughput capacity.
 
 TUs are billed on an hourly basis.
 
 All the event hubs in a namespace share the TUs. To properly calculate capacity needs, you must consider all the applications and services, both publishers and consumers. Functions affect the number of bytes and events that are published to and read from an event hub.
 
 The emphasis for determining the number of TUs is on the point of ingress. However, the aggregate for the consumer applications, including the rate at which those events are processed, must also be included in the calculation.
+
+For more information Event Hubs throughput units, see [Throughput units](/azure/event-hubs/event-hubs-faq#throughput-units).
 
 ### Scale up with Auto-inflate
 
