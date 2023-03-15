@@ -5,7 +5,7 @@ metadata:
   description: Build an Azure Cognitive Search index using file contents from Azure Blob Storage and metadata from Azure Table storage.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 01/27/2023
+  ms.date: 03/20/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
