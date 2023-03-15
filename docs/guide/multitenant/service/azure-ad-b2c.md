@@ -21,7 +21,14 @@ ms.custom:
 
 Azure Active Directory B2C (Azure AD B2C) provides business-to-consumer identity as a service. User identity is typically one of the main considerations when you design a multitenant application. Your identity solution serves as the gatekeeper to your application, ensuring that your tenants stay within the boundaries that you define for them. This article describes considerations and approaches for using Azure AD B2C in a multitenant solution.
 
-One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for an application. Identity federation is the process of establishing trust between two identity providers so that your users can sign in with a pre-existing account. If you use Azure AD B2C, you can implement identity federation to enable your users to sign in by using their social or enterprise accounts. If you use federation, your users don't need to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) that's specific  to your application.
+One of the most common reasons for using Azure AD B2C is to enable [identity federation](/azure/active-directory-b2c/add-identity-provider) for an application. Identity federation is the process of establishing trust between two identity providers so that your users can sign in with a pre-existing account. If you use Azure AD B2C, you can implement identity federation to enable your users to sign in by using their social or enterprise accounts. If you use federation, your users don't need to create a separate [local account](/azure/active-directory-b2c/identity-provider-local) that's specific to your application.
+
+If you're new to this topic, we recommend that you review the following resources:
+
+- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
+- [Multitenant identity considerations](../considerations/identity.md)
+- [Multitenant identity approaches](../approaches/identity.md)
+- [Tenancy models](../considerations/tenancy-models.yml)
 
 > [!NOTE]
 > In this article, two similarly named concepts are discussed: application tenants and Azure AD B2C tenants.
@@ -50,7 +57,7 @@ The following diagram illustrates this example:
 
 ## Isolation models
 
-When you use Azure AD B2C, you need to decide how to isolate your user accounts among different application tenants.
+When you use Azure AD B2C, you need to decide how to isolate your user accounts between different application tenants.
 
 You need to consider questions like:
 
@@ -58,7 +65,7 @@ You need to consider questions like:
 - Do you or your tenants have data residency requirements?
 - Does the user need to access more than one application tenant?
 - Do you need complex permissions and/or role-based access control (RBAC)?
-- Who signs in to your application? Your groupings of users are often called your *user personas*.
+- Who signs in to your application? Your categories of users are often called your *user personas*.
 
 The following table summarizes the differences among the main tenancy models for Azure AD B2C:
 
@@ -73,7 +80,7 @@ The following table summarizes the differences among the main tenancy models for
 
 ### Shared Azure AD B2C tenant
 
-The use of a single shared Azure AD B2C tenant is generally the easiest isolation model to manage. We recommend that you use it if your requirements allow for it. You need to maintain only one tenant long term, and this option creates the lowest overhead.
+It's generally easiest to manage a single shared Azure AD B2C tenant if your requirements allow for it. You need to maintain only one tenant long term, and this option creates the lowest overhead.
 
 >[!NOTE]
 > We recommend the use of a shared Azure AD B2C tenant for most scenarios.
@@ -99,7 +106,7 @@ The deployment and maintenance requirements for this tenancy model are higher th
 Vertical partitioning is similar to the [Data Sharding pattern](../../../patterns/sharding.yml). To vertically partition your Azure AD B2C tenants, you need to organize your application tenants into logical groups. This categorization of tenants is often called a *partitioning strategy*. Your partitioning strategy should be based on a common, stable factor of the application tenant, like region, size, or an application tenant's custom requirements. For example, if your goal is to solve your data residency requirements, you might decide to deploy an Azure AD B2C tenant for each region that hosts application tenants. Or, if you group by size, you might decide to locate most of your application tenants' identities on a single Azure AD B2C tenant, but locate your largest application tenants on their own dedicated Azure AD B2C tenants.
 
 >[!IMPORTANT]
-> Avoid basing your partitioning strategy on factors that can change over time. It's difficult to move users between Azure AD B2C tenants. For example, if you create a SaaS offering that has multiple SKUs or product tiers, you shouldn't partition your users based on the SKU they select, because the SKU might change if the customer upgrades their product.
+> Avoid basing your partitioning strategy on factors that can change over time, because it's difficult to move users between Azure AD B2C tenants. For example, if you create a SaaS offering that has multiple SKUs or product tiers, you shouldn't partition your users based on the SKU they select, because the SKU might change if the customer upgrades their product.
 
 You should consider provisioning your Azure AD B2C tenants by using a vertically partitioned strategy if:
 
@@ -160,9 +167,9 @@ When you provision an Azure AD B2C tenant, you select, for the purpose of [data 
 
 ## Authorization
 
-For a strong identity solution, you need to consider *authorization* in addition to *authentication*. There are several approaches to using the Microsoft identity platform to create an authorization strategy for your application. The [AppRoles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles) demonstrates how to use Azure AD B2 [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to implement authorization in an application. It also describes alternative authorization approaches.
+For a strong identity solution, you need to consider *authorization* in addition to *authentication*. There are several approaches to using the Microsoft identity platform to create an authorization strategy for your application. The [AppRoles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles) demonstrates how to use Azure AD B2C [app roles](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to implement authorization in an application. It also describes alternative authorization approaches.
 
-When you choose an approach to authorization, consider the needs of your application and your customers.
+There is no single approach to authorization, and you should consider the needs of your application and your customers when you decide on an approach.
 
 ## Maintenance
 
@@ -231,15 +238,6 @@ Other contributors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps 
-
-If you're new to this topic, we recommend that you review the following resources:
-
-- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-- [Multitenant identity considerations](../considerations/identity.md)
-- [Multitenant identity approaches](../approaches/identity.md)
-- [Tenancy models](../considerations/tenancy-models.yml)
-
-You might also find these resources useful:
 
 - [Azure AD B2C custom policy samples](https://github.com/azure-ad-b2c/samples)
 - [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview)
