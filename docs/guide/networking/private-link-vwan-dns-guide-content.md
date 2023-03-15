@@ -13,22 +13,22 @@ The base network topology used in this series isn't intended to be a target netw
 
 ## Default network architecture
 
-:::image type="complex" source="./images/dns-private-endpoints-vwan-baseline-architecture.svg" alt-text="Diagram showing the baseline Virtual WAN architecture used for this series.":::
+:::image type="complex" source="./images/dns-private-endpoints-vwan-baseline-architecture.svg" lightbox="./images/dns-private-endpoints-vwan-baseline-architecture.svg" alt-text="Diagram showing the baseline Virtual WAN architecture used for this series.":::
 The diagram shows a network with Azure Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. Azure Firewall is configured with DNS Proxy enabled. There are 2 Virtual Networks connected to each virtual hub. The Virtual Networks have a dotted line to the Firewall on their hub, noting that the Firewall instance is their configured DNS.
 :::image-end:::
 *Figure 1: Default network architecture for all private endpoint and DNS scenarios*
 
 The architecture has the following attributes that have to be taken into consideration when implementing each of the scenarios:
 
-- Hub-and-spoke networking model implemented with Azure Virtual WAN
+- A Hub-and-spoke networking model implemented with Azure Virtual WAN.
 - Two regions, each with a regional secured virtual hub
 - Hub-to-hub connectivity is enabled. This is base functionality and not a setting.
-- Branch-to-branch: Disabled - Branch-to-branch communication flows through the hubs
+- Branch-to-branch: Disabled - Branch-to-branch communication flows through the hubs.
 - Each secured regional virtual hub has the following security configuration for Azure Virtual Network connections:
-  - Internet traffic: Secured by Azure Firewall - All traffic out to the internet flows through the Firewall on a regional hub
-  - Private traffic: Secured by Azure Firewall - Traffic within the network flows through the Firewall
+  - Internet traffic: Secured by Azure Firewall - All traffic out to the internet flows through the Firewall on a regional hub.
+  - Private traffic: Secured by Azure Firewall - Traffic within the network flows through the Firewall.
 - Each regional virtual hub is secured with Azure Firewall. Each firewall has the following configurations:
-  - DNS Servers: Default (Azure provided) - Azure Firewall will proxy DNS requests to Azure DNS
+  - DNS Servers: Default (Azure provided) - Azure Firewall will proxy DNS requests to Azure DNS.
   - DNS Proxy: Enabled - Azure Firewall listens for DNS queries on port 53.
 - Each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy, otherwise [the DNS query results can be unpredictable](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
 - Each Azure Firewall is logging to Log Analytics - Azure Firewall enables logging DNS requests, which is a requirement for this topology.
@@ -45,12 +45,12 @@ To illustrate the challenge, the following are two configurations, one that work
 
 The following example is a basic private endpoint configuration. A private DNS zone is linked to the Virtual Network containing a client that wants to communicate to a service through its private endpoint. The private DNS zone has an A record that resolves the FQDN to the private IP address of the private endpoint. The following diagram illustrates the flow.
 
-:::image type="complex" source="./images/dns-private-endpoints-basic-config-works.svg" alt-text="Diagram showing a basic private endpoint and DNS configuration.":::
+:::image type="complex" source="./images/dns-private-endpoints-basic-config-works.svg" lightbox="./images/dns-private-endpoints-basic-config-works.svg" alt-text="Diagram showing a basic private endpoint and DNS configuration.":::
 The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an Azure storage account. The virtual network has a client in a workload subnet and a private endpoint in a private endpoint subnet. The private endpoint has a private IP address of 10.0.1.4 and it points to the storage account. The diagram illustrates that the client makes a request to the resources FQDN. Azure DNS forwards the query to the private DNS zone, which has an A record for that FQDN, so it returns the private IP address for the private endpoint. The client is able to make the request.
 :::image-end:::
 *Figure 2: A basic DNS configuration for private endpoints*
 
-1. Client issues request to mystorageacct.blob.core.windows.net
+1. Client issues a request to mystorageacct.blob.core.windows.net.
 2. Azure DNS, the configured DNS server for the Virtual Network is queried for the IP address for mystorageacct.blob.core.windows.net.
 
     Running the following command from the virtual machine (VM) illustrates that the VM is configured to use Azure DNS (168.63.129.16) as the DNS provider.
@@ -76,8 +76,8 @@ The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an
                                         (mystorageaccount.privatelink.blob.core.windows.net)
     ```
 
-5. The request is issued to the Private Link Endpoint with the 10.0.1.4 IP address
-6. A private connection to the storage account is established through the Azure Private Link service
+5. The request is issued to the Private Link Endpoint with the 10.0.1.4 IP address.
+6. A private connection to the storage account is established through the Azure Private Link service.
 
 The above works because Azure DNS is the configured DNS server for the Virtual Network, is aware of the linked private DNS zone, and forwards the DNS query to it.
 
@@ -85,12 +85,12 @@ The above works because Azure DNS is the configured DNS server for the Virtual N
 
 The non-working example represents an attempt to use private endpoints with our default network architecture. It isn't possible to link a private DNS zone to a virtual hub in Virtual WAN. Therefore, when clients are configured to use the Azure Firewall as their DNS servers, the requests are proxied to Azure DNS, which doesn't have a linked private DNS zone. Azure DNS doesn't know how to resolve the query.
 
-:::image type="complex" source="./images/dns-private-endpoints-dnsproxy-basic-config-doesnt-work.svg" alt-text="Diagram showing DNS configuration in a private DNS zone not working because Azure Firewall has DNS proxy enabled.":::
+:::image type="complex" source="./images/dns-private-endpoints-dnsproxy-basic-config-doesnt-work.svg" lightbox="./images/dns-private-endpoints-dnsproxy-basic-config-doesnt-work.svg" alt-text="Diagram showing DNS configuration in a private DNS zone not working because Azure Firewall has DNS proxy enabled.":::
 The diagram shows a virtual hub with and Azure Firewall with DNS Proxy enabled. It illustrates that you can't connect a private DNS zone to a virtual hub. It further illustrates that a client isn't able to make use of the A record in the private DNS zone to resolve the FQDN to the private IP address of the storage account.
 :::image-end:::
 *Figure 3: Private DNS zones can't be linked to virtual hubs*
 
-1. Client issues request to mystorageacct.blob.core.windows.net
+1. Client issues a request to mystorageacct.blob.core.windows.net.
 
     Running the following command from the VM illustrates that the VM is configured to use Azure Firewall as the DNS provider.
 
@@ -125,8 +125,6 @@ The diagram shows a virtual hub with and Azure Firewall with DNS Proxy enabled. 
 4. The client doesn't have the private IP address for the Private Link Endpoint and can't establish a private connection to the storage account.
 
 The above behavior is expected and is the problem that the scenarios are going to address.
-
-
 
 ## Scenarios
 
