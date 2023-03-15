@@ -278,11 +278,11 @@
 		</g>
 		<g id="shape36-41" v:mID="36" v:groupContext="shape" transform="translate(197.067,-56.5)">
 			<title>Sheet.36</title>
-			<desc>Workload 1 Spoke VNet</desc>
+			<desc>Workload 1 spoke VNet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="66.8839" cy="497.692" width="133.77" height="19.125"/>
 			<rect x="0" y="488.13" width="133.768" height="19.125" class="st6"/>
-			<text x="4" y="500.69" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Workload 1 Spoke VNet</text>		</g>
+			<text x="4" y="500.69" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Workload 1 spoke VNet</text>		</g>
 		<g id="shape37-44" v:mID="37" v:groupContext="shape" transform="translate(186.878,-99.3106)">
 			<title>Rectangle.37</title>
 			<v:userDefs>
@@ -347,11 +347,11 @@
 		</g>
 		<g id="shape56-70" v:mID="56" v:groupContext="shape" transform="translate(195.556,-116.159)">
 			<title>Sheet.56</title>
-			<desc>Private Link Endpoint 10.1.2.4</desc>
+			<desc>Private Link endpoint 10.1.2.4</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="497.692" width="112.45" height="19.125"/>
 			<rect x="0" y="488.13" width="112.446" height="19.125" class="st6"/>
-			<text x="11.97" y="494.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private Link Endpoint<v:newlineChar/><tspan
+			<text x="11.89" y="494.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private Link endpoint<v:newlineChar/><tspan
 						x="39.55" dy="1.2em" class="st17">10.1.2.4</tspan></text>		</g>
 		<g id="group57-74" transform="translate(191.163,-101.882)" v:mID="57" v:groupContext="group">
 			<title>Sheet.57</title>
@@ -449,11 +449,11 @@
 		</g>
 		<g id="shape72-104" v:mID="72" v:groupContext="shape" transform="translate(205.735,-236.534)">
 			<title>Sheet.72</title>
-			<desc>Workload Subnet</desc>
+			<desc>Workload subnet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="497.692" width="112.45" height="19.125"/>
 			<rect x="0" y="488.13" width="112.446" height="19.125" class="st6"/>
-			<text x="4" y="500.69" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Workload Subnet</text>		</g>
+			<text x="4" y="500.69" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>Workload subnet</text>		</g>
 		<g id="group73-107" transform="translate(192.02,-242.534)" v:mID="73" v:groupContext="group">
 			<title>Sheet.73</title>
 			<g id="group74-108" transform="translate(0,3.42857)" v:mID="74" v:groupContext="group">
@@ -538,11 +538,11 @@
 			<text x="26.21" y="500.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Client</text>		</g>
 		<g id="shape91-145" v:mID="91" v:groupContext="shape" transform="translate(553.661,-171.601)">
 			<title>Sheet.91</title>
-			<desc>Private DNS Zone privatelink.blob.core.windows.net</desc>
+			<desc>Private DNS zone privatelink.blob.core.windows.net</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="75.8571" cy="492.657" width="151.72" height="29.1964"/>
 			<rect x="0" y="478.059" width="151.714" height="29.1964" class="st6"/>
-			<text x="39.76" y="489.66" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private DNS Zone<v:newlineChar/><tspan
+			<text x="40.16" y="489.66" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private DNS zone<v:newlineChar/><tspan
 						x="4.19" dy="1.2em" class="st17">privatelink.blob.core.windows.net</tspan></text>		</g>
 		<g id="shape102-149" v:mID="102" v:groupContext="shape" transform="translate(547.554,-208.623)">
 			<title>Sheet.102</title>
@@ -1215,11 +1215,11 @@
 		</g>
 		<g id="shape461-390" v:mID="461" v:groupContext="shape" transform="translate(387.085,-205)">
 			<title>Sheet.461</title>
-			<desc>DNS private resolver 10.200.1.4</desc>
+			<desc>DNS Private Resolver 10.200.1.4</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="66.8839" cy="497.692" width="133.77" height="19.125"/>
 			<rect x="0" y="488.13" width="133.768" height="19.125" class="st6"/>
-			<text x="24.18" y="494.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DNS private resolver<v:newlineChar/><tspan
+			<text x="23.16" y="494.69" class="st7" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>DNS Private Resolver<v:newlineChar/><tspan
 						x="45.14" dy="1.2em" class="st17">10.200.1.4</tspan></text>		</g>
 		<g id="group463-394" transform="translate(230.148,-153.813)" v:mID="463" v:groupContext="group">
 			<title>Sheet.463</title>
@@ -1457,8 +1457,7 @@
 			<rect x="0" y="453.971" width="169.096" height="53.284" class="st60"/>
 			<text x="4" y="465.61" class="st7" v:langID="1033"><v:paragraph/><v:tabList/>* All peered connections have the<v:newlineChar/><tspan
 						x="4" dy="1.2em" class="st17">   </tspan>following configuration settings:<v:newlineChar/><tspan x="4"
-						dy="1.2em" class="st17">       </tspan>Associate Route Table: Default<v:newlineChar/><tspan x="4"
-						dy="1.2em" class="st17">       </tspan>Propagates to none: Yes</text>		</g>
+						dy="1.2em" class="st17">       </tspan>Associate Route Table: Default<tspan x="4" dy="1.2em" class="st17">       </tspan>Propagates to none: Yes</text>		</g>
 		<g id="shape500-486" v:mID="500" v:groupContext="shape" transform="translate(289.875,-322.563)">
 			<title>Sheet.500</title>
 			<desc>Azure Firewall 10.100.0.132</desc>
