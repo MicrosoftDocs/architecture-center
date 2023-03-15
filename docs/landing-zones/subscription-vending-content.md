@@ -1,4 +1,4 @@
-This article provides guidance for implementation subscription vending automation. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones, so application teams can deploy their workloads faster.
+This article provides guidance for implementation subscription vending automation. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster.
 
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
@@ -16,7 +16,7 @@ Numerous approaches exist for implementing subscription vending automation. The 
 
 The *data collection tool* gathers subscription request data. When the subscription request receives approval, it initiates the platform automation. The *platform automation* consists of the request pipeline, source control, and deployment pipeline. The *request pipeline* creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens pull request in *source control*. The new branch merges into the main branch in source control. The merge triggers the *deployment pipeline* to create the subscription with the infrastructure-as-code modules.
 
-The deployment should place the *subscription* in the correct management group based on the governance requirements (*see Figure 1*). The deployment creates a preliminary subscription budget as the foundation for cost management. Based on the needs of the workload, the deployment could create an empty virtual network and configure peering to a regional hub. The platform team should hand off the subscription to the application team after creation and configuration.The application team should update the subscription budget and create the workload resources.
+The deployment should place the *subscription* in the correct management group based on the governance requirements (*see Figure 1*). The deployment creates a preliminary subscription budget as the foundation for cost management. Based on the needs of the workload, the deployment could create an empty virtual network and configure peering to a regional hub. The platform team should hand off the subscription to the application team after creation and configuration. The application team should update the subscription budget and create the workload resources.
 
 ## How to collect data
 
