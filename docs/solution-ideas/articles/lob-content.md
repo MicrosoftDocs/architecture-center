@@ -41,20 +41,10 @@ You can use this solution in scenarios like the following:
 - You have legacy systems that can't be modernized or can't support new processes
 - You need to automate connecting third-party data sources to Azure
 
-## Contributors
-
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
-
-Principal author:
-
-- [Martin Ekuan](https://www.linkedin.com/in/martinekuan/) | Director of Content Development
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
 - Learn more: [https://aka.ms/learnpowerapps](/training/browse/?products=power-apps)
 
 ## Related resources
 
-- [Custom business processes](../../solution-ideas/articles/custom-business-processes.yaml)
+- [Custom business processes](../../solution-ideas/articles/custom-business-processes.yml)
