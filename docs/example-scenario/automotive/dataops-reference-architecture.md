@@ -1,9 +1,8 @@
-# Data Operations (DataOps) Reference Architecture
-This article outlines the different Azure building blocks that can help with data operations in the development of Automated Driving.  Data Operations (DataOps) reference architecture provides recommendations as a quick starter for anyone wanting to develop data operation solutions on Azure for Automated Driving (AD).
-
+This architecture provides guidance and recommendations for developing data operations for an automated driving solution.
 ## Architecture
 
 ![DataOps Reference architecture.](.\images\solution-kit.png)
+*Download a [Visio file](https://arch-center.azureedge.net/dataops-architecture.vsdx) that contains the architecture diagrams in this article.*
 
 DataOps reference architecture is built upon the framework outlined in the [AVOps reference architecture](https://learn.microsoft.com).  DataOps is a set of practices, processes, and tools aimed at improving the quality, speed, and reliability of data operations.  The goal of the DataOps flow for automated driving is to ensure that the data used to control the vehicle is of high quality, accurate, and reliable. By following a consistent DataOps flow, organizations improves the speed and accuracy of their data operations and make better decisions to control their autonomous vehicles.  
 
@@ -24,14 +23,19 @@ The reference architecture contains guidance about these logical building blocks
 ![AVOps Reference architecture.](.\images\solution-kit.png)
 > remove this if no visio file *Download a [Visio file](https://arch-center.azureedge.net/[AVOps].vsdx) of this architecture.*
 
-Here's the high-level process flow of data through the reference architecture:
-1. Measurement data include different data streams for different sensors such as camera, radar, ultrasound, lidar and vehicle telemetry.  Data loggers in the vehicle, stores the measurement data on the logger storage device.   The logger storage data is then uploaded to the landing data lake. Ingestion to Azure could be via [Azure Data Box](https://learn.microsoft.com/azure/databox/), [Azure Stack Edge](https://learn.microsoft.com/azure/databox-online/) or through a dedicated connection such as [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/). ![Data Collection](.\images\data-collection.png)
-1. Data then goes through an extract, transform, load (ETL) pipeline where Raw and binary data are stored on [Azure Data Lake Gen2](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction). Meta-data are stored in [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) (depending on final scenario extended by [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-explorer-overview) and [Azure Cognitive Search](https://learn.microsoft.com/azure/cognitive-services/))
-1. Data enrichment helps improve the accuracy and reliability of the data by adding additional information, insights and context to the data collected.
-1. Extracted measurement data are provided to labeling partners (Human in the Loop) via [Azure Data Share](https://learn.microsoft.com/azure/data-share/)  and / or labeled via Auto Labeling (usually covered by 3rd party partners) which are stored on separate Data Lake account (“Label Lake”)
-1. Labeled data sets are provided to further [MLOps](#mlops) processes, mainly to create a perception and sensor fusion model used by autonomous vehicles to detect scenes (like lane change, blocked roads, pedestrian, traffic lights, traffic signs etc.)
-1. Trained models are validated via Open Loop and Closed Loop testing
-1. Visualization of ingested and processed Rosbag file can be served by tools such as [Foxglove](https://foxglove.dev/) running on [Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/intro-kubernetes) or [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/)
+1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/) or [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/), ingests data into Azure.
+
+    Measurement data can also be synthetic data from simulations or from other sources. (MDF4, TDMS, and rosbag are common data formats for measurements.) In the DataOps stage, ingested measurements are processed. Validation and data quality checks, like checksum, are performed to remove low quality data. In this stage, raw information metadata that's recorded by a test driver during a test drive is extracted. This data is stored in a centralized metadata catalog. This information helps downstream processes identify specific scenes and sequences.
+1. Data is processed by an [Azure Data Factory](/azure/data-factory/introduction) extract, transform, and load (ETL) pipeline. The output is stored as raw and binary data in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). Metadata is stored in [Azure Cosmos DB](/azure/cosmos-db). Depending on the scenario, it might then be sent to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) or [Azure Cognitive Search](/azure/cognitive-services/).
+1. Additional information, insights, and context are added to the data to improve its accuracy and reliability.
+1. Extracted measurement data is provided to labeling partners (human-in-the-loop) via [Azure Data Share](/azure/data-share/). Third-party partners perform auto labeling, storing and accessing data via a separate Data Lake account.
+1. Labeled datasets flow to downstream [MLOps](#mlops) processes, mainly to create perception and sensor fusion models. These models perform functions that are used by autonomous vehicles to detect scenes (that is, lane changes, blocked roads, pedestrians, traffic lights, and traffic signs).
+1. In the [ValOps](#valops) stage, trained models are validated via open-loop and closed-loop testing.
+1. Tools like [Foxglove](https://foxglove.dev/), running on [Azure Kubernetes Service](/azure/aks/intro-kubernetes) or [Azure Container Instances](/azure/container-instances/), visualize ingested and processed data. 
+
+### Data collection
+
+Data collection is one of the main [challenges](../../guide/machine-learning/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
 ## Data Flow between zones
 
@@ -50,42 +54,20 @@ The image below shows an example scenario of an offline/online collection of veh
 
 ## 
 ### Components
-#### DataOps Components
-* [Azure Data Box](https://learn.microsoft.com/azure/databox/) used to transfer collected vehicle data to Azure through a regional carrier
-* [Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/) extends on-premises network into the Microsoft cloud over a private connection
-* [Azure Data Lake Gen2](https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) used to data per stages (e.g. raw, extracted, etc)
-* [Azure Data Factory](https://learn.microsoft.com/azure/data-factory/introduction) orchestrated data flow, performs ETL through [batch compute](https://learn.microsoft.com/azure/batch/), and data integration service that creates data-driven workflows for orchestrating data movement and transforming data 
-* [Azure Batch](https://learn.microsoft.com/azure/batch/) runs large-scale applications such as for data wrangling, filtering and preparation of data, metadata extraction, and etc
-* [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db) used to store metadata results such as stored measurement
-* [Azure Data Share](https://learn.microsoft.com/azure/data-share/) shares data with 3rd party organizations such as labeling companies in a safe and secure manner
-* [Azure Data Bricks](https://learn.microsoft.com/azure/databricks/) provides a set of tool to maintain enterprise-grade data solutions at scale. Required for long-running operations on large amounts of vehicle data.  Used as an analytics workbench for a Data Engineer
-* [Azure Synapse](https://learn.microsoft.com/azure/synapse-analytics/overview-what-is) accelerates time to insight across data warehouses and big data systems.
-* [Azure Cognitive Search](https://learn.microsoft.com/azure/cognitive-services/) - Provides the data catalog search services
+#### DataOps components
+
+* [Data Box](https://azure.microsoft.com/products/databox) is used to transfer collected vehicle data to Azure via a regional carrier.
+* [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends the on-premises network into the Microsoft cloud over a private connection.
+* [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores data based on stages, for example, raw or extracted.
+* [Azure Data Factory](https://azure.microsoft.com/products/data-factory) performs ETL via [batch compute](/azure/batch/) and creates data-driven workflows for orchestrating data movement and transforming data.
+* [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
+* [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) stores metadata results, like stored measurements.
+* [Data Share](https://azure.microsoft.com/products/data-share/) shares data with partner organizations, like labeling companies, with enhanced security.
+* [Azure Databricks](https://azure.microsoft.com/products/databricks/) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
+* [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
+* [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
 
 
-## Scenario details
-
-How do we operate a backend to enable Autonomous Vehicles at scale? 
-Autonomous Vehicles operations (AVOps) usually require a huge amount of storage and compute to
-- Capture and process data and scenes from test vehicles (as learning material for perception model required by vehicles to drive autonomously) 
-- Train perception model to recognize the environment as base functionality to drive autonomously 
-- Perform safety validation based on open and closed loop simulations
-
-AVOps allows organizations to take advantage of the scalability, flexibility, and cost-effectiveness of cloud-based infrastructure, while also speeding up the time-to-market for Automated Vehicles.
-
-
-Challenges
-
-- Data collection: collecting and analyzing large amounts of data to identify patterns and improve the vehicle's performance over time.  Majority of costs for vehicle development is due to data management and testing.
-- Data management: handling the large amounts of data generated by the vehicle's sensors and systems while determining what data is useful.
-- Scenario coverage: ensuring the vehicle has been tested in a wide range of scenarios, including different weather conditions, lighting, and road conditions.
-- Complexity: managing the large and diverse set of algorithms and systems required for autonomous operation.
-- Verification and validation: thoroughly testing the software to ensure it behaves as expected in a wide range of scenarios and environments.
-- Data availability:  globally dispersed teams and 3rd parties make sharing of data a challenge.
-
-### Potential use cases
-
-- Automotive OEMs, Tier1s, and/or ISVs that are developing solutions for automated driving 
 
 ### Landing Zone to Raw
 
@@ -94,6 +76,13 @@ Challenges
 ### Data Model
 
 
+## Scenario details
+
+You can use this architecture to build a data operations for automated driving solution on Azure.
+
+### Potential use cases
+
+Automotive OEMs, Tier 1 vendors, and ISVs that develop solutions for automated driving. 
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -161,11 +150,22 @@ Principal authors: > Only the primary authors. Listed alphabetically by last nam
  - [Jochen Schroeer](https://www.linkedin.com/in/jochen-schroeer/) | Lead Architect (Service Line Mobility)
 
 Other contributors: 
-
+- [Ginette Vellera](https://www.linkedin.com/in/ginette-vellera-35523314/) | Senior Software Engineering Lead
+- [Brij Singh](https://www.linkedin.com/in/brijraajsingh/) | Principal Software Engineer
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
+
+- [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-machine-learning)
+- [What is Azure Batch?](/azure/batch/batch-technical-overview)
+- [Azure Data Factory documentation](/azure/data-factory/)
+- [What is Azure Data Share?](/azure/data-share/overview)
+- [Large-scale Data Operations Platform for Autonomous Vehicles](https://devblogs.microsoft.com/cse/2023/03/02/large-scale-data-operations-platform-for-autonomous-vehicles/)
 
 ## Related resources
 
-Related architecture guides:
-
-* [Data analytics for automotive test fleets](https://learn.microsoft.com/azure/architecture/industries/automotive/automotive-telemetry-analytics)
+* [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
+* [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
+* [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
+- [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
+- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml)
