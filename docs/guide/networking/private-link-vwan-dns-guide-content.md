@@ -4,13 +4,10 @@ Clients aren't aware of the private IP address of the Private Endpoint. They con
 
 Your network design and, in particular, your DNS configuration plays a key factor in supporting private endpoint connectivity to services. This article series takes a common hub-and-spoke network topology using Azure Virtual WAN (VWAN) and provides guidance on implementing several Private Link scenarios where a client accesses one or more PaaS resources. The scenarios start simple and increase in complexity.
 
-| PaaS Resources | # Regions | # Spokes |
-| --- | --- | --- |
-| 1 dedicated PaaS resource | 1 | 1 |
-| 1 dedicated PaaS resource | 1 | 2 |
-| 1 dedicated PaaS resource | 2 | 2 |
-| 2 workload-isolated PaaS resources | 1 | 1 |
-| 2 workload-isolated PaaS resources | 2 | 2 |
+- Workload in **Single region** accessing **1 dedicated PaaS resource**
+- Workloads in **Two regions** accessing **1 dedicated PaaS resource**
+- Workload in **Single region** accessing **2 workload-isolated PaaS resource**
+- Workloads in **Two regions** accessing **2 workload-isolated resource**
 
 The base network topology used in this series isn't intended to be a target network architecture and your design likely has differences. The goal is to outline common networking constraints you might encounter when designing your workloads.
 
@@ -141,3 +138,8 @@ The client is implemented as a Virtual Machine and one of the services the clien
 > Azure Storage Account’s Private Link implementation might differ from other services in subtle ways, but it does align well for many.
 
 Each scenario starts with the desired end state and details the configuration required to get from the beginning state to the desired state. The following are the scenarios.
+
+- [Workload in **Single region** accessing **1 dedicated PaaS resource**](./private-link-vwan-dns-single-region-workload.yml)
+- *Workloads in **Two regions** accessing **1 dedicated PaaS resource** - coming soon*
+- *Workload in **Single region** accessing **2 workload-isolated PaaS resource** - coming soon*
+- *Workloads in **Two regions** accessing **2 workload-isolated resource** - coming soon*
