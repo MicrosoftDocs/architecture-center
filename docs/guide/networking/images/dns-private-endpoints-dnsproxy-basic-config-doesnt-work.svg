@@ -255,11 +255,11 @@
 		</g>
 		<g id="shape38-44" v:mID="38" v:groupContext="shape" transform="translate(328.536,-69.25)">
 			<title>Sheet.38</title>
-			<desc>Private Endpoint Subnet</desc>
+			<desc>Private endpoint subnet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="531.523" width="112.45" height="19.125"/>
 			<rect x="0" y="521.96" width="112.446" height="19.125" class="st5"/>
-			<text x="4" y="534.52" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Private Endpoint Subnet</text>		</g>
+			<text x="4" y="534.52" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Private endpoint subnet</text>		</g>
 		<g id="group47-47" transform="translate(364.717,-113.178)" v:mID="47" v:groupContext="group">
 			<title>Sheet.47</title>
 			<g id="shape48-48" v:mID="48" v:groupContext="shape" transform="translate(10.8263,-10.1802)">
@@ -310,11 +310,11 @@
 		</g>
 		<g id="shape56-68" v:mID="56" v:groupContext="shape" transform="translate(319.214,-89.5268)">
 			<title>Sheet.56</title>
-			<desc>Private Link Endpoint 10.0.2.4</desc>
+			<desc>Private Link endpoint 10.0.2.4</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="531.523" width="112.45" height="19.125"/>
 			<rect x="0" y="521.96" width="112.446" height="19.125" class="st5"/>
-			<text x="11.97" y="528.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private Link Endpoint<v:newlineChar/><tspan
+			<text x="11.89" y="528.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private Link endpoint<v:newlineChar/><tspan
 						x="39.55" dy="1.2em" class="st16">10.0.2.4</tspan></text>		</g>
 		<g id="group57-72" transform="translate(314.821,-75.25)" v:mID="57" v:groupContext="group">
 			<title>Sheet.57</title>
@@ -412,11 +412,11 @@
 		</g>
 		<g id="shape72-102" v:mID="72" v:groupContext="shape" transform="translate(329.393,-209.902)">
 			<title>Sheet.72</title>
-			<desc>Workload Subnet</desc>
+			<desc>Workload subnet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="531.523" width="112.45" height="19.125"/>
 			<rect x="0" y="521.96" width="112.446" height="19.125" class="st5"/>
-			<text x="4" y="534.52" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Workload Subnet</text>		</g>
+			<text x="4" y="534.52" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Workload subnet</text>		</g>
 		<g id="group73-105" transform="translate(315.679,-215.902)" v:mID="73" v:groupContext="group">
 			<title>Sheet.73</title>
 			<g id="group74-106" transform="translate(0,3.42857)" v:mID="74" v:groupContext="group">
@@ -501,11 +501,11 @@
 			<text x="26.21" y="534.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Client</text>		</g>
 		<g id="shape91-143" v:mID="91" v:groupContext="shape" transform="translate(18.25,-366.617)">
 			<title>Sheet.91</title>
-			<desc>Private DNS Zone privatelink.blob.core.windows.net</desc>
+			<desc>Private DNS zone privatelink.blob.core.windows.net</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="75.8571" cy="526.487" width="151.72" height="29.1964"/>
 			<rect x="0" y="511.889" width="151.714" height="29.1964" class="st5"/>
-			<text x="39.76" y="523.49" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private DNS Zone<v:newlineChar/><tspan
+			<text x="40.16" y="523.49" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Private DNS zone<v:newlineChar/><tspan
 						x="4.19" dy="1.2em" class="st16">privatelink.blob.core.windows.net</tspan></text>		</g>
 		<g id="shape102-147" v:mID="102" v:groupContext="shape" transform="translate(135.996,-406.639)">
 			<title>Sheet.102</title>
@@ -705,11 +705,11 @@
 		</g>
 		<g id="shape167-220" v:mID="167" v:groupContext="shape" transform="translate(335.878,-311.908)">
 			<title>Sheet.167</title>
-			<desc>Virtual Hub Virtual Network (Microsoft managed)</desc>
+			<desc>Virtual hub virtual network (Microsoft managed)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="66.8839" cy="531.523" width="133.77" height="19.125"/>
 			<rect x="0" y="521.96" width="133.768" height="19.125" class="st5"/>
-			<text x="4" y="528.52" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Virtual Hub Virtual Network <tspan x="4"
+			<text x="4" y="528.52" class="st6" v:langID="1033"><v:paragraph/><v:tabList/>Virtual hub virtual network <tspan x="4"
 						dy="1.2em" class="st16">(Microsoft managed)</tspan></text>		</g>
 		<g id="shape168-224" v:mID="168" v:groupContext="shape" transform="translate(309.234,-354.729)">
 			<title>Rectangle.168</title>
@@ -720,11 +720,11 @@
 		</g>
 		<g id="shape169-226" v:mID="169" v:groupContext="shape" transform="translate(335.521,-354.729)">
 			<title>Sheet.169</title>
-			<desc>Azure Firewall Subnet</desc>
+			<desc>Azure Firewall subnet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="531.523" width="112.45" height="19.125"/>
 			<rect x="0" y="521.96" width="112.446" height="19.125" class="st5"/>
-			<text x="10.84" y="534.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Firewall Subnet</text>		</g>
+			<text x="11.21" y="534.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Firewall subnet</text>		</g>
 		<g id="group170-229" transform="translate(326.843,-355.729)" v:mID="170" v:groupContext="group">
 			<title>Sheet.170</title>
 			<g id="shape171-230" v:mID="171" v:groupContext="shape" transform="translate(7.28265,-7.11102)">
@@ -886,11 +886,11 @@
 		</g>
 		<g id="shape202-294" v:mID="202" v:groupContext="shape" transform="translate(326.271,-450.725)">
 			<title>Sheet.202</title>
-			<desc>Virtual Hub</desc>
+			<desc>Virtual hub</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="44.1818" cy="531.523" width="88.37" height="19.125"/>
 			<rect x="0" y="521.96" width="88.3636" height="19.125" class="st5"/>
-			<text x="20.46" y="534.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual Hub</text>		</g>
+			<text x="20.93" y="534.52" class="st6" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual hub</text>		</g>
 		<g id="shape203-297" v:mID="203" v:groupContext="shape" v:layerMember="0" transform="translate(385.319,-233.921)">
 			<title>Dynamic connector.203</title>
 			<v:userDefs>
@@ -935,11 +935,11 @@
 			<text x="4" y="527.59" class="st47" v:langID="1033"><v:paragraph/><v:tabList/>X</text>		</g>
 		<g id="shape364-321" v:mID="364" v:groupContext="shape" transform="translate(135.589,-393.378)">
 			<title>Sheet.364</title>
-			<desc>to VWan Virtual Hub</desc>
+			<desc>to Virtual WAN hub</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="56.2232" cy="526.487" width="112.45" height="29.1964"/>
 			<rect x="0" y="511.889" width="112.446" height="29.1964" class="st5"/>
-			<text x="14.27" y="529.49" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>to VWan Virtual Hub</text>		</g>
+			<text x="16.5" y="529.49" class="st26" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>to Virtual WAN hub</text>		</g>
 		<g id="shape365-324" v:mID="365" v:groupContext="shape" transform="translate(419.089,-386.335)">
 			<title>Circle.277</title>
 			<v:userDefs>
