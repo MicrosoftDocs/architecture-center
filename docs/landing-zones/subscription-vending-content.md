@@ -1,20 +1,20 @@
-This article provides guidance for implementation subscription vending automation. The goal is to automate as much of the subscription vending process as possible to accelerate workload deployment.
+This article provides guidance for implementation subscription vending automation. The goal is to automate as much of the subscription vending process as possible and accelerate workload deployment.
 
-Subscription vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones. It places the subscription creation process under the governance of the platform, so application teams can focus on deploying their workloads with greater confidence and efficiency. For more information on the process, see [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) in the Cloud Adoption Framework.
+[![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
+*Figure 1. A subscription vending implementation in an example Azure environment.*
+
+Subscription vending standardizes the process for requesting, deploying, and governing subscriptions for application landing zones, so application teams can focus on deploying their workloads with greater confidence and efficiency. For more information on the process, see [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) in the Cloud Adoption Framework.
 
 ![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. You should modify the templates to fit your implementation needs.
 
 ## Architecture
 
-You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should (1) collect subscription request data, (2) initiate platform automation, and (3) create the subscription using infrastructure-as-code. Numerous approaches exist for implementing subscription vending automation. The example implementation utilizes a Gitflow implementation (*see Figure 1*). The Gitflow design aligns with the declarative approach that platform teams use to manage the platform.
+You should architect your subscription vending automation to accomplish three primary tasks. Subscription vending automation should (1) collect subscription request data, (2) initiate platform automation, and (3) create the subscription using infrastructure-as-code. Numerous approaches exist for implementing subscription vending automation. The example implementation utilizes a Gitflow implementation (*see Figure 2*). The Gitflow design aligns with the declarative approach that platform teams use to manage the platform.
 
 [![Diagram showing the example implementation of subscription vending automation.](images/subscription-vending-components.png)](images/subscription-vending-components.png)
-*Figure 1. Example implementation of subscription vending automation.*
+*Figure 2. Example implementation of subscription vending automation.*
 
-The platform automation consists of the request pipeline, source control, and deployment pipeline. The data collection tool gathers subscription request data. When the request receives approval, it triggers the request pipeline. The request pipeline creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens pull request in source control. The new branch merges into the main branch in source control. The merge triggers the deployment pipeline to create the subscription with the infrastructure-as-code modules. The deployment should place the subscription in the correct management group based on the governance requirements. The deployment creates a preliminary subscription budget as the foundation for cost management (*see Figure 2*).
-
-[![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
-*Figure 2. Subscription vending automation in an example Azure environment.*
+The platform automation consists of the request pipeline, source control, and deployment pipeline. The data collection tool gathers subscription request data. When the request receives approval, it triggers the request pipeline. The request pipeline creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens pull request in source control. The new branch merges into the main branch in source control. The merge triggers the deployment pipeline to create the subscription with the infrastructure-as-code modules. The deployment should place the subscription in the correct management group based on the governance requirements. The deployment creates a preliminary subscription budget as the foundation for cost management (*see Figure 1*).
 
 Based on the needs of the workload, the deployment could create an empty virtual network and configure peering to a regional hub. The platform team should hand off the subscription to the application team after creation and configuration. The application team should update the subscription budget and create the workload resources.
 
@@ -36,7 +36,7 @@ The goal of collecting data is to receive business approval and define the value
 
 ## How to initiate platform automation
 
-The notification and data from the data collection tool should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and deploy it with the infrastructure-as-code modules to create the subscription. The platform team should own and maintain the platform automation. The platform automation in the example implementation consists of the request pipeline, source control, and deployment pipeline (*see Figure 1*).
+The notification and data from the data collection tool should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and deploy it with the infrastructure-as-code modules to create the subscription. The platform team should own and maintain the platform automation. The platform automation in the example implementation consists of the request pipeline, source control, and deployment pipeline (*see Figure 2*).
 
 **Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data to create a subscription. You should document the structure of the file and make it extensible to support future needs. For example, the following JSON file defines the subscription parameter values for the example Bicep template.
 
@@ -70,7 +70,7 @@ The notification and data from the data collection tool should trigger the platf
 1. Create a pull request from your branch into `main`
 1. Update the data collection tool with a state change and reference to this pull request
 
-The *request pipeline* in the example implementation executes these steps (*see Figure 1*). You could also use a code-based solution hosted in Azure if the workflow is complex.
+The *request pipeline* in the example implementation executes these steps (*see Figure 2*). You could also use a code-based solution hosted in Azure if the workflow is complex.
 
 **Validate the subscription parameter file**. The pull request should trigger a linting process to validate the request data. The goal to ensure the deployment is successful. It should validate the YAML/JSON subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make changes to the subscription parameter file. The output should be a JSON/YAML subscription parameter file with all the data to create a subscription. For example, mapped Owner RBAC role to subscription owner alias.
 
@@ -78,7 +78,7 @@ The *request pipeline* in the example implementation executes these steps (*see 
 
 ## How to create subscription
 
-The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see Figure 1*).
+The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see Figure 2*).
 
 **Use infrastructure as code.** Your deployment should use infrastructure as code to create the subscription. The platform team should create and maintain these templates to ensure proper governance. You should use the subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules and modify them to fit your implementation needs.
 
