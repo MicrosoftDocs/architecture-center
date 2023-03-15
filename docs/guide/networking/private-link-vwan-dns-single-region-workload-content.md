@@ -72,7 +72,7 @@ The diagram shows a virtual hub secured by Azure Firewall connected to two virtu
 
 1. Because DNS Proxy is enabled on the Azure Firewall, it's listening for DNS requests on port 53. It forwards the query to the configured custom DNS server of 10.200.1.4, which is the private IP address of the DNS private resolver input endpoint.
 
-    :::image type="Complex" source="./images/firewall-policy-dns-settings.png" alt-text="Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set":::
+    :::image type="complex" source="./images/firewall-policy-dns-settings.png" alt-text="Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set":::
     Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set to Custom. The entry points to the private IP address of the DNS private resolver input endpoint.
     :::image-end:::
     *Figure 4: DNS configuration in Azure Firewall policy*
