@@ -9,9 +9,16 @@ Your network design and, in particular, your DNS configuration plays a key facto
 - Workload in **Single region** accessing **2 workload-isolated PaaS resource**
 - Workloads in **Two regions** accessing **2 workload-isolated resource**
 
-The base network topology used in this series isn't intended to be a target network architecture and your design likely has differences. The goal is to outline common networking constraints you might encounter when designing your workloads.
+The hub-and-spoke topology allows you to isolate workloads in spokes, while sharing common services in the hub. As mentioned earlier, a key shared service when working with Private Link is DNS. Azure Virtual WAN provides virtual hubs. Because you do not have full control of the virtual hubs, there are some constraints. For example, you are not able to link private DNS zones to a virtual hub. Private DNS zones are a key component to the solution of all the scenarios.
+
+To address the private DNS zone constraint, along with other constraints, we introduce the [virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml). This pattern addresses how to expose shared services in a virtual hub in an isolated and secure manner.
+
+> [!IMPORTANT]
+> Read the article on [the virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) before reading the scenarios and their solutions. The extensions pattern plays a key role in the solutions.
 
 ## Default network architecture
+
+The base network topology used in this series isn't intended to be a target network architecture and your design likely has differences. The goal is to outline common networking constraints you might encounter when designing your workloads.
 
 :::image type="complex" source="./images/dns-private-endpoints-vwan-baseline-architecture.svg" lightbox="./images/dns-private-endpoints-vwan-baseline-architecture.svg" alt-text="Diagram showing the baseline Virtual WAN architecture used for this series.":::
 The diagram shows a network with Azure Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. Azure Firewall is configured with DNS Proxy enabled. There are 2 Virtual Networks connected to each virtual hub. The Virtual Networks have a dotted line to the Firewall on their hub, noting that the Firewall instance is their configured DNS.
