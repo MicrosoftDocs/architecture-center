@@ -150,7 +150,7 @@ You can also use identity federation as a tool for managing multiple Azure AD B2
 
 Home Realm Discovery is important when you use a shared Azure AD B2C tenant and also allow your customers to bring their own federated identity provider. You might want to avoid a design in which a user needs to select from a list of identity providers. Doing so adds complexity to the sign-in process. Also, a user might accidentally select an incorrect provider, which causes the sign-in attempt to fail.
 
-You can configure Home Realm Discovery in various ways. The most common approach is to use the domain suffix of the user's email-address to determine the identity provider. For example, say Northwind Traders is a customer of Fabrikam's multitenant solution. The email address `user@northwindtraders.com` includes the domain suffix `northwindtraders.com`, which can be mapped to the Northwind Traders federated identity provider.
+You can configure Home Realm Discovery in various ways. The most common approach is to use the domain suffix of the user's email address to determine the identity provider. For example, say Northwind Traders is a customer of Fabrikam's multitenant solution. The email address `user@northwindtraders.com` includes the domain suffix `northwindtraders.com`, which can be mapped to the Northwind Traders federated identity provider.
 
 For more information, see [Home Realm Discovery](/azure/active-directory/manage-apps/home-realm-discovery-policy). For an example of how to implement this approach in Azure AD B2C, see the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples/tree/master/policies/default-home-realm-discovery).
 
