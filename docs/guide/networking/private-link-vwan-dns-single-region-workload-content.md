@@ -43,11 +43,11 @@ Diagram showing the single-region challenge.
 1. The client issues a request to mystorageacct.blob.core.windows.net.
 2. The request is sent to the public IP address of the storage account. Because public network access is disabled on the storage account, the request fails with a 404 response code.
 
-## Solution - Virtual WAN DNS extension
+## Solution - Virtual hub extension for DNS
 
-A solution to the challenge is to implement a [Virtual WAN extension](./private-link-vwan-extension.yml) for DNS. The single responsibility for the DNS extension is to enable to the use of private DNS zones in an architecture with a Virtual WAN hub.
+A solution to the challenge is to implement a [virtual hub extension](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) for DNS. The single responsibility for the DNS extension is to enable to the use of private DNS zones in an architecture with a Virtual WAN hub.
 
-The DNS extension is implemented as a Virtual Network that is peered to virtual hub. It's possible to link a private DNS zone to this virtual network. The extension virtual network contains an Azure DNS Private Resolver that enables services outside of this virtual network like Azure Firewall to query the private zone. The following is a high-level list of the components of a Virtual WAN extension for DNS, along with some required configuration changes:
+The DNS extension is implemented as a Virtual Network that is peered to virtual hub. It's possible to link a private DNS zone to this virtual network. The extension virtual network contains an Azure DNS Private Resolver that enables services outside of this virtual network like Azure Firewall to query the private zone. The following is a high-level list of the components of a virtual hub extension for DNS, along with some required configuration changes:
 
 - A Virtual Network that is peered with the virtual hub. The configured DNS server for the virtual network is the Azure Firewall securing the virtual hub.
 - A DNS Private Resolver in the new virtual network. The DNS Private resolver has an inbound endpoint added.
@@ -58,7 +58,7 @@ The DNS extension is implemented as a Virtual Network that is peered to virtual 
 
 The following diagram illustrates the architecture, along with both the DNS and HTTP flows.
 
-:::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region-works.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region-works.svg" alt-text="Diagram showing the working solution with a Virtual WAN DNS extension.":::
+:::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region-works.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region-works.svg" alt-text="Diagram showing the working solution with a Virtual hub extension for DNS.":::
 The diagram shows a virtual hub secured by Azure Firewall connected to two virtual networks in a single region. One virtual network contains a DNS Private Resolver. The other virtual network contains a subnet with a VM client and a subnet with a Private Link endpoint. Both virtual networks have the Azure Firewall configured as their DNS server. A private DNS zone is linked to the virtual network containing the resolver and contains an A record with a value of the private IP address of the storage account private endpoint. The diagram shows a DNS flow and an HTTP flow. The DNS flow shows the following steps: 1. A DNS query for the storage account FQDN is sent to Azure Firewall, 2. Azure Firewall forwards the query to its configured DNS server that is the DNS Private Resolver, 3. The DNS Private Resolver proxies to Azure DNS and 4. Azure DNS is aware of the private DNS zone. The HTTP flow shows the client issuing an HTTP request to the Private Link endpoint and connecting to the storage account successfully.
 :::image-end:::
 *Figure 2: Working solution for single region scenario for Virtual WAN with Private Link and DNS*
@@ -114,7 +114,7 @@ When adding spoke networks, configure them as follows to ensure they're associat
     :::image type="content" source="./images/virtual-hub-vnet-connection-security-configuration.png" lightbox="./images/virtual-hub-vnet-connection-security-configuration.png" alt-text="Screenshot of the security configuration for the virtual network connections showing internet and private traffic secured by Azure Firewall.":::
     *Figure 8: Virtual hub virtual network connections security configuration*
 
-### Virtual WAN DNS extension
+### Virtual hub extension for DNS
 
 - Make sure you deploy the components of the DNS extension prior to adding any PaaS service you want to configure private endpoint DNS records for.
 
@@ -125,7 +125,7 @@ When adding spoke networks, configure them as follows to ensure they're associat
 
 #### DNS Private Resolver
 
-Consider the following guidance regarding the DNS Private Resolver in the Virtual WAN DNS extension.
+Consider the following guidance regarding the DNS Private Resolver in the virtual hub DNS extension.
 
 - There should be one DNS extension with one DNS Private Resolver per region.
 - The DNS Private Resolver only requires an inbound endpoint and no outbound endpoints for this scenario. This configuration allows you to forward traffic to the resolver. The private IP for the endpoint is what we configure for the custom dns service in the Azure Firewall policy (see figure 4).
@@ -140,7 +140,7 @@ Consider the following guidance regarding the DNS Private Resolver in the Virtua
 
 Because the Azure DNS Private Resolver is resolving DNS via Azure DNS, Azure DNS is able to pick up any private DNS zones linked to its inbound subnet's virtual network.
 
-- Link the private DNS zone to the Virtual WAN DNS extension virtual network.
+- Link the private DNS zone to the virtual hub extension for DNS virtual network.
 - Follow the guidance on [managing private DNS zones]().
 - If you expect PaaS service owners to manage their own entries, configure RBAC accordingly. See [article on ...] for more considerations.
 
