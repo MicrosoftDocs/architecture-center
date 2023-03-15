@@ -13,10 +13,15 @@ items:
         href: landing-zones/landing-zone-deploy.md
       - name: Design guides
         items:
-          - name: Bicep landing zone implementation
-            href: landing-zones/bicep/landing-zone-bicep.md
-          - name: Terraform landing zone implementation
-            href: landing-zones/terraform/landing-zone-terraform.md
+        - name: Landing zone implementations
+          items: 
+            - name: Bicep landing zone implementation
+              href: landing-zones/bicep/landing-zone-bicep.md
+            - name: Terraform landing zone implementation
+              href: landing-zones/terraform/landing-zone-terraform.md
+        - name: Subscription vending implementation
+          href: landing-zones/subscription-vending.yml
+
   - name: Application architecture fundamentals
     items:
       - name: Introduction
@@ -1912,6 +1917,8 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Batch integration in a factory
                 href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
+              - name: CAE simulations for manufacturing
+                href: example-scenario/hpc/hpc-run-cae-simulations.yml
               - name: Computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Condition monitoring
