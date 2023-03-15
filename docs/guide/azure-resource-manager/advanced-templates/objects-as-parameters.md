@@ -121,15 +121,19 @@ Now, let's look at our template. We have a resource named `NSG1` that deploys th
                         "name": "securityRules",
                         "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]",
                         "input": {
-                            "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
-                            "priority": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
-                            "protocol": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
-                            "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
-                            "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
-                            "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
-                            "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
-                            "access": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
-                            "direction": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
+                            "name": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].name]",
+                            "properties": {
+
+                                "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].description]",
+                                "priority": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].priority]",
+                                "protocol": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].protocol]",
+                                "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].sourcePortRange]",
+                                "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].destinationPortRange]",
+                                "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].sourceAddressPrefix]",
+                                "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].destinationAddressPrefix]",
+                                "access": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].access]",
+                                "direction": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex('securityRules')].direction]"
+                            }
                         }
                     }
                 ]
