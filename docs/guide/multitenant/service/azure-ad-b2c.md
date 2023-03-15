@@ -65,7 +65,7 @@ You need to consider questions like:
 - Do you or your tenants have data residency requirements?
 - Does the user need to access more than one application tenant?
 - Do you need complex permissions and/or role-based access control (RBAC)?
-- Who signs in to your application? Your categories of users are often called your *user personas*.
+- Who signs in to your application? Different categories of users are often called *user personas*.
 
 The following table summarizes the differences among the main tenancy models for Azure AD B2C:
 
@@ -178,7 +178,7 @@ When you plan a multitenant deployment of Azure AD B2C, you need to think about 
 - **Tenant governance.** Who maintains the Azure AD B2C tenant? What elevated roles do these administrators need? How do you configure Conditional Access and MFA policies for the administrators? How do you monitor the Azure AD B2C tenant in the long term?
 - [**User journey configuration**](/azure/active-directory-b2c/user-flow-overview). How do you deploy changes to your Azure AD B2C tenant or tenants? How do you test changes to your user flows or custom policies before you deploy them?
 - [**Federated identity providers**](#identity-federation). Do you need to add or remove identity providers over time? If you allow each of your customers to bring their own identity provider, how do you manage that at scale?
-- **App registrations.** Many Azure AD app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate secrets or certificates when you need to?
+- **App registrations.** Many Azure AD app registrations use a [client secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) or [certificate](/azure/active-directory/develop/quickstart-register-app#add-a-certificate) for authentication. How do you rotate these secrets or certificates when you need to?
 - [**Policy keys**](/azure/active-directory-b2c/policy-keys-overview?pivots=b2c-custom-policy). If you use custom policies, how do you rotate the policy keys when you need to?
 - **User credentials.** How do you manage user information and credentials? What happens if one of your users is locked out or forgets a password and requires administrator or customer service intervention?
 
