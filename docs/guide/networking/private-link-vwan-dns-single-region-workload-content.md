@@ -185,3 +185,20 @@ When Azure Firewall is securing private traffic, spoke-to-spoke connectivity is 
 :::image type="content" source="./images/private-endpoint-nsg-rules.png" alt-text="Picture showing NSG rules for private endpoint subnet.":::
 *Figure 11: NSG rules for private endpoint subnet
 
+#### Private endpoint security in action
+
+The following image illustrates private endpoint security. The diagram adds another VNet with a second workload. That workload is not able to access the private endpoint.
+
+:::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region-doesnt-work.svg" alt-text="Diagram showing workload in second spoke VNet not able to access private endpoint.":::
+The diagram shows a virtual hub secured by Azure Firewall connected to three virtual networks in a single region. One VNet contains a DNS private resolver. The second VNet contains a subnet with a virtual machine client and a subnet with a Private Link endpoint. The third VNet contains another workload. All three VNets have the Azure Firewall configured as their DNS Server. A Private DNS Zone is linked to the VNet containing the resolver and contains an A record with a value of the private IP address of the storage account private endpoint. The diagram shows a DNS flow and an HTTP flow. The DNS flow shows the following steps: 1. A DNS query for the storage account FQDN is sent to Azure Firewall, 2. Azure Firewall forwards the query to its configured DNS Server that is the DNS private resolver, 3. The DNS private resolver proxies to Azure DNS and 4. Azure DNS is aware of the Private DNS Zone. The HTTP flow shows the client in the second spoke VNet issuing an HTTP request which flows through Azure Firewall. The diagram illustrates that Azure Firewall is not allowing spoke-to-spoke communication. The diagram further shows that the NSG can further be used to block the request.
+:::image-end:::
+*Figure 12: Working solution for single region scenario for Virtual WAN with Private Link and DNS*
+
+**DNS flow for the diagram**
+
+The DNS flow is exactly the same as in [the solution flow](#solution---virtual-wan-hub-dns-extension).
+
+**HTTP flow for the diagram**
+
+1. The client issues request to stgworkload00.blob.core.windows.net.
+1. DNS resolves stgworkload00.blob.core.windows.net to 10.1.2.4. The request flows through Azure Firewall because it configured to secure private traffic. Azure Firewall blocks the request to the private endpoint. If you choose not to secure private traffic by Azure Firewall, the NSG on the private endpoint subnet could be used to block unwanted private traffic.
