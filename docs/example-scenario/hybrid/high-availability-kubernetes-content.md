@@ -11,9 +11,12 @@ This article describes how to architect and operate a highly available Kubernete
 The preceding diagram shows the architecture of the sample application running on Kubernetes on Azure Stack Hub. The app consists of these components:
 
 1. A Kubernetes cluster, based on AKS Engine, on Azure Stack Hub.
-2. [cert-manager](https://www.jetstack.io/cert-manager), which provides a suite of tools for certificate management in Kubernetes. It's used to automatically request certificates from Let's Encrypt.
-3. A Kubernetes namespace that contains the application components for the front end (ratings-web), API (ratings-api), and database (ratings-mongodb).
-4. An ingress controller that routes HTTP/HTTPS traffic to endpoints within the Kubernetes cluster.
+1. [cert-manager](https://www.jetstack.io/cert-manager), which provides a suite of tools for certificate management in Kubernetes. It's used to automatically request certificates from Let's Encrypt.
+1. A Kubernetes namespace that contains the application components for:
+   1. the front end (ratings-web)
+   1. the API (ratings-api)
+   1. the database (ratings-mongodb)
+1. An ingress controller that routes HTTP/HTTPS traffic to endpoints within the Kubernetes cluster.
 
 The sample application is used to illustrate the application architecture. All components are examples. The architecture contains only a single application deployment. To achieve high availability, the deployment runs at least twice on two Azure Stack Hub instances. They can run either in a single location or in two or more sites:
 
