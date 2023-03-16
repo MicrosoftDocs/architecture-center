@@ -1,4 +1,4 @@
-This article demonstrates how to create a search experience that enables users to search for documents based on document content in addition to any metadata that's associated with the files.
+This article demonstrates how to create a search service that enables users to search for documents based on document content in addition to any metadata that's associated with the files.
 
 You can achieve this by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure Cognitive Search](/azure/search/search-what-is-azure-search). This example workload shows how to create a single [search index](/azure/search/search-what-is-an-index) that's based on files in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
 
@@ -55,43 +55,43 @@ If you add the `metadata_storage_path` as a column in Table Storage, you know ex
 You can then use a [field mapping](/azure/search/search-indexer-field-mappings) in the Table Storage indexer to map the `metadata_storage_path` column (or another column) in Table Storage to the `metadata_storage_path` document key field in the search index. If you apply the [base64Encode function](/azure/search/search-indexer-field-mappings#base64EncodeFunction) on the field mapping, you end up with the same document key (`aHR0cHM6...mUucGRm0` in the example above), and the metadata from Table Storage is added to the same document that was extracted from Blob Storage.
 
 > [!NOTE]
-> Per the Table Storage indexer documentation, [you shouldn't define a field mapping to an alternative unique string field](/azure/search/search-howto-indexing-azure-tables#add-search-fields-to-an-index:~:text=Do%20not%20define%20a%20field%20mapping%20to%20alternative%20unique%20string%20field%20in%20your%20table) in your table. This is because it concatenates the `PartitionKey` and `RowKey` as the document key, by default. Since we're already relying on the document key as configured by the Blob indexer (which is the Base64-encoded full URL of the blob), creating a field mapping to ensure both indexers refer to the same document in the search index is appropriate and supported for this scenario.
+> The Table Storage indexer documentation states that [you shouldn't define a field mapping to an alternative unique string field](/azure/search/search-howto-indexing-azure-tables#add-search-fields-to-an-index:~:text=Do%20not%20define%20a%20field%20mapping%20to%20alternative%20unique%20string%20field%20in%20your%20table) in your table. That's because the indexer concatenates the `PartitionKey` and `RowKey` as the document key, by default. Because you're already relying on the document key as configured by the Blob Storage indexer (which is the Base64-encoded full URL of the blob), creating a field mapping to ensure both indexers refer to the same document in the search index is appropriate and supported for in scenario.
 
-Alternatively, the `RowKey` (which we had set to the Base64-encoded full URL of the blob) could also have been mapped to the `metadata_storage_path` document key directly, without having to store it separately and Base64-encode it as part of the field mapping. However, keeping the unencoded URL as a separate column makes it obvious which blob it refers to, and allows the partition and row keys to be decided without impact to the search indexer.
+Alternatively, you can map the `RowKey` (which is set to the Base64-encoded full URL of the blob) to the `metadata_storage_path` document key directly, without storing it separately and Base64-encoding it as part of the field mapping. However, keeping the unencoded URL in a separate column clarifies which blob it refers to and allows you to choose any partition and row keys without affecting the search indexer.
 
 ### Potential use cases
 
-This scenario applies to any application in any industry which requires the ability to search for documents based on their file contents and additional metadata.
+This scenario applies to applications that require the ability to search for documents based on their content and additional metadata.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure Cognitive Search provides a [99.9% availability SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (that is, querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards), and for *updates* (that is, updating the search indexes) if you have at least three replicas. Therefore, you should provision at least two replicas if you want your users to be able to *search* reliably, and three if actual *changes to the index* should also be considered high availability operations.
+Azure Cognitive Search provides a [high SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (that is, querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards), and for *updates* (that is, updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations. 
 
-[Azure Storage always stores multiple copies of your data](/azure/storage/common/storage-redundancy) so that it's protected from planned and unplanned events, and it has additional redundancy options to replicate data across regions. This includes the data in Blob and Table storage.
+[Azure Storage always stores multiple copies of your data](/azure/storage/common/storage-redundancy) to help protect it against planned and unplanned events. Azure Storage provides additional redundancy options for replicating data across regions. These safeguards apply to data in blob and table storage.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Azure Cognitive Search provides [robust security controls](/azure/search/search-security-overview) that span network security, authentication/authorization, data residency and protection, and administrative controls to maintain security, privacy, and compliance.
+Azure Cognitive Search provides [robust security controls](/azure/search/search-security-overview) that help you implement network security, authentication and authorization, data residency and protection, and administrative controls that help you maintain security, privacy, and compliance.
 
-Whenever possible, you should use [Azure AD authentication](/azure/search/search-security-rbac) for accessing the search service itself, and [connect your search service to other Azure resources (like Blob and Table storage in this scenario) using a managed identity](/azure/search/search-howto-managed-identities-data-sources).
+Whenever possible, use [Azure AD authentication](/azure/search/search-security-rbac) to provide access to the search service itself, and connect your search service to other Azure resources (like blob and table storage in this scenario) by using a [managed identity](/azure/search/search-howto-managed-identities-data-sources).
 
-Furthermore, you can [connect from the search service to the storage account through a private endpoint](/azure/search/search-indexer-howto-access-private?tabs=portal-create%2Cportal-status). This allows the indexers to use a private connection, without requiring the blob and table storage to be accessible publicly.
+You can connect from the search service to the storage account by using a [private endpoint](/azure/search/search-indexer-howto-access-private?tabs=portal-create%2Cportal-status). Doing so enables the indexers to use a private connection without requiring the blob and table storage to be accessible publicly.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To explore the cost of running this scenario, all the services mentioned above are [pre-configured in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de) for an example with a total document size of 20 GB in Blob storage and 1 GB of additional metadata in Table storage. We've chosen two search units to satisfy the SLA for read purposes, as explained in the [reliability](#reliability) section above. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
+For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de). All the services described here are are configured in this estimate. The estimate is for a workload that has a total document size of 20 GB in Blob Storage and 1 GB of metadata in Table Storage. Two search units are used to satisfy the SLA for read purposes, as described in the [reliability](#reliability) section of this article. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
 
-As you can see from the pricing calculator, Blob and Table storage make up only a fraction of the cost; the majority is spent on Azure Cognitive Search as it performs the actual indexing and compute for running search queries.
+As you can see by reviewing the estimate, blob and table storage make up only a fraction of the cost. The majority is spent on Azure Cognitive Search as it performs the actual indexing and compute for running search queries.
 
 ## Deploy this scenario
 
