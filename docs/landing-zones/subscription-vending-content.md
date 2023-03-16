@@ -3,7 +3,7 @@ This article provides implementation guidance for subscription vending automatio
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
 
-![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. You should modify the templates to fit your implementation needs. For more information on the process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) .
+![GitHub icon](../_images/github.png) We created subscription vending [Bicep](https://aka.ms/lz-vending/bicep) and [Terraform](https://aka.ms/lz-vending/tf) modules that you should use as a starting point. You should modify the templates to fit your implementation needs. For more information on the subscription vending process, see [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) .
 
 ## Architecture
 
@@ -24,7 +24,7 @@ The goal of collecting data is to receive business approval and define the value
 
 **Use a data collection tool.** You can use an IT Service Management (ITSM) tool to collect the data or build a customer portal with a low-code or no-code tool like [Microsoft PowerApps](https://powerapps.microsoft.com/). The data collection tool should provide business logic to approve or deny the subscription request.
 
-**Collect the required data.** You need to collect enough data to define the values of the JSON/YAML subscription parameter so you can automate the deployment. The specific values you collect depend on your needs. You should capture the request authorizer, cost center, and networking requirements (internet connectivity needed, on-premises connectivity needed). It might be helpful to ask the application team for anticipated workload components (application platform, data requirements), data sensitivity, and number of environments (development, test, preproduction, production).
+**Collect the required data.** You need to collect enough data to define the values of the JSON/YAML subscription parameter so you can automate the deployment. The specific values you collect depend on your needs. You should capture the request authorizer, cost center, and networking requirements (internet or on-premises connectivity). It might be helpful to ask the application team for anticipated workload components (application platform, data requirements), data sensitivity, and number of environments (development, test, preproduction, production).
 
 **Validate data.** You should validate data during the data collection process. It's harder to address issues later in the platform automation phases.
 
@@ -38,7 +38,7 @@ The goal of collecting data is to receive business approval and define the value
 
 The notification and data from the data collection tool should trigger the platform automation. The goal of platform automation is to create a JSON/YAML subscription parameter file, merge the file to the main branch, and deploy it with the infrastructure-as-code modules to create the subscription. The platform team should own and maintain the platform automation. The platform automation in the example implementation consists of the request pipeline, source control, and deployment pipeline (*see Figure 2*).
 
-**Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data to create a subscription. You should document the structure of the file and make it extensible to support future needs. For example, the following JSON file defines the subscription parameter values for the example Bicep template.
+**Use JSON or YAML files.** You should use structured data files (JSON or YAML) to store the data to create a subscription. You should document the structure of the file and make it extensible to support future needs. For example, the following JSON code snippet defines the subscription parameter values for one of the Bicep modules in GitHub.
 
 ```json
 {
@@ -72,7 +72,7 @@ The notification and data from the data collection tool should trigger the platf
 
 The *request pipeline* in the example implementation executes these steps (*see Figure 2*). You could also use a code-based solution hosted in Azure if the workflow is complex.
 
-**Validate the subscription parameter file**. The pull request should trigger a linting process to validate the request data. The goal to ensure the deployment is successful. It should validate the YAML/JSON subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make changes to the subscription parameter file. The output should be a JSON/YAML subscription parameter file with all the data to create a subscription. For example, mapped Owner RBAC role to subscription owner alias.
+**Validate the subscription parameter file**. The pull request should trigger a linting process to validate the request data. The goal to ensure the deployment is successful. It should validate the YAML/JSON subscription parameter file. It could also verify that the IP address range is still available. You might also want to add a manual review gate with human intervention. They could perform the final review and make changes to the subscription parameter file. The output should be a JSON/YAML subscription parameter file with all the data to create a subscription.
 
 **Trigger the deployment pipeline.** When the pull request merges into the `main` branch, the merge should trigger the deployment pipeline.
 
@@ -120,5 +120,5 @@ Subscription vending simplifies and standardizes the subscription creation proce
 
 - [Bicep modules](https://aka.ms/lz-vending/bicep)
 - [Terraform modules](https://aka.ms/lz-vending/tf)
-- [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+- [Subscription vending overview](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
 - [Azure landing zone overview](/azure/cloud-adoption-framework/ready/landing-zone/)
