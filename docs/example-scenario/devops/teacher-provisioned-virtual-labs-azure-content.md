@@ -1,4 +1,4 @@
-Azure Lab Services equips teachers to create labs to satisfy such course needs. Lab Services manages the infrastructure, from spinning up the VMs to handling errors and scaling as needed.
+Azure Lab Services helps teachers create labs. Lab Services manages the infrastructure, from spinning up the VMs to handling errors and scaling as needed.
 
 ## Architecture
 
@@ -11,9 +11,9 @@ Azure Lab Services equips teachers to create labs to satisfy such course needs. 
 - To create virtual labs for a class, an Azure administrator whose role is Contributor or higher does the following:
   - Creates a lab plan to host one or more virtual labs.
   - Approves appropriate marketplace images to serve as starting points for faculty to create lab templates.
-  - Can optionally attach an Azure Compute gallery to the lab plan that contains one or more OS images, images that can serve as starting points for the templates.
+  - Optionally attaches an Azure Compute gallery to the lab plan. The Compute Gallery contains one or more OS images, which that can be starting points for the templates.
   - Grants Lab Creator role to the teacher or teachers who will create labs within the lab plan.
-- The teacher signs in to Lab Services at [https://labs.azure.com](https://labs.azure.com) and creates a lab and a template image that run Windows or Linux. The starting point for the template comes from the list of approved marketplace images or from an attached Azure Compute gallery.
+- The teacher signs in to Lab Services at [https://labs.azure.com](https://labs.azure.com) and creates a lab and a template image that runs Windows or Linux. The starting point for the template comes from the list of approved marketplace images or from an attached Azure Compute gallery.
 - The teacher logs into the template VM and installs additional software, sample code, and data that's needed for the lab. The result is the template for the lab. The teacher can configure start and stop schedules for all VMs, and can grant additional quota hours outside the scheduled hours for student use. At all times, a maximum cost estimate is displayed so that the teacher can see the impact of changes.
 - Students can be granted access to a lab using any of these options:
   - [Azure Active Directory account](/azure/lab-services/tutorial-setup-classroom-lab#add-users-by-email-address)
