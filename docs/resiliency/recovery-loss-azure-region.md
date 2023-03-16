@@ -140,7 +140,8 @@ Azure Media Services has a different recovery approach for encoding and streamin
 
 ### Virtual network
 
-Configuration files provide the quickest way to set up a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](/azure/virtual-network/virtual-networks-create-vnet-classic-portal) for the current network to a network configuration file. If an outage occurs in the primary region, [restore the virtual network](/azure/virtual-network/virtual-networks-create-vnet-classic-portal) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.
+Configuration files provide the quickest way to set up a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](/azure/virtual-network/quick-create-portal) for the current network to a network configuration file. If an outage occurs in the primary region, [restore the virtual network](/azure/virtual-network/quick-create-portal) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.  
+There are VNET related resources which are needed to take into account (Ex. NSG, DNS, Route Tables). The [Infracture as a code](/azure/architecture/framework/devops/automation-infrastructure#deploy-infrastructure-with-code) is a way to generates the same environment every time it is applied, and you can apply in a new region.
 
 ## Checklists for disaster recovery
 
