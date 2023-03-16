@@ -17,6 +17,6 @@ products:
   - windows-server
 name: Baseline architecture for AKS on Azure Stack HCI
 summary: Learn how to design and implement a baseline architecture for Microsoft Azure Kubernetes Service (AKS) running on Azure Stack HCI (AKS hybrid).
-thumbnailUrl: /azure/architecture/browse/thumbs/aks-azurestackhci-baseline-v8.png
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-azure-stack-hci-baseline-v8.png
 content: |
   [!include[](aks-baseline-content.md)]
