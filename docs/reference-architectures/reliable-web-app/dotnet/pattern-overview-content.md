@@ -178,4 +178,4 @@ You can deploy the reference implementation by following the instructions in the
 This article covers the architecture and planning details for the reliable web app pattern for .NET. The following article shows you how to apply the reliable web app pattern with specific design patterns structured around the Well-Architected Framework pillars.
 
 >[!div class="nextstepaction"]
-> [How to apply the reliable web app pattern for .NET](apply-pattern.yml)
+> [Apply the reliable web app pattern for .NET](apply-pattern.yml)
