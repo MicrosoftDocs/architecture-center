@@ -2,7 +2,7 @@ Consider a situation in which Azure Stack Hub hosts virtual machines (VMs) that 
 
 ## Architecture
 
-![Diagram illustrating backup of Azure Stack Hub files and applications that are hosted on Azure VMs that run such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server that run on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.][architectural-diagram]
+[ ![Diagram illustrating backup of Azure Stack Hub files and applications that are hosted on Azure VMs that run such workloads as SQL Server, SharePoint Server, Exchange Server, File Server, and Active Directory Domain Services domain controllers. The backup relies on Azure Backup Server that run on a Windows Server VM, with a geo-replicated Azure Recovery Services vault providing long-term storage. Initial backups can be performed by using Azure Import/Export service. Optionally, Azure ExpressRoute can provide high-bandwidth connectivity to Azure.](./images/azure-stack-backup.svg)](./images/azure-stack-backup.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -394,7 +394,6 @@ Related architectures:
 - [Disaster Recovery for Azure Stack Hub VMs](azure-stack-vm-disaster-recovery.yml)
 - [Backup on premises applications and data to the cloud](../solution-ideas/articles/backup-archive-on-premises-applications.yml)
 
-[architectural-diagram]: ./images/azure-stack-backup.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-backup.vsdx
 [azure-backup-azure-stack]: /azure/backup/backup-mabs-install-azure-stack
 [azure-backup-dpmmabs-support]: /azure/backup/backup-support-matrix-mabs-dpm#dpmmabs-networking-support
