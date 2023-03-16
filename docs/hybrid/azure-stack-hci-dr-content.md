@@ -2,7 +2,7 @@ The following reference architecture illustrates how to design and implement dis
 
 ## Architecture
 
-[ ![Diagram illustrating an active-active and an active-passive Azure Stack HCI stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Stack HCI VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Stack HCI VMs.](images/azure_stack_hci_dr.svg)](images/azure_stack_hci_dr.svg#lightbox)
+[ ![Diagram illustrating an active-active and an active-passive Azure Stack HCI stretched cluster, with storage volumes and cluster performance history replicating via Storage Replica. In the active-active mode, there is replication traffic in each direction, with both sites hosting Azure Stack HCI VMs. In the active-passive mode, replication is unidirectional, with the active site hosting Azure Stack HCI VMs.](images/azure-stack-hci-dr.svg)](images/azure-stack-hci-dr.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -143,7 +143,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 - [Azure Automation in a hybrid environment](azure-automation-hybrid.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_hci_dr.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-hci-dr.vsdx
 [azure-well-architected-framework]: /azure/architecture/framework
 [microsoft-component]: /
 [azs-hci]: /azure-stack/hci/overview
