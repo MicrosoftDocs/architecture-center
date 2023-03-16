@@ -1,4 +1,4 @@
-This article provides guidance for implementation subscription vending automation. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster.
+This article provides implementation guidance for subscription vending automation. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster.
 
 [![Diagram showing how the subscriptions vending fits in an organization.](images/sample-subscription-vending-architecture.png)](images/sample-subscription-vending-architecture.png)
 *Figure 1. A subscription vending implementation in an example Azure environment.*
