@@ -9,11 +9,11 @@ Azure Lab Services equips teachers to create labs to satisfy such course needs. 
 ### Workflow
 
 - To create virtual labs for a class, an Azure administrator whose role is Contributor or higher does the following:
-  - Creates a Lab Services account to host one or more virtual labs.
+  - Creates a lab plan to host one or more virtual labs.
   - Approves appropriate marketplace images to serve as starting points for faculty to create lab templates.
-  - Can also attach a shared image gallery to the account that contains one or more OS images, images that can serve as starting points for the templates.
-  - Grants Lab Creator role to the teacher or teachers who will create labs within the lab account.
-- The teacher signs in to Lab Services at [https://labs.azure.com](https://labs.azure.com) and creates a lab and a template image that run Windows or Linux. The starting point for the template comes from the list of approved marketplace images or from an attached shared image gallery.
+  - Can optionally attach an Azure Compute gallery to the lab plan that contains one or more OS images, images that can serve as starting points for the templates.
+  - Grants Lab Creator role to the teacher or teachers who will create labs within the lab plan.
+- The teacher signs in to Lab Services at [https://labs.azure.com](https://labs.azure.com) and creates a lab and a template image that run Windows or Linux. The starting point for the template comes from the list of approved marketplace images or from an attached Azure Compute gallery.
 - The teacher logs into the template VM and installs additional software, sample code, and data that's needed for the lab. The result is the template for the lab. The teacher can configure start and stop schedules for all VMs, and can grant additional quota hours outside the scheduled hours for student use. At all times, a maximum cost estimate is displayed so that the teacher can see the impact of changes.
 - Students can be granted access to a lab using any of these options:
   - [Azure Active Directory account](/azure/lab-services/tutorial-setup-classroom-lab#add-users-by-email-address)
@@ -21,7 +21,7 @@ Azure Lab Services equips teachers to create labs to satisfy such course needs. 
   - [Microsoft Teams integration](/azure/lab-services/how-to-get-started-create-lab-within-teams) and, by extension, [School Data Sync (SDS)](/schooldatasync/creating-class-teams-with-sds)
   - [Emails or CSV](/azure/lab-services/how-to-configure-student-usage#add-users-manually-from-emails-or-csv-file)
   - [Registration Link](/azure/lab-services/how-to-configure-student-usage#get-the-registration-link)
-- After being added to a lab, a student can sign into [https://labs.azure.com](https://labs.azure.com) to see the VM that they can access. If a student's VM is not already running and there is available quota, the student can start the VM and connect via RDP or SSH by using the provided link. Any changes the student makes to the VM will persist until the lab is deleted or the VM is reset by the teacher. When done working, the student can shut down the VM to preserve quota, or the VM can shut down on its own per any configured idle settings in the lab.
+- After being added to a lab, a student can sign in to [https://labs.azure.com](https://labs.azure.com) to see the VMs that they can access. If a student's VM is not already running and there is available quota for that student, the student can start the VM and connect via RDP or SSH by using the provided link. Any changes the student makes to the VM will persist until the lab is deleted or the VM is reset by the teacher. When done working, the student can shut down the VM to preserve quota, or the VM can shut down on its own per any configured idle/disconnected user settings in the lab.
 - If the student's VM needs to be returned to its original state, the teacher can reset it in the portal. Additional quota hours, if needed, can be assigned to an individual student or granted to all the students. Once the course is complete, the labs can be deleted by the teacher.
 - There are several class types highlighted in the documentation including [Ethical Hacking](/azure/lab-services/class-types#ethical-hacking-with-hyper-v), [Python/Jupyter Notebooks](/azure/lab-services/class-types#python-and-jupyter-notebooks) and [Networking with GNS3](/azure/lab-services/class-types#networking-with-gns3).
 
@@ -41,7 +41,7 @@ A teacher needs to provide each student with a personal Windows or Linux virtual
 
 Azure Lab Services equips teachers to create labs to satisfy such course needs. Lab Services manages the infrastructure, from spinning up the VMs to handling errors and scaling as needed.
 
-After an IT admin creates a lab account in Lab Services, a teacher can quickly set up a lab for the class, specifying the number and type of VMs that are needed for class exercises, and then adding students to the class or inviting students to self-enroll online. Once registered, a student can access one or more exclusive VMs to complete exercises for the class.
+After an IT admin creates a lab plan in Lab Services, a teacher can quickly set up a lab for the class, specifying the number and type of VMs that are needed for class exercises, and then adding students to the class or inviting students to self-enroll online. Once registered, a student can access one or more (via nested virtualization) exclusive VMs to complete exercises for the class.
 
 ### Potential use cases
 
@@ -62,12 +62,12 @@ Build your solution as per the five pillars of the [Azure Well Architected Frame
 ### Scalability
 
 - The Lab Services portal automatically scales to meet service demand.
-- Multiple lab accounts can be created in an Azure subscription and multiple labs can be created in each lab account.
+- Multiple lab plans can be created in an Azure subscription and multiple labs can be created in each lab plan.
 - Understand the [Capacity limits in Azure Lab Services](/azure/lab-services/capacity-limits).
 
 ### Availability
 
-- Understand the [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services/v1_0)
+- Understand the [SLA for Azure Lab Services](https://azure.microsoft.com/support/legal/sla/lab-services)
 
 ### Security
 
@@ -83,7 +83,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - The two primary drivers of cost within Lab Services are how many hours the lab VMs are powered on, and what size they are. Larger sizes and GPU-enabled sizes are higher cost, so it makes sense to select the minimum size VM that's adequate for the labs.
-- Lab Services helps contain compute costs via teacher-controlled schedules and quota hours. There are no VM storage costs despite the VM’s being persistent.
+- Lab Services helps contain compute costs via teacher-controlled schedules and quota hours. There are no VM storage costs despite the VM's storage being persistent.
 - Pricing is covered in [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services), and sample cost estimates are provided for many of the [Class Type examples](/azure/lab-services/class-types) in the product docs, in the **Cost** section towards the end of each scenario. The [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) provides a way to build scenario pricing also.
 
 ## Deploy this scenario
@@ -100,9 +100,9 @@ Principal author:
 
 ## Next steps
 
-- To get started with Azure Lab Services quickly, follow these tutorials:
-  - [Set up a lab account with Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-lab-account)
-  - [Set up a classroom lab using Azure Lab Services - Azure Lab Services](/azure/lab-services/tutorial-setup-classroom-lab)
+- To get started with Azure Lab Services quickly, complete these tutorials:
+  - [Set up a Lab Plan with Azure Lab Services – Azure Lab Services](/azure/lab-services/tutorial-setup-lab-plan)
+  - [Set up a classroom lab using Azure Lab Services – Azure Lab Services](/azure/lab-services/tutorial-setup-lab)
 - [What is Azure Lab Services?](/azure/lab-services/lab-services-overview)
 - [Azure Lab Services documentation](/azure/lab-services)
 - [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services)
