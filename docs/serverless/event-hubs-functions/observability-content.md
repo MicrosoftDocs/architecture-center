@@ -52,7 +52,7 @@ For Event Hubs, the correlation is injected into the event payload, and you see 
 
 ![Diagnostic Id property](images/observability-diagnostic-id.png)
 
-This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that are also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
+This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that's also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
 
 ![Batch Events correlation](images/observability-batch-events.png)
 
