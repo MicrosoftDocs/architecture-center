@@ -2,7 +2,7 @@ This reference architecture illustrates how to design infrastructure for highly 
 
 ## Architecture
 
-![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster uses a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation, which includes Azure update management functionality, Azure Monitor, Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.][architectural-diagram]
+[ ![Diagram illustrating an Azure Stack HCI ROBO scenario, with a two-node Azure Stack HCI cluster using a switchless interconnect and a USB-based quorum. The cluster uses a number of Azure services, including Azure Arc that provides the ability to implement Azure Policy, Azure Automation, which includes Azure update management functionality, Azure Monitor, Azure File Sync, Azure Network Adapter, Microsoft Defender for Cloud, Azure Backup, Azure Site Recovery, and Storage Replica.](images/azure-stack-robo.svg)](images/azure-stack-robo.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -184,7 +184,6 @@ Microsoft Learn modules:
 - [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 
-[architectural-diagram]: images/azure-stack-robo.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_robo.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci]: /azure-stack/hci/overview
