@@ -1,10 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Utilize Azure Functions for low latency processing and quick reads/writes to Azure Table Storage. Azure Power Apps and Power Automate provide out-of-box connectors for you to tap into data sources that can live anywhere, including in a 3rd-party systems.
-
-## Potential use cases
-
-This solution demonstrates how you can accelerate frontend and business process development with a drag-and-drop visual designer.
+This article describes how you can speed up front-end and business process development by using a drag-and-drop visual designer.
 
 ## Architecture
 
@@ -31,6 +27,10 @@ Data is loaded from these different data sources using several Azure components:
 - [Power Automate](https://flow.microsoft.com): Streamline repetitive tasks and paperless processes with Microsoft Power Automate—so you can focus your attention where it's needed most.
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables): A NoSQL key-value store for rapid development using massive semi-structured datasets
 
+## Scenario details
+
+Utilize Azure Functions for low latency processing and quick reads/writes to Azure Table Storage. Azure Power Apps and Power Automate provide out-of-box connectors for you to tap into data sources that can live anywhere, including in a 3rd-party systems.
+
 ## Next steps
 
-- Learn more: [https://aka.ms/learnpowerapps](/training/browse/?products=power-apps)
+- [Power Apps learning paths and modules](/training/browse/?products=power-apps)
