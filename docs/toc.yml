@@ -509,6 +509,10 @@ items:
                 items:
                   - name: Azure Key Vault
                     href: guide/multitenant/service/key-vault.md
+              - name: Identity
+                items:
+                  - name: Azure Active Directory B2C
+                    href: guide/multitenant/service/azure-ad-b2c.md
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search
