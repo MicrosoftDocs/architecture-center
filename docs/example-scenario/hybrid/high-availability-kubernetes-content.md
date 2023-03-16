@@ -226,7 +226,7 @@ The Azure Stack Hub operator (or administrator) is responsible for the maintenan
 
 Azure Stack Hub is the platform and fabric on which Kubernetes applications are deployed. The application owner for the Kubernetes application is a user of Azure Stack Hub who has access to deploy the application infrastructure needed for the solution. The application infrastructure, in this case, is the Kubernetes cluster, deployed via AKS Engine, and the surrounding services. 
 
-These components are deployed into Azure Stack Hub. The components are constrained by the Azure Stack Hub offer. Make sure the offer accepted by the Kubernetes application owner has sufficient capacity, expressed in Azure Stack Hub quotas, to deploy the entire solution. As recommended in the previous section, you should automate the application deployment by using infrastructure-as-code and deployment pipelines like Azure pipelines.
+These components are deployed into Azure Stack Hub. The components are constrained by the Azure Stack Hub offer. Make sure the offer accepted by the Kubernetes application owner has sufficient capacity, expressed in Azure Stack Hub quotas, to deploy the entire solution. As recommended in the previous section, you should automate the application deployment by using infrastructure-as-code and deployment pipelines like Azure Pipelines.
 
 For more information on Azure Stack Hub offers and quotas, see [Azure Stack Hub services, plans, offers, and subscriptions overview](/azure-stack/operator/service-plan-offer-subscription-overview).
 
