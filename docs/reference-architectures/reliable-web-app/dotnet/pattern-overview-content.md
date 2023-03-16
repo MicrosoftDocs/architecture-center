@@ -1,8 +1,10 @@
-The reliable web app pattern is a set of best practices built on the [Azure Well-Architected Framework](/azure/architecture/framework/) that helps developers successfully migrate web applications to the cloud. The goal is to improve the cost, performance, security, operations, and reliability of your web application with minimal changes. The reliable web app pattern is an essential first step for web applications converging on the cloud and sets a foundation for future modernizations in Azure.
+The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [pattern overview](../overview.md) and the [videos series](https://aka.ms/eap/rwa/dotnet/videos). For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos). This article shows you how to plan the implementation. There's a companion article that shows you how to [apply the pattern](apply-pattern.yml).
 
-For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+![Diagram showing GitHub icon](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing app.
 
-This article defines objectives of the reliable web app pattern and details the business drivers, on-premises context, and the reasons the web app uses each Azure service. There's a companion article that shows you [how to apply the pattern](./apply-pattern.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing app.
+## Architecture and pattern
+
+The reliable web app pattern is a set of objectives that implement the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. Your implementation of this pattern will vary based on your web application and the language it's written in.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
@@ -11,13 +13,11 @@ This article defines objectives of the reliable web app pattern and details the 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-## Pattern objectives and implementation
+The following table outlines the pattern's objectives and how the reference implementation meets these objectives.
 
-The reliable web app pattern is a set of objectives that implement the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. Your implementation of this pattern will vary based on your web application and the language it's written in. The following table outlines the pattern's objectives and how the reference implementation meets these objectives.
-
-| Objectives | Implementation for .NET |
+| Reliable web app principles | Implementation for .NET |
 | --- | --- |
-|▪ Low-cost, high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improved operational excellence<br>▪ Cost-optimized environments<br>▪ Well-Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
+|▪ Low-cost, high-value wins<br>▪ Minimal code changes to:<ol>▫ Meet security best practices<br>▫ Apply reliability design patterns<br>▫ Improve operational excellence</ol>▪ Cost-optimized environment(s)<br>▪ Follow Azure Well-Architected Framework principles<br>▪ Business-driven service level objective |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring |
 
 ## Business context
 
