@@ -42,20 +42,20 @@ Because the files that are searched in this scenario are binary documents, you c
 
 ### Searching file metadata
 
-If you want to include additional information about the files, you can directly associate [metadata](/azure/storage/blobs/storage-blob-properties-metadata) with the blobs, without using a separate store. The built-in [Blob Storage search indexer can even read this metadata](/azure/search/search-howto-indexing-azure-blob-storage#indexing-blob-metadata) and place it in the search index. This enables users to search for metadata along with the file content. However, [the amount of metadata is limited to 8 KB per blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources#Subheading1), so the amount of information that you can place in each blob is fairly small. You might choose to store only the most critical information directly in the blobs. In this scenario, only the document's *author* is stored in the blob.
+If you want to include additional information about the files, you can directly associate [metadata](/azure/storage/blobs/storage-blob-properties-metadata) with the blobs, without using a separate store. The built-in [Blob Storage search indexer can even read this metadata](/azure/search/search-howto-indexing-azure-blob-storage#indexing-blob-metadata) and place it in the search index. This enables users to search for metadata along with the file content. However, [the amount of metadata is limited to 8 KB per blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources#Subheading1), so the amount of information that you can place in each blob is fairly small. You might choose to store only the most critical information directly on the blobs. In this scenario, only the document's *author* is stored in the blob.
 
 To overcome this storage limitation, you can place additional metadata in another [data source that has a supported indexer](/azure/search/search-indexer-overview#supported-data-sources), like [Table storage](/azure/storage/tables/table-storage-overview). You can add the document type, business impact, and other metadata values as separate columns in the table. If you configure the built-in [Table Storage indexer](/azure/search/search-howto-indexing-azure-tables) to target the same search index as the blob indexer, the blob and table storage metadata is combined for each document in the search index.
 
 ### Using multiple data sources for a single search index
 
-To ensure that both indexers point at the same document in the search index, the [document key in the search index](/azure/search/search-what-is-an-index#field-attributes) is set to a unique identifier of the file. This unique identifier is then used to refer to the file from both data sources. The Blob Storage indexer uses the `metadata_storage_path` as the [document key by default](/azure/search/search-howto-indexing-azure-blob-storage#add-search-fields-to-an-index). The `metadata_storage_path` property stores the full URL of the file in Blob Storage, for example, `https://contoso.blob.core.windows.net/files/paper/Resilience in Azure.pdf`. The indexer also Base64-encodes it to ensure that there are no invalid characters in the document key. The result is a unique document key, like `aHR0cHM6...mUucGRm0`.
+To ensure that both indexers point at the same document in the search index, the [document key in the search index](/azure/search/search-what-is-an-index#field-attributes) is set to a unique identifier of the file. This unique identifier is then used to refer to the file from both data sources. The Blob indexer uses the `metadata_storage_path` as the [document key by default](/azure/search/search-howto-indexing-azure-blob-storage#add-search-fields-to-an-index). The `metadata_storage_path` property stores the full URL of the file in Blob Storage, for example, `https://contoso.blob.core.windows.net/files/paper/Resilience in Azure.pdf`. The indexer also Base64-encodes it to ensure that there are no invalid characters in the document key. The result is a unique document key, like `aHR0cHM6...mUucGRm0`.
 
 If you add the `metadata_storage_path` as a column in Table Storage, you know exactly which blob the metadata in the other columns belongs to, so you can use any `PartitionKey` and `RowKey` in the table. For example, you could use the blob container name as the `PartitionKey` and the Base64-encoded full URL of the blob as the `RowKey`, ensuring that there are no [invalid characters in these keys](/rest/api/storageservices/understanding-the-table-service-data-model#characters-disallowed-in-key-fields) either.
 
-You can then use a [field mapping](/azure/search/search-indexer-field-mappings) in the Table Storage indexer to map the `metadata_storage_path` column (or another column) in Table Storage to the `metadata_storage_path` document key field in the search index. If you apply the [base64Encode function](/azure/search/search-indexer-field-mappings#base64EncodeFunction) on the field mapping, you end up with the same document key (`aHR0cHM6...mUucGRm0` in the example above), and the metadata from Table Storage is added to the same document that was extracted from Blob Storage.
+You can then use a [field mapping](/azure/search/search-indexer-field-mappings) in the Table indexer to map the `metadata_storage_path` column (or another column) in Table Storage to the `metadata_storage_path` document key field in the search index. If you apply the [base64Encode function](/azure/search/search-indexer-field-mappings#base64EncodeFunction) on the field mapping, you end up with the same document key (`aHR0cHM6...mUucGRm0` in the example above), and the metadata from Table Storage is added to the same document that was extracted from Blob Storage.
 
 > [!NOTE]
-> The Table Storage indexer documentation states that [you shouldn't define a field mapping to an alternative unique string field](/azure/search/search-howto-indexing-azure-tables#add-search-fields-to-an-index:~:text=Do%20not%20define%20a%20field%20mapping%20to%20alternative%20unique%20string%20field%20in%20your%20table) in your table. That's because the indexer concatenates the `PartitionKey` and `RowKey` as the document key, by default. Because you're already relying on the document key as configured by the Blob Storage indexer (which is the Base64-encoded full URL of the blob), creating a field mapping to ensure both indexers refer to the same document in the search index is appropriate and supported for in scenario.
+> The Table indexer documentation states that [you shouldn't define a field mapping to an alternative unique string field](/azure/search/search-howto-indexing-azure-tables#add-search-fields-to-an-index:~:text=Do%20not%20define%20a%20field%20mapping%20to%20alternative%20unique%20string%20field%20in%20your%20table) in your table. That's because the indexer concatenates the `PartitionKey` and `RowKey` as the document key, by default. Because you're already relying on the document key as configured by the Blob indexer (which is the Base64-encoded full URL of the blob), creating a field mapping to ensure both indexers refer to the same document in the search index is appropriate and supported for in scenario.
 
 Alternatively, you can map the `RowKey` (which is set to the Base64-encoded full URL of the blob) to the `metadata_storage_path` document key directly, without storing it separately and Base64-encoding it as part of the field mapping. However, keeping the unencoded URL in a separate column clarifies which blob it refers to and allows you to choose any partition and row keys without affecting the search indexer.
 
@@ -91,33 +91,41 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de). All the services described here are are configured in this estimate. The estimate is for a workload that has a total document size of 20 GB in Blob Storage and 1 GB of metadata in Table Storage. Two search units are used to satisfy the SLA for read purposes, as described in the [reliability](#reliability) section of this article. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
 
-As you can see by reviewing the estimate, blob and table storage make up only a fraction of the cost. The majority is spent on Azure Cognitive Search as it performs the actual indexing and compute for running search queries.
+If you review the estimate, you can see that the cost of blob and table storage is relatively low. Most of the cost is incurred by Azure Cognitive Search, because it performs the actual indexing and compute for running search queries.
 
 ## Deploy this scenario
 
-To deploy this example workload, see the [Indexing file contents and metadata in Azure Cognitive Search](https://github.com/Azure-Samples/azure-cognitive-search-blob-metadata) repository in the Azure Samples. The sample allows you to easily:
-- create the necessary Azure services
-- upload a few sample documents to Blob storage
-- populate the *author* metadata value on the blob
-- store the *document type* and *business impact* metadata values in Table storage
-- create the indexers which maintain the search index
+To deploy this example workload, see the [Indexing file contents and metadata in Azure Cognitive Search](https://github.com/Azure-Samples/azure-cognitive-search-blob-metadata). The sample enables you to:
+
+- Create the required Azure services.
+- Upload a few sample documents to Blob Storage.
+- Populate the *author* metadata value on the blob.
+- Store the *document type* and *business impact* metadata values in Table Storage.
+- Create the indexers that maintain the search index.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
+Principal author:
+
 - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Principal Customer Experience Engineer
 
-## Next steps
+Other contributor:
 
-To learn more, see these resources:
+- [Mick Alberts](https://www.linkedin.com/in/jelle-druyts-0b76823) | Technical Writer 
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
+## Next steps
 
 - [Get started with Azure Cognitive Search](/azure/search/search-what-is-azure-search#how-to-get-started)
 - [Increase relevancy using Semantic search in Azure Cognitive Search](/azure/search/semantic-search-overview)
 - [Security filters for trimming results in Azure Cognitive Search](/azure/search/search-security-trimming-for-azure-search)
+- [Tutorial: Index from multiple data sources using the .NET SDK](/azure/search/tutorial-multiple-data-sources)
 
 ## Related resources
 
-- [Choose a search data store in Azure](/azure/architecture/data-guide/technology-choices/search-options)
-- [Intelligent product search engine for e-commerce](/azure/architecture/example-scenario/apps/ecommerce-search)
-- For another example of using multiple indexers, see [Tutorial: Index from multiple data sources using the .NET SDK](/azure/search/tutorial-multiple-data-sources)
+- [Choose a search data store in Azure](../../data-guide/technology-choices/search-options.md)
+- [Intelligent product search engine for e-commerce](../apps/ecommerce-search.yml)
+- [Process free-form text for search](../../data-guide/scenarios/search.yml) 
