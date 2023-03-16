@@ -67,7 +67,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
-**[Azure Resource Manager (ARM) Templates](/azure/azure-resource-manager/templates/overview)** to configure and deploy the applications.
+**[Bicep Templates](azure/azure-resource-manager/bicep/overview)** to configure and deploy the applications.
 
 ### Alternatives
 
@@ -100,7 +100,7 @@ This drone delivery solution applies to the aerospace, aircraft, and robotics in
 
 - Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
 - Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
-  - Execute a long-running background process, such as the workflow service in single revision mode.
+- Execute a long-running background process, such as the workflow service in single revision mode.
   
 Other common uses of Container Apps include:
 
@@ -164,9 +164,9 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Environment variables: sensitive values can be securely stored at the application level.  When environment variables are changed, the container app will spawn a new revision.
 
-- Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus.
+- Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus. The Ingestion service is the only service configured with an external ingress. Azure Container Apps run in the context of an environment, which is supported by a virtual network (VNET). When you create an environment, you can provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they're created in Microsoft's tenant. To take full control over your VNET, provide an existing VNET to Container Apps as you create your environment. Do note in this example a VNET is automatically generated for you which means you can't add custom NSGs or similar. Additional details can be found [here](https://learn.microsoft.com/en-us/azure/container-apps/networking).
 
-- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets. 
+- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app. A container app can be granted a system assigned identity or an user assigned identity. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets. 
 
 ### Cost optimization
 
