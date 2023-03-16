@@ -184,7 +184,7 @@ Microsoft Learn modules:
 - [Use Azure Stack HCI stretched clusters for disaster recovery](azure-stack-hci-dr.yml)
 - [Optimize administration of SQL Server instances in on-premises and multicloud environments by using Azure Arc](/azure/architecture/hybrid/azure-arc-sql-server)
 
-[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure_stack_robo.vsdx
+[architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-stack-robo.vsdx
 [azure-well-architected-framerwork]: /azure/architecture/framework
 [azs-hci]: /azure-stack/hci/overview
 [azure-arc]: /azure/azure-arc/overview
