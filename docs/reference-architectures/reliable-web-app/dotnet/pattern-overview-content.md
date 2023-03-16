@@ -2,7 +2,7 @@ The reliable web app pattern is a set of principles that helps developers succes
 
 This article shows you how to plan the implementation of the reliable web app pattern for .NET. There's a companion article that shows you how to [apply the pattern](apply-pattern.yml).
 
-![Diagram showing GitHub icon](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing web application.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing web application.
 
 ## Architecture and pattern
 
