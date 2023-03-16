@@ -1200,7 +1200,7 @@ items:
               - name: Detect mobile bank fraud
                 href: guide/ai/bank-fraud-solution.yml
               - name: Financial institutions with data mesh
-                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh
+                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                 maintainContext: true
               - name: Financial services risk lifecycle
                 href: industries/finance/financial-risk-model.md
@@ -3280,7 +3280,7 @@ items:
                   - name: Actuarial risk analysis
                     href: industries/finance/actuarial-risk-analysis-financial-model.yml
                   - name: Financial institutions with data mesh
-                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                     maintainContext: true
               - name: Analytics security baselines
                 items:
@@ -3946,7 +3946,7 @@ items:
                   - name: Data management in retail
                     href: industries/retail/retail-data-management-overview.md
                   - name: Financial institutions with data mesh
-                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                     maintainContext: true
                   - name: Healthcare with highly sensitive data
                     href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna
