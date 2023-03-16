@@ -1,5 +1,7 @@
 This article describes how to architect and operate a highly available Kubernetes-based infrastructure by using Azure Kubernetes Service (AKS) Engine on Azure Stack Hub. The solution is based on a scenario that has a strict set of constraints. The application must run on-premises, and personal data must not reach public cloud services. Monitoring and other non-PII data can be sent to Azure and be processed there. External services like a public container registry can be accessed but might be filtered through a firewall or proxy server. 
 
+*Helm and Let's Encrypt are trademarks of their respective companies. No endorsement is implied by the use of these marks.*
+
 ## Architecture 
 
 :::image type="content" source="media/application-architecture.svg" alt-text="Diagram that shows an architecture for a high-availability Kubernetes infrastructure." lightbox="media/application-architecture.svg" border="false":::
