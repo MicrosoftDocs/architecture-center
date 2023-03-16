@@ -1,8 +1,12 @@
-The reliable web app pattern is a set of best practices built on the [Azure Well-Architected Framework](/azure/architecture/framework/) that helps developers successfully migrate web applications to the cloud. The goal is to improve the cost, performance, security, operations, and reliability of your web application with minimal changes. The reliable web app pattern is an essential first step for web applications converging on the cloud and sets a foundation for future modernizations in Azure.
+The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+This article shows you how to plan the implementation of the reliable web app pattern for .NET. There's a companion article that shows you how to [apply the pattern](apply-pattern.yml).
 
-This article defines objectives of the reliable web app pattern and details the business drivers, on-premises context, and the reasons the web app uses each Azure service. There's a companion article that shows you [how to apply the pattern](./apply-pattern.yml) and a [reference implementation](https://aka.ms/eap/rwa/dotnet) you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing app. The guidance refers to the code and architecture of the reference implementation throughout, and the following diagram illustrates its architecture.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing web application.
+
+## Architecture and pattern
+
+The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. We applied the reliable web app pattern to the reference implementation. The following diagram shows the resulting architecture of the reference implementation.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
@@ -11,17 +15,15 @@ This article defines objectives of the reliable web app pattern and details the 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-## Pattern objectives and implementation
+The following table lists the principles of the reliable web app pattern and how the reference implementation applies these principles.
 
-The reliable web app pattern is a set of objectives that implement the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. Your implementation of this pattern will vary based on your web application and the language it's written in. The following table outlines the pattern's objectives and how the reference implementation meets these objectives.
-
-| Objectives | Implementation for .NET |
+| Reliable web app principles | Implementation for .NET |
 | --- | --- |
-|▪ Low-cost, high-value wins<br>▪ Minimal code changes<br>▪ Security best practices<br> ▪ Reliability design patterns<br>▪ Improved operational excellence<br>▪ Cost-optimized environments<br>▪ Well-Architected Framework principles<br>▪ Service level objective: 99.9% |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring <br>▪ Multi-region deployment|
+|▪ Follow Azure Well-Architected Framework principles<br>▪ Low-cost, high-value wins<br>▪ Minimal code changes to:<ol>▫ Meet security best practices<br>▫ Apply reliability design patterns<br>▫ Improve operational excellence</ol>▪ Cost-optimized environment(s)<br>▪ Business-driven service level objective |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring |
 
 ## Business context
 
-This guidance mirrors the journey of a fictional company (Relecloud) that wants to take an on-premises, LOB web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn't provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
+The implementation guidance mirrors the cloud journey of a fictional company (Relecloud). The company wants to take an on-premises, LOB web application to the cloud. The goal is to meet increasing business demand with minimal investments in the existing monolithic app. Traffic to the on-premises application has increased due to increased sales with more increases in the forecast. The on-premises infrastructure doesn't provide a cost-efficient means to scale. A migration to the cloud offers the most return on investment. The company identified these short-term and long-term business goals for the application.
 
 | Short-term goals | Long-term goals |
 | --- | --- |
@@ -178,4 +180,4 @@ You can deploy the reference implementation by following the instructions in the
 This article covers the architecture and planning details for the reliable web app pattern for .NET. The following article shows you how to apply the reliable web app pattern with specific design patterns structured around the Well-Architected Framework pillars.
 
 >[!div class="nextstepaction"]
-> [How to apply the reliable web app pattern for .NET](apply-pattern.yml)
+> [Apply the reliable web app pattern for .NET](apply-pattern.yml)
