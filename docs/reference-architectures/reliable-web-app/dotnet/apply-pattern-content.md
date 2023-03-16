@@ -1,6 +1,6 @@
 The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [pattern overview](../overview.md) and the [videos series](https://aka.ms/eap/rwa/dotnet/videos). This article shows you how to apply the reliable web app pattern for .NET. There's a companion article that shows you how to [plan the implementation](pattern-overview.yml).
 
-![Diagram showing GitHub icon](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing app.
+![Diagram showing GitHub icon](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing web application.
 
 ## Architecture and code
 
@@ -13,7 +13,7 @@ A well-architected web application needs quality code, and quality code needs a 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-The following table lists the principles of the reliable web app pattern and how the reference implementation applied these principles.
+The following table lists the principles of the reliable web app pattern and how the reference implementation applies these principles.
 
 | Reliable web app principles | Implementation for .NET |
 | --- | --- |

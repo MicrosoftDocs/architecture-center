@@ -1,10 +1,10 @@
 The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [pattern overview](../overview.md) and the [videos series](https://aka.ms/eap/rwa/dotnet/videos). For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos). This article shows you how to plan the implementation. There's a companion article that shows you how to [apply the pattern](apply-pattern.yml).
 
-![Diagram showing GitHub icon](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing app.
+![Diagram showing GitHub icon](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing web application.
 
 ## Architecture and pattern
 
-The reliable web app pattern is a set of objectives that implement the pillars of [Azure Well-Architected Framework](/azure/architecture/framework/) and 12 Factor Apps. Your implementation of this pattern will vary based on your web application and the language it's written in.
+The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. We applied the reliable web app pattern to the reference implementation. The following diagram shows the resulting architecture of the reference implementation.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
@@ -13,7 +13,7 @@ The reliable web app pattern is a set of objectives that implement the pillars o
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-The following table outlines the pattern's objectives and how the reference implementation meets these objectives.
+The following table lists the principles of the reliable web app pattern and how the reference implementation applies these principles.
 
 | Reliable web app principles | Implementation for .NET |
 | --- | --- |
@@ -21,7 +21,7 @@ The following table outlines the pattern's objectives and how the reference impl
 
 ## Business context
 
-This guidance mirrors the journey of a fictional company (Relecloud) that wants to take an on-premises, LOB web application to the cloud. Relecloud's goal is to meet increasing business demand with minimal investments in the existing monolithic app. It reflects a common scenario where traffic to an on-premises application has increased due to higher-than-expected sales with continued increases forecasted. The on-premises infrastructure doesn't provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. Here are some short-term and long-term business goals for the application.
+The implementation guidance mirrors the cloud journey of a fictional company (Relecloud). The company wants to take an on-premises, LOB web application to the cloud. The goal is to meet increasing business demand with minimal investments in the existing monolithic app. Traffic to the on-premises application has increased due to increased sales with more increases in the forecast. The on-premises infrastructure doesn't provide a cost-efficient means to scale. A migration to the cloud offers the most return on investment. The company identified these short-term and long-term business goals for the application.
 
 | Short-term goals | Long-term goals |
 | --- | --- |
