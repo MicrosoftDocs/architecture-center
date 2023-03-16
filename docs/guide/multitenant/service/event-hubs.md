@@ -67,7 +67,6 @@ As the number of tenants grows within your system, the number of event hubs also
 
 When a namespace is shared, [noisy neighbor](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml) problems are more likely. For example, it's possible that the event entities of a tenant could consume a disproportionate amount of the namespace resources and hinder other tenants. Event hub namespaces have limits on their processing units (premium tier) or capacity units (dedicated tier) and on the number of brokered connections to a namespace. Consider whether a single tenant might consume too many resources.
 
-
 ### Shared namespace and event hubs
 
 You can have a namespace and event entities that are shared by all your tenants. This model decreases operational complexity and lowers resource costs.
