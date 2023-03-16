@@ -1,6 +1,6 @@
 This article demonstrates how to create a search service that enables users to search for documents based on document content in addition to any metadata that's associated with the files.
 
-You can achieve this by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure Cognitive Search](/azure/search/search-what-is-azure-search). This example workload shows how to create a single [search index](/azure/search/search-what-is-an-index) that's based on files in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
+You can implement this service by using [multiple indexers](/azure/search/search-indexer-overview#indexer-scenarios-and-use-cases) in [Azure Cognitive Search](/azure/search/search-what-is-azure-search). This example workload shows how to create a single [search index](/azure/search/search-what-is-an-index) that's based on files in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview). The file metadata is stored in [Azure Table Storage](/azure/storage/tables/table-storage-overview).
 
 ## Architecture
 
@@ -19,7 +19,7 @@ You can achieve this by using [multiple indexers](/azure/search/search-indexer-o
 ### Components
 
 - [Blob Storage](https://azure.microsoft.com/products/storage/blobs/) provides cost-effective cloud storage for file data, including data in formats like PDF, HTML, and CSV, and Microsoft Office files.
-- [Table Storage](https://azure.microsoft.com/products/storage/tables/) provides storage for non-relational structured data. In this scenario, it's used to store the metadata for each document.
+- [Table Storage](https://azure.microsoft.com/products/storage/tables/) provides storage for nonrelational structured data. In this scenario, it's used to store the metadata for each document.
 - [Azure Cognitive Search](https://azure.microsoft.com/products/search/) is a fully managed search service that provides infrastructure, APIs, and tools for building a rich search experience.
 
 ### Alternatives
@@ -71,7 +71,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure Cognitive Search provides a [high SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (that is, querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards), and for *updates* (that is, updating the search indexes) if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations. 
+Azure Cognitive Search provides a [high SLA](https://go.microsoft.com/fwlink/?LinkId=716855) for *reads* (that is, querying) if you have at least two [replicas](/azure/search/search-capacity-planning#concepts-search-units-replicas-partitions-shards). It provides a high SLA for *updates* (that is, updating the search indexes), if you have at least three replicas. You should therefore provision at least two replicas if you want your users to be able to search reliably, and three if actual changes to the index also need to be high-availability operations. 
 
 [Azure Storage always stores multiple copies of your data](/azure/storage/common/storage-redundancy) to help protect it against planned and unplanned events. Azure Storage provides additional redundancy options for replicating data across regions. These safeguards apply to data in blob and table storage.
 
@@ -89,7 +89,7 @@ You can connect from the search service to the storage account by using a [priva
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de). All the services described here are are configured in this estimate. The estimate is for a workload that has a total document size of 20 GB in Blob Storage and 1 GB of metadata in Table Storage. Two search units are used to satisfy the SLA for read purposes, as described in the [reliability](#reliability) section of this article. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
+For information about the costs of running this scenario, see this preconfigured [estimate in the Azure pricing calculator](https://azure.com/e/375d2b930db14fbe90537421331f41de). All the services described here are configured in this estimate. The estimate is for a workload that has a total document size of 20 GB in Blob Storage and 1 GB of metadata in Table Storage. Two search units are used to satisfy the SLA for read purposes, as described in the [reliability](#reliability) section of this article. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected usage.
 
 If you review the estimate, you can see that the cost of blob and table storage is relatively low. Most of the cost is incurred by Azure Cognitive Search, because it performs the actual indexing and compute for running search queries.
 
