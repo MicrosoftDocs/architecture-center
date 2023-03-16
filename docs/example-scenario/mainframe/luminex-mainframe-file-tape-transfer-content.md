@@ -38,7 +38,7 @@ This article presents a solution for using Luminex products to transfer mainfram
 
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends on-premises networks into the Microsoft cloud. By using a connectivity provider, ExpressRoute establishes private connections between on-premises data and Microsoft cloud services.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends on-premises networks into the Microsoft cloud. ExpressRoute uses a connectivity provider to establish private connections between on-premises data and Microsoft cloud services.
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of [Azure Storage](/azure/storage/common/storage-introduction). Azure Files offers fully managed file shares in the cloud. Azure file shares are accessible via the industry standard Server Message Block (SMB) protocol. This solution uses Luminex MDI and MVT to transfer mainframe files to Azure Files.
 
@@ -85,11 +85,11 @@ Mainframe physical storage can be located on the mainframe processor or external
 Secondary storage devices like [DASDs](https://wikipedia.org/wiki/Direct-access_storage_device) and [SASDs](https://wikipedia.org/wiki/Sequential_access) store data that's frequently and infrequently accessed. DASDs and SASDs differ in how they provide access to data:
 
 - DASDs are used for immediate data location and retrieval. With direct access, you can read or write data by going directly to a specific physical location on the device. As a result, DASDs are fast and efficient.
-- SASDs, such as tapes, are inherently slower than DASDs. To access tape data, you start at one location and then go through successive locations until you find the data that you need. Mainframes use physical tapes and [virtual tape libraries (VTLs)](https://eikipedia.org/wiki/Virtual_tape_library), which are also called virtual tapes. Currently, virtual tapes are preferred over physical tapes.
+- SASDs, such as tapes, are inherently slower than DASDs. To access tape data, you start at one location and then go through successive locations until you find the data that you need. Mainframes use physical tapes and [virtual tape libraries (VTLs)](https://wikipedia.org/wiki/Virtual_tape_library), which are also called virtual tapes. Currently, virtual tapes are preferred over physical tapes.
 
 The type of storage that you use depends on your needs. Many organizations need cold storage for compliance, regulatory, reporting, audit, and other purposes. Some organizations have data retention policies that require you to store data for nearly 100 years. Examples of this type of data include copies of prescriptions, patient records, customer reward history, and other information. Data that you store for the long term is mostly high in volume and accessed infrequently. Long-term storage generally costs less than active storage, which you typically access multiple times a day and which is frequently updated. Security considerations also affect your choice of storage, because cyberattacks are a constant threat.
 
-Azure offers various storage solutions and is a proven landing place for your storage, backup, and long-term archival needs. You can use cold storage for infrequently accessed data and hot storage for frequently accessed data. File structures, such as VSAM datasets, flat files, and tape data, map to Azure data constructs within databases, structured files, and blob storage. Azure storage can store volume-intense data with cost efficiency, scalability, replication, and self-sustainability. Functionality is also available in Azure for retrieving data, gaining insights from data, and visualizing data.
+Azure offers various storage solutions and is a proven landing place for your storage, backup, and long-term archival needs. You can use cold storage for infrequently accessed data and hot storage for frequently accessed data. Mainframe file structures, such as VSAM datasets, flat files, and tape data, map to Azure data constructs within databases, structured files, and blob storage. Azure storage can store volume-intense data with cost efficiency, scalability, replication, and self-sustainability. Functionality is also available in Azure for retrieving data, gaining insights from data, and visualizing data.
 
 The solution in this article uses the [Luminex](https://luminex.com) products MDI and MVT to transfer mainframe data to and from Azure to meet backup, archival, and other business needs.
 
@@ -135,8 +135,8 @@ Reliability ensures your application can meet the commitments you make to your c
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- The fully managed storage in this solution eliminates issues that are related to physical media safety. An example is damage or unauthorized access that might occur when you ship physical tapes in vehicles.
-- [Luminex CGsafe](https://luminex.com/solutions/virtual-tape/cgsafe) provides tape compression and encryption. This product is part of the MVT family and is included with CloudTAPE. CGSafe encrypts and compresses tapes during ingestion, at rest, and in transit.
+- The fully managed storage in this solution eliminates issues that are related to physical media safety. Examples are damage or unauthorized access that might occur when you ship physical tapes in vehicles.
+- [Luminex CGSafe](https://luminex.com/solutions/virtual-tape/cgsafe) provides tape compression and encryption. This product is part of the MVT family and is included with CloudTAPE. CGSafe encrypts and compresses tapes during ingestion, at rest, and in transit.
 - When you use MDI Cloud Data Sharing, files are sent over HTTPS by using SSL. In Azure, you can encrypt the files at rest.
 - Because the solution uses FICON and ESCON connectivity, you don't need to open any ports for data transfer.
 
@@ -155,7 +155,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-- The data transfer to Azure in this solution gives you flexibility for developing a backup strategy. You can enable automated regular or phased data migration. After you've installed a Luminex device in your datacenter, you can configure unidirectional or bidirectional communication, staged migration, or one-time migration. This flexibility provides support for implementing DevOps and Agile working principles and for immediate cloud adoption.
+- The data transfer to Azure in this solution gives you flexibility for developing a backup strategy. You can enable automated, regular migration or phased-data migration. After you've installed a Luminex device in your datacenter, you can configure unidirectional or bidirectional communication, staged migration, or one-time migration. This flexibility provides support for implementing DevOps and Agile working principles and for immediate cloud adoption.
 - You can take advantage of Azure capabilities for mainframe backup, archive, and disaster recovery.
 - You can deploy continuous integration/continuous delivery (CI/CD) pipelines on Azure to manage data movement, transformation, and control activities.
 
@@ -183,7 +183,7 @@ Principal authors:
 
 - For more information, contact the [Microsoft Legacy Modernization Azure Core Engineering (ACE) team](mailto:legacy2azure@microsoft.com).
 - For more information about Luminex, see [Luminex solutions](https://luminex.com/solutions).
-- For information about third-party data transfer solutions, see [Third-party archive solutions](./move-archive-data-mainframes#third-party-archive-solutions).
+- For information about third-party data transfer solutions, see [Third-party archive solutions](./move-archive-data-mainframes.yml#third-party-archive-solutions).
 
 ## Related resources
 
