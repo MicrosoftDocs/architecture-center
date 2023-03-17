@@ -202,3 +202,17 @@ The DNS flow is exactly the same as in [the solution flow](#solution---virtual-w
 
 1. The client issues request to stgworkload00.blob.core.windows.net.
 1. DNS resolves stgworkload00.blob.core.windows.net to 10.1.2.4. The request flows through Azure Firewall because it configured to secure private traffic. Azure Firewall blocks the request to the private endpoint. If you choose not to secure private traffic by Azure Firewall, the NSG on the private endpoint subnet could be used to block unwanted private traffic.
+
+## Related resources
+
+- [What is a private endpoint?](/azure/private-link/private-endpoint-overview)
+- [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
+- [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
+- [Azure Private Link in a hub-and-spoke network](/azure/architecture/guide/networking/private-link-hub-spoke-network)
+- [DNS for on-premises and Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/dns-for-on-premises-and-azure-resources)
+- [Single-region data landing zone connectivity](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/eslz-network-considerations-single-region)
+- [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/logs/private-link-security)
+- [Azure DNS Private Resolver](/azure/architecture/example-scenario/networking/azure-dns-private-resolver)
+- [Improved-security access to multitenant web apps from an on-premises network](/azure/architecture/example-scenario/security/access-multitenant-web-app-from-on-premises)
+- [Network-hardened web application with private connectivity to PaaS datastores](/azure/architecture/example-scenario/security/hardened-web-app)
+- [Tutorial: Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload](/azure/private-link/tutorial-dns-on-premises-private-resolver)
