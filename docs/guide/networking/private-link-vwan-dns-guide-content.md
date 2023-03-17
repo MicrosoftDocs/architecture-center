@@ -148,3 +148,22 @@ Each scenario starts with the desired end state and details the configuration re
 - *Workloads in **Two regions** accessing **1 dedicated PaaS resource** - coming soon*
 - *Workload in **Single region** accessing **2 workload-isolated PaaS resource** - coming soon*
 - *Workloads in **Two regions** accessing **2 workload-isolated resource** - coming soon*
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Read about the virtual hub extension pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml)
+
+## Related resources
+
+- [What is a private endpoint?](/azure/private-link/private-endpoint-overview)
+- [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns)
+- [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
+- [Azure Private Link in a hub-and-spoke network](/azure/architecture/guide/networking/private-link-hub-spoke-network)
+- [DNS for on-premises and Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/dns-for-on-premises-and-azure-resources)
+- [Single-region data landing zone connectivity](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/eslz-network-considerations-single-region)
+- [Use Azure Private Link to connect networks to Azure Monitor](/azure/azure-monitor/logs/private-link-security)
+- [Azure DNS Private Resolver](/azure/architecture/example-scenario/networking/azure-dns-private-resolver)
+- [Improved-security access to multitenant web apps from an on-premises network](/azure/architecture/example-scenario/security/access-multitenant-web-app-from-on-premises)
+- [Network-hardened web application with private connectivity to PaaS datastores](/azure/architecture/example-scenario/security/hardened-web-app)
+- [Tutorial: Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload](/azure/private-link/tutorial-dns-on-premises-private-resolver)
