@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 03/06/2023
+ms.date: 03/13/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -25,8 +25,17 @@ The following new and updated articles have recently been published in the Azure
 
 ## March 2023
 
+### New articles
+
+- [Autonomous Vehicle Operations (AVOps) design guide](./guide/machine-learning/avops-design-guide.md)
+- [Create an Autonomous Vehicle Operations (AVOps) solution](./solution-ideas/articles/avops-architecture.yml)
+- [Protect access tokens in a single-page application by using Azure API Management](./guide/web/secure-single-page-application-authorization.yml)
+
 ### Updated articles
 
+- [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)  ([#693c6382d](https://github.com/MicrosoftDocs/architecture-center/commit/693c6382d))
+- [DevOps checklist](./checklist/dev-ops.md)  ([#d4ccd9995](https://github.com/MicrosoftDocs/architecture-center/commit/d4ccd9995))
+- [DevSecOps with GitHub Security](./solution-ideas/articles/devsecops-in-github.yml)  ([#8d6dd058a](https://github.com/MicrosoftDocs/architecture-center/commit/8d6dd058a))
 - [Connected factory signal processing pipeline](./example-scenario/iot/connected-factory-signal-pipeline.yml)  ([#c2fd38216](https://github.com/MicrosoftDocs/architecture-center/commit/c2fd38216))
 - [Azure DevTest Labs architecture for enterprises](./example-scenario/infrastructure/devtest-labs-reference-architecture.yml)  ([#0134ee6bc](https://github.com/MicrosoftDocs/architecture-center/commit/0134ee6bc))
 - [Considerations when using domain names in a multitenant solution](./guide/multitenant/considerations/domain-names.yml)  ([#aeed32dd1](https://github.com/MicrosoftDocs/architecture-center/commit/aeed32dd1))
