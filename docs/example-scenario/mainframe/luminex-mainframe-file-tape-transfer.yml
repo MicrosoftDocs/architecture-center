@@ -5,7 +5,7 @@ metadata:
   description: Use Luminex products to transfer mainframe file and tape data to and from Azure to meet backup, archival, and other business needs.
   author: vatseyb
   ms.author: bhuvivatsey
-  ms.date: 03/16/2023
+  ms.date: 03/17/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
