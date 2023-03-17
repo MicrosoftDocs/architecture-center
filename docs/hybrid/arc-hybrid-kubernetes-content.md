@@ -92,7 +92,7 @@ The **flux-config** agent that runs in your cluster is responsible for watching 
 
 The source repository can contain any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, and DaemonSets. It can also contain Helm charts for deploying applications. Common source repository scenarios include defining a baseline configuration for your organization that can include common role-base access control (RBAC) roles and bindings, monitoring agents, logging agents, and cluster-wide services.
 
-You can also manage a larger collection of clusters that are deployed across heterogeneous environments. For example, you can have one repository that defines the baseline configuration for your organization, and then apply that to multiple Kubernetes clusters simultaneously. You can also deploy applications to a cluster from multiple source respositories.
+You can also manage a larger collection of clusters that are deployed across heterogeneous environments. For example, you can have one repository that defines the baseline configuration for your organization, and then apply that to multiple Kubernetes clusters simultaneously. You can also deploy applications to a cluster from multiple source repositories.
 
 For more information, see [Deploy applications using GitOps with Flux v2][Deploy applications using GitOps with Flux v2].
 
