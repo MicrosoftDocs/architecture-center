@@ -1,8 +1,8 @@
 The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-This article shows you how to apply the reliable web app pattern for .NET. There's a companion article that shows you how to [plan the implementation](pattern-overview.yml).
+This article shows you how to apply the reliable web app pattern for .NET. The companion article shows you how to [plan the implementation](pattern-overview.yml).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing web application.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's also a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB), concert ticketing web application.
 
 ## Architecture and code
 
@@ -215,7 +215,7 @@ You should protect web applications with a web application firewall. The web app
 
 Cost optimization principles balance business goals with budget justification to create a cost-effective web application. Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For a web app converging on the cloud, here are our recommendations for cost optimization. The code changes optimize for horizontal scale to reduce costs rather than optimizing existing business processes. The latter can lead to higher risks.
 
-**Reference architecture:** The checkout process has a hot path of rendering ticket images during request processing. Isolating the checkout process would improve cost management and performance, but this change is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
+*Reference implementation:* The checkout process in the reference implementation has a hot path of rendering ticket images during request processing. You can isolate the checkout process to improve cost optimization and performance efficiency, but this change is beyond the scope of the reliable web app pattern. You should address it in future modernizations.
 
 ### Rightsize resources for each environment
 
