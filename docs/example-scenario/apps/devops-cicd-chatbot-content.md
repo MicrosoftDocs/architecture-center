@@ -92,39 +92,7 @@ Organizations embracing GitOps could automate the deployment of the underlying i
 
 An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. In this example, the ARM templates are being generated using the EchoBot templates. Later you could adapt them to your specific case scenario by modifying the tier, compute, platform, or scale, or break them down into several linked ARM templates, as presented above.
 
-### Bot Services
-
-The Azure Bot Service provides an endpoint for the bot to communicate through the chosen channels. The Bot Service also provides a mechanism to associate the bot to a pricing tier, based upon the expected requests and throughput.
-
-To deploy to Azure, the bot needs an Application ID and password, and the ability to register channels to run in. All the instructions are provided as part of [this example](https://github.com/mspnp/solution-architectures/tree/master/cicdbots). For more information, see [App registration](/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration).
-
-### Application Insights
-
-Azure Application Insights allows you to send telemetry from the chatbot app, which helps you to understand how it's performing. You can also connect Application Insights directly to the Bot Service to collect more information. For more information, see [Enable Bot Analytics](/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0#enable-analytics).
-
-### Potential use cases
-
-Consider Azure DevOps and CI/CD processes for:
-
-- Accelerating application development and development lifecycles.
-- Building quality and consistency into an automated build and release process
-- Increasing application stability and uptime.
-
-## Considerations
-
-- Although ARM templates don't need to be compiled, you can validate their quality. For example, you could do [linting](https://jsonlint.com/) on the ARM templates. See the [ARM template toolkit](https://github.com/Azure/arm-ttk) for more ARM template analysis and test tools from the Azure Resource Manager team. Consider which pipeline, build, or release, is most appropriate for the tests, based on your development lifecycle.
-
-- When you use linked ARM templates for deploying the infrastructure, you need to ensure that they're accessible from a public endpoint, like a Git repository or an Azure Blob Storage account. By uploading the templates to a storage account, you can provide a level of security because they'e held in a private mode but can be accessed via some form of SAS token.
-
-- A common practice is to use [Azure Key Vault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the service principal connection to your Azure subscription has appropriate access policies to the key vault, it can download secrets from the key vault to use as variables in your pipeline. Doing so avoids storing secrets in source control. The name of the secret will be set with the associated value. For example, a secret in the key vault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
-
-- You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
-
-## Deploy this scenario
-
-You can build and deploy the [example scenario from GitHub](https://github.com/mspnp/solution-architectures/tree/master/cicdbots).
-
-## Enhance this solution
+### Enhance this solution
 
 Here are some ways to further enhance this solution:
 
@@ -132,6 +100,52 @@ Here are some ways to further enhance this solution:
 - Set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot.
 - Deploy a back-end store for your bot to interact with, such as Azure Cosmos DB.
 - Automate the generation of the Application Insights API Key, and consider storing the key in an Azure KeyVault that you can reference during deployment time.
+
+### Potential use cases
+
+Consider Azure DevOps and CI/CD processes for:
+
+- Accelerating application development and development lifecycles.
+- Building quality and consistency into an automated build and release process.
+- Increasing application stability and uptime.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+A common practice is to use [Azure Key Vault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the service principal connection to your Azure subscription has appropriate access policies to the key vault, it can download secrets from the key vault to use as variables in your pipeline. Doing so avoids storing secrets in source control. The name of the secret will be set with the associated value. For example, a secret in the key vault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+The Azure Bot Service provides an endpoint for the bot to communicate through the chosen channels. The Bot Service also provides a mechanism to associate the bot to a pricing tier, based upon the expected requests and throughput.
+
+To build an estimate of costs for deploying and running this example workload, refer to the Azure pricing calculator (https://azure.microsoft.com/pricing/calculator). 
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+Although ARM templates don't need to be compiled, you can validate their quality. For example, you could do [linting](https://jsonlint.com/) on the ARM templates. See the [ARM template toolkit](https://github.com/Azure/arm-ttk) for more ARM template analysis and test tools from the Azure Resource Manager team. Consider which pipeline, build, or release, is most appropriate for the tests, based on your development lifecycle.
+
+When you use linked ARM templates for deploying the infrastructure, you need to ensure that they're accessible from a public endpoint, like a Git repository or an Azure Blob Storage account. By uploading the templates to a storage account, you can provide a level of security because they'e held in a private mode but can be accessed via some form of SAS token.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
+
+Azure Application Insights allows you to send telemetry from the chatbot app, which helps you to understand how it's performing. You can also connect Application Insights directly to the Bot Service to collect more information. For more information, see [Enable Bot Analytics](/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0#enable-analytics).
+
+## Deploy this scenario
+
+To deploy to Azure, the bot needs an Application ID and password, and the ability to register channels to run in. For more information, see [App registration](/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration). All of the instructions for building and deploying this scenario are provided in the [CI/CD pipeline for chatbots reference implementation](https://github.com/mspnp/solution-architectures/tree/master/cicdbots). 
 
 ## Contributors
 
