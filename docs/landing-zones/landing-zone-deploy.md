@@ -61,6 +61,15 @@ The options below provide an opinionated approach to deploy and operate the [Azu
 
 In addition, after deploying the landing zone, you will need to plan to operate it and maintain it.  Review the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
 
+## Subscription Vending
+
+Now its time to operationalize application landing zones for workload owners. Subscription democratization is a [desing principle](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) of Azure landing zones to scale to accelerate application migrations and new application development by using subscriptions as units of management. [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster. The following guidance details each step of the subscription vending process. For more information, see [Subscription vending implementation guidance](/azure/architecture/landing-zones/subscription-vending). The two modules below provide templates to fit your implementation needs. 
+
+| Deployment option | Description |
+| --- | ---|
+| [Bicep Subscription vending](https://github.com/Azure/bicep-lz-vending) | The landing zone Bicep modules are designed to accelerate deployment of the individual landing zones (aka Subscriptions) within an Azure AD Tenant. |
+| [Terraform Subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | The landing zone Terraform module is designed to accelerate deployment of individual landing zones within an Azure tenant. |
+
 ## Application
 
 Application landing zones are one or more subscriptions that are deployed as environments for workloads or applications. These workloads can take advantage of services deployed in platform landing zones. The application landing zones can be centrally managed applications, decentralized workloads, or technology platforms such as Azure Kubernetes Service that host applications.
