@@ -63,7 +63,9 @@ In addition, after deploying the landing zone, you will need to plan to operate 
 
 ## Subscription Vending
 
-Now its time to create and operationalize application landing zones for workload owners. Subscription democratization is a [design principle](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) of Azure landing zones to scale to accelerate application migrations and new application development by using subscriptions as units of management and scale. [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster. The following guidance details each step of the subscription vending process. For more information, see [Subscription vending implementation guidance](/azure/architecture/landing-zones/subscription-vending). The two infrastructure-as-code modules below provide flexibility to fit your implementation needs. 
+Once the platform landing zone is in place, the next step is to create and operationalize application landing zones for workload owners. Subscription democratization is a [design principle](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) of Azure landing zones that uses subscriptions as units of management and scale. This approach accelerates application migrations and new application development.
+
+[Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process for requesting, deploying, and governing subscriptions, enabling application teams to deploy their workloads faster. To get started, see [subscription vending implementation guidance](/azure/architecture/landing-zones/subscription-vending), then review the following infrastructure-as-code modules. They provide flexibility to fit your implementation needs.
 
 | Deployment option | Description |
 | --- | ---|
