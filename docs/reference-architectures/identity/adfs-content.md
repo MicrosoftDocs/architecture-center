@@ -2,7 +2,7 @@ This reference architecture implements a secure hybrid network that extends your
 
 ## Architecture
 
-![Secure hybrid network architecture with Active Directory](./images/adfs.png)
+![Diagram showing an example of a secure hybrid network architecture with Active Directory Federation Services.](./images/adfs.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -228,6 +228,11 @@ Principal author:
 - [Manage Identity in multitenant applications](../../multitenant-identity/index.yml)
 - [Identity Management Security](/azure/security/fundamentals/identity-management-overview)
 - [Azure Firewall](/azure/firewall/overview)
+
+## Related resources
+
+- [Deploy AD DS in an Azure virtual network](adds-extend-domain.yml)
+- [Azure Active Directory identity management and access management for AWS](../aws/aws-azure-ad-security.yml)
 
 <!-- links -->
 
