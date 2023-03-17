@@ -2851,6 +2851,8 @@ items:
             href: data-guide/big-data/ai-overview.md
           - name: Guides
             items:
+              - name: Automate PDF form processing
+                href: example-scenario/document-processing/automate-pdf-form-processing.yml
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Custom speech-to-text overview
@@ -3071,6 +3073,8 @@ items:
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
+              - name: Automate PDF form processing
+                href: example-scenario/document-processing/automate-pdf-form-processing.yml
               - name: Automate video analysis
                 href: example-scenario/ai/analyze-video-computer-vision-machine-learning.yml
               - name: Baseball decision analysis with ML.NET
