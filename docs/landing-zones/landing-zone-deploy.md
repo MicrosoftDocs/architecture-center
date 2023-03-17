@@ -68,7 +68,7 @@ Now its time to create and operationalize application landing zones for workload
 | Deployment option | Description |
 | --- | ---|
 | [Bicep Subscription Vending](https://github.com/Azure/bicep-lz-vending) | The Subscription Vending Bicep module is designed to accelerate deployment of the individual landing zones (aka Subscriptions) within an Azure Active Directory Tenant on EA, MCA & MPA billing accounts. |
-| [Terraform Subscription vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | The landing zone Terraform module is designed to accelerate deployment of individual landing zones within an Azure tenant. |
+| [Terraform Subscription Vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | The Subscription Vending Terraform module is designed to accelerate deployment of the individual landing zones (aka Subscriptions) within an Azure Active Directory Tenant on EA, MCA & MPA billing accounts |
 
 ## Application
 
