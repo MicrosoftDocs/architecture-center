@@ -50,7 +50,6 @@ This architecture extends the implementation described in [Extending AD DS to Az
 - [**AD FS servers**](/defender-for-identity/active-directory-federation-services#server-specifications)
 - [**AD FS proxy subnet**](/windows-server/identity/ad-fs/overview/ad-fs-requirements#BKMK_3)
 - [**AD FS web application proxy (WAP) servers**](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
-- **Partner organization**
 
 ## Scenario details
 
