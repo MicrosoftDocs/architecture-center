@@ -83,7 +83,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Configure the network interface for each of the VMs hosting AD FS and WAP servers with static private IP addresses.
 
-Don't give the AD FS VMs public IP addresses. For more information, see the [Security considerations](#security-considerations) section.
+Don't give the AD FS VMs public IP addresses. For more information, see the [Security considerations](#security) section.
 
 Set the IP address of the preferred and secondary domain name service (DNS) servers for the network interfaces for each AD FS and WAP VM to reference the Active Directory DS VMs. The Active Directory DS VMs should be running DNS. This step is necessary to enable each VM to join the domain.
 
