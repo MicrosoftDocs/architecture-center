@@ -4,7 +4,7 @@ Azure Lab Services helps teachers create labs. Lab Services manages the infrastr
 
 :::image type="content" source="media/teacher-provisioned-virtual-labs-azure.png" alt-text="Architecture for teacher-provisioned virtual labs by using Lab Services." lightbox="media/teacher-provisioned-virtual-labs-azure.png" border="false" :::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1898940-teacher-provisioned-virtual-labs-azure.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/teacher-provisioned-virtual-labs-azure-v2.vsdx) of this architecture.*
 
 ### Workflow
 
