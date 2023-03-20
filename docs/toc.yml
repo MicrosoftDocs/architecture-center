@@ -5304,8 +5304,6 @@ items:
                     href: solution-ideas/articles/contactless-interfaces.yml
                   - name: COVID-19 IoT safe environments
                     href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-                  - name: IoT Connected Platform
-                    href: solution-ideas/articles/iot-connected-platform.yml
                   - name: Lighting and disinfection system
                     href: solution-ideas/articles/uven-disinfection.yml
               - name: Environment monitoring
