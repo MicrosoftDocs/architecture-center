@@ -5182,7 +5182,7 @@ items:
                 href: solution-ideas/articles/lob.yml
               - name: Protect backend APIs in Azure
                 href: solution-ideas/articles/protect-backend-apis-azure-management.yml
-              - name: Web and mobile front-ends
+              - name: Web and mobile front ends
                 href: solution-ideas/articles/front-end.yml
       - name: Internet of Things
         items:

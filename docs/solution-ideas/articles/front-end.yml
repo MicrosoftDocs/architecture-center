@@ -1,23 +1,19 @@
 ### YamlMime:Architecture
 metadata:
-  title: Web and mobile front ends
-  titleSuffix: Azure Solution Ideas
-  description: Accelerate development with a visual designer. Use Azure Functions for low-latency processing and Azure Power Apps and Power Automate for out-of-box connectors.
+  title: Speed up web and front-end development by using Power Apps 
+  titleSuffix: Azure Architecture Center
+  description: Speed up application development by using the Power Apps visual designer, Power Automate, and Azure Functions.
   author: martinekuan
   ms.author: architectures
   ms.date: 05/27/2022
-  ms.topic: solution-idea
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea
-  ms.category:
-    - mobile
-    - web
-    - front
-name: Web and mobile front ends
+name: Speed up web and front-end development by using Power Apps 
 azureCategories:
   - mobile
   - web
-summary: Accelerate development with a visual designer. Use Azure Functions for low-latency processing and Azure Power Apps and Power Automate for out-of-box connectors.
+summary: Speed up application development by using the Power Apps visual designer, Power Automate, and Azure Functions.
 products:
   - azure-functions
   - azure-table-storage
