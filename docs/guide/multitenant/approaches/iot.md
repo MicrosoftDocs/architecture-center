@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches for supporting multitenancy in your IoT solution.
 author: drcrook1
 ms.author: dacrook
-ms.date: 04/11/2022
+ms.date: 03/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -261,13 +261,13 @@ When you expand the scale of a solution to very large deployments, there are spe
 
 Principal authors:
 
- - [Michael C. Bazarewsky](http://linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
- - [David Crook](http://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
+ - [Michael C. Bazarewsky](https://linkedin.com/in/mikebaz) | Senior Customer Engineer, FastTrack for Azure
+ - [David Crook](https://linkedin.com/in/drcrook) | Principal Customer Engineer, FastTrack for Azure
  
 Other contributors:
 
- - [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
- - [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ - [John Downs](https://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+ - [Arsen Vladimirskiy](https://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
 
 ## Next steps
 

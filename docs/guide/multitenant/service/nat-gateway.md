@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the features of NAT Gateway that are useful when you work with multitenanted systems. It also provides links to guidance and examples for how to use NAT Gateway in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 1/7/2022
+ms.date: 03/13/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -50,7 +50,7 @@ Outbound IP address control can be useful in multitenant applications, when you 
 
 - You use Azure services that don't automatically provide dedicated static IP addresses for outbound traffic. These services include Azure App Service, Azure Functions, API Management (when running in the consumption tier), and Azure Container Instances.
 - You need to connect to your tenants' networks over the internet.
-- Your tenants need to filter incoming traffic that's based on its IP address.
+- Your tenants need to filter incoming traffic based on the IP address of each request.
 
 When a NAT Gateway instance is applied to a subnet, any outbound traffic from that subnet uses the public IP addresses that's associated with the NAT gateway.
 
@@ -69,13 +69,13 @@ Review [Architectural approaches for networking in multitenant solutions](../app
 
 Principal author:
 
- * [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
+- [John Downs](https://www.linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
 
 Other contributors:
 
- * [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Program Manager 2, Azure NAT Gateway
- * [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
- * [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
+ - [Aimee Littleton](https://www.linkedin.com/in/aimeelittleton) | Program Manager 2, Azure NAT Gateway
+ - [Arsen Vladimirskiy](https://www.linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+ - [Joshua Waddell](https://www.linkedin.com/in/joshua-waddell) | Senior Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
