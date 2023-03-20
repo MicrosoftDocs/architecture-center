@@ -402,14 +402,16 @@ items:
               items:
                 - name: Continuous validation
                   href: guide/testing/mission-critical-deployment-testing.md
+            - name: Mitigation strategies
+               items: 
                 - name: Global routing redundancy for highly available web applications
                   items:
-                    - name: Overview
-                      href: guide/networking/global-web-applications/overview.md
-                    - name: Mission-critical content delivery
-                      href: guide/networking/global-web-applications/mission-critical-content-delivery.md
-                    - name: Mission-critical global HTTP ingress
-                      href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
+                  - name: Overview
+                    href: guide/networking/global-web-applications/overview.md
+                  - name: Mission-critical content delivery
+                    href: guide/networking/global-web-applications/mission-critical-content-delivery.md
+                  - name: Mission-critical global HTTP ingress
+                    href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md         
       - name: Multitenant applications
         items:
           - name: Overview
