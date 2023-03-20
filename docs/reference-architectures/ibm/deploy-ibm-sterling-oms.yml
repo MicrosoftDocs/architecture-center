@@ -1,0 +1,26 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy IBM Sterling Order Management Software (OMS) on Azure
+  description: Run IBM Sterling Order Management Software (OMS) on Azure. Design and implement cloud solutions for Sterling OMS that use Azure.
+  author: drewfurgiuele
+  ms.author: anfurgiu,ronieuwe,dbaumgarten
+  ms.date: 02/08/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - compute
+  - containers
+  - storage
+  - analytics
+products:
+  - azure-database-postgresql
+  - azure-files
+  - azure-redhat-openshift
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy IBM Sterling Order Management on Azure
+summary: Run IBM Sterling Order Management Software (OMS) on Azure. Design and implement cloud solutions for Sterling OMS that use Azure.
+thumbnailUrl: /azure/architecture/browse/thumbs/deploy-ibm-sterling-oms-thumbnail.png
+content: |
+  [!include[](deploy-ibm-sterling-oms-content.md)]

@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Sandi HiFUN on an Azure virtual machine 
+  description: Learn how Sandi HiFUN computational fluid dynamics (CFD) software performs on an Azure virtual machine (VM).
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 02/07/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Sandi HiFUN on an Azure virtual machine 
+summary: Learn how Sandi HiFUN CFD software performs on an Azure virtual machine.
+thumbnailUrl: /azure/architecture/browse/thumbs/hpc-sandi-hifun-thumb.png
+content: |
+  [!include[](hpc-sandi-hifun-content.md)]

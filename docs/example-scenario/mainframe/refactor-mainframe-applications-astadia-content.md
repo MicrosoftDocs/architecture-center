@@ -177,7 +177,7 @@ Other contributor:
 
 - [High-volume batch transaction processing](process-batch-transactions.yml)
 - [General mainframe refactor to Azure](general-mainframe-refactor.yml)
-- [IBM z/OS mainframe migration with Asysco AMT](asysco-zos-migration.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](asysco-zos-migration.yml)
 - [IBM z/OS online transaction processing on Azure](ibm-zos-online-transaction-processing-azure.yml)
 - [Micro Focus Enterprise Server on Azure VMs](micro-focus-server.yml)
 - [Refactor IBM z/OS mainframe coupling facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)

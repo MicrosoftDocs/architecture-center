@@ -27,7 +27,6 @@ The following are features of QBS:
 QBS is currently accessible as a Private offering on Azure. You can access QBS using one of the following ways:
 
 - Sign-up directly on the [ConsenSys Quorum Blockchain Service](https://consensys.net/quorum/qbs/#qbs-private-preview) page.
-- Click “Contact Me” on [Microsoft Azure market place](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-blockchain-service?tab=Overview).
 - Inquire directly with [QBS Support](https://quorum-support.zendesk.com).
 
 The elements of the architectural diagram are explained below:
@@ -121,13 +120,13 @@ Other contributor:
 ## Next steps
 
 - [Azure App Service overview](/azure/app-service/overview)
-- [Create a network - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/Get-Started/Create-a-Network/)
-- [Monitor nodes - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Metrics/)
-- [Create, build, and deploy smart contracts tutorial](https://consensys.net/docs/qbs/en/latest/Tutorials/Deploy-Smart-Contract/VSCode/)
-- [Using MetaMask - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/MetaMask/)
-- [Use Geth to attach to Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Geth/)
-- [Using Truffle - Quorum Blockchain Service](https://consensys.net/docs/qbs/en/latest/HowTo/Connect-to-Network/Truffle/)
-- [Migrate - Quorum Blockchain Service](https://consensys.net/docs/qbs/latest/Get-Started/)
+- [Create a network - Quorum Blockchain Service](https://docs.qbs.consensys.net/Get-Started/Create-a-Network/)
+- [Monitor nodes - Quorum Blockchain Service](https://docs.qbs.consensys.net/howto/configure-a-member/metrics)
+- [Create, build, and deploy smart contracts tutorial](https://docs.qbs.consensys.net/Tutorials/Deploy-Smart-Contract/VSCode/)
+- [Using MetaMask - Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/MetaMask/)
+- [Use Geth to attach to Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/Geth/)
+- [Using Truffle - Quorum Blockchain Service](https://docs.qbs.consensys.net/HowTo/Connect-to-Network/Truffle/)
+- [Migrate - Quorum Blockchain Service](https://docs.qbs.consensys.net/get-started/overview)
 - [Introduction to blockchain on Azure](/training/modules/intro-to-blockchain/)
 
 ## Related resources

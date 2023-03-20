@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy AVL FIRE M on an Azure virtual machine
+  description: Learn how the AVL FIRE M computational fluid dynamics (CFD) simulation application performs on an Azure virtual machine.  
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 02/13/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+   - azure-virtual-machines
+   - azure-virtual-network
+   - azure-cyclecloud
+name: Deploy AVL FIRE M on an Azure virtual machine
+summary: Learn how the AVL FIRE M computational fluid dynamics (CFD) simulation application performs on an Azure virtual machine.  
+thumbnailUrl: /azure/architecture/browse/thumbs/fire-m-cluster-architecture.png
+content: |
+  [!include[](hpc-avl-fire-m-content.md)]

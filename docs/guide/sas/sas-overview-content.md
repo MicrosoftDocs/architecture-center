@@ -65,6 +65,9 @@ Consider the points in the following sections when designing your implementation
 
 SAS documentation provides requirements per core, meaning per physical CPU core. But Azure provides vCPU listings. On the VMs that we recommend for use with SAS, there are two vCPU for every physical core. As a result, to calculate the value of a vCPU requirement, use half the core requirement value. For instance, a physical core requirement of 150 MBps translates to 75 MBps per vCPU. For more information on Azure computing performance, see [Azure compute unit (ACU)](/azure/virtual-machines/acu).
 
+> [!NOTE]
+> If you're scaling up and persisting data in a single-node SAS deployment (and not to an externalized file system), the [SAS documentation](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833) recommends bandwidth of at least 150 MB/s. To achieve this bandwidth, you need to stripe multiple P30 Premium (or larger) disks.
+
 ### Operating systems
 
 Linux works best for running SAS workloads. SAS supports 64-bit versions of the following operating systems:

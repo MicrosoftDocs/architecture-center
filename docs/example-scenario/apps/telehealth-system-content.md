@@ -29,6 +29,7 @@ The solution was set up in this way to:
 
 - Build the inter-services communication and coordination mechanism required by the distribution of functionalities across microservices. The solution described in this document uses Azure Cache for Redis to accomplish this task.
 - Achieve central monitoring and enhance the ability to troubleshoot the solution.
+- Simplified management of secrets, credentials, certificates, and keys taking advantage of managed identities to secure communication between services.
 
 ### Components
 
@@ -112,6 +113,8 @@ Using the TimescaleDB extension of PostgreSQL will enable more efficient handlin
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 This solution handles PHI and personal data. As such, it's important to use services that are certified for medical applications (HIPAA certifications, not only for the data that remains in the database but also the logs and telemetry data). For details please consult the [HIPAA section](/compliance/regulatory/offering-hipaa-hitech) of the Microsoft Trust Center.
+
+Managed identity should be used on all Azure services that support this type of passwordless authentication to simplify password management: AKS, PostgreSQL, Redis Cache, Notification Hub, Azure Key Vault, and Azure Functions. See all [services that support managed identities for Azure resources.](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
 
 ### Cost optimization
 

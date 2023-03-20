@@ -103,7 +103,6 @@ Principal author:
 ## Next steps
 
 - Review the [Azure reference architecture for automated enterprise BI](../../reference-architectures/data/enterprise-bi-adf.yml), which includes instructions for deploying an instance of this architecture in Azure.
-- Read the [Maritz Motivation Solutions customer story][source-document]. That story describes a similar approach to managing customer data.
 - Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](../../data-guide/index.md).
 - Learn more about the services used in this scenario:
    - [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
@@ -115,7 +114,6 @@ Principal author:
 
 <!-- links -->
 
-[source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 
 ## Related resources

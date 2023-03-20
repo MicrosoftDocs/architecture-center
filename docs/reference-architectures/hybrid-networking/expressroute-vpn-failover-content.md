@@ -2,7 +2,7 @@ This reference architecture shows how to connect an on-premises network to an Az
 
 ## Architecture
 
-![Reference architecture for a highly available hybrid network architecture that uses ExpressRoute and VPN gateway.](images/expressroute-vpn-failover.png)
+![Reference architecture for a highly available hybrid network architecture that uses ExpressRoute and VPN gateway.](images/expressroute-vpn-failover.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/expressroute-vpn-failover.vsdx) of this architecture.*
 

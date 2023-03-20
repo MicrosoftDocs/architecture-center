@@ -4,7 +4,7 @@ This architecture builds on the [AKS baseline architecture](/azure/architecture/
 
 ## Architecture
 
-[![Diagram showing mutli-region deployment.](./images/aks-multi-cluster.png)](./images/aks-multi-cluster-large.png#lightbox)
+[ ![Architecture diagram showing multi-region deployment.](./images/aks-multi-cluster.svg)](./images/aks-multi-cluster.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster.vsdx) of this architecture.*
 
@@ -46,7 +46,7 @@ Each of these items is detailed with specific guidance in the following sections
 
 ## Fleet management
 
-This solution represents a multi-cluster and multi-region topology, without the inclusion of an advanced orchestrator to treat all clusters as part of a unified fleet. When cluster count increases, consider enrolling the members in [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/) for better at-scale management of the particpating clusters. The infrastructure architecture presented here doesn't fundimentally change with the enrollment into Fleet Manager, but day-2 operations and similar activities will benefit from a control plane that can target multiple clusters simulatiously.
+This solution represents a multi-cluster and multi-region topology, without the inclusion of an advanced orchestrator to treat all clusters as part of a unified fleet. When cluster count increases, consider enrolling the members in [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/) for better at-scale management of the participating clusters. The infrastructure architecture presented here doesn't fundamentally change with the enrollment into Fleet Manager, but day-2 operations and similar activities will benefit from a control plane that can target multiple clusters simulatiously.
 
 ## Considerations
 
@@ -89,7 +89,7 @@ Similar to deployment, these configurations can become challenging to manage acr
 
 ##### GitOps
 
-Instead of manually configuring Kubertnets components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. This implementation uses the Flux extension for AKS to enable bootstrapping the clusters automatically & immediately after the clusters are deployed.
+Instead of manually configuring Kubernetes components, consider using automated tooling to apply configurations to a Kubernetes cluster as these configurations are checked into a source repository. This process is often referred to as GitOps, and popular GitOps solutions for Kubernetes include Flux and Argo CD. This implementation uses the Flux extension for AKS to enable bootstrapping the clusters automatically & immediately after the clusters are deployed.
 
 GitOps is detailed in more depth in the [AKS baseline reference architecture](./aks-multi-cluster.yml#cluster-bootstrapping). The important note here is that using a GitOps based approach to configuration helps ensure that each Kubernetes instance is configured similarly without bespoke effort. This becomes even more important as the size of your fleet grows.
 
@@ -165,7 +165,7 @@ Similar to the AKS baseline reference architecture, this architecture uses a hub
 
 With the AKS baseline reference architecture, workload traffic is routed directly to an Azure Application Gateway instance, then forwarded onto the backend load balancer / AKS ingress resources. When you work with multiple clusters, the client requests are routed through an Azure Front Door instance, which routes to the Azure Application Gateway instance.
 
-![Diagram showing workload traffic in mutli-region deployment.](images/aks-ingress-flow.svg)
+![Architecture diagram showing workload traffic in multi-region deployment.](images/aks-ingress-flow.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-multi-cluster-aks-ingress-flow.vsdx) of this diagram.*
 

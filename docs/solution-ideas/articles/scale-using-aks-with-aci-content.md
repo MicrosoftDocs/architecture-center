@@ -8,8 +8,9 @@ Organizations utilize this solution so they don't need extra servers to perform 
 
 ## Architecture
 
-![Architecture diagram shows users to Azure Container Registry to A K S, then to A K S virtual node and S Q L database, then to A C I.](../media/scale-using-aks-with-aci.png)
-*Download an [SVG](../media/scale-using-aks-with-aci.svg) of this architecture.*
+![Architecture diagram shows users to Azure Container Registry to A K S, then to A K S virtual node and S Q L database, then to A C I.](../media/scale-using-aks-with-aci.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/scale-using-aks-with-aci.vsdx) of this architecture.*
 
 ### Dataflow
 

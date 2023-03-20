@@ -4,7 +4,7 @@ metadata:
   description: Use this chart and other information to decide which compute service, or hosting model for computing resources, best suits your application.
   author: paolosalvatori
   ms.author: paolos
-  ms.date: 12/01/2022
+  ms.date: 03/02/2023
   ms.reviewer: ssumner
   ms.topic: conceptual
   ms.service: architecture-center

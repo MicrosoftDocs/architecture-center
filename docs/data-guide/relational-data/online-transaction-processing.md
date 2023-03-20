@@ -164,7 +164,7 @@ Principal author:
 
 - [Introduction to Memory-Optimized Tables](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)
 - [In-Memory OLTP overview and usage scenarios](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios)
-- [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](/azure-sql/in-memory-oltp-overview)
+- [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/in-memory-oltp-overview)
 - [Distributed transactions across cloud databases](/azure/azure-sql/database/elastic-transactions-overview)
 
 ## Related resources

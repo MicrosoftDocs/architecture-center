@@ -1,4 +1,4 @@
-This article describes the conversion technologies that Microsoft partner [Asysco](https://asysco.com) uses to migrate Unisys mainframe workflows to Azure.
+This article describes the conversion technologies that Microsoft partner [Avanade](https://www.avanade.com/) uses to migrate Unisys mainframe workflows to Azure.
 
 ## Legacy architecture
 
@@ -42,11 +42,11 @@ The second diagram shows how the Unisys mainframe components can map and migrate
 
 4. The AMT Framework converts legacy application code (**D**) to C#/.NET. If code needs changing or editing, AMT can maintain and reprocess the original code. Or you can edit the converted C# code directly to advance the code base to new standards.
 
-5. Legacy database structures (**E**) can migrate to [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), with the high availability (HA) and disaster recovery (DR) capabilities that Azure provides. Asysco data migration tools can convert DMS and RDMS schemas to SQL. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection from the Azure VMs to Azure SQL Database.
+5. Legacy database structures (**E**) can migrate to [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), with the high availability (HA) and disaster recovery (DR) capabilities that Azure provides. Avanade data migration tools can convert DMS and RDMS schemas to SQL. [Azure Private Link](/azure/azure-sql/database/private-endpoint-overview) provides a private, direct connection from the Azure VMs to Azure SQL Database.
 
 6. File structures (**F**) map easily to Azure structured file or blob storage data constructs. Features like Azure autofailover group replication can provide data protection.
 
-7. Workload automation, scheduling, reporting, and system monitoring systems (**G**) that are Azure-capable can keep their current platforms. These platforms include Unisys Operations Sentinel and SMA OpCon. Asysco AMT Control Center can also serve these functions.
+7. Workload automation, scheduling, reporting, and system monitoring systems (**G**) that are Azure-capable can keep their current platforms. These platforms include Unisys Operations Sentinel and SMA OpCon. Avanade AMT Control Center can also serve these functions.
 
 8. Azure Site Recovery HA/DR capabilities mirror the Azure VMs to a secondary Azure region for quick failover if there's Azure datacenter failure.
 
@@ -78,7 +78,7 @@ Unisys ClearPath mainframe systems are full-featured operating environments that
 
 The Automated Migration Technology (AMT) Framework allows an accelerated move into Azure without rewriting application code or redesigning data architecture. The framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can be virtually unchanged, minimizing the need for end user retraining.
 
-Asysco AMT Transform automates the migration of the complete mainframe ecosystem to Azure, by converting:
+Avanade AMT Transform automates the migration of the complete mainframe ecosystem to Azure, by converting:
 
 - Transaction application code to AMT COBOL or directly to C# and .NET. AMT maintains the original code structure to use as a baseline or to enable future edits.
 - All databases, whether hierarchical, network, or relational, to Azure SQL Database.
@@ -137,7 +137,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Principal author: 
 
- - [Jonathon Frost](https://www.linkedin.com/in/jjfrost) | Principal Software Engineer
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
@@ -151,7 +151,7 @@ Principal author:
 - [Azure Setup Guide](/azure/cloud-adoption-framework/ready/azure-setup-guide)
 - [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview)
 - [Migration Best Practices](/azure/cloud-adoption-framework/migrate/azure-best-practices)
-- [Asysco](https://asysco.com)
+- [Avanade](https://avanade.com)
 
 For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
@@ -159,10 +159,10 @@ For more information, please contact [legacy2azure@microsoft.com](mailto:legacy2
 
 Explore related resources:
 
-- [Unisys Dorado mainframe migration to Azure with Astadia & Micro Focus](../../example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml)
+- [Unisys ClearPath Forward MCP mainframe rehost to Azure using Unisys virtualization](../../example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml)
 - [High-volume batch transaction processing](../../example-scenario/mainframe/process-batch-transactions.yml)
 - [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
 - [Replicate and sync mainframe data in Azure](./sync-mainframe-data-with-azure.yml)
 - [Unlock legacy data with Azure Stack](../../solution-ideas/articles/unlock-legacy-data.yml)
-- [Modernize mainframe & midrange data](./modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

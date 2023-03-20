@@ -2,23 +2,11 @@
 
 This article presents a DevOps approach to setting up a continuous integration and continuous deployment (CI/CD) pipeline that deploys a chatbot app and its [*infrastructure as code*](/azure/architecture/framework/devops/automation-infrastructure).
 
-DevOps is a common development strategy for building custom applications like bots. [Azure Pipelines](/azure/devops/pipelines) uses modern CI/CD processes to manage software builds, deployments, testing, and monitoring. Azure Pipelines can help you accelerate your software delivery and focus on your code, rather than the supporting infrastructure and operations.
-
-Infrastructure as code uses Azure Resource Manager templates ([ARM templates](/azure/azure-resource-manager/templates)) or open-source alternatives to define and deploy an app's underlying infrastructure. You can colocate the software and infrastructure code in the same source control repository, and deploy both through your pipelines.
-
-## Potential use cases
-
-Consider Azure DevOps and CI/CD processes for:
-
-- Accelerating application development and development lifecycles.
-- Building quality and consistency into an automated build and release process
-- Increasing application stability and uptime.
-
 ## Architecture
 
 ![Architectural diagram: deployment of a chatbot with continuous integration and continuous deployment (CI/CD) using Azure Pipelines and ARM templates.](./media/ci-cd-pipeline-deployment-arm-templates.png)
 
-In this example:
+### Workflow
 
 1. Developers create a new chatbot, ARM templates for infrastructure, and code the multi-stage YAML pipeline, all hosted from a GitHub repository.
 1. As a second step in day-0, they will provision the initial required infrastructure in Azure using the generated ARM templates.
@@ -26,6 +14,28 @@ In this example:
 1. Continuous deployment is materialized at the second stage in the multi-stage YAML pipeline. It is the automated deployment of the chatbot application into the Azure infrastructure that was just provisioned.
 1. Azure Bot Service channels messages from the Microsoft Teams chat to the Azure Web App, where the chatbot logic is running.
 1. A Microsoft Teams app package is created, validated, and ultimately published by uploading it as a custom app. Once it gets successfully installed, users can start interacting with the chatbot from its chat window.
+
+### Components 
+
+- [Git](https://git-scm.com/) is a free open-source distributed version control system.
+- [Azure Resource Manager](https://azure.microsoft.com/get-started/azure-portal/resource-manager/) is the deployment and management service for Azure. It provides a management layer that you can use to create, update, and delete resources in your Azure account. 
+- [Bot Service](https://azure.microsoft.com/products/bot-services/) is an integrated development environment for building bots.
+- [Azure DevOps](https://azure.microsoft.com/products/devops) brings PM, design, and engineering together with integrated, collaborative processes to plan work, develop code, and deliver applications.
+- [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) automatically builds and tests code projects. It combines continuous integration, continuous delivery, and continuous testing to build, test, and deliver code to any destination.
+- [Azure App Service](https://azure.microsoft.com/products/app-service/) is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. 
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of [Azure Monitor](https://azure.microsoft.com/products/monitor) that provides application performance monitoring.
+
+For more information about how these components are used in this solution, see the next section.
+
+## Scenario details
+
+This solution uses a DevOps approach to set up a CI/CD pipeline that deploys a chatbot app and its infrastructure as code.
+
+DevOps is a common development strategy for building custom applications like bots. [Azure Pipelines](/azure/devops/pipelines) uses modern CI/CD processes to manage software builds, deployments, testing, and monitoring. Azure Pipelines can help you accelerate your software delivery and focus on your code, rather than the supporting infrastructure and operations.
+
+Infrastructure as code uses Azure Resource Manager templates ([ARM templates](/azure/azure-resource-manager/templates)) or open-source alternatives to define and deploy an app's underlying infrastructure. You can colocate the software and infrastructure code in the same source control repository, and deploy both through your pipelines.
+
+The following sections provide more information about the components in the preceding architecture diagram. 
 
 ### Source control
 
@@ -82,29 +92,60 @@ Organizations embracing GitOps could automate the deployment of the underlying i
 
 An Azure App Service Plan is the underlying server farm used to deploy an Azure App Service instance. In this example, the ARM templates are being generated using the EchoBot templates. Later you could adapt them to your specific case scenario by modifying the tier, compute, platform, or scale, or break them down into several linked ARM templates, as presented above.
 
-### Bot Services
+### Enhance this solution
 
-The Azure Bot Service provides an endpoint for the bot to communicate through the chosen channels. The Bot Service also provides a mechanism to associate the bot to a pricing tier, based upon the expected requests and throughput.
+Here are some ways to further enhance this solution:
 
-To deploy to Azure, the bot needs an Application ID and password, and the ability to register channels to run in. All the instructions are provided as part of [this example](https://github.com/mspnp/solution-architectures/tree/master/cicdbots). For more information, see [App registration](/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration).
+- Deploy other services to enhance your bot, including LUIS.
+- Set up [bot analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot.
+- Deploy a back-end store for your bot to interact with, such as Azure Cosmos DB.
+- Automate the generation of the Application Insights API key, and consider storing the key in an Azure key vault that you can reference during deployment time.
 
-### Application Insights
+### Potential use cases
 
-Azure Application Insights allows you to send telemetry from the chatbot app, which helps you to understand how it's performing. You can also connect Application Insights directly to the Bot Service to collect more information. For more information, see [Enable Bot Analytics](/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0#enable-analytics).
+Consider Azure DevOps and CI/CD processes for:
+
+- Speeding up application development and reducing development lifecycles.
+- Building quality and consistency into an automated build and release process.
+- Increasing application stability and uptime.
 
 ## Considerations
 
-- Although ARM templates don't need to be compiled, you can validate their quality. For example, you could do [linting](https://jsonlint.com/) on the ARM templates. See the [ARM template toolkit](https://github.com/Azure/arm-ttk) for more ARM template analysis and test tools from the Azure Resource Manager team. Consider which pipeline, build, or release, is most appropriate for the tests, based on your development lifecycle.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- When using linked ARM templates for deploying the infrastructure, they need to be accessible from a public endpoint, like a Git repository or an Azure Blob Storage account. If you upload the templates to a storage account, they remain secure, as they are held in a private mode but can be accessed using some form of SAS token.
+### Security
 
-- A common practice is to use [Azure KeyVault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the Service Principal connection to your Azure Subscription has appropriate access policies to the Azure KeyVault, it can download secrets from the KeyVault to use as variables in your pipeline. Doing so avoids storing secrets in source control. The name of the secret will be set with the associated value. For example, a secret in the KeyVault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- You can set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot. To set up Bot Analytics, you need an API Key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
+A common practice is to use [Azure Key Vault](/azure/key-vault) instead of storing secrets in Azure DevOps. If the service principal connection to your Azure subscription has appropriate access policies to the key vault, it can download secrets from the key vault to use as variables in your pipeline. Doing so avoids storing secrets in source control. The name of the secret will be set with the associated value. For example, a secret in the key vault called `botMicrosoftAppPassword` could be referenced by `$(botMicrosoftAppPassword)` in the release pipeline definition.
+
+### Cost optimization
+
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+The Azure Bot Service provides an endpoint for the bot to communicate through the chosen channels. Bot Service also provides a mechanism for associating the bot with a pricing tier, based on the expected requests and throughput.
+
+To build an estimate of costs for deploying and running this example workload, refer to the Azure pricing calculator (https://azure.microsoft.com/pricing/calculator). 
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+Although ARM templates don't need to be compiled, you can validate their quality. For example, you could do [linting](https://jsonlint.com/) on the ARM templates. See the [ARM template toolkit](https://github.com/Azure/arm-ttk) for more ARM template analysis and test tools from the Azure Resource Manager team. Consider which pipeline, build, or release, is most appropriate for the tests, based on your development lifecycle.
+
+When you use linked ARM templates to deploy the infrastructure, you need to ensure that they're accessible from a public endpoint, like a Git repository or an Azure Blob Storage account. By uploading the templates to a storage account, you can provide a level of security because they'e held in a private mode but can be accessed via some form of SAS token.
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+You can set up [bot analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot. To set up bot analytics, you need an API key from Application Insights, but you can't create this key by using an ARM template. You can create the key manually from your Application Insights resource in the Azure portal.
+
+Application Insights allows you to send telemetry from the chatbot app, which helps you to understand how it's performing. You can also connect Application Insights directly to the Bot Service to collect more information. For more information, see [Enable bot analytics](/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0#enable-analytics).
 
 ## Deploy this scenario
 
-You can build and deploy the [example scenario from GitHub](https://github.com/mspnp/solution-architectures/tree/master/cicdbots).
+To deploy to Azure, the bot needs an application ID and password, and the ability to register channels to run in. For more information, see [App registration](/azure/bot-service/bot-service-resources-bot-framework-faq#app-registration). Instructions for building and deploying this scenario are provided in the [CI/CD pipeline for chatbots reference implementation](https://github.com/mspnp/solution-architectures/tree/master/cicdbots). 
 
 ## Contributors
 
@@ -113,21 +154,19 @@ You can build and deploy the [example scenario from GitHub](https://github.com/m
 Principal author:
 
 - [Maria Vrabie](https://uk.linkedin.com/in/maria-vrabie-365525101) | Customer Engineer
+ 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-Here are some ways to further enhance the scenario:
-
-- Deploy other services to enhance your bot, including LUIS.
-- Set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot.
-- Deploy a back-end store for your bot to interact with, such as Azure Cosmos DB.
-- Automate the generation of the Application Insights API Key, and consider storing the key in an Azure KeyVault that you can reference during deployment time.
-
-## Related resources
-
-- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-baseline.yml)
 - [What is source control?](/azure/devops/user-guide/source-control)
 - [Understand the structure and syntax of Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates)
 - [ARM template reference guide for Microsoft.Storage resource types](/azure/templates/microsoft.storage/allversions)
 - [Repeatable infrastructure](/azure/architecture/framework/devops/automation-infrastructure)
 - [Microsoft Learn module: Deploy applications with Azure DevOps](/training/paths/deploy-applications-with-azure-devops/)
+
+## Related resources
+
+- [Design a CI/CD pipeline using Azure DevOps](../apps/devops-dotnet-baseline.yml)
+- [DevOps checklist](../../checklist/dev-ops.md)
+- [Enterprise monitoring with Azure Monitor](../../example-scenario/monitoring/enterprise-monitoring.yml)

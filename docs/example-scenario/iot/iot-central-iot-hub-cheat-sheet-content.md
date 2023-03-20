@@ -118,7 +118,7 @@ The following table shows the level of support for various capabilities in IoT C
 - [Vision AI with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 - [Retail buy online, pick up in store (BOPIS)](./vertical-buy-online-pickup-in-store.yml)
 - [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
-- [Blockchain workflow application](/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
+- [Blockchain workflow application](https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
 - [IoT using Azure Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [IoT Edge railroad maintenance and safety solution](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml)

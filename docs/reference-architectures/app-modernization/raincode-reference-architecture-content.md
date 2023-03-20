@@ -187,7 +187,7 @@ For more information, please contact <legacy2azure@microsoft.com> or check out t
 
 ## Related resources
 
--   [Modernize mainframe & midrange data](../migration/modernize-mainframe-data-to-azure.yml)
+-   [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
 
 -   [Mainframe file replication and sync on Azure](../../solution-ideas/articles/mainframe-azure-file-replication.yml)
 
@@ -195,6 +195,6 @@ For more information, please contact <legacy2azure@microsoft.com> or check out t
 
 -   [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../zos/refactor-zos-coupling-facility.yml)
 
--   [IBM z/OS mainframe migration with Asysco AMT](../../example-scenario/mainframe/asysco-zos-migration.yml)
+-   [IBM z/OS mainframe migration with Avanade AMT](../../example-scenario/mainframe/asysco-zos-migration.yml)
 
 -   [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

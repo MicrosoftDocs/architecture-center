@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Azure DevTest Labs reference architecture for enterprises
+  title: Azure DevTest Labs architecture for enterprises
   titleSuffix: Azure Example Scenarios
-  description: Learn about the reference architecture that can help you deploy a solution based on Azure DevTest Labs in your enterprise. 
+  description: Learn about the architecture that can help you deploy a solution based on Azure DevTest Labs in your enterprise. 
   author: magrande
   ms.author: vinara
   ms.date: 06/13/2022
@@ -16,8 +16,8 @@ products:
   - azure-devtest-labs
   - azure-artifacts
   - azure-bastion
-name: Azure DevTest Labs reference architecture for enterprises
-summary: 'Learn about the reference architecture that can help you deploy a solution based on Azure DevTest Labs in your enterprise.'
+name: Azure DevTest Labs architecture for enterprises
+summary: 'Learn about the architecture that can help you deploy a solution based on Azure DevTest Labs in your enterprise.'
 thumbnailUrl: /azure/architecture/browse/thumbs/devtest-labs-reference-architecture-enterprise.png
 content: |
    [!include[](devtest-labs-reference-architecture-content.md)]

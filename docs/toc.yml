@@ -13,10 +13,15 @@ items:
         href: landing-zones/landing-zone-deploy.md
       - name: Design guides
         items:
-          - name: Bicep landing zone implementation
-            href: landing-zones/bicep/landing-zone-bicep.md
-          - name: Terraform landing zone implementation
-            href: landing-zones/terraform/landing-zone-terraform.md
+        - name: Landing zone implementations
+          items: 
+            - name: Bicep landing zone implementation
+              href: landing-zones/bicep/landing-zone-bicep.md
+            - name: Terraform landing zone implementation
+              href: landing-zones/terraform/landing-zone-terraform.md
+        - name: Subscription vending implementation
+          href: landing-zones/subscription-vending.yml
+
   - name: Application architecture fundamentals
     items:
       - name: Introduction
@@ -506,12 +511,18 @@ items:
                     href: guide/multitenant/service/storage.md
               - name: Messaging
                 items:
+                  - name: Azure Event Hubs
+                    href: guide/multitenant/service/event-hubs.md
                   - name: Azure Service Bus
                     href: guide/multitenant/service/service-bus.md
               - name: Security
                 items:
                   - name: Azure Key Vault
                     href: guide/multitenant/service/key-vault.md
+              - name: Identity
+                items:
+                  - name: Azure Active Directory B2C
+                    href: guide/multitenant/service/azure-ad-b2c.md
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search
@@ -1203,7 +1214,7 @@ items:
               - name: Detect mobile bank fraud
                 href: guide/ai/bank-fraud-solution.yml
               - name: Financial institutions with data mesh
-                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh
+                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                 maintainContext: true
               - name: Financial services risk lifecycle
                 href: industries/finance/financial-risk-model.md
@@ -1920,6 +1931,8 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Batch integration in a factory
                 href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
+              - name: CAE simulations for manufacturing
+                href: example-scenario/hpc/hpc-run-cae-simulations.yml
               - name: Computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Condition monitoring
@@ -2105,6 +2118,10 @@ items:
             href: industries/automotive.md
           - name: Guides
             items:
+              - name: Autonomous Vehicle Operations design guide
+                href: /azure/architecture/guide/machine-learning/avops-design-guide
+              - name: Autonomous Vehicle Operations solution idea
+                href: /azure/architecture/solution-ideas/articles/avops-architecture
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
@@ -2247,6 +2264,8 @@ items:
                 href: example-scenario/ai/student-attrition-prediction.yml
               - name: Secure research for regulated data
                 href: example-scenario/ai/secure-compute-for-research.yml
+              - name: Scalable secure open source Capture the Flag (CTF)
+                href: example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml
               - name: Teacher-provisioned virtual labs in Azure
                 href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
               - name: Training and guidance with mixed reality
@@ -3126,6 +3145,8 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Multiple indexers with Azure Cognitive Search
+                href: example-scenario/data/search-blob-metadata.yml
               - name: Network security for MLOps
                 href: example-scenario/ai/network-security-mlops.yml
               - name: Predict hospital readmissions with ML
@@ -3275,7 +3296,7 @@ items:
                   - name: Actuarial risk analysis
                     href: industries/finance/actuarial-risk-analysis-financial-model.yml
                   - name: Financial institutions with data mesh
-                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                     maintainContext: true
               - name: Analytics security baselines
                 items:
@@ -3477,7 +3498,7 @@ items:
           - name: Solution ideas
             items:
               - name: Blockchain workflow application
-                href: /updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
+                href: https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021
               - name: Supply chain management with QBS
                 href: guide/blockchain/quorum-blockchain-service.yml
               - name: Supply chain track and trace
@@ -3530,10 +3551,16 @@ items:
                         href: guide/hpc/autodesk-inventor.yml
                       - name: Autodesk VRED
                         href: guide/hpc/hpc-autodesk-vred.md 
+                  - name: AVL FIRE M
+                    href: guide/hpc/hpc-avl-fire-m.yml
                   - name: Barracuda Virtual Reactor
                     href: guide/hpc/barracuda-virtual-reactor.yml
-                  - name: Engys HELYX 
-                    href: guide/hpc/engys-helyx.yml  
+                  - name: Engys deployments
+                    items:  
+                      - name: Engys ELEMENTS 
+                        href: guide/hpc/engys-elements.yml
+                      - name: Engys HELYX 
+                        href: guide/hpc/engys-helyx.yml  
                   - name: GROMACS
                     href: guide/hpc/gromacs.yml  
                   - name: Indica Labs HALO AI
@@ -3554,6 +3581,8 @@ items:
                         href: guide/hpc/plasma.yml
                       - name: Samadii SCIV
                         href: guide/hpc/samadii-sciv.yml  
+                  - name: Sandi HiFUN
+                    href: guide/hpc/hpc-sandi-hifun.yml
                   - name: Siemens deployments
                     items:
                       - name: Siemens NX
@@ -3638,6 +3667,8 @@ items:
                 href: example-scenario/apps/hpc-saas.yml
               - name: Deploy IBM Maximo Application Suite 
                 href: example-scenario/apps/deploy-ibm-maximo-application-suite.yml
+              - name: Deploy IBM Sterling Order Management
+                href: reference-architectures/ibm/deploy-ibm-sterling-oms.yml
               - name: Digital image modeling
                 href: example-scenario/infrastructure/image-modeling.yml
               - name: HPC cluster deployed in the cloud
@@ -3931,7 +3962,7 @@ items:
                   - name: Data management in retail
                     href: industries/retail/retail-data-management-overview.md
                   - name: Financial institutions with data mesh
-                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                     maintainContext: true
                   - name: Healthcare with highly sensitive data
                     href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna
@@ -4337,7 +4368,7 @@ items:
               - name: Modern data warehouse for small business
                 href: example-scenario/data/small-medium-data-warehouse.yml
               - name: Modernize mainframe and midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
               - name: Optimized storage with data classification
                 href: solution-ideas/articles/optimized-storage-logical-data-classification.yml
               - name: Power BI data write-back
@@ -4436,12 +4467,14 @@ items:
                 items:
                    - name: Azure Spring Apps multiregion deployment
                      href: reference-architectures/microservices/spring-apps-multi-region.yml
-                   - name: Blue/green deployments
+                   - name: Blue/green on Azure Spring Apps
                      href: example-scenario/blue-green-spring/blue-green-spring.yml
                    - name: Decompose apps with Service Fabric
                      href: example-scenario/infrastructure/service-fabric-microservices.yml
                    - name: Enterprise-grade logging on Azure
                      href: reference-architectures/logging/enterprise-grade-logging.yml
+                   - name: Highly available zone-redundant Spring Apps
+                     href: reference-architectures/microservices/spring-apps-multi-zone.yml
                    - name: Microservices on Azure Service Fabric
                      href: reference-architectures/microservices/service-fabric.yml
                    - name: Microservices with Azure Spring Apps
@@ -4543,6 +4576,8 @@ items:
             href: guide/devops/devops-start-here.md
           - name: Guides
             items:
+              - name: Azure Sandbox
+                href: guide/azure-sandbox/azure-sandbox.yml
               - name: DevOps checklist
                 href: checklist/dev-ops.md
               - name: Operational Excellence patterns
@@ -4630,12 +4665,16 @@ items:
                 maintainContext: true
               - name: DevOps for quantum computing
                 href: guide/quantum/devops-for-quantum-computing.yml
+              - name: DevSecOps on AKS
+                href: guide/devsecops/devsecops-on-aks.yml
               - name: Platform automation for VMware Solution
                 href: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
                 maintainContext: true
+              - name: Use deployment scripts to check resource properties
+                href: guide/devops/deployment-scripts-property-check.yml
           - name: Architectures
             items:
-              - name: Automate multistage Azure Pipelines
+              - name: Automate multistage pipeline setup
                 href: example-scenario/devops/automate-azure-pipelines.yml
               - name: Automate API deployments with APIOps
                 href: example-scenario/devops/automated-api-deployments-apiops.yml
@@ -4683,8 +4722,6 @@ items:
                 href: solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml
               - name: Configuration-driven data pipeline
                 href: solution-ideas/articles/configuration-driven-data-pipeline.yml
-              - name: DevSecOps in Azure
-                href: solution-ideas/articles/devsecops-in-azure.yml
               - name: DevSecOps for infrastructure as code
                 href: solution-ideas/articles/devsecops-infrastructure-as-code.yml 
               - name: DevSecOps with a rolling main branch
@@ -5353,7 +5390,7 @@ items:
                     href: example-scenario/mainframe/general-mainframe-refactor.yml
                   - name: IBM System i to Azure using Infinite i
                     href: example-scenario/mainframe/ibm-system-i-azure-infinite-i.yml
-                  - name: IBM z/OS migration with Asysco AMT
+                  - name: IBM z/OS migration with Avanade AMT
                     href: example-scenario/mainframe/asysco-zos-migration.yml
                   - name: IBM z/OS online transaction processing
                     href: example-scenario/mainframe/ibm-zos-online-transaction-processing-azure.yml
@@ -5393,7 +5430,7 @@ items:
                     href: example-scenario/mainframe/unisys-clearpath-forward-mainframe-rehost.yml
                   - name: Unisys Dorado migration
                     href: example-scenario/mainframe/migrate-unisys-dorado-mainframe-apps-with-astadia-micro-focus.yml
-                  - name: Unisys mainframe migration with Asysco
+                  - name: Unisys mainframe migration with Avanade AMT
                     href: reference-architectures/migration/unisys-mainframe-migration.yml
                   - name: Use LzLabs SDM in Azure
                     href: example-scenario/mainframe/lzlabs-software-defined-mainframe-in-azure.yml
@@ -5413,12 +5450,14 @@ items:
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
                     href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
+                  - name: Mainframe file and tape backup to Azure using Luminex
+                    href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
                   - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
                     href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
                   - name: Model9 mainframe modernization
                     href: example-scenario/mainframe/mainframe-modernization-model9.yml
                   - name: Modernize mainframe midrange data
-                    href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                    href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
                   - name: Move mainframe archive data to Azure
                     href: example-scenario/mainframe/move-archive-data-mainframes.yml
                   - name: Re-engineer mainframe batch apps
@@ -5712,7 +5751,7 @@ items:
               - name: Migrate master data services with Profisee
                 href: example-scenario/profisee-mds/profisee-mds-migration-utility.yml
               - name: Modernize mainframe and midrange data
-                href: reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+                href: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
               - name: Oracle database migration
                 items:
                   - name: Oracle migration to Azure
@@ -6359,8 +6398,6 @@ items:
             items:
               - name: Centralize app configuration and security
                 href: solution-ideas/articles/appconfig-key-vault.yml
-              - name: DevSecOps in Azure
-                href: solution-ideas/articles/devsecops-in-azure.yml
               - name: Multilayered protection for Azure VMs
                 href: solution-ideas/articles/multilayered-protection-azure-vm.yml
               - name: Protect backend APIs
@@ -6629,6 +6666,21 @@ items:
                 href: guide/design-principles/index.md
               - name: Design and implementation patterns
                 href: patterns/category/design-implementation.md
+              - name: Application guidance
+                items: 
+                  - name: Characteristics of modern web apps
+                    href: /dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
+                    maintainContext: true
+                  - name: Enterprise app patterns
+                    items:
+                      - name: Reliable web app pattern
+                        items: 
+                          - name: .NET 
+                            items: 
+                              - name: Plan the implementation
+                                href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
+                              - name: Apply the pattern
+                                href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
               - name: App Service considerations
                 items:
                   - name: Deployment best practices
@@ -6645,31 +6697,13 @@ items:
                     maintainContext: true
               - name: Cross-tenant secure access to apps
                 href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
-              - name: Modernize web apps
-                items:
-                  - name: Characteristics of modern web apps
-                    href: /dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
-                    maintainContext: true
-                  - name: Choose between web apps and SPAs
-                    href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
-                    maintainContext: true
-                  - name: ASP.NET architectural principles
-                    href: /dotnet/architecture/modern-web-apps-azure/architectural-principles
-                    maintainContext: true
-                  - name: Common client-side web technologies
-                    href: /dotnet/architecture/modern-web-apps-azure/common-client-side-web-technologies
-                    maintainContext: true
-                  - name: Development process for Azure
-                    href: /dotnet/architecture/modern-web-apps-azure/development-process-for-azure
-                    maintainContext: true
-                  - name: Azure hosting for ASP.NET web apps
-                    href: /dotnet/architecture/modern-web-apps-azure/azure-hosting-recommendations-for-asp-net-web-apps
-                    maintainContext: true
               - name: Red Hat JBoss EAP on Azure
                 href: /azure/developer/java/ee/jboss-on-azure
                 maintainContext: true
               - name: Eventual consistency in Power Platform
                 href: guide/power-platform/eventual-consistency.yml
+              - name: Single-page application authorization
+                href: guide/web/secure-single-page-application-authorization.yml
           - name: Architectures
             items:
               - name: Basic web application

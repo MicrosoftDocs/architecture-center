@@ -50,7 +50,7 @@ For more information, see [Stream processing](../technology-choices/stream-proce
 
 ### Analytical data store
 
-- **Azure Synapse Analytics**, **Azure Data Explorer**, **HBase**, **Spark**, or **Hive**. Processed real-time data can be stored in a relational database such Synapse Analytics, Azure Data Explorer, a NoSQL store such as HBase, or as files in distributed storage over which Spark or Hive tables can be defined and queried.
+- **Azure Synapse Analytics**, **Azure Data Explorer**, **HBase**, **Spark**, or **Hive**. Processed real-time data can be stored in a relational database by Synapse Analytics, Azure Data Explorer, a NoSQL store such as HBase, or as files in distributed storage over which Spark or Hive tables can be defined and queried.
 
 For more information, see [Analytical data stores](../technology-choices/analytical-data-stores.md).
 

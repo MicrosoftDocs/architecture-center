@@ -144,7 +144,7 @@ Principal author:
 - [Understand data store models](../../guide/technology-choices/data-store-overview.md)
 - Migrating IBM system workloads:
   - [High-volume batch transaction processing](./process-batch-transactions.yml)
-  - [IBM z/OS mainframe migration with Asysco AMT](./asysco-zos-migration.yml)
+  - [IBM z/OS mainframe migration with Avanade AMT](./asysco-zos-migration.yml)
   - [Micro Focus Enterprise Server on Azure VMs](./micro-focus-server.yml)
   - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
   - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)

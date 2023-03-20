@@ -5,7 +5,7 @@ metadata:
   description: Learn how to implement resilient NetApp file shares. Failure of the primary Azure region causes automatic failover to the secondary Azure region. 
   author: MaxMelcher 
   ms.author: mamelch 
-  ms.date: 11/29/2022
+  ms.date: 02/28/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

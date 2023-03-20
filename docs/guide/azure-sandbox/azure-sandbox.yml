@@ -1,0 +1,27 @@
+### YamlMime:Architecture
+metadata:
+  title: Azure Sandbox
+  description: Accelerate your Azure project with a fully functional sandbox environment that includes virtual networks, virtual machines, and databases.
+  author: doherty100
+  ms.author: rdoherty
+  ms.date: 02/10/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+  - databases
+  - developer-tools
+  - networking
+  - storage
+products:
+  - azure-bastion
+  - azure-database-mysql
+  - azure-sql-database
+  - azure-sql-virtual-machines
+  - azure-virtual-machines
+name: Azure Sandbox
+summary: Accelerate your Azure project with a fully functional sandbox environment.
+thumbnailUrl: /azure/architecture/browse/thumbs/create-azure-sandbox.png
+content: |
+  [!include[](azure-sandbox-content.md)]

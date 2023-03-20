@@ -163,12 +163,13 @@ In this guide, you use at least two separate storage accounts for each Virtual D
   - You're using the premium tier.
 - RPO and RTO are higher compared to FSLogix Cloud Cache mechanism.
 - It isn't easy to test failover and failback in a production environment.
-- Azure NetApp Files has some important limitations that you should consider:
-  - It doesn't provide zone-resiliency. If the resiliency requirement is more important than performance, use Azure Files share.
-  - Azure NetApp Files isn't *zonal*, meaning the user can't specify which zone to deploy in.
-  - You can't use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
-  - You can't use Azure NetApp Files with Azure Virtual WAN. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
-- Azure NetApp Files has a [cross-region replication mechanism](/azure/azure-netapp-files/cross-region-replication-introduction), with the following limitations:
+- Azure NetApp Files requires additional considerations:
+  - Zone redundancy is not yet available. If the resiliency requirement is more important than performance, use Azure Files share.
+  - Azure NetApp Files can be [zonal](https://learn.microsoft.com/azure/azure-netapp-files/manage-availability-zone-volume-placement), that is customers can decide in which (single) Azure Availability Zone to allocate.
+  - Cross-Zone replication can be established at the volume level. Replication is async (RPO>0) and requires manual failover (RTO>0). Before using this feature is recommended to review the requirements and considerations from this [article](https://learn.microsoft.com/azure/azure-netapp-files/create-cross-zone-replication). 
+  - You can now use Azure NetApp Files with zone-redundant VPN and ExpressRoute gateways, if [Standard Networking](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) feature is used, which you might use for networking resiliency. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
+  - Azure Virtual WAN is now supporterd but requires Azure NetApp Files [Standard Networking](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) feature. For more information, see [Supported network topologies](/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-network-topologies).
+- Azure NetApp Files has a [cross-region replication mechanism](/azure/azure-netapp-files/cross-region-replication-introduction), the following considerations apply:
   - It's not available in all regions.
   - Region pairs are fixed.
   - Failover isn't transparent, and failback requires storage reconfiguration.

@@ -124,8 +124,7 @@ Other contributor:
 
 ## Next steps 
 
-- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide/UserGuide.html#_imsql_user_guide)
-- [IMSql installation guide](https://www.raincode.com/docs/IMSql/InstallationGuide/InstallationUserGuide.html#Installation-of-IMSql)
+- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide.html#_imsql_user_guide)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
