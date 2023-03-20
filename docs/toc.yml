@@ -3135,6 +3135,8 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Multiple indexers with Azure Cognitive Search
+                href: example-scenario/data/search-blob-metadata.yml
               - name: Network security for MLOps
                 href: example-scenario/ai/network-security-mlops.yml
               - name: Predict hospital readmissions with ML
