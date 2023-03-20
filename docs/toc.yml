@@ -408,7 +408,7 @@ items:
                 - name: Continuous validation
                   href: guide/testing/mission-critical-deployment-testing.md
             - name: Mitigation strategies
-               items: 
+              items:
                 - name: Global routing redundancy for highly available web applications
                   items:
                   - name: Overview
