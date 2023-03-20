@@ -89,6 +89,7 @@ You can host background tasks by using a range of different Azure platform servi
 - [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 - [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
 - [**Azure Kubernetes Service**](#azure-kubernetes-service) (AKS). Azure Kubernetes Service provides a managed hosting environment for Kubernetes on Azure.
+- [**Azure Container Apps**](#azure-container-apps). Azure Container Apps enables you to build serverless microservices based on containers.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
@@ -219,6 +220,27 @@ For more information, see:
 - [Overview of containers in Azure](https://azure.microsoft.com/overview/containers)
 
 - [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro)
+
+### Azure Container Apps
+
+Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
+
+* Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
+* Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
+* Supports Kubernetes-style apps and microservices with features like [service discovery](connect-apps.md) and [traffic splitting](revisions.md).
+* Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](scale-app.md), including [scale to zero](scale-app.md).
+* Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).
+
+#### Considerations
+
+Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](/azure/aks/intro-kubernetes). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
+
+
+For more information, see:
+
+- [Overview of Azure Containers App](/azure/container-apps/overview)
+
+You can get started building your first container app [using the quickstarts](get-started.md).
 
 ## Partitioning
 
