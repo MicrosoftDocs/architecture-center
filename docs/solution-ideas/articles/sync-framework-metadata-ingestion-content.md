@@ -98,4 +98,44 @@ Furthermore, based on the *PivotAssetItem* relationships can be created between 
 
 Purview relies on the underlying [Apache Atlas](https://atlas.apache.org/2.0.0/index.html) format and, as a result, each metadata object supported in Microsoft Purview has a type. 
 
-The **Type** can be seen as **Class** definition from Object Oriented Programming (OOP). All metadata objects managed by Purview (out of the box or through custom types) are modeled using type definitions. For a further understanding of type system in Purview as well as how to create custom types, you can follow this tutorial: [Type definitions and how to create custom types in Microsoft Purview]().
+The **Type** can be seen as **Class** definition from Object Oriented Programming (OOP). All metadata objects managed by Purview (out of the box or through custom types) are modeled using type definitions. For a further understanding of type system in Purview as well as how to create custom types, you can follow this tutorial: [Type definitions and how to create custom types in Microsoft Purview](/azure/purview/tutorial-custom-types).
+
+Note: For even better scalability, ingestion can also be done using the Atlas hook, as this [tutorial showcases](/azure/purview/how-to-lineage-spark-atlas-connector). Microsoft Purview can also have an optional underlying Event hub with Kafka surface enabled. However, the import step would only amount to send Kafka messages to a topic and would have no visibility on whether the sent data is actually ingested further down the line. This is possible by adding a logic to make these checks which brings additional complexity. For the sake of a better UX, we favored the REST APIs that provide return statuses and rely on the Azure Functions ability to scale-out if required. 
+
+**Further details on some properties:**
+
+**type** is the **Type** of the asset you want to create. For example, if you want to create an asset of type SQL Table, then it would be **azure_sql_table**. For an overview of all the types in Purview, you can use: [Types - Get All Type Definitions - REST API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions?tabs=HTTP).  
+
+- **target_collection** is the name of the collection where the asset should land in Purview. 
+
+- **external_catalog_id** is the unique identifier of the object in the external catalog. 
+
+All these properties will be set in the connector so the Import step can use them. 
+
+## Synchronization State 
+
+The Synchronization State maintains the state of synchronization by storing the mapping between the source metadata and Purview metadata objects as follows: 
+
+
+|Partition Key| Row Key| Sync Start Time| Correlation ID|State|Purview Object ID|Sync End Time |
+|-|-|-|-|-|-|-|
+|*CatalogName*_Asset |123..a1c|2023—10-24T21:05:32Z|456..def|Pending| |
+|*CatalogName*_Glossary |7c3…bdf|2023-10-25T22:12:27Z|er3..2d4|Completed|5f9…sds|2023-10-25T22:13:02Z| 
+|*CatalogName*_Classification|de3…85f|2023-11-25T22:12:27Z|ce4...13c|Failed||2023-11-25T22:13:02Z| 
+
+Note: The state is used to reflect the last run of the synchronization framework, and not to have historic data of all runs. Therefore, there will be only one entry per imported object from external catalogs which will reflect the state of the last synchronization (Completed/Pending/Failed). 
+
+- **Partition Key**: consists of the name of the external catalog and the type of the object (Asset/Glossary/Classification). For example: 
+  - **CatalogA_Asset** - assets coming from a catalog called “Catalog A”. 
+  - **CatalogB_Glossary** - glossary terms coming from a catalog called “CatalogB”. 
+  - **CatalogC_Classification** – classifications coming from a catalog called “Catalog C” 
+- **Row Key:** the unique identifier of the metadata object in the external catalog - such as the GUID, is used as the row key in every partition. 
+
+  Note: [Azure Table store](https://azure.microsoft.com/products/storage/tables/) is used for the Synchronization State, due to its strong consistency which ensures that there is only one unique record per object for a given partition.
+
+- [Correlation ID](/azure/azure-monitor/app/correlation): the unique identifier of the synchronization operation created at the very beginning of the workflow and passed from one step to another. 
+- **Sync Start Time, Sync End Time:** the start time of the synchronization operation (UTC) and the end time, respectively. 
+- **State:** the state of the synchronization operation (Pending, Completed, Failed). 
+- **Purview Object ID:** the unique identifier of the object in Microsoft Purview. 
+
+**Partition Key** and **Row Key** will be used as a tuple to uniquely identify an object from the external catalog. It will link the extracted object from the external catalog to the created object in Purview through **Purview Object ID** property. 
