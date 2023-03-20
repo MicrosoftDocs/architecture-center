@@ -97,7 +97,7 @@ An Azure App Service Plan is the underlying server farm used to deploy an Azure 
 Here are some ways to further enhance this solution:
 
 - Deploy other services to enhance your bot, including LUIS.
-- Set up [Bot Analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot.
+- Set up [bot analytics](/azure/bot-service/bot-service-manage-analytics) to gain more insight into the performance of your bot.
 - Deploy a back-end store for your bot to interact with, such as Azure Cosmos DB.
 - Automate the generation of the Application Insights API Key, and consider storing the key in an Azure KeyVault that you can reference during deployment time.
 
