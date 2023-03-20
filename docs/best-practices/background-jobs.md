@@ -227,8 +227,8 @@ Azure Container Apps enables you to build serverless microservices based on cont
 
 * Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
 * Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
-* Supports Kubernetes-style apps and microservices with features like [service discovery](connect-apps.md) and [traffic splitting](revisions.md).
-* Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](scale-app.md), including [scale to zero](scale-app.md).
+* Supports Kubernetes-style apps and microservices with features like [service discovery](/azure/container-apps/connect-apps) and [traffic splitting](/azure/container-apps/revisions).
+* Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](/azure/container-apps/scale-app), including [scale to zero](/azure/container-apps/scale-app).
 * Support of long running processes and can run [background tasks](/azure/container-apps/background-processing).
 
 #### Considerations
@@ -240,7 +240,7 @@ For more information, see:
 
 - [Overview of Azure Containers App](/azure/container-apps/overview)
 
-You can get started building your first container app [using the quickstarts](get-started.md).
+You can get started building your first container app [using the quickstarts](/azure/container-apps/get-started).
 
 ## Partitioning
 
