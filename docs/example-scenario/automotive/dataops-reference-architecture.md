@@ -21,7 +21,13 @@ Data operations in automated driving involve:
 
 The reference architecture contains guidance about these logical building blocks and processes for DataOps, technology recommendations, partner, or open-source solutions for specific areas like simulation and data models. 
 
-### Data flow
+## Guiding Principles 
+Based on our expierence several teams are involved in Data Operations due to complexity of the entire data loops required for Autonomous Vehicles. E. g. one team is responsible for data collection / data ingestion, another one for data quality and another team for data labeling and owning the labeled datasets for Lidar, Radar and frame data. For that reason principles of a Data Mesh architecture are considered for AVOps DataOps:
+
+- <principle one>
+
+
+## Data flow
 
 ![AVOps Reference architecture.](.\images\solution-kit.png)
 > remove this if no visio file *Download a [Visio file](https://arch-center.azureedge.net/[AVOps].vsdx) of this architecture.*
@@ -36,28 +42,30 @@ The reference architecture contains guidance about these logical building blocks
 1. In the [ValOps](#valops) stage, trained models are validated via open-loop and closed-loop testing.
 1. Tools like [Foxglove](https://foxglove.dev/), running on [Azure Kubernetes Service](/azure/aks/intro-kubernetes) or [Azure Container Instances](/azure/container-instances/), visualize ingested and processed data. 
 
-### Data collection
-
-Data collection is one of the main [challenges](../../guide/machine-learning/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
 ## Data Flow between zones
 
 The image below shows an example scenario of an offline/online collection of vehicle data to a data lake.  
-## Data collection
+### Data collection
 ![Data Collection](.\images\data-collection.png)
-## Data collection components
 
-## Data Landing Zone to Raw
+Data collection is one of the main [challenges](../../guide/machine-learning/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
-## Raw to Extracted
+### Data Landing Zone to Raw
 
-## Extracted to Curated
+### Raw to Derived
 
-## Curated to Labeled
+### Raw to Extracted
 
-## 
-### Components
-#### DataOps components
+### Extracted to Curated
+
+### Curated to Labeled
+
+## Meta-Data model / Common Data Model for measurement data
+
+## Data Discovery
+
+## DataOps Components
 
 * [Data Box](https://azure.microsoft.com/products/databox) is used to transfer collected vehicle data to Azure via a regional carrier.
 * [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends the on-premises network into the Microsoft cloud over a private connection.
@@ -70,13 +78,6 @@ The image below shows an example scenario of an offline/online collection of veh
 * [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
 * [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
 
-
-
-### Landing Zone to Raw
-
-### Raw to Derived
-
-### Data Model
 
 
 ## Scenario details
@@ -144,7 +145,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-### Contributors 
+## Contributors 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors: > Only the primary authors. Listed alphabetically by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s).
