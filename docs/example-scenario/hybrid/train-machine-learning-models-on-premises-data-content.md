@@ -78,7 +78,6 @@ To enable this solution to scale, you'll need to create an appropriately sized V
 Principal authors:
 
  - [Ronmia Bess](https://www.linkedin.com/in/ronmia-bess-8715625) | Content Developer 2
- - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
 Other contributors:
 

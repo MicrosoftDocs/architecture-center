@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 03/13/2023
+ms.date: 03/20/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,12 +27,23 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Mainframe file and tape backup to Azure using Luminex](./example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml)
+- [Using Azure Active Directory B2C in a multitenant architecture](./guide/multitenant/service/azure-ad-b2c.md)
+- [Subscription vending implementation guidance](./landing-zones/subscription-vending.yml)
+- [Run CAE simulations for manufacturing on Azure](./example-scenario/hpc/hpc-run-cae-simulations.yml)
 - [Autonomous Vehicle Operations (AVOps) design guide](./guide/machine-learning/avops-design-guide.md)
 - [Create an Autonomous Vehicle Operations (AVOps) solution](./solution-ideas/articles/avops-architecture.yml)
 - [Protect access tokens in a single-page application by using Azure API Management](./guide/web/secure-single-page-application-authorization.yml)
 
 ### Updated articles
 
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#924f5e599](https://github.com/MicrosoftDocs/architecture-center/commit/924f5e599))
+- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#5ff05eae2](https://github.com/MicrosoftDocs/architecture-center/commit/5ff05eae2))
+- [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)  ([#b4b724827](https://github.com/MicrosoftDocs/architecture-center/commit/b4b724827))
+- [Reliable web app pattern for .NET -  Apply the pattern](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)  ([#47558cb03](https://github.com/MicrosoftDocs/architecture-center/commit/47558cb03))
+- [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#9042e8a0f](https://github.com/MicrosoftDocs/architecture-center/commit/9042e8a0f))
+- [Multitenant SaaS on Azure](./example-scenario/multi-saas/multitenant-saas.yml)  ([#139802b59](https://github.com/MicrosoftDocs/architecture-center/commit/139802b59))
+- [Master data management with Profisee and Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)  ([#d1671805f](https://github.com/MicrosoftDocs/architecture-center/commit/d1671805f))
 - [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)  ([#693c6382d](https://github.com/MicrosoftDocs/architecture-center/commit/693c6382d))
 - [DevOps checklist](./checklist/dev-ops.md)  ([#d4ccd9995](https://github.com/MicrosoftDocs/architecture-center/commit/d4ccd9995))
 - [DevSecOps with GitHub Security](./solution-ideas/articles/devsecops-in-github.yml)  ([#8d6dd058a](https://github.com/MicrosoftDocs/architecture-center/commit/8d6dd058a))
@@ -48,8 +59,8 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)
-- [How to apply the reliable web app pattern (.NET)](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)
-- [Reliable web app pattern planning (.NET)](./reference-architectures/reliable-web-app/dotnet/pattern-overview.yml)
+- [Reliable web app pattern for .NET -  Apply the pattern](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)
+- [Reliable web app pattern for .NET - Plan the implementation](./reference-architectures/reliable-web-app/dotnet/pattern-overview.yml)
 - [Capture-the-Flag with CTFd on Azure PaaS](./example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml)
 - [Deploy AVL FIRE M on an Azure virtual machine](./guide/hpc/hpc-avl-fire-m.yml)
 - [Highly available zone-redundant Azure Spring Apps](./reference-architectures/microservices/spring-apps-multi-zone.yml)

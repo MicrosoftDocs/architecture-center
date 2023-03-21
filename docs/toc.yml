@@ -1493,8 +1493,6 @@ items:
                 href: example-scenario/data/azure-health-data-consortium.yml
               - name: Implement risk prediction for surgeries
                 href: example-scenario/ai/risk-stratification-surgery.yml
-              - name: IoT Connected Platform for COVID-19
-                href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
               - name: Predict hospital readmissions with ML
@@ -2840,12 +2838,8 @@ items:
                       href: /azure/architecture/browse/?terms=sports
                     - name: Baseball decision analysis with ML.NET
                       href: data-guide/big-data/baseball-ml-workload.yml
-                    - name: Smart stadiums
-                      items:
-                        - name: Create smart stadiums
-                          href: example-scenario/iot/smart-places.yml
-                        - name: IoT platform for COVID-19 detection
-                          href: solution-ideas/articles/iot-connected-platform.yml
+                    - name: Create smart stadiums
+                      href: example-scenario/iot/smart-places.yml
                     - name: Sports analytics on Azure
                       href: example-scenario/analytics/sports-analytics-architecture-azure.yml
                     - name: Stream sporting events
@@ -3135,6 +3129,8 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Multiple indexers with Azure Cognitive Search
+                href: example-scenario/data/search-blob-metadata.yml
               - name: Network security for MLOps
                 href: example-scenario/ai/network-security-mlops.yml
               - name: Predict hospital readmissions with ML
@@ -5308,8 +5304,6 @@ items:
                     href: solution-ideas/articles/contactless-interfaces.yml
                   - name: COVID-19 IoT safe environments
                     href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-                  - name: IoT Connected Platform
-                    href: solution-ideas/articles/iot-connected-platform.yml
                   - name: Lighting and disinfection system
                     href: solution-ideas/articles/uven-disinfection.yml
               - name: Environment monitoring
