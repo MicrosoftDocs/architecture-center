@@ -29,9 +29,9 @@ The architecture consists of two main building blocks:
 - A connector (steps 1 and 2). 
 - Import module (step 3). 
 
-**The connector** is specific to each external catalog, and it consists of the first two steps (extract and transform). Due to the nature of these steps and the fact that they have specific knowledge of the external catalog (how to extract the metadata, using, for example, APIs, as well as how the metadata is structured), a connector needs to be written for each catalog that the synchronization framework works with. Therefore, the services part of the connector (Azure Functions, Event Hubs), as seen in the architecture diagram above, will be needed per external catalog. The output of the connector building block is written in a catalog-agnostic format, referred to as the **Pivot** format.
+**The connector** *is specific to each external catalog*, and it consists of the first two steps (extract and transform). Due to the nature of these steps and the fact that they have specific knowledge of the external catalog (how to extract the metadata, using, for example, APIs, as well as how the metadata is structured), a connector needs to be written for each catalog that the synchronization framework works with. Therefore, the services part of the connector (Azure Functions, Event Hubs), as seen in the architecture diagram above, will be needed per external catalog. The output of the connector building block is written in a catalog-agnostic format, referred to as the **Pivot** format.
 
-**Import module** represents the last step in the synchronization framework (step 3). It is catalog agnostic and works with metadata in Pivot format. All the metadata that was previously extracted and transformed to Pivot format will be streamed to three services buses - for classifications, glossary terms and assets, respectively. An Azure Function will listen to each service bus queue and will import the received object into Purview in an upsert fashion using [Purview API](/rest/api/purview/catalogdataplane/entity) or [SDKs](/azure/purview/tutorial-using-python-sdk). The functions will also populate the **Synchronization State** with information about the imported objects. Deletion will be handled on a scheduled basis using an Azure Function, based on the information from the Synchronization State. 
+**Import module** represents the last step in the synchronization framework (step 3). *It is catalog agnostic* and works with metadata in Pivot format. All the metadata that was previously extracted and transformed to Pivot format will be streamed to three services buses - for classifications, glossary terms and assets, respectively. An Azure Function will listen to each service bus queue and will import the received object into Purview in an upsert fashion using [Purview API](/rest/api/purview/catalogdataplane/entity) or [SDKs](/azure/purview/tutorial-using-python-sdk). The functions will also populate the **Synchronization State** with information about the imported objects. Deletion will be handled on a scheduled basis using an Azure Function, based on the information from the Synchronization State. 
 
 1. **Extract** 
 
@@ -52,7 +52,7 @@ The architecture consists of two main building blocks:
 
 3. **Import** 
 
-   The last step is catalog agnostic and is responsible for loading the objects into Microsoft Purview based on the intermediate format, called pivot. It consists of three Azure Functions, each listening to its specific Service Bus queue. Every function implements an upsert operation (create/update) for that type of object, avoiding creating duplicates. Purview REST API or Purview SDKs, such as [Microsoft Purview Python SDK](/azure/purview/tutorial-using-python-sdk), can be used for the implementation.
+   The last step is *catalog agnostic* and is responsible for loading the objects into Microsoft Purview based on the intermediate format, called pivot. It consists of three Azure Functions, each listening to its specific Service Bus queue. Every function implements an upsert operation (create/update) for that type of object, avoiding creating duplicates. Purview REST API or Purview SDKs, such as [Microsoft Purview Python SDK](/azure/purview/tutorial-using-python-sdk), can be used for the implementation.
  
    For this step we are using [Azure Table storage](/azure/storage/tables/) as an intermediate storage, referred to as **Synchronization State** in this article. As part of the import, the Synchronization State will be updated with information concerning the imported object.  
 
@@ -139,3 +139,74 @@ Note: The state is used to reflect the last run of the synchronization framework
 - **Purview Object ID:** the unique identifier of the object in Microsoft Purview. 
 
 **Partition Key** and **Row Key** will be used as a tuple to uniquely identify an object from the external catalog. It will link the extracted object from the external catalog to the created object in Purview through **Purview Object ID** property. 
+
+This structure ensures that: 
+
+- Only one unique record exists per object for a given partition. i.e., if three glossary terms were imported from CatalogA then there will be three entries in the Synchronization State with **CatalogA_Glossary** as partition key. Each entry will have a different **Row Key** - based on the unique identifier of that item in the external catalog. 
+- Synchronization State is used as a locking mechanism so that two messages cannot import the same object at the same time. The usage of Azure Table storage is particularly useful for this purpose.
+
+### Import step and Synchronization State
+
+Below we can zoom into the **import** flow of an asset and see how the Synchronization State is being used:
+
+image 
+
+*Download a [Visio file] of this architecture.*
+
+The import consists of the following steps: 
+
+1. When the import step is triggered, it first queries the Synchronization State by **Partition Key** and **Row Key**:  
+   1. If no entry exists, the import process initializes a new line with the **State** set to *Pending*. The **Row Key** is set to the unique identifier of the object in the external catalog and the **Partition Key** is set accordingly. This ensures that no other process can import the same metadata object at the same time (lock). **Sync Start Time** and **Correlation ID** are also initialized, accordingly. 
+   1. If an entry already exists: 
+      1. If the **State** is *Failed*, the entry is updated with the new **Correlation ID**, a new **Sync Start Time** and the **State** is set to *Pending*.  
+      1. If the **State** is *Pending*, the message is scheduled to be replayed later. For this purpose, the [dead-lettering queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) and re-queue mechanism that [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) offers by default is very convenient. 
+      1. If the **State** is *Completed*, the **Correlation ID** of the current run is compared against the one from the entry:
+         1. If they are different, the entry is updated with the current **Correlation ID**, a new **Sync Start Time** and the **State** is set to *Pending*.  
+         1. Otherwise, the message can be considered to be skipped.  
+
+      Note: all messages part of a Synchronization run will have the same Correlation ID. This step ensures that each object is updated only one time per run. It assumes that there are no partial updates, and it should be considered based on the implementation. 
+
+1. The object is created or updated in Microsoft Purview. 
+1. Upon completion of previous step, the unique identifier of the object is written into the Synchronization State (**Purview Object ID**), alongside the **Sync End Time** and the **State** changed to *Completed*. If the import fails, the line is set to **State** *Failed*. 
+
+[Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp-inproc) can be considered as an alternative to the Synchronization State. 
+
+## Deletion  
+
+Deletion is implemented based on the Synchronization State by using **SyncStartTime** and **SyncEndTime**. Since the synchronization framework is triggered on a scheduled basis, the objects from the Synchronization State that were not updated for a given time, despite multiple synchronizations being run in between, symbolizes the fact that they were removed in the external catalog. Therefore, those objects should be removed from Purview as well. 
+
+## Contributors 
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal authors: 
+
+Julien Corioland | Principal Software Engineer 
+
+Adina Stoll | Software Engineer 2 
+
+Other contributors: 
+
+Raouf Aliouat | Software Engineer 2 
+
+## Next steps 
+
+For an overview of all the type definitions in Purview you can use Types - Get All Type Definitions - REST API (Azure Purview) | Microsoft Learn 
+
+For more information about partitioning and querying strategy with Azure Table Storage: Design a scalable partitioning strategy for Azure Table storage (REST API) - Azure Storage | Microsoft Learn 
+
+For more information on Azure Functions triggers and bindings: Triggers and bindings in Azure Functions | Microsoft Learn 
+
+Tutorial: How to use Microsoft Purview Python SDK - Microsoft Purview | Microsoft Learn 
+
+Compare Azure messaging services - Azure Event Grid | Microsoft Learn 
+
+Resilient design guidance for Event Hubs and Functions - Azure Architecture Center | Microsoft Learn 
+
+## Related resources 
+
+TODO: Link Raouf’s article about observability in distributed systems : proposal-guide-obs-e2e.docx 
+
+TODO: Link the article about collection structures: Collection Structure.docx 
+
+ 
