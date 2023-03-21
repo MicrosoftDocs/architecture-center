@@ -413,9 +413,9 @@ items:
                   items:
                   - name: Overview
                     href: guide/networking/global-web-applications/overview.md
-                  - name: Mission-critical content delivery
+                  - name: Content delivery
                     href: guide/networking/global-web-applications/mission-critical-content-delivery.md
-                  - name: Mission-critical global HTTP ingress
+                  - name: Global HTTP ingress
                     href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md         
       - name: Multitenant applications
         items:
