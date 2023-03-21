@@ -45,6 +45,8 @@ SWIFT offers three Alliance virtual connectivity options. You can choose the opt
 - **Alliance Connect Virtual Gold.** This option provides the highest service level and resiliency of the Alliance Connect products. Connectivity to SWIFT uses two ExpressRoute connections of equal capacity. This option is designed for customers that handle more than 40,000 messages per day and require the highest levels of resiliency.
 
 We recommend that you read more about these options on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
+
+Additionally, see the [Visio file]() for architectures that illustrate the use of these solutions with each of the three connectivity options: Gold, Silver, and Bronze.
  
 The next section describes the key components that are available to organizations that require SWIFT connectivity. 
 
