@@ -1,27 +1,15 @@
 Azure Private Link allows you to access Azure PaaS services from your network over a private network connection. You configure a private endpoint in your network that uses a private IP address from your network. Clients can then connect privately and securely to Private Link services through that private endpoint.
 
-Clients aren't aware of the private IP address of the private endpoint. They connect to the service through its Fully Qualified Domain Name (FQDN). The challenge is that you must configure DNS in your network to resolve the FQDN to the private IP address of the private endpoint.
+Clients aren't aware of the private IP address of the private endpoint. They connect to the service through its Fully Qualified Domain Name (FQDN). The challenge is that you must configure DNS in your network to resolve the FQDN to the private IP address of the private endpoint. Your network design and, in particular, your DNS configuration plays a key factor in supporting private endpoint connectivity to services.
 
-Your network design and, in particular, your DNS configuration plays a key factor in supporting private endpoint connectivity to services. This article series takes a common hub-and-spoke network topology using Azure Virtual WAN and provides guidance on implementing several Private Link scenarios where a client accesses one or more PaaS resources. The scenarios start simple and increase in complexity.
-
-- Workload in **Single region** accessing **1 dedicated PaaS resource**
-- Workloads in **Two regions** accessing **1 dedicated PaaS resource**
-- Workload in **Single region** accessing **2 workload-isolated PaaS resource**
-- Workloads in **Two regions** accessing **2 workload-isolated resource**
-
-The hub-and-spoke topology allows you to isolate workloads in spokes, while sharing common services in the hub. As mentioned earlier, a key shared service when working with Private Link is DNS. Azure Virtual WAN provides virtual hubs. Because you do not have full control of the virtual hubs, there are some constraints. For example, you are not able to link private DNS zones to a virtual hub. Private DNS zones are a key component to the solution of all the scenarios.
-
-To address the private DNS zone constraint, along with other constraints, we introduce the [virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml). This pattern addresses how to expose shared services in a virtual hub in an isolated and secure manner.
-
-> [!IMPORTANT]
-> Read the article on [the virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) before reading the scenarios and their solutions. The extensions pattern plays a key role in the solutions.
+This article series takes a common hub-and-spoke network topology using Azure Virtual WAN and provides guidance on implementing several Private Link scenarios.
 
 ## Default network architecture
 
-The base network topology used in this series isn't intended to be a target network architecture and your design likely has differences. The goal is to outline common networking constraints you might encounter when designing your workloads.
+The base network topology used in this series isn't intended to be a target network architecture. The configuration was chosen to illustrate a complex topology regarding Private Link and DNS. While your design likely has differences, the goal is to outline common networking constraints you might encounter when designing your workloads.
 
 :::image type="complex" source="./images/dns-private-endpoints-vwan-baseline-architecture.svg" lightbox="./images/dns-private-endpoints-vwan-baseline-architecture.svg" alt-text="Diagram showing the baseline Virtual WAN architecture used for this series.":::
-The diagram shows a network with Azure Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. Azure Firewall is configured with DNS Proxy enabled. There are 2 Virtual Networks connected to each virtual hub. The Virtual Networks have a dotted line to the Firewall on their hub, noting that the Firewall instance is their configured DNS.
+The diagram shows a network with Azure Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. Azure Firewall is configured with DNS Proxy enabled. There are two Virtual Networks connected to each virtual hub. The Virtual Networks have a dotted line to the Firewall on their hub, noting that the Firewall instance is their configured DNS.
 :::image-end:::
 *Figure 1: Default network architecture for all private endpoint and DNS scenarios*
 
@@ -40,13 +28,17 @@ The architecture has the following attributes that have to be taken into conside
 - Each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy, otherwise [the DNS query results can be unpredictable](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
 - Each Azure Firewall is logging to Log Analytics - Azure Firewall enables logging DNS requests, which is a requirement for this topology.
 
-### Challenge with DNS Proxy: Enabled
+### Key challenges
 
-DNS proxy has to be enabled if you want Azure Firewall network rules to support Fully Qualified Domain Names (FQDN). Instead of managing the complexity of ensuring the correct IP addresses are in place in network rules, the rules need only specify the FQDN. Azure Firewall resolves the FQDN to the correct IP address.
+The default network configuration creates two key challenges regarding configuring DNS for private endpoints.
 
-When enabling DNS proxy on the Firewall, you should configure spoke network DNS server settings and set the Azure Firewall’s private IP address as the Custom DNS server. This adds complexity regarding private endpoints and DNS because you aren't able to link a private DNS zone to a virtual hub. Because of that, Azure DNS servers don't know how to resolve the private IP address of a private endpoint.
+1. The first architectural decision that presents a challenge is the use of Azure Virtual WAN to implement a hub-spoke model. The hub-spoke topology allows you to isolate workloads in spokes, while sharing common services, such as DNS, in the hub. In a traditional hub-spoke implementation, you would link a private DNS zone to the hub network, which would allow Azure DNS to resolve private endpoint IP addresses. It isn't possible to link private DNS zones to virtual hubs.
 
-To illustrate the challenge, the following are two configurations, one that works and one that doesn't. We provide details about why they do and don't work, respectively.
+2. To address the above challenge, you might try to link a private DNS zone to the workload virtual network. This brings about the second architectural decision that presents a challenge: enabling DNS proxy on the Firewall. DNS proxy has to be enabled if you want Azure Firewall network rules to support Fully Qualified Domain Names (FQDN). Instead of managing the complexity of ensuring the correct IP addresses are in place in network rules, the rules need only specify the FQDN. Azure Firewall resolves the FQDN to the correct IP address.
+
+    As noted in the architecture, when enabling DNS proxy on the Firewall, you should configure spoke network Custom DNS server to point at the Azure Firewall to ensure predicable DNS query results. Because the workload spoke network's DNS server is Azure Firewall, Azure DNS isn't aware of a private DNS zone linked to that network.
+
+To illustrate the challenges, the following are two configurations, the most basic example that works and a more complex example that doesn't. We provide details about why they do and don't work, respectively.
 
 #### Working example
 
@@ -88,9 +80,9 @@ The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an
 
 The above works because Azure DNS is the configured DNS server for the Virtual Network, is aware of the linked private DNS zone, and forwards the DNS query to it.
 
-#### Non-working example
+#### Nonworking example
 
-The non-working example represents an attempt to use private endpoints with our default network architecture. It isn't possible to link a private DNS zone to a virtual hub in Virtual WAN. Therefore, when clients are configured to use the Azure Firewall as their DNS servers, the requests are proxied to Azure DNS, which doesn't have a linked private DNS zone. Azure DNS doesn't know how to resolve the query.
+The nonworking example represents an attempt to use private endpoints with our default network architecture. It isn't possible to link a private DNS zone to a virtual hub in Virtual WAN. Therefore, when clients are configured to use the Azure Firewall as their DNS servers, the requests are proxied to Azure DNS, which doesn't have a linked private DNS zone. Azure DNS doesn't know how to resolve the query.
 
 :::image type="complex" source="./images/dns-private-endpoints-dnsproxy-basic-config-doesnt-work.svg" lightbox="./images/dns-private-endpoints-dnsproxy-basic-config-doesnt-work.svg" alt-text="Diagram showing DNS configuration in a private DNS zone not working because Azure Firewall has DNS proxy enabled.":::
 The diagram shows a virtual hub with and Azure Firewall with DNS Proxy enabled. It illustrates that you can't connect a private DNS zone to a virtual hub. It further illustrates that a client isn't able to make use of the A record in the private DNS zone to resolve the FQDN to the private IP address of the storage account.
@@ -131,23 +123,31 @@ The diagram shows a virtual hub with and Azure Firewall with DNS Proxy enabled. 
 
 4. The client doesn't have the private IP address for the Private Link Endpoint and can't establish a private connection to the storage account.
 
-The above behavior is expected and is the problem that the scenarios are going to address.
+The above behavior is expected and is one problem that the scenarios are going to address.
 
 ## Scenarios
 
-The scenarios illustrate a client accessing one or more services over a private endpoint under different network topologies. The scenarios start with a client accessing a single service in a network with a single region and a single subnet. The scenarios get incrementally more complex, adding subnets and regions, and adding another resource that the client must access.  
+The scenarios consist of a client accessing one or more services over a private endpoint under different network topologies that adhere to the default network architecture. The scenarios start with a client accessing a single service in a network with a single region and a single subnet. The scenarios get incrementally more complex, adding subnets and regions, and adding another resource that the client must access.
 
 The client is implemented as a VM and one of the services the client accesses is implemented as a storage account. VMs are a good stand-in for any Azure resource that has a NIC exposed on a Virtual network, such as Virtual Machine Scale Sets, Azure Kubernetes Service, or other services that routes in a similar way.
 
 > [!IMPORTANT]
 > Azure Storage account’s Private Link implementation might differ from other services in subtle ways, but it does align well for many.
 
-Each scenario starts with the desired end state and details the configuration required to get from the beginning state to the desired state. The following are the scenarios.
+The solution to every scenario takes advantage of the [virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml). This pattern addresses how to expose shared services in a virtual hub in an isolated and secure manner.
 
-- [Workload in **Single region** accessing **1 dedicated PaaS resource**](./private-link-vwan-dns-single-region-workload.yml)
-- *Workloads in **Two regions** accessing **1 dedicated PaaS resource** - coming soon*
-- *Workload in **Single region** accessing **2 workload-isolated PaaS resource** - coming soon*
-- *Workloads in **Two regions** accessing **2 workload-isolated resource** - coming soon*
+> [!IMPORTANT]
+> Read the article on [the virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) before reading the scenarios and their solutions. The extensions pattern plays a key role in the solutions.
+
+Each scenario starts with the desired end state and details the configuration required to get from the beginning state to the desired state. The following table contains links to the virtual hub extension pattern and the scenarios.
+
+| Article | Description |
+| --- | --- |
+| [Virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) | This pattern addresses how to expose shared services in a virtual hub in an isolated and secure manner. |
+| [Scenario 1](./private-link-vwan-dns-single-region-workload.yml) | A Workload in a single region accessing one dedicated PaaS resource. |
+| Scenario 2 - *coming soon* | Workloads in two regions accessing one dedicated PaaS resource. |
+| Scenario 3 - *coming soon* | A workload in a single region accessing two workload-isolated PaaS resources. |
+| Scenario 4 - *coming soon* | Workloads in two regions accessing two workload-isolated resources. |
 
 ## Next steps
 
