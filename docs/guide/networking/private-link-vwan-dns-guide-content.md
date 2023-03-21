@@ -134,12 +134,7 @@ The client is implemented as a VM and one of the services the client accesses is
 > [!IMPORTANT]
 > Azure Storage account’s Private Link implementation might differ from other services in subtle ways, but it does align well for many.
 
-The solution to every scenario takes advantage of the [virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml). This pattern addresses how to expose shared services in a virtual hub in an isolated and secure manner.
-
-> [!IMPORTANT]
-> Read the article on [the virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) before reading the scenarios and their solutions. The extensions pattern plays a key role in the solutions.
-
-Each scenario starts with the desired end state and details the configuration required to get from the beginning state to the desired state. The following table contains links to the virtual hub extension pattern and the scenarios.
+Each scenario starts with the desired end state and details the configuration required to get from the beginning state to the desired state. The solution to every scenario takes advantage of the [virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml). This pattern addresses how to expose shared services in a virtual hub in an isolated and secure manner. The following table contains links to the virtual hub extension pattern and the scenarios.
 
 | Article | Description |
 | --- | --- |
