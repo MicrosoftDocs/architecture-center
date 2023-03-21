@@ -10,7 +10,7 @@ Diagram showing the single-region challenge.
 :::image-end:::
 *Figure 1: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*
 
-This section defines the scenario and redefines the challenge for this scenario (the challenge is the same as the [nonworking example in the overview page](./private-link-vwan-dns-guide.yml#non-working-example)). The initial scenario architecture builds on the [default network architecture defined in the overview guide](./private-link-vwan-dns-guide.yml#default-network-architecture). The following are the additions and changes:
+This section defines the scenario and redefines the challenge for this scenario (the challenge is the same as the [nonworking example in the overview page](./private-link-vwan-dns-guide.yml#nonworking-example)). The initial scenario architecture builds on the [default network architecture defined in the overview guide](./private-link-vwan-dns-guide.yml#default-network-architecture). The following are the additions and changes:
 
 - There's only one region with one virtual hub.
 - There's an Azure Storage account in the region with public network access disabled. This storage account is only intended to be accessed by the single workload in this scenario.
@@ -102,7 +102,7 @@ The diagram shows a virtual hub secured by Azure Firewall connected to two virtu
 
 ### Adding spoke networks
 
- When adding spoke networks, you need to follow the [constraints defined in the default network architecture](./private-link-vwan-dns-guide#default-network-architecture). Configure them as follows to ensure they're associated to the Default route table in its regional hub, and Azure Firewall is securing both internet and private traffic.
+ When adding spoke networks, you need to follow the [constraints defined in the default network architecture](./private-link-vwan-dns-guide.yml#default-network-architecture). Configure them as follows to ensure they're associated to the Default route table in its regional hub, and Azure Firewall is securing both internet and private traffic.
 
 - When adding a spoke virtual network connection to the virtual hub, configure default routing by applying the following settings:
 
