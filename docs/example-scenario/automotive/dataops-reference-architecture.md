@@ -1,4 +1,7 @@
-This architecture provides guidance and recommendations for developing data operations for an automated driving solution.
+# Data Operations Reference Architecture for Autonomous Vehicle Operations (AVOps)
+
+This architecture provides guidance and recommendations for developing data operations and data management (DataOps) for an automated driving solution. DataOps is one of the building block of the Microsoft AVOps reference architecture.
+
 ## Architecture
 
 ![DataOps Reference architecture.](.\images\solution-kit.png)
