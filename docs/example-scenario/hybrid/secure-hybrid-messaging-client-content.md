@@ -10,7 +10,9 @@ The article shows how to implement multi-factor authentication for Outlook deskt
 
 ## Architecture (Exchange Online)
 
-:::image type="content" border="false" source="./media/desktop-online-option-1.png" alt-text="Diagram that shows an architecture for enhanced security in an Outlook client access scenario. The user's mailbox is in Exchange Online." lightbox="./media/desktop-online-option-1.png":::
+:::image type="content" border="false" source="./media/desktop-online-option-1.svg" alt-text="Diagram that shows an architecture for enhanced security in an Outlook client access scenario. The user's mailbox is in Exchange Online." lightbox="./media/desktop-online-option-1.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-client.vsdx) of all diagrams in this article.*
 
 In this scenario, users need to use the version of Outlook client that supports modern authentication. For more information, see [How modern authentication works for Office 2013, Office 2016, and Office 2019 client apps](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide). This architecture covers both Outlook for Windows and Outlook for Mac.
 
@@ -60,7 +62,9 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 ## Architecture (Exchange Online, AD FS)
 
-:::image type="content" border="false" source="./media/desktop-online-option-2.png" alt-text="Diagram that shows an alternative architecture for enhanced security in an Outlook client access scenario." lightbox="./media/desktop-online-option-2.png":::
+:::image type="content" border="false" source="./media/desktop-online-option-2.svg" alt-text="Diagram that shows an alternative architecture for enhanced security in an Outlook client access scenario." lightbox="./media/desktop-online-option-2.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-client.vsdx) of all diagrams in this article.*
 
 This scenario is the same as the previous one, except that it uses a different trigger for multi-factor authentication. In the previous scenario, we used local AD FS for authentication. We then redirected information about successful authentication to Azure AD, where a Conditional Access policy enforced multi-factor authentication. In this scenario, instead of using Conditional Access to enforce multi-factor authentication, we create an access control policy on the AD FS level and enforce multi-factor authentication there. The rest of the architecture is the same as the previous one.
 
@@ -116,7 +120,9 @@ New-AuthenticationPolicy -Name BlockLegacyOutlookAuth -AllowBasicAuthRpc:$false 
 
 ## Architecture (Exchange on-premises)
 
-:::image type="content" border="false" source="./media/desktop-on-premises-option-1.png" alt-text="Diagram that shows an enhanced security architecture in an on-premises Outlook client access scenario." lightbox="./media/desktop-on-premises-option-1.png":::
+:::image type="content" border="false" source="./media/desktop-on-premises-option-1.svg" alt-text="Diagram that shows an enhanced security architecture in an on-premises Outlook client access scenario." lightbox="./media/desktop-on-premises-option-1.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-client.vsdx) of all diagrams in this article.*
 
 This architecture covers both Outlook for Windows and Outlook for Mac.
 
@@ -160,7 +166,9 @@ After you create the authentication policy, you can first assign it to a pilot g
 
 ## Architecture (Exchange on-premises, AD FS)
 
-:::image type="content" border="false" source="./media/desktop-on-premises-option-2.png" alt-text="Diagram that shows an alternative enhanced security architecture in an on-premises Outlook client access scenario." lightbox="./media/desktop-on-premises-option-2.png":::
+:::image type="content" border="false" source="./media/desktop-on-premises-option-2.svg" alt-text="Diagram that shows an alternative enhanced security architecture in an on-premises Outlook client access scenario." lightbox="./media/desktop-on-premises-option-2.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-client.vsdx) of all diagrams in this article.*
 
 This scenario is similar to the previous one. However, in this scenario, multi-factor authentication is triggered by AD FS. This architecture covers both Outlook for Windows and Outlook for Mac.
 
