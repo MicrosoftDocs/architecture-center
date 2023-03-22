@@ -154,7 +154,7 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- Consider deploying an Azure virtual machine scale set to run web server VM instances in a [proximity placement group](/azure/virtual-machines/co-location). This approach colocates VM instances and reduces latency between VMs.
+- Consider deploying an Azure Virtual Machine Scale Set to run web server VM instances in a [proximity placement group](/azure/virtual-machines/co-location). This approach colocates VM instances and reduces latency between VMs.
 - Consider using Azure VMs with accelerated networking, which provide up to 30 Gbps of network throughput.
 - Consider using [Azure managed disks](/azure/virtual-machines/managed-disks-overview) with Premium SSD, which provide up to 20,000 IOPS and 900 Mbps of throughput.
 - Consider configuring Azure disk host caching as read-only to get increased disk throughput.
