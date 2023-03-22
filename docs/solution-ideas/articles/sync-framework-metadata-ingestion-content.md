@@ -66,13 +66,11 @@ This architecture is also highly scalable:
 
 - In addition to offering plans for scalability, Event Hubs provides an [Auto-inflate feature](/azure/event-hubs/event-hubs-auto-inflate) that increases the number of throughput units as needed. Similarly, Service Bus has an automatic scaling feature that adapts the number of messaging units. 
 - The architecture uses Event Hubs and Service Bus triggers, which enables Azure Functions to scale in or out, balance the load, and process incoming messages concurrently as needed. To avoid lock contention and achieve the highest performance, you need to perform throughput testing.  
-- The Azure functions use the Event Hubs trigger that is compatible with the use of a [consumption plan](https://azure.microsoft.com/pricing/details/functions/#:~:text=Azure%20Functions%20consumption%20plan%20is,function%20apps%20in%20that%20subscription.) that bills on per-second resource consumption and executions, making this architecture scalable and cost-efficient.
-
-The following sections provide additional information about applying and implementing the synchronization framework.
+- The Azure functions use the Event Hubs triggers, which are compatible with the use of a [consumption plan](https://azure.microsoft.com/pricing/details/functions/#:~:text=Azure%20Functions%20consumption%20plan%20is,function%20apps%20in%20that%20subscription.) that billed based on per-second resource consumption and executions. Using this plan makes this architecture scalable and cost-efficient.
 
 ### Potential use cases
 
-Data has an increasingly important role nowadays and it brings huge benefits to the organizations who unlock its potential.  
+Organizations that unlock data's potential can gain significant benefits.  
 
 For example, Contoso, like many large companies, would like to create a holistic view of their data assets to enable data driven business scenarios. Contoso is composed of multiple subdivisions / subsidiaries which work independently, resulting in data silos and limited collaboration. 
 
@@ -83,6 +81,8 @@ This is exactly the type of situation Contoso would like to avoid by creating a 
 Microsoft Purview has been chosen as the perfect solution for this - which allows searching and discovering metadata about data assets. Such a catalog would enable collaboration and would break down organizational boundaries. Subdivisions / subsidiaries will continue owning their data, however, by sharing metadata about their data, collaboration is enabled, and, on a case-by-case basis, data can be potentially shared. Some subdivisions have already invested time and effort in implementing their own catalog, scanning and enriching metadata, sometimes with other technologies, including custom solutions. The challenge Contoso is facing right now is how to import metadata from other catalogs into Microsoft Purview?  
 
 To overcome this challenge, Contoso uses the architecture proposed in the rest of the article to ingest metadata from external catalogs into Microsoft Purview. 
+
+The following sections provide additional information about applying and implementing this synchronization framework.
 
 ## Pivot classes 
 
