@@ -14,7 +14,7 @@ The following high-level reference architecture shows connectivity to the SWIFT 
 
 :::image type="content" alt-text="Diagram that shows a SWIFT architecture." source="./media/swift-alliance-connect-virtual.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/diagrams-swift-architecure-virtual-landing-page.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **vSRX-HA** tab.**
 
 A SWIFT deployment on Azure contains various components. The key components are described in the following sections.
 
@@ -46,7 +46,7 @@ SWIFT offers three Alliance virtual connectivity options. You can choose the opt
 
 We recommend that you read more about these options on the [SWIFT website](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-connect/alliance-connect-bronze-silver-and-gold-packages).
 
-Additionally, see the [Visio file]() for architectures that illustrate the use of these solutions with each of the three connectivity options: Gold, Silver, and Bronze.
+Additionally, see the [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) for architectures that illustrate the use of these solutions with each of the three connectivity options: Gold, Silver, and Bronze.
  
 The next section describes the key components that are available to organizations that require SWIFT connectivity. 
 

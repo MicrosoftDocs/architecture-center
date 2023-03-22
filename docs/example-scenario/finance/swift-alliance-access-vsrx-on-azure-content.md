@@ -9,7 +9,7 @@ This article provides an overview of deploying SWIFT Alliance Access on Azure. A
 
 [![Diagram that shows the architecture for SWIFT Alliance Access.](media/alliance-access-with-alliance-connect-virtual.png)](media/alliance-access-with-alliance-connect-virtual.png#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/diagrams-swift-alliance-access-with-alliance-connect-virtual-in-azure.vsdx) that contains this architecture diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) that contains this architecture diagram. See the **AA (All-GoldSilverBronze)** tab.*
 
 The Alliance Access subscription contains resources that you manage. To create the core infrastructure of Alliance Access resources shown in the diagram, you can use an Azure Resource Manager template (ARM template). Alliance Access deployments on Azure should follow the guidance in SWIFT's Customer Security Programme (CSP) - Customer Security Control Framework (CSCF). We recommend that you use SWIFT CSP-CSCF Azure policies in this subscription.
 

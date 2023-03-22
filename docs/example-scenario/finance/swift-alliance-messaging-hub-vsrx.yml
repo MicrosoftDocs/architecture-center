@@ -4,7 +4,7 @@ metadata:
   description: Run SWIFT Alliance Messaging Hub (AMH) on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 03/09/2023
+  ms.date: 03/23/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

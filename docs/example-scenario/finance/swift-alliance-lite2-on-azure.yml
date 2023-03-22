@@ -5,7 +5,7 @@ metadata:
   description: Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment. 
   author: ehaslett
   ms.author: ethaslet
-  ms.date: 03/09/2023
+  ms.date: 03/23/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
