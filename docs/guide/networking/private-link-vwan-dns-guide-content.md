@@ -149,8 +149,6 @@ Each scenario starts with the desired end state and details the configuration re
 > [!div class="nextstepaction"]
 > [Read about the virtual hub extension pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml)
 
-> [!div class="nextstepaction"]
-> [Explore the "Single region, dedicated PaaS" scenario](./private-link-vwan-dns-single-region-workload.yml)
 ## Related resources
 
 - [What is a private endpoint?](/azure/private-link/private-endpoint-overview)
