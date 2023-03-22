@@ -2,7 +2,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 ## Architecture
 
-![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram]
+[ ![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram] ](./images/hybrid-perf-monitoring.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
