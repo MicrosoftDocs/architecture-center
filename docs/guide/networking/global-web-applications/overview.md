@@ -1,5 +1,5 @@
 ---
-title: Global routing redundancy for highly available mission-critical global web applications
+title: Global routing redundancy for mission-critical web applications
 titleSuffix: Azure Architecture Center
 description: Learn how to develop highly resilient global web applications.
 author: johndowns
@@ -9,26 +9,33 @@ ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - azure
+  - azure-traffic-manager
+  - azure-front-door
 categories:
-  - management-and-governance
-ms.category:
-  - fcp
-ms.custom:
-  - checklist
-  - guide
+  - networking
+
 ---
 
-# Global routing redundancy for highly available mission-critical global web applications
-
-Most modern applications rely on web protocols, HTTP and HTTPS, for application delivery. Global applications frequently use content delivery networks (CDNs) to accelerate their performance, route traffic between regions, and secure their workloads. Microsoft's CDN offering is Azure Front Door, and Azure Front Door provides a range of capabilities to enrich applications.
-
-In some mission-critical solutions, you might need to add redundancy to your global traffic ingress path. By adding redundancy, you can improve the resiliency of this part of your solution. However, implementing multiple redundant traffic ingress paths comes with significant costs and drawbacks, and it's something you need to consider carefully. In this article, we describe the factors that you need to consider when planning how to route traffic to your mission-critical global HTTP application with Azure Front Door.
+# Global routing redundancy for mission-critical web applications
 
 > [!IMPORTANT]
-> Implementing a highly available, mission-critical web architecture can be complex and costly. Because of the potential problems that might arise with this kind of architecture, carefully consider whether the SLA provided by Azure Front Door is sufficient for your needs.
->
-> Most customers don't need the architecture described in this article.
+> Designing redundancy implementations that deal with global platform outages for a mission-critical architecture can be complex and costly. Because of the potential problems that might arise with this design, carefully consider the [tradeoffs](#tradeoffs).
+> In most situations, you won’t need the architecture described in this article.
+
+Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system will be offline to the user.  When choosing a routing service, it’s important to consider the reliability of the service itself.  In the [baseline architecture for mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
+
+-	Ability to route traffic to multiple regions in an active-active model
+- Ability of transparent failover using TCP anycast
+-	Ability to serve static content from edge nodes by using integrated content delivery networks (CDNs)
+-	Ability to block unauthorized access with integrated web application firewall
+
+Reliability and resiliency built into Azure Front Door is more than enough to meet most business requirements. However, with any distributed system, expect failure; even for Front Door. If the business requirements demand a higher composite SLA or zero-down time in case of an outage, you’ll need to rely on an alternate traffic ingress path. However, the pursuit of a higher composite SLA comes with significant costs, operational overhead, lower your overall reliability. Carefully consider the tradeoffs and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
+
+One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Front Door shouldn’t be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
+
+Another approach is using third-party technology for global routing. This approach will require a multi-cloud active-active deployment with stamps hosted across two or more cloud providers. Even though Azure can effectively be integrated with other cloud platforms, this approach is not recommended because of operational complexity across the different cloud platforms. 
+
+This article describes some strategies for global routing using Azure Traffic Manager as the alternate router in situations where Azure Front Door isn’t available.
 
 ## Traffic ingress
 
