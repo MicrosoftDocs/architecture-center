@@ -23,7 +23,9 @@ categories:
 >
 > In most situations, you won’t need the architecture described in this article.
 
-Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system will be offline to the user.  When choosing a routing service, it’s important to consider the reliability of the service itself.  In the **[baseline architecture for mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
+Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system will be offline to the user.  When choosing a routing service, it’s important to consider the reliability of the service itself.  
+
+In the **[baseline architecture for mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
 
 -	Ability to route traffic to multiple regions in an active-active model
 - Ability of transparent failover using TCP anycast
@@ -170,7 +172,9 @@ If you use Private Link to connect from Azure Front Door to your origin server, 
 
 If your origin uses the Azure Front Door service tag and the X-Azure-FDID header to validate that traffic has flowed through Azure Front Door, consider how your origins can be reconfigured to validate that traffic has flowed through either of your valid paths. You must test that you haven't accidentally opened your origin to traffic through other paths, including from other customers' Azure Front Door profiles.
 
-When you plan your origin security, check whether the alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview)  to reduce the risk of denial of service attacks against your origins. Also, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need more intrusion detection strategies. These controls can be important elements in a more complex multi-path architecture.
+When you plan your origin security, check whether the alternative traffic path relies on provisioning dedicated public IP addresses. This might need a manually triggered process to bring the backup path online.
+
+If there are dedicated public IP addresses, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview)  to reduce the risk of denial of service attacks against your origins. Also, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need more intrusion detection strategies. These controls can be important elements in a more complex multi-path architecture.
 
 ## Health modeling
 
