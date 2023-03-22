@@ -101,8 +101,8 @@ The following example represents a naive attempt to use private endpoints with o
 
     Link 2 (eth0)
           Current Scopes: DNS
-      Current DNS Server: 10.0.1.132
-             DNS Servers: 10.0.1.132    
+      Current DNS Server: 10.100.0.132
+             DNS Servers: 10.100.0.132    
     ```
 
 2. Azure Firewall DNS Proxy is enabled in the virtual hub, so the DNS query of stgworkload00.blob.core.windows.net is proxied to Azure DNS.
