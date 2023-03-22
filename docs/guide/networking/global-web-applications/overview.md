@@ -27,10 +27,10 @@ Mission-critical systems strive to minimize single points of failure by building
 
 In the **[baseline architecture for mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
 
--	Ability to route traffic to multiple regions in an active-active model
-- Ability of transparent failover using TCP anycast
--	Ability to serve static content from edge nodes by using integrated content delivery networks (CDNs)
--	Ability to block unauthorized access with integrated web application firewall
+-	Route traffic to multiple regions in an active-active model
+- Transparent failover using TCP anycast
+-	Serve static content from edge nodes by using integrated content delivery networks (CDNs)
+-	Block unauthorized access with integrated web application firewall
 
 Reliability and resiliency built into Azure Front Door is more than enough to meet most business requirements. However, with any distributed system, expect failure; even for Front Door. If the business requirements demand a higher composite SLA or zero-down time in case of an outage, you’ll need to rely on an alternate traffic ingress path. However, the pursuit of a higher composite SLA comes with significant costs, operational overhead, lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
