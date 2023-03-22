@@ -36,7 +36,7 @@ Reliability and resiliency built into Azure Front Door is more than enough to me
 
 One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Front Door shouldn’t be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
 
-Another approach is using third-party technology for global routing. This approach will require a multi-cloud active-active deployment with stamps hosted across two or more cloud providers. Even though Azure can effectively be integrated with other cloud platforms, this approach is not recommended because of operational complexity across the different cloud platforms. 
+Another approach is using third-party technology for global routing. This approach will require a multicloud active-active deployment with stamps hosted across two or more cloud providers. Even though Azure can effectively be integrated with other cloud platforms, this approach isn'trecommended because of operational complexity across the different cloud platforms. 
 
 This article describes some strategies for global routing using Azure Traffic Manager as the alternate router in situations where Azure Front Door isn’t available.
 
@@ -108,7 +108,7 @@ It's important to understand the Azure Front Door capabilities and features that
 
 When planning an alternative traffic path, here are some key questions you should consider:
 
--	Do you use Azure Front Door's caching features? If caching is unavailable, are your origin servers likely to struggle to keep up with your traffic?
+-	Do you use Azure Front Door's caching features? If caching is unavailable, can your origin servers keep up with your traffic?
 -	Do you do use the Azure Front Door rules engine to perform custom routing logic, or to rewrite requests?
 -	Do you use the Azure Front Door web application firewall (WAF) to secure your applications?
 -	Do you restrict traffic based on IP address or geography?
@@ -199,10 +199,10 @@ If Front Door is unavailable, then multiple factors influence the amount of time
 You also need to determine which of those factors are within your control and whether upstream services beyond your control might affect user experience. For example, even if you use low TTL on your DNS records, upstream DNS caches might still serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
 > [!TIP]
-> Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are considered slow to remain responsive.
+> Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are considered slow in order for the application to remain responsive.
 
 
-# Zero-downtime deployment
+## Zero-downtime deployment
 
 When you're planning how to operate a solution with redundant ingress path, you should also plan for how you deploy or configure your services when they're degraded. For most Azure services, SLAs apply to the uptime of the service itself, and not to management operations or deployments. Consider whether your deployment and configuration processes need to be made resilient to service outages.
 
