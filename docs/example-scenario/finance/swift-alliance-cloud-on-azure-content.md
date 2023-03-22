@@ -9,7 +9,7 @@ This article provides an overview of deploying the Alliance Cloud connectivity s
 
 :::image type="content" alt-text="Diagram that shows how to deploy Azure resources in a SWIFT Alliance Cloud solution." source="./media/swift-alliance-cloud-azure.png" lightbox="./media/swift-alliance-cloud-azure.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **AC (All-GoldSilverBronze)** tab.**
+*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **AC (All-GoldSilverBronze)** tab.*
 
 ### Workflow
 
