@@ -162,9 +162,9 @@ Principal author:
 
 Other contributors:
 
-- [John Downs](http://linkedin.com/in/john-downs) | Principal Customer Engineer, FastTrack for Azure
-- [Paolo Salvatori](http://linkedin.com/in/paolo-salvatori) | Principal Customer Engineer, FastTrack for Azure
-- [Arsen Vladimirskiy](http://linkedin.com/in/arsenv) | Principal Customer Engineer, FastTrack for Azure
+- John Downs | Principal Customer Engineer, FastTrack for Azure
+- Paolo Salvatori | Principal Customer Engineer, FastTrack for Azure
+- Arsen Vladimirskiy | Principal Customer Engineer, FastTrack for Azure
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
