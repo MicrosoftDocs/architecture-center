@@ -2,7 +2,7 @@ This article describes a highly scalable architecture for ingesting metadata fro
 
 ## Architecture
 
-:::image type="content" source="../media/synchronization-framework.png" alt-text="Image alt text." lightbox="../media/synchronization-framework.png" border="false":::
+:::image type="content" source="../media/synchronization-framework.png" alt-text="Diagram that shows an architecture for ingesting metadata from external catalogs." lightbox="../media/synchronization-framework.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/synchronization-framework.vsdx) of this architecture.*  
 
@@ -70,54 +70,50 @@ This architecture is also highly scalable:
 
 ### Potential use cases
 
-Organizations that unlock data's potential can gain significant benefits.  
+Organizations that take advantage of the potential of data can gain significant benefits. For example, Contoso, like many large companies, wants to create a holistic view of its data assets to enable data-driven business scenarios. Contoso is composed of multiple subdivisions and subsidiaries that work independently, which results in data silos and limited collaboration. 
 
-For example, Contoso, like many large companies, would like to create a holistic view of their data assets to enable data driven business scenarios. Contoso is composed of multiple subdivisions / subsidiaries which work independently, resulting in data silos and limited collaboration. 
+For example, employees in Division A are starting a new project. Data assets like web site logs, trend analysis, and social network analysis might be relevant to the project. However, these assets belong to other subsidiaries, and the employees aren't even aware of them, which affects the success of the project. 
 
-For example, as an employee in division A, you are about to create a new project. Data assets such as web site logs, trends analysis, social network analysis might be relevant to your project. However, these assets belong to other subsidiaries, and you are not even aware of their existence - which limits the success of your project. 
+Contoso wants to avoid this type of situation by creating a federated metadata catalog. Examples of metadata include the name and schema of a SQL table. The metadata doesn't reveal the contents of the table. 
 
-This is exactly the type of situation Contoso would like to avoid by creating a federated metadata catalog. An example of metadata is the name and schema of a SQL Table - without revealing the content of the table itself. 
+Contoso decides to use Microsoft Purview to solve this problem. Microsoft Purview enables the search and discovery of metadata about data assets. A federated catalog improves collaboration and breaks down organizational boundaries. Subdivisions and subsidiaries will still own their data. However, because they share metadata about the data, collaboration improves. On a case-by-case basis, data can also be shared. Some subdivisions have already invested time and effort in implementing their own catalogs and scanning and enriching metadata, sometimes by using custom solutions. The next challenge is to determine how to import metadata from other catalogs into Microsoft Purview.
 
-Microsoft Purview has been chosen as the perfect solution for this - which allows searching and discovering metadata about data assets. Such a catalog would enable collaboration and would break down organizational boundaries. Subdivisions / subsidiaries will continue owning their data, however, by sharing metadata about their data, collaboration is enabled, and, on a case-by-case basis, data can be potentially shared. Some subdivisions have already invested time and effort in implementing their own catalog, scanning and enriching metadata, sometimes with other technologies, including custom solutions. The challenge Contoso is facing right now is how to import metadata from other catalogs into Microsoft Purview?  
+To resolve this challenge, Contoso uses the architecture described in this article to ingest metadata from external catalogs into Microsoft Purview. 
 
-To overcome this challenge, Contoso uses the architecture proposed in the rest of the article to ingest metadata from external catalogs into Microsoft Purview. 
+## Pivot classes
 
-The following sections provide additional information about applying and implementing this synchronization framework.
+In this article, the word *pivot* is used to describe a set of custom classes that represents the output of the transform step and the input for the import step. 
 
-## Pivot classes 
+Here's the class diagram:
 
-When it comes to metadata exchange between different catalogs, we need to speak the same language at some point. We call **pivot** a set of custom classes which represents the output of step 2) and the input for step 3). 
+:::image type="content" source="../media/pivot-class-diagram.png" alt-text="Class diagram for the PivotItem class." lightbox="../media/pivot-class-diagram.png" border="false":::
 
-The class diagram can be seen below:
+`PivotItem` is the base class, and `PivotClassificationItem`, `PivotAssetItem`, and `PivotGlossaryItem` inherit from it.
 
-image 
+By using the information passed in the pivot classes, the import step [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities?tabs=HTTP), [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term?tabs=HTTP), or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-update?tabs=HTTP) via, for example, the REST API.
 
-*PivotItem* is the base class, and *PivotClassificationItem*, *PivotAssetItem* and *PivotGlossaryItem* inherit from it.
+By using `PivotAssetItem`, you can create relationships between assets. You can also assign [glossary terms](/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities?tabs=HTTP) or [classifications](/rest/api/purview/catalogdataplane/entity/add-classification?tabs=HTTP) to assets by using the `glossary_items` and `classification_items` properties.
 
-Based on the information passed in the pivot classes, in this step one [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities?tabs=HTTP), [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term?tabs=HTTP) or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-update?tabs=HTTP) using, for example, the REST API. 
+The Microsoft Purview Data Catalog is based on the [Apache Atlas](https://atlas.apache.org/2.0.0/index.html) format, so each metadata object that's supported in Microsoft Purview has a type.
 
-Furthermore, based on the *PivotAssetItem* relationships can be created between assets. In addition, [glossary terms](/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities?tabs=HTTP) or [classifications](/rest/api/purview/catalogdataplane/entity/add-classification?tabs=HTTP) can be assigned to the assets, based on the property *glossary_items* and *classification_items*, respectively.
+The type is analogous to a class definition in object-oriented programming (OOP). All metadata objects managed by Microsoft Purview (out of the box or through custom types) are modeled via type definitions. For more information about the type system, see [Type definitions and how to create custom types in Microsoft Purview](/azure/purview/tutorial-custom-types).
 
-Purview relies on the underlying [Apache Atlas](https://atlas.apache.org/2.0.0/index.html) format and, as a result, each metadata object supported in Microsoft Purview has a type. 
+> [!Note] 
+> For even better scalability, you can [ingest metadata by using the Atlas hook](/azure/purview/how-to-lineage-spark-atlas-connector). Microsoft Purview can also have an optional underlying event hub on which Kafka Surface is enabled. However, the import step only sends Kafka messages to a topic. You have no visibility into whether the sent data is actually ingested further down the line. You can enable that visibility by adding logic, but that adds complexity. To provide a better user experience, this architecture uses REST APIs that provide return statuses and relies on the Azure Functions scale-out capability.
 
-The **Type** can be seen as **Class** definition from Object Oriented Programming (OOP). All metadata objects managed by Purview (out of the box or through custom types) are modeled using type definitions. For a further understanding of type system in Purview as well as how to create custom types, you can follow this tutorial: [Type definitions and how to create custom types in Microsoft Purview](/azure/purview/tutorial-custom-types).
+### Additional details about properties
 
-Note: For even better scalability, ingestion can also be done using the Atlas hook, as this [tutorial showcases](/azure/purview/how-to-lineage-spark-atlas-connector). Microsoft Purview can also have an optional underlying Event hub with Kafka surface enabled. However, the import step would only amount to send Kafka messages to a topic and would have no visibility on whether the sent data is actually ingested further down the line. This is possible by adding a logic to make these checks which brings additional complexity. For the sake of a better UX, we favored the REST APIs that provide return statuses and rely on the Azure Functions ability to scale-out if required. 
+`type` is the type of the asset you want to create. For example, if you want to create an asset of type SQL table, the `type` is `azure_sql_table`. For an overview of all the types in Microsoft Purview, see [Types - Get All Type Definitions - REST API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions?tabs=HTTP).  
 
-**Further details on some properties:**
+- `target_collection` is the name of the collection in which the asset should be located in Microsoft Purview. 
 
-**type** is the **Type** of the asset you want to create. For example, if you want to create an asset of type SQL Table, then it would be **azure_sql_table**. For an overview of all the types in Purview, you can use: [Types - Get All Type Definitions - REST API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions?tabs=HTTP).  
+- `external_catalog_id` is the unique identifier of the object in the external catalog. 
 
-- **target_collection** is the name of the collection where the asset should land in Purview. 
+All of these properties are set in the connector so that they can be used in the import step. 
 
-- **external_catalog_id** is the unique identifier of the object in the external catalog. 
+## Synchronization state 
 
-All these properties will be set in the connector so the Import step can use them. 
-
-## Synchronization State 
-
-The Synchronization State maintains the state of synchronization by storing the mapping between the source metadata and Purview metadata objects as follows: 
-
+The synchronization state intermediate storage maintains the state of synchronization by storing the mapping between the source metadata and Microsoft Purview metadata objects, as shown here:
 
 |Partition Key| Row Key| Sync Start Time| Correlation ID|State|Purview Object ID|Sync End Time |
 |-|-|-|-|-|-|-|
@@ -125,51 +121,53 @@ The Synchronization State maintains the state of synchronization by storing the 
 |*CatalogName*_Glossary |7c3…bdf|2023-10-25T22:12:27Z|er3..2d4|Completed|5f9…sds|2023-10-25T22:13:02Z| 
 |*CatalogName*_Classification|de3…85f|2023-11-25T22:12:27Z|ce4...13c|Failed||2023-11-25T22:13:02Z| 
 
-Note: The state is used to reflect the last run of the synchronization framework, and not to have historic data of all runs. Therefore, there will be only one entry per imported object from external catalogs which will reflect the state of the last synchronization (Completed/Pending/Failed). 
+> [!Note] 
+> Synchronization state is used to reflect the last run of the synchronization framework. It doesn't provide historical data of all runs. Therefore, there will be only one entry per object imported from external catalogs. It will reflect the state of the last synchronization (`Completed`, `Pending`, or `Failed`).
 
-- **Partition Key**: consists of the name of the external catalog and the type of the object (Asset/Glossary/Classification). For example: 
-  - **CatalogA_Asset** - assets coming from a catalog called “Catalog A”. 
-  - **CatalogB_Glossary** - glossary terms coming from a catalog called “CatalogB”. 
-  - **CatalogC_Classification** – classifications coming from a catalog called “Catalog C” 
-- **Row Key:** the unique identifier of the metadata object in the external catalog - such as the GUID, is used as the row key in every partition. 
+- `Partition Key`. A concatenation of the name of the external catalog and the type of the object (Asset, Glossary, or Classification). For example: 
+  - `CatalogA_Asset`. Assets from a catalog called Catalog A. 
+  - `CatalogB_Glossary`. Glossary terms from a catalog called Catalog B. 
+  - `CatalogC_Classification`. Classifications from a catalog called Catalog C. 
+- `Row Key`. The unique identifier of the metadata object in the external catalog, like the GUID. Used as the row key in every partition. 
 
-  Note: [Azure Table store](https://azure.microsoft.com/products/storage/tables/) is used for the Synchronization State, due to its strong consistency which ensures that there is only one unique record per object for a given partition.
+  > [!Note] 
+  > [Table Storage](https://azure.microsoft.com/products/storage/tables/) is used for synchronization state because it provides strong consistency, which ensures that there's only one unique record per object for a given partition.
 
-- [Correlation ID](/azure/azure-monitor/app/correlation): the unique identifier of the synchronization operation created at the very beginning of the workflow and passed from one step to another. 
-- **Sync Start Time, Sync End Time:** the start time of the synchronization operation (UTC) and the end time, respectively. 
-- **State:** the state of the synchronization operation (Pending, Completed, Failed). 
-- **Purview Object ID:** the unique identifier of the object in Microsoft Purview. 
+- [Correlation ID](/azure/azure-monitor/app/correlation). The unique identifier of the synchronization operation. It's created at the start of the workflow and passed from one step to another. 
+- `Sync Start Time` and `Sync End Time`. The start and end time of the synchronization operation (UTC). 
+- `State`. The state of the synchronization operation (`Pending`, `Completed`, or `Failed`). 
+- `Purview Object ID`. The unique identifier of the object in Microsoft Purview. 
 
-**Partition Key** and **Row Key** will be used as a tuple to uniquely identify an object from the external catalog. It will link the extracted object from the external catalog to the created object in Purview through **Purview Object ID** property. 
+`Partition Key` and `Row Key` are used as a tuple to uniquely identify an object from the external catalog. The tuple links the object that's extracted from the external catalog to the object that's created in Microsoft Purview via the `Purview Object ID` property.
 
-This structure ensures that: 
+This configuration ensures that: 
 
-- Only one unique record exists per object for a given partition. i.e., if three glossary terms were imported from CatalogA then there will be three entries in the Synchronization State with **CatalogA_Glossary** as partition key. Each entry will have a different **Row Key** - based on the unique identifier of that item in the external catalog. 
-- Synchronization State is used as a locking mechanism so that two messages cannot import the same object at the same time. The usage of Azure Table storage is particularly useful for this purpose.
+- Only one unique record exists per object for a given partition. For example, if three glossary terms are imported from Catalog A, there will be three entries in synchronization state that have `CatalogA_Glossary` as the partition key. Each entry will have a different row key, which is based on the unique identifier of that item in the external catalog. 
+- Synchronization state is used as a locking mechanism so that two messages can't import the same object at the same time. Table Storage is particularly useful for this purpose.
 
-### Import step and Synchronization State
+### Import and synchronization state
 
-Below we can zoom into the **import** flow of an asset and see how the Synchronization State is being used:
+The following diagram illustrates the details of the import flow of an asset and shows how the synchronization state storage is used:
 
-image 
+:::image type="content" source="../media/import-flow.png" alt-text="Diagram that shows the import flow." border="false":::
 
-*Download a [Visio file] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/synchronization-framework.vsdx) of this architecture.*
 
-The import consists of the following steps: 
+#### Dataflow
 
-1. When the import step is triggered, it first queries the Synchronization State by **Partition Key** and **Row Key**:  
-   1. If no entry exists, the import process initializes a new line with the **State** set to *Pending*. The **Row Key** is set to the unique identifier of the object in the external catalog and the **Partition Key** is set accordingly. This ensures that no other process can import the same metadata object at the same time (lock). **Sync Start Time** and **Correlation ID** are also initialized, accordingly. 
+1. The import step is triggered. Synchronization state storage is queried by `Partition Key` and `Row Key`:  
+   1. If no entry exists, the import process initializes a new line with the `State` set to `Pending`. The `Row Key` is set to the unique identifier of the object in the external catalog and the `Partition Key` is set accordingly. This lock ensures that no other process can import the same metadata object at the same time. `Sync Start Time` and `Correlation ID` are also initialized. 
    1. If an entry already exists: 
-      1. If the **State** is *Failed*, the entry is updated with the new **Correlation ID**, a new **Sync Start Time** and the **State** is set to *Pending*.  
-      1. If the **State** is *Pending*, the message is scheduled to be replayed later. For this purpose, the [dead-lettering queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) and re-queue mechanism that [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) offers by default is very convenient. 
-      1. If the **State** is *Completed*, the **Correlation ID** of the current run is compared against the one from the entry:
-         1. If they are different, the entry is updated with the current **Correlation ID**, a new **Sync Start Time** and the **State** is set to *Pending*.  
-         1. Otherwise, the message can be considered to be skipped.  
+      1. If the `State` is `Failed`, the entry is updated with a new `Correlation ID` and a new `Sync Start Time` and the `State` is set to `Pending`.  
+      1. If the `State` is `Pending`, the message is scheduled to be re-queued later. For this purpose, the [dead-lettering queue](/azure/service-bus-messaging/service-bus-dead-letter-queues) and re-queue mechanism that [Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) offers by default is convenient. 
+      1. If the `State` is `Completed`, the `Correlation ID` of the current run is compared to the one from the entry:
+         1. If they're different, the entry is updated with the current `Correlation ID` and a new `Sync Start Time`, and `State` is set to `Pending`.  
+         1. Otherwise, the message is skipped.  
 
-      Note: all messages part of a Synchronization run will have the same Correlation ID. This step ensures that each object is updated only one time per run. It assumes that there are no partial updates, and it should be considered based on the implementation. 
-
-1. The object is created or updated in Microsoft Purview. 
-1. Upon completion of previous step, the unique identifier of the object is written into the Synchronization State (**Purview Object ID**), alongside the **Sync End Time** and the **State** changed to *Completed*. If the import fails, the line is set to **State** *Failed*. 
+      > [!Note] 
+      > All messages that belong to a single synchronization run have the same `Correlation ID`. This step ensures that each object is updated only one time per run. It assumes that there are no partial updates. You should consider how this behavior affects your implementation.
+1. The object is created or updated in Microsoft Purview.
+1. The unique identifier of the object is written into synchronization state (**Purview Object ID**), alongside the **Sync End Time** and the **State** changed to *Completed*. If the import fails, the line is set to **State** *Failed*. 
 
 [Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp-inproc) can be considered as an alternative to the Synchronization State. 
 
