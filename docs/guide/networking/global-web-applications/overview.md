@@ -68,14 +68,15 @@ With this approach, you’ll introduce several components and make significant c
 
 1.	You have two ingress paths:
 
-    - Azure Front Door provides the primary path and processes and routes most of your application traffic. 
+    - Azure Front Door provides the primary path and processes and routes all of your application traffic. 
+    
     - Another router is used as a backup for Azure Front Door. Traffic only flows through this secondary path if Front Door is unavailable.
 
     The specific service that you select for the secondary router depends on many factors. You might choose to use Azure-native services, or third-party services. In these articles we provide Azure-native options to avoid adding additional operational complexity to the solution. If you use third-party services, you need to use multiple control planes to manage your solution.
 
 1.	Your origin application servers need to be ready to accept traffic from either service. Consider how you [secure traffic to your origin](#origin-security), and what responsibilities Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
 
-### Tradeoffs
+#### Tradeoffs
 
 While this mitigation strategy can make the application be available during platform outages, there are some significant tradeoffs. You should weigh the potential benefits against known costs, and make an informed decision about whether the benefits are worth those costs.
 
@@ -99,38 +100,39 @@ Azure Traffic Manager is a reliable service, but the service level agreement doe
 
 Traffic Manager returns cacheable DNS responses. If time to live (TTL) on your DNS records allows caching, short outages of Traffic Manager might not be a concern. That is because downstream DNS resolvers might have cached a previous response. You should plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
-## Consistency of ingress paths
+## Traffic routing consistency
 
-Azure Front Door provides many capabilities to make your application more resilient, performant, and secure. It's important that you understand which capabilities and features you use and rely on. When you have an understanding of how you use Azure Front Door, you can determine which alternative services provide the minimum capabilities that you need, and you can decide on an architectural approach.
-
-If you plan to send traffic through multiple paths to reach your application, you need to ensure that each path has equivalent capabilities. Or, you need to make an informed decision about which capabilities are essential and which capabilities can be omitted when your solution is in a degraded mode.
+It's important to understand the Azure Front Door capabilities and features that you use and rely on. When you choose the alternate service, decide the minimum capabilities that you need and omit other features when your solution is in a degraded mode.
 
 When planning an alternative traffic path, here are some key questions you should consider:
 
-- Do you use Azure Front Door's caching features? If caching is unavailable, are your origin servers likely to struggle to keep up with your traffic?
-- Do you do use the Azure Front Door rules engine to perform custom routing logic, or to rewrite requests?
-- Do you use the Azure Front Door web application firewall (WAF) to secure your applications?
-- Do you restrict traffic based on IP address or geography?
-- Who issues and managed your TLS certificates?
-- How do you restrict access to your origin application servers to ensure it comes through Azure Front Door? Do you use Private Link, or do you rely on public IP addresses with service tags and identifier headers?
-- Do your application servers accept traffic from anywhere other than Azure Front Door? If they do, which protocols do they accept?
-- Do your clients use Azure Front Door's HTTP/2 support?
+-	Do you use Azure Front Door's caching features? If caching is unavailable, are your origin servers likely to struggle to keep up with your traffic?
+-	Do you do use the Azure Front Door rules engine to perform custom routing logic, or to rewrite requests?
+-	Do you use the Azure Front Door web application firewall (WAF) to secure your applications?
+-	Do you restrict traffic based on IP address or geography?
+-	Who issues and managed your TLS certificates?
+-	How do you restrict access to your origin application servers to ensure it comes through Azure Front Door? Do you use Private Link, or do you rely on public IP addresses with service tags and identifier headers?
+-	Do your application servers accept traffic from anywhere other than Azure Front Door? If they do, which protocols do they accept?
+-	Do your clients use Azure Front Door's HTTP/2 support?
 
-### Web application firewall
+
+## Web application firewall (WAF)
 
 If you use Azure Front Door's WAF to protect your application, consider what happens if the traffic doesn't go through Azure Front Door.
 
 If your alternative path also provides a WAF, consider the following questions:
 
-- Can it be configured in the same way as your Azure Front Door WAF?
-- Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
+-	Can it be configured in the same way as your Azure Front Door WAF?
+-	Does it need to be tuned and tested independently, to reduce the likelihood of false positive detections?
 
 > [!WARNING]
-> You might consider not using a WAF for your alternative ingress path, and consider accepting the increased risk of attacks when your traffic flows through the alternate path. However, this isn't a good practice.
-> 
-> When you deploy an architecture like the one described in this article, your alternate traffic path is always exposed to the internet and is ready to accept traffic at any moment. If an attacker discovers an unprotected secondary traffic path to your application, they might send malicious traffic through your secondary path even when the primary path includes a WAF.
-> 
-> Instead, it's best to secure *all* paths to your application servers.
+>
+> You might choose not to use WAF for your alternative ingress path. This approach can be considered to support the reliability target of the application. However, this isn't a good practice and we don't recommend it.
+
+
+Consider the tradeoff in accepting traffic from the internet without any checks. If an attacker discovers an unprotected secondary traffic path to your application, they might send malicious traffic through your secondary path even when the primary path includes a WAF.
+
+It's best to **secure all paths** to your application servers.
 
 ## Domain names and DNS
 
