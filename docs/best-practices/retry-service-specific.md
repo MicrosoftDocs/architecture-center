@@ -96,7 +96,7 @@ The [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeser
 
 ### Telemetry
 
-[Monitoring](/azure/storage/blobs/data-lake-storage-best-practices#monitor-telemetry) the use and performance is an important part of operationalizing your service. Examples include frequent operations, operations with high latency, or operations that cause service-side throttling.
+[Monitoring](/azure/storage/blobs/data-lake-storage-best-practices#monitor-telemetry) the use and performance of Azure Storage is an important part of operationalizing your service. Examples include frequent operations, operations with high latency, or operations that cause service-side throttling.
 
 All of the telemetry for your storage account is available through Azure Storage logs in Azure Monitor. This feature integrates your storage account with Log Analytics and Event Hubs, while also enabling you to archive logs to another storage account. To see the full list of metrics and resources logs and their associated schema, see [Azure Storage monitoring data reference](/azure/storage/blobs/monitor-blob-storage-reference).
 
