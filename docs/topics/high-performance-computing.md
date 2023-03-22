@@ -161,7 +161,7 @@ For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review th
 
 ### Networking
 
-H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft MPI or Intel MPI.
+H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft Message Passing Interface better known as MPI or Intel MPI.
 
 - [RDMA Capable Instances](/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 - [Virtual Network](/azure/virtual-network/virtual-networks-overview)
@@ -256,7 +256,7 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 ### Azure Batch
 
-[Azure Batch](/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+[Azure Batch](/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and HPC applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
 
@@ -298,7 +298,7 @@ The cloud native model example diagram below, shows how the workload in the clou
 |Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
 |Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
 |User type |Developers |Classic HPC administrators and users |
-|Work Type |Throughput (batch), workflows |Tightly coupled (MPI). Throughput |
+|Work Type |Throughput (batch), workflows |Tightly coupled (Message Passing Interface/MPI). Throughput |
 |Windows Support |Yes |Varies, depending on scheduler choice |
 
 ### Workload managers
