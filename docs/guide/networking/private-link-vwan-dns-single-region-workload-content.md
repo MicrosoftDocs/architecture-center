@@ -40,12 +40,12 @@ Diagram showing the single-region challenge.
 
 **DNS flow for the diagram**
 
-1. The DNS query for mystorageacct.blob.core.windows.net is sent to the configured DNS server that is the Azure Firewall.
+1. The DNS query for stgworkload00.blob.core.windows.net is sent to the configured DNS server that is the Azure Firewall.
 2. Azure Firewall proxies the request to Azure DNS. Because it isn't possible to link a private DNS zone to a virtual hub, Azure DNS doesn't know how to resolve the FQDN to the private endpoint private IP address. It does know how to resolve the FQDN to the public IP address of the storage account, so it returns the public IP address.
 
 **HTTP flow for the diagram**
 
-1. The client issues a request to mystorageacct.blob.core.windows.net.
+1. The client issues a request to stgworkload00.blob.core.windows.net.
 2. The request is sent to the public IP address of the storage account. Because public network access is disabled on the storage account, the request fails with a 404 response code.
 
 ## Solution - Virtual hub extension for DNS
