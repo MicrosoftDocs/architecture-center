@@ -9,7 +9,7 @@ This article provides an overview of deploying SWIFT's Alliance Lite2 connectivi
 
 :::image type="content" source="media/diagrams-swift-alliance-lite2-azure.png" alt-text="Diagram that shows an architecture for SWIFT Alliance Lite2." lightbox="media/diagrams-swift-alliance-lite2-azure.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **Lite2 (All-GoldSilverBronze)** tab.**
+*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **Lite2 (All-GoldSilverBronze)** tab.*
 
 ### Workflow
 

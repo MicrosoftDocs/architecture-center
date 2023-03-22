@@ -9,7 +9,7 @@ This article describes a recommended solution for deploying SWIFT Alliance Messa
 
 :::image type="content" source="./media/alliance-messaging-hub-alliance-connect-virtual.png" alt-text="Diagram that shows how to host a SWIFT Alliance Messaging Hub on Azure." border="false" lightbox="./media/alliance-messaging-hub-alliance-connect-virtual.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **AMH (All-GoldSilverBronze)** tab.**
+*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **AMH (All-GoldSilverBronze)** tab.*
 
 This Azure solution uses the same topology as the on-premises environment. On-premises environments fall into two categories:
 

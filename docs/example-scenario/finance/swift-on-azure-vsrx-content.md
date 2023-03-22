@@ -14,7 +14,7 @@ The following high-level reference architecture shows connectivity to the SWIFT 
 
 :::image type="content" alt-text="Diagram that shows a SWIFT architecture." source="./media/swift-alliance-connect-virtual.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **vSRX-HA** tab.**
+*Download a [Visio file](https://arch-center.azureedge.net/swift-alliance-vSRX-GA-allModules.vsdx) of this architecture. See the **vSRX-HA** tab.*
 
 A SWIFT deployment on Azure contains various components. The key components are described in the following sections.
 
