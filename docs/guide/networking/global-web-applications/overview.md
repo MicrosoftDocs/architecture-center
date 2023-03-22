@@ -136,15 +136,15 @@ It's best to **secure all paths** to your application servers.
 
 ## Domain names and DNS
 
-Your application should use a custom domain name. In a mission-critical solution, it's even more important to use a custom domain name. By using a custom domain name, you have control over how traffic flows to your application, and you reduce the dependencies you take on a single provider.
+Your mission-critical application should use a custom domain name. You’ll control over how traffic flows to your application, and you reduce the dependencies on a single provider.
 
-It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, clients can't reach your service.
+It's also a good practice to use a high-quality and resilient DNS service for your domain name, such as [Azure DNS](/azure/dns/dns-overview). If your domain name's DNS servers are unavailable, users can't reach your service. 
 
-In a mission-critical solution, it's also a good practice to use multiple DNS resolvers to increase the overall resiliency of your solution even further.
+It's recommended that you use multiple DNS resolvers to increase overall resiliency even further.
 
-### CNAME chaining
+#### CNAME chaining
 
-Solutions that combine Traffic Manager, Azure Front Door, and other services use a multi-layer DNS CNAME resolution process, also called *CNAME chaining*. For example, when you resolve your own custom domain, you might see five or more CNAME records before an IP address is returned.
+Solutions that combine Traffic Manager, Azure Front Door, and other services use a multi-layer DNS CNAME resolution process, also called CNAME chaining. For example, when you resolve your own custom domain, you might see five or more CNAME records before an IP address is returned.
 
 Adding additional links to a CNAME chain can affect DNS name resolution performance. However, DNS responses are usually cached, which reduces the performance impact.
 
