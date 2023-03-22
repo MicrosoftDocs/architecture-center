@@ -125,11 +125,11 @@ Principal author:
 
 ## Related resources
 
-- [Reference architecture for a multi-region web application](/../../reference-architectures/app-service-web-app/multi-region)
-- [Scalable web and mobile applications using Azure Database for MySQL](/../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql)
-- [Social app for mobile and web with authentication](/../../solution-ideas/articles/social-mobile-and-web-app-with-authentication)
-- [Web applications architecture design](/../../guide/web/web-start-here)
-- [Architect scalable e-commerce web app](/../../solution-ideas/articles/scalable-ecommerce-web-app)
-- [Scalable Sitecore marketing website](/../../solution-ideas/articles/digital-marketing-sitecore)
-- [Scalable web application](/../../reference-architectures/app-service-web-app/scalable-web-app)
-- [Web application monitoring on Azure](/../../reference-architectures/app-service-web-app/app-monitoring)
+- [Reference architecture for a multi-region web application](../../reference-architectures/app-service-web-app/multi-region.yml)
+- [Scalable web and mobile applications using Azure Database for MySQL](../../solution-ideas/articles/scalable-web-and-mobile-applications-using-azure-database-for-mysql.yml)
+- [Social app for mobile and web with authentication](../../solution-ideas/articles/social-mobile-and-web-app-with-authentication.yml)
+- [Web applications architecture design](../../guide/web/web-start-here.md)
+- [Architect scalable e-commerce web app](../../solution-ideas/articles/scalable-ecommerce-web-app.yml)
+- [Scalable Sitecore marketing website](../../solution-ideas/articles/digital-marketing-sitecore.yml)
+- [Scalable web application](../../reference-architectures/app-service-web-app/scalable-web-app.yml)
+- [Web application monitoring on Azure](../../reference-architectures/app-service-web-app/app-monitoring.yml)

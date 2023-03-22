@@ -2,7 +2,7 @@
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-at-edge-architecture.svg":::
+:::image type="content" alt-text="Architecture diagram of an architecture that uses components in Azure and Azure Stack for training machine learning models from on-premises data." source="media/train-machine-learning-on-premises-data-at-edge-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/train-machine-learning-models-on-premises-data-at-edge.vsdx) of this architecture.*
 
@@ -78,7 +78,6 @@ To enable this solution to scale, you'll need to create an appropriately sized V
 Principal authors:
 
  - [Ronmia Bess](https://www.linkedin.com/in/ronmia-bess-8715625) | Content Developer 2
- - [Bryan Lamos](https://www.linkedin.com/in/bryanlamos) | Senior Content Developer
 
 Other contributors:
 

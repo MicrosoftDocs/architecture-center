@@ -198,6 +198,6 @@ Principal author:
 
 - [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
 - [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
-- [High-availability blue/green deployment](/../../example-scenario/blue-green-spring/blue-green-spring)
-- [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/../../best-practices/host-name-preservation)
-- [Multi-region web app with private connectivity to a database](/../../example-scenario/sql-failover/app-service-private-sql-multi-region)
+- [High-availability blue/green deployment](../../example-scenario/blue-green-spring/blue-green-spring.yml)
+- [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../best-practices/host-name-preservation.yml)
+- [Multi-region web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)

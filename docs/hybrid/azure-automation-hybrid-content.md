@@ -2,7 +2,7 @@ Runbooks in Azure Automation run on the Azure cloud platform and might not have 
 
 ## Architecture
 
-![Diagram that shows Azure Automation in a user Hybrid Runbook Worker.][architectural-diagram]
+[ ![Architecture diagram that shows Azure Automation in a user Hybrid Runbook Worker.](./images/azure-automation-hybrid.svg)](./images/azure-automation-hybrid.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -24,7 +24,7 @@ The Hybrid Runbook Worker architecture consists of the following:
 
 #### User Hybrid Runbook Worker
 
-![Diagram that shows Azure Automation in a user Hybrid Runbook Worker.][architectural-diagram]
+[ ![Architecture diagram that shows Azure Automation in a user Hybrid Runbook Worker.](./images/azure-automation-hybrid.svg)](./images/azure-automation-hybrid.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -32,7 +32,7 @@ Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group tha
 
 #### System Hybrid Runbook Worker
 
-![Azure Automation in a System Hybrid Runbook Worker][System-architectural-diagram]
+[ ![Architecture diagram that shows Azure Automation in a System Hybrid Runbook Worker](./images/azure-automation-system.svg)](./images/azure-automation-system.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source-system] of this architecture.*
 
@@ -168,9 +168,7 @@ More about Azure Monitor and Monitor Logs:
 - [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
 - [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
 
-[architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
-[System-architectural-diagram]: ./images/azure-automation-system.png
 [architectural-diagram-visio-source-system]: https://arch-center.azureedge.net/azure-automation-system.vsdx
 [1]: /azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows
 [2]: /azure/automation/automation-windows-hrw-install

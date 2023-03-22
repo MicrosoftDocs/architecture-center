@@ -11,6 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - example-scenario
+    - devx-track-azurecli
 azureCategories:
   - security
 products:

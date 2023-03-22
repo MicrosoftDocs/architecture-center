@@ -1,4 +1,4 @@
-There are many different ways that you can design and build multitenant solutions in Azure. At one extreme, you can share every resource in your solution between every tenant. At the other extreme, you can deploy isolated resources for every tenant. It might seem simple to deploy separate resources for every tenant, and it can work for a small numbers of tenants. However, it typically doesn't provide cost effectiveness, and it can become difficult to manage your resources. There are also various approaches that fit between these extremes, and they all have tradeoffs: scale, isolation, cost efficiency, performance, implementation complexity, and manageability.
+There are many different ways that you can design and build multitenant solutions in Azure. At one extreme, you can share every resource in your solution among all of your tenants. At the other extreme, you can deploy isolated resources for every tenant. It might seem simple to deploy separate resources for every tenant, and it can work for a small numbers of tenants. However, it typically doesn't provide cost effectiveness, and it can become difficult to manage your resources. There are also various approaches that fit between these extremes, and they all have tradeoffs like scale, isolation, cost efficiency, performance, implementation complexity, and manageability.
 
 Throughout this section, we discuss the main categories of Azure services that comprise a solution, including [compute](compute.md), [storage and data](storage-data.yml), [networking](networking.md), [deployment](deployment-configuration.yml), [identity](identity.md), [messaging](messaging.md), [artificial intelligence and machine learning](ai-ml.md), and [IoT](iot.md). For each category, we outline the key patterns and approaches you can consider when you're designing a multitenant solution, and some antipatterns to avoid.
 
@@ -20,7 +20,7 @@ To implement the Deployment Stamps pattern, it's important to use automated depl
 
 ## Intended audience
 
-The pages in this section are intended to be useful for solution architects and lead developers of multitenant applications, including independent software vendors (ISVs) and startups who develop SaaS solutions. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
+The articles in this section are intended to be useful for solution architects and lead developers of multitenant applications, including independent software vendors (ISVs) and startups who develop SaaS solutions. Much of the guidance in this section is generic and applies to multiple Azure services within a category.
 
 ## Next steps
 
