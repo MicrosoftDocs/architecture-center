@@ -154,8 +154,7 @@ For general guidance on designing secure solutions, see the [Azure security docu
 
 ### DevOps
 
-For deploying fresh simulation environments, it's best to use CI/CD processes using a solution such as Azure DevOps or GitHub Actions, as described in the
-[Azure DevOps Starter](/azure/devops-project/overview) documentation.
+For deploying fresh simulation environments, it's best to use CI/CD processes using a solution such as Azure DevOps or GitHub Actions.
 
 ### Cost optimization
 

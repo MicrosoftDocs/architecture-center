@@ -173,11 +173,15 @@ When deploying self-hosted Agents for Azure Pipelines, you may deploy either on 
 
 The pattern [Deployment (CI/CD) considerations](/hybrid/app-solutions/pattern-highly-available-kubernetes#deployment-cicd-considerations) section contains a decision flow that helps you to understand whether to use Microsoft-hosted agents or self-hosted agents:
 
-[![decision flow self hosted agents](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.png)](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.png#lightbox)
+[![Diagram that shows a decision flow of self hosted agents.](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg)](media/solution-deployment-guide-highly-available-kubernetes/aks-on-stack-self-hosted-build-agents-yes-or-no.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of all diagrams in this article.*
 
 In this sample solution, the topology includes a self-hosted build agent on each Azure Stack Hub instance. The agent can access the Azure Stack Hub Management Endpoints and the Kubernetes cluster API endpoints.
 
-[![only outbound traffic](media/solution-deployment-guide-highly-available-kubernetes/azure-stack-architecture-only-outbound-traffic.png)](media/solution-deployment-guide-highly-available-kubernetes/azure-stack-architecture-only-outbound-traffic.png#lightbox)
+[![Diagram that shows outbound traffic.](media/solution-deployment-guide-highly-available-kubernetes/azure-stack-architecture-only-outbound-traffic.svg)](media/solution-deployment-guide-highly-available-kubernetes/azure-stack-architecture-only-outbound-traffic.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of all diagrams in this article.*
 
 This design fulfills a common regulatory requirement, which is to have only outbound connections from the application solution.
 
@@ -302,7 +306,9 @@ To distribute traffic between two (or more) deployments of the application, we'l
 
 Instead of using Azure Traffic Manager you can also use other global load-balancing solutions hosted on-premises. In the sample scenario, we'll use Azure Traffic Manager to distribute traffic between two instances of our application. They can run on Azure Stack Hub instances in the same or different locations:
 
-![on-premises traffic manager](media/solution-deployment-guide-highly-available-kubernetes/aks-azure-traffic-manager-on-premises.png)
+![Diagram that shows an on-premises traffic manager.](media/solution-deployment-guide-highly-available-kubernetes/aks-azure-traffic-manager-on-premises.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/solution-deployment-guide-highly-available-kubernetes.vsdx) of all diagrams in this article.*
 
 In Azure, we configure Traffic Manager to point to the two different instances of our application:
 

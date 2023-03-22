@@ -135,14 +135,25 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 [Autoscale](https://azure.microsoft.com/features/autoscale) is a built-in feature of many cloud services. For example, Azure Virtual Machines, Azure App Service, and Azure Event Hubs come with autoscaling features.
 
+### Observability
+
+For the metrics, use the Metrics Collector Module that belongs to the [Industrial Internet of Things Platform](https://github.com/Azure/Industrial-IoT). It leverages the [Prometheus data model](https://prometheus.io/docs/concepts/data_model/) endpoints exposed by the runtime modules EdgeAgent and EdgeHub. Logs are then pushed to an [Azure Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). From there they are displayed in [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview) in Azure IoT Hub, in a custom dashboard that monitors the entire solution. Custom alerts are then triggered if the Edge devices are deemed unhealthy based on available disk space or system memory, device-to-cloud message queue length, and the last time the Metrics Collector module has successfully transmitted metrics data.
+
+For the logs, as all Edge modules run as Docker containers, use the [Fluentd log driver](https://docs.docker.com/config/containers/logging/fluentd/) to redirect these logs to a Fluentd server deployed at the Edge, namely [Fluent-Bit](https://docs.fluentbit.io/manual) which is an open-source log processor and forwarder that allows collecting logs from different sources, enriching them with filters, and sending them to multiple destinations. This Fluent-Bit server is then configured to push the logs to an [Azure Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). The high level architecture of this approach is illustrated in the following diagram.
+
+![Diagram showing the architecture of a push model approach.](media/observability-on-iotedge-0.png)
+
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
 Principal authors:
 
-- [Martin Weber](https://ch.linkedin.com/in/martin-weber-ch) | Senior Software Engineer
 - [Francisco Beltrao](https://ch.linkedin.com/in/francisco-beltrao-58521a) | Principal Software Engineer Lead
+- [Jean-Baptiste Ranson](https://www.linkedin.com/in/jb-ranson) | Senior Software Engineer
+- [Martin Weber](https://ch.linkedin.com/in/martin-weber-ch) | Senior Software Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

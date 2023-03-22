@@ -4,8 +4,9 @@ This architecture uses Azure App Service to accelerate development of reliable, 
 
 ## Architecture
 
-![Architecture Diagram](../media/cross-platform-chat.png)
-*Download an [SVG](../media/cross-platform-chat.svg) of this architecture.*
+![Diagram showing cross-platform chat architecture.](../media/cross-platform-chat.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/cross-platform-chat.vsdx) of this architecture.*
 
 ### Dataflow
 

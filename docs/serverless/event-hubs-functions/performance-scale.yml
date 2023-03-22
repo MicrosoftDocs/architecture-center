@@ -17,7 +17,7 @@ azureCategories:
 products:
   - azure-event-hubs
   - azure-functions
-name: Performance and scale for Event Hubs and Azure Functions 
+name: Performance and scale guidance for Event Hubs and Azure Functions 
 summary: Learn how to plan for and deploy more efficient and scalable code that runs on Azure Functions and responds to Event Hubs events.
 thumbnailUrl: /azure/architecture/browse/thumbs/event-hubs-functions-consumer-groups.png
 content: |

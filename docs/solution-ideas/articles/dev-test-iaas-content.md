@@ -1,88 +1,73 @@
-[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+> [!IMPORTANT]
+> CI/CD with DevTest Labs is a variant of [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml). This article focuses on the specifics of deploying to a DevTest Labs staging environments.
 
-*Infrastructure as a service (IaaS)* is a form of cloud computing that provides virtualized computing resources. *Development testing (DevTest)* is a software development approach that integrates testing early in the development phase. In this solution, configuring DevTest operations for an IaaS application reduces the cost and overhead of development and test environments, while facilitating faster development through automated virtual machine (VM) and VM image integration and deployment.
+DevTest Labs allow you to provision Windows and Linux environments by using reusable templates and artifacts. These environments can be useful for developers, but can also be used in CI/CD pipelines for provisioning staging environments. See [Azure DevTest Labs scenarios](/azure/devtest-labs/devtest-lab-guidance-get-started) to see if DevTest labs is a good fit for your scenario.
 
-*DevOps* is a set of practices that combine software development and IT operations to shorten the development cycle and provide high-quality continuous deployments (CD). Using [Azure DevOps](https://azure.microsoft.com/services/devops) with DevTest environments lends power and focus to the IaaS development process.
-
-## Potential use cases
-
-Departments that use this solution include:
-
-- IT operators
-- DevOps teams
-- Systems and database administrators
-- Developers that build and run applications
+This article describes a high-level DevOps workflow for deploying application changes using continuous integration (CI) and continuous deployment (CD) practices using Azure Pipelines. A DevTest Labs environment is used for the staging environment.
 
 ## Architecture
 
-![Diagram showing the configuration of DevTest and DevOps for an IaaS application.](../media/dev-test-iaas.svg)
+:::image type="complex" source="../media/azure-pipelines-devtest-variant-architecture.svg" lightbox="../media/azure-pipelines-devtest-variant-architecture.svg" alt-text="Architecture diagram of a CI/CD pipeline using Azure Pipelines that uses Azure DevTest Labs for a staging environment." border="false"::: 
+Architecture diagram of an Azure pipeline deploying to Azure Virtual Machines. The diagram shows the following steps: 1. A DevTest Labs staging environment is pre-created for the CI/CD pipeline. 2. An engineer pushing code changes to an Azure DevOps Git repository. 3. An Azure DevOps PR pipeline getting triggered. This pipeline shows the following tasks: linting, restore, build, and unit tests. 4. An Azure DevOps CI pipeline getting triggered. This pipeline shows the following tasks: get secrets, linting, restore, build, unit tests, integration tests and publishing artifacts. 4. An Azure DevOps CD pipeline getting triggered. This pipeline shows the following tasks: download artifacts, deploy to staging, tests, manual intervention, and release. 5. Shows the CD pipeline deploying to an Azure DevTest Labs staging environment. 6. Shows the CD pipeline releasing to a production environment. 7. Shows an operator monitoring the pipeline, taking advantage of Azure Monitor, Azure Application Insights and Azure Analytics Workspace.
+:::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/dev-test-iaas.vsdx) of this architecture.*
-
-*Download a [Visio file](https://arch-center.azureedge.net/dev-test-iaas.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-pipelines-iaas-variant-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Instead of manually configuring development environments, developers can use [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop) images, pre-configured with the libraries, tools, and runtimes they need for their projects. Adding a developer to an [Azure DevTest Subscription](https://azure.microsoft.com/pricing/dev-test) makes the appropriate Azure Virtual Desktop image available to them from the DevTest environment.
+This section assumes you have read [Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#dataflow) and only focuses on the specifics of deploying a workload to Azure DevTest Labs for staging.
 
-1. Source code is available in [GitHub](https://azure.microsoft.com/products/github/) repos, which integrate seamlessly with Azure DevOps. The [Visual Studio](https://visualstudio.microsoft.com) development environment combines GitHub source code editing with features like work-item and pull-request tracking.
+1. **PR pipeline** - *Same as the baseline*
 
-1. [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started) triggers automated continuous integration (CI) builds from GitHub repos and automatically delivers them to the DevTest environments, reaching quality assurance (QA) testing quickly with low developer overhead. Azure Pipelines uses [Azure Key Vault](/azure/devops/pipelines/release/azure-key-vault) to securely consume secrets like credentials and connection strings required for release and deployment configurations.
+1. **CI pipeline** - *Same as the baseline*
 
-1. [Azure Boards](https://azure.microsoft.com/services/devops/boards) connects back to the GitHub repos, letting developers track both code and tasks in one location. Automated testing also generates bugs for any build or release failures, feeding the results back into the development cycle.
+1. **CD pipeline trigger** - *Same as the baseline*
 
-1. Azure Boards work items come from automated testing, manual QA testing, and added features. Developers create feature branches and associate them with work items to track development, creating more iterations of the development loop.
+1. **CD create DevTest Labs staging environment** - This step creates the DevTest Labs environment which acts as the staging environment. The step includes:
 
-1. Azure Pipelines deploys builds to the low-cost [Azure DevTest Labs](https://azure.microsoft.com/pricing/dev-test) subscription environments, where developers and testers can rapidly provision VMs. [Azure Policy](/azure/governance/policy/concepts/recommended-policies) regulates and limits DevTest VM numbers and costs, and audits VM usage to provide insight and tracking.
+    - Create Azure DevTest Labs environment in a staging subscription.
+    - Deploy an ARM template to the DevTest Labs environment. Virtual Machine images can be stored in a shared image gallery.
+    - Perform any post deployment steps to properly configure the staging environment.
 
-   Developers can deploy VMs as quickly as needed within the lab, while staying within resource and cost parameters set by managers and administrators. The flexibility of low-cost labs provides developers with all the environments they need for rapid iterative progress.
+1. **CD release to staging** - Same as the baseline with one exception. The staging environment is a DevTest Labs environment.
 
-   Testers can operate within their own DevTest Labs environment, pulling ready-for-test images into the test team's labs separately from the development team. The ability of developers and testers to work in parallel DevTest Labs contributes to rapid iteration of ready-to-release image versions.
+1. **CD release to production** - *Same as the baseline*
 
-1. As the developed VM images reach a release state, Azure Pipelines triggers releases, which generalize the targeted images for destinations like [virtual machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets), and promotes them out of DevTest and into a Production environment.
-
-   [User Acceptance Testing (UAT)](https://wikipedia.org/wiki/Acceptance_testing#User_acceptance_testing) validates a staged VM or virtual machine scale set before deployment to Production.
-
-   Approvals are required for releases to higher-cost, client-facing Production destinations. Production remains isolated and protected from inadvertent or unapproved deployments.
-
-This scenario uses a separate DevTest and Production [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) per subscription to create a distinct separation of concerns. To meet compliance requirements, the Production subscription's Azure AD might need to include a smaller cross section of users than the DevTest Azure AD.
-
-[Azure Monitor](/azure/devtest-labs/security-baseline) works across subscriptions to monitor VMs in both the Production and DevTest environments.
+1. **Monitoring** - *same as the baseline*
 
 ### Components
 
-- [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) provides labs that have all the necessary tools and software to create environments. Developers can efficiently self-manage resources without waiting for approvals. With DevTest Labs, teams can control costs and regulate resources per lab, granting developers permission and flexibility to operate their sandboxes within cost constraints.
+This section assumes you have read [Azure Pipelines baseline architecture components section](../../example-scenario/apps/devops-dotnet-baseline.yml#components) and only focuses on the specifics of deploying a workload to Azure DevTest Labs for staging.
 
-- [Azure VM Image Builder](/azure/virtual-machines/windows/image-builder-overview) service provides baseline VM images that developers can customize. The service facilitates the creation and patching of images and can be called as an Azure Pipelines task.
-
-- [Shared Image Gallery](/azure/virtual-machines/windows/shared-image-galleries) acts as a VM image repository for IaaS solutions. VM Image Builder can build directly into a Shared Image Gallery, facilitating an Azure Pipelines CI/CD process of versioning the VM-based application.
-
-- [GitHub](https://docs.github.com/github/creating-cloning-and-archiving-repositories/about-repositories) is a code hosting platform for version control and collaboration. A GitHub repository contains all project files and their revision history. Developers can work together to contribute, discuss, and manage code in the repository.
-
-- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) deploys the VM application images. Pipelines can also deploy the VM resources themselves, through [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). This [infrastructure-as-code](/devops/deliver/what-is-infrastructure-as-code) can be source controlled and configured for CI/CD, ensuring that the infrastructure remains up to date.
-
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts) securely stores and tightly controls access to secrets like API keys, passwords, and certificates. For more information about Key Vault in DevOps scenarios, see [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml).
-
-- [Azure Boards](https://azure.microsoft.com/services/devops/boards) is a service for managing work for software projects. Azure Boards brings a rich set of capabilities, including native support for Scrum and Kanban methodologies, customizable dashboards, and integrated reporting.
-
-- [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) enterprise identity platform provides single sign-on and multifactor authentication to govern user access to resources. In this scenario, a separate Azure AD per subscription creates a distinct separation of concerns between Azure users.
-
-- [Azure Policy](https://azure.microsoft.com/services/azure-policy) governs resources to meet organizational standards and compliance. In a DevTest role, Azure Policy can regulate and limit the number and costs of VMs in the subscription. Auditing can provide insights and track the usage of the DevTest VMs.
-
-- [Azure Monitor](/azure/devtest-labs/security-baseline) can work across subscriptions to monitor VMs in both Production and DevTest environments. Azure Monitor can collect log data from VM operating systems and crash dump files, and aggregate them for viewing in [Microsoft Defender for Cloud](/azure/security-center/security-center-enable-data-collection).
+- [Azure DevTest Labs](/azure/devtest-labs/devtest-lab-overview) is a service for creating, using, and managing environments used for development, testing and deployment purposes. The service allows you to easily deploy pre-configured environments in a cost-effictive manner.
 
 ### Alternatives
 
-In situations where VM Image Builder and a Shared Image Gallery don't work, you can set up an [image factory](/azure/devtest-labs/image-factory-create) to build VM images from the CI/CD pipeline and distribute them automatically to any Azure DevTest Labs registered to those images. For more information, see [Run an image factory from Azure DevOps](/azure/devtest-labs/image-factory-set-up-devops-lab).
+- An alternative to creating the DevTest Labs staging environment as part of the CD process, you can pre-create the environment outside of the pipeline. This will have the positive benefit of speeding up the pipeline. This alternative will stop the ability to tear down the environment after the pipeline is complete, increasing the cost.
+
+- In situations where VM Image Builder and a Shared Image Gallery don't work, you can set up an [image factory](/azure/devtest-labs/image-factory-create) to build VM images from the CI/CD pipeline and distribute them automatically to any Azure DevTest Labs registered to those images. For more information, see [Run an image factory from Azure DevOps](/azure/devtest-labs/image-factory-set-up-devops-lab).
+
+- Additional environments, beyond staging could be created and deployed to as part of the CD pipeline. These environments could support activities like performance testing and user acceptance testing.
+
+## Considerations
+
+This section assumes you have read the [considerations section in Azure Pipelines baseline architecture](../../example-scenario/apps/devops-dotnet-baseline.yml#considerations) and only focuses on the specifics of deploying a workload to Azure DevTest Labs for staging.
+
+### Cost Optimization
+
+- Consider using [Azure DevTest Labs policies and procedures to control costs](/azure/devtest-labs/devtest-lab-overview#lab-policies-and-procedures-to-control-costs)
+
+### Operational Excellence 
+
+- Consider implementing environments beyond just staging and production to enable things like rollbacks, manual acceptance testing, and performance testing. The act of using staging as the rollback environment keeps you from being able to use that environment for other purposes.
 
 ## Next steps
 
-- [Set up Azure DevOps](/azure/devops/get-started)
 - [Create a lab in Azure DevTest Labs](/azure/lab-services/tutorial-create-custom-lab)
-- [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+- [Integrate DevTest Labs into Azure Pipelines](/azure/devtest-labs/devtest-lab-integrate-ci-cd)
 
 ## Related resources
 
-- [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
-- [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)
-- [DevTest and DevOps for microservices](dev-test-microservice.yml)
+- [CI/CD baseline architecture with Azure Pipelines](../../example-scenario/apps/devops-dotnet-baseline.yml)
+- [CI/CD for IaaS applications](./cicd-for-azure-vms.yml)
+

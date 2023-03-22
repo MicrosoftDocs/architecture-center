@@ -52,7 +52,7 @@ For Event Hubs, the correlation is injected into the event payload, and you see 
 
 ![Diagnostic Id property](images/observability-diagnostic-id.png)
 
-This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that are also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
+This follows the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format that's also used as **Operation Id** and **Operation Links** in telemetry created by Functions, which allows Application Insights to construct the correlation between event hub events and function executions, even when they're distributed.
 
 ![Batch Events correlation](images/observability-batch-events.png)
 
@@ -64,7 +64,7 @@ When [sampling is enabled](/azure/azure-functions/configure-monitoring?tabs=v2#c
 
 ### Detailed event processing information
 
-The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale.yml#batching). Keep in mind the following considerations:
+The data is only emitted in the correct format when batched dispatch is used. Batch dispatch means that the function accepts multiple events for each execution, which is [recommended for performance](performance-scale.yml#batching-for-triggered-functions). Keep in mind the following considerations:
 
 - The `dispatchTimeMilliseconds` value approximates the length of time between when the event was written to the event hub and when it was picked up by the function app for processing.
 - `dispatchTimeMilliseconds` can be negative or otherwise inaccurate because of clock drift between the event hub server and the function app.

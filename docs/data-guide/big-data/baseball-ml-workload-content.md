@@ -118,7 +118,6 @@ The container can be run locally (offline) in your own environment. It can also 
 
 ## Next steps
 
-- View a [live demo of this solution](https://aka.ms/BaseballMLWorkbench)
 - [Baseball HOF prediction using R mlr and DALEX packages](https://github.com/bartczernicki/BaseballHOFPredictionWithMlrAndDALEX) is a GitHub repo using R and cutting edge "black box" model techniques to explain ML.NET models related to this workload
 - [Azure App Service overview](/azure/app-service/overview)
 - [Blazor documentation](/aspnet/core/blazor)

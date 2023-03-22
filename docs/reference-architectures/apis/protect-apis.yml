@@ -12,6 +12,7 @@ metadata:
   ms.custom:
     - reference-architecture
     - fcp
+    - devx-track-azurepowershell
 azureCategories:
   - web
   - security
