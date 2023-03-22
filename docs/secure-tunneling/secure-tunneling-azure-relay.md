@@ -10,11 +10,11 @@ Download a [PowerPoint file](https://arch-center.azureedge.net/secure-tunneling-
 
 The following workflow demonstrates how a user can access a web server that is running on a remote device in a private network which corresponds to the above diagram:
 
-1. The user triggers an Orchestrator Function to initiate a connection with a device specified in the request payload.
-2. The Orchestrator invokes a direct method to the device via IoT Hub.
-    - Direct methods are synchronous, follow a request-response pattern and are meant for communications that require immediate confirmation of their result (within a user-specified timeout).
+1. The user triggers an Azure Function that acts as an Orchestrator to initiate a connection with a device specified in the request payload.
+2. The Orchestrator invokes a direct method that initiates the user triggered connection to the device via IoT Hub.
+    - [Direct methods](https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods) are synchronous, follow a request-response pattern and are meant for communications that require immediate confirmation of their result (within a user-specified timeout).
 3. The target device runs a web server. Upon initiation of a connection, it runs a Remote Forwarder for the port the web server is running on via [Azure Relay Bridge](https://github.com/Azure/azure-relay-bridge) and starts listening to an [Azure Relay Hybrid Connection](https://learn.microsoft.com/en-us/azure/azure-relay/relay-hybrid-connections-protocol) of the same name.
-4. Upon successful response, the Orchestrator provisions and/or starts an Azure Container Instance (ACI) that runs a Local Forwarder via Azure Relay Bridge configured to connect to the same Azure Relay Hybrid Connection.
+4. Upon successful response of the direct method initialization to the Iot Hub, the Orchestrator provisions and/or starts an Azure Container Instance (ACI) with an image of Azure Relay Bridge Local Forwarder hosted on Azure Container Registry (ACR). The ACI runs the Local Forwarder via Azure Relay Bridge configured to connect to the same Azure Relay Hybrid Connection.
 5. The ACI connects to the Azure Relay Hybrid Connection and exposes a public endpoint.
 6. When the connection is established, the user can access the web server that is running on the remote device by going to the ACI's fully qualified domain name (FQDN) in their browser.
 
@@ -25,12 +25,11 @@ The following workflow demonstrates how a user can access a web server that is r
 - [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro) allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments.
 - [Azure Container Instance](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview) offers the fastest and simplest way to run a container in Azure.
 - [Azure Functions](https://azure.microsoft.com/services/sql-database) is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs in Azure.
-- [Resource Groups](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) is a logical container for Azure resources.  We use resource groups to organize everything related to this project in Azure.
 
 ### Alternatives
 
-- You can use the [Azure Web PubSub](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview) which is a real-time messaging web applications that uses WebSockets and the publish-subscribe pattern in lieu of Azure Relay Service.
-- You can use a custom WebSocket bidirectional connection from cloud to edge devices which may require more overhead and an "always on" connection.
+- You can use the [Azure Web PubSub](https://learn.microsoft.com/en-us/azure/azure-web-pubsub/overview) which is a real-time messaging web applications that uses WebSockets and the publish-subscribe pattern in lieu of Azure Relay Service. However, Azure Web PubSub is not design for this use case as it is mostly used for the broadcast, publisher and subscriber use cases and thus may require more operational overhead and resources.
+- You can use a custom WebSocket bidirectional connection from cloud to edge devices. However, a custom WebSocket bidirectional connection may require more overhead and an "always on" connection.
 
 ## Scenario details
 
@@ -40,7 +39,7 @@ Secure Tunneling enables users to establish secure, bidirectional connections to
 
 ### Potential use cases
 
-- Accessing Sensor Devices in Hospitals
+- Remotely accessing Sensor Devices in Hospitals
   - A technician at a medical device company needs the ability securely access their sensor devices on demand, located hundreds of miles away behind a hospital’s firewall to troubleshoot and resolve an issue. Instead of having the technician travel to the hospital to respond to the incident, increasing resolution time and operational costs
 - Smart building
   - System integrators in smart building scenario need to securely access the local web servers built in the remote devices over public internet to configure the device settings improving their operational efficiencies.
@@ -63,14 +62,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The Secure Tunneling with Azure environment is ephemeral. You can easily deploy the environment with the required resources for the event, then tear it down just as easily.
 - To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.com/e/bb4e865667354736a27887f0695a273e).
+- Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)). For more information, see [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview).
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 Azure Monitor integrates with all the resources used to support logging. This sample is minimal and does not specifically use Azure Monitor diagnostics settings to collect logs and send them to a Log Analytics workspace but can be incorporated if required. From there, you can use the [Kusto query language](/azure/data-explorer/kusto/query) to write queries across the aggregated logs.
-
-Azure Log Analytics and Azure Monitor are billed per gigabyte (GB) of data ingested into the service (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)). For more information, see [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview).
 
 ## Deploy this scenario
 
