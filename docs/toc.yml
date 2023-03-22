@@ -1260,7 +1260,7 @@ items:
                         href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
                       - name: SWIFT AMH with ACV
                         href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
-                      - name: SWIFT Alliance Cloud in Azure
+                      - name: SWIFT Alliance Cloud on Azure
                         href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
                       - name: SWIFT Alliance Lite2
                         href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
