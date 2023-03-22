@@ -2,7 +2,7 @@ Gain insights on how customers receive their current products, in relation to st
 
 ## Architecture
 
-![A diagram that displays the hybrid footfall detection architecture.](../media/hybrid-footfall-detection.png)
+[ ![Architecture diagram that displays the hybrid footfall detection architecture.](../media/hybrid-footfall-detection.svg)](../media/hybrid-footfall-detection.svg#lightbox)
 
 _Download a [Visio file](https://arch-center.azureedge.net/hybrid-footfall-detection.vsdx) of this architecture._
 

@@ -2,12 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-03-13T16:01:50.554Z</updated>
+    <updated>2023-03-20T16:02:50.299Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Mainframe file and tape backup to Azure using Luminex]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer"/>
+        <updated>2023-03-17T22:22:51.000Z</updated>
+        <summary type="html"><![CDATA[Use Luminex products to transfer mainframe file and tape data to and from Azure to meet backup, archival, and other business needs.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using Azure Active Directory B2C in a multitenant architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/azure-ad-b2c</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/azure-ad-b2c"/>
+        <updated>2023-03-16T19:08:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn about considerations and approaches for using Azure Active Directory B2C in a multitenant architecture.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Subscription vending implementation guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/subscription-vending</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/subscription-vending"/>
+        <updated>2023-03-14T20:36:42.000Z</updated>
+        <summary type="html"><![CDATA[Subscription vending automation implementation guidance. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Run CAE simulations for manufacturing on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hpc/hpc-run-cae-simulations</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hpc/hpc-run-cae-simulations"/>
+        <updated>2023-03-14T20:09:26.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use a high-performance computing (HPC) environment on Azure to run CAE simulations for manufacturing.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Autonomous Vehicle Operations (AVOps) design guide]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/machine-learning/avops-design-guide</id>
@@ -31,6 +63,62 @@
         <updated>2023-03-08T19:18:51.000Z</updated>
         <summary type="html"><![CDATA[Implement a No Token in the Browser architecture for a JavaScript single-page application using API Management.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure App Service and Azure Functions considerations for multitenancy]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/multitenant/service/app-service"/>
+        <updated>2023-03-20T15:22:47.000Z</updated>
+        <summary type="html"><![CDATA[This article describes the features of Azure App Service and Azure Functions that are useful when working with multitenanted systems, and links to guidance and examples for how to use Azure App Service and Azure Functions in a multitenant solution.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Azure landing zones]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/landing-zone-deploy"/>
+        <updated>2023-03-17T16:21:00.000Z</updated>
+        <summary type="html"><![CDATA[Deployment options for platform and application landing zones in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High-availability Kubernetes with Azure Stack Hub]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/high-availability-kubernetes</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/high-availability-kubernetes"/>
+        <updated>2023-03-16T18:41:02.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Azure Stack Hub to create a high-availability Kubernetes cluster solution on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Reliable web app pattern for .NET -  Apply the pattern]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern"/>
+        <updated>2023-03-16T18:01:36.000Z</updated>
+        <summary type="html"><![CDATA[How to migrate your .NET application to the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your .NET application.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scale AI and machine learning initiatives in regulated industries]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries"/>
+        <updated>2023-03-15T19:13:40.000Z</updated>
+        <summary type="html"><![CDATA[Learn about scaling Azure AI and machine learning environments that must comply with extensive security policies.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Multitenant SaaS on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/multi-saas/multitenant-saas"/>
+        <updated>2023-03-13T22:54:56.000Z</updated>
+        <summary type="html"><![CDATA[Build a multitenant SaaS solution on Azure, designed for high availability, scalability, data security and isolation using the App Service and Azure Kubernetes Service.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Master data management with Profisee and Azure Data Factory]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-data-factory"/>
+        <updated>2023-03-13T18:35:48.000Z</updated>
+        <summary type="html"><![CDATA[Integrate Profisee master data management with Azure Data Factory to deliver high-quality, trusted data for Azure Synapse and all analytic applications.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[GitOps for Azure Kubernetes Service]]></title>
@@ -113,19 +201,19 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[How to apply the reliable web app pattern (.NET)]]></title>
+        <title type="html"><![CDATA[Reliable web app pattern for .NET -  Apply the pattern]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/apply-pattern"/>
         <updated>2023-02-16T21:54:30.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to modernize your .NET application in the Azure cloud by applying low-cost, high-value updates to your ASP.NET application.]]></summary>
+        <summary type="html"><![CDATA[How to migrate your .NET application to the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your .NET application.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Reliable web app pattern planning (.NET)]]></title>
+        <title type="html"><![CDATA[Reliable web app pattern for .NET - Plan the implementation]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview</id>
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/reliable-web-app/dotnet/pattern-overview"/>
         <updated>2023-02-16T21:54:30.000Z</updated>
-        <summary type="html"><![CDATA[How to improve your .NET application in the cloud by using the reliable web app pattern. The pattern features low-cost, high-value code and infrastructure enhancements.]]></summary>
+        <summary type="html"><![CDATA[How to migrate your .NET application to the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your .NET application.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
