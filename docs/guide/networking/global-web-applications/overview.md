@@ -150,23 +150,27 @@ Adding additional links to a CNAME chain can affect DNS name resolution performa
 
 ## TLS certificates
 
-Azure Front Door provides managed TLS certificates. However, in this kind of architecture it's a good idea to provision and use your own TLS certificates. This is a good practice for several reasons:
+For a mission-critical application, it’s recommended that you provision and use your own TLS certificates instead of the managed certificates provided by Azure Front Door. You’ll reduce the number of potential problems with this complex architecture. 
 
-- To issue and renew managed TLS certificates, Azure Front Door verifies your ownership of the domain. The domain verification process generally assumes that your domain's CNAME records point directly to Azure Front Door. In a complex architecture like that described in this article, this assumption often isn't correct. Issuing and renewing managed TLS certificates on Azure Front Door might not work smoothly in these situations, and you increase the risk of outages due to TLS certificate problems.
-- Similarly, even if your other services provide managed TLS certificates, they might not be able to verify domain ownership either.
-- If each service that you use issues their own managed TLS certificates independently, you might cause problems for your clients. For example, clients might not expect to see different TLS certificates issued by different authorities, or with different expiry dates or thumbprints.
+Here are some benefits:
 
-When you provision and use your own TLS certificates, you reduce the number of potential problems you might introduce in this kind of architecture. However, you also need to take care to renew and update your certificates before they expire.
+-	To issue and renew managed TLS certificates, Azure Front Door verifies your ownership of the domain. The domain verification process assumes that your domain's CNAME records point directly to Azure Front Door. But, that assumption often isn't correct. Issuing and renewing managed TLS certificates on Azure Front Door might not work smoothly and you increase the risk of outages due to TLS certificate problems.
+
+-	Even if your other services provide managed TLS certificates, they might not be able to verify domain ownership.
+
+-	If each service gets their own managed TLS certificates independently, there might be issues. For example, users might not expect to see different TLS certificates issued by different authorities, or with different expiry dates or thumbprints.
+
+However, there will be additional operations related to renewing and updating your certificates before they expire.
 
 ## Origin security
 
-When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Furthermore, because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to evaluate whether you've accidentally increased your origin's exposure to threats.
+When you [configure your origin](/azure/frontdoor/origin-security) to only accept traffic through Azure Front Door, you gain protection against layer 3 and layer 4 [DDoS attacks](/azure/frontdoor/front-door-ddos). Because Azure Front Door only responds to valid HTTP traffic, it also helps to reduce your exposure to many protocol-based threats. If you change your architecture to allow alternative ingress paths, you need to evaluate whether you've accidentally increased your origin's exposure to threats.
 
 If you use Private Link to connect from Azure Front Door to your origin server, how does traffic flow through your alternative path? Can you use private IP addresses to access your origins, or must you use public IP addresses?
 
-If your origin uses the Azure Front Door service tag and the `X-Azure-FDID` header to validate that traffic has flowed through Azure Front Door, consider how your origins can be reconfigured to validate that traffic has flowed through either of your valid paths. Also, ensure that you test that you haven't accidentally opened your origin to traffic through other paths, including from other customers' Azure Front Door profiles.
+If your origin uses the Azure Front Door service tag and the X-Azure-FDID header to validate that traffic has flowed through Azure Front Door, consider how your origins can be reconfigured to validate that traffic has flowed through either of your valid paths. You must test that you haven't accidentally opened your origin to traffic through other paths, including from other customers' Azure Front Door profiles.
 
-When you plan your origin security, check whether your alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) to reduce the risk of denial of service attacks against your origins. Also, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need more intrusion detection strategies. These controls often aren't required when your application is only exposed through Azure Front Door, but are often important elements in a more complex architecture.
+When you plan your origin security, check whether the alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview)  to reduce the risk of denial of service attacks against your origins. Also, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need more intrusion detection strategies. These controls can be important elements in a more complex multi-path architecture.
 
 ## Monitor component health and trigger traffic failover
 
