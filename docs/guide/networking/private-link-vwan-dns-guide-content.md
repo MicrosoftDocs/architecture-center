@@ -45,12 +45,12 @@ To illustrate the challenges, the following are two configurations, the most bas
 The following example is a basic private endpoint configuration. A private DNS zone is linked to the Virtual Network containing a client that wants to communicate to a service through its private endpoint. The private DNS zone has an A record that resolves the FQDN to the private IP address of the private endpoint. The following diagram illustrates the flow.
 
 :::image type="complex" source="./images/dns-private-endpoints-basic-config-works.svg" lightbox="./images/dns-private-endpoints-basic-config-works.svg" alt-text="Diagram showing a basic private endpoint and DNS configuration.":::
-The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an Azure storage account. The virtual network has a client in a workload subnet and a private endpoint in a private endpoint subnet. The private endpoint has a private IP address of 10.0.1.4 and it points to the storage account. The diagram illustrates that the client makes a request to the resources FQDN. Azure DNS forwards the query to the private DNS zone, which has an A record for that FQDN, so it returns the private IP address for the private endpoint. The client is able to make the request.
+The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an Azure storage account. The virtual network has a client in a workload subnet and a private endpoint in a private endpoint subnet. The private endpoint has a private IP address of 10.1.2.4 and it points to the storage account. The diagram illustrates that the client makes a request to the resources FQDN. Azure DNS forwards the query to the private DNS zone, which has an A record for that FQDN, so it returns the private IP address for the private endpoint. The client is able to make the request.
 :::image-end:::
 *Figure 2: A basic DNS configuration for private endpoints*
 
-1. Client issues a request to mystorageacct.blob.core.windows.net.
-2. Azure DNS, the configured DNS server for the Virtual Network is queried for the IP address for mystorageacct.blob.core.windows.net.
+1. Client issues a request to stgworkload00.blob.core.windows.net.
+2. Azure DNS, the configured DNS server for the Virtual Network is queried for the IP address for stgworkload00.blob.core.windows.net.
 
     Running the following command from the virtual machine (VM) illustrates that the VM is configured to use Azure DNS (168.63.129.16) as the DNS provider.
 
@@ -64,18 +64,18 @@ The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an
     ```
 
 3. Azure DNS is aware that the private DNS zone privatelink.blob.core.windows.net is linked to spokevnet, so it forwards the query.
-4. Because the A record exists for mystorageaccount.privatelink.blob.core.windows.net is found, the private IP address 10.0.1.4 is returned.
+4. Because the A record exists for stgworkload00.privatelink.blob.core.windows.net is found, the private IP address 10.1.2.4 is returned.
 
     Running the following command from the VM resolves the storage account's DNS to the private IP address of the private endpoint.
 
     ```Bash
-    resolvectl query mystorageaccount.blob.core.windows.net
+    resolvectl query stgworkload00.blob.core.windows.net
 
-    mystorageaccount.blob.core.windows.net: 10.0.1.4   -- link: eth0
-                                        (mystorageaccount.privatelink.blob.core.windows.net)
+    stgworkload00.blob.core.windows.net: 10.1.2.4   -- link: eth0
+                                        (stgworkload00.privatelink.blob.core.windows.net)
     ```
 
-5. The request is issued to the Private Link Endpoint with the 10.0.1.4 IP address.
+5. The request is issued to the Private Link Endpoint with the 10.1.2.4 IP address.
 6. A private connection to the storage account is established through the Azure Private Link service.
 
 The above works because Azure DNS is the configured DNS server for the Virtual Network, is aware of the linked private DNS zone, and forwards the DNS query to it.
@@ -89,7 +89,7 @@ The diagram shows a virtual hub with and Azure Firewall with DNS Proxy enabled. 
 :::image-end:::
 *Figure 3: Private DNS zones can't be linked to virtual hubs*
 
-1. Client issues a request to mystorageacct.blob.core.windows.net.
+1. Client issues a request to stgworkload00.blob.core.windows.net.
 
     Running the following command from the VM illustrates that the VM is configured to use Azure Firewall as the DNS provider.
 
@@ -102,22 +102,22 @@ The diagram shows a virtual hub with and Azure Firewall with DNS Proxy enabled. 
              DNS Servers: 10.0.1.132    
     ```
 
-2. Azure Firewall DNS Proxy is enabled in the virtual hub, so the DNS query of mystorageacct.blob.core.windows.net is proxied to Azure DNS.
-3. Because you can't link a private DNS zone to the virtual hub, Azure DNS can't resolve mystorageacct.blob.core.windows.net to the private IP address of the private endpoint. Azure DNS responds with the public IP address of the storage account.
+2. Azure Firewall DNS Proxy is enabled in the virtual hub, so the DNS query of stgworkload00.blob.core.windows.net is proxied to Azure DNS.
+3. Because you can't link a private DNS zone to the virtual hub, Azure DNS can't resolve stgworkload00.blob.core.windows.net to the private IP address of the private endpoint. Azure DNS responds with the public IP address of the storage account.
 
     Running the following command from the VM resolves the storage account's DNS to the public IP of the storage account.
 
     ```Bash
-    resolvectl query mystorageaccount.blob.core.windows.net
+    resolvectl query stgworkload00.blob.core.windows.net
     
-    mystorageaccount.blob.core.windows.net: 52.239.174.228 -- link: eth0
+    stgworkload00.blob.core.windows.net: 52.239.174.228 -- link: eth0
                                         (blob.bn9prdstr08a.store.core.windows.net)
     ```
 
     Because Azure Firewall is proxying DNS queries, we're able to log them. The following are sample Azure Firewall DNS Proxy logs.
 
     ```bash
-    DNS Request: 10.1.0.4:60137 - 46023 A IN mystorageacct.blob.core.windows.net. udp 63 false 512 NOERROR qr,rd,ra 313 0.009424664s
+    DNS Request: 10.1.0.4:60137 - 46023 A IN stgworkload00.blob.core.windows.net. udp 63 false 512 NOERROR qr,rd,ra 313 0.009424664s
     DNS Request: 10.1.0.4:53145 - 34586 AAAA IN blob.bn9prdstr08a.store.core.windows.net. udp 69 false 512 NOERROR qr,aa,rd,ra 169 0.000113s    
     ```
 
