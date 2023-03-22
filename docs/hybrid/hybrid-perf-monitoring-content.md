@@ -205,7 +205,7 @@ Explore related architectures:
 - [Unified logging for microservices applications](../example-scenario/logging/unified-logging.yml)
 - [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.yml)
 
-[architectural-diagram]: ./images/hybrid-perf-monitoring.png
+[architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx
 [agents-overview]: /azure/azure-monitor/platform/log-analytics-agent
 [dependency-agent]: /azure/azure-monitor/platform/agents-overview#dependency-agent
