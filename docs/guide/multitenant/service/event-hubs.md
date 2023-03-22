@@ -158,7 +158,7 @@ For more information, see:
 
 Principal author:
 
-- [Will Velida](http://linkedin.com/in/willvelida) | Customer Engineer 2, FastTrack for Azure
+- Will Velida | Customer Engineer 2, FastTrack for Azure
 
 Other contributors:
 
