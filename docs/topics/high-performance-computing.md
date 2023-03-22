@@ -280,20 +280,20 @@ CycleCloud allows you to:
 
 ##### Hybrid / cloud bursting model
 In this Hybrid example diagram, we can see clearly how these services are distributed between the cloud and the on-premises environment. Having the opportunity to run jobs in both workloads.
-![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-hpc-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
+![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-high-performance-computing-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
 
 ##### Cloud native model
 The cloud native model example diagram below, shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
 
 ![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
-.](images/industry-standard-hpc-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
+.](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
 
-#### Comparison chart
+### Comparison chart
 
 |Feature              |Azure Batch             |Azure CycleCloud     |
 |---------------|------------------------|------------------------|
 |Scheduler |Batch APIs and tools and command-line scripts in the Azure Portal (Cloud Native).  |Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler.|
-|Compute Resources |Azure Batch – Software as a Service Nodes – Platform as a Service |Azure CycleCloud - Platform as a Service Software – Platform as a Service |
+|Compute Resources |Software as a Service Nodes – Platform as a Service |Platform as a Service Software – Platform as a Service |
 |Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
 |Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
 |Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
