@@ -20,16 +20,17 @@ categories:
 
 > [!IMPORTANT]
 > Designing redundancy implementations that deal with global platform outages for a mission-critical architecture can be complex and costly. Because of the potential problems that might arise with this design, carefully consider the [tradeoffs](#tradeoffs).
+>
 > In most situations, you won’t need the architecture described in this article.
 
-Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system will be offline to the user.  When choosing a routing service, it’s important to consider the reliability of the service itself.  In the [baseline architecture for mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro), Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
+Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system will be offline to the user.  When choosing a routing service, it’s important to consider the reliability of the service itself.  In the **[baseline architecture for mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
 
 -	Ability to route traffic to multiple regions in an active-active model
 - Ability of transparent failover using TCP anycast
 -	Ability to serve static content from edge nodes by using integrated content delivery networks (CDNs)
 -	Ability to block unauthorized access with integrated web application firewall
 
-Reliability and resiliency built into Azure Front Door is more than enough to meet most business requirements. However, with any distributed system, expect failure; even for Front Door. If the business requirements demand a higher composite SLA or zero-down time in case of an outage, you’ll need to rely on an alternate traffic ingress path. However, the pursuit of a higher composite SLA comes with significant costs, operational overhead, lower your overall reliability. Carefully consider the tradeoffs and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
+Reliability and resiliency built into Azure Front Door is more than enough to meet most business requirements. However, with any distributed system, expect failure; even for Front Door. If the business requirements demand a higher composite SLA or zero-down time in case of an outage, you’ll need to rely on an alternate traffic ingress path. However, the pursuit of a higher composite SLA comes with significant costs, operational overhead, lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
 One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Front Door shouldn’t be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
 
@@ -49,27 +50,54 @@ You can switch between Azure Front Door and other CDNs or application delivery s
 
 ## Approach
 
-When you design a mission-critical global web application, consider having multiple redundant traffic paths. The following diagram shows a general approach to delivering mission-critical web application traffic:
+This architecture diagram shows a general approach with multiple redundant traffic paths.
 
 :::image type="content" source="./media/overview/alternate-traffic-paths.png" alt-text="Diagram showing Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
 
-When you follow this approach, you introduce several components and make significant changes to other components in your solution:
+With this approach, you’ll introduce several components and make significant changes to other components in your solution:
 
-1. **Azure Traffic Manager** directs traffic to Azure Front Door or to the alternative service that you've selected.
+1.	[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to the alternative service that you've selected.
 
-   [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, and Traffic Manager determines where the traffic should go based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). In most situations, consider using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) so that traffic flows through Azure Front Door by default. Traffic Manager can automatically switch traffic to your alternate path if Azure Front Door is unavailable.
+    Azure Traffic Manager is a DNS-based global load balancer. Your domain's CNAME record points to Traffic Manager, which  determines the destination based on how you configure its [routing method](/azure/traffic-manager/traffic-manager-routing-methods). Using [priority routing](/azure/traffic-manager/traffic-manager-routing-methods#priority-traffic-routing-method) will make traffic flow through Azure Front Door by default. Traffic Manager can automatically switch traffic to your alternate path if Azure Front Door is unavailable.
+
+    > [!IMPORTANT]
+    >
+    > This solution mitigates risks associated with Azure Front Door outages, but it's susceptible to Azure Traffic Manager outages as a global point of failure.
+
+    You can also consider using a different global traffic routing system, such as a global load balancer. However, Traffic Manager works well for many situations.
+
+1.	You have two ingress paths:
+
+    - Azure Front Door provides the primary path and processes and routes most of your application traffic. 
+    - Another router is used as a backup for Azure Front Door. Traffic only flows through this secondary path if Front Door is unavailable.
+
+    The specific service that you select for the secondary router depends on many factors. You might choose to use Azure-native services, or third-party services. In these articles we provide Azure-native options to avoid adding additional operational complexity to the solution. If you use third-party services, you need to use multiple control planes to manage your solution.
+
+1.	Your origin application servers need to be ready to accept traffic from either service. Consider how you [secure traffic to your origin](#origin-security), and what responsibilities Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
+
+### Tradeoffs
+
+While this mitigation strategy can make the application be available during platform outages, there are some significant tradeoffs. You should weigh the potential benefits against known costs, and make an informed decision about whether the benefits are worth those costs.
+
+-	**Financial cost**: When you deploy multiple redundant paths to your application, you need to consider the cost of deploying and running the resources. We provide two example scenarios for different use cases, each of which has a different cost profile.
+
+-	**Operational complexity**: Every time you add additional components to your solution, you increase your management overhead. Any change to one component might impact other components.
   
-   You can also consider using a different global traffic routing system, such as a global load balancer. However, Traffic Manager works well for many situations.
+    Suppose you decide to use the new capabilities of Azure Front Door. You need to check whether your alternative traffic path also provides an equivalent capability, and if not, you need to decide how to handle the difference in behavior between the two traffic paths. In real-world applications, these complexities can have a high cost, and can present a major risk to your system's stability.
 
-1. You have two *paths* for traffic to ingress to your application:
+-	**Performance**: This design requires additional CNAME lookups during name resolution. In most applications, this isn't a significant concern, but you should evaluate whether your application performance is affected by introducing additional layers into your ingress path.
 
-   - **Azure Front Door** processes and routes most of your application traffic. Azure Front Door provides the *primary path* to your application.
+- **Opportunity cost:** Designing and implementing redundant ingress paths requires a significant engineering investment, which ultimately comes at an opportunity cost to feature development and other platform improvements.
 
-   - **Another service** is used as a backup for Azure Front Door. Traffic only flows through this *secondary path* if Azure Front Door is unavailable.
-  
-     The specific service that you select for your secondary path depends on many factors, which are described in more detail later throughout this article. You might choose to use Azure-native services, or third-party services. In these articles we provide Azure-native options to avoid adding additional operational complexity to the solution.
+> [!WARNING]
+> If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture increases the number of failure points. It also means you have a higher level of operational complexity. When you add extra components, every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
-1. **Your origin application servers** need to be ready to accept traffic from either service. You need to consider how you [secure traffic to your origin](#origin-security), and what responsibilities Azure Front Door and other upstream services provide. Ensure that your application can handle traffic from whichever path your traffic flows through.
+
+## Availability of Azure Traffic Manager
+
+Azure Traffic Manager is a reliable service, but the service level agreement doesn't guarantee 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate under these circumstances.
+
+Traffic Manager returns cacheable DNS responses. If time to live (TTL) on your DNS records allows caching, short outages of Traffic Manager might not be a concern. That is because downstream DNS resolvers might have cached a previous response. You should plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
 
 ## Consistency of ingress paths
 
@@ -190,20 +218,6 @@ Ensure that your testing processes include these elements:
 
 In a mission-critical solution, a health model helps you to represent the overall health status. When you use multiple traffic ingress paths, you need to monitor the health of each path. If your traffic is rerouted to the secondary ingress path, your health model should reflect the fact that the system is still operational but that it's running in a degraded state. For more information about health modeling, see [Health modeling for mission-critical workloads](../../../reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md)
 
-## Tradeoffs
-
-This type of architecture can increase your overall availability and resiliency to outages. However, there are some significant tradeoffs that you need to consider. When evaluating a complex architecture, you should weigh up the potential benefits against the known costs, and make an informed decision about whether the benefits are worth those costs.
-
-The main costs associated with an architecture like the one described above are:
-
-- **Financial cost:** When you deploy multiple redundant paths to your application, you need to consider the cost of deploying and running the resources. We provide two example scenarios for different use cases, each of which has a different cost profile.
-- **Operational complexity:** Every time you add additional components to your solution, you increase your management overhead. Further, every time you make a change to one component, you need to consider whether other components might be affected.
-
-  For example, suppose you decide to add some application features that require you to use new capabilities of Azure Front Door. You need to check whether your alternative traffic path also provides an equivalent capability, and if not, you need to decide how to handle the difference in behavior between the two traffic paths. In real-world applications, these complexities can have a high cost, and can present a major risk to your system's stability.
-- **Performance:** As described above, this type of solution requires additional CNAME lookups during name resolution. In most applications, this isn't a significant concern, but you should evaluate whether your application performance is affected by introducing additional layers into your ingress path.
-
-> [!WARNING]
-> If you're not careful in how you design and implement a complex high-availability solution, you can actually make your availability worse. Increasing the number of components in your architecture increases the number of failure points. It also means you have a higher level of operational complexity. When you add extra components, every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
 ## Common scenarios
 
