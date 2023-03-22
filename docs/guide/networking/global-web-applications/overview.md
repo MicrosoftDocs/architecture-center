@@ -172,67 +172,61 @@ If your origin uses the Azure Front Door service tag and the X-Azure-FDID header
 
 When you plan your origin security, check whether the alternative traffic path relies on provisioning dedicated public IP addresses. If it does, consider whether you should implement [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview)  to reduce the risk of denial of service attacks against your origins. Also, consider whether you need to implement [Azure Firewall](/azure/firewall/overview) or another firewall capable of protecting you against a variety of network threats. You might also need more intrusion detection strategies. These controls can be important elements in a more complex multi-path architecture.
 
-## Monitor component health and trigger traffic failover
+## Health modeling
 
-When planning a highly available mission-critical web application architecture, consider how you'll monitor the health of the overall solution and its components. The following questions help to plan how to monitor your traffic ingress:
+Mission-critical design methodology requires a system [health model](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling) that gives you overall observability of the solution and its components. When you use multiple traffic ingress paths, you need to monitor the health of each path. If your traffic is rerouted to the secondary ingress path, your health model should reflect the fact that the system is still operational but that it's running in a degraded state. 
 
-- How do the different components of your solution monitor the health of downstream components?
-- When should health monitors consider downstream components to be unhealthy?
-- How long does it take for an outage to be detected?
-- After an outage is detected, how long does it take for traffic to be routed through an alternative path?
+Include these questions in your health model design:
 
-There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door, and to trigger an automatic failover to a backup platform if an outage occurs. For most customers, a DNS based solution such as Azure Traffic Manager is suitable. With Azure Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services. You can instruct Traffic Manager which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
+-	How do the different components of your solution monitor the health of downstream components?
+-	When should health monitors consider downstream components to be unhealthy?
+-	How long does it take for an outage to be detected?
+-	After an outage is detected, how long does it take for traffic to be routed through an alternative path?
 
-If Azure Front Door is unavailable, then multiple factors influence the overall amount of time that the outage affects your traffic, including:
+There are multiple global load balancing solutions that enable you to monitor the health of Azure Front Door and trigger an automatic failover to a backup platform if an outage occurs. Azure Traffic Manager is suitable in most cases. With Traffic Manager, you configure [endpoint monitoring](/azure/traffic-manager/traffic-manager-monitoring) to monitor downstream services by specifying which URL to check, how frequently to check that URL, and when to consider the downstream service unhealthy based on probe responses. In general, the shorter the interval between checks, the less time it takes for Traffic Manager to direct traffic through an alternative path to reach your origin server.
 
-- The time to live (TTL) on your DNS records.
-- How frequently Traffic Manager runs its health checks.
-- How many failed probes Traffic Manager is configured to see before it reroutes traffic.
-- How long clients and upstream DNS servers cache Traffic Manager's DNS responses for.
+If Front Door is unavailable, then multiple factors influence the amount of time that the outage affects your traffic, including:
 
-You also need to determine which of these elements are within your control, and whether upstream services beyond your control might affect your clients' experiences. For example, even if you use a low TTL on your DNS records, upstream DNS caches might disobey these instructions and serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
+-	The time to live (TTL) on your DNS records.
+-	How frequently Traffic Manager runs its health checks.
+-	How many failed probes Traffic Manager is configured to see before it reroutes traffic.
+-	How long clients and upstream DNS servers cache Traffic Manager's DNS responses for.
+
+You also need to determine which of those factors are within your control and whether upstream services beyond your control might affect user experience. For example, even if you use low TTL on your DNS records, upstream DNS caches might still serve stale responses for longer than they should. This behavior might exacerbate the effects of an outage or make it seem like your application is unavailable, even when Traffic Manager has already switched to sending requests to the alternative traffic path.
 
 > [!TIP]
-> Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are generally too slow for mission-critical solutions to remain responsive.
+> Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are considered slow to remain responsive.
 
-## Availability of Azure Traffic Manager
 
-Azure Traffic Manager is a highly available service, but as with all DNS-based traffic managers, it also has a service level agreement that doesn't guarantee 100% availability. If Traffic Manager is unavailable, your users might not be able to access your application, even if Azure Front Door and your alternative service are both available. It's important to plan how your solution will continue to operate even if Traffic Manager isn't responding to requests.
+# Zero-downtime deployment
 
-Traffic Manager returns cacheable DNS responses. If your DNS records' TTLs allow for caching, short outages of Traffic Manager might not be a concern, because downstream DNS resolvers might have cached a previous response. However, you should consider whether you plan for prolonged outages. You might choose to manually reconfigure your DNS servers to direct users to Azure Front Door if Traffic Manager is unavailable.
+When you're planning how to operate a solution with redundant ingress path, you should also plan for how you deploy or configure your services when they're degraded. For most Azure services, SLAs apply to the uptime of the service itself, and not to management operations or deployments. Consider whether your deployment and configuration processes need to be made resilient to service outages.
 
-## Deployment and configuration
-
-When you're planning how to operate a mission-critical traffic ingress solution, you should also plan for how you deploy or configure your services when they're degraded. For most Azure services, SLAs apply to the uptime of the service itself, and not to management operations or deployments. Consider whether your deployment and configuration processes need to be made resilient to service outages.
-
-You should also consider the number of independent control planes that you need to interact with to manage your solution. When you use Azure services, Azure Resource Manager provides a consistent control plane. If you use a third-party service to route your traffic, you might need to use a separate control plane to configure the service.
+You should also consider the number of independent control planes that you need to interact with to manage your solution. When you use Azure services, Azure Resource Manager provides a unified and consistent control plane. However, if you use a third-party service to route traffic, you might need to use a separate control plane to configure the service, which introduces further operational complexity.
 
 > [!WARNING]
-> If you need to use multiple control planes, you introduce risk to your solution. Every point of difference increases the likelihood that somebody accidentally misses a configuration setting in the other, or applies different configuration to each component. Ensure that your operational procedures mitigate this risk.
+> The use of multiple control planes introduces complexity and risk to your solution. Every point of difference increases the likelihood that somebody accidentally misses a configuration setting, or apply different configurations to redundant components. Ensure that your operational procedures mitigate this risk.
 
-## Development and testing
+## Continuous validation
 
 For a mission-critical solution, your testing practices need to verify that your solution meets your requirements regardless of the path that your application traffic flows through. Consider each part of the solution and how you test it for each type of outage.
 
 Ensure that your testing processes include these elements:
 
-- Can you verify that traffic is correctly redirected through the alternative path when the primary path is unavailable?
-- Can both paths support the level of production traffic you expect to receive?
-- Are both paths adequately secured, to avoid opening or exposing vulnerabilities when you're in a degraded state?
-
-## Health modeling
-
-In a mission-critical solution, a health model helps you to represent the overall health status. When you use multiple traffic ingress paths, you need to monitor the health of each path. If your traffic is rerouted to the secondary ingress path, your health model should reflect the fact that the system is still operational but that it's running in a degraded state. For more information about health modeling, see [Health modeling for mission-critical workloads](../../../reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md)
-
+-	Can you verify that traffic is correctly redirected through the alternative path when the primary path is unavailable?
+-	Can both paths support the level of production traffic you expect to receive?
+-	Are both paths adequately secured, to avoid opening or exposing vulnerabilities when you're in a degraded state?
 
 ## Common scenarios
 
 Based on our experience working with customers, we've observed two common scenarios where mission-critical web traffic needs the kind of architecture described in this article. We provide more detailed guidance for each of these scenarios.
 
 - [Global content delivery](./mission-critical-content-delivery.md) commonly applies to static content delivery, media, and high-scale eCommerce applications. In this scenario, caching is a critical part of the solution architecture, and failures to cache can result in significantly degraded performance or reliability.
+
 - [Global HTTP ingress](./mission-critical-global-http-ingress.md) commonly applies to mission-critical dynamic applications and APIs. In this scenario, the core requirement is to route traffic to the origin server reliably and efficiently. Frequently, a WAF is an important security control used in these solutions.
 
-Every customer's solution architecture and requirements are different, so it's important to consider how you design your own mission-critical web application.
+> [!WARNING]
+> If you're not careful in how you design and implement a complex multi-ingress solution, you can actually make your availability worse. Increasing the number of components in your architecture increases the number of failure points. It also means you have a higher level of operational complexity. When you add extra components, every change that you make needs to be carefully reviewed to understand how it affects your overall solution.
 
 ## Next steps
 
