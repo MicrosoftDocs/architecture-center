@@ -47,7 +47,7 @@ Based on our expierence several teams are involved in Data Operations due to com
 
 The image below shows an example scenario of an offline/online collection of vehicle data to a data lake.  
 ### Data collection
-![Data Collection](.\images\data-collection.png)
+
 
 Data collection is one of the main [challenges](../../guide/machine-learning/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
 
@@ -84,9 +84,7 @@ Data collection is one of the main [challenges](../../guide/machine-learning/avo
 
 You can use this architecture to build a data operations for automated driving solution on Azure.
 
-### Potential use cases
 
-Automotive OEMs, Tier 1 vendors, and ISVs that develop solutions for automated driving. 
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
@@ -122,21 +120,7 @@ It's important to understand the division of responsibility between the automoti
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Challenges:
-
-There are several strategies that organizations can use to reduce costs associated with autonomous driving development:
-
-1. Optimize cloud infrastructure: Careful planning and management of cloud infrastructure can help reduce costs, such as choosing cost-effective instance types and scaling infrastructure to meet changing workloads. Utilizing the guidance from the [Azure Cloud Adoption Framework](https://learn.microsoft.com/azure/cloud-adoption-framework/) is recommended.
-1. Use spot instances: Spot instances allow organizations to bid on spare capacity, which can result in significant cost savings compared to on-demand instances.
-1. Leverage auto-scaling: Auto-scaling enables organizations to automatically adjust their cloud infrastructure based on demand, reducing the need for manual intervention and helping to keep costs in check.
-1. Utilize cost-effective storage: Consider how long the data should be stored hot/cold/cold.  Storage can be a significant cost for autonomous driving development, so it's important to choose cost-effective storage options, such as cold storage or infrequent access storage.
-1. Utilize cost management and optimization tools: [Azure Cost Management](https://azure.microsoft.com/products/cost-management/#overview) provides  cost management and optimization tools that can help organizations identify and address areas where costs can be reduced, such as identifying unused or underutilized resources.
-1. Consider Azure Services: Organizations can use Azure services, such as [Azure Machine Learning](https://learn.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) to build and train autonomous driving models, which can be more cost-effective than building and maintaining in-house infrastructure.
-1. Use shared resources: When possible, organizations can use shared resources, such as shared databases or shared compute resources, to reduce costs associated with autonomous driving development.  [Platform Layer](#avops-platform-layer) aims to solve this challenge by implementing a central bus, event hub and a Meta-Data Catalog.  In addition, services such as [Azure Data Share](https://learn.microsoft.com/azure/data-share/) help organizations achieve this goal.
-
-By following these strategies, organizations can reduce the costs associated with autonomous driving development in the cloud, freeing up resources that can be used to further enhance the development process.
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
