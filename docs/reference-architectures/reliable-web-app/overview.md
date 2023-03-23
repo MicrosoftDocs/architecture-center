@@ -25,11 +25,13 @@ categories:
 
 The reliable web app pattern details essential implementation guidance for migrating on-premises .NET and Java web apps to the cloud. It focuses on the minimal, low-cost, high-value changes you need to make to ensure your web app is successful in the cloud. These changes include business-driven architecture and code-level design patterns (Retry, Circuit breaker, and Cache aside). Every decision all align with the principles of the Well-Architected Framework (WAF) and 12 Factor Apps methodology.
 
+[![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
+
 ## Why the reliable web app pattern?
 
-The cloud offers many benefits to on-premises application, but it's not always clear how to take advantage of them. The reliable web app pattern resolves this ambiguity. It shows you what you should do to transition web apps to the cloud successfully and how to do it with architecture and code examples.
+It's not always clear how to migrate a web app to the cloud or you might not be aware of the implementation changes you could and should make. The reliable web app pattern resolves this ambiguity. It tells you what you should to migrate web apps to the cloud successfully and how to do it with code examples.
 
-![Diagram showing GitHub icon.](../../_images/github.png) There are also sample .NET and Java web apps (reference implementations) that you can deploy. These reference implementation apply the reliable web app pattern and allow you to see the guidance. For more information, see:
+![Diagram showing GitHub icon.](../../_images/github.png) The code examples come from a companion sample application (reference implementations) that you can deploy. There's one for .NET and Java. These reference implementations apply the reliable web app pattern. For more information, see:
 
 - [.NET reference implementation](https://aka.ms/eap/rwa/dotnet)
 - [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)
