@@ -1,8 +1,8 @@
-In a [traditional hub-spoke topology with bring-your-own-networking](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), you have the ability to completely manipulate the hub virtual network and deploy common services into the hub to make those hub features available to workload spokes. These shared services often include things like DNS resources, custom NVAs, Azure Bastion, and more. When using Azure Virtual WAN however, you have restricted access and limitations on what you can install on the virtual hub.
+In a [traditional hub-spoke topology with bring-your-own-networking](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), you have the ability to completely manipulate the hub virtual network and deploy common services into the hub to make those hub features available to workload spokes. These shared services often include things like DNS resources, custom NVAs, Azure Bastion, and more. When using Azure Virtual WAN, however, you have restricted access and limitations on what you can install on the virtual hub.
 
-For example, to implement [Private Link and DNS integration in a traditional hub-spoke network architecture](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale#private-link-and-dns-integration-in-hub-and-spoke-network-architectures), you would create and link private DNS zones to the hub network. Your [Plan for virtual machine remote access](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-virtual-machine-remote-access#design-recommendations) might include Azure Bastion as a shared service in the regional hub. You might also deploy custom compute resources, such as Active Directory VMs in the hub. None of these are possible with Azure Virtual WAN.
+For example, to implement [Private Link and DNS integration in a traditional hub-spoke network architecture](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale#private-link-and-dns-integration-in-hub-and-spoke-network-architectures), you would create and link private DNS zones to the hub network. Your [plan for virtual machine remote access](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-virtual-machine-remote-access#design-recommendations) might include Azure Bastion as a shared service in the regional hub. You might also deploy custom compute resources, such as Active Directory VMs in the hub. None of these approaches are possible with Azure Virtual WAN.
 
-This article describes the virtual hub extension pattern which provides guidance on how to securely expose shared services to spokes that you are unable to deploy directly in a virtual hub.
+This article describes the virtual hub extension pattern that provides guidance on how to securely expose shared services to spokes that you're unable to deploy directly in a virtual hub.
 
 ## Architecture
 
@@ -24,7 +24,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 A virtual hub extension is often deemed business critical, as it's serving a core function within the network. Extensions should be designed to align to business requirements, have failure mitigation strategies in place, and be designed to scale with the needs of the spokes.
 
-Resiliency testing and reliability monitoring should be part of the standard operating procedures for any extension, validating access and throughput requirements.  It's recommended that each extension have a meaningful health model.
+Resiliency testing and reliability monitoring should be part of the standard operating procedures for any extension, validating access and throughput requirements.  It's recommended that each extension has a meaningful health model.
 
 ### Security
 
@@ -36,15 +36,15 @@ Resiliency testing and reliability monitoring should be part of the standard ope
 
 As with any workload, ensure appropriate SKU sizes are selected for extension resources to help control costs.  Some extensions may have predictable usage patterns around business hours or other factors, while others may be less predictable. It's important to understand those usage patterns and understand how elasticity and scalability can be accomplished to meet those usage patterns.
 
-As a shared service, the workload resources will likely have a relatively long duty cycle in your enterprise architecture. Consider using cost savings through pre-purchase offerings such as [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), [reserved capacity pricing](https://azure.microsoft.com/pricing/reserved-capacity/), and [Azure savings plans](/azure/cost-management-billing/savings-plan/).
+As a shared service, the workload resources generally have a relatively long duty cycle in your enterprise architecture. Consider using cost savings through prepurchase offerings such as [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), [reserved capacity pricing](https://azure.microsoft.com/pricing/reserved-capacity/), and [Azure savings plans](/azure/cost-management-billing/savings-plan/).
 
 ### Operational excellence
 
-Virtual hub extensions should be built with the single responsibility principal (SRP) in mind. Each extension should be for a single offering by not combining unrelated services in a single spoke.  You may even wish to organize your resources such that each extension itself resides in a dedicated resource group, allowing more selective and manageable targeting of Azure Policy and Azure RBAC.
+Virtual hub extensions should be built with the single responsibility principal (SRP) in mind. Each extension should be for a single offering by not combining unrelated services in a single spoke.  You might even wish to organize your resources such that each extension itself resides in a dedicated resource group, allowing more selective and manageable targeting of Azure Policy and Azure RBAC.
 
-As with any workload, you should invest in provisioning these extensions with Infrastructure as Code and having a build and release process that supports the needs and lifecycle of each extension.  As extensions are often business critical in nature, and it is important to have a rigorous testing methods and safe deployment practices in place for each extension.
+You should invest in provisioning these extensions with Infrastructure as Code and having a build and release process that supports the needs and lifecycle of each extension.  As extensions are often business critical in nature, and it's important to have a rigorous testing methods and safe deployment practices in place for each extension.
 
-Having a clear change control and enterprise communication plan in place is vital. You may need to communicate with stakeholders (workload owners) about disaster recovery (DR) drills you are executing, or any planned or unexpected downtime.
+Having a clear change control and enterprise communication plan in place is vital. You might need to communicate with stakeholders (workload owners) about disaster recovery (DR) drills you're executing, or any planned or unexpected downtime.
 
 Ensure you have a solid operational health system in place for these resources. Enable appropriate Azure Diagnostics settings on any extension resources and capture all other telemetry or logs necessary to understand the health of the workload.
 
