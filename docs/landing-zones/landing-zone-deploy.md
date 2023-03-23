@@ -61,6 +61,17 @@ The options below provide an opinionated approach to deploy and operate the [Azu
 
 In addition, after deploying the landing zone, you will need to plan to operate it and maintain it.  Review the guidance on how to [Keep your Azure landing zone up to date](/azure/cloud-adoption-framework/govern/resource-consistency/keep-azure-landing-zone-up-to-date).
 
+## Subscription Vending
+
+Once the platform landing zone is in place, the next step is to create and operationalize application landing zones for workload owners. Subscription democratization is a [design principle](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) of Azure landing zones that uses subscriptions as units of management and scale. This approach accelerates application migrations and new application development.
+
+[Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending) standardizes the process for requesting, deploying, and governing subscriptions, enabling application teams to deploy their workloads faster. To get started, see [subscription vending implementation guidance](/azure/architecture/landing-zones/subscription-vending), then review the following infrastructure-as-code modules. They provide flexibility to fit your implementation needs.
+
+| Deployment option | Description |
+| --- | ---|
+| [Bicep Subscription Vending](https://github.com/Azure/bicep-lz-vending) | The Subscription Vending Bicep module is designed to accelerate deployment of the individual landing zones (aka Subscriptions) within an Azure Active Directory Tenant on EA, MCA & MPA billing accounts. |
+| [Terraform Subscription Vending](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest) | The Subscription Vending Terraform module is designed to accelerate deployment of the individual landing zones (aka Subscriptions) within an Azure Active Directory Tenant on EA, MCA & MPA billing accounts |
+
 ## Application
 
 Application landing zones are one or more subscriptions that are deployed as environments for workloads or applications. These workloads can take advantage of services deployed in platform landing zones. The application landing zones can be centrally managed applications, decentralized workloads, or technology platforms such as Azure Kubernetes Service that host applications.

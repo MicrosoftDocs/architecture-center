@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Monitor a microservices app in AKS
+  title: Monitor a microservices application in AKS
   description: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
   author: martinekuan
   ms.author: architectures
@@ -15,7 +15,7 @@ azureCategories:
 products:
   - azure-monitor
   - azure-kubernetes-service
-name: Monitor a microservices architecture in Azure Kubernetes Service (AKS)
+name: Monitor a microservices application in AKS
 summary: Learn about best practices for monitoring a microservices application that runs on Azure Kubernetes Service, by collecting telemetry from the application.
 thumbnailUrl: /azure/architecture/browse/thumbs/implement-drone-delivery.png
 content: |

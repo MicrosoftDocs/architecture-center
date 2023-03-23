@@ -6,7 +6,9 @@ Azure native services can assist in connecting Azure VMware Solution workloads t
 
 The following high-level architecture diagram covers key networking scenarios.
 
-[![Diagram showing the Azure VMware Solution network architecture](../media/azure-vmware-solution-networking.png)](../media/azure-vmware-solution-networking.png#lightbox)
+[![Diagram showing the Azure VMware Solution network architecture.](../media/azure-vmware-solution-networking.svg)](../media/azure-vmware-solution-networking.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-vmware-solution-networking.vsdx) of this architecture.*
 
 This architecture showcases a key network design that enables the following scenarios:
 

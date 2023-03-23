@@ -13,10 +13,15 @@ items:
         href: landing-zones/landing-zone-deploy.md
       - name: Design guides
         items:
-          - name: Bicep landing zone implementation
-            href: landing-zones/bicep/landing-zone-bicep.md
-          - name: Terraform landing zone implementation
-            href: landing-zones/terraform/landing-zone-terraform.md
+        - name: Landing zone implementations
+          items: 
+            - name: Bicep landing zone implementation
+              href: landing-zones/bicep/landing-zone-bicep.md
+            - name: Terraform landing zone implementation
+              href: landing-zones/terraform/landing-zone-terraform.md
+        - name: Subscription vending implementation
+          href: landing-zones/subscription-vending.yml
+
   - name: Application architecture fundamentals
     items:
       - name: Introduction
@@ -504,6 +509,10 @@ items:
                 items:
                   - name: Azure Key Vault
                     href: guide/multitenant/service/key-vault.md
+              - name: Identity
+                items:
+                  - name: Azure Active Directory B2C
+                    href: guide/multitenant/service/azure-ad-b2c.md
               - name: AI and ML
                 items:
                   - name: Azure Cognitive Search
@@ -1195,7 +1204,7 @@ items:
               - name: Detect mobile bank fraud
                 href: guide/ai/bank-fraud-solution.yml
               - name: Financial institutions with data mesh
-                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh
+                href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                 maintainContext: true
               - name: Financial services risk lifecycle
                 href: industries/finance/financial-risk-model.md
@@ -1484,8 +1493,6 @@ items:
                 href: example-scenario/data/azure-health-data-consortium.yml
               - name: Implement risk prediction for surgeries
                 href: example-scenario/ai/risk-stratification-surgery.yml
-              - name: IoT Connected Platform for COVID-19
-                href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
               - name: Predict hospital readmissions with ML
@@ -1912,6 +1919,8 @@ items:
                 href: solution-ideas/articles/anomaly-detector-process.yml
               - name: Batch integration in a factory
                 href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
+              - name: CAE simulations for manufacturing
+                href: example-scenario/hpc/hpc-run-cae-simulations.yml
               - name: Computer vision for manufacturing
                 href: reference-architectures/ai/end-to-end-smart-factory.yml
               - name: Condition monitoring
@@ -2097,6 +2106,10 @@ items:
             href: industries/automotive.md
           - name: Guides
             items:
+              - name: Autonomous Vehicle Operations design guide
+                href: /azure/architecture/guide/machine-learning/avops-design-guide
+              - name: Autonomous Vehicle Operations solution idea
+                href: /azure/architecture/solution-ideas/articles/avops-architecture
               - name: Dynamics 365 automotive accelerator
                 href: /dynamics365/industry/accelerators/automotive
                 maintainContext: true
@@ -2825,12 +2838,8 @@ items:
                       href: /azure/architecture/browse/?terms=sports
                     - name: Baseball decision analysis with ML.NET
                       href: data-guide/big-data/baseball-ml-workload.yml
-                    - name: Smart stadiums
-                      items:
-                        - name: Create smart stadiums
-                          href: example-scenario/iot/smart-places.yml
-                        - name: IoT platform for COVID-19 detection
-                          href: solution-ideas/articles/iot-connected-platform.yml
+                    - name: Create smart stadiums
+                      href: example-scenario/iot/smart-places.yml
                     - name: Sports analytics on Azure
                       href: example-scenario/analytics/sports-analytics-architecture-azure.yml
                     - name: Stream sporting events
@@ -3120,6 +3129,8 @@ items:
                 href: reference-architectures/ai/mlops-python.yml
               - name: Movie recommendations
                 href: example-scenario/ai/movie-recommendations-with-machine-learning.yml
+              - name: Multiple indexers with Azure Cognitive Search
+                href: example-scenario/data/search-blob-metadata.yml
               - name: Network security for MLOps
                 href: example-scenario/ai/network-security-mlops.yml
               - name: Predict hospital readmissions with ML
@@ -3269,7 +3280,7 @@ items:
                   - name: Actuarial risk analysis
                     href: industries/finance/actuarial-risk-analysis-financial-model.yml
                   - name: Financial institutions with data mesh
-                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                     maintainContext: true
               - name: Analytics security baselines
                 items:
@@ -3935,7 +3946,7 @@ items:
                   - name: Data management in retail
                     href: industries/retail/retail-data-management-overview.md
                   - name: Financial institutions with data mesh
-                    href: /azure/cloud-adoption-framework/scenarios/data-management/architectures/reference-architecture-data-mesh
+                    href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario
                     maintainContext: true
                   - name: Healthcare with highly sensitive data
                     href: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-lamna
@@ -5293,8 +5304,6 @@ items:
                     href: solution-ideas/articles/contactless-interfaces.yml
                   - name: COVID-19 IoT safe environments
                     href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-                  - name: IoT Connected Platform
-                    href: solution-ideas/articles/iot-connected-platform.yml
                   - name: Lighting and disinfection system
                     href: solution-ideas/articles/uven-disinfection.yml
               - name: Environment monitoring
@@ -5423,6 +5432,8 @@ items:
                     href: example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml
                   - name: Mainframe data replication with tcVISION
                     href: example-scenario/mainframe/mainframe-data-replication-azure-tcvision.yml
+                  - name: Mainframe file and tape backup to Azure using Luminex
+                    href: example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml
                   - name: Migrate mainframe data tier to Azure with mLogica LIBER*IRIS
                     href: example-scenario/mainframe/mainframe-data-replication-azure-data-platform.yml
                   - name: Model9 mainframe modernization
@@ -6665,6 +6676,8 @@ items:
                 maintainContext: true
               - name: Eventual consistency in Power Platform
                 href: guide/power-platform/eventual-consistency.yml
+              - name: Single-page application authorization
+                href: guide/web/secure-single-page-application-authorization.yml
           - name: Architectures
             items:
               - name: Basic web application
