@@ -14,7 +14,7 @@ metadata:
   ms.custom:
     - acom-architecture
     - web-apps
-    - "https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore"
+    - https://azure.microsoft.com/solutions/architecture/digital-marketing-sitecore
   social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-sitecore.png
 name: Scalable Sitecore marketing website
 azureCategories:

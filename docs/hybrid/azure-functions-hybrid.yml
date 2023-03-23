@@ -19,7 +19,7 @@ name: Azure Functions in a hybrid environment
 azureCategories:
   - hybrid
   - web
-summary: This reference architecture illustrates Azure Functions being utilized from on-premises virtual machines. 
+summary: This reference architecture illustrates Azure Functions being utilized from on-premises virtual machines.
 products:
   - azure-functions
   - azure-monitor
