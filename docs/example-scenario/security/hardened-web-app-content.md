@@ -84,7 +84,7 @@ Some security options to consider integrating into your solution include:
 - Configuring your application to accept traffic only from your Azure Front Door instance by validating request headers.
 - Defending against threats with Security Information and Event Management (SIEM) plus eXtended Detection and Response (XDR). Solutions within this category include [Microsoft Sentinel](/azure/sentinel/overview), [Microsoft Defender for Identity](/defender-for-identity/what-is), and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 - Enabling enterprise-scale Distributed Denial of Service (DDoS) protection with [Azure DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview). This solution protects your Front Door and Azure Firewall public IP addresses against abuse and provides customers with deep insights into Microsoft's automatic mitigation processes.
--Considering [Microsoft Purview](/azure/purview/overview) to establish unified data governance not only for your Azure SQL data, but potentially all data in your hybrid cloud, multicloud enterprise
+- Considering [Microsoft Purview](/azure/purview/overview) to establish unified data governance not only for your Azure SQL data, but potentially all data in your hybrid cloud, multicloud enterprise
 
 For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-?).
 
