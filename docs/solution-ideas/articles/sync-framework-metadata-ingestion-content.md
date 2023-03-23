@@ -167,13 +167,13 @@ The following diagram illustrates the details of the import flow of an asset and
       > [!Note] 
       > All messages that belong to a single synchronization run have the same `Correlation ID`. This step ensures that each object is updated only one time per run. It assumes that there are no partial updates. You should consider how this behavior affects your implementation.
 1. The object is created or updated in Microsoft Purview.
-1. The unique identifier of the object is written into synchronization state (**Purview Object ID**), alongside the **Sync End Time** and the **State** changed to *Completed*. If the import fails, the line is set to **State** *Failed*. 
+1. The unique identifier of the object, `Purview Object ID`and the `Sync End Time` are written to synchronization state, the  and the `State` is changed to `Completed`. If the import fails, `State` is set to `Failed`. 
 
-[Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp-inproc) can be considered as an alternative to the Synchronization State. 
+You could use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp-inproc) instead of the synchronization state intermediate storage. 
 
 ## Deletion  
 
-Deletion is implemented based on the Synchronization State by using **SyncStartTime** and **SyncEndTime**. Since the synchronization framework is triggered on a scheduled basis, the objects from the Synchronization State that were not updated for a given time, despite multiple synchronizations being run in between, symbolizes the fact that they were removed in the external catalog. Therefore, those objects should be removed from Purview as well. 
+The process for deletion is based on `Sync Start Time` and `Sync End Time` in the synchronization state storage. Because the synchronization framework is triggered on a schedule, the objects in synchronization state that haven't been updated for a given time, even when multiple synchronizations have run during that time, have been removed from the external catalog. Therefore, those objects should also be removed from Microsoft Purview. 
 
 ## Contributors 
 
@@ -181,32 +181,26 @@ Deletion is implemented based on the Synchronization State by using **SyncStartT
 
 Principal authors: 
 
-Julien Corioland | Principal Software Engineer 
-
-Adina Stoll | Software Engineer 2 
+- [Julien Corioland](https://www.linkedin.com/in/juliencorioland) | Principal Software Engineer 
+- [Adina Stoll](https://www.linkedin.com/in/adina-stoll) | Software Engineer 2 
 
 Other contributors: 
 
-Raouf Aliouat | Software Engineer 2 
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
+- [Raouf Aliouat](https://www.linkedin.com/in/raouf-aliouat) | Software Engineer 2 
 
-## Next steps 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-For an overview of all the type definitions in Purview you can use Types - Get All Type Definitions - REST API (Azure Purview) | Microsoft Learn 
+## Next steps
 
-For more information about partitioning and querying strategy with Azure Table Storage: Design a scalable partitioning strategy for Azure Table storage (REST API) - Azure Storage | Microsoft Learn 
+- [Get All Type Definitions - REST API (Microsoft Purview)](/rest/api/purview/catalogdataplane/types/get-all-type-definitions)  
+- [Design a scalable partitioning strategy for Azure Table Storage (REST API)](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage) 
+- [Triggers and bindings in Azure Functions](/azure/azure-functions/functions-triggers-bindings?tabs=csharp)  
+- [Tutorial: How to use Microsoft Purview Python SDK](/azure/purview/tutorial-using-python-sdk) 
+- [Compare Azure messaging services](/azure/event-grid/compare-messaging-services) 
 
-For more information on Azure Functions triggers and bindings: Triggers and bindings in Azure Functions | Microsoft Learn 
+## Related resources
 
-Tutorial: How to use Microsoft Purview Python SDK - Microsoft Purview | Microsoft Learn 
-
-Compare Azure messaging services - Azure Event Grid | Microsoft Learn 
-
-Resilient design guidance for Event Hubs and Functions - Azure Architecture Center | Microsoft Learn 
-
-## Related resources 
-
-TODO: Link Raouf’s article about observability in distributed systems : proposal-guide-obs-e2e.docx 
-
-TODO: Link the article about collection structures: Collection Structure.docx 
-
- 
+- [Design a collection structure for a Microsoft Purview federated catalog](collection-structure-federated-catalog.md)
+- [Design Event Hubs and Functions for resilience](../../serverless/event-hubs-functions/resilient-design.md) 
+- [Data governance with Profisee and Microsoft Purview](../../reference-architectures/data/profisee-master-data-management-purview.yml)
