@@ -13,7 +13,7 @@ azureCategories:
   - databases
   - analytics
 products:
-  - azure-purview
+  - microsoft-purview
   - azure-functions
   - azure-event-hubs
   - azure-table-storage

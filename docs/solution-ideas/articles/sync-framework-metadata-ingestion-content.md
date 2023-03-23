@@ -1,4 +1,6 @@
-This article describes a highly scalable architecture for ingesting metadata from external catalogs, like [Acryl Data](https://www.acryldata.io/) and [data.world](https://data.world/), into [Microsoft Purview](https://www.microsoft.com/security/business/microsoft-purview). 
+This article describes a highly scalable architecture for ingesting metadata from external catalogs, like [Acryl Data](https://www.acryldata.io/) and [data.world](https://data.world/), into [Microsoft Purview](https://www.microsoft.com/security/business/microsoft-purview).
+
+*Apache® and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -23,10 +25,10 @@ The **import module** is the last step in the synchronization framework (step 3)
 
    The extract step is accomplished in one of two ways: pull-based or push-based.
 
-   - **Pull-based** extraction uses an Azure function and an event hub as output binding. The Azure function pulls all the metadata from the external catalog and is triggered on a [scheduled basis](/azure/azure-functions/functions-bindings-timer?tabs=in-process&pivots=programming-language-csharp).  
+   - **Pull-based** extraction uses an Azure function and an event hub as output binding. The Azure function pulls all the metadata from the external catalog and is triggered on a [scheduled basis](/azure/azure-functions/functions-bindings-timer).  
 
      - The Azure function can split the extracted metadata into separate messages, as appropriate. For example, if the external catalog contains metadata about six Azure SQL tables, you can split the information into six messages, one for each table. Use the structure of the metadata from the external catalog to determine whether splitting the messages makes sense.
-     - Each message is then sent to the Event Hubs topic that corresponds to that external catalog via [Event Hubs output binding](/azure/azure-functions/functions-bindings-event-hubs-output?tabs=in-process%2Cfunctionsv2%2Cextensionv5&pivots=programming-language-python).  
+     - Each message is then sent to the Event Hubs topic that corresponds to that external catalog via [Event Hubs output binding](/azure/azure-functions/functions-bindings-event-hubs-output).  
    - **Push-based** extraction: The subdivision owns the extraction step. The subdivision implements a mechanism that uses Kafka to directly push the metadata to an Event Hubs topic.  
 
    > [!Note] 
@@ -34,7 +36,7 @@ The **import module** is the last step in the synchronization framework (step 3)
 
 2. **Transform**
 
-   During the transform step, the metadata received from the external catalog is converted into a common format, called *[pivot](#pivot-classes)* in this article. This step consists of one Azure function, with an event hub as an input binding, for each external catalog. The output of this step is a set of assets, glossary terms, or classifications in the pivot format. This set is streamed to the corresponding Azure Service Bus queue via a [Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output?tabs=in-process%2Cextensionv5&pivots=programming-language-python).  
+   During the transform step, the metadata received from the external catalog is converted into a common format, called *[pivot](#pivot-classes)* in this article. This step consists of one Azure function, with an event hub as an input binding, for each external catalog. The output of this step is a set of assets, glossary terms, or classifications in the pivot format. This set is streamed to the corresponding Azure Service Bus queue via a [Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output).  
 
    For example, if the message received in the event hub contains a glossary term, the term is transformed to its pivot format and sent to the pivot glossary terms queue. 
 
@@ -56,7 +58,7 @@ The **import module** is the last step in the synchronization framework (step 3)
 - [Microsoft Purview](https://azure.microsoft.com/products/purview/) is a data governance solution that provides a holistic map of metadata assets. 
 - [Table Storage](https://azure.microsoft.com/products/storage/tables) stores the state of the objects that are synchronized between the external source and Microsoft Purview. It's cost effective and provides highly scalable data storage, a simple API, and a strong consistency model. 
 - [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are used for all Azure functions when they communicate with the corresponding event hubs and service bus queues. For information about using the Microsoft Purview Rest API with a service principal, see [How to use REST APIs for Microsoft Purview Data Planes](/azure/purview/tutorial-using-rest-apis). For more information about access control in Microsoft Purview, see [Understand access and permissions in the Microsoft Purview governance portal](/azure/purview/catalog-permissions).
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net), a feature of [Azure Monitor](https://azure.microsoft.com/products/monitor), is used to collect telemetry. Monitoring is important in distributed systems. For more information, see [Distributed tracing in Application Insights](/azure/azure-monitor/app/distributed-tracing).
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](https://azure.microsoft.com/products/monitor), is used to collect telemetry. Monitoring is important in distributed systems. For more information, see [Distributed tracing in Application Insights](/azure/azure-monitor/app/distributed-tracing).
 
 ## Scenario details
 
@@ -90,9 +92,9 @@ Here's the class diagram:
 
 `PivotItem` is the base class, and `PivotClassificationItem`, `PivotAssetItem`, and `PivotGlossaryItem` inherit from it.
 
-By using the information passed in the pivot classes, the import step [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities?tabs=HTTP), [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term?tabs=HTTP), or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-update?tabs=HTTP) via, for example, the REST API.
+By using the information passed in the pivot classes, the import step [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities), [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term), or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-update) via, for example, the REST API.
 
-By using `PivotAssetItem`, you can create relationships between assets. You can also assign [glossary terms](/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities?tabs=HTTP) or [classifications](/rest/api/purview/catalogdataplane/entity/add-classification?tabs=HTTP) to assets by using the `glossary_items` and `classification_items` properties.
+By using `PivotAssetItem`, you can create relationships between assets. You can also assign [glossary terms](/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities) or [classifications](/rest/api/purview/catalogdataplane/entity/add-classification) to assets by using the `glossary_items` and `classification_items` properties.
 
 The Microsoft Purview Data Catalog is based on the [Apache Atlas](https://atlas.apache.org/2.0.0/index.html) format, so each metadata object that's supported in Microsoft Purview has a type.
 
@@ -195,7 +197,7 @@ Other contributors:
 
 - [Get All Type Definitions - REST API (Microsoft Purview)](/rest/api/purview/catalogdataplane/types/get-all-type-definitions)  
 - [Design a scalable partitioning strategy for Azure Table Storage (REST API)](/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage) 
-- [Triggers and bindings in Azure Functions](/azure/azure-functions/functions-triggers-bindings?tabs=csharp)  
+- [Triggers and bindings in Azure Functions](/azure/azure-functions/functions-triggers-bindings)  
 - [Tutorial: How to use Microsoft Purview Python SDK](/azure/purview/tutorial-using-python-sdk) 
 - [Compare Azure messaging services](/azure/event-grid/compare-messaging-services) 
 
