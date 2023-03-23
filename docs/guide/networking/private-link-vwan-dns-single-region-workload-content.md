@@ -1,9 +1,9 @@
-This article addresses the scenario of how to securely connect to a PaaS resource over a private endpoint in a single-region hub-and-spoke network architecture that uses Microsoft Azure Virtual WAN.
+This article addresses the scenario of how to expose a PaaS resource over a private endpoint to specific workload in a single region, hub-spoke network architecture provided by Microsoft Azure Virtual WAN.
 
 > [!IMPORTANT]
-> This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on a baseline architecture. Read the [overview page first](./private-link-vwan-dns-guide.yml) to understand the baseline architecture.
+> This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on the network topology defined in the scenario guide. Read the [overview page first](./private-link-vwan-dns-guide.yml) to understand the base network architecture and key challenges.
 
-## Initial scenario
+## Scenario
 
 :::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region.svg" alt-text="Diagram showing the single-region architecture."::: 
 Diagram showing the single-region challenge.
@@ -18,35 +18,41 @@ This section defines the scenario and redefines the challenge for this scenario 
 - The virtual network has a workload subnet that contains a virtual machine (VM) client.
 - The virtual network contains a private endpoint subnet that contains a private endpoint for the storage account.
 
-**Scenario**
+### Successful outcome
 
-The scenario we want to solve for is to enable the VM client to connect to the storage account via the storage account's private endpoint that is in the same virtual network.
+The Azure Virtual Machine client can connect to the Azure Storage account via the storage account's private endpoint that is in the same virtual network, and all other access to the storage account is blocked.
 
-**Challenge**
+### Impediment
 
-You need a private DNS zone in the DNS flow that is able to resolve the fully qualified domain name (FQDN) of the storage account to the private IP address of the private endpoint. The challenge is twofold:
+You need a DNS record in the DNS flow that is able to resolve the fully qualified domain name (FQDN) of the storage account back to the private IP address of the private endpoint. As identified in the [overview](private-link-vwan-dns-guide.yml#key-challenges), the challenge with this is twofold:
 
-1. It isn't possible to link a private DNS zone to a virtual hub.
+1. It isn't possible to link a private DNS zone that maintains the storage accounts necessary DNS records to a virtual hub.
 1. You can link a private DNS zone to the workload network, so you might think that would work. Unfortunately, the [baseline architecture](./private-link-vwan-dns-guide.yml#common-network-topology) stipulates that each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy.
 
-Because you can't link a private DNS zone to a virtual hub, and the workload virtual network is configured to use the Azure Firewall DNS proxy, Azure DNS servers don't know how to resolve the (FQDN) of the storage account to the private IP address of the private endpoint.
+Because you can't link a private DNS zone to a virtual hub, and the virtual network is configured to use the Azure Firewall DNS proxy, Azure DNS servers don't have any mechanism to resolve the (FQDN) of the storage account to the private IP address of the private endpoint, resulting in the client receiving an erroneous DNS response.
 
-### Initial challenge
+#### DNS and HTTP flows
+
+Let's visualize the impediment described above in the context of this workload by reviewing the DNS and resulting HTTP request flows.
 
 :::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region-challenge.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region-challenge.svg" alt-text="Diagram showing the single-region challenge."::: 
 Diagram showing the single-region challenge.
 :::image-end:::
 *Figure 2: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*
 
-**DNS flow for the diagram**
+**DNS flow**
 
-1. The DNS query for stgworkload00.blob.core.windows.net is sent to the configured DNS server that is the Azure Firewall.
-2. Azure Firewall proxies the request to Azure DNS. Because it isn't possible to link a private DNS zone to a virtual hub, Azure DNS doesn't know how to resolve the FQDN to the private endpoint private IP address. It does know how to resolve the FQDN to the public IP address of the storage account, so it returns the public IP address.
+1. The DNS query for `stgworkload00.blob.core.windows.net` from the client is sent to the configured DNS server which is Azure Firewall in the peered regional hub.
+2. Azure Firewall proxies the request to Azure DNS. Because it isn't possible to link a private DNS zone to a virtual hub, Azure DNS doesn't know how to resolve the FQDN to the private endpoint private IP address. It does know how to resolve the FQDN to the public IP address of the storage account, so it returns the storage account's public IP address.
 
-**HTTP flow for the diagram**
+**HTTP flow**
 
-1. The client issues a request to stgworkload00.blob.core.windows.net.
-2. The request is sent to the public IP address of the storage account. Because public network access is disabled on the storage account, the request fails with a 404 response code.
+1. With the DNS result in hand, the public IP address of the storage account, the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
+2. The request is sent to the public IP address of the storage account. This fails for a number of reasons:
+   - The NSG on the workload subnet may not allow this Internet-bound traffic.
+   - The Azure Firewall that is filtering Internet-bound egress traffic likely doesn't have an application rule to support this flow.
+   - Even if both the NSG and Azure Firewall did have allowances for this request flow, the Storage account is configured to block all public network access.
+   - And ultimately is violates our goal of only allowing access to the storage account via the private endpoint.
 
 ## Solution - Virtual hub extension for DNS
 
