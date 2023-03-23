@@ -1,15 +1,12 @@
-In a [traditional hub-spoke topology with bring-your-own-networking](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), you have the ability to expose common services to isolated workloads that run in spokes. These shared services can include things like DNS, identity, Bastion and more. When using Azure Virtual WAN, you have restricted access and limitations on what you can install on the virtual hub.
+In a [traditional hub-spoke topology with bring-your-own-networking](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), you have the ability to completely manipulate the hub virtual network and deploy common services into the hub to make those hub features available to workload spokes. These shared services often include things like DNS resources, custom NVAs, Azure Bastion, and more. When using Azure Virtual WAN however, you have restricted access and limitations on what you can install on the virtual hub.
 
-For example, to implement Private Link at scale in a traditional hub-spoke model, you would create and link private DNS zones to the hub network. To enable secure connectivity to resources in the network you might deploy Azure Bastion in the regional hub. You might also deploy custom compute resources, such as Active Directory VMs in the hub. None of these are possible with Azure Virtual WAN.
+For example, to implement [Private Link and DNS integration in a traditional hub-spoke network architecture](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale#private-link-and-dns-integration-in-hub-and-spoke-network-architectures), you would create and link private DNS zones to the hub network. Your [Plan for virtual machine remote access](/azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-virtual-machine-remote-access#design-recommendations) might include Azure Bastion as a shared service in the regional hub. You might also deploy custom compute resources, such as Active Directory VMs in the hub. None of these are possible with Azure Virtual WAN.
 
-This article describes the virtual hub extension pattern which provides guidance on how to securely expose shared services that you are unable to deploy in a virtual hub.
-
-> [!IMPORTANT]
-> This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on a baseline architecture. Read the [overview page first](./private-link-vwan-dns-guide.yml) to understand the baseline architecture.
+This article describes the virtual hub extension pattern which provides guidance on how to securely expose shared services to spokes that you are unable to deploy directly in a virtual hub.
 
 ## Architecture
 
-A virtual hub extension is a dedicated spoke virtual network connected to the hub that exposes a single shared service to workload spokes. A virtual hub extension can be a service you provide to resources in other spokes where those resources require network connectivity to your resource. DNS is a good example of this. An extension can also contain a resource, such as Azure Bastion, that requires connectivity to many destinations in the spokes.
+A virtual hub extension is a dedicated spoke virtual network connected to the virtual hub that exposes a single, shared service to workload spokes. A virtual hub extension can be a resource you provide to many workload spokes where those spokes require network connectivity to your shared resource. DNS resources are an example of this. An extension can also be used to contain a centralized resource that requires connectivity to many destinations in the spokes. A centralized Azure Bastion deployment is an example of this.
 
 :::image type="complex" source="./images/dns-private-endpoints-hub-extension-pattern.svg" lightbox="./images/dns-private-endpoints-hub-extension-pattern.svg" alt-text="Diagram showing the hub extension pattern."::: 
 Diagram showing the single-region challenge.
@@ -23,14 +20,39 @@ Diagram showing the single-region challenge.
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
+### Reliability
+
+A virtual hub extension is often deemed business critical, as it's serving a core function within the network. Extensions should be designed to align to business requirements, have failure mitigation strategies in place, and be designed to scale with the needs of the spokes.
+
+Resiliency testing and reliability monitoring should be part of the standard operating procedures for any extension, validating access and throughput requirements.  It's recommended that each extension have a meaningful health model.
+
 ### Security
 
-Ensure you only deploy one service per extension spoke virtual network. This allows you to configure each extension taking into account the requirements of only that service. For example, Azure Bastion [requires that internet traffic is *not* routed through Azure Firewall](/azure/bastion/bastion-faq#vwan). This might conflict with your egress routing requirements for other services.
+**Network restrictions**. While extensions are often used by many spokes or need access to many spokes, they might not need access from or to all spokes.  Use available network security controls such as using Network Security Groups and egressing traffic through your secured virtual hub where possible.
+
+**Data and control plane access control**. Follow best practices for all resources deployed into extensions, providing least privileged access to the resources' control plane and any data planes.
+
+### Cost Optimization
+
+As with any workload, ensure appropriate SKU sizes are selected for extension resources to help control costs.  Some extensions may have predictable usage patterns around business hours or other factors, while others may be less predictable. It's important to understand those usage patterns and understand how elasticity and scalability can be accomplished to meet those usage patterns.
+
+As a shared service, the workload resources will likely have a relatively long duty cycle in your enterprise architecture. Consider using cost savings through pre-purchase offerings such as [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations), [reserved capacity pricing](https://azure.microsoft.com/pricing/reserved-capacity/), and [Azure savings plans](/azure/cost-management-billing/savings-plan/).
 
 ### Operational excellence
 
-- Follow the single responsibility principal (SRP) when designing virtual hub extension spokes.
-- If you choose to co-locate extension resources in the same spoke network, make sure they should be managed together, including sharing the same route propagations and route associations.
+Virtual hub extensions should be built with the single responsibility principal (SRP) in mind. Each extension should be for a single offering by not combining unrelated services in a single spoke.  You may even wish to organize your resources such that each extension itself resides in a dedicated resource group, allowing more selective and manageable targeting of Azure Policy and Azure RBAC.
+
+As with any workload, you should invest in provisioning these extensions with Infrastructure as Code and having a build and release process that supports the needs and lifecycle of each extension.  As extensions are often business critical in nature, and it is important to have a rigorous testing methods and safe deployment practices in place for each extension.
+
+Having a clear change control and enterprise communication plan in place is vital. You may need to communicate with stakeholders (workload owners) about disaster recovery (DR) drills you are executing, or any planned or unexpected downtime.
+
+Ensure you have a solid operational health system in place for these resources. Enable appropriate Azure Diagnostics settings on any extension resources and capture all other telemetry or logs necessary to understand the health of the workload.
+
+### Performance Efficiency
+
+As a centralized service the organizational demands on the extension need to be well understood. As an extension operator, you'll need to have an understanding of current needs for capacity planning and how spokes are expected to grow over time, so that you can design your scale units to handle the load changes.
+
+## Next Steps
 
 > [!div class="nextstepaction"]
 > [Read the single region DNS and Private Link scenario](./private-link-vwan-dns-single-region-workload.yml)
