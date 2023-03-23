@@ -26,6 +26,22 @@ This topology has the following characteristics:
   - Logging to a Log Analytics workspace in the same region for both firewall rule evaluation and DNS proxy requests. Both are a common network security logging requirement.
 - Each connected virtual network spoke has their default DNS servers setting configured to use the regional Azure Firewall's DNS proxy, otherwise [the FQDN rule evaluation can be out of sync](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
 
+### Adding spoke networks
+
+ When adding spoke networks, you need to follow the [constraints defined in the common network topology](#common-network-topology). Configure them as follows to ensure they're associated to the Default route table in its regional hub, and Azure Firewall is securing both internet and private traffic.
+
+- When adding a spoke virtual network connection to the virtual hub, configure default routing by applying the following settings:
+
+  - **Associate Route Table**: **Default**
+  - **Propagate to none**: **Yes**
+
+- When setting the security configuration for the connection, apply the following settings to ensure Azure Firewall is securing internet and private traffic:
+  - **Internet traffic**: **Secured by Azure Firewall**
+  - **Private traffic**: **Secured by Azure Firewall**
+
+    :::image type="content" source="./images/virtual-hub-vnet-connection-security-configuration.png" lightbox="./images/virtual-hub-vnet-connection-security-configuration.png" alt-text="Screenshot of the security configuration for the virtual network connections showing internet and private traffic secured by Azure Firewall.":::
+    *Figure 2: Virtual hub virtual network connections security configuration*
+
 ### Key challenges
 
 This common network configuration creates a few challenges regarding configuring DNS for private endpoints.
@@ -50,7 +66,7 @@ The following example is a basic private endpoint configuration. A private DNS z
 :::image type="complex" source="./images/dns-private-endpoints-basic-config-works.svg" lightbox="./images/dns-private-endpoints-basic-config-works.svg" alt-text="Diagram showing a basic private endpoint and DNS configuration.":::
     The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an Azure storage account. The virtual network has a client in a workload subnet and a private endpoint in a private endpoint subnet. The private endpoint has a private IP address of 10.1.2.4 and it points to the storage account. The diagram illustrates that the client makes a request to the resources FQDN. Azure DNS forwards the query to the private DNS zone, which has an A record for that FQDN, so it returns the private IP address for the private endpoint. The client is able to make the request.
 :::image-end:::
-*Figure 2: A basic DNS configuration for private endpoints*
+*Figure 3: A basic DNS configuration for private endpoints*
 
 1. Client issues a request to stgworkload00.blob.core.windows.net.
 2. Azure DNS, the configured DNS server for the virtual network is queried for the IP address for stgworkload00.blob.core.windows.net.
@@ -90,7 +106,7 @@ The following example represents a naive attempt to use private endpoints with o
 :::image type="complex" source="./images/dns-private-endpoints-dnsproxy-basic-config-doesnt-work.svg" lightbox="./images/dns-private-endpoints-dnsproxy-basic-config-doesnt-work.svg" alt-text="Diagram showing DNS configuration in a private DNS zone not working because Azure Firewall has DNS proxy enabled.":::
     The diagram shows a virtual hub with and Azure Firewall with DNS Proxy enabled. It illustrates that you can't connect a private DNS zone to a virtual hub. It further illustrates that a client isn't able to make use of the A record in the private DNS zone to resolve the FQDN to the private IP address of the storage account.
 :::image-end:::
-*Figure 3: Private DNS zones can't be linked to virtual hubs*
+*Figure 4: Private DNS zones can't be linked to virtual hubs*
 
 1. Client issues a request to stgworkload00.blob.core.windows.net.
 
