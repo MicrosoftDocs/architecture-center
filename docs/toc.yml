@@ -1260,7 +1260,7 @@ items:
                         href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
                       - name: SWIFT AMH with ACV
                         href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
-                      - name: SWIFT Alliance Cloud in Azure
+                      - name: SWIFT Alliance Cloud on Azure
                         href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
                       - name: SWIFT Alliance Lite2
                         href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
@@ -5177,9 +5177,7 @@ items:
               - name: Line of business extension
                 href: solution-ideas/articles/lob.yml
               - name: Protect backend APIs in Azure
-                href: solution-ideas/articles/protect-backend-apis-azure-management.yml
-              - name: Web and mobile front-ends
-                href: solution-ideas/articles/front-end.yml
+                href: solution-ideas/articles/protect-backend-apis-azure-management.yml             
       - name: Internet of Things
         items:
           - name: Get started
