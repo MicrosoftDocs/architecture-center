@@ -3405,6 +3405,8 @@ items:
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Data management with Azure Purview
                 href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
+              - name: Metadata ingestion from external catalogs to Microsoft Purview
+                href: solution-ideas/articles/sync-framework-metadata-ingestion.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
               - name: Demand forecasting for pricing

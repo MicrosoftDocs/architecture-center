@@ -1,3 +1,5 @@
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
+
 This article describes a highly scalable architecture for ingesting metadata from external catalogs, like [Acryl Data](https://www.acryldata.io/) and [data.world](https://data.world/), into [Microsoft Purview](https://www.microsoft.com/security/business/microsoft-purview).
 
 *Apache® and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
@@ -62,7 +64,7 @@ The **import module** is the last step in the synchronization framework (step 3)
 
 ## Scenario details
 
-This entire process is fully idempotent, which means that re-triggering the process from any step is enough to make the system eventually consistent. For more information about using Event Hubs with Azure Functions, see [Integrate Event Hubs with serverless functions on Azure](../../serverless/event-hubs-functions/event-hubs-functions.yml). 
+This entire process is fully idempotent, which means that retriggering the process from any step is enough to make the system eventually consistent. For more information about using Event Hubs with Azure Functions, see [Integrate Event Hubs with serverless functions on Azure](../../serverless/event-hubs-functions/event-hubs-functions.yml). 
 
 This architecture is also highly scalable:
 
@@ -78,7 +80,7 @@ For example, employees in Division A are starting a new project. Data assets lik
 
 Contoso wants to avoid this type of situation by creating a federated metadata catalog. Examples of metadata include the name and schema of a SQL table. The metadata doesn't reveal the contents of the table. 
 
-Contoso decides to use Microsoft Purview to solve this problem. Microsoft Purview enables the search and discovery of metadata about data assets. A federated catalog improves collaboration and breaks down organizational boundaries. Subdivisions and subsidiaries will still own their data. However, because they share metadata about the data, collaboration improves. On a case-by-case basis, data can also be shared. Some subdivisions have already invested time and effort in implementing their own catalogs and scanning and enriching metadata, sometimes by using custom solutions. The next challenge is to determine how to import metadata from other catalogs into Microsoft Purview.
+Contoso decides to use Microsoft Purview to solve this problem. Microsoft Purview enables the search and discovery of metadata about data assets. A federated catalog improves collaboration and breaks down organizational boundaries. Subdivisions and subsidiaries will still own their data. However, because they share metadata about the data, collaboration improves. On a case-by-case basis, data can also be shared. Some subdivisions have already invested time and effort into implementing their own catalogs and scanning and enriching metadata, sometimes by using custom solutions. The next challenge is to determine how to import metadata from other catalogs into Microsoft Purview.
 
 To resolve this challenge, Contoso uses the architecture described in this article to ingest metadata from external catalogs into Microsoft Purview. 
 
@@ -169,7 +171,7 @@ The following diagram illustrates the details of the import flow of an asset and
       > [!Note] 
       > All messages that belong to a single synchronization run have the same `Correlation ID`. This step ensures that each object is updated only one time per run. It assumes that there are no partial updates. You should consider how this behavior affects your implementation.
 1. The object is created or updated in Microsoft Purview.
-1. The unique identifier of the object, `Purview Object ID`and the `Sync End Time` are written to synchronization state, the  and the `State` is changed to `Completed`. If the import fails, `State` is set to `Failed`. 
+1. The unique identifier of the object, `Purview Object ID`and the `Sync End Time` are written to synchronization state, and the `State` is changed to `Completed`. If the import fails, `State` is set to `Failed`. 
 
 You could use [Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=csharp-inproc) instead of the synchronization state intermediate storage. 
 
