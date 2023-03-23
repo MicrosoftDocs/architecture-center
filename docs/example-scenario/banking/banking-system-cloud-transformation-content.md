@@ -242,7 +242,7 @@ They used a formula to calculate the estimated ideal number of partitions per to
 
 #### CI/CD velocity
 
-For DevOps, Contoso Bank already used an on-premises instance of GitLab for their code repository. They created continuous integration/continuos delivery (CI/CD) pipelines for development environments using a custom Jenkins-based solution that they developed internally. It wasn't providing an optimal DevOps experience.
+For DevOps, Contoso Bank already used an on-premises instance of GitLab for their code repository. They created continuous integration/continuous delivery (CI/CD) pipelines for development environments using a custom Jenkins-based solution that they developed internally. It wasn't providing an optimal DevOps experience.
 
 To deliver an improved DevOps experience for Contoso, the CSE team used Azure Pipelines on [Azure DevOps](https://azure.microsoft.com/services/devops/) to manage the application lifecycle. The CI pipeline runs on every pull request, while the CD pipeline runs on every successful merge to the main branch. Each member of the development team was responsible for managing the repositories and pipelines for each service. They also  had to enforce code reviews, unit tests and linting (static source code analysis).
 
