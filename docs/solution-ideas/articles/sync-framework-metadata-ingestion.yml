@@ -5,7 +5,7 @@ metadata:
   description: Learn about a highly scalable architecture for ingesting metadata from external catalogs into Microsoft Purview. 
   author: jcorioland
   ms.author: jucoriol
-  ms.date: 03/28/2023
+  ms.date: 03/29/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: solution-idea

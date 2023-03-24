@@ -211,6 +211,6 @@ Other contributors:
 
 ## Related resources
 
-- [Design a collection structure for a Microsoft Purview federated catalog](collection-structure-federated-catalog.md)
+- [Design a collection structure for a Microsoft Purview federated catalog](/azure/architecture/guides/collection-structure-federated-catalog)
 - [Design Event Hubs and Functions for resilience](../../serverless/event-hubs-functions/resilient-design.md) 
 - [Data governance with Profisee and Microsoft Purview](../../reference-architectures/data/profisee-master-data-management-purview.yml)
