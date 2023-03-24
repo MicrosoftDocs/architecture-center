@@ -1,3 +1,17 @@
+---
+title: Extending Azure Load Testing using Custom Plugins
+description: Guide on developing a custom plugin for Azure Load Test
+author: msetbar
+ms.author: msetayesh
+ms.date: 03/24/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: guide
+ms.custom: load-testing
+categories: azure
+products:
+- load-testing
+---
 # Extending Azure Load Testing using Custom Plugins
 
 Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale on any Azure resources.
