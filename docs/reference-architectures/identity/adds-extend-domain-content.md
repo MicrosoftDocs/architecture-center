@@ -69,7 +69,7 @@ Deploy the VMs running AD DS into at least two [Availability Zones](/azure/avail
 
 ## Manageability considerations
 
-Perform regular AD DS backups. Don't copy the VHD files of domain controllers instead of performing regular backups, because the AD DS database file on the VHD may not be in a consistent state when it's copied, making it impossible to restart the database.
+Perform regular AD DS backups. Don't copy the VHD files of domain controllers instead of performing regular backups, because the AD DS database file on the VHD may not be in a consistent state when it's copied, making it impossible to restart the database. You can use [Azure Backup](/azure/backup/active-directory-backup-restore#backing-up-azure-vm-domain-controllers) to back up domain controller VMs.. 
 
 We don't recommend that you shut down a domain controller VM using the Azure portal. Instead, shut down and restart from the guest operating system. Shutting down through the Azure portal causes the VM to be deallocated which results in the following effects when the domain controller VM is restarted:
 
@@ -82,6 +82,8 @@ The first issue is relatively benign. Repeated resetting of the `invocationID` w
 The second issue can contribute to RID pool exhaustion in the domain, especially if the RID pool size has been configured to be larger than the default. Consider that if the domain has been around for a very long time, or is used for workflows requiring repetitive creation and deletion of accounts, the domain may already be nearing RID pool exhaustion. It's a good practice to monitor the domain for RID pool exhaustion warning events – see the [Managing RID Issuance](/windows-server/identity/ad-ds/manage/managing-rid-issuance) article.
 
 The third issue is relatively benign as long as an authoritative domain controller is available when a domain controller VM in Azure is restarted. If all domain controllers in a domain are running in Azure, and they are all simultaneously shut down and deallocated, on restart each DC will fail to find an authoritative replica. Fixing this condition requires manual intervention – see the [How to force authoritative and non-authoritative synchronization for DFSR-replicated sysvol replication](/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization) article.
+
+More considerations can be reviewed in [Operational Considerations for Virtualized Domain Controllers](/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v#operational-considerations-for-virtualized-domain-controllers).
 
 ## Security considerations
 
