@@ -16,7 +16,7 @@ categories:
 
 # Design a collection structure for a Microsoft Purview federated catalog
 
-This guide describes the structure of collections in a federated catalog created with [Microsoft Purview](https://www.microsoft.com/security/business/microsoft-purview). 
+This guide describes a recommended structure for collections in a [Microsoft Purview](https://www.microsoft.com/security/business/microsoft-purview) federated catalog. The design can help your organization avoid data silos.  
 
 ## Scenario details
 
@@ -33,7 +33,7 @@ Contoso's next challenge is to determine how to structure its collections in Mic
 
 ## Collection structure
 
-When you build a federated catalog by using Microsoft Purview, it's important to consider the structure of the [collections](/azure/purview/how-to-create-and-manage-collections). This diagram shows the recommended structure: 
+When you build a federated catalog by using Microsoft Purview, it's important to consider the structure of the [collections](/azure/purview/how-to-create-and-manage-collections). This diagram shows the recommended structure for resolving Contoso's data silo challenge: 
 
 :::image type="content" source="./media/collection-structure.png" alt-text="Diagram that shows a recommended structure for collections in Microsoft Purview." lightbox="./media/collection-structure.png" border="false":::
  
@@ -41,23 +41,23 @@ When you build a federated catalog by using Microsoft Purview, it's important to
 
 - The *Federated metadata catalog* collection is the first collection that needs to be created by the administrator of the catalog. It's used to propagate permissions to the child collections. 
 
-- Because the goal of the federated metadata catalog collection is to facilitate the discovery of metadata among subdivisions, a Federated Metadata Catalog Users security group is created and assigned as **Data reader** on the root collection of the account. Permissions are propagated by default to all subcollections. This propagation ensures that all users belonging to the group have read access to all metadata in the federated catalog. To learn more about permissions, see [Access control in the Microsoft Purview governance portal](/azure/purview/catalog-permissions). 
+- Because the goal of the federated metadata catalog collection is to facilitate the discovery of metadata among subdivisions, a Federated Metadata Catalog Users security group is created and assigned as **Data reader** on the root collection of the account. Permissions are propagated by default to all subcollections. This propagation ensures that all users who belong to the group have read access to all metadata in the federated catalog. To learn more about permissions, see [Access control in the Microsoft Purview governance portal](/azure/purview/catalog-permissions). 
 
 The preceding structure enables the creation of a federated catalog for two types of subdivisions: 
 
 - **Type 1.** Subdivisions that use Microsoft Purview as their only data catalog, represented by Division 1 and Division 2. Members of these divisions are granted the highest permissions. They can: 
    - Register data sources and scan and classify assets. 
    - Create subcollections and assign specific permissions based on their needs.  
-   - Create private collections by breaking the default propagation of permissions to the collection by using [restrict inherited permissions options](/azure/purview/how-to-create-and-manage-collections#restrict-inheritance): 
+   - Create private collections by breaking the default propagation of permissions to a collection by using [restrict inherited permissions options](/azure/purview/how-to-create-and-manage-collections#restrict-inheritance): 
 
    :::image type="content" source="./media/restrict-inherited-permissions.png" alt-text="Diagram that illustrates restricted inheritance." lightbox="./media/restrict-inherited-permissions.png" border="false"::: 
 
    > [!Note] 
    > When inherited permissions are restricted, role assignments from the higher levels aren't inherited, with the exception of Collection Administrator. Inheritance can't be broken for that role. 
 
-- **Type 2.** Subdivisions that use a different catalog and import their metadata to the federated data catalog in other ways. For en example architecture, see [Ingest metadata from external catalogs to Microsoft Purview](../../solution-ideas/articles/sync-framework-metadata-ingestion.yml). These catalogs are represented by collections under *External catalogs root collection* in the first diagram. 
-   - Members of these subdivisions aren't granted permissions to create subcollections. Each subdivision gets its own root collection, but only the **Data deader** role is assigned to the users. Collection Administrator and Data Source Administrator roles aren't assigned. These roles are limited to the administrator of the catalog. 
-   - The metadata that members of these divisions import is available for reads by all users of the federated catalog.
+- **Type 2.** Subdivisions that use different catalogs and import their metadata to the federated data catalog in other ways. (For an example architecture, see [Ingest metadata from external catalogs to Microsoft Purview](../../solution-ideas/articles/sync-framework-metadata-ingestion.yml).) These catalogs are represented by collections under *External catalogs root collection* in the first diagram. 
+   - Members of these subdivisions aren't granted permissions to create subcollections. Each subdivision gets its own root collection, but only the **Data deader** role is assigned to the users. Collection Administrator and Data Source Administrator roles aren't assigned. These roles are assigned only to the administrator of the catalog. 
+   - All users of the federated catalog can read the metadata that members of these divisions import.
 
 ## Contributors 
 
