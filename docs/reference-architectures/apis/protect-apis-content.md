@@ -66,7 +66,7 @@ This article doesn't address the application's underlying services, like App Ser
 
 - Consider Application Gateway subnet sizing. Application Gateway requests one private address per instance, and another private IP address if a private front-end IP is configured. Application Gateway also takes five IPs per instance from its subnet. To properly deploy Application Gateway for this architecture, make sure its subnet has enough space to grow. For more information, see [Application Gateway infrastructure configuration](/azure/application-gateway/configuration-infrastructure).
 
-- To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling quickly expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
+- To support highly concurrent scenarios, turn on API Management autoscaling. Autoscaling expands API Management capabilities in response to growing numbers of incoming requests. For more information, see [Automatically scale an Azure API Management instance](/azure/api-management/api-management-howto-autoscale).
 
 ### Availability
 
