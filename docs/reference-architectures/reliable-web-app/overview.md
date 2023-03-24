@@ -23,7 +23,7 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern details essential implementation guidance for migrating on-premises .NET and Java web apps to the cloud. It focuses on the minimal, low-cost, high-value changes you need to make to ensure your web app is successful in the cloud. These changes include business-driven architecture and code-level design patterns (Retry, Circuit breaker, and Cache aside). Every decision all align with the principles of the Well-Architected Framework (WAF) and 12 Factor Apps methodology.
+The reliable web app pattern details essential implementation guidance for migrating on-premises .NET and Java web apps to the cloud. It builds on the overarching principles of the enterprise app patterns. and focuses on the minimal changes you need to make to ensure your web app is successful in the cloud. Three code-level design patterns are central. The implementation guidance shows you how to apply the Retry, Circuit breaker, and Cache aside patterns.
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
@@ -38,11 +38,7 @@ It's not always clear how to migrate a web app to the cloud or you might not be 
 
 **Minimal code changes** The reliable web app focuses on the fewest changes you need to make to implement WAF guidance. The minimal code changes the pattern outlines help webs take advantage of the cloud faster. This approach helps business meet objectives, reduce development costs, and shorten the time to market.
 
-**Low-cost, high-value updates.** The reliable web app guidance shows you how to make updates to your web app without incurring significant expenses and provide significant benefits to meeting business drivers. When you focus on low-cost, high-value updates, you can maximize the benefits of the cloud migration while maximizing the return on investment.
-
-**Cost-optimized environments.** The reliable web app pattern guides you to create and manage cost-optmized environments (development, test, production). The goal is to meet performance requirements without waste.
-
-**Business-driven design.** The reliable web app pattern outline how you should approach the service level objective (SLO) for availability. An SLO for availability defines how available you want a web app to be for users. There's no universal SLO. Rather, your business needs should drive the SLO your web app needs to have.
+**Business-driven implementation.** The reliable web app pattern outline how you should approach the service level objective (SLO) for availability. An SLO for availability defines how available you want a web app to be for users. There's no universal SLO. Rather, your business needs should drive the SLO your web app needs to have.
 
 ## Next steps
 
