@@ -84,7 +84,7 @@ Sometimes you need to selectively enable specific features for certain customers
 
 When you deploy and configure multitenant solutions, it's important to avoid situations that inhibit your ability to scale. These include the following:
 
-- **Manual deployment and testing.** As described above, manual deployment processes add risk and slow your ability to deploy. Consider using automated deployments using pipelines, the programmatic creation of resources from your solution's code, or a combination of both.
+- **Manual deployment and testing.** As described above, manual deployment processes add risk and slow your ability to deploy. Consider using pipelines for automated deployments, programmatically creating of resources from your solution's code, or a combination of both.
 - **Specialized customizations for tenants.** Avoid deploying features or a configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Instead, use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) for temporary changes or for features that are rolled out progressively, or use [different pricing tiers](../considerations/pricing-models.md) with license entitlements to selectively enable features for tenants that require them. Use a consistent and automated deployment process, even for tenants that have isolated or dedicated resources.
 
 ## Tenant lists as configuration or data
