@@ -374,5 +374,9 @@
         "MD025": {
             "front_matter_title": ""
         }
+    },
+    "yaml.schemas": {
+        "file:///c%3A/Users/sudhirsneha/.vscode/extensions/docsmsft.docs-yaml-0.2.9/out/yaml-support/toc.schema.json": "/toc\\.yml/i",
+        "file:///c:/Users/sudhirsneha/.vscode/extensions/teamtoolbox.docindex-1.1.7/resources/config/common/docindex.schema.json": "**/.[dD][oO][cC][iI][nN][dD][eE][xX]/**/*.yml"
     }
 }
