@@ -64,7 +64,7 @@ You might choose to use a different CDN, or even to use multiple CDNs, depending
 
 Azure Front Door and Verizon's CDN provide distinct capabilities, and features aren't equivalent between the two products. For example, there are differences in handling of TLS certificates, WAF, and HTTP rules.
 
-Carefully consider the features of Azure Front Door that you use, and whether your alternative CDN has equivalent capabilities. For more information, see [Consistency of ingress paths](./overview.md#consistency-of-ingress-paths).
+Carefully consider the features of Azure Front Door that you use, and whether your alternative CDN has equivalent capabilities. For more information, see [Consistency of ingress paths](./overview.md#traffic-routing-consistency).
 
 #### Cache fill
 
