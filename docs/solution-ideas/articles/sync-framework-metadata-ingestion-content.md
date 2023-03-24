@@ -27,7 +27,7 @@ The **import module** is the last step in the synchronization framework. It's ca
 
    The extract step is accomplished in one of two ways: pull-based or push-based.
 
-   - **Pull-based** extraction: This method uses an Azure function with an event hub as output binding. The Azure function pulls all the metadata from the external catalog. The function is triggered on a [scheduled basis](/azure/azure-functions/functions-bindings-timer).  
+   - **Pull-based** extraction: This approach uses an Azure function with an event hub as output binding. The Azure function pulls all the metadata from the external catalog. The function is triggered on a [scheduled basis](/azure/azure-functions/functions-bindings-timer).  
 
      - The Azure function can split the extracted metadata into separate messages, as appropriate. For example, if the external catalog contains metadata about six Azure SQL tables, you can split the information into six messages, one for each table. Use the structure of the metadata from the external catalog to determine whether splitting the messages makes sense.
      - Each message is then sent to the Event Hubs topic that corresponds to that external catalog via [Event Hubs output binding](/azure/azure-functions/functions-bindings-event-hubs-output).  
