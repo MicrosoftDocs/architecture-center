@@ -23,7 +23,7 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern details essential implementation guidance for migrating on-premises .NET and Java web apps to the cloud. It builds on the overarching principles of the enterprise app patterns. and focuses on the minimal changes you need to make to ensure your web app is successful in the cloud. Three code-level design patterns are central. The implementation guidance shows you how to apply the Retry, Circuit breaker, and Cache aside patterns.
+The reliable web app pattern details essential implementation guidance for migrating on-premises .NET and Java web apps to the cloud. It builds on the overarching principles of the enterprise app patterns and focuses on the minimal changes you need to make to ensure your web app is successful in the cloud. Three code-level design patterns are central to the pattern. The implementation guidance shows you how to apply the Retry, Circuit breaker, and Cache aside patterns.
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
@@ -36,9 +36,10 @@ It's not always clear how to migrate a web app to the cloud or you might not be 
 - [.NET reference implementation](https://aka.ms/eap/rwa/dotnet)
 - [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)
 
+## How to implement the reliable web app pattern
+
 **Minimal code changes** The reliable web app focuses on the fewest changes you need to make to implement WAF guidance. The minimal code changes the pattern outlines help webs take advantage of the cloud faster. This approach helps business meet objectives, reduce development costs, and shorten the time to market.
 
-**Business-driven implementation.** The reliable web app pattern outline how you should approach the service level objective (SLO) for availability. An SLO for availability defines how available you want a web app to be for users. There's no universal SLO. Rather, your business needs should drive the SLO your web app needs to have.
 
 ## Next steps
 
