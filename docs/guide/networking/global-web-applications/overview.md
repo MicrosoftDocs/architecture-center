@@ -223,7 +223,7 @@ Ensure that your testing processes include these elements:
 
 ## Common scenarios
 
-Based on our experience working with customers, we've observed two common scenarios where mission-critical web traffic needs the kind of architecture described in this article. We provide more detailed guidance for each of these scenarios.
+Here are common scenarios where this design can be used: 
 
 - [Global content delivery](./mission-critical-content-delivery.md) commonly applies to static content delivery, media, and high-scale eCommerce applications. In this scenario, caching is a critical part of the solution architecture, and failures to cache can result in significantly degraded performance or reliability.
 
