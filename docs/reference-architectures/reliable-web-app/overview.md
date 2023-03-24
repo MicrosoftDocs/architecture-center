@@ -38,11 +38,6 @@ It's not always clear how to migrate a web app to the cloud or you might not be 
 
 ## How to implement the reliable web app pattern
 
-**Minimal code changes** The reliable web app focuses on the fewest changes you need to make to implement WAF guidance. The minimal code changes the pattern outlines help webs take advantage of the cloud faster. This approach helps business meet objectives, reduce development costs, and shorten the time to market.
-
-
-## Next steps
-
 The following reliable web app articles provide the implementation guidance you need to migrate .NET and Java web apps to the cloud.
 
 >[!div class="nextstepaction"]
