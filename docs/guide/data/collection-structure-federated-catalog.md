@@ -16,7 +16,7 @@ categories:
 
 # Design a collection structure for a Microsoft Purview federated catalog
 
-This guide describes a recommended structure for collections in a [Microsoft Purview](https://www.microsoft.com/security/business/microsoft-purview) federated catalog. The design can help your organization avoid data silos.  
+This guide describes a recommended structure for collections in a [Microsoft Purview](https://www.microsoft.com/security/business/microsoft-purview) federated catalog. This design can help your organization avoid data silos.  
 
 ## Scenario details
 
