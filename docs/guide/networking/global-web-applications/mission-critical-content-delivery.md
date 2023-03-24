@@ -23,7 +23,7 @@ ms.custom:
 
 Caching is a common way to reduce load on the backend services and optimize performance for users. Content delivery networks (CDNs), including Azure Front Door, provide caching at the network edge.
 
-Mission-critical workloads often use multiple CDNs to achieve a higher level of uptime. If one CDN experience outage or degraded performance, your traffic is automatically diverted to another CDN.
+Mission-critical workloads often use multiple CDNs to achieve a higher level of uptime. If one CDN experiences outage or degraded performance, your traffic is automatically diverted to another CDN.
 
 If you implement multiple CDNs, consider the implications of this approach. Each CDN provides a separate network path to your application servers, and you need to configure and test each CDN separately.
 
@@ -35,7 +35,7 @@ This article describes an approach for using Azure Front Door with a partner CDN
 
 ## Approach
 
-Verizon's CDN is a Microsoft Azure partner and the CDN platform (Edgio) can be integrated into your Azure solution. You can configure it from the Azure portal and APIs. The platform is isolated from Microsoft's infrastructure.
+Verizon's CDN and the CDN platform (Edgio) can be integrated into your Azure solution. You can configure it from the Azure portal and APIs. The platform is isolated from Microsoft's infrastructure.
 
 This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
@@ -68,15 +68,15 @@ Carefully consider the features of Azure Front Door that you use, and whether yo
 
 #### Cache fill
 
-If you are running multiple CDNs in active-passive mode, during a failover, CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover.
+If you're running multiple CDNs in active-passive mode, during a failover, CDN configured in passive mode needs to perform a *cache fill* from your origin during a failover.
 
 Test the failover between Azure Front Door and your alternative CDN to detect anomalies or performance issues. 
 
 If your solution is at risk from performance issues during cache fills, consider these  approaches to reduce the risk:
 
-- Scale out or scale up your origins to cope with higher traffic levels, especially during a cache fill.
+- **Scale out or scale** up your origins to cope with higher traffic levels, especially during a cache fill.
 
-- Pre-fill both CDNs. Pre-filling means that you serve a percentage of your most popular content through the passive CDN even before a failover event occurs. For example, you could consider using [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
+- **Prefill both CDNs**. You serve a percentage of your most popular content through the passive CDN even before a failover event occurs. For example, you could consider using [weighted traffic routing mode](/azure/traffic-manager/traffic-manager-routing-methods#weighted-traffic-routing-method).
 
 
 ## Tradeoffs
@@ -85,9 +85,9 @@ Using multiple CDNs comes with some tradeoffs.
 
 - **Cost**. There might be an increase in the overall cost of the solution. When you deploy a multi-CDN architecture, you're billed for multiple CDNs. Make sure that you understand how you're charged for each CDN in your solution, and all of the other components you deploy.
 
-- **Performance**. There might performance issues during the failover between Azure Front Door and your alternative CDN.
+- **Performance**. There might performance issues during failover between Azure Front Door and your alternative CDN.
 
-  A common issue is cache refilling (described above) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
+  A common issue is [cache refilling](#cache-fill) (described above) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
 
 
 ## Next steps
