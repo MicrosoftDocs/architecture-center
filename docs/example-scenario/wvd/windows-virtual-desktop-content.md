@@ -50,7 +50,7 @@ You manage the following components of Azure Virtual Desktop solutions:
 
 - **Active Directory Domain Services (Optional)**: Azure Virtual Desktop VMs can either be domain joined to an [AD DS](https://azure.microsoft.com/services/active-directory-ds/) service or use [Azure AD join for AVD](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join) 
     - When using an AD DS domain, the domain must be in sync with Azure AD to associate users between the two services. You can use [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) to associate AD DS with Azure AD.
-    - When using Azure AD join, review the [prerequisites](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join#prerequisites) to ensure you're scenario is supported.
+    - When using Azure AD join, review the [prerequisites](/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join#prerequisites) to ensure your scenario is supported.
 
 - **Azure Virtual Desktop session hosts**: Session hosts are VMs that users connect to for their desktops and applications. Several versions of Windows are supported and you can create images with your applications and customizations. You can choose VM sizes, including GPU-enabled VMs. Each session host has an Azure Virtual Desktop host agent, which registers the VM as part of the Azure Virtual Desktop workspace or tenant. Each host pool can have one or more app groups, which are collections of remote applications or desktop sessions that you can access. To see which versions of Windows are supported, see [Operating systems and licenses](/azure/virtual-desktop/prerequisites#operating-systems-and-licenses).
 
