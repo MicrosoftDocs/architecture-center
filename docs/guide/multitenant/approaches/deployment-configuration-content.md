@@ -20,7 +20,7 @@ Consider everything that you need to do when onboarding a tenant, and document t
 - Manual approval steps, for example, to prevent fraud or abuse of your service.
 - The provisioning of resources in Azure.
 - [Creating or configuring domain names](../considerations/domain-names.yml).
-- Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmit its credentials.
+- Perform post-deployment configuration tasks, such as creating the first user account for the tenant and securely transmitting its credentials to the tenant.
 - Manual configuration changes, such as DNS record changes.
 
 Clearly document the workflow that's required to onboard a new tenant.
@@ -33,8 +33,8 @@ Consider whether the onboarding process is likely to be disruptive to other tena
 
 Automated deployments are always advisable for cloud-hosted solutions. When working with multitenant solutions, deployment automation becomes even more important for the following reasons:
 
-- **Scale:** An automated deployment approach scales, as the number of tenants grows. Manual deployment processes become increasingly complex and time-consuming, as your tenant population increases.
-- **Repeatable:** In a multitenant environment, use a consistent process for deployments across all tenants. Manual processes introduce the chance of error, or of steps being performed for some tenants and not others. These manual processes leave your environment in an inconsistent state.
+- **Scale:** Manual deployment processes become increasingly complex and time-consuming, as your tenant population increases. An automated deployment approach is easier to scale as the number of tenants grows.
+- **Repeatable:** In a multitenant environment, use a consistent process for deployments across all tenants. Manual processes introduce the chance of error, or of steps being performed for some tenants and not others. These manual processes leave your environment in an inconsistent state, which makes it harder for your team to manage the solution.
 - **Impact of outages:** Manual deployments are significantly more risky and prone to outages than automated deployments. In a multitenant environment, the impact of a system-wide outage (due to a deployment error) can be high, since every tenant could be affected.
 
 When you deploy to a multitenant environment, you should use deployment pipelines, and use infrastructure as code (IaC) technologies, such as [Bicep](/azure/azure-resource-manager/bicep/overview), JSON ARM templates, Terraform, or the Azure SDKs.
@@ -54,13 +54,13 @@ In some multitenant solutions, you deploy dedicated Azure resources for each ten
 Each of these models requires you to deploy and manage resources in different ways, and you must consider how you will deploy and manage the lifecycle of the resources that you provision. Two common approaches are as follows:
 
 - To treat tenants as *configuration* of the resources that you deploy, and use your deployment pipelines to deploy and configure those resources.
-- To treat tenants as *data*, and have your application tier provision and configure infrastructure for your tenants.
+- To treat tenants as *data*, and have a [control plane](../considerations/control-planes.yml) provision and configure infrastructure for your tenants.
 
 Further discussion of these approaches is provided below.
 
 ### Testing
 
-Plan to thoroughly test your solution during and after every deployment. Automated testing can be used to verify the functional and non-functional behavior of your solution. Ensure you test your tenant isolation model, and consider using tools like [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify that your solution functions even when a component is unavailable or malfunctioning.
+Plan to thoroughly test your solution during and after every deployment. You can use automated testing to verify the functional and non-functional behavior of your solution. Ensure you test your tenant isolation model, and consider using tools like [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to deliberately introduce faults that simulate real-world outages and verify that your solution functions even when a component is unavailable or malfunctioning.
 
 ## Approaches and patterns to consider
 
@@ -72,11 +72,11 @@ The [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) involves
 
 ### Deployment rings
 
-[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), and groups of stamps are deployed into distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
+[Deployment rings](/azure/devops/migrate/phase-rollout-with-rings) enable you to roll out updates to different groups of infrastructure at different times. This approach is commonly used with the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml), and groups of stamps can be assigned to distinct rings based on tenant preferences, workload types, and other considerations. For more information, see [Deployment rings](../considerations/updates.md#deployment-rings).
 
 ### Feature flags
 
-[Feature flags](/devops/operate/progressive-experimentation-feature-flags) enable you to expose new features or versions of your solution to different tenants, while you maintain a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
+[Feature flags](/devops/operate/progressive-experimentation-feature-flags) enable you to progressively expose new features or versions of your solution to different tenants, while you maintain a single codebase. Consider using [Azure App Configuration](/azure/azure-app-configuration/overview) to manage your feature flags. For more information, see [Feature flags](../considerations/updates.md#feature-flags).
 
 Sometimes you need to selectively enable specific features for certain customers. For example, you might have different [pricing tiers](../considerations/pricing-models.md) that allow access to certain capabilities. Feature flags aren't usually the right choice for these scenarios. Instead, consider building a process to track and enforce the *license entitlements* that each customer has.
 
@@ -85,7 +85,7 @@ Sometimes you need to selectively enable specific features for certain customers
 When you deploy and configure multitenant solutions, it's important to avoid situations that inhibit your ability to scale. These include the following:
 
 - **Manual deployment and testing.** As described above, manual deployment processes add risk and slow your ability to deploy. Consider using automated deployments using pipelines, the programmatic creation of resources from your solution's code, or a combination of both.
-- **Ad hoc customizations for tenants.** Avoid deploying features or a configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Instead, use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) for temporary changes or for features that are rolled out progressively, or use [different pricing tiers](../considerations/pricing-models.md) with license entitlements to selectively enable features for tenants that require them. Use a consistent and automated deployment process, even for tenants that have isolated or dedicated resources.
+- **Specialized customizations for tenants.** Avoid deploying features or a configuration that only applies to a single tenant. This approach adds complexity to your deployments and testing processes. Instead, use the same resource types and codebase for each tenant, and use strategies like [feature flags](#feature-flags) for temporary changes or for features that are rolled out progressively, or use [different pricing tiers](../considerations/pricing-models.md) with license entitlements to selectively enable features for tenants that require them. Use a consistent and automated deployment process, even for tenants that have isolated or dedicated resources.
 
 ## Tenant lists as configuration or data
 
@@ -98,7 +98,7 @@ When considering the two approaches, you should distinguish between treating you
 
 ### Tenant list as configuration
 
-When you treat your tenant list as configuration, you deploy all your resources from your deployment pipeline. When new tenants are onboarded, you reconfigure the pipeline or its parameters. Typically, the reconfiguration happens through manual changes, as illustrated in the following diagram.
+When you treat your tenant list as configuration, you deploy all your resources from a centralized deployment pipeline. When new tenants are onboarded, you reconfigure the pipeline or its parameters. Typically, the reconfiguration happens through manual changes, as illustrated in the following diagram.
 
 ![Diagram showing the process of onboarding a tenant when the tenant list is maintained as a pipeline configuration.](media/deployment-configuration/tenants-configuration.png)
 
@@ -114,20 +114,22 @@ However, when you approach a larger number of tenants, say 5 to 10 or more, it b
 
 ### Tenant list as data
 
-When you treat your tenant list as data, you still deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you imperatively deploy or configure your resources. For example, you can use the [Azure SDKs](https://azure.microsoft.com/downloads) to create a specific resource or to initiate the deployment of a parameterized template.
+When you treat your tenant list as data, you still deploy your shared components by using a pipeline. However, for resources and configuration settings that need to be deployed for each tenant, you imperatively deploy or configure your resources. For example, your control plane can use the [Azure SDKs](https://azure.microsoft.com/downloads) to create a specific resource or to initiate the deployment of a parameterized template.
 
 ![Diagram showing the process of onboarding a tenant, when the tenant list is maintained as data.](media/deployment-configuration/tenants-data.png)
 
 The process to onboard a new tenant might be similar to the following, and would happen asynchronously:
 
-1. Request a tenant be onboarded, such as by initiating an API request.
+1. Request a tenant be onboarded, such as by initiating an API request to your system's control plane.
 1. A workflow component receives the creation request and orchestrates the remaining steps.
 1. The workflow initiates the deployment of tenant-specific resources to Azure. This could be achieved by using an imperative programming model, such as by using the Azure SDKs, or by imperatively triggering the deployment of a Bicep or Terraform template.
-1. When the deployment is completed, the workflow saves the new tenant's details to the central tenant database. The data stored for each tenant might include the tenant ID and the resource IDs for all of the tenant-specific resources that the workflow created.
+1. When the deployment is completed, the workflow saves the new tenant's details to the central tenant catalog. The data stored for each tenant might include the tenant ID and the resource IDs for all of the tenant-specific resources that the workflow created.
 
 By doing this, you can provision resources for new tenants without redeploying your entire solution. The time involved in provisioning new resources for each tenant is likely to be shorter, because only those resources need to be deployed.
 
 However, this approach is often much more time-consuming to build, and the effort you spend needs to be justified by the number of tenants or the provisioning timeframes you need to meet.
+
+For more information on this approach, see [Considerations for multitenant control planes](../considerations/control-planes.yml).
 
 > [!NOTE]
 > Azure deployment and configuration operations often take time to complete. Ensure you use an appropriate process to initiate and monitor these long-running operations. For example, you might consider following the [Asynchronous Request-Reply pattern](../../../patterns/async-request-reply.yml). Use technologies that are designed to support long-running operations, like [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Durable Functions](/azure/azure-functions/durable/durable-functions-overview).
@@ -156,7 +158,7 @@ Contoso uses a Bicep file that defines the shared resources that should be deplo
 
 ![Diagram showing the workflow to deploy the shared resources by using a pipeline.](media/deployment-configuration/example-data-pipeline.png)
 
-The Contoso team then builds a tenant onboarding API. When their sales team has completed the sale to a new customer, Microsoft Dynamics triggers the API to begin the onboarding process. Contoso also provides a self-service web interface for customers to use, and that triggers the API too.
+The Contoso team then builds a control plane that includes a tenant onboarding API. When their sales team has completed the sale to a new customer, Microsoft Dynamics triggers the API to begin the onboarding process. Contoso also provides a self-service web interface for customers to use, and that triggers the API too.
 
 The API asynchronously starts a workflow that onboards their new tenants. The workflow initiates the deployment of a new Azure SQL database, which might be done by one of the following approaches:
 
