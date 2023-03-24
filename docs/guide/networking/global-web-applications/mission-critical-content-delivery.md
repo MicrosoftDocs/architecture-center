@@ -85,9 +85,9 @@ Using multiple CDNs comes with some tradeoffs.
 
 - **Cost**. There might be an increase in the overall cost of the solution. When you deploy a multi-CDN architecture, you're billed for multiple CDNs. Make sure that you understand how you're charged for each CDN in your solution, and all of the other components you deploy.
 
-- **Performance**. There might performance issues during failover between Azure Front Door and your alternative CDN.
+- **Performance**. There might be performance issues during failover between Azure Front Door and your alternative CDN.
 
-  A common issue is [cache refilling](#cache-fill) (described above) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
+  A common issue is [cache refilling](#cache-fill) when CDNs are running in an active-passive mode. The CDN configured in passive mode needs refill its cache from the origin. It can overload origin systems during that process.
 
 
 ## Next steps
