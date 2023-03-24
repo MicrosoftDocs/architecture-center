@@ -25,6 +25,7 @@ products:
   - azure-logic-apps
   - azure-data-lake-storage
   - azure-databricks
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/monitor-mining-equipment.png
 content: |
    [!include[](monitor-mining-equipment-content.md)]

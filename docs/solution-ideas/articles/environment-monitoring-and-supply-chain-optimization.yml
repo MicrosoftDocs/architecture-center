@@ -24,6 +24,7 @@ products:
   - azure-storage
   - azure-machine-learning
   - azure-databricks
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/environment-monitor-supply-chain-thumbnail.png
 content: |
    [!include[](environment-monitoring-and-supply-chain-optimization-content.md)]
