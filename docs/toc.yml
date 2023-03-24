@@ -4228,6 +4228,8 @@ items:
                 href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
               - name: Microsoft Purview guidance
                 items:
+                  - name: Collection structure for a federated catalog
+                    href: guide/data/collection-structure-federated-catalog.md
                   - name: Accounts architectures and best practices
                     href: /azure/purview/concept-best-practices-accounts
                     maintainContext: true
