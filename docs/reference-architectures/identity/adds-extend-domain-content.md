@@ -69,7 +69,7 @@ Deploy the VMs running AD DS into at least two [Availability Zones](/azure/avail
 
 ## Manageability considerations
 
-Perform regular AD DS backups. Don't copy the VHD files of domain controllers instead of performing regular backups, because the AD DS database file on the VHD may not be in a consistent state when it's copied, making it impossible to restart the database. You can use [Azure Backup](/azure/backup/active-directory-backup-restore#backing-up-azure-vm-domain-controllers) to back up domain controller VMs.. 
+Perform regular AD DS backups. Don't copy the VHD files of domain controllers instead of performing regular backups, because the AD DS database file on the VHD may not be in a consistent state when it's copied, making it impossible to restart the database. You can use [Azure Backup](/azure/backup/active-directory-backup-restore#backing-up-azure-vm-domain-controllers) to back up domain controller VMs.
 
 We don't recommend that you shut down a domain controller VM using the Azure portal. Instead, shut down and restart from the guest operating system. Shutting down through the Azure portal causes the VM to be deallocated which results in the following effects when the domain controller VM is restarted:
 
