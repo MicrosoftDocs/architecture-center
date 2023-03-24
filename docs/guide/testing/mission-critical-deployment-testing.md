@@ -3,7 +3,7 @@ title: Continuous validation with Azure Load Testing and Azure Chaos Studio
 description: Guide on performing automated continuous validation in production-like environments with Azure Load Testing and Chaos Studio.
 author: heoelri
 ms.author: msimecek
-ms.date: 08/02/2022
+ms.date: 03/24/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: guide
@@ -41,8 +41,8 @@ The second part of continuous validation is the **injection of failures** (chaos
 
 Microsoft Azure provides these managed services to implement load testing and chaos engineering:
 
-- **Azure Load Testing** produces synthetic user load on applications and services.
-- **Azure Chaos Studio** provides the ability to perform chaos experimentation, by systematically injecting failures into application components and infrastructure.
+- **[Azure Load Testing](/azure/load-testing/)** produces synthetic user load on applications and services.
+- **[Azure Chaos Studio](/azure/chaos-studio/)** provides the ability to perform chaos experimentation, by systematically injecting failures into application components and infrastructure.
 
 Both Azure Chaos Studio and Load Testing can be deployed and configured through Azure portal, but more importantly there are APIs available to deploy, configure and execute tests in a programmatic and automated way. By using the tools in conjunction, you can observe how the system reacts to issues and its ability to self-heal in response to infrastructure or application failures. 
 
@@ -87,3 +87,8 @@ Review the deployment and testing design area for mission-critical workloads.
 
 > [!div class="nextstepaction"]
 > [Design area: Deployment and testing](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing)
+
+## Related resources
+
+- [Azure Load Testing documentation](/azure/load-testing/)
+- [Azure Chaos Studio documentation](/azure/chaos-studio/)
