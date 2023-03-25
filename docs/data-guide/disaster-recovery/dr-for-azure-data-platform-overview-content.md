@@ -30,6 +30,20 @@ The scope of this article series includes:
 
 ## Out of scope
 
+The following items are considered out-of-scope for this article series;
+
+- The Fallback process, from the secondary region back to the primary region  
+- Any non-Azure applications, components, or systems – this includes but is not limited to on-premises, other cloud vendors, 3rd party web services etc.
+- Recovery of any upstream services, such as on-premises networks, gateways, enterprise shared services, etc. which are prerequisites to this process
+- Recovery of any downstream services, such as on-premises operational systems, 3rd party reporting systems, 3rd party data modelling or data science applications, etc., which are dependent on this process to recover their own services
+- Data Loss scenarios, including recovery from [ransomware or similar data security incidents](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
+- Data Backup strategies and data restore plans
+- Establishing the Root cause of a DR event
+    - For Azure service/component incidents, Microsoft will publish a “Root Cause Analysis” within the [Status – History webpage](https://azure.status.microsoft/en-us/status/history/)
+
+
+## Key Assumptions
+
 The key assumptions for this DR worked example are
 
 - The Organization follows an ITIL based service management methodology for operational support of the Azure data platform 
