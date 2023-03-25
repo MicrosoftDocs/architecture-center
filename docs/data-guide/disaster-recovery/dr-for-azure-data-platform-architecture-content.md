@@ -263,7 +263,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Computed Optimized Gen2 
-    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering using [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature
+    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering using the [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature
     - Notes
         - If Self-Hosted Data Pipelines are used, they'll remain the customer’s responsibility for recovery from a disaster
 
@@ -281,7 +281,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - As of Dec 2021, Azure Synapse Analytics only supports disaster recovery for dedicated SQL pools and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308#:~:text=Azure%20Synapse%20Analytics%20only%20supports%20disaster%20recovery%20for,snapshots%20for%20disaster%20recovery%20of%20dedicated%20SQL%20pools.)
+        - As of Mar 2023, Azure Synapse Analytics only supports disaster recovery for [dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore?source=recommendations#geo-backups-and-disaster-recovery) and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308#:~:text=Azure%20Synapse%20Analytics%20only%20supports%20disaster%20recovery%20for,snapshots%20for%20disaster%20recovery%20of%20dedicated%20SQL%20pools.)
 
 - **Azure Synapse: Serverless and Dedicated SQL Pools**
     - Component Recovery Responsibility: Microsoft
