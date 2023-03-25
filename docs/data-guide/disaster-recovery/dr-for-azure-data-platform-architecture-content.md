@@ -74,7 +74,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Default (GRS)
     - DR Uplift options: Enabling [Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore) creates data restoration in the secondary, [paired region](/azure/availability-zones/cross-region-replication-azure)
     - Notes
-        - While LRS is available, it requires configuration activities from the default setting
+        - While LRS and ZRS are available, it requires configuration activities from the default setting
 
 - **Azure DevOps**
     - Component Recovery Responsibility: Microsoft
