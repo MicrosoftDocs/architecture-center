@@ -321,13 +321,13 @@ For a DR scenario that calls for redeployment:
 
 - Components/services that are “stateless”, like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system
 - Components/services that are “stateful”, like Azure SQL database and storage accounts, require more attention
-    - When procuring the component, a key decision will be the selection of the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs
-- Datastore components will also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases will need a separate backup process.
-    - If necessary, the component can be redeployed from source control with a smoke-test to validate that It's available with the correct configuration
-    - A redeployed component containing a dataset must have its dataset rehydrated. Rehydration can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for completeness.
-        - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption/error may result in earlier backup being used in place of the latest available
-    - Any delta between component date/timestamp and the current date should be addressed by re-executing or replaying the data ingestion processes from that point forward
-    - Once the component dataset is up to date, the component can be introduced into the broader system
+    - When procuring the component, a key decision will be selecting the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs
+- Datastores will also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases will need a separate backup process.
+    - If necessary, the component can be redeployed from source control with a validated configuration via a smoke-test
+    - A redeployed datastore must have its dataset rehydrated. Rehydration can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for accuracy and completeness
+        - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption/error may result in an earlier backup being used in place of the latest version available
+    - Any delta between the component date/timestamp and the current date should be addressed by re-executing or replaying the data ingestion processes from that point forward
+    - Once the component's dataset is up to date, it can be introduced into the broader system
 
 ## Other key services
 This section contains HA/DR guidance for other key Azure Data components and services.
