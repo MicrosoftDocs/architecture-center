@@ -221,16 +221,6 @@ The following tables present a breakdown of each Azure service and component use
     - Notes:
         - Azure Machine Learning itself doesn't [provide automatic failover or disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning)
 
-- **Azure Synapse: Data Explorer Pools**
-    - Component Recovery Responsibility: Microsoft
-    - Workload/Configuration Recovery Responsibility: Contoso
-    - Contoso SKU selection: Compute Optimized Gen2
-    - DR Uplift options:
-        - Azure Data Explorer [persistence and compute resiliency](/azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer) can be uplifted by provisioning using an availability zone
-        - Resiliency can be further uplifted by a [deployment in a secondary region](/azure/data-explorer/business-continuity-overview#summary-of-disaster-recovery-configuration-options), under a DR configuration
-    - Notes
-        - Azure Data Explorer doesn't provide automatic protection against the [outage of an entire Azure region](/azure/data-explorer/business-continuity-overview#outage-of-an-azure-region)
-
 - **Power BI**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
@@ -277,10 +267,18 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - If Self-Hosted Data Pipelines are used, they'll remain the customer’s responsibility for recovery from a disaster
 
+- **Azure Synapse: Data Explorer Pools**
+    - Component Recovery Responsibility: Microsoft
+    - Workload/Configuration Recovery Responsibility: Contoso
+    - Contoso SKU selection: Computed Optimized, Small (4 cores)
+    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
+    - Notes
+        - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare) where available
+
 - **Azure Synapse: Spark Pools**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
-    - Contoso SKU selection: Computed Optimized Gen2 
+    - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
         - As of Dec 2021, Azure Synapse Analytics only supports disaster recovery for dedicated SQL pools and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308#:~:text=Azure%20Synapse%20Analytics%20only%20supports%20disaster%20recovery%20for,snapshots%20for%20disaster%20recovery%20of%20dedicated%20SQL%20pools.)
