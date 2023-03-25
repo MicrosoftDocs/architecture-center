@@ -229,7 +229,7 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - Power BI resides in the Office365 tenancy, not that of Azure
         - [Power BI uses Azure Availability Zones](/power-bi/enterprise/service-admin-failover#what-does--high-availability--mean-for-power-bi-) to protect Power BI reports, applications and data from data center failures
-        - In the case of regional failure, Power BI will [fail over to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1)
+        - In the case of regional failure, Power BI will [failover to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1)
 
 - **Azure Cosmos DB**
     - Component Recovery Responsibility: Microsoft
@@ -244,7 +244,7 @@ The following tables present a breakdown of each Azure service and component use
         - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage)
 
 - **Azure Data Share**
- - Component Recovery Responsibility: Microsoft
+    - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: N/A
     - DR Uplift options: Azure Data Share’s resiliency can be uplifted by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share)
@@ -255,7 +255,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A
     - Notes
-        - As at Jan 2022, [Microsoft Purview doesn't support automated BCDR](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
+        - As at Mar 2023, [Microsoft Purview doesn't support automated BCDR](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
 
 ### Stateless Data platform-specific services
 
@@ -263,7 +263,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Computed Optimized Gen2 
-    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
+    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering using [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature
     - Notes
         - If Self-Hosted Data Pipelines are used, they'll remain the customer’s responsibility for recovery from a disaster
 
