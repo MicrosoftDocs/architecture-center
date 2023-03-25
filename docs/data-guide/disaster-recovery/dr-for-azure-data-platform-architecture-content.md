@@ -117,8 +117,6 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
-    - Notes
-        - Azure Security Center is now Microsoft Defender for Cloud
 
 - **Azure DNS**
     - Component Recovery Responsibility: Microsoft
