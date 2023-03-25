@@ -9,13 +9,13 @@ Contoso has implemented the following foundational Azure structure, which is a s
 
 ### Contoso’s Azure Foundations - Workflow
 
-1. **Enterprise Enrollment** - Contoso’s top parent enterprise enrollment within Azure reflecting its commercial agreement with Microsoft, its organizational account structure and available Azure subscriptions. It provides the billing foundation for subscriptions and how the digital estate is administered.
-1. **Identity and Access Management** – The components required to provide identity, authentication, resource access and authorization services across Contoso’s Azure footprint.
-1. **Management Group and Subscription Organization** - A scalable group hierarchy aligned to the data platform’s core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation.  Management groups provide a governance scope above subscriptions.
-1. **Management Subscription** - A dedicated subscription for the various management level  functions of required to support the data platform.
-1. **Connectivity Subscription** - A dedicated subscription for the connectivity functions of the data platform enabling it to identify named services, determine secure routing and communication across and between internal and external services.
-1. **Landing Zone Subscription** – One-to-many subscriptions for Azure native, online applications, internal and external facing workloads and resources.
-1. **DevOps Platform** - The DevOps Platform that supports the Azure foundation & Data Platform. This platform contains the code base source control repository and CI/CD pipelines enabling automated deployments of IaC.
+1. **Enterprise Enrollment** - Contoso’s top parent enterprise enrollment within Azure reflecting its commercial agreement with Microsoft, its organizational account structure and available Azure subscriptions. It provides the billing foundation for subscriptions and how the digital estate is administered
+1. **Identity and Access Management** – The components required to provide identity, authentication, resource access and authorization services across Contoso’s Azure footprint
+1. **Management Group and Subscription Organization** - A scalable group hierarchy aligned to the data platform’s core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation.  Management groups provide a governance scope above subscriptions
+1. **Management Subscription** - A dedicated subscription for the various management level  functions of required to support the data platform
+1. **Connectivity Subscription** - A dedicated subscription for the connectivity functions of the data platform enabling it to identify named services, determine secure routing and communication across and between internal and external services
+1. **Landing Zone Subscription** – One-to-many subscriptions for Azure native, online applications, internal and external facing workloads and resources
+1. **DevOps Platform** - The DevOps Platform that supports the Azure foundation & Data Platform. This platform contains the code base source control repository and CI/CD pipelines enabling automated deployments of IaC
 
 >[!NOTE]
 >Many customers still retain a large IaaS footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
