@@ -18,7 +18,7 @@ products:
   - azure-machine-learning
   - azure-cosmos-db
   - azure-data-lake
-  - azure-events-hubs
+  - azure-events-hub
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |
    [!include[](dr-for-azure-data-platform-deploy-this-scenario-content.md)]
