@@ -114,7 +114,7 @@ The following sections present a breakdown of Contoso activity necessary across 
     - DR Impact
         - Azure Data Center Failure: N/A
         - Availability Zone Failure: N/A
-        - Azure Regional Failure: Contoso would need to create a [DDoS protection plan](azure/ddos-protection/ddos-disaster-recovery-guidance#business-continuity) for the Foundation’s VNETs within the secondary region
+        - Azure Regional Failure: Contoso would need to create a [DDoS protection plan](/azure/ddos-protection/ddos-disaster-recovery-guidance#business-continuity) for the Foundation’s VNETs within the secondary region
 
 - **ExpressRoute – Circuit**
     - Contoso SKU selection: Standard
