@@ -14,9 +14,11 @@ azureCategories:
 name: DR for Azure Data Platform - Architecture
 summary: Overview of solution idea architecture.
 products:
-  - azure-active-directory
-  - azure-analysis-services
-  - azure-sql-database
+  - azure-synapse-analytics
+  - azure-machine-learning
+  - azure-cosmos-db
+  - azure-data-lake
+  - azure-events-hubs
 thumbnailUrl: /azure/architecture/browse/thumbs/azure-analytics-end-to-end.png
 content: |
    [!include[](dr-for-azure-data-platform-architecture-content.md)]
