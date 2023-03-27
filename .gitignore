@@ -242,9 +242,6 @@ _themes*/
 .DS_Store
 
 # Generated files for ACOM
-/build/architecture-automation/acom_data/images/*
-/build/architecture-automation/acom_data/json/*
-/build/architecture-automation/acom_data/resx/*
 
 #
 .cspell.json
