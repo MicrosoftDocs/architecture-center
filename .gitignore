@@ -243,7 +243,7 @@ _themes*/
 
 # Generated files for ACOM
 
-#
+# Local development
 .cspell.json
 *.bak
 .vscode/*
