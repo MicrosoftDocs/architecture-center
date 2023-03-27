@@ -6,12 +6,12 @@
 <article class="card">
     <div class="card-header has-margin-bottom-none" aria-hidden="true">
         <figure class="image diagram has-height-175 has-overflow-hidden level">
-            <a href="/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture"><img src="/azure/architecture/browse/thumbs/raincode-reference-architecture.png" class="diagram" alt="Thumbnail of Refactor mainframe applications to Azure with Raincode compilers Architectural Diagram." data-linktype="relative-path"></a>
+            <a href="/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture"><img src="/azure/architecture/browse/thumbs/raincode-reference-architecture.png" class="diagram" alt="Thumbnail of Rehost mainframe applications to Azure with Raincode compilers Architectural Diagram." data-linktype="relative-path"></a>
         </figure>
     </div>
     <div class="card-content">
         <a class="card-content-title has-margin-top-none" href="/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture">
-            <p>Refactor mainframe applications to Azure with Raincode compilers</p>
+            <p>Rehost mainframe applications to Azure with Raincode compilers</p>
         </a>
         <ul class="card-content-metadata">
             <li>06/25/2021</li>
