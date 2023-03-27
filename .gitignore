@@ -231,17 +231,13 @@ obj/
 _site/
 .optemp/
 _themes*/
-
 .openpublishing.buildcore.ps1
-
 /_model
 /_viewmodel
-/build/architectures/acom_html
+
 
 # MacOS
 .DS_Store
-
-# Generated files for ACOM
 
 # Local development
 .cspell.json
