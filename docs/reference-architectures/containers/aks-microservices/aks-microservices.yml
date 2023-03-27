@@ -24,6 +24,7 @@ products:
   - azure-kubernetes-service
   - azure-load-balancer
   - azure-pipelines
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/aks.png
 content: |
    [!include[](aks-microservices-content.md)]
