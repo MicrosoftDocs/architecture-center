@@ -38,7 +38,7 @@ Caching at the network edge isn't critical part of your application delivery. If
 
 ## Approach
 
-This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles to monitor Azure Front Door. In the very unlikely event of an availability issue, Traffic Manager redirects traffic through Application Gateway.
+This DNS-based load balancing solution uses multiple Azure Traffic Manager profiles to monitor Azure Front Door. In the unlikely event of an availability issue, Traffic Manager redirects traffic through Application Gateway.
 
 :::image type="content" source="./media/mission-critical-global-http-ingress/front-door-application-gateway.png" alt-text="Azure Traffic Manager with priority routing to Azure Front Door, and a nested Traffic Manager profile using performance routing to send to Application Gateway instances in two regions." border="false":::
 
@@ -70,7 +70,7 @@ Azure Front Door's points of presence are deployed globally, and TCP and TLS con
 
 #### Connections from clients
 
-As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against a variety of attack types](/azure/frontdoor/front-door-ddos), and your origins can be [configured to use Private Link connectivity](#private-link-connections-to-origin-servers).
+As a global multitenant service, Azure Front Door provides inherent protection against a variety of threats. Azure Front Door only accepts valid HTTP and HTTPS traffic, and doesn't accept traffic on other protocols. Microsoft manages the public IP addresses that Azure Front Door uses for its inbound connections. Because of these characteristics, Azure Front Door can help to [protect your origin against various attack types](/azure/frontdoor/front-door-ddos), and your origins can be [configured to use Private Link connectivity](#private-link-connections-to-origin-servers).
 
 In contrast, Application Gateway is an internet-facing service with a dedicated public IP address. You must protect your network and origin servers against a variety of attack types. For more information, see [Origin security](./overview.md#origin-security).
 
@@ -86,13 +86,13 @@ When you deploy Application Gateway, you deploy dedicated compute resources for 
 
 To mitigate this risk, consider how you [scale your Application Gateway instance](/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Either use autoscaling, or ensure that you've manually scaled it to handle the amount of traffic that you might receive after failing over.
 
-### Caching
+#### Caching
 
 If you use Azure Front Door's caching features, then it's important to be aware that after your traffic switches to the alternative path and uses Application Gateway, content is no longer served from the Azure Front Door caches. 
 
 If you depend on caching for your solution, see [Mission-critical global content delivery](./mission-critical-content-delivery.md) for an alternative approach that uses a partner CDN as a fallback to Azure Front Door.
 
-Alternatively, if you use caching but it's not an essential part of your application delivery strategy, consider whether you can scale out or scale up your origins to cope with the increased load caused by the higher number of cache misses during a failover.
+Alternatively, if you use caching but it's not an essential part of your application delivery strategy, consider whether you can scale out or scale up your origins to cope with the increased load that was caused by the higher number of cache misses during a failover.
 
 ## Tradeoffs
 

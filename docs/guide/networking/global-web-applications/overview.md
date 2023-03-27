@@ -202,6 +202,8 @@ You also need to determine which of those factors are within your control and wh
 > Mission-critical solutions require automated failover approaches wherever possible. Manual failover processes are considered slow in order for the application to remain responsive.
 
 
+> Refer to: [Mission-critical design area: Health modeling](/azure/architecture/framework/mission-critical/mission-critical-health-modeling)
+
 ## Zero-downtime deployment
 
 When you're planning how to operate a solution with redundant ingress path, you should also plan for how you deploy or configure your services when they're degraded. For most Azure services, SLAs apply to the uptime of the service itself, and not to management operations or deployments. Consider whether your deployment and configuration processes need to be made resilient to service outages.
@@ -210,6 +212,8 @@ You should also consider the number of independent control planes that you need 
 
 > [!WARNING]
 > The use of multiple control planes introduces complexity and risk to your solution. Every point of difference increases the likelihood that somebody accidentally misses a configuration setting, or apply different configurations to redundant components. Ensure that your operational procedures mitigate this risk.
+
+> Refer to: [Mission-critical design area: Zero-downtime deployment](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#zero-downtime-deployment)
 
 ## Continuous validation
 
@@ -220,6 +224,8 @@ Ensure that your testing processes include these elements:
 -	Can you verify that traffic is correctly redirected through the alternative path when the primary path is unavailable?
 -	Can both paths support the level of production traffic you expect to receive?
 -	Are both paths adequately secured, to avoid opening or exposing vulnerabilities when you're in a degraded state?
+
+> Refer to: [Mission-critical design area: Continuous validation](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#continuous-validation-and-testing)
 
 ## Common scenarios
 
