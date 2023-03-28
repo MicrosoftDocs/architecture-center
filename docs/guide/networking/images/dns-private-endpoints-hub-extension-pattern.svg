@@ -212,11 +212,11 @@
 		</g>
 		<g id="shape36-27" v:mID="36" v:groupContext="shape" transform="translate(241.761,-89.7769)">
 			<title>Sheet.36</title>
-			<desc>Bastion Hub Extension VNet</desc>
+			<desc>Bastion hub extension VNet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="74.5568" cy="420.474" width="149.12" height="19.125"/>
 			<rect x="0" y="410.911" width="149.114" height="19.125" class="st8"/>
-			<text x="4" y="423.47" class="st9" v:langID="1033"><v:paragraph/><v:tabList/>Bastion Hub Extension VNet</text>		</g>
+			<text x="4" y="423.47" class="st9" v:langID="1033"><v:paragraph/><v:tabList/>Bastion hub extension VNet</text>		</g>
 		<g id="group65-30" transform="translate(586.429,-143.94)" v:mID="65" v:groupContext="group">
 			<title>Icon-networking-64</title>
 			<g id="shape66-31" v:mID="66" v:groupContext="shape" transform="translate(1.02035,-0.921225)">
@@ -450,11 +450,11 @@
 		</g>
 		<g id="shape206-107" v:mID="206" v:groupContext="shape" transform="translate(401.857,-89.7769)">
 			<title>Sheet.206</title>
-			<desc>DNS Hub Extension VNet</desc>
+			<desc>DNS hub extension VNet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="68.8529" cy="420.474" width="137.71" height="19.125"/>
 			<rect x="0" y="410.911" width="137.706" height="19.125" class="st8"/>
-			<text x="4" y="423.47" class="st9" v:langID="1033"><v:paragraph/><v:tabList/>DNS Hub Extension VNet</text>		</g>
+			<text x="4" y="423.47" class="st9" v:langID="1033"><v:paragraph/><v:tabList/>DNS hub extension VNet</text>		</g>
 		<g id="shape227-110" v:mID="227" v:groupContext="shape" transform="translate(388.585,-122.743)">
 			<title>Rectangle.227</title>
 			<v:userDefs>

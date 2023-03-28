@@ -298,11 +298,11 @@
 		</g>
 		<g id="shape36-43" v:mID="36" v:groupContext="shape" transform="translate(197.067,-66.3711)">
 			<title>Sheet.36</title>
-			<desc>Workload 1 spoke VNet</desc>
+			<desc>Workload spoke VNet</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="66.8839" cy="507.564" width="133.77" height="19.125"/>
 			<rect x="0" y="498.001" width="133.768" height="19.125" class="st7"/>
-			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>Workload 1 spoke VNet</text>		</g>
+			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>Workload spoke VNet</text>		</g>
 		<g id="shape37-46" v:mID="37" v:groupContext="shape" transform="translate(186.878,-109.182)">
 			<title>Rectangle.37</title>
 			<v:userDefs>
@@ -795,11 +795,11 @@
 		</g>
 		<g id="shape206-233" v:mID="206" v:groupContext="shape" transform="translate(399.75,-66.3711)">
 			<title>Sheet.206</title>
-			<desc>DNS Hub Extension VNet West</desc>
+			<desc>DNS hub extension VNet west</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="68.8529" cy="507.564" width="137.71" height="19.125"/>
 			<rect x="0" y="498.001" width="137.706" height="19.125" class="st7"/>
-			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>DNS Hub Extension VNet West</text>		</g>
+			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>DNS hub extension VNet west</text>		</g>
 		<g id="shape227-236" v:mID="227" v:groupContext="shape" transform="translate(387.085,-191.989)">
 			<title>Rectangle.227</title>
 			<v:userDefs>
@@ -1464,18 +1464,18 @@
 			<text x="4.57" y="512.29" class="st61" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>N</text>		</g>
 		<g id="shape1005-494" v:mID="1005" v:groupContext="shape" transform="translate(47.558,-22.368)">
 			<title>Sheet.1005</title>
-			<desc>DNS Flow</desc>
+			<desc>DNS flow</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="66.8839" cy="507.564" width="133.77" height="19.125"/>
 			<rect x="0" y="498.001" width="133.768" height="19.125" class="st7"/>
-			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>DNS Flow</text>		</g>
+			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>DNS flow</text>		</g>
 		<g id="shape1006-497" v:mID="1006" v:groupContext="shape" transform="translate(142.982,-23.2492)">
 			<title>Sheet.1006</title>
-			<desc>HTTP Flow</desc>
+			<desc>HTTP flow</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="66.8839" cy="507.564" width="133.77" height="19.125"/>
 			<rect x="0" y="498.001" width="133.768" height="19.125" class="st7"/>
-			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>HTTP Flow</text>		</g>
+			<text x="4" y="510.56" class="st8" v:langID="1033"><v:paragraph/><v:tabList/>HTTP flow</text>		</g>
 		<g id="shape1007-500" v:mID="1007" v:groupContext="shape" transform="translate(126.308,-24.375)">
 			<title>Circle.1011</title>
 			<desc>N</desc>
