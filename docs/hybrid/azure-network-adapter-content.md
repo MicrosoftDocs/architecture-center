@@ -187,8 +187,8 @@ Explore related architectures:
 - [Extend an on-premises network using VPN](/azure/expressroute/expressroute-howto-coexist-resource-manager)
 - [Design a hybrid Domain Name System solution with Azure](./hybrid-dns-infra.yml)
 
-[architectual-diagram]: ./images/azure-network-adapter.png
-[architectual-diagram-large]: ./images/azure-network-adapter-large.png
+[architectual-diagram]: ./images/azure-network-adapter.svg
+[architectual-diagram-large]: ./images/azure-network-adapter-large.svg
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/azure-network-adapter.vsdx
 [1]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
 [2]: /azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy
