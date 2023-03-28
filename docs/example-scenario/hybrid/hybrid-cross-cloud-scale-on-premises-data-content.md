@@ -6,7 +6,7 @@ This solution demonstrates how to build a hybrid app that takes advantage of:
 
 ## Architecture
 
-![Diagram that shows an architecture for a hybrid app that spans Azure and Azure Stack Hub.](../hybrid/media/hybrid-cross-cloud-scale-on-premises-data.png)
+![Diagram that shows an architecture for a hybrid app that spans Azure and Azure Stack Hub.](../hybrid/media/hybrid-cross-cloud-scale-on-premises-data.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-cross-cloud-scale-onprem-data.vsdx) of this architecture.*
 
