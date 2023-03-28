@@ -751,15 +751,6 @@ items:
                   - name: Connect to Amazon Kinesis
                     href: /azure/databricks/structured-streaming/kinesis
                     maintainContext: true
-                  - name: Connect to Amazon S3
-                    href: /azure/databricks/external-data/amazon-s3
-                    maintainContext: true
-                  - name: Connect to Amazon S3 Select
-                    href: /azure/databricks/external-data/amazon-s3-select
-                    maintainContext: true
-                  - name: Query Amazon Redshift
-                    href: /azure/databricks/external-data/amazon-redshift
-                    maintainContext: true
                   - name: Repo access with AWS CodeCommit
                     href: /azure/databricks/repos/set-up-git-provider-access
                     maintainContext: true
