@@ -140,8 +140,7 @@ items:
           - name: Choose a storage service
             items:
               - name: Storage options
-                href: /azure/cloud-adoption-framework/ready/considerations/storage-options
-                maintainContext: true
+                href: guide/technology-choices/storage-options.md
               - name: Managed disk types
                 href: /azure/virtual-machines/disks-types
                 maintainContext: true
@@ -171,6 +170,8 @@ items:
                 href: guide/technology-choices/data-store-overview.md
               - name: Select a data store
                 href: guide/technology-choices/data-store-decision-tree.md
+              - name: Review data options
+                href: guide/technology-choices/data-options.md
               - name: Criteria for choosing a data store
                 href: guide/technology-choices/data-store-considerations.md
               - name: Big data storage
