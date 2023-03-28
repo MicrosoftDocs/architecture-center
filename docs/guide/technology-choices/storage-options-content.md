@@ -1,15 +1,3 @@
----
-title: Review your storage options
-description: Use the Cloud Adoption Framework for Azure to learn how to review your storage options for Azure workloads.
-author: martinekuan
-ms.author: martinek
-ms.date: 10/04/2022
-ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: ready
-ms.custom: internal
----
-
 # Review your storage options
 
 Storage capabilities are critical for supporting workloads and services that are hosted in the cloud. As you prepare for your cloud adoption, review this information to plan for your storage needs.
