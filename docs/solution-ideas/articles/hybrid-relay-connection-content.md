@@ -2,7 +2,8 @@ This architecture uses Azure Relay Hybrid Connections to connect from Azure to e
 
 ## Architecture
 
-![Architecture diagram that demonstrates Azure Relay Hybrid Connections.](../media/hybrid-relay-connection.png)
+![Architecture diagram that demonstrates Azure Relay Hybrid Connections.](../media/hybrid-relay-connection.svg)
+
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-relay-connection.vsdx) of this architecture.*
 
 ### Dataflow
