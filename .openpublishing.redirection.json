@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "docs/solution-ideas/articles/front-end.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/iot-connected-platform.yml",
+      "redirect_url": "/azure/architecture/industries/healthcare",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/reference-architectures/migration/modernize-mainframe-data-to-azure.yml",
       "redirect_url": "/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure",
       "redirect_document_id": false

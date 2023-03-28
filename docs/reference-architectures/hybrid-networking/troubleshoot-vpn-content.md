@@ -244,19 +244,21 @@ ProvisioningState          : Succeeded
 
 The following recommendations are useful for determining if there is an issue with Host VM configuration, network bandwidth utilization, or application performance:
 
-**Verify firewall configuration.** Verify that the firewall in the guest operating system running on the Azure VMs in the subnet is configured correctly to allow permitted traffic from the on-premises IP ranges.
+- **Verify firewall configuration.** Verify that the firewall in the guest operating system running on the Azure VMs in the subnet is configured correctly to allow permitted traffic from the on-premises IP ranges.
 
-**Verify that the volume of traffic is not close to the limit of the bandwidth available to the Azure VPN gateway.** How to verify this depends on the VPN appliance running on-premises. For example, if you are using RRAS on Windows Server 2012, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection. Using the *RAS Total* object, select the *Bytes Received/Sec* and *Bytes Transmitted/Sec* counters:
+- **Verify that the volume of traffic is not close to the limit of the bandwidth available to the Azure VPN gateway.** How to verify this depends on the VPN appliance running on-premises. For example, if you are using RRAS on Windows Server 2012, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection. Using the *RAS Total* object, select the *Bytes Received/Sec* and *Bytes Transmitted/Sec* counters:
 
-![Performance counters for monitoring VPN network traffic](../_images/guidance-hybrid-network-vpn/RRAS-perf-counters.png)
+  ![Performance counters for monitoring VPN network traffic](../_images/guidance-hybrid-network-vpn/RRAS-perf-counters.png)
 
-You should compare the results with the bandwidth available to the VPN gateway (from 100 Mbps for the Basic SKU to 1.25 Gbps for VpnGw3 SKU):
+  You should compare the results with the bandwidth available to the VPN gateway (from 100 Mbps for the Basic SKU to 1.25 Gbps for VpnGw3 SKU):
 
-![Example VPN network performance graph](../_images/guidance-hybrid-network-vpn/RRAS-perf-graph.png)
+  ![Example VPN network performance graph](../_images/guidance-hybrid-network-vpn/RRAS-perf-graph.png)
 
-**Verify that you have deployed the right number and size of VMs for your application load.** Determine if any of the virtual machines in the Azure VNet are running slowly. If so, they may be overloaded, there may be too few to handle the load, or the load-balancers may not be configured correctly. To determine this, [capture and analyze diagnostic information][azure-vm-diagnostics]. You can examine the results using the Azure portal, but many third-party tools are also available that can provide detailed insights into the performance data.
+- **Verify that you have deployed the right number and size of VMs for your application load.** Determine if any of the virtual machines in the Azure VNet are running slowly. If so, they may be overloaded, there may be too few to handle the load, or the load-balancers may not be configured correctly. To determine this, [capture and analyze diagnostic information][azure-vm-diagnostics]. You can examine the results using the Azure portal, but many third-party tools are also available that can provide detailed insights into the performance data.
 
-**Verify that the application is making efficient use of cloud resources.** Instrument application code running on each VM to determine whether applications are making the best use of resources. You can use tools such as [Application Insights][application-insights].
+  You can use Azure DDoS Protection to help protect against malicious resource exhaustion. [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
+- **Verify that the application is making efficient use of cloud resources.** Instrument application code running on each VM to determine whether applications are making the best use of resources. You can use tools such as [Application Insights][application-insights].
 
 ## Next steps
 

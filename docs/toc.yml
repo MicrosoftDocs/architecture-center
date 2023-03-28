@@ -1260,7 +1260,7 @@ items:
                         href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
                       - name: SWIFT AMH with ACV
                         href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
-                      - name: SWIFT Alliance Cloud in Azure
+                      - name: SWIFT Alliance Cloud on Azure
                         href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
                       - name: SWIFT Alliance Lite2
                         href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
@@ -1493,8 +1493,6 @@ items:
                 href: example-scenario/data/azure-health-data-consortium.yml
               - name: Implement risk prediction for surgeries
                 href: example-scenario/ai/risk-stratification-surgery.yml
-              - name: IoT Connected Platform for COVID-19
-                href: solution-ideas/articles/iot-connected-platform.yml
               - name: Population health management
                 href: solution-ideas/articles/population-health-management-for-healthcare.yml
               - name: Predict hospital readmissions with ML
@@ -2840,12 +2838,8 @@ items:
                       href: /azure/architecture/browse/?terms=sports
                     - name: Baseball decision analysis with ML.NET
                       href: data-guide/big-data/baseball-ml-workload.yml
-                    - name: Smart stadiums
-                      items:
-                        - name: Create smart stadiums
-                          href: example-scenario/iot/smart-places.yml
-                        - name: IoT platform for COVID-19 detection
-                          href: solution-ideas/articles/iot-connected-platform.yml
+                    - name: Create smart stadiums
+                      href: example-scenario/iot/smart-places.yml
                     - name: Sports analytics on Azure
                       href: example-scenario/analytics/sports-analytics-architecture-azure.yml
                     - name: Stream sporting events
@@ -5187,9 +5181,7 @@ items:
               - name: Line of business extension
                 href: solution-ideas/articles/lob.yml
               - name: Protect backend APIs in Azure
-                href: solution-ideas/articles/protect-backend-apis-azure-management.yml
-              - name: Web and mobile front-ends
-                href: solution-ideas/articles/front-end.yml
+                href: solution-ideas/articles/protect-backend-apis-azure-management.yml             
       - name: Internet of Things
         items:
           - name: Get started
@@ -5314,8 +5306,6 @@ items:
                     href: solution-ideas/articles/contactless-interfaces.yml
                   - name: COVID-19 IoT safe environments
                     href: solution-ideas/articles/cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection.yml
-                  - name: IoT Connected Platform
-                    href: solution-ideas/articles/iot-connected-platform.yml
                   - name: Lighting and disinfection system
                     href: solution-ideas/articles/uven-disinfection.yml
               - name: Environment monitoring
