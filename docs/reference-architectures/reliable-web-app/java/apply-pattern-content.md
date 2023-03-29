@@ -26,11 +26,11 @@ A reliable web application is one that is both resilient and available. Resilien
 
 ### Use the Retry pattern
 
-The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They're transient because they typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. For more information, see [transient fault handling](https://review.learn.microsoft.com/azure/architecture/best-practices/transient-faults).
+The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as transient faults. They're transient because they typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. For more information, see [transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 *Simulate the Retry pattern:* You can simulate the Retry pattern in the reference implementation. For instructions, see [Simulate the Retry pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
-If your code already uses the Retry pattern, you should update your code to use the retry mechanisms available in Azure services and client SDKs. If your application doesn't have a Retry pattern, then you should use [Resilience4j](https://github.com/resilience4j/resilience4j). Resilience4j is a lightweight fault tolerance library inspired by Netflix Hystrix and designed for functional programming. It provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry or Bulkhead.
+If your code already uses the Retry pattern, you should update your code to use the retry mechanisms available in Azure services and client SDKs. If your application doesn't have a Retry pattern, then you should use [Resilience4j](https://github.com/resilience4j/resilience4j). Resilience4j is a lightweight fault tolerance library inspired by Netflix Hystrix. It provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry, or Bulkhead.
 
 *Reference implementation.* The reference implementation adds the Retry pattern by decorating a lambda expression with the Retry annotations. The code retries the call to get the media file from disk. The following code demonstrates how to use Resilience4j to retry a filesystem call to Azure Files to get the last modified time.
 
@@ -63,7 +63,7 @@ For more ways to configure Resiliency4J, see [Spring Retry](https://docs.spring.
   
 ### Use the circuit-breaker pattern
 
-You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [Circuit Breaker pattern](https://learn.microsoft.com/azure/architecture/patterns/circuit-breaker).
+You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
@@ -117,7 +117,7 @@ Cloud applications often comprise multiple Azure services. Communication between
 
 ### Use managed identities
 
-Managed identities provide a secure and traceable way to control access to Azure resources. You should use managed identities for all supported Azure services. They make identity management easier and more secure, providing benefits for authentication, authorization, and accounting. For web app, managed identities create a workload identity (service principle) in Azure AD. Applications can use managed identities to obtain Azure AD tokens without having to manage any credentials. For more information, see:
+Managed identities provide resources & code an identity to be used in role assignments on Azure resource dependencies. You should use managed identities for all supported Azure services. They make identity management easier and more secure, providing benefits for authentication, authorization, and accounting. Managed identities create a workload identity (service principal) in Azure AD. Applications can use managed identities to obtain Azure AD tokens without having to manage any credentials. For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
@@ -126,13 +126,13 @@ Managed identities provide a secure and traceable way to control access to Azure
 
 Managed identities are similar to connection strings in on-premises applications. On-premises apps use connection strings to secure communication to a database. Trusted connection and Integrated security features hide the database username and password from the config file. The application connects to the database with an Active Directory account. These are often referred to as service accounts because only the service could authenticate.
 
-*Reference implementation:* The reference implementation uses a system-assigned managed identity to managed permissions and access to the key vault.
+*Reference implementation:* The reference implementation uses a system-assigned managed identity to managed permissions and access to Key Vault.
 
 ### Configure user authentication and authorization
 
-You should use the authentication and authorization mechanisms that meet security best practices and have parity with your on-premises environment.
+You should use the authentication and authorization mechanisms that meet security best practices on the cloud, implemented where possible with cloud native features, and satisfy your business requirements.
 
-**Configure user authentication to web app.** Azure App Service has built-in authentication and authorization capabilities (Easy Auth). You should use Easy Auth instead of writing code to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
+**Configure user authentication to web app.** Azure App Service has built-in authentication and authorization capabilities (Easy Auth). You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
 *Reference implementation.* The reference implementation configures Easy Auth after the web app deploys. This step is a workaround to a Terraform and Easy Auth support limitation. The following code shows the workaround. It uses a resource named `null_resource` with the name `upgrade_auth_v2`. The `provisioner` block tells Terraform to execute an a Azure CLI command that upgrades the authentication configuration version of an Azure Web App.
 
@@ -180,15 +180,7 @@ resource "null_resource" "upgrade_auth_v2" {
 
 The reference implementation uses an app registration to assign AD users an app role ("User" or "Creator"). The app roles allows them to log in to the application. The reference implementation uses the following code to configure the app registration.
 
-```terraform
-resource "azuread_application" "app_registration" {
-  display_name     = "${azurecaf_name.app_service.result}-app"
-  owners           = [data.azuread_client_config.current.object_id]
-  sign_in_audience = "AzureADMyOrg"  # single tenant
-}
-```
-
-[See code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/eb73a37be3d011112286df4e5853228f55cb377f/terraform/modules/app-service/main.tf#L80). For more information, see [Register an application with the Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+[See code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/eb73a37be3d011112286df4e5853228f55cb377f/terraform/modules/app-service/main.tf#L80). For more information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a `roles` claim that lists the roles assigned to the user. In the following code, the `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication. It only grants access to the two roles configured in Azure AD, and it adds the `APPROLE_` as a prefix each role.
 
@@ -281,7 +273,7 @@ By adding these dependencies to the project, the developer can integrate Azure A
 
 Many on-premises environments don't have a central secrets store. Key rotation is uncommon and auditing who has access to a secret is difficult. In Azure, the central secret store is Key Vault. With Key Vault, you can store, keys, manage, audit, and monitor secrets access in Key Vault.
 
-**Use Key Vault for services that don't support managed identities.** Some services in Azure don't support managed identities. In these situations, you must externalize the application configurations and put the secrets in Key Vault.
+**Use Key Vault for services that don't support managed identities.** Some services in Azure don't support managed identities. In these situations, you should externalize the required application secrets in Key Vault.
 
 *Reference implementation:* The reference implementation uses an Azure AD client secret stored in Key Vault. The secret verifies the identity of the web app. To rotate the secret, generate a new client secret and then save the new value to Key Vault. In the reference implementation, the web app must restart so the code will start using the new secret. After the web app has been restarted, the team can delete the previous client secret.
 
@@ -291,7 +283,7 @@ Many on-premises environments don't have a central secrets store. Key rotation i
 
 **Use temporary permissions to access storage account.** For access to files in storage account, you should use Shared access signatures (SASs) for authentication. SASs are uniform resource locators (URIs) that grant restricted access to Azure Storage resources for a specified period of time.
 
-*Reference implementation.* The reference implementation uses [Shared Key](/rest/api/storageservices/authorize-with-shared-key) (storage account key) to upload videos in the playlist. It is required to deploy the demo and populate the data, but you should use SASs in production.
+*Reference implementation.* The reference implementation uses [account access keys](/azure/storage/common/storage-account-keys-manage) to upload videos in the playlist. It is required to deploy the demo and populate the data, but you should use SASs in production.
 
 ### Secure communication with private endpoints
 
