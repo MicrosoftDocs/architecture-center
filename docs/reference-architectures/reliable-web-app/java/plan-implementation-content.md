@@ -26,7 +26,7 @@ The implementation guidance mirrors the cloud journey of a fictional company, Pr
 
 | Short term goals | Long term goals |
 | --- | --- |
-| ▪ Apply low-cost, high-value code changes to the LOB web application. <br> ▪ Mature development team practices for modern development and operations. <br> ▪ Create cost-optimized production and development environments. <br> ▪ Implement reliability and security best practices in the cloud. <br> ▪ Service-level objective of 99.86%.| ▪ Open the application directly to online customers through multiple web and mobile experiences. <br> ▪ Improve availability. <br> ▪ Reduce time required to deliver new features. <br> ▪ Independently scale different components of the system based on traffic.
+| ▪ Apply low-cost, high-value code changes to the LOB web application. <br> ▪ Mature development team practices for cloud development and operations. <br> ▪ Create cost-optimized production and development environments. <br> ▪ Implement reliability and security best practices in the cloud. <br> ▪ Service-level objective of 99.86%.| ▪ Open the application directly to online customers through multiple web and mobile experiences. <br> ▪ Improve availability. <br> ▪ Reduce time required to deliver new features. <br> ▪ Independently scale different components of the system based on traffic.
 
 ## Web application starting point
 
@@ -55,18 +55,20 @@ Choosing the right Azure services is an important part of the planning phase bef
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable[compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
-- **Broad Java support:** App Service supports Java Platform Standard Edition (SE), Apache Tomcat, and JBoss Enterprise Application Platform (EAP) web apps. You can deploy Maven plugins from the command line or in editors (IntelliJ, Eclipse, or Visual Studio Code). Azure has a fully managed service specifically for Spring Boot apps (Azure Spring Apps). Proseware chose App Service for its broader Java support.
+- **Broad Java support:** App Service supports Java Platform Standard Edition (SE), Apache Tomcat, and JBoss Enterprise Application Platform (EAP) web apps. You can deploy Maven plugins from the command line or in editors (IntelliJ, Eclipse, or Visual Studio Code).
 - **High SLA:** It has a 99.95% uptime SLA and meets our requirements for the production environment.
 - **Reduced management overhead:** It’s a fully managed hosting solution.
 - **Containerization capability:** App Service works with private container image registries like Azure Container Registry. Proseware can use these to containerize the web app in the future.
 - **Autoscaling:** The web app can rapidly scale up, down, in, and out based on user traffic.
 
+Azure has a fully managed service specifically for Spring Boot apps, Azure Spring Apps. Proseware concluded that the Spring Apps platform introduces key hosting benefits but a came with an undesired larger operations disparity between their on-premises Tomcat servers than Azure App Service for the team's current level of cloud experience.
+
 ### Identity management
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with our application. Azure AD provides the application with the following abilities:
+[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with the application. Azure AD provides the application with the following abilities:
 
 - **Authentication and authorization:** The application needed to authenticate and authorize employees.
-- **Scalable:** It scale to support larger scenarios.
+- **Scalable:** It scales to support larger scenarios.
 - **User-identity control:** Employees can use their existing enterprise identity.
 - **Support authorization protocols:** It supports OAuth 2.0 for managed identities and OpenID Connect for future B2C support.
 
@@ -77,24 +79,25 @@ Choosing the right Azure services is an important part of the planning phase bef
 Azure Database for PostgreSQL includes single-server and Flexible Server options. We chose Flexible Server because it meets the following requirements:
 
 - **Reliability:** we chose a single-zone high availability configuration, ideal for infrastructure redundancy with lower network latency. It provides high availability without the need to configure app redundancy across zones. Same-zone HA is available in all Azure regions where you can deploy Flexible Server and offers an uptime SLA of 99.95%.
-- **Performance:** Flexible Server provides your apps with predictable performance and intelligent tuning to automatically improve your database’s performance based on real usage data.
+- **Performance:** Flexible Server provides your apps with predictable performance and intelligent tuning to automatically improve your database's performance based on real usage data.
 - **Reduced management overhead:** Flexible Server is a fully managed database-as-a-service offering.
 - **Migration support:** Flexible Server supports database migration from on-premises Single Server PostgreSQL databases. Microsoft has a [preview migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
-- **Consistency with on-premises configurations:** Azure Database for PostgreSQL supports community versions of PostgreSQL 11, 12, 13 and 14, with plans to add new versions as they are released.
-- **Resiliency:** Flexible Server automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them on zone redundant storage (ZRS) within the region. Backups can be used to restore your server to any point-in-time within the backup retention period. All backups are encrypted using AES 256-bit encryption.
+- **Consistency with on-premises configurations:** Azure Database for PostgreSQL supports [many community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Proseware uses today.
+- **Business continunity:** Flexible Server automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them on zone redundant storage (ZRS) within the region. Backups can be used to restore your server to any point-in-time within the backup retention period.  The recovery point objective (RPO) offered by this solution is shorter, and therefore better, than Proseware's current solution.
 
 ### Application performance monitoring
 
 Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. We chose to incorporate Application Insights for the following reasons.
 
-- **Anomaly detection:** It automatically detects performance anomalies
-- **Troubleshooting:** It helps diagnose issues in our running app.
+- **Anomaly detection:** It automatically detects performance anomalies.
+- **Troubleshooting:** It helps diagnose issues in the running app.
 - **Telemetry:** It collects information about how users are using the app and allows us to easily send custom events we want to track in our app.
 
 Azure Monitor is a comprehensive suite of monitoring tools to collect data from a variety of Azure services. Review the following concepts to quickly come up to speed on its capabilities:
 
+- [Application Monitoring for Azure App Service and Java](/azure/azure-monitor/app/azure-web-apps-java)
 - [Smart detection in application insights](/azure/azure-monitor/alerts/proactive-diagnostics)
-- [Application Map: Triaging Distributed Applications](/azure/azure-monitor/app/app-map?tabs=net)
+- [Application Map: Triaging Distributed Applications](/azure/azure-monitor/app/app-map?tabs=java)
 - [Profile live App Service apps with Application Insights](/azure/azure-monitor/profiler/profiler)
 - [Usage analysis with Application Insights](/azure/azure-monitor/app/usage-overview)
 - [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)
@@ -131,7 +134,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. We prefer managed identities over secrets, but we an Azure Active Directory client secret in our local development environment and need a secure secret store. Key Vault was chosen because it provides:
+[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. Proseware will use managed identities over secrets where possible, but there are situations where X.509 certificates, connection strings, and pre-shared secrets still need to be stored.  Key Vault was chosen because it provides:
 
 - **Encryption:** It supports encryption at rest and in transit.
 - **Supports managed identities:** The application services can use managed identities to access the secret store.
@@ -139,16 +142,16 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Object storage
 
-Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. Our app uses the filesystem to save uploaded training videos.  We used the Azure Files integration in App Service to mount an NFS share, which allows our Tomcat app server to seamlessly access the share. Azure Files was a good fit for us because it simplified the process of getting our app running on the cloud.
+Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. The app uses the filesystem to save uploaded training videos.  We used the Azure Files integration in App Service to mount an NFS share, which allows our Tomcat app server to seamlessly access the share. Azure Files is a good fit because it simplified the process of getting our app running on the cloud.
 
 - **Replace existing file server:** Azure Files allows us to replace our existing file server without having to modify our code to use an alternative blob storage mechanism.
 - **Fully managed:** Azure file shares allow us to maintain compatibility without needing to manage hardware or operating system for a file server.
 - **Resiliency:** Azure Files has been built from the ground up to be always available.
-- **Durability.** Azure files has zone-redundant storage to improve data redundancy and application resiliency. Zone-redundant storage replicates data in your Azure storage account across three Azure availability zones in the primary region and offers twelve-9s of durability (99.9999999999%). For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
+- **Durability.** Azure files has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and PostgreSQL Database) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services like Azure Database for PostgreSQL. The web app uses Azure Private Link for the following reasons:
+[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services without application changes. The web app uses Azure Private Link for the following reasons:
 
 - **Secure communication:** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to protect against data leakage.
 - **Minimal effort:** The private endpoints support the web application platform and database platform the web app uses. Both platforms mirror existing on-premises setup for minimal change.
