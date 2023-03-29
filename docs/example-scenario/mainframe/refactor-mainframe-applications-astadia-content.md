@@ -183,6 +183,6 @@ Other contributor:
 - [Refactor IBM z/OS mainframe coupling facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
 - [Refactor mainframe applications with Advanced](refactor-mainframe-applications-advanced.yml)
 - [Refactor mainframe computer systems that run Adabas & Natural](refactor-adabas-aks.yml)
-- [Refactor mainframe applications to Azure with Raincode compilers](../..//reference-architectures/app-modernization/raincode-reference-architecture.yml)
+- [Rehost mainframe applications to Azure with Raincode compilers](../..//reference-architectures/app-modernization/raincode-reference-architecture.yml)
 - [Use LzLabs Software Defined Mainframe (SDM) in an Azure VM deployment](lzlabs-software-defined-mainframe-in-azure.yml)
 - [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame](../../solution-ideas/articles/migrate-mainframe-apps-with-tmaxsoft-openframe.yml)

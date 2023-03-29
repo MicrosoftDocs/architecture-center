@@ -2,7 +2,7 @@ This solution shows how to use Azure Stack Hub and cloud-based Azure to stage, a
 
 ## Architecture
 
-![Diagram that shows an architecture for staging, analyzing, processing, sanitizing, and storing data across multiple on-premises and cloud locations.](../hybrid/media/hybrid-tiered-data-analytics.png)  
+![Diagram that shows an architecture for staging, analyzing, processing, sanitizing, and storing data across multiple on-premises and cloud locations.](../hybrid/media/hybrid-tiered-data-analytics.svg)  
 _Download a [Visio file](https://arch-center.azureedge.net/hybrid-tiered-data-analytics.vsdx) of this architecture._
 
 ### Dataflow
