@@ -46,7 +46,7 @@ The Event Sourcing pattern provides the following advantages:
 
 Consider the following points when deciding how to implement this pattern:
 
-The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. The eventual consistency support should be planned beforehand.
+The system will only be eventually consistent when creating materialized views or generating projections of data by replaying events. There's some delay between an application adding events to the event store as the result of handling a request, the events being published, and the consumers of the events handling them. During this period, new events that describe further changes to entities might have arrived at the event store. The system should be designed to account for eventual consistency in these scenarios.
 
 > [!NOTE]
 > See the [Data Consistency Primer](/previous-versions/msp-n-p/dn589800(v=pandp.10)) for information about eventual consistency.
