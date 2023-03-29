@@ -168,7 +168,7 @@ resource "null_resource" "upgrade_auth_v2" {
 
   app_role {
     allowed_member_types = ["User"]
-    description          = "Creator roles allows users to create content"
+    description          = "Creator role allows users to create content"
     display_name         = "Creator"
     enabled              = true
     id                   = random_uuid.creator_role_id.result
