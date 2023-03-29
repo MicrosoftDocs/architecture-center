@@ -1,5 +1,5 @@
 
-This reference architecture provides guidance for deploying Spring Boot applications in Azure Spring Apps. In this scenario, the workload is expected to use certain shared services provided by the organization as part of Azure landing zones. 
+This reference architecture provides guidance for deploying Spring Boot applications in Azure Spring Apps. In this scenario, the workload uses shared services provided by the organization as part of Azure landing zones. 
 
 In this scenario, your organization wants to deploy the Spring Apps workload in an _Azure application landing zone_ that inherits the Corp. Management group. The workload is expected to integrate with preprovisioned shared resources in the _Azure platform landing zone_ that are managed by centralized teams.
 
