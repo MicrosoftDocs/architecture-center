@@ -1,3 +1,24 @@
+---
+title: Choose an Azure storage service
+titleSuffix: Azure Architecture Center
+description: Use this guide to decide which storage service best suits your application.
+author: claytonsiemens77
+ms.author: csiemens
+ms.date: 03/28/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+ms.custom: fcp
+categories: storage
+products:
+- azure-data-lake-gen2
+- azure-queue-storage
+- azure-table-storage
+- azure-blob-storage
+- azure-files
+- azure-netapp-files
+---
+
 # Review your storage options
 
 Storage capabilities are critical for supporting workloads and services that are hosted in the cloud. As you prepare for your cloud adoption, review this information to plan for your storage needs.
