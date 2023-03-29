@@ -9,7 +9,9 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp 
+  ms.custom:
+    - fcp
+    - devx-track-terraform
 azureCategories:
   - analytics
 products:
