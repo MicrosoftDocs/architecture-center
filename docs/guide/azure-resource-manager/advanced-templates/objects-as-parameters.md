@@ -17,6 +17,7 @@ products:
   - azure-resource-manager
 ms.custom:
   - article
+  - devx-track-arm-template
 ---
 
 <!-- cSpell:ignore subproperties -->
