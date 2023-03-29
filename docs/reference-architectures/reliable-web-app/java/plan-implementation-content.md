@@ -6,7 +6,7 @@ This article shows you how to plan the implementation of the reliable web app pa
 
 ## Architecture and pattern
 
-The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. We applied the reliable web app pattern to the reference implementation. The following diagram shows the resulting architecture of the reference implementation.
+The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. We applied the reliable web app pattern to the reference implementation. The following diagram illustrates how the reference implementation should look in your environment.
 
 [![Diagram showing the architecture of the reference implementation](images/java-architecture.png)](images/java-architecture.png)
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost, see:*

@@ -6,7 +6,7 @@ This article shows you how to apply the reliable web app pattern for Java. The c
 
 ## Architecture and code
 
-Architecture and code are symbiotic. A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Well-Architected Framework to reinforce the interdependence of code and architecture. The following diagram illustrates the architecture of the reference implementation.
+Architecture and code are symbiotic. A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Well-Architected Framework to reinforce the interdependence of code and architecture. The following diagram illustrates how the reference implementation should look in your environment.
 
 [![Diagram showing the architecture of the reference implementation](images/java-architecture.png)](images/java-architecture.png)
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost, see:*
