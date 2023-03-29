@@ -5718,6 +5718,10 @@ items:
                     href: example-scenario/banking/patterns-and-implementations.yml
               - name: General mainframe refactor to Azure
                 href: example-scenario/mainframe/general-mainframe-refactor.yml
+              - name: IaaS baseline architectures
+                items:
+                  - name: Migrate VM workloads to VMSS
+                    href: reference-architectures/migrate/iaas-baseline.yml                   
               - name: Migrate a web app with APIM
                 href: example-scenario/apps/apim-api-scenario.yml
               - name: Migrate master data services with Profisee
