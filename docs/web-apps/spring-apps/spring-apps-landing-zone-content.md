@@ -1,5 +1,5 @@
 
-TBD
+This reference architecture provides guidance for deploying a mission-critical workload that uses centralized shared services, needs on-premises connectivity, and integrates with other workloads of an enterprise. This guidance is intended for a workload owner who is part of an application team in the organization.
 
 
 ## Architecture
