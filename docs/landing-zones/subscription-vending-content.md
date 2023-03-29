@@ -76,7 +76,7 @@ The *request pipeline* in the example implementation executes these steps (*see 
 
 **Trigger the deployment pipeline.** When the pull request merges into the `main` branch, the merge should trigger the deployment pipeline.
 
-## How to create subscription
+## How to create a subscription
 
 The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see Figure 2*).
 

@@ -751,15 +751,6 @@ items:
                   - name: Connect to Amazon Kinesis
                     href: /azure/databricks/structured-streaming/kinesis
                     maintainContext: true
-                  - name: Connect to Amazon S3
-                    href: /azure/databricks/external-data/amazon-s3
-                    maintainContext: true
-                  - name: Connect to Amazon S3 Select
-                    href: /azure/databricks/external-data/amazon-s3-select
-                    maintainContext: true
-                  - name: Query Amazon Redshift
-                    href: /azure/databricks/external-data/amazon-redshift
-                    maintainContext: true
                   - name: Repo access with AWS CodeCommit
                     href: /azure/databricks/repos/set-up-git-provider-access
                     maintainContext: true
@@ -1256,14 +1247,14 @@ items:
                     items:
                       - name: SWIFT Alliance Connect Virtual
                         href: example-scenario/finance/swift-on-azure-vsrx.yml
-                      - name: SWIFT Alliance Access with ACV
-                        href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-                      - name: SWIFT AMH with ACV
-                        href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
-                      - name: SWIFT Alliance Cloud on Azure
-                        href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
                       - name: SWIFT Alliance Lite2
                         href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
+                      - name: SWIFT Alliance Cloud
+                        href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
+                      - name: SWIFT Alliance Access
+                        href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
+                      - name: SWIFT Alliance Message Hub
+                        href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
           - name: Datasets
             items:
               - name: US Consumer Price Index

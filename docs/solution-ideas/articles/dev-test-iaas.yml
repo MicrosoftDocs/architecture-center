@@ -25,6 +25,7 @@ products:
   - azure-devtest-labs
   - azure-key-vault
   - azure-pipelines
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/dev-test-iaas.png
 content: |
    [!include[](dev-test-iaas-content.md)]

@@ -10,6 +10,8 @@ This article doesn't address the application's underlying services, like App Ser
 
 ### Workflow
 
+- The Web Application Firewall (WAF) on Application Gateway checks the request against WAF rules. If the request is valid, the request proceeds.
+
 - Application Gateway sets up a URL redirection mechanism that sends the request to the proper [backend pool](/azure/application-gateway/application-gateway-components#backend-pools), depending on the URL format of the API call:
 
   - URLs formatted like `api.<some-domain>/external/*` can reach the back end to interact with the requested APIs.

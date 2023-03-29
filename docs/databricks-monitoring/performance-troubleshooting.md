@@ -13,6 +13,7 @@ azureCategories:
   - databases
 products:
   - azure-databricks
+  - azure-monitor
 ---
 
 <!-- cSpell:ignore Grafana -->
