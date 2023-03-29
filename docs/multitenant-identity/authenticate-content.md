@@ -52,7 +52,7 @@ Notice that some of the settings are provided in the secrets.json file. The file
 
 - **Instance**. For a multitenant application, set this to `https://login.microsoftonline.com`. This is the URL for the Azure AD common endpoint, which enables users from any Azure AD tenant to sign in.
 - **ClientId**. The application's client ID, which you got when you registered the application in Azure AD.
-- **TenantId**. GUID to sign in users in your organization.
+- **TenantId**. In this mutitenant case will use "common". In a multitenant scenario the [/common url](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant#update-your-code-to-send-requests-to-common) is used. It's important to note that this endpoint isn't a tenant or an issuer itself. When the Microsoft identity platform receives a request on the /common endpoint, it signs the user in, thereby discovering which tenant the user is from. The sign-in response to the application then contains a token representing the user. 
 
 Here's what the other middleware options mean:
 
