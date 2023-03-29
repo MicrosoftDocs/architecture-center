@@ -50,15 +50,39 @@ Your team provisions and owns these resources.
 
 This architecture assumes these resources are preprovisioned. They are owned and maintained by the central teams of the organization. Your application depends on these services to reduce operational overhead and optimize cost.
 
-**Azure Firewall**	is the NVA that inspects and restricts egress traffic.
+- **Azure Firewall**	is the NVA that inspects and restricts egress traffic.
 
-**Azure Bastion** provides secure access to the management jump box.
+- **Azure Bastion** provides secure access to the management jump box.
 
-**Azure ExpressRoute**	Provides private connectivity from on-premises to Azure infrastructure.
+- **Azure ExpressRoute**	Provides private connectivity from on-premises to Azure infrastructure.
 
-**Azure DNS** provides cross-premises name resolution.
+- **Azure DNS** provides cross-premises name resolution.
 
-**VPN gateway**	connects the application with remote teams in your on-premises network.
+- **VPN gateway**	connects the application with remote teams in your on-premises network.
+
+## Application considerations
+
+TBD
+
+## Networking considerations
+
+TBD
+
+## Identity and access management
+
+TBD
+
+## Monitoring considerations
+
+TBD
+
+## Security considerations
+
+TBD
+
+## Cost optimization strategies
+
+TBD
 
 ## Deploy this scenario
 
