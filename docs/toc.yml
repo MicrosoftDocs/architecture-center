@@ -6679,13 +6679,13 @@ items:
           - name: Azure Spring Apps
             items:
               - name: Zone-redundant Spring Apps
-                href: web-apps/spring-apps-multi-zone.yml
+                href: web-apps/spring-apps/spring-apps-multi-zone.yml
               - name: Multi-region Spring Apps
-                href: web-apps/spring-apps-multi-region.yml
+                href: web-apps/spring-apps/spring-apps-multi-region.yml
               - name: Spring Apps landing zone accelerator
-                href: web-apps/spring-apps-landing-zone.yml
+                href: web-apps/spring-apps/spring-apps-landing-zone.yml
               - name: Spring Apps through a reverse Proxy
-                href: web-apps/spring-cloud-reverse-proxy.yml              
+                href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml              
           - name: Architectures
             items:
               - name: Basic web application
