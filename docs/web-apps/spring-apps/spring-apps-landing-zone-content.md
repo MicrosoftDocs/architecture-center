@@ -4,7 +4,7 @@ TBD
 
 ## Architecture
 
-:::image type="content" source="./images/spring-apps-reference-architecture-landing-zone.svg" alt-text="Diagram that shows an Azure Spring Apps workload in a landing zone." lightbox="./images/spring-apps-reference-architecture-landing-zone.png":::
+:::image type="content" source="./_images/spring-apps-reference-architecture-landing-zone.svg" alt-text="Diagram that shows an Azure Spring Apps workload in a landing zone." lightbox="./_images/spring-apps-reference-architecture-landing-zone.png":::
 
 ### Components
 
