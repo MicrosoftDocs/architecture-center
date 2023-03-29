@@ -30,7 +30,7 @@ The implementation guidance mirrors the cloud journey of a fictional company, Pr
 
 ## Web application starting point
 
-The on-premises starting point is a monolithic Java web application running on an Apache Tomcat web server with a PostgreSQL database. It’s an employee-facing LOB training application. Employees use the application to complete required HR training. The web application suffers from common legacy challenges, including extended timelines to build and ship new features and difficulty scaling different application components under higher load.
+The on-premises starting point is a monolithic Java web application running on an Apache Tomcat web server with a PostgreSQL database. It’s an employee-facing LOB training application. Proseware employees use the application to complete required HR training. The web application suffers from common legacy challenges, including extended timelines to build and ship new features and difficulty scaling different application components under higher load.
 
 ## Service level objective
 
