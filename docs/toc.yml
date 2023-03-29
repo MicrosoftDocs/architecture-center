@@ -2012,7 +2012,7 @@ items:
               - name: All telecommunications architectures
                 href: /azure/architecture/browse/?terms=telecommunications
               - name: Carrier-grade solution
-                href: /azure/architecture/industries/telecommunications/carrier-grade.yml
+                href: industries/telecommunications/carrier-grade.yml
               - name: Customer churn prediction
                 href: /azure/architecture/solution-ideas/articles/customer-churn-prediction
               - name: Deploy AI and ML at the edge
