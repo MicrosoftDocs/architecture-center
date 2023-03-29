@@ -22,7 +22,7 @@ Multiple clients can connect to the workload using various protocols. They can b
 - **Replicated storage**. Keep the application itself stateless. Data is persisted either regionally or globally and redundancy is built by replicating across regions.
 - **Eventual consistency of data** is forced by the CAP theorem (Consistency, Availability, and Partition Tolerance). Implement application logic that uses conflict-free replicated data types (CRDTs) and application logic to handle intermediate states.
 - **Avoid correlated failure modes**. Take independent elements and [combine them to reach a higher reliability target](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance#high-availability-through-combination). 
-- **Shared fate within each stamp**. Aggregate all the dependencies of stamp within the same stamp. This removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
+- **Shared fate within each stamp**. Aggregate all the dependencies of the stamp within that stamp. This removes the overhead of handling partial failures. If an instance is down, a new stamp replaces the unhealthy instance.
 
 ## Architecture
 
@@ -44,7 +44,7 @@ Stores application payload metadata and end-user provisioning data. Also used by
 
 **Gateway component** 
 
-A custom solution component such as a Session Border Controller (SBC) that that exists outside of the cloud. The gateway serves as the single endpoint for clients using protocols different than HTTP. It monitors the health of the backend endpoints and routes traffic to the healthy instances. 
+A custom solution component such as a Session Border Controller (SBC) that exists outside of the cloud. The gateway serves as the single endpoint for clients using protocols different than HTTP. It monitors the health of the backend endpoints and routes traffic to the healthy instances. 
 
 > [!IMPORTANT] 
 > Global routing is handled through DNS. If any global or foundational service isn't available, the entire system will be impacted.
@@ -86,9 +86,8 @@ Triggers application-specific functionality as desired.
 Provides additional durability via a distinct mechanism, so that if the primary storage mechanism is unavailable at the point of message deposit the message is retained safely.
 
 > [!IMPORTANT] 
-> Regional resources are independent, so that unavailability of a resource in one region does not (as far as possible) impact resources in another region. There may be simultaneous outages in multiple regions, but these are expected to be rare.
-
-> [!IMPORTANT] 
+> Regional resources are independent, so that unavailability of a resource in one region does not (as far as possible) impact resources in another region. There may be simultaneous outages in multiple regions, but these are expected to be extremely rare.
+>
 > The resources can be further categorized by their functional requirement. Azure Blob Storage, Azure Cosmos DB, Azure Functions, Azure Queue Storage participate in processing a request. Other components such as Key Vault, Monitor, and Container Registry are used indirectly and during management operations.
 
 ### Regional stamp resources
@@ -114,7 +113,7 @@ The components within each stamp use a fate-sharing model, which simplifies logi
 
 ### Monitoring
 
-This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management service probes the application stamps at regular intervals and maintains a health status. If the health state of a particular stamp is degraded, the management service stops responding to the polling request and traffic isn't routed to that instance.  
+This implementation has a health model in place to make sure client requests aren't sent to unhealthy instances. The management service probes the application stamps at regular intervals and maintains a health status. If the health state of a particular stamp is degraded, the management service stops responding to the polling request from Traffic Manager and traffic isn't routed to that instance.  
 
 
 ## Traffic management
@@ -131,13 +130,13 @@ The internal load balancer distributes incoming requests to the stamp pods. The 
 
 ### Reliability considerations 
 
-Azure Traffic Manager is on the critical path for clients. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, the Traffic Manager SLA must be considered, and careful attention given to TTL configuration, client retry periods, etc.
+Azure Traffic Manager is on the critical path for clients. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, the Traffic Manager SLA must be considered, and careful attention given to TTL configuration, client retry periods, and so on.
 
 Like Azure Traffic Manager, the gateway is also a single point of failure and thus should be designed with internal redundancy. Failure will impact new client connections and existing clients after the cached DNS entry expires.
 
-If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired - so this time must be set short. Clients will continue to reach the last-known address. Use Azure policies to enforce termination of long-running calls or connections that still exist.
+If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired. So, this time must be short. Clients will continue to reach the last-known address. Use Azure policies to enforce termination of long-running calls or connections that still exist.
 
-Both routers depend on Azure DNS, as a foundational service, to reduce complexity and provide higher Service Level Agreement (SLA).  However, if that service is unavailable, expect a full outage.
+Both Traffic Manager and gateway depend on Azure DNS, as a foundational service, to reduce complexity and provide higher Service Level Agreement (SLA).  However, if that service is unavailable, expect a full outage.
 
 ### Health monitoring
 
@@ -191,11 +190,11 @@ Conversely, Flux also decommissions resources that aren't required. For example,
 
 ### Upgrade, patching, and configuration updates
 
-When a new instance is created, the deployment config files are changed to indicate increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and updates the DNS records. Traffic is reverted to the old instance if there are errors. Otherwise, the old instance is decommissioned. 
+When a new instance is created, the deployment config files are changed to indicate an increase in traffic to the new instance and decrease traffic to the old instance. Flux detects this change and updates the DNS records. Traffic is reverted to the old instance if there are errors. Otherwise, the old instance is decommissioned. 
 
 ### Automation
 
-Automation is fundamental to the overall resiliency given the required reaction times. Various automation technologies are used in the operational flow. However, it's also critical that there are manual gates in the end-to-end process to ensure errors aren't introduced through automation. 
+Automation is fundamental to the overall resiliency given the required reaction times. Various automation technologies are used in the operational flow. However, it's also critical that there are manual gates in the end-to-end process to ensure errors aren't introduced and propagated through automation. 
 
 > Refer to [Well-Architected carrier-grade workloads: Fault tolerance](/azure/architecture/framework/carrier-grade/carrier-grade-design-area-fault-tolerance).
 
