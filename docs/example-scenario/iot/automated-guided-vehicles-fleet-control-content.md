@@ -56,7 +56,7 @@ is the fundamental building block for your private network in Azure. This servic
 
 [IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview) is a PaaS managed service, hosted in the cloud, that acts as a central message hub for bidirectional communication between an IoT application and the devices it manages.
 
-[Azure Container Apps](https://azure.microsoft.com/products/container-apps) is fully managed serverless container service for building and deploying containers at scale.
+[Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed serverless container service for building and deploying containers at scale.
 
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/#overview)
 is a managed, private Docker registry service based on the open-source Docker Registry 2.0. You can use Azure container registries with your existing container development and deployment pipelines, or you can use Azure Container Registry Tasks to build container images in Azure. Build on demand, or fully automate builds with triggers, such as source code commits and base image updates.
