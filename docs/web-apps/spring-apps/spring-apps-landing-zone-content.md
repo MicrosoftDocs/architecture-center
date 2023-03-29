@@ -1,5 +1,21 @@
 
-This reference architecture provides guidance for deploying a mission-critical workload that uses centralized shared services, needs on-premises connectivity, and integrates with other workloads of an enterprise. This guidance is intended for a workload owner who is part of an application team in the organization.
+This reference architecture provides guidance for deploying Spring Boot applications in Azure Spring Apps. In this scenario, the workload is expected to use certain shared services provided by the organization. 
+
+In this scenario, your organization wants to deploy the Spring Apps workload in an _Azure application landing zone_ that inherits the Corp. Management group. The workload is expected to integrate with pre-provisioned shared resources in the _Azure platform landing zone_ that are managed by centralized teams.
+
+> [!IMPORTANT]
+> **What is an Azure landing zone?**
+> An application landing zone is a Azure subscription in which the workload runs. It's connected to the organization's shared resources. Through that connection, it has access to basic infrastructure needed to run the workload, such as networking, identity access management, policies, and monitoring. The platform landing zones is a collection of various subscriptions, each with a specific function. For example, the Connectivity subscription provides centralized DNS resolution, on-premises connectivity, and network virtual appliances (NVAs) that's available for use by application teams. 
+>
+> As a workload owner, you benefit by offloading management of shared resources to central teams and focus on workload development efforts. The organization benefits by applying consistent governance and amortizing costs across multiple workloads.
+> 
+> We highly recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).
+
+
+This article is part of the [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator), which includes architectural guidancefor this class of workload. This architecture makes design choices based on those recommendations. The to help you set the strategic direction for your implementation. 
+
+> [!TIP]
+> ![GitHub logo](../../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) that illustrates some of those choices. The implementation can be used as your first step towards production.
 
 
 ## Architecture
