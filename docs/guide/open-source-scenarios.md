@@ -33,7 +33,9 @@ categories:
   - security
   - networking
   - windows-virtual-desktop
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - devx-track-terraform
 ---
 
 # Open-source scenarios on Azure

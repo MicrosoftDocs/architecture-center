@@ -7,6 +7,8 @@ categories:
   - devops
   - networking
   - security
+ms.custom:
+  - devx-track-bicep
 ms.author: robbag
 ms.date: 06/14/2022
 ms.topic: conceptual
