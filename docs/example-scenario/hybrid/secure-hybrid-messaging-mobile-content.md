@@ -257,7 +257,7 @@ Here are the high-level steps:
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
 - [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Cloud Solution Architect
 - [Ella Parkum](https://www.linkedin.com/in/ella-parkum-15036923) | Principal Customer Solution Architect-Engineering
