@@ -173,7 +173,7 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 Building an HPC system from scratch on Azure offers a significant amount of flexibility, but it is often very maintenance intensive.
 
-1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+1. Set up your own cluster environment in Azure virtual machines or [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
 3. Choose HPC and GPU [VM sizes](#compute) that include specialized hardware and network connections for MPI or GPU workloads.
 4. Add [high-performance storage](#storage) for I/O-intensive workloads.
@@ -262,7 +262,7 @@ SaaS providers or developers can use the Batch SDKs and tools to integrate HPC a
 
 In Azure Batch all the services are running on the Cloud, the image below shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
 
-![Diagram shows example HPC architecture for Azure Batch](images/cloud-native-job-scheduler-azure-batch.jpg)
+![Diagram shows example HPC architecture for Azure Batch.](images/cloud-native-job-scheduler-azure-batch.jpg)
 
 
 ### Azure CycleCloud
@@ -292,13 +292,13 @@ The cloud native model example diagram below, shows how the workload in the clou
 
 |Feature              |Azure Batch             |Azure CycleCloud     |
 |---------------|------------------------|------------------------|
-|Scheduler |Batch APIs and tools and command-line scripts in the Azure Portal (Cloud Native).  |Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler.|
+|Scheduler |Batch APIs and tools and command-line scripts in the Azure portal (Cloud Native).  |Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler.|
 |Compute Resources |Software as a Service Nodes – Platform as a Service |Platform as a Service Software – Platform as a Service |
 |Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
 |Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
 |Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
 |User type |Developers |Classic HPC administrators and users |
-|Work Type |Throughput (batch), workflows |Tightly coupled (Message Passing Interface/MPI). Throughput |
+|Work Type |Batch, Workflows |Tightly coupled (Message Passing Interface/MPI).|
 |Windows Support |Yes |Varies, depending on scheduler choice |
 
 ### Workload managers
