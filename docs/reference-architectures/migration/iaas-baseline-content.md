@@ -1,5 +1,5 @@
 
-TBD: intro paragraph that describes scenario and clarifies:
+Need intro paragraph that describes scenario and clarifies:
 - focus IS on infrastructure
 - focus IS NOT on workload
 - data tier is out of scope - use database of choice
@@ -9,6 +9,8 @@ TBD: intro paragraph that describes scenario and clarifies:
 :::image type="content" source="./media/iaas-baseline.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iaas-baseline.vsdx) of this architecture.*
+
+Need to convert to SVG, create Visio, create thumbnail
 
 ### Components
 

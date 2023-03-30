@@ -5721,7 +5721,7 @@ items:
               - name: IaaS baseline architectures
                 items:
                   - name: Migrate VM workloads to VMSS
-                    href: reference-architectures/migrate/iaas-baseline.yml                   
+                    href: reference-architectures/migration/iaas-baseline.yml                   
               - name: Migrate a web app with APIM
                 href: example-scenario/apps/apim-api-scenario.yml
               - name: Migrate master data services with Profisee
