@@ -1,17 +1,17 @@
 ---
-  title: SWIFT's Alliance Connect in Azure
-  description: This article is a landing page for all SWIFT Alliance Connect components that can be deployed on Azure.
-  author: Mahesh-MSFT
-  ms.author: maksh
-  ms.date: 06/10/2022
-  ms.topic: conceptual
-  ms.service: architecture-center
-  ms.subservice: azure-guide
-  ms.category:
-    - featured
-  ms.custom:
-    - fcp
-    - example-scenario
+title: SWIFT's Alliance Connect in Azure
+description: This article is a landing page for all SWIFT Alliance Connect components that can be deployed on Azure.
+author: Mahesh-MSFT
+ms.author: maksh
+ms.date: 06/10/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+ms.category:
+  - featured
+ms.custom:
+  - fcp
+  - example-scenario
 azureCategories:
   - integration
   - migration

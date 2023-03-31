@@ -22,10 +22,11 @@ products:
   - azure-managed-disks
   - azure-load-balancer
   - azure-firewall
-
 ---
 
 # SWIFT Alliance Messaging Hub (AMH) with Alliance Connect
+
+This article outlines a solution for hosting SWIFT's Alliance Messaging Hub (AMH) on Azure.
 
 ## Architecture
 
