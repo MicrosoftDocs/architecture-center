@@ -1,17 +1,16 @@
 ---
-  title: SWIFT Alliance Messaging Hub (AMH) with Alliance Connect
-  description: Run SWIFT Alliance Messaging Hub (AMH) on Azure. This messaging solution helps financial institutions to securely and efficiently bring new services to market.
-  author: Mahesh-MSFT
-  ms.author: maksh
-  ms.date: 06/09/2022
-  ms.topic: example-scenario
-  ms.service: architecture-center
-  ms.subservice: example-scenario
-  ms.category:
-    - featured
-  ms.custom:
-    - fcp
-    - example-scenario
+title: SWIFT Alliance Messaging Hub (AMH) with Alliance Connect
+description: Run SWIFT Alliance Messaging Hub (AMH) on Azure. This messaging solution helps financial institutions to securely and efficiently bring new services to market.author: Mahesh-MSFT
+ms.author: maksh
+ms.date: 06/09/2022
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.category:
+  - featured
+ms.custom:
+  - fcp
+  - example-scenario
 azureCategories:
   - integration
   - migration

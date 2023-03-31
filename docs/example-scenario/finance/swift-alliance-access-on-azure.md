@@ -1,17 +1,17 @@
- --- 
-  title: SWIFT Alliance Access on Azure
-  description: This article provides a reference architecture for deploying and running SWIFT Alliance Access on Azure.
-  author: ehaslett
-  ms.author: ethaslet
-  ms.date: 06/09/2022
-  ms.topic: example-scenario
-  ms.service: architecture-center
-  ms.subservice: example-scenario
-  ms.category:
-    - featured
-  ms.custom:
-    - fcp
-    - example-scenario
+--- 
+title: SWIFT Alliance Access on Azure
+description: This article provides a reference architecture for deploying and running SWIFT Alliance Access on Azure.
+author: ehaslett
+ms.author: ethaslet
+ms.date: 06/09/2022
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.category:
+  - featured
+ms.custom:
+  - fcp
+  - example-scenario
 azureCategories:
   - integration
   - migration
@@ -22,7 +22,6 @@ products:
   - azure-managed-disks
   - azure-load-balancer
   - azure-firewall
-
 ---
 
 # SWIFT Alliance Access on Azure
