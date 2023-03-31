@@ -2,7 +2,7 @@
 
 This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest.
 
-![Secure hybrid network architecture with separate Active Directory domains](./images/adds-forest.png)
+[ ![Diagram that shows secure hybrid network architecture with separate Active Directory domains.](./images/adds-forest.svg)](./images/adds-forest.svg#lightbox)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
