@@ -36,7 +36,7 @@ In other situations, you might have sets of shared resources. For example, when 
 > [!NOTE]
 > There is a [limit to the number of tags](/azure/azure-resource-manager/management/tag-resources#limitations) that can be applied to a resource. When you work with shared resources, it's best not to add a tag for every tenant that shares the resource. Instead, consider adding a tag with the shard ID or another way to identify the group of tenants.
 
-Consider an example multitenant solution that's built using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml). Each deployment stamp includes a shared web server and sharded databases. Tags can be applied to each of the Azure components, as shown in the following diagram.
+Consider an example multitenant solution that's built using the [Deployment Stamps pattern](../../../patterns/deployment-stamp.yml) and a [vertically partitioned tenancy model](../considerations/tenancy-models.yml#vertically-partitioned-deployments). Each deployment stamp includes a shared web server and sharded databases. Tags can be applied to each of the Azure components, as shown in the following diagram.
 
 ![Diagram showing two stamps, with tags added to each component.](media/cost-management-allocation/tags.png)
 
@@ -51,7 +51,7 @@ With this tagging strategy, it's easy to filter the cost information to a single
 
 In situations where you don't have a direct relationship between an Azure resource and a tenant, consider instrumenting your application to collect telemetry.
 
-Your application tier may already collect logs and metrics that are helpful to answer the following questions, for example:
+Your application tier might already collect logs and metrics that are helpful to answer questions about metering, for example:
 
 - Approximately how many API requests are made per tenant?
 - What times of the day are specific tenants busiest?
@@ -78,9 +78,9 @@ Reservation scopes can also be helpful, when you have tenants with unpredictable
 
 ## Antipatterns to avoid
 
-- **Not tracking costs at all.** It's important to have at least an approximate idea of the costs you're incurring, and how each tenant impacts the cost of delivering your solution. Otherwise, if your costs change over time, you have no baseline to compare against.
+- **Not tracking costs at all.** It's important to have at least an approximate idea of the costs you're incurring, and how each tenant impacts the cost of delivering your solution. Otherwise, if your costs change over time, you have no baseline to compare against. You also might not be able to predict how a growth in tenants will impact your costs and profitability.
 - **Making assumptions or guessing.** Ensure your cost measurement is based on real information. You might not need a high degree of precision, but even your estimates should be informed by real measurements.
-- **Unnecessary precision.** You may not need to have a detailed accounting of every cost that's incurred for every tenant. Building unnecessarily precise cost measurement and optimization processes can be counterproductive, which adds engineering complexity and creates brittle processes.
+- **Unnecessary precision.** You might not need to have a detailed accounting of every cost that's incurred for every tenant. Building unnecessarily precise cost measurement and optimization processes can be counterproductive, because it adds engineering complexity and creates brittle processes.
 - **Real-time measurement.** Most solutions don't need up-to-the-minute cost measurements. Because metering and consumption data can be complex to process, you should log the necessary data and then asynchronously aggregate and process the data later.
 - **Using monitoring tools for billing.** As described in [Instrument your application](#instrument-your-application), ensure you use tools that are designed for cost monitoring and metering. Application monitoring solutions are typically not good candidates for this type of data, especially when you need high precision.
 

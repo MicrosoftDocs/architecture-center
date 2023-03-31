@@ -21,7 +21,7 @@ The architecture has two main components:
 
 The **connectors** are specific to each external catalog. They're responsible for the first two steps: extract and transform. Because of the nature of these steps, and because the connectors depend on details that are specific to the external catalog, you need to create a connector for each catalog that the solution works with. Catalog-specific details include how to extract the metadata, by using, for example, APIs, and how the metadata is structured. You therefore need one of each of the services components of the connectors that are shown in the diagram (Azure Functions, Azure Event Hubs) per external catalog. The output of the connector component is written in a catalog-agnostic format, referred in this article to as the *pivot* format.
 
-The **import module** is the last step in the synchronization framework. It's also catalog agnostic, and it works with metadata in pivot format. All metadata that was extracted and transformed into pivot format is streamed to three service buses, one for each object type: classifications, glossary terms, and assets. An Azure function listens to each service bus queue and imports the received object into Microsoft Purview as an upsert operation by using the [Microsoft Purview API](/rest/api/purview/catalogdataplane/entity) or [SDKs](/azure/purview/tutorial-using-python-sdk). The functions also populate intermediate storage, referred to as *synchronization state* in this article, with information about the imported objects. Deletion is handled on a scheduled basis, via an Azure function, based on information from synchronization state.
+The **import module** is the last step in the synchronization framework. It's also catalog-agnostic, and it works with metadata in pivot format. All metadata that was extracted and transformed into pivot format is streamed to three service buses, one for each object type: classifications, glossary terms, and assets. An Azure function listens to each service bus queue and imports the received object into Microsoft Purview as an upsert operation by using the [Microsoft Purview API](/rest/api/purview/catalogdataplane/entity) or [SDKs](/azure/purview/tutorial-using-python-sdk). The functions also populate intermediate storage, referred to as *synchronization state* in this article, with information about the imported objects. Deletion is handled on a scheduled basis, via an Azure function, based on information from synchronization state.
 
 1. **Extract** 
 
@@ -111,7 +111,7 @@ The type is analogous to a class definition in object-oriented programming (OOP)
 
 ### Additional details about properties
 
-The `type` property is the type of the asset that you want to create. For example, if you want to create an asset of type SQL table, `type` is `azure_sql_table`. For an overview of the types in Microsoft Purview, see [Types - REST API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions?tabs=HTTP).  
+The `type` property is the type of the asset that you want to create. For example, if you want to create an asset of type SQL table, the `type` is `azure_sql_table`. For an overview of the types in Microsoft Purview, see [Types - REST API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions?tabs=HTTP).  
 
 - `target_collection` is the name of the collection in which the asset should be located in Microsoft Purview. 
 

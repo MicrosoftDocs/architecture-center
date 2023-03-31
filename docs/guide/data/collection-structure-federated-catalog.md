@@ -23,7 +23,7 @@ This guide describes a recommended structure for collections in a [Microsoft Pur
 Organizations that take advantage of the potential of data can gain significant benefits.
 For example, Contoso, like many large companies, wants to create a holistic view of its data assets to enable data-driven business scenarios. Contoso is made up of multiple subdivisions and subsidiaries that work independently, which results in data silos and limited collaboration. 
 
-For example, employees in Division A are starting a new project. Data assets like web site logs, trend analysis, and social network analysis might be relevant to the project. However, these assets belong to other subsidiaries, and the employees aren't even aware of them, which affects the success of the project.
+For example, employees in Division A are starting a new project. Data assets like website logs, trend analysis, and social network analysis might be relevant to the project. However, these assets belong to other subsidiaries, and the employees aren't even aware of them, which affects the success of the project.
 
 Contoso wants to avoid this type of situation by creating a federated metadata catalog. Examples of metadata include the name and schema of a SQL table. The metadata doesn't reveal the contents of the table.
 
@@ -53,10 +53,10 @@ The preceding structure enables the creation of a federated catalog for two type
    :::image type="content" source="./media/restrict-inherited-permissions.png" alt-text="Diagram that illustrates restricted inheritance." lightbox="./media/restrict-inherited-permissions.png" border="false"::: 
 
    > [!Note] 
-   > When inherited permissions are restricted, role assignments from the higher levels aren't inherited, with the exception of Collection Administrator. Inheritance can't be broken for that role. 
+   > When inherited permissions are restricted, with the exception of Collection Administrator role, assignments from higher levels aren't inherited. Inheritance can't be broken for the Collection Administrator role. 
 
 - **Type 2.** Subdivisions that use different catalogs and import their metadata to the federated data catalog in other ways. (For an example architecture, see [Ingest metadata from external catalogs to Microsoft Purview](../../solution-ideas/articles/sync-framework-metadata-ingestion.yml).) These catalogs are represented by collections under *External catalogs root collection* in the first diagram. 
-   - Members of these subdivisions aren't granted permissions to create subcollections. Each subdivision gets its own root collection, but only the **Data deader** role is assigned to the users. Collection Administrator and Data Source Administrator roles aren't assigned. These roles are assigned only to the administrator of the catalog. 
+   - Members of these subdivisions aren't granted permissions to create subcollections. Each subdivision gets its own root collection, but only the **Data reader** role is assigned to the users. Collection Administrator and Data Source Administrator roles aren't assigned. These roles are assigned only to the administrator of the catalog. 
    - All users of the federated catalog can read the metadata that members of these divisions import.
 
 ## Contributors 
