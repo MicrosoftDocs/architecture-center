@@ -36,19 +36,32 @@ You should use [Resilience4j](https://github.com/resilience4j/resilience4j) to i
 *Reference implementation.* The reference implementation adds the Retry pattern by decorating a lambda expression with the Retry annotations. The code retries the call to get the media file from disk. The following code demonstrates how to use Resilience4j to retry a filesystem call to Azure Files to get the last modified time.
 
 ```java
-@Retry(name = "retryApi", fallbackMethod = "isNewVersionAvailableFallback")
-@CircuitBreaker(name = "CircuitBreakerService")
-@GetMapping("/isNewFinalVersionAvailable")
-public boolean isNewFinalVersionAvailable() {
-    return externalAPICaller.isNewFinalVersionAvailable();
-}
+private MediaFile checkLastModified(MediaFile mediaFile, MusicFolder folder, boolean minimizeDiskAccess) {
+        Retry retry = retryRegistry.retry("media");
+        CheckedFunction0<MediaFile> supplier = () -> doCheckLastModified(mediaFile, folder, minimizeDiskAccess);
+        CheckedFunction0<MediaFile> retryableSupplier = Retry.decorateCheckedSupplier(retry, supplier);
+        Try<MediaFile> result = Try.of(retryableSupplier).recover((IOException) -> mediaFile);
+        return result.get();
+    }
+```
 
-@Retry(name = "retryApi", fallbackMethod = "isNewVersionAvailableFallback")
-@CircuitBreaker(name = "CircuitBreakerService")
-@GetMapping("/isNewBetaVersionAvailable")
-public boolean isNewBetaVersionAvailable() {
-    return externalAPICaller.isNewBetaVersionAvailable();
-}
+[See code in context](https://github.dev/airsonic-advanced/airsonic-advanced/blob/master/airsonic-main/src/main/java/org/airsonic/player/service/MediaFileService.java#L191)
+
+The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In the code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` after reaching the maximum amount of retries.
+
+The reference implementation configures the retry properties in the application.yaml file. The following code sets the maximum number of retries to eight with an ten second wait duration between the first and second retry attempt. The `exponentialBackoffMultiplier` sets the multiplier for exponential backoff. It's at two, so the wait duration doubles with each retry attempt.
+
+```yaml
+resilience4j.retry:
+    instances:
+        media:
+            maxRetryAttempts: 8
+            waitDuration: 10s
+            enableExponentialBackoff: true
+            exponentialBackoffMultiplier: 2
+            retryExceptions:
+                - java.nio.file.FileSystemException
+                - java.io.IOException
 ```
 
 You can configure the properties of the Retry pattern in the `application.properties` file.
@@ -68,25 +81,7 @@ You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit 
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
-*Reference implementation:* The reference implementation adds the Circuit Breaker pattern by decorating a lambda expression with the Circuit Breaker annotation.
-
-```java
-@Retry(name = "retryApi", fallbackMethod = "isNewVersionAvailableFallback")
-@CircuitBreaker(name = "CircuitBreakerService")
-@GetMapping("/isNewFinalVersionAvailable")
-public boolean isNewFinalVersionAvailable() {
-    return externalAPICaller.isNewFinalVersionAvailable();
-}
-
-@Retry(name = "retryApi", fallbackMethod = "isNewVersionAvailableFallback")
-@CircuitBreaker(name = "CircuitBreakerService")
-@GetMapping("/isNewBetaVersionAvailable")
-public boolean isNewBetaVersionAvailable() {
-    return externalAPICaller.isNewBetaVersionAvailable();
-}
-```
-
-You can configure the properties of the Circuit Breaker pattern in the `application.properties` file.
+*Reference implementation:* You can configure the properties of the Circuit Breaker pattern in the `application.properties` file.
 
 ```java
 resilience4j.circuitbreaker.instances.CircuitBreakerService.failure-rate-threshold=50
