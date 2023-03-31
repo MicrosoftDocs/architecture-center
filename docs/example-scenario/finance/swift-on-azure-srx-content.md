@@ -1,3 +1,31 @@
+---
+  title: SWIFT's Alliance Connect in Azure
+  description: This article is a landing page for all SWIFT Alliance Connect components that can be deployed on Azure.
+  author: Mahesh-MSFT
+  ms.author: maksh
+  ms.date: 06/10/2022
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.category:
+    - featured
+  ms.custom:
+    - fcp
+    - example-scenario
+azureCategories:
+  - integration
+  - migration
+summary: Use this landing page to understand SWIFT Alliance Connect components and their architecture in Azure.
+products:
+  - azure-resource-manager
+  - azure-policy
+  - azure-logic-apps
+  - azure-monitor
+  - azure-active-directory
+---
+
+# SWIFT Alliance Connect in Azure
+
 This series of articles provide guidance on using SWIFT's components in Azure. This article discusses the basic components that the architecture examples use in this series.
 
 The intended audiences for this article are program managers, architects, and engineers who are implementing SWIFT components in Azure. The article is organized into the following structure:
