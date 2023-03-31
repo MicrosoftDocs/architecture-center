@@ -1239,11 +1239,11 @@ items:
                   - name: Alliance Connect
                     items:
                       - name: SWIFT Alliance Connect
-                        href: example-scenario/finance/swift-on-azure-srx.yml
+                        href: example-scenario/finance/swift-on-azure-srx.md
                       - name: SWIFT Alliance Access
-                        href: example-scenario/finance/swift-alliance-access-on-azure.yml
+                        href: example-scenario/finance/swift-alliance-access-on-azure.md
                       - name: SWIFT AMH with Alliance Connect
-                        href: example-scenario/finance/swift-alliance-messaging-hub.yml
+                        href: example-scenario/finance/swift-alliance-messaging-hub.md
                   - name: Alliance Connect Virtual
                     items:
                       - name: SWIFT Alliance Connect Virtual
