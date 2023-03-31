@@ -10,18 +10,18 @@ This article describes a highly scalable architecture for ingesting metadata fro
 
 *Download a [Visio file](https://arch-center.azureedge.net/synchronization-framework.vsdx) of this architecture.*  
 
-### Workflow 
+### Workflow   
 
 This solution imports three types of objects from external catalogs into Microsoft Purview: [assets](/azure/purview/catalog-asset-details), [glossary terms](/azure/purview/concept-business-glossary), and [classifications](/azure/purview/concept-classification).  
 
-The architecture has two main components:  
+The architecture has two main components:
 
 - Connectors (steps 1 and 2) 
 - An import module (step 3) 
 
-The **connectors** are specific to each external catalog. They're responsible for the first two steps: extract and transform. Because of the nature of these steps, and because the connectors depend on details that are specific to the external catalog, you need to create a connector for each catalog that the solution works with. Catalog-specific details include how to extract the metadata, by using, for example, APIs, and how the metadata is structured. You therefore need one of each of the services components of the connectors shown in the diagram (Azure Functions, Azure Event Hubs) per external catalog. The output of the connector component is written in a catalog-agnostic format, referred in this article to as the *pivot* format.
+The **connectors** are specific to each external catalog. They're responsible for the first two steps: extract and transform. Because of the nature of these steps, and because the connectors depend on details that are specific to the external catalog, you need to create a connector for each catalog that the solution works with. Catalog-specific details include how to extract the metadata, by using, for example, APIs, and how the metadata is structured. You therefore need one of each of the services components of the connectors that are shown in the diagram (Azure Functions, Azure Event Hubs) per external catalog. The output of the connector component is written in a catalog-agnostic format, referred in this article to as the *pivot* format.
 
-The **import module** is the last step in the synchronization framework. It's catalog agnostic and works with metadata in pivot format. All metadata that was extracted and transformed to pivot format is streamed to three services buses, one for each object type: classifications, glossary terms, and assets. An Azure function listens to each service bus queue and imports the received object into Microsoft Purview as an upsert operation by using the [Microsoft Purview API](/rest/api/purview/catalogdataplane/entity) or [SDKs](/azure/purview/tutorial-using-python-sdk). The functions also populate intermediate storage, referred to as *synchronization state* in this article, with information about the imported objects. Deletion is handled on a scheduled basis, via an Azure function, based on information from synchronization state.
+The **import module** is the last step in the synchronization framework. It's also catalog agnostic, and it works with metadata in pivot format. All metadata that was extracted and transformed into pivot format is streamed to three service buses, one for each object type: classifications, glossary terms, and assets. An Azure function listens to each service bus queue and imports the received object into Microsoft Purview as an upsert operation by using the [Microsoft Purview API](/rest/api/purview/catalogdataplane/entity) or [SDKs](/azure/purview/tutorial-using-python-sdk). The functions also populate intermediate storage, referred to as *synchronization state* in this article, with information about the imported objects. Deletion is handled on a scheduled basis, via an Azure function, based on information from synchronization state.
 
 1. **Extract** 
 
@@ -34,13 +34,13 @@ The **import module** is the last step in the synchronization framework. It's ca
    - **Push-based** extraction: The subdivision owns the extraction step. The subdivision implements a mechanism that uses Kafka to directly push the metadata to an Event Hubs topic.  
 
    > [!Note] 
-   > One Event Hub topic is used for each external catalog.  
+   > One Event Hubs topic is used for each external catalog.  
 
 2. **Transform**
 
-   During the transform step, the metadata received from the external catalog is converted into a common format, called *[pivot](#pivot-classes)* in this article. This step consists of one Azure function, with an event hub as an input binding, for each external catalog. The output of this step is a set of assets, glossary terms, or classifications in the pivot format. This set is streamed to the corresponding Azure Service Bus queue via a [Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output).  
+   During the transform step, the metadata that's received from the external catalog is converted into a common *[pivot](#pivot-classes)* format. This step consists of one Azure function, with an event hub as an input binding, for each external catalog. The output of this step is a set of assets, glossary terms, or classifications in the pivot format. This set is streamed to the corresponding Azure Service Bus queue via a [Service Bus output binding](/azure/azure-functions/functions-bindings-service-bus-output).  
 
-   For example, if the message received in the event hub contains a glossary term, the term is transformed to its pivot format and sent to the pivot glossary terms queue. 
+   For example, if the message that's received in the event hub contains a glossary term, the term is transformed to its pivot format and sent to the pivot glossary terms queue. 
 
 3. **Import** 
 
@@ -53,12 +53,12 @@ The **import module** is the last step in the synchronization framework. It's ca
 ### Components
 
 - [Azure Functions](https://azure.microsoft.com/products/functions) is used in all compute steps. You can easily trigger Azure functions based on a schedule or specific events, which is particularly useful in a synchronization framework. 
-- [Event Hubs](https://azure.microsoft.com/products/event-hubs) is used between the extract and transform steps. It streams the metadata that's extracted from the external catalog and is consumed during the transformation step. Event Hubs provides [an interface that can consume events produced by Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview).  
+- [Event Hubs](https://azure.microsoft.com/products/event-hubs) is used between the extract and transform steps. It streams the metadata that's extracted from the external catalog and consumed during the transformation step. Event Hubs provides [an interface that can consume events produced by Kafka](/azure/event-hubs/azure-event-hubs-kafka-overview).  
    - An external catalog can communicate with the system by using its own protocol and language, without needing details about the internals of the system, which uses exclusively the Event Hubs protocol. 
    - Event Hubs is suitable for both pull-based and push-based scenarios.
 - [Service Bus](https://azure.microsoft.com/products/service-bus) is used as the message broker between the transform and import steps. Separate queues are used for assets, glossary terms, and classification. Service Bus provides high scalability and built-in mechanisms that are useful in an event-driven distributed system, like Peek-Lock, a dead letter queue, and message deferral. 
 - [Microsoft Purview](https://azure.microsoft.com/products/purview/) is a data governance solution that provides a holistic map of metadata assets. 
-- [Table Storage](https://azure.microsoft.com/products/storage/tables) stores the state of the objects that are synchronized between the external sources and Microsoft Purview. It's cost effective and provides highly scalable data storage, a simple API, and a strong consistency model. 
+- [Table Storage](https://azure.microsoft.com/products/storage/tables) stores the state of the objects that are synchronized between the external sources and Microsoft Purview. It's cost-effective and provides highly scalable data storage, a simple API, and a strong consistency model. 
 - [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) are used for all Azure functions when they communicate with the corresponding event hubs and service bus queues. For information about using the Microsoft Purview Rest API with a service principal, see [How to use REST APIs for Microsoft Purview Data Planes](/azure/purview/tutorial-using-rest-apis). For more information about access control in Microsoft Purview, see [Understand access and permissions in the Microsoft Purview governance portal](/azure/purview/catalog-permissions).
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of [Azure Monitor](https://azure.microsoft.com/products/monitor), is used to collect telemetry. Monitoring is important in distributed systems. For more information, see [Distributed tracing in Application Insights](/azure/azure-monitor/app/distributed-tracing).
 
@@ -72,7 +72,7 @@ This architecture is also highly scalable:
 - The architecture uses Event Hubs and Service Bus triggers, which enables Azure Functions to scale in or out, balance the load, and process incoming messages concurrently as needed. 
 
   > [!note]
-  > To avoid lock contention and achieve the highest performance, you need to perform throughput testing.  
+  > To avoid lock contention and to achieve the highest performance, you need to perform throughput testing.  
 
 - The Azure functions use Event Hubs triggers, which are compatible with the use of a [consumption plan](https://azure.microsoft.com/pricing/details/functions/#:~:text=Azure%20Functions%20consumption%20plan%20is,function%20apps%20in%20that%20subscription.) that bills based on per-second resource consumption and executions. Using this plan makes the architecture scalable and cost-efficient.
 
@@ -80,7 +80,7 @@ This architecture is also highly scalable:
 
 Organizations that take advantage of the potential of data can gain significant benefits. For example, Contoso, like many large companies, wants to create a holistic view of its data assets to enable data-driven business scenarios. Contoso is made up of multiple subdivisions and subsidiaries that work independently, which results in data silos and limited collaboration. 
 
-For example, employees in Division A are starting a new project. Data assets like web site logs, trend analysis, and social network analysis might be relevant to the project. However, these assets belong to other subsidiaries, and the employees aren't even aware of them, which affects the success of the project. 
+For example, employees in Division A are starting a new project. Data assets like website logs, trend analysis, and social network analysis might be relevant to the project. However, these assets belong to other subsidiaries, and the employees aren't even aware of them, which affects the success of the project. 
 
 Contoso wants to avoid this type of situation by creating a federated metadata catalog. Examples of metadata include the name and schema of a SQL table. The metadata doesn't reveal the contents of the table. 
 
@@ -98,7 +98,7 @@ Here's the class diagram:
 
 `PivotItem` is the base class. `PivotClassificationItem`, `PivotAssetItem`, and `PivotGlossaryItem` inherit from the base class.
 
-By using the information passed in the pivot classes, the import step [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities), [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term), or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-update) via, for example, the REST API.
+By using the information that's passed in the pivot classes, the import step [can create or update an entity](/rest/api/purview/catalogdataplane/entity/create-or-update-entities), [a glossary term](/rest/api/purview/catalogdataplane/glossary/create-glossary-term), or a [classification](/rest/api/purview/scanningdataplane/classification-rules/create-or-update) via, for example, the REST API.
 
 You can use `PivotAssetItem` to create relationships between assets. You can also assign [glossary terms](/rest/api/purview/catalogdataplane/glossary/assign-term-to-entities) or [classifications](/rest/api/purview/catalogdataplane/entity/add-classification) to assets by using the `glossary_items` and `classification_items` properties.
 
@@ -111,7 +111,7 @@ The type is analogous to a class definition in object-oriented programming (OOP)
 
 ### Additional details about properties
 
-`type` is the type of the asset that you want to create. For example, if you want to create an asset of type SQL table, the `type` is `azure_sql_table`. For an overview of the types in Microsoft Purview, see [Types - REST API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions?tabs=HTTP).  
+The `type` property is the type of the asset that you want to create. For example, if you want to create an asset of type SQL table, `type` is `azure_sql_table`. For an overview of the types in Microsoft Purview, see [Types - REST API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions?tabs=HTTP).  
 
 - `target_collection` is the name of the collection in which the asset should be located in Microsoft Purview. 
 
@@ -130,7 +130,7 @@ The synchronization state intermediate storage maintains the state of synchroniz
 |*CatalogName*_Classification|de3…85f|2023-11-25T22:12:27Z|ce4...13c|Failed||2023-11-25T22:13:02Z| 
 
 > [!Note] 
-> Synchronization state is used to reflect the last run of the synchronization framework. It doesn't provide historical data of all runs. Therefore, there's only one entry per object imported from external catalogs. It reflects the state of the last synchronization (`Completed`, `Pending`, or `Failed`).
+> Synchronization state is used to reflect the last run of the synchronization framework. It doesn't provide historical data of all runs. Therefore, only one entry per object is imported from external catalogs. The entry reflects the state of the last synchronization (`Completed`, `Pending`, or `Failed`).
 
 Here are some details about these properties: 
 
@@ -175,7 +175,7 @@ The following diagram illustrates the details of the import flow of an asset and
          1. Otherwise, the message is skipped.  
 
       > [!Note] 
-      > All messages that belong to a single synchronization run have the same `Correlation ID`. This configuration ensures that each object is updated only one time per run. It assumes that there are no partial updates. You should consider how this behavior affects your implementation.
+      > All messages that belong to a single synchronization run have the same value for `Correlation ID`. This configuration ensures that each object is updated only one time per run. It assumes that there are no partial updates. You should consider how this behavior affects your implementation.
 1. The object is created or updated in Microsoft Purview.
 1. The unique identifier of the object, `Purview Object ID`, and the `Sync End Time` are written to synchronization state, and the `State` is changed to `Completed`. If the import fails, `State` is set to `Failed`. 
 
