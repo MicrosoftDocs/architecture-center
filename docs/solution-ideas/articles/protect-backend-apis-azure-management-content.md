@@ -50,7 +50,7 @@ Backend APIs are an entry point to your applications and data, an entry point th
 
 You can use any OpenID Connect identity provider (IdP), from Microsoft or another supplier, to authenticate clients. This solution uses Azure Active Directory B2C (Azure AD B2C). If you authenticate with something other than OpenID Connect you can, in most cases, use Azure AD B2C to federate. For more information, see [Add an identity provider to your Azure Active Directory B2C tenant](/azure/active-directory-b2c/add-identity-provider).
 
-## Potential use cases
+### Potential use cases
 
 This architecture addresses the needs of organizations seeking to:
 
