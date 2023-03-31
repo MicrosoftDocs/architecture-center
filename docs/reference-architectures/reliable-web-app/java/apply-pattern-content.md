@@ -58,24 +58,6 @@ You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit 
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
-*Reference implementation:* You can configure the properties of the Circuit Breaker pattern in the `application.properties` file.
-
-```java
-resilience4j.circuitbreaker.instances.CircuitBreakerService.failure-rate-threshold=50
-resilience4j.circuitbreaker.instances.CircuitBreakerService.minimum-number-of-calls=6
-resilience4j.circuitbreaker.instances.CircuitBreakerService.automatic-transition-from-open-to-half-open-enabled=true
-resilience4j.circuitbreaker.instances.CircuitBreakerService.wait-duration-in-open-state=15s
-resilience4j.circuitbreaker.instances.CircuitBreakerService.permitted-number-of-calls-in-half-open-state=3
-resilience4j.circuitbreaker.instances.CircuitBreakerService.sliding-window-size=10
-resilience4j.circuitbreaker.instances.CircuitBreakerService.sliding-window-type=count_based
-
-resilience4j.circuitbreaker.metrics.enabled=true
-resilience4j.circuitbreaker.metrics.legacy.enabled=true
-resilience4j.circuitbreaker.instances.CircuitBreakerService.register-health-indicator=true
-resilience4j.circuitbreaker.instances.CircuitBreakerService.event-consumer-buffer-size=10
-resilience4j.circuitbreaker.configs.CircuitBreakerService.registerHealthIndicator=true
-```
-
 For more ways to configure Resiliency4J, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilliency4J documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 ### Use multiple availability zones
