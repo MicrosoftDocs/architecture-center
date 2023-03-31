@@ -5720,8 +5720,8 @@ items:
                 href: example-scenario/mainframe/general-mainframe-refactor.yml
               - name: IaaS baseline architectures
                 items:
-                  - name: Migrate VM workloads to VMSS
-                    href: reference-architectures/migration/iaas-baseline.yml                   
+                  - name: IaaS baseline architecture for TBD
+                    href: vm/iaas-baseline.yml                   
               - name: Migrate a web app with APIM
                 href: example-scenario/apps/apim-api-scenario.yml
               - name: Migrate master data services with Profisee
