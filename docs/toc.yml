@@ -5720,7 +5720,7 @@ items:
                 href: example-scenario/mainframe/general-mainframe-refactor.yml
               - name: IaaS baseline architectures
                 items:
-                  - name: IaaS baseline architecture for TBD
+                  - name: TBD
                     href: vm/iaas-baseline.yml                   
               - name: Migrate a web app with APIM
                 href: example-scenario/apps/apim-api-scenario.yml
