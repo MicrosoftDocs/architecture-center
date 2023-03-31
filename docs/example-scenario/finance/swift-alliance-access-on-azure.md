@@ -12,7 +12,7 @@ ms.category:
 ms.custom:
   - fcp
   - example-scenario
-azureCategories:
+categories:
   - integration
   - migration
 summary: Use this reference architecture to deploy and run SWIFT Alliance Access Infrastructure and networking components in Azure.
