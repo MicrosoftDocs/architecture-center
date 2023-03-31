@@ -79,7 +79,7 @@ Managed identities provide resources & code an identity to be used in role assig
 - [Azure services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation:* The web app on-premises used a database local user and authenticates with a username and password. You can continue to use the database local user with a secret in Key Vault. You could also use a managed identity.  The reference implementation keeps the database local user and authenticates with a username and password. However, it uses a system-assigned managed identity to access the Key Vault.
+*Reference implementation:* The web app on-premises used a database local user and authenticates with a username and password. You can continue to use the database local user with a secret in Key Vault. You could also use a managed identity. The reference implementation keeps the database local user and authenticates with a username and password. However, it uses a system-assigned managed identity to access the Key Vault.
 
 ### Configure user authentication and authorization
 
@@ -87,23 +87,7 @@ You should use the authentication and authorization mechanisms that meet securit
 
 **Configure user authentication to web app.** Azure App Service has built-in authentication and authorization capabilities (Easy Auth). You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
-*Reference implementation.* The reference implementation configures Easy Auth after the web app deploys. This step is a workaround to a Terraform and Easy Auth support limitation. The following code shows the workaround. It uses a resource named `null_resource` with the name `upgrade_auth_v2`. The `provisioner` block tells Terraform to execute an a Azure CLI command that upgrades the authentication configuration version of an Azure Web App.
-
-```terraform
-#Due to the following [issue](https://github.com/hashicorp/terraform-provider-azurerm/issues/12928), We have to manually upgrade the auth settings to version 2.
-
-resource "null_resource" "upgrade_auth_v2" {
-  depends_on = [
-    module.application
-  ]
-
-  provisioner "local-exec" {
-    command = "az webapp auth config-version upgrade --name ${module.application.application_name} --resource-group ${azurerm_resource_group.main.name}"
-  }
-}
-```
-
-[See code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/d02b02aa2572f2bae651dede77fbc5051a313003/terraform/main.tf#L238)
+*Reference implementation.* The reference implementation configures Easy Auth.
 
 **Use role-based authorization.** A role is a set of permissions, and role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
 
