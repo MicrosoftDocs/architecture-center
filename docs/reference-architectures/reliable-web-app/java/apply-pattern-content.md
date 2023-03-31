@@ -47,32 +47,9 @@ private MediaFile checkLastModified(MediaFile mediaFile, MusicFolder folder, boo
 
 [See code in context](https://github.dev/airsonic-advanced/airsonic-advanced/blob/master/airsonic-main/src/main/java/org/airsonic/player/service/MediaFileService.java#L191)
 
-The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In the code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` after reaching the maximum amount of retries.
+The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In the code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` after reaching the maximum amount of retries. The reference implementation configures the retry properties in the `application.properties`.
 
-The reference implementation configures the retry properties in the application.yaml file. The following code sets the maximum number of retries to eight with an ten second wait duration between the first and second retry attempt. The `exponentialBackoffMultiplier` sets the multiplier for exponential backoff. It's at two, so the wait duration doubles with each retry attempt.
-
-```yaml
-resilience4j.retry:
-    instances:
-        media:
-            maxRetryAttempts: 8
-            waitDuration: 10s
-            enableExponentialBackoff: true
-            exponentialBackoffMultiplier: 2
-            retryExceptions:
-                - java.nio.file.FileSystemException
-                - java.io.IOException
-```
-
-You can configure the properties of the Retry pattern in the `application.properties` file.
-
-```java
-resilience4j.retry.instances.retryApi.max-attempts=3
-resilience4j.retry.instances.retryApi.wait-duration=3s
-resilience4j.retry.metrics.legacy.enabled=true
-resilience4j.retry.metrics.enabled=true
-```
-
+[See code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/src/airsonic-advanced/airsonic-main/src/main/resources/application.properties).
 For more ways to configure Resiliency4J, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and [Resilliency4J documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3)
   
 ### Use the circuit-breaker pattern
@@ -103,9 +80,9 @@ For more ways to configure Resiliency4J, see [Spring Circuit Breaker](https://do
 
 ### Use multiple availability zones
 
-Azure availability zones are physically separate datacenters within an Azure region that have independent power, networking, and cooling. The benefits of using availability zones include increased resiliency and fault tolerance for applications and services, improved business continuity, and reduced risk of data loss or downtime. It's a best practice to use multiple availability zones for production workloads. You can use a single availability zone in your development environment to save money.
+Azure availability zones are physically separate datacenters within an Azure region that have independent power, networking, and cooling. Availability zones increase resiliency for reduced risk of data loss or downtime. If you can use multiple availability zones and performance or cost factors don't create a risk, you should use them for production workloads. You can use a single availability zone in your development environment to save money.
 
-*Reference implementation.* The Redis Cache and PostgreSQL database use one availability zone for both the development and production environments. The Azure Storage uses a single availability but uses [zone redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) for improved data redundancy.
+*Reference implementation.* The reference implementation uses PostgreSQL flexible server with zone redundancy for the production environment only. The development environment uses a single availability zone to save money. The reference implementation also uses Azure Storage with [zone redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) for improved data redundancy.
 
 ## Security
 
@@ -120,9 +97,9 @@ Managed identities provide resources & code an identity to be used in role assig
 - [Azure services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-Managed identities are similar to connection strings in on-premises applications. On-premises apps use connection strings to secure communication to a database. Trusted connection and Integrated security features hide the database username and password from the config file. The application connects to the database with an Active Directory account. These are often referred to as service accounts because only the service could authenticate.
+*Reference implementation:* The web app on-premises used a database local user and authenticated with a username and password. You can continue to use feature of db local user using key vault. Leverage postgreSQL to use local db accounts.
 
-*Reference implementation:* The reference implementation uses a system-assigned managed identity to managed permissions and access to Key Vault.
+Alt. - you could use managed identity.The reference implementation uses a system-assigned managed identity to managed permissions and access to Key Vault.
 
 ### Configure user authentication and authorization
 
