@@ -79,9 +79,7 @@ Managed identities provide resources & code an identity to be used in role assig
 - [Azure services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation:* The web app on-premises used a database local user and authenticated with a username and password. You can continue to use feature of db local user using key vault. Leverage postgreSQL to use local db accounts.
-
-Alt. - you could use managed identity.The reference implementation uses a system-assigned managed identity to managed permissions and access to Key Vault.
+*Reference implementation:* The web app on-premises used a database local user and authenticates with a username and password. You can continue to use the database local user with a secret in Key Vault. You could also use a managed identity.  The reference implementation keeps the database local user and authenticates with a username and password. However, it uses a system-assigned managed identity to access the Key Vault.
 
 ### Configure user authentication and authorization
 
