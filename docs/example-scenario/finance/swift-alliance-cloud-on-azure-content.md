@@ -146,7 +146,7 @@ Principal authors:
 ## Related resources
 
 Explore the functionality and architecture of other SWIFT modules in the following articles: 
-* [SWIFT Alliance Connect on Azure](swift-on-azure-srx.yml)
+
 * [SWIFT Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
 * [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
 * [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)

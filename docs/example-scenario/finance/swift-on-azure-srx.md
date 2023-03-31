@@ -12,7 +12,7 @@ ms.category:
 ms.custom:
   - fcp
   - example-scenario
-azureCategories:
+categories:
   - integration
   - migration
 summary: Use this landing page to understand SWIFT Alliance Connect components and their architecture in Azure.
