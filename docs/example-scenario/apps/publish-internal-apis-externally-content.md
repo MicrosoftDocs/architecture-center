@@ -155,7 +155,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 
 <!-- links -->
 
-[architecture]: ./media/architecture-publish-internal-apis-externally-new.png
+[architecture]: ./media/architecture-publish-internal-apis-externally-new.svg
 [dns]: /azure/dns/private-dns-overview
 [ase]: /azure/app-service/environment/intro
 [apim]: /azure/api-management/api-management-key-concepts
