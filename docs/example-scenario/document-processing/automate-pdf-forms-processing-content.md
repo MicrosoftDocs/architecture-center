@@ -1,10 +1,8 @@
-## Automate PDF forms processing
-
 This article describes an Azure architecture that you can use to replace costly and inflexible forms processing methods with cost-effective and flexible automated PDF processing.
 
 ## Architecture
 
-:::image type="content" source="images/automate-pdf-forms-processing.png" alt-text="{Diagram of the architecture for PDF forms processing}":::
+:::image type="content" source="images/automate-pdf-forms-processing.png" alt-text="Diagram of the architecture for PDF forms processing":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/automate-pdf-forms-processing.pptx) of this architecture.*
 
@@ -127,7 +125,7 @@ The deployment files are in the top-level Deployment folder of the repository:
 
 > [https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/tree/main/Deployment](https://github.com/microsoft/Azure-PDF-Form-Processing-Automation-Solution-Accelerator/tree/main/Deployment)
 
-The readme file that's displayed at that location is the deployment guide. You deploy by following the steps. 
+The readme file that's displayed at that location is the deployment guide. You deploy by following the steps.
 
 Step 2 provides details about using sample PDF forms to create a custom-built machine learning model. You plug the model into the solution by setting the environment variable called **CUSTOM\_BUILT\_MODEL\_ID** to the machine model name in the function app. For more information, see step 3.
 
@@ -165,7 +163,9 @@ The architecture doesn't address any high availability (HA) or disaster recovery
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:- [Gail Zhou](http://linkedin.com/in/gailzhou) | Sr. Architect
+Principal author:
+
+- [Gail Zhou](http://linkedin.com/in/gailzhou) | Sr. Architect
 
 Other contributors:
 
