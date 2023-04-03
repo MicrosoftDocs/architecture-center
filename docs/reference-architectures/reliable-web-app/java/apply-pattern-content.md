@@ -72,18 +72,35 @@ Cloud applications often comprise multiple Azure services. Communication between
 
 ### Use managed identities
 
-Managed identities create an identity in Azure Active Directory (Azure AD) and Azure manages all the secrets. You don't have to rotate secrets or have any credentials in your code. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. You web applications can use managed identities. Applications receive a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. In general, you should use managed identities for all supported Azure services unless keeping your on-premises authentication and authorization supports your migration.  For more information, see:
+Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. receive a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, a developer can use a managed identity to (1) grant the web app access to an Azure resource such as Azure Key Vault or an Azure database or (2) enable a CI/CD pipeline to deploy a web app from GitHub to Azure App Service. You should use managed identities where possible because of the security and operational benefits. However, there are cases where keeping your on-premises authentication and authorization configuration improves your migration experience. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later.  For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
 - [Azure services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation:* Instead of a managed identity, web app on-premises used a database local user and authenticates with a username and password. You can continue to use the database local user with a secret in Key Vault. You could also use a managed identity. The reference implementation keeps the database local user and authenticates with a username and password. However, it uses a system-assigned managed identity to access the Key Vault.
+*Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The web app in the reference implementation keeps the database local user and authenticates with a username and password. The reference implementation stores the database secret in Key Vault. The web app doesn't use a managed identity to access the database, but it does use a managed identity (system-assigned) to retrieve secrets from Key Vault. The developer plans on switching to a managed identity in the future.
 
 ### Configure user authentication and authorization
 
-You should use the authentication and authorization mechanisms that meet security best practices on the cloud, implemented where possible with cloud native features, and satisfy your business requirements. Azure App Service has built-in authentication and authorization capabilities (Easy Auth).
+### Pick a authorization flow
+
+The Microsoft Authentication Library (MSAL) supports several authorization grants and associated token flows for use by different application types and scenarios. You need to pick a supported authentication flow. For more information, see [Authorization flow](/azure/active-directory/develop/msal-authentication-flows).
+
+*Reference implementation.* The reference implementation uses the OAuth 2.0 authorization code grant to log in a user with an Azure AD account. The following XML snippet defines the two required dependencies. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
+
+```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-oauth2-client</artifactId>
+    </dependency>
+```
+
+By adding these dependencies to the project, the developer can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into their Spring Boot application without manually configuring the required libraries and settings. For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
 **Configure web app authentication and authorization**
 
@@ -188,25 +205,6 @@ public class AADAddAuthorizedUsersFilter extends OncePerRequestFilter {
     }
 }
 ```
-
-### Pick a authorization flow
-
-The Microsoft Authentication Library (MSAL) supports several authorization grants and associated token flows for use by different application types and scenarios. You need to pick a supported authentication flow. For more information, see [Authorization flow](/azure/active-directory/develop/msal-authentication-flows).
-
-*Reference implementation.* The reference implementation uses the OAuth 2.0 authorization code grant to log in a user with an Azure AD account. The following XML snippet defines the two required dependencies. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
-
-```xml
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-oauth2-client</artifactId>
-    </dependency>
-```
-
-By adding these dependencies to the project, the developer can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into their Spring Boot application without manually configuring the required libraries and settings. For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
 ### Use a central secrets store (Azure Key Vault)
 
