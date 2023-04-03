@@ -175,13 +175,11 @@ For more information, see:
 
 ### Configure database security
 
-Administrator-level authentication to the database is important because it grants elevated permissions that can be used to perform privileged operations (creating and deleting databases, modifying table schemas, or changing user permissions). Without administrator-level access, a developer might not be able to perform certain tasks required to maintain the database or troubleshoot issues.
+**Implement admin least-privilege access.** Administrator-level authentication to the database is important because it grants elevated permissions that can be used to perform privileged operations (creating and deleting databases, modifying table schemas, or changing user permissions). Without administrator-level access, a developer might not be able to perform certain tasks required to maintain the database or troubleshoot issues. However, it's not recommended to use administrator-level authentication for day-to-day operations in the application. You should configure least-privileged access to the database. This helps to minimize the risk of unauthorized access and limit the damage that can be done in the event of a security breach.
 
-However, it's not recommended to use administrator-level authentication for day-to-day operations in the application. Instead, you should configure least-privileged access for the application to the database. This helps to minimize the risk of unauthorized access and limit the damage that can be done in the event of a security breach.
+**????** You have two primary methods to access the Azure PostgreSQL database. You can use Azure AD authentication or PostgreSQL authentication. For more information, see [JDBC with Azure PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql).
 
-You have two primary methods to access the Azure PostgreSQL database. You can use Azure AD authentication or PostgreSQL authentication. For more information, see [JDBC with Azure PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql).
-
-### Validate user information (WHAT IS THE GUIDANCE HERE?)
+#### Validate user information (WHAT IS THE GUIDANCE HERE?)
 
 You application needs to store user data in the database, but it should only add the user to the database if they have a valid role. You need to implement a mechanism to add valid users to the database.
 
