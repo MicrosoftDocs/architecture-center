@@ -1,6 +1,6 @@
-The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. This article shows you how to plan the implementation of the reliable web app pattern for Java. The companion article shows you how to [apply the pattern](apply-pattern.yml).
+This article shows you how to plan the implementation of the reliable web app pattern for Java. The companion article shows you how to [apply the pattern](apply-pattern.yml). The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see [Overview of the reliable web app pattern](../overview.md).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's also a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) of the reliable web app pattern for Java that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
+![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) of the reliable web app pattern for Java that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
 
 ## Architecture and pattern
 
@@ -63,7 +63,7 @@ Azure has a fully managed service specifically for Spring Boot apps, Azure Sprin
 
 ### Identity management
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with the application. Azure AD provides the application with the following abilities:
+[Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a cloud-based identity and access management service. It authenticates and authorizes users based on roles that integrate with our application. Azure AD provides the application with the following abilities:
 
 - **Authentication and authorization:** The application needed to authenticate and authorize employees.
 - **Scalable:** It scales to support larger scenarios.
@@ -110,17 +110,17 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Global ingress gateway
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) sets up additional features such as Web Application Firewall and positions us to use a content delivery network to provide site acceleration as traffic to the web app increases. We chose Azure Front Door because it provides the following capabilities.
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a content deliver network that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
 
-- **Traffic acceleration:** It uses anycast to reach the nearest Azure point of presence and find the fastest route to our web app.
-- **Custom domains:** It supports custom domain names with flexible domain validation.
-- **Health probes:** The application needed intelligent health probe monitoring. Azure Front Door then uses these responses from the probe to determine the "best" origin to route your client requests.
-- **Monitoring support:** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
-- **DDoS protection:** It has built-in layer 3-4 DDoS protection.
+- **Internet-facing security.** It provides built-in layer 3-4 DDoS protection and integrates with Azure Web Application Firewall (WAF) to protect web apps against common web attacks.
+- **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to our web app.
+- **Custom domains.** It supports custom domain names with flexible domain validation.
+- **Health probes.** The application needed intelligent health probe monitoring. Azure Front Door then uses these responses from the probe to determine the "best" origin to route your client requests.
+- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
 
 ### Web application firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and prevents malicious attacks close to the attack sources before they enter your virtual network. Azure Web Application Firewall provided the following benefits.
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefit
 
 - **Global protection:** It provides global web app protection without sacrificing performance.
 - **Botnet protection:** The team can monitor and configure to address security concerns from botnets.
@@ -128,7 +128,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. Proseware will use managed identities over secrets where possible, but there are situations where X.509 certificates, connection strings, and pre-shared secrets still need to be stored.  Key Vault was chosen because it provides:
+[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third-party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. The web app uses Key Vault because it provides the following features:
 
 - **Encryption:** It supports encryption at rest and in transit.
 - **Supports managed identities:** The application services can use managed identities to access the secret store.
@@ -137,9 +137,9 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Object storage
 
-Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. The app uses the filesystem to save uploaded training videos.  We used the Azure Files integration in App Service to mount an NFS share, which allows our Tomcat app server to seamlessly access the share. Azure Files is a good fit because it simplified the process of getting our app running on the cloud.
+Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. The app uses the filesystem to save uploaded training videos. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This enables the app to read and write files to the shared file system in the cloud. The web app uses Azure Files for the following reasons:
 
-- **Replace existing file server:** Azure Files allows us to replace our existing file server without having to modify our code to use an alternative blob storage mechanism.
+- **Replace existing file server:** Azure Files allows us to replace our existing file server without having to modify our code to use an alternative blob storage mechanism. It's good fit because it simplified the process of getting our app running on the cloud.
 - **Fully managed:** Azure file shares allow us to maintain compatibility without needing to manage hardware or operating system for a file server.
 - **Resiliency:** Azure Files has been built from the ground up to be always available.
 - **Durability.** Azure files has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
