@@ -2851,6 +2851,8 @@ items:
             href: data-guide/big-data/ai-overview.md
           - name: Guides
             items:
+              - name: Automate PDF forms processing
+                href: example-scenario/document-processing/automate-pdf-forms-processing.yml
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Custom speech-to-text overview
@@ -3071,6 +3073,8 @@ items:
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
+              - name: Automate PDF form processing
+                href: example-scenario/document-processing/automate-pdf-forms-processing.yml
               - name: Automate video analysis
                 href: example-scenario/ai/analyze-video-computer-vision-machine-learning.yml
               - name: Baseball decision analysis with ML.NET
@@ -3391,6 +3395,8 @@ items:
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Data management with Azure Purview
                 href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
+              - name: Metadata ingestion from external catalogs to Microsoft Purview
+                href: solution-ideas/articles/sync-framework-metadata-ingestion.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
               - name: Demand forecasting for pricing
@@ -4212,6 +4218,8 @@ items:
                 href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
               - name: Microsoft Purview guidance
                 items:
+                  - name: Collection structure for a federated catalog
+                    href: guide/data/collection-structure-federated-catalog.md
                   - name: Accounts architectures and best practices
                     href: /azure/purview/concept-best-practices-accounts
                     maintainContext: true
