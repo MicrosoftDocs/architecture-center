@@ -72,24 +72,26 @@ Cloud applications often comprise multiple Azure services. Communication between
 
 ### Use managed identities
 
-Managed identities provide resources & code an identity to be used in role assignments on Azure resource dependencies. You should use managed identities for all supported Azure services. They make identity management easier and more secure, providing benefits for authentication, authorization, and accounting. Managed identities create a workload identity (service principal) in Azure AD. Applications can use managed identities to obtain Azure AD tokens without having to manage any credentials. For more information, see:
+Managed identities create an identity in Azure Active Directory (Azure AD) and Azure manages all the secrets. You don't have to rotate secrets or have any credentials in your code. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. You web applications can use managed identities. Applications receive a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. In general, you should use managed identities for all supported Azure services unless keeping your on-premises authentication and authorization supports your migration.  For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
 - [Azure services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation:* The web app on-premises used a database local user and authenticates with a username and password. You can continue to use the database local user with a secret in Key Vault. You could also use a managed identity. The reference implementation keeps the database local user and authenticates with a username and password. However, it uses a system-assigned managed identity to access the Key Vault.
+*Reference implementation:* Instead of a managed identity, web app on-premises used a database local user and authenticates with a username and password. You can continue to use the database local user with a secret in Key Vault. You could also use a managed identity. The reference implementation keeps the database local user and authenticates with a username and password. However, it uses a system-assigned managed identity to access the Key Vault.
 
 ### Configure user authentication and authorization
 
-You should use the authentication and authorization mechanisms that meet security best practices on the cloud, implemented where possible with cloud native features, and satisfy your business requirements.
+You should use the authentication and authorization mechanisms that meet security best practices on the cloud, implemented where possible with cloud native features, and satisfy your business requirements. Azure App Service has built-in authentication and authorization capabilities (Easy Auth).
 
-**Configure user authentication to web app.** Azure App Service has built-in authentication and authorization capabilities (Easy Auth). You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
+**Configure web app authentication and authorization**
+
+**Configure user authentication to web app.** It's a built-in authentication feature for App Service and Azure Functions can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application.You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
 *Reference implementation.* The reference implementation configures Easy Auth.
 
-**Use role-based authorization.** A role is a set of permissions, and role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
+**Use role-based access controls (RBACs) to define user permissions.** A role is a set of permissions. Role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
 
 *Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the Airsonic application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles.
 
