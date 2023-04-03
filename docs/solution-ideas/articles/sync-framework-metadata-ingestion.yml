@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Ingest metadata from external catalogs to Microsoft Purview
+  titleSuffix: Azure Architecture Center
+  description: Learn about a highly scalable architecture for ingesting metadata from external catalogs into Microsoft Purview. 
+  author: jcorioland
+  ms.author: jucoriol
+  ms.date: 03/29/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: solution-idea
+azureCategories:
+  - databases
+  - analytics
+products:
+  - microsoft-purview
+  - azure-functions
+  - azure-event-hubs
+  - azure-table-storage
+  - azure-monitor
+name: Ingest metadata from external catalogs to Microsoft Purview
+summary: Learn about a highly scalable architecture for ingesting metadata from external catalogs into Microsoft Purview. 
+thumbnailUrl: /azure/architecture/browse/thumbs/metadata-ingestion-thumb.png
+content: |
+  [!include[](sync-framework-metadata-ingestion-content.md)]

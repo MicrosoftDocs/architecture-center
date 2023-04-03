@@ -140,8 +140,7 @@ items:
           - name: Choose a storage service
             items:
               - name: Storage options
-                href: /azure/cloud-adoption-framework/ready/considerations/storage-options
-                maintainContext: true
+                href: guide/technology-choices/storage-options.md
               - name: Managed disk types
                 href: /azure/virtual-machines/disks-types
                 maintainContext: true
@@ -171,6 +170,8 @@ items:
                 href: guide/technology-choices/data-store-overview.md
               - name: Select a data store
                 href: guide/technology-choices/data-store-decision-tree.md
+              - name: Review data options
+                href: guide/technology-choices/data-options.md
               - name: Criteria for choosing a data store
                 href: guide/technology-choices/data-store-considerations.md
               - name: Big data storage
@@ -2850,6 +2851,8 @@ items:
             href: data-guide/big-data/ai-overview.md
           - name: Guides
             items:
+              - name: Automate PDF forms processing
+                href: example-scenario/document-processing/automate-pdf-forms-processing.yml
               - name: Cognitive services
                 href: data-guide/technology-choices/cognitive-services.md
               - name: Custom speech-to-text overview
@@ -3070,6 +3073,8 @@ items:
                 href: example-scenario/ai/automate-document-processing-azure-form-recognizer.yml
               - name: Automate COVID-19 test forms
                 href: example-scenario/ai/form-recognizer-covid.yml 
+              - name: Automate PDF form processing
+                href: example-scenario/document-processing/automate-pdf-forms-processing.yml
               - name: Automate video analysis
                 href: example-scenario/ai/analyze-video-computer-vision-machine-learning.yml
               - name: Baseball decision analysis with ML.NET
@@ -3390,6 +3395,8 @@ items:
                 href: solution-ideas/articles/content-delivery-network-azure-data-explorer.yml
               - name: Data management with Azure Purview
                 href: solution-ideas/articles/azure-purview-data-lake-estate-architecture.yml
+              - name: Metadata ingestion from external catalogs to Microsoft Purview
+                href: solution-ideas/articles/sync-framework-metadata-ingestion.yml
               - name: Demand forecasting for shipping
                 href: solution-ideas/articles/demand-forecasting-for-shipping-and-distribution.yml
               - name: Demand forecasting for pricing
@@ -4211,6 +4218,8 @@ items:
                 href: data-guide/scenarios/build-scalable-database-solutions-azure-services.md
               - name: Microsoft Purview guidance
                 items:
+                  - name: Collection structure for a federated catalog
+                    href: guide/data/collection-structure-federated-catalog.md
                   - name: Accounts architectures and best practices
                     href: /azure/purview/concept-best-practices-accounts
                     maintainContext: true

@@ -14,7 +14,7 @@ In this architecture, we divide the solution into two areas, describing security
 
 ### General notes
 
-- This architecture uses the [federated](/microsoft-365/enterprise/plan-for-directory-synchronization?view=o365-worldwide#federated-authentication) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and pass-through authentication models, the logic and the flow are the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
+- This architecture uses the [federated](/azure/active-directory/hybrid/whatis-fed) Azure Active Directory (Azure AD) identity model. For the password hash synchronization and pass-through authentication models, the logic and the flow are the same. The only difference is related to the fact that Azure AD won't redirect the authentication request to on-premises Active Directory Federation Services (AD FS).
 - The diagram shows access to the Outlook on the web service that corresponds to an …/owa path. Exchange admin center (or Exchange Control Panel) user access that corresponds to an …/ecp path follows the same flow.
 - In the diagram, dashed lines show basic interactions between local Active Directory, Azure AD Connect, Azure AD, AD FS, and Web Application Proxy components. You can learn more about these interactions in [Hybrid identity required ports and protocols](/azure/active-directory/hybrid/reference-connect-ports).
 - By *Exchange on-premises*, we mean Exchange 2019 with the latest updates, Mailbox role. By *Exchange Edge on-premises*, we mean Exchange 2019 with the latest updates, Edge Transport role. We include Edge server in the diagram to highlight that you can use it in these scenarios. It's not involved in the work with client protocols that's discussed here.
@@ -64,14 +64,6 @@ You also need to enable integration of AD FS and Azure AD Multi-Factor Authentic
 - [Exchange Server](https://www.microsoft.com/microsoft-365/exchange/email). Exchange Server hosts user mailboxes on-premises. In this architecture, it uses tokens issued to the user by Azure AD to authorize access to mailboxes.
 
 - [Active Directory services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). Active Directory services stores information about members of a domain, including devices and users. In this architecture, user accounts belong to Active Directory services and are synchronized to Azure AD.
-
-### Alternatives
-
-You can use [Azure AD Application Proxy](/azure/active-directory/app-proxy) as an alternative to AD FS and Web Application Proxy for publishing the Exchange on-premises web access service. There are some disadvantages to this alternative approach:
-
-- Lack of documentation for publishing Exchange
-- Lack of Exchange-specific scalability figures
-- Vanity URL (owa-company.msappproxy.net)
 
 ## Scenario details
 
@@ -193,9 +185,9 @@ To set up an Azure AD Conditional Access policy that enforces multi-factor authe
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
-- [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Senior Customer Engineer
+- [Pavel Kondrashov](https://www.linkedin.com/in/kondrashov-pv) | Cloud Solution Architect
 - [Ella Parkum](https://www.linkedin.com/in/ella-parkum-15036923) | Principal Customer Solution Architect-Engineering
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
