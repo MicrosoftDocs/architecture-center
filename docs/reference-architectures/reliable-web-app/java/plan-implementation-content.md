@@ -47,7 +47,7 @@ Finally, use the formulas for composite SLAs to estimate the composite availabil
 
 ## Choose the right services
 
-Choosing the right Azure services is an important part of the planning phase before moving your app to Azure. Understanding the level of performance and availability you need for your app will have an impact on the total cost to run your solution. You should start by defining a target SLO for your solution and use that information to determine which products and SKUs you should be using. We provide our decision process for each service in the solution. Our two main requirements were (1) having an SLA of 99.86% for the production environment and (2) handling an average load of 1,000 users daily.
+The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts. At this phase, it's important select Azure services that mirror key on-premises choices to minimize the migration effort. At this phase, it's important to select the Azure services that mirror key on-premises choices. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLA of 99.9% for the production environment and (2) an average load of 1,000 users daily.
 
 ### Application platform
 
@@ -72,31 +72,29 @@ Azure has a fully managed service specifically for Spring Boot apps, Azure Sprin
 
 ### Database
 
-[Azure Database for PostgreSQL](/postgresql/single-server/overview) is a fully managed database service that provides built-in high availability, automated maintenance for underlying hardware, operating system and database engine, data protection using automatic backups and point-in-time restore, enterprise grade security and industry-leading compliance to protect sensitive data at-rest and in-motion.
+[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service that provides built-in high availability, automated maintenance for underlying hardware, operating system and database engine, data protection using automatic backups and point-in-time restore, enterprise grade security and industry-leading compliance to protect sensitive data at-rest and in-motion. Azure Database for PostgreSQL includes single-server and Flexible Server options. We chose the flexible server service for the following benefits:
 
-Azure Database for PostgreSQL includes single-server and Flexible Server options. We chose Flexible Server because it meets the following requirements:
-
-- **Reliability:** we chose a single-zone high availability configuration, ideal for infrastructure redundancy with lower network latency. It provides high availability without the need to configure app redundancy across zones. Same-zone HA is available in all Azure regions where you can deploy Flexible Server and offers an uptime SLA of 99.95%.
-- **Performance:** Flexible Server provides your apps with predictable performance and intelligent tuning to automatically improve your database's performance based on real usage data.
-- **Reduced management overhead:** Flexible Server is a fully managed database-as-a-service offering.
-- **Migration support:** Flexible Server supports database migration from on-premises Single Server PostgreSQL databases. Microsoft has a [preview migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
-- **Consistency with on-premises configurations:** Azure Database for PostgreSQL supports [many community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Proseware uses today.
-- **Business continunity:** Flexible Server automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them on zone redundant storage (ZRS) within the region. Backups can be used to restore your server to any point-in-time within the backup retention period.  The recovery point objective (RPO) offered by this solution is shorter, and therefore better, than Proseware's current solution.
+- **Reliability.** The flexible server deployment model supports high availability within a single availability zone and across multiple availability zones. For a high SLO, choose the zone redundant high availability configuration. This configuration and maintains a warm standby server across availability zone within the same Azure region. Data replicates synchronously to the standby server to improve reliability.
+- **Performance.** It provides your apps with predictable performance and intelligent tuning to improve your database's performance based on real usage data.
+- **Reduced management overhead.** It's a fully managed Azure service that reduces the management obligations.
+- **Migration support.** It supports database migration from on-premises, single-server PostgreSQL databases. You can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
+- **Consistency with on-premises configurations.** It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Proseware uses today.
+- **Resiliency.** It automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them on zone redundant storage (ZRS) within the same region. You can restore your database to any point-in-time within the backup retention period. This creates a much better recovery point objective (RPO) (acceptable amount of data loss) than was possible on-premise.
 
 ### Application performance monitoring
 
-Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. We chose to incorporate Application Insights for the following reasons.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps. The web app uses Application Insights for the following reasons:
 
 - **Anomaly detection:** It automatically detects performance anomalies.
 - **Troubleshooting:** It helps diagnose issues in the running app.
 - **Telemetry:** It collects information about how users are using the app and allows us to easily send custom events we want to track in our app.
+- **Solving an on-premises visibility gap.** The on-premises solution didn't have APM. Application Insights provides easy integration with the application platform and code.
 
-Azure Monitor is a comprehensive suite of monitoring tools to collect data from a variety of Azure services. Review the following concepts to quickly come up to speed on its capabilities:
+Azure Monitor is a comprehensive suite of monitoring tools to collect data from a variety of Azure services. For more information, see:
 
 - [Application Monitoring for Azure App Service and Java](/azure/azure-monitor/app/azure-web-apps-java)
 - [Smart detection in application insights](/azure/azure-monitor/alerts/proactive-diagnostics)
 - [Application Map: Triaging Distributed Applications](/azure/azure-monitor/app/app-map?tabs=java)
-- [Profile live App Service apps with Application Insights](/azure/azure-monitor/profiler/profiler)
 - [Usage analysis with Application Insights](/azure/azure-monitor/app/usage-overview)
 - [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)
 - [Application Insights Overview dashboard](/azure/azure-monitor/app/overview-dashboard)
@@ -106,11 +104,9 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 [Azure Cache for Redis](/azure-cache-for-redis/cache-overview) is a managed in-memory data store based on the Redis software. The web app needed a cache that provided the following benefits:
 
-- **Reduce management overhead:** It's a fully managed service.
 - **Speed and volume:** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
 - **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-- **Enabling non-sticky sessions:** Externalizing session state supports non-sticky sessions.
 
 ### Content delivery network
 
