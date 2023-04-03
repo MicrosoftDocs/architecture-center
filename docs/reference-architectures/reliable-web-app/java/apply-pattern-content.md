@@ -104,7 +104,7 @@ By adding these dependencies to the project, you can integrate Azure Active Dire
 
 **Use role-based access controls (RBACs) to manage user access.** A role is a set of permissions. Role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
 
-*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the Airsonic application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles.
+*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles.
 
 ```terraform
   app_role {
@@ -185,7 +185,7 @@ You have two primary methods to access the Azure PostgreSQL database. You can us
 
 You application needs to store user data in the database, but it should only add the user to the database if they have a valid role. You need to implement a mechanism to add valid users to the database.
 
-*Reference implementation.* The reference implementation uses a Spring Filter to add the authenticated users to the Airsonic database. The `doFilterInternal()` method checks whether the incoming request is from a valid Airsonic user. If the user is valid, the filter adds the user to the database by calling the addUserToDatabase() method. Finally, the filter calls doFilter() method on the FilterChain object to continue processing the request. The `LOG.debug()` method provides information about the execution status of the filter.
+*Reference implementation.* The reference implementation uses a Spring Filter to add the authenticated users to the database. The `doFilterInternal()` method checks whether the incoming request is from a valid application user. If the user is valid, the filter adds the user to the database by calling the addUserToDatabase() method. Finally, the filter calls doFilter() method on the FilterChain object to continue processing the request. The `LOG.debug()` method provides information about the execution status of the filter.
 
 ```java
 public class AADAddAuthorizedUsersFilter extends OncePerRequestFilter {
@@ -196,7 +196,7 @@ public class AADAddAuthorizedUsersFilter extends OncePerRequestFilter {
 
         // Add the user to the User database table if and only if they have a valid app role.
         if (isAirsonicUser(request)) {
-            LOG.debug("user is an airsonic user");
+            LOG.debug("user is an application user");
             addUserToDatabase(request);
         }
 
