@@ -75,7 +75,7 @@ You should use managed identities where possible because of the security and ope
 
 *Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The web app in the reference implementation keeps the database local user and authenticates with a username and password. The reference implementation stores the database secret in Key Vault. The web app doesn't use a managed identity to access the database, but it does use a managed identity (system-assigned) to retrieve secrets from Key Vault. The developer plans on switching to a managed identity in the future.
 
-### Configure user authentication and authorization
+#### Configure user authentication and authorization
 
 **Use MSAL.** When migrating web apps to Azure, it's important to consider the authentication and authorization mechanisms you will sue to secure the app and its resources. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
 
@@ -102,9 +102,7 @@ By adding these dependencies to the project, you can integrate Azure Active Dire
 
 *Reference implementation.* The reference implementation uses the built-in authentication and authorization feature of App Service. It uses Azure Active Directory as the identity platform.
 
-**Use role-based access controls (RBACs).**
-
-A role is a set of permissions. Role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
+**Use role-based access controls (RBACs).** A role is a set of permissions. Role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
 
 *Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the Airsonic application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles.
 
