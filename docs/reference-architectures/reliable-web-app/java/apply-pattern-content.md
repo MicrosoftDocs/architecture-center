@@ -1,6 +1,4 @@
-The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud.
-
-This article shows you how to apply the reliable web app pattern for Java. The companion article shows you how to [plan the implementation](plan-implementation.yml).
+The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. It provides implementation guidance built on the [Azure Well-Architected Framework](/azure/architecture/framework/). The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. This article shows you how to apply the reliable web app pattern for Java. The companion article shows you how to [plan the implementation](plan-implementation.yml).
 
 ![Diagram showing GitHub icon.](../../../_images/github.png) There's also a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) of the reliable web app pattern for Java that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
 
@@ -45,20 +43,17 @@ private MediaFile checkLastModified(MediaFile mediaFile, MusicFolder folder, boo
     }
 ```
 
-[See code in context](https://github.dev/airsonic-advanced/airsonic-advanced/blob/master/airsonic-main/src/main/java/org/airsonic/player/service/MediaFileService.java#L191)
+[See code in context](https://github.com/airsonic-advanced/airsonic-advanced/blob/master/airsonic-main/src/main/java/org/airsonic/player/service/MediaFileService.java#L173)
 
-The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In the code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` after reaching the maximum amount of retries. The reference implementation configures the retry properties in the `application.properties`.
+The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In the code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` after reaching the maximum amount of retries. The reference implementation configures the retry properties in the `application.properties` ([See code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/src/airsonic-advanced/airsonic-main/src/main/resources/application.properties)).
 
-[See code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/src/airsonic-advanced/airsonic-main/src/main/resources/application.properties).
 For more ways to configure Resiliency4J, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and [Resilliency4J documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3)
   
 ### Use the circuit-breaker pattern
 
-You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
+You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is clearly faulted. It releases the application and avoids wasting CPU cycles so the application retains its performance integrity for end users. For more information, see the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker). For more ways to configure Resiliency4J, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilliency4J documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
-
-For more ways to configure Resiliency4J, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilliency4J documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 ### Use multiple availability zones
 
@@ -72,7 +67,9 @@ Cloud applications often comprise multiple Azure services. Communication between
 
 ### Use managed identities
 
-Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. receive a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, a developer can use a managed identity to (1) grant the web app access to an Azure resource such as Azure Key Vault or an Azure database or (2) enable a CI/CD pipeline to deploy a web app from GitHub to Azure App Service. You should use managed identities where possible because of the security and operational benefits. However, there are cases where keeping your on-premises authentication and authorization configuration improves your migration experience. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later.  For more information, see:
+Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. receive a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure database). You can you a managed identity so a CI/CD pipeline can deploy a web app to App Service.
+
+You should use managed identities where possible because of the security and operational benefits. However, there are cases where keeping your on-premises authentication and authorization configuration improves your migration experience. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later.  For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
@@ -81,13 +78,11 @@ Managed identities create an identity in Azure Active Directory (Azure AD) that 
 
 *Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The web app in the reference implementation keeps the database local user and authenticates with a username and password. The reference implementation stores the database secret in Key Vault. The web app doesn't use a managed identity to access the database, but it does use a managed identity (system-assigned) to retrieve secrets from Key Vault. The developer plans on switching to a managed identity in the future.
 
-### Configure user authentication and authorization
-
 ### Pick a authorization flow
 
 The Microsoft Authentication Library (MSAL) supports several authorization grants and associated token flows for use by different application types and scenarios. You need to pick a supported authentication flow. For more information, see [Authorization flow](/azure/active-directory/develop/msal-authentication-flows).
 
-*Reference implementation.* The reference implementation uses the OAuth 2.0 authorization code grant to log in a user with an Azure AD account. The following XML snippet defines the two required dependencies. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
+*Reference implementation.* The reference implementation uses the Microsoft identity platform as the identity provider and the OAuth 2.0 authorization code grant to log in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
 ```xml
     <dependency>
@@ -100,15 +95,17 @@ The Microsoft Authentication Library (MSAL) supports several authorization grant
     </dependency>
 ```
 
-By adding these dependencies to the project, the developer can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into their Spring Boot application without manually configuring the required libraries and settings. For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
+By adding these dependencies to the project, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings. For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Configure web app authentication and authorization**
+### Configure web app authentication and authorization
 
-**Configure user authentication to web app.** It's a built-in authentication feature for App Service and Azure Functions can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application.You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
+App Service has a built-in authentication feature that provides an out-of-the-box authentication with federated identity providers. You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
-*Reference implementation.* The reference implementation configures Easy Auth.
+*Reference implementation.* The reference implementation uses the built-in authentication and authorization features of App Service.
 
-**Use role-based access controls (RBACs) to define user permissions.** A role is a set of permissions. Role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
+**Use role-based access controls (RBACs) to define user permissions.**
+
+A role is a set of permissions. Role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
 
 *Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the Airsonic application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles.
 
@@ -179,11 +176,17 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 - [Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 - [Configurable token lifetimes in the Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 
-**Configure administrator authentication to database.** You have two primary methods to access the Azure PostgreSQL database. You can use Azure AD authentication or PostgreSQL authentication. For more information, see [JDBC with Azure PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql)
+### Configure database security
 
-*Reference implementation.* The reference implementation uses PostgreSQL authentication with a username and password to maintain parity with the on-premises authentication method.
+Administrator-level authentication to the database is important because it grants elevated permissions that can be used to perform privileged operations (creating and deleting databases, modifying table schemas, or changing user permissions). Without administrator-level access, a developer might not be able to perform certain tasks required to maintain the database or troubleshoot issues.
 
-**Store user information.** You application needs to store user data in the database, but it should only add the user to the database if they have a valid role. You need to implement a mechanism to add valid users to the database.
+However, it's not recommended to use administrator-level authentication for day-to-day operations in the application. Instead, you should configure least-privileged access for the application to the database. This helps to minimize the risk of unauthorized access and limit the damage that can be done in the event of a security breach.
+
+You have two primary methods to access the Azure PostgreSQL database. You can use Azure AD authentication or PostgreSQL authentication. For more information, see [JDBC with Azure PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql).
+
+### Store user information
+
+You application needs to store user data in the database, but it should only add the user to the database if they have a valid role. You need to implement a mechanism to add valid users to the database.
 
 *Reference implementation.* The reference implementation uses a Spring Filter to add the authenticated users to the Airsonic database. The `doFilterInternal()` method checks whether the incoming request is from a valid Airsonic user. If the user is valid, the filter adds the user to the database by calling the addUserToDatabase() method. Finally, the filter calls doFilter() method on the FilterChain object to continue processing the request. The `LOG.debug()` method provides information about the execution status of the filter.
 
