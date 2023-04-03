@@ -108,7 +108,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 - **Diverse supportability:** It's a unified cache location for all instances of our web app to use.
 - **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 
-### Content delivery network
+### Global ingress gateway
 
 [Azure Front Door](/azure/frontdoor/front-door-overview) sets up additional features such as Web Application Firewall and positions us to use a content delivery network to provide site acceleration as traffic to the web app increases. We chose Azure Front Door because it provides the following capabilities.
 
@@ -133,6 +133,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 - **Encryption:** It supports encryption at rest and in transit.
 - **Supports managed identities:** The application services can use managed identities to access the secret store.
 - **Monitoring and logging:** It facilitates audit access and generate alert us when stored secrets change.
+- **Integration.** It provides native integration with the web hosting platform (App Service).
 
 ### Object storage
 
