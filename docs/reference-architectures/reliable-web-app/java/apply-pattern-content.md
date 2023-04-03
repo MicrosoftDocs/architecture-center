@@ -62,7 +62,8 @@ Azure availability zones are physically separate datacenters within an Azure reg
 Cloud applications often comprise multiple Azure services. Communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to your security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
 
 ### Authentication and authorization
-#### Configure web app identity
+
+#### Configure web app authentication and authorization
 
 **Use managed identities.** Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. receive a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure database). You can you a managed identity so a CI/CD pipeline can deploy a web app to App Service.
 
@@ -75,7 +76,7 @@ You should use managed identities where possible because of the security and ope
 
 *Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The web app in the reference implementation keeps the database local user and authenticates with a username and password. The reference implementation stores the database secret in Key Vault. The web app doesn't use a managed identity to access the database, but it does use a managed identity (system-assigned) to retrieve secrets from Key Vault. The developer plans on switching to a managed identity in the future.
 
-#### Configure user identities
+#### Configure user authentication and authorization
 
 **Use MSAL.** When migrating web apps to Azure, it's important to consider the authentication and authorization mechanisms you will sue to secure the app and its resources. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
 
