@@ -156,7 +156,7 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 
 [See code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/d02b02aa2572f2bae651dede77fbc5051a313003/src/airsonic-advanced/airsonic-main/src/main/java/org/airsonic/player/security/GlobalSecurityConfig.java#L162). For more information, see:
 
-- [Application roles](https://learn.microsoft.com/azure/architecture/multitenant-identity/app-roles) and [appRoles attribute](https://learn.microsoft.com/azure/active-directory/develop/reference-app-manifest#approles-attribute)
+- [AppRoles attribute](https://learn.microsoft.com/azure/active-directory/develop/reference-app-manifest#approles-attribute)
 - [Spring Boot Starter for Azure Active Directory developer's guide](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide)
 - [Add sign-in with Azure Active Directory account to a Spring web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
 - [Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
