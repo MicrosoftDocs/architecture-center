@@ -59,6 +59,8 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 ## Security
 
+Security is a critical component of any architectural design. Your security measures aim to ensure the confidentiality, integrity, and availability of data and systems from attacks. The following guidance outlines the key security configurations you need to enforce within the Azure environment.
+
 ### Enforce the principle of least-privileges
 
 As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. For users, you should use roles to delegate the appropriate permissions to users. The number and types of roles you use depends on the needs of your application.
