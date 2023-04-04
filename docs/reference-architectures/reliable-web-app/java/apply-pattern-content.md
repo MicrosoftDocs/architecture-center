@@ -73,7 +73,7 @@ You should also enforce least privileges to Azure services. A service in Azure h
 
 Authentication and authorization are critical aspects of web application security. Authentication is the process of verifying the identity of a user. Authorization determines what actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (App Service) and identity provider (Azure AD).
 
-**Configure user authentication (code)** Your web app needs to prioritize user authentication to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service has a built-in authentication feature ("Easy Auth"). You should use this feature to reduce the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
+**Configure user authentication** Your web app needs to prioritize user authentication to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service has a built-in authentication feature ("Easy Auth"). You should use this feature to reduce the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
 *Reference implementation.* The reference implementation uses the built-in authentication feature ("Easy Auth") of App Service to manage the initial sign-in flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
 
@@ -96,12 +96,13 @@ The Spring Cloud Starter Active Directory is an excellent option for integrating
 
 For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Web Security to use the Azure AD Spring Boot Starter library allows for seamless integration with Azure Active Directory and ensures that users are authenticated securely. Additionally, configuring and enabling the MSAL library provides access to more security features, such as token caching and automatic token refreshing, further enhances the security of the web application.
+**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Web Security to use the Azure AD Spring Boot Starter library allows integration with Azure Active Directory and ensures that users are authenticated securely. Additionally, configuring and enabling the MSAL library provides access to more security features, such as token caching and automatic token refreshing, further enhances the security of the web application.
 
-**HOW HOW HOW???*** *Nick's java input.* Applying decorators throughout code etc.
+**HOW HOW HOW???*** You need to configure your Java code to use MSAL to protect routes with decorators or XYZ java jargon. How do you say this to a Java developer?
 
-*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. The code protects routes with application roles prefixed with `APPROLE_`. The `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication.
+*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. The `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class (from MSAL) to add authentication. The code below protects routes with application roles prefixed with `APPROLE_`.
 
+***NEED NEW CODE***
 ```java
     @Configuration
 public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
@@ -142,23 +143,25 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
 
 *Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
 
-**NOTE Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES**
-
 ```json
 "appRoles":[
   {
-    "allowedMemberTypes": ["User"],
+    "allowedMemberTypes": [
+        "User"
+    ],
     "description": "ReadOnly roles have limited query access",
     "displayName": "ReadOnly",
-    "id": "random_uuid.user_role_id.result",
+    "id": "random_uuid",
     "isEnabled": true,
     "value": "User"
   },
  {
-    "allowedMemberTypes": ["User"],
+    "allowedMemberTypes": [
+        "User"
+    ],
     "description": "Creator role allows users to create content",
     "displayName": "Creator",
-    "id": "random_uuid.user_role_id.result",
+    "id": "random_uuid",
     "isEnabled": true,
     "value": "Creator"
   },
@@ -167,7 +170,7 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
 
 For more information, see:
 
-- [AppRoles attribute](https://learn.microsoft.com/azure/active-directory/develop/reference-app-manifest#approles-attribute)
+- [AppRoles attribute](/azure/active-directory/develop/reference-app-manifest#approles-attribute)
 - [Spring Boot Starter for Azure Active Directory developer's guide](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide)
 - [Add sign-in with Azure Active Directory account to a Spring web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
 - [Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
@@ -196,19 +199,17 @@ Many on-premises environments don't have a central secrets store. Key rotation i
 
 **Do not put Key Vault in the HTTP request flow.** Key Vault has API rates limits, and it stops responding when it reaches those limits. The web app should load values from Key Vault at application start time.
 
-**Use Key Vault to manage secrets.** The terms "secrets" refer to anything that you don't want exposed in plain text (passwords, keys, certificates, configuration values). After migrating to the cloud, you might still have secrets you need to manage. You should store all secrets in Key Vault.
+**Use Key Vault to manage secrets.** The terms "secrets" refer to anything that you don't want exposed in plain text (passwords, keys, certificates). After migrating to the cloud, you might still have secrets you need to manage. You should store all secrets in Key Vault.
+
+**NOTE: ADD CONVO ABOUT JAVA SDK LIBRARY**
 
 *Reference implementation:* The reference implementation stores (1) the PostgreSQL database username and password, (2) the Redis Cache password, and (3) the client secret for Azure AD tied to the MSAL implementation.
 
-**NOTES: THEY ENABLED ANOTHER JAVA SDK LIBRARY**
-
 **Use one way to access secrets in Key Vault.** You can configure your web app to access secrets in Key Vault via App Service or your application code. You can use an Application setting in App Service and inject the secret as an [environment variable](/azure/app-service/app-service-key-vault-references#azure-resource-manager-deployment). To reference it in your application code, you need to add a reference to the app properties file so the app can reach out to Key Vault.
 
-*Reference implementation.* The reference implementation uses the application code to access the secret in Key Vault. You should treat some configuration values as secrets, and the reference implementation
+*Reference implementation.* The reference implementation uses the application code through the (**JAVA SDK LIBRARY**) to access the secrets in Key Vault.
 
-**NOTE: HAS A CONFIG VALUE THAT IS SOURCED FROM KEY VAULT AND IN APP SERVICE PLATOFRM**
-
-**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. The configuration ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches. For nonstanding account access, you should use shared access signatures (SASs). There are three types of SASs (user delegation, service, and account). User delegation SAS is preferable. Of the three SASs, it's the only SAS that uses Azure AD credentials and doesn't depend on a storage account key.
+**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. The configuration ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches. For non-standing account access, you should use shared access signatures (SASs). There are three types of SASs (user delegation, service, and account). User delegation SAS is preferable. Of the three SASs, it's the only SAS that uses Azure AD credentials and doesn't depend on a storage account key.
 
 *Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service.
 
