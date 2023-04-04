@@ -1,12 +1,12 @@
 This article shows you how to apply the reliable web app pattern for Java. The companion article shows you how to [plan the implementation](plan-implementation.yml). The reliable web app pattern is a set of principles that helps developers successfully migrate web applications to the cloud. The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see [Overview of the reliable web app pattern](../overview.md).
 
-![Diagram showing GitHub icon.](../../../_images/github.png) There's also a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) of the reliable web app pattern for Java that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
+There's also a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) of the reliable web app pattern for Java that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
 
 ## Architecture and code
 
 Architecture and code are symbiotic. A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Well-Architected Framework to reinforce the interdependence of code and architecture. The following diagram illustrates how the reference implementation should look in your environment.
 
-[![Diagram showing the architecture of the reference implementation](images/java-architecture.png)](images/java-architecture.png)
+[![Diagram showing the architecture of the reference implementation](images/reliable-web-app-java.png)](images/reliable-web-app-java.png)
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost, see:*
 
 - [Production environment estimated cost](https://azure.com/e/c530c133f36c423e9774de286f7dd28a)
@@ -55,7 +55,7 @@ You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit 
 
 Azure availability zones are physically separate datacenters within an Azure region that have independent power, networking, and cooling. Availability zones increase resiliency for reduced risk of data loss or downtime. If you can use multiple availability zones and performance or cost factors don't create a risk, you should use them for production workloads. You can use a single availability zone in your development environment to save money.
 
-*Reference implementation.* The reference implementation uses PostgreSQL flexible server with zone redundancy for the production environment only. The development environment uses a single availability zone to save money. The reference implementation also uses Azure Storage with [zone redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) for improved data redundancy.
+*Reference implementation.* The reference implementation uses PostgreSQL Flexible Server with zone redundancy for the production environment only. The development environment uses a single availability zone to save money. The reference implementation also uses Azure Storage with [zone redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) for improved data redundancy.
 
 ## Security
 
