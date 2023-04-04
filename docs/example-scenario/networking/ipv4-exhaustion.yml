@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Addressing IPv4 exhaustion in Azure
+  titleSuffix: Azure Example Scenarios
+  description: Minimize private address space consumption when building large networks in Azure. They apply to customers that have run out of private IP addresses to assign to Azure VNets.
+  author: fguerri
+  ms.author: fguerri 
+  ms.date: 04/04/2023
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+name: Addressing IPv4 exhaustion in Azure
+azureCategories:
+  - networking
+summary: Minimize private address space consumption when building large networks in Azure. They apply to customers that have run out of private IP addresses to assign to Azure VNets.
+products:
+  - azure-firewall
+  - azure-virtual-network
+thumbnailUrl:
+content: |
+   [!include[](ipv4-exhaustion-content.md)]
