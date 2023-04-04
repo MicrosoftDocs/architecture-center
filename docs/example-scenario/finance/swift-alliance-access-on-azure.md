@@ -1,3 +1,31 @@
+--- 
+title: SWIFT Alliance Access on Azure
+description: This article provides a reference architecture for deploying and running SWIFT Alliance Access on Azure.
+author: ehaslett
+ms.author: ethaslet
+ms.date: 06/09/2022
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.category:
+  - featured
+ms.custom:
+  - fcp
+  - example-scenario
+categories:
+  - integration
+  - migration
+summary: Use this reference architecture to deploy and run SWIFT Alliance Access Infrastructure and networking components in Azure.
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+  - azure-managed-disks
+  - azure-load-balancer
+  - azure-firewall
+---
+
+# SWIFT Alliance Access on Azure
+
 This article provides a reference architecture for deploying and running SWIFT Alliance Access on Azure.
 
 ## Architecture
@@ -164,10 +192,8 @@ Principal author:
 
 Explore the functionality and architecture of some other SWIFT modules in detail, as provided below.
 
-* [SWIFT's Alliance Connect in Azure](swift-on-azure-srx.yml)
 * [SWIFT's Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
 * [SWIFT's Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
-* [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
 * [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
 * [SWIFT Alliance Cloud in Azure](swift-alliance-cloud-on-azure.yml)
 * [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)

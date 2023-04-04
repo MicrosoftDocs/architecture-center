@@ -1,3 +1,31 @@
+---
+title: SWIFT's Alliance Connect in Azure
+description: This article is a landing page for all SWIFT Alliance Connect components that can be deployed on Azure.
+author: Mahesh-MSFT
+ms.author: maksh
+ms.date: 06/10/2022
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+ms.category:
+  - featured
+ms.custom:
+  - fcp
+  - example-scenario
+categories:
+  - integration
+  - migration
+summary: Use this landing page to understand SWIFT Alliance Connect components and their architecture in Azure.
+products:
+  - azure-resource-manager
+  - azure-policy
+  - azure-logic-apps
+  - azure-monitor
+  - azure-active-directory
+---
+
+# SWIFT Alliance Connect in Azure
+
 This series of articles provide guidance on using SWIFT's components in Azure. This article discusses the basic components that the architecture examples use in this series.
 
 The intended audiences for this article are program managers, architects, and engineers who are implementing SWIFT components in Azure. The article is organized into the following structure:
@@ -56,9 +84,9 @@ This solution area includes services that complement all SWIFT components. Share
 
 * [Azure Policy](https://azure.microsoft.com/services/azure-policy) – can be used to enforce more security controls and SWIFT CSP requirements.
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) – supports native SWIFT messaging and can be used to natively process and transform messaging using 400+ connectors.
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor) – can be used to monitor the SWIFT infrastructure running in Azure.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor) – can be used to monitor the SWIFT infrastructure running in Azure.
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory) – can be used to integrate authentication and access control for users accessing SWIFT components.
-* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault) – can be used to store the keys and certificates securely to be used for various SWIFT components. Azure Key Vault is a mandatory component for running Alliance Connect.
+* [Azure Key Vault](https://azure.microsoft.com/services/key-vault) – can be used to store the keys and certificates securely to be used for various SWIFT components. Azure Key Vault is a mandatory component for running Alliance Connect.
 
 While the proposed architecture recommends using native Azure services, customers can choose to use their existing Azure or partner services that meet the requirements.
 
@@ -94,9 +122,7 @@ Principal author:
 Explore each Azure Architecture for the various SWIFT messaging interfaces in detail as provided below.
 
 * [SWIFT's Alliance Connect Virtual in Azure](swift-on-azure-vsrx.yml)
-* [SWIFT's Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
 * [SWIFT's Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
-* [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
 * [SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml)
 * [SWIFT Alliance Cloud in Azure](swift-alliance-cloud-on-azure.yml)
 * [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)
