@@ -59,30 +59,19 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 ## Security
 
-Cloud applications often comprise multiple Azure services. Communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to your security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints. Here are the security recommendations for the reliable web app pattern.
+Cloud applications often comprise multiple Azure services. Communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to your security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints.
 
-### Authentication and authorization
+### User authentication and authorization
 
-#### Configure web app authentication and authorization
+Goal is security is not regressing on security posture for user authn/authz, leveraging features of Azure our application platform and ID provider.
 
-**Use managed identities.** Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. receive a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure database). You can you a managed identity so a CI/CD pipeline can deploy a web app to App Service.
+**Configure user authentication (Easy Auth.) (app plat AUTHENTICATION)** App Service has a built-in authentication feature that provides an out-of-the-box authentication with federated identity providers. You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
-You should use managed identities where possible because of the security and operational benefits. However, there are cases where keeping your on-premises authentication and authorization configuration improves your migration experience. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later.  For more information, see:
+*Reference implementation.* The reference implementation uses the built-in authentication and authorization feature of App Service to manage the initial login flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
 
-- [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
-- [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
-- [Azure services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
-- [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
+**Integrate with identity provider(code)** You should use MSAL (user authN and authZ at app level). It's important to consider the authentication and authorization mechanisms you will use to secure the app and its resources. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task. (**Use the spring cloud starter active directory**).
 
-*Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The web app in the reference implementation keeps the database local user and authenticates with a username and password. The reference implementation stores the database secret in Key Vault. The web app doesn't use a managed identity to access the database, but it does use a managed identity (system-assigned) to retrieve secrets from Key Vault. The developer plans on switching to a managed identity in the future.
-
-#### Configure user authentication and authorization
-
-**Use MSAL.** When migrating web apps to Azure, it's important to consider the authentication and authorization mechanisms you will sue to secure the app and its resources. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
-
-MSAL enables developers to acquire tokens from the Microsoft identity platform, which can be used to access protected resources such as web APIs. MSAL supports a variety of authentication scenarios, including authentication of individual users, authentication of a client application, and authentication of users and applications in hybrid environments.
-
-You need to pick a supported authentication flow with MSAL because different application types and scenarios require different ways of acquiring tokens for authentication and authorization purposes. Each authorization flow has its own set of requirements, benefits, and security considerations. For example, the OAuth 2.0 authorization code grant flow is a widely used flow for web apps that require user interaction for authentication. It involves exchanging an authorization code for an access token and a refresh token. On the other hand, the OAuth 2.0 client credentials grant flow is used by confidential client applications that can authenticate themselves without user interaction. For more information, see [Authorization flow](/azure/active-directory/develop/msal-authentication-flows).
+By adding these dependencies to the project, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings.
 
 *Reference implementation.* The reference implementation uses the Microsoft identity platform as the identity provider and the OAuth 2.0 authorization code grant to log in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
@@ -97,43 +86,14 @@ You need to pick a supported authentication flow with MSAL because different app
     </dependency>
 ```
 
-By adding these dependencies to the project, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings. For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
+For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Use Easy Auth.** App Service has a built-in authentication feature that provides an out-of-the-box authentication with federated identity providers. You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
+**Implement AuthN and AuthZ business rules (code).** Configure spring to implement the rules. Configure spring web security to use the Azure AD spring boot starter library (AuthN protecting routes). *Nick's java input.* Applying decorators throughout code etc. In the code snippet, the `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication.
 
-*Reference implementation.* The reference implementation uses the built-in authentication and authorization feature of App Service. It uses Azure Active Directory as the identity platform.
+*Reference implementation* Below is an example of the implementaiton of the rules.
 
-**Use role-based access controls (RBACs) to manage user access.** A role is a set of permissions. Role-based access control (RBAC) allows you to grant fine-grained permissions to different roles. You should use RBAC and grant roles the least privilege to start. You can always add more permissions later based on need. Align roles to application needs and provide clear guidance to your technical teams that implement permissions.
-
-*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles.
-
-```terraform
-  app_role {
-    allowed_member_types = ["User"]
-    description          = "ReadOnly roles have limited query access"
-    display_name         = "ReadOnly"
-    enabled              = true
-    id                   = random_uuid.user_role_id.result
-    value                = "User"
-  }
-
-  app_role {
-    allowed_member_types = ["User"]
-    description          = "Creator role allows users to create content"
-    display_name         = "Creator"
-    enabled              = true
-    id                   = random_uuid.creator_role_id.result
-    value                = "Creator"
-  }
-```
-
-For more information, see [Add app roles to your application and receive them in the token](https://learn.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
-
-The reference implementation uses an app registration to assign AD users an app role ("User" or "Creator"). The app roles allows them to log in to the application. The reference implementation uses the following code to configure the app registration.
-
-For more information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
-
-The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a `roles` claim that lists the roles assigned to the user. In the following code, the `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication. It only grants access to the two roles configured in Azure AD, and it adds the `APPROLE_` as a prefix each role.
+*Example of app configuring and enabling MSAL library*
+*ln 135 implements roles inside app*
 
 ```java
     @Configuration
@@ -166,6 +126,36 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
         }
 ```
 
+**Express your application needs in Active Directory.** Most apps use the concept of app roles. These roles can be defined as AAD roles in which your MSAL (all the stuff above) configuration can use. The Active AD roles are the backing for the application role-based access. This is about authorizing users and using roles to do that.
+
+App roles are custom roles to assign permissions to users or apps. The codes defines the app roles and interprets them as permissions during code's authorization steps. The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
+
+*Reference implementation.* Here's an implementation of mapping application roles in AAD. The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. **NICK What ABOUT LINE 119? Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES** The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles. The previous code protects routes with application roles prefixed with `APPROLE_`.
+
+*Azure active directory app registration app roles (UPDATE WITH JSON FROM CHAT)* 
+
+```terraform
+  app_role {
+    allowed_member_types = ["User"]
+    description          = "ReadOnly roles have limited query access"
+    display_name         = "ReadOnly"
+    enabled              = true
+    id                   = random_uuid.user_role_id.result
+    value                = "User"
+  }
+
+  app_role {
+    allowed_member_types = ["User"]
+    description          = "Creator role allows users to create content"
+    display_name         = "Creator"
+    enabled              = true
+    id                   = random_uuid.creator_role_id.result
+    value                = "Creator"
+  }
+```
+
+For more information, see [Add app roles to your application and receive them in the token](https://learn.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
+
 For more information, see:
 
 - [AppRoles attribute](https://learn.microsoft.com/azure/active-directory/develop/reference-app-manifest#approles-attribute)
@@ -174,54 +164,48 @@ For more information, see:
 - [Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 - [Configurable token lifetimes in the Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
 
-### Configure database security
+The reference implementation uses an app registration to assign AD users an app role ("User" or "Creator"). The app roles allows them to log in to the application. The reference implementation uses the following code to configure the app registration. For more information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-**Implement admin least-privilege access.** Administrator-level authentication to the database is important because it grants elevated permissions that can be used to perform privileged operations (creating and deleting databases, modifying table schemas, or changing user permissions). Without administrator-level access, a developer might not be able to perform certain tasks required to maintain the database or troubleshoot issues. However, it's not recommended to use administrator-level authentication for day-to-day operations in the application. You should configure least-privileged access to the database. This helps to minimize the risk of unauthorized access and limit the damage that can be done in the event of a security breach.
+### Application as the client (previous app was server)
 
-**????** You have two primary methods to access the Azure PostgreSQL database. You can use Azure AD authentication or PostgreSQL authentication. For more information, see [JDBC with Azure PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql).
+**Use managed identities.** Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. It receives a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure database). You can you a managed identity so a CI/CD pipeline can deploy a web app to App Service.
 
-#### Validate user information (WHAT IS THE GUIDANCE HERE?)
+You should use managed identities where possible because of the security and operational benefits. However, there are cases where keeping your on-premises authentication and authorization configuration improves your migration experience. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later.  For more information, see:
 
-You application needs to store user data in the database, but it should only add the user to the database if they have a valid role. You need to implement a mechanism to add valid users to the database.
+- [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
+- [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
+- [Azure services supporting managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
+- [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation.* The reference implementation uses a Spring Filter to add the authenticated users to the database. The `doFilterInternal()` method checks whether the incoming request is from a valid application user. If the user is valid, the filter adds the user to the database by calling the addUserToDatabase() method. Finally, the filter calls doFilter() method on the FilterChain object to continue processing the request. The `LOG.debug()` method provides information about the execution status of the filter.
+*Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The reference implementation stores the database secret in Key Vault. The web app use a managed identity (system-assigned) to retrieve run-time secrets from Key Vault.
 
-```java
-public class AADAddAuthorizedUsersFilter extends OncePerRequestFilter {
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+**All services should least-privilege access (user and workload identities).** SERVICES USUALLY DO x THROUGH SERVICE ACCOUNTS, SUCH AS PRESHARED ACCESS KEYS, LOCAL USER NAME AND PASSWORDS, OR THROUGH AAD INTEGRATION. TWO CONTROL PLANE CONCEPTS (SERVICE OR AAD [AZURE RBAC]). GENERALLY, USE AZURE RBAC APPROACH BEFORE USING SERVICE LEVEL IMPLEMENTATION. EXAMPLES, LINKS USING AAD FOR STORAGE, KEY VAULT, POSTGRESQL. THIS IS LINKED WITH MI ABOVE. FIND A WAY TO LINK. THIS IS A TOPIC FOR SECURITY.
 
-        LOG.debug("In the AADAddAuthorizedUsersFilter filter");
-
-        // Add the user to the User database table if and only if they have a valid app role.
-        if (isAirsonicUser(request)) {
-            LOG.debug("user is an application user");
-            addUserToDatabase(request);
-        }
-
-        LOG.debug("AADAddAuthorizedUsersFilter calling doFilter");
-        filterChain.doFilter(request, response);
-    }
-}
-```
+YOUR APP HAS AN IDENTITY AND IT HAS AZURE RBAC ACCESS TO THESE OTHER RESROUCES (DEPENDECIES) AND IT HAS LEAST PRIV. ACCESS.
 
 ### Use a central secrets store (Azure Key Vault)
 
 Many on-premises environments don't have a central secrets store. Key rotation is uncommon and auditing who has access to a secret is difficult. In Azure, the central secret store is Key Vault. With Key Vault, you can store, keys, manage, audit, and monitor secrets access in Key Vault.
 
-**Use Key Vault to manage remaining secrets.** The terms "secrets" refers to anything that you don't want exposed in plain text (passwords, keys, and certificates). After migrating to the cloud, you still have secrets, key, and certificates you need to manage. You might not be able adopt managed identity for every Azure either because the Azure services doesn't support managed identities or you needed to postpone the adoption. For any remaining secrets, you should store them in Key Vault.
+**Do not put Key Vault in the HTTP request flow.** It's API rate limited and will get cut off quickly. Values should be loaded at application start time.
 
-*Reference implementation:* (**WHAT DO WE STORE IN AZURE KEY VAULT?**)
+**Use Key Vault to manage secrets.** The terms "secrets" refers to anything that you don't want exposed in plain text (passwords, keys, certificates, config). After migrating to the cloud, you still have secrets, key, and certificates you need to manage. You might not be able adopt managed identity for every Azure either because the Azure services doesn't support managed identities or you needed to postpone the adoption. For any remaining secrets, you should store them in Key Vault.
 
 **Use one way to access secrets in Key Vault.** You can configure your web app to access secrets in Key Vault via App Service or your application code. You can use an Application setting in App Service and inject the secret as an environment variable. To reference it in your application code, you add a reference to the app properties file so the app can reach out to Key Vault.
 
-*Reference implementation.* The reference implementation uses the application code to access the secret in Key Vault.
+*Reference implementation.* The reference implementation uses the application code to access the secret in Key Vault. THERE ARE SOME CONFIGURATION VALUES THAT ARE SECRETS. [REFERENCE SECRETS FROM KEY VAULT](LINK). IT HAS A CONFIG VALUE THAT IS SOURCED FROM KEY VAULT AND IN APP SERVICE PLATOFRM
 
-**Use temporary permissions to access storage account.** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. This ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches.
+*Reference implementation:*  THEY ENABLED ANOTHER JAVA SDK LIBRARY . THEY GET DATABASE USER NAME/PASSWORD, CLIENT SECRET FOR ADD AND TIED TO MSAL IMPLEMENTATION, AND REDIS PASSWORD
+
+**FOR AD-HOC, NON-STANDING ACCOUNT ACCESS USE SAS TOKENS, IDEALLY AZURE AD SAS TOKENS (THEY DON'T DEPEND ON ACCOUNT ACCESS KEY).** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. This ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches.
+
+**DONT USE ACCESS KEYS FOR ROUTINE ACCESS (as much as you can)**
 
 For access to files in storage account, you should use Shared access signatures (SASs) for authentication. SASs are uniform resource locators (URIs) that grant restricted access to Azure Storage resources for a specified period of time.
 
-*Reference implementation.* The reference implementation uses [account access keys](/azure/storage/common/storage-account-keys-manage) to upload videos in the playlist. It is required to deploy the demo and populate the data, but you should use SASs in production.
+MINIMIZE ANY DEPENDENCSY ON ST ACCESS KEYS.
+
+*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to MOUNT DIRECTORY WITH AZURE FILES TO APP SERVICE.
 
 ### Secure communication with private endpoints
 
