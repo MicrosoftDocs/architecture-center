@@ -59,15 +59,15 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 ## Security
 
-Cloud applications often comprise multiple Azure services. Communication between those services needs to be secure. Enforcing secure authentication, authorization, and accounting practices in your application is essential to your security posture. At this phase in the cloud journey, you should use managed identities, secrets management, and private endpoints.
+(WRITE INTRODUCTION)
 
 ### User authentication and authorization
 
-Goal is security is not regressing on security posture for user authn/authz, leveraging features of Azure our application platform and ID provider.
+Authentication and authorization are critical aspects of web application security. Authentication is the process of verifying the identity of a user. Authorization determines what actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (App Service) and identity provider (Azure AD).
 
-**Configure user authentication (Easy Auth.) (app plat AUTHENTICATION)** App Service has a built-in authentication feature that provides an out-of-the-box authentication with federated identity providers. You should use this feature to reduce the application code's responsibility to handle authentication and authorization. For information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
+**Configure user authentication (app plat AUTHENTICATION)** You web app needs to prioritize user authentication to ensure the security and integrity of the application. By implementing robust authentication measures, you can prevent unauthorized access to sensitive data and functionalities. You should use the capabilities of the web application platform. For example, App Service has a built-in authentication feature ("Easy Auth") that reduces the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
-*Reference implementation.* The reference implementation uses the built-in authentication and authorization feature of App Service to manage the initial login flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
+*Reference implementation.* The reference implementation uses the built-in authentication feature ("Easy Auth") of App Service to manage the initial login flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
 
 **Integrate with identity provider(code)** You should use MSAL (user authN and authZ at app level). It's important to consider the authentication and authorization mechanisms you will use to secure the app and its resources. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task. (**Use the spring cloud starter active directory**).
 
@@ -179,7 +179,7 @@ You should use managed identities where possible because of the security and ope
 
 *Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The reference implementation stores the database secret in Key Vault. The web app use a managed identity (system-assigned) to retrieve run-time secrets from Key Vault.
 
-**All services should least-privilege access (user and workload identities).** SERVICES USUALLY DO x THROUGH SERVICE ACCOUNTS, SUCH AS PRESHARED ACCESS KEYS, LOCAL USER NAME AND PASSWORDS, OR THROUGH AAD INTEGRATION. TWO CONTROL PLANE CONCEPTS (SERVICE OR AAD [AZURE RBAC]). GENERALLY, USE AZURE RBAC APPROACH BEFORE USING SERVICE LEVEL IMPLEMENTATION. EXAMPLES, LINKS USING AAD FOR STORAGE, KEY VAULT, POSTGRESQL. THIS IS LINKED WITH MI ABOVE. FIND A WAY TO LINK. THIS IS A TOPIC FOR SECURITY.
+**All services should use least-privilege access (user and workload identities).** SERVICES USUALLY DO x THROUGH SERVICE ACCOUNTS, SUCH AS PRESHARED ACCESS KEYS, LOCAL USER NAME AND PASSWORDS, OR THROUGH AAD INTEGRATION. TWO CONTROL PLANE CONCEPTS (SERVICE OR AAD [AZURE RBAC]). GENERALLY, USE AZURE RBAC APPROACH BEFORE USING SERVICE LEVEL IMPLEMENTATION. EXAMPLES, LINKS USING AAD FOR STORAGE, KEY VAULT, POSTGRESQL. THIS IS LINKED WITH MI ABOVE. FIND A WAY TO LINK. THIS IS A TOPIC FOR SECURITY.
 
 YOUR APP HAS AN IDENTITY AND IT HAS AZURE RBAC ACCESS TO THESE OTHER RESROUCES (DEPENDECIES) AND IT HAS LEAST PRIV. ACCESS.
 
