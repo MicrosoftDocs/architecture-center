@@ -42,8 +42,4 @@ Use the following table to find the implementation guidance and Github repositor
 | Technology stack | Implementation guidance | Reference implementation |
 | --- | --- | --- |
 | .NET | [Plan the implementation](./dotnet/pattern-overview.yml)<br><br>[Apply the pattern](./dotnet/apply-pattern.yml) | [.NET reference implementation](https://aka.ms/eap/rwa/dotnet) |
-| Java | [Plan the implementation](./java/plan-implementation.yml)<br><br>[Apply the pattern](./java/apply-pattern.yml) | [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) |
-| test | >[!div class="nextstepaction"]
->[Reliable web app for .NET](./dotnet/pattern-overview.yml)
->[!div class="nextstepaction"]
->[Reliable web app for Java](./java/plan-implementation.yml)| [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)|
+| Java | [Plan the implementation](./java/plan-implementation.yml)<br><br>[Apply the pattern](./java/apply-pattern.yml) | [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)
