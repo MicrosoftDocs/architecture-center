@@ -46,4 +46,4 @@ Use the following table to find the implementation guidance and Github repositor
 | test | >[!div class="nextstepaction"]
 >[Reliable web app for .NET](./dotnet/pattern-overview.yml)
 >[!div class="nextstepaction"]
->[Reliable web app for Java](./java/plan-implementation.yml)| github|
+>[Reliable web app for Java](./java/plan-implementation.yml)| [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)|
