@@ -61,7 +61,7 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 (WRITE INTRODUCTION)
 
-### User authentication and authorization
+### Configure user authentication and authorization
 
 Authentication and authorization are critical aspects of web application security. Authentication is the process of verifying the identity of a user. Authorization determines what actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (App Service) and identity provider (Azure AD).
 
@@ -132,7 +132,7 @@ You can define the application roles as AAD roles that the MSAL configuration ca
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
-*Reference implementation.* Here's an implementation of mapping application roles in AAD. The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. **NICK What ABOUT LINE 119? Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES** The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles. The previous code protects routes with application roles prefixed with `APPROLE_`.
+*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. **NICK What ABOUT LINE 119? Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES** The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles. The previous code protects routes with application roles prefixed with `APPROLE_`.
 
 *Azure active directory app registration app roles (UPDATE WITH JSON FROM CHAT)* 
 
@@ -146,27 +146,15 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
     "isEnabled": true,
     "value": "User"
   },
+ {
+    "allowedMemberTypes": ["User"],
+    "description": "Creator role allows users to create content",
+    "displayName": "Creator",
+    "id": "random_uuid.user_role_id.result",
+    "isEnabled": true,
+    "value": "Creator"
+  },
 ]
-```
-
-```terraform
-  app_role {
-    allowed_member_types = ["User"]
-    description          = "ReadOnly roles have limited query access"
-    display_name         = "ReadOnly"
-    enabled              = true
-    id                   = random_uuid.user_role_id.result
-    value                = "User"
-  }
-
-  app_role {
-    allowed_member_types = ["User"]
-    description          = "Creator role allows users to create content"
-    display_name         = "Creator"
-    enabled              = true
-    id                   = random_uuid.creator_role_id.result
-    value                = "Creator"
-  }
 ```
 
 For more information, see [Add app roles to your application and receive them in the token](https://learn.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
@@ -181,7 +169,9 @@ For more information, see:
 
 The reference implementation uses an app registration to assign AD users an app role ("User" or "Creator"). The app roles allows them to log in to the application. The reference implementation uses the following code to configure the app registration. For more information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-### Application as the client (previous app was server)
+### Configure service authentication and authorization
+
+You need to configure user authentication and authorization so users can access the web app. You also need to configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions.
 
 **Use managed identities.** Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. It receives a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure database). You can you a managed identity so a CI/CD pipeline can deploy a web app to App Service.
 
