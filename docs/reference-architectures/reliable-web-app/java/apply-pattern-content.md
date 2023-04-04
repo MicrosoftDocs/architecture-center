@@ -126,13 +126,28 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 }
 ```
 
-**Express your application needs in Active Directory.** Most apps use the concept of app roles. These roles can be defined as AAD roles in which your MSAL (all the stuff above) configuration can use. The Active AD roles are the backing for the application role-based access. This is about authorizing users and using roles to do that.
+**Express your application needs in Azure Active Directory.** Most apps use the concept of application roles. Applications roles are custom roles to assign permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization steps of the cod
 
-App roles are custom roles to assign permissions to users or apps. The codes defines the app roles and interprets them as permissions during code's authorization steps. The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
+You can define the application roles as AAD roles that the MSAL configuration can use. The Active AD roles provide the backing for the access the application role receive. It authorizes users and uses the application roles to do that.
+
+The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
 *Reference implementation.* Here's an implementation of mapping application roles in AAD. The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. **NICK What ABOUT LINE 119? Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES** The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles. The previous code protects routes with application roles prefixed with `APPROLE_`.
 
 *Azure active directory app registration app roles (UPDATE WITH JSON FROM CHAT)* 
+
+```json
+"appRoles":[
+  {
+    "allowedMemberTypes": ["User"],
+    "description": "ReadOnly roles have limited query access",
+    "displayName": "ReadOnly",
+    "id": "random_uuid.user_role_id.result",
+    "isEnabled": true,
+    "value": "User"
+  },
+]
+```
 
 ```terraform
   app_role {
