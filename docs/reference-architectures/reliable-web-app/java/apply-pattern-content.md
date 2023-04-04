@@ -196,25 +196,23 @@ You should use managed identities where possible because of the security and ope
 
 Many on-premises environments don't have a central secrets store. Key rotation is uncommon and auditing who has access to a secret is difficult. In Azure, the central secret store is Key Vault. With Key Vault, you can store, keys, manage, audit, and monitor secrets access in Key Vault.
 
-**Do not put Key Vault in the HTTP request flow.** It's API rate limited and will get cut off quickly. Values should be loaded at application start time.
+**Do not put Key Vault in the HTTP request flow.** Key Vault has API rates limits, and it stops responding when it reaches those limits. The web app should load values from Key Vault at application start time.
 
-**Use Key Vault to manage secrets.** The terms "secrets" refers to anything that you don't want exposed in plain text (passwords, keys, certificates, config). After migrating to the cloud, you still have secrets, key, and certificates you need to manage. You might not be able adopt managed identity for every Azure either because the Azure services doesn't support managed identities or you needed to postpone the adoption. For any remaining secrets, you should store them in Key Vault.
+**Use Key Vault to manage secrets.** The terms "secrets" refers to anything that you don't want exposed in plain text (passwords, keys, certificates, configuration values). After migrating to the cloud, you might still have secrets you need to manage. You should store all secrets in Key Vault.
 
-**Use one way to access secrets in Key Vault.** You can configure your web app to access secrets in Key Vault via App Service or your application code. You can use an Application setting in App Service and inject the secret as an environment variable. To reference it in your application code, you add a reference to the app properties file so the app can reach out to Key Vault.
+*Reference implementation:* The reference implementation stores (1) the PostgreSQL database username and password, (2) the Redis Cache password, and (3) the client secret for Azure AD tied to the MSAL implementation.
 
-*Reference implementation.* The reference implementation uses the application code to access the secret in Key Vault. THERE ARE SOME CONFIGURATION VALUES THAT ARE SECRETS. [REFERENCE SECRETS FROM KEY VAULT](LINK). IT HAS A CONFIG VALUE THAT IS SOURCED FROM KEY VAULT AND IN APP SERVICE PLATOFRM
+**NOTES: THEY ENABLED ANOTHER JAVA SDK LIBRARY**
 
-*Reference implementation:*  THEY ENABLED ANOTHER JAVA SDK LIBRARY . THEY GET DATABASE USER NAME/PASSWORD, CLIENT SECRET FOR ADD AND TIED TO MSAL IMPLEMENTATION, AND REDIS PASSWORD
+**Use one way to access secrets in Key Vault.** You can configure your web app to access secrets in Key Vault via App Service or your application code. You can use an Application setting in App Service and inject the secret as an [environment variable](/azure/app-service/app-service-key-vault-references#azure-resource-manager-deployment). To reference it in your application code, you need to add a reference to the app properties file so the app can reach out to Key Vault.
 
-**FOR AD-HOC, NON-STANDING ACCOUNT ACCESS USE SAS TOKENS, IDEALLY AZURE AD SAS TOKENS (THEY DON'T DEPEND ON ACCOUNT ACCESS KEY).** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. This ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches.
+*Reference implementation.* The reference implementation uses the application code to access the secret in Key Vault. You should treat some configuration values as secrets, and the reference implementation
 
-**DONT USE ACCESS KEYS FOR ROUTINE ACCESS (as much as you can)**
+**NOTE: HAS A CONFIG VALUE THAT IS SOURCED FROM KEY VAULT AND IN APP SERVICE PLATOFRM**
 
-For access to files in storage account, you should use Shared access signatures (SASs) for authentication. SASs are uniform resource locators (URIs) that grant restricted access to Azure Storage resources for a specified period of time.
+**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. This ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches. For non-standing account access, you should use shared access signatures (SASs). There are three types of SASs (user delegation, service, and account). User delegation SAS is preferable. Of the three SASs, it's the only SAS that uses Azure AD credentials and doesn't depend on a storage account key.
 
-MINIMIZE ANY DEPENDENCSY ON ST ACCESS KEYS.
-
-*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to MOUNT DIRECTORY WITH AZURE FILES TO APP SERVICE.
+*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service.
 
 ### Secure communication with private endpoints
 
