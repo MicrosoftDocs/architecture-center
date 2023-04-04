@@ -341,7 +341,6 @@ items:
           href: guide/responsible-innovation/harms-modeling/type-of-harm.md
       - name: Community jury
         href: guide/responsible-innovation/community-jury/index.md
-      expanded: true
     - name: Responsible AI
       items:
       - name: Overview
@@ -592,7 +591,6 @@ items:
         href: solution-ideas/articles/customer-insights-synapse.yml
     - name: Azure and Microsoft on-premises servers
       href: guide/on-premises-microsoft-technologies.md
-    expanded: true
   - name: Third-party scenarios
     items:
     - name: Apache technologies
@@ -601,7 +599,6 @@ items:
       href: guide/open-source-scenarios.md
     - name: Partner technologies
       href: guide/partner-scenarios.md
-    expanded: true
   - name: Azure for AWS professionals
     items:
     - name: Overview
@@ -759,7 +756,6 @@ items:
       - name: Azure VPN Gateway for AWS
         href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
         maintainContext: true
-    expanded: true
   - name: Azure for Google Cloud professionals
     items:
     - name: Overview
@@ -809,7 +805,6 @@ items:
         - name: 'Video: Protect containers'
           href: /azure/defender-for-cloud/episode-ten
           maintainContext: true
-    expanded: true
 - name: Design Patterns
   items:
   - name: Overview
@@ -2832,7 +2827,6 @@ items:
             href: solution-ideas/articles/digital-media-video.yml
   - name: IoT-specific industry solutions
     href: reference-architectures/iot/industry-iot-hub-page.md
-  expanded: true
 - name: Azure categories
   items:
   - name: AI + Machine Learning
@@ -6757,6 +6751,5 @@ items:
         href: solution-ideas/articles/digital-marketing-smb.yml
       - name: Web/mobile apps with MySQL and Redis
         href: solution-ideas/articles/webapps.yml
-  expanded: true
 - name: Cloud Adoption Framework
   href: /azure/cloud-adoption-framework
