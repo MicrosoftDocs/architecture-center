@@ -1,6 +1,6 @@
-solution idea note 
+[!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This AAC (Azure Architecture Center) article describes how merchandise distributors are utilizing the capabilities of AI (artificial intelligence) and ML (machine learning) to reshape the industry and tackle the challenges of traditional manual methods. Using Next Order Forecasting (NOF), which predicts a customer's future order quantity for a specific SKU (Stock Keeping Units), distributors can provide customized product recommendations and suggest optimal quantities. This Azure Architecture article builds on the concept of [many models’ architecture](../../example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml). 
+This article describes how merchandise distributors can use AI and machine learning to predict a customer's future order quantity for a specific SKU (stock-keeping unit). By using these predictions, distributors can provide customized product recommendations and suggest optimal quantities. This article builds on the concepts described in the [many models machine learning architecture](../../example-scenario/ai/many-models-machine-learning-azure-machine-learning.yml). 
 
 ## Architecture
 
@@ -12,22 +12,22 @@ link
 
 1. Data sources
 
-   To forecast the next order, distributors need comprehensive data about their customers' buying history for various Stock Keeping Units (SKUs) at specific stores, including their preferences and purchasing behavior. This kind of information is typically sourced from orders, merchandise, and customer databases. However, to predict customer orders in the future, distributors also need to consider external factors such as weather, holidays, and events. Such data is usually obtained from third-party sources.
+   To forecast future orders, distributors need comprehensive data about their customers' buying history for various SKUs at specific stores, including information about preferences and purchasing behavior. This kind of information is typically obtained from orders, merchandise, and customer databases. Distributors also need to consider external factors like weather, holidays, and events. This data is usually obtained from third-party sources.
 
-   To build next order forecasting models, distributors rely on data with a specific schema that includes several key variables: 
+   To create order forecasting models, distributors use data with a schema that includes several key variables: 
 
-   1. Date Time 
-   1. Customer store location
-   1. Merchandise SKU (Stock Keeping Unit)
-   1.	Quantity ordered
-   1. Price per unit
-   1. Weather-related features, holidays, events, and other external factors.
+   - Date and time 
+   - Customer store location
+   - Merchandise SKU 
+   - Quantity ordered
+   - Price per unit
+   - Weather-related features, holidays, events, and other external factors
    
-   By analyzing this data, distributors can gain valuable insights into customer behavior and make informed SKU and quantity recommendations for their customer's next order. 
+   By analyzing this data, distributors can gain valuable insights into customer behavior and make informed SKU and quantity recommendations for the customer's next order. 
 
 1. Ingestion
 
-   Data ingestion is the process of transferring data from various sources to a designated destination. This process involves utilizing specific connectors for each data source and target destination.
+   Data ingestion is the process of transferring data from various sources to a designated destination. This process involves using specific connectors for each data source and target destination.
    
    Azure Data Factory offers a comprehensive range of connectors that can be leveraged to extract data from various sources, including databases, file systems, and cloud services. These connectors are pre-built by either Microsoft or third-party vendors and are designed to function effectively with multiple data sources. For example, [SAP connectors](/azure/data-factory/industry-sap-connectors) can be used to support a wide variety of data ingestion scenarios from SAP and [Snowflake connector](/azure/data-factory/connector-snowflake?tabs=data-factory) can be used to support copy activity in Azure Data Factory to copy data from Snowflake.
 
