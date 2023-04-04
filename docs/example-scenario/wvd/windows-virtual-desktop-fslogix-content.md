@@ -153,7 +153,7 @@ Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentat
 
 ### Antivirus exclusions
 
-Make sure to configure the following antivirus exclusions for FSLogix Profile Container virtual hard drives. [Make sure to check the referenced information with your security team](/fslogix/overview-prerequisites#file--folder-exclusions).
+You should configure these [antivirus exclusions for FSLogix Profile Container virtual hard drives](/fslogix/overview-prerequisites#file--folder-exclusions). Make sure to check the referenced information with your security team.
 
 #### Add exclusions for Microsoft Defender for Cloud by using PowerShell
 
