@@ -27,9 +27,7 @@ The reliable web app pattern details essential implementation guidance for migra
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
-**Why the reliable web app pattern?.**
-
-It's not always clear what you need to do after you migrate a web to the cloud. You might not be aware of the implementation changes you could and should make to maximize your success. The reliable web app pattern solves this problem. The implementation guidance tells you what you should to migrate web apps to the cloud successfully and how to do it with code examples.
+**Why the reliable web app pattern?** It's not always clear what you need to do after you migrate a web to the cloud. You might not be aware of the implementation changes you could and should make to maximize your success. The reliable web app pattern solves this problem. The implementation guidance tells you what you should to migrate web apps to the cloud successfully and how to do it with code examples.
 
 There are sample web application (reference implementations) that you can deploy. These reference implementations apply the reliable web app pattern. For more information, see the [.NET reference implementation](https://aka.ms/eap/rwa/dotnet) and the [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)
 
