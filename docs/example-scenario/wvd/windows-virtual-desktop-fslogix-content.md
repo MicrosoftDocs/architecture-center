@@ -155,44 +155,6 @@ Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentat
 
 You should configure these [antivirus exclusions for FSLogix Profile Container virtual hard drives](/fslogix/overview-prerequisites#file--folder-exclusions). Make sure to check the referenced information with your security team.
 
-#### Add exclusions for Microsoft Defender for Cloud by using PowerShell
-
-You can use this PowerShell script to add the exclusions for Microsoft Defender for Cloud:
-
-```powershell
-  # Defender Exclusions for FSLogix
-  $Cloudcache = $false             # Set for true if using cloud cache
-  $StorageAcct = "storageacct"     # Storage Account Name
-  $ShareName = "share"             # Storage Account's file share name
-
-  $filelist = `
-  "%ProgramFiles%\FSLogix\Apps\frxdrv.sys", `
-  "%ProgramFiles%\FSLogix\Apps\frxdrvvt.sys", `
-  "%ProgramFiles%\FSLogix\Apps\frxccd.sys", `
-  "%TEMP%\*.VHD", `
-  "%TEMP%\*.VHDX", `
-  "%Windir%\TEMP\*.VHD", `
-  "%Windir%\TEMP\*.VHDX", `
-  "\\$Storageacct.file.core.windows.net\$ShareName\*.VHD", `
-  "\\$Storageacct.file.core.windows.net\$ShareName\*.VHDX"
-
-  $processlist = `
-  "%ProgramFiles%\FSLogix\Apps\frxccd.exe", `
-  "%ProgramFiles%\FSLogix\Apps\frxccds.exe", `
-  "%ProgramFiles%\FSLogix\Apps\frxsvc.exe"
-
-  Foreach($item in $filelist){
-      Add-MpPreference -ExclusionPath $item}
-  Foreach($item in $processlist){
-      Add-MpPreference -ExclusionProcess $item}
-
-  If ($Cloudcache){
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHD"
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHDX"
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHD"
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHDX"}
-```
-
 ## Using Cloud Cache
 
 [Cloud Cache](/fslogix/configure-cloud-cache-tutorial) is an add-on to FSLogix. It uses a local cache to service all reads from a redirected Profile or Office Container, after the first read. Cloud Cache also allows the use of multiple remote locations, which are all continuously updated during the user session, creating true real-time profile replication. Using Cloud Cache can insulate users from short-term loss of connectivity to remote profile containers as the local cache is able to service many profile operations. In there was a provider failure, Cloud Cache provides business continuity.
