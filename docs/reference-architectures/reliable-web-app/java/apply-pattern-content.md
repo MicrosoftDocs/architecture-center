@@ -65,15 +65,15 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 Authentication and authorization are critical aspects of web application security. Authentication is the process of verifying the identity of a user. Authorization determines what actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (App Service) and identity provider (Azure AD).
 
-**Configure user authentication (app plat AUTHENTICATION)** You web app needs to prioritize user authentication to ensure the security and integrity of the application. By implementing robust authentication measures, you can prevent unauthorized access to sensitive data and functionalities. You should use the capabilities of the web application platform. For example, App Service has a built-in authentication feature ("Easy Auth") that reduces the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
+**Configure user authentication (code)** You web app needs to prioritize user authentication to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service has a built-in authentication feature ("Easy Auth"). You should use this feature to reduces the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
 *Reference implementation.* The reference implementation uses the built-in authentication feature ("Easy Auth") of App Service to manage the initial login flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
 
-**Integrate with identity provider(code)** You should use MSAL (user authN and authZ at app level). It's important to consider the authentication and authorization mechanisms you will use to secure the app and its resources. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task. (**Use the spring cloud starter active directory**).
+**Integrate with identity provider (code)** You need to integrate the web application with the identity provider (Azure AD) at the code level to ensure a secure and seamless authentication and authorization. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
 
-By adding these dependencies to the project, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings.
+The Spring Cloud Starter Active Directory is an excellent option for integrating with Azure AD. This starter provides a simple and efficient way to implement secure authentication at the code level, using Spring Security and Spring Boot frameworks. The Spring Cloud Starter Active Directory offers several benefits, such as support for various authentication flows, automatic token management, and customizable authorization policies. Additionally, it allows for easy integration with other Spring Cloud components, such as Spring Cloud Config and Spring Cloud Gateway. By using the Spring Cloud Starter Active Directory, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings.
 
-*Reference implementation.* The reference implementation uses the Microsoft identity platform as the identity provider and the OAuth 2.0 authorization code grant to log in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
+*Reference implementation.* The reference implementation uses the Microsoft identity platform (Azure AD) as the identity provider and the OAuth 2.0 authorization code grant to log in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
 ```xml
     <dependency>
@@ -88,12 +88,11 @@ By adding these dependencies to the project, you can integrate Azure Active Dire
 
 For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Implement AuthN and AuthZ business rules (code).** Configure spring to implement the rules. Configure spring web security to use the Azure AD spring boot starter library (AuthN protecting routes). *Nick's java input.* Applying decorators throughout code etc. In the code snippet, the `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication.
+**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules is involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Web Security to use the Azure AD Spring Boot Starter library allows for seamless integration with Azure Active Directory and ensures that users are authenticated securely. Additionally, configuring and enabling the MSAL library provides access to additional security features, such as token caching and automatic token refreshing, further enhances the security of the web application.
 
-*Reference implementation* Below is an example of the implementaiton of the rules.
+**HOW HOW HOW???*** *Nick's java input.* Applying decorators throughout code etc.
 
-*Example of app configuring and enabling MSAL library*
-*ln 135 implements roles inside app*
+*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. In the code snippet, the `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication.
 
 ```java
     @Configuration
@@ -124,6 +123,7 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
                         .logoutSuccessUrl("/index"))
                     ;
         }
+}
 ```
 
 **Express your application needs in Active Directory.** Most apps use the concept of app roles. These roles can be defined as AAD roles in which your MSAL (all the stuff above) configuration can use. The Active AD roles are the backing for the application role-based access. This is about authorizing users and using roles to do that.
