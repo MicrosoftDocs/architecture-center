@@ -153,29 +153,7 @@ Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentat
 
 ### Antivirus exclusions
 
-Make sure to configure the following antivirus exclusions for FSLogix Profile Container virtual hard drives. Make sure to check the following information with your security team.
-
-- Exclude files:
-
-  - %ProgramFiles%\FSLogix\Apps\frxdrv.sys
-  - %ProgramFiles%\FSLogix\Apps\frxdrvvt.sys
-  - %ProgramFiles%\FSLogix\Apps\frxccd.sys
-  - %TEMP%\\*.VHD
-  - %TEMP%\\*.VHDX
-  - %Windir%\TEMP\\*.VHD
-  - %Windir%\TEMP\\*.VHDX
-  - \\\storageaccount.file.core.windows.net\share\\*.VHD
-  - \\\storageaccount.file.core.windows.net\share\\*.VHDX
-  - %ProgramData%\FSLogix\Cache\\*.VHD (additional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Cache\\*.VHDX (additional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHD (additional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHDX (additional - only if you use Cloud Cache)
-
-- Exclude processes:
-
-  - %ProgramFiles%\FSLogix\Apps\frxccd.exe
-  - %ProgramFiles%\FSLogix\Apps\frxccds.exe
-  - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
+Make sure to configure the following antivirus exclusions for FSLogix Profile Container virtual hard drives. [Make sure to check the referenced information with your security team](/fslogix/overview-prerequisites#file--folder-exclusions).
 
 #### Add exclusions for Microsoft Defender for Cloud by using PowerShell
 
