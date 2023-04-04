@@ -5,7 +5,7 @@ metadata:
   description: Migrate existing web apps to containers deployed in App Service, which allows you to focus on composing containers not worrying about managing container orchestration.
   author: vmagelo 
   ms.author: v-gelorminom
-  ms.date: 04/04/2023
+  ms.date: 12/29/2022
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
