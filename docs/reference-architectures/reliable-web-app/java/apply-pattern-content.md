@@ -61,15 +61,13 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 ### Enforce the principle of least-privileges
 
-As a general security tenant, you should grant users and services (workload identities) only the permissions they need.
+As a general security tenant, you should grant users and services (workload identities) only the permissions they need. For users, you should uses roles to delegate the appropriate permissions to users. The number and types of roles you use depends on the needs of your application.
 
-SERVICES USUALLY DO x THROUGH SERVICE ACCOUNTS, SUCH AS PRESHARED ACCESS KEYS, LOCAL USER NAME AND PASSWORDS, OR THROUGH AAD INTEGRATION. 
+You should also enforce least privileges to Azure services. Services in Azure have workload identities and authenticate to other resources through Azure AD integration, pre-shared access keys, or local username and passwords. You can manage permissions the workload identities receive in Azure AD or at the service level. You should use Azure RBAC to manage permissions before using service-level access controls (firewalls). For example, your web app has an identity in Azure AD and you should use Azure RBACs to grant the least amount of permissions it needs to function. For more information, see:
 
-TWO CONTROL PLANE CONCEPTS (SERVICE OR AAD [AZURE RBAC]).
-
-GENERALLY, USE AZURE RBAC APPROACH BEFORE USING SERVICE LEVEL IMPLEMENTATION. EXAMPLES, LINKS USING AAD FOR STORAGE, KEY VAULT, POSTGRESQL. THIS IS LINKED WITH MI ABOVE. FIND A WAY TO LINK. THIS IS A TOPIC FOR SECURITY.
-
-YOUR APP HAS AN IDENTITY AND IT HAS AZURE RBAC ACCESS TO THESE OTHER RESROUCES (DEPENDECIES) AND IT HAS LEAST PRIV. ACCESS.
+- [Access to Azure Storage](/azure/storage/blobs/authorize-access-azure-active-directory)
+- [Access to Key Vault](/azure/key-vault/general/rbac-guide)
+- [Access to PostgreSQL database](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
 
 ### Configure user authentication and authorization
 
@@ -138,11 +136,13 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 
 **Express your application needs in Azure Active Directory.** Most apps use the concept of application roles. Applications roles are custom roles to assign permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization steps of the cod
 
-You can define the application roles as AAD roles that the MSAL configuration can use. The Active AD roles provide the backing for the access the application role receive. It authorizes users and uses the application roles to do that.
+You can define the application roles as Azure AD roles that the MSAL configuration can use. The Active AD roles provide the backing for the access the application role receive. It authorizes users and uses the application roles to do that.
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
-*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. **NICK What ABOUT LINE 119? Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES** The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
+*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
+
+**NOTE Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES**
 
 ```json
 "appRoles":[
@@ -164,8 +164,6 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
   },
 ]
 ```
-
-For more information, see [Add app roles to your application and receive them in the token](https://learn.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
 
 For more information, see:
 
