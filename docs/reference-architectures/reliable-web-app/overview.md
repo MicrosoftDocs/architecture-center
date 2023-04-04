@@ -27,9 +27,13 @@ The reliable web app pattern details essential implementation guidance for migra
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
-**Why the reliable web app pattern?** It's not always clear what you need to do after you migrate a web to the cloud. You might not be aware of the implementation changes you could and should make to maximize your success. The reliable web app pattern solves this problem. The implementation guidance tells you what you should to migrate web apps to the cloud successfully and how to do it with code examples.
+## Why the reliable web app pattern?
 
-**How to implement the reliable web app pattern.** There's end-to-end implementation guidance for .NET and Java web apps transitioning to the cloud. It shows you how to plan the reliable web app implementation and then apply the pattern to your web app.The guidance includes sample web applications (reference implementations) that you can deploy and copy the code. You should deploy the web app and use the written guidance in parallel. Apply the implementation guidance to your web app and use the reference implementation as an example implementation you can copy.
+It's not always clear what you need to do after you migrate a web to the cloud. You might not be aware of the implementation changes you could and should make to maximize your success. The reliable web app pattern solves this problem. The implementation guidance tells you what you should to migrate web apps to the cloud successfully and how to do it with code examples.
+
+## How to implement the reliable web app pattern
+
+There's end-to-end implementation guidance for .NET and Java web apps transitioning to the cloud. It shows you how to plan the reliable web app implementation and then apply the pattern to your web app.The guidance includes sample web applications (reference implementations) that you can deploy and copy the code. You should deploy the web app and use the written guidance in parallel. Apply the implementation guidance to your web app and use the reference implementation as an example implementation you can copy.
 
 ## Next steps
 
@@ -39,8 +43,7 @@ Use the following table to find the implementation guidance and Github repositor
 | --- | --- | --- |
 | .NET | [Plan the implementation](./dotnet/pattern-overview.yml)<br><br>[Apply the pattern](./dotnet/apply-pattern.yml) | [.NET reference implementation](https://aka.ms/eap/rwa/dotnet) |
 | Java | [Plan the implementation](./java/plan-implementation.yml)<br><br>[Apply the pattern](./java/apply-pattern.yml) | [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) |
-
->[!div class="nextstepaction"]
+| test | >[!div class="nextstepaction"]
 >[Reliable web app for .NET](./dotnet/pattern-overview.yml)
 >[!div class="nextstepaction"]
->[Reliable web app for Java](./java/plan-implementation.yml)
+>[Reliable web app for Java](./java/plan-implementation.yml)| github|
