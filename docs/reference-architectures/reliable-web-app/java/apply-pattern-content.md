@@ -59,7 +59,17 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 ## Security
 
-(WRITE INTRODUCTION)
+### Enforce the principle of least-privileges
+
+As a general security tenant, you should grant users and services (workload identities) only the permissions they need.
+
+SERVICES USUALLY DO x THROUGH SERVICE ACCOUNTS, SUCH AS PRESHARED ACCESS KEYS, LOCAL USER NAME AND PASSWORDS, OR THROUGH AAD INTEGRATION. 
+
+TWO CONTROL PLANE CONCEPTS (SERVICE OR AAD [AZURE RBAC]).
+
+GENERALLY, USE AZURE RBAC APPROACH BEFORE USING SERVICE LEVEL IMPLEMENTATION. EXAMPLES, LINKS USING AAD FOR STORAGE, KEY VAULT, POSTGRESQL. THIS IS LINKED WITH MI ABOVE. FIND A WAY TO LINK. THIS IS A TOPIC FOR SECURITY.
+
+YOUR APP HAS AN IDENTITY AND IT HAS AZURE RBAC ACCESS TO THESE OTHER RESROUCES (DEPENDECIES) AND IT HAS LEAST PRIV. ACCESS.
 
 ### Configure user authentication and authorization
 
@@ -92,7 +102,7 @@ For more information, see [Spring Security with Azure Active Directory](https://
 
 **HOW HOW HOW???*** *Nick's java input.* Applying decorators throughout code etc.
 
-*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. In the code snippet, the `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication.
+*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. The code protects routes with application roles prefixed with `APPROLE_`. The `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class to add authentication.
 
 ```java
     @Configuration
@@ -132,9 +142,7 @@ You can define the application roles as AAD roles that the MSAL configuration ca
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
-*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. **NICK What ABOUT LINE 119? Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES** The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following code from the reference implementation demonstrates how to configure App Roles. The previous code protects routes with application roles prefixed with `APPROLE_`.
-
-*Azure active directory app registration app roles (UPDATE WITH JSON FROM CHAT)* 
+*Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. **NICK What ABOUT LINE 119? Would HAVE EXPECTED SOME DIFFERENT ROUTES BASED ON THE ROLES** The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
 
 ```json
 "appRoles":[
@@ -183,10 +191,6 @@ You should use managed identities where possible because of the security and ope
 - [Web app managed identity](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
 *Reference implementation:* The reference implementation demonstrates a scenario where the developer kept the on-premises authentication mechanism rather than switching to a managed identity. The reference implementation stores the database secret in Key Vault. The web app use a managed identity (system-assigned) to retrieve run-time secrets from Key Vault.
-
-**All services should use least-privilege access (user and workload identities).** SERVICES USUALLY DO x THROUGH SERVICE ACCOUNTS, SUCH AS PRESHARED ACCESS KEYS, LOCAL USER NAME AND PASSWORDS, OR THROUGH AAD INTEGRATION. TWO CONTROL PLANE CONCEPTS (SERVICE OR AAD [AZURE RBAC]). GENERALLY, USE AZURE RBAC APPROACH BEFORE USING SERVICE LEVEL IMPLEMENTATION. EXAMPLES, LINKS USING AAD FOR STORAGE, KEY VAULT, POSTGRESQL. THIS IS LINKED WITH MI ABOVE. FIND A WAY TO LINK. THIS IS A TOPIC FOR SECURITY.
-
-YOUR APP HAS AN IDENTITY AND IT HAS AZURE RBAC ACCESS TO THESE OTHER RESROUCES (DEPENDECIES) AND IT HAS LEAST PRIV. ACCESS.
 
 ### Use a central secrets store (Azure Key Vault)
 
