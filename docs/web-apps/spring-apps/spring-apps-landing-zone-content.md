@@ -1,16 +1,15 @@
 
-This reference architecture provides guidance for deploying Spring Boot applications as a Azure Spring Apps workload. 
+This reference architecture provides guidance for deploying Spring Boot applications as an Azure Spring Apps workload. 
 
-In this scenario, your organization expects the workload to use federated resources managed by central teams (platform), such as networking for on-premises connectivity, identity access management, and policies. This guidance assumes that the organization has adopted Azure landing zones as a way to apply consistent governance and save costs across multiple workloads.
+In this scenario, your organization expects the workload to use federated resources managed by central teams (platform), such as networking for on-premises connectivity, identity access management, and policies. This guidance assumes that the organization has adopted Azure landing zones to apply consistent governance and save costs across multiple workloads.
 
 > [!IMPORTANT]
-> **About Azure Spring Apps landing zone accelerator**
+> 
+> This reference architecture is part of the [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) guidance. The best practices are intended for a **workload owner** who wants to meet the preceding expectations.
 >
-> This reference architecture is part of the [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) guidance. The best practices are intended for a **workload owner** who wants to meet the organization's expectations in a typical enterprise landing zone design.
+> The workload is deployed in an _Azure application landing zone_ subscription provisioned by the organization. As the workload owner, you own resources in this subscription. 
 >
-> The is deployed in an _Azure application landing zone_ subscription provisioned by the organization. As the workload owner, you own resources in this subscription. 
->
-> The workload is dependent on _Azure platform landing zones_ subscriptions for shared resources. The platform team owns these resources. However, you are accountable for driving requirements with the platform team so that workload can function as expected. This guidance annotates those requirements as **Platform team**.
+> The workload is dependent on _Azure platform landing zones_ subscriptions for shared resources. The platform teams own these resources. However, you are accountable for driving requirements with those team so that workload can function as expected. This guidance annotates those requirements as **Platform team**.
 > 
 > We highly recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
@@ -57,7 +56,7 @@ Your team provisions and owns these resources.
 
 ##### Platform team-owned resources
 
-This architecture assumes these resources are preprovisioned. They are owned and maintained by the central teams of the organization. Your application depends on these services to reduce operational overhead and optimize cost.
+This architecture assumes these resources are preprovisioned. The central teams of the organization own and maintain the resources. Your application depends on these services to reduce operational overhead and optimize cost.
 
 - **Azure Firewall** inspects and restricts egress traffic.
 
@@ -83,14 +82,14 @@ The platform team decides the network topology for the entire organization. Hub-
 
 - **Hub virtual network**
 
-    The [Connectivity subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure) contains a hub virtual network with resources, which are shared by the entire organization. It contains [these networking resources](#platform-team-owned-resources) are owned and maintained by the platform team. These resources are in scope for this architecture:
+    The [Connectivity subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure) contains a hub virtual network shared by the entire organization. It contains [these networking resources](#platform-team-owned-resources) that are owned and maintained by the platform team. These resources are in scope for this architecture:
 
     - **Azure Firewall** used for controlling outbound traffic to the internet.
     - **Azure Bastion** used to securing access to the management jump box.
 
 - **Spoke virtual network**
 
-    The application landing zone has at least a pre-provisioned virtual network. You own these resources in this network. are owned and maintained by the platform team. For example, the load balancer that's used to route and protect inbound HTTP/s connections to Azure Spring Apps from the internet.
+    The application landing zone has at least a preprovisioned virtual network. You own these resources in this network. are owned and maintained by the platform team. For example, the load balancer that's used to route and protect inbound HTTP/s connections to Azure Spring Apps from the internet.
 
     The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. Estimate the size needed to run your workload and evaluate the requirements with the platform team regularly. For information, see [Virtual network requirements](/azure/spring-apps/how-to-deploy-in-azure-virtual-network#virtual-network-requirements).
 
@@ -125,7 +124,7 @@ Inbound traffic to the spoke virtual network from the internet is restricted by 
 
 Traffic within the network is controlled by using Network security groups (NSGs) on subnets. NSGs filter traffic as per the configured IP addresses and ports. In this design, NSGs are placed on all subnets.
 
-All public connectivity to Azure services are controlled by using private endpoints. This includes access to the Azure Key Vault and the database. Even though the Connectivity subscription has private DNS zones, provision your own Azure Private DNS zones for supporting the services are accessed with private endpoints.   
+All public connectivity to Azure services are controlled by using private endpoints, such as access to the Azure Key Vault and the database. Even though the Connectivity subscription has private DNS zones, provision your own Azure Private DNS zones for supporting the services are accessed with private endpoints.   
 
 > [!IMPORTANT]
 > 
