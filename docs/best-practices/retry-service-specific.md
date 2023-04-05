@@ -834,7 +834,7 @@ There are many reasons why failure can occur when a client application attempts 
 
 ### Policy configuration
 
-Retry policies are configured programmatically. It is based on [RetryOption class](/dotnet/api/azure.core.retryoptions?view=azure-dotnet). It is an attribute on [TableClientOptions](/dotnet/api/azure.data.tables.tableclientoptions?view=azure-dotnet) inherited  from [ClientOptions](/dotnet/api/azure.core.clientoptions?view=azure-dotnet)
+Retry policies are configured programmatically. It is based on [RetryOption class](/dotnet/api/azure.core.retryoptions). It is an attribute on [TableClientOptions](/dotnet/api/azure.data.tables.tableclientoptions) inherited  from [ClientOptions](/dotnet/api/azure.core.clientoptions)
 
 ```csharp
       var tableClientOptions = new TableClientOptions();
@@ -854,7 +854,7 @@ The following tables show the possibilities for the built-in retry policies.
 | Mode           | The approach to use for calculating retry delays.                                                                                                                                                                                                                   |
 | NetworkTimeout | The timeout applied to an individual network operations.                                                                                                                                                                                                            |
 
-### [RetryMode](/dotnet/api/azure.core.retrymode?view=azure-dotnet)
+### [RetryMode](/dotnet/api/azure.core.retrymode)
 
 | **Setting** | **Meaning**                                                                                                                         |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
