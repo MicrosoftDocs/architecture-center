@@ -30,7 +30,7 @@ This topology has the following characteristics:
 
 Azure Virtual WAN Secured Virtual Hubs have _limited support_ for inter-hub connectivity when two or more Secured Virtual Hubs are present. This impacts both multi-hub, intra-region and cross-region scenarios. As such, the network topology above does not directly facilitate [filtering private, cross-region traffic through Azure Firewall](/azure/firewall-manager/overview#known-issues). Support for this capability will be delivered through [Virtual WAN Hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies#key-considerations), which is currently in preview.
 
-For this series, the assumption is that internal secured traffic does not traverse multiple hubs. Traffic that must is on a parallel topology that does not filter private traffic through a secured virtual hub, but instead lets it pass through.
+For this series, the assumption is that internal secured traffic does not traverse multiple hubs. Traffic that must traverse hubs must be on a parallel topology that does not filter private traffic through a secured virtual hub, but instead lets it pass through.
 
 ### Adding spoke networks
 
