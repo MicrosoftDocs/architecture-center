@@ -7,9 +7,9 @@ In this scenario, your organization expects the workload to use federated resour
 > 
 > This reference architecture is part of the [**Azure Spring Apps landing zone accelerator**](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator) guidance. The best practices are intended for a **workload owner** who wants to meet the preceding expectations.
 >
-> The workload is deployed in an _Azure application landing zone_ subscription provisioned by the organization. As the workload owner, you own resources in this subscription. 
+> The workload is deployed in an _Azure application landing zone_ subscription provisioned by the organization. As the workload owner, you own the resources in this subscription. 
 >
-> The workload is dependent on _Azure platform landing zones_ subscriptions for shared resources. The platform teams own these resources. However, you are accountable for driving requirements with those team so that workload can function as expected. This guidance annotates those requirements as **Platform team**.
+> The workload depends on _Azure platform landing zones_ subscriptions for shared resources. The platform teams own these resources. However, you are accountable for driving requirements with those team so that workload can function as expected. This guidance annotates those requirements as **Platform team**.
 > 
 > We highly recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
@@ -74,11 +74,11 @@ TBD
 
 ## Networking considerations
 
-In this design, the workload is dependent on federated resources in the platform landing zone for accessing on-premises resources, controlling egress traffic, and so on.
+In this design, the workload is dependent on the federated resources for accessing on-premises resources, controlling egress traffic, and so on.
 
 ### Network topology
 
-The platform team decides the network topology for the entire organization. Hub-spoke topology is assumed in this architecture. 
+The platform team decides the network topology. Hub-spoke topology is assumed in this architecture. 
 
 - **Hub virtual network**
 
@@ -89,9 +89,9 @@ The platform team decides the network topology for the entire organization. Hub-
 
 - **Spoke virtual network**
 
-    The application landing zone has at least a preprovisioned virtual network. You own these resources in this network. are owned and maintained by the platform team. For example, the load balancer that's used to route and protect inbound HTTP/s connections to Azure Spring Apps from the internet.
+    The application landing zone has at least one preprovisioned virtual network that's peered to the hub network. You own these resources in this network. For example, the load balancer that's used to route and protect inbound HTTP/s connections to Azure Spring Apps from the internet.
 
-    The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Estimate the size needed to run your workload and evaluate the requirements with the platform team regularly. For information, see [Virtual network requirements](/azure/spring-apps/how-to-deploy-in-azure-virtual-network#virtual-network-requirements).
+    The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Estimate the virtual network size and evaluate the requirements with the platform team regularly. For information, see [Virtual network requirements](/azure/spring-apps/how-to-deploy-in-azure-virtual-network#virtual-network-requirements).
 
     > [!IMPORTANT]
     > 
@@ -105,7 +105,7 @@ The platform team decides the network topology for the entire organization. Hub-
 
 Azure Spring Apps is deployed using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) to isolate the application from systems in private networks, other Azure services, and even the service runtime. Inbound and outbound traffic from the application is allowed or denied based on network rules. 
 
-Isolation is achieved through subnets. You're responsible for allocating subnets in the virtual network. Azure Spring Apps requires two dedicated subnets:
+Isolation is achieved through subnets. You're responsible for allocating subnets in the spoke virtual network. Azure Spring Apps requires two dedicated subnets:
 
 - Service runtime
 - Spring Boot applications
@@ -123,11 +123,11 @@ TBD
 
 ### Network controls
 
-Inbound traffic to the spoke virtual network from the internet is restricted by Azure Application Gateway with Web Application Firewall (WAF). WAF rules are allow or deny  HTTP/s connections. 
+Inbound traffic to the spoke virtual network from the internet is restricted by Azure Application Gateway with Web Application Firewall (WAF). WAF rules allow or deny  HTTP/s connections. 
 
-Traffic within the network is controlled by using Network security groups (NSGs) on subnets. NSGs filter traffic as per the configured IP addresses and ports. In this design, NSGs are placed on all subnets.
+Traffic within the network is controlled by using Network security groups (NSGs) on subnets. NSGs filter traffic as per the configured IP addresses and ports. In this design, NSGs are placed on all the subnets.
 
-All public connectivity to Azure services are controlled by using private endpoints, such as access to the Azure Key Vault and the database. Even though the Connectivity subscription has private DNS zones, provision your own Azure Private DNS zones for supporting the services are accessed with private endpoints.   
+Private endpoints are used to control public connectivity to all Azure services, such as access to the Azure Key Vault and the database. Even though the Connectivity subscription has private DNS zones, provision your own Azure Private DNS zones for supporting the services are accessed with private endpoints.   
 
 > [!IMPORTANT]
 > 
