@@ -2,7 +2,7 @@ This reference architecture illustrates how to use Microsoft Defender for Cloud 
 
 ## Architecture
 
-![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel.][architectural-diagram]
+![Diagram that shows monitoring agent on on-premises as well as on Azure transferring data to Microsoft Defender for Cloud and Microsoft Sentinel.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
