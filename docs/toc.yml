@@ -5081,7 +5081,7 @@ items:
       - name: Azure AD identity management for AWS
         href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Deploy AD DS in an Azure virtual network
-        href: reference-architectures/identity/adds-extend-domain.yml
+        href: example-scenario/identity/adds-extend-domain.yml
       - name: Extend on-premises AD FS to Azure
         href: reference-architectures/identity/adfs.yml
       - name: Governance of Teams guest users

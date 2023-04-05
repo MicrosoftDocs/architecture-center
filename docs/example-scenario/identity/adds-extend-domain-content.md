@@ -56,7 +56,7 @@ Configure the VM network interface (NIC) for each AD DS server with a static pri
 
 The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For detailed information on the ports used by AD DS, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports].
 
-If the new domain controller VMs also have the role of DNS servers, we recommend that you configure them as custom DNS servers at the Virtual-Network level, as explained in [Change DNS servers](/azure/virtual-network/manage-virtual-network#change-dns-servers). This should be done for the virtual network hosting the new domain controllers and peered networks where other VMs will need to resolve Active Directory domain names. For more information on how to configure hybrid DNS name resolution, see [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+If the new domain controller VMs also have the role of DNS servers, we recommend that you configure them as custom DNS servers at the virtual network level, as explained in [Change DNS servers](/azure/virtual-network/manage-virtual-network#change-dns-servers). This should be done for the virtual network hosting the new domain controllers and peered networks where other VMs will need to resolve Active Directory domain names. For more information on how to configure hybrid DNS name resolution, see [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 ### Active Directory site
 
