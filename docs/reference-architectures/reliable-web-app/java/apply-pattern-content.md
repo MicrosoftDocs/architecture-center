@@ -75,7 +75,7 @@ You should also enforce least privileges on the workload identity for all Azure 
 
 Authentication and authorization are critical aspects of web application security. Authentication is the process of verifying the identity of a user. Authorization determines what actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (App Service) and identity provider (Azure AD).
 
-**Configure user authentication** Your web app needs to prioritize authentication of users to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service has a built-in authentication feature ("Easy Auth"). You should use this feature to reduce the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
+**Configure user authentication** Your web app needs to prioritize authentication of users to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service enables authentication with identity providers including Azure AD. You should use this feature to reduce the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
 *Reference implementation.* The reference implementation uses the built-in authentication feature ("EasyAuth") of App Service to manage the initial sign-in flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
 
@@ -146,7 +146,7 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
 *Reference implementation.* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
 
 ```json
-"appRoles":[
+"appRoles":{
   {
     "allowedMemberTypes": [
         "User"
@@ -166,8 +166,8 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
     "id": "random_uuid",
     "isEnabled": true,
     "value": "Creator"
-  },
-]
+  }
+}
 ```
 
 For more information, see:
