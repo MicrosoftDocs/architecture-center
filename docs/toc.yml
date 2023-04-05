@@ -1229,19 +1229,16 @@ items:
         href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
       - name: SWIFT on Azure
         items:
-        - name: Alliance Connect
-        - name: Alliance Connect Virtual
-          items:
-          - name: SWIFT Alliance Connect Virtual
-            href: example-scenario/finance/swift-on-azure-vsrx.yml
-          - name: SWIFT Alliance Lite2
-            href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
-          - name: SWIFT Alliance Cloud
-            href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
-          - name: SWIFT Alliance Access
-            href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-          - name: SWIFT Alliance Message Hub
-            href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+        - name: SWIFT Alliance Connect Virtual
+          href: example-scenario/finance/swift-on-azure-vsrx.yml
+        - name: SWIFT Alliance Lite2
+          href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
+        - name: SWIFT Alliance Cloud
+          href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
+        - name: SWIFT Alliance Access
+          href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
+        - name: SWIFT Alliance Message Hub
+          href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
     - name: Datasets
       items:
       - name: US Consumer Price Index
