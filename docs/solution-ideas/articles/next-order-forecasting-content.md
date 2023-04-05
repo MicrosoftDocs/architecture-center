@@ -29,23 +29,21 @@ link
 
    Data ingestion is the process of transferring data from various sources to a designated destination. This process involves using specific connectors for each data source and target destination.
    
-   Azure Data Factory offers a comprehensive range of connectors that can be leveraged to extract data from various sources, including databases, file systems, and cloud services. These connectors are pre-built by either Microsoft or third-party vendors and are designed to function effectively with multiple data sources. For example, [SAP connectors](/azure/data-factory/industry-sap-connectors) can be used to support a wide variety of data ingestion scenarios from SAP and [Snowflake connector](/azure/data-factory/connector-snowflake?tabs=data-factory) can be used to support copy activity in Azure Data Factory to copy data from Snowflake.
-
-   By utilizing these connectors, organizations can streamline the process of data ingestion and ensure that data is securely and efficiently transferred to its intended destination. Whether it is data ingestion from an on-premises database or a cloud-based file system, Azure Data Factory provides the necessary tools to facilitate seamless data ingestion.
+   Azure Data Factory provides connectors that you can use to extract data from various sources, including databases, file systems, and cloud services. These connectors are created by Microsoft or third-party vendors and are designed to function effectively with multiple data sources. For example, you can use [SAP connectors](/azure/data-factory/industry-sap-connectors) for various SAP data ingestion scenarios. You can use the [Snowflake connector](/azure/data-factory/connector-snowflake?tabs=data-factory) to copy data from Snowflake.
 
 1. Staging area 
 
-   The staging area serves as a temporary storage location between the source and the destination. The primary objective of this staging area is to maintain data in a uniform and structured format while it undergoes essential transformations or quality checks before ultimately being loaded into its intended destination.
+   The staging area serves as a temporary storage location between the source and the destination. The main purpose of this staging area is to maintain data in a uniform and structured format while it undergoes transformations or quality checks, before it's loaded into its destination.
 
-   The staging area can be used for collecting and organizing various data points in a consistent format for this use case. This enables the data to be standardized and formatted correctly, which is crucial for accurate analysis and modeling. By consolidating and preparing the data using a staging area, it can be processed more efficiently using Azure Machine Learning. By leveraging the staging area in this manner, it ensures that the data is uniform and ready for analysis.
+   A consistent data format is critical for accurate analysis and modeling. If you consolidate and prepare the data in a staging area, it can be processed more efficiently by Azure Machine Learning.
 
-1. Artificial Intelligence and Machine Learning - Model Training
+1. Machine learning model training
 
-   Model training is a crucial process in machine learning that involves using an algorithm to learn patterns from data and selecting a model that can predict a customer's next order accurately.
+   Model training is a machine learning process that invloves using an algorithm to learn patterns from data and, in this case, selecting a model that can accurately predict a customer's next order.
 
-   To facilitate model training, we use [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) to manage the entire machine learning project lifecycle, including training models, deploying models, and managing Machine Learning Operations (MLOps).
+   In this solution, [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to manage the entire machine learning project lifecycle, including training models, deploying models, and managing Machine Learning Operations (MLOps).
 
-   In this particular use case, we utilize the [ParallelRunStep]() methodology to process large amounts of data in parallel and build models capable of forecasting the next order for every customer store and merchandise SKU combination. By dividing the dataset into smaller chunks and processing them simultaneously on multiple virtual machines using Azure Machine Learning Compute Clusters, the overall processing time is significantly reduced. This feature allows workload distribution across multiple nodes, increasing the processing power of the system.
+   [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is used to process large amounts of data in parallel and create models that can forecast the next order for every customer store and merchandise SKU combination. You can reduce processing time by dividing the dataset into smaller chunks and processing them simultaneously on multiple virtual machines by using Azure Machine Learning compute clusters. This feature allows workload distribution across multiple nodes, increasing the processing power of the system.
 
    After the data has been prepared, Azure Machine Learning can initiate the parallel Model Training process using ParallelRunStep with a range of forecasting models, including Exponential Smoothing, Elastic Net, Prophet, and others. Each node or compute instance starts building the model, making the entire process more efficient and faster.
 
