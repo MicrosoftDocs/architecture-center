@@ -100,42 +100,42 @@ For more information, see [Spring Security with Azure Active Directory](https://
 
 **Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Web Security to use the Azure AD Spring Boot Starter library allows integration with Azure Active Directory and ensures that users are authenticated securely. Additionally, configuring and enabling the MSAL library provides access to more security features, such as token caching and automatic token refreshing, and enhances the security of the web application.
 
-**HOW HOW HOW???*** You need to configure your Java code to use MSAL to protect routes with decorators or XYZ java jargon. How do you say this to a Java developer?
+*Reference implementation* To integrate with Azure AD, the reference implementation had to refactor the [`GlobalSecurityConfig.java`](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/src/airsonic-advanced/airsonic-main/src/main/java/org/airsonic/player/security/GlobalSecurityConfig.java). `GlobalSecurityConfig.java` has the class-level annotation `@EnableWebSecurity`. `@EnableWebSecurity` enables Spring Security to locate the class and allows the class to have custom Spring Security configuration defined in any `WebSecurityConfigurer`. `WebSecurityConfigurerAdapter` is the implementation class of the `WebSecurityConfigurer` interface. Extending the `WebSecurityConfigurerAdapter` class enables endpoint authorization.
 
-*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. The `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class (from MSAL) to add authentication. The following code protects routes with application roles prefixed with `APPROLE_`.
+For Azure Active Directory, the [`AADWebSecurityConfigurerAdapter`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/aad/AadWebSecurityConfigurerAdapter.java) class protects the routes in a Spring application, and it extends `WebSecurityConfigurerAdapter`. To configure the specific requirements for the reference implementation, the `WebSecurityConfiguration` class in the following code extends `ADWebSecurityConfigurationAdapter`.
 
-***NEED NEW CODE***
 ```java
-    @Configuration
+@Configuration
 public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        // use required configuration from AADWebSecurityAdapter.configure:
-        super.configure(http);
-        // add custom configuration:
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+      // use required configuration from AADWebSecurityAdapter.configure:
+      super.configure(http);
+      // add custom configuration:
 
-         http
-                .authorizeRequests()
-                .antMatchers("/recover*", "/accessDenied*", "/style/**", "/icons/**", "/flash/**", "/script/**", "/error")
-                .permitAll()
-                .antMatchers("/personalSettings*",
-                            "/playerSettings*", "/shareSettings*", "/credentialsSettings*")
-                .hasAnyAuthority("APPROLE_User", "APPROLE_Creator")
-                .antMatchers("/**")
-                .hasAnyAuthority("APPROLE_User", "APPROLE_Creator")
-                .anyRequest().authenticated()
-                .and()
-                .addFilterBefore(aadAddAuthorizedUsersFilter UsernamePasswordAuthenticationFilter.class)
-                .logout(logout -> logout
-                        .deleteCookies("JSESSIONID", "XSRF-TOKEN")
-                        .clearAuthentication(true)
-                        .invalidateHttpSession(true)
-                        .logoutSuccessUrl("/index"))
-                    ;
+      http
+          .authorizeRequests()
+          .antMatchers("/recover*", "/accessDenied*", "/style/**", "/icons/**", "/flash/**", "/script/**", "/error")
+          .permitAll()
+          .antMatchers("/deletePlaylist*", "/savePlaylist*")
+          .hasAnyAuthority("APPROLE_Creator")
+          .antMatchers("/**")
+          .hasAnyAuthority("APPROLE_User", "APPROLE_Creator")
+          .anyRequest().authenticated()
+          .and()
+          .addFilterBefore(aadAddAuthorizedUsersFilter UsernamePasswordAuthenticationFilter.class)
+          .logout(logout -> logout
+              .deleteCookies("JSESSIONID", "XSRF-TOKEN")
+              .clearAuthentication(true)
+              .invalidateHttpSession(true)
+              .logoutSuccessUrl("/index"));
         }
+    ... 
 }
 ```
+
+The `antMatchers()` enforces authorization to the specified routes. For example, a user making a request to `/deletePlaylist*` must have the role `APPROLE_Creator`. Otherwise, that user is denied access to make the request.
 
 **Express your application needs in Azure Active Directory.** Most apps use the concept of application roles. Application roles are custom roles to assign permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization.
 
