@@ -33,7 +33,9 @@ categories:
   - security
   - networking
   - windows-virtual-desktop
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - devx-track-terraform
 ---
 
 # Open-source scenarios on Azure
@@ -314,7 +316,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery. Use Red Hat Enterprise Linux in multi-node configurations. For high availability, use a Pacemaker cluster on Red Hat Enterprise Linux. |SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability. Red Hat Enterprise Linux is used for a high availability SAP Central Services cluster.|SAP|
 |[SAS on Azure](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. SAS supports Red Hat 7 and later.|Compute|
-|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](../example-scenario/finance/swift-alliance-messaging-hub.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market. A key component, the AMH node, runs on JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux. |Networking|
 |[SWIFT\'s AMH with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure. A key component, the AMH node, runs on JBoss EAP on Red Hat Enterprise Linux. |Networking|
 
 ## Redis

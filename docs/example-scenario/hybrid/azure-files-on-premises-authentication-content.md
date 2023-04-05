@@ -2,7 +2,7 @@ This architecture demonstrates a way to provide file shares in the cloud to on-p
 
 ## Architecture
 
-:::image type="content" source="media/azure-files-on-premises-authentication.png" alt-text="Azure architecture to provide desktops, both on-premises and cloud-based, for a company with many branches." border="false" lightbox="media/azure-files-on-premises-authentication.png":::
+:::image type="content" source="media/azure-files-on-premises-authentication.svg" alt-text="Azure architecture to provide desktops, both on-premises and cloud-based, for a company with many branches." border="false" lightbox="media/azure-files-on-premises-authentication.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1893117-azure-files-on-premises-authentication.vsdx) of this architecture.*
 

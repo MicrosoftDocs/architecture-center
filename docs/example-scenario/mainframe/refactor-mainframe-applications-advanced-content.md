@@ -179,4 +179,4 @@ Principal author:
 
 - [Azure mainframe and midrange architecture concepts and patterns](/azure/architecture/mainframe/mainframe-midrange-architecture)
 - [IBM z/OS mainframe migration with Avanade AMT](../../example-scenario/mainframe/asysco-zos-migration.yml)
-- [Refactor mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
+- [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
