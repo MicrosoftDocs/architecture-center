@@ -57,13 +57,13 @@ This article describes how merchandise distributors can use AI and machine learn
 
    In this solution, there are two ways to deploy models on the [managed endpoints](/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#use-more-than-one-model). The first option is to deploy each model on a managed endpoint deployment. The second option is to bundle multiple models into a single model and deploy it on a managed endpoint deployment. The latter approach is more efficient, providing an easier way to deploy and manage multiple models simultaneously.
 
-1. Analytical Workload 
+1. Analytical workload 
 
-   The scoring results of the model are stored in the analytics systems, specifically Azure Synapse Analytics, Azure Data Lake, or Azure SQL DB (databases), where the input data is collected and stored. This process facilitates the availability of Next Order prediction results for customer consumption, model monitoring, and retraining of the prediction models using the newly available data, thereby enhancing their learning capabilities.
+   The scored output of the model is stored in analytics systems like Azure Synapse Analytics, Azure Data Lake, or Azure SQL Database, where the input data is also collected and stored. This stage facilitates the availability of the prediction results for customer consumption, model monitoring, and retraining of models with new data to improve their accuracy.
 
-1. End-user Consumption
+1. End-user consumption
 
-   To present the scored model visually to customers, distributors can leverage Webapps platform, Power BI (Business Insights) Dashboard or PowerApps. By utilizing these tools, the recommendations for the SKU and predicted quantities can be represented graphically on a canvas, providing an intuitive and engaging customer experience.
+   To present the scored model visually to customers, distributors can use Webapps platform, Power BI (Business Insights) Dashboard or PowerApps. By utilizing these tools, the recommendations for the SKU and predicted quantities can be represented graphically on a canvas, providing an intuitive and engaging customer experience.
 
    By using this approach, customers of these distributors can be alerted to the recommended SKU and predicted quantities, empowering them to place orders proactively. This can help streamline the ordering process, reduce the likelihood of stock-outs, and enhance customer satisfaction. By leveraging Power BI Dashboard or PowerApps, distributors can provide their customers with a seamless and efficient ordering experience.
 
