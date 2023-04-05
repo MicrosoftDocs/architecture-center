@@ -59,13 +59,13 @@ Azure availability zones are physically separate datacenters within an Azure reg
 
 ## Security
 
-Security is a critical component of any architectural design. Your security measures aim to ensure the confidentiality, integrity, and availability of data and systems from attacks. The following guidance outlines the key security configurations you need to enforce within the Azure environment.
+Security is a critical component of any architectural design and the goal is to ensure the confidentiality, integrity, and availability of your data and systems. The following guidance outlines the key security concepts you need to implement.
 
 ### Enforce the principle of least-privileges
 
-As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. For users, you should use roles to delegate the appropriate permissions to users. The number and types of roles you use depends on the needs of your application.
+As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. You should map users to roles and delegate the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
 
-You should also enforce least privileges to Azure services. A service in Azure has a workload identity. It authenticates to other resources through Azure AD integration, pre-shared access keys, or local username and passwords. You can manage permissions the workload identities receive in Azure AD or at the service level. You should use Azure RBAC to manage permissions before using service-level access controls (firewalls). For example, your web app has an identity in Azure AD and you should use Azure RBACs to grant the least number of permissions it needs to function. For more information, see:
+You should also enforce least privileges on the workload identity for all Azure services. There are two ways to manage access for workload identities. You can control access with Azure AD role-based access controls (RBACs) or at the service level. You should use Azure RBACs to manage permissions before using service-level access controls. For example, your web app has an identity in Azure AD and you should use Azure RBACs to grant the least number of permissions it needs to function. For more information, see:
 
 - [Access to Azure Storage](/azure/storage/blobs/authorize-access-azure-active-directory)
 - [Access to Key Vault](/azure/key-vault/general/rbac-guide)
@@ -75,13 +75,13 @@ You should also enforce least privileges to Azure services. A service in Azure h
 
 Authentication and authorization are critical aspects of web application security. Authentication is the process of verifying the identity of a user. Authorization determines what actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (App Service) and identity provider (Azure AD).
 
-**Configure user authentication** Your web app needs to prioritize user authentication to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service has a built-in authentication feature ("Easy Auth"). You should use this feature to reduce the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
+**Configure user authentication** Your web app needs to prioritize authentication of users to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service has a built-in authentication feature ("Easy Auth"). You should use this feature to reduce the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
-*Reference implementation.* The reference implementation uses the built-in authentication feature ("Easy Auth") of App Service to manage the initial sign-in flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
+*Reference implementation.* The reference implementation uses the built-in authentication feature ("EasyAuth") of App Service to manage the initial sign-in flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
 
-**Integrate with identity provider (code)** You need to integrate the web application with the identity provider (Azure AD) at the code level to ensure a secure and seamless authentication and authorization. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
+**Integrate with identity provider (code)** You need to integrate the web application with the identity provider (Azure AD) in the code to ensure a secure and seamless authentication and authorization. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
 
-The Spring Cloud Starter Active Directory is an excellent option for integrating with Azure AD. This starter provides a simple and efficient way to implement secure authentication at the code level, using Spring Security and Spring Boot frameworks. The Spring Cloud Starter Active Directory offers several benefits, such as support for various authentication flows, automatic token management, and customizable authorization policies. Additionally, it allows for easy integration with other Spring Cloud components, such as Spring Cloud Config and Spring Cloud Gateway. By using the Spring Cloud Starter Active Directory, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings.
+The Spring Cloud Starter Active Directory is an excellent option for integrating with Azure AD. This starter provides a simple and efficient way to implement secure authentication at the code level, using Spring Security and Spring Boot frameworks. The Spring Cloud Starter Active Directory offers several benefits, such as support for various authentication flows, automatic token management, and customizable authorization policies. Additionally, it enables integration with other Spring Cloud components, such as Spring Cloud Config and Spring Cloud Gateway. By using the Spring Cloud Starter Active Directory, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings.
 
 *Reference implementation.* The reference implementation uses the Microsoft identity platform (Azure AD) as the identity provider. It uses the OAuth 2.0 authorization code grant to sign-in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
@@ -98,11 +98,11 @@ The Spring Cloud Starter Active Directory is an excellent option for integrating
 
 For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Web Security to use the Azure AD Spring Boot Starter library allows integration with Azure Active Directory and ensures that users are authenticated securely. Additionally, configuring and enabling the MSAL library provides access to more security features, such as token caching and automatic token refreshing, further enhances the security of the web application.
+**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Web Security to use the Azure AD Spring Boot Starter library allows integration with Azure Active Directory and ensures that users are authenticated securely. Additionally, configuring and enabling the MSAL library provides access to more security features, such as token caching and automatic token refreshing, and enhances the security of the web application.
 
 **HOW HOW HOW???*** You need to configure your Java code to use MSAL to protect routes with decorators or XYZ java jargon. How do you say this to a Java developer?
 
-*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. The `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class (from MSAL) to add authentication. The code below protects routes with application roles prefixed with `APPROLE_`.
+*Reference implementation* The following code snippet is an example implementation of the authentication and authorization business rules. The `WebSecurityConfiguration` class extends the `AadWebSecurityConfigurerAdapter` class (from MSAL) to add authentication. The following code protects routes with application roles prefixed with `APPROLE_`.
 
 ***NEED NEW CODE***
 ```java
@@ -137,7 +137,7 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 }
 ```
 
-**Express your application needs in Azure Active Directory.** Most apps use the concept of application roles. Applications roles are custom roles to assign permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization steps of the cod
+**Express your application needs in Azure Active Directory.** Most apps use the concept of application roles. Application roles are custom roles to assign permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization.
 
 You can define the application roles as Azure AD roles that the MSAL configuration can use. The Active AD roles provide the backing for the access the application role receive. It authorizes users and uses the application roles to do that.
 
@@ -184,9 +184,9 @@ The reference implementation uses an app registration to assign AD users an app 
 
 You need to configure user authentication and authorization so users can access the web app. You also need to configure service authentication and authorization so the services in your environment have the permissions to perform necessary functions.
 
-**Use managed identities.** Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. It receives a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure database). You can use a managed identity so a CI/CD pipeline can deploy a web app to App Service.
+**Use managed identities.** Managed identities create an identity in Azure Active Directory (Azure AD) that eliminates the need for developers to manage credentials. It receives a workload identity (service principal) in Azure AD and Azure manages the access tokens behind the scenes. Managed identities make identity management easier and more secure by eliminating the need for developers to manage credentials. They provide benefits for authentication, authorization, and accounting. For example, you can use a managed identity to grant the web app access to other Azure resources (Azure Key Vault, Azure database). You can use a managed identity so a CI/CD pipeline can deploy a web app to App Service.
 
-You should use managed identities where possible because of the security and operational benefits. However, there are cases where keeping your on-premises authentication and authorization configuration improves your migration experience. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later.  For more information, see:
+You should use managed identities where possible because of the security and operational benefits. However, there are cases where keeping your on-premises authentication and authorization configuration improves your migration experience. For example, hybrid deployments, legacy systems, and robust identity solution on-premises could be reasons to delay the adoption of managed identities. In these cases, you should keep the on-premises setup and plan to modernize your identity solution later. For more information, see:
 
 - [Developer introduction and guidelines for credentials](/azure/active-directory/managed-identities-azure-resources/overview-for-developers)
 - [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
@@ -199,9 +199,9 @@ You should use managed identities where possible because of the security and ope
 
 Many on-premises environments don't have a central secrets store. Key rotation is uncommon and auditing who has access to a secret is difficult. In Azure, the central secret store is Key Vault. With Key Vault, you can store, keys, manage, audit, and monitor secrets access in Key Vault.
 
-**Do not put Key Vault in the HTTP request flow.** Key Vault has API rates limits, and it stops responding when it reaches those limits. The web app should load values from Key Vault at application start time.
+**Do not put Key Vault in the HTTP-request flow.** Key Vault has imposed service limitations to safeguard resources and ensure optimal service quality for its clients. The original intent of Key Vault was for storing and retrieving sensitive information during deployment. Customers increasingly use Key Vault for runtime secret management and many applications and services treat it like a database. However, its existing limitations don't support high throughput rates, and the limitations might affect performance when placed in the HTTP-request flow. When a key vault reaches a service threshold, it limits any further requests from that client and returns HTTP status code 429. The web app should load values from Key Vault at application start time. For more information, see [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions).
 
-**Use Key Vault to manage secrets.** The terms "secrets" refer to anything that you don't want exposed in plain text (passwords, keys, certificates). After migrating to the cloud, you might still have secrets you need to manage. You should store all secrets in Key Vault.
+**Use Key Vault to manage secrets.** The terms "secrets" refer to anything that you don't want exposed in plain text (passwords, keys, certificates). After migrating to the cloud, you might still have secrets you need to manage. You should store all secrets in a key vault.
 
 **NOTE: ADD CONVO ABOUT JAVA SDK LIBRARY**
 
@@ -211,13 +211,13 @@ Many on-premises environments don't have a central secrets store. Key rotation i
 
 *Reference implementation.* The reference implementation uses the application code through the (**JAVA SDK LIBRARY**) to access the secrets in Key Vault.
 
-**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. The configuration ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches. For non-standing account access, you should use shared access signatures (SASs). There are three types of SASs (user delegation, service, and account). User delegation SAS is preferable. Of the three SASs, it's the only SAS that uses Azure AD credentials and doesn't depend on a storage account key.
+**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account is a security risk. A compromised or unused account with permanent access compromised or if access is no longer required for the user. Temporary permissions grant access to a user or application for a specific period of time. The configuration ensures that access is only granted when needed, and it reduces the risk of unauthorized access or data breaches. For temporary account access, you should use shared access signatures (SASs). There are three types of SASs (user delegation, service, and account). User delegation SAS is preferable. It uses Azure AD credentials and doesn't require a storage account key.
 
-*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This enables the web app to read and write files to the shared file system in the cloud.
+*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This setup enables the web app to read and write files to the shared file system in the cloud.
 
 ### Secure communication with private endpoints
 
-Private endpoints provide a private connection between resources within an Azure virtual network and Azure services. By default, communication to most Azure services traverses the public internet, including Azure Database for PostgreSQL and Azure App Service in the reference implementation. You should use private endpoints in all production environments for all supported Azure services. Private endpoints don't require any code changes, app configurations, or connection strings.
+Private endpoints provide a private connection between resources within an Azure virtual network and Azure services. By default, communication to most Azure services traverses the public internet. You should use private endpoints in all production environments for all supported Azure services. Private endpoints don't require any code changes, app configurations, or connection strings.
 
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
@@ -226,7 +226,7 @@ Private endpoints provide a private connection between resources within an Azure
 
 ### Use a web application firewall
 
-You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take advantage of the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Azure Front Door.
+You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it. You should restrict access on the application platform (App Service) to only accept inbound communication from Azure Front Door.
 
 *Reference implementation:* The reference implementation uses Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
@@ -330,8 +330,6 @@ resource "azurerm_monitor_autoscale_setting" "airsonicscaling" {
 }
 ```
 
-[See this code in context](https://github.com/Azure/reliable-web-app-pattern-java/blob/08b00043f26a580fc6a37d665b173aca4f346c03/terraform/modules/app-service/main.tf#L278)
-
 ### Delete non-production environments
 
 IaC is often considered an operational best practice, but it's also a way to manage costs. IaC can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
@@ -387,11 +385,11 @@ The cache-aside pattern is a technique that's used to manage in-memory data cach
 
 The cache-aside pattern introduces a few benefits to the web application. It reduces the request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages.
 
-**Cache high-need data.** Most applications have pages that get more viewers than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor and Azure SQL Analytics to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
+**Cache high-need data.** Most applications have pages that get more viewers than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor and to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
 
 **Keep cache data fresh.** You should periodically refresh the data in the cache to keep it relevant. The process involves getting the latest version of the data from the database to ensure that the cache has the most requested data and the most current information. The goal is to ensure that users get current data fast. The frequency of the refreshes depends on the application.
 
-**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event-driven system can make these updates. Another option is to ensure that cached data is only accessed directly from the repository class that's responsible for handling the create and edit events.
+**Ensure data consistency.** To ensure data consistency, you should update the cached data whenever a user makes changes. You can implement an event-driven system for these updates, or you can access cached data through the repository class responsible for managing the create and edit events.
 
 ### Deploy the reference implementation
 

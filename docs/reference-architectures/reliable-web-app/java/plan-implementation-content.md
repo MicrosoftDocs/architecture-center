@@ -4,7 +4,7 @@ There's a [reference implementation](https://github.com/Azure/reliable-web-app-p
 
 ## Architecture and pattern
 
-The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. We applied the reliable web app pattern to the reference implementation. The following diagram illustrates how the reference implementation should look in your environment.
+The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. The following diagram illustrates how the reference implementation should look in your environment.
 
 [![Diagram showing the architecture of the reference implementation](images/reliable-web-app-java.png)](images/reliable-web-app-java.png)
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost, see:*
@@ -16,7 +16,7 @@ The following table lists the principles of the reliable web app pattern and how
 
 | Reliable web app principles | Implementation for Java |
 | --- | --- |
-|▪ Low-cost, high-value updates<br>▪ Minimal code changes to:<ol>▫ Meet security best practices<br>▫ Apply reliability design patterns<br>▫ Improve operational excellence</ol>▪ Cost-optimized environment(s)<br>▪ Follow Azure Well-Architected Framework principles<br>▪ Business-driven service level objective |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring |
+|▪ Low-cost, high-value updates<br>▪ Minimal code changes to:<ol>▫ Meet security best practices<br>▫ Apply reliability design patterns<br>▫ Improve operational excellence</ol>▪ Cost-optimized environment(s)<br>▪ Follow Azure Well-Architected Framework principles<br>▪ Business-driven service level objective |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring |
 
 ## Business context
 
@@ -47,11 +47,11 @@ Finally, use the formulas for composite SLAs to estimate the composite availabil
 
 ## Choose the right services
 
-The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts. At this phase, it's important select Azure services that mirror key on-premises choices to minimize the migration effort. At this phase, it's important to select the Azure services that mirror key on-premises choices. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLA of 99.9% for the production environment and (2) an average load of 1,000 users daily.
+The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts. At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLA of 99.9% for the production environment and (2) an average load of 1,000 users daily.
 
 ### Application platform
 
-[Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable[compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
+[Azure App Service](/azure/app-service/overview) is an HTTP-based, managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
 - **Broad Java support:** App Service supports Java Platform Standard Edition (SE), Apache Tomcat, and JBoss Enterprise Application Platform (EAP) web apps. You can deploy Maven plugins from the command line or in editors (IntelliJ, Eclipse, or Visual Studio Code).
 - **High SLA:** It has a 99.95% uptime SLA and meets our requirements for the production environment.
@@ -59,7 +59,7 @@ The Azure services you choose should support your short-term objectives while pr
 - **Containerization capability:** App Service works with private container image registries like Azure Container Registry. Proseware can use these registries to containerize the web app in the future.
 - **Autoscaling:** The web app can rapidly scale up, down, in, and out based on user traffic.
 
-Azure has a fully managed service specifically for Spring Boot apps, Azure Spring Apps. Proseware concluded that the Spring Apps platform introduces key hosting benefits but a came with an undesired larger operations disparity between their on-premises Tomcat servers than Azure App Service for the team's current level of cloud experience.
+Azure has a fully managed service specifically for Spring Boot apps, Azure Spring Apps. Proseware concluded that the Spring Apps platform introduces key hosting benefits. It came with a larger disparity between the on-premises Tomcat servers than Azure App Service and aligned better with the team's current level of cloud experience.
 
 ### Identity management
 
@@ -110,7 +110,7 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Global ingress gateway
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a content deliver network that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a content delivery network that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
 
 - **Internet-facing security.** It provides built-in layer 3-4 DDoS protection and integrates with Azure Web Application Firewall (WAF) to protect web apps against common web attacks.
 - **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to our web app.
@@ -146,7 +146,7 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS Services (such as, Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services without application changes. The web app uses Azure Private Link for the following reasons:
+[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (such as, Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services without application changes. The web app uses Azure Private Link for the following reasons:
 
 - **Secure communication:** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to protect against data leakage.
 - **Minimal effort:** The private endpoints support the web application platform and database platform the web app uses. Both platforms mirror existing on-premises setup for minimal change.

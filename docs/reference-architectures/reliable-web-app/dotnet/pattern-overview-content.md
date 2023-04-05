@@ -1,10 +1,10 @@
-This article shows you how to plan the implementation of the reliable web app pattern for .NET. The companion article shows you how to [apply the pattern](apply-pattern.yml). The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal, essential changes you should make to ensure the success of your web app in the cloud. For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+This article shows you how to plan the implementation of the reliable web app pattern for .NET. The companion article shows you how to [apply the pattern](apply-pattern.yml). The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 There's also a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
 
 ## Architecture and pattern
 
-The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. We applied the reliable web app pattern to the reference implementation. The following diagram shows the resulting architecture of the reference implementation.
+The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. The following diagram shows the architecture of the reference implementation.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-dotnet.png)](images/reliable-web-app-dotnet.png)
 
@@ -29,7 +29,7 @@ The implementation guidance mirrors the cloud journey of a fictional company (Re
 
 ## Web application starting point
 
-The on-premises starting point is web application is a monolithic, eCommerce, ASP.NET application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. The employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
+The on-premises starting point is a monolithic, eCommerce, ASP.NET application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. The employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
 
 ## Service level objective
 

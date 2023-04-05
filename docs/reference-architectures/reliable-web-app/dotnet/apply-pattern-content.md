@@ -1,4 +1,4 @@
-This article shows you how to apply the reliable web app pattern for .NET. The companion article shows you how to [plan the implementation](pattern-overview.yml). The reliable web app pattern is a set of principles that help developers successfully migrate web applications to the cloud. The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [Overview of the reliable web app pattern](../overview.md) and the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+This article shows you how to apply the reliable web app pattern for .NET. The companion article shows you how to [plan the implementation](pattern-overview.yml). The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal, essential changes you should make to ensure the success of your web app in the cloud. For more information, see the [Overview of the reliable web app pattern](../overview.md) and the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 There's also a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
 
@@ -197,7 +197,7 @@ This improved network security is transparent from the code perspective. It does
 
 ### Use a web application firewall
 
-You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take advantage of the value of the web application firewall, you have to prevent traffic from bypassing the web application firewall. In Azure, you should restrict access on the application platform (App Service) to only accept inbound communication from Azure Front Door.
+You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it. You should restrict access on the application platform (App Service) to only accept inbound communication from Azure Front Door.
 
 *Reference implementation:* The reference implementation uses Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
