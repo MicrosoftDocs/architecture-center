@@ -20,7 +20,7 @@ The following table lists the principles of the reliable web app pattern and how
 
 ## Business context
 
-The implementation guidance mirrors the cloud journey of a fictional company, Proseware, Inc. Proseware wants to take their on-premises, line of business (LOB), web application to the cloud. It's a customized version of the open-source monolithic Airsonic web-based media streamer. For the purposes of this scenario, we imagine that Proseware developed the application and owns all the code. Company leadership decided to expand their business into the EdTech application market. After their initial technical research, they concluded they could use their existing internal training platform as a starting point and modernize them into a B2C EdTech App. To expand its business into a highly competitive EdTech market, the on-premises infrastructure needs to provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. The migration of their application should meet the increasing business demand with minimal investments in the existing monolithic app. Here are some short-term and long-term goals for the application.
+The implementation guidance mirrors the cloud journey of a fictional company, Proseware, Inc. Proseware wants to take its on-premises, line of business (LOB), web application to the cloud. It's a customized version of the open-source monolithic Airsonic web-based media streamer. For the purposes of this scenario, we imagine that Proseware developed the application and owns all the code. Company leadership decided to expand their business into the EdTech application market. After their initial technical research, they concluded they could use their existing internal training platform as a starting point and modernize them into a B2C EdTech App. To expand its business into a highly competitive EdTech market, the on-premises infrastructure needs to provide a cost-efficient means to scale, and a migration to the cloud offers the most return on investment. The migration of their application should meet the increasing business demand with minimal investments in the existing monolithic app. Here are some short-term and long-term goals for the application.
 
 | Short term goals | Long term goals |
 | --- | --- |
@@ -56,7 +56,7 @@ The Azure services you choose should support your short-term objectives while pr
 - **Broad Java support:** App Service supports Java Platform Standard Edition (SE), Apache Tomcat, and JBoss Enterprise Application Platform (EAP) web apps. You can deploy Maven plugins from the command line or in editors (IntelliJ, Eclipse, or Visual Studio Code).
 - **High SLA:** It has a 99.95% uptime SLA and meets our requirements for the production environment.
 - **Reduced management overhead:** It’s a fully managed hosting solution.
-- **Containerization capability:** App Service works with private container image registries like Azure Container Registry. Proseware can use these to containerize the web app in the future.
+- **Containerization capability:** App Service works with private container image registries like Azure Container Registry. Proseware can use these registries to containerize the web app in the future.
 - **Autoscaling:** The web app can rapidly scale up, down, in, and out based on user traffic.
 
 Azure has a fully managed service specifically for Spring Boot apps, Azure Spring Apps. Proseware concluded that the Spring Apps platform introduces key hosting benefits but a came with an undesired larger operations disparity between their on-premises Tomcat servers than Azure App Service for the team's current level of cloud experience.
@@ -72,14 +72,14 @@ Azure has a fully managed service specifically for Spring Boot apps, Azure Sprin
 
 ### Database
 
-[Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service that provides built-in high availability, automated maintenance for underlying hardware, operating system and database engine, data protection using automatic backups and point-in-time restore, enterprise grade security and industry-leading compliance to protect sensitive data at-rest and in-motion. Azure Database for PostgreSQL includes single-server and Flexible Server options. We chose the flexible server service for the following benefits:
+[Azure Database for PostgreSQL](/azure/postgresql/flexible-server/overview) is a fully managed database service with single-server and Flexible Server options. We chose Azure Database for PostgreSQL and the flexible server options for the following benefits:
 
 - **Reliability.** The flexible server deployment model supports high availability within a single availability zone and across multiple availability zones. For a high SLO, choose the zone redundant high availability configuration. This configuration and maintains a warm standby server across availability zone within the same Azure region. Data replicates synchronously to the standby server to improve reliability.
 - **Performance.** It provides your apps with predictable performance and intelligent tuning to improve your database's performance based on real usage data.
 - **Reduced management overhead.** It's a fully managed Azure service that reduces the management obligations.
 - **Migration support.** It supports database migration from on-premises, single-server PostgreSQL databases. You can use the [migration tool](/azure/postgresql/migrate/concepts-single-to-flexible) to simplify the migration process.
 - **Consistency with on-premises configurations.** It supports [different community versions of PostgreSQL](/azure/postgresql/flexible-server/concepts-supported-versions), including the version that Proseware uses today.
-- **Resiliency.** It automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them on zone redundant storage (ZRS) within the same region. You can restore your database to any point-in-time within the backup retention period. This creates a much better recovery point objective (RPO) (acceptable amount of data loss) than was possible on-premise.
+- **Resiliency.** It automatically creates [server backups](/azure/postgresql/flexible-server/concepts-backup-restore) and stores them on zone redundant storage (ZRS) within the same region. You can restore your database to any point-in-time within the backup retention period. The backup and restoration capability creates a better recovery point objective (RPO) (acceptable amount of data loss) than was possible on-premises.
 
 ### Application performance monitoring
 
@@ -90,7 +90,7 @@ Azure has a fully managed service specifically for Spring Boot apps, Azure Sprin
 - **Telemetry:** It collects information about how users are using the app and allows us to easily send custom events we want to track in our app.
 - **Solving an on-premises visibility gap.** The on-premises solution didn't have APM. Application Insights provides easy integration with the application platform and code.
 
-Azure Monitor is a comprehensive suite of monitoring tools to collect data from a variety of Azure services. For more information, see:
+Azure Monitor is a comprehensive suite of monitoring tools to collect data from various Azure services. For more information, see:
 
 - [Application Monitoring for Azure App Service and Java](/azure/azure-monitor/app/azure-web-apps-java)
 - [Smart detection in application insights](/azure/azure-monitor/alerts/proactive-diagnostics)
@@ -137,12 +137,12 @@ Azure Monitor is a comprehensive suite of monitoring tools to collect data from 
 
 ### Object storage
 
-Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. The app uses the filesystem to save uploaded training videos. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This enables the app to read and write files to the shared file system in the cloud. The web app uses Azure Files for the following reasons:
+Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. Proseware needed a file system to save uploaded training videos and chose Azure Files for the following reasons:
 
 - **Replace existing file server:** Azure Files allows us to replace our existing file server without having to modify our code to use an alternative blob storage mechanism. It's good fit because it simplified the process of getting our app running on the cloud.
 - **Fully managed:** Azure file shares allow us to maintain compatibility without needing to manage hardware or operating system for a file server.
 - **Resiliency:** Azure Files has been built from the ground up to be always available.
-- **Durability.** Azure files has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
+- **Durability.** Azure Files has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 ### Endpoint security
 

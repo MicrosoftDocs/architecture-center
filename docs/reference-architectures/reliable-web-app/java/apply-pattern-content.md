@@ -213,7 +213,7 @@ Many on-premises environments don't have a central secrets store. Key rotation i
 
 **Avoid using access keys for temporary access where possible** Granting permanent access to a storage account poses a security risk. A compromised or unused account with permanent access compromised or if the user no longer needs access to the storage account. Temporary permissions, on the other hand, allow you to grant access to a user or application for a specific period of time. The configuration ensures that access is only granted when needed and reduces the risk of unauthorized access or data breaches. For non-standing account access, you should use shared access signatures (SASs). There are three types of SASs (user delegation, service, and account). User delegation SAS is preferable. Of the three SASs, it's the only SAS that uses Azure AD credentials and doesn't depend on a storage account key.
 
-*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service.
+*Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This enables the web app to read and write files to the shared file system in the cloud.
 
 ### Secure communication with private endpoints
 
