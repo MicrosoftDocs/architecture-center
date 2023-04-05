@@ -70,10 +70,6 @@ The following Azure infrastructure services are also part of this solution:
 - [Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is an infrastructure as a service (IaaS) offering. You can use Virtual Machines to deploy on-demand, scalable computing resources. Virtual Machines provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. 
 - [Azure Disk Storage](https://azure.microsoft.com/products/storage/disks) provides high-performance, highly durable block storage. You can use these managed storage volumes with Virtual Machines.
 
-### Alternatives
-
-This solution uses Alliance Connect Virtual. You can use SWIFT [Alliance Connect](swift-alliance-messaging-hub.yml) instead of Alliance Connect Virtual. If you use this alternative, you deploy Alliance Connect to an on-premises or colocation site.
-
 ## Scenario details 
 
 AMH is one of the key messaging solutions in the SWIFT product portfolio. AMH is customizable and meets the messaging needs of financial institutions. [AMH](https://www.swift.com/our-solutions/interfaces-and-integration/alliance-messaging-hub) can help financial institutions introduce new services and products to the market quickly and efficiently. AMH can also help organizations meet the security and compliance standards that financial messaging requires.
@@ -164,10 +160,7 @@ Principal authors:
 
 ## Related resources
 
-- [SWIFT Alliance Connect on Azure](swift-on-azure-srx.yml)
 - [SWIFT Alliance Connect Virtual on Azure](swift-on-azure-vsrx.yml)
-- [SWIFT Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml)
 - [SWIFT Alliance Access with Alliance Connect Virtual](swift-alliance-access-vsrx-on-azure.yml)
-- [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml)
 - [SWIFT Alliance Cloud on Azure](swift-alliance-cloud-on-azure.yml)
 - [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)
