@@ -135,7 +135,7 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 }
 ```
 
-The `antMatchers()` enforces authorization to the specified routes. For example, a user making a request to `/deletePlaylist*` must have the role `APPROLE_Creator`. Otherwise, that user is denied access to make the request.
+The `antMatchers()` enforces authorization to the specified routes. For example, users making a request to `/deletePlaylist*` must have the role `APPROLE_Creator`. The code denies users without the `APPROLE_Creator` access to make the request.
 
 **Express your application needs in Azure Active Directory.** Most apps use the concept of application roles. Application roles are custom roles to assign permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization.
 
