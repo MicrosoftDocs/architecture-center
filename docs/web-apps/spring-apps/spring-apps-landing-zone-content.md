@@ -91,7 +91,7 @@ The platform team decides the network topology for the entire organization. Hub-
 
     The application landing zone has at least a preprovisioned virtual network. You own these resources in this network. are owned and maintained by the platform team. For example, the load balancer that's used to route and protect inbound HTTP/s connections to Azure Spring Apps from the internet.
 
-    The pre-provisioned virtual network and peerings must be able to support the expected growth of the workload. Estimate the size needed to run your workload and evaluate the requirements with the platform team regularly. For information, see [Virtual network requirements](/azure/spring-apps/how-to-deploy-in-azure-virtual-network#virtual-network-requirements).
+    The preprovisioned virtual network and peerings must be able to support the expected growth of the workload. Estimate the size needed to run your workload and evaluate the requirements with the platform team regularly. For information, see [Virtual network requirements](/azure/spring-apps/how-to-deploy-in-azure-virtual-network#virtual-network-requirements).
 
     > [!IMPORTANT]
     > 
@@ -105,18 +105,21 @@ The platform team decides the network topology for the entire organization. Hub-
 
 Azure Spring Apps is deployed using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) to isolate the application from systems in private networks, other Azure services, and even the service runtime. Inbound and outbound traffic from the application is allowed or denied based on network rules. 
 
-For this isolation, You're responsible for allocating subnets in the virtual network. Azure Spring Apps requires two dedicated subnets:
+Isolation is achieved through subnets. You're responsible for allocating subnets in the virtual network. Azure Spring Apps requires two dedicated subnets:
 
 - Service runtime
 - Spring Boot applications
 
-Each subnet requires a dedicated Azure Spring Apps cluster. Multiple clusters can't share the same subnets. The minimum size of each subnet is /28. The actual size depends on the number of application instances that Azure Spring Apps can support. For information, see [Using smaller subnet ranges](/azure/spring-apps/how-to-deploy-in-azure-virtual-network#using-smaller-subnet-ranges).
+Each subnet requires a dedicated Azure Spring Apps cluster. Multiple clusters can't share the same subnets. 
+
+The minimum size of each subnet is /28. The actual size depends on the number of application instances that Azure Spring Apps can support. For information, see [Using smaller subnet ranges](/azure/spring-apps/how-to-deploy-in-azure-virtual-network#using-smaller-subnet-ranges).
 
 > [!WARNING]
 > 
 > The selected subnet size can't overlap with the existing virtual network address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
 
 ### Load balancing
+TBD
 
 ### Network controls
 
