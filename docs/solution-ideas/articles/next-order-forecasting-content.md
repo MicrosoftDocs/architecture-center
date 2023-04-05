@@ -4,11 +4,11 @@ This article describes how merchandise distributors can use AI and machine learn
 
 ## Architecture
 
-image
+:::image type="content" source="../media/order-forecasting.png" alt-text="Diagram that shows an architecture for forecasting orders." lightbox="../media/order-forecasting.png":::
 
 link 
 
-### Dataflow 
+### Dataflow
 
 1. Data sources
 
@@ -43,19 +43,19 @@ link
 
    In this solution, [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is used to manage the entire machine learning project lifecycle, including training models, deploying models, and managing Machine Learning Operations (MLOps).
 
-   [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is used to process large amounts of data in parallel and create models that can forecast the next order for every customer store and merchandise SKU combination. You can reduce processing time by dividing the dataset into smaller chunks and processing them simultaneously on multiple virtual machines by using Azure Machine Learning compute clusters. This feature allows workload distribution across multiple nodes, increasing the processing power of the system.
+   [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) is used to process large amounts of data in parallel and create models that can forecast the next order for every customer store and merchandise SKU combination. You can reduce processing time by dividing the dataset into smaller parts and processing them simultaneously on multiple virtual machines. You can use Azure Machine Learning compute clusters to accomplish this distribution of workloads across multiple nodes.
 
-   After the data has been prepared, Azure Machine Learning can initiate the parallel Model Training process using ParallelRunStep with a range of forecasting models, including Exponential Smoothing, Elastic Net, Prophet, and others. Each node or compute instance starts building the model, making the entire process more efficient and faster.
+   After the data is prepared, Azure Machine Learning can start the parallel model training process by using ParallelRunStep with a range of forecasting models, including exponential smoothing, elastic net, and Prophet. Each node or compute instance starts building the model, so the process is more efficient and faster.
 
-1. Artificial Intelligence and Machine Learning - Model Inferencing
+1. Machine learning model Inferencing
 
-   Model inferencing is a crucial process that involves using a trained machine learning model to generate predictions for previously unseen data points. In this use case, it is utilized to forecast the quantity of the merchandise SKU that a customer is likely to purchase.
+   Model inferencing is a process that uses a trained machine learning model to generate predictions for previously unseen data points. In this solution, it forecasts the quantity of the merchandise SKU that a customer is likely to purchase.
 
-   Azure Machine Learning provides a model registry, which is built into the Azure cloud, to store and version trained models. The model registry is a useful feature for organizing and keeping track of trained models, ensuring that they are readily available for deployment.
+   Azure Machine Learning provides model registries for storing and versioning trained models. Model registries can help you organize and track trained models, ensuring that they're readily available for deployment.
 
-   Deploying a trained machine learning model is essential to enable the model to process new data for inferencing. [Azure managed endpoint](/azure/machine-learning/concept-endpoints) is the recommended deployment target, which allows easy scalability, performance tuning, and high availability.
+   Deploying a trained machine learning model enables the model to process new data for inferencing. We recommend that you use [Azure managed endpoints](/azure/machine-learning/concept-endpoints) for the recommended deployment target. Endpoints enable easy scalability, performance tuning, and high availability.
 
-   In this use case, there are two ways to deploy models on the [managed endpoints](/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#use-more-than-one-model). The first option is to deploy each model on a managed endpoint deployment. The second option is to bundle multiple models into a single model and deploy them on a managed endpoint deployment. This approach is more efficient, making it easier to deploy and manage multiple models at once.
+   In this solution, there are two ways to deploy models on the [managed endpoints](/azure/machine-learning/how-to-deploy-online-endpoints?tabs=azure-cli#use-more-than-one-model). The first option is to deploy each model on a managed endpoint deployment. The second option is to bundle multiple models into a single model and deploy it on a managed endpoint deployment. The latter approach is more efficient, providing an easier way to deploy and manage multiple models simultaneously.
 
 1. Analytical Workload 
 
