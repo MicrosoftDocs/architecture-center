@@ -67,7 +67,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
-**[Bicep Templates](azure/azure-resource-manager/bicep/overview)** to configure and deploy the applications.
+**[Bicep Templates](/azure/azure-resource-manager/bicep/overview)** to configure and deploy the applications.
 
 ### Alternatives
 
