@@ -55,10 +55,6 @@ Your business and application systems can connect with Alliance Access VMs as sh
 - [Azure Firewall](https://azure.microsoft.com/products/azure-firewall) 
 - [Azure managed disks](https://azure.microsoft.com/products/storage/disks)
 
-### Alternatives
-
-This architecture shows all SWIFT components, except for HSM, running on Azure. You can also run the SWIFT [Alliance Access with the Alliance Connect](swift-alliance-access-on-azure.yml) networking solution on Azure.
-
 ## Scenario details
 
 Alliance Access is one of the messaging interfaces that SWIFT offers for enhanced-security financial messaging.
@@ -184,10 +180,7 @@ Principal authors:
 
 Explore the functionality and architecture of other SWIFT modules:
 
-- [SWIFT Alliance Connect on Azure](swift-on-azure-srx.yml)
 - [SWIFT Alliance Connect Virtual on Azure](swift-on-azure-vsrx.yml) 
-- [SWIFT Alliance Access with Alliance Connect](swift-alliance-access-on-azure.yml) 
-- [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect](swift-alliance-messaging-hub.yml) 
 - [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](swift-alliance-messaging-hub-vsrx.yml) 
 - [SWIFT Alliance Cloud on Azure](swift-alliance-cloud-on-azure.yml)
 - [SWIFT Alliance Lite2 on Azure](swift-alliance-lite2-on-azure.yml)
