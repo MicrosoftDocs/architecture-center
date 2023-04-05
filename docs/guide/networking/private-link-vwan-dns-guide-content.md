@@ -26,16 +26,16 @@ This topology has the following characteristics:
   - Logging to a Log Analytics workspace in the same region for both firewall rule evaluation and DNS proxy requests. Both are a common network security logging requirement.
 - Each connected virtual network spoke has their default DNS servers setting configured to use the regional Azure Firewall's DNS proxy, otherwise [the FQDN rule evaluation can be out of sync](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
 
+### Multi-region routing
+
+Azure Virtual WAN Secured Virtual Hubs have _limited support_ for inter-hub connectivity when two or more Secured Virtual Hubs are present. This impacts both multi-hub, intra-region and cross-region scenarios. As such, the network topology above does not directly facilitate [filtering private, cross-region traffic through Azure Firewall](/azure/firewall-manager/overview#known-issues). Support for this capability will be delivered through [Virtual WAN Hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies#key-considerations), which is currently in preview.
+
+For this series, the assumption is that internal secured traffic does not traverse multiple hubs. Traffic that must is on a parallel topology that does not filter private traffic through a secured virtual hub, but instead lets it pass through.
+
 ### Adding spoke networks
 
- When adding spoke networks, you need to follow the [constraints defined in the common network topology](#common-network-topology). Configure them as follows to ensure they're associated to the Default route table in its regional hub, and Azure Firewall is securing both internet and private traffic.
+ When adding spoke networks, they will follow the constraints defined in the common network topology above. Specifically they will be be associated with the Default route table in its regional hub and Azure Firewall is configured to securing both internet and private traffic.
 
-- When adding a spoke virtual network connection to the virtual hub, configure default routing by applying the following settings:
-
-  - **Associate Route Table**: **Default**
-  - **Propagate to none**: **Yes**
-
-- When setting the security configuration for the connection, apply the following settings to ensure Azure Firewall is securing internet and private traffic:
   - **Internet traffic**: **Secured by Azure Firewall**
   - **Private traffic**: **Secured by Azure Firewall**
 

@@ -204,7 +204,7 @@ What is important to highlight, is that the FQDN resolves to the private IP addr
 1. With the DNS result in hand, the private IP address of the storage account, the client issues an HTTP request to `stgworkload00.blob.core.windows.net`.
 1. The request is sent to the private IP address of the storage account. This request appropriately fails for many reasons:
     - The request flows through Azure Firewall because it's configured to secure private traffic.  Unless Azure Firewall has a network or application rule in place to allow the flow, Azure Firewall blocks the request.
-    - If you choose not to secure private traffic by Azure Firewall in the hub, the NSG on the private endpoint subnet is configured to block all traffic other than the compute ASG sources within the workload's virtual network.
+    - If you choose not to secure private traffic by Azure Firewall in the hub, such as if your [network supports private, cross-region traffic](./private-link-vwan-dns-guide.yml#multi-region-routing), the NSG on the private endpoint subnet is still configured to block all traffic other than the compute ASG sources within the workload's virtual network.
 
 ## Summary
 
