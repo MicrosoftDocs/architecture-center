@@ -4,9 +4,9 @@ This article describes how merchandise distributors can use AI and machine learn
 
 ## Architecture
 
-:::image type="content" source="../media/order-forecasting.png" alt-text="Diagram that shows an architecture for forecasting orders." lightbox="../media/order-forecasting.png":::
+:::image type="content" source="../media/order-forecasting.png" alt-text="Diagram that shows an architecture for forecasting orders." lightbox="../media/order-forecasting.png" border="false":::
 
-link 
+next-order-forecasting.pptx
 
 ### Dataflow
 
