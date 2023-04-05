@@ -23,7 +23,11 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern details essential implementation guidance for migrating on-premises .NET and Java web apps to the cloud. It builds on the overarching principles of the enterprise app patterns and focuses on the minimal changes you need to make to ensure your web app is successful in the cloud. The implementation guidance shows you how to apply reliability design patterns to your code. It also details the essential changes you need to make to ensure your web app is secure, cost-optimized, high-performing, and operationally excellent.
+The reliable web app pattern provides essential implementation guidance for migrating on-premises .NET and Java web apps to the cloud. The pattern incorporates the principles of the enterprise app patterns. All the enterprise app patterns follow the principles of the Well-Architected Framework (WAF).
+
+The reliable web app pattern focuses on the minimal code changes you need to make to ensure your web app is successful in the cloud. The focus is on the reliability design patterns you should adopt to meet your business needs. However, the articles provide essential implementation guidance for reliability, security, cost optimization, operations, and performance at the code and architecture level.
+
+The articles shows you how to plan an implementation of the reliable web app pattern that meet your business goals. Then, it shows you how to apply the pattern to your web app. It also details the essential changes you need to make to ensure your web app is secure, cost-optimized, high-performing, and operationally excellent.
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
