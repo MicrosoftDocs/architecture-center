@@ -1,0 +1,23 @@
+### YamlMime:Architecture
+metadata:
+  title: Automate PDF forms processing
+  titleSuffix: Azure Architecture Center
+  description: Use Azure services such as Azure Form Recognizer, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.
+  author: gailzmicrosoft 
+  ms.author: gazho, echowan 
+  ms.date: 03/30/2023
+  ms.topic: example-scenario
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - media
+products:
+  - azure-form-recognizer
+  - azure-cognitive-services
+  - azure-logic-apps
+  - azure-functions
+name: Automate PDF forms processing
+summary: Use Azure services such as Azure Form Recognizer, Azure Logic Apps, and Azure Functions to implement cost-effective and flexible automated PDF processing.
+thumbnailUrl: /azure/architecture/browse/thumbs/automate-pdf-forms-processing.png
+content: |
+  [!include[](automate-pdf-forms-processing-content.md)]

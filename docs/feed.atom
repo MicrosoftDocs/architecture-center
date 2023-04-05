@@ -2,12 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-03-20T16:02:50.299Z</updated>
+    <updated>2023-03-29T01:26:26.601Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Index file content and metadata by using Azure Cognitive Search]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/data/search-blob-metadata</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/data/search-blob-metadata"/>
+        <updated>2023-03-20T19:16:31.000Z</updated>
+        <summary type="html"><![CDATA[Build an Azure Cognitive Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Mainframe file and tape backup to Azure using Luminex]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/mainframe/luminex-mainframe-file-tape-transfer</id>
@@ -63,6 +71,54 @@
         <updated>2023-03-08T19:18:51.000Z</updated>
         <summary type="html"><![CDATA[Implement a No Token in the Browser architecture for a JavaScript single-page application using API Management.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SWIFT Alliance Access with Alliance Connect Virtual on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure"/>
+        <updated>2023-03-22T19:57:28.000Z</updated>
+        <summary type="html"><![CDATA[Deploy and run SWIFT Alliance Access with Alliance Connect Virtual on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SWIFT Alliance Lite2 on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-lite2-on-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-lite2-on-azure"/>
+        <updated>2023-03-22T19:57:28.000Z</updated>
+        <summary type="html"><![CDATA[Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SWIFT Alliance Connect Virtual on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-on-azure-vsrx</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-on-azure-vsrx"/>
+        <updated>2023-03-22T19:57:28.000Z</updated>
+        <summary type="html"><![CDATA[Learn about SWIFT Alliance Connect Virtual components that can be deployed on Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure service retry guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/retry-service-specific"/>
+        <updated>2023-03-22T15:51:49.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the retry mechanism features for many Azure services. Retry mechanisms differ because services have different characteristics and requirements.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CI/CD pipeline for chatbots with ARM templates]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/devops-cicd-chatbot"/>
+        <updated>2023-03-20T19:56:57.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Pipelines and ARM templates to set up a CI/CD pipeline to deploy a chatbot app and its infrastructure as code with Azure App and Azure Bot services.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Background jobs guidance]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/best-practices/background-jobs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/best-practices/background-jobs"/>
+        <updated>2023-03-20T17:46:34.000Z</updated>
+        <summary type="html"><![CDATA[Learn about background tasks that run independently of the user interface, such as batch jobs, intensive processing tasks, and long-running processes.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Azure App Service and Azure Functions considerations for multitenancy]]></title>
@@ -1681,7 +1737,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SWIFT's Alliance Access with Alliance Connect Virtual in Azure]]></title>
+        <title type="html"><![CDATA[SWIFT Alliance Access with Alliance Connect Virtual on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-access-vsrx-on-azure"/>
         <updated>2022-12-05T23:02:28.000Z</updated>
@@ -1689,7 +1745,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SWIFT Alliance Cloud in Azure]]></title>
+        <title type="html"><![CDATA[SWIFT Alliance Cloud on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-cloud-on-azure</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-cloud-on-azure"/>
         <updated>2022-12-05T23:02:28.000Z</updated>
@@ -1713,7 +1769,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SWIFT's Alliance Messaging Hub (AMH) with Alliance Connect Virtual]]></title>
+        <title type="html"><![CDATA[SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub-vsrx"/>
         <updated>2022-12-05T23:02:28.000Z</updated>
@@ -1721,7 +1777,7 @@
         <category label="updated" term="updated"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SWIFT's Alliance Connect Virtual in Azure]]></title>
+        <title type="html"><![CDATA[SWIFT Alliance Connect Virtual on Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-on-azure-vsrx</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/finance/swift-on-azure-vsrx"/>
         <updated>2022-12-05T23:02:28.000Z</updated>

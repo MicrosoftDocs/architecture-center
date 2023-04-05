@@ -4,7 +4,9 @@ Azure Automation State Configuration is an Azure configuration management servic
 
 This example scenario demonstrates how to use Azure Automation State Configuration to install a web server on Windows and Linux Azure virtual machines (VMs). You can then use Azure Monitor to raise an alert when a system is non-compliant.
 
-![Diagram that shows the Azure Automation State Configuration architecture.](media/azure-state-config.png)
+![Diagram that shows the Azure Automation State Configuration architecture.](media/azure-state-config.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-automation-state-configuration.vsdx) of this architecture.*
 
 ### Workflow
 

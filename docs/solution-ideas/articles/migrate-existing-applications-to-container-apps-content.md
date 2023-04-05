@@ -40,6 +40,8 @@ This solution migrates existing web apps to containers that are deployed in App 
 
 Easily migrate existing web applications to containers and run the containerized web apps in Web App for Containers in Azure App Service. Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator. When you build web apps, Web App for Containers is a good option for taking your first steps with containers. Your containers can easily integrate other Azure resources like storage and database services.
 
+When you integrate existing web apps with Azure resources, you can also take advantage of [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview). Passwordless connections is a language-agnostic feature spanning multiple Azure services. When you use passwordless connections, your web apps connect to Azure-based services without any need to rotate passwords. All you need is configuration - no new code is required.
+
 ### Potential use cases
 
 This solution idea is ideal for migrating current web applications to containers run on Azure. This solution idea can be used to create a website when the following apply:
@@ -72,6 +74,7 @@ Principal author:
 * [Manage container images in Azure Container Registry](/training/modules/publish-container-image-to-azure-container-registry/)
 * [Overview on Web App for Containers and Azure App Service on Linux](https://azure.microsoft.com/blog/webapp-for-containers-overview/)
 * [Comparing Container Apps with other Azure container options](/azure/container-apps/compare-options)
+* [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview)
 
 Example language deployments of containers in App Service:
 

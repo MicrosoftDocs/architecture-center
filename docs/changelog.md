@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 03/20/2023
+ms.date: 03/28/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,7 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Index file content and metadata by using Azure Cognitive Search](./example-scenario/data/search-blob-metadata.yml)
 - [Mainframe file and tape backup to Azure using Luminex](./example-scenario/mainframe/luminex-mainframe-file-tape-transfer.yml)
 - [Using Azure Active Directory B2C in a multitenant architecture](./guide/multitenant/service/azure-ad-b2c.md)
 - [Subscription vending implementation guidance](./landing-zones/subscription-vending.yml)
@@ -37,6 +38,12 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [SWIFT Alliance Access with Alliance Connect Virtual on Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)  ([#f1d3da3ef](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3ef))
+- [SWIFT Alliance Lite2 on Azure](./example-scenario/finance/swift-alliance-lite2-on-azure.yml)  ([#f1d3da3ef](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3ef))
+- [SWIFT Alliance Connect Virtual on Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)  ([#f1d3da3ef](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3ef))
+- [Azure service retry guidance](./best-practices/retry-service-specific.md)  ([#8000935c2](https://github.com/MicrosoftDocs/architecture-center/commit/8000935c2))
+- [CI/CD pipeline for chatbots with ARM templates](./example-scenario/apps/devops-cicd-chatbot.yml)  ([#d5f4075e1](https://github.com/MicrosoftDocs/architecture-center/commit/d5f4075e1))
+- [Background jobs guidance](./best-practices/background-jobs.md)  ([#5cd494b25](https://github.com/MicrosoftDocs/architecture-center/commit/5cd494b25))
 - [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#924f5e599](https://github.com/MicrosoftDocs/architecture-center/commit/924f5e599))
 - [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#5ff05eae2](https://github.com/MicrosoftDocs/architecture-center/commit/5ff05eae2))
 - [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)  ([#b4b724827](https://github.com/MicrosoftDocs/architecture-center/commit/b4b724827))
@@ -262,13 +269,11 @@ The following new and updated articles have recently been published in the Azure
 - [Application integration using Azure Event Grid](./solution-ideas/articles/application-integration-using-event-grid.yml)  ([#80986bb51](https://github.com/MicrosoftDocs/architecture-center/commit/80986bb51))
 - [Azure Data Explorer interactive analytics](./solution-ideas/articles/interactive-azure-data-explorer.yml)  ([#80986bb51](https://github.com/MicrosoftDocs/architecture-center/commit/80986bb51))
 - [Azure Data Explorer monitoring](./solution-ideas/articles/monitor-azure-data-explorer.yml)  ([#80986bb51](https://github.com/MicrosoftDocs/architecture-center/commit/80986bb51))
-- [SWIFT&#x27;s Alliance Access in Azure](./example-scenario/finance/swift-alliance-access-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
-- [SWIFT&#x27;s Alliance Access with Alliance Connect Virtual in Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
-- [SWIFT Alliance Cloud in Azure](./example-scenario/finance/swift-alliance-cloud-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT Alliance Access with Alliance Connect Virtual on Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT Alliance Cloud on Azure](./example-scenario/finance/swift-alliance-cloud-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
 - [SWIFT Alliance Lite2 on Azure](./example-scenario/finance/swift-alliance-lite2-on-azure.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
-- [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect](./example-scenario/finance/swift-alliance-messaging-hub.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
-- [SWIFT&#x27;s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](./example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
-- [SWIFT&#x27;s Alliance Connect Virtual in Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT Alliance Messaging Hub (AMH) with Alliance Connect Virtual](./example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
+- [SWIFT Alliance Connect Virtual on Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
 - [Design review powered by mixed reality](./solution-ideas/articles/collaborative-design-review-powered-by-mixed-reality.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
 - [Training and procedural guidance powered by mixed reality](./solution-ideas/articles/training-and-procedural-guidance-powered-by-mixed-reality.yml)  ([#b36806af9](https://github.com/MicrosoftDocs/architecture-center/commit/b36806af9))
 - [Machine learning at scale](./data-guide/big-data/machine-learning-at-scale.md)  ([#bdb80c250](https://github.com/MicrosoftDocs/architecture-center/commit/bdb80c250))
