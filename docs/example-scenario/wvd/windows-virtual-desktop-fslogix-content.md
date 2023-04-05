@@ -153,67 +153,7 @@ Check the [FSLogix exclusions](/fslogix/manage-profile-content-cncpt) documentat
 
 ### Antivirus exclusions
 
-Make sure to configure the following antivirus exclusions for FSLogix Profile Container virtual hard drives. Make sure to check the following information with your security team.
-
-- Exclude files:
-
-  - %ProgramFiles%\FSLogix\Apps\frxdrv.sys
-  - %ProgramFiles%\FSLogix\Apps\frxdrvvt.sys
-  - %ProgramFiles%\FSLogix\Apps\frxccd.sys
-  - %TEMP%\\*.VHD
-  - %TEMP%\\*.VHDX
-  - %Windir%\TEMP\\*.VHD
-  - %Windir%\TEMP\\*.VHDX
-  - \\\storageaccount.file.core.windows.net\share\\*.VHD
-  - \\\storageaccount.file.core.windows.net\share\\*.VHDX
-  - %ProgramData%\FSLogix\Cache\\*.VHD (additional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Cache\\*.VHDX (additional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHD (additional - only if you use Cloud Cache)
-  - %ProgramData%\FSLogix\Proxy\\*.VHDX (additional - only if you use Cloud Cache)
-
-- Exclude processes:
-
-  - %ProgramFiles%\FSLogix\Apps\frxccd.exe
-  - %ProgramFiles%\FSLogix\Apps\frxccds.exe
-  - %ProgramFiles%\FSLogix\Apps\frxsvc.exe
-
-#### Add exclusions for Microsoft Defender for Cloud by using PowerShell
-
-You can use this PowerShell script to add the exclusions for Microsoft Defender for Cloud:
-
-```powershell
-  # Defender Exclusions for FSLogix
-  $Cloudcache = $false             # Set for true if using cloud cache
-  $StorageAcct = "storageacct"     # Storage Account Name
-  $ShareName = "share"             # Storage Account's file share name
-
-  $filelist = `
-  "%ProgramFiles%\FSLogix\Apps\frxdrv.sys", `
-  "%ProgramFiles%\FSLogix\Apps\frxdrvvt.sys", `
-  "%ProgramFiles%\FSLogix\Apps\frxccd.sys", `
-  "%TEMP%\*.VHD", `
-  "%TEMP%\*.VHDX", `
-  "%Windir%\TEMP\*.VHD", `
-  "%Windir%\TEMP\*.VHDX", `
-  "\\$Storageacct.file.core.windows.net\$ShareName\*.VHD", `
-  "\\$Storageacct.file.core.windows.net\$ShareName\*.VHDX"
-
-  $processlist = `
-  "%ProgramFiles%\FSLogix\Apps\frxccd.exe", `
-  "%ProgramFiles%\FSLogix\Apps\frxccds.exe", `
-  "%ProgramFiles%\FSLogix\Apps\frxsvc.exe"
-
-  Foreach($item in $filelist){
-      Add-MpPreference -ExclusionPath $item}
-  Foreach($item in $processlist){
-      Add-MpPreference -ExclusionProcess $item}
-
-  If ($Cloudcache){
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHD"
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Cache\*.VHDX"
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHD"
-      Add-MpPreference -ExclusionPath "%ProgramData%\FSLogix\Proxy\*.VHDX"}
-```
+You should configure these [antivirus exclusions for FSLogix Profile Container virtual hard drives](/fslogix/overview-prerequisites#file--folder-exclusions). Make sure to check the referenced information with your security team.
 
 ## Using Cloud Cache
 
