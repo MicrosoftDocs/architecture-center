@@ -8,8 +8,8 @@ This article describes the virtual hub extension pattern that provides guidance 
 
 A virtual hub extension is a dedicated spoke virtual network connected to the virtual hub that exposes a single, shared service to workload spokes. A virtual hub extension can be a resource you provide to many workload spokes where those spokes require network connectivity to your shared resource. DNS resources are an example of this. An extension can also be used to contain a centralized resource that requires connectivity to many destinations in the spokes. A centralized Azure Bastion deployment is an example of this.
 
-:::image type="complex" source="./images/dns-private-endpoints-hub-extension-pattern.svg" lightbox="./images/dns-private-endpoints-hub-extension-pattern.svg" alt-text="Diagram showing the hub extension pattern."::: 
-Diagram showing the single-region challenge.
+:::image type="complex" source="./images/dns-private-endpoints-hub-extension-pattern.svg" lightbox="./images/dns-private-endpoints-hub-extension-pattern.svg" alt-text="Diagram showing the hub extension pattern.":::
+Diagram showing a virtual hub with a single workload spoke, and two example hub extensions; one for Azure Bastion, the other for DNS Private Resolver.
 :::image-end:::
 *Figure 1: Hub extension pattern*
 
