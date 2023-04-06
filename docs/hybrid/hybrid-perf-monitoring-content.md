@@ -2,7 +2,7 @@ This reference architecture shows how to use Azure Monitor to monitor the perfor
 
 ## Architecture
 
-![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram]
+[ ![Diagram illustrating monitoring and availability functions of Azure Monitor for OS workloads in Azure, in on-premises environments, and with third-party cloud providers. Data is being sent into a Log Analytics workspace. The data is used by Application Insights, Analysis, Visualization, Alerts, and Autoscale services as part of Azure Monitor][architectural-diagram] ](./images/hybrid-perf-monitoring.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -205,7 +205,7 @@ Explore related architectures:
 - [Unified logging for microservices applications](../example-scenario/logging/unified-logging.yml)
 - [Microservices architecture on Azure Service Fabric](../reference-architectures/microservices/service-fabric.yml)
 
-[architectural-diagram]: ./images/hybrid-perf-monitoring.png
+[architectural-diagram]: ./images/hybrid-perf-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-perf-monitoring.vsdx
 [agents-overview]: /azure/azure-monitor/platform/log-analytics-agent
 [dependency-agent]: /azure/azure-monitor/platform/agents-overview#dependency-agent
