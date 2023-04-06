@@ -5964,6 +5964,14 @@ items:
                 href: networking/guide/well-architected-network-address-translation-gateway.yml          
               - name: Private Link in hub-and-spoke network
                 href: guide/networking/private-link-hub-spoke-network.yml
+              - name: Guide to Private Link and DNS with Azure Virtual WAN
+                items:
+                  - name: Guide overview
+                    href: guide/networking/private-link-vwan-dns-guide.yml
+                  - name: Virtual hub extension pattern
+                    href: guide/networking/private-link-vwan-dns-virtual-hub-extension-pattern.yml
+                  - name: Scenario 1 - Single region accessing single resource
+                    href: guide/networking/private-link-vwan-dns-single-region-workload.yml
               - name: Virtual Network guidance
                 items:
                   - name: Add IP spaces to peered virtual networks
