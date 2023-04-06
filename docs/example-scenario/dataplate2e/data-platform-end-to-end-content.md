@@ -4,7 +4,7 @@ The solution described in this article combines a range of Azure services that w
 
 ## Architecture
 
-[![Architecture for a modern data platform using Azure data services](./media/azure-analytics-end-to-end.svg)](./media/azure-analytics-end-to-end.svg#lightbox)
+[![Architecture diagram for a modern data platform using Azure data services.](./media/azure-analytics-end-to-end.svg)](./media/azure-analytics-end-to-end.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/analytics-with-azuresynapse-updated.vsdx) of this architecture*.
 
