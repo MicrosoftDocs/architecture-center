@@ -39,7 +39,6 @@ Here are the components of this architecture listed by ownership to help determi
 Your team provisions and owns these resources.
 
 - **Azure Spring Apps Enterprise** hosts your Java Spring Boot applications in Azure. This tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®. 
-<<TBD: Why was this tier chosen?-- Provide some enterprise-y justifications.>>
 
 - **Azure Application Gateway Standard_v2** is the load balancer that distributes incoming web traffic. This SKU has integrated Azure Web Application Firewall (WAF) that inspects traffic for Open Web Application Security Project (OWASP) vulnerabilities.
 
@@ -70,6 +69,19 @@ This architecture assumes these resources are preprovisioned. The central teams 
 
 ## Application considerations
 
+The reference implementation includes a sample application that illustrates a typical microservices application hosted in an Azure Spring Apps instance. For more information, see [PetClinic sample](/azure/spring-apps/quickstart-sample-app-introduction?tabs=enterprise-tier&pivots=programming-language-java). 
+
+##### Service discovery
+
+In a microservices pattern, services should be able communicate with other services. In the sample, the API gateway service acts as the entry point of the application and routes incoming requests to the other service instances. To do this function, API Gateway must be able to dynamically discover the active instances of the other services.
+
+For this use case, the application must have a service registry capability. In this architecture, VMware Tanzu® Service Registry is enabled for the Azure Spring Apps. When services spawn new instances, they are automatically registered. The API gateway service looks up the registry and routes requests accordingly.
+
+##### Configuration server
+
+For microservices, configuration data must be separated from the code. In this architecture, because the Enterprise tier was chosen, such data is stored externally as native Kubernetes ConfigMap resources and accessed by Application Configuration Service for Tanzu.  
+
+##### Load balancing
 TBD
 
 ## Networking considerations
@@ -118,8 +130,7 @@ The minimum size of each subnet is /28. The actual size depends on the number of
 > 
 > The selected subnet size can't overlap with the existing virtual network address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
 
-### Load balancing
-TBD
+
 
 ### Network controls
 
