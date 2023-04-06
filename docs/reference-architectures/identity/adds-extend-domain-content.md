@@ -2,7 +2,7 @@
 
 This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services.
 
-![Secure hybrid network architecture with Active Directory](./images/adds-extend-domain.png)
+[ ![Diagram that shows secure hybrid network architecture with Active Directory.](./images/adds-extend-domain.svg)](./images/adds-extend-domain.svg#lightbox)
 
 *Download a [Visio file][visio-download] of this architecture.*
 

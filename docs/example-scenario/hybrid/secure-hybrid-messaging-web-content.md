@@ -8,9 +8,11 @@ In this architecture, we divide the solution into two areas, describing security
 - Exchange Online, on the right side of the diagram.
 - Exchange on-premises in a hybrid or non-hybrid scenario, on the left side of the diagram.
 
-:::image type="complex" border="false" source="./media/hybrid-messaging-web.png" alt-text="Screenshot that shows an architecture for enhanced security in a web access scenario." lightbox="./media/hybrid-messaging-web.png":::
+:::image type="complex" border="false" source="./media/hybrid-messaging-web.svg" alt-text="Screenshot that shows an architecture for enhanced security in a web access scenario." lightbox="./media/hybrid-messaging-web.svg":::
    Diagram that shows two flows of web access. On the right side, a user with a mailbox hosted in Exchange Online. On the left side, a user with a mailbox hosted in Exchange on-premises.
 :::image-end:::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-web.vsdx) of this architecture.*
 
 ### General notes
 

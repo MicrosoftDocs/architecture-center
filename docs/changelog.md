@@ -153,4 +153,3 @@ The following new and updated articles have recently been published in the Azure
 - [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#e0a8580fe](https://github.com/MicrosoftDocs/architecture-center/commit/e0a8580fe))
 - [Team Data Science Process for DevOps](./data-science-process/team-data-science-process-for-devops.md)  ([#e0a8580fe](https://github.com/MicrosoftDocs/architecture-center/commit/e0a8580fe))
 - [Claim-Check pattern](./patterns/claim-check.yml)  ([#d204acf90](https://github.com/MicrosoftDocs/architecture-center/commit/d204acf90))
-
