@@ -15,6 +15,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - devx-track-arm-template
 name: Manage configurations for Azure Arc-enabled servers
 azureCategories:
   - hybrid

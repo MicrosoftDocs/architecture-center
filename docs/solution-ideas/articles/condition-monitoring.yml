@@ -27,6 +27,7 @@ products:
   - azure-event-hubs
   - azure-iot-edge
   - azure-iot-hub
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/condition-monitoring-thumbnail-new.png
 content: |
    [!include[](condition-monitoring-content.md)]
