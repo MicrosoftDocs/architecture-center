@@ -86,7 +86,7 @@ TBD
 
 ## Networking considerations
 
-In this design, the workload is dependent on the federated resources for accessing on-premises resources, controlling egress traffic, and so on.
+In this design, the workload is dependent on resources owned by the platform team for accessing on-premises resources, controlling egress traffic, and so on.
 
 ### Network topology
 
@@ -115,7 +115,7 @@ The platform team decides the network topology. Hub-spoke topology is assumed in
 
 ### VNet injection and subnetting
 
-Azure Spring Apps is deployed using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) to isolate the application from systems in private networks, other Azure services, and even the service runtime. Inbound and outbound traffic from the application is allowed or denied based on network rules. 
+Azure Spring Apps is deployed using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) to isolate the application from the Internet, systems in private networks, other Azure services, and even the service runtime. Inbound and outbound traffic from the application is allowed or denied based on network rules. 
 
 Isolation is achieved through subnets. You're responsible for allocating subnets in the spoke virtual network. Azure Spring Apps requires two dedicated subnets:
 
@@ -137,6 +137,8 @@ The minimum size of each subnet is /28. The actual size depends on the number of
 Inbound traffic to the spoke virtual network from the internet is restricted by Azure Application Gateway with Web Application Firewall (WAF). WAF rules allow or deny  HTTP/s connections. 
 
 Traffic within the network is controlled by using Network security groups (NSGs) on subnets. NSGs filter traffic as per the configured IP addresses and ports. In this design, NSGs are placed on all the subnets.
+
+//TODO: Validate NSG configuration against the codebase
 
 Private endpoints are used to control public connectivity to all Azure services, such as access to the Azure Key Vault and the database. Even though the Connectivity subscription has private DNS zones, provision your own Azure Private DNS zones for supporting the services are accessed with private endpoints.   
 
