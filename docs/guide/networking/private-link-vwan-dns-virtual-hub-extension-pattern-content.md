@@ -26,7 +26,7 @@ A virtual hub extension is often deemed business critical, as it's serving a cor
 
 Resiliency testing and reliability monitoring should be part of the standard operating procedures for any extension, validating access and throughput requirements. It's recommended that each extension has a meaningful health model.
 
-Be clear about your service level objectives (SLO) on this extension to your organization and accurately measure against it. Understand Azure's service level agreement (SLA) and support requirements on each individual component in the extension as well, to help set to ceiling your target SLO and undestand supported configurations.
+Be clear about your service level objectives (SLO) for this extension and accurately measure reliability against it. Understand Azure's service level agreement (SLA) and support requirements on each individual component in the extension. This will help you set the ceiling for your target SLO and understand the supported configurations.
 
 ### Security
 
@@ -48,13 +48,13 @@ You should invest in provisioning these extensions with Infrastructure as Code a
 
 Having a clear change control and enterprise communication plan in place is vital. You might need to communicate with stakeholders (workload owners) about disaster recovery (DR) drills you're executing, or any planned or unexpected downtime.
 
-Ensure you have a solid operational health system in place for these resources. Enable appropriate Azure Diagnostics settings on all extension resources and capture all other telemetry or logs necessary to understand the health of the workload. Long term storage of operation logs and metrics can also be adventagous for customer support interactions during unexpected behavior of the shared service extension.
+Ensure you have a solid operational health system in place for these resources. Enable appropriate Azure Diagnostics settings on all extension resources and capture all other telemetry or logs necessary to understand the health of the workload. Consider long term storage of operation logs and metrics to support customer support interactions during unexpected behavior of the shared service extension.
 
 ### Performance Efficiency
 
 As a centralized service the organizational demands on the extension need to be well understood. As an extension operator, you'll need to have an understanding of current needs for capacity planning and how spokes are expected to grow over time, so that you can design your scale units to handle the load changes.
 
-To design your scale units, test and document how each component in your extension individually scales, based on what metrics, and what service scale limits are in place. Some extensions may require deploying and load balancing across multiple instances to acheive required throughput.
+To design your scale units, test and document how each component in your extension individually scales, based on the metrics and service scale limits that are in place. Some extensions might require load balancing across multiple instances to achieve the required throughput.
 
 ## Next Steps
 
