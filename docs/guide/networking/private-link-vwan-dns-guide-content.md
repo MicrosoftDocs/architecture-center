@@ -9,7 +9,7 @@ This article series takes a common hub-and-spoke network topology using Azure Vi
 The starting network topology used in this series was chosen to illustrate a common network architecture while incorporating Private Link and DNS. Your network design likely has differences, but the solutions you use when designing your workloads remain similar.
 
 :::image type="complex" source="./images/dns-private-endpoints-vwan-baseline-architecture.svg" lightbox="./images/dns-private-endpoints-vwan-baseline-architecture.svg" alt-text="Diagram showing the baseline Virtual WAN architecture used for this series.":::
-    The diagram shows a network with Azure Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. Azure Firewall is configured with DNS Proxy enabled. There are two Virtual Networks connected to each virtual hub. The Virtual Networks have a dotted line to the Firewall on their hub, noting that the Firewall instance is their configured DNS.
+The diagram shows a network with Azure Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. Azure Firewall is configured with DNS Proxy enabled. There are two Virtual Networks connected to each virtual hub. The Virtual Networks have a dotted line to the Firewall on their hub, noting that the Firewall instance is their configured DNS.
 :::image-end:::
 *Figure 1: Default network architecture for all private endpoint and DNS scenarios*
 
@@ -28,7 +28,7 @@ This topology has the following characteristics:
 
 ### Multi-region routing
 
-Azure Virtual WAN Secured Virtual Hubs have _limited support_ for inter-hub connectivity when two or more Secured Virtual Hubs are present. This impacts both multi-hub, intra-region and cross-region scenarios. As such, the network topology above does not directly facilitate [filtering private, cross-region traffic through Azure Firewall](/azure/firewall-manager/overview#known-issues). Support for this capability will be delivered through [Virtual WAN Hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies#key-considerations), which is currently in preview.
+Azure Virtual WAN Secured Virtual Hubs have *limited support* for inter-hub connectivity when two or more Secured Virtual Hubs are present. This impacts both multi-hub, intra-region and cross-region scenarios. As such, the network topology above does not directly facilitate [filtering private, cross-region traffic through Azure Firewall](/azure/firewall-manager/overview#known-issues). Support for this capability will be delivered through [Virtual WAN Hub routing intent and routing policies](/azure/virtual-wan/how-to-routing-policies#key-considerations), which is currently in preview.
 
 For this series, the assumption is that internal secured traffic does not traverse multiple hubs. Traffic that must traverse hubs must be on a parallel topology that does not filter private traffic through a secured virtual hub, but instead lets it pass through.
 
@@ -36,8 +36,8 @@ For this series, the assumption is that internal secured traffic does not traver
 
  When adding spoke networks, they will follow the constraints defined in the common network topology above. Specifically they will be be associated with the Default route table in its regional hub and Azure Firewall is configured to securing both internet and private traffic.
 
-  - **Internet traffic**: **Secured by Azure Firewall**
-  - **Private traffic**: **Secured by Azure Firewall**
+    - **Internet traffic**: **Secured by Azure Firewall**
+    - **Private traffic**: **Secured by Azure Firewall**
 
     :::image type="content" source="./images/virtual-hub-vnet-connection-security-configuration.png" lightbox="./images/virtual-hub-vnet-connection-security-configuration.png" alt-text="Screenshot of the security configuration for the virtual network connections showing internet and private traffic secured by Azure Firewall.":::
     *Figure 2: Virtual hub virtual network connections security configuration*
@@ -64,16 +64,16 @@ To illustrate the challenges, the following are two simplified configurations, t
 The following example is a basic private endpoint configuration. A private DNS zone is linked to the virtual network containing a client that wants to communicate to a PaaS service through its private endpoint. The private DNS zone has an A record that resolves the FQDN to the private IP address of the private endpoint. The following diagram illustrates the flow.
 
 :::image type="complex" source="./images/dns-private-endpoints-basic-config-works.svg" lightbox="./images/dns-private-endpoints-basic-config-works.svg" alt-text="Diagram showing a basic private endpoint and DNS configuration.":::
-    The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an Azure storage account. The virtual network has a client in a workload subnet and a private endpoint in a private endpoint subnet. The private endpoint has a private IP address of 10.1.2.4 and it points to the storage account. The diagram illustrates that the client makes a request to the resources FQDN. Azure DNS forwards the query to the private DNS zone, which has an A record for that FQDN, so it returns the private IP address for the private endpoint. The client is able to make the request.
+The diagram shows an Azure Virtual Network, Azure DNS, a private DNS zone and an Azure storage account. The virtual network has a client in a workload subnet and a private endpoint in a private endpoint subnet. The private endpoint has a private IP address of 10.1.2.4 and it points to the storage account. The diagram illustrates that the client makes a request to the resources FQDN. Azure DNS forwards the query to the private DNS zone, which has an A record for that FQDN, so it returns the private IP address for the private endpoint. The client is able to make the request.
 :::image-end:::
 *Figure 3: A basic DNS configuration for private endpoints*
 
 1. Client issues a request to stgworkload00.blob.core.windows.net.
 2. Azure DNS, the configured DNS server for the virtual network is queried for the IP address for stgworkload00.blob.core.windows.net.
 
-    Running the following command from the virtual machine (VM) illustrates that the VM is configured to use Azure DNS (168.63.129.16) as the DNS provider.
+   Running the following command from the virtual machine (VM) illustrates that the VM is configured to use Azure DNS (168.63.129.16) as the DNS provider.
 
-    ```Bash
+    ```bash
     resolvectl status eth0
 
     Link 2 (eth0)
@@ -87,7 +87,7 @@ The following example is a basic private endpoint configuration. A private DNS z
 
     Running the following command from the VM resolves the storage account's DNS to the private IP address of the private endpoint.
 
-    ```Bash
+    ```bash
     resolvectl query stgworkload00.blob.core.windows.net
 
     stgworkload00.blob.core.windows.net: 10.1.2.4   -- link: eth0
@@ -112,7 +112,7 @@ The following example represents a naive attempt to use private endpoints with o
 
     Running the following command from the VM illustrates that the VM is configured to use Azure Firewall as the DNS provider.
 
-    ```Bash
+    ```bash
     resolvectl status eth0
 
     Link 2 (eth0)
@@ -126,7 +126,7 @@ The following example represents a naive attempt to use private endpoints with o
 
     Running the following command from the VM resolves the storage account's DNS to the public IP of the storage account.
 
-    ```Bash
+    ```bash
     resolvectl query stgworkload00.blob.core.windows.net
     
     stgworkload00.blob.core.windows.net: 52.239.174.228 -- link: eth0

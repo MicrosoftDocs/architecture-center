@@ -174,7 +174,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Principal authors:
 
-- [Daniel Saunders](https://www.linkedin.com/in/daniel-saunders-b0735491) | Principal Software Engineer
+- [Daniel Saunders](https://www.linkedin.com/in/daniel-saunders-b0735491) | Sales Engineer
 - [Bhuvi Vatsey](https://www.linkedin.com/in/bvatsey) | Senior Technical Program Manager
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*

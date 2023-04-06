@@ -63,7 +63,7 @@ To explore patterns to incorporate into your design, consult resources in the fo
 #### Mainframe migration
 
 - [Integrate IBM mainframe and midrange message queues with Azure][Integrate IBM mainframe and midrange message queues with Azure]: Use a data-first technique that provides a way for IBM mainframe and midrange message queues to work with Azure services.
-- [Refactor mainframe applications to Azure with Raincode compilers][Refactor mainframe applications to Azure with Raincode compilers]: Use the Raincode COBOL compiler to modernize mainframe legacy applications without changing code.
+- [Rehost mainframe applications to Azure with Raincode compilers][Refactor mainframe applications to Azure with Raincode compilers]: Use the Raincode COBOL compiler to modernize mainframe legacy applications without changing code.
 - [Mainframe access to Azure databases][Mainframe access to Azure databases]: Give IBM mainframe and midrange applications access to remote Azure databases.
 
 ### Service selectors
@@ -94,7 +94,6 @@ To learn about scenario-specific architectures, see the solutions in the followi
 
 #### Finance
 
-- [SWIFT Alliance Connect in Azure][SWIFT Alliance Connect in Azure]: See an article series on connecting to the SWIFT network by using the Alliance Access and Alliance Messaging Hub interfaces.
 - [SWIFT Alliance Connect Virtual in Azure][SWIFT Alliance Connect Virtual in Azure]: See an article series on connecting to the SWIFT network by using the Alliance Connect Virtual component.
 - [Patterns and implementations for a banking cloud transformation][Patterns and implementations for a banking cloud transformation]: Apply patterns that implement a banking system cloud transformation.
 
@@ -233,7 +232,7 @@ The following resources provide practical recommendations and information for sp
 [Power Automate deployment at scale]: ../example-scenario/power-automate/power-automate.yml
 [Publish internal APIs to external users]: ../example-scenario/apps/publish-internal-apis-externally.yml
 [Quality assurance]: ../solution-ideas/articles/quality-assurance.yml
-[Refactor mainframe applications to Azure with Raincode compilers]: ../reference-architectures/app-modernization/raincode-reference-architecture.yml
+[Rehost mainframe applications to Azure with Raincode compilers]: ../reference-architectures/app-modernization/raincode-reference-architecture.yml
 [Remote patient monitoring solutions]: /azure/architecture/example-scenario/digital-health/remote-patient-monitoring
 [Service Bus ACOM page]: https://azure.microsoft.com/services/service-bus
 [Sharing location in real time using low-cost serverless Azure services]: ../example-scenario/signalr/index.yml

@@ -37,7 +37,6 @@ Thanks to compliance with the [VDA 5050 vehicle connector specification](https:/
 In this architecture, you can see an overview of the different services and components used to run the back-end AGV fleet control solution in Azure:
 
 - When developers commit new code, [GitHub Actions](https://github.com/features/actions) automatically scans the code to quickly find vulnerabilities and coding errors. It can also be used to deploy applications and infrastructure components automatically.
-- All Azure instances are deployed using [Terraform](https://www.terraform.io/) scripts.
 - A [container registry](/azure/container-registry/container-registry-intro)
     stores the container images used for the different services of the AGV fleet control back end.
 - Back-end services are deployed to [Web App for Containers](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux).
@@ -57,8 +56,7 @@ is the fundamental building block for your private network in Azure. This servic
 
 [IoT Hub](https://azure.microsoft.com/services/iot-hub/#overview) is a PaaS managed service, hosted in the cloud, that acts as a central message hub for bidirectional communication between an IoT application and the devices it manages.
 
-[Azure Container Instances](https://azure.microsoft.com/services/container-instances/#overview)
-offers the fastest and simplest way to run a container in Azure, without having to manage any VMs and without having to adopt a higher-level service.
+[Azure Container Apps](https://azure.microsoft.com/products/container-apps) is a fully managed serverless container service for building and deploying containers at scale.
 
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/#overview)
 is a managed, private Docker registry service based on the open-source Docker Registry 2.0. You can use Azure container registries with your existing container development and deployment pipelines, or you can use Azure Container Registry Tasks to build container images in Azure. Build on demand, or fully automate builds with triggers, such as source code commits and base image updates.

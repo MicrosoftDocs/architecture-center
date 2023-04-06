@@ -5,8 +5,8 @@ This article addresses the scenario of how to expose a PaaS resource over a priv
 
 ## Scenario
 
-:::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region.svg" alt-text="Diagram showing the single-region architecture."::: 
-    Diagram showing the single-region challenge.
+:::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region.svg" alt-text="Diagram showing the single-region architecture.":::
+Diagram showing the single-region architecture.
 :::image-end:::
 *Figure 1: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*
 
@@ -35,8 +35,8 @@ Because you can't link a private DNS zone to a virtual hub, and the virtual netw
 
 Let's visualize the impediment described earlier in the context of this workload by reviewing the DNS and resulting HTTP request flows.
 
-:::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region-challenge.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region-challenge.svg" alt-text="Diagram showing the single-region challenge."::: 
-    Diagram showing the single-region challenge.
+:::image type="complex" source="./images/dns-private-endpoints-vwan-scenario-single-region-challenge.svg" lightbox="./images/dns-private-endpoints-vwan-scenario-single-region-challenge.svg" alt-text="Diagram showing the single-region challenge.":::
+Diagram showing the single-region challenge where the secured virtual hub cannot successful resolve the DNS values that the spoke needs in order to communicate to a local private endpoint.
 :::image-end:::
 *Figure 2: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*
 
@@ -54,7 +54,7 @@ Let's visualize the impediment described earlier in the context of this workload
    - Even if both the NSG and Azure Firewall did have allowances for this request flow, the Storage account is configured to block all public network access.
    - This ultimately violates our goal of only allowing access to the storage account via the private endpoint.
 
-## Solution - Establish an enterprise virtual hub extension for DNS
+## Solution - Establish a virtual hub extension for DNS
 
 A solution to the challenge is for the enterprise network team to implement a [virtual hub extension](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) for DNS. The single responsibility for the DNS virtual hub extension is to enable workload teams that need to use private DNS zones in their architecture within this [common Virtual WAN hub topology](./private-link-vwan-dns-guide.yml#common-network-topology).
 
@@ -195,7 +195,7 @@ The diagram shows a virtual hub secured by Azure Firewall connected to three vir
 
 **DNS flow**
 
-The DNS flow is exactly the same as in [the solution flow](#solution---virtual-hub-extension-for-dns).
+The DNS flow is exactly the same as in [the solution flow](#solution---establish-a-virtual-hub-extension-for-dns).
 
 What is important to highlight, is that the FQDN resolves to the private IP address, and not the public IP address. This resolution means that all spokes always receive the private IP address of this service.  Another scenario covers how this approach can be used to share a PaaS service across multiple consuming workloads. For this single-workload scenario, this isn't a concern.
 

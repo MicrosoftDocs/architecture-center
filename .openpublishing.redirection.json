@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "docs/example-scenario/finance/swift-on-azure-srx.md",
+      "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-on-azure-srx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-access-on-azure.md",
+      "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub.md",
+      "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/front-end.yml",
+      "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/iot-connected-platform.yml",
       "redirect_url": "/azure/architecture/industries/healthcare",
       "redirect_document_id": false

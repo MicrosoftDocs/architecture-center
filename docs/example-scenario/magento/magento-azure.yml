@@ -22,6 +22,7 @@ products:
   - azure-database-mysql
   - azure-files
   - azure-kubernetes-service
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/magento-architecture-thumbnail.png
 content: |
    [!include[](magento-azure-content.md)]

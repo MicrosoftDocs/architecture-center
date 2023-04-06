@@ -5,7 +5,7 @@ metadata:
   description: Create a highly available SQL Managed Instance design by using customer-managed keys stored in Azure Key Vault.
   author: martinekuan
   ms.author: aharsan
-  ms.date: 01/09/2023
+  ms.date: 03/27/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

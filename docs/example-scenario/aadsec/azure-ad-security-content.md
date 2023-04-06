@@ -6,7 +6,7 @@ Securing identities in the cloud is a high priority.
 
 - Verizon's [2020 data breach investigations report](https://enterprise.verizon.com/resources/reports/dbir/2020/summary-of-findings/) stated that 37% involved use of stolen credentials, and 22% of data breaches involved phishing.
 
-- A 2019 IBM [study of data breach incidents](https://clairelogic.net/wp-content/uploads/2019/09/SM-IBM-2019-cost-of-a-data-breach-report.pdf) reported that the average global cost of a data breach was $3.9M, with the US average cost closer to $8.2M.
+- A 2019 IBM [study of data breach incidents](https://newsroom.ibm.com/2019-07-23-IBM-Study-Shows-Data-Breach-Costs-on-the-Rise-Financial-Impact-Felt-for-Years) reported that the average global cost of a data breach was $3.9M, with the US average cost closer to $8.2M.
 
 - The [Microsoft 2019 security intelligence report](https://www.microsoft.com/security/blog/2019/02/28/microsoft-security-intelligence-report-volume-24-is-now-available/) reported that phishing attacks increased by a margin of 250% between January and December of 2018.
 

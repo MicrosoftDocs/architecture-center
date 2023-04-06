@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for networking in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/22/2022
+ms.date: 03/24/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -68,7 +68,7 @@ Consider whether your tenants will access your services through the internet or 
 
 For internet-based (public) access, you can use firewall rules, IP address allowlisting and denylisting, shared secrets and keys, and identity-based controls to secure your service.
 
-If you need to enable connectivity to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. We only advise that you use this approach, when you have dedicated networks for each tenant, and a small number of tenants.
+If you need to enable connectivity to your service by using private IP addresses, consider using [Azure Private Link Service](#azure-private-link-service) or [cross-tenant virtual network peering](/azure/virtual-network/create-peering-different-subscriptions). For some limited scenarios, you might also consider using Azure ExpressRoute or Azure VPN Gateway to enable private access to your solution. We only advise that you use this approach when you have a small number of tenants, and deploy dedicated VNets for each tenant.
 
 ### Access to tenants' endpoints
 
@@ -94,7 +94,7 @@ However, service provider-selected IP addresses aren't appropriate if tenants ne
 
 ### Tenant-specific VNets with tenant-selected IP addresses
 
-If tenants need to peer their own VNets with the VNet you manage on their behalf, consider deploying tenant-specific VNets with an IP address space that the tenant selects. This system enables each tenant to ensure that the IP address ranges in the VNet you control do not overlap with their own VNets and are compatible for peering.
+If tenants need to peer their own VNets with the VNet you manage on their behalf, consider deploying tenant-specific VNets with an IP address space that the tenant selects. This system enables each tenant to ensure that the IP address ranges in your system's VNet don't overlap with their own VNets. By using non-overlapping IP address ranges, they can ensure their networks are compatible for peering.
 
 However, this approach means it's unlikely that you can peer your tenants' VNets together or adopt a [hub and spoke topology](#hub-and-spoke-topology), because there are likely to be overlapping IP address ranges among VNets of different tenants.
 
@@ -113,7 +113,7 @@ The hub and spoke topology can be useful when you deploy tenant-specific VNets w
 
 Consider whether your tenants need your service to use static public IP addresses for inbound traffic, outbound traffic, or both. Different Azure services enable static IP addresses in different ways.
 
-When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. Consider using NAT Gateway to control the IP address of outbound traffic.
+When you work with virtual machines and other infrastructure components, consider using a load balancer or firewall for both inbound and outbound static IP addressing. Consider using NAT Gateway to control the IP address of outbound traffic. For more information about using NAT Gateway in a multitenant solution, see [Azure NAT Gateway considerations for multitenancy](../service/nat-gateway.md).
 
 When you work with platform services, the specific service you use determines whether and how you can control IP addresses. You might need to configure the resource in a specific way, such as by deploying the resource into a VNet and by using a NAT Gateway or firewall. Or, you can request the current set of IP addresses that the service uses for outbound traffic. For example, [App Service provides an API and web interface to obtain the current outbound IP addresses for your application](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
@@ -175,7 +175,7 @@ Azure enforces a number of limits that affect networking resources. These limits
 
 ### Small subnets
 
-It's important to consider the size of each subnet to allow for the number of resources or instances of resources that you will deploy. When you work with platform as a service (PaaS) resources, ensure you understand how your resource's configuration and scale will affect the number of IP addresses that are required in its subnet.
+It's important to consider the size of each subnet to allow for the number of resources or instances of resources that you will deploy, especially as you scale. When you work with platform as a service (PaaS) resources, ensure you understand how your resource's configuration and scale will affect the number of IP addresses that are required in its subnet.
 
 ### Improper network segmentation
 
@@ -183,7 +183,7 @@ If your solution requires virtual networks, consider how you configure [network 
 
 ### Relying only on network-layer security controls
 
-In modern networks, it's important to combine network-layer security with other security controls, and you should not rely only on firewalls or network segmentation. This is sometimes called *zero-trust networking*. Use identity-based controls to verify the client, caller, or user, at every layer of your solution. Consider using services that enable you to add additional layers of protection. The options you have available depend on the Azure services that you use. In AKS, consider using a service mesh for mutual TLS authentication, and [network policies](/azure/aks/use-network-policies) to control east-west traffic. In App Service, consider using the [built-in support for authentication and authorization](/azure/app-service/overview-authentication-authorization) and [access restrictions](/azure/app-service/app-service-ip-restrictions).
+In modern solutions, it's important to combine network-layer security with other security controls, and you should not rely only on firewalls or network segmentation. This is sometimes called *zero-trust networking*. Use identity-based controls to verify the client, caller, or user, at every layer of your solution. Consider using services that enable you to add additional layers of protection. The options you have available depend on the Azure services that you use. In AKS, consider using a service mesh for mutual TLS authentication, and [network policies](/azure/aks/use-network-policies) to control east-west traffic. In App Service, consider using the [built-in support for authentication and authorization](/azure/app-service/overview-authentication-authorization) and [access restrictions](/azure/app-service/app-service-ip-restrictions).
 
 ### Rewriting host headers without testing
 
@@ -210,4 +210,8 @@ Other contributors:
 
 ## Next steps
 
-Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
+- Review [considerations when using domain names in a multitenant solution](../considerations/domain-names.yml).
+- Review service-specific guidance for your networking services:
+  - [Use Azure Front Door in a multitenant solution](../service/front-door.md)
+  - [Azure NAT Gateway considerations for multitenancy](../service/nat-gateway.md)
+  - [Multitenancy and Azure Private Link](../service/private-link.md)

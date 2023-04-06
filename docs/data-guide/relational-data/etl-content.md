@@ -41,6 +41,7 @@ Relevant Azure service:
 - [SQL Serverless pools on Azure Synapse Analytics](/azure/synapse-analytics/get-started-analyze-sql-on-demand)
 - [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory)
+- [Datamarts in Power BI](/power-bi/transform-model/datamarts/datamarts-overview)
 
 Other tools:
 

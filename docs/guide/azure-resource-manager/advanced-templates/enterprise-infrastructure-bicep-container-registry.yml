@@ -4,7 +4,10 @@ metadata:
   description: Reduce repetition, model best practices, and have consistent standard deployments by modularizing your Azure Resource Manager templates.
   author: tjsullivan1
   ms.author: tisulliv
-  ms.custom: fcp
+  ms.custom:
+    - fcp
+    - devx-track-arm-template
+    - devx-track-bicep
   ms.date: 01/11/2023
   ms.topic: conceptual
   ms.service: architecture-center
