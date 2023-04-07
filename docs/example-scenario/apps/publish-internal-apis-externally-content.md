@@ -42,15 +42,6 @@ The data flows as follows:
 
 In this scenario, an organization hosts multiple APIs using [Azure Application Service Environment][ase] (ILB ASE), and they want to consolidate these APIs internally by using [Azure API Management (APIM)][apim] deployed inside a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using [Azure Application Gateway][appgtwy] forwarding requests to the internal API Management service, which in turn consumes the APIs deployed in the ASE.
 
-## Potential use cases
-
-- Synchronize customer address information internally after the customer makes a change.
-- Attract developers to your platform by exposing unique data assets.
-
-## Considerations
-
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
 - The web APIs are hosted over secured HTTPS protocol and will be using a [TLS Certificate][ssl].
 - The Application Gateway also is configured over port 443 for secured and reliable outbound calls.
 - The API Management service is configured to use custom domains using TLS certificates.
@@ -60,6 +51,15 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - The API Management accepts ASE's DNS entry for all the apps hosted under App Service Environments. Add an [APIM policy][apim-policy] to explicitly set the HOST header to allow the ASE load balancer to differentiate between Apps under the App Service Environment.
 - Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
 - If you use CI/CD pipelines for deploying Internal APIs, consider [building your own Hosted Agent on a VM][hosted-agent] inside the Virtual Network.
+
+## Potential use cases
+
+- Synchronize customer address information internally after the customer makes a change.
+- Attract developers to your platform by exposing unique data assets.
+
+## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Reliability
 
@@ -121,7 +121,7 @@ Azure Application Gateway auto scaling is available as a part of the Zone redund
 
 ### Deployment and putting the pieces together
 
-[![Deploy to Azure](../../_images/deploy-to-azure.svg)](https://github.com/ssarwa/API-Management-ASE-AppGateway)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/ssarwa/API-Management-ASE-AppGateway/master/azuredeploy.json)
 
 You need to further configure the components deployed using the preceding Resource Manager template as follows:
 
@@ -159,7 +159,8 @@ You need to further configure the components deployed using the preceding Resour
 
 Once the preceding steps are successfully completed, configure the DNS entries in the web registrar CNAME entries of api.contoso.org and portal.contoso.org with the Application Gateway's public DNS name: `ase-appgtwy.westus.cloudapp.azure.com`. Verify that you're able to reach the Dev Portal from Public and that you're able to test the APIM services APIs using the Azure portal.
 
-*It's not a good practice to use the same URL for internal and external endpoints for the APIM services (though in this demo, both URLs are the same). If you choose to have different URLs for internal and external endpoints, you can make use of Application Gateway WAF v2, which supports http redirection and much more.*
+> [!NOTE]
+> It's not a good practice to use the same URL for internal and external endpoints for the APIM services (though in this demo, both URLs are the same). If you choose to have different URLs for internal and external endpoints, you can make use of Application Gateway WAF v2, which supports http redirection and much more.
 
 ## Contributors
 
