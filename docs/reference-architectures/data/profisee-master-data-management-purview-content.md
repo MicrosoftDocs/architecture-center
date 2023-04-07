@@ -6,7 +6,7 @@ This reference architecture presents a governance and data management solution t
 
 The following diagram shows the steps that you take when you develop and operate your master data solution. Think of these steps as highly iterative. As your solution evolves, you might repeat these steps and phases, sometimes automatically and sometimes manually. Whether you use automatic or manual steps depends on the changes that your master data solution, metadata, and data undergo.
 
-:::image type="content" source="images/microsoft-purview-profisee-architecture.png" alt-text="Architecture diagram of a data governance and management solution that uses Microsoft Purview and Profisee MDM in a microservice design architecture." lightbox="images/microsoft-purview-profisee-architecture.png" border="false":::
+:::image type="content" source="images/microsoft-purview-microservice-design-architecture.png" alt-text="Architecture diagram of a data governance and management solution that uses Microsoft Purview and Profisee MDM in a microservice design architecture." lightbox="images/microsoft-purview-microservice-design-architecture.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/microsoft-purview-profisee-architecture.vsdx) of this architecture.*
 
@@ -20,11 +20,11 @@ Metadata and data flow include these steps, which are shown in the preceding fig
 
 1. Governance standards and policies for data stewardship are used to enrich master data entity definitions. The data is enriched in Microsoft Purview with data dictionary and glossary information, ownership data, and sensitive data classifications. Any definitions and metadata that are available in Microsoft Purview are visible in real time in Profisee as guidance for the MDM data stewards.
 
-1. Master data from source systems is loaded into Profisee MDM. A data integration toolset like Azure Data Factory extracts data from the source systems by using any of over 100 pre-built connectors or a REST gateway. Multiple streams of master data are loaded to Profisee MDM. Master data is the data that defines a domain entity. Examples of master data include customer, product, asset, location, vendor, patient, household, menu item, and ingredient data. This data is typically present in multiple systems. Resolving differing definitions and matching and merging this data across systems is critical to the ability to use this data in a meaningful way.
+1. Master data from source systems is loaded into Profisee MDM. A data integration toolset like Azure Data Factory extracts data from the source systems by using any of over 100 pre-built connectors or a REST gateway. Multiple streams of master data are loaded into Profisee MDM.
 
 1. The master data is standardized, matched, merged, enriched, and validated according to governance rules. Other systems such as Microsoft Purview might define data quality and governance rules. But Profisee MDM is the system that enforces these rules. Source records are matched and merged within and across source systems to create the most complete and correct record possible. Data quality rules check each record for compliance with business and technical requirements. Any record that fails validation or matches with a low probability score is subject to remediation. To remediate failed validations, a workflow process assigns records that require review to data stewards who are experts in their business data domain. After a record has been verified or corrected, it's ready to use as a *golden record* master.
 
-1. Transactional data is loaded into a downstream analytics solution. A data integration toolset like Data Factory extracts transactional data from source systems by using any of over 100 pre-built connectors or a REST gateway. The toolset loads the data directly into the analytics data platform. That platform might be Azure Synapse Analytics or a different analytics database. Analysis on this raw information without the proper master golden data is subject to inaccuracy, because data overlaps, mismatches, and conflicts aren't yet resolved.
+1. Transactional data is loaded into a downstream analytics solution. A data integration toolset like Data Factory extracts transactional data from source systems by using any of over 100 pre-built connectors or a REST gateway. The toolset loads the data directly into an analytics data platform such as Azure Synapse Analytics. Analysis on this raw information without the proper master golden data is subject to inaccuracy, because data overlaps, mismatches, and conflicts aren't yet resolved.
 
 1. Power BI connectors provide direct access to the curated master data. Power BI users can use the master data directly in reports. A dedicated Power BI connector recognizes and enforces role-based security. It also hides various system fields to simplify use.
 
@@ -71,9 +71,9 @@ Profisee MDM is designed to accept master data from any source. Profisee MDM the
 
 ### Better together
 
-Microsoft Purview and Profisee MDM work better together. When integrated, they streamline data management tasks and ensure that all systems work to enforce the same standards. Profisee MDM publishes its master data model to Microsoft Purview, where it can participate in governance. Microsoft Purview then shares the output of governance, such as a data catalog and glossary information. Profisee can review the output and enforce standards. By working jointly, Microsoft Purview and Profisee create a natural, better-together synergy that goes deeper than the independent offerings.
+Microsoft Purview and Profisee MDM work better together. When integrated, they streamline data management tasks and ensure that all systems work to enforce the same standards. Profisee MDM publishes its master data model to Microsoft Purview, where it can participate in governance. Microsoft Purview then shares the output of governance, such as a data catalog and glossary information. Profisee can review the output and enforce standards. By working jointly, Microsoft Purview and Profisee create a natural, better-together synergy that goes deeper than each independent offering.
 
-For example, after you catalog enterprise data sources, you might determine that there are multiple sources of master data, such as customer or product data. To be effective, you should merge, validate, and correct master data in Profisee MDM by using governance definitions, insights, and expertise that are detailed in Microsoft Purview. In this way, Microsoft Purview and Profisee MDM form a foundation for governance and data management, and they maximize the business value of data in Azure.
+For example, after you catalog enterprise data sources, you might determine that master data is present in multiple systems. Master data is the data that defines a domain entity. Examples of master data include customer, product, asset, location, vendor, patient, household, menu item, and ingredient data. Resolving differing definitions and matching and merging this data across systems is critical to the ability to use this data in a meaningful way. To be effective, you should merge, validate, and correct master data in Profisee MDM by using governance definitions, insights, and expertise that are detailed in Microsoft Purview. In this way, Microsoft Purview and Profisee MDM form a foundation for governance and data management, and they maximize the business value of data in Azure.
 
 The alternative is to use whatever information you can get. But when you take this approach, you risk generating misleading results that can damage your business. When you instead use high-quality master data, you eliminate common data quality issues. Then your system delivers sound insights that you can use to drive your business, no matter which tools you use for analysis, machine learning, and visualization. Well-curated master data is a key aspect of building a solid, reliable data foundation.
 
@@ -182,7 +182,7 @@ The ability to understand the sources and meaning behind this data is as critica
 
 #### Data quality validation and stewardship
 
-After you load and enrich your data, it's important to check it for quality and adherence to standards that you establish through your governance processes. Microsoft Purview can again be a rich source of standards information. You can use Microsoft Purview to drive the data quality rules that your MDM solution enforces. Profisee MDM can also publish data quality rules as assets to your governance catalog. The rules can be subject to review and approval, which helps you provide top-down oversight of quality standards that are associated with your master data. Your rules are tied to master data entities and attributes, and those attributes can be traced back to the source system. For these reasons, you can use establish the root cause of the poor data quality that originates from your line-of-business systems.
+After you load and enrich your data, it's important to check it for quality and adherence to standards that you establish through your governance processes. Microsoft Purview can again be a rich source of standards information. You can use Microsoft Purview to drive the data quality rules that your MDM solution enforces. Profisee MDM can also publish data quality rules as assets to your governance catalog. The rules can be subject to review and approval, which helps you provide top-down oversight of quality standards that are associated with your master data. Your rules are tied to master data entities and attributes, and those attributes can be traced back to the source system. For these reasons, you can establish the root cause of the poor data quality that originates from your line-of-business systems.
 
 Data stewards are experts in their business domain. As stewards address issues that your master data solution reveals, they can use the Microsoft Purview data governance catalog. The catalog helps stewards understand and resolve quality issues as they arise. Backed by the support of data owners and experts, the stewards are armed to address data quality issues quickly and accurately.
 
@@ -215,7 +215,7 @@ Product data is often spread across multiple enterprise applications, such as en
 
 - You're unable to support different alternative hierarchical roll-up and drill-down paths for product analytics.
 - With finished goods or material inventory, you have difficulty evaluating product inventory and established vendors. You also have duplicate products, which leads to excess inventory.
-- It's hard to rationalize products due to conflicting definitions, which leads to missing or inaccurate information in analytics.
+- It's hard to rationalize products due to conflicting definitions. This situation leads to missing or inaccurate information in analytics.
 
 #### Reference data 360
 
@@ -283,10 +283,10 @@ Principal author:
 
 ## Next steps
 
-- Understand the capabilities of the [REST Copy Connector](/azure/data-factory/connector-rest) in Data Factory.
+- Understand the capabilities of the [REST copy connector](/azure/data-factory/connector-rest) in Data Factory.
 - Learn more about [Profisee running natively in Azure](https://profisee.com/solutions/microsoft-enterprise/azure).
 - Learn how to deploy Profisee to Azure by using an [Azure Resource Manager template (ARM template)](https://github.com/Profisee/kubernetes/tree/master/Azure-ARM).
-- View the [Profisee Data Factory templates](https://github.com/profisee/azuredatafactory).
+- View [Profisee Data Factory templates](https://github.com/profisee/azuredatafactory).
 
 ## Related resources
 
@@ -295,7 +295,7 @@ Architecture guides:
 - [Extract, transform, and load (ETL)](../../data-guide/relational-data/etl.yml)
 - [Data warehousing](../../data-guide/relational-data/data-warehousing.yml)
 - [Batch processing](../../data-guide/big-data/batch-processing.yml)
-- [Choosing a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
+- [Choose a batch processing technology in Azure](../../data-guide/technology-choices/batch-processing.md)
 
 Reference architectures:
 
