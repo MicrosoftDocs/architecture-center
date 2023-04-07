@@ -18,10 +18,6 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
   - **Developer portal**. Each instance of Azure API Management provides access to a [developer portal][apim-dev-portal]. This portal gives your developers access to documentation and code samples for calling the APIs. You can also test APIs in the developer portal.
 
-  In this architecture, composite APIs are built by [importing logic apps][apim-logic-app] as APIs. You can also import existing web services by [importing OpenAPI][apim-openapi] (Swagger) specifications or [importing SOAP APIs][apim-soap] from WSDL specifications.
-
-  The API gateway helps to decouple front-end clients from the back end. For example, it can rewrite URLs, or transform requests before they reach the backend. It also handles many cross-cutting concerns such as authentication, cross-origin resource sharing (CORS) support, and response caching.
-
 - **Azure DNS**. Azure DNS provides name resolution by using the Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing that you use for your other Azure services. To use a custom domain name, such as contoso.com, create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in API Management][apim-domain].
 
 - **Azure Active Directory (Azure AD)**. Use [Azure AD][aad] to authenticate clients that call the API gateway. Azure AD supports the OpenID Connect (OIDC) protocol. Clients obtain an access token from Azure AD, and API Gateway [validates the token][apim-jwt] to authorize the request. If you use the Standard or Premium tier of API Management, Azure AD can also help secure access to the developer portal.
@@ -30,13 +26,17 @@ This reference architecture uses [Azure Integration Services][integration-servic
 
 - [Integration Services](https://azure.microsoft.com/products/category/integration) is a collection of services that you can use to integrate applications, data, and processes.
 - [Logic Apps](https://azure.microsoft.com/products/logic-apps) is a serverless platform for building enterprise workflows that integrate applications, data, and services.
-- [API Management](https://azure.microsoft.com/products/api-management) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs.
+- [API Management](https://azure.microsoft.com/products/api-management) is a managed service for publishing catalogs of HTTP APIs. You can use it to promote the reuse and discoverability of your APIs and to deploy an API gateway to proxy API requests.
 - [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for DNS domains.
 - [Azure AD](https://azure.microsoft.com/products/active-directory) is a cloud-based identity and access management service. Enterprise employees can use Azure AD to access external and internal resources.
 
 ## Scenario details
 
 Integration Services is a collection of services that you can use to integrate applications, data, and processes for your enterprise. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. 
+
+In this architecture, composite APIs are built by [importing logic apps][apim-logic-app] as APIs. You can also import existing web services by [importing OpenAPI][apim-openapi] (Swagger) specifications or [importing SOAP APIs][apim-soap] from WSDL specifications.
+
+The API gateway helps to decouple front-end clients from the back end. For example, it can rewrite URLs, or transform requests before they reach the backend. It also handles many cross-cutting concerns such as authentication, cross-origin resource sharing (CORS) support, and response caching.
 
 ### Potential use cases
 
