@@ -100,8 +100,6 @@ Availability zones aren't supported in all regions. To see which regions support
 
 ##### Scalability
 
-- Consider your application's performance needs while choosing between [manual scaling ](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-scale-manual) and [autoscaling](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-setup-autoscale).
-
 Azure Spring Apps provides [autoscaling](/azure/spring-apps/how-to-setup-autoscale) cpabilities out of the box, allowing apps to scale based on metric thresholds or during a specific time window. Autoscaling is recommended when apps need to scale up or scale out in response to changing demand.
 
 Azure Spring Apps also supports scaling your applications [manually](/azure/spring-apps/how-to-scale-manual) using CPU, Memory/GB per instance and App instance counts. This type of scaling is suitable for one time scaling activity that you may want to perform for certain apps. Ensure you adjust these parameters based on your application's scaling needs while also understanding the maximum limits supported by each of these attributes. 
