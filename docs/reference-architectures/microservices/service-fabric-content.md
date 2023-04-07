@@ -371,7 +371,7 @@ ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logg
 For more information, see:
 
 - [Application logging](/azure/service-fabric/service-fabric-diagnostics-event-generation-app)
-- [Add logging to your Service Fabric application](/azure/azure-monitor/app/correlation)
+- [Add logging to your Service Fabric application](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
 
 #### Service Fabric health and event data
 
@@ -419,7 +419,7 @@ It's also important to correlate tasks that are dispatched asynchronously by usi
 For more information, see:
 
 - [Performing a query across multiple resources](/azure/azure-monitor/log-query/cross-workspace-query#performing-a-query-across-multiple-resources)
-- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation)
+- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
 
 #### Alerts and dashboards
 
