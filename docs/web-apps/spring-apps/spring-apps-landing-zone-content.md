@@ -69,20 +69,37 @@ This architecture assumes these resources are preprovisioned. The central teams 
 
 ## Application considerations
 
-The reference implementation includes a sample application that illustrates a typical microservices application hosted in an Azure Spring Apps instance. For more information, see [PetClinic sample](/azure/spring-apps/quickstart-sample-app-introduction?tabs=enterprise-tier&pivots=programming-language-java). 
+The reference implementation includes a sample application that illustrates a typical microservices application hosted in an Azure Spring Apps instance. For more information, see [Fitness store sample](/azure/spring-apps/quickstart-sample-app-acme-fitness-store-introduction). 
 
 ##### Service discovery
 
-In a microservices pattern, services should be able communicate with other services. In the sample, the API gateway service acts as the entry point of the application and routes incoming requests to the other service instances. To do this function, API Gateway must be able to dynamically discover the active instances of the other services.
+In a microservices pattern, service registry capability must be supported for routing and service-to-service communication. 
 
-For this use case, the application must have a service registry capability. In this architecture, VMware Tanzu® Service Registry is enabled for the Azure Spring Apps. When services spawn new instances, they are automatically registered. The API gateway service looks up the registry and routes requests accordingly.
+Services should be able to communicate with other services. When new instances are spawned, they are added to the registry so that they can be dynamically discovered. In this architecture, [VMware Tanzu® Service Registry](/azure/spring-apps/how-to-enterprise-service-registry) is enabled for Azure Spring Apps. 
+
+Most microservices need [Gateway Routing](/azure/architecture/patterns/gateway-routing) that provides a single point of entry for external traffic. The gateway routes incoming requests to the active service instances found in the registry. In this design, [Spring Cloud Gateway](/azure/spring-apps/how-to-use-enterprise-spring-cloud-gateway) was chosen. It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
 
 ##### Configuration server
 
-For microservices, configuration data must be separated from the code. In this architecture, because the Enterprise tier was chosen, such data is stored externally as native Kubernetes ConfigMap resources and accessed by Application Configuration Service for Tanzu.  
+For microservices, configuration data must be separated from the code. In this architecture, because the Enterprise tier was chosen, such data is stored externally as native Kubernetes ConfigMap resources and accessed by [Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service).  
 
 ##### Load balancing
 TBD
+
+##### Resiliency
+
+
+##### Scalability
+
+- Consider your application's performance needs while choosing between [manual scaling ](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-scale-manual) and [autoscaling](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-setup-autoscale).
+
+
+Azure Spring Apps provides [autoscaling](/azure/spring-apps/how-to-setup-autoscale) cpabilities out of the box, allowing apps to scale based on metric thresholds or during a specific time window. Autoscaling is recommended when apps need to scale up or scale out in response to changing demand.
+
+Azure Spring Apps also supports scaling your applications [manually](/azure/spring-apps/how-to-scale-manual) using CPU, Memory/GB per instance and App instance counts. This type of scaling is suitable for one time scaling activity that you may want to perform for certain apps. Ensure you adjust these parameters based on your application's scaling needs while also understanding the maximum limits supported by each of these attributes. 
+
+> [!IMPORTANT] 
+> This feature is different from the [manual scale](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-setup-autoscale#set-up-autoscale-settings-for-your-application-in-the-azure-portal) option that is available as part of the auto scale setting.
 
 ## Networking considerations
 
