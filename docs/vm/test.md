@@ -13,6 +13,9 @@ products:
 
 
 # [BCDR](#tab/bcdr)
+
+Business Continuity and Disaster Recovery (BCDR) is concerned with ensuring an organization can continue or recover business operations during and following a disaster. 
+
 ### Guidance for VMs
 
 ##### Availability Zones
@@ -85,11 +88,15 @@ If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-
 Store and version scripts and template files in your source control system.
 
 
-# [Identity and Access Management](#tab/iam)
+# [Identity](#tab/iam)
+
+Identity and access managment concerns itself with secure authentication and authorization of all of the system's actors, including humans and software components. 
+
+In this architecture, we'll use managed identities for the authentication and authorization of software components that need to access services on behalf of the infrastructure. We'll use role-based access control (RBAC) to ensure access is done securely and with the least-privilege necessary.
 
 ### Managed identities
 ### Authorization for solution components
-### Role based access control (RBAC)
+### RBAC
 
 
 # [Monitoring](#tab/monitoring)
