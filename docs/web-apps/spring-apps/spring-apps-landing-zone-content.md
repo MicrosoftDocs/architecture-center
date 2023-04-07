@@ -44,8 +44,7 @@ Your team provisions and owns these resources.
 
 - **Azure Virtual Machine (VM)** acts as jump box for management operations. 
 
-- **Azure Database for MySQL** stores application data. 
-<<TBD: Why is the database in a separate scenario with the application? Also why is PostGres mentioned in the image?>>
+- **Azure Database for PostGres** stores application data. 
 
 - **Azure Key Vault** stores secrets and configuration, such as connection string to the database. 
 
@@ -86,13 +85,22 @@ For microservices, configuration data must be separated from the code. In this a
 ##### Load balancing
 TBD
 
-##### Resiliency
+##### Redundancy
+
+You can use availability zones when creating an Azure Spring Apps service instance. 
+
+With this feature, Azure Spring Apps automatically distributes fundamental resources across logical sections of underlying Azure infrastructure. This distribution provides a higher level of availability and protects against hardware failures or planned maintenance events.
+
+Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but doesn't guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app on a node in another availability zone.
+
+If you enable your own resource in Azure Spring Apps, such as your own persistent storage, enable zone redundancy for the resource. For more information, see How to enable your own persistent storage in Azure Spring Apps.
+
+Availability zones aren't supported in all regions. To see which regions support availability zones, see [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
 
 ##### Scalability
 
 - Consider your application's performance needs while choosing between [manual scaling ](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-scale-manual) and [autoscaling](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-setup-autoscale).
-
 
 Azure Spring Apps provides [autoscaling](/azure/spring-apps/how-to-setup-autoscale) cpabilities out of the box, allowing apps to scale based on metric thresholds or during a specific time window. Autoscaling is recommended when apps need to scale up or scale out in response to changing demand.
 
