@@ -61,7 +61,7 @@ The architecture uses resources spread across multiple zones to provide high ava
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures
 
-By replicating VMs across availability zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best [VM uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). For more information, see [Building solutions for high availability using availability zones](./building-solutions-for-high-availability.yml).
+By replicating VMs across availability zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best [VM uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). For more information, see [Building solutions for high availability using availability zones](../high-availability/building-solutions-for-high-availability.yml).
 
 ##### Update domains
 
@@ -172,7 +172,7 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 - Update image to show overall network topology with components for each subsection below
 - Q: Do we need to add Azure DDoS Protection?
 
-For additional information, see [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
+For additional information, see [Hub-spoke network topology in Azure](../reference-architectures/hybrid-networking/hub-spoke.yml).
 
 #### Hub
 
@@ -217,7 +217,7 @@ Azure [Application Gateway](/azure/application-gateway/overview) is a web traffi
 
 Azure Private Link connections are created for the [Azure Container Registry](/azure/container-registry/) and [Azure Key Vault](/azure/key-vault/general/overview), so these services can be accessed using [private endpoint](/azure/private-link/private-endpoint-overview) within the spoke virtual network. Private endpoints don't require a dedicated subnet and can also be placed in the hub virtual network. In the baseline implementation, they're deployed to a dedicated subnet within the spoke virtual network. This approach reduces traffic passing the peered network connection, keeps the resources that belong to the cluster in the same virtual network, and allows you to apply granular security rules at the subnet level using network security groups.
 
-For more information, see [Private Link deployment options](../../../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
+For more information, see [Private Link deployment options](../guide/networking/private-link-hub-spoke-network.yml#decision-tree-for-private-link-deployment).
 
 #### Plan the IP addresses
 
@@ -257,7 +257,7 @@ The architecture only accepts TLS encrypted requests from the client. TLS v1.2 i
 
 3. As traffic moves from Application Gateway to the backend, it's encrypted again with another TLS certificate (wildcard for \*.workload.contoso.com) as it's forwarded to one of the frontend VMs. This re-encryption makes sure traffic that is not secure doesn't flow into the workload. Communication between the frontend and the backend components of the solution is also encrypted using the same wildcard certificate in order to ensure end-to-end TLS traffic all at every hop the way through to the workload.
 
-4. The certificates are stored in Azure Key Vault. For more information, see [Add secret management](#add-secret-management).
+4. The certificates are stored in Azure Key Vault. For more information, see [Secret management](#secret-management).
 
 //TODO: Add content to explain how the certificates are deployed to the VMs. Tentatively we'll be using the Key Vault VM extension that should allow us to integrate directly
 
