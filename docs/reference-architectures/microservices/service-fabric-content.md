@@ -143,7 +143,7 @@ Other options for interservice communication include:
 
 - [Traefik](https://docs.traefik.io) for advanced routing.
 - [DNS](/azure/dns) for compatibility scenarios where a service expects to use DNS.
-- The [ServicePartitionClient<TCommunicationClient>](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class, which caches service endpoints. It can enable better performance, because calls go directly between services without intermediaries or custom protocols.
+- The [ServicePartitionClient\<TCommunicationClient\>](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class, which caches service endpoints. It can enable better performance, because calls go directly between services without intermediaries or custom protocols.
 
 ### Scalability
 
