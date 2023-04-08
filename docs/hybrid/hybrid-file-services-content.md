@@ -179,7 +179,7 @@ Related architectures:
 - [Run containers in a hybrid environment](hybrid-containers.yml)
 - [Use Azure file shares in a hybrid environment](azure-file-share.yml)
 
-[Architecture diagram]: ./images/hybrid-file-services.png
+[Architecture diagram]: ./images/hybrid-file-services.svg
 [Visio diagram]: https://arch-center.azureedge.net/hybrid-file-services.vsdx
 [Storage Account]: /azure/storage/common/storage-account-overview
 [Azure Files]: /azure/storage/files/storage-files-planning

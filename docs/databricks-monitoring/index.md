@@ -15,6 +15,7 @@ categories:
   - databases
 products:
   - azure-databricks
+  - azure-monitor
 ---
 
 # Monitoring Azure Databricks

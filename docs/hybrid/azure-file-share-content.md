@@ -158,7 +158,7 @@ Explore related architectures:
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml)
 - [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
 
-[architectural-diagram]: ./images/azure-file-share.png
+[architectural-diagram]: ./images/azure-file-share.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx
 [Create-file-share]: /azure/storage/files/storage-how-to-create-file-share
 [Premium-azure-file-share]: /azure/storage/files/storage-how-to-create-premium-fileshare

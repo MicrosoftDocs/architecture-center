@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Index file content and metadata by using Azure Cognitive Search
+  titleSuffix: Azure Architecture Center
+  description: Build an Azure Cognitive Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.
+  author: jelledruyts
+  ms.author: jelled
+  ms.date: 03/20/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - databases
+  - ai-machine-learning
+  - storage  
+products:
+  - azure-cognitive-search
+  - azure-blob-storage
+  - azure-table-storage
+name: Index file content and metadata by using Azure Cognitive Search
+summary: Build an Azure Cognitive Search index by using file content from Azure Blob Storage and metadata from Azure Table Storage.
+thumbnailUrl: /azure/architecture/browse/thumbs/search-blob-metadata-thumb.png
+content: |
+  [!include[](search-blob-metadata-content.md)]

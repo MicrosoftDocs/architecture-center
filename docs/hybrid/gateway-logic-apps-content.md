@@ -111,7 +111,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 - [Manage hybrid Azure workloads using Windows Admin Center](hybrid-server-os-mgmt.yml)
 
-[architectural-diagram]: ./images/gateway-logic-apps.png
+[architectural-diagram]: ./images/gateway-logic-apps.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/gateway-logic-apps.vsdx
 [azure-analysis-services]: /azure/analysis-services/
 [azure-expressroute]: /azure/expressroute/

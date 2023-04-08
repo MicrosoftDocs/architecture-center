@@ -4,8 +4,8 @@ metadata:
   titleSuffix: Azure Example Scenarios
   description: This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.
   author: martinekuan
-  ms.author: anspoone
-  ms.date: 12/19/2022
+  ms.author: willhenton
+  ms.date: 03/29/2023
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea
@@ -17,7 +17,7 @@ azureCategories:
 summary: This example architecture shows an end-to-end approach for an automotive original equipment manufacturer (OEM) and includes a reference architecture and several published supporting open-source libraries that can be reused.
 products:
   - azure-app-service
-  - azure-container-instances
+  - azure-container-apps
   - azure-container-registry
   - azure-iot-hub
   - azure-virtual-network

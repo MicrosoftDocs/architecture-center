@@ -27,6 +27,7 @@ products:
   - azure-blob-storage
   - azure-cdn
   - azure-functions
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/serverless-web-app.png
 content: |
    [!include[](web-app-content.md)]

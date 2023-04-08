@@ -22,7 +22,8 @@ metadata:
     - devops
     - interactive-diagram
     - is-deployable
-    - "https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview"
+    - 'https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview'
+    - devx-track-terraform
   social_image_url: /azure/architecture/solution-ideas/articles/media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png
 name: Immutable infrastructure CI/CD using Jenkins and Terraform on Azure
 azureCategories:

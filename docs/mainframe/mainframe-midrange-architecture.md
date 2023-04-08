@@ -155,7 +155,7 @@ Refactoring requires minimal changes to applications. This often enables the app
 <ul class="grid">
 
 [!INCLUDE [IBM z/OS mainframe migration with Avanade AMT](../../includes/cards/asysco-zos-migration-card.md)] 
-[!INCLUDE [Refactor mainframe applications to Azure with Raincode compilers](../../includes/cards/raincode-reference-architecture-card.md)]  
+[!INCLUDE [Rehost mainframe applications to Azure with Raincode compilers](../../includes/cards/raincode-reference-architecture-card.md)]  
 [!INCLUDE [IBM z/OS online transaction processing on Azure](../../includes/cards/ibm-zos-online-transaction-processing-azure-card.md)]
 
 </ul>

@@ -4,7 +4,7 @@ metadata:
   description: This article describes approaches to consider when deploying and configuring a multitenant solution.
   author: johndowns
   ms.author: jodowns
-  ms.date: 11/22/2021
+  ms.date: 03/24/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

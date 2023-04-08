@@ -113,7 +113,7 @@ For more information, see the cost section in [Microsoft Azure Well-Architected 
 
 ### Operational Excellence
 
-The [Basic Enterprise Integration reference architecture](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops-considerations) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
+The [Basic Enterprise Integration reference architecture](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml#devops) provides guidance on DevOps patterns, which align to the Well-Architected Framework's [Operational Excellence](/azure/architecture/framework/devops/) pillar. 
 
 Automating recovery operations as much as possible is an integral component of Operational Excellence.  With automation in mind, you can combine [Azure Log Monitoring](/azure/service-bus-messaging/service-bus-insights) with [Azure Automation](/azure/automation/overview) to automate the failover of your Service Bus resources. Refer to the diagram in [failover flow](/azure/service-bus-messaging/service-bus-geo-dr#failover-flow) documentation for an example of automation logic to initiate a failover.
 
