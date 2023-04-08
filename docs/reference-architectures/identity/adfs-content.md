@@ -6,6 +6,9 @@ This reference architecture implements a secure hybrid network that extends your
 
 *Download a [Visio file][visio-download] of this architecture.*
 
+> [!NOTE]
+> The Visio file includes 4 tabs of diagrams. Select the **AD FS** tab to see the relevant architecture diagram for this article.
+
 ### Workflow
 
 - **AD DS subnet**. The AD DS servers are contained in their own subnet with network security group (NSG) rules acting as a firewall.
@@ -136,8 +139,6 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-DevOps staff should be prepared to perform the following tasks:
 
 - Managing the federation servers, including managing the AD FS farm, managing trust policy on the federation servers, and managing the certificates used by the federation services.
 - Managing the WAP servers including managing the WAP farm and certificates.
