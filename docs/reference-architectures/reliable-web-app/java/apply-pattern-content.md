@@ -232,7 +232,11 @@ You don't need to populate data in production, so you should always use a privat
 
 ### Use a web application firewall
 
-You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it. You should restrict access on the application platform (App Service) to accept only inbound communication from Azure Front Door.
+You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it.
+
+You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can [Secure your Origin with Private Link in Azure Front Door Premium] as one option.  Another is to use Java Spring to filter requests that contain your specific Azure Front Door's `X-Azure-FDID` header value.  TODO NICK, can you make this last sentence read more "java" -- with some specifics.
+
+Follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) to address what host name, client IP and more your application sees once traffic has passed through your WAF-enabled gateway.
 
 *Reference implementation.* The reference implementation uses Azure Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
@@ -248,7 +252,13 @@ Production environments need SKUs that meet the service level agreements (SLAs),
 
 **Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for non-production environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
 
-**Consider Azure Reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and App Service. For more information, see:
+*Reference implementation.* This architecture does not benefit from Azure Dev/Test pricing as none of the configurations used in this architecture fall within scope of the discounts of Azure Dev/Test pricing. For example, Azure App Service is Linux-based, while the Dev/Test pricing only applies to Windows-based configurations. However, additional components you add may still benefit.
+
+**Consider Azure Reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and App Service. 
+
+Plan your commitments around your team's architecture roadmap. For example, if you plan on being using the same database engine for a year or more, that would make a good candidate for a reserved instance.
+
+For more information, see:
 
 - [Azure Reservations](https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Azure savings plans for compute](https://learn.microsoft.com/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
