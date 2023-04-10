@@ -4,11 +4,11 @@ This high-level architecture shows the flow of data from an organization's sourc
 
 ## Architecture
 
-:::image type="complex" border="false" source="../media/customer-insights-synapse.png" alt-text="Diagram that shows a reference architecture for building an enhanced customer dimension.":::
+:::image type="complex" border="false" source="../media/customer-insights-synapse.svg" alt-text="Diagram that shows a reference architecture for building an enhanced customer dimension.":::
    Architecture diagram that shows the flow of data from the source system on the left to Power BI on the right. The architecture uses Azure Data Factory, Azure Data Lake, Customer Insights, and Azure Synapse Analytics serverless SQL to build an enhanced customer dimension.
 :::image-end:::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/CI+Synapse.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/customer-insights-synapse.vsdx) of this architecture.*
 
 Azure Synapse serverless SQL consumes the enhanced Customer Insights data. Azure Synapse serverless SQL introduces a cost-effective design pattern known as Logical Data Warehouse (LDW). The LDW pattern introduces an abstraction layer on top of external data stores, like data lakes, to provide familiar relational database constructs like tables and views. Tools that support SQL Server endpoints can then consume these tables and views. In the context of this example, Power BI can source the enhanced Customer Insights data as a dimension table from a database by using Azure Synapse serverless SQL pools.
 
