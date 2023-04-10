@@ -1,6 +1,6 @@
-This article shows you how to plan the implementation of the reliable web app pattern for .NET. The companion article shows you how to [apply the pattern](apply-pattern.yml). The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+This article describes how to plan the implementation of the reliable web app pattern for .NET. The companion article describes how to [apply the pattern](apply-pattern.yml). The reliable web app pattern helps developers modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-There's also a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
+A [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET is available for you to deploy. The reference implementation applies the reliable web app pattern to an employee-facing line-of-business (LOB) web application.
 
 ## Architecture and pattern
 
@@ -29,13 +29,13 @@ The implementation guidance mirrors the cloud journey of a fictional company (Re
 
 ## Web application starting point
 
-The on-premises starting point is a monolithic, eCommerce, ASP.NET application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. The employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
+The on-premises starting point is a monolithic eCommerce ASP.NET web application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. The employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
 
 ## Service level objective
 
 A service level objective (SLO) for availability defines how available you want a web app to be for users. Relecloud has a target SLO of 99.9% for availability. You need to define what it means to be available for your web application. For Relecloud, the web app is available when call center employees can purchase tickets 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
-For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point. SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operation methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
+For each dependency in the critical path, you need to assign an availability goal. Service level agreements (SLAs) from Azure provide a good starting point. SLAs don't factor in (1) downtime that's associated with the application code running on the services (2) deployment and operation methodologies, (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
 
 Relecloud used Azure SLAs for Azure services. The following diagram illustrates Relecloud's dependency list with availability goals for each dependency.
 
@@ -48,7 +48,12 @@ Finally, use the formulas for composite SLAs and multi-region availability to es
 
 ## Choose the right services
 
-The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts. At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (SQL Server -> Azure SQL Database) and app hosting platform (IIS on Windows Server -> Azure Web Apps). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal.
+The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that: 
+- Meet the SLO for the production environment. 
+- Require minimal migration effort. 
+- Support planned modernization efforts. 
+
+At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (SQL Server -> Azure Database for PostgreSQL - Flexible Server) and app hosting platform (IIS on Windows Server -> Web Apps). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if that's a long-term goal.
 
 ### Application platform
 
