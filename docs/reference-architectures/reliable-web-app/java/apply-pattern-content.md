@@ -35,12 +35,12 @@ You should use [Resilience4j](https://github.com/resilience4j/resilience4j) to i
 
 ```java
 private MediaFile checkLastModified(MediaFile mediaFile, MusicFolder folder, boolean minimizeDiskAccess) {
-        Retry retry = retryRegistry.retry("media");
-        CheckedFunction0<MediaFile> supplier = () -> doCheckLastModified(mediaFile, folder, minimizeDiskAccess);
-        CheckedFunction0<MediaFile> retryableSupplier = Retry.decorateCheckedSupplier(retry, supplier);
-        Try<MediaFile> result = Try.of(retryableSupplier).recover((IOException) -> mediaFile);
-        return result.get();
-    }
+    Retry retry = retryRegistry.retry("media");
+    CheckedFunction0<MediaFile> supplier = () -> doCheckLastModified(mediaFile, folder, minimizeDiskAccess);
+    CheckedFunction0<MediaFile> retryableSupplier = Retry.decorateCheckedSupplier(retry, supplier);
+    Try<MediaFile> result = Try.of(retryableSupplier).recover((IOException) -> mediaFile);
+    return result.get();
+}
 ```
 
 The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In this code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` when the number of retries reaches the set maximum number. The reference implementation configures the retry properties in `application.properties`. For more ways to configure Resilience4j, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and the [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
