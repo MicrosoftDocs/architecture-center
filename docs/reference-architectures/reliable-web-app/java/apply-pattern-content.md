@@ -47,7 +47,7 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
   
 ### Use the Circuit Breaker pattern
 
-You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from the task to avoids wasting CPU cycles. It helps application perform well for end users. For more information, see the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker). For more ways to configure Resiliency4J, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
+You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from the task to avoid wasting CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker). For more ways to configure Resilience4j, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
@@ -55,35 +55,35 @@ You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit 
 
 Azure availability zones are physically separate datacenters within an Azure region that have independent power, networking, and cooling. Availability zones increase resiliency for reduced risk of data loss or downtime. If you can use multiple availability zones and performance or cost factors don't create a risk, you should use them for production workloads. You can use a single availability zone in your development environment to save money.
 
-*Reference implementation.* The reference implementation uses PostgreSQL Flexible Server with zone redundant high availability for the production environment only. The development environment uses a single availability zone for cost savings. The reference implementation also uses Azure Storage with [zone redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) for improved data redundancy.
+*Reference implementation.* The reference implementation uses Azure Database for PostgreSQL - Flexible Server with zone redundant high availability for the production environment only. To save money, the development environment uses a single availability zone. The reference implementation also uses Azure Storage with [zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) for improved data redundancy.
 
 ## Security
 
-Security is a critical component of any architectural design and the goal is to ensure the confidentiality, integrity, and availability of your data and systems. The following guidance outlines the key security concepts you need to implement.
+Security is a critical component of any architectural design. The goal is to ensure the confidentiality, integrity, and availability of your data and systems. The following guidance outlines the key security concepts that you need to implement.
 
-### Enforce the principle of least-privileges
+### Enforce the principle of least privilege
 
 As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. You should map users to roles and delegate the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
 
-You should also enforce least privileges on the workload identity for all Azure services. There are two ways to manage access for workload identities. You can control access with Azure AD role-based access controls (RBACs) or at the service level. You should use Azure RBACs to manage permissions before using service-level access controls. For example, your web app has an identity in Azure AD and you should use Azure RBACs to grant the least number of permissions it needs to function. For more information, see:
+You should also enforce least privileges on the workload identity for all Azure services. There are two ways to manage access for workload identities. You can control access by using Azure Active Directory (Azure AD) role-based access control (RBAC) or at the service level. You should use Azure RBAC to manage permissions before you use service-level access controls. For example, your web app should have an identity in Azure AD, and you should use Azure RBAC to grant the least number of permissions it needs to function. For more information, see:
 
 - [Access to Azure Storage](/azure/storage/blobs/authorize-access-azure-active-directory)
 - [Access to Key Vault](/azure/key-vault/general/rbac-guide)
-- [Access to PostgreSQL database](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
+- [Access to Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
 
 ### Configure user authentication and authorization
 
-Authentication and authorization are critical aspects of web application security. Authentication is the process of verifying the identity of a user. Authorization determines what actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (App Service) and identity provider (Azure AD).
+Authentication and authorization are critical aspects of web application security. *Authentication* is the process of verifying the identity of a user. *Authorization* specifies the actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (Azure App Service) and identity provider (Azure AD).
 
-**Configure user authentication** Your web app needs to prioritize authentication of users to ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service enables authentication with identity providers including Azure AD. You should use this feature to reduce the responsibility of your code to handle user authentication. For information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
+**Configure user authentication.** Your web app needs to prioritize the authentication of users to help ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service enables authentication with identity providers, including Azure AD. You should use this feature to reduce the responsibility of your code to handle user authentication. For more information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
-*Reference implementation.* The reference implementation uses the built-in authentication feature ("EasyAuth") of App Service to manage the initial sign-in flow (cookies). It uses Azure Active Directory as the identity platform. It ensures the users that get access to the web app are users in the directory.
+*Reference implementation.* The reference implementation uses the built-in authentication feature (EasyAuth) of App Service to manage the initial sign-in flow (cookies). It uses Azure AD as the identity platform. It ensures the users that get access to the web app are users in the directory.
 
-**Integrate with identity provider (code)** You need to integrate the web application with the identity provider (Azure AD) in the code to ensure a secure and seamless authentication and authorization. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
+**Integrate with identity provider (code).** You need to integrate the web application with the identity provider (Azure AD) in the code to help ensure secure and seamless authentication and authorization. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
 
-The Spring Cloud Starter Active Directory is an excellent option for integrating with Azure AD. This starter provides a simple and efficient way to implement secure authentication at the code level, using Spring Security and Spring Boot frameworks. The Spring Cloud Starter Active Directory offers several benefits, such as support for various authentication flows, automatic token management, and customizable authorization policies. Additionally, it enables integration with other Spring Cloud components, such as Spring Cloud Config and Spring Cloud Gateway. By using the Spring Cloud Starter Active Directory, you can integrate Azure Active Directory and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings.
+The Spring Boot Starter for Azure AD is an excellent option for integrating with Azure AD. This starter provides a simple and efficient way to implement enhanced-security authentication at the code level, using Spring Security and Spring Boot frameworks. The Spring Boot Starter for Azure AD provides several benefits, like support for various authentication flows, automatic token management, and customizable authorization policies. Additionally, it enables integration with other Spring Cloud components, like Spring Cloud Config and Spring Cloud Gateway. By using the Spring Boot Starter for Azure AD, you can integrate Azure AD and OAuth 2.0 authentication and authorization into the Spring Boot application without manually configuring the required libraries and settings. For more information, see [Spring Boot Starter for Azure AD](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x).
 
-*Reference implementation.* The reference implementation uses the Microsoft identity platform (Azure AD) as the identity provider. It uses the OAuth 2.0 authorization code grant to sign-in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring : spring-cloud-azure-starter-active-directory` enables Azure Active Directory authentication and authorization in a Spring Boot application. The `org.springframework.boot : spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
+*Reference implementation.* The reference implementation uses the Microsoft identity platform (Azure AD) as the identity provider. It uses the OAuth 2.0 authorization code grant to sign in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Azure AD authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
 ```xml
     <dependency>
@@ -96,15 +96,15 @@ The Spring Cloud Starter Active Directory is an excellent option for integrating
     </dependency>
 ```
 
-For more information, see [Spring Security with Azure Active Directory](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
+For more information, see [Spring Cloud Azure support for Spring Security](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
 
-**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Web Security to use the Azure AD Spring Boot Starter library allows integration with Azure Active Directory and ensures that users are authenticated securely. Additionally, configuring and enabling the MSAL library provides access to more security features, such as token caching and automatic token refreshing, and enhances the security of the web application.
+**Implement authentication and authorization business rules (code).** Implementing authentication and authorization business rules involves defining the access control policies and permissions for various application functionalities and resources. You need to configure Spring Security to use Spring Boot Starter for Azure AD. This library allows integration with Azure AD and helps you ensure that users are authenticated securely. Additionally, configuring and enabling MSAL provides access to more security features, like token caching and automatic token refreshing, and enhances the security of the web application.
 
 *Reference implementation* The reference implementation creates two app roles (*User* and *Creator*). Roles translate into permissions during authorization. The *Creator* role has permissions to configure the application settings, upload videos, and create playlists. The *User* Role can view the videos.
 
 To integrate with Azure AD, the reference implementation had to refactor the [`GlobalSecurityConfig.java`](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/src/airsonic-advanced/airsonic-main/src/main/java/org/airsonic/player/security/GlobalSecurityConfig.java). `GlobalSecurityConfig.java` has the class-level annotation `@EnableWebSecurity`. `@EnableWebSecurity` enables Spring Security to locate the class and allows the class to have custom Spring Security configuration defined in any `WebSecurityConfigurer`. `WebSecurityConfigurerAdapter` is the implementation class of the `WebSecurityConfigurer` interface. Extending the `WebSecurityConfigurerAdapter` class enables endpoint authorization.
 
-For Azure Active Directory, the [`AADWebSecurityConfigurerAdapter`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/aad/AadWebSecurityConfigurerAdapter.java) class protects the routes in a Spring application, and it extends `WebSecurityConfigurerAdapter`. To configure the specific requirements for the reference implementation, the `WebSecurityConfiguration` class in the following code extends `ADWebSecurityConfigurationAdapter`.
+For Azure AD, the [`AadWebSecurityConfigurerAdapter`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-autoconfigure/src/main/java/com/azure/spring/cloud/autoconfigure/aad/AadWebSecurityConfigurerAdapter.java) class protects the routes in a Spring application, and it extends `WebSecurityConfigurerAdapter`. To configure the specific requirements for the reference implementation, the `WebSecurityConfiguration` class in the following code extends `ADWebSecurityConfigurationAdapter`.
 
 ```java
 @Configuration
@@ -112,9 +112,9 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-      // use required configuration from AADWebSecurityAdapter.configure:
+      // Use required configuration from AadWebSecurityAdapter.configure:
       super.configure(http);
-      // add custom configuration:
+      // Add custom configuration:
 
       http
           .authorizeRequests()
@@ -137,11 +137,11 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
 }
 ```
 
-The `antMatchers()` enforces authorization to the specified routes. For example, users making a request to `/deletePlaylist*` must have the role `APPROLE_Creator`. The code denies users without the `APPROLE_Creator` access to make the request.
+The `antMatchers` method enforces authorization to the specified routes. For example, users making a request to `/deletePlaylist*` must have the role `APPROLE_Creator`. The code doesn't allow users without `APPROLE_Creator` to make the request.
 
-**Express your application needs in Azure Active Directory.** Most apps use the concept of application roles. Application roles are custom roles to assign permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization.
+**Express your application needs in Azure AD.** Most apps use application roles. *Application roles* are custom roles for assigning permissions to users or applications. The application code defines the application roles, and it interprets the application roles as permissions during authorization.
 
-You can define the application roles as Azure AD roles that the MSAL configuration can use. The Active AD roles provide the backing for the access the application role receive. It authorizes users and uses the application roles to do that.
+You can define application roles as Azure AD roles that the MSAL configuration can use. The Azure AD roles provide the backing for the access that the application roles receive. Azure AD authorizes users by using the application roles.
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
