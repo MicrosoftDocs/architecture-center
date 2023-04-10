@@ -145,7 +145,7 @@ You can define the application roles as Azure AD roles that the MSAL configurati
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
-*Reference implementation.* The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
+*Reference implementation.* The reference implementation uses an app registration to assign AD users an app role ("User" or "Creator"). The app roles allow them to sign-in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
 
 ```json
 "appRoles":{
@@ -174,13 +174,12 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
 
 For more information, see:
 
+- [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app)
 - [AppRoles attribute](/azure/active-directory/develop/reference-app-manifest#approles-attribute)
 - [Spring Boot Starter for Azure Active Directory developer's guide](/azure/developer/java/spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide)
 - [Add sign-in with Azure Active Directory account to a Spring web app](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
 - [Add app roles to your application and receive them in the token](/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
 - [Configurable token lifetimes in the Microsoft identity platform](/azure/active-directory/develop/active-directory-configurable-token-lifetimes)
-
-The reference implementation uses an app registration to assign AD users an app role ("User" or "Creator"). The app roles allow them to sign-in to the application. The reference implementation uses the following code to configure the app registration. For more information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
 ### Configure service authentication and authorization
 
