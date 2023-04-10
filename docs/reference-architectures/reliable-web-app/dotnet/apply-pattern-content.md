@@ -1,6 +1,6 @@
-This article shows you how to apply the reliable web app pattern for .NET. The companion article shows you how to [plan the implementation](pattern-overview.yml). The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal, essential changes you should make to ensure the success of your web app in the cloud. For more information, see the [Overview of the reliable web app pattern](../overview.md) and the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+This article describes how to apply the reliable web app pattern for .NET. The companion article describes how to [plan the implementation](pattern-overview.yml). The reliable web app pattern helps developers modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal, essential changes you should make to ensure the success of your web app in the cloud. For more information, see [Overview of the reliable web app pattern](../overview.md) and the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
-There's also a [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET that you can deploy. The reference implementation applies the reliable web app pattern to an employee-facing, line of business (LOB) web application.
+A [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET is available for you to deploy. The reference implementation applies the reliable web app pattern to an employee-facing line-of-business (LOB) web application.
 
 ## Architecture and code
 
@@ -91,7 +91,7 @@ The policy handler for the `RelecloudApiConcertSearchService` instance applies t
 
 ### Use the Circuit Breaker pattern
 
-You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from the task to avoids wasting CPU cycles. It helps application perform well for end users. For more information, see the [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
+You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from the task to avoid wasting CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-dotnet/blob/main/simulate-patterns.md#circuit-breaker-pattern).
 
