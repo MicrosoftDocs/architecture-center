@@ -56,10 +56,14 @@ As a centralized service the organizational demands on the extension need to be 
 
 To design your scale units, test and document how each component in your extension individually scales, based on the metrics and service scale limits that are in place. Some extensions might require load balancing across multiple instances to achieve the required throughput.
 
+## Example implementation
+
+**Private Link DNS extension**: [Establish a virtual hub extension for DNS](./private-link-vwan-dns-single-region-workload.yml#solution---establish-a-virtual-hub-extension-for-dns) describes a Virtual Hub extension designed to support single region DNS lookup for Private Link scenarios.
+
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Read the single region DNS and Private Link scenario](./private-link-vwan-dns-single-region-workload.yml)
+> [Hub-spoke network topology with Azure Virtual WAN](../../networking/hub-spoke-vwan-architecture.yml)
 
 ## Related resources
 
