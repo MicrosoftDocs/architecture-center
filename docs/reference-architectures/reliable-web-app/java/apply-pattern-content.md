@@ -212,7 +212,7 @@ Many on-premises environments don't have a central secrets store. Key rotation i
 
 *Reference implementation.* The reference implementation uses the (**JAVA SDK**) via application code to access secrets in Key Vault.
 
-**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduces the risk of unauthorized access or data breaches.
+**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
 
 For temporary account access, you should use a shared access signature (SAS). There's a user delegation SAS, a service SAS, and an account SAS. You should use a user delegation SAS when possible. It's the only SAS that uses Azure AD credentials and doesn't require a storage account key.
 
@@ -221,7 +221,7 @@ For temporary account access, you should use a shared access signature (SAS). Th
 ### Use private endpoints
 
 Private endpoints provide private connections between resources in an Azure virtual network and Azure services. By default, communication to most Azure services crosses the public internet. You should use private endpoints in all production environments for all supported Azure services. Private endpoints don't require any code changes, app configurations, or connection strings.
-For more information, see: 
+For more information, see:
 
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
@@ -412,7 +412,7 @@ For Azure adoption and architectural guidance, see:
 - [Cloud Adoption Framework](/azure/cloud-adoption-framework/overview). A framework to help your organization prepare and execute a strategy to build solutions on Azure.
 - [Well-Architected Framework](/azure/architecture/framework/). A set of guiding tenets that you can use to improve the quality of a workload.
 
-For applications that require a higher service level objective (SLO) than the reliable web app pattern provides, see the guidance for architecting and operating [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
+For applications that require a higher service level objective (SLO), see [mission-critical workloads](/azure/architecture/framework/mission-critical/mission-critical-overview).
 
 ### Migration guidance
 
