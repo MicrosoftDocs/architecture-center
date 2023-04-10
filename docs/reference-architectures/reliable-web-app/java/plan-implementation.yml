@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reliable web app pattern for Java: Plan the implementation
+  title: Reliable web app pattern for Java - Plan the implementation
   titleSuffix: Azure Reference Architectures
-  description: Use the reliable web app pattern for your Java web application. It emphasizes low-cost, high-value updates and minimal changes for web apps moving to the cloud.
+  description: How to migrate and modernize your Java application to the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your Java application.
   author: stephen-sumner
   ms.author: ndalalelis
   ms.reviewer: ssumner
@@ -17,8 +17,8 @@ products:
   - azure-app-service
   - azure-cache-redis
   - azure-database-postgresql
-name: Reliable web app pattern for Java: Plan the implementation
-summary: Adopt the reliable web app pattern for your Java web application. The reliable web app pattern focuses on low-cost, high-value updates and minimal changes to ensure the success of web apps moving to the cloud.
-thumbnailUrl: /azure/architecture/browse/thumbs/java-architecture.png
+name: Reliable web app pattern for Java - Plan the implementation
+summary: How to migrate and modernize your Java application to the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your Java application.
+thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-java.png
 content: |
    [!include[](plan-implementation-content.md)]
