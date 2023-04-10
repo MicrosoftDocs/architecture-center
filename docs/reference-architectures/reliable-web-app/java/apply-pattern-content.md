@@ -343,7 +343,7 @@ To optimize cost, it is recommended that you delete non-production environments 
 
 ## Operational excellence
 
-The reliable web app pattern uses IaC (Terraform) to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features for you to configure to capture infrastructure and application telemetry. Using telemetry helps you improve your application. Following are some recommendations for operational excellence when you use the reliable web app pattern.
+The reliable web app pattern recommends using Infrastructure as Code (IaC) tools such as Terraform to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to configure and capture infrastructure and application telemetry. You should use these to improve performance and reduce costs. By analyzing performance metrics, you can identify inefficiencies in the application and make adjustments to optimize performance and reduce the resources needed to run the application.
 
 ### Logging and application telemetry
 
