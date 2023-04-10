@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 04/03/2023
+ms.date: 04/10/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -25,6 +25,11 @@ The following new and updated articles have recently been published in the Azure
 
 ## April 2023
 
+### Updated articles
+
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#5e982b9d0](https://github.com/MicrosoftDocs/architecture-center/commit/5e982b9d0))
+- [Basic enterprise integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml)  ([#14cfddb15](https://github.com/MicrosoftDocs/architecture-center/commit/14cfddb15))
+- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#79eb9b90e](https://github.com/MicrosoftDocs/architecture-center/commit/79eb9b90e))
 
 ## March 2023
 
@@ -153,3 +158,4 @@ The following new and updated articles have recently been published in the Azure
 - [Team Data Science Process for data scientists](./data-science-process/team-data-science-process-for-data-scientists.md)  ([#e0a8580fe](https://github.com/MicrosoftDocs/architecture-center/commit/e0a8580fe))
 - [Team Data Science Process for DevOps](./data-science-process/team-data-science-process-for-devops.md)  ([#e0a8580fe](https://github.com/MicrosoftDocs/architecture-center/commit/e0a8580fe))
 - [Claim-Check pattern](./patterns/claim-check.yml)  ([#d204acf90](https://github.com/MicrosoftDocs/architecture-center/commit/d204acf90))
+
