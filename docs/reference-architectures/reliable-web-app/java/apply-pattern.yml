@@ -2,11 +2,11 @@
 metadata:
   title: Reliable web app pattern for Java - Apply the pattern
   titleSuffix: Azure Reference Architectures
-  description: How to migrate and modernize your Java application to the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your Java application.
+  description: How to migrate and modernize your Java application in the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your Java application.
   author: stephen-sumner
   ms.author: ndalalelis
   ms.reviewer: ssumner
-  ms.date: 03/31/2023
+  ms.date: 04/14/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
@@ -17,9 +17,9 @@ products:
   - azure-app-service
   - azure-front-door
   - azure-cache-redis
-  - dotnet
+  - msal-java
 name: Reliable web app pattern for Java - Apply the pattern
-summary: How to migrate and modernize your Java application to the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your Java application.
+summary: How to migrate and modernize your Java application in the cloud with minimal code changes. Plan and apply low-cost, high-value modernizations to your Java application.
 thumbnailUrl: /azure/architecture/browse/thumbs/reliable-web-app-java.png
 content: |
    [!include[](apply-pattern-content.md)]
