@@ -267,7 +267,7 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 
 ### Delete non-production environments
 
-To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it is important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
+IaC is often considered an operational best practice, but it's also a way to manage costs. IaC can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
 
 ### Use cache to support multiple data types
 
@@ -277,7 +277,7 @@ You should use a single cache instance to support multiple data types rather tha
 
 ## Operational excellence
 
-The reliable web app pattern requires the use of IaC to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry. When this telemetry is fed into a DevOps framework, it can help you rapidly improve your application.
+A DevOps methodology provides a greater return on investment for application teams in the cloud. IaC is a key tenet of DevOps. The reliable web app pattern requires the use of IaC to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry. When this telemetry is fed into a DevOps framework, it can help you rapidly improve your application.
 
 ### Automate deployments
 

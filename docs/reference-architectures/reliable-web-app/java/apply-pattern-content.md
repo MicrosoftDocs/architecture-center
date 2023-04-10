@@ -35,12 +35,12 @@ You should use [Resilience4j](https://github.com/resilience4j/resilience4j) to i
 
 ```java
 private MediaFile checkLastModified(MediaFile mediaFile, MusicFolder folder, boolean minimizeDiskAccess) {
-        Retry retry = retryRegistry.retry("media");
-        CheckedFunction0<MediaFile> supplier = () -> doCheckLastModified(mediaFile, folder, minimizeDiskAccess);
-        CheckedFunction0<MediaFile> retryableSupplier = Retry.decorateCheckedSupplier(retry, supplier);
-        Try<MediaFile> result = Try.of(retryableSupplier).recover((IOException) -> mediaFile);
-        return result.get();
-    }
+    Retry retry = retryRegistry.retry("media");
+    CheckedFunction0<MediaFile> supplier = () -> doCheckLastModified(mediaFile, folder, minimizeDiskAccess);
+    CheckedFunction0<MediaFile> retryableSupplier = Retry.decorateCheckedSupplier(retry, supplier);
+    Try<MediaFile> result = Try.of(retryableSupplier).recover((IOException) -> mediaFile);
+    return result.get();
+}
 ```
 
 The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In this code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` when the number of retries reaches the set maximum number. The reference implementation configures the retry properties in `application.properties`. For more ways to configure Resilience4j, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and the [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
@@ -86,14 +86,14 @@ The Spring Boot Starter for Azure AD is an excellent option for integrating with
 *Reference implementation.* The reference implementation uses the Microsoft identity platform (Azure AD) as the identity provider. It uses the OAuth 2.0 authorization code grant to sign in a user with an Azure AD account. The following XML snippet defines the two required dependencies of the OAuth 2.0 authorization code grant flow. The dependency `com.azure.spring: spring-cloud-azure-starter-active-directory` enables Azure AD authentication and authorization in a Spring Boot application. The dependency `org.springframework.boot: spring-boot-starter-oauth2-client` supports OAuth 2.0 authentication and authorization in a Spring Boot application.
 
 ```xml
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-oauth2-client</artifactId>
-    </dependency>
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-oauth2-client</artifactId>
+</dependency>
 ```
 
 For more information, see [Spring Cloud Azure support for Spring Security](https://learn.microsoft.com/azure/developer/java/spring-framework/spring-security-support).
@@ -132,7 +132,7 @@ public class WebSecurityConfiguration extends AadWebSecurityConfigurerAdapter {
               .clearAuthentication(true)
               .invalidateHttpSession(true)
               .logoutSuccessUrl("/index"));
-        }
+    }
     ... 
 }
 ```
@@ -148,7 +148,7 @@ The `appRoles` attribute in Azure AD defines the roles that an app can declare i
 *Reference implementation.* The reference implementation uses an app registration to assign Azure AD users an app role ("User" or "Creator"). The app roles allow users to sign in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
 
 ```json
-"appRoles":{
+"appRoles": {
   {
     "allowedMemberTypes": [
         "User"
@@ -232,7 +232,11 @@ You don't need to populate data in production, so you should always use a privat
 
 ### Use a web application firewall
 
-You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it. You should restrict access on the application platform (App Service) to accept only inbound communication from Azure Front Door.
+You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it.
+
+You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can [Secure your Origin with Private Link in Azure Front Door Premium] as one option.  Another is to use Java Spring to filter requests that contain your specific Azure Front Door's `X-Azure-FDID` header value.  TODO NICK, can you make this last sentence read more "java" -- with some specifics.
+
+Follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) to address what host name, client IP and more your application sees once traffic has passed through your WAF-enabled gateway.
 
 *Reference implementation.* The reference implementation uses Azure Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
 
@@ -248,17 +252,19 @@ Production environments need SKUs that meet the service level agreements (SLAs),
 
 **Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for non-production environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
 
-*Reference implementation.* This architecture does not benefit from Azure Dev/Test pricing as none of the configurations used in this architecture fall within scope of the discounts of Azure Dev/Test pricing. For example, Azure App Service is Linux-based while the Dev/Test pricing only applies to Windows-based configurations.
+*Reference implementation.* This architecture does not benefit from Azure Dev/Test pricing as none of the configurations used in this architecture fall within scope of the discounts of Azure Dev/Test pricing. For example, Azure App Service is Linux-based, while the Dev/Test pricing only applies to Windows-based configurations. However, additional components you add may still benefit.
 
-**Consider using cheaper SKUs in non-production environments.** You can still use different SKUs across environments to save cost. If you use different SKUs or components for development, you might not encounter specific application issues until you deploy to production. It is essential to account for these differences and incorporate them into your testing cycles. For instance, if you only use Web Application Firewall (WAF) and Azure Front Door in production, you might not discover potential WAF false positives (valid requests that WAF blocks), routing problems, and host-header issues until you deploy the application to production.
+**Consider Azure Reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and App Service. 
 
-*Reference implementation.* The reference implementation has an optional parameter that deploys different SKUs. It uses cheaper SKUs for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL - Flexible Server when deploying to the development environment. You can choose SKUs that meet your needs. Proseware uses the same Infrastructure as Code (IaC) artifacts for both development environments and production with a few selected differences for cost optimization purposes. An environment parameter instructs the Terraform template to select development SKUs.
+Plan your commitments around your team's architecture roadmap. For example, if you plan on being using the same database engine for a year or more, that would make a good candidate for a reserved instance.
 
-```terraform
-terraform -chdir=./terraform plan -var environment=dev -out airsonic.tfplan
-```
+For more information, see:
 
-The reference implementation uses different SKUs for three services. The following table shows the services and the SKUs for each environment.
+- [Azure Reservations](https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [Azure savings plans for compute](https://learn.microsoft.com/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
+
+*Reference implementation.* Azure Database for PostgreSQL is a prime candidate for a reserved instance based on the plan to stick with this database engine for at least a year after this initial convergence on the cloud phase.
+*Reference implementation.* The reference implementation has an optional parameter for deploying different SKUs. It uses cheaper SKUs for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL - Flexible Server when deploying to the development environment. You can choose SKUs that meet your needs, but the reference implementation uses the following SKUs:
 
 | Service | Development SKU | Production SKU | SKU options |
 | --- | --- | --- | --- |
@@ -266,14 +272,14 @@ The reference implementation uses different SKUs for three services. The followi
 | App Service | P1v2 | P2v2 | [App Service SKU options](https://azure.microsoft.com/pricing/details/app-service/linux/)
 | Azure Database for PostgreSQL - Flexible Server | Burstable B1ms (B_Standard_B1ms) | General Purpose D4s_v3 (GP_Standard_D4s_v3) | [Azure Database for PostgreSQL - Flexible Server SKU options](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage)
 
-**Consider Azure Reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations helps you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and App Service.
+If you use different SKUs or components for development, you might not encounter specific application issues until you deploy to production. It is essential to account for these differences and incorporate them into your testing cycles. For instance, if you only use Web Application Firewall (WAF) and Azure Front Door in production, you might not discover potential WAF false positives (valid requests that WAF blocks), routing problems, and host-header issues until you deploy the application to production.
 
-Plan your commitments around your team's architecture roadmap. For example, if you plan on being using the same database engine for a year or more, that would make a good candidate for a reserved instance. For more information, see:
+Reference implementation. Proseware uses the same Infrastructure as Code (IaC) artifacts for both development environments and production with a few selected differences for cost optimization purposes. An environment parameter instructs the Terraform template to select development SKUs.
 
-- [Azure Reservations](https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
-- [Azure savings plans for compute](https://learn.microsoft.com/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
-
-*Reference implementation.* Azure Database for PostgreSQL is a prime candidate for a reserved instance based on the plan to stick with this database engine for at least a year after this initial convergence on the cloud phase.
+```shell
+terraform -chdir=./terraform plan -var environment=dev -out airsonic.tfplan
+```
+```
 
 ### Automate scaling the environment
 
@@ -339,11 +345,11 @@ resource "azurerm_monitor_autoscale_setting" "sitescaling" {
 
 ### Delete non-production environments
 
-To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it is important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
+Infrastructure as code (IaC) is often considered an operational best practice, but it's also a way to manage costs. IaC can create and delete entire environments. You should delete non-production environments after business hours or during holidays to optimize costs.
 
 ## Operational excellence
 
-The reliable web app pattern recommends using Infrastructure as Code (IaC) tools such as Terraform to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to configure and capture infrastructure and application telemetry. You should use these to improve performance and reduce costs. By analyzing performance metrics, you can identify inefficiencies in the application and make adjustments to optimize performance and reduce the resources needed to run the application.
+Organizations that move to the cloud and apply a DevOps methodology see greater returns on investment. IaC is a key tenet of DevOps. The reliable web app pattern uses IaC (Terraform) to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features for you to configure to capture infrastructure and application telemetry. Using telemetry helps you improve your application. Following are some recommendations for operational excellence when you use the reliable web app pattern.
 
 ### Logging and application telemetry
 
