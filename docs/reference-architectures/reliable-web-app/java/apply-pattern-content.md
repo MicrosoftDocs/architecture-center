@@ -256,13 +256,13 @@ Production environments need SKUs that meet the service level agreements (SLAs),
 
 **Consider using cheaper SKUs in non-production environments.** You can still use different SKUs across environments to save cost. If you use different SKUs or components for development, you might not encounter specific application issues until you deploy to production. It is essential to account for these differences and incorporate them into your testing cycles. For instance, if you only use Web Application Firewall (WAF) and Azure Front Door in production, you might not discover potential WAF false positives (valid requests that WAF blocks), routing problems, and host-header issues until you deploy the application to production.
 
-*Reference implementation.* The reference implementation has an optional parameter that deploys different SKUs. It uses cheaper SKUs for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL - Flexible Server when deploying to the development environment. You can choose SKUs that meet your needs. Proseware uses the same Infrastructure as Code (IaC) artifacts for both development environments and production with a few selected differences for cost optimization purposes. An environment parameter instructs the Terraform template to select development SKUs.
+*Reference implementation.* The reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs as the following code shows:
 
 ```terraform
 terraform -chdir=./terraform plan -var environment=dev -out infrastructure.tfplan
 ```
 
-The reference implementation uses different SKUs for three services. The following table shows the services and the SKUs for each environment.
+Proseware uses the same infrastructure-as-code (IaC) templates for both development environments and production with a few selected differences for cost optimization purposes. Proseware chose to use cheaper SKUs for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL - Flexible Server when deploying to the development environment. The following table shows the services and the SKUs for each environment. You should choose SKUs that meet the needs of your environment.
 
 | Service | Development SKU | Production SKU | SKU options |
 | --- | --- | --- | --- |
