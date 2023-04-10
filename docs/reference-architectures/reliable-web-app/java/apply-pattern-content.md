@@ -226,7 +226,7 @@ For more information, see:
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
 
-*Reference implementation.* The reference implementation uses private endpoints for Key Vault, Azure Cache for Redis, and Azure Database for PostgreSQL. To make the deployment possible, it doesn't use a private endpoint for Azure Files. The web app loads the user interface with playlists and videos from the local client IP address. It was less efficient to use a private endpoint for Azure. 
+*Reference implementation.* The reference implementation uses private endpoints for Key Vault, Azure Cache for Redis, and Azure Database for PostgreSQL. To make the deployment possible, it doesn't use a private endpoint for Azure Files. The web app loads the user interface with playlists and videos from the local client IP address. It was less efficient to use a private endpoint for Azure.
 
 You don't need to populate data in production, so you should always use a private endpoint to limit the attack surface. To add a layer of security, Azure Files only accepts traffic only from the virtual network and the local client IP of the user executing the deployment.
 
