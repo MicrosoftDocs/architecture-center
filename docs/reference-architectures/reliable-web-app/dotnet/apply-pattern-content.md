@@ -267,7 +267,7 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 
 ### Delete non-production environments
 
-IaC is often considered an operational best practice, but it's also a way to manage costs. IaC can create and delete entire environments. You should delete non-production environments after hours or during holidays to optimize cost.
+To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it is important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
 
 ### Use cache to support multiple data types
 

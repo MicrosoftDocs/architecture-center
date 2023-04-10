@@ -344,11 +344,11 @@ resource "azurerm_monitor_autoscale_setting" "sitescaling" {
 
 ### Delete non-production environments
 
-Infrastructure as code (IaC) is often considered an operational best practice, but it's also a way to manage costs. IaC can create and delete entire environments. You should delete non-production environments after business hours or during holidays to optimize costs.
+To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it is important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
 
 ## Operational excellence
 
-Organizations that move to the cloud and apply a DevOps methodology see greater returns on investment. IaC is a key tenet of DevOps. The reliable web app pattern uses IaC (Terraform) to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features for you to configure to capture infrastructure and application telemetry. Using telemetry helps you improve your application. Following are some recommendations for operational excellence when you use the reliable web app pattern.
+The reliable web app pattern recommends using Infrastructure as Code (IaC) tools such as Terraform to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to configure and capture infrastructure and application telemetry. You should use these to improve performance and reduce costs. By analyzing performance metrics, you can identify inefficiencies in the application and make adjustments to optimize performance and reduce the resources needed to run the application.
 
 ### Logging and application telemetry
 
