@@ -212,7 +212,9 @@ Many on-premises environments don't have a central secrets store. Key rotation i
 
 *Reference implementation.* The reference implementation uses the application code through the (**JAVA SDK LIBRARY**) to access the secrets in Key Vault.
 
-**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account is a security risk. A compromised or unused account with permanent access compromised or if access is no longer required for the user. Temporary permissions grant access to a user or application for a specific period of time. The configuration ensures that access is only granted when needed, and it reduces the risk of unauthorized access or data breaches. For temporary account access, you should use shared access signatures (SASs). There are three types of SASs (user delegation, service, and account). User delegation SAS is preferable. It uses Azure AD credentials and doesn't require a storage account key.
+**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduces the risk of unauthorized access or data breaches.
+
+For temporary account access, you should use a shared access signature (SAS). There's a user delegation SAS, a service SAS, and an account SAS. You should use a user delegation SAS when possible. It's the only SAS that uses Azure AD credentials and doesn't require a storage account key.
 
 *Reference implementation.* Sometimes access keys are unavoidable. The reference implementation has to use an [account access key](/azure/storage/common/storage-account-keys-manage) to mount a directory with Azure Files to App Service. The web app uses the Azure Files integration in App Service to mount an NFS share to the Tomcat app server. The mount allows the web app to access the file share as if it were a local directory. This setup enables the web app to read and write files to the shared file system in the cloud.
 
