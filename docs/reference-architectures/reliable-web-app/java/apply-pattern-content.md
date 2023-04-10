@@ -384,13 +384,13 @@ For information, see [Enable Azure Monitor OpenTelemetry for Java applications](
 
 ## Performance efficiency
 
-Performance efficiency is the ability of a workload to scale and meet the demands placed on it by users in an efficient manner. In cloud environments, a workload should anticipate increases in demand to meet business requirements. You should use the cache-aside pattern to improve performance and optimize costs when you manage application data.
+Performance efficiency is the ability of a workload to scale and meet the demands placed on it by users in an efficient manner. In cloud environments, a workload should anticipate increases in demand to meet business requirements. You should use the Cache-Aside pattern to improve performance and optimize costs when you manage application data.
 
-### Use the cache-aside pattern
+### Use the Cache-Aside pattern
 
-The cache-aside pattern is used to manage in-memory data caching. In this pattern, the application is responsible for managing data requests and data consistency between the cache and a persistent data store, like a database. When a data request reaches the application, the application first checks the cache to see if the cache has the data in memory. If it doesn't, the application queries the database, replies to the requester, and stores that data in the cache. For more information, see [Cache-aside pattern overview](https://learn.microsoft.com/azure/architecture/patterns/cache-aside).
+The Cache-Aside pattern is used to manage in-memory data caching. In this pattern, the application is responsible for managing data requests and data consistency between the cache and a persistent data store, like a database. When a data request reaches the application, the application first checks the cache to see if the cache has the data in memory. If it doesn't, the application queries the database, replies to the requester, and stores that data in the cache. For more information, see [Cache-aside pattern overview](https://learn.microsoft.com/azure/architecture/patterns/cache-aside).
 
-The cache-aside pattern introduces a few benefits to the web application. It reduces request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages.
+The Cache-Aside pattern introduces a few benefits to the web application. It reduces request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages.
 
 **Cache high-need data.** Most applications have pages that get more views than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
 
