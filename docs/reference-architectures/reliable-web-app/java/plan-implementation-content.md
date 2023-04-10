@@ -20,7 +20,7 @@ The following table lists the principles of the reliable web app pattern and how
 
 ## Business context
 
-The implementation guidance mirrors the cloud journey of a fictional company, Proseware, Inc. Proseware wants to migrate its on-premises LOB web application to the cloud. It's a customized version of the open-source monolithic Airsonic web-based media streamer. In this scenario, we imagine that Proseware developed the application and owns all the code. 
+The implementation guidance mirrors the cloud journey of a fictional company, Proseware, Inc. Proseware wants to migrate its on-premises LOB web application to the cloud. It's a customized version of the open-source monolithic Airsonic web-based media streamer. In this scenario, we imagine that Proseware developed the application and owns all the code.
 
 Company leadership wants to expand business into the EdTech application market. After their initial technical research, they conclude that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. To expand Proseware's business into a highly competitive EdTech market, the on-premises infrastructure needs to provide a cost-efficient means to scale. A migration to the cloud offers the best return on investment. The migration of the application should meet the increasing business demand with minimal investments in the existing monolithic app. Here are some short-term and long-term goals for the application:
 
@@ -40,19 +40,19 @@ For each dependency in the critical path, you need to assign an availability goa
 
 For example, Proseware used Azure SLAs for Azure services. The following diagram illustrates Proseware's dependency list and shows availability goals for each dependency.
 
-> [!NOTE] 
-> Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information about current Azure SLAs, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-
 [![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](images/java-slo-dependecies.png)](images/java-slo-dependecies.png)
+*Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
 
-Finally, use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. For more information, see:
+Finally, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. For more information, see:
 
 - [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional SLA formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
 
 ## Choose the right services
 
-The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts. At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLA of 99.9% for the production environment and (2) an average load of 1,000 users daily.
+The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts.
+
+At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLA of 99.9% for the production environment and (2) an average load of 1,000 users daily.
 
 ### Application platform
 
