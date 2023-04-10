@@ -263,6 +263,7 @@ For more information, see:
 - [Azure Reservations](https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Azure savings plans for compute](https://learn.microsoft.com/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
 
+*Reference implementation.* Azure Database for PostgreSQL is a prime candidate for a reserved instance based on the plan to stick with this database engine for at least a year after this initial convergence on the cloud phase.
 *Reference implementation.* The reference implementation has an optional parameter for deploying different SKUs. It uses cheaper SKUs for Azure Cache for Redis, App Service, and Azure Database for PostgreSQL - Flexible Server when deploying to the development environment. You can choose SKUs that meet your needs, but the reference implementation uses the following SKUs:
 
 | Service | Development SKU | Production SKU | SKU options |
@@ -271,17 +272,13 @@ For more information, see:
 | App Service | P1v2 | P2v2 | [App Service SKU options](https://azure.microsoft.com/pricing/details/app-service/linux/)
 | Azure Database for PostgreSQL - Flexible Server | Burstable B1ms (B_Standard_B1ms) | General Purpose D4s_v3 (GP_Standard_D4s_v3) | [Azure Database for PostgreSQL - Flexible Server SKU options](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-compute-storage)
 
-The following parameter tells the Terraform template to select development SKUs. In `scripts/setup-initial-env.sh`, you can set `APP_ENVIRONMENT` to either be production (prod) or development (dev).
+If you use different SKUs or components for development, you might not encounter specific application issues until you deploy to production. It is essential to account for these differences and incorporate them into your testing cycles. For instance, if you only use Web Application Firewall (WAF) and Azure Front Door in production, you might not discover potential WAF false positives (valid requests that WAF blocks), routing problems, and host-header issues until you deploy the application to production.
 
-```bash
-# APP_ENVIRONMENT can either be prod or dev
-export APP_ENVIRONMENT=dev
-```
-
-The Terraform code uses `APP_ENVIRONMENT` as the `environment` value during deployment.
+Reference implementation. Proseware uses the same Infrastructure as Code (IaC) artifacts for both development environments and production with a few selected differences for cost optimization purposes. An environment parameter instructs the Terraform template to select development SKUs.
 
 ```shell
-terraform -chdir=./terraform plan -var application_name=${APP_NAME} -var environment=${APP_ENVIRONMENT} -out airsonic.tfplan
+terraform -chdir=./terraform plan -var environment=dev -out airsonic.tfplan
+```
 ```
 
 ### Automate scaling the environment
@@ -291,19 +288,19 @@ You should use autoscale to automate horizontal scaling for production environme
 - [Scale up an app in Azure App Service](https://learn.microsoft.com/azure/app-service/manage-scale-up)
 - [Overview of autoscale in Microsoft Azure](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-overview)
 
-*Reference implementation.* The reference implementation uses the following configuration in Terraform. It creates an autoscale rule for App Service. The rule scales up to 10 instances and defaults to one instance. The code sets up two rules for scaling the resource up or down based on the average CPU usage over a period of time. The rules define a metric trigger that checks the CPU usage against a threshold value. It also defines a scale action that increases or decreases the number of instances in response to the trigger.
+*Reference implementation.* The reference implementation uses the following configuration in Terraform. It creates an autoscale rule for App Service. The rule scales up to 10 instances and defaults to two instances. The code sets up two rules for scaling the resource up or down based on the average CPU usage over a period of time. The rules define a metric trigger that checks the CPU usage against a threshold value. It also defines a scale action that increases or decreases the number of instances in response to the trigger.
 
 ```terraform
-resource "azurerm_monitor_autoscale_setting" "airsonicscaling" {
-  name                = "airsonicscaling"
+resource "azurerm_monitor_autoscale_setting" "sitescaling" {
+  name                = "sitescaling"
   resource_group_name = var.resource_group
   location            = var.location
   target_resource_id  = azurerm_service_plan.application.id
   profile {
     name = "default"
     capacity {
-      default = 1
-      minimum = 1
+      default = 3
+      minimum = 2
       maximum = 10
     }
     rule {
@@ -352,7 +349,7 @@ Infrastructure as code (IaC) is often considered an operational best practice, b
 
 ## Operational excellence
 
-Organizations that move to the cloud and apply a DevOps methodology see greater returns on investment. IaC is a key tenet of DevOps. The reliable web app pattern uses IaC (Terraform) to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to capture telemetry, and using telemetry helps you improve your application. Following are some recommendations for operational excellence when you use the reliable web app pattern.
+Organizations that move to the cloud and apply a DevOps methodology see greater returns on investment. IaC is a key tenet of DevOps. The reliable web app pattern uses IaC (Terraform) to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features for you to configure to capture infrastructure and application telemetry. Using telemetry helps you improve your application. Following are some recommendations for operational excellence when you use the reliable web app pattern.
 
 ### Logging and application telemetry
 
@@ -407,7 +404,7 @@ The cache-aside pattern introduces a few benefits to the web application. It red
 
 **Ensure data consistency.** To ensure data consistency, you should update the cached data whenever a user makes changes. You can implement an event-driven system for these updates, or you can access cached data through the repository class responsible for managing the create and edit events.
 
-### Deploy the reference implementation
+## Deploy the reference implementation
 
 You can deploy the reference implementation by following the instructions in the [Reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). Use the deployment guide to set up a local development environment and deploy the solution to Azure.
 
