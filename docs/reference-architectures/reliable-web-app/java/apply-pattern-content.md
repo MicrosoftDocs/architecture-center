@@ -277,8 +277,7 @@ If you use different SKUs or components for development, you might not encounter
 Reference implementation. Proseware uses the same Infrastructure as Code (IaC) artifacts for both development environments and production with a few selected differences for cost optimization purposes. An environment parameter instructs the Terraform template to select development SKUs.
 
 ```shell
-terraform -chdir=./terraform plan -var environment=dev -out airsonic.tfplan
-```
+terraform -chdir=./terraform plan -var environment=dev -out infrastructure.tfplan
 ```
 
 ### Automate scaling the environment
