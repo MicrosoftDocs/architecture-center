@@ -140,13 +140,6 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-- Managing the federation servers, including managing the AD FS farm, managing trust policy on the federation servers, and managing the certificates used by the federation services.
-- Managing the WAP servers including managing the WAP farm and certificates.
-- Managing web applications including configuring relying parties, authentication methods, and claims mappings.
-- Backing up AD FS components.
-
-For other DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
-
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
@@ -211,6 +204,17 @@ Consider having Active Directory Domain Services as a shared service that is con
 #### Azure AD Federation Services
 
 For information about the editions offered by Azure Active Directory, see [Azure AD pricing][Azure-AD-pricing]. The AD Federation Services feature is available in all editions.
+
+### Operational Excellence
+
+DevOps staff should be prepared to perform the following tasks:
+
+- Manage the federation servers, including managing the AD FS farm, managing trust policy on the federation servers, and managing the certificates used by the federation services.
+- Manage the WAP servers including managing the WAP farm and certificates.
+- Manage web applications including configuring relying parties, authentication methods, and claims mappings.
+- Back up AD FS components.
+
+For other DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
 
 ## Contributors
 
