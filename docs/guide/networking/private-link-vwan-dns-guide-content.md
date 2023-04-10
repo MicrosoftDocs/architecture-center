@@ -163,7 +163,7 @@ Each scenario starts with the desired end state and details the configuration re
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Read about the virtual hub extension pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml)
+> [Read the single region, dedicated PaaS resource scenario](./private-link-vwan-dns-single-region-workload.yml)
 
 ## Related resources
 
