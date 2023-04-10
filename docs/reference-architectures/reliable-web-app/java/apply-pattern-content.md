@@ -145,7 +145,7 @@ You can define application roles as Azure AD roles that the MSAL configuration c
 
 The `appRoles` attribute in Azure AD defines the roles that an app can declare in the application manifest. The `appRoles` attribute allows applications to define their own roles. When a user signs in to the application, Azure AD generates an ID token that contains various claims. This token includes a roles claim that lists the roles assigned to the user.
 
-*Reference implementation.* The reference implementation uses an app registration to assign AD users an app role ("User" or "Creator"). The app roles allow them to sign-in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
+*Reference implementation.* The reference implementation uses an app registration to assign Azure AD users an app role ("User" or "Creator"). The app roles allow users to sign in to the application. The following JSON shows what the *User* and *Creator* `appRoles` look like in Azure active directory app registration.
 
 ```json
 "appRoles":{
