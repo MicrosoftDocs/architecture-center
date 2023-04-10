@@ -212,7 +212,7 @@ Many on-premises environments don't have a central secrets store. Key rotation i
 
 *Reference implementation.* The reference implementation uses the (**JAVA SDK**) via application code to access secrets in Key Vault.
 
-**Avoid using access keys for temporary access where possible** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
+**Avoid using access keys for temporary access where possible.** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
 
 For temporary account access, you should use a shared access signature (SAS). There's a user delegation SAS, a service SAS, and an account SAS. You should use a user delegation SAS when possible. It's the only SAS that uses Azure AD credentials and doesn't require a storage account key.
 
