@@ -111,58 +111,58 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 - **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 - **Diverse supportability.** It's a unified cache location that all instances of the web app can use.
-- **Externalized:** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+- **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 
 ### Global ingress gateway
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a content delivery network that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a content delivery network that uses the Azure backbone network to route traffic between regions. This choice sets up features like Azure Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
 
-- **Internet-facing security.** It provides built-in layer 3-4 DDoS protection and integrates with Azure Web Application Firewall (WAF) to protect web apps against common web attacks.
-- **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to our web app.
+- **Internet-facing security.** It provides built-in layer 3-4 DDoS protection and integrates with Azure Web Application Firewall to help protect web apps against common web attacks.
+- **Traffic acceleration.** It uses AnyCast to reach the nearest Azure point of presence and find the fastest route to the web app.
 - **Custom domains.** It supports custom domain names with flexible domain validation.
-- **Health probes.** The application needed intelligent health probe monitoring. Azure Front Door then uses these responses from the probe to determine the "best" origin to route your client requests.
-- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+- **Health probes.** The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing your client requests.
+- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It enables the application to log each request and failed health probes.
 
-### Web application firewall
+### Web Application Firewall
 
-[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefit
+[Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
 
-- **Global protection:** It provides global web app protection without sacrificing performance.
-- **Botnet protection:** The team can monitor and configure to address security concerns from botnets.
-- **Parity with on-premises**: The service allowed us to maintain parity with our on-premises solution, which was running behind a web application firewall managed by IT.
+- **Global protection.** It provides increased global web app protection without sacrificing performance.
+- **Botnet protection.** You can configure bot protection rules to monitor for botnet attacks.
+- **Parity with on-premises.** It allows Proseware to maintain parity with its on-premises solution, which was running behind a web application firewall managed by IT.
 
 ### Secrets manager
 
-[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets to control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third-party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. The web app uses Key Vault because it provides the following features:
+[Azure Key Vault](/azure/key-vault/general/overview) provides centralized storage of application secrets so that you can control their distribution. It supports X.509 certificates, connection strings, and API keys to integrate with third-party services. Managed identities are the preferred solution for intra-Azure service communication, but the application still has secrets to manage. The on-premises web app stored secrets on-premises in code configuration files, but it's a better security practice to externalize secrets. The web app uses Key Vault because it provides the following features:
 
-- **Encryption:** It supports encryption at rest and in transit.
-- **Supports managed identities:** The application services can use managed identities to access the secret store.
-- **Monitoring and logging:** It facilitates audit access and generate alert us when stored secrets change.
+- **Encryption.** It supports encryption at rest and in transit.
+- **Supports managed identities.** The application services can use managed identities to access the secret store.
+- **Monitoring and logging.** It facilitates audit access and generates alerts when stored secrets change.
 - **Integration.** It provides native integration with the web hosting platform (App Service).
 
 ### Object storage
 
-Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. Proseware needed a file system to save uploaded training videos and chose Azure Files for the following reasons:
+Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. Proseware needs a file system for saving uploaded training videos. Proseware chose Azure Files for the following reasons:
 
-- **Replace existing file server:** Azure Files allows us to replace our existing file server without having to modify our code to use an alternative blob storage mechanism. It's good fit because it simplified the process of getting our app running on the cloud.
-- **Fully managed:** Azure file shares allow us to maintain compatibility without needing to manage hardware or operating system for a file server.
-- **Resiliency:** Azure Files has been built from the ground up to be always available.
-- **Durability.** Azure Files has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
+- **Replaces existing file server.** Azure Files allows Proseware to replace the existing file server without needing to modify code if they wanted to add blob storage. Azure Files good simplifies the process of getting the app running on the cloud.
+- **Fully managed service.** It enables Proseware to maintain compatibility without needing to manage hardware or an operating system for a file server.
+- **Resiliency:** It's built to be highly available.
+- **Durability.** It has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 ### Endpoint security
 
-[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (such as, Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate securely with Azure services without application changes. The web app uses Azure Private Link for the following reasons:
+[Azure Private Link](/azure/private-link/private-link-overview) provides access to PaaS services (like Azure Cache for Redis and Azure Database for PostgreSQL) over a private endpoint in your virtual network. Traffic between your virtual network and the service travels across the Microsoft backbone network. Azure Private DNS with Azure Private Link enables your solution to communicate with Azure services without requiring application changes. The web app uses Private Link for the following reasons:
 
-- **Secure communication:** It lets the application privately access services on the Azure platform and reduces the network footprint of data stores to protect against data leakage.
-- **Minimal effort:** The private endpoints support the web application platform and database platform the web app uses. Both platforms mirror existing on-premises setup for minimal change.
+- **Enhanced security.** It lets the application privately access services on Azure and reduces the network footprint of data stores to help protect against data leakage.
+- **Minimal effort.** Private endpoints support the web application platform and the database platform that the web app uses. Both platforms mirror the existing on-premises setup, so minimal changes are required.
 
 ## Deploy the reference implementation
 
-You can deploy the reference implementation by following the instructions in the [reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). Follow the deployment guide to set up a local development environment and deploy the solution to Azure.
+You can deploy the reference implementation by following the instructions in the [Reliable web app pattern for Java repository](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java). Use the deployment guide to set up a local development environment and deploy the solution to Azure.
 
 ## Next step
 
-You learned how to plan the implementation for the reliable web app pattern. The next step is to apply the reliable web app pattern.
+This article describes how to plan the implementation for the reliable web app pattern. The next step is to apply the reliable web app pattern.
 
 >[!div class="nextstepaction"]
 >[Apply the pattern](plan-implementation.yml)
