@@ -1,0 +1,31 @@
+### YamlMime:Architecture
+metadata:
+  title: Validation Ops (ValOps) reference architecture for Autonomous Vehicle Operations (AVOps) 
+  titleSuffix: Azure Reference Architectures
+  description: Learn how to build a ValOps architecture for your AVOPs
+  author: rmats808
+  ms.author: rmatsumura
+  ms.date: 5/31/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: reference-architecture
+azureCategories:
+  - ai-machine-learning
+  - analytics
+  - compute
+  - databases
+  - containers
+  - devops
+  - security
+  - storage
+products:
+  - azure-machine-learning  
+  - azure-data-factory
+  - azure-arc
+  - azure-batch
+  - github
+name: Create a ValOps architecture for AVOps
+summary: Learn how to build a ValOps architecture for your AVOPs
+thumbnailUrl: /azure/architecture/browse/thumbs/avops-architecture-thumb.png
+content: |
+  [!include[](<valops-reference-architecture>-content.md)]
