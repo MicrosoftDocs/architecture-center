@@ -1,0 +1,1 @@
+Many organizations have moved to containerized apps over the last several years as part of a push towards adopting modern app development, maintenance practices, and cloud native architectures.  As technologies continue to evolve and mature, part of this adoption is testing some of the many containerized app platforms that are available in the public cloud.   
