@@ -112,6 +112,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 - **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 - **Diverse supportability.** It's a unified cache location that all instances of the web app can use.
 - **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
+- **Enabling non-sticky sessions:** Externalizing session state supports non-sticky sessions.
 
 ### Global ingress gateway
 
@@ -138,7 +139,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 - **Encryption.** It supports encryption at rest and in transit.
 - **Supports managed identities.** The application services can use managed identities to access the secret store.
 - **Monitoring and logging.** It facilitates audit access and generates alerts when stored secrets change.
-- **Integration.** It provides native integration with the web hosting platform (App Service).
+- **Integration.** It supports two methods for the web app to access secrets. You can use app settings in the hosting platform (App Service), or you can reference the secret in your application code (app properties file).
 
 ### Object storage
 
