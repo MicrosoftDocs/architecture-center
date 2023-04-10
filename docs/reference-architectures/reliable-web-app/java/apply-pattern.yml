@@ -1,8 +1,8 @@
 ### YamlMime:Architecture
 metadata:
-  title: Reliable web app pattern for Java - Apply the pattern
+  title: Reliable web app pattern for Java: Apply the pattern
   titleSuffix: Azure Reference Architectures
-  description: How to migrate your Java application to the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your Java application.
+  description: Migrate your Java application to the cloud with minimal code changes. Plan for and apply low-cost, high-value updates to your Java application.
   author: stephen-sumner
   ms.author: ndalalelis
   ms.reviewer: ssumner
@@ -18,8 +18,8 @@ products:
   - azure-front-door
   - azure-cache-redis
   - dotnet
-name: Reliable web app pattern for Java - Apply the pattern
-summary: How to migrate your Java application to the cloud with minimal code changes. Plan and apply low-cost, high-value updates to your Java application.
+name: Reliable web app pattern for Java: Apply the pattern
+summary: Migrate your Java application to the cloud with minimal code changes. Plan for and apply low-cost, high-value updates to your Java application.
 thumbnailUrl: /azure/architecture/browse/thumbs/java-architecture.png
 content: |
    [!include[](apply-pattern-content.md)]
