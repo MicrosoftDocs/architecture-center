@@ -1,6 +1,26 @@
-Many organizations have moved to containerized apps over the last several years as part of a push towards adopting modern app development, maintenance practices, and cloud native architectures.  As technologies continue to evolve and mature, part of this adoption is testing some of the many containerized app platforms that are available in the public cloud.
+---
+title: Transition your workload from Service Fabric to AKS
+description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
+ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
+ms.date: <Publish or major update date - mm/dd/yyyy>
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - <Choose 1-5 products from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
+  - <1-5 products>
+  - <1-5 products>
+categories:
+  - <Choose at least one category from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#azure-categories>
+  - <There can be more than one category>
+---
 
-There is no one-size-fits-all solution for all apps, but organizations often find that the [Azure Kubernetes Service (AKS)](/azure/aks/release-tracker) can meet their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Most have moved towards standardizing AKS as their primary infrastructure platform and have begun transitioning workloads hosted on other platforms to AKS. The following article focuses on migrating containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) (ASF) to AKS. This article therefore assumes that you are already knowledgeable about ASF but are interested in how its features and functionality compare to AKS, while also providing a series of best practices to consider during the migration.
+# Transition your workload from Service Fabric to AKS
+
+Many organizations have moved to containerized apps as part of a push towards adopting modern app development, maintenance best practices, and cloud-native architectures. As technologies continue to evolve, organizations are evaluating the many containerized app platforms that are available in the public cloud.
+
+There's no one-size-fits-all solution for apps, but organizations often find that the [Azure Kubernetes Service (AKS)](/azure/aks/release-tracker) meets their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Most have moved towards standardizing AKS as their primary infrastructure platform and have begun transitioning workloads hosted on other platforms to AKS. The following article focuses on migrating containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) (ASF) to AKS. This article therefore assumes that you are already knowledgeable about ASF but are interested in how its features and functionality compare to AKS, while also providing a series of best practices to consider during the migration.
 
 ## Comparing the Azure Kubernetes Service to Service Fabric
 
@@ -145,7 +165,7 @@ Moumita Dey Verma 	 – Sr Cloud Solutions Architect
 
 [Review an example workload migration](link to Migrating a simple app from Azure Service Fabric to Azure Kubernetes Service article) 
 
-Keep up to date on current AKS news with AKS Release Notes, the AKS Roadmap, and Azure Updates. 
+Keep up to date on current AKS news with [AKS Release Notes], the [AKS Roadmap], and [Azure Updates]. 
 
 ## Related articles 
 
