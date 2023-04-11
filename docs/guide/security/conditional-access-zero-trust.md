@@ -3,7 +3,7 @@ title: Conditional Access for Zero Trust
 description: An introduction to a design and framework for implementing Zero Trust principles by using Azure AD Conditional Access. 
 author: clajes
 ms.author: clajes
-ms.date: 10/10/2022
+ms.date: 04/11/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
