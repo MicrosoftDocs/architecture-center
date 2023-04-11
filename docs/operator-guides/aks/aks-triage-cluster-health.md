@@ -24,37 +24,37 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 **Tools:**
 
-- **AKS Diagnostics**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.
+- **Diagnose and solve problems**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.
 -  **Resource Health**. In Azure Portal, navigate to the AKS cluster resource. Select **Resource Health**.
 - **Azure Advisor**. In Azure Portal, navigate to the AKS cluster resource, under the **Overview** tab, select **Recommendations**. Or select **Advisor Recommendations** tab.
 
-**Diagnostics** presents a comprehensive suite of tools to aid in the identification and resolution of a variety of issues related to your cluster. Simply click on **Troubleshoot** you can execute the tool and obtain the results in a straightforward manner. Based on the outcome, you may follow the detailed instructions or peruse the documentation links to effectively resolve the issue at hand. 
+**Diagnose and solve problems** presents a comprehensive suite of tools to aid in the identification and resolution of a variety of issues related to your cluster. Based on the issue you are experiencing, you can check the description on each category tile and select the most relevant to help diagnose your issue. Based on the outcome, you may follow the detailed instructions or peruse the documentation links to effectively resolve the issue at hand. 
 
-![AKS Diagnostics](images/aks-diagnostics.png)
+![Diagnose and solve problems](images/aks-diagnostics.png)
 
 Example scenario 1: I observed that my application is getting disconnected or experiencing intermittent connection issues. In response, I click **Connectivity Issues** tile to investigate the potential causes. 
 
-![AKS Diagnostics Results - Networking Tile](images/aks-diagnostics-tile.png)
+![AKS Diagnose and solve problems Results - Networking Tile](images/aks-diagnostics-tile.png)
 
 I received a diagnostic alert indicating that the disconnection may be related to my *Cluster DNS*. To gether more information, I clicked on *View details*. 
 
-![AKS Diagnostics Results - Networking](images/aks-diagnostics-results.png)
+![AKS Diagnose and solve problems Results - Networking](images/aks-diagnostics-results.png)
 
 Based on the diagnostic result, it appears that the issue may be related to known DNS issues or VNET configuration. Thankfully, I can use the documentation links provided to address the issue and resolve the problem.
 
-![AKS Diagnostics Results - Networking - Cluster DNS](images/aks-diagnostics-network.png)
+![AKS Diagnose and solve problems Results - Networking - Cluster DNS](images/aks-diagnostics-network.png)
 
 Furthermore, if the recommended documentation based on the diagnostic results does not resolve the issue, you can return to the previous step in Diagnostics and refer to additional documentation.
 
-![AKS Diagnostics Results - Additional - Docs](images/aks-diagnostics-doc.png)
+![AKS Diagnose and solve problems Results - Additional - Docs](images/aks-diagnostics-doc.png)
 
 Example Scenario 2: My cluster seems to be in good health. All nodes are ready, and my application runs without any issues. However, I am curious about the best practices I can follow to prevent potential problems. So, I click on the **Best Practices** tile. After reviewing the recommendations, I discovered that even though my cluster appears healthy at the moment, there are still some things I can do to avoid latency or throttling issues in the future. 
 
-![AKS Diagnostics Results - Best - Practice](images/aks-diagnostics-best.png)
+![AKS Diagnose and solve problems Results - Best - Practice](images/aks-diagnostics-best.png)
 
-![AKS Diagnostics Results - Best - result](images/aks-diagnostics-practice.png)
+![AKS Diagnose and solve problems Results - Best - result](images/aks-diagnostics-practice.png)
 
-To learn more about this feature, see [Azure Kubernetes Service Diagnostics overview](/azure/aks/concepts-diagnostics).
+To learn more about this feature, see [Azure Kubernetes Service Diagnose and Solve Problems overview](/azure/aks/concepts-diagnostics).
 
 
 **Resource Health** helps you diagnose and get support for serviice problems that affect your clusters. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your clusters. Below are the health statuses:
