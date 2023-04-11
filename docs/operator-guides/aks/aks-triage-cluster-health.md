@@ -57,7 +57,7 @@ Furthermore, if the recommended documentation based on the diagnostic results do
 To learn more about this feature, see [Azure Kubernetes Service Diagnose and Solve Problems overview](/azure/aks/concepts-diagnostics).
 
 
-**Resource Health** helps you diagnose and get support for serviice problems that affect your clusters. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your clusters. Below are the health statuses:
+**Resource Health** helps you identify and get support for cluster issues and service problems that could be impacting your cluster's health. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your cluster. Below are the health statuses:
 
 - Available. *Available* means that there are no events detected that affect the health of the cluster. In cases where the cluster recovered from unplanned downtime during the last 24 hours, you'll see a "Recently resolved" notification.
 - Unavailable. *Unavailable* means that the service detected an ongoing platform or non-platform event that affects the health of the cluster.
