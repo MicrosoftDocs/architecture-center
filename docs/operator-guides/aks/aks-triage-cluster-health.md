@@ -36,7 +36,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 ![AKS Diagnose and solve problems Results - Networking Tile](images/aks-diagnostics-tile.png)
 
-I received a diagnostic alert indicating that the disconnection may be related to my *Cluster DNS*. To gether more information, I clicked on *View details*. 
+I received a diagnostic alert indicating that the disconnection may be related to my *Cluster DNS*. To gather more information, I clicked on *View details*. 
 
 ![AKS Diagnose and solve problems Results - Networking](images/aks-diagnostics-results.png)
 
