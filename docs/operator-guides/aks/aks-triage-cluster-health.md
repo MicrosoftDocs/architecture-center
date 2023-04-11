@@ -60,7 +60,7 @@ To learn more about this feature, see [Azure Kubernetes Service Diagnose and Sol
 **Resource Health** helps you identify and get support for cluster issues and service problems that could be impacting your cluster's health. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your cluster. Below are the health statuses:
 
 - Available. *Available* means that there are no events detected that affect the health of the cluster. In cases where the cluster recovered from unplanned downtime during the last 24 hours, you'll see a "Recently resolved" notification.
-- Unavailable. *Unavailable* means that the service detected an ongoing platform or non-platform event that affects the health of the cluster.
+- **Unavailable**. *Unavailable* means that the service detected an ongoing platform or non-platform event that affects the health of the cluster.
 - **Unknown**. *Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. This commonly occurs when virtual machines have been deallocated. Although this status isn't a definitive indication of the state of the resource, it can be an important data point for troubleshooting.
 - Degraded. *Degraded* means that your cluster detected a loss in performance, although it's still available for use.
 
