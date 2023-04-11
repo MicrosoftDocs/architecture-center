@@ -32,7 +32,7 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 ![Diagnose and solve problems](images/aks-diagnostics.png)
 
-Example scenario 1: I observed that my application is getting disconnected or experiencing intermittent connection issues. In response, I click **Connectivity Issues** tile to investigate the potential causes. 
+**Example scenario 1:** I observed that my application is getting disconnected or experiencing intermittent connection issues. In response, I click **Connectivity Issues** tile to investigate the potential causes. 
 
 ![AKS Diagnose and solve problems Results - Networking Tile](images/aks-diagnostics-tile.png)
 
