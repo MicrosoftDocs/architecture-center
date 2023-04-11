@@ -48,7 +48,7 @@ Furthermore, if the recommended documentation based on the diagnostic results do
 
 ![AKS Diagnose and solve problems Results - Additional - Docs](images/aks-diagnostics-doc.png)
 
-Example Scenario 2: My cluster seems to be in good health. All nodes are ready, and my application runs without any issues. However, I am curious about the best practices I can follow to prevent potential problems. So, I click on the **Best Practices** tile. After reviewing the recommendations, I discovered that even though my cluster appears healthy at the moment, there are still some things I can do to avoid latency or throttling issues in the future. 
+**Example Scenario 2:** My cluster seems to be in good health. All nodes are ready, and my application runs without any issues. However, I am curious about the best practices I can follow to prevent potential problems. So, I click on the **Best Practices** tile. After reviewing the recommendations, I discovered that even though my cluster appears healthy at the moment, there are still some things I can do to avoid latency or throttling issues in the future. 
 
 ![AKS Diagnose and solve problems Results - Best - Practice](images/aks-diagnostics-best.png)
 
