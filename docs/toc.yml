@@ -524,19 +524,7 @@ items:
   - name: Solutions across Microsoft platforms
     items:
     - name: Build applications on the Microsoft cloud
-      items:
-      - name: 1. Overview
-        href: guide/microsoft-cloud/overview.md
-      - name: 2. Create and deploy apps in less time
-        href: guide/microsoft-cloud/create-deploy-more-applications-less-time.md
-      - name: 3. Get the most value from technical talent
-        href: guide/microsoft-cloud/get-most-value-technical-talent.md
-      - name: 4. Integrate apps with existing solutions
-        href: guide/microsoft-cloud/integrate-new-applications-existing-solutions.md
-      - name: 5. Create and run secure applications
-        href: guide/microsoft-cloud/create-run-secure-applications.md
-      - name: 6. Summary
-        href: guide/microsoft-cloud/summary.md
+      href: https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main 
     - name: Azure and Power Platform scenarios
       items:
       - name: Overview
