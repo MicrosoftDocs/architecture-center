@@ -4,7 +4,7 @@ description: Learn about Microsoft cognitive services that you can use in artifi
 author: kruti-m
 ms.author: architectures
 categories: azure
-ms.date: 07/25/2022
+ms.date: 03/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
