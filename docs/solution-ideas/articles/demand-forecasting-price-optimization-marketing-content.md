@@ -4,8 +4,9 @@ This solution predicts future customer demand and optimizes pricing to maximize 
 
 ## Architecture
 
-![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for price optimization with Microsoft AI platform](../media/demand-forecasting-price-optimization-marketing.png)
-*Download an [SVG](../media/demand-forecasting-price-optimization-marketing.svg) of this architecture.*
+![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for price optimization with Microsoft AI platform.](../media/demand-forecasting-price-optimization-marketing.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/demand-forecasting-price-optimization-marketing.vsdx) of this architecture.*
 
 ### Dataflow
 
