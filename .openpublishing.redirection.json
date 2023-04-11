@@ -2565,8 +2565,8 @@
     {
       "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
       "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
-      "redirect_document_id": false,
-    }
+      "redirect_document_id": false
+    },
     {
       "source_path": "docs/guide/microsoft-cloud/overview.md",
       "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main",
