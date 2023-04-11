@@ -5153,7 +5153,7 @@ items:
       items:
       - name: Custom business processes
         href: solution-ideas/articles/custom-business-processes.yml
-      - name: Elastic Workplace Search on Azure
+      - name: Elastic Enterprise Search on Azure
         href: solution-ideas/articles/elastic-workplace-search.yml
       - name: Line of business extension
         href: solution-ideas/articles/lob.yml
