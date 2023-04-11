@@ -1,6 +1,6 @@
 ---
 title: Transition your workload from Service Fabric to AKS
-description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+description: Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS. 
 author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
 ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
 ms.date: <Publish or major update date - mm/dd/yyyy>
@@ -20,86 +20,92 @@ categories:
 
 Many organizations have moved to containerized apps as part of a push towards adopting modern app development, maintenance best practices, and cloud-native architectures. As technologies continue to evolve, organizations are evaluating the many containerized app platforms that are available in the public cloud.
 
-There's no one-size-fits-all solution for apps, but organizations often find that the [Azure Kubernetes Service (AKS)](/azure/aks/release-tracker) meets their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Most have moved towards standardizing AKS as their primary infrastructure platform and have begun transitioning workloads hosted on other platforms to AKS. The following article focuses on migrating containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) (ASF) to AKS. This article therefore assumes that you are already knowledgeable about ASF but are interested in how its features and functionality compare to AKS, while also providing a series of best practices to consider during the migration.
+There's no one-size-fits-all solution for apps, but organizations often find that the [Azure Kubernetes Service (AKS)](/azure/aks/release-tracker) meets their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Many organiztions are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
 
-## Comparing the Azure Kubernetes Service to Service Fabric
+This article describes how to migrate containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) to AKS. The article assumes that you're familiar with Service Fabric but are interested in learning how its features and functionality compare to those of AKS. The article also provides best practices for you to consider during migration.
 
-To start, first take a look at this [article](../technology-choices/compute-decision-tree.yml) comparing the two hosting platforms alongside other Azure compute services. This section will highlight notable similarities and differences relevant to migration. 
+## Comparing AKS to Service Fabric
 
-While both Service Fabric and AKS are container orchestrators, Service Fabric offers support for several different programming models whereas AKS only supports containers.
+To start, review this [article that compares the two platforms](../technology-choices/compute-decision-tree.yml) alongside other Azure compute services. This section highlights notable similarities and differences that are relevant to migration. 
 
-- **Programming models:** Azure Service Fabric supports multiple ways to write and manage your services, including Linux and Windows containers, reliable services, reliable actors, ASP.NET Core, and Guest executables.  
-- **Containers on AKS:** AKS is focused entirely on containerization with Windows and Linux containers running on  the container runtime [containerd](/azure/aks/cluster-configuration#container-runtime-configuration), which is managed automatically.
+Both Service Fabric and AKS are container orchestrators. Service Fabric provides support for several programming models, whereas AKS supports only containers.
 
-Both Service Fabric and AKS offer integrations with other Azure services including Azure Pipelines, Azure Monitor, Azure Key Vault, Azure Active Directory, and more.
+- **Programming models:** Service Fabric supports multiple ways to write and manage your services, including Linux and Windows containers, Reliable Services, Reliable Actors, ASP.NET Core, and guest executables.  
+- **Containers on AKS:** AKS only supports containerization with Windows and Linux containers running on the container runtime [containerd](/azure/aks/cluster-configuration#container-runtime-configuration), which is managed automatically.
+
+Both Service Fabric and AKS offer integrations with other Azure services, including Azure Pipelines, Azure Monitor, Azure Key Vault, and Azure Active Directory (Azure AD).
 
 ## Key differences
 
-When deploying a *Service Fabric [traditional cluster](/azure/service-fabric/service-fabric-azure-clusters-overview)*, you need to explicitly define a cluster resource alongside a number of supporting resources in your ARM templates or Bicep modules, such as a virtual machine scale set (VMSS) for each cluster node type, network security groups (NSG), load balancers, etc. It's your responsibility to make sure that these resources are correctly configured for your cluster services to function properly. The encapsulation model for *Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster)* consists of a single, Service Fabric managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure on your behalf.  
+When you deploy a traditional Service Fabric [cluster](/azure/service-fabric/service-fabric-azure-clusters-overview), as opposed  to a managed cluster, you need to explicitly define a cluster resource togehter with a number of supporting resources in your ARM templates or Bicep modules. These resources include a virtual machine scale set for each cluster node type, network security groups, and load balancers. It's your responsibility to make sure that these resources are correctly configured. The encapsulation model for Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster) consists of a single managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure.  
 
-[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure and is Azure’s flagship offering for developing and managing cloud native applications. As a hosted Kubernetes service, Azure handles critical tasks like infrastructure health monitoring and maintenance. Since Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. You can read more on Azure Kubernetes Service here: [Introduction to Azure Kubernetes Service](/azure/aks/intro-kubernetes). 
+[AKS](/azure/aks/intro-kubernetes) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. Because AKS is a hosted Kubernetes service, Azure handles critical tasks like infrastructure health monitoring and maintenance. Kubernetes masters are managed by Azure, so you only manage and maintain the agent nodes.
 
-To move your workload from Service Fabric to AKS you will need to understand the differences in the underlying infrastructure so you can confidently and safely migrate your containerized applications. The following table compares the capabilities and features of the two hosting platforms: 
+To move your workload from Service Fabric to AKS, you need to understand the differences in the underlying infrastructure so you can confidently migrate your containerized applications. The following table compares the capabilities and features of the two hosting platforms: 
 
 
-|Capability/Feature/Component|Service Fabric|Azure Kubernetes Service| 
+|Capability or component|Service Fabric|AKS| 
 |-|-|-|
 |Non-containerized applications |Yes| No| 
 |Linux and Windows containers |Yes|Yes| 
 |Azure-managed control plane|No|Yes|
 |Support for both stateless and stateful workloads|Yes|Yes|
-|Worker node placement|VMSS – customer configured|VMSS – Azure managed |
+|Worker node placement|Virtual Machine Scale Sets, customer configured|Virtual Machine Scale Sets, Azure managed |
 |Configuration manifest |XML|YAML| 
 |Azure Monitor integration |Yes|Yes|
-|Native Support for Reliable Services and Reliable Actor Pattern|Yes|No|
+|Native support for Reliable Services and Reliable Actor pattern|Yes|No|
 |WCF-based communication stack for Reliable Services|Yes|No|
-|Persistent Storage|Azure volume driver|Support for various storage systems such as managed disks, Azure Files, and Azure Blob Storage via CSI Storage classes, persistent volume, and persistent volume claims |
-|Networking modes|Azure Virtual Network integration|Support for multiple network plugins (Azure CNI, kubenet, BYOCNI), network policies (Azure, Calico), and ingress controllers (Application Gateway Ingress Controller, NGINX, etc.)|
-|Ingress Controllers |The [reverse proxy](/azure/service-fabric/service-fabric-reverseproxy) built into Azure Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. You can also use [Traefik](https://doc.traefik.io/traefik/v1.7/configuration/backends/servicefabric/) on Azure Service Fabric.  |BYO Ingress Controllers (open source, commercial) that leverage Platform managed Public or Internal Load Balancers e.g. [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/#azure) and [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview) |
+|Persistent storage|Azure Files volume driver|Support for various storage systems, like managed disks, Azure Files, and Azure Blob Storage via CSI Storage classes, persistent volume, and persistent volume claims |
+|Networking modes|Azure Virtual Network integration|Support for multiple network plug-ins (Azure CNI, kubenet, BYOCNI), network policies (Azure, Calico), and ingress controllers (Application Gateway Ingress Controller, NGINX, and more)|
+|Ingress controllers |The [reverse proxy](/azure/service-fabric/service-fabric-reverseproxy) that's built in to Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have HTTP endpoints. You can also use [Traefik](https://doc.traefik.io/traefik/v1.7/configuration/backends/servicefabric/) on Service Fabric.  |BYO ingress controllers (open source and commercial) that use platform-managed public or internal load balancers, like [NGINX ingress controller](https://kubernetes.github.io/ingress-nginx/deploy/#azure) and [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview) |
 
 > [!Note]
-> If you’re already using Windows containers on Service Fabric, we recommend keeping the same on AKS as the migration will be easier.
+> If you use Windows containers on Service Fabric, we recommend that you also use them on AKS. Doing so will make your migration easier.
 
-Example architecture 
+## Example architecture
 
-AKS and Azure provide flexibility to configure your environment to fit your business needs. AKS can be configured in many ways and is well integrated with other Azure services. Below is an example architecture, the AKS baseline architecture.
+AKS and Azure provide flexibility to configure your environment to fit your business needs. AKS is well integrated with other Azure services. Following is an example architecture, the [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml).
 
-image 
+:::image type="content" source="media/example-aks-baseline-architecture.png" alt-text="Diagram that shows a baseline AKS architecture." lightbox="media/example-aks-baseline-architecture.png" border="false":::
 
-Figure 1: Example [AKS Architecture](../../reference-architectures/containers/aks/baseline-aks.yml). 
+As a starting point, we recommend that you familiarize yourself with some key Kubernetes concepts and then review some example architectures:
 
-As a starting point, we recommend that you familiarize yourself with key Kubernetes concepts for AKS and then take a look through some example architectures in AKS:
-
-- [Concepts - Kubernetes basics for Azure Kubernetes Services (AKS) - Azure Kubernetes Service](/azure/aks/concepts-clusters-workloads) 
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
+- [Kubernetes basics for AKS](/azure/aks/concepts-clusters-workloads) 
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 
 > [!Note]
-> When migrating a workload from Service Fabric to Azure Kubernetes Service, [Service Fabric Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) can be replaced with the Dapr [Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) building block, while [Service Fabric Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) can be replaces using the Dapr [State Management](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) building block. The [Distributed Application Runtime (Dapr)](https://dapr.io/) provides APIs that simplify microservice connectivity. Whether your communication pattern is service to service invocation or pub/sub messaging, Dapr helps you write resilient and secured microservices. For more information, see [Introduction to the Distributed Application Runtime](https://docs.dapr.io/concepts/overview/).
+> When you migrate a workload from Service Fabric to AKS, you can replace [Service Fabric Reliable Actors](/azure/service-fabric/service-fabric-reliable-actors-platform) with the Dapr [actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) building block. You can replace [Service Fabric Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections) with the Dapr [state management](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) building block. 
+>
+> The [Distributed Application Runtime (Dapr)](https://dapr.io/) provides APIs that simplify microservice connectivity. For more information, see [Introduction to the Distributed Application Runtime](https://docs.dapr.io/concepts/overview/).
 
 ## Application and service manifest
 
-Service Fabric and AKS differ in application and service manifest file types and constructs. Service Fabric uses XML files for application and service definition, while AKS uses Kubernetes’ YAML file manifest to define Kubernetes objects. There are no specific tools to migrate a Service Fabric XML file into a Kubernetes YAML file, however you can find more information on how YAML files work on Kubernetes here:
+Service Fabric and AKS have different application and service manifest file types and constructs. Service Fabric uses XML files for application and service definition. AKS uses the Kubernetes YAML file manifest to define Kubernetes objects. There are no tools that are specifically intended to migrate a Service Fabric XML file to a Kubernetes YAML file, but you can learn about how YAML files work on Kubernetes by reviewing the following resources.
 
-- Kubernetes official documentation: [Understanding Kubernetes Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/). 
+- Kubernetes documentation: [Understanding Kubernetes Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/). 
 - AKS documentation for Windows nodes/applications: [Create a Windows Server container on an AKS cluster by using Azure CLI](/azure/aks/learn/quick-windows-container-deploy-cli).
 
-You can use [Helm](https://helm.sh/) to define parameterized YAML manifests and create generic templates by replacing static, hardcoded values with placeholders that can be filled in with custom values supplied at deployment time. The resulting templates with the values filled in are rendered as valid manifests for Kubernetes.  
+You can use [Helm](https://helm.sh/) to define parameterized YAML manifests and create generic templates by replacing static, hardcoded values with placeholders that can be replaced with custom values that are supplied at deployment time. The resulting templates containing the custom values are rendered as valid manifests for Kubernetes.
 
-[Kustomize](https://kustomize.io/) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. You can use Kustomize as an alternative or companion tool to Helm.  
+[Kustomize](https://kustomize.io/) introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. You can use Kustomize together with Helm or as an alternative to Helm.  
 
 For more information on Helm and Kustomize, see the following resources:
 
-- [Helm Documentation](https://helm.sh/docs/)
+- [Helm documentation](https://helm.sh/docs/)
 - [Artifact Hub](https://artifacthub.io/)
-- [Kustomize Documentation](https://kubectl.docs.kubernetes.io/references/kustomize/)  
-- [kustomization](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
+- [Kustomize documentation](https://kubectl.docs.kubernetes.io/references/kustomize/)  
+- [Overview of a kustomization file](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/)
 - [Declarative Management of Kubernetes Objects Using Kustomize](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/)
 
 ## Networking concepts
 
-AKS provides two options for the underlying network: You can create a new Azure Virtual Network and place the AKS cluster in it, or you can let the AKS resource provider create a new Azure Virtual Network for you in the node resource group which contains all the Azure resources used by a cluster. If you choose the latter, Azure will manage the virtual network for you. 
+AKS provides two options for the underlying network: 
+- You can create a new Azure virtual network and place the AKS cluster in it. 
+- You can let the AKS resource provider create a new Azure virtual network for you in the node resource group that contains all the Azure resources used by a cluster. 
 
-Unlike ASF where you don’t have a choice, in AKS, you must select a network plugin:
+If you choose the second option, Azure manages the virtual network. 
+
+Unlike Service Fabric where you don’t have a choice, in AKS, you must select a network plugin:
 
 - [Kubenet](/azure/aks/configure-kubenet): with *kubenet*, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use. 
 - [Azure CNI](/azure/aks/configure-azure-cni): With [Azure Container Networking Interface (CNI)](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md), every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow. You can configure the maximum pods deployable to a node at cluster create time or when creating new node pools.
