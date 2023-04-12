@@ -217,7 +217,7 @@ To integrate Key Vault with a Spring application, you need to (1) add the Azure 
 </dependency> 
 ```
 
-The reference implementation uses an environment variable in the [main Terraform](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/terraform/modules/app-service/main.tf) file to configure the Key Vault endpoint.
+The reference implementation uses an environment variable in the [App Service Terraform](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/terraform/modules/app-service/main.tf) file to configure the Key Vault endpoint.
 
 ```terraform
 SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=var.key_vault_uri
@@ -371,9 +371,9 @@ To optimize cost, it is recommended that you delete non-production environments 
 
 The reliable web app pattern recommends using Infrastructure as Code (IaC) tools such as Terraform to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to configure and capture infrastructure and application telemetry. You should use these to improve performance and reduce costs. By analyzing performance metrics, you can identify inefficiencies in the application and make adjustments to optimize performance and reduce the resources needed to run the application.
 
-### Logging and application telemetry
+### Enable logging and application telemetry
 
-For tracing and debugging, you should enable logging to diagnose when any request fails. The telemetry you gather from your application should cater to its operational needs. At a minimum, you must collect telemetry on baseline metrics. Gather information on user behavior that can help you apply targeted improvements. Here are our recommendations for collecting application telemetry:
+For tracing and debugging, you should enable logging to diagnose when any request fails. The telemetry you gather from your application should cater to its operational needs. At a minimum, you must collect telemetry on baseline metrics. You should gather information on user behavior that can help you apply targeted improvements.
 
 **Monitor baseline metrics.** The workload should monitor baseline metrics. Important metrics to measure include request throughput, average request duration, errors, and monitoring dependencies. We recommend that you use Application Insights to gather this telemetry.
 
@@ -407,6 +407,53 @@ For information, see [Enable Azure Monitor OpenTelemetry for Java applications](
 
 - [Azure Application Insights log-based metrics](https://learn.microsoft.com/azure/azure-monitor/essentials/app-insights-metrics)
 - [Log-based and pre-aggregated metrics in Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
+
+### Enable platform diagnostics
+
+A diagnostic setting in Azure allow you to specify the platform logs and metrics you want to collect and where to store them. Platform logs are built-in logs that provide diagnostic and auditing information. You can enable platform diagnostics for most Azure services, but each service defines its own log categories. So there will be different categories for different Azure services.
+
+**Enable diagnostics for all supported services.** Azure services create platform logs automatically, but the service doesn't store them automatically. You must enable the diagnostic setting for each service,and yous should enable it for every Azure service that supports diagnostics.
+
+**Send diagnostics to same destination as the application logs.** When you enable diagnotics, you pick the logs you want to collect and where to send them. You should send the platform logs to the same destination as the application logs so you can correlate the two datasets.
+
+*Reference implementation.* The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the PostgreSQL database.
+
+```terraform
+# Configure Diagnostic Settings for PostgreSQL
+resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
+  name                           = "postgresql-diagnostic-settings"
+  target_resource_id             = azurerm_postgresql_flexible_server.postresql_database.id
+  log_analytics_workspace_id     = var.log_analytics_workspace_id
+  #log_analytics_destination_type = "AzureDiagnostics"
+
+  enabled_log {
+    category_group = "audit"
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  enabled_log {
+    category_group = "allLogs"
+
+    retention_policy {
+      days    = 0
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = true
+    retention_policy {
+      enabled = false
+      days    = 0
+    }
+  }
+}
+```
 
 ## Performance efficiency
 
