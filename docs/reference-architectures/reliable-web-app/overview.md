@@ -33,7 +33,11 @@ The reliable web app pattern details the essential steps you need take to ensure
 
 ## How to use the reliable web app pattern
 
-For each technology stack, there are two articles and a reference implementation (sample web app) you can deploy. *Plan the implementation* helps you align your architecture and business needs. *Apply the pattern* shows you how to make the required code and architecture changes. The reference implementation provides example code that you use and learn from. Use these three components as you need to ensure the success of your web app in the cloud.
+For each technology stack, there are two articles and a reference implementation (sample web app) you can deploy. ***Plan the implementation*** helps you align your architecture and business needs. ***Apply the pattern*** shows you how to make the required code and architecture changes. The ***reference implementation*** provides example code that you use and learn from. Use these three components as you need to ensure the success of your web app in the cloud.
+
+## Next steps
+
+Find the right technology stack and guidance that meets your cloud migration and modernization needs.
 
 **Reliable web app for .NET:**
 
