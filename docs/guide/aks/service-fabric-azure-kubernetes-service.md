@@ -1,5 +1,5 @@
 ---
-title: Transition your workload from Service Fabric to AKS
+title: Migrate your workload from Service Fabric to AKS
 description: Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS. 
 author: allyford
 ms.author: allyford
@@ -16,11 +16,11 @@ categories:
   - migration
 ---
 
-# Transition your workload from Service Fabric to AKS
+# Migrate your workload from Service Fabric to AKS
 
 Many organizations have moved to containerized apps as part of a push towards adopting modern app development, maintenance best practices, and cloud-native architectures. As technologies continue to evolve, organizations are evaluating the many containerized app platforms that are available in the public cloud.
 
-There's no one-size-fits-all solution for apps, but organizations often find that the [Azure Kubernetes Service (AKS)](/azure/aks/release-tracker) meets their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Many organizations are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
+There's no one-size-fits-all solution for apps, but organizations often find that [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/products/kubernetes-service) meets their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Many organizations are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
 
 This article describes how to migrate containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) to AKS. The article assumes that you're familiar with Service Fabric but are interested in learning how its features and functionality compare to those of AKS. The article also provides best practices for you to consider during migration.
 
