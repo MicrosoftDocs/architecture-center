@@ -37,9 +37,24 @@ For each technology stack, there are two articles and a reference implementation
 
 ## Next steps
 
-The following table provides links to the implementation guidance and the Github repositories for your each technology stack.
+### .NET
 
-| Technology stack | Implementation guidance | Reference implementation |
-| --- | --- | --- |
-| .NET | [Plan the implementation](./dotnet/pattern-overview.yml)<br><br>[Apply the pattern](./dotnet/apply-pattern.yml) | [.NET reference implementation](https://aka.ms/eap/rwa/dotnet) |
-| Java | [Plan the implementation](./java/plan-implementation.yml)<br><br>[Apply the pattern](./java/apply-pattern.yml) | [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)
+>[!div class="nextstepaction"]
+> [Plan the implementation](./dotnet/pattern-overview.yml)
+
+>[!div class="nextstepaction"]
+>[Apply the pattern](./dotnet/apply-pattern.yml)
+
+>[!div class="nextstepaction"]
+>[.NET reference implementation](https://aka.ms/eap/rwa/dotnet)
+
+### Java
+
+>[!div class="nextstepaction"]
+>[Plan the implementation](./java/plan-implementation.yml)
+
+>[!div class="nextstepaction"]
+>[Apply the pattern](./java/apply-pattern.yml)
+
+>[!div class="nextstepaction"]
+>[Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)
