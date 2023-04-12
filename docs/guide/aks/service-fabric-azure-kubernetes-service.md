@@ -66,7 +66,7 @@ To move your workload from Service Fabric to AKS, you need to understand the dif
 
 AKS and Azure provide flexibility to configure your environment to fit your business needs. AKS is well integrated with other Azure services. Following is an example architecture, the [AKS baseline architecture](../../reference-architectures/containers/aks/baseline-aks.yml).
 
-:::image type="content" source="media/example-aks-baseline-architecture.png" alt-text="Diagram that shows a baseline AKS architecture." lightbox="media/example-aks-baseline-architecture.png" border="false":::
+:::image type="content" source="media/example-aks-baseline-architecture.png" alt-text="Diagram that shows a baseline AKS architecture." border="false":::
 
 As a starting point, we recommend that you familiarize yourself with some key Kubernetes concepts and then review some example architectures:
 
@@ -183,4 +183,6 @@ Other contributors:
 
 ## Related articles
 
-- [Example workload migration](migrate-app-service-fabric-azure-kubernetes-service.md) 
+- [Example migration from Service Fabric to AKS](migrate-app-service-fabric-azure-kubernetes-service.md)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
+- [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
