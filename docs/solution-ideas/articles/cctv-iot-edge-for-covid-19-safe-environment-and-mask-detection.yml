@@ -28,6 +28,7 @@ products:
   - azure-kubernetes-service
   - azure-service-bus
   - azure-stream-analytics
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/bosch-cctv-iot-edge-covid-19-safe-environment-mask-detection.png
 content: |
   [!include[](cctv-iot-edge-for-covid-19-safe-environment-and-mask-detection-content.md)]

@@ -402,8 +402,8 @@
         "OpenBlade\\[.*\\]"
     ],
     "import": [
-        ".\\cspell-docset.json",
-        ".\\cspell-docset-names.json",
-        ".\\cspell-docutune.json"
+        "cspell-docset.json",
+        "cspell-docset-names.json",
+        "cspell-docutune.json"
     ]
 }

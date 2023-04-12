@@ -137,7 +137,7 @@ For more information, see the "SAP HANA on Azure Large Instances" section in [HL
 
 #### Azure ExpressRoute
 
-For this architecture, Azure ExpressRoute is used as the networking service for creating private connections between an on-premises network and Azure VNETs. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway.  [High Performance or Ultra Performance][sku] is the recommended SKU.
+For this architecture, Azure ExpressRoute is used as the networking service for creating private connections between an on-premises network and Azure virtual networks. Azure VMs connect to HANA Large Instances using another ExpressRoute connection and an ExpressRoute Gateway.  [High Performance or Ultra Performance][sku] is the recommended SKU.
 
 All inbound data transfer is free. All outbound data transfer is charged based on a pre-determined rate. For more information, see [Azure ExpressRoute pricing][expressroute-pricing].
 

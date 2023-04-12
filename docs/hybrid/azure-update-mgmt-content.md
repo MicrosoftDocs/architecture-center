@@ -2,7 +2,7 @@ This reference architecture illustrates how to design a hybrid update management
 
 ## Architecture
 
-![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.][architectural-diagram]
+[ ![Azure Update management is configuration component of Azure Automation. Windows and Linux computers, both in Azure and on-premises, send assessment information about missing updates to the Log Analytics workspace. Azure Automation then uses that information to create a schedule for automatic deployment of the missing updates.](./images/azure-update-mgmt.svg)](./images/azure-update-mgmt.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -334,7 +334,6 @@ More about Azure Automation:
 - [Event-based cloud automation](../reference-architectures/serverless/cloud-automation.yml)
 - [Azure Automation State Configuration](../example-scenario/state-configuration/state-configuration.yml)
 
-[architectural-diagram]: ./images/azure-update-mgmt.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-update-mgmt.vsdx
 [1]: /azure/azure-monitor/platform/design-logs-deployment
 [2]: /azure/automation/automation-hybrid-runbook-worker

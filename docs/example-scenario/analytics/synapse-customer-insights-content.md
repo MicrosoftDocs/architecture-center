@@ -4,7 +4,7 @@ This solution combines Azure Synapse Analytics with Dynamics 365 Customer Insigh
 
 ## Architecture
 
-:::image type="content" border="false" source="./media/customer-360.png" alt-text="Diagram that shows an architecture for a Customer 360 solution that uses Azure Synapse Analytics and Dynamics 365 Customer Insights." lightbox="./media/customer-360.png":::
+:::image type="content" border="false" source="./media/customer-360.svg" alt-text="Diagram that shows an architecture for a Customer 360 solution that uses Azure Synapse Analytics and Dynamics 365 Customer Insights." lightbox="./media/customer-360.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/customer-360-architecture.vsdx) of this architecture.*
 

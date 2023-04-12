@@ -2,7 +2,7 @@ In this scenario, an organization consolidates multiple APIs internally using Az
 
 ## Architecture
 
-![Diagram showing lifecycle of internal APIs that are consumed by external users.][architecture]
+[ ![Architecture diagram that shows complete lifecycle of internal APIs that are consumed by the external users.](./media/architecture-publish-internal-apis-externally-new.svg)](./media/architecture-publish-internal-apis-externally-new.svg#lightbox)
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/architecture-publish-internal-apis-externally.vsdx) of this architecture.*
 
@@ -188,7 +188,6 @@ Other contributors:
 
 <!-- links -->
 
-[architecture]: ./media/architecture-publish-internal-apis-externally-new.png
 [dns]: /azure/dns/private-dns-overview
 [ase]: /azure/app-service/environment/intro
 [apim]: /azure/api-management/api-management-key-concepts

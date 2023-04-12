@@ -89,6 +89,8 @@ Due to the sensitivity of the data, security is paramount in this solution. The 
 - Key Vault key rotation
 - Managed service identities
 
+You can protect your Azure API Management instance against distributed denial of service (DDoS) attacks using [Azure DDoS protection](/azure/api-management/protect-with-ddos-protection). Azure DDoS Protection provides enhanced DDoS mitigation features to defend against volumetric and protocol DDoS attacks.
+
 For more details about the security pattern for this solution, see [Security pattern for communication between API Management, Functions apps, and Azure Cosmos DB](https://github.com/mspnp/vnet-integrated-serverless-microservices/blob/main/docs/security_pattern.md).
 
 #### API gateway management

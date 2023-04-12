@@ -12,6 +12,8 @@ categories:
   - devops
   - networking
   - security
+ms.custom:
+  - devx-track-terraform
 azureCategories:
   - devops
   - hybrid
