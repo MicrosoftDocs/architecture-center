@@ -23,7 +23,7 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern offers a comprehensive guide for developers to optimize web applications that have recently transitioned to the cloud. This pattern concentrates on the minimal changes needed to introduce reliability and improve your web app's success in the cloud environment.
+The reliable web app pattern offers a comprehensive guide for developers to optimize web applications that have recently transitioned to the cloud. This pattern concentrates on the minimal changes needed to introduce reliability and improve your web app's success in the cloud environment. It also builds on the overarching principles of the enterprise app patterns. The guidance adheres to the tenets of the Well-Architected Framework and focuses on low-cost, high-value changes to your web app. It also shows you how to let business needs drive the implementation specifics.
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
