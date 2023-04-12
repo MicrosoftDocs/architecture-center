@@ -35,7 +35,7 @@ The reliable web app pattern details the essential steps you need take to ensure
 
 For each technology stack, there are two articles and a reference implementation (sample web app) you can deploy. *Plan the implementation* helps you align your architecture and business needs. *Apply the pattern* shows you how to make the required code and architecture changes. The reference implementation provides example code that you use and learn from. Use these three components as you need to ensure the success of your web app in the cloud.
 
-### Reliable web app for .NET
+**Reliable web app for .NET:**
 
 >[!div class="nextstepaction"]
 > [.NET Plan the implementation](./dotnet/pattern-overview.yml)
@@ -46,7 +46,7 @@ For each technology stack, there are two articles and a reference implementation
 >[!div class="nextstepaction"]
 >[.NET reference implementation](https://aka.ms/eap/rwa/dotnet)
 
-### Reliable web app for Java
+**Reliable web app for Java:**
 
 >[!div class="nextstepaction"]
 >[Java Plan the implementation](./java/plan-implementation.yml)
