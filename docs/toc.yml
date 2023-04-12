@@ -1935,6 +1935,8 @@ items:
         maintainContext: true
     - name: Solution ideas
       items:
+      - name: Customer order forecasting
+        href: solution-ideas/articles/next-order-forecasting.yml
       - name: Azure 5G split core shop floor network
         href: solution-ideas/articles/private-network-split-core-manufacture.yml
   - name: Energy and Environment
@@ -3160,6 +3162,8 @@ items:
         href: solution-ideas/articles/customer-churn-prediction.yml
       - name: Customer feedback
         href: solution-ideas/articles/customer-feedback-and-analytics.yml
+      - name: Customer order forecasting
+        href: solution-ideas/articles/next-order-forecasting.yml
       - name: Data science and machine learning
         href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
       - name: Defect prevention
