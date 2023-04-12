@@ -25,10 +25,26 @@ The AVOps DataOps reference architecture provides guidance how to address and so
 
 ## Data Flow
 1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/) or [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/), ingests data into Azure.  Measurement data in formats such as MDF4, TDMS, Rosbag land in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) via a dedicated storage account called the Landing Zone. Landing Zone is the storage account into which all the measurements from the vehicles are uploaded and validated. Only valid measurements are copied over the Raw Zone and raw data streams are created for them. Validation and data quality checks, like checksum, are performed to remove low quality data. 
-1. [Azure Data Factory](/azure/data-factory/introduction) pipeline for validating the data through a series of data quality checks is triggered.  Performing a data quality check early in the data pipeline will ensure only quality data passes through to the next stage.   Data that is deemed incomplete are archived for future processing.  
+1. Once data is available at the Landing Zone, an [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered at the scheduled interval to process the data. This [Azure Data Factory](/azure/data-factory/introduction) pipeline will do the following:
+    - Perform a data quality check early in the data pipeline to ensure only quality data passes through to the next stage.   Code to perform data quality checks is executed on [Azure batch](/azure/batch/).  Data that is deemed incomplete are archived for future processing.  
+    - Lineage Tracking: Pipeline will call the Metadata API using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview) to to update the metadata in [Azure Cosmos DB](/azure/cosmos-db) to create a new datastream. For each measurement there is a datastream of type “Raw”
+    - After creating the datastream, the data is copied to the Raw Zone storage account in  [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). The data in the Raw folder has a hierarchical structure
+    ```
+        raw/YYYY/MM/DD/VIN/MeasurementID/DatastreamID  
+    ```
+    - Once all the data is copied to the Raw folder, another call to Metadata API is made to mark the datastream as “Complete” so this can be consumed further.  
+    - Once all measurement files are copied, the measurements are archived and removed from the Landing zone.  
+1. The data in the Raw zone is still in a raw format such as [Rosbag](http://wiki.ros.org/rosbag) format and need to be extracted so the downstream systems can consume them.  
+    
+    The files from the Raw zone are processed by the [Azure Data Factory](/azure/data-factory/introduction) & [Azure batch](/azure/batch/).  Code executed in [Azure batch](/azure/batch/) will read the data from the topics in the Raw file and outputs the data into the selected topics into the respective folders.  
 
-    Now that the Raw Zone storage account is populated with raw information, metadata recorded by a test driver during a test drive is also extracted. This data is stored in a centralized metadata catalog in [Azure Cosmos DB](/azure/cosmos-db) and accessed via a Metadata API. This information helps downstream processes identify data lineage, specific scenes and sequences.
-1. [Azure Data Factory](/azure/data-factory/introduction) pipeline extracting the data from the Raw zone is triggered and to down sample the data to reduce the amount of data to label/annotate. Code to perform extraction and down sampling can be performed on [Azure batch](/azure/batch/).   [Azure batch](/azure/batch/) uses the mounted folder from the Raw Zone storage account to extract the data in a canonical folder location in another storage account named Extracted Zone in Azure Data lake. A storage container for each sensor  like camera, gps, lidar, and radar are created.  
+    The files in the Raw zone can each be more than 2GB in size. For each file, we have to run parallel processing extraction functions to extract topics such as image processing, Lidar, Radar, GPS, and metadata processing. In addition to the topic extraction, there is a need down sample the data to reduce the amount of data to label/annotate. [Azure Data Factory](/azure/data-factory/introduction) and [Azure batch](/azure/batch/) provides a way to perform parallelism in a scalable manner.
+
+    The structure in the Extracted Zone storage account should also utilize a hierarchical similar to the Raw Zone storage account. 
+    ```
+        extracted/YYYY/MM/DD/VIN/MeasurementID/DatastreamID 
+    ```
+    Utilizing the example hierarchical structure allows organizations to utilizes the hierarchical namespace capability of [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction).  The hierarchical structure allows organizations to create a scalable and cost effective object storage.  In turn, the structure also improves efficiency of the object search and retrieval. Partitioning by year and vehicle ID makes it easier to search for the relevant images from the corresponding vehicles.  A storage container for each sensor  like camera, gps, lidar, and radar are created.  
 1. If data from the vehicle logger isn't synchronized across the different sensors, then another step is required in the architecture to synchronize the data to create a valid dataset.  [Azure Data Factory](/azure/data-factory/introduction) pipeline triggers synchronization of data across sensors where the synchronization algorithm shall be run on [Azure batch](/azure/batch/). If the synchronization was already executed on the vehicle logger, then this step can be skipped.
 1. The next phase is to enrich the data with other data or telemetry that has been collected via telemetry or through the vehicle logger.  This step helps to enhance the richness of the data collected and provides more insights for the Data Scientist to utilize in their algorithm development as an example. 
  [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered for further enriching the data with Weather, maps or objects. Data generated can be kept in Parquet files to relate with the synchronized data. Metadata about the enriched data is also stored in Metadata store.  
@@ -43,7 +59,7 @@ The metadata API thus becomes the storage layer manager, which can spread data a
 
 1. [Azure Databricks](https://azure.microsoft.com/products/databricks/) / [Azure Synapse](/azure/synapase) to connect with Metadata API and access the Azure data lake storage and research on the data.
 
-## Involved Components
+## Components
 * [Data Box](https://azure.microsoft.com/products/databox) is used to transfer collected vehicle data to Azure via a regional carrier.
 * [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends the on-premises network into the Microsoft cloud over a private connection.
 * [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores data based on stages, for example, raw or extracted.
@@ -80,24 +96,8 @@ Table gives some ideas how data domains can be structured for AVOps:
 
 Each AVOps data domain is set up based on blueprint structure (incl. Azure Data Factory, Azure Data Lake Storage Gen2, databases, Azure Batch, Spark runtimes via Azure Databricks or Azure Synapse).
 
-## Data Flow between zones
-![DataOps Reference architecture.](.\images\data-flow-between-zones.png)
-> ryan -- this doesn't match architecture only the code
-The three main data zones are Landing, Raw and Derived. Each data zone is an ADLS Gen 2 storage account with multiple containers under it.
-### Data collection
-
-
-Data collection is one of the main [challenges](../../guide/machine-learning/avops-design-guide.md#challenges) of Autonomous Vehicles Operations (AVOps). The following diagram shows an example of how offline and online vehicle data can be collected and stored in a data lake.
-
-### Data Landing Zone to Raw
-
-### Raw to Derived
-
-### Raw to Extracted
-
-### Extracted to Curated
-
-### Curated to Labeled
+### Data Pipeline
+![ADF Copy pipeline](images/adf-copy-landing-raw.png)
 
 ## Meta-Data and Data Discovery 
 
