@@ -11,7 +11,7 @@ These use cases have similar design patterns:
 
 ## Architecture
 
-:::image type="content" source="./media/hardened-webapp-architecture-v2.png" alt-text="Diagram that shows an architecture for setting up a web app in a high-security environment." lightbox="./media/hardened-webapp-architecture-v2.png":::
+:::image type="content" source="./media/hardened-webapp-architecture-v2.svg" alt-text="Diagram that shows an architecture for setting up a web app in a high-security environment." lightbox="./media/hardened-webapp-architecture-v2.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-architecture-v2.vsdx) of this architecture.*
 

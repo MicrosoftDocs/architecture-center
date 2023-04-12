@@ -1229,19 +1229,16 @@ items:
         href: example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml
       - name: SWIFT on Azure
         items:
-        - name: Alliance Connect
-        - name: Alliance Connect Virtual
-          items:
-          - name: SWIFT Alliance Connect Virtual
-            href: example-scenario/finance/swift-on-azure-vsrx.yml
-          - name: SWIFT Alliance Lite2
-            href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
-          - name: SWIFT Alliance Cloud
-            href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
-          - name: SWIFT Alliance Access
-            href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
-          - name: SWIFT Alliance Message Hub
-            href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
+        - name: SWIFT Alliance Connect Virtual
+          href: example-scenario/finance/swift-on-azure-vsrx.yml
+        - name: SWIFT Alliance Lite2
+          href: example-scenario/finance/swift-alliance-lite2-on-azure.yml
+        - name: SWIFT Alliance Cloud
+          href: example-scenario/finance/swift-alliance-cloud-on-azure.yml
+        - name: SWIFT Alliance Access
+          href: example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml
+        - name: SWIFT Alliance Message Hub
+          href: example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml
     - name: Datasets
       items:
       - name: US Consumer Price Index
@@ -1938,6 +1935,8 @@ items:
         maintainContext: true
     - name: Solution ideas
       items:
+      - name: Customer order forecasting
+        href: solution-ideas/articles/next-order-forecasting.yml
       - name: Azure 5G split core shop floor network
         href: solution-ideas/articles/private-network-split-core-manufacture.yml
   - name: Energy and Environment
@@ -3163,6 +3162,8 @@ items:
         href: solution-ideas/articles/customer-churn-prediction.yml
       - name: Customer feedback
         href: solution-ideas/articles/customer-feedback-and-analytics.yml
+      - name: Customer order forecasting
+        href: solution-ideas/articles/next-order-forecasting.yml
       - name: Data science and machine learning
         href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
       - name: Defect prevention
@@ -5156,7 +5157,7 @@ items:
       items:
       - name: Custom business processes
         href: solution-ideas/articles/custom-business-processes.yml
-      - name: Elastic Workplace Search on Azure
+      - name: Elastic Enterprise Search on Azure
         href: solution-ideas/articles/elastic-workplace-search.yml
       - name: Line of business extension
         href: solution-ideas/articles/lob.yml
