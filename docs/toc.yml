@@ -524,7 +524,7 @@ items:
   - name: Solutions across Microsoft platforms
     items:
     - name: Build applications on the Microsoft cloud
-      href: https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main 
+      href: https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/introduction?branch=main 
     - name: Azure and Power Platform scenarios
       items:
       - name: Overview

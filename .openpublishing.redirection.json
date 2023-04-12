@@ -2569,32 +2569,32 @@
     },
     {
       "source_path": "docs/guide/microsoft-cloud/overview.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main",
+      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/introduction?branch=main",
       "redirect_document_id": false
     },      
     {
       "source_path": "docs/guide/microsoft-cloud/create-deploy-more-applications-less-time.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main",
+      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/create-deploy-more-applications-less-time?branch=main",
       "redirect_document_id": false
     },  
     {
       "source_path": "docs/guide/microsoft-cloud/get-most-value-technical-talent.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main",
+      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/get-most-value-technical-talent?branch=main",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/microsoft-cloud/integrate-new-applications-existing-solutions.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main",
+      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/integrate-new-applications-existing-solutions?branch=main",
       "redirect_document_id": false
     },  
     {
       "source_path": "docs/guide/microsoft-cloud/create-run-secure-applications.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main",
+      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/create-run-secure-applications?branch=main",
       "redirect_document_id": false
     },  
     {
       "source_path": "docs/guide/microsoft-cloud/summary.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/?branch=main",
+      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/summary?branch=main",
       "redirect_document_id": false
     }                    
   ]
