@@ -256,7 +256,7 @@ You don't need to populate data in production, so you should always use a privat
 
 You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it.
 
-You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can [Secure your Origin with Private Link in Azure Front Door Premium] as one option.  Another is to use Java Spring to filter requests that contain your specific Azure Front Door's `X-Azure-FDID` header value.  ***TODO NICK, can you make this last sentence read more "java" -- with some specifics.***
+You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can (1) [use Azure Front Door private endpoint](/azure/frontdoor/private-link), or (2) you can filter requests by the `X-Azure-FDID` header value. The App Service platform and Java Spring can filter by header value.  ***TODO NICK, can you make this last sentence read more "java" -- with some specifics.***
 
 Follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) to address what host name, client IP and more your application sees once traffic has passed through your WAF-enabled gateway.
 
