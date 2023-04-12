@@ -121,7 +121,7 @@ Azure Application Gateway auto scaling is available as a part of the Zone redund
 
 ### Deployment and putting the pieces together
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/ssarwa/API-Management-ASE-AppGateway/master/azuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fssarwa%2FAPI-Management-ASE-AppGateway%2Fmaster%2Fazuredeploy.json)
 
 You need to further configure the components deployed using the preceding Resource Manager template as follows:
 
