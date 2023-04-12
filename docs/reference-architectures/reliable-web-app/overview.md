@@ -23,19 +23,15 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal, essential changes you should make to ensure the success of your web app in the cloud.
-
-The pattern follows the principles of the Well-Architected Framework (WAF) and provides essential code and architecture guidance for each WAF pillar (reliability, security, cost optimization, operations, and performance).
-
-The articles show you how to plan an implementation of the reliable web app pattern that meet your business goals. Then, it shows you how to apply the pattern to your web app for each WAF pillar.
+The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal changes you should make to ensure the success of your web app in the cloud, and the implementation guidance follows the principles of the Well-Architected Framework (WAF).
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
-## Why?
+## Why use the reliable web app pattern?
 
 The reliable web app pattern details the essential steps you need take to ensure your web app is successful in the cloud. It reinforces general best practices but also highlights cloud principles that many developers are unaware of. It provides end-to-end implementation guidance with code examples and a reference implementation (sample web app) all in one place so you can rapidly adopt the guidance.
 
-## How?
+## How to use the reliable web app pattern
 
 For each technology stack, there are two articles and a reference implementation (sample web app) you can deploy. *Plan the implementation* helps you align your architecture and business needs. *Apply the pattern* shows you how to make the required code and architecture changes. The reference implementation provides example code that you use and learn from. Use these three components as you need to ensure the success of your web app in the cloud.
 
