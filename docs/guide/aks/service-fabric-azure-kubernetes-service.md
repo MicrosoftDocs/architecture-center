@@ -1,26 +1,26 @@
 ---
 title: Transition your workload from Service Fabric to AKS
 description: Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS. 
-author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
-ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
-ms.date: <Publish or major update date - mm/dd/yyyy>
+author: allyford
+ms.author: allyford
+ms.date: 04/14/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - <Choose 1-5 products from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
-  - <1-5 products>
-  - <1-5 products>
+  - azure-kubernetes-service
+  - azure-service-fabric
+  - azure-monitor
 categories:
-  - <Choose at least one category from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#azure-categories>
-  - <There can be more than one category>
+  - containers
+  - migration
 ---
 
 # Transition your workload from Service Fabric to AKS
 
 Many organizations have moved to containerized apps as part of a push towards adopting modern app development, maintenance best practices, and cloud-native architectures. As technologies continue to evolve, organizations are evaluating the many containerized app platforms that are available in the public cloud.
 
-There's no one-size-fits-all solution for apps, but organizations often find that the [Azure Kubernetes Service (AKS)](/azure/aks/release-tracker) meets their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Many organiztions are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
+There's no one-size-fits-all solution for apps, but organizations often find that the [Azure Kubernetes Service (AKS)](/azure/aks/release-tracker) meets their requirements for many of their containerized applications. AKS is a hosted Kubernetes service that simplifies application deployments via Kubernetes by managing the control plane to provide core services for your application workloads. Many organizations are using AKS as their primary infrastructure platform and are transitioning workloads hosted on other platforms to AKS.
 
 This article describes how to migrate containerized apps from [Azure Service Fabric](/azure/service-fabric/service-fabric-azure-clusters-overview) to AKS. The article assumes that you're familiar with Service Fabric but are interested in learning how its features and functionality compare to those of AKS. The article also provides best practices for you to consider during migration.
 
@@ -37,7 +37,7 @@ Both Service Fabric and AKS offer integrations with other Azure services, includ
 
 ## Key differences
 
-When you deploy a traditional Service Fabric [cluster](/azure/service-fabric/service-fabric-azure-clusters-overview), as opposed  to a managed cluster, you need to explicitly define a cluster resource togehter with a number of supporting resources in your ARM templates or Bicep modules. These resources include a virtual machine scale set for each cluster node type, network security groups, and load balancers. It's your responsibility to make sure that these resources are correctly configured. The encapsulation model for Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster) consists of a single managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure.  
+When you deploy a traditional Service Fabric [cluster](/azure/service-fabric/service-fabric-azure-clusters-overview), as opposed  to a managed cluster, you need to explicitly define a cluster resource together with a number of supporting resources in your ARM templates or Bicep modules. These resources include a virtual machine scale set for each cluster node type, network security groups, and load balancers. It's your responsibility to make sure that these resources are correctly configured. The encapsulation model for Service Fabric [managed clusters](/azure/service-fabric/overview-managed-cluster) consists of a single managed cluster resource. All underlying resources for the cluster are abstracted away and managed by Azure.  
 
 [AKS](/azure/aks/intro-kubernetes) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. Because AKS is a hosted Kubernetes service, Azure handles critical tasks like infrastructure health monitoring and maintenance. Kubernetes masters are managed by Azure, so you only manage and maintain the agent nodes.
 
@@ -80,7 +80,7 @@ As a starting point, we recommend that you familiarize yourself with some key Ku
 
 ## Application and service manifest
 
-Service Fabric and AKS have different application and service manifest file types and constructs. Service Fabric uses XML files for application and service definition. AKS uses the Kubernetes YAML file manifest to define Kubernetes objects. There are no tools that are specifically intended to migrate a Service Fabric XML file to a Kubernetes YAML file, but you can learn about how YAML files work on Kubernetes by reviewing the following resources.
+Service Fabric and AKS have different application and service manifest file types and constructs. Service Fabric uses XML files for application and service definition. AKS uses the Kubernetes YAML file manifest to define Kubernetes objects. There are no tools that are specifically intended to migrate a Service Fabric XML file to a Kubernetes YAML file. You can, however, learn about how YAML files work on Kubernetes by reviewing the following resources.
 
 - Kubernetes documentation: [Understanding Kubernetes Objects](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/). 
 - AKS documentation for Windows nodes/applications: [Create a Windows Server container on an AKS cluster by using Azure CLI](/azure/aks/learn/quick-windows-container-deploy-cli).
@@ -111,7 +111,7 @@ Service Fabric doesn't provide a choice of network plug-ins. If you use AKS, you
 - [Azure CNI](/azure/aks/configure-azure-cni). With [Azure Container Networking Interface (CNI)](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md), every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. You then reserve the equivalent number of IP addresses for each node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow. You can configure the maximum pods deployable to a node when you create the cluster or when you create new node pools.
 - [Azure CNI Overlay networking](/azure/aks/azure-cni-overlay). With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Network subnet. Pods are assigned IP addresses from a private CIDR that are logically different from the address of the virtual network that hosts the nodes. Pod and node traffic within the cluster use an overlay network. NAT (using the node's IP address) is used to reach resources outside the cluster. This solution saves a significant number of virtual network IP addresses and enables you to seamlessly scale your cluster to very large sizes. An added advantage is that the private CIDR can be reused in different AKS clusters, which extends the IP space that's available for containerized applications in AKS. 
 - [Azure CNI Powered by Cilium](/azure/aks/azure-cni-powered-by-cilium). Azure CNI Powered by Cilium combines the robust control plane of Azure CNI with the data plane of [Cilium](https://cilium.io/) to provide high-performance networking and enhanced security. 
-- [Bring your own Container Network Interface (CNI) plug-in](/azure/aks/use-byo-cni?tabs=azure-cli). Kubernetes doesn't provide a network interface system by default. This functionality is provided by [network plug-ins](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/). AKS provides several supported CNI plugi-ns. For information about supported plug-ins, see [Network concepts for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-network).
+- [Bring your own Container Network Interface (CNI) plug-in](/azure/aks/use-byo-cni). Kubernetes doesn't provide a network interface system by default. This functionality is provided by [network plug-ins](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/). AKS provides several supported CNI plug-ins. For information about supported plug-ins, see [Network concepts for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-network).
 
 Windows containers currently support only the [Azure CNI](/azure/aks/configure-azure-cni) plug-in. A variety of choices for network policies and ingress controllers are available.
 
@@ -119,7 +119,7 @@ In AKS, you can use Kubernetes [network policies](https://kubernetes.io/docs/con
 
 If you want to use Azure Network Policy Manager, you must use the [Azure CNI plug-in](https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md). You can use Calico network policies with either the Azure CNI plug-in or the kubenet CNI plug-in. The use of Azure Network Policy Manager for Windows nodes is available only on Windows Server 2022. For more information, see [Secure traffic between pods using network policies in AKS](/azure/aks/use-network-policies). For more information about AKS networking, see [Networking in AKS](/azure/aks/concepts-network).
 
-In Kubernetes, an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) acts as a service proxy and intermediary between a service and the outside world, allowing external traffic to access the service. The service proxy typically provides various functionalities like TLS termination, path-based request routing, load balancing, and security features like authentication and authorization. Ingress controllers also provide an additional layer of abstraction and control for routing external traffic to Kubernetes services based on HTTP/HTTPS rules, which provides more fine-grained control over traffic flow and traffic management.
+In Kubernetes, an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) acts as a service proxy and intermediary between a service and the outside world, allowing external traffic to access the service. The service proxy typically provides various functionalities like TLS termination, path-based request routing, load balancing, and security features like authentication and authorization. Ingress controllers also provide another layer of abstraction and control for routing external traffic to Kubernetes services based on HTTP/HTTPS rules, which provides more fine-grained control over traffic flow and traffic management.
 
 In AKS, there are multiple options for deploying, running, and operating an ingress controller. One option is to use the [Application Gateway Ingress Controller](/azure/application-gateway/ingress-controller-overview), which enables you to use Azure Application Gateway as the ingress controller for TLS termination, path-based routing, and as a [web access firewall](/azure/web-application-firewall/ag/ag-overview). Another option is to use the [NGINX ingress controller](/azure/aks/ingress-basic?tabs=azure-cli), which is a widely used open-source ingress controller that you can install by using Helm. Finally, [Traefik ingress controller](https://doc.traefik.io/traefik/providers/kubernetes-ingress/) is another popular ingress controller for Kubernetes. 
 
@@ -131,7 +131,7 @@ Both Service Fabric and AKS have mechanisms to provide persistent storage to con
 
 Applications running in AKS might need to store and retrieve data from a persistent file storage system. AKS integrates with Azure storage services like [Azure managed disks](/azure/virtual-machines/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction), and [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). It also integrates with third-party storage systems like [Rook](https://rook.io/) and [GlusterFS](https://www.gluster.org/) via Container Storage Interface (CSI) drivers. 
 
-[CSI](https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/) is a standard for exposing block and file storage systems to containerized workloads on Kubernetes. Third-party storage providers that use CSI can write, deploy, and update plug-ins to expose new storage systems in Kubernetes, or to improve existing ones, without needing to change the core Kubernetes code and wait for its release cycles. 
+[CSI](https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/) is a standard for exposing block and file storage systems to containerized workloads on Kubernetes. Third-party storage providers that use CSI can write, deploy, and update plug-ins to expose new storage systems in Kubernetes, or to improve existing ones, without needing to change the core Kubernetes code and wait for its release cycles.
 
 The CSI storage driver support on AKS enables you to natively use these Azure storage services:
 
@@ -139,7 +139,7 @@ The CSI storage driver support on AKS enables you to natively use these Azure st
 - [Azure Files](/azure/aks/azure-files-csi). You can use Azure Files to mount an SMB 3.0 or 3.1 share that's backed by an Azure storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure standard storage backed by Standard HDDs or Azure premium storage backed by high-performance SSDs. Service Fabric provides an Azure Files volume driver as a [Docker volume plug-in](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) volumes for Docker containers. It's packaged as a Service Fabric application that can be deployed to a Service Fabric cluster to provide volumes for other Service Fabric container applications within the cluster. Service Fabric provides one version of the driver for Windows clusters and one for Linux clusters.
 - [Azure Blob Storage](/azure/aks/azure-blob-csi). You can use Blob Storage to mount blob storage (or object storage) as a file system into a container or pod. Blob storage enables an AKS cluster to support applications that work with large unstructured datasets, like log file data, images or documents, and HPC. If you ingest data into [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction), you can directly mount the storage and use it in AKS without configuring another interim file system. Service Fabric doesn't support any mechanism for mounting blob storage in declarative mode.
 
-For more information about storage options see, [Storage in AKS](/azure/aks/concepts-storage#volumes).
+For more information about storage options, see [Storage in AKS](/azure/aks/concepts-storage).
 
 ## Application and cluster monitoring
 
@@ -149,7 +149,7 @@ AKS, on the other hand, has built-in integration with Azure Monitor and [Contain
 
 As an alternative or companion solution to [Container Insights](/azure/azure-monitor/containers/container-insights-overview), you can configure your AKS cluster to collect metrics in [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview). This configuration enables you to collect and analyze metrics at scale by using a Prometheus-compatible monitoring solution, which is based on the [Prometheus](https://aka.ms/azureprometheus-promio) project. This fully managed service enables you to use the [Prometheus query language (PromQL)](https://aka.ms/azureprometheus-promio-promql) to analyze the performance of monitored infrastructure and workloads, and get alerts, without needing to operate the underlying infrastructure.
 
-Azure Monitor managed service for Prometheus is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). It provides additional flexibility in the types of metric data that you can collect and analyze by using Azure Monitor. Prometheus metrics share some features with platform and custom metrics, but they have some additional features to better support open-source tools like [PromQL](https://aka.ms/azureprometheus-promio-promql) and [Grafana](/azure/managed-grafana/overview).
+Azure Monitor managed service for Prometheus is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). It provides more flexibility in the types of metric data that you can collect and analyze by using Azure Monitor. Prometheus metrics share some features with platform and custom metrics, but they have some additional features to better support open-source tools like [PromQL](https://aka.ms/azureprometheus-promio-promql) and [Grafana](/azure/managed-grafana/overview).
 
 You can configure Azure Monitor managed service for Prometheus as a data source for both [Azure Managed Grafana](/azure/managed-grafana/overview) and [self-hosted Grafana](https://grafana.com/), which can run on an Azure virtual machine. For more information, see [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](/azure/azure-monitor/essentials/prometheus-grafana).
 
