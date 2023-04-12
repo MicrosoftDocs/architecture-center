@@ -41,9 +41,9 @@ Use the following links to migrate and modernize your web apps in Azure.
 
 | Reliable web app for .NET: | Reliable web app for Java: |
 | --- | --- |
-| [!div class="nextstepaction"] [.NET plan the implementation](./dotnet/pattern-overview.yml) | [!div class="nextstepaction"] [Java plan the implementation](./java/plan-implementation.yml) |
-| [!div class="nextstepaction"] [.NET apply the pattern](./dotnet/apply-pattern.yml) | [!div class="nextstepaction"] [Java apply the pattern](./java/apply-pattern.yml) |
-| [!div class="nextstepaction"] [.NET reference implementation](https://aka.ms/eap/rwa/dotnet) | [!div class="nextstepaction"] [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) |
+| <button class="nextstepaction">[.NET plan the implementation](./dotnet/pattern-overview.yml)</button> | <button class="nextstepaction">[Java plan the implementation](./java/plan-implementation.yml)</button> |
+| <button class="nextstepaction">[.NET apply the pattern](./dotnet/apply-pattern.yml)</button> | <button class="nextstepaction">[Java apply the pattern](./java/apply-pattern.yml)</button> |
+| <button class="nextstepaction">[.NET reference implementation](https://aka.ms/eap/rwa/dotnet)</button> | <button class="nextstepaction">[Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)</button> |
 
 
 **Reliable web app for .NET:**
