@@ -39,11 +39,11 @@ For each technology stack, there are two articles and a reference implementation
 
 Use the following links to migrate and modernize your web apps in Azure.
 
-| Reliable web app for .NET: | Reliable web app for Java: |
-| --- | --- |
-| <button class="nextstepaction">[.NET plan the implementation](./dotnet/pattern-overview.yml)</button> | <button class="nextstepaction">[Java plan the implementation](./java/plan-implementation.yml)</button> |
-| <button class="nextstepaction">[.NET apply the pattern](./dotnet/apply-pattern.yml)</button> | <button class="nextstepaction">[Java apply the pattern](./java/apply-pattern.yml)</button> |
-| <button class="nextstepaction">[.NET reference implementation](https://aka.ms/eap/rwa/dotnet)</button> | <button class="nextstepaction">[Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)</button> |
+| Guidance | Reliable web app for .NET: | Reliable web app for Java: |
+| --- | --- | --- |
+| Plan the implementation | <button class="nextstepaction">[.NET plan the implementation](./dotnet/pattern-overview.yml)</button> | <button class="nextstepaction">[Java plan the implementation](./java/plan-implementation.yml)</button> |
+| Apply the pattern | <button class="nextstepaction">[.NET apply the pattern](./dotnet/apply-pattern.yml)</button> | <button class="nextstepaction">[Java apply the pattern](./java/apply-pattern.yml)</button> |
+| Reference implementation | <button class="nextstepaction">[.NET reference implementation](https://aka.ms/eap/rwa/dotnet)</button> | <button class="nextstepaction">[Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)</button> |
 
 
 **Reliable web app for .NET:**
