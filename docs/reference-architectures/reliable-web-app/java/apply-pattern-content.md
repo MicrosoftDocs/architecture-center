@@ -198,19 +198,41 @@ You should use managed identities when you can because of the security and opera
 
 ### Use a central secrets store (Key Vault)
 
-Many on-premises environments don't have a central secrets store. Key rotation is uncommon and auditing who has access to a secret is difficult. In Azure, the central secrets store is Key Vault. You can use Key Vault to store keys and to manage, audit, and monitor access to secrets.
-
-**Don't put Key Vault in the HTTP-request flow.** Key Vault has service limitations to safeguard resources and ensure optimal service quality for its clients. The original intent of Key Vault was to store and retrieve sensitive information during deployment. Organizations sometimes use Key Vault for runtime secret management, and many applications and services treat it like a database. However, the Key Vault limitations don't support high throughput rates and might affect performance if Key Vault is in the HTTP-request flow. When a key vault reaches a service threshold, it limits any further requests from the client and returns HTTP status code 429. The web app should load values from Key Vault at application start time. For more information, see [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions).
-
-**Use Key Vault to manage secrets.** The term *secret* refers to anything that you don't want exposed in plain text (passwords, keys, certificates). After you migrate your app to the cloud, you might still have secrets that you need to manage. You should store all secrets in Key Vault.
-
-**NOTE: ADD CONVO ABOUT JAVA SDK LIBRARY**
+The term *secret* refers to anything that you don't want exposed in plain text (passwords, keys, certificates). After you migrate your app to the cloud, you might still have secrets that you need to manage. You should store all these secrets in Key Vault. Many on-premises environments don't have a central secrets store. Key rotation is uncommon and auditing who has access to a secret is difficult. In Azure, the central secrets store is Key Vault. You can use Key Vault to store keys and to manage, audit, and monitor access to secrets.
 
 *Reference implementation.* The reference implementation stores the PostgreSQL database username and password, the Redis Cache password, and the client secret for Azure AD that's associated with the MSAL implementation.
 
+**Don't put Key Vault in the HTTP-request flow.** Key Vault has service limitations to safeguard resources and ensure optimal service quality for its clients. The original intent of Key Vault was to store and retrieve sensitive information during deployment. Organizations sometimes use Key Vault for runtime secret management, and many applications and services treat it like a database. However, the Key Vault limitations don't support high throughput rates and might affect performance if Key Vault is in the HTTP-request flow. When a key vault reaches a service threshold, it limits any further requests from the client and returns HTTP status code 429. The web app should load values from Key Vault at application start time. For more information, see [Key Vault transaction limits](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions).
+
 **Use one method to access secrets in Key Vault.** There are two methods to configure a web app to access secrets in Key Vault. (1) You can use an app setting in App Service and inject the secret as an [environment variable](/azure/app-service/app-service-key-vault-references#azure-resource-manager-deployment). (2) You can reference the secret in your application code. Add a reference to the app properties file so the app can communicate with Key Vault. You should pick one of these two methods and use it consistently. Avoid using both methods because it creates unneeded complexity.  
 
-*Reference implementation.* The reference implementation uses the (**JAVA SDK**) via application code to access secrets in Key Vault.
+To integrate Key Vault with a Spring application, you need to (1) add the Azure Spring Boot Starter For Azure Key Vault Secrets in the `pom.xml` file and (2) configure a Key Vault endpoint in either the `application.properties` file or as an environment variable.
+
+*Reference implementation.* The reference implementation uses the following code to add the Azure Spring Boot Starter For Azure Key Vault Secrets in the `pom.xml`:
+
+```xml
+<dependency> 
+    <groupId>com.azure.spring</groupId> 
+    <artifactId>spring-cloud-azure-starter-keyvault</artifactId> 
+</dependency> 
+```
+
+The reference implementation uses an environment variable in the [main Terraform](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/terraform/modules/app-service/main.tf) file to configure the Key Vault endpoint.
+
+```terraform
+SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=var.key_vault_uri
+```
+
+The reference implementation set the property `spring.cloud.azure.keyvault.secret.property-source-enabled` to `true` in the `application.properties` file. This property allows Spring Cloud Azure to inject secrets from Azure Key Vault. The `${airsonic-database-admin-password}` is an example of Spring Cloud Azure injecting a secret into the web application.
+
+```java
+spring.cloud.azure.keyvault.secret.property-source-enabled=true
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=
+spring.datasource.username=${airsonic-database-admin}
+spring.datasource.password=${airsonic-database-admin-password}
+```
 
 **Avoid using access keys for temporary access where possible.** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
 
@@ -234,7 +256,7 @@ You don't need to populate data in production, so you should always use a privat
 
 You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it.
 
-You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can [Secure your Origin with Private Link in Azure Front Door Premium] as one option.  Another is to use Java Spring to filter requests that contain your specific Azure Front Door's `X-Azure-FDID` header value.  TODO NICK, can you make this last sentence read more "java" -- with some specifics.
+You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can [Secure your Origin with Private Link in Azure Front Door Premium] as one option.  Another is to use Java Spring to filter requests that contain your specific Azure Front Door's `X-Azure-FDID` header value.  ***TODO NICK, can you make this last sentence read more "java" -- with some specifics.***
 
 Follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) to address what host name, client IP and more your application sees once traffic has passed through your WAF-enabled gateway.
 
@@ -343,7 +365,7 @@ resource "azurerm_monitor_autoscale_setting" "sitescaling" {
 
 ### Delete non-production environments
 
-To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it is important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
+To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it's important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
 
 ## Operational excellence
 
