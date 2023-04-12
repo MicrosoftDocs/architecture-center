@@ -41,6 +41,6 @@ Use the following links to migrate and modernize your web apps in Azure.
 
 | Guidance | Reliable web app for .NET: | Reliable web app for Java: |
 | --- | --- | --- |
-| Plan the implementation | [.NET plan the implementation](./dotnet/pattern-overview.yml) | [Java plan the implementation](./java/plan-implementation.yml) |
-| Apply the pattern | [.NET apply the pattern](./dotnet/apply-pattern.yml) | [Java apply the pattern](./java/apply-pattern.yml) |
-| Reference implementation | [.NET reference implementation](https://aka.ms/eap/rwa/dotnet) | [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) |
+| Plan the implementation | [Plan the implementation (.NET)](./dotnet/pattern-overview.yml) | [Plan the implementation (Java)](./java/plan-implementation.yml) |
+| Apply the pattern | [Apply the pattern (.NET)](./dotnet/apply-pattern.yml) | [Apply the pattern (Java)](./java/apply-pattern.yml) |
+| Reference implementation | [Reference implementation (.NET)](https://aka.ms/eap/rwa/dotnet) | [Reference implementation (Java)](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) |
