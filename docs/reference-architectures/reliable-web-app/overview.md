@@ -37,7 +37,7 @@ For each technology stack, there are two articles and a reference implementation
 
 ## Next steps
 
-Use the following links to migrate and modernize needs your web apps in Azure.
+Use the following links to migrate and modernize your web apps in Azure.
 
 | Reliable web app for .NET: | Reliable web app for Java: |
 | --- | --- |
