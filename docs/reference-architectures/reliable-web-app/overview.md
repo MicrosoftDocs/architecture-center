@@ -41,29 +41,6 @@ Use the following links to migrate and modernize your web apps in Azure.
 
 | Guidance | Reliable web app for .NET: | Reliable web app for Java: |
 | --- | --- | --- |
-| Plan the implementation | <button class="nextstepaction">[.NET plan the implementation](./dotnet/pattern-overview.yml)</button> | <button class="nextstepaction">[Java plan the implementation](./java/plan-implementation.yml)</button> |
-| Apply the pattern | <button class="nextstepaction">[.NET apply the pattern](./dotnet/apply-pattern.yml)</button> | <button class="nextstepaction">[Java apply the pattern](./java/apply-pattern.yml)</button> |
-| Reference implementation | <button class="nextstepaction">[.NET reference implementation](https://aka.ms/eap/rwa/dotnet)</button> | <button class="nextstepaction">[Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)</button> |
-
-
-**Reliable web app for .NET:**
-
->[!div class="nextstepaction"]
-> [.NET plan the implementation](./dotnet/pattern-overview.yml)
-
->[!div class="nextstepaction"]
->[.NET apply the pattern](./dotnet/apply-pattern.yml)
-
->[!div class="nextstepaction"]
->[.NET reference implementation](https://aka.ms/eap/rwa/dotnet)
-
-**Reliable web app for Java:**
-
->[!div class="nextstepaction"]
->[Java plan the implementation](./java/plan-implementation.yml)
-
->[!div class="nextstepaction"]
->[Java apply the pattern](./java/apply-pattern.yml)
-
->[!div class="nextstepaction"]
->[Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java)
+| Plan the implementation | [.NET plan the implementation](./dotnet/pattern-overview.yml) | [Java plan the implementation](./java/plan-implementation.yml) |
+| Apply the pattern | [.NET apply the pattern](./dotnet/apply-pattern.yml) | [Java apply the pattern](./java/apply-pattern.yml) |
+| Reference implementation | [.NET reference implementation](https://aka.ms/eap/rwa/dotnet) | [Java reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) |
