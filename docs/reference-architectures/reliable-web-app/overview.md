@@ -23,17 +23,17 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern shows developers how to modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal changes you should make to ensure the success of your web app in the cloud, and the implementation guidance follows the principles of the Well-Architected Framework (WAF).
+The reliable web app pattern offers a comprehensive guide for developers to optimize web applications that have recently transitioned to the cloud. This pattern concentrates on the minimal changes needed to introduce reliability and improve your web app's success in the cloud environment.
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
 ## Why use the reliable web app pattern?
 
-The reliable web app pattern details the essential steps you need take to ensure your web app is successful in the cloud. It reinforces general best practices but also highlights cloud principles that many developers are unaware of. It provides end-to-end implementation guidance with code examples and a reference implementation (sample web app) all in one place so you can rapidly adopt the guidance.
+The reliable web app pattern outlines crucial steps to ensure the effectiveness of your web app in the cloud. While reinforcing general best practices, it also emphasizes cloud-specific principles that might be unfamiliar to many developers. This pattern provides comprehensive implementation guidance, complete with code examples and a reference implementation (sample web app), allowing for rapid adoption and application of the guidance.
 
 ## How to use the reliable web app pattern
 
-For each technology stack, there are two articles and a reference implementation (sample web app) you can deploy. ***Plan the implementation*** helps you align your architecture and business needs. ***Apply the pattern*** shows you how to make the required code and architecture changes. The ***reference implementation*** provides example code that you use and learn from. Use these three components as you need to ensure the success of your web app in the cloud.
+For each technology stack, there are two articles and a reference implementation (sample web app) available for deployment. Plan the Implementation assists you in aligning your architecture and business requirements. Apply the Pattern demonstrates how to execute the necessary code and architectural modifications. The Reference Implementation offers example code for you to utilize and learn from. Employ these three components as needed to ensure your web app's success in the cloud.
 
 ## Next steps
 
