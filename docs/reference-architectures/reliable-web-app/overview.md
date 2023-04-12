@@ -39,7 +39,7 @@ For each technology stack, there are two articles and a reference implementation
 
 Use the following links to migrate and modernize your web apps in Azure.
 
-| Guidance | Reliable web app for .NET: | Reliable web app for Java: |
+| Guidance type | Reliable web app for .NET | Reliable web app for Java |
 | --- | --- | --- |
 | Plan the implementation | [Plan the implementation (.NET)](./dotnet/pattern-overview.yml) | [Plan the implementation (Java)](./java/plan-implementation.yml) |
 | Apply the pattern | [Apply the pattern (.NET)](./dotnet/apply-pattern.yml) | [Apply the pattern (Java)](./java/apply-pattern.yml) |
