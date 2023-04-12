@@ -11,6 +11,7 @@ metadata:
   ms.subservice: example-scenario
   ms.custom:
     - fcp
+    - devx-track-terraform
 name: Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster
 azureCategories:
   - containers

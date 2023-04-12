@@ -181,7 +181,7 @@ Principal author:
 ## Next steps
 
 - [Migrating AIX Workloads to Azure: Approaches and Best Practices](https://techcommunity.microsoft.com/t5/azure-global/migrating-aix-workloads-to-azure-approaches-and-best-practices/ba-p/1085983).
-- [AIX to Red Hat Enterprise Linux Strategic Migration Planning Guide](https://www.intel.com/content/dam/www/public/us/en/documents/guides/risc-migration-aix-to-red-had-enterprise-linux-strategic-migration-planning-guide.pdf).
+- [AIX to Red Hat Enterprise Linux Strategic Migration Planning Guide](https://docslib.org/doc/9964312/aix-to-red-hat-enterprise-linux-strategic-migration-planning-guide).
 - For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
 
 ## Related resources

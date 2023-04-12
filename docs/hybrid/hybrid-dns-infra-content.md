@@ -2,7 +2,7 @@ This reference architecture illustrates how to design a hybrid Domain Name Syste
 
 ## Architecture
 
-:::image type="content" source="./images/hybrid-dns-infra.png" alt-text="Diagram showing a Hybrid Domain Name System (DNS)." border="false" lightbox="./images/hybrid-dns-infra.png" :::
+:::image type="content" source="./images/hybrid-dns-infra.svg" alt-text="Diagram showing a Hybrid Domain Name System (DNS)." border="false" lightbox="./images/hybrid-dns-infra.svg" :::
 
 *Download a [Visio file][architectual-diagram-visio-source] of this architecture.*
 
@@ -173,7 +173,6 @@ Explore related architectures:
 - [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
-[architectual-diagram]: ./images/hybrid-dns-infra.png
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx
 [1]: /azure/expressroute/expressroute-introduction
 [2]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal

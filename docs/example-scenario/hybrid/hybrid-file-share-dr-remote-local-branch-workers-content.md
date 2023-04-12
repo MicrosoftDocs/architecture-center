@@ -2,7 +2,7 @@ This architecture uses Azure Files, Azure File Sync, and Azure Virtual Desktop t
 
 ## Architecture
 
-:::image type="content" source="media/hybrid-file-share-dr-remote-local-branch-workers.png" alt-text="Azure architecture to provide desktops, both on-premises and cloud-based, for a company with many branches." lightbox="media/hybrid-file-share-dr-remote-local-branch-workers.png":::
+:::image type="content" source="media/hybrid-file-share-dr-remote-local-branch-workers.svg" alt-text="Azure architecture to provide desktops, both on-premises and cloud-based, for a company with many branches." lightbox="media/hybrid-file-share-dr-remote-local-branch-workers.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1874694-hybrid-file-share-dr-remote-local-branch-workers.vsdx) of this architecture.*
 

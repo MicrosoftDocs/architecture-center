@@ -14,7 +14,7 @@ You should architect your subscription vending automation to accomplish three pr
 
 Numerous approaches exist for implementing subscription vending automation to accomplish these three tasks. The example implementation shows one approach that uses a Gitflow (*see Figure 2*). The Gitflow design aligns with the declarative approach that many platform teams use to manage the platform.
 
-In the example implementation, the *data collection tool* gathers subscription request data. When the subscription request receives approval, it initiates the platform automation. The *platform automation* consists of the request pipeline, source control, and deployment pipeline. The *request pipeline* creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens pull request in *source control*. The new branch merges with the main branch in source control. The merge triggers the *deployment pipeline* to create the subscription with the infrastructure-as-code modules.
+In the example implementation, the *data collection tool* gathers subscription request data. When the subscription request receives approval, it initiates the platform automation. The *platform automation* consists of the request pipeline, source control, and deployment pipeline. The *request pipeline* creates a JSON or YAML subscription parameter file with the data from the data collection tool. The request pipeline also creates a new branch, commits the subscription parameter file, and opens a pull request in *source control*. The new branch merges with the main branch in source control. The merge triggers the *deployment pipeline* to create the subscription with the infrastructure-as-code modules.
 
 The deployment should place the *subscription* in the correct management group based on the governance requirements (*see Figure 1*). The deployment creates a preliminary subscription budget as the foundation for cost management. Based on the needs of the workload, the deployment could create an empty virtual network and configure peering to a regional hub. The platform team should hand off the subscription to the application team after creation and configuration. The application team should update the subscription budget and create the workload resources.
 
@@ -76,7 +76,7 @@ The *request pipeline* in the example implementation executes these steps (*see 
 
 **Trigger the deployment pipeline.** When the pull request merges into the `main` branch, the merge should trigger the deployment pipeline.
 
-## How to create subscription
+## How to create a subscription
 
 The last task of the subscription vending automation is to create and configure the new subscription. The example implementation uses the *deployment pipeline* to deploy the infrastructure-as-code module with the JSON/YAML subscription parameter file (*see Figure 2*).
 
