@@ -56,7 +56,7 @@ This architecture diagram shows a general approach with multiple redundant traff
 
 :::image type="content" source="./media/overview/alternate-traffic-paths.png" alt-text="Diagram showing Traffic Manager directing requests to Azure Front Door or to another service, and then to the origin server." border="false":::
 
-With this approach, you’ll introduce several components and make significant changes to other components in your solution:
+With this approach, we will introduce several components and provide guidance that will make significant changes associated to the delivery of your web application(s):
 
 1.	[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) directs traffic to Azure Front Door or to the alternative service that you've selected.
 
