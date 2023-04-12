@@ -256,11 +256,11 @@ You don't need to populate data in production, so you should always use a privat
 
 You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it.
 
-You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can (1) [use Azure Front Door private endpoint](/azure/frontdoor/private-link), or (2) you can filter requests by the `X-Azure-FDID` header value. The App Service platform and Java Spring can filter by header value.  ***TODO NICK, can you make this last sentence read more "java" -- with some specifics.***
+You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can (1) [use Azure Front Door private endpoint](/azure/frontdoor/private-link), or (2) you can filter requests by the `X-Azure-FDID` header value. The App Service platform and Java Spring can filter by header value. You should App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code.
 
-Follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation) to address what host name, client IP and more your application sees once traffic has passed through your WAF-enabled gateway.
+You need to configure what traffic you want to pass through your WAF. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation)
 
-*Reference implementation.* The reference implementation uses Azure Front Door as the host name URL. In production, you should use your own host name and follow the guidance in [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation).
+*Reference implementation.* The reference implementation uses Azure Front Door as the host name URL, but you should use your own host name.
 
 ## Cost optimization
 
