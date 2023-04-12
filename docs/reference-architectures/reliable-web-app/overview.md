@@ -37,7 +37,7 @@ For each technology stack, there are two articles and a reference implementation
 
 ## Next steps
 
-Find the right technology stack and guidance that meets your cloud migration and modernization needs.
+Use the following links to migrate and modernize needs your web apps in Azure.
 
 **Reliable web app for .NET:**
 
