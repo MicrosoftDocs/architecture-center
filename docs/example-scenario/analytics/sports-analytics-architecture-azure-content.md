@@ -4,7 +4,7 @@ The focus of this article is to show a practical architecture that uses Azure se
 
 ## Architecture
 
-:::image type="content" source="./media/sports-analytics-azure-reference-architecture.png" alt-text="Diagram that shows an example workload Azure architecture for sports analytics." lightbox="./media/sports-analytics-azure-reference-architecture.png":::
+:::image type="content" source="./media/sports-analytics-azure-reference-architecture.svg" alt-text="Diagram that shows an example workload Azure architecture for sports analytics." lightbox="./media/sports-analytics-azure-reference-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/sports-analytics-azure-reference-architecture.vsdx) of this architecture.*
 
