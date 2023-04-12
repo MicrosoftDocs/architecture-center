@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-04-03T16:01:43.539Z</updated>
+    <updated>2023-04-10T16:01:58.671Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks"/>
+        <updated>2023-04-10T15:28:20.000Z</updated>
+        <summary type="html"><![CDATA[Reference architecture for a baseline infrastructure that deploys an Azure Kubernetes Service (AKS) cluster.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Basic enterprise integration on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration"/>
+        <updated>2023-04-07T20:13:42.000Z</updated>
+        <summary type="html"><![CDATA[Recommended architecture for implementing a simple enterprise integration pattern using Azure Logic Apps and Azure API Management.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Enhanced-security hybrid messaging — client access]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-client</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/secure-hybrid-messaging-client"/>
+        <updated>2023-04-05T23:03:31.000Z</updated>
+        <summary type="html"><![CDATA[Enhance your security in a client access scenario by using Azure AD Multi-Factor Authentication.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Automate PDF forms processing]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/document-processing/automate-pdf-forms-processing</id>
