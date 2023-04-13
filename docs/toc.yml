@@ -3731,7 +3731,7 @@ items:
         href: guide/aks/aks-high-availability.yml
       - name: Overview of migration from Service Fabric to AKS
         href: guide/aks/service-fabric-azure-kubernetes-service.md
-      - name: Migrate a sample app from Service Fabric to AKS
+      - name: Migrate an app from Service Fabric to AKS
         href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
       - name: Operations management for AKS
         href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/management
