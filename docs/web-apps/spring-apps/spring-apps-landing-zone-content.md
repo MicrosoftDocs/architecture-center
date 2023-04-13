@@ -203,11 +203,13 @@ Collect logs and metrics for other Azure services. For example, the jump box has
 
 Work with the platform team to configure Azure Firewall such that logs and metrics related to your workload are sent to your Log Analytics workspace. 
 
-**Platform team**
-
-- Grant role-based access control (RBAC) to query and read log sinks for relevant platform resources.
-- Enable logs for AzureFirewallApplicationRule, AzureFirewallNetworkRule, AzureFirewallDnsProxy because the application team needs to monitor traffic flows from the application and requests to the DNS server.
-- Giving the application team enough permission to do their operations.
+> [!IMPORTANT]
+> 
+> **Platform team**
+>
+> - Grant role-based access control (RBAC) to query and read log sinks for relevant platform resources.
+> - Enable logs for AzureFirewallApplicationRule, AzureFirewallNetworkRule, AzureFirewallDnsProxy because the application team needs to monitor traffic flows from the application and requests to the DNS server.
+> - Giving the application team enough permission to do their operations.
 
 > Refer to [Azure Spring Apps landing zone accelerator: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
 
