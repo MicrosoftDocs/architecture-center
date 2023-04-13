@@ -111,6 +111,8 @@ Azure Spring Apps also supports scaling your applications [manually](/azure/spri
 
 In this design, the workload is dependent on resources owned by the platform team for accessing on-premises resources, controlling egress traffic, and so on.
 
+> Refer to [Azure Spring Apps landing zone accelerator: Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/network-topology-and-connectivity).
+
 ### Network topology
 
 The platform team decides the network topology. Hub-spoke topology is assumed in this architecture. 
@@ -131,9 +133,8 @@ The platform team decides the network topology. Hub-spoke topology is assumed in
     > [!IMPORTANT]
     > 
     > **Platform team**
-    >
+    > - Assign the Azure Spring Apps Resource Provider `Owner` rights on the created virtual network
     > - Provide distinct addresses for virtual networks that participate in peerings. 
-    >
     > - Allocate IP address spaces that are large enough to contain the runtime and deployments resources, and support scalability.
 
 ### VNet injection and subnetting
@@ -178,7 +179,6 @@ Outbound traffic from virtual network must be restricted to prevent data exfiltr
 > [!IMPORTANT]
 > 
 > **Platform team**
->
 > - Create UDRs for custom routes.
 > - Assign Azure policies that will block the application team from creating subnets that don't have the new route table.
 > - Give adequate role-based access control (RBAC) permissions to the application team so that they can extend the routes based on the requirements of the workload.
@@ -190,7 +190,30 @@ TBD
 
 ## Monitoring considerations
 
-TBD
+The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. However, provisioning your own resources is recommended to simplify the overall management of the workload. 
+
+This architecture provisions these monitoring resources:
+
+- Azure Application Insights to collect all application monitoring data.
+- Azure Log Analytics workspace as the unified sink for all logs and metrics collected from Azure services and the application.
+
+Configure Azure Spring Apps instance to send diagnostics logs from the application to the provisioned Log Analytics workspace. For more information, see [Monitor applications end-to-end](/azure/spring-apps/quickstart-monitor-end-to-end-enterprise).
+
+Collect logs and metrics for other Azure services. For example, the jump box has boot diagnostics is enabled so capture events when the virtual machine is booting. 
+
+Work with the platform team to configure Azure Firewall such that logs and metrics related to your workload are sent to your Log Analytics workspace. 
+
+**Platform team**
+
+- Grant role-based access control (RBAC) to query and read log sinks for relevant platform resources.
+- Enable logs for AzureFirewallApplicationRule, AzureFirewallNetworkRule, AzureFirewallDnsProxy because the application team needs to monitor traffic flows from the application and requests to the DNS server.
+- Giving the application team enough permission to do their operations.
+
+> Refer to [Azure Spring Apps landing zone accelerator: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
+
+##### Health probes
+
+//TODO: Health probes configured?
 
 ## Security considerations
 
