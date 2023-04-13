@@ -6637,7 +6637,7 @@ items:
             - name: .NET
               items:
               - name: Plan the implementation
-                href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
+                href: reference-architectures/reliable-web-app/dotnet/plan-implementation.yml
               - name: Apply the pattern
                 href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
             - name: Java

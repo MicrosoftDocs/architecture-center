@@ -82,7 +82,7 @@ The following new and updated articles have recently been published in the Azure
 
 - [Multitenancy and Azure Event Hubs](./guide/multitenant/service/event-hubs.md)
 - [Reliable web app pattern for .NET -  Apply the pattern](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)
-- [Reliable web app pattern for .NET - Plan the implementation](./reference-architectures/reliable-web-app/dotnet/pattern-overview.yml)
+- [Reliable web app pattern for .NET - Plan the implementation](./reference-architectures/reliable-web-app/dotnet/plan-implementation.yml)
 - [Capture-the-Flag with CTFd on Azure PaaS](./example-scenario/apps/capture-the-flag-platform-on-azure-paas.yml)
 - [Deploy AVL FIRE M on an Azure virtual machine](./guide/hpc/hpc-avl-fire-m.yml)
 - [Highly available zone-redundant Azure Spring Apps](./reference-architectures/microservices/spring-apps-multi-zone.yml)
