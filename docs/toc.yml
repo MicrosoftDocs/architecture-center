@@ -6632,12 +6632,20 @@ items:
           items:
           - name: Reliable web app pattern
             items:
+            - name: Overview
+              href: reference-architectures/reliable-web-app/overview.md
             - name: .NET
               items:
               - name: Plan the implementation
                 href: reference-architectures/reliable-web-app/dotnet/pattern-overview.yml
               - name: Apply the pattern
                 href: reference-architectures/reliable-web-app/dotnet/apply-pattern.yml
+            - name: .NET
+              items:
+              - name: Plan the implementation
+                href: reference-architectures/reliable-web-app/java/plan-implementation.yml
+              - name: Apply the pattern
+                href: reference-architectures/reliable-web-app/java/apply-pattern.yml
       - name: App Service considerations
         items:
         - name: Deployment best practices
