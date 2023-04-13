@@ -1,6 +1,6 @@
-This article describes how to plan the implementation of the reliable web app pattern for .NET. The companion article describes how to [apply the pattern](apply-pattern.yml). The reliable web app pattern helps developers modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal changes you need to make to ensure the success of your web app in the cloud. For more information, see the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+This article describes how to plan the implementation of the reliable web app pattern for .NET. The companion article describes how to [apply the pattern](apply-pattern.yml). The reliable web app pattern provides implementation guidance for web applications that you have recently migrated to the cloud. The pattern focuses on the minimal, essential changes you should make to ensure the success of your web app in the cloud.
 
-A [reference implementation](https://aka.ms/eap/rwa/dotnet) of the reliable web app pattern for .NET is available for you to deploy. The reference implementation applies the reliable web app pattern to an employee-facing line-of-business (LOB) web application.
+A [reference implementation](https://aka.ms/eap/rwa/dotnet) is available for you to deploy. For more information, see [Overview of the reliable web app pattern](../overview.md) and the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 ## Architecture and pattern
 

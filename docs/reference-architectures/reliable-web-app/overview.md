@@ -23,7 +23,7 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern offers a comprehensive guide for developers to optimize web applications that have recently transitioned to the cloud. This pattern concentrates on the minimal changes needed to introduce reliability and improve your web app's success in the cloud environment. It also builds on the overarching principles of the enterprise app patterns. The guidance adheres to the tenets of the Well-Architected Framework and focuses on low-cost, high-value changes to your web app. It also shows you how to let business needs drive the implementation specifics.
+The reliable web app pattern provides implementation guidance for web applications that you have recently migrated to the cloud. The pattern focuses on the minimal code and architecture changes needed to be successful in the cloud. It builds on the underlying principles of the enterprise app patterns. These principles target low-cost, high-value work to meet business objectives while adhering to the tenets of the Well-Architected Framework.
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
 
@@ -41,6 +41,6 @@ Use the following links to migrate and modernize your web apps in Azure.
 
 | Guidance type | Reliable web app for .NET | Reliable web app for Java |
 | --- | --- | --- |
-| Plan the implementation | [Plan the implementation (.NET)](./dotnet/pattern-overview.yml) | [Plan the implementation (Java)](./java/plan-implementation.yml) |
+| Plan the implementation | [Plan the implementation (.NET)](./dotnet/plan-implementation.yml) | [Plan the implementation (Java)](./java/plan-implementation.yml) |
 | Apply the pattern | [Apply the pattern (.NET)](./dotnet/apply-pattern.yml) | [Apply the pattern (Java)](./java/apply-pattern.yml) |
 | Reference implementation | [Reference implementation (.NET)](https://aka.ms/eap/rwa/dotnet) | [Reference implementation (Java)](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) |
