@@ -93,14 +93,14 @@ With this feature, Azure Spring Apps automatically distributes fundamental resou
 
 Zone redundancy ensures that underlying VM nodes are distributed evenly across all availability zones but doesn't guarantee even distribution of app instances. If an app instance fails because its located zone goes down, Azure Spring Apps creates a new app instance for this app on a node in another availability zone.
 
-If you enable your own resource in Azure Spring Apps, such as your own persistent storage, enable zone redundancy for the resource. For more information, see How to enable your own persistent storage in Azure Spring Apps.
+If you enable your own resource in Azure Spring Apps, such as your own persistent storage, enable zone redundancy for the resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](/azure/spring-apps/how-to-custom-persistent-storage-with-standard-consumption).
 
 Availability zones aren't supported in all regions. To see which regions support availability zones, see [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
 
 ##### Scalability
 
-Azure Spring Apps provides [autoscaling](/azure/spring-apps/how-to-setup-autoscale) cpabilities out of the box, allowing apps to scale based on metric thresholds or during a specific time window. Autoscaling is recommended when apps need to scale up or scale out in response to changing demand.
+Azure Spring Apps provides [autoscaling](/azure/spring-apps/how-to-setup-autoscale) capabilities out of the box, allowing apps to scale based on metric thresholds or during a specific time window. Autoscaling is recommended when apps need to scale up or scale out in response to changing demand.
 
 Azure Spring Apps also supports scaling your applications [manually](/azure/spring-apps/how-to-scale-manual) using CPU, Memory/GB per instance and App instance counts. This type of scaling is suitable for one time scaling activity that you may want to perform for certain apps. Ensure you adjust these parameters based on your application's scaling needs while also understanding the maximum limits supported by each of these attributes. 
 
