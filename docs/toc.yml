@@ -5243,6 +5243,8 @@ items:
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
         href: guide/iot/migrate-iot-solution-azure.yml
+      - name: Scale your Azure IoT solutions 
+        href: guide/iot/scale-iot-solution-azure.md
       - name: Azure IoT client SDK support
         href: guide/iot/azure-iot-client-sdk-support.yml
       - name: Moving from test to production
