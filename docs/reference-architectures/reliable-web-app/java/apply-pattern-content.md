@@ -208,7 +208,7 @@ The term *secret* refers to anything that you don't want exposed in plain text (
 
 To integrate Key Vault with a Spring application, you need to (1) add the Azure Spring Boot Starter For Azure Key Vault Secrets in the `pom.xml` file and (2) configure a Key Vault endpoint in either the `application.properties` file or as an environment variable.
 
-*Reference implementation.* The reference implementation uses the following code to add the Azure Spring Boot Starter For Azure Key Vault Secrets in the `pom.xml`:
+*Reference implementation.* The reference implementation uses the following code to add the Azure Spring Boot Starter for Azure Key Vault Secrets in the `pom.xml`:
 
 ```xml
 <dependency> 
