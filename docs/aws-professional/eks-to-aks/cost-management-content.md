@@ -46,7 +46,7 @@ It's best to use the Standard tier in production workloads to provide higher con
 
 In AKS, you create agent or worker nodes in one or more node pools, which can use many Azure core capabilities within the Kubernetes environment. AKS charges only for the nodes attached to the AKS cluster.
 
-AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure virtual machine (VM) types directly within AKS. You can use [Azure Reservations](https://azure.microsoft.com/reservations) to get automatic discounts on these resources.
+AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure virtual machine (VM) types directly within AKS. You can use [Azure Reservations](https://azure.microsoft.com/reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) to get significant discounts on these resources.
 
 AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. VM cost depends on size, CPU type, number of vCPUs, memory, family, and storage type available, such as high-performance SSD or standard HDD. For more information, see [Virtual Machine Series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan node size according to application requirements, number of nodes, and cluster scalability needs.
 
