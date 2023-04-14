@@ -1,6 +1,6 @@
 ---
 title: Migrate a simple app from Service Fabric to AKS
-description: Use an example to guide your application migration from Azure Service Fabric to Azure Kubernetes Service.  
+description: Use an example to guide the migration of your application from Azure Service Fabric to Azure Kubernetes Service.  
 author: allyford
 ms.author: allyford
 ms.date: 04/18/2023
@@ -17,7 +17,7 @@ categories:
 
 # Migrate a simple app from Service Fabric to AKS
 
-This article provides an example workload migration to help you implement some of the conceptual information provided in [Migrate your workload from Service Fabric to AKS](docs/guide/aks/service-fabric-azure-kubernetes-service.md). That article provides information about Azure Kubernetes Service (AKS) and a comparison of AKS with Azure Service Fabric. It also describes considerations to take into account when you migrate your workloads. 
+This article provides an example workload migration to help you implement some of the conceptual information provided in [Migrate your workload from Service Fabric to AKS](service-fabric-azure-kubernetes-service.md). That article provides information about Azure Kubernetes Service (AKS) and a comparison of AKS with Azure Service Fabric. It also describes considerations to take into account when you migrate your workloads. 
 
 This example focuses on Windows-based Service Fabric applications that have already been containerized. If your application isn't containerized, consider investigating whether you can containerize it. If the application depends on Service Fabric programming models (Reliable Services, Reliable Actors, ASP.NET Core, and guest executables), you'll probably need to do some refactoring.
 
@@ -25,27 +25,34 @@ For information about containerizing your application, see [Prepare an applicati
 
 ## Prerequisites
 
-Before starting migration, you need the following prerequisites.
+Before you start the migration, you need the following:
 
-- An application image stored in the Azure Container Registry 
+- An application image that's stored in Azure Container Registry. 
 - A Bash environment for which you can configure your Azure resources. 
-   - [Azure Cloud Shell](/azure/cloud-shell/overview) allows you to work from the browser: [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart)
+   - [Azure Cloud Shell](/azure/cloud-shell/overview) enables you to work from the browser. For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
    - If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).  
-     - When prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+     - The first time you use Azure CLI, you need to install the Azure CLI extension when prompted. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- The [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool. Install it by running this command: 
 
-Once these are set up, install [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool by running the following command: 
+   ```
+   az aks install-cli 
+   ```
 
-```
-az aks install-cli 
-```
+## Migration steps
 
-## Steps
+The first step is to set up the resources that you need to build a Windows node pool in Kubernetes. To do that, follow the guidance in [Create a Windows Server container on an AKS cluster](/azure/aks/learn/quick-windows-container-deploy-cli), but ***be sure to stop*** when you reach the "Deploy the application" section. At that point, follow the instructions in this article.  
 
-The first step will be to set up the resources needed to build a Windows node pool in Kubernetes. [Everything you need is in this guide here](), but for the purposes of this guide stop once you reach the “Deploy the application” section – we’ll be doing that here!  
+The translation of the Service Fabric configuration manifest to an AKS manifest is an important step. The following sections show:
+- ServiceManifest XML that you might use for a basic Service Fabric deployment. 
+- A functionally equivalent AKS manifest that creates Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) objects. 
 
-One of the most important pieces to consider when moving over is how to translate the Service Fabric configuration manifest to an AKS manifest.  Figure 1 is a sample ServiceManifest XML which you might use for a basic Service Fabric deployment. Figure 2 is a functionally equivalent AKS manifest which creates a Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) objects. The manifests between these services do not have a direct 1-1 mapping as they follow the functional paradigms specific to each service, but the overall intent is the same. A Deployment provides declarative updates for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), while a Service exposes an application running on a set of Pods as a network service. Much of the power of Kubernetes is offered through its extensibility.
+The two manifests don't map one-to-one because they're based on the functional paradigms that are specific to each service, but their intents are the same. (In these samples, variables use the format `<VARIABLE DESCRIPTION>`.)
 
-```
+In the AKS manifest, a `Deployment` object provides declarative updates for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). A `Service` object exposes an application that's running on a set of pods as a network service. Much of the power of Kubernetes is derived from its extensibility.
+
+### Sample Service Fabric ServiceManifest
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 
 <ServiceManifest Name="<APP NAME>"
@@ -57,7 +64,7 @@ One of the most important pieces to consider when moving over is how to translat
     <StatelessServiceType ServiceTypeName="<SERVICE NAME>" UseImplicitHost="true" />
   </ServiceTypes>
  
-  <!-- Code package is your service executable. -->
+  <!-- Code package is your service executable file. -->
   <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
       <ContainerHost>
@@ -82,9 +89,10 @@ One of the most important pieces to consider when moving over is how to translat
   </Resources>
 </ServiceManifest>
 ```
-igure 2: Sample Service Fabric ServiceManifest. Note that <VARIABLE> notation refers to variable names of your choosing.
 
-```
+### Sample AKS manifest
+
+```yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -131,19 +139,18 @@ spec:
   selector:
     app: <SERVICE NAME>
 ```
-Figure 3: AKS Config Manifest
 
-Kubernetes provides a vast toolset of configuration options, which is very useful for experienced operators, but can lead to large and complex manifests. In this case it is recommended you read through our explanation of [Deployment YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) and some of the standard configurations.  
+Kubernetes provides a large set of configuration options, which is useful for experienced developers, but manifests can become large and complex when you use too many of them. To implement a simple migration, we recommend that you review [Deployment YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests). 
+ 
+After you have your manifest, you just need to apply it, and you can watch your app:
 
 ```
 kubectl apply -f <YOUR MANIFEST>.yaml
 kubectl get service <SERVICE NAME> --watch
 ```
 
-From here it’s just a matter of applying your manifest and watching your app go!
-
 > [!NOTE] 
-> This example utilizes the default Kubernetes namespace which is generally only used for basic scenarios. In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Namespaces are important in enforcing security, networking, and resources boundaries. Follow the documentation here to help decide what configuration works best for your application: [Namespaces | Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 
+> This example uses the default Kubernetes namespace, which is generally used only for basic scenarios. In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. Namespaces are important for enforcing security, networking, and resource boundaries. To determine a configuration that works best for your application, see the Kuberetes [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) documentation.
 
 ## Contributors
 
@@ -165,13 +172,16 @@ Other contributors:
 
 ## Next steps  
 
-- AKS news: [AKS release notes](https://github.com/Azure/AKS/releases), the [AKS Roadmap](https://github.com/Azure/AKS/projects/1), and [Azure updates](https://azure.microsoft.com/updates/)
-- Use the [latest windows server images](/virtualization/windowscontainers/manage-containers/container-base-images) as we are constantly making updates, maintaining security, improving performance, and reducing overhead. 
-- Keep up to date with the [latest version of Kubernetes](/azure/aks/release-tracker). 
-- Utilize the [latest frameworks for .NET workloads](/dotnet/azure/sdk/azure-sdk-for-dotnet)Consider performing load tests and performance tuning and periodically assess CPU and Memory quotas applied to AKS pods: [Monitor Azure Kubernetes Service (AKS) with Azure Monitor - Azure Kubernetes Service | Microsoft Learn](/azure/aks/monitor-aks) 
-- Learn how rapidly create and operate workloads on AKS using proven practices with the [AKS Landing Zone Accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator)
-- Learn about [day-2 operations on AKS](/azure/architecture/operator-guides/aks/day-2-operations-guide?WT.mc_id=AKSDOCSPAGE)
+- Keep up-to-date on AKS with [AKS release notes](https://github.com/Azure/AKS/releases), the [AKS Roadmap](https://github.com/Azure/AKS/projects/1), and [Azure updates](https://azure.microsoft.com/updates/).
+- Use the [latest windows server images](/virtualization/windowscontainers/manage-containers/container-base-images) to help maintain security, improve performance, and reduce overhead. 
+- Use the [AKS release tracker](/azure/aks/release-tracker) to keep up-to-date with the latest version of Kubernetes. 
+- Use the [latest SDK for .NET workloads](/dotnet/azure/sdk/azure-sdk-for-dotnet).
+- Consider performing load tests and performance tuning, and periodically assess CPU and memory quotas that are applied to AKS pods: [Monitor AKS with Azure Monitor](/azure/aks/monitor-aks).
+- Learn how to implement workloads on AKS and apply best practices by using the [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
 
 ## Related resources
 
-Link to Transition your workload from Service Fabric to AKS article 
+- [Migrate your workload from Service Fabric to AKS](service-fabric-azure-kubernetes-service.md)
+- [AKS day-2 operations guide](../../operator-guides/aks/day-2-operations-guide.md)
+- [Baseline architecture for an AKS cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
+- [AKS architecture design](../../reference-architectures/containers/aks-start-here.md)
