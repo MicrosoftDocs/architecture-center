@@ -2569,7 +2569,7 @@
     },   
     {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
-      "redirect_url": "docs/reference-architectures/reliable-web-app/dotnet/plan-implementation.yml",
+      "redirect_url": "docs/reference-architectures/reliable-web-app/dotnet/plan-implementation",
       "redirect_document_id": false
     }
   ]
