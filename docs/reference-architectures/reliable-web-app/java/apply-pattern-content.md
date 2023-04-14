@@ -1,6 +1,6 @@
-This article describes how to apply the reliable web app pattern for Java. The companion article describes how to [plan the implementation](plan-implementation.yml). The reliable web app pattern helps developers modify web applications that have recently migrated to the cloud. The pattern focuses on the minimal, essential changes you should make to ensure the success of your web app in the cloud. For more information, see [Overview of the reliable web app pattern](../overview.md).
+The reliable web app pattern provides implementation guidance to replatform web applications that are transitioning to the cloud. The pattern focuses on the minimal changes you should make to be successful in the cloud. For more information, see [Overview of the reliable web app pattern](../overview.md).
 
-A [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) is available for you to deploy. It applies the reliable web app pattern to an employee-facing line-of-business (LOB) web application.
+This article describes how to apply the reliable web app pattern for Java. The companion article outlines how to [plan an implementation of the reliable web app pattern for Java](plan-implementation.yml). A [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) of the pattern is available for you to deploy.
 
 ## Architecture and code
 
@@ -208,7 +208,7 @@ The term *secret* refers to anything that you don't want exposed in plain text (
 
 To integrate Key Vault with a Spring application, you need to (1) add the Azure Spring Boot Starter For Azure Key Vault Secrets in the `pom.xml` file and (2) configure a Key Vault endpoint in either the `application.properties` file or as an environment variable.
 
-*Reference implementation.* The reference implementation uses the following code to add the Azure Spring Boot Starter for Azure Key Vault Secrets in the `pom.xml`:
+*Reference implementation.* The reference implementation uses the following code to add the Azure Spring Boot Starter For Azure Key Vault Secrets in the `pom.xml`:
 
 ```xml
 <dependency> 
