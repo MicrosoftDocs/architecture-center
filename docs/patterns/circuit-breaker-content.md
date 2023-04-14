@@ -266,7 +266,7 @@ catch (Exception ex)
 
 The following patterns might also be useful when implementing this pattern:
 
-- Reliable web app pattern shows you how to apply the Circuit Breaker pattern to [.NET](../reference-architectures/reliable-web-app/dotnet/apply-pattern.yml) and [Java](../reference-architectures/reliable-web-app/java/apply-pattern.yml) web apps recently migrated to the cloud. For more information, see the [[Overview of the reliable web app pattern](../reference-architectures/reliable-web-app/dotnet/overview.md)].
+- Reliable web app pattern shows you how to apply the Circuit Breaker pattern to [.NET](../reference-architectures/reliable-web-app/dotnet/apply-pattern.yml) and [Java](../reference-architectures/reliable-web-app/java/apply-pattern.yml) web apps recently migrated to the cloud. For more information, see the [Overview of the reliable web app pattern](../reference-architectures/reliable-web-app/overview.md).
 
 - [Retry pattern](./retry.yml). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
 
