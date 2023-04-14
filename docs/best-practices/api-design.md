@@ -537,9 +537,7 @@ You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
 ## Next steps
 
-- [Microsoft REST API guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Detailed recommendations for designing public REST APIs.
-
-- [Azure REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md). Design guidelines for Azure REST APIs.
+- [Microsoft Azure REST API Guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md). Detailed recommendations for designing REST APIs on Azure.
 
 - [Web API checklist](https://mathieu.fenniak.net/the-api-checklist). A useful list of items to consider when designing and implementing a web API.
 

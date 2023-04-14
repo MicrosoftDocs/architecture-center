@@ -2,7 +2,8 @@ This solution shows you how to build, test, and deploy an app that runs on multi
 
 ## Architecture
 
-![Diagram of a multi-cloud deployment architecture.](../media/hybrid-continuous-integration.png)
+![Diagram of a multi-cloud deployment architecture.](../media/hybrid-continuous-integration.svg)
+
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-continuous-integration.vsdx) of this architecture.*
 
 ### Dataflow

@@ -11,6 +11,7 @@ metadata:
   ms.subservice: reference-architecture
   ms.custom:
     - fcp
+    - devx-track-terraform
 name: Gridwich variable flow using Terraform and Azure Pipelines
 summary: Learn how Gridwich converts Azure Pipelines pipeline variable group variables to Terraform variables.
 products:

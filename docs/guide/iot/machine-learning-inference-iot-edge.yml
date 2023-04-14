@@ -4,7 +4,7 @@ metadata:
   description: Enable machine learning inference on an IoT Edge device. Scenarios include image classification, object detection, and body, face, and gesture analysis.
   author: bwang482
   ms.author: bwa 
-  ms.date: 01/09/2023
+  ms.date: 04/11/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
