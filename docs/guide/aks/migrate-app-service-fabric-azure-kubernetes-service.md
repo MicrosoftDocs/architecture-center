@@ -34,7 +34,7 @@ Before you start the migration, you need the following:
      - The first time you use Azure CLI, you need to install the Azure CLI extension when prompted. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - The [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool. Install it by running this command: 
 
-   ```
+   ```azurecli    
    az aks install-cli 
    ```
 
@@ -72,7 +72,7 @@ In the AKS manifest, a `Deployment` object provides declarative updates for 
         <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables to your container: -->    
+    <!-- Pass environment variables to your container. -->    
     <EnvironmentVariables>
       <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
       <EnvironmentVariable Name="BackendServiceName" Value=""/>
@@ -140,7 +140,7 @@ spec:
     app: <SERVICE NAME>
 ```
 
-Kubernetes provides a large set of configuration options, which is useful for experienced developers, but manifests can become large and complex when you use too many of them. To implement a simple migration, we recommend that you review [Deployment YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests). 
+Kubernetes provides a large set of configuration options, which is useful for experienced developers, but manifests can become large and complex when you use too many of them. To learn about implementing a simple migration, we recommend that you review [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests). 
  
 After you have your manifest, you just need to apply it, and you can watch your app:
 
@@ -177,7 +177,7 @@ Other contributors:
 - Use the [AKS release tracker](/azure/aks/release-tracker) to keep up-to-date with the latest version of Kubernetes. 
 - Use the [latest SDK for .NET workloads](/dotnet/azure/sdk/azure-sdk-for-dotnet).
 - Consider performing load tests and performance tuning, and periodically assess CPU and memory quotas that are applied to AKS pods: [Monitor AKS with Azure Monitor](/azure/aks/monitor-aks).
-- Learn how to implement workloads on AKS and apply best practices by using the [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator).
+- Use the [AKS landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator) to implement workloads on AKS and apply best practices.
 
 ## Related resources
 
