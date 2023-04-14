@@ -32,7 +32,9 @@ In the **[baseline architecture for mission-critical application](/azure/archite
 -	Serve static content from edge nodes by using integrated content delivery networks (CDNs)
 -	Block unauthorized access with integrated web application firewall
 
-Reliability and resiliency built into Azure Front Door is more than enough to meet most business requirements. However, with any distributed system, expect failure; even for Front Door. If the business requirements demand a higher composite SLA or zero-down time in case of an outage, you’ll need to rely on an alternate traffic ingress path. However, the pursuit of a higher composite SLA comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
+Reliability and resiliency built into Azure Front Door has been tried across many solutions and is more than enough to meet most business requirements. Outages are fixed quickly and the resiliency is hardened using learnings from such events. For more information about Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios)
+
+However, with any distributed system, expect failure. If the business requirements demand a higher composite SLA or zero-down time in case of an outage, you’ll need to rely on an alternate traffic ingress path. However, the pursuit of a higher composite SLA comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
 One approach is to define a secondary path, with alternate service(s), which becomes active only when Azure Front Door is unavailable. Feature parity with Front Door shouldn’t be treated as a hard requirement. Prioritize features that you absolutely need for business continuity purposes, even potentially running in a limited capacity.
 
@@ -40,15 +42,6 @@ Another approach is using third-party technology for global routing. This approa
 
 This article describes some strategies for global routing using Azure Traffic Manager as the alternate router in situations where Azure Front Door isn’t available.
 
-## Traffic ingress
-
-When your clients send traffic to your application, it traverses a *path*. Typically, the path includes parts of the internet, before the requests are routed to the Microsoft global network.
-
-In a simple application architecture, your client might connect directly to your application servers in Azure. Your application might even perform client-side load balancing, sending requests to a set of application servers. However, as you grow and your solution matures, it's a good practice to perform traffic routing within Azure Front Door. Azure Front Door provides many capabilities to support global application delivery, including anycast routing to a large network of global points of presence (PoPs), transparent failover between origins, a web application firewall to secure your solution, caching capabilities to improve application performance and reduce the load on your origin servers, and Private Link integration. For more information about Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios).
-
-Azure Front Door is a highly available service. It has an industry-leading SLA of 99.99% uptime, which is much higher than many other CDNs. Further, teams throughout Microsoft rely on Azure Front Door to accelerate the delivery of web traffic in a secure and reliable manner to customers. However, no cloud-based service is infallible. We take a great deal of care to avoid outages, and we fix them quickly and learn from them whenever they happen. For most customers, the reliability and resiliency built into the Azure Front Door platform is more than enough to meet their business requirements. Occasionally, some customers have mission-critical solutions that require them to minimize the risk and impact of any downtime.
-
-You can switch between Azure Front Door and other CDNs or application delivery services during an outage or a disaster. However, you need to carefully consider these architectures. They introduce complexity, and bring significant costs and limitations. Further, they might limit your ability to use some important features of Azure Front Door.
 
 ## Approach
 
