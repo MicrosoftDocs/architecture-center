@@ -41,6 +41,7 @@ Consider an example multitenant solution that's built using the [Deployment Stam
 ![Diagram showing two stamps, with tags added to each component.](media/cost-management-allocation/tags.png)
 
 The tagging strategy employed here is as follows:
+
 - Every resource has a `stamp-id` tag.
 - Every sharded database has a `shard-id` tag.
 - Every resource dedicated to a specific tenant has a `tenant-id` tag.
@@ -63,9 +64,9 @@ However, Application Insights and other logging and monitoring solutions are not
 
 If you need to track precise details about consumption or usage for billing purposes, you should instead build a custom pipeline to log the necessary data. You should then aggregate the data, based on your requirements. Azure services that can be helpful for this purpose include [Event Hubs](https://azure.microsoft.com/services/event-hubs), to capture large volumes of telemetry, and [Stream Analytics](https://azure.microsoft.com/services/stream-analytics), to process it in real time.
 
-### Use Azure Reservations to reduce costs
+### Use Azure Reservations and Azure savings plan to reduce costs
 
-[Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) enable you to reduce your Azure costs by pre-committing to a certain level of spend. Reservations apply to a number of Azure resource types. 
+**Azure Reservations:** [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) enable you to reduce your Azure costs by pre-committing to a certain level of spend. Reservations apply to a number of Azure resource types. 
 
 Reservations can be used effectively in a multitenant solution. Note the following considerations:
 
@@ -75,6 +76,10 @@ Reservations can be used effectively in a multitenant solution. Note the followi
 Azure Reservations enables you to [scope your reservations](/azure/cost-management-billing/reservations/prepare-buy-reservation#scope-reservations) to apply to a resource group, a subscription, or a set of subscriptions. This means that you can take advantage of reservations, even if you shard your workload across multiple subscriptions.
 
 Reservation scopes can also be helpful, when you have tenants with unpredictable workloads. For example, consider a solution in which tenant A only needs one instance of a specific resource, but tenants B and C each need two. Then tenant B becomes less busy, so you reduce the instance count, and tenant A gets busier, so you increase the instance count. Your reservations are applied to the tenants that need them.
+
+**Azure savings plan for compute:** Azure savings plan for compute is a flexible cost-saving plan that generates significant savings over pay-as-you-go prices. You agree to a one-year or three-year contract and receive discounts on eligible compute services. These services include virtual machines, dedicated hosts, container instances, Azure premium functions, and Azure app services. Savings apply to these compute services regardless of the region, instance size, or operating system. For more information, see [Azure savings plan overview](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and [Azure savings plan documentation](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+
+**Combine reservations and savings plan:** To further optimize cost and flexibility, you can combine an Azure savings plan with Azure Reservations.
 
 ## Antipatterns to avoid
 
