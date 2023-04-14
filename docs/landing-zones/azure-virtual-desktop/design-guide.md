@@ -46,7 +46,7 @@ Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zon
   - [Identity and access management](/azure/cloud-adoption-framework/scenarios/wvd/eslz-identity-and-access-management)
   - [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/wvd/eslz-network-topology-and-connectivity)
   - [Resource organization](/azure/cloud-adoption-framework/scenarios/wvd/eslz-resource-organization) 
-- Environment design principles
+- Compliance design principles
   - [Management and monitoring](/azure/cloud-adoption-framework/scenarios/wvd/eslz-management-and-monitoring)
   - [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery)
   - [Security governance and compliance](/azure/cloud-adoption-framework/scenarios/wvd/eslz-security-governance-and-compliance)
@@ -63,7 +63,7 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 #### Architecture
 
 > [!IMPORTANT]
-> The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions highlighted by the dashed red lines in the architecture diagram. **It is recommended that an appropriate platform foundation is already deployed, to provide the enterprise-scale services required by the resources that the accelerator deploys.** Ideally, the platform reference implementation was deployed from the official set of [Cloud Adoption Framework platform landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation).
+> The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the architecture diagram. **It's recommended that an appropriate platform foundation is already deployed, to provide the enterprise-scale services required by the resources that the accelerator deploys.** Ideally, a platform reference implementation was deployed from the official set of [Cloud Adoption Framework platform landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation). Deploying one of the official platform landing zones will also ensure you're compliant with the deployment prerequisites discussed later.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
 
@@ -73,8 +73,8 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 
 The ![GitHub logo](../../_images/github.png) [Azure Virtual Desktop landing zone accelerator](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments, and provides multiple IaC template options:
 
-- ARM template with the Azure portal
-- Bicep/ARM template with Azure CLI or Azure PowerShell
+- Azure portal UI using ARM template
+- Azure CLI or Azure PowerShell using Bicep/ARM template
 - Terraform template
 
 The accelerator uses resource naming automation based on the following recommendations:
