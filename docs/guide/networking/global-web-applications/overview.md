@@ -32,7 +32,7 @@ In the **[baseline architecture for a mission-critical application](/azure/archi
 -	Serve static content from edge nodes by using integrated content delivery networks (CDNs)
 -	Block unauthorized access with integrated web application firewall
 
-Reliability and resiliency built into Azure Front Door has been tried across many solutions and is more than enough to meet most business requirements. Outages are fixed quickly and resiliency is hardened using learnings from such events. For more information about Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios).
+Front Door features for reliability and resiliency have been tried across many solutions and is more than enough to meet most business requirements. Outages are fixed quickly and resiliency is hardened using learnings from such events. For more information about Front Door's capabilities, see [Accelerate and secure your web application with Azure Front Door](/azure/frontdoor/scenarios).
 
 However, with any distributed system, expect failure. If the business requirements demand a higher composite SLA or zero-down time in case of an outage, you’ll need to rely on an alternate traffic ingress path. However, the pursuit of a higher composite SLA comes with significant costs, operational overhead, and can lower your overall reliability. Carefully consider the [tradeoffs](#tradeoffs) and potential issues that the alternate path might introduce in other components that are on the critical path. Even when the impact of unavailability is significant, complexity might outweigh the benefit.
 
