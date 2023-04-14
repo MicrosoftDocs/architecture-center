@@ -1,30 +1,29 @@
 ---
 title: Migrate a simple app from Service Fabric to AKS
-description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
-author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
-ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
-ms.date: <Publish or major update date - mm/dd/yyyy>
+description: Use an example to guide your application migration from Azure Service Fabric to Azure Kubernetes Service.  
+author: allyford
+ms.author: allyford
+ms.date: 04/18/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
-  - <Choose 1-5 products from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
-  - <1-5 products>
-  - <1-5 products>
+  - azure-kubernetes-service
+  - azure-service-fabric
 categories:
-  - <Choose at least one category from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#azure-categories>
-  - <There can be more than one category>
+  - containers
+  - migration
 ---
 
 # Migrate a simple app from Service Fabric to AKS
 
-The following article builds off of the [Transition your workload from Service Fabric to AKS](link) architectural guide.  Use that article to build your understanding of AKS concepts and how they relate to Service Fabric and considerations for migrating your workloads.  This article provides an example workload migration to help put these learnings into action. 
+This article provides an example workload migration to help you implement some of the conceptual information provided in [Migrate your workload from Service Fabric to AKS](docs/guide/aks/service-fabric-azure-kubernetes-service.md). That article provides information about Azure Kubernetes Service (AKS) and a comparison of AKS with Azure Service Fabric. It also describes considerations to take into account when you migrate your workloads. 
 
-This example is focused on Windows-based Service Fabric applications which have already been containerized. If your application is not containerized it is worth testing to see if it can be containerized. e If your application depends on the Service Fabric programming models (reliable services, reliable actors, ASP.NET Core and Guest executables), you will likely need to do some degree of refactoring.  Documentation covering this scenario will be provided in the future.
+This example focuses on Windows-based Service Fabric applications that have already been containerized. If your application isn't containerized, consider investigating whether you can containerize it. If the application depends on Service Fabric programming models (Reliable Services, Reliable Actors, ASP.NET Core, and guest executables), you'll probably need to do some refactoring.
 
-To test out your application in a container, please [follow this guide](/azure/aks/tutorial-kubernetes-prepare-app). If you are containerizing an ASP.NET application, [follow this guide](/azure/migrate/tutorial-app-containerization-aspnet-kubernetes).
+For information about containerizing your application, see [Prepare an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app). For information about containerizing an ASP.NET application, see [ASP.NET app containerization and migration to AKS](/azure/migrate/tutorial-app-containerization-aspnet-kubernetes).
 
-Prerequisites
+## Prerequisites
 
 Before starting migration, you need the following prerequisites.
 

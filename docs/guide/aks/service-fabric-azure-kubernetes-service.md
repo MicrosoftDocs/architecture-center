@@ -3,7 +3,7 @@ title: Migrate your workload from Service Fabric to AKS
 description: Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS. 
 author: allyford
 ms.author: allyford
-ms.date: 04/14/2023
+ms.date: 04/18/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
