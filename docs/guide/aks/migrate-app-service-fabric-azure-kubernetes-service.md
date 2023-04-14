@@ -28,7 +28,7 @@ For information about containerizing your application, see [Prepare an applicati
 Before you start the migration, you need the following:
 
 - An application image that's stored in Azure Container Registry. 
-- A Bash environment for which you can configure your Azure resources. 
+- A Bash environment that you can use to configure your Azure resources. 
    - [Azure Cloud Shell](/azure/cloud-shell/overview) enables you to work from the browser. For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
    - If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).  
      - The first time you use Azure CLI, you need to install the Azure CLI extension when prompted. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
