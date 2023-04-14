@@ -151,7 +151,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 - Virtual Machine Scale Sets optimizes costs by minimizing the number of unnecessary hardware instances that run your application when demand is low.
 - SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.  
-- Azure Reserved Virtual Machine Instances with pay-as-you-go prices help manage costs across predictable and variable workloads. In many cases, you can further reduce your costs by implementing reserved-instance size flexibility.
+- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. In many cases, you can further reduce your costs by implementing reserved-instance size flexibility.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit) is a licensing benefit that can help you significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure.
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution. Here's an [estimate that's based on the components of this solution, at a reasonable scale](https://azure.com/e/f5d10c617bfa410cb7566ee7f30a8e2f).

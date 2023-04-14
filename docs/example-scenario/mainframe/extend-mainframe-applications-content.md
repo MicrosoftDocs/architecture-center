@@ -139,7 +139,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure provides cost optimization by running on Windows VMs or Linux containers (to be managed later by AKS). Doing so lets you shut down the VMs or containers when they're not in use and script a schedule for known usage patterns. Azure focuses on avoiding unnecessary costs by identifying the right number or resource types, analyzing spend over time, and scaling to meet business needs without overspending.
-- Lower your total cost of ownership by combining Azure Reserved Instances with pay-as-you-go prices to manage costs across both predictable and variable workloads. In many cases, you can further reduce your costs with reserved instance size flexibility.
+- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. In many cases, you can further reduce your costs with reserved instance size flexibility.
 - Azure provides various licensing options for the Power Apps platform as well, which can be controlled and managed with respect to the total number of users, sign-ins that are allowed, and page views.
 
 Use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution.
