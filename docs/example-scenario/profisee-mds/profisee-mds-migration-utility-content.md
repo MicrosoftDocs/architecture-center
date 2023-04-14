@@ -4,19 +4,19 @@ This example scenario demonstrates how to migrate from SQL Server Master Data Se
 
 ![Architectural diagram showing the data flow when migrating from SQL Server MDS to Profisee MDM.](./images/profisee-purview-reference-architecture.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/profisee-purview-reference-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/microsoft-purview-profisee-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
-Metadata and data flow include these steps, shown in the preceding figure:
+Metadata and data flow include these steps, which are shown in the preceding figure:
 
-1. **Build data catalog from source business applications.** Uses pre-built [Microsoft Purview](https://azure.microsoft.com/services/purview/) connectors to scan data sources and populate the Microsoft Purview Data Catalog.
+1. Pre-built Microsoft Purview connectors are used to build a data catalog from source business applications. The connectors scan data sources and populate the Microsoft Purview Data Catalog.
 
-1. **Publish master data model to Microsoft Purview.** Any master data entities you create in Profisee MDM seamlessly publish into Microsoft Purview to further populate the Microsoft Purview Data Catalog and ensure Microsoft Purview is aware of this critical data source.
+1. The master data model is published to Microsoft Purview. Master data entities that are created in Profisee MDM are seamlessly published to Microsoft Purview. This step further populates the Microsoft Purview Data Catalog and ensures that there's a record of this critical source of data in Microsoft Purview.
 
-1. **Take advantage of governance standards and policies for data stewardship.** Governance data stewards enrich master data entity definitions with data dictionary and glossary information and with ownership and sensitive data classifications in Microsoft Purview. Any definitions and metadata available in Microsoft Purview are visible in real-time in Profisee as guidance for the MDM data stewards.
+1. Governance standards and policies for data stewardship are used to enrich master data entity definitions. The data is enriched in Microsoft Purview with data dictionary and glossary information, ownership data, and sensitive data classifications. Any definitions and metadata that are available in Microsoft Purview are visible in real time in Profisee as guidance for the MDM data stewards.
 
-1. **Load master data from source systems to Profisee MDM application.** [Azure Data Factory](https://azure.microsoft.com/products/data-factory/) (or any DI toolset) extracts data from source systems with 100+ pre-built connectors or REST gateway. Multiple streams of master data load into Profisee MDM. Master data is the data that defines a domain entity such as customer, product, asset, location, vendor, patient, household, menu item, or ingredient. This data is typically present in multiple systems. Resolving differing definitions and matching and merging this data across systems is critical to using any cross-system data in a meaningful way.
+1. Master data from source systems is loaded into Profisee MDM. A data integration toolset like Azure Data Factory extracts data from the source systems by using any of more than 100 pre-built connectors or a REST gateway. Multiple streams of master data are loaded into Profisee MDM.
 
 1. **Standardize, match, merge, enrich, and validate master data according to governance rules.** Although data quality and governance rules might be defined in other systems (such as Microsoft Purview), Profisee MDM is where they're enforced. Source records are matched and merged both within and across source systems to create the most complete and correct record possible. Data quality rules check each record for compliance with business and technical requirements. Any record failing validation or matching with only a low probability score is subject to remediation. To remediate failed validations, a workflow process assigns records requiring review to data stewards who are experts in their business data domains. After records are verified or corrected, they're ready to use as a golden record master.
 
