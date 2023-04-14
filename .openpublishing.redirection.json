@@ -2566,6 +2566,11 @@
       "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
       "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
       "redirect_document_id": false
+    },   
+    {
+      "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
+      "redirect_url": "docs/reference-architectures/reliable-web-app/dotnet/plan-implementation.yml",
+      "redirect_document_id": false
     }
   ]
 }
