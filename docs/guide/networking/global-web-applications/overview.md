@@ -25,7 +25,7 @@ categories:
 
 Mission-critical systems strive to minimize single points of failure by building redundancy and self-healing capabilities in the solution as much as possible. Any unified entry point of the system can be considered a point of failure. If this component experiences an outage, the entire system will be offline to the user.  When choosing a routing service, it’s important to consider the reliability of the service itself.  
 
-In the **[baseline architecture for mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
+In the **[baseline architecture for a mission-critical application](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro)**, Azure Front Door was chosen because of its 99.99% uptime SLA and a rich feature set:
 
 -	Route traffic to multiple regions in an active-active model
 - Transparent failover using TCP anycast
