@@ -63,7 +63,7 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 #### Architecture
 
 > [!IMPORTANT]
-> The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the architecture diagram. **It's recommended that an appropriate platform foundation is already deployed, to provide the enterprise-scale services required by the resources that the accelerator deploys.** Ideally, a platform reference implementation was deployed from the official set of [Cloud Adoption Framework platform landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation). Deploying one of the official platform landing zones will also ensure you're compliant with the deployment prerequisites discussed later.
+> The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram. **It's recommended that an appropriate platform landing zone is already deployed, to provide the enterprise-scale foundation services required by the resources that the accelerator deploys.** Ideally, a platform reference implementation was deployed from the official set of [Cloud Adoption Framework platform landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation). Deploying one of the official platform landing zones will also ensure you're compliant with the deployment prerequisites discussed later.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
 
@@ -86,7 +86,7 @@ Before proceeding with the deployment scenarios, familiarize yourself with the A
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" alt-text="Diagram showing organization and naming of Azure resources deployed by the Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" :::
 
-*Hold down CTRL while selecting [this link of the resource diagram](https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png) to open a full-sized image in a new tab*
+*Download a [full-sized image of this diagram](https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png)*
 
 #### Accelerator deployment
 
