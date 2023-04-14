@@ -9,8 +9,8 @@ A well-architected web application needs quality code, and quality code needs a 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.png)](images/reliable-web-app-java.png)
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost, see:*
 
-- [Production environment estimated cost](https://azure.com/e/c530c133f36c423e9774de286f7dd28a)
-- [Non-production environment estimated cost](https://azure.com/e/48201e05118243e089ded6855839594a)
+- [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
+- [Non-production environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
 
 The following table lists the principles of the reliable web app pattern and how the reference implementation applies these principles.
 
