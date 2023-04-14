@@ -412,7 +412,7 @@ items:
                   href: guide/testing/mission-critical-deployment-testing.md
             - name: Mitigation strategies
               items:
-                - name: Global routing redundancy for highly available web applications
+                - name: Global routing redundancy
                   items:
                   - name: Overview
                     href: guide/networking/global-web-applications/overview.md
