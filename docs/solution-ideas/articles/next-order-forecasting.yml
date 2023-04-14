@@ -20,6 +20,6 @@ products:
   - power-apps
 name: Use AI to forecast customer orders 
 summary: Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU.
-thumbnailUrl: /azure/architecture/browse/thumbs/next-order-forecasting.png
+thumbnailUrl: /azure/architecture/browse/thumbs/order-forecasting.png
 content: |
   [!include[](next-order-forecasting-content.md)]
