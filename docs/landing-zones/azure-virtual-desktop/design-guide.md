@@ -73,8 +73,8 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 
 The ![GitHub logo](../../_images/github.png) [Azure Virtual Desktop landing zone accelerator](https://github.com/Azure/avdaccelerator) supports multiple deployment scenarios depending on your requirements. Each deployment scenario supports both greenfield and brownfield deployments, and provides multiple IaC template options:
 
-- Azure portal UI using ARM template
-- Azure CLI or Azure PowerShell using Bicep/ARM template
+- Azure portal UI (ARM template)
+- Azure CLI or Azure PowerShell (Bicep/ARM template)
 - Terraform template
 
 The accelerator uses resource naming automation based on the following recommendations:
@@ -93,20 +93,22 @@ Before proceeding with the deployment scenarios, familiarize yourself with the A
 To continue with deployment, choose one of the following deployment scenario tabs that best matches your requirements:
 
 # [Baseline deployment](#tab/baseline)
-The baseline deployment deploys Azure Virtual Desktop resources and dependent services that allow you to establish a baseline, including the following items:
+The baseline deployment deploys Azure Virtual Desktop resources and dependent services that allow you to establish an Azure Virtual Desktop baseline. This deployment scenario includes the following items:
 
-- Azure Virtual Desktop resources, including one workspace and two application groups and a host pool
-- Azure Files share
-- Integration with Azure Active Directory
-- Session hosts
-- Optionally, a new virtual network with baseline Network Security Group (NSG) and route table
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) resources including one workspace, two application groups, a scaling plan, a host pool, and session host virtual machines
+- An [Azure Files share](/azure/storage/files/files-smb-protocol) integrated with your identity service
+- [Azure Key Vault](/azure/key-vault/general/overview) for secret, key, and certificate management
+- Optionally, a new virtual network with baseline Network Security Groups (NSG), Application Security Groups (ASG), and route tables
 
 When you're ready for deployment, complete the following steps:
 1. Review the [Get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
 2. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
+3. Optionally, refer to the [Custom image build deployment tab](design-guide?tabs=custom-image) to build an updated image for your Azure Virtual Desktop host sessions.
 
 # [Custom image build deployment](#tab/custom-image)
-The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding additional scripts to further customize your images. The following images are currently offered:
+The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding additional scripts to further customize your images. 
+
+The following images are currently offered:
 
 - Windows 10 21H2
 - Windows 10 22H2 (Gen 2)
