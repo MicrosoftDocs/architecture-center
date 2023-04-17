@@ -413,7 +413,7 @@ In order to run the JMeter script, you can follow these steps:
 
 1. On the test plan tab, select and upload the JMeter script along with the liquid and JAR file containing the plugin. A prebuild JAR file for the Event hub sampler is available to download [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/blob/main/target/loadtestplugins-1.0.jar).
 
-    :::image type="content" source="images/load-testing-configuration-testplanuploaded.png" alt-text="Screenshot that shows the test plan page." :::
+    :::image type="content" source="images/load-testing-configuration-test-plan-uploaded.png" alt-text="Screenshot that shows the test plan page." :::
 
     > [!TIP]
     > The size for the JAR file should not be exceeded 10MB. If your file is larger than 10MB, you will need to split your JAR file to multiple files or try to use shaded version of your JAR file to minimize the file.
