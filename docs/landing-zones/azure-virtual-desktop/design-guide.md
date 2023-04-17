@@ -63,7 +63,9 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 #### Architecture
 
 > [!IMPORTANT]
-> The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram. **It's recommended that an appropriate platform landing zone is already deployed, to provide the enterprise-scale foundation services required by the resources that the accelerator deploys.** Ideally, a platform reference implementation was deployed from the official set of [Cloud Adoption Framework platform landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation). Deploying one of the official platform landing zones will also ensure you're compliant with the deployment prerequisites discussed later.
+> The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram: **AVD LZ Subscription**, and **AVD Shared Services LZ Subscription**. 
+> 
+> **You're strongly encouraged to deploy the appropriate platform landing zone first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** A platform landing zone can be deployed from the official set of [Cloud Adoption Framework platform landing zones](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation). Deploying one of the official platform landing zones ensures you're compliant with the deployment prerequisites discussed later.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
 
@@ -82,7 +84,7 @@ The accelerator uses resource naming automation based on the following recommend
 - The [recommended abbreviations for Azure resource types](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations)
 - The [minimum suggested tags](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging#minimum-suggested-tags). 
 
-Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and hierarchy](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator: 
+Before proceeding with the deployment scenarios, familiarize yourself with the Azure resource [naming, tagging, and organization](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/resource-naming.md) used by the accelerator: 
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" alt-text="Diagram showing organization and naming of Azure resources deployed by the Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-resource-organization-naming.png" :::
 
@@ -90,20 +92,22 @@ Before proceeding with the deployment scenarios, familiarize yourself with the A
 
 #### Accelerator deployment
 
-To continue with deployment, choose one of the following deployment scenario tabs that best matches your requirements:
+To continue with deployment, choose the following deployment scenario tab that best matches your requirements:
 
 # [Baseline deployment](#tab/baseline)
-The baseline deployment deploys Azure Virtual Desktop resources and dependent services that allow you to establish an Azure Virtual Desktop baseline. This deployment scenario includes the following items:
+The baseline deployment deploys the Azure Virtual Desktop resources and dependent services that allow you to establish an Azure Virtual Desktop baseline. 
 
-- [Azure Virtual Desktop](/azure/virtual-desktop/overview) resources including one workspace, two application groups, a scaling plan, a host pool, and session host virtual machines
+This deployment scenario includes the following items:
+
+- [Azure Virtual Desktop](/azure/virtual-desktop/overview) resources, including one workspace, two application groups, a scaling plan, a host pool, and session host virtual machines
 - An [Azure Files share](/azure/storage/files/files-smb-protocol) integrated with your identity service
 - [Azure Key Vault](/azure/key-vault/general/overview) for secret, key, and certificate management
-- Optionally, a new virtual network with baseline Network Security Groups (NSG), Application Security Groups (ASG), and route tables
+- Optionally, a new [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) with baseline Network Security Groups (NSG), Application Security Groups (ASG), and route tables
 
 When you're ready for deployment, complete the following steps:
 1. Review the [Get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
 2. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
-3. Optionally, refer to the [Custom image build deployment tab](design-guide.md?tabs=custom-image#tabpanel_1_custom-image) to build an updated image for your Azure Virtual Desktop host sessions.
+3. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions.
 
 # [Custom image build deployment](#tab/custom-image)
 The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding additional scripts to further customize your images. 
@@ -114,10 +118,10 @@ The following images are currently offered:
 - Windows 10 22H2 (Gen 2)
 - Windows 11 21H2 (Gen 2)
 - Windows 11 22H2 (Gen 2)
-- Windows 10 21H2 with M365
-- Windows 10 22H2 with M365 (Gen 2)
-- Windows 11 21H2 with M365 (Gen 2)
-- Windows 11 22H2 with M365 (Gen 2)
+- Windows 10 21H2 with Microsoft 365
+- Windows 10 22H2 with Microsoft 365 (Gen 2)
+- Windows 11 21H2 with Microsoft 365 (Gen 2)
+- Windows 11 22H2 with Microsoft 365 (Gen 2)
 
 You can also opt to enable the Trusted Launch or Confidential VM security type feature on the Azure Compute Gallery image definition. A custom image is optimized using [Virtual Desktop Optimization Tool (VDOT)](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) and patched with the latest Windows updates.
 
