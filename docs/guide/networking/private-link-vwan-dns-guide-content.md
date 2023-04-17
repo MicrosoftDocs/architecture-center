@@ -1,10 +1,10 @@
-Azure Private Link allows you to access Azure PaaS services directly from your private virtual networks without traversing public networks. You configure a private endpoint in your network that uses a private IP address from your network. Clients can then connect privately to Private Link services through that private endpoint.
+Azure Private Link allows you to access Azure PaaS services directly from your private virtual networks without using public IP addressing. You configure a private endpoint in your network that uses a private IP address from your network. Clients can then connect privately to Private Link services through that private endpoint.
 
 Clients don't need to change to be aware of the private IP address of the private endpoint. They continue to connect to the service through its normal Fully Qualified Domain Name (FQDN). The requirement to make this approach possible is that you must configure DNS in your network to resolve the FQDN to the private IP address of the private endpoint instead of the service's public IP. Your network design and, in particular, your DNS configuration plays a key factor in supporting private endpoint connectivity to services.
 
 This article series takes a common hub-and-spoke network topology using Azure Virtual WAN and provides guidance on implementing several Private Link scenarios.
 
-## Common network topology
+## Starting network topology
 
 The starting network topology used in this series was chosen to illustrate a common network architecture while incorporating Private Link and DNS. Your network design likely has differences, but the solutions you use when designing your workloads remain similar.
 
@@ -121,7 +121,7 @@ The following example represents a naive attempt to use private endpoints with o
              DNS Servers: 10.100.0.132    
     ```
 
-2. Azure Firewall DNS Proxy is enabled in the virtual hub, so the DNS query of stgworkload00.blob.core.windows.net is proxied to Azure DNS.
+2. Azure Firewall DNS Proxy is enabled in the virtual hub's Azure Firewall, with the default setting to forward requests to Azure DNS. Thus, the DNS query of stgworkload00.blob.core.windows.net is forwarded to Azure DNS.
 3. Azure DNS can't resolve stgworkload00.blob.core.windows.net to the private IP address of the private endpoint because: 1. you can't link a private DNS zone to the virtual hub and 2. Azure DNS won't be aware of a private DNS zone linked to the workload virtual network because the configured DNS server for the workload virtual network is Azure Firewall. Azure DNS responds with the public IP address of the storage account.
 
     Running the following command from the VM resolves the storage account's DNS to the public IP of the storage account.
@@ -157,7 +157,6 @@ Each scenario starts with the desired end state and details the configuration re
 
 | Guide | Description |
 | --- | --- |
-| [Virtual hub extensions pattern](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) | This pattern addresses how to expose shared services in a virtual hub in an isolated and secure manner. |
 | [Single region, dedicated PaaS](./private-link-vwan-dns-single-region-workload.yml) | A Workload in a single region accessing one dedicated PaaS resource. |
 
 ## Next steps
