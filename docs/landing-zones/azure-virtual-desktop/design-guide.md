@@ -110,7 +110,7 @@ When you're ready for deployment, complete the following steps:
 3. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions.
 
 # [Custom image build deployment](#tab/custom-image)
-The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding additional scripts to further customize your images. 
+The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images. 
 
 The following images are currently offered:
 
