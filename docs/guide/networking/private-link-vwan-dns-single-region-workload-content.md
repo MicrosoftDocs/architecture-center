@@ -10,7 +10,7 @@ Diagram showing the single-region architecture.
 :::image-end:::
 *Figure 1: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*
 
-This section defines the scenario and redefines the challenge for this scenario (the challenge is the same as the [nonworking example in the overview page](./private-link-vwan-dns-guide.yml#nonworking-scenario)). The initial scenario architecture builds on the [common network topology defined in the overview guide](./private-link-vwan-dns-guide.yml#common-network-topology). The following are the additions and changes:
+This section defines the scenario and redefines the challenge for this scenario (the challenge is the same as the [nonworking example in the overview page](./private-link-vwan-dns-guide.yml#nonworking-scenario)). The initial scenario architecture builds on the [starting network topology defined in the overview guide](./private-link-vwan-dns-guide.yml#starting-network-topology). The following are the additions and changes:
 
 - There's only one region with one virtual hub.
 - There's an Azure Storage account in the region with public network access disabled. This storage account is only intended to be accessed by the single workload in this scenario.
@@ -27,7 +27,7 @@ The Azure Virtual Machine client can connect to the Azure Storage account via th
 You need a DNS record in the DNS flow that is able to resolve the fully qualified domain name (FQDN) of the storage account back to the private IP address of the private endpoint. As identified in the [overview](private-link-vwan-dns-guide.yml#key-challenges), the challenge with this is twofold:
 
 1. It isn't possible to link a private DNS zone that maintains the storage accounts necessary DNS records to a virtual hub.
-1. You can link a private DNS zone to the workload network, so you might think that would work. Unfortunately, the [baseline architecture](./private-link-vwan-dns-guide.yml#common-network-topology) stipulates that each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy.
+1. You can link a private DNS zone to the workload network, so you might think that would work. Unfortunately, the [baseline architecture](./private-link-vwan-dns-guide.yml#starting-network-topology) stipulates that each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy.
 
 Because you can't link a private DNS zone to a virtual hub, and the virtual network is configured to use the Azure Firewall DNS proxy, Azure DNS servers don't have any mechanism to resolve the (FQDN) of the storage account to the private IP address of the private endpoint. The result is that the client receives an erroneous DNS response.
 
@@ -56,7 +56,7 @@ Diagram showing the single-region challenge where the secured virtual hub cannot
 
 ## Solution - Establish a virtual hub extension for DNS
 
-A solution to the challenge is for the enterprise network team to implement a [virtual hub extension](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) for DNS. The single responsibility for the DNS virtual hub extension is to enable workload teams that need to use private DNS zones in their architecture within this [common Virtual WAN hub topology](./private-link-vwan-dns-guide.yml#common-network-topology).
+A solution to the challenge is for the enterprise network team to implement a [virtual hub extension](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) for DNS. The single responsibility for the DNS virtual hub extension is to enable workload teams that need to use private DNS zones in their architecture within this [starting Virtual WAN hub topology](./private-link-vwan-dns-guide.yml#starting-network-topology).
 
 The DNS extension is implemented as a virtual network spoke that is peered to its regional virtual hub. It's possible to link private DNS zones to this virtual network. The virtual network also contains an Azure DNS Private Resolver that enables services outside of this virtual network, like Azure Firewall, to query and receive values from all linked private DNS zones. The following are the components of a typical virtual hub extension for DNS, along with some required configuration changes:
 
@@ -210,7 +210,7 @@ What is important to highlight, is that the FQDN resolves to the private IP addr
 
 This article introduces a scenario where an Azure Virtual Machine client can connect to the Azure Storage account via the storage account's private endpoint that is in the same virtual network. All other access to the storage account is blocked. This scenario requires a DNS record in the DNS flow that is able to resolve the fully qualified domain name (FQDN) of the storage account back to the private IP address of the private endpoint.
 
-The [common network topology](./private-link-vwan-dns-guide.yml#common-network-topology) for this scenario introduces two challenges:
+The [starting network topology](./private-link-vwan-dns-guide.yml#starting-network-topology) for this scenario introduces two challenges:
 
 - It isn't possible to link a private DNS zone with the required DNS records for the storage account to the virtual hub.
 - Linking a private DNS zone to the workload subnet won't work. The common network topology requires that default DNS server and routing rules force the use of Azure Firewall in the regional hub.
