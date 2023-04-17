@@ -1935,6 +1935,8 @@ items:
         maintainContext: true
     - name: Solution ideas
       items:
+      - name: Customer order forecasting
+        href: solution-ideas/articles/next-order-forecasting.yml
       - name: Azure 5G split core shop floor network
         href: solution-ideas/articles/private-network-split-core-manufacture.yml
   - name: Energy and Environment
@@ -3160,6 +3162,8 @@ items:
         href: solution-ideas/articles/customer-churn-prediction.yml
       - name: Customer feedback
         href: solution-ideas/articles/customer-feedback-and-analytics.yml
+      - name: Customer order forecasting
+        href: solution-ideas/articles/next-order-forecasting.yml
       - name: Data science and machine learning
         href: solution-ideas/articles/azure-databricks-data-science-machine-learning.yml
       - name: Defect prevention
@@ -5153,7 +5157,7 @@ items:
       items:
       - name: Custom business processes
         href: solution-ideas/articles/custom-business-processes.yml
-      - name: Elastic Workplace Search on Azure
+      - name: Elastic Enterprise Search on Azure
         href: solution-ideas/articles/elastic-workplace-search.yml
       - name: Line of business extension
         href: solution-ideas/articles/lob.yml
@@ -5239,6 +5243,8 @@ items:
         href: guide/iot/azure-iot-migration-best-practices.md
       - name: Migrate your IoT solutions to Azure
         href: guide/iot/migrate-iot-solution-azure.yml
+      - name: Scale your Azure IoT solutions 
+        href: guide/iot/scale-iot-solution-azure.md
       - name: Azure IoT client SDK support
         href: guide/iot/azure-iot-client-sdk-support.yml
       - name: Moving from test to production

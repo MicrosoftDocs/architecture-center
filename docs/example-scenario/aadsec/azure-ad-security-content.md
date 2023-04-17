@@ -134,11 +134,11 @@ You can also use the Microsoft Graph [reporting API](/azure/active-directory/rep
 
 Authentication methods are key to securing your organization's identities in a hybrid scenario. Microsoft provides [specific guidance](/azure/security/fundamentals/choose-ad-authn) on choosing a hybrid authentication method with Azure AD.
 
-[Azure Advanced Threat Protection (AATP)](/azure-advanced-threat-protection/what-is-atp) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. AATP focuses on UEBA to identify insider threats and flag risk. Even if an identity becomes compromised, AATP can help identify the compromise based on unusual user behavior.
+[Microsoft Defender for Identity](/defender-for-identity/what-is) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. Defender for Identity uses UEBA to identify insider threats and flag risk. Even if an identity becomes compromised, Defender for Identity can help identify the compromise based on unusual user behavior.
 
-AATP is [integrated with Defender for Cloud Apps](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use Defender for Cloud Apps to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users.
+Defender for Identity is [integrated with Defender for Cloud Apps](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use Defender for Cloud Apps to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users.
 
-You can use AATP with [Azure Identity Protection](/azure/active-directory/identity-protection/) to help protect user identities that are synchronized to Azure with [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect).
+You can use Defender for Identity with [Azure AD Identity Protection](/azure/active-directory/identity-protection/) to help protect user identities that are synchronized to Azure with [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect).
 
 Azure [Application Proxy](/azure/active-directory/manage-apps/application-proxy) lets users access on-premises web applications from remote clients. With Application Proxy, you can monitor all sign-in activities for your applications in one place. You can provide secure remote access to on-premises apps, and use Azure features like conditional access for these applications.
 

@@ -6,9 +6,11 @@ The article shows how to implement multi-factor authentication for Outlook mobil
 
 ## Architecture (Exchange Online)
 
-:::image type="content" border="false" source="./media/mobile-online.png" alt-text="Diagram that shows an architecture for enhanced security in an Outlook mobile access scenario. The user's mailbox is in Exchange Online." lightbox="./media/mobile-online.png":::
+:::image type="content" border="false" source="./media/mobile-online.svg" alt-text="Diagram that shows an architecture for enhanced security in an Outlook mobile access scenario. The user's mailbox is in Exchange Online." lightbox="./media/mobile-online.svg":::
 
 In this scenario, users need to use a mobile client that supports modern authentication. We recommend Outlook mobile (Outlook for iOS / Outlook for Android), which is supported by Microsoft. The following workflow uses Outlook mobile.
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-mobile.vsdx) of all diagrams in this article.*
 
 ### Workflow (Exchange Online)
 
@@ -44,7 +46,9 @@ For federated domains, you can configure AD FS to trigger multi-factor authentic
 
 ## Architecture (Exchange on-premises)
 
-:::image type="content" border="false" source="./media/mobile-on-premises.png" alt-text="Diagram that shows an architecture for enhanced security in an Outlook mobile access scenario. The user's mailbox is in Exchange on-premises." lightbox="./media/mobile-on-premises.png":::
+:::image type="content" border="false" source="./media/mobile-on-premises.svg" alt-text="Diagram that shows an architecture for enhanced security in an Outlook mobile access scenario. The user's mailbox is in Exchange on-premises." lightbox="./media/mobile-on-premises.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/secure-hybrid-messaging-mobile.vsdx) of all diagrams in this article.*
 
 In this scenario, users need to use a mobile client that supports modern authentication, as described in [Using hybrid modern authentication](/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019). We recommend Outlook mobile (Outlook for iOS / Outlook for Android), which is supported by Microsoft. The following workflow uses Outlook mobile.
 
