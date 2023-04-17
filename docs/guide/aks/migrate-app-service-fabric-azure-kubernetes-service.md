@@ -25,13 +25,14 @@ For information about containerizing your application, see [Prepare an applicati
 
 ## Prerequisites
 
-Before you start the migration, you need the following:
+Before you start the migration, you need:
 
 - An application image that's stored in Azure Container Registry. 
 - A Bash environment that you can use to configure your Azure resources. 
    - [Azure Cloud Shell](/azure/cloud-shell/overview) enables you to work from the browser. For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
    - If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).  
-     - The first time you use Azure CLI, you need to install the Azure CLI extension when prompted. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  
+     The first time you use Azure CLI, you need to install the Azure CLI extension when prompted. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - The [kubectl](https://kubernetes.io/docs/tasks/tools/) Kubernetes command-line tool. Install it by running this command: 
 
    ```azurecli    
@@ -40,7 +41,7 @@ Before you start the migration, you need the following:
 
 ## Migration steps
 
-The first step is to set up the resources that you need to build a Windows node pool in Kubernetes. To do that, follow the guidance in [Create a Windows Server container on an AKS cluster](/azure/aks/learn/quick-windows-container-deploy-cli), but ***be sure to stop*** when you reach the "Deploy the application" section. At that point, follow the instructions in this article.  
+The first step is to set up the resources that you need to build a Windows node pool in Kubernetes. To do that, follow the guidance in [Create a Windows Server container on an AKS cluster](/azure/aks/learn/quick-windows-container-deploy-cli), but *be sure to stop* when you reach the "Deploy the application" section. At that point, follow the instructions in this article.  
 
 The translation of the Service Fabric configuration manifest to an AKS manifest is an important step. The following sections show:
 - ServiceManifest XML that you might use for a basic Service Fabric deployment. 
@@ -48,7 +49,7 @@ The translation of the Service Fabric configuration manifest to an AKS manifest 
 
 The two manifests don't map one-to-one because they're based on the functional paradigms that are specific to each service, but their intents are the same. (In these samples, variables use the format `<VARIABLE DESCRIPTION>`.)
 
-In the AKS manifest, a `Deployment` object provides declarative updates for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). A `Service` object exposes an application that's running on a set of pods as a network service. Much of the power of Kubernetes is derived from its extensibility.
+In the AKS manifest, a `Deployment` object provides declarative updates for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). A `Service` object exposes an application that's running on a set of pods as a network service. Much of the power of Kubernetes comes from its extensibility.
 
 ### Sample Service Fabric ServiceManifest
 
@@ -140,7 +141,7 @@ spec:
     app: <SERVICE NAME>
 ```
 
-Kubernetes provides a large set of configuration options, which is useful for experienced developers, but manifests can become large and complex when you use too many of them. To learn about implementing a simple migration, we recommend that you review [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests). 
+Kubernetes provides a large set of configuration options, which is useful for experienced developers. But manifests can become large and complex when you use too many of them. To learn about implementing a simple migration, we recommend that you review [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests). 
  
 After you have your manifest, you just need to apply it, and you can watch your app:
 
