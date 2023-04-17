@@ -12,7 +12,7 @@ categories: azure
 products:
 - load-testing
 ---
-# Extending Azure Load Testing using Custom Plugins
+# Azure Load Testing for Event Hubs using a Custom Plugin
 
 Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale on any Azure resources.
 JMeter is a popular open-source load testing tool that is primarily used to test the performance of web applications. It was originally developed for testing web applications. However it can also be used to test other types of applications, such as SOAP and REST web services, FTP servers, databases, and more.
@@ -32,12 +32,283 @@ Azure Event Hubs is a cloud-based event processing service that can be used to c
 
 To implement a custom sampler for Event hubs in JMeter, you need to follow these steps:
 
-1. Create a new Java class named `EventHubPlugin` that extends the AbstractSampler class provided by JMeter. This class should implement the Sampler interface, which includes methods for initializing and executing the sampler.
+1. Create a new Java class named `EventHubPlugin` that extends the AbstractSampler class provided by JMeter. This class should implement the Sampler interface, which includes methods for initializing and executing the sampler:
 
-1. Define the input parameters that are required for the sampler. You can define these parameters by creating instance variables in your class and adding them to the GUI using JMeter GUI Designer. Our custom plugin has three input parameters:
+```java
+
+public class EventHubPlugin extends AbstractSampler implements TestStateListener {
+
+    private static final Logger log = LoggerFactory.getLogger(EventHubPlugin.class);
+
+    private static final Set<String> APPLIABLE_CONFIG_CLASSES = new HashSet<>(
+            Arrays.asList(
+                    "org.apache.jmeter.config.gui.SimpleConfigGui"));
+
+    public static final String LIQUID_TEMPLATE_FILENAME = "liquidTemplateFileName";
+    public static final String EVENT_HUB_CONNECTION_VAR_NAME = "eventHubConnectionVarName";
+    public static final String EVENT_HUB_NAME = "eventHubName";
+
+    private MessageRenderer messageRenderer = null;
+    private String templateFileName = null;
+
+    public EventHubPlugin() {
+        super();
+    }
+
+    public void setEventHubConnectionVarName(String eventHubConnectionVarName) {
+        setProperty(new StringProperty(EVENT_HUB_CONNECTION_VAR_NAME, eventHubConnectionVarName));
+    }
+
+    public String getEventHubConnectionVarName() {
+        return getPropertyAsString(EVENT_HUB_CONNECTION_VAR_NAME);
+    }
+
+    public void setEventHubName(String eventHubName) {
+        setProperty(new StringProperty(EVENT_HUB_NAME, eventHubName));
+    }
+
+    public String getEventHubName() {
+        return getPropertyAsString(EVENT_HUB_NAME);
+    }
+
+    public void setLiquidTemplateFileName(String liquidTemplateFileName) {
+        setProperty(new StringProperty(LIQUID_TEMPLATE_FILENAME, liquidTemplateFileName));
+    }
+
+    public String getLiquidTemplateFileName() {
+        if (templateFileName == null) {
+            templateFileName = getPropertyAsString(LIQUID_TEMPLATE_FILENAME);
+            messageRenderer = new MessageRenderer(templateFileName);
+        }
+
+        return templateFileName;
+    }
+
+    @Override
+    public SampleResult sample(Entry e) {
+        boolean isSuccessful = false;
+
+        SampleResult res = new SampleResult();
+        res.setSampleLabel(this.getName());
+
+        String threadName = Thread.currentThread().getName();
+        String responseMessage = "";
+        String requestBody = "";
+        long bytes = 0;
+        long sentBytes = 0;
+
+        EventHubProducerClient producer = null;
+        EventHubClientBuilder producerBuilder = new EventHubClientBuilder();
+
+        try {
+            String connectionStringVarName = getEventHubConnectionVarName();
+            requestBody = "EventHub Connection String Var Name: ".concat(connectionStringVarName);
+
+            final String connectionString = System.getenv(connectionStringVarName);
+
+            requestBody = requestBody.concat("\n")
+                    .concat("EventHub Connection String: ").concat(connectionString);
+
+            producerBuilder = producerBuilder.connectionString(connectionString, getEventHubName());
+
+            producer = producerBuilder.buildProducerClient();
+
+            // prepare a batch of events to send to the event hub
+            CreateBatchOptions batchOptions = new CreateBatchOptions();
+            EventDataBatch batch = producer.createBatch(batchOptions);
+            int msgCount = 1;
+            String liquidFileName = getLiquidTemplateFileName();
+            requestBody = requestBody.concat("\n")
+                    .concat("Liquid Template File: ").concat(liquidFileName);
+
+            String msg = messageRenderer.Render();
+            requestBody = requestBody.concat("\n\n")
+                    .concat("[Event data #").concat(String.valueOf(msgCount)).concat("]\n")
+                    .concat("Body: ").concat(msg);
+            EventData eventData = new EventData(msg);
+
+            batch.tryAdd(eventData);
+
+            bytes = batch.getSizeInBytes();
+
+            res.sampleStart();
+            // send the batch of events to the event hub
+            producer.send(batch);
+
+            sentBytes = batch.getSizeInBytes();
+            res.latencyEnd();
+
+            res.setDataType(SampleResult.TEXT);
+
+            responseMessage = "OK";
+            isSuccessful = true;
+            res.sampleEnd(); // End timing
+        } catch (AmqpException ex) {
+            log.info("Error calling {} sampler. ", threadName, ex);
+            if (ex.isTransient()) {
+                responseMessage = "A transient error occurred in ".concat(threadName)
+                        .concat(" sampler. Please try again later.\n");
+            }
+            responseMessage = responseMessage.concat(ex.getMessage());
+            res.setResponseData(ex.getMessage(), "UTF-8");
+        } catch (Exception ex) {
+            res.setResponseData(ex.toString(), "UTF-8");
+            responseMessage = ex.getMessage();
+            log.info("Error calling {} sampler. ", threadName, ex);
+        } finally {
+            if (producer != null) {
+                producer.close();
+            }
+            res.setSamplerData(requestBody); // Request Body
+            res.setBytes(bytes);
+            res.setSentBytes(sentBytes);
+            res.setResponseMessage(responseMessage);
+        }
+
+        res.setSuccessful(isSuccessful);
+        return res;
+    }
+
+    @Override
+    public void testStarted() {
+        testStarted("");
+    }
+
+    @Override
+    public void testEnded() {
+        testEnded("");
+    }
+
+    @Override
+    public void testStarted(String host) {
+        // ignored
+    }
+
+    /**
+     * @see org.apache.jmeter.samplers.AbstractSampler#applies(org.apache.jmeter.config.ConfigTestElement)
+     */
+    @Override
+    public boolean applies(ConfigTestElement configElement) {
+        String guiClass = configElement.getProperty(TestElement.GUI_CLASS).getStringValue();
+        return APPLIABLE_CONFIG_CLASSES.contains(guiClass);
+    }
+}
+```
+
+1. Define the input parameters that are required for the sampler. You can implement an interface that can be used in the JMeter GUI Designer to enter the required parameters using the interface. In our example, we have the following input parameters:
+    Our custom plugin has three input parameters:
     1. eventHubConnectionVarName: to specify the connection string variable name for event hub that can be passed to the plugin using environmental variable or as Key Vault,
     1. eventHubName: event hub name in the event hub name space
     1. liquidTemplateFileName: location of a liquid template file, which is used by the plugin to render the content of a payload to send to event hub.
+
+```java
+public class EventHubPluginGui extends AbstractSamplerGui implements ChangeListener {
+    private static final long serialVersionUID = 1L;
+    private static final Logger log = LoggerFactory.getLogger(EventHubPluginGui.class);
+
+    private JPanel panel;
+    private JLabeledTextField eventHubConnectionStringVarName;
+    private JLabeledTextField eventHubName;
+    private JLabeledTextField liquidTemplateFileName;
+
+    public EventHubPluginGui() {
+        init();
+    }
+
+    @Override
+    public void configure(TestElement element) {
+        super.configure(element);
+        eventHubConnectionStringVarName
+                .setText(element.getPropertyAsString(EventHubPlugin.EVENT_HUB_CONNECTION_VAR_NAME));
+        eventHubName.setText(element.getPropertyAsString(EventHubPlugin.EVENT_HUB_NAME));
+        liquidTemplateFileName.setText(element.getPropertyAsString(EventHubPlugin.LIQUID_TEMPLATE_FILENAME));
+    }
+
+    @Override
+    public TestElement createTestElement() {
+        EventHubPlugin sampler = new EventHubPlugin();
+        modifyTestElement(sampler);
+        return sampler;
+    }
+
+    @Override
+    public void modifyTestElement(TestElement sampler) {
+        sampler.clear();
+        super.configureTestElement(sampler);
+        sampler.setProperty(EventHubPlugin.EVENT_HUB_CONNECTION_VAR_NAME, eventHubConnectionStringVarName.getText());
+        sampler.setProperty(EventHubPlugin.EVENT_HUB_NAME, eventHubName.getText());
+        sampler.setProperty(EventHubPlugin.LIQUID_TEMPLATE_FILENAME, liquidTemplateFileName.getText());
+    }
+
+    @Override
+    public void clearGui() {
+        super.clearGui();
+
+        eventHubConnectionStringVarName.setText("");
+        eventHubName.setText("");
+        liquidTemplateFileName.setText("");
+    }
+
+    @Override
+    public String getLabelResource() {
+        return getClass().getName();
+    }
+
+    public String getStaticLabel() {
+        return "Azure Event Hubs Sampler";
+    }
+
+    private JPanel createEventHubConnectionStringVarNamePanel() {
+        eventHubConnectionStringVarName = new JLabeledTextField("Event Hubs Connection String Var Name:");
+        eventHubConnectionStringVarName.setName(EventHubPlugin.EVENT_HUB_CONNECTION_VAR_NAME);
+
+        JPanel panel = new JPanel(new BorderLayout(5, 0));
+        panel.add(eventHubConnectionStringVarName);
+
+        return panel;
+    }
+
+    private JPanel createEventHubNamePanel() {
+        eventHubName = new JLabeledTextField("Event Hubs Name:");
+        eventHubName.setName(EventHubPlugin.EVENT_HUB_NAME);
+
+        JPanel panel = new JPanel(new BorderLayout(5, 0));
+        panel.add(eventHubName);
+
+        return panel;
+    }
+
+    private JPanel createliquidTemplateFileNamePanel() {
+        liquidTemplateFileName = new JLabeledTextField("Liquid Template File Name:");
+        liquidTemplateFileName.setName(EventHubPlugin.LIQUID_TEMPLATE_FILENAME);
+
+        JPanel panel = new JPanel(new BorderLayout(5, 0));
+        panel.add(liquidTemplateFileName);
+
+        return panel;
+    }
+
+    private void init() {
+        setLayout(new BorderLayout(0, 5));
+        setBorder(makeBorder());
+        add(makeTitlePanel(), BorderLayout.NORTH);
+        // MAIN PANEL
+        VerticalPanel mainPanel = new VerticalPanel();
+        VerticalPanel eventHubsConfigPanel = new VerticalPanel();
+        eventHubsConfigPanel.setBorder(BorderFactory.createTitledBorder("Event Hubs Configuration"));
+        eventHubsConfigPanel.add(createEventHubConnectionStringVarNamePanel());
+        eventHubsConfigPanel.add(createEventHubNamePanel());
+        eventHubsConfigPanel.add(createliquidTemplateFileNamePanel());
+        mainPanel.add(eventHubsConfigPanel, BorderLayout.NORTH);
+
+        add(mainPanel, BorderLayout.CENTER);
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent event) {
+    }
+}
+```
 
 1. Implement the sample() method to simulate the desired request. This method should perform the necessary operations required to simulate the request. In our case, it's rendering a message as per a liquid template and then sending it to Event hub.
 
@@ -138,13 +409,17 @@ In order to run the JMeter script, you can follow these steps:
 
 1. Go to your Load Testing resource, select **Tests** from the left pane, and then create a new test.
 
-    :::image type="content" source="images/basic.png" alt-text="Screenshot that shows the test." :::
+    :::image type="content" source="images/load-testing-configuration-basic.png" alt-text="Screenshot that shows the test." :::
 
 1. On the test plan tab, select and upload the JMeter script along with the liquid and JAR file containing the plugin. A prebuild JAR file for the Event hub sampler is available to download [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/blob/main/target/loadtestplugins-1.0.jar).
 
-    :::image type="content" source="images/testplanuploaded.png" alt-text="Screenshot that shows the test plan page." :::
+    :::image type="content" source="images/load-testing-configuration-testplanuploaded.png" alt-text="Screenshot that shows the test plan page." :::
 
     > [!TIP]
     > The size for the JAR file should not be exceeded 10MB. If your file is larger than 10MB, you will need to split your JAR file to multiple files or try to use shaded version of your JAR file to minimize the file.
+
+1. Go to the parameter tab, define `EventHubConnectionString` and then provide the connection string to Event Hub.
+
+    :::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the test." :::
 
 1. Create and then run and notice the test run details, statistics, and client metrics in the Azure portal.
