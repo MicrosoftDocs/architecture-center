@@ -161,7 +161,7 @@ For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review th
 
 ### Networking
 
-H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft MPI or Intel MPI.
+H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft Message Passing Interface better known as MPI or Intel MPI.
 
 - [RDMA Capable Instances](/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 - [Virtual Network](/azure/virtual-network/virtual-networks-overview)
@@ -173,7 +173,7 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 Building an HPC system from scratch on Azure offers a significant amount of flexibility, but it is often very maintenance intensive.
 
-1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
+1. Set up your own cluster environment in Azure virtual machines or [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
 3. Choose HPC and GPU [VM sizes](#compute) that include specialized hardware and network connections for MPI or GPU workloads.
 4. Add [high-performance storage](#storage) for I/O-intensive workloads.
@@ -256,9 +256,14 @@ There are many workload managers offered in the [Azure Marketplace](https://azur
 
 ### Azure Batch
 
-[Azure Batch](/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+[Azure Batch](/azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and HPC applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed pool of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
 SaaS providers or developers can use the Batch SDKs and tools to integrate HPC applications or container workloads with Azure, stage data to Azure, and build job execution pipelines.
+
+In Azure Batch all the services are running on the Cloud, the image below shows how the architecture looks with Azure Batch, having the scalability and job schedule configurations running in the Cloud while the results and reports can be sent to your on-premises environment.
+
+![Diagram shows example HPC architecture for Azure Batch.](images/cloud-native-job-scheduler-azure-batch.jpg)
+
 
 ### Azure CycleCloud
 
@@ -272,6 +277,29 @@ CycleCloud allows you to:
 - Customize and optimize clusters through advanced policy and governance features, including cost controls, Active Directory integration, monitoring, and reporting
 - Use your current job scheduler and applications without modification
 - Take advantage of built-in autoscaling and battle-tested reference architectures for a wide range of HPC workloads and industries
+
+##### Hybrid / cloud bursting model
+In this Hybrid example diagram, we can see clearly how these services are distributed between the cloud and the on-premises environment. Having the opportunity to run jobs in both workloads.
+![Diagram shows example HPC architecture for CycleCloud on Azure in a Hybrid.](images/industry-standard-high-performance-computing-job-scheduler-hybrid-cloudbursting-model-azure-cyclecloud.jpg)
+
+##### Cloud native model
+The cloud native model example diagram below, shows how the workload in the cloud will handle everything while still conserving the connection to the on-premises environment.
+
+![Diagram shows example HPC architecture for CycleCloud on Azure in Cloud native model
+.](images/industry-standard-high-performance-computing-job-scheduler-cloud-native-model-azure-cyclecloud.jpg)
+
+### Comparison chart
+
+|Feature              |Azure Batch             |Azure CycleCloud     |
+|---------------|------------------------|------------------------|
+|Scheduler |Batch APIs and tools and command-line scripts in the Azure portal (Cloud Native).  |Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler.|
+|Compute Resources |Software as a Service Nodes – Platform as a Service |Platform as a Service Software – Platform as a Service |
+|Monitor Tools |Azure Monitor |Azure Monitor, Grafana |
+|Customization |Custom image pools, Third Party images, Batch API access. |Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers |
+|Integration | Synapse Pipelines, Azure Data Factory, Azure CLI |Built-In CLI for Windows and Linux |
+|User type |Developers |Classic HPC administrators and users |
+|Work Type |Batch, Workflows |Tightly coupled (Message Passing Interface/MPI).|
+|Windows Support |Yes |Varies, depending on scheduler choice |
 
 ### Workload managers
 
