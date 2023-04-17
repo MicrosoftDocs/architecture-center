@@ -39,7 +39,7 @@ The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adopt
 
 #### Design principles
 
-Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone was designed using a core set of [Cloud Adoption Framework design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) and guided by common [Design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
+Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone was designed using a core set of [Cloud Adoption Framework design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) and guided by common [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
 
 Design areas for the Azure Virtual Desktop landing zone are indicated by letters "A" through "J" in the diagram, to illustrate the hierarchy of resource organization:
 
@@ -47,8 +47,7 @@ Design areas for the Azure Virtual Desktop landing zone are indicated by letters
 |--------|-------------|-----------|
 | A | [Enterprise enrollment](/azure/cloud-adoption-framework/scenarios/wvd/eslz-enterprise-enrollment)	| Proper tenant creation, enrollment, and billing setup are important early steps. |
 | B, G | [Identity and access management](/azure/cloud-adoption-framework/scenarios/wvd/eslz-identity-and-access-management) | Identity and access management is a primary security boundary in the public cloud. It's the foundation for any secure and fully compliant architecture. |
-| C | [Resource organization](/azure/cloud-adoption-framework/scenarios/wvd/eslz-resource-organization) 
-|	As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
+| C | [Resource organization](/azure/cloud-adoption-framework/scenarios/wvd/eslz-resource-organization) |	As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
 | D, J, H | [Management and monitoring](/azure/cloud-adoption-framework/scenarios/wvd/eslz-management-and-monitoring) | For stable, ongoing operations in the cloud, a management baseline is required to provide visibility, operations compliance, and protect and recover capabilities. |
 | E | [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/wvd/eslz-network-topology-and-connectivity) | Networking and connectivity decisions are an equally important foundational aspect of any cloud architecture. |
 | TBD | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery) | Automate auditing and enforcement of governance policies. |
@@ -64,7 +63,7 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 > [!IMPORTANT]
 > The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram: **AVD LZ Subscription**, and **AVD Shared Services LZ Subscription**. 
 > 
-> **You're strongly encouraged to deploy the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Deploying an official platform landing zone ensures you're compliant with the deployment prerequisites discussed later. Refer to the [Azure Virtual Desktop landing zone compatibility guidelines](/azure/cloud-adoption-framework/scenarios/wvd/ready#evaluate-compatibility) to make sure your environment is compatible and capable.
+> **We strongly encouraged deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Deploying an official platform landing zone ensures you're compliant with the deployment prerequisites discussed later. Refer to the [Azure Virtual Desktop landing zone compatibility guidelines](/azure/cloud-adoption-framework/scenarios/wvd/ready#evaluate-compatibility) to make sure your environment is compatible and capable.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
 
