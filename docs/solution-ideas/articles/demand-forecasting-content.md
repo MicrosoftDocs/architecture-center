@@ -4,8 +4,9 @@ Almost every business needs to predict the future to make better decisions and a
 
 ## Architecture
 
-![Architecture diagram showing the flow of sample data to Power BI: demand forecasting](../media/demand-forecasting.png)
-*Download an [SVG](../media/demand-forecasting.svg) of this architecture.*
+![Architecture diagram showing the flow of sample data to Power BI: demand forecasting.](../media/demand-forecasting.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/demand-forecasting.vsdx) of this architecture.*
 
 ### Dataflow
 
