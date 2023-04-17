@@ -201,7 +201,7 @@ Compared to scaling out DPS, scaling out Azure IoT Hub is relatively straightfor
 1. Creating a new instance of the IoT Hub service.
 1. Configure the new instance with appropriate routing, etc.
 1. Link the new instance to the appropriate DPS instance(s).
-1. If necessary, reconfigure the [DPS allocation policy](/azure/iot-dps/how-to-use-allocation-policies) or your [custom allocation policy](m/azure/iot-dps/concepts-custom-allocation).
+1. If necessary, reconfigure the [DPS allocation policy](/azure/iot-dps/how-to-use-allocation-policies) or your [custom allocation policy](/azure/iot-dps/concepts-custom-allocation).
 
 ## Design device software
 
