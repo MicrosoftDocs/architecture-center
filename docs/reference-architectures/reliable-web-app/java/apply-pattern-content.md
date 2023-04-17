@@ -405,7 +405,7 @@ This dependency adds the necessary Application Insights components to your appli
 
 A diagnostic setting in Azure allow you to specify the platform logs and metrics you want to collect and where to store them. Platform logs are built-in logs that provide diagnostic and auditing information. You can enable platform diagnostics for most Azure services, but each service defines its own log categories. So there will be different categories for different Azure services.
 
-**Enable diagnostics for all supported services.** Azure services create platform logs automatically, but the service doesn't store them automatically. You must enable the diagnostic setting for each service,and yous should enable it for every Azure service that supports diagnostics.
+**Enable diagnostics for all supported services.** Azure services create platform logs automatically, but the service doesn't store them automatically. You must enable the diagnostic setting for each service, and you should enable it for every Azure service that supports diagnostics.
 
 **Send diagnostics to same destination as the application logs.** When you enable diagnotics, you pick the logs you want to collect and where to send them. You should send the platform logs to the same destination as the application logs so you can correlate the two datasets.
 
