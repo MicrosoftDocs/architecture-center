@@ -103,7 +103,7 @@ The baseline deployment deploys Azure Virtual Desktop resources and dependent se
 When you're ready for deployment, complete the following steps:
 1. Review the [Get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
 2. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
-3. Optionally, refer to the [Custom image build deployment tab](design-guide.md?tabs=custom-image) to build an updated image for your Azure Virtual Desktop host sessions.
+3. Optionally, refer to the [Custom image build deployment tab](design-guide.md?tabs=custom-image#tabpanel_1_custom-image) to build an updated image for your Azure Virtual Desktop host sessions.
 
 # [Custom image build deployment](#tab/custom-image)
 The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding additional scripts to further customize your images. 
