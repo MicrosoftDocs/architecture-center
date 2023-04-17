@@ -409,7 +409,7 @@ In order to run the JMeter script, you can follow these steps:
 
 1. Go to your Load Testing resource, select **Tests** from the left pane, and then create a new test.
 
-    :::image type="content" source="images/load-testing-configuration-basic.png" alt-text="Screenshot that shows the test." :::
+    :::image type="content" source="images/load-testing-configuration-basic.png" alt-text="Screenshot that shows the basic info." :::
 
 1. On the test plan tab, select and upload the JMeter script along with the liquid and JAR file containing the plugin. A prebuild JAR file for the Event hub sampler is available to download [here](https://github.com/Azure-Samples/load-testing-jmeter-plugins/blob/main/target/loadtestplugins-1.0.jar).
 
@@ -420,6 +420,6 @@ In order to run the JMeter script, you can follow these steps:
 
 1. Go to the parameter tab, define `EventHubConnectionString` and then provide the connection string to Event Hub.
 
-    :::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the test." :::
+    :::image type="content" source="images/load-testing-configuration-parameters.png" alt-text="Screenshot that shows the parameters of the test." :::
 
 1. Create and then run and notice the test run details, statistics, and client metrics in the Azure portal.
