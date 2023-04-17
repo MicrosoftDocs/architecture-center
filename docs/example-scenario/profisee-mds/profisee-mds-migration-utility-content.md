@@ -161,7 +161,7 @@ Profisee is a cloud-native application that runs on Azure services, including Az
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The MMU requires users to link to their Profisee instance and sign in with their verified credentials to open the utility. To migrate data models from Master Data Services, users must enter the URL of their Master Data Services database and enter valid credentials before they choose a data model.
+The MMU requires users to connect to their Profisee instance and sign in with their verified credentials to open the utility. To migrate data models from Master Data Services, users must enter the URL of their Master Data Services database and enter valid credentials before they choose a data model.
 
 For SaaS implementations that Profisee hosts on Azure, after you import Master Data Services models into the Profisee platform, the models are managed under the Profisee security policy. For more information, see [Profisee Security Overview](https://profisee.com/security).
 
@@ -221,4 +221,4 @@ Other contributors:
 - [Master data management with Profisee and Azure Data Factory](../../reference-architectures/data/profisee-master-data-management-data-factory.yml)
 - [Azure data architecture guide](../../data-guide/index.md)
 - [Analytics end-to-end with Azure Synapse](../../example-scenario/dataplate2e/data-platform-end-to-end.yml)
-- [Deploy Microsoft Purview - Profisee integration for master data management (MDM) - Microsoft Purview](/azure/purview/how-to-deploy-profisee-purview-integration)
+- [Microsoft Purview - Profisee MDM integration](/azure/purview/how-to-deploy-profisee-purview-integration)
