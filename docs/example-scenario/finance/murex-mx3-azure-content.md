@@ -97,7 +97,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - You can host infrastructure resources for VDI solutions like Citrix in Azure. The client tier uses VDI solutions to access the application tier and optimize the overall cost and performance of the solution.
-- If the minimum capacity of the VMs is known, you can use the **Reserved Instances** option for all the VMs. This option reduces the costs of the VMs.
+- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and receive significant savings off pay-as-you-go prices.
 
 You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate your costs.
 
