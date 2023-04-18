@@ -43,7 +43,7 @@ private MediaFile checkLastModified(MediaFile mediaFile, MusicFolder folder, boo
 }
 ```
 
-The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` is a monad that performs error handling and recovery in Java applications. In this code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` when the number of retries reaches the set maximum number. The reference implementation configures the retry properties in `application.properties`. For more ways to configure Resilience4j, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and the [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
+The code uses the retry registry to get a `Retry` object. It also uses `Try` from the Vavr library. `Try` performs error handling and recovery in Java applications. In this code, `Try` recovers from an exception and invokes another lambda expression as a fallback. The code returns the original `MediaFile` when the number of retries reaches the set maximum number. The reference implementation configures the retry properties in `application.properties`. For more ways to configure Resilience4j, see [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html) and the [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
   
 ### Use the Circuit Breaker pattern
 
@@ -274,9 +274,9 @@ Production environments need SKUs that meet the service level agreements (SLAs),
 
 **Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for non-production environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
 
-*Reference implementation.* This architecture does not benefit from Azure Dev/Test pricing as none of the configurations used in this architecture fall within scope of the discounts of Azure Dev/Test pricing. For example, Azure App Service is Linux-based while the Dev/Test pricing only applies to Windows-based configurations.
+*Reference implementation.* This architecture doesn't apply Azure Dev/Test pricing. Azure Dev/Test pricing didn't cover any of the components.
 
-**Consider using cheaper SKUs in non-production environments.** You can still use different SKUs across environments to save cost. If you use different SKUs or components for development, you might not encounter specific application issues until you deploy to production. It is essential to account for these differences and incorporate them into your testing cycles. For instance, if you only use Web Application Firewall (WAF) and Azure Front Door in production, you might not discover potential WAF false positives (valid requests that WAF blocks), routing problems, and host-header issues until you deploy the application to production.
+**Consider using cheaper SKUs in non-production environments.** You can still use different SKUs across environments to save cost. If you use different SKUs or components for development, you might not encounter specific application issues until you deploy to production. It's essential to account for these differences and incorporate them into your testing cycles. For instance, if you only use Web Application Firewall (WAF) and Azure Front Door in production, you might not discover potential WAF false positives (valid requests that WAF blocks), routing problems, and host-header issues until you deploy the application to production.
 
 *Reference implementation.* The reference implementation has an optional parameter that deploys different SKUs. An environment parameter instructs the Terraform template to select development SKUs as the following code shows:
 
@@ -365,11 +365,11 @@ resource "azurerm_monitor_autoscale_setting" "sitescaling" {
 
 ### Delete non-production environments
 
-To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it's important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
+To optimize cost, it's recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it's important to ensure that any unused environments are deleted in a controlled and repeatable process. For example, you can build a deployment pipeline with automated steps for deleting environments.
 
 ## Operational excellence
 
-The reliable web app pattern recommends using Infrastructure as Code (IaC) tools such as Terraform to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to configure and capture infrastructure and application telemetry. You should use these to improve performance and reduce costs. By analyzing performance metrics, you can identify inefficiencies in the application and make adjustments to optimize performance and reduce the resources needed to run the application.
+The reliable web app pattern recommends using Infrastructure as Code (IaC) tools such as Terraform to deploy application infrastructure, configure services, and set up application telemetry. Monitoring operational health requires telemetry to measure security, cost, reliability, and performance gains. The cloud offers built-in features to configure and capture infrastructure and application telemetry. You should use these features improve performance and reduce costs. By analyzing performance metrics, you can identify inefficiencies in the application and make adjustments to optimize performance and reduce the resources needed to run the application.
 
 ### Enable logging and application telemetry
 
@@ -387,7 +387,7 @@ For tracing and debugging, you should enable logging to diagnose when any reques
    </dependency>
    ```
 
-This dependency adds the necessary Application Insights components to your application build. It allows you to visualize metrics in Azure Application Insights. Spring Boot registers several core metrics in Application Insights such as Java virtual machine (JVM), CPU, Tomcat, and others. Application insights automatically collects from logging frameworks such as Log4j and Logback. For more information, see:
+This dependency adds the necessary Application Insights components to your application build. It allows you to visualize metrics in Azure Application Insights. Spring Boot registers several core metrics in Application Insights such as Java virtual machine (JVM), CPU, Tomcat, and others. Application Insights automatically collects from logging frameworks such as Log4j and Logback. For more information, see:
 
 - [Configure Azure Monitor Application Insights for Spring Boot](/azure/azure-monitor/app/java-spring-boot#enabling-programmatically)
 - [Configuration options - Azure Monitor Application Insights for Java - Azure Monitor](/azure/azure-monitor/app/java-standalone-config#auto-collected-logging)
@@ -399,15 +399,15 @@ This dependency adds the necessary Application Insights components to your appli
 **Gather log-based metrics.** You should track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](https://learn.microsoft.com/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. You can run these queries in the portal. Under **Monitoring**, select **Logs** to run your queries. For more information, see:
 
 - [Azure Application Insights log-based metrics](https://learn.microsoft.com/azure/azure-monitor/essentials/app-insights-metrics)
-- [Log-based and pre-aggregated metrics in Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
+- [Log-based and preaggregated metrics in Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
 
 ### Enable platform diagnostics
 
-A diagnostic setting in Azure allow you to specify the platform logs and metrics you want to collect and where to store them. Platform logs are built-in logs that provide diagnostic and auditing information. You can enable platform diagnostics for most Azure services, but each service defines its own log categories. So there will be different categories for different Azure services.
+A diagnostic setting in Azure allows you to specify the platform logs and metrics you want to collect and where to store them. Platform logs are built-in logs that provide diagnostic and auditing information. You can enable platform diagnostics for most Azure services, but each service defines its own log categories. So there are different log categories for different Azure services.
 
 **Enable diagnostics for all supported services.** Azure services create platform logs automatically, but the service doesn't store them automatically. You must enable the diagnostic setting for each service, and you should enable it for every Azure service that supports diagnostics.
 
-**Send diagnostics to same destination as the application logs.** When you enable diagnotics, you pick the logs you want to collect and where to send them. You should send the platform logs to the same destination as the application logs so you can correlate the two datasets.
+**Send diagnostics to same destination as the application logs.** When you enable diagnostics, you pick the logs you want to collect and where to send them. You should send the platform logs to the same destination as the application logs so you can correlate the two datasets.
 
 *Reference implementation.* The reference implementation uses Terraform to enable Azure diagnostics on all supported services. The following Terraform code configures the diagnostic settings for the PostgreSQL database.
 
