@@ -104,9 +104,10 @@ This deployment scenario includes the following items:
 
 When you're ready for deployment, complete the following steps:
 1. Review the [get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
-1. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions. Then reference your custom image from the Azure Compute Gallery in the next step, when prompted for the "Session host - OS selection" in the Azure portal:
-  :::image type="content" source="./media/portal-session-hosts-os-selection.png" alt-text="Screen shot of OS selection field on sessions hosts portal blade." border="false" lightbox="./media/portal-session-hosts-os-selection.png" :::
-2. Continue with the [baseline deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
+1. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions. 
+2. Continue with the [baseline deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md). If you created a custom Azure Compute Gallery image in the previous step, be sure to select "Compute gallery" for **OS image source** and select the correct **Image** on the **Session hosts** page:
+
+   :::image type="content" source="./media/portal-session-hosts-os-selection.png" alt-text="Screen shot of OS selection field on sessions hosts page in the Azure portal." border="false" lightbox="./media/portal-session-hosts-os-selection.png" :::
 
 
 # [Custom image build deployment](#tab/custom-image)
