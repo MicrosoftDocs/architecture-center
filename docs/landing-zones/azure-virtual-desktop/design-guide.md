@@ -9,7 +9,7 @@ categories:
   - networking
   - security
 ms.author: bryanla
-ms.date: 04/01/2023
+ms.date: 04/19/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -25,7 +25,7 @@ products:
 
 # Azure Virtual Desktop landing zone design guide
 
-This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) for architects and technical decision makers. The goal is to help you quickly gain an understanding of the accelerator and how it's designed, allowing you to shorten the time required to complete a successful deployment.
+This article provides a design-oriented overview of the [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone), for architects and technical decision makers. The goal is to help you quickly gain an understanding of the accelerator and how it's designed, allowing you to shorten the time required to complete a successful deployment.
 
 ## Landing zone concepts
 
@@ -33,7 +33,7 @@ This article provides a design-oriented overview of the [enterprise-scale landin
 
 ## Reference architecture
 
-The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) outlines landing zone compatibility requirements, design principles, and deployment guidance. Essentially, this design serves as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
+The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) is part of the "Desktop virtualization" scenario in the Azure Cloud Adoption Framework. The article series provide compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
 
 :::image type="content" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="Diagram of reference architecture required for Azure Virtual Desktop landing zone implementations." border="false" lightbox="./media/azure-virtual-desktop-reference-architecture.png" :::
 
@@ -41,7 +41,7 @@ The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adopt
 
 Like other landing zones, the enterprise-scale Azure Virtual Desktop landing zone was designed using a core set of [Cloud Adoption Framework design principles](/azure/cloud-adoption-framework/ready/landing-zone/design-principles) and guided by common [design areas](/azure/cloud-adoption-framework/ready/landing-zone/design-areas).
 
-Design areas for the Azure Virtual Desktop landing zone are indicated by letters "A" through "J" in the diagram, to illustrate the hierarchy of resource organization:
+Design areas for the Azure Virtual Desktop landing zone are indicated with letters "A" through "J" in the diagram, to illustrate the hierarchy of resource organization:
 
 | Legend | Design area | Objective |
 |--------|-------------|-----------|
@@ -61,9 +61,9 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 #### Architecture
 
 > [!IMPORTANT]
-> The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram: **AVD LZ Subscription**, and **AVD Shared Services LZ Subscription**. 
+> The accelerator deploys resources into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram: **AVD LZ Subscription**, and **AVD Shared Services LZ Subscription**. 
 > 
-> **We strongly recommend deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Refer to the [baseline deployment prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md#prerequisites) if you have any questions about prerequisites and requirements.
+> **We strongly recommend deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Refer to the [baseline deployment prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md#prerequisites) to review the full set of prerequisites and requirements for the accelerator.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
 
