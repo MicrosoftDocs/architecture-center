@@ -47,11 +47,11 @@ Design areas for the Azure Virtual Desktop landing zone are indicated by letters
 |--------|-------------|-----------|
 | A | [Enterprise enrollment](/azure/cloud-adoption-framework/scenarios/wvd/eslz-enterprise-enrollment)	| Proper tenant creation, enrollment, and billing setup are important early steps. |
 | B, G | [Identity and access management](/azure/cloud-adoption-framework/scenarios/wvd/eslz-identity-and-access-management) | Identity and access management is a primary security boundary in the public cloud. It's the foundation for any secure and fully compliant architecture. |
-| C | [Resource organization](/azure/cloud-adoption-framework/scenarios/wvd/eslz-resource-organization) |	As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
-| D, J, H | [Management and monitoring](/azure/cloud-adoption-framework/scenarios/wvd/eslz-management-and-monitoring) | For stable, ongoing operations in the cloud, a management baseline is required to provide visibility, operations compliance, and protect and recover capabilities. |
-| E | [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/wvd/eslz-network-topology-and-connectivity) | Networking and connectivity decisions are an equally important foundational aspect of any cloud architecture. |
-| TBD | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery) | Automate auditing and enforcement of governance policies. |
-| TBD | [Security governance and compliance](/azure/cloud-adoption-framework/scenarios/wvd/eslz-security-governance-and-compliance) | Implement controls and processes to protect your cloud environments. |
+| C-H, J | [Resource organization](/azure/cloud-adoption-framework/scenarios/wvd/eslz-resource-organization) |	As cloud adoption scales, considerations for subscription design and management group hierarchy have an impact on governance, operations management, and adoption patterns. |
+| C-H, J | [Management and monitoring](/azure/cloud-adoption-framework/scenarios/wvd/eslz-management-and-monitoring) | For stable, ongoing operations in the cloud, a management baseline is required to provide visibility, operations compliance, and protect and recover capabilities. |
+| E, F | [Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/wvd/eslz-network-topology-and-connectivity) | Networking and connectivity decisions are an equally important foundational aspect of any cloud architecture. |
+| G, F, J | [Business continuity and disaster recovery](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery) | Automate auditing and enforcement of governance policies. |
+| F, J | [Security governance and compliance](/azure/cloud-adoption-framework/scenarios/wvd/eslz-security-governance-and-compliance) | Implement controls and processes to protect your cloud environments. |
 | I |  [Platform automation and DevOps](/azure/cloud-adoption-framework/scenarios/wvd/eslz-platform-automation-and-devops) | Align the best tools and templates to deploy your landing zones and supporting resources. |
 
 ## Reference implementation
@@ -63,7 +63,7 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 > [!IMPORTANT]
 > The accelerator deploys into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram: **AVD LZ Subscription**, and **AVD Shared Services LZ Subscription**. 
 > 
-> **We strongly encouraged deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Deploying an official platform landing zone ensures you're compliant with the deployment prerequisites discussed later. Refer to the [Azure Virtual Desktop landing zone compatibility guidelines](/azure/cloud-adoption-framework/scenarios/wvd/ready#evaluate-compatibility) to make sure your environment is compatible and capable.
+> **We strongly recommend deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Refer to the [baseline deployment prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md#prerequisites) if you have any questions about prerequisites and requirements.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
 
@@ -104,8 +104,9 @@ This deployment scenario includes the following items:
 
 When you're ready for deployment, complete the following steps:
 1. Review the [Get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
-2. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
-3. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions.
+1. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions. Be sure to reference to your custom image from the Azure Component Galley, in the next step.
+1. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
+
 
 # [Custom image build deployment](#tab/custom-image)
 The optional custom image build creates a new image from Azure Marketplace in an Azure compute gallery, optimized, patched and ready to be used. This deployment is optional and can be customized to extend functionality, like adding scripts to further customize your images. 
@@ -125,7 +126,7 @@ You can also opt to enable the Trusted Launch or Confidential VM security type f
 
 When you're ready for deployment, complete the following steps:
 1. Review the [Get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
-2. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-custom-image.md).
+1. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-custom-image.md).
 
 ---
 
