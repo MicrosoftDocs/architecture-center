@@ -26,7 +26,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
  
   Administrators can also make it possible to publish new versions of ArcGIS Pro by using semantic versioning. For example, as new versions of ArcGIS Pro are available, like ArcGIS Pro 3.0, the new version can be published in the Remote Desktop tool. As a result, users can pick that new version when they're ready to upgrade without having to perform the upgrade themselves. The GPU drivers can be included in the creation of the images that the deployments are based on.
 
-  :::image type="content" source="media/arcgis-rdp.png" alt-text="Screenshot that shows ArcGIS and VMs in Remote Desktop.":::
+  :::image type="content" source="media/arcgis-rdp.jpg" alt-text="Screenshot that shows ArcGIS and VMs in Remote Desktop.":::
   
 - Web GIS users can also take advantage of this solution by accessing ArcGIS Enterprise administrative interfaces either in the browser in the Azure Virtual Desktop RDP session or via their local browser (if ArcGIS is published as public facing). The Azure application gateway routes the traffic to the correct endpoint for the ArcGIS server roles. As with ArcGIS Pro, the latency between the browsers and the back end are minimized. 
 - You can deploy the enterprise geodatabase in Azure SQL Managed Instance. ArcGIS Pro users can then create, manage, and edit the geodatabase from an RDP session. During the creation of the Azure Virtual Desktop image, administrators can include the ODBC drivers so users don't have to install them on the Azure Virtual Desktop VMs.
