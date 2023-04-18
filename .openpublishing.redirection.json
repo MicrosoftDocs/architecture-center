@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/reference-architectures/identity/adds-extend-domain.yml",
+      "redirect_url": "/azure/architecture/example-scenario/identity/adds-extend-domain",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "docs/example-scenario/finance/swift-on-azure-srx.md",
       "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-on-azure-srx",
       "redirect_document_id": false
