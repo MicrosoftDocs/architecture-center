@@ -33,7 +33,7 @@ This article provides a design-oriented overview of the [enterprise-scale landin
 
 ## Reference architecture
 
-The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) is part of the "Desktop virtualization" scenario in the Azure Cloud Adoption Framework. The article series provide compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
+The [enterprise-scale landing zone for Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone) is part of the "Desktop virtualization" scenario article series in the Azure Cloud Adoption Framework. The series provides compatibility requirements, design principles, and deployment guidance for the landing zone. They also serve as the reference architecture for an enterprise-scale implementation, ensuring the environment is capable of hosting desktops and any supporting workloads.
 
 :::image type="content" source="./media/azure-virtual-desktop-reference-architecture.png" alt-text="Diagram of reference architecture required for Azure Virtual Desktop landing zone implementations." border="false" lightbox="./media/azure-virtual-desktop-reference-architecture.png" :::
 
@@ -63,7 +63,7 @@ The Azure Virtual Desktop landing zone accelerator deploys resources for an ente
 > [!IMPORTANT]
 > The accelerator deploys resources into the Azure Virtual Desktop landing zone subscriptions identified in the following architecture diagram: **AVD LZ Subscription**, and **AVD Shared Services LZ Subscription**. 
 > 
-> **We strongly recommend deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Refer to the [baseline deployment prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md#prerequisites) to review the full set of prerequisites and requirements for the accelerator.
+> **We strongly recommend deployment of the appropriate [Cloud Adoption Framework platform landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/implementation#reference-implementation) first, to provide the enterprise-scale foundation services required by the resources deployed by the accelerator.** Refer to the [baseline deployment prerequisites](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md#prerequisites) to review the full set of prerequisites and requirements for the accelerator.
 
 :::image type="content" source="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" alt-text="Diagram of reference implementation created by Azure Virtual Desktop landing zone accelerator." border="false" lightbox="https://raw.githubusercontent.com/Azure/avdaccelerator/main/workload/docs/diagrams/avd-accelerator-baseline-architecture.png" :::
 
@@ -103,9 +103,10 @@ This deployment scenario includes the following items:
 - Optionally, a new [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) with baseline Network Security Groups (NSG), Application Security Groups (ASG), and route tables
 
 When you're ready for deployment, complete the following steps:
-1. Review the [Get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
-1. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions. Be sure to reference to your custom image from the Azure Component Galley, in the next step.
-1. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
+1. Review the [get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-baseline.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
+1. Optionally, refer to the **Custom image build deployment** tab to build an updated image for your Azure Virtual Desktop host sessions. Then reference your custom image from the Azure Compute Gallery in the next step, when prompted for the "Session host - OS selection" in the Azure portal:
+  :::image type="content" source="./media/portal-session-hosts-os-selection.png" alt-text="Screen shot of OS selection field on sessions hosts portal blade." border="false" lightbox="./media/portal-session-hosts-os-selection.png" :::
+2. Continue with the [baseline deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-baseline.md).
 
 
 # [Custom image build deployment](#tab/custom-image)
@@ -125,8 +126,8 @@ The following images are currently offered:
 You can also opt to enable the Trusted Launch or Confidential VM security type feature on the Azure Compute Gallery image definition. A custom image is optimized using [Virtual Desktop Optimization Tool (VDOT)](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) and patched with the latest Windows updates.
 
 When you're ready for deployment, complete the following steps:
-1. Review the [Get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
-1. Continue with [Deployment of the landing zone](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-custom-image.md).
+1. Review the [get started](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/getting-started-custom-image-build.md) document for details on prerequisites, planning information, and a discussion on what is deployed. 
+1. Continue with the [custom image build deployment steps](https://github.com/Azure/avdaccelerator/blob/main/workload/docs/deploy-custom-image.md).
 
 ---
 
