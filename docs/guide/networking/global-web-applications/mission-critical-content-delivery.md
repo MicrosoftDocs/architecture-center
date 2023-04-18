@@ -39,7 +39,7 @@ Verizon's CDN and the CDN platform (Edgio) can be integrated into your Azure sol
 
 This isolation provides a high degree of resiliency from disaster scenarios. If an outage or disaster occurs, traffic is automatically shifted between Azure Front Door and Verizon's CDN. You can use Azure Traffic Manager to detect an outage and redirect traffic to the alternative CDN.
 
-:::image type="content" source="./media/mission-critical-content-delivery/front-door-verizon-cdn.png" alt-text="Traffic Manager routing between Azure Front Door and Verizon's CDN." border="false":::
+:::image type="content" source="./media/mission-critical-content-delivery/front-door-verizon-cdn.png" alt-text="Diagram of Traffic Manager routing between Azure Front Door and Verizon's CDN." border="false":::
 
 
 - **Traffic Manager using priority routing mode** has two [endpoints](/azure/traffic-manager/traffic-manager-endpoint-types). By default, Traffic Manager sends requests through Azure Front Door. If Azure Front Door is unavailable, Traffic Manager sends the request through the partner CDN instead.
