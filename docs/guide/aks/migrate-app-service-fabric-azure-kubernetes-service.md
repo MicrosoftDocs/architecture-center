@@ -44,7 +44,7 @@ Before you start the migration, you need:
 The first step is to set up the resources that you need to build a Windows node pool in Kubernetes. To do that, follow the guidance in [Create a Windows Server container on an AKS cluster](/azure/aks/learn/quick-windows-container-deploy-cli), but *be sure to stop* when you reach the "Deploy the application" section. At that point, follow the instructions in this article.  
 
 The translation of the Service Fabric configuration manifest to an AKS manifest is an important step. The following sections show:
-- ServiceManifest XML that you might use for a basic Service Fabric deployment. 
+- Service manifest XML that you might use for a basic Service Fabric deployment. 
 - A functionally equivalent AKS manifest that creates Kubernetes [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and [Service](https://kubernetes.io/docs/concepts/services-networking/service/) objects. 
 
 The two manifests don't map one-to-one because they're based on the functional paradigms that are specific to each service, but their intents are the same. (In these samples, variables use the format `<VARIABLE DESCRIPTION>`.)
