@@ -139,7 +139,7 @@ The platform team decides the network topology. Hub-spoke topology is assumed in
 
 Azure Spring Apps is deployed using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) to isolate the application from the Internet, systems in private networks, other Azure services, and even the service runtime. Inbound and outbound traffic from the application is allowed or denied based on network rules. 
 
-Isolation is achieved through subnets. You're responsible for allocating subnets in the spoke virtual network. Azure Spring Apps requires two dedicated subnets:
+Isolation is achieved through subnets. You're responsible for allocating subnets in the spoke virtual network. Azure Spring Apps requires two dedicated subnets for:
 
 - Service runtime
 - Spring Boot applications
@@ -153,7 +153,6 @@ The minimum size of each subnet is /28. The actual size depends on the number of
 > The selected subnet size can't overlap with the existing virtual network address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
 
 
-
 ### Network controls
 
 Inbound traffic to the spoke virtual network from the internet is restricted by Azure Application Gateway with Web Application Firewall (WAF). WAF rules allow or deny  HTTP/s connections. 
@@ -162,7 +161,11 @@ Traffic within the network is controlled by using Network security groups (NSGs)
 
 //TODO: Validate NSG configuration against the codebase
 
-Private endpoints are used to control public connectivity to all Azure services, such as access to the Azure Key Vault and the database. Even though the Connectivity subscription has private DNS zones, provision your own Azure Private DNS zones for supporting the services are accessed with private endpoints.   
+Private links are used to control public connectivity between Spring Apps and other Azure services, such as access to the Azure Key Vault and the database. The private endpoints are placed in a separate subnet. 
+
+Application host Domain Name Service (DNS) records should be stored in Azure Private DNS to ensure continued availability during a geographic failure.
+
+Even though the Connectivity subscription has private DNS zones, provision your own Azure Private DNS zones for supporting the services are accessed with private endpoints.   
 
 > [!IMPORTANT]
 > 
@@ -192,7 +195,7 @@ The Azure landing zone platform provides shared observability resources as part 
 
 This architecture provisions these resources:
 
-- Azure Application Insights to collect all application monitoring data.
+- Azure Application Insights is the Application Performance Monitoring (APM) and is fully integrated into the service through a Java agent. This agent provides visibility into all the deployed applications and dependencies without requiring extra code. 
 - Azure Log Analytics workspace as the unified sink for all logs and metrics collected from Azure services and the application.
 
 Configure Azure Spring Apps instance to send diagnostics logs from the application to the provisioned Log Analytics workspace. For more information, see [Monitor applications end-to-end](/azure/spring-apps/quickstart-monitor-end-to-end-enterprise).
@@ -229,15 +232,37 @@ For more information, see [How to configure health probes](/azure/spring-apps/ho
 
 ## Security considerations
 
-TBD
+##### Security benchmark
+
+Adherence to at least one Security Benchmark should be enforced.
+
+##### Data at rest
+
+Data at rest should be encrypted.
+
+##### Data in transit
+
+Data in transit should be encrypted.
+
+##### Secret management
+
+Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault.
 
 ## Cost optimization strategies
 
-TBD
+Because of the nature of distributed system design, infrastructure sprawl is a reality. This reality results in unexpected and uncontrollable costs. Azure Spring Apps is built using components that scale so that it can meet demand and optimize cost. The core of this architecture is the Azure Kubernetes Service (AKS). The service is designed to reduce the complexity and operational overhead of managing Kubernetes, which includes efficiencies in the operational cost of the cluster.
+
+You can deploy different applications and application types to a single instance of Azure Spring Apps. The service supports autoscaling of applications triggered by metrics or schedules that can improve utilization and cost efficiency.
+
+You can also use Application Insights and Azure Monitor to lower operational cost. With the visibility provided by the comprehensive logging solution, you can implement automation to scale the components of the system in real time. You can also analyze log data to reveal inefficiencies in the application code that you can address to improve the overall cost and performance of the system.
 
 ## Deploy this scenario
 
-A deployment for this reference architecture is available at [Azure Spring Apps Landing Zone Accelerator](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) on GitHub. The deployment uses Terraform templates. To deploy the architecture, follow the [step-by-step instructions](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator/tree/main/Scenarios/ASA-Secure-Baseline/Terraform).
+A deployment for this reference architecture is available at [Azure Spring Apps Landing Zone Accelerator](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator#azure-spring-apps-landing-zone-accelerator) on GitHub. 
+
+The artifacts in this repository provide a foundation that you can customize for your environment. The implementation provisions a hub network with shared resources such as Azure Firewall for illustrative purposes. This grouping can be mapped to separate landing zone subscriptions to keep workload and platform functions separate.  
+
+The deployment uses Terraform templates. To deploy the architecture, follow the [step-by-step instructions](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator/tree/main/Scenarios/ASA-Secure-Baseline/Terraform).
 
 
 ## Related resources
