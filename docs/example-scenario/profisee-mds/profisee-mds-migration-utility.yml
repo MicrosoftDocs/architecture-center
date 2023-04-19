@@ -5,7 +5,7 @@ metadata:
   description: Use Profisee to migrate from SQL Server Master Data Services to a full-featured master data management (MDM) platform in the Azure cloud.
   author: ssabat
   ms.author: susabat
-  ms.date: 02/03/2023
+  ms.date: 04/20/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
