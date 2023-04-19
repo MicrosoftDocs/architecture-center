@@ -28,7 +28,7 @@ The tightly coupled approach is preferred in these cases:
 
 ### Architecture
 
-:::image type="content" border="false" source="media/tightly-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a tightly coupled quantum computing job.":::
+:::image type="content" alt-text="Architecture diagram that shows a hybrid app that contains a tightly coupled quantum computing job." source="media/tightly-coupled-quantum-computing-job-architecture.svg" lightbox="media/tightly-coupled-quantum-computing-job-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/tightly-coupled-quantum.pptx) of this architecture.*
 
@@ -79,9 +79,10 @@ The loosely coupled approach is preferred in these cases:
 
 ### Architecture
 
-:::image type="content" border="false" source="media/loosely-coupled-quantum-computing-job-architecture.png" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job.":::
+:::image type="content" alt-text="Architecture diagram that shows a hybrid app that contains a loosely coupled quantum computing job." source="media/loosely-coupled-quantum-computing-job-architecture.svg" lightbox="media/loosely-coupled-quantum-computing-job-architecture.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/loosely-coupled-quantum.pptx) of this architecture.*
+
 ### Dataflow
 1. A signed-in user triggers quantum job execution via a classical application.
 1. The classical application calls the custom job API to submit the job.
@@ -160,7 +161,7 @@ In-depth guidance for DevOps and quantum computing can be found at [DevOps for q
 
 #### Architecture
 
-:::image type="content" border="false" source="media/cicd-for-quantum-computing-jobs.png" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it.":::
+:::image type="content" alt-text="Architecture diagram that shows a classical CI/CD pipeline with Azure Quantum incorporated into it." source=media/cicd-for-quantum-computing-jobs.svg" lightbox="media/cicd-for-quantum-computing-jobs.svg":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/cicd-quantum.pptx) of this architecture.*
 
