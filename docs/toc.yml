@@ -2705,6 +2705,8 @@ items:
                     href: solution-ideas/articles/uven-disinfection.yml
                   - name: Smart places with Azure Digital Twins
                     href: example-scenario/iot/smart-places.yml
+                  - name: Secure tunneling with Azure Relay
+                    href: example-scenario/networking/secure-tunneling-azure-relay.yml                      
           - name: Aerospace
             items:
               - name: Overview
@@ -6093,7 +6095,7 @@ items:
                     href: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
                     maintainContext: true
                   - name: Virtual WAN optimized for requirements
-                    href: example-scenario/infrastructure/performance-security-optimized-vwan.yml
+                    href: example-scenario/infrastructure/performance-security-optimized-vwan.yml          
           - name: Solution ideas
             items:
               - name: Low-latency network for industry

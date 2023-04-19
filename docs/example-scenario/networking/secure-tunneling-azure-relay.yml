@@ -21,4 +21,4 @@ name: Secure Tunneling with Azure Relay
 summary: When devices are installed at remote locations and protected by firewalls, the users who need to access them for troubleshooting or other operational tasks often need to be present on-site or connected to the same local network as the device. Secure Tunneling enables users to establish secure, bidirectional connections to edge devices, without making significant changes to the firewall or network configuration on the edge.
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-tunneling-azure-relay.png
 content: |
-  [!include[](secure-tunneling-azure-relay.md)]
+  [!include[](secure-tunneling-azure-relay-content.md)]
