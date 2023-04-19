@@ -4,7 +4,7 @@ metadata:
   description:  Learn how to implement a compliance risk analysis solution that's based on real-world experience. It uses Azure Cognitive Search and Azure Cognitive Services.
   author: andreaskopp
   ms.author: akopp, cfernandesdo, joamart
-  ms.date: 10/10/2022
+  ms.date: 04/18/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
