@@ -277,6 +277,6 @@ Scaling up an IoT solution to support millions, or even tens or hundreds of mill
 
 ## Related resources
 
-- [Move an IoT solution from test to production]()
-- [Retry general guidance]()
-- [Protect and recover in cloud management]()
+- [Move an IoT solution from test to production](/azure/architecture/example-scenario/iot/iot-move-to-production)
+- [Retry general guidance](/azure/architecture/best-practices/transient-faults)
+- [Protect and recover in cloud management](/azure/cloud-adoption-framework/manage/considerations/protect)
