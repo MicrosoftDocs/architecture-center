@@ -168,7 +168,7 @@ The management application requirements include tracking which DPS should be the
 1. The device makes a request against DPS with the assigned ID scope. DPS returns details to the device for which IoT hub it should be assigned to.
 1. The device persists the ID scope and IoT hub connection information to persistent storage, ideally in a secured storage location because the ID scope is part of the authentication against the DPS instance. The device uses this IoT hub connection information for further requests into the system.
 
-There are other possible variations not detailed in this article. For example, you can configure the architecture shown here by moving the DPS call to the provisioning API, as shown in [Zero-touch provisioning with a provisioning API](#zero-touch-provisioning-with-a-provisioning-api). The goal is to make sure each tier is scalable, configurable, and readily deployable.
+There are other possible variations not detailed in this article. For example, you can configure the architecture shown here by moving the DPS call to the provisioning API, as shown earlier in the Zero-touch provisioning with a provisioning API. The goal is to make sure each tier is scalable, configurable, and readily deployable.
 
 **General DPS provisioning guidance:** You should apply the following recommendations to your DPS deployment. The represent general best practices for this Azure service:
 
