@@ -244,6 +244,11 @@ Data at rest should be encrypted.
 
 Data in transit should be encrypted.
 
+##### DDoS protection
+
+Azure DDoS Protection should be enabled.
+
+
 ##### Secret management
 
 Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault.
