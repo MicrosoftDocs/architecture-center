@@ -1,4 +1,4 @@
-This example workload demonstrates the automation of Fab Scheduling and Dispatching of Semiconductor manufacturing workloads on Azure. These simulations in the Azure cloud generate intelligent solutions for solving some of the most complex, dynamic, real-world challenges across many industries. To achieve this, enterprises must rely on high-performance computing (HPC) environments where these kinds of simulations can be performed at scale. This scenario is based on a minds.ai Maestro™, a semiconductor manufacturing product suite which is being used by minds.ai customers on the Microsoft Azure platform.
+This article demonstrates the automation of fab acheduling and dispatching of semiconductor manufacturing workloads on Azure. These simulations on Azure generate intelligent solutions for solving some of the most complex and dynamic real-world challenges across many industries. To implement these solutions, enterprises need to use high-performance computing (HPC) environments in which these kinds of simulations can be performed at scale. This scenario is based on minds.ai Maestro, a semiconductor manufacturing product suite.
 
 ## Architecture
 
@@ -8,15 +8,13 @@ link
 
 ### Workflow
 
-This diagram shows a high-level overview of the Azure architecture used for the reinforcement learning training example. The workflow is as follows: 
-
-1. End users interact with the minds.ai Maestro™ management system via a REST API that is running on the scalable Azure Kubernetes Service in a variety of ways: 
+1. End users interact with the Maestro management system via a REST API that runs on Azure Kubernetes Service (AKS). They can interact with the system in various ways: 
 
    - Python API  
-   - Web based User interface 
-   - Command line client 
+   - Web-based user interface 
+   - Command-line client 
 
-1. Users submit the job in minds.ai Maestro™, which schedules the training jobs on the cluster.
+1. Users submit the job in minds.ai Maestro, which schedules the training jobs on the cluster.
 1. minds.ai Maestro invokes Kubernetes to assign pods to the relevant node pools and AKS scales the node pools up or down if required. The specific node pools, that minds.ai Maestro assigns the pods to, are based on the end-user job configuration. Where the user can select regular or spot nodes and CPU or GPU nodes. 
 1. Kubernetes pulls the image from Azure Container Registry (ACR) based on the configuration as defined by minds.ai Maestro and initialize the pods. 
 1. During training, the results are stored in the Azure File Storage and the metric tracking system that is part of minds.ai Maestro mgmt. pods (and backed by an additional storage device). Through the minds.ai Maestro™ dashboard the user monitors the job progress. 
