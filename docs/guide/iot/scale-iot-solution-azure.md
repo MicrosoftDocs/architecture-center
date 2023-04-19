@@ -102,9 +102,7 @@ Beyond network and quota issues, it’s also necessary to consider Azure service
 
 If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host a heterogeneous group of resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp). The article includes [IoT-specific examples](/azure/architecture/example-scenario/iot/application-stamps) for deployment stamps and references them in the [multitenant documentation](/azure/architecture/guide/multitenant/approaches/iot).
 
-**Understand device location impact.**
-
-When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography:~:text=Data%20storage%20for%20regional%20services), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#more-information:~:text=Data%20storage%20for%20non%2Dregional%20services) include [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) and Azure Active Directory. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
+**Understand device location impact.** When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography:~:text=Data%20storage%20for%20regional%20services), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#more-information:~:text=Data%20storage%20for%20non%2Dregional%20services) include [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) and Azure Active Directory. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
 
 - **Device location**. The requirements for device location affect your regional selection because it affects transactional latency.
 - **Data location**. Data location is tied to device location, which is also subject to compliance concerns. For example, a solution storing data for a state in the United States might require data storage in the US [geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). Data locality requirements might also drive this need.
@@ -112,15 +110,13 @@ When architects select components, they must also understand that most Azure ser
 
 The Azure Cloud Adoption Framework includes [guidance on regional selection](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions).
 
-### ISV SaaS concerns
-
-As an ISV offering SaaS, it's important to meet customers' expectations for availability and resiliency. ISVs must architect Azure services to be highly available, and they must consider the cost of resiliency and redundancy when billing the customer.
+**Understand independent software vendor (ISV) SaaS concerns.** As an ISV offering SaaS, it's important to meet customers' expectations for availability and resiliency. ISVs must architect Azure services to be highly available, and they must consider the cost of resiliency and redundancy when billing the customer.
 
 Segregate the cost of goods sold (COGS) based on customer data segregation for each software customer. This distinction is important when the end user isn't the same as the customer. For example, in a smart TV platform, the platform vendor's customer might be the television vendor, but the end user is the purchaser of the television. This segregation, driven by the customer tenancy model from the requirements, requires separate DPS and IoT Hub instances. The provisioning service must also have a unique customer identity, which can be indicated through a unique endpoint or device authentication process. For more information, see [IoT multitenant guidance](/azure/architecture/guide/multitenant/approaches/iot).
 
 ## Scale out components with supporting services
 
-When discussing scaling IoT solutions, it’s appropriate to look at each service and how they might interrelate.
+When discussing scaling IoT solutions, it’s appropriate to look at each service and how they might interrelate. You can scale your IOT solution across multiple DPS instances or using Azure IOT Hub.
 
 ### Scaling out across multiple DPS instances
 
@@ -128,9 +124,7 @@ Given DPS service limits, it’s often necessary to expand to multiple DPS insta
 
 All the following approaches apply the previously described “stamp” concept for resiliency and for scaling out. This approach includes deploying Azure App Service in multiple regions with a tool such as [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) or the new [cross-region load balancer](/azure/load-balancer/cross-region-overview). For simplicity, it isn't shown in the following diagrams.
 
-#### Zero-touch provisioning with multiple DPS instances
-
-For zero-touch (automated) provisioning, a proven strategy is for the device to request a DPS ID scope from a web API, which understands and balances devices across the horizontally scaled-out DPS instances. This action makes the web app a critical part of the provisioning process, so it must be scalable and highly available. There are three primary variations to this design.
+**(1) Zero-touch provisioning with multiple DPS instances:** For zero-touch (automated) provisioning, a proven strategy is for the device to request a DPS ID scope from a web API, which understands and balances devices across the horizontally scaled-out DPS instances. This action makes the web app a critical part of the provisioning process, so it must be scalable and highly available. There are three primary variations to this design.
 
 The following diagram illustrates the first option: using a custom provisioning API that manages how to map the device to the appropriate DPS pool, which in turn maps (through standard DPS [load balancing mechanisms](/azure/iot-dps/how-to-use-allocation-policies)) to the appropriate IoT Hub instance:
 
@@ -142,9 +136,7 @@ The following diagram illustrates the first option: using a custom provisioning 
 
 This design requires the device software to include the DPS SDK and manage the DPS enrollment process, which is the typical design for an Azure IoT device. But in a microcontroller environment, where device software size is a critical component of the design, it might not be acceptable, which would lead to another design.
 
-#### Zero-touch provisioning with a provisioning API
-
-The second design moves the DPS call to the provisioning API. In this model, the device authentication against DPS is contained in the provisioning API, as is most of the retry logic. This process allows more advanced queuing scenarios and potentially simpler provisioning code in the device itself. It also allows for caching the assigned IoT hub to facilitate faster cloud-to-device messaging. The messages are sent without needing to interrogate DPS for the assigned Hub information:
+**(2) Zero-touch provisioning with a provisioning API:** The second design moves the DPS call to the provisioning API. In this model, the device authentication against DPS is contained in the provisioning API, as is most of the retry logic. This process allows more advanced queuing scenarios and potentially simpler provisioning code in the device itself. It also allows for caching the assigned IoT hub to facilitate faster cloud-to-device messaging. The messages are sent without needing to interrogate DPS for the assigned Hub information:
 
 :::image type="content" source="media/zero-touch-provisioning-isolated-dps-access.png" alt-text="A diagram that shows an example of zero-touch automated provisioning with isolated DPS access." lightbox="media/zero-touch-provisioning-isolated-dps-access.png" border="false":::
 
@@ -155,9 +147,7 @@ The second design moves the DPS call to the provisioning API. In this model, the
 
 This design avoids the need to reference the DPS SDK or the DPS service. It also avoids the need for storing or maintaining a DPS scope on the device. It allows for transfer of ownership scenarios as a result because the provisioning service can direct to the appropriate final customer DPS instance. However, it causes the provisioning API to somewhat duplicate DPS in concept, which might not be ideal.
 
-#### Zero-touch provisioning with transfer of ownership
-
-A third possible zero-touch provisioning design is to use a factory-configured DPS instance as a starting point, and then redirect as necessary to other DPS instances. This design allows for provisioning without a custom provisioning API but it requires a management application to track DPS instances and supply redirection as necessary.
+**(3) Zero-touch provisioning with transfer of ownership:** A third possible zero-touch provisioning design is to use a factory-configured DPS instance as a starting point, and then redirect as necessary to other DPS instances. This design allows for provisioning without a custom provisioning API but it requires a management application to track DPS instances and supply redirection as necessary.
 
 The management application requirements include tracking which DPS should be the active DPS for each specific device. You can use this approach for “transfer of ownership” scenarios, where the device vendor transfers ownership of the device from the vendor to the end device customer.
 
@@ -168,9 +158,7 @@ The management application requirements include tracking which DPS should be the
 
 :::image type="content" source="media/zero-touch-provisioning-transfer-of-ownership.png" alt-text="A diagram that shows an example of zero-touch provisioning with transfer of ownership." lightbox="media/zero-touch-provisioning-transfer-of-ownership.png" border="false":::
 
-#### Low-touch provisioning with multiple DPS instances
-
-In some cases, such as in consumer-facing scenarios or with field deployment team devices, a common choice is to offer low-touch (user-assisted) provisioning. Examples of low-touch provisioning include a mobile application on an installer’s phone or a web-based application on a device gateway. In this case, the proven approach is to perform the same operations as in the zero-touch provisioning process, but the provisioning application transfers the details to the device.
+**(4) Low-touch provisioning with multiple DPS instances** In some cases, such as in consumer-facing scenarios or with field deployment team devices, a common choice is to offer low-touch (user-assisted) provisioning. Examples of low-touch provisioning include a mobile application on an installer’s phone or a web-based application on a device gateway. In this case, the proven approach is to perform the same operations as in the zero-touch provisioning process, but the provisioning application transfers the details to the device.
 
 :::image type="content" source="media/low-touch-provisioning-direct-dps-access.png" alt-text="A diagram that shows an example of low-touch (user-assisted) provisioning with direct DPS access." lightbox="media/low-touch-provisioning-direct-dps-access.png" border="false":::
 
@@ -182,7 +170,7 @@ In some cases, such as in consumer-facing scenarios or with field deployment tea
 
 There are other possible variations not detailed in this article. For example, you can configure the architecture shown here by moving the DPS call to the provisioning API, as shown in [Zero-touch provisioning with a provisioning API](#zero-touch-provisioning-with-a-provisioning-api). The goal is to make sure each tier is scalable, configurable, and readily deployable.
 
-#### Provisioning guidance
+**General DPS provisioning guidance:** You should apply the following recommendations to your DPS deployment. The represent general best practices for this Azure service:
 
 **Don’t provision on every boot**. The [DPS documentation](/azure/iot-dps/how-to-reprovision#send-a-provisioning-request-from-the-device) specifies that the best practice isn't to provision on every boot. For small use cases, it might seem reasonable to provision at every boot because that’s the shortest path to deployment. However, when scaling up to millions of devices, DPS can become a bottleneck, given [its default limit of 1,000 registrations per minute per service instance](/azure/iot-dps/about-iot-dps#quotas-and-limits). Even device registration status lookup can be a bottleneck because it has a limit of 5 to 10 polling operations per second. Provisioning results are usually a static mapping to an IoT hub. So, unless your requirements include automated reprovisioning requests, it's best to perform them only on demand. Although this limit is a soft limit and you can increase it on a case-by-case basis by [contacting Microsoft Support](/azure/iot-dps/about-iot-dps#quotas-and-limits), the increase isn't to the scale of tens of thousands of devices per minute. So scaling out to multiple DPS instances might be the only way to support such scenarios, depending on the anticipated traffic.
 
