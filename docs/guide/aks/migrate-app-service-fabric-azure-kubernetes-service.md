@@ -51,7 +51,7 @@ The two manifests don't map one-to-one because they're based on the functional p
 
 In the AKS manifest, a `Deployment` object provides declarative updates for [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/). A `Service` object exposes an application that's running on a set of pods as a network service. Much of the power of Kubernetes comes from its extensibility.
 
-### Sample Service Fabric ServiceManifest
+### Sample Service Fabric service manifest
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
