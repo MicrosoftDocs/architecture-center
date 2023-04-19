@@ -4,9 +4,9 @@ _Apache®, Apache Ignite, Ignite, and the flame logo are either registered trade
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-databricks-kubernetes-design.png" lightbox="media/employee-retention-databricks-kubernetes-design.png":::
+:::image type="content" alt-text="Diagram of the architecture in this article, showing development, deployment, exposure of the API, and monitoring of metrics and logs." source="media/employee-retention-databricks-kubernetes-design.svg" lightbox="media/employee-retention-databricks-kubernetes-design.svg":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) of this architecture and its deployment.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architectures.*
 
 ### Workflow
 
@@ -92,9 +92,9 @@ All services deployed in this solution use a consumption-based pricing model. Yo
 
 A proof-of-concept implementation of this scenario is available on GitHub at [employee-retention-databricks-kubernetes-poc](https://github.com/Azure/employee-retention-databricks-kubernetes-poc), a repository.
 
-:::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-databricks-kubernetes-workflow.png" lightbox="media/employee-retention-databricks-kubernetes-workflow.png":::
+:::image type="content" alt-text="Diagram of the deployment of the architecture in this article, showing develop, build, deploy, and monitor." source="media/employee-retention-databricks-kubernetes-workflow.svg" lightbox="media/employee-retention-databricks-kubernetes-workflow.svg":::
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) of this deployment and its architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/employee-retention-databricks-kubernetes.pptx) for all architecture.*
 
 This proof-of-concept illustrates:
 

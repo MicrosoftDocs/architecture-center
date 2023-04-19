@@ -27,21 +27,803 @@ items:
     href: guide/index.md
   - name: Architecture styles
     items:
-    - name: Overview
-      href: guide/architecture-styles/index.md
-    - name: Big compute
-      href: guide/architecture-styles/big-compute.yml
-    - name: Big data
-      href: guide/architecture-styles/big-data.yml
-    - name: Event-driven architecture
-      href: guide/architecture-styles/event-driven.yml
-    - name: Microservices
-      href: guide/architecture-styles/microservices.yml
-    - name: N-tier application
-      href: guide/architecture-styles/n-tier.yml
-    - name: Web-queue-worker
-      href: guide/architecture-styles/web-queue-worker.yml
-  - name: Design principles for Azure applications
+      - name: Introduction
+        href: guide/index.md
+      - name: Architecture styles
+        items:
+          - name: Overview
+            href: guide/architecture-styles/index.md
+          - name: Big compute
+            href: guide/architecture-styles/big-compute.yml
+          - name: Big data
+            href: guide/architecture-styles/big-data.yml
+          - name: Event-driven architecture
+            href: guide/architecture-styles/event-driven.yml
+          - name: Microservices
+            href: guide/architecture-styles/microservices.yml
+          - name: N-tier application
+            href: guide/architecture-styles/n-tier.yml
+          - name: Web-queue-worker
+            href: guide/architecture-styles/web-queue-worker.yml
+      - name: Design principles for Azure applications
+        items:
+          - name: Overview
+            href: guide/design-principles/index.md
+          - name: Design for self-healing
+            href: guide/design-principles/self-healing.md
+          - name: Make all things redundant
+            href: guide/design-principles/redundancy.md
+          - name: Minimize coordination
+            href: guide/design-principles/minimize-coordination.yml
+          - name: Design to scale out
+            href: guide/design-principles/scale-out.md
+          - name: Partition around limits
+            href: guide/design-principles/partition.md
+          - name: Design for operations
+            href: guide/design-principles/design-for-operations.md
+          - name: Use managed services
+            href: guide/design-principles/managed-services.md
+          - name: Use an identity service
+            href: guide/design-principles/identity.md
+          - name: Use the best data store
+            href: /azure/architecture/guide/design-principles/use-best-data-store
+          - name: Design for evolution
+            href: guide/design-principles/design-for-evolution.md
+          - name: Build for the needs of business
+            href: guide/design-principles/build-for-business.md
+          - name: Resiliency checklist for services
+            href: checklist/resiliency-per-service.md
+      - name: Technology choices
+        items:
+          - name: Overview
+            href: guide/technology-choices/technology-choices-overview.md
+          - name: Choose a compute service
+            items:
+              - name: Azure compute services
+                href: guide/technology-choices/compute-decision-tree.yml
+              - name: High availability and disaster recovery
+                href: example-scenario/infrastructure/iaas-high-availability-disaster-recovery.yml
+              - name: Microservices compute options
+                href: /azure/architecture/microservices/design/compute-options
+              - name: Web apps and single page apps
+                href: /dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps
+                maintainContext: true
+              - name: Multiparty computing
+                href: guide/technology-choices/multiparty-computing-service.yml
+          - name: Choose a container option
+            items:
+              - name: Container options
+                href: /azure/container-apps/compare-options
+                maintainContext: true
+              - name: Containers for confidential computing
+                href: /azure/confidential-computing/choose-confidential-containers-offerings
+                maintainContext: true
+              - name: Kubernetes at the edge
+                href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
+              - name: Bare-metal Kubernetes at the edge
+                href: operator-guides/aks/choose-bare-metal-kubernetes.yml              
+          - name: Choose a hybrid service
+            items:
+              - name: Hybrid options
+                href: guide/technology-choices/hybrid-considerations.yml
+              - name: Compare Azure Stack Hub and Azure
+                href: /azure-stack/user/azure-stack-considerations
+                maintainContext: true
+              - name: Compare Azure, Stack Hub, and Stack HCI
+                href: /azure-stack/operator/compare-azure-azure-stack
+                maintainContext: true
+              - name: Compare Azure Stack HCI and Stack Hub
+                href: /azure-stack/hci/concepts/compare-azure-stack-hub
+                maintainContext: true
+              - name: Compare Stack HCI and Windows Server
+                href: /azure-stack/hci/concepts/compare-windows-server
+                maintainContext: true
+              - name: Choose drives for Azure Stack HCI
+                href: /azure-stack/hci/concepts/choose-drives
+                maintainContext: true
+              - name: FSLogix in Azure Virtual Desktop
+                href: /azure/virtual-desktop/store-fslogix-profile
+                maintainContext: true
+          - name: Choose a security option
+            items:
+              - name: Deployment models
+                href: /azure/confidential-computing/confidential-computing-deployment-models
+                maintainContext: true
+              - name: Containers for confidential computing
+                href: /azure/confidential-computing/choose-confidential-containers-offerings
+                maintainContext: true
+          - name: Choose an identity service
+            items:
+              - name: Active Directory services
+                href: /azure/active-directory-domain-services/compare-identity-solutions
+                maintainContext: true
+              - name: Hybrid identity authentication methods
+                href: /azure/active-directory/hybrid/choose-ad-authn
+                maintainContext: true
+          - name: Choose a storage service
+            items:
+              - name: Storage options
+                href: /azure/cloud-adoption-framework/ready/considerations/storage-options
+                maintainContext: true
+              - name: Managed disk types
+                href: /azure/virtual-machines/disks-types
+                maintainContext: true
+              - name: Data transfer
+                items:
+                  - name: Data transfer solutions
+                    href: /azure/storage/common/storage-choose-data-transfer-solution
+                    maintainContext: true
+                  - name: Compare data transfer options
+                    href: /azure/storsimple/storsimple-8000-choose-storage-solution
+                    maintainContext: true
+                  - name: Large datasets, low bandwidth
+                    href: /azure/storage/common/storage-solution-large-dataset-low-network
+                    maintainContext: true
+                  - name: Large datasets, moderate bandwidth
+                    href: /azure/storage/common/storage-solution-large-dataset-moderate-high-network
+                    maintainContext: true
+                  - name: Small datasets, low bandwidth
+                    href: /azure/storage/common/storage-solution-small-dataset-low-moderate-network
+                    maintainContext: true
+                  - name: Periodic data transfer
+                    href: /azure/storage/common/storage-solution-periodic-data-transfer
+                    maintainContext: true
+          - name: Choose a data store
+            items:
+              - name: Understand data store models
+                href: guide/technology-choices/data-store-overview.md
+              - name: Select a data store
+                href: guide/technology-choices/data-store-decision-tree.md
+              - name: Criteria for choosing a data store
+                href: guide/technology-choices/data-store-considerations.md
+              - name: Big data storage
+                href: data-guide/technology-choices/data-storage.md
+              - name: Database scenarios
+                items:
+                  - name: OLAP solutions
+                    href: data-guide/relational-data/online-analytical-processing.yml
+                  - name: OLTP solutions
+                    href: data-guide/relational-data/online-transaction-processing.md
+                  - name: Data warehousing
+                    href: data-guide/relational-data/data-warehousing.yml
+                  - name: Data lakes
+                    href: data-guide/scenarios/data-lake.md
+                  - name: Non-relational data store
+                    href: data-guide/big-data/non-relational-data.yml
+                  - name: Compare NoSQL and relational
+                    href: /azure/cosmos-db/relational-nosql
+                    maintainContext: true
+                  - name: Pipeline orchestration
+                    href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
+                  - name: Search data store
+                    href: data-guide/technology-choices/search-options.md
+                  - name: PostgreSQL options
+                    href: /azure/postgresql/single-server/overview-postgres-choose-server-options
+                    maintainContext: true
+                  - name: Data transfer options
+                    href: data-guide/scenarios/data-transfer.md
+                  - name: Choose an API in Cosmos DB
+                    href: /azure/cosmos-db/choose-api
+                    maintainContext: true
+          - name: Choose an analytics solution
+            items:
+              - name: Analytical data stores
+                href: data-guide/technology-choices/analytical-data-stores.md
+              - name: Analytics and reporting
+                href: data-guide/technology-choices/analysis-visualizations-reporting.md
+              - name: Batch processing
+                href: data-guide/technology-choices/batch-processing.md
+              - name: Stream processing
+                href: data-guide/technology-choices/stream-processing.md
+              - name: Streaming analytics
+                href: /azure/stream-analytics/streaming-technologies
+                maintainContext: true
+          - name: Choose an AI/ML service
+            items:
+              - name: Cognitive services
+                href: data-guide/technology-choices/cognitive-services.md
+              - name: Natural language processing
+                href: data-guide/technology-choices/natural-language-processing.yml
+              - name: Machine learning
+                href: data-guide/technology-choices/data-science-and-machine-learning.md
+              - name: Machine learning tools
+                href: example-scenario/mlops/aml-decision-tree.yml
+              - name: Compare MLflow and Azure ML
+                href: /azure/machine-learning/concept-mlflow
+                maintainContext: true
+          - name: Choose a networking service
+            items:
+              - name: Load balancing options
+                href: guide/technology-choices/load-balancing-overview.yml
+              - name: VNet peering and VPN gateways
+                href: reference-architectures/hybrid-networking/vnet-peering.yml
+          - name: Choose a messaging service
+            items:
+              - name: Compare messaging services
+                href: /azure/event-grid/compare-messaging-services
+                maintainContext: true
+              - name: Asynchronous messaging
+                href: guide/technology-choices/messaging.yml
+              - name: Real-time message ingestion
+                href: data-guide/technology-choices/real-time-ingestion.md
+          - name: Choose an IoT option
+            items:
+              - name: IoT solutions in Azure
+                href: example-scenario/iot/iot-central-iot-hub-cheat-sheet.yml
+              - name: Compare IoT Hub and Event Hubs
+                href: /azure/iot-hub/iot-hub-compare-event-hubs
+                maintainContext: true
+          - name: Choose a command-line tool
+            href: /cli/azure/choose-the-right-azure-command-line-tool
+            maintainContext: true
+          - name: Development tools
+            items:
+              - name: Choose a mobile development framework
+                href: /azure/developer/mobile-apps/choose-mobile-framework
+                maintainContext: true
+              - name: Choose a mixed reality engine
+                href: /windows/mixed-reality/develop/choosing-an-engine
+                maintainContext: true
+      - name: Best practices for cloud applications
+        items:
+          - name: Overview
+            href: best-practices/index-best-practices.md
+          - name: API design
+            href: best-practices/api-design.md
+          - name: API implementation
+            href: best-practices/api-implementation.md
+          - name: Autoscaling
+            href: best-practices/auto-scaling.md
+          - name: Background jobs
+            href: best-practices/background-jobs.md
+          - name: Caching
+            href: best-practices/caching.yml
+          - name: Content Delivery Network
+            href: best-practices/cdn.yml
+          - name: Data partitioning
+            href: best-practices/data-partitioning.yml
+          - name: Data partitioning strategies (by service)
+            href: best-practices/data-partitioning-strategies.yml
+          - name: Host name preservation
+            href: best-practices/host-name-preservation.yml
+          - name: Message encoding considerations
+            href: best-practices/message-encode.md
+          - name: Monitoring and diagnostics
+            href: best-practices/monitoring.yml
+          - name: Retry guidance for specific services
+            href: best-practices/retry-service-specific.md
+          - name: Transient fault handling
+            href: best-practices/transient-faults.md
+      - name: Performance tuning and antipatterns
+        items:
+          - name: Introduction
+            href: performance/index.md
+          - name: Scenario 1 - Distributed transactions
+            href: performance/distributed-transaction.yml
+          - name: Scenario 2 - Multiple backend services
+            href: performance/backend-services.yml
+          - name: Scenario 3 - Event streaming
+            href: performance/event-streaming.yml
+          - name: Performance antipatterns
+            items:
+              - name: Overview
+                href: antipatterns/index.md
+              - name: Busy Database
+                href: antipatterns/busy-database/index.md
+              - name: Busy Front End
+                href: antipatterns/busy-front-end/index.md
+              - name: Chatty I/O
+                href: antipatterns/chatty-io/index.md
+              - name: Extraneous Fetching
+                href: antipatterns/extraneous-fetching/index.md
+              - name: Improper Instantiation
+                href: antipatterns/improper-instantiation/index.md
+              - name: Monolithic Persistence
+                href: antipatterns/monolithic-persistence/index.md
+              - name: No Caching
+                href: antipatterns/no-caching/index.md
+              - name: Noisy Neighbor
+                href: antipatterns/noisy-neighbor/noisy-neighbor.yml
+              - name: Retry Storm
+                href: antipatterns/retry-storm/index.md
+              - name: Synchronous I/O
+                href: antipatterns/synchronous-io/index.md
+      - name: Responsible engineering
+        items:
+          - name: Responsible innovation
+            expanded: true
+            items:
+              - name: Overview
+                href: guide/responsible-innovation/index.md
+              - name: Judgment call
+                href: guide/responsible-innovation/judgmentcall.md
+              - name: Harms modeling
+                items:
+                  - name: Understand harm
+                    href: guide/responsible-innovation/harms-modeling/index.md
+                  - name: Assess types of harm
+                    href: guide/responsible-innovation/harms-modeling/type-of-harm.md
+              - name: Community jury
+                href: guide/responsible-innovation/community-jury/index.md
+          - name: Responsible AI
+            items:
+              - name: Overview
+                href: /azure/cloud-adoption-framework/strategy/responsible-ai
+                maintainContext: true
+              - name: Six key principles
+                href: /azure/cloud-adoption-framework/innovate/best-practices/trusted-ai
+                maintainContext: true
+              - name: Guidelines for human-AI interaction
+                href: /ai/guidelines-human-ai-interaction/?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
+              - name: Responsible AI with Cognitive Services
+                href: /azure/cognitive-services/responsible-use-of-ai-overview
+                maintainContext: true
+              - name: Machine learning
+                items:
+                  - name: Responsible AI and machine learning
+                    href: /azure/machine-learning/concept-responsible-ml
+                    maintainContext: true
+                  - name: Model interpretability
+                    href: /azure/machine-learning/how-to-machine-learning-interpretability
+                    maintainContext: true
+                  - name: ML fairness
+                    href: /azure/machine-learning/concept-fairness-ml
+                    maintainContext: true
+                  - name: Differential privacy
+                    href: /azure/machine-learning/concept-differential-privacy
+                    maintainContext: true
+      - name: Architecture for startups
+        items:
+          - name: Overview
+            href: guide/startups/startup-architecture.md
+          - name: Core startup stack architecture
+            href: example-scenario/startups/core-startup-stack.yml
+          - name: SaaS digital business journey on Azure
+            href: guide/saas/saas-digital-business-journey-azure.md
+      - name: Mission critical applications
+        items:
+            - name: Mission-critical baseline architecture
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-intro.yml
+            - name: Mission-critical baseline with network controls
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture.yml
+            - name: Mission-critical baseline architecture in Azure landing zones
+              href: reference-architectures/containers/aks-mission-critical/mission-critical-landing-zone.yml
+            - name: Design areas
+              items:
+                - name: Application platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-platform.md
+                - name: Application design
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-app-design.md
+                - name: Networking and connectivity platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-networking.md
+                - name: Data platform
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-data-platform.md                                    
+                - name: Deployment and testing
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-deploy-test.md
+                - name: Health modeling
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-health-modeling.md
+                - name: Security
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-security.md
+                - name: Operational procedures
+                  href: reference-architectures/containers/aks-mission-critical/mission-critical-operations.md
+            - name: Guides
+              items:
+                - name: Continuous validation
+                  href: guide/testing/mission-critical-deployment-testing.md
+            - name: Mitigation strategies
+              items:
+                - name: Global routing redundancy
+                  items:
+                  - name: Overview
+                    href: guide/networking/global-web-applications/overview.md
+                  - name: Content delivery
+                    href: guide/networking/global-web-applications/mission-critical-content-delivery.md
+                  - name: Global HTTP ingress
+                    href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md         
+      - name: Multitenant applications
+        items:
+          - name: Overview
+            href: guide/multitenant/overview.md
+          - name: Considerations
+            items:
+              - name: Overview
+                href: guide/multitenant/considerations/overview.yml
+              - name: Tenancy models
+                href: guide/multitenant/considerations/tenancy-models.yml
+              - name: Tenant lifecycle
+                href: guide/multitenant/considerations/tenant-lifecycle.md
+              - name: Pricing models
+                href: guide/multitenant/considerations/pricing-models.md
+              - name: Control planes
+                href: guide/multitenant/considerations/control-planes.yml
+              - name: Measure consumption
+                href: guide/multitenant/considerations/measure-consumption.md
+              - name: Deploy updates
+                href: guide/multitenant/considerations/updates.md
+              - name: Map requests to tenants
+                href: guide/multitenant/considerations/map-requests.yml
+              - name: Identity
+                href: guide/multitenant/considerations/identity.md
+              - name: Domain names
+                href: guide/multitenant/considerations/domain-names.yml
+          - name: Approaches
+            items:
+              - name: Overview
+                href: guide/multitenant/approaches/overview.yml
+              - name: Resource organization
+                href: guide/multitenant/approaches/resource-organization.yml
+              - name: Governance and compliance
+                href: guide/multitenant/approaches/governance-compliance.md
+              - name: Cost management and allocation
+                href: guide/multitenant/approaches/cost-management-allocation.yml
+              - name: Deployment and configuration
+                href: guide/multitenant/approaches/deployment-configuration.yml
+              - name: Compute
+                href: guide/multitenant/approaches/compute.md
+              - name: Networking
+                href: guide/multitenant/approaches/networking.md
+              - name: Storage and data
+                href: guide/multitenant/approaches/storage-data.yml
+              - name: Messaging
+                href: guide/multitenant/approaches/messaging.md
+              - name: Identity
+                href: guide/multitenant/approaches/identity.md
+              - name: Integration
+                href: guide/multitenant/approaches/integration.md
+              - name: IoT
+                href: guide/multitenant/approaches/iot.md
+              - name: AI and ML
+                href: guide/multitenant/approaches/ai-ml.md
+          - name: Service-specific guidance
+            items:
+              - name: Overview
+                href: guide/multitenant/service/overview.md
+              - name: Deployment and configuration
+                items:
+                  - name: Azure App Configuration
+                    href: guide/multitenant/service/app-configuration.md
+                  - name: Azure Resource Manager
+                    href: guide/multitenant/service/resource-manager.md
+              - name: Compute
+                items:
+                  - name: App Service and Functions
+                    href: guide/multitenant/service/app-service.yml
+                  - name: Azure Container Apps
+                    href: guide/multitenant/service/container-apps.md
+                  - name: Azure Kubernetes Service (AKS)
+                    href: guide/multitenant/service/aks.yml
+              - name: Networking
+                items:
+                  - name: Azure Front Door
+                    href: guide/multitenant/service/front-door.md
+                  - name: Azure NAT Gateway
+                    href: guide/multitenant/service/nat-gateway.md
+                  - name: Azure Private Link
+                    href: guide/multitenant/service/private-link.md
+              - name: Storage and data
+                items:
+                  - name: Azure Cache for Redis
+                    href: guide/multitenant/service/cache-redis.md
+                  - name: Azure Cosmos DB
+                    href: guide/multitenant/service/cosmos-db.md
+                  - name: Azure Database for PostgreSQL
+                    href: guide/multitenant/service/postgresql.md
+                  - name: Azure SQL Database
+                    href: guide/multitenant/service/sql-database.md
+                  - name: Azure Storage
+                    href: guide/multitenant/service/storage.md
+              - name: Messaging
+                items:
+                  - name: Azure Event Hubs
+                    href: guide/multitenant/service/event-hubs.md
+                  - name: Azure Service Bus
+                    href: guide/multitenant/service/service-bus.md
+              - name: Security
+                items:
+                  - name: Azure Key Vault
+                    href: guide/multitenant/service/key-vault.md
+              - name: Identity
+                items:
+                  - name: Azure Active Directory B2C
+                    href: guide/multitenant/service/azure-ad-b2c.md
+              - name: AI and ML
+                items:
+                  - name: Azure Cognitive Search
+                    href: /azure/search/search-modeling-multitenant-saas-applications
+                    maintainContext: true
+          - name: Multitenancy checklist
+            href: guide/multitenant/checklist.md
+          - name: Related resources
+            href: guide/multitenant/related-resources.md
+      - name: Solutions across Microsoft platforms
+        expanded: true
+        items:
+          - name: Build applications on the Microsoft cloud
+            items:
+              - name: 1. Overview
+                href: guide/microsoft-cloud/overview.md
+              - name: 2. Create and deploy apps in less time
+                href: guide/microsoft-cloud/create-deploy-more-applications-less-time.md
+              - name: 3. Get the most value from technical talent
+                href: guide/microsoft-cloud/get-most-value-technical-talent.md
+              - name: 4. Integrate apps with existing solutions
+                href: guide/microsoft-cloud/integrate-new-applications-existing-solutions.md
+              - name: 5. Create and run secure applications
+                href: guide/microsoft-cloud/create-run-secure-applications.md
+              - name: 6. Summary
+                href: guide/microsoft-cloud/summary.md
+          - name: Azure and Power Platform scenarios 
+            items:
+               - name: Overview
+                 href: solutions/power-platform-scenarios.md
+               - name: All Power Platform architectures
+                 href: /azure/architecture/browse/?products=power-platform
+               - name: CI/CD for Power Platform
+                 href: solution-ideas/articles/azure-devops-continuous-integration-for-power-platform.yml
+               - name: Citizen AI with Power Platform
+                 href: example-scenario/ai/citizen-ai-power-platform.yml
+               - name: Eventual consistency with Power Apps
+                 href: guide/power-platform/eventual-consistency.yml
+               - name: Extract text using Power Automate
+                 href: example-scenario/ai/extract-object-text.yml
+               - name: Optimize inventory and forecast demand
+                 href: example-scenario/analytics/optimize-inventory-forecast-demand.yml
+               - name: Power Automate deployment at scale
+                 href: example-scenario/power-automate/power-automate.yml
+               - name: Real-time ML with Power Platform
+                 href: example-scenario/ai/deploy-real-time-machine-learning-model-application-ui.yml  
+          - name: Azure and Microsoft 365 scenarios
+            items:
+              - name: Overview
+                href: solutions/microsoft-365-scenarios.md
+              - name: All Microsoft 365 architectures
+                href: /azure/architecture/browse/?products=m365
+              - name: Extend Project Online reporting
+                href: example-scenario/data/extend-reporting-capabilities.yml
+              - name: Governance of Teams guest users
+                href: example-scenario/governance/governance-teams-guest-users.yml
+              - name: Hybrid SharePoint farm with Microsoft 365
+                href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+              - name: Manage Microsoft 365 with DevOps
+                href: example-scenario/devops/manage-microsoft-365-tenant-configuration-microsoft365dsc-devops.yml
+              - name: Real-time collaboration
+                href: solution-ideas/articles/collaboration-microsoft-365.yml           
+              - name: Real-time presence
+                href: solution-ideas/articles/presence-microsoft-365-power-platform.yml
+              - name: Secure a Teams channel bot with a firewall
+                href: example-scenario/teams/securing-bot-teams-channel.yml
+          - name: Azure and Dynamics 365 scenarios
+            items:
+              - name: Overview
+                href: solutions/dynamics-365-scenarios.md
+              - name: All Dynamics 365 architectures
+                href: /azure/architecture/browse/?terms=dynamics%20365
+              - name: Customer 360 with Dynamics 365 CI
+                href: example-scenario/analytics/synapse-customer-insights.yml
+              - name: Dynamics Business Central as a service
+                href: solution-ideas/articles/business-central.yml
+              - name: Enhanced customer dimension
+                href: solution-ideas/articles/customer-insights-synapse.yml
+          - name: Azure and Microsoft on-premises servers  
+            href: guide/on-premises-microsoft-technologies.md
+      - name: Third-party scenarios
+        expanded: true
+        items:
+          - name: Apache technologies
+            href: guide/apache-scenarios.md
+          - name: Other open-source technologies
+            href: guide/open-source-scenarios.md
+          - name: Partner technologies
+            href: guide/partner-scenarios.md
+      - name: Azure for AWS professionals
+        expanded: true
+        items:
+          - name: Overview
+            href: aws-professional/index.md
+          - name: Component information
+            items:
+              - name: Accounts
+                href: aws-professional/accounts.md
+              - name: Compute
+                href: aws-professional/compute.md
+              - name: Databases
+                href: aws-professional/databases.md
+              - name: Messaging
+                href: aws-professional/messaging.md
+              - name: Networking
+                href: aws-professional/networking.md
+              - name: Regions and zones
+                href: aws-professional/regions-zones.md
+              - name: Resources
+                href: aws-professional/resources.md
+              - name: Security and identity
+                href: aws-professional/security-identity.md
+              - name: Storage
+                href: aws-professional/storage.md
+          - name: Services comparison
+            href: aws-professional/services.md
+          - name: Guidance
+            items:
+              - name: Automation for AWS
+                items:
+                  - name: Authenticate runbooks with AWS
+                    href: /azure/automation/automation-config-aws-account
+                    maintainContext: true
+                  - name: Deploy an AWS VM with a runbook
+                    href: /azure/automation/automation-scenario-aws-deployment
+                    maintainContext: true
+              - name: Cost management for AWS
+                items:
+                  - name: Set up AWS for Cost Management
+                    href: /azure/cost-management-billing/costs/aws-integration-set-up-configure
+                    maintainContext: true
+                  - name: Manage AWS costs in Azure
+                    href: /azure/cost-management-billing/costs/aws-integration-manage
+                    maintainContext: true
+              - name: Hybrid solutions for AWS
+                items:
+                  - name: AWS Ubuntu with Terraform and Azure
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-ubuntu
+                    maintainContext: true
+                  - name: AWS Linux with Terraform and Azure Arc
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-terraform-al2
+                    maintainContext: true
+                  - name: AWS EC2 with Ansible and Azure Arc
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/aws-scale-ansible
+                    maintainContext: true
+              - name: Identity management for AWS
+                items:
+                  - name: Azure AD identity management for AWS
+                    href: reference-architectures/aws/aws-azure-ad-security.yml
+                  - name: Onboard an AWS account
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-aws
+                    maintainContext: true
+                  - name: Amazon Managed Grafana
+                    href: /azure/active-directory/saas-apps/amazon-managed-grafana-tutorial
+                    maintainContext: true
+                  - name: AWS single-account access
+                    href: /azure/active-directory/saas-apps/amazon-web-service-tutorial
+                    maintainContext: true
+                  - name: AWS Single Sign-on
+                    href: /azure/active-directory/saas-apps/aws-single-sign-on-tutorial
+                    maintainContext: true
+                  - name: Configure AWS Single Sign-On
+                    href: /azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial
+                    maintainContext: true
+                  - name: AWS multiple accounts
+                    href: /azure/active-directory/saas-apps/aws-multi-accounts-tutorial
+                    maintainContext: true
+                  - name: AWS ClientVPN
+                    href: /azure/active-directory/saas-apps/aws-clientvpn-tutorial
+                    maintainContext: true
+                  - name: Attach and detach policies
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-attach-detach-permissions
+                    maintainContext: true
+              - name: AKS for AWS
+                items:
+                  - name: AKS for Amazon EKS professionals
+                    href: aws-professional/eks-to-aks/index.md
+                  - name: Identity and access management
+                    href: aws-professional/eks-to-aks/workload-identity.yml
+                  - name: Cluster monitoring and logging
+                    href: aws-professional/eks-to-aks/monitoring.yml
+                  - name: Network topologies and security
+                    href: aws-professional/eks-to-aks/private-clusters.yml
+                  - name: Storage options
+                    href: aws-professional/eks-to-aks/storage.md
+                  - name: Cost management and optimization
+                    href: aws-professional/eks-to-aks/cost-management.yml
+                  - name: Agent node management
+                    href: aws-professional/eks-to-aks/node-pools.yml
+                  - name: Cluster governance
+                    href: aws-professional/eks-to-aks/governance.md
+              - name: Migration from AWS
+                items:
+                  - name: Azure Migrate
+                    items:
+                      - name: Discover AWS instances
+                        href: /azure/migrate/tutorial-discover-aws
+                        maintainContext: true
+                      - name: Assess AWS instances
+                        href: /azure/migrate/tutorial-assess-aws
+                        maintainContext: true
+                      - name: Migrate AWS VMs
+                        href: /azure/migrate/tutorial-migrate-aws-virtual-machines
+                        maintainContext: true
+                  - name: Compute
+                    items:
+                      - name: Migrate AWS to managed disks
+                        href: /azure/virtual-machines/windows/on-prem-to-azure
+                        maintainContext: true
+                      - name: Migrate an AWS Windows VM
+                        href: /azure/virtual-machines/windows/aws-to-azure
+                        maintainContext: true
+              - name: Security for AWS
+                items:
+                  - name: Azure security for AWS
+                    href: guide/aws/aws-azure-security-solutions.yml
+                  - name: Connect AWS to Microsoft Sentinel
+                    href: /azure/sentinel/connect-aws
+                    maintainContext: true
+                  - name: Microsoft Defender for AWS
+                    items:
+                      - name: Protect AWS with Microsoft Defender
+                        href: /defender-cloud-apps/protect-aws
+                        maintainContext: true
+                      - name: Defender recommendations for AWS
+                        href: /azure/defender-for-cloud/recommendations-reference-aws
+                        maintainContext: true
+                      - name: Connect AWS to Microsoft Defender
+                        href: /defender-cloud-apps/connect-aws
+                        maintainContext: true
+                      - name: "Video: AWS connector in Defender"
+                        href: /azure/defender-for-cloud/episode-one
+                        maintainContext: true
+              - name: Azure Databricks for AWS
+                items:
+                  - name: Connect to Amazon Kinesis
+                    href: /azure/databricks/structured-streaming/kinesis
+                    maintainContext: true
+                  - name: Repo access with AWS CodeCommit
+                    href: /azure/databricks/repos/set-up-git-provider-access
+                    maintainContext: true
+              - name: Azure Service Fabric for AWS
+                href: /azure/service-fabric/service-fabric-tutorial-standalone-create-infrastructure
+                maintainContext: true
+              - name: Azure VPN Gateway for AWS
+                href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+                maintainContext: true
+      - name: Azure for Google Cloud professionals
+        expanded: true
+        items:
+          - name: Overview
+            href: gcp-professional/index.md
+          - name: Services comparison
+            href: gcp-professional/services.md
+          - name: Guidance
+            items:
+              - name: Hybrid solutions for Google Cloud
+                items:
+                  - name: GC Ubuntu with Terraform
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-ubuntu
+                    maintainContext: true
+                  - name: GC Windows with Terraform
+                    href: /azure/cloud-adoption-framework/manage/hybrid/server/best-practices/gcp-terraform-windows
+                    maintainContext: true
+              - name: Identity management for Google Cloud
+                items:
+                  - name: Onboard a Google Cloud project
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/onboard-gcp
+                    maintainContext: true
+                  - name: Add and remove roles and tasks
+                    href: /azure/active-directory/cloud-infrastructure-entitlement-management/how-to-add-remove-role-task
+                    maintainContext: true
+              - name: Migration from Google Cloud
+                items:
+                  - name: Discover Google Cloud instances
+                    href: /azure/migrate/tutorial-discover-gcp
+                    maintainContext: true
+                  - name: Assess Google Cloud VM instances
+                    href: /azure/migrate/tutorial-assess-gcp
+                    maintainContext: true
+                  - name: Migrate Google Cloud VMs to Azure
+                    href: /azure/migrate/tutorial-migrate-gcp-virtual-machines
+                    maintainContext: true
+              - name: Security for Google Cloud
+                items:
+                  - name: Protect Google Cloud with Defender
+                    href: /defender-cloud-apps/protect-gcp
+                    maintainContext: true
+                  - name: Connect Google Cloud projects
+                    href: /azure/defender-for-cloud/quickstart-onboard-gcp
+                    maintainContext: true
+                  - name: Connect Google Cloud to Defender
+                    href: /defender-cloud-apps/connect-google-gcp
+                    maintainContext: true
+                  - name: "Video: Protect containers"
+                    href: /azure/defender-for-cloud/episode-ten
+                    maintainContext: true
+  - name: Design Patterns
     items:
     - name: Overview
       href: guide/design-principles/index.md
@@ -406,6 +1188,16 @@ items:
       items:
       - name: Continuous validation
         href: guide/testing/mission-critical-deployment-testing.md
+    - name: Mitigation strategies
+      items:
+        - name: Global routing redundancy for highly available web applications
+          items:
+          - name: Overview
+            href: guide/networking/global-web-applications/overview.md
+          - name: Content delivery
+            href: guide/networking/global-web-applications/mission-critical-content-delivery.md
+          - name: Global HTTP ingress
+            href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md 
   - name: Multitenant applications
     items:
     - name: Overview
@@ -5085,7 +5877,7 @@ items:
       - name: Azure AD identity management for AWS
         href: reference-architectures/aws/aws-azure-ad-security.yml
       - name: Deploy AD DS in an Azure virtual network
-        href: reference-architectures/identity/adds-extend-domain.yml
+        href: example-scenario/identity/adds-extend-domain.yml
       - name: Extend on-premises AD FS to Azure
         href: reference-architectures/identity/adfs.yml
       - name: Governance of Teams guest users
@@ -6018,6 +6810,14 @@ items:
         href: guide/networking/private-link-ip-constraints.yml
       - name: Cross-tenant secure access to apps
         href: guide/networking/cross-tenant-secure-access-private-endpoints.yml
+      - name: Global web applications
+        items:
+          - name: Overview
+            href: guide/networking/global-web-applications/overview.md
+          - name: Mission-critical global HTTP ingress
+            href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md
+          - name: Mission-critical content delivery
+            href: guide/networking/global-web-applications/mission-critical-content-delivery.md
     - name: Architectures
       items:
       - name: Azure DNS Private Resolver
