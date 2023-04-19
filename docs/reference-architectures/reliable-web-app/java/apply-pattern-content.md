@@ -401,7 +401,7 @@ This dependency adds the necessary Application Insights components to your appli
 **Gather log-based metrics.** You should track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](https://learn.microsoft.com/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. You can run these queries in the portal. Under **Monitoring**, select **Logs** to run your queries. For more information, see:
 
 - [Azure Application Insights log-based metrics](https://learn.microsoft.com/azure/azure-monitor/essentials/app-insights-metrics)
-- [Log-based and preaggregated metrics in Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
+- [Log-based and pre-aggregated metrics in Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
 
 ### Enable platform diagnostics
 
@@ -449,6 +449,10 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
   }
 }
 ```
+
+### Use a CI/CD pipeline
+
+
 
 ## Performance efficiency
 
