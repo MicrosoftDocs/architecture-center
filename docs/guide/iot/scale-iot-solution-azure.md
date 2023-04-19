@@ -76,9 +76,7 @@ Service instances for DPS are geographically located, but [by default](/azure/io
 
 A few critical shared resiliency concepts that you need to consider are transient fault handling, device location impact, and, for ISVs, software as a service (SaaS) data resiliency.
 
-### Understand transient fault handling
-
-Any production distributed solution, whether it's on-premises or in the cloud, must be able to recover from transient (temporary) faults. Transient faults are sometimes considered more likely in a cloud solution because of:
+**Understand transient fault handling.** Any production distributed solution, whether it's on-premises or in the cloud, must be able to recover from transient (temporary) faults. Transient faults are sometimes considered more likely in a cloud solution because of:
 
 - Reliance on an external provider.
 - Reliance on the network connectivity between the device and cloud services.
@@ -104,7 +102,7 @@ Beyond network and quota issues, it’s also necessary to consider Azure service
 
 If regional redundancy is a concern, use the [geode pattern](/azure/architecture/patterns/geodes), which is where you host a heterogeneous group of resources across different geographies. Similarly, a *deployment stamp* (also known as a *scale stamp*) applies this pattern to operate multiple workloads or tenants. For more information, see [Deployment stamp patterns](/azure/architecture/patterns/deployment-stamp). The article includes [IoT-specific examples](/azure/architecture/example-scenario/iot/application-stamps) for deployment stamps and references them in the [multitenant documentation](/azure/architecture/guide/multitenant/approaches/iot).
 
-### Device location impact
+**Understand device location impact.**
 
 When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography:~:text=Data%20storage%20for%20regional%20services), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#more-information:~:text=Data%20storage%20for%20non%2Dregional%20services) include [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) and Azure Active Directory. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
 
