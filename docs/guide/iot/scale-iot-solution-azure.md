@@ -86,9 +86,9 @@ As described at the Azure Architecture Center, transient fault handling requires
 
 Different factors can affect the network connectivity of a device:
 
-- **The power source of a device**. Battery-powered devices or devices powered by transient sources, such as solar or wind, might have less network connectivity than full-time line-powered devices.
-- **The deployment location of a device**. Devices that are in urban factory settings likely have better network connectivity than devices that are in isolated field environments.
-- **The location stability of a device**. Mobile devices likely have less network connectivity than fixed-location devices.
+- *The power source of a device*. Battery-powered devices or devices powered by transient sources, such as solar or wind, might have less network connectivity than full-time line-powered devices.
+- *The deployment location of a device*. Devices that are in urban factory settings likely have better network connectivity than devices that are in isolated field environments.
+- *The location stability of a device*. Mobile devices likely have less network connectivity than fixed-location devices.
 
 All these concerns also affect the timing of device availability and connectivity. For example, devices that are line-powered but common in dense, urban environments (such as smart speakers) might see a large number of devices go offline all at once, and then come back online all at once. Possible scenarios include:
 
@@ -104,9 +104,9 @@ If regional redundancy is a concern, use the [geode pattern](/azure/architecture
 
 **Understand device location impact.** When architects select components, they must also understand that most Azure services are [regional](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography:~:text=Data%20storage%20for%20regional%20services), even the ones like DPS with global endpoints. [Exceptions](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#more-information:~:text=Data%20storage%20for%20non%2Dregional%20services) include [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) and Azure Active Directory. So the decisions you make for device location, data location, and metadata location (data about data: for example, Azure resource groups) are important inputs in your design.
 
-- **Device location**. The requirements for device location affect your regional selection because it affects transactional latency.
-- **Data location**. Data location is tied to device location, which is also subject to compliance concerns. For example, a solution storing data for a state in the United States might require data storage in the US [geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). Data locality requirements might also drive this need.
-- **Metadata location**. Although device location doesn't usually affect metadata location, because devices are interacting with solution data and not solution metadata, compliance and cost concerns affect metadata location. In many cases, convenience dictates that the metadata location is the same as the data location for regional services.
+- *Device location*. The requirements for device location affect your regional selection because it affects transactional latency.
+- *Data location*. Data location is tied to device location, which is also subject to compliance concerns. For example, a solution storing data for a state in the United States might require data storage in the US [geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). Data locality requirements might also drive this need.
+- *Metadata location*. Although device location doesn't usually affect metadata location, because devices are interacting with solution data and not solution metadata, compliance and cost concerns affect metadata location. In many cases, convenience dictates that the metadata location is the same as the data location for regional services.
 
 The Azure Cloud Adoption Framework includes [guidance on regional selection](/azure/cloud-adoption-framework/migrate/azure-best-practices/multiple-regions).
 
