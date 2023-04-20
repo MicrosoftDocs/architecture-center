@@ -6,6 +6,11 @@
       "redirect_document_id": false
     }, 
     {
+      "source_path": "docs/solution-ideas/articles/streaming-using-hdinsight.yml",
+      "redirect_url": "azure/architecture/solutions/power-platform-scenarios",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/finance/swift-on-azure-srx.md",
       "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-on-azure-srx",
       "redirect_document_id": false
