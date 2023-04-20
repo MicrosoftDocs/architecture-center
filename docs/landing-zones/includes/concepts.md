@@ -18,4 +18,4 @@ If you understand Azure landing zones, you can skip ahead to the [Reference arch
 
 - A workload deployed to an application landing zone integrates with and is dependent upon services provided by the platform landing zone. These infrastructure services run workloads such as networking, identity access management, policies, and monitoring. This operational foundation enables migration, modernization, and innovation at enterprise-scale in Azure. 
 
-**Net:** [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone) provide a destination for cloud workloads, a prescriptive model for managing workload portfolios at scale, and consistency and governance across workload teams. 
+In summary, [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone) provide a destination for cloud workloads, a prescriptive model for managing workload portfolios at scale, and consistency and governance across workload teams. 
