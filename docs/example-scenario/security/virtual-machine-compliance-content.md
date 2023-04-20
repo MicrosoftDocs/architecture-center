@@ -9,7 +9,7 @@ The solution consists of two processes:
 
 :::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution manages Azure Marketplace images. Illustrated steps include customization, tracking, testing, and publishing." border="false":::
 
-*Download a [Visio file][Visio version of golden image publishing process architecture diagram] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-golden-image-publishing-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
