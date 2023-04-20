@@ -1,16 +1,21 @@
 
-Need intro paragraph that describes scenario and clarifies:
-- focus IS on infrastructure
-- focus IS NOT on workload
-- data tier is out of scope - use database of choice
+This article provides a reference architecture and guidance for building out the foundational components for an Infrastructure-as-a-Service (IaaS) solution. The scope includes all of the typical infrastructure layer services and components required, such as compute, storage, networking, monitoring and more. 
+
+Note that guidance for the following items is out of scope for this article:
+- The application layer requirements for hosting a specific workload or application (only a small test harness that will exercise the infrastructure end-to-end).
+- The data tier requirements for infrastructure and storage components, as this will vary greatly depending on the workload being hosted.
 
 ## Architecture
 
-:::image type="content" source="./media/iaas-baseline.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline.png":::
+:::image type="content" source="./media/iaas-baseline.svg" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/iaas-baseline.vsdx) of this architecture.*
+*Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/r/personal/josev_microsoft_com/_layouts/15/doc2.aspx?sourcedoc=%7B07ba5bba-c61b-4b5e-bd37-1d4c20adf6b3%7D&action=view&share=IQG6W7oHG8ZeS703HUwgrfazAfcpYv2OBI9EIkxS8W1jamA&cid=12c82ef1-48e5-4fdf-b442-c52eb52ea874) of this architecture.*
 
-//TODO: Need to convert to SVG, create Visio, create thumbnail
+//TODO: Load final Visio into blob storage (ie: https://arch-center.azureedge.net/iaas-baseline.vsdx)
+//TODO: Refresh all images from Visio 
+//TODO: Convert to SVG, create thumbnail for browser
+
+### Workflow
 
 ### Components
 
@@ -41,10 +46,6 @@ Need intro paragraph that describes scenario and clarifies:
 
 - [Azure Monitor](https://azure.microsoft.com/products/monitor) collects data on environments and Azure resources. It helps maintain availability and performance monitoring. In addition to analyzing and maintaining costs for other Azure services.
 - 
-### Flow
-
-Data/Work flow...
-
 ### Alternatives
 
 ## Scenario details
