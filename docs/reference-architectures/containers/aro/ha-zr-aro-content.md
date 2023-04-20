@@ -2,6 +2,8 @@
 
 This reference architecture shows the holistic view of a web-app workload on Azure Red Hat OpenShift in a zone-redundant configuration. [Zone-redundant services][az-ha-services] provide high-availability by replicating your services and data across Availability zones to protect from single points of failure.
 
+This document builds on top of the ["Azure Red Hat OpenShift landing zone accelerator"](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-openshift/landing-zone-accelerator), focusing on zone-redundant configuration with Azure Red Hat OpenShift. Please read "Azure Red Hat OpenShift landing zone accelerator" before starting building production environment with Azure Red Hat OpenShift.
+
 ## Architecture
 
 ![Reference architecture for a web application with high availability](./images/zone-redundant-aro-diagram.png)
