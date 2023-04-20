@@ -11,16 +11,18 @@ items:
   items:
   - name: Deployment Options
     href: landing-zones/landing-zone-deploy.md
-  - name: Design guides
+  - name: Platform landing zone design guides
     items:
-    - name: Landing zone implementations
-      items:
-      - name: Bicep landing zone implementation
-        href: landing-zones/bicep/landing-zone-bicep.md
-      - name: Terraform landing zone implementation
-        href: landing-zones/terraform/landing-zone-terraform.md
-    - name: Subscription vending implementation
-      href: landing-zones/subscription-vending.yml
+    - name: Bicep landing zone implementation
+      href: landing-zones/bicep/landing-zone-bicep.md
+    - name: Terraform landing zone implementation
+      href: landing-zones/terraform/landing-zone-terraform.md
+  - name: Application landing zone design guides
+    items:
+    - name: Azure Virtual Desktop
+      href: landing-zones/azure-virtual-desktop/design-guide.md      
+  - name: Subscription vending implementation
+    href: landing-zones/subscription-vending.yml
 - name: Application architecture fundamentals
   items:
   - name: Introduction
@@ -4525,6 +4527,10 @@ items:
           maintainContext: true
       - name: High availability for multitier AKS apps
         href: guide/aks/aks-high-availability.yml
+      - name: Overview of migration from Service Fabric to AKS
+        href: guide/aks/service-fabric-azure-kubernetes-service.md
+      - name: Migrate an app from Service Fabric to AKS
+        href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
       - name: Operations management for AKS
         href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/management
         maintainContext: true
