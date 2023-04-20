@@ -184,6 +184,6 @@ Other contributors:
 
 ## Related resources
 
--[HPC for manufacturing](../../industries/manufacturing/compute-manufacturing-overview.yml)
--[Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
--[Use subject matter expertise in machine teaching and reinforcement learning](../../solution-ideas/articles/machine-teaching.yml)
+- [HPC for manufacturing](../../industries/manufacturing/compute-manufacturing-overview.yml)
+- [Introduction to predictive maintenance in manufacturing](../../industries/manufacturing/predictive-maintenance-overview.yml)
+- [Use subject matter expertise in machine teaching and reinforcement learning](../../solution-ideas/articles/machine-teaching.yml)
