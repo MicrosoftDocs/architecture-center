@@ -24,7 +24,7 @@ This article describes how to scale an Internet of Things (IoT) solution with a 
 - [Azure IoT Hub](/azure/iot-hub/)
 - [Azure IoT Hub device provisioning service (DPS)](/azure/iot-dps/)
 
-:::image type="content" source="media/iot-steps-highres.png" alt-text="A diagram that shows the main steps you follow when scaling out your Azure IoT solution." lightbox="media/iot-steps-highres.png" border="false":::
+:::image type="content" source="media/iot-steps-high-res.png" alt-text="A diagram that shows the main steps you follow when scaling out your Azure IoT solution." lightbox="media/iot-steps-high-res.png" border="false":::
 
 ## Gather requirements
 
