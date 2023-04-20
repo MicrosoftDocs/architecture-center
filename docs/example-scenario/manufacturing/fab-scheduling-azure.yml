@@ -1,0 +1,24 @@
+### YamlMime:Architecture
+metadata:
+  title: Automated scheduling and dispatching for semiconductor manufacturing
+  titleSuffix: Azure Architecture Center
+  description: Learn about automated scheduling and dispatching for semiconductor manufacturing workloads on Azure. 
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 04/24/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+  - compute
+products:
+  - azure-kubernetes-service 
+  - azure-virtual-network
+  - azure-files
+  - azure-container-registry
+name: Automate scheduling and dispatching for semiconductor manufacturing
+summary: Learn about automated scheduling and dispatching for semiconductor manufacturing workloads on Azure. 
+thumbnailUrl: /azure/architecture/browse/thumbs/fab-scheduling.png
+content: |
+  [!include[](fab-scheduling-azure-content.md)]
