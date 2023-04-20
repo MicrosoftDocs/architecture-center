@@ -9,13 +9,13 @@ Contoso has implemented the following foundational Azure structure, which is a s
 
 ### Contoso’s Azure Foundations - Workflow
 
-1. **Enterprise Enrollment** - Contoso’s top parent enterprise enrollment within Azure reflecting its commercial agreement with Microsoft, its organizational account structure and available Azure subscriptions. It provides the billing foundation for subscriptions and how the digital estate is administered.
-1. **Identity and Access Management** – The components required to provide identity, authentication, resource access and authorization services across Contoso’s Azure footprint.
-1. **Management Group and Subscription Organization** - A scalable group hierarchy aligned to the data platform’s core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation.  Management groups provide a governance scope above subscriptions.
-1. **Management Subscription** - A dedicated subscription for the various management level  functions of required to support the data platform.
-1. **Connectivity Subscription** - A dedicated subscription for the connectivity functions of the data platform enabling it to identify named services, determine secure routing and communication across and between internal and external services.
-1. **Landing Zone Subscription** – One-to-many subscriptions for Azure native, online applications, internal and external facing workloads and resources.
-1. **DevOps Platform** - The DevOps Platform that supports the Azure foundation & Data Platform. This platform contains the code base source control repository and CI/CD pipelines enabling automated deployments of IaC.
+1. **Enterprise Enrollment** - Contoso’s top parent enterprise enrollment within Azure reflecting its commercial agreement with Microsoft, its organizational account structure and available Azure subscriptions. It provides the billing foundation for subscriptions and how the digital estate is administered
+1. **Identity and Access Management** – The components required to provide identity, authentication, resource access and authorization services across Contoso’s Azure footprint
+1. **Management Group and Subscription Organization** - A scalable group hierarchy aligned to the data platform’s core capabilities, allowing operationalization at scale using centrally managed security and governance where workloads have clear separation.  Management groups provide a governance scope above subscriptions
+1. **Management Subscription** - A dedicated subscription for the various management level  functions of required to support the data platform
+1. **Connectivity Subscription** - A dedicated subscription for the connectivity functions of the data platform enabling it to identify named services, determine secure routing and communication across and between internal and external services
+1. **Landing Zone Subscription** – One-to-many subscriptions for Azure native, online applications, internal and external facing workloads and resources
+1. **DevOps Platform** - The DevOps Platform that supports the Azure foundation & Data Platform. This platform contains the code base source control repository and CI/CD pipelines enabling automated deployments of IaC
 
 >[!NOTE]
 >Many customers still retain a large IaaS footprint. To provide recovery capabilities across IaaS, the key component to be added is [Azure Site recovery](/azure/site-recovery/site-recovery-overview). [Site Recovery](/azure/site-recovery/site-recovery-faq) will orchestrate and automate the replication of Azure VMs between regions, on-premises virtual machines and physical servers to Azure, and on-premises machines to a secondary datacenter.
@@ -40,7 +40,7 @@ The workflow is read left to right, following the flow of data:
 - **Platform** - The foundation upon which the platform is built, that is, Contoso’s Azure Foundations as described above.
 
 >[!NOTE]
->For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through Azure Data Factory, and data modeling by Azure SQL server. To address this concern, the Stateless vs Stateful section below will provide guidance.
+>For many customers, the conceptual level of the Data Platform reference architecture used will align, but the physical implementation may vary. For example, ELT (extract, load, transform) processes may be performed through [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/), and data modeling by [Azure SQL server](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql). To address this concern, the Stateless vs Stateful section below will provide guidance.
 
 For the Data Platform, Contoso has selected the lowest recommended production service tiers for all components and has chosen to adopt a “Redeploy on Disaster” DR strategy based upon an operating cost-minimization approach.  
 
@@ -74,7 +74,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: Default (GRS)
     - DR Uplift options: Enabling [Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore) creates data restoration in the secondary, [paired region](/azure/availability-zones/cross-region-replication-azure)
     - Notes
-        - While LRS is available, it requires configuration activities from the default setting
+        - While LRS and ZRS are available, it requires configuration activities from the default setting
 
 - **Azure DevOps**
     - Component Recovery Responsibility: Microsoft
@@ -117,8 +117,6 @@ The following tables present a breakdown of each Azure service and component use
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A, Covered as part of the Azure Service
-    - Notes
-        - Azure Security Center is now Microsoft Defender for Cloud
 
 - **Azure DNS**
     - Component Recovery Responsibility: Microsoft
@@ -166,7 +164,7 @@ The following tables present a breakdown of each Azure service and component use
     - Component Recovery Responsibility: Contoso
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Single Zone - VpnGw1
-    - DR Uplift options: A VPN Gateway can be deployed into an [Availability Zone](/en-us/azure/availability-zones/az-overview) with the VpnGw#AZ SKUs to provide a [zone redundant service](/azure/expressroute/expressroute-faqs#what-is-expressroute-premium)
+    - DR Uplift options: A VPN Gateway can be deployed into an [Availability Zone](/en-us/azure/availability-zones/az-overview) with the VpnGw#AZ SKUs to provide a [zone redundant service](/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
 
 - **Azure Load Balancer**
     - Component Recovery Responsibility: Contoso
@@ -223,16 +221,6 @@ The following tables present a breakdown of each Azure service and component use
     - Notes:
         - Azure Machine Learning itself doesn't [provide automatic failover or disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning)
 
-- **Azure Synapse: Data Explorer Pools**
-    - Component Recovery Responsibility: Microsoft
-    - Workload/Configuration Recovery Responsibility: Contoso
-    - Contoso SKU selection: Compute Optimized Gen2
-    - DR Uplift options:
-        - Azure Data Explorer [persistence and compute resiliency](/azure/data-explorer/business-continuity-overview#high-availability-of-azure-data-explorer) can be uplifted by provisioning using an availability zone
-        - Resiliency can be further uplifted by a [deployment in a secondary region](/azure/data-explorer/business-continuity-overview#summary-of-disaster-recovery-configuration-options), under a DR configuration
-    - Notes
-        - Azure Data Explorer doesn't provide automatic protection against the [outage of an entire Azure region](/azure/data-explorer/business-continuity-overview#outage-of-an-azure-region)
-
 - **Power BI**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
@@ -241,7 +229,7 @@ The following tables present a breakdown of each Azure service and component use
     - Notes
         - Power BI resides in the Office365 tenancy, not that of Azure
         - [Power BI uses Azure Availability Zones](/power-bi/enterprise/service-admin-failover#what-does--high-availability--mean-for-power-bi-) to protect Power BI reports, applications and data from data center failures
-        - In the case of regional failure, Power BI will [fail over to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1)
+        - In the case of regional failure, Power BI will [failover to a new region](/power-bi/enterprise/service-admin-failover#what-is-a-power-bi-failover-), usually in the same geographical location, as noted in the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview?rtc=1)
 
 - **Azure Cosmos DB**
     - Component Recovery Responsibility: Microsoft
@@ -256,7 +244,7 @@ The following tables present a breakdown of each Azure service and component use
         - The following guidance describes the [impact of a region outage based upon the Cosmos DB configuration](/azure/cosmos-db/high-availability#what-to-expect-during-a-region-outage)
 
 - **Azure Data Share**
- - Component Recovery Responsibility: Microsoft
+    - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Microsoft
     - Contoso SKU selection: N/A
     - DR Uplift options: Azure Data Share’s resiliency can be uplifted by [HA deployment into a secondary region](/azure/data-share/disaster-recovery#achieving-business-continuity-for-azure-data-share)
@@ -267,7 +255,7 @@ The following tables present a breakdown of each Azure service and component use
     - Contoso SKU selection: N/A
     - DR Uplift options: N/A
     - Notes
-        - As at Jan 2022, [Microsoft Purview doesn't support automated BCDR](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
+        - As at Mar 2023, [Microsoft Purview doesn't support automated BCDR](/azure/purview/disaster-recovery#achieve-business-continuity-for-azure-purview). Until that support is added, the customer is responsible for all backup and restore activities.
 
 ### Stateless Data platform-specific services
 
@@ -275,17 +263,25 @@ The following tables present a breakdown of each Azure service and component use
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
     - Contoso SKU selection: Computed Optimized Gen2 
-    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
+    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering using the [automatic failover](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery) feature
     - Notes
         - If Self-Hosted Data Pipelines are used, they'll remain the customer’s responsibility for recovery from a disaster
+
+- **Azure Synapse: Data Explorer Pools**
+    - Component Recovery Responsibility: Microsoft
+    - Workload/Configuration Recovery Responsibility: Contoso
+    - Contoso SKU selection: Computed Optimized, Small (4 cores)
+    - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
+    - Notes
+        - Availability Zones are enabled by default for [Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-compare) where available
 
 - **Azure Synapse: Spark Pools**
     - Component Recovery Responsibility: Microsoft
     - Workload/Configuration Recovery Responsibility: Contoso
-    - Contoso SKU selection: Computed Optimized Gen2 
+    - Contoso SKU selection: Computed Optimized, Small (4 cores)
     - DR Uplift options: N/A, Synapse resiliency is part of its SaaS offering
     - Notes
-        - As of Dec 2021, Azure Synapse Analytics only supports disaster recovery for dedicated SQL pools and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308#:~:text=Azure%20Synapse%20Analytics%20only%20supports%20disaster%20recovery%20for,snapshots%20for%20disaster%20recovery%20of%20dedicated%20SQL%20pools.)
+        - As of Mar 2023, Azure Synapse Analytics only supports disaster recovery for [dedicated SQL pools](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore?source=recommendations#geo-backups-and-disaster-recovery) and [doesn’t support it for Apache Spark pools](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-key-vault-deploy-to-azure-synapse/ba-p/3201308#:~:text=Azure%20Synapse%20Analytics%20only%20supports%20disaster%20recovery%20for,snapshots%20for%20disaster%20recovery%20of%20dedicated%20SQL%20pools.)
 
 - **Azure Synapse: Serverless and Dedicated SQL Pools**
     - Component Recovery Responsibility: Microsoft
@@ -325,13 +321,13 @@ For a DR scenario that calls for redeployment:
 
 - Components/services that are “stateless”, like Azure Functions and Azure Data Factory pipelines, can be redeployed from source control with at least a smoke test to validate availability before being introduced into the broader system
 - Components/services that are “stateful”, like Azure SQL database and storage accounts, require more attention
-    - When procuring the component, a key decision will be the selection of the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs
-- Datastore components will also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases will need a separate backup process.
-    - If necessary, the component can be redeployed from source control with a smoke-test to validate that It's available with the correct configuration
-    - A redeployed component containing a dataset must have its dataset rehydrated. Rehydration can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for completeness.
-        - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption/error may result in earlier backup being used in place of the latest available
-    - Any delta between component date/timestamp and the current date should be addressed by re-executing or replaying the data ingestion processes from that point forward
-    - Once the component dataset is up to date, the component can be introduced into the broader system
+    - When procuring the component, a key decision will be selecting the data redundancy feature. This decision typically focuses on a trade-off between availability and durability with operating costs
+- Datastores will also need a data backup strategy. The data redundancy functionality of the underlying storage mitigates this risk for some designs, while others, like SQL databases will need a separate backup process.
+    - If necessary, the component can be redeployed from source control with a validated configuration via a smoke-test
+    - A redeployed datastore must have its dataset rehydrated. Rehydration can be accomplished through data redundancy (when available) or a backup dataset. When rehydration has been completed, it must be validated for accuracy and completeness
+        - Depending on the nature of the backup process, the backup datasets may require validation before being applied. Backup process corruption/error may result in an earlier backup being used in place of the latest version available
+    - Any delta between the component date/timestamp and the current date should be addressed by re-executing or replaying the data ingestion processes from that point forward
+    - Once the component's dataset is up to date, it can be introduced into the broader system
 
 ## Other key services
 This section contains HA/DR guidance for other key Azure Data components and services.

@@ -1,6 +1,6 @@
-The articles in this series have showed how to design a disaster recovery (DR) strategy for an Azure-based data platform with information on resiliency options for many Azure services that your organization may be using or looking to incorporate into your data platform.  Every organization's data needs are different, but the guidance provided in this series is meant to give you a starting point to design a DR strategy that fits your business requirements.  
+The articles in this series have showed how to design a disaster recovery (DR) strategy for an Azure-based data platform with information on resiliency options for many Azure services that your organization may be using or looking to incorporate into your data platform.  
 
-For further business and workload resiliency guidance, you can refer to the [Well-Architected Framework](/azure/architecture/framework/resiliency/) and the [Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/business-resilience).
+Every organization's data needs are different, but the guidance provided in this series is meant to give you a starting point to design a DR strategy that fits your business requirements.  
 
 ## Key terms glossary
 
@@ -70,10 +70,10 @@ Other contributors:
 
 ## Next steps
 
-- [Azure Data Lake Storage training module](/training/modules/introduction-to-azure-data-lake-storage)
-- [Introduction to Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction)
-- [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-- [Azure Synapse Analytics](/azure/synapse-analytics)
+- [Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/business-resilience)
+- [Mission-critical workload](/azure/architecture/framework/mission-critical/mission-critical-overview)
+- [Well-Architected Framework](/azure/architecture/framework/resiliency/)
+
 
 ## Related resources
 
