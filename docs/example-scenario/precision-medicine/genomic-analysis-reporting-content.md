@@ -2,7 +2,7 @@ This article presents a solution for genomic analysis and reporting. The process
 
 ## Architecture
 
-:::image type="complex" source="./media/genomic-analysis-reporting-architecture.png" alt-text="Architecture diagram showing how information flows through a genomics analysis and reporting pipeline." border="false":::
+:::image type="complex" source="./media/genomic-analysis-reporting-architecture.svg" alt-text="Architecture diagram showing how information flows through a genomics analysis and reporting pipeline." border="false":::
    The diagram contains two boxes. The first, on the left, has the label Azure Data Factory for orchestration. The second box has the label Clinician views. The first box contains several smaller boxes that represent data or various Azure components. Arrows connect the boxes, and numbered labels on the arrows correspond with the numbered steps in the document text. Two arrows flow between the boxes, ending in the Clinician views box. One arrow points to a clinician icon. The other points to a Power BI icon.
 :::image-end:::
 *Download a [Visio file][Visio version of architecture diagram] of this architecture.*
