@@ -170,7 +170,7 @@ The management application requirements include tracking which DPS should be the
 
 There are other possible variations not detailed in this article. For example, you can configure the architecture shown here by moving the DPS call to the provisioning API, as shown earlier in the Zero-touch provisioning with a provisioning API. The goal is to make sure each tier is scalable, configurable, and readily deployable.
 
-**General DPS provisioning guidance:** You should apply the following recommendations to your DPS deployment. The represent general best practices for this Azure service:
+**General DPS provisioning guidance:** You should apply the following recommendations to your DPS deployment, which represent general best practices for this Azure service:
 
 **Don’t provision on every boot**. The [DPS documentation](/azure/iot-dps/how-to-reprovision#send-a-provisioning-request-from-the-device) specifies that the best practice isn't to provision on every boot. For small use cases, it might seem reasonable to provision at every boot because that’s the shortest path to deployment. However, when scaling up to millions of devices, DPS can become a bottleneck, given [its default limit of 1,000 registrations per minute per service instance](/azure/iot-dps/about-iot-dps#quotas-and-limits). Even device registration status lookup can be a bottleneck because it has a limit of 5 to 10 polling operations per second. Provisioning results are usually a static mapping to an IoT hub. So, unless your requirements include automated reprovisioning requests, it's best to perform them only on demand. Although this limit is a soft limit and you can increase it on a case-by-case basis by [contacting Microsoft Support](/azure/iot-dps/about-iot-dps#quotas-and-limits), the increase isn't to the scale of tens of thousands of devices per minute. So scaling out to multiple DPS instances might be the only way to support such scenarios, depending on the anticipated traffic.
 
@@ -224,7 +224,7 @@ Device deployment is a key part of the device lifecycle, but it's outside the sc
 
 ## Monitor devices
 
-An important part of your overall deployment is to monitor the solution from end to end to make sure that the system performs appropriately. Because this article is explicitly focused on architecture and design and not on the operational aspects of the solution, discussing monitoring in detail is out of scope. However, at a high level, monitoring tools are built into Azure through [Azure Monitor](/azure/azure-monitor/) to ensure that the solution isn't hitting limits. For details, see these articles:
+An important part of your overall deployment is to monitor the solution from start to finish to make sure that the system performs appropriately. Because this article is explicitly focused on architecture and design and not on the operational aspects of the solution, discussing monitoring in detail is out of scope. However, at a high level, monitoring tools are built into Azure through [Azure Monitor](/azure/azure-monitor/) to ensure that the solution isn't hitting limits. For details, see these articles:
 
 - [Monitoring Azure IoT Hub](/azure/iot-hub/monitor-iot-hub)
 - [Diagnose and troubleshoot disconnects with Azure IoT Hub DPS](/azure/iot-dps/how-to-troubleshoot-dps)
