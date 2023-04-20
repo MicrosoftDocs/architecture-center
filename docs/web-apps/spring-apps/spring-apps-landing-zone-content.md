@@ -28,7 +28,7 @@ Typical uses for this architecture include:
 - Private applications: Internal applications deployed in hybrid cloud environments.
 - Public applications: Externally facing applications.
 
-The use cases are similar except for their security and network traffic rules. This architecture is designed to support the nuances of each.
+The use cases are similar except for their security and network traffic rules. 
 
 ### Components
 
@@ -172,7 +172,6 @@ Even though the Connectivity subscription has private DNS zones, provision your 
 > **Platform team**
 >
 > - Delegate the Azure Private DNS zones to the application team. 
->
 > - In the hub network, set the DNS servers value to Default (Azure-provided) to support private DNS zones managed by the application team.
 
 Outbound traffic from virtual network must be restricted to prevent data exfiltration attacks. This traffic is routed through the centralized Azure Firewall (next hop) that allows or denies the flow using fully qualified domain name (FQDN).
