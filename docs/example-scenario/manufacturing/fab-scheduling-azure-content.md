@@ -8,7 +8,7 @@ link
 
 ### Workflow
 
-This workflow shows a high-level overview of the architecture used for reinforcement learning (RL).
+This workflow shows a high-level overview of the architecture that's used for reinforcement learning (RL).
 
 1. End users interact with the Maestro management system via a REST API that runs on Azure Kubernetes Service (AKS). They can interact with the system in various ways: 
 
@@ -16,9 +16,9 @@ This workflow shows a high-level overview of the architecture used for reinforce
    - Web-based user interface 
    - Command-line client 
 
-1. Maestro schedules the training jobs on the cluster.
-1. Maestro invokes Kubernetes to assign pods to the relevant node pools. AKS scales the node pools up or down as needed. Maestro assigns the pods to specific node pools based on the user job configuration. The user can select regular or spot nodes and CPU or GPU nodes. 
-1. Kubernetes pulls the image from Azure Container Registry based on the configuration defined by Maestro and initializes the pods. 
+1. Maestro schedules the training jobs on a Kubernetes cluster.
+1. Maestro invokes Kubernetes to assign pods to the relevant node pools. AKS scales the node pools up or down as needed. Maestro assigns the pods to specific node pools based on the user's job configuration. The user can select regular or spot nodes and CPU or GPU nodes. 
+1. Kubernetes pulls the contaner image from Azure Container Registry based on the configuration defined by Maestro and initializes the pods. 
 1. During training, the results are stored in Azure Files and the metric tracking system that's part of the Maestro managaement pods (and backed by an additional storage device). The use monitors job progress by using the Maestro dashboard. 
 1. When training is complete, the RL agent is pushed to the deployment system, where it can be queried for actions. Optionally, the deployment server can report monitoring statistics to the Maestro platform for further optimization of the agent via Azure Files.
 
@@ -177,6 +177,7 @@ Other contributors:
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)  
 - [Using containers on Azure Batch](https://github.com/Azure/batch-shipyard) 
 - [RDMA-capable VM Instances](/azure/virtual-machines/sizes-hpc#rdma-capable-instances) 
+- [HPC cluster configuration options](/azure/virtual-machines/sizes-hpc?branch=main#cluster-configuration-options)
 - [DeepSim product description](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWRwHJ) 
 - [minds.ai semiconductor solutions](https://minds.ai/semiconductor/) 
 - [DeepSim training platform](https://minds.ai/platform/) 
