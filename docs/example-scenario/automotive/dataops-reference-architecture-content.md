@@ -95,21 +95,21 @@ Each AVOps data domain is set up based on blueprint structure (including [Azure 
 The data pipeline is triggered based on a schedule. Once triggered, the data is copied from landing zone to raw zone.
 ![ADF Copy pipeline](images/adf-copy-landing-raw.png)
 
-Once the pipeline gets triggered, it fetches all the measurement folders and iterate through all of them. Here's the sequence of activities that happen against each measurement:
+Once the pipeline gets triggered, it fetches all the measurement folders and iterates through all of them. Here's the sequence of activities that happen against each measurement:
 
-**Validate Measurement**: The Validate Measurement function will grab the file manifest file from the measurement manifest and check if all the Rosbag files for this measurement exist in the measurement folder, on successful validation proceed to the next activity and on failure skip this measurement and proceed to the next measurement folder.
+**Validate Measurement**: The Validate Measurement function will grab the file manifest file from the measurement manifest and check if all the measurement files (MDF4, TDMS, or Rosbag) for this measurement exist in the measurement folder, on successful validation proceed to the next activity and on failure skip this measurement and proceed to the next measurement folder.
  
 **Call Create Measurement API**: Make a web API call to the create measurement API and pass the json payload from measurement manifest json file. On successful call, parse the response to retrieve the measurement ID and on failure move to the on error activity.
 
 **Call Create Datastream API**: Make a web API call to the create datastream api by creating the required json payload. On successful call, parse the response to retrieve the datastream ID and the datastream location. On failure move to the on error activity.
 
-**Call Update Datastream State API**: Make a web API call to update the state of the stream to Start Copy, on successful call start the copy activity to copy Rosbag files to the datastream location. On failure move to the on error activity.
+**Call Update Datastream State API**: Make a web API call to update the state of the stream to Start Copy, on successful call start the copy activity to copy measurement files to the datastream location. On failure move to the on error activity.
 
-**Copy Rosbag Files**: Azure Batch is used to copy Rosbag files from Landing zone to Raw Zone. [Azure Data Factory](/azure/data-factory/introduction) pipeline invokes the Azure batch for copying a measurement. Copy module of orchestrator app creates following Copy job with following tasks for each measurement:
+**Copy Measurement Files**: Azure Batch is used to copy measurement files from Landing zone to Raw Zone. [Azure Data Factory](/azure/data-factory/introduction) pipeline invokes the Azure batch for copying a measurement. Copy module of orchestrator app creates following Copy job with following tasks for each measurement:
 
-- Copy Rosbag files to Raw Zone
-- Copy Rosbag files to Archive Zone
-- Remove Rosbag files from Landing Zone
+- Copy measurement files to Raw Zone
+- Copy measurement files to Archive Zone
+- Remove measurement files from Landing Zone
 
 **Note**: Batch makes use of orchestrator pool for copying data and AzCopy tool is used for copying and removing data based on above tasks. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in keyvault and are referenced via landingsaskey, archivesaskey and rawsaskey
 
@@ -117,7 +117,7 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
 
 **Move Measurement To Landing Zone Archive**: This activity moves the measurement files from landing zone to Landing Zone Archive. This helps to rerun a particular measurement by moving it back to Landing zone via hydrate copy pipeline. Life cycle management is enabled on this zone to automatically delete or archive measurements from this zone.
 
-**On-Error**: In this activity measurement will be moved to Error Zone where from it can be rerun by moving it to landing zone or can be auto deleted/archived by life cycle management.
+**On-Error**: In this activity, measurements are moved to Error Zone where from it can be rerun by moving it to landing zone or can be auto deleted/archived by life cycle management.
 
 **Notes**:
 - These pipelines are triggered based on a schedule, as it helps in better traceability of pipeline runs and avoid unnecessary pipeline runs.
@@ -125,11 +125,11 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
 - Pipeline is configured to copy measurements in parallel, e.g if scheduled run picked up 10 measurements to copy, then above sequence of steps can be run concurrently for all the measurements.
 - Pipeline is configured to emit a metric in Azure monitor if the pipeline takes more than expected time to complete. 
 - On-Error activity is implemented in later observability stories.
-- Partial measurements, which have rosbag files missing will be deleted automatically by life cycle management.
+- Partial measurements, which have rosbag files missing as an example will be deleted automatically by life cycle management.
 
 
 ### Landing Zone to Raw Zone
-After Rosbag files get copied to raw zone, we need to continue with the extraction of those bag files. In the extraction phase measurement will be treated as a one unit of extraction. Here's how the extraction flow for a measurement looks like:
+After measurement files get copied to raw zone, we need to continue with the extraction of those bag files. In the extraction phase measurement will be treated as a one unit of extraction. Here's how the extraction flow for a measurement looks like:
 
 ![ADF Raw to Extracted pipeline](images/adf-raw-extraction.png)
 
@@ -138,16 +138,16 @@ Landing to raw zone copy pipeline copies the .db3 files and once all the .db3 fi
 Extraction pipeline will be triggered by a storage event trigger with filter set to trigger the pipeline when datastream.json gets created in the raw zone.
 
 ### Batch Design
-All the extraction logic is packaged in different container images based on the extraction processes. Azure batch runs those container workloads parallel for the extraction of Rosbag files.
+All the extraction logic is packaged in different container images based on the extraction processes. Azure batch runs those container workloads parallel for the extraction of measurement files.
 
-Since [Azure Data Factory](/azure/data-factory/introduction) doesn’t support running batch container workloads so we'll use two batch pools, an orchestrator pool(non container) and an execution pool(container based) for processing our work loads. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads for the rosbag extractions. Here's the design for batch processing:
+Since [Azure Data Factory](/azure/data-factory/introduction) doesn’t support running batch container workloads so we use two batch pools, an orchestrator pool(non container) and an execution pool(container based) for processing our work loads. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads for the topic extractions. Here's the design for batch processing:
 
 ![Batch Design](images/azure-batch-design.png)
 ### Invoking Azure Batch From ADF
 
-In the extraction pipeline, trigger passes the path of the metadata file and the raw data stream path to the pipeline parameters. [Azure Data Factory](/azure/data-factory/introduction) will use the Lookup activity to parse the json from manifest file and raw datastream ID can be parsed from the raw data stream path by parsing the pipeline variable.
+In the extraction pipeline, trigger passes the path of the metadata file and the raw data stream path to the pipeline parameters. [Azure Data Factory](/azure/data-factory/introduction) uses the Lookup activity to parse the json from manifest file and raw datastream ID can be parsed from the raw data stream path by parsing the pipeline variable.
 
-[Azure Data Factory](/azure/data-factory/introduction) calls web activity to create a new datastream by calling the create datastream API. The create data stream api will return the path for the extracted datastream. The extracted path will be added to the current object and [Azure Data Factory](/azure/data-factory/introduction) will invoke the Azure batch via Custom Activity by passing the current object after appending the extracted datastream path like below:
+[Azure Data Factory](/azure/data-factory/introduction) calls web activity to create a new datastream by calling the create datastream API. The create data stream api returns the path for the extracted datastream. The extracted path will be added to the current object and [Azure Data Factory](/azure/data-factory/introduction) will invoke the Azure batch via Custom Activity by passing the current object after appending the extracted datastream path like below:
 
 ```
 {
@@ -163,11 +163,58 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 ### Azure Batch Design
 
 
-All the extraction logic is packaged in different container images based on the extraction processes. Azure batch runs those container workloads parallel for the extraction of Rosbag files.
+All the extraction logic is packaged in different container images based on the extraction processes. Azure batch runs those container workloads parallel for the extraction of topics in measurement files.
 
-Since [Azure Data Factory](/azure/data-factory/introduction) doesn’t support running batch container workloads so we'll use two batch pools, an orchestrator pool(non container) and an execution pool(container based) for processing our work loads. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads for the rosbag extractions. Here's the design for batch processing:
+Since [Azure Data Factory](/azure/data-factory/introduction) doesn’t support running batch container workloads so we use two batch pools, an orchestrator pool(non container) and an execution pool(container based) for processing our work loads. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads for the topic extractions. Here's the design for batch processing:
 
 ![Batch Design](images/azure-batch-design.png)
+
+### Design Components
+### Batch Pools
+
+- **Orchestrator Pool**: This pool has linux nodes without container runtime support and runs a python code that will use batch API to create jobs and tasks for the execution pool and monitor will those tasks. ADF will trigger this pool with the required configurations. 
+- **Execution Pool** : This pool has linux nodes with container run time to support running container workloads. For this pool jobs and tasks are scheduled via the orchestrator pool.
+
+**NFS Mounts**
+Storage accounts from which data will be read and written will be mounted via NFS 3.0 on to the batch nodes and the containers running on the nodes. This helps batch nodes/containers to process data quickly without downloading the data files locally on to the batch nodes.
+
+**Note**:- Batch and Storage account need to be in the same vnet for mounting. 
+
+**Application Insights**
+
+Application Insights can be integrated to log custom events, custom metrics and log information while processing a particular measurement for extraction. This helps in building the observability around measurement extraction. We can build queries on log analytics to get the all the details about a measurement.
+
+**Container Registry**
+All the container images required for processing in the execution pool are pushed to container registry(JFrog) and execution pool will be provided with configurations to connect to this registry and pull the required images.
+
+### Step wise extraction process
+
+![Step Wise Extraction Process](images/step-wise-extraction-process.png)
+
+
+1. ADF will schedule a job with one task for the orchestrator pool to process a measurement for extraction. It passes the following information to orchestrator pool:
+
+- Measurement ID
+- Location of the measurement files (MDF4, TDMS, or Rosbag) that need to be extracted.
+- Destination path where the extracted contents are stored. 
+- Extracted Datastream ID
+
+2. Orchestrator pool invokes the Update Datastream API to set the status of the datastream to PROCESSING.
+
+3. Orchestrator pool creates a job for each measurement file that is part of measurement and each job has the following tasks:
+
+- Validation Task: This is a dependent task to all the following tasks of the job. Here we can validate if the measurement file is good for extraction.
+- Process Meta Data Task: This task is responsible for deriving the metadata from a measurement file and enriching the files meta-data collection via files update metadata api.
+- Process StructuredTopics Task: This task is responsible extracting structured data from the given measurement file. List of topics from which structured data need to be extracted will passed as configuration.
+- Process CameraTopics Task: This task is responsible extracting images data from the given measurement file. List of topics from which images need to be extracted will passed as configuration.
+- Process LidarTopics Task: This task is responsible extracting lidar data from the given measurement file. List of topics from which lidar data need to be extracted will passed as configuration.
+- Process CanTopics Task: This task is responsible extracting can data from the given measurement file. List of topics from where data need to be extracted will be passed as configuration.
+
+4. Orchestrator pool monitors the progress of each task and once all the jobs are completed for all the measurement files, it invokes Update datastream API to set the status of datastream to COMPLETED.
+
+5. Orchestrator exits gracefully.
+
+Note: For all of the above(defined in point 3) tasks there will be a separate container image that has the corresponding logic defined for a task and accepts certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] etc. When validation is implemented, then all the tasks will depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
 ## Meta-Data and Data Discovery 
 
 Each data domain manages it corresponding AVOps data products decentrally. For central data discovery and to know where data products are located, two components are required:
