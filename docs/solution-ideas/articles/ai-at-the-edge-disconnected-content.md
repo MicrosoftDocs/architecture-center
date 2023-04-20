@@ -1,29 +1,27 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This solution architecture allows you to use edge AI when disconnected from the internet and move your AI models to the edge.
+This article outlines a solution for using edge AI when you're disconnected from the internet. The solution also uses Azure Stack Hub to move AI models to the edge.
 
 ## Architecture
 
-[ ![Architecture diagram: AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity.](../media/ai-at-the-edge-disconnected.png)](../media/ai-at-the-edge-disconnected.png#lightbox)
+:::image type="content" source="../media/ai-at-the-edge-disconnected.png" alt-text="Architecture diagram that shows an AI-enabled application running at the edge with Azure Stack Hub and hybrid connectivity." lightbox="../media/ai-at-the-edge-disconnected.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ai-at-the-edge-disconnected.vsdx) of this architecture.*
 
 ### Dataflow
 
-1. Data scientists train a model using Azure Machine Learning and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
-1. The model is deployed to a Kubernetes cluster on Azure Stack Hub.
+1. Data scientists use Azure Machine Learning and an HDInsight cluster to train a machine learning model. The model is containerized and put into Azure Container Registry.
+1. The model is deployed to an Azure Kubernetes Service (AKS) cluster on Azure Stack Hub.
 1. End users provide data that's scored against the model.
-1. Insights and anomalies from scoring are placed into storage for later upload.
+1. Insights and anomalies from scoring are placed into storage for upload later.
 1. Globally relevant and compliant insights are available in the global app.
 1. Data scientists use scoring from the edge to improve the model.
 
 ### Components
 
-Key technologies used to implement this architecture:
-
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning): Build, deploy, and manage predictive analytics solutions
-* [HDInsight](https://azure.microsoft.com/services/hdinsight): Provision cloud Hadoop, Spark, HBase, and Storm clusters
-* [Container Registry](https://azure.microsoft.com/services/container-registry): Store and manage container images across all types of Azure deployments
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning) is a cloud-based environment that you can use to build, deploy, and manage  machine learning models. With these models, you can forecast future behavior, outcomes, and trends.
+* [HDInsight](https://azure.microsoft.com/services/hdinsight) is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks with Azure HDInsight, such as Hadoop, Spark, HBase, and Storm.
+* [Container Registry](https://azure.microsoft.com/services/container-registry) is a service that creates a managed registry of container images. You can use Container Registry to build, store, and manage the images. You can also use it to store containerized machine learning models.
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service): Simplify the deployment, management, and operations of Kubernetes
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines): Provision Windows and Linux virtual machines in seconds
 * [Storage](https://azure.microsoft.com/services/storage): Durable, highly available, and massively scalable cloud storage
