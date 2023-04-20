@@ -7,7 +7,7 @@
     }, 
     {
       "source_path": "docs/solution-ideas/articles/streaming-using-hdinsight.yml",
-      "redirect_url": "azure/architecture/solutions/power-platform-scenarios",
+      "redirect_url": "/azure/architecture/data-science-process/spark-overview",
       "redirect_document_id": false
     },
     {
