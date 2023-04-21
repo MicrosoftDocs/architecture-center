@@ -1,8 +1,8 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-This article outlines a solution for using edge AI when you're disconnected from the internet. The solution also uses Azure Stack Hub to move AI models to the edge.
+This article outlines a solution for using edge AI when you're disconnected from the internet. The solution uses Azure Stack Hub to move AI models to the edge.
 
-*Apache®, [Apache Hadoop](https://hadoop.apache.org/), [Apache Spark](http://spark.apache.org/), [Apache HBase](http://hbase.apache.org/), and [Apache Storm](https://storm.apache.org/) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache Hadoop](https://hadoop.apache.org), [Apache Spark](http://spark.apache.org), [Apache HBase](http://hbase.apache.org), and [Apache Storm](https://storm.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -16,7 +16,7 @@ This article outlines a solution for using edge AI when you're disconnected from
 1. The model is deployed to an Azure Kubernetes Service (AKS) cluster on Azure Stack Hub.
 1. End users provide data that's scored against the model.
 1. Insights and anomalies from scoring are placed into storage for upload later.
-1. Globally relevant and compliant insights are available in the global app.
+1. Globally relevant and compliant insights are available in a global app.
 1. Data scientists use scoring from the edge to improve the model.
 
 ### Components
@@ -27,13 +27,13 @@ This article outlines a solution for using edge AI when you're disconnected from
 * [AKS](https://azure.microsoft.com/services/kubernetes-service) is a highly available, secure, and fully managed Kubernetes service. AKS makes it easy to deploy and manage containerized applications.
 * [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is an infrastructure-as-a-service (IaaS) offer. You can use Virtual Machines to deploy on-demand, scalable computing resources like Windows and Linux virtual machines.
 * [Azure Storage](https://azure.microsoft.com/services/storage) offers highly available, scalable, secure cloud storage for data, applications, and workloads.
-* [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack) is an extension of Azure that provides a way to run apps in an on-premises environment and deliver Azure services to your datacenter.
+* [Azure Stack Hub](https://azure.microsoft.com/products/azure-stack) is an extension of Azure that provides a way to run apps in an on-premises environment and deliver Azure services to your datacenter.
 
 ## Scenario details
 
-With the Azure AI tools and the Azure edge and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. By using [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), you can bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence. You don't need to make tool or process changes for local applications. When you use Azure Stack Hub, you can ensure that your cloud solutions work even when they're disconnected from the internet.
+With the Azure AI tools and the Azure edge and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. By using [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), you can bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence. With this approach, you don't need to make tool or process changes for local applications. When you use Azure Stack Hub, you can ensure that your cloud solutions work even when you're disconnected from the internet.
 
-This solution idea shows a disconnected Azure Stack Hub scenario. Issues of latency, intermittent connectivity, or regulations might not always allow for connectivity to Azure. In the disconnected scenario, data is processed locally and later aggregated in Azure for further analytics. For the connected version of this scenario, see [AI at the edge](./ai-at-the-edge.yml).
+This solution is for a disconnected Azure Stack Hub scenario. Because of latency or intermittent connectivity issues or regulations, you might not always be connected to Azure. In disconnected scenarios, you can process data locally and aggregate it later in Azure for further analysis. For the connected version of this scenario, see [AI at the edge](./ai-at-the-edge.yml).
 
 ### Potential use cases
 
@@ -60,25 +60,25 @@ For more information about solution components, see the following product docume
 * [Azure Kubernetes Service (AKS) documentation](/azure/aks)
 * [Azure Machine Learning documentation](/azure/machine-learning/service)
 * [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
-* [Azure Stack Hub Deployment Options](/azure-stack/operator/azure-stack-overview#deployment-options)
+* [Azure Stack Hub deployment options](/azure-stack/operator/azure-stack-overview#deployment-options)
 * [Container Registry documentation](/azure/container-registry)
 * [HDInsight documentation](/azure/hdinsight)
 * [Storage documentation](/azure/storage)
 * [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started)
-* [Azure hybrid and multiple-cloud patterns and solutions documentation](/hybrid/app-solutions)
+* [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 
 For samples, see the following resources:
 
-* [AKS Engine on Azure Stack Hub (on GitHub)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
-* [Azure Samples - Edge Intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
-* [Azure Samples -Azure Stack Hub Foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
+* [AKS engine on Azure Stack Hub (on GitHub)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)
+* [Azure samples - edge intelligence on Azure Stack Hub (on GitHub)](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/factory-ai-vision)
+* [Azure samples - Azure Stack Hub foundation (on GitHub)](https://github.com/Azure-Samples/Azure-Stack-Hub-Foundation-Core)
 
 ## Related resources
 
-For related architectures, see the following articles:
+For related solutions, see the following articles:
 
-* [AI at the edge with Azure Stack Hub](/azure/architecture/solution-ideas/articles/ai-at-the-edge)
-* [AI-based footfall detection](/azure/architecture/solution-ideas/articles/hybrid-footfall-detection)
-* [Deploy AI and machine learning computing on-premises and to the edge](/azure/architecture/hybrid/deploy-ai-ml-azure-stack-edge)
-* [Azure public multi-access edge compute deployment](/azure/architecture/example-scenario/hybrid/public-multi-access-edge-compute-deployment)
-* [Choose a bare-metal Kubernetes at the edge platform option](/azure/architecture/operator-guides/aks/choose-bare-metal-kubernetes)
+* [AI at the edge with Azure Stack Hub](./ai-at-the-edge.yml)
+* [AI-based footfall detection](./hybrid-footfall-detection.yml)
+* [Deploy AI and machine learning computing on-premises and to the edge](../../hybrid/deploy-ai-ml-azure-stack-edge.yml)
+* [Azure public multi-access edge compute deployment](../../example-scenario/hybrid/public-multi-access-edge-compute-deployment.yml)
+* [Choose a bare-metal Kubernetes at the edge platform option](../../operator-guides/aks/choose-bare-metal-kubernetes.yml)
