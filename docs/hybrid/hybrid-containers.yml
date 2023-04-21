@@ -27,6 +27,7 @@ products:
   - azure-container-instances
   - azure-cosmos-db
   - azure-kubernetes-service
+  - azure-monitor
 thumbnailUrl: /azure/architecture/browse/thumbs/hybrid-containers.png
 content: |
    [!include[](hybrid-containers-content.md)]

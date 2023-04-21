@@ -2,9 +2,9 @@ This article describes an alternative approach to data warehouse projects that's
 
 ## Architecture
 
-![Diagram that shows a sample EDA architecture.](media/exploratory-data-analytics/exploratory-data-analytics.png)
+[ ![Diagram that shows a sample EDA architecture.](media/exploratory-data-analytics/exploratory-data-analytics.svg)](media/exploratory-data-analytics/exploratory-data-analytics.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/EDA.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/exploratory-data-analytics.vsdx) of this architecture.*
 
 For EDA, you're concerned only with the right side of the diagram. Azure Synapse SQL serverless is used as the compute engine over the data lake files. 
 

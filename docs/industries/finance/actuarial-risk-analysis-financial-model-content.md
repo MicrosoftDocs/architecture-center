@@ -111,7 +111,6 @@ Principal author:
 ## Next steps
 
 - R Developers: [Run a parallel R simulation with Azure Batch](/azure/batch/tutorial-r-doazureparallel?WT.mc_id=riskmodel-docs-scseely)
-- Tutorial to show how to use an Azure Function to interact with storage: [Upload images to Blob storage with Azure Functions](/azure/functions/tutorial-static-website-serverless-api-with-database?tutorial-step=2&WT.mc_id=riskmodel-docs-scseely)
 - ETL with Databricks: [Extract, transform, and load data using Azure Databricks](/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?WT.mc_id=riskmodel-docs-scseely)
 - ETL with HDInsight: [Extract, transform, and load data using Apache Hive on Azure HDInsight](/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux?bc=/azure/bread/toc.json&toc=/azure/hdinsight/hadoop/TOC.json&WT.mc_id=riskmodel-docs-scseely)
 - [Data Science VM How To (Linux)](/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough)
@@ -122,5 +121,5 @@ Principal author:
 - [Risk grid computing in banking](risk-grid-banking-overview.yml)
 - [Risk grid computing solution](risk-grid-banking-solution-guide.yml)
 - [Data management in banking](data-management-banking-overview.yml)
-- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/reference-architecture-data-mesh?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
+- [A financial institution scenario for data mesh](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-mesh-scenario)
 - [Big compute architecture style](../../guide/architecture-styles/big-compute.yml)

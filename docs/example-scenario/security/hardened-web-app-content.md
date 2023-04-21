@@ -11,7 +11,7 @@ These use cases have similar design patterns:
 
 ## Architecture
 
-:::image type="content" source="./media/hardened-webapp-architecture-v2.png" alt-text="Diagram that shows an architecture for setting up a web app in a high-security environment." lightbox="./media/hardened-webapp-architecture-v2.png":::
+:::image type="content" source="./media/hardened-webapp-architecture-v2.svg" alt-text="Diagram that shows an architecture for setting up a web app in a high-security environment." lightbox="./media/hardened-webapp-architecture-v2.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/hardened-webapp-architecture-v2.vsdx) of this architecture.*
 
@@ -24,7 +24,7 @@ Cross-reference the following 10 steps with the annotated architecture diagram s
 3. A private endpoint for the web app is created in a virtual network subnet (*subnet-privatelink-1* in the example).
 4. The Azure Firewall or third-party NVA is deployed to its own reserved subnet in a virtual network (*Hub Virtual Network* in the example). The appliance is configured to perform destination network address translation (DNAT) of incoming requests to the private IP address or the private endpoint associated with the web app. Azure Firewall can also handle source NAT (SNAT) for Internet-outbound egress traffic from your Azure VMs.
 5. The web app is assigned the custom FQDN through the [domain verification ID property of the web app](/Azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). This allows the custom FQDN already mapped to the public IP address of the Azure Firewall or third-party NVA to be reused with the web app without altering Domain Name System (DNS) name resolution and network flows.
-6. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The [**WEBSITE_VNET_ROUTE_ALL** application setting](/azure/app-service/overview-vnet-integration) is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [Azure Private DNS zones](/azure/dns) used for private endpoint name resolution.
+6. The web app connects to a virtual network subnet (*subnet-webapp* in the example) through regional VNet integration. The [ROUTE ALL](/azure/app-service/overview-vnet-integration#application-routing) setting is enabled, which forces all outbound traffic from the web app into the virtual network and allows the web app to inherit the virtual network's DNS resolution configuration, including custom DNS servers and integration with [Azure Private DNS zones](/azure/dns/) used for private endpoint name resolution. Additional details on how to configure [Azure App Service virtual network integration routing](/azure/app-service/configure-vnet-integration-routing#configure-application-routing) can be found here.
 7. A custom [route table](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) that's attached to the web app subnet (*subnet-webapp* in the example) forces all outbound traffic that comes from the web app to go to the Azure Firewall or third-party NVA.
 
    > [!NOTE]
@@ -84,7 +84,7 @@ Some security options to consider integrating into your solution include:
 - Configuring your application to accept traffic only from your Azure Front Door instance by validating request headers.
 - Defending against threats with Security Information and Event Management (SIEM) plus eXtended Detection and Response (XDR). Solutions within this category include [Microsoft Sentinel](/azure/sentinel/overview), [Microsoft Defender for Identity](/defender-for-identity/what-is), and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 - Enabling enterprise-scale Distributed Denial of Service (DDoS) protection with [Azure DDoS Network Protection](/azure/ddos-protection/ddos-protection-overview). This solution protects your Front Door and Azure Firewall public IP addresses against abuse and provides customers with deep insights into Microsoft's automatic mitigation processes.
--Considering [Microsoft Purview](/azure/purview/overview) to establish unified data governance not only for your Azure SQL data, but potentially all data in your hybrid cloud, multicloud enterprise
+- Considering [Microsoft Purview](/azure/purview/overview) to establish unified data governance not only for your Azure SQL data, but potentially all data in your hybrid cloud, multicloud enterprise
 
 For more information, see [How do I lock down the access to my backend to only Azure Front Door?](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-?).
 

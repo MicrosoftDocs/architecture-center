@@ -4,7 +4,7 @@ This solution brings data on the customer and seller relationship from various s
 
 ## Architecture
 
-:::image type="content" source="./media/relationship-mesh-saa-architecture.png" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.png":::
+:::image type="content" source="./media/relationship-mesh-saa-architecture.svg" alt-text="Diagram that shows a relationship mesh architecture in Azure." lightbox="./media/relationship-mesh-saa-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/relationship-mesh-saa-architecture.vsdx) of this architecture.*
 

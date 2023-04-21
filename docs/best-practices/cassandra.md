@@ -4,7 +4,7 @@ description: Examine performance considerations for running Apache Cassandra on 
 author: arsenvlad
 ms.author: arsenv
 categories: azure
-ms.date: 12/29/2022
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: best-practice

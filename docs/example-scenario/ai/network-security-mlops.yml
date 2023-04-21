@@ -5,7 +5,7 @@ metadata:
   description: Use Azure network security capabilities, such as virtual networks, network peering, Private Link, and private DNS zones to protect MLOps solutions.
   author: gary918
   ms.author: ganwa
-  ms.date: 01/18/2023
+  ms.date: 03/14/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

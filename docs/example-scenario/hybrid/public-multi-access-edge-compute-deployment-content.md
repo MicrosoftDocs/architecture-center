@@ -5,7 +5,7 @@ This article presents a hybrid architecture for video streaming and analytics. I
 
 ## Architecture
 
-:::image type="content" source="media/public-multi-access-edge-compute-deployment.png" alt-text="Architecture that uses Azure public MEC to host applications at the edge to speed response and reduce bandwidth requirements." border="false" lightbox="media/public-multi-access-edge-compute-deployment.png":::
+:::image type="content" source="media/public-multi-access-edge-compute-deployment.svg" alt-text="Architecture that uses Azure public MEC to host applications at the edge to speed response and reduce bandwidth requirements." border="false" lightbox="media/public-multi-access-edge-compute-deployment.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1915303-public-multi-access-edge-compute-deployment.vsdx) of this architecture.*
 
