@@ -2,7 +2,7 @@
 
 This article outlines a solution for using edge AI when you're disconnected from the internet. The solution uses Azure Stack Hub to move AI models to the edge.
 
-*Apache®, [Apache Hadoop](https://hadoop.apache.org), [Apache Spark](http://spark.apache.org), [Apache HBase](http://hbase.apache.org), and [Apache Storm](https://storm.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Apache Hadoop](https://hadoop.apache.org), [Apache Spark](http://spark.apache.org), [Apache HBase](http://hbase.apache.org), and [Apache Storm](https://storm.apache.org) are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
@@ -31,7 +31,7 @@ This article outlines a solution for using edge AI when you're disconnected from
 
 ## Scenario details
 
-With the Azure AI tools and the Azure edge and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. By using [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), you can bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence. With this approach, you don't need to make tool or process changes for local applications. When you use Azure Stack Hub, you can ensure that your cloud solutions work even when you're disconnected from the internet.
+With Azure AI tools and the Azure edge and cloud platform, edge intelligence is possible. AI-enabled hybrid applications can run where your data lives, on-premises. By using [Azure Stack Hub](/azure-stack/operator/azure-stack-overview), you can bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence. With this approach, you don't need to make changes in tools or processes for local applications. When you use Azure Stack Hub, you can ensure that your cloud solutions work even when you're disconnected from the internet.
 
 This solution is for a disconnected Azure Stack Hub scenario. Because of latency or intermittent connectivity issues or regulations, you might not always be connected to Azure. In disconnected scenarios, you can process data locally and aggregate it later in Azure for further analysis. For the connected version of this scenario, see [AI at the edge](./ai-at-the-edge.yml).
 
@@ -48,7 +48,7 @@ You might need to deploy in a disconnected state in the following scenarios:
 For more information about Azure Stack solutions, see the following resources:
 
 * [Training module: Introduction to Azure Stack](/training/modules/intro-to-azure-stack)
-* [Microsoft Certified: Azure Stack Hub Operator Associate](/certifications/azure-stack-hub-operator) certification
+* [Microsoft Certified: Azure Stack Hub Operator Associate](/certifications/azure-stack-hub-operator)
 * [Install the AKS engine on Linux in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)
 * [Install the AKS engine on Windows in Azure Stack Hub](/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)
 * [Azure Stack Edge managed devices that bring Azure AI to the edge](https://azure.microsoft.com/products/azure-stack/edge/#devices)
@@ -56,15 +56,15 @@ For more information about Azure Stack solutions, see the following resources:
 
 For more information about solution components, see the following product documentation:
 
-* [App Service documentation](/azure/app-service)
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-* [Azure Machine Learning documentation](/azure/machine-learning/service)
+* [Azure App Service](/azure/app-service)
+* [AKS](/azure/aks)
+* [Machine Learning](/azure/machine-learning/service)
 * [Azure Stack Hub documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
 * [Azure Stack Hub deployment options](/azure-stack/operator/azure-stack-overview#deployment-options)
-* [Container Registry documentation](/azure/container-registry)
-* [HDInsight documentation](/azure/hdinsight)
-* [Storage documentation](/azure/storage)
-* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started)
+* [Container Registry](/azure/container-registry)
+* [HDInsight](/azure/hdinsight)
+* [Storage](/azure/storage)
+* [Virtual machines in Azure](/azure/virtual-machines/)
 * [Azure hybrid and multicloud patterns and solutions documentation](/hybrid/app-solutions)
 
 For samples, see the following resources:
