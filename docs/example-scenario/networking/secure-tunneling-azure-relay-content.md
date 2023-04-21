@@ -1,8 +1,8 @@
-You can use secure tunneling with Azure Relay to establish enhanced-security bidirectional TCP connections to edge devices without making significant changes to the firewall or to network configuration on the edge. This example scenario shows how to implement secure tunneling by using Azure Relay.
+You can use secure tunneling with Azure Relay to establish enhanced-security bidirectional TCP connections to edge devices without making significant changes to the firewall or to network configuration on the edge. This article shows you how.
 
 ## Architecture
 
-:::image type="content" source="./media/secure-tunneling-azure-relay.svg" alt-text="Architecture diagram that demostrates how to use secure tuneling with Azure Relay." border="false" lightbox="./media/secure-tunneling-azure-relay.svg":::
+:::image type="content" source="./media/secure-tunneling-azure-relay.svg" alt-text="Architecture diagram that demonstrates how to use secure tunneling with Azure Relay." border="false" lightbox="./media/secure-tunneling-azure-relay.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/iot-secure-tunneling.vsdx) of this architecture.*
 
@@ -44,10 +44,8 @@ You can use secure tunneling to establish enhanced-security bidirectional connec
 
 ### Potential use cases
 
-- Remotely accessing sensor devices in hospitals
-  - A technician at a medical device company needs to access sensor devices on demand to troubleshoot and resolve problems. The devices are located hundreds of miles away behind a hospital's firewall. The technician can access the devices remotely, via an enhanced security connetion, reducing resolution time and operational costs.
-- Smart buildings
-  - System integrators for a smart building need to access the local web servers on remote devices over the public internet to configure device settings to improve operational efficiency. The connection needs to be highly secure. 
+- **Remotely accessing sensor devices in hospitals.** A technician at a medical device company needs to access sensor devices on demand to troubleshoot and resolve problems. The devices are located hundreds of miles away behind a hospital's firewall. The technician can access the devices remotely, via an enhanced security connection, reducing resolution time and operational costs.
+- **Smart buildings.** System integrators for a smart building need to access the local web servers on remote devices over the public internet to configure device settings to improve operational efficiency. The connection needs to be highly secure. 
 
 ## Considerations
 
