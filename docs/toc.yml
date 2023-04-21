@@ -1158,8 +1158,6 @@ items:
       href: guide/startups/startup-architecture.md
     - name: Core startup stack architecture
       href: example-scenario/startups/core-startup-stack.yml
-    - name: SaaS digital business journey on Azure
-      href: guide/saas/saas-digital-business-journey-azure.md
   - name: Mission critical applications
     items:
     - name: Mission-critical baseline architecture
