@@ -5,7 +5,7 @@ metadata:
   description: Deploy and operate a solution that uses OHDSI and the OMAP CDM to analyze observational patient data. 
   author: plooploops
   ms.author: angee
-  ms.date: 11/10/2022
+  ms.date: 04/21/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
