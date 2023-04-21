@@ -3,7 +3,7 @@ title: Overview of the journey for designing SaaS and multitenant solutions
 description: This guide provides an overview of the journey to create a SaaS solution. It also provides links to resources used in many SaaS, multitenant, Azure Marketplace, and ISV & Startup scenarios.
 author: landonpierce 
 ms.author: landonpierce 
-ms.date: 04/14/2023
+ms.date: 04/21/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
