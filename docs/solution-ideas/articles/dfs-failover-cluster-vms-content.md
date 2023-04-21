@@ -62,6 +62,10 @@ You can use DFS Namespaces to easily distribute shared folders in your organizat
  
 If you're ready to migrate your services to modernize your infrastructure, you can move your [DFS Namespaces by using Azure Files](/azure/storage/files/files-manage-namespaces?tabs=azure-portal).
 
+## Examples
+
+For scenarios where UNC paths need to be kept, see an example at [dfs-namespace-cluster-example](https://github.com/Azure/dfs-namespace-cluster-examples/blob/main/dfs-namespace-cluster-example.md)).
+
 ## Contributors
  
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
