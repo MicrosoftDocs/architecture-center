@@ -3488,8 +3488,6 @@ items:
           href: solution-ideas/articles/uven-disinfection.yml
         - name: Smart places with Azure Digital Twins
           href: example-scenario/iot/smart-places.yml
-        - name: Secure tunneling with Azure Relay
-          href: example-scenario/networking/secure-tunneling-azure-relay.yml  
     - name: Aerospace
       items:
       - name: Overview
@@ -6071,6 +6069,8 @@ items:
         href: example-scenario/predictive-maintenance/iot-predictive-maintenance.yml
       - name: IoT using Azure Cosmos DB
         href: solution-ideas/articles/iot-using-cosmos-db.yml
+      - name: Secure tunneling with Azure Relay  
+        href: example-scenario/networking/secure-tunneling-azure-relay.yml
       - name: Smart places with Azure Digital Twins
         href: example-scenario/iot/smart-places.yml
     - name: Solution ideas
