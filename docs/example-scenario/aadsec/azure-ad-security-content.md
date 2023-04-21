@@ -136,13 +136,15 @@ Authentication methods are key to securing your organization's identities in a h
 
 [Microsoft Defender for Identity](/defender-for-identity/what-is) can use your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions. Defender for Identity uses UEBA to identify insider threats and flag risk. Even if an identity becomes compromised, Defender for Identity can help identify the compromise based on unusual user behavior.
 
-Defender for Identity is [integrated with Defender for Cloud Apps](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use Defender for Cloud Apps to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you may automatically set view-only permissions on any file downloaded by specific types of users.
+Defender for Identity is [integrated with Defender for Cloud Apps](/azure-advanced-threat-protection/atp-mcas-integration) to extend protection to cloud apps. You can use Defender for Cloud Apps to create [session policies](/cloud-app-security/session-policy-aad#protect-download) that protect your files on download. For example, you can automatically set view-only permissions on any file downloaded by specific types of users.
+
+You can configure an on-premises application in Azure AD to use Defender for Cloud Apps for real-time monitoring. Defender for Cloud Apps uses Conditional Access App Control to monitor and control sessions in real-time based on Conditional Access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure AD.
+
+Azure AD [Application Proxy](/azure/active-directory/manage-apps/application-proxy) lets users access on-premises web applications from remote clients. With Application Proxy, you can monitor all sign-in activities for your applications in one place.
 
 You can use Defender for Identity with [Azure AD Identity Protection](/azure/active-directory/identity-protection/) to help protect user identities that are synchronized to Azure with [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect).
 
-Azure [Application Proxy](/azure/active-directory/manage-apps/application-proxy) lets users access on-premises web applications from remote clients. With Application Proxy, you can monitor all sign-in activities for your applications in one place. You can provide secure remote access to on-premises apps, and use Azure features like conditional access for these applications.
-
-If some of your apps already use an existing [delivery controller or network controller](/azure/active-directory/manage-apps/secure-hybrid-access) to provide off-network access, you can integrate them with Azure AD. Several partners including [Akamai](/azure/active-directory/saas-apps/akamai-tutorial), [Citrix](/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [F5 Networks](/azure/active-directory/saas-apps/headerf5-tutorial), and [Zscaler](/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) offer solutions and guidance for integration with Azure AD
+If some of your apps already use an existing [delivery controller or network controller](/azure/active-directory/manage-apps/secure-hybrid-access) to provide off-network access, you can integrate them with Azure AD. Several partners including [Akamai](/azure/active-directory/saas-apps/akamai-tutorial), [Citrix](/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [F5 Networks](/azure/active-directory/saas-apps/headerf5-tutorial), and [Zscaler](/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) offer solutions and guidance for integration with Azure AD.
 
 ### Cost optimization
 

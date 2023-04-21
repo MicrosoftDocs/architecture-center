@@ -2571,6 +2571,11 @@
       "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
       "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/saas/saas-digital-business-journey-azure.md",
+      "redirect_url": "/azure/architecture/guide/saas/plan-journey-saas",
+      "redirect_document_id": true
     }
   ]
 }

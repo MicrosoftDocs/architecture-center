@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 04/10/2023
+ms.date: 04/17/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -25,8 +25,18 @@ The following new and updated articles have recently been published in the Azure
 
 ## April 2023
 
+### New articles
+
+- [Scale out an Azure IoT solution](./guide/iot/scale-iot-solution-azure.md)
+- [Use AI to forecast customer orders](./solution-ideas/articles/next-order-forecasting.yml)
+
 ### Updated articles
 
+- [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#74f8e2498](https://github.com/MicrosoftDocs/architecture-center/commit/74f8e2498))
+- [High-performance computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#f34a7a3b6](https://github.com/MicrosoftDocs/architecture-center/commit/f34a7a3b6))
+- [Elastic Enterprise Search on Azure](./solution-ideas/articles/elastic-workplace-search.yml)  ([#a00457730](https://github.com/MicrosoftDocs/architecture-center/commit/a00457730))
+- [Data governance with Profisee and Microsoft Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)  ([#c87d140e9](https://github.com/MicrosoftDocs/architecture-center/commit/c87d140e9))
+- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#a8c7e9718](https://github.com/MicrosoftDocs/architecture-center/commit/a8c7e9718))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#5e982b9d0](https://github.com/MicrosoftDocs/architecture-center/commit/5e982b9d0))
 - [Basic enterprise integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml)  ([#14cfddb15](https://github.com/MicrosoftDocs/architecture-center/commit/14cfddb15))
 - [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#79eb9b90e](https://github.com/MicrosoftDocs/architecture-center/commit/79eb9b90e))
