@@ -2,7 +2,7 @@ IBM Maximo Application Suite (MAS) 8.*x* runs on OpenShift, and it's beneficial 
 
 ## Architecture
 
-:::image type="content" alt-text="Architecture diagram that shows the components and services that support deployment of IBM Maximo Application Suite on Azure." source="./media/deploy-ibm-maximo-application-suite-architecture.svg" lightbox="./media/deploy-ibm-maximo-application-suite-architecture.svg":::
+[ ![Architecture diagram that shows the components and services that support deployment of IBM Maximo Application Suite on Azure.](./media/deploy-ibm-maximo-application-suite-architecture.svg)](./media/deploy-ibm-maximo-application-suite-architecture.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/deploy-ibm-maximo-application-suite.vsdx) of this architecture.*
 
