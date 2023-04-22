@@ -77,7 +77,7 @@ To minimize Azure Stack HCI cluster and workload management overhead, you should
 To further benefit from Azure capabilities, you can extend the scope of Azure Arc integration to the Azure Stack HCI virtualized and containerized workloads, by implementing the following functionality:
 
 - [Azure Arc enabled servers][arc-enabled-servers]. Use for virtualized workloads that run Azure Stack HCI VMs.
-- [Azure Arc enabled data services][arc-enabled-data-services]. Use for containerized Azure SQL Managed Instance or PostgresSQL Hyperscale that's running on AKS and hosted by Azure Stack HCI VMs.
+- [Azure Arc enabled data services][arc-enabled-data-services]. Use for containerized Azure SQL Managed Instance or PostgreSQL Hyperscale that's running on AKS and hosted by Azure Stack HCI VMs.
 
 > [!CAUTION]
 > AKS on Azure Stack HCI and Azure Arc enabled data services are in preview, at the time of publishing this reference architecture.

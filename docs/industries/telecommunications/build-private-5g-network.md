@@ -113,7 +113,7 @@ An operator needs to provide both the local radio infrastructure and the managed
 
 Alternative solutions involve splitting the compute functions into two sets: one managed by the operator and the other by the enterprise or another managed service provider. In this approach, solution architecture splits up the management, but enterprises benefit from using Azure as the common management layer for both networking and applications. 
 
-For example, consider a scenario in which the enterprise customer is a national retail chain with hundreds of stores. The enterprise can choose to integrate a select set of modern connected applications with the private 5G network on a single compute platform that's managed by the operator. Or the enterprise can use two distinct compute platforms at every location: one for the mobile network functions (managed by the operator) and another to run distributed cloud and enterprise-developed applications. The architecture will provide flexibility for the enterprise and the operator.
+For example, consider a scenario in which the enterprise customer is a retail chain with hundreds of stores. The enterprise can choose to integrate a select set of modern connected applications with the private 5G network on a single compute platform that's managed by the operator. Or the enterprise can use two distinct compute platforms at every location: one for the mobile network functions (managed by the operator) and another to run distributed cloud and enterprise-developed applications. The architecture will provide flexibility for the enterprise and the operator.
 
 ## The telco experience
 
