@@ -40,7 +40,7 @@ Here are the Azure services used in this architecture. For product documentation
 
 Building redundancy in the workload will minimize single points of failure. In this architecture, architecture components are replicated across zones within the selected region. Azure services aren't supported in all regions and and not all regions support zones. Before selecting a region, check regional and zone support in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-Azure Spring Apps supports zonal redundancy. The instances run across availability zones automatically.   
+Azure Spring Apps supports zonal redundancy. When you do so, all underlying infrastructure of the service is spread across multiple availability zones. This zone spreading supports an overall higher availability of your applications that use the service. Java Spring Boot applications are horizontally scaled without any code changes. 
 
 The Application Gateway is also set up to use multiple availability zones.
 
@@ -48,6 +48,29 @@ Azure Database for MySQL with the flexible server deployment option was chosen t
 
 
 ## Network security
+
+[Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for each region that you use for deployment. Creating subnets will create isolation. Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Spring Boot applications.
+
+The design incorporates several PaaS services that participate in processing a user request. Strict network controls are placed to prevent unauthorized public access from the internet.
+
+##### Private connectivity
+
+You can control access to those services from public internet by using private endpoints.  These network interfaces use private IP addresses to bring the services into the virtual networks. 
+
+The architecture has Azure services that automatically set up the private endpoints. 
+
+Azure Spring Apps is deployed into that network using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network). As part of provisioning, a subnet and the neccessary private endpoints are created. The application is isolated from the internet, systems in private networks, other Azure services, and even the service runtime. The application is accessed by reaching the private IP address.
+
+The database also follows a similar model. The [flexible server deployment mode of Azure Database for MySQL](https://azure.microsoft.com/products/mysql) supports virtual network integration through a dedicated subnet.
+
+There are other services, such as Azure Key Vault, which are connected to the virtual network through [Azure Private Link](https://azure.microsoft.com/products/private-link). For Private Link, you need to enable a private endpoint so that public network access is disabled. For more information about private endpoints for Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service?tabs=cli).
+
+Private endpoints should be put in a dedicated subnet. Private IP addresses to the private endpoints are assigned from that subnet.
+
+The private endpoint and network-integrated connections use an [Azure private DNS zone](/azure/dns/private-dns-getstarted-cli).
+
+##### Controls on the inbound traffic
+
 
 
 ## Scalability
@@ -58,7 +81,7 @@ Azure Database for MySQL with the flexible server deployment option was chosen t
 
 ## Deployment
 
-- **Azure Virtual Network** is the fundamental building block for a private network in Azure. This solution uses a virtual network for each region that you use for deployment.
+
 
 - [Azure Private Link](https://azure.microsoft.com/products/private-link) provides private endpoints that connect privately and securely to services. These network interfaces use private IP addresses to bring the services into the virtual networks. This solution uses private endpoints for the key vault.
 - [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) in [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) provide automatically managed identities that applications can use to connect to resources that support Azure AD authentication. Applications can use managed identities to get Azure AD tokens without having to manage any credentials. This architecture uses managed identities for several interactions, for example between Azure Spring Apps and the key vault.
@@ -67,7 +90,7 @@ Azure Database for MySQL with the flexible server deployment option was chosen t
 
 1. The components inside the virtual networks use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to Azure Key Vault. [Azure Key Vault](/azure/key-vault/general/overview) stores application secrets and certificates. The microservices that run in Azure Spring Apps use the application secrets. Azure Spring Apps, Application Gateway, and Azure Front Door use the certificates for host name preservation.
 
-1. The private endpoint and network-integrated connections use an [Azure private DNS zone](/azure/dns/private-dns-getstarted-cli).
+1. 
 
 ### Alternatives
 
@@ -136,7 +159,7 @@ Enable [Web Application Firewall](/azure/web-application-firewall/) on your OWAS
 
 ### Key Vault
 
-Key Vault is automatically zone redundant in any region where availability zones are available. The instance of Key Vault that this architecture uses is deployed so that back-end services can access secrets. There's a private endpoint that's enabled, and public network access is disabled. For more information about private endpoints for Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service?tabs=cli).
+Key Vault is automatically zone redundant in any region where availability zones are available. The instance of Key Vault that this architecture uses is deployed so that back-end services can access secrets. 
 
 
 
@@ -220,26 +243,41 @@ Principal author:
 
 ## Next steps
 
-- [What are Azure regions and availability zones?](/azure/reliability/availability-zones-overview)
-- [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
-- [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
+To increase application resilience and reliability, you can alternatively deploy the application to multiple regions.
+
+> [!div class="nextstepaction"]
+> [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
+
+To integrate this workload with shared services managed by central teams in your organization, deploy it in Azure application landing zone. 
+
+> [!div class="nextstepaction"]
+> [Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml)
 
 ## Related resources
 
-- [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
+For documentation on the Azure services and features used in this architecture, see these articles.
+
+- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps)
+- [Azure Application Gateway v2](/azure/application-gateway/overview-v2)
+- [Azure Database for MySQL](/azure/mysql/overview)
+- [Azure Key Vault](/azure/key-vault/)
+- [Azure DNS](https://azure.microsoft.com/products/dns)
+- [Azure Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall)
+- [Azure Private Link](https://azure.microsoft.com/products/private-link)
+- [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview)
+
+We recommend these guides to get deeper understanding around the choices made in this architecture:
+
 - [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
 - [High-availability blue/green deployment](../../example-scenario/blue-green-spring/blue-green-spring.yml)
-- [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../best-practices/host-name-preservation.yml)
-- [Multi-region web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 
-- [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for Domain Name System (DNS) domains that provides name resolution by using Azure infrastructure. This solution uses Azure DNS for DNS resolution from your custom domain to your Azure Application Gateway.
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a web-traffic load balancer that you can use to manage traffic to your web applications. Application Gateway acts as a local reverse proxy in a region where your application runs. For alternative reverse proxy setups, see [Reverse proxy setup](#reverse-proxy-setup). The Application Gateway is also set up to use multiple availability zones.
-- [Azure Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP exploits.
-- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) makes it easy to deploy Java Spring Boot applications to Azure without any code changes. You can easily make it zone redundant by setting the `zone redundant` option. When you do so, all underlying infrastructure of the service is spread across multiple availability zones. This zone spreading supports an overall higher availability of your applications that use the service.
-- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service in the Azure cloud that's based on the MySQL Community Edition.
-- [Key Vault](https://azure.microsoft.com/products/key-vault) is one of several key-management solutions in Azure that help manage keys, secrets, and certificates. This solution uses Key Vault for storing application secrets and the certificates that Application Gateway and Azure Spring Apps use.
-- [Azure resource groups](https://azure.microsoft.com/get-started/azure-portal/resource-manager) are logical containers for Azure resources. In this solution, resource groups organize components within a region. As a naming convention, the setup includes a short string for the component's region, so it's easy to identify in which region the component runs.
+
+
+-  provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on the Application Gateway tracks OWASP exploits.
+-  
+
+
 - [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This solution uses a virtual network for each region that you use for deployment.
 - [Azure Private Link](https://azure.microsoft.com/products/private-link) provides private endpoints that connect privately and securely to services. These network interfaces use private IP addresses to bring the services into the virtual networks. This solution uses private endpoints for the key vault.
 - [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) in [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) provide automatically managed identities that applications can use to connect to resources that support Azure AD authentication. Applications can use managed identities to get Azure AD tokens without having to manage any credentials. This architecture uses managed identities for several interactions, for example between Azure Spring Apps and the key vault.
