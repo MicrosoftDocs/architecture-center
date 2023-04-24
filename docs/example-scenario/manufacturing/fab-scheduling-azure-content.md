@@ -2,9 +2,9 @@ This article demonstrates the automation of fab scheduling and dispatching for s
 
 ## Architecture
 
-image 
+:::image type="content" source="media/fab-scheduling.png" alt-text="Image alt text." lightbox="media/fab-scheduling.png" border="false":::
 
-link 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/fab-scheduling.pptx) of this architecture.*
 
 ### Workflow
 

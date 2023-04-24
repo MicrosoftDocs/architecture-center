@@ -5,7 +5,7 @@ metadata:
   description: Learn about automated scheduling and dispatching for semiconductor manufacturing workloads on Azure. 
   author: gauharjunnarkar
   ms.author: gajunnar
-  ms.date: 04/24/2023
+  ms.date: 04/26/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
