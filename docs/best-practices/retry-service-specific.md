@@ -87,12 +87,12 @@ Depending on the language of your application, diagnostics and telemetry are exp
 
 [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) makes Azure Storage the foundation for building enterprise data lakes on Azure. Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
-The [Azure Storage Files Data Lake client library](/dotnet/api/overview/azure/storage.files.datalake-readme)includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages
+The [Azure Storage Files Data Lake client library](/dotnet/api/overview/azure/storage.files.datalake-readme) includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.
 
 ### Retry mechanism
 
-The [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) allows you to manipulate Azure Data Lake service resources and file systems. The storage account provides the top-level namespace for the Data Lake service. When you create the client you could provides the client configuration options for connecting to Azure Data Lake service ([DataLakeClientOptions](/dotnet/api/azure.storage.files.datalake.datalakeclientoptions)).
- The DataLakeClientOptions includes a Retry property (Inherited from Azure.Core.ClientOptions), that property includes all the configurations ([RetryOptions class](/dotnet/api/azure.core.retryoptions))
+The [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) allows you to manipulate Azure Data Lake service resources and file systems. The storage account provides the top-level namespace for the Data Lake service. When you create the client you could provide the client configuration options for connecting to Azure Data Lake service ([DataLakeClientOptions](/dotnet/api/azure.storage.files.datalake.datalakeclientoptions)).
+ The DataLakeClientOptions includes a Retry property (inherited from Azure.Core.ClientOptions) that can be configured ([RetryOptions class](/dotnet/api/azure.core.retryoptions)).
 
 ### Telemetry
 

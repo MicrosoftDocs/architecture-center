@@ -11,16 +11,18 @@ items:
   items:
   - name: Deployment Options
     href: landing-zones/landing-zone-deploy.md
-  - name: Design guides
+  - name: Platform landing zone design guides
     items:
-    - name: Landing zone implementations
-      items:
-      - name: Bicep landing zone implementation
-        href: landing-zones/bicep/landing-zone-bicep.md
-      - name: Terraform landing zone implementation
-        href: landing-zones/terraform/landing-zone-terraform.md
-    - name: Subscription vending implementation
-      href: landing-zones/subscription-vending.yml
+    - name: Bicep landing zone implementation
+      href: landing-zones/bicep/landing-zone-bicep.md
+    - name: Terraform landing zone implementation
+      href: landing-zones/terraform/landing-zone-terraform.md
+  - name: Application landing zone design guides
+    items:
+    - name: Azure Virtual Desktop
+      href: landing-zones/azure-virtual-desktop/design-guide.md      
+  - name: Subscription vending implementation
+    href: landing-zones/subscription-vending.yml
 - name: Application architecture fundamentals
   items:
   - name: Introduction
@@ -372,14 +374,141 @@ items:
                   - name: Differential privacy
                     href: /azure/machine-learning/concept-differential-privacy
                     maintainContext: true
-      - name: Architecture for startups
+      - name: Architecture for SaaS and multitenancy
         items:
-          - name: Overview
-            href: guide/startups/startup-architecture.md
-          - name: Core startup stack architecture
-            href: example-scenario/startups/core-startup-stack.yml
-          - name: SaaS digital business journey on Azure
-            href: guide/saas/saas-digital-business-journey-azure.md
+        - name: Overview
+          href: guide/saas/overview.md
+        - name: SaaS
+          items:
+          - name: Plan your journey to SaaS
+            href: guide/saas/plan-journey-saas.md
+          - name: Resources
+            items:
+            - name: SaaS starter web app reference architecture
+              href: example-scenario/apps/saas-starter-web-app.yml
+            - name: Multitenant SaaS reference architecture
+              href: example-scenario/multi-saas/multitenant-saas.yml
+        - name: Startups
+          items:
+            - name: Overview
+              href: guide/startups/startup-architecture.md
+            - name: Core startup stack architecture
+              href: example-scenario/startups/core-startup-stack.yml
+        - name: Multitenant applications
+          items:
+            - name: Overview
+              href: guide/multitenant/overview.md
+            - name: Considerations
+              items:
+                - name: Overview
+                  href: guide/multitenant/considerations/overview.yml
+                - name: Tenancy models
+                  href: guide/multitenant/considerations/tenancy-models.yml
+                - name: Tenant lifecycle
+                  href: guide/multitenant/considerations/tenant-lifecycle.md
+                - name: Pricing models
+                  href: guide/multitenant/considerations/pricing-models.md
+                - name: Control planes
+                  href: guide/multitenant/considerations/control-planes.yml
+                - name: Measure consumption
+                  href: guide/multitenant/considerations/measure-consumption.md
+                - name: Deploy updates
+                  href: guide/multitenant/considerations/updates.md
+                - name: Map requests to tenants
+                  href: guide/multitenant/considerations/map-requests.yml
+                - name: Identity
+                  href: guide/multitenant/considerations/identity.md
+                - name: Domain names
+                  href: guide/multitenant/considerations/domain-names.yml
+            - name: Approaches
+              items:
+                - name: Overview
+                  href: guide/multitenant/approaches/overview.yml
+                - name: Resource organization
+                  href: guide/multitenant/approaches/resource-organization.yml
+                - name: Governance and compliance
+                  href: guide/multitenant/approaches/governance-compliance.md
+                - name: Cost management and allocation
+                  href: guide/multitenant/approaches/cost-management-allocation.yml
+                - name: Deployment and configuration
+                  href: guide/multitenant/approaches/deployment-configuration.yml
+                - name: Compute
+                  href: guide/multitenant/approaches/compute.md
+                - name: Networking
+                  href: guide/multitenant/approaches/networking.md
+                - name: Storage and data
+                  href: guide/multitenant/approaches/storage-data.yml
+                - name: Messaging
+                  href: guide/multitenant/approaches/messaging.md
+                - name: Identity
+                  href: guide/multitenant/approaches/identity.md
+                - name: Integration
+                  href: guide/multitenant/approaches/integration.md
+                - name: IoT
+                  href: guide/multitenant/approaches/iot.md
+                - name: AI and ML
+                  href: guide/multitenant/approaches/ai-ml.md
+            - name: Service-specific guidance
+              items:
+                - name: Overview
+                  href: guide/multitenant/service/overview.md
+                - name: Deployment and configuration
+                  items:
+                    - name: Azure App Configuration
+                      href: guide/multitenant/service/app-configuration.md
+                    - name: Azure Resource Manager
+                      href: guide/multitenant/service/resource-manager.md
+                - name: Compute
+                  items:
+                    - name: App Service and Functions
+                      href: guide/multitenant/service/app-service.yml
+                    - name: Azure Container Apps
+                      href: guide/multitenant/service/container-apps.md
+                    - name: Azure Kubernetes Service (AKS)
+                      href: guide/multitenant/service/aks.yml
+                - name: Networking
+                  items:
+                    - name: Azure Front Door
+                      href: guide/multitenant/service/front-door.md
+                    - name: Azure NAT Gateway
+                      href: guide/multitenant/service/nat-gateway.md
+                    - name: Azure Private Link
+                      href: guide/multitenant/service/private-link.md
+                - name: Storage and data
+                  items:
+                    - name: Azure Cache for Redis
+                      href: guide/multitenant/service/cache-redis.md
+                    - name: Azure Cosmos DB
+                      href: guide/multitenant/service/cosmos-db.md
+                    - name: Azure Database for PostgreSQL
+                      href: guide/multitenant/service/postgresql.md
+                    - name: Azure SQL Database
+                      href: guide/multitenant/service/sql-database.md
+                    - name: Azure Storage
+                      href: guide/multitenant/service/storage.md
+                - name: Messaging
+                  items:
+                    - name: Azure Service Bus
+                      href: guide/multitenant/service/service-bus.md
+                    - name: Azure Event Hubs
+                      href: guide/multitenant/service/event-hubs.md
+                - name: Security
+                  items:
+                    - name: Azure Key Vault
+                      href: guide/multitenant/service/key-vault.md
+                - name: Identity
+                  items:
+                    - name: Azure Active Directory B2C
+                      href: guide/multitenant/service/azure-ad-b2c.md
+                - name: AI and ML
+                  items:
+                    - name: Azure Cognitive Search
+                      href: /azure/search/search-modeling-multitenant-saas-applications
+                      maintainContext: true
+            - name: Multitenancy checklist
+              href: guide/multitenant/checklist.md
+            - name: Related resources
+              href: guide/multitenant/related-resources.md 
       - name: Mission critical applications
         items:
             - name: Mission-critical baseline architecture
@@ -410,131 +539,6 @@ items:
               items:
                 - name: Continuous validation
                   href: guide/testing/mission-critical-deployment-testing.md
-            - name: Mitigation strategies
-              items:
-                - name: Global routing redundancy
-                  items:
-                  - name: Overview
-                    href: guide/networking/global-web-applications/overview.md
-                  - name: Content delivery
-                    href: guide/networking/global-web-applications/mission-critical-content-delivery.md
-                  - name: Global HTTP ingress
-                    href: guide/networking/global-web-applications/mission-critical-global-http-ingress.md         
-      - name: Multitenant applications
-        items:
-          - name: Overview
-            href: guide/multitenant/overview.md
-          - name: Considerations
-            items:
-              - name: Overview
-                href: guide/multitenant/considerations/overview.yml
-              - name: Tenancy models
-                href: guide/multitenant/considerations/tenancy-models.yml
-              - name: Tenant lifecycle
-                href: guide/multitenant/considerations/tenant-lifecycle.md
-              - name: Pricing models
-                href: guide/multitenant/considerations/pricing-models.md
-              - name: Control planes
-                href: guide/multitenant/considerations/control-planes.yml
-              - name: Measure consumption
-                href: guide/multitenant/considerations/measure-consumption.md
-              - name: Deploy updates
-                href: guide/multitenant/considerations/updates.md
-              - name: Map requests to tenants
-                href: guide/multitenant/considerations/map-requests.yml
-              - name: Identity
-                href: guide/multitenant/considerations/identity.md
-              - name: Domain names
-                href: guide/multitenant/considerations/domain-names.yml
-          - name: Approaches
-            items:
-              - name: Overview
-                href: guide/multitenant/approaches/overview.yml
-              - name: Resource organization
-                href: guide/multitenant/approaches/resource-organization.yml
-              - name: Governance and compliance
-                href: guide/multitenant/approaches/governance-compliance.md
-              - name: Cost management and allocation
-                href: guide/multitenant/approaches/cost-management-allocation.yml
-              - name: Deployment and configuration
-                href: guide/multitenant/approaches/deployment-configuration.yml
-              - name: Compute
-                href: guide/multitenant/approaches/compute.md
-              - name: Networking
-                href: guide/multitenant/approaches/networking.md
-              - name: Storage and data
-                href: guide/multitenant/approaches/storage-data.yml
-              - name: Messaging
-                href: guide/multitenant/approaches/messaging.md
-              - name: Identity
-                href: guide/multitenant/approaches/identity.md
-              - name: Integration
-                href: guide/multitenant/approaches/integration.md
-              - name: IoT
-                href: guide/multitenant/approaches/iot.md
-              - name: AI and ML
-                href: guide/multitenant/approaches/ai-ml.md
-          - name: Service-specific guidance
-            items:
-              - name: Overview
-                href: guide/multitenant/service/overview.md
-              - name: Deployment and configuration
-                items:
-                  - name: Azure App Configuration
-                    href: guide/multitenant/service/app-configuration.md
-                  - name: Azure Resource Manager
-                    href: guide/multitenant/service/resource-manager.md
-              - name: Compute
-                items:
-                  - name: App Service and Functions
-                    href: guide/multitenant/service/app-service.yml
-                  - name: Azure Container Apps
-                    href: guide/multitenant/service/container-apps.md
-                  - name: Azure Kubernetes Service (AKS)
-                    href: guide/multitenant/service/aks.yml
-              - name: Networking
-                items:
-                  - name: Azure Front Door
-                    href: guide/multitenant/service/front-door.md
-                  - name: Azure NAT Gateway
-                    href: guide/multitenant/service/nat-gateway.md
-                  - name: Azure Private Link
-                    href: guide/multitenant/service/private-link.md
-              - name: Storage and data
-                items:
-                  - name: Azure Cache for Redis
-                    href: guide/multitenant/service/cache-redis.md
-                  - name: Azure Cosmos DB
-                    href: guide/multitenant/service/cosmos-db.md
-                  - name: Azure Database for PostgreSQL
-                    href: guide/multitenant/service/postgresql.md
-                  - name: Azure SQL Database
-                    href: guide/multitenant/service/sql-database.md
-                  - name: Azure Storage
-                    href: guide/multitenant/service/storage.md
-              - name: Messaging
-                items:
-                  - name: Azure Event Hubs
-                    href: guide/multitenant/service/event-hubs.md
-                  - name: Azure Service Bus
-                    href: guide/multitenant/service/service-bus.md
-              - name: Security
-                items:
-                  - name: Azure Key Vault
-                    href: guide/multitenant/service/key-vault.md
-              - name: Identity
-                items:
-                  - name: Azure Active Directory B2C
-                    href: guide/multitenant/service/azure-ad-b2c.md
-              - name: AI and ML
-                items:
-                  - name: Azure Cognitive Search
-                    href: /azure/search/search-modeling-multitenant-saas-applications
-                    maintainContext: true
-          - name: Multitenancy checklist
-            href: guide/multitenant/checklist.md
-          - name: Related resources
-            href: guide/multitenant/related-resources.md
       - name: Solutions across Microsoft platforms
         expanded: true
         items:
@@ -1156,8 +1160,6 @@ items:
       href: guide/startups/startup-architecture.md
     - name: Core startup stack architecture
       href: example-scenario/startups/core-startup-stack.yml
-    - name: SaaS digital business journey on Azure
-      href: guide/saas/saas-digital-business-journey-azure.md
   - name: Mission critical applications
     items:
     - name: Mission-critical baseline architecture
@@ -4525,6 +4527,10 @@ items:
           maintainContext: true
       - name: High availability for multitier AKS apps
         href: guide/aks/aks-high-availability.yml
+      - name: Overview of migration from Service Fabric to AKS
+        href: guide/aks/service-fabric-azure-kubernetes-service.md
+      - name: Migrate an app from Service Fabric to AKS
+        href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
       - name: Operations management for AKS
         href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/management
         maintainContext: true
