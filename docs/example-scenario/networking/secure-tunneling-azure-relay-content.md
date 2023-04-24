@@ -34,7 +34,7 @@ The following workflow describes how a user can access a control plane on a remo
 ### Alternatives
 
 - You can use a custom WebSocket bidirectional connection from the cloud to edge devices. However, this type of connection might require more overhead and an always-on connection.
-- You can use [Azure Container Apps](/azure/container-apps/overview) instead of Container Instances to provide services like [authentication and authorization](/azure/container-apps/authentication) that you would otherwise need to implement. Before you make your choice, be sure to understand the cost implications using Container Apps rather than Container instances.
+- You can use [Azure Container Apps](/azure/container-apps/overview) instead of Container Instances to provide services like [authentication and authorization](/azure/container-apps/authentication) that you would otherwise need to implement. Before you make your choice, be sure to understand the cost implications of using Container Apps rather than Container instances.
 
 ## Scenario details
 
@@ -57,18 +57,18 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - This example workload doesn't address authentication or authorization for the Azure Functions orchestrator or for the container instance. You need to address these concerns in your production implementation.
 - For information about security in Container Registry, see the [Azure security baseline for Container Registry](/security/benchmark/azure/baselines/container-registry-security-baseline).
-- Azure Relay is designed to be an enhanced-security service. You can implement private endpoints and an IP firewall to improve security. This example provides a minimal architecture, but you can extend it by implementing Azure Relay security recommendations. For more information, see [Network security for Azure Relay](/azure/azure-relay/network-security?source=recommendations).
+- Azure Relay is designed to be an enhanced-security service. This example provides a minimal architecture, but you can extend it by implementing Azure Relay security recommendations, like private endpoints and an IP firewall. For more information, see [Network security for Azure Relay](/azure/azure-relay/network-security?source=recommendations).
 
 ### Cost optimization
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-- The secure tunneling in Azure is ephemeral. You can easily deploy your environment with the required resources. You can remove the solution just as easily.
+- Secure tunneling in Azure is ephemeral. You can easily deploy your environment with the required resources. You can remove the solution just as easily.
 - To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Deploy this scenario
 
-For a sample that deploys this architecture with a simulated device, see [Secure Tunneling with Azure Relay](https://github.com/Azure-Samples/secure-tunneling-azure-relay). The sample enables communication between users and the device by using HTTP, but it can support any protocol that's located above the TCP stack, like SSH or RDP.
+For a sample that deploys this architecture with a simulated device, see [Secure Tunneling with Azure Relay](https://github.com/Azure-Samples/secure-tunneling-azure-relay). The sample enables communication between users and the device via HTTP, but it can support any protocol that's located above the TCP stack, like SSH or RDP.
 
 ## Contributors
 
