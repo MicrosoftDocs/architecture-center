@@ -1,4 +1,4 @@
-You can use secure tunneling with Azure Relay to establish enhanced-security bidirectional TCP connections to edge devices without making significant changes to the firewall or to network configuration on the edge. This article shows you how.
+You can use secure tunneling with Azure Relay to establish enhanced-security bidirectional TCP connections to edge devices without making significant changes to your firewall or to network configuration on the edge. This article shows you how.
 
 ## Architecture
 
@@ -10,11 +10,11 @@ You can use secure tunneling with Azure Relay to establish enhanced-security bid
 
 The following workflow describes how you can use an Azure Functions orchestrator to create a connection through Azure Relay to a device in a private network:
 
-1. A user triggers an Azure function that acts as an orchestrator to initiate a connection with a device that's specified in the request payload.
-2. The orchestrator invokes a [direct method](/azure/iot-hub/iot-hub-devguide-direct-methods) on a device via the IoT hub. You can use direct methods to issue synchronous request/response calls to devices that are connected to Azure IoT Hub.
+1. A user triggers a function app that acts as an orchestrator to initiate a connection with a device that's specified in the request payload.
+2. The orchestrator invokes a [direct method](/azure/iot-hub/iot-hub-devguide-direct-methods) on a device via an IoT hub. You can use direct methods to issue synchronous request/response calls to devices that are connected to Azure IoT Hub.
 3. The [device receives the direct method](/azure/iot-hub/iot-hub-devguide-direct-methods#method-lifecycle). *Note that direct methods don't require the device to expose any ports.*
-4. The target device opens a connection to Azure Relay via the [Azure Relay bridge](https://github.com/Azure/azure-relay-bridge) that's running on the device and sends a response to indicate a successful connection. The device is now listening to an Azure Relay hybrid connection and forwards commands sent to Azure Relay to the device.
-5. After it receives the *success* response, the orchestrator provisions and/or starts an Azure Container Instances instance with an image that contains and runs [Azure Relay Bridge (azbridge)](https://github.com/Azure/azure-relay-bridge).
+4. The device opens a connection to Azure Relay via an [Azure Relay bridge](https://github.com/Azure/azure-relay-bridge) that's running on the device and sends a response to indicate a successful connection. The device is now listening to an Azure Relay hybrid connection that forwards commands sent to Azure Relay to the device.
+5. After the orchestrator receives the *success* response, it provisions and/or starts an Azure Container Instances instance with an image that contains and runs [Azure Relay Bridge (azbridge)](https://github.com/Azure/azure-relay-bridge).
 6. `azbridge` uses a local forwarder to listen on a configured IP address and port on the container instance and forward all incoming TCP connections to a remote forwarder via Azure Relay.
 
 The following workflow describes how a user can access a control plane on a remote device by using the established relay connection:
@@ -26,7 +26,7 @@ The following workflow describes how a user can access a control plane on a remo
 ### Components
 
 - [Azure Relay](/azure/azure-relay/relay-what-is-it) enables you to expose services that run in your corporate network to the public cloud via an enhanced-security connection. You don't need to open a port on your firewall or make intrusive changes to your corporate network infrastructure.
-- [Azure IoT Hub](https://azure.microsoft.com/products/iot-hub/) serves as a central message hub for communication between an IoT application and its attached devices.
+- [IoT Hub](https://azure.microsoft.com/products/iot-hub/) serves as a central message hub for communication between an IoT application and its attached devices.
 - [Azure Container Registry](https://azure.microsoft.com/products/container-registry/) enables you to build, store, and manage container images and artifacts in a private registry for all types of container deployments.
 - [Container Instances](https://azure.microsoft.com/products/container-instances/) provides a fast and easy way to run a container on Azure.
 - [Azure Functions](https://azure.microsoft.com/products/functions/) is a serverless solution that enables you to write less code, maintain less infrastructure, and save money.
@@ -34,7 +34,7 @@ The following workflow describes how a user can access a control plane on a remo
 ### Alternatives
 
 - You can use a custom WebSocket bidirectional connection from the cloud to edge devices. However, this type of connection might require more overhead and an always-on connection.
-- You can use [Azure Container Apps](/azure/container-apps/overview) instead of Container Instances to provide services like [authentication and authorization](/azure/container-apps/authentication) that you would otherwise need to implement. Before you make your choice, be sure to understand the cost implications of using Container Apps rather than Container instances.
+- You can use [Azure Container Apps](/azure/container-apps/overview) instead of Container Instances to provide services like [authentication and authorization](/azure/container-apps/authentication) that you would otherwise need to implement. Before you make your choice, be sure to understand the cost implications of using Container Apps rather than Container Instances.
 
 ## Scenario details
 
