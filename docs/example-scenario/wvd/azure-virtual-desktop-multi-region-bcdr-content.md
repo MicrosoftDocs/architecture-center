@@ -115,10 +115,11 @@ In order to deploy either an active-active or active-passive configuration using
 - To create new distinct application groups and related applications for the new host pool.
 - To revoke user assignments to the primary host pool, and then manually reassign them to the new host pool during the failover.
 
-FSLogix official documentation on BCDR is reported in [this article](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity):
-- [Option 1: No profile recovery](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity#option-1-no-profile-recovery): this scenario is not covered in this document. 
-- [Option 2: Cloud Cache (active/passive)](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity#option-2-cloud-cache-primary--failover): active-passive is included in this document, but the referenced article implements it using the same Host Pool. 
-- [Option 3: Cloud Cache (active/active)](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity#option-3-cloud-cache-active--active): this scenario is covered exactly in the remaining part of this document. 
+Review the [Business continuity and disaster recovery options for FSLogix](/fslogix/concepts-container-recovery-business-continuity).
+
+- [No profile recovery](/fslogix/concepts-container-recovery-business-continuity#option-1-no-profile-recovery) is not covered in this document. 
+- [Cloud cache (active/passive)](/fslogix/concepts-container-recovery-business-continuity#option-2-cloud-cache-primary--failover) is included in this document but is implemented it using the same host pool.
+- [Cloud cache (active/active)](/fslogix/concepts-container-recovery-business-continuity#option-3-cloud-cache-active--active) is covered in the remaining part of this document. 
 
 There are some limits for Virtual Desktop resources. For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 
