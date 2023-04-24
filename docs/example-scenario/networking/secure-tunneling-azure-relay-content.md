@@ -2,9 +2,9 @@ You can use secure tunneling with Azure Relay to establish enhanced-security bid
 
 ## Architecture
 
-:::image type="content" source="./media/secure-tunneling-azure-relay.svg" alt-text="Architecture diagram that demonstrates how to use secure tunneling with Azure Relay." border="false" lightbox="./media/secure-tunneling-azure-relay.svg":::
+:::image type="content" source="./media/secure-tunneling-azure-relay.png" alt-text="Architecture diagram that demonstrates how to use secure tunneling with Azure Relay." border="false" lightbox="./media/secure-tunneling-azure-relay.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/iot-secure-tunneling.vsdx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/secure-tunneling-azure-relay.pptx) of this architecture.*
 
 ### Workflow
 
