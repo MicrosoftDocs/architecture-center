@@ -110,8 +110,7 @@ For specific circumstances, you can create a single host pool with a mix of sess
 
 ### General
 
-In this section details will be provided to deploy either active-active or active-passive configuration using multiple Host Pools and FSLogix Cloud Cache mechanism. 
-You can create this host pool inside the same workspace or a different one, depending on the model. This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
+In order to deploy either an active-active or active-passive configuration using multiple host pools and an FSLogix cloud cache mechanism, you can create the host pool inside the same workspace or a different one, depending on the model. This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
 
 - To create new distinct application groups and related applications for the new host pool.
 - To revoke user assignments to the primary host pool, and then manually reassign them to the new host pool during the failover.
