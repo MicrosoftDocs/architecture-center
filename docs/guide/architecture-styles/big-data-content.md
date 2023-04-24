@@ -33,7 +33,7 @@ Most big data architectures include some or all of the following components:
 
 Azure includes many services that can be used in a big data architecture. They fall roughly into two categories:
 
-- Managed services, including Azure Data Lake Store, Azure Data Lake Analytics, Azure Synapse Analytics, Azure Stream Analytics, Azure Event Hub, Azure IoT Hub, and Azure Data Factory.
+- Managed services, including Azure Data Lake Store, Azure Data Lake Analytics, Azure Synapse Analytics, Azure Stream Analytics, Azure Event Hubs, Azure IoT Hub, and Azure Data Factory.
 - Open source technologies based on the Apache Hadoop platform, including HDFS, HBase, Hive, Spark, Oozie, Sqoop, and Kafka. These technologies are available on Azure in the Azure HDInsight service.
 
 These options are not mutually exclusive, and many solutions combine open source technologies with Azure services.
@@ -45,7 +45,7 @@ Consider this architecture style when you need to:
 - Store and process data in volumes too large for a traditional database.
 - Transform unstructured data for analysis and reporting.
 - Capture, process, and analyze unbounded streams of data in real time, or with low latency.
-- Use Azure Machine Learning or Microsoft Cognitive Services.
+- Use Azure Machine Learning or Azure Cognitive Services.
 
 ## Benefits
 
@@ -67,7 +67,7 @@ Consider this architecture style when you need to:
 
 - **Partition data**. Batch processing usually happens on a recurring schedule &mdash; for example, weekly or monthly. Partition data files, and data structures such as tables, based on temporal periods that match the processing schedule. That simplifies data ingestion and job scheduling, and makes it easier to troubleshoot failures. Also, partitioning tables that are used in Hive, U-SQL, or SQL queries can significantly improve query performance.
 
-- **Apply schema-on-read semantics**. Using a data lake lets you to combine storage for files in multiple formats, whether structured, semi-structured, or unstructured. Use *schema-on-read* semantics, which project a schema onto the data when the data is processing, not when the data is stored. This builds flexibility into the solution, and prevents bottlenecks during data ingestion caused by data validation and type checking.
+- **Apply schema-on-read semantics**. Using a data lake lets you combine storage for files in multiple formats, whether structured, semi-structured, or unstructured. Use *schema-on-read* semantics, which project a schema onto the data when the data is processing, not when the data is stored. This builds flexibility into the solution, and prevents bottlenecks during data ingestion caused by data validation and type checking.
 
 - **Process data in-place**. Traditional BI solutions often use an extract, transform, and load (ETL) process to move data into a data warehouse. With larger volumes data, and a greater variety of formats, big data solutions generally use variations of ETL, such as transform, extract, and load (TEL). With this approach, the data is processed within the distributed data store, transforming it to the required structure, before moving the transformed data into an analytical data store.
 
