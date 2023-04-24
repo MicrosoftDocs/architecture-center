@@ -70,7 +70,7 @@ The solution applies to the following few industries:
 Principal authors:
 
 - [Arun Sethia](https://www.linkedin.com/in/arun-sethia-0a91aa5/) | Principal Program Manager 
-- [Sairam Yeturi](https://www.linkedin.com/in/sairam-yeturi-8761aa1b3/) | Senior Product Manager
+- [Sairam Yeturi](https://www.linkedin.com/in/sairam-y-78a4202a/) | Senior Product Manager
 
 ## Next steps
 
