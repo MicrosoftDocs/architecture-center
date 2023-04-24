@@ -110,12 +110,16 @@ For specific circumstances, you can create a single host pool with a mix of sess
 
 ### General
 
-This approach is based on an active-passive model with another Virtual Desktop host pool that you create in the secondary region. You can create this host pool inside the same workspace or a different one, depending on the model.
-
-This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
+In this section details will be provided to deploy either active-active or active-passive configuration using multiple Host Pools and FSLogix Cloud Cache mechanism. 
+You can create this host pool inside the same workspace or a different one, depending on the model. This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
 
 - To create new distinct application groups and related applications for the new host pool.
 - To revoke user assignments to the primary host pool, and then manually reassign them to the new host pool during the failover.
+
+FSLogix official documentation on BCDR is reported in [this article](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity):
+- [Option 1: No profile recovery](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity#option-1-no-profile-recovery): this scenario is not covered in this document. 
+- [Option 2: Cloud Cache (active/passive)](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity#option-2-cloud-cache-primary--failover): active-passive is included in this document, but the referenced article implements it using the same Host Pool. 
+- [Option 3: Cloud Cache (active/active)](https://learn.microsoft.com/fslogix/concepts-container-recovery-business-continuity#option-3-cloud-cache-active--active): this scenario is covered exactly in the remaining part of this document. 
 
 There are some limits for Virtual Desktop resources. For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 
