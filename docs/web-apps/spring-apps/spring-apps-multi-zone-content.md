@@ -73,7 +73,7 @@ Depending on your database setup, you might incur extra latency when data needs 
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-The application needs to be protected from unauthorized access from the internet, systems in private networks, other Azure services, and even some tighly-coupled dependencies.
+The application needs to be protected from unauthorized access from the internet, systems in private networks, other Azure services, and even some tighly coupled dependencies.
 
 [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for each region that you use for deployment. Components are placed in subnets to create further isolation. For example, Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Spring Boot applications.
 
@@ -83,7 +83,7 @@ The design incorporates several PaaS services that participate in processing a u
 
 ##### Private connectivity
 
- Communication from Azure Spring Apps to supporting services, like the back-end database and the key vault, is also locked down by using either private endpoints or network integration.
+Communication from Azure Spring Apps to supporting services, like the back-end database and the key vault, is also locked down by using either private endpoints or network integration.
 
 You can control access by using private endpoints. These network interfaces use private IP addresses to bring the services into the virtual network. 
 
@@ -140,7 +140,7 @@ You can use [Application Insights](/azure/azure-monitor/app/app-insights-overvie
 
 Automate your deployments as much as possible. You should automate infrastructure deployment and application code deployments.
 
-Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between environments). Infrastructure automation can also help you test failing over and quickly bringing up a secondary region.
+Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between environments). Infrastructure automation can also test fail over operations and quickly bringing up a secondary region.
 
 You can also use a [blue-green](/azure/architecture/example-scenario/blue-green-spring/blue-green-spring) or canary deployment strategy.
 
