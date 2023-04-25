@@ -4,7 +4,7 @@ description: Learn about the reliable web app pattern.
 author: stephen-sumner    
 ms.author: ssumner
 ms.reviewer: ssumner
-ms.date: 04/14/2022
+ms.date: 04/28/2022
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
