@@ -1,51 +1,52 @@
-This guide explains how to perform document summarization using Azure OpenAI's GPT-3 model and describes the concepts that lead up to the Summarization process. It explains the various available approaches like Zero-Shot, Few-Shot and Fine-tuning methods and compares their summary outputs to provide recommendations on which model to use as per your use case. The methods and architecture explained here are customizable and may be applied to many different datasets. We will go through two different summarization use cases along with sample code snippets to help you understand the key concepts better.
-
-### Summarization
-
-Enterprises today are increasingly reviewing and investing in the creation and maintenance of a knowledgebase about the organization’s business processes, customers, products, and information that is utilized for its daily standard procedures. However, to find relevant content based on a user query from a large dataset is often a challenging task. The user can query the knowledgebase and find the accurate document using methods such as Page Rank but delving further into the document to search for relevant information typically becomes a manual task and consumes time and bandwidth. However, with recent advances in Foundation Transformer Models such as the one developed by Open AI, the query mechanism has been enormously refined using **Semantic Search** methods using encoding information such as **Embeddings** to find the relevant information. This has enabled the ability to summarize the content and present it to the user in a concise and succinct manner. 
-
-Document summarization is the process of creating summaries from large volumes of data while maintaining significant informational elements and content value. This guide demonstrates how to use [Azure OpenAI's](https://azure.microsoft.com/products/cognitive-services/openai-service/) GPT-3 capabilities to adapt to your summarization use case. Azure OpenAI Service brings Azure enterprise-level security, compliance, and regional availability to OpenAI API.
-
-### Potential use cases
-
-Document summarization can be applied to any business domain such as legal, financial, reporting/news, medical, academic, etc. that involves large amounts of reference data and requires the user to generate a summary describing all important information in a concise manner. The potential use cases of summarization are:
-1.	Generating a summary for highlighting key insights in news, financial reporting, etc.
-2.	Creating quick reference to support an argument e.g., in legal proceedings. 
-3.	Provide context for a paper's thesis like in academia
-4.	Write literature reviews e.g., for news or social media
-5.	Annotate a bibliography e.g., in academia
-
-Some benefits of using summarization service for any use case are:
-1.	Shortens reading time.
-2.	Improves the effectiveness of searching information among vast volumes of disparate data.
-3.	Reduces chances of bias from human summarization techniques (but is heavily dependent on how unbiased the training data of the models were).
-4.	Frees up bandwidth for humans to focus on more in-depth analysis.
+This guide shows how to perform document summarization by using the Azure OpenAI GPT-3 model. It descibes concepts that are related to the document summarization process, approaches to the process, and recommendations on which model to use for a specific use case. Finally, it presents two use cases, together with sample code snippets, to help you understand key concepts.
 
 ## Architecture
 
-Below is a component level representation diagram of how a user query fetches relevant data and the summarizer generates a summary of the resulting text extracted from the most relevant document using GPT 3 endpoints. GPT-3 endpoint is a powerful tool that can be used for a wide range of NLP tasks, including language translation, chatbots, text summarization, and content creation. In this sample architecture, the endpoint has been shown to be used for summarizing the extracted text. The blue arrows represent the process flow and the grey dotted lines denote the logical grouping of service/process that together achieve the mentioned objective. 
-
-As an example for the below architecture, let us consider a use case where an employee of a manufacturing company is searching for a specific information regarding a particular machine part on his company portal.
+The following diagram shows how a user query fetches relevant data. The summarizer generates a summary of the text extracted from the most relevant document by using GPT-3 endpoints. In this architecture, the endpoint is used to summarize the extracted text. 
 
 image 
 
-Figure 1: Technical article search and summarization using GPT-3 endpoints
+alt text Diagram that shows a user search and summarization that uses GPT-3 endpoints.
 
 link 
 
 ### Workflow
 
-The entire process mentioned below happens in near real-time. 
-- When user sends a query, it is first conditioned through an Intention Recognizer such as [CLU]() and the relevant entities or concepts mentioned in the user query are used for selecting and presenting a subset of documents from the knowledgebase populated offline (in this case the company’s KB database). The output is fed into a search and analysis engine such as [Azure Elastic Search]() for document filtering, which subsequently narrows down the number of relevant documents, resulting in a document set of hundreds instead of thousands or tens of thousands.
-- The user query is used again on a search endpoint such as [Cognitive Services Search]() endpoint to rank the retrieved document set in order of relevance (page ranking). Based on the ranking, the top article or document is selected.
-- The selected article or document is scanned for relevant sentences using either a coarse method such as extracting all sentences that contain the user query or by using a more sophisticated method such as GPT-3 based embeddings to find semantically similar material in the document.
-- Once the relevant pieces are extracted, the GPT-3 Completion endpoint with Summarizer is used to summarize the extracted content. (In this example, the summary of the all vital details of the part that the employee asked for in the query will be returned.)
+This workflow occurs in near-real time.
 
-This document focuses on the Summarizer component of this architecture.
+- A user sends a query. For example, an employee of a manufacturing company searches for specific information about a machine part on the company portal. The query is first processed by an intent recognizer like [conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview). The relevant entities or concepts in the user query are used to select and present a subset of documents from a knowledge base that's populated offline (in this case, the company's knowledge base database). The output is fed into a search and analysis engine like [Azure Elastic Search](https://www.elastic.co/partners/microsoft-azure) for document filtering, which filters the number of relevant documents, resulting in a document set of hundreds instead of thousands or tens of thousands.
+- The user query is applied again on a search endpoint like [Cognitive Search](/rest/api/searchservice/) to rank the retrieved document set in order of relevance (page ranking). Based on the ranking, the top document is selected.
+- The selected document is scanned for relevant sentences. This scanning process uses either a coarse method like extracting all sentences that contain the user query or a more sophisticated method like GPT-3 based embeddings to find semantically similar material in the document.
+- After the relevant text is extracted, the GPT-3 Completions endpoint with the summarizer summarizes the extracted content. (In this example, the summary of important details about the part that the employee specified in the query are returned.)
 
-### ConceptsIn-context learning
+This article focuses on the summarizer component of the architecture.
 
-The model used by the Azure OpenAI service is a generative completion call which uses Natural Language (NL) instructions to identify the task at hand and the skill required - aka Prompt Engineering. In this approach, the first part of the prompt includes NL instructions and/or examples of the desired task. The model then completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
+## Scenario details
+
+Enterprises frequently create and maintain a knowledge base about business processes, customers, products, and information. However, returning relevant content based on a user query of a large dataset is often challenging. The user can query the knowledge base and find an applicable document by using methods like page rank, but delving further into the document to search for relevant information typically becomes a manual task that takes time. However, with recent advances in foundation transformer models like the one developed by OpenAI, the query mechanism has been refined by semantic search methods that use encoding information like embeddings to find relevant information. This has enabled the ability to summarize content and present it to the user in a concise and succinct way.
+
+*Document summarization* is the process of creating summaries from large volumes of data while maintaining significant informational elements and content value. This article demonstrates how to use [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/) GPT-3 capabilities for your specific use case. GPT-3 is a powerful tool that you can use for a range of natural language processing tasks, including language translation, chatbots, text summarization, and content creation. The methods and architecture described here are customizable and can be applied to many datasets. Azure OpenAI Service brings Azure enterprise-level improved security, compliance, and regional availability to the OpenAI API.
+
+### Potential use cases
+
+Document summarization applies to any business domain that requires users to search large amounts of reference data and generate a summary that concisely describes relevant information. Typical business and organizational settings include legal, financial, news, healthcare, and academic institutions. Potential use cases of summarization are:
+
+- Generating summaries to highlight key insights about news, financial reporting, and so on.
+- Creating quick a reference to support an argument, for example, in legal proceedings.
+- Providing context for a paper's thesis, as in academic settings.
+- Writing literature reviews.
+- Annotating a bibliography.
+
+Some benefits of using summarization service for any use case are:
+
+- Reduced reading time.
+- More effective searching of large volumes of disparate data.
+- Reduced chance of bias from human summarization techniques. (This benefit depends on how unbiased the training data is.)
+- Enables employees and users to focus on more in-depth analysis.
+
+### In-context learning
+
+Azure OpenAI Service uses generative completion models. that uses Natural Language (NL) instructions to identify the task at hand and the skill required - aka Prompt Engineering. In this approach, the first part of the prompt includes NL instructions and/or examples of the desired task. The model then completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
 
 > [!note] 
 > In-context learning is a method of using language models to learn tasks from few examples. It consists of providing the language model with a prompt containing a list of input-output pairs that demonstrate a task, followed by a test input. The model is then able to make a prediction by conditioning on the prompt and predicting the next tokens.
@@ -382,7 +383,8 @@ print(response.choices[0].text)
 1.	As we can see the model may come up with ghost metrics (never mentioned in the original text).
 Proposed solution: This can be changed by altering the prompt.
 2.	The summary may narrow on one section of the article, neglecting other important information.
-Proposed solution: We can try a summary of summaries approach. We will chunk the report into sections and gather smaller summaries that will be summarized together to form the output summary.
+
+    Proposed solution: We can try a summary of summaries approach. We will chunk the report into sections and gather smaller summaries that will be summarized together to form the output summary.
 
 Let us check how implementing the above proposed solutions affect the result.
 
