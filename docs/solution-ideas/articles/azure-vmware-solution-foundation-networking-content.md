@@ -61,6 +61,14 @@ Route 9 depicts connectivity from either site-to-site (S2S) or point-to-site (P2
 
 Route 10 shows connectivity to AVS workloads from other workloads that run in Azure Virtual Networks. This topology uses VNet to VNet connectivity provided by Azure vWAN. Unlike in a conventional hub and spoke networking topology, where transitive connectivity can be established through either Azure Firewall or through 3rd-party NVAs, Azure vWAN's VNet-to-VNet connectivity is transitive, without needing Azure Firewall or a 3rd-party NVA.
 
+#### Public IP at NSX-T Edge in Azure VMware Solution (route 11)
+
+Route 11 enables inbound and outbound internet connectivity to VMs running inside Azure VMware Solution private cloud. This connectivity uses public IP deployed on NSX-T Edge. This route provides SNAT as well as DNAT capabilities. While this route simplifies inbound and outbound to internet connectivity, it is recommended to evaluate this setup against [Internet connectivity design considerations](https://learn.microsoft.com/azure/azure-vmware/concepts-design-public-internet-access).
+
+#### HCX Migration using Public IP at NSX-T Edge in Azure VMware Solution (route 12)
+
+HCX version 4.2+ makes it possible to perform HCX migration using VPN or SDWAN solution. These are additional options on top of Azure ExpressRoute based connection. Route 12 brings yet another option for driving HCX migration using Public IP at the NSX edge of Azure VMware Solution. It is a good option where ExpressRoute or VPN based connectivity is not possible or can be time consuming. For best migration experience though, it is recommended to use ExpressRoute based connectivity. 
+
 ### Components
 
 - [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware)
