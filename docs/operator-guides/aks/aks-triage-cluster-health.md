@@ -16,7 +16,7 @@ ms.custom:
   - e2e-aks
 ---
 
-# Check the AKS cluster health
+## Check AKS cluster health
 
 Start by checking the health of the overall cluster and networking.
 
@@ -24,11 +24,11 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 **Tools:**
 
-- **AKS Diagnose and Solve Problems**. In Azure portal, navigate to the AKS cluster resource. Select **Diagnose and solve problems**.
--  **Resource Health**. In Azure Portal, navigate to the AKS cluster resource. Select **Resource Health**.
-- **Azure Advisor**. In Azure Portal, navigate to the AKS cluster resource, under the **Overview** tab, select **Recommendations**. Or select **Advisor Recommendations** tab.
+- **AKS Diagnose and Solve Problems**. In the Azure portal, navigate to your AKS cluster resource and select **Diagnose and solve problems**.
+- **Resource Health**. In the Azure portal, navigate to your AKS cluster resource and select **Resource Health**.
+- **Azure Advisor**. In the Azure portal, navigate to your AKS cluster resource and select the **Overview** tab, then click on **Recommendations**, or on the **Advisor Recommendations** blade on the left navigation panel.
 
-**AKS Diagnose and Solve Problems** presents a comprehensive suite of tools to aid in the identification and resolution of a variety of issues related to your cluster. Based on the issue you are experiencing, you can check the description on each category tile and select the most relevant to help diagnose your issue. Based on the outcome, you may follow the detailed instructions or peruse the documentation links to effectively resolve the issue at hand. 
+**AKS Diagnose and Solve Problems** presents a comprehensive suite of tools to aid in identifying and resolving various issues related to your cluster. Depending on the issue you are experiencing, you can check the description on each category tile and select the most relevant one to diagnose your problem. Based on the outcome, you may follow the detailed instructions or refer to the documentation links to resolve the issue effectively. 
 
 ![screenshot of Diagnose and solve problems homepage.](images/aks-diagnostics.png)
 
@@ -48,7 +48,7 @@ Furthermore, if the recommended documentation based on the diagnostic results do
 
 ![screenshot of AKS Diagnose and solve problems Results - Additional - Docs locations.](images/aks-diagnostics-doc.png)
 
-**Example Scenario 2:** My cluster seems to be in good health. All nodes are ready, and my application runs without any issues. However, I am curious about the best practices I can follow to prevent potential problems. So, I click on the **Best Practices** tile. After reviewing the recommendations, I discovered that even though my cluster appears healthy at the moment, there are still some things I can do to avoid latency or throttling issues in the future. 
+**Example Scenario 2:** My cluster seems to be in good health. All nodes are ready, and my application runs without any issues. However, I am curious about the best practices I can follow to prevent potential problems. So, I click on the **Best Practices** tile. tile. After reviewing the recommendations, I discovered that although my cluster appears healthy at the moment, there are still some things I can do to avoid latency or throttling issues in the future. 
 
 ![screenshot of AKS Diagnose and solve problems Results - Best - Practice tile.](images/aks-diagnostics-best.png)
 
@@ -57,12 +57,12 @@ Furthermore, if the recommended documentation based on the diagnostic results do
 To learn more about this feature, see [Azure Kubernetes Service Diagnose and Solve Problems overview](/azure/aks/concepts-diagnostics).
 
 
-**Resource Health** helps you identify and get support for cluster issues and service problems that could be impacting your cluster's health. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your cluster. Below are the health statuses:
+**Resource Health** helps you identify and get support for cluster issues and service problems that could impact your cluster's health. By adding a resource alert, you can easily monitor the health of your cluster. This feature provides a report on the current and past health of your cluster, and below are the health statuses:
 
-- **Available**. *Available* means that there are no events detected that affect the health of the cluster. In cases where the cluster recovered from unplanned downtime during the last 24 hours, you'll see a "Recently resolved" notification.
-- **Unavailable**. *Unavailable* means that the service detected an ongoing platform or non-platform event that affects the health of the cluster.
-- **Unknown**. *Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. This commonly occurs when virtual machines have been deallocated. Although this status isn't a definitive indication of the state of the resource, it can be an important data point for troubleshooting.
-- **Degraded**. *Degraded* means that your cluster detected a loss in performance, although it's still available for use. 
+- **Available**. This status means that there are no detected events that affect the health of the cluster. If the cluster has recovered from unplanned downtime within the last 24 hours, you'll see a "Recently resolved" notification.
+- **Unavailable**. This status indicates that the service has detected an ongoing event, either platform or non-platform, that affects the health of the cluster.
+- **Unknown**. When Resource Health hasn't received any information about the resource for over 10 minutes, this status will appear. This usually happens when virtual machines have been deallocated. Although this status is not a definitive indication of the resource's state, it can be a useful data point for troubleshooting.
+- **Degraded**. This status means that your cluster has detected a loss in performance, but it's still available for use.
 
 ![screenshot of AKS Resource Health overview.](images/aks-resource-health.png)
 
