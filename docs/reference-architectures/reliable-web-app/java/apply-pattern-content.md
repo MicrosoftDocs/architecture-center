@@ -450,9 +450,21 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
 }
 ```
 
-### Use a CI/CD pipeline
+### Ues a CI/CD pipeline
 
+You should use a CI/CD pipeline to automate deployments from source control to your App Service environments (test, staging, production). If you use Azure DevOps, build your pipeline with Azure Pipelines. If you use GitHub, use GitHub actions. You pipeline should follow standard best practices.
 
+**Use build tools.** You should use build tools (Maven or Gradle) to build the application binaries (jars/wars).
+
+**Use unit (JUnit) tests.** Your pipeline should execute and pass all unit (JUnit) tests before deploying the changes to the App Service environment. We recommend using code coverage tools (SonarQube) in your pipeline to ensure you test enough of your code.
+
+**Use a Java mocking framework.** You should use a mocking framework (Mockito, Easy Mock, or other Java implementations) to simulate tests on external endpoints. With mocking frameworks, you don't need to hard-code tests to specific external endpoints. Instead, you use simulated (mock) endpoints. By simulating the endpoints, you don't need to set up and configure actual external endpoints for testing. The result is a consistent testing experience across different environments.
+
+**Scan code for security vulnerabilities.** The build pipeline should conduct security checks. You should use static code analysis testing (SAST) to identity security vulnerability and coding errors in the application source code. You need to do a software composition analysis (SCA) to scan third-party libraries and components for security vulnerabilities. Both GitHub and Azure DevOps provide native support for these security tools and make them easy to integrate into your pipeline.
+
+**Use deployment slots.** You should align specific versions/branches of your application code to App Service deployment slots. For example, you can deploy regression and performance tests to a specific deployment slot. For more information, see [App Service deployment slots](/azure/app-service/deploy-best-practices).
+
+**Govern production deployments.** You need to establish guidelines for deploying code to production and create an approval process for all production deployments.
 
 ## Performance efficiency
 
