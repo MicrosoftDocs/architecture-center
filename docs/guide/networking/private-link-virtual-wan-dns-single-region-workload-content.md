@@ -1,7 +1,7 @@
 This article shows how to expose a PaaS resource over a private endpoint to a specific workload in a single region. In the scenario, the network topology is hub-spoke, and the hub is an Azure Virtual WAN hub.
 
 > [!IMPORTANT]
-> This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on the network topology defined in the scenario guide. Read the [overview page first](./private-link-vwan-dns-guide.yml) to understand the base network architecture and key challenges.
+> This article is part of a series on Azure Private Link and Azure DNS in Virtual WAN and builds on the network topology defined in the scenario guide. Read the [overview page first](./private-link-virtual-wan-dns-guide.yml) to understand the base network architecture and key challenges.
 
 ## Scenario
 
@@ -61,7 +61,7 @@ The attempt ultimately violates our goal of only allowing access to the storage 
 
 ## Solution - Establish a virtual hub extension for DNS
 
-A solution to the challenge is for the enterprise network team to implement a [virtual hub extension](./private-link-vwan-dns-virtual-hub-extension-pattern.yml) for DNS. The single responsibility for the DNS virtual hub extension is to enable workload teams that need to use private DNS zones in their architecture within this [starting Virtual WAN hub topology](./private-link-vwan-dns-guide.yml#starting-network-topology).
+A solution to the challenge is for the enterprise network team to implement a [virtual hub extension](./private-link-virtual-wan-dns-virtual-hub-extension-pattern.yml) for DNS. The single responsibility for the DNS virtual hub extension is to enable workload teams that need to use private DNS zones in their architecture within this [starting Virtual WAN hub topology](./private-link-virtual-wan-dns-guide.yml#starting-network-topology).
 
 The DNS extension is implemented as a virtual network spoke that is peered to its regional virtual hub. It's possible to link private DNS zones to this virtual network. The virtual network also contains an Azure DNS Private Resolver that enables services outside of this virtual network, like Azure Firewall, to query and receive values from all linked private DNS zones. The following are the components of a typical virtual hub extension for DNS, along with some required configuration changes:
 
@@ -123,7 +123,7 @@ When implementing the extension for your enterprise, consider the following guid
 #### Spoke virtual network
 
 - Following the single responsibility principal, the virtual network for the DNS extension should only contain the resources required for DNS resolution and shouldn't be shared with other resources.
-- The virtual network for the DNS extension should follow the same configuration guidelines under [Adding spoke networks](./private-link-vwan-dns-guide.yml#adding-spoke-networks).
+- The virtual network for the DNS extension should follow the same configuration guidelines under [Adding spoke networks](./private-link-virtual-wan-dns-guide.yml#adding-spoke-networks).
 
 #### Azure DNS Private Resolver
 

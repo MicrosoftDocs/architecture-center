@@ -21,4 +21,4 @@ products:
   - azure-virtual-wan
 thumbnailUrl: /azure/architecture/browse/thumbs/dns-private-endpoints-virtual-wan-baseline-architecture.png
 content: |
-   [!include[](private-link-vwan-dns-virtual-hub-extension-pattern-content.md)]
+   [!include[](private-link-virtual-wan-dns-virtual-hub-extension-pattern-content.md)]
