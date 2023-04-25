@@ -281,10 +281,10 @@ A DevOps methodology provides a greater return on investment for application tea
 
 ### Automate deployments
 
-You should use a DevOps pipeline to deploy changes from source control to production. If you're using Azure DevOps, you should use Azure Pipelines. If you're using GitHub, you should explore GitHub actions.  Automating deployments with IaC offers the following benefits:
+You should use a DevOps pipeline to automate deployments from source control to your App Service environments (test, staging, production) with IaC. If you use Azure DevOps, build your pipeline with Azure Pipelines. If you use GitHub, use GitHub actions. Automating deployments with IaC offers the following benefits:
 
 - **Resolves production issues faster.** IaC creates consistent environments that foster predictable behaviors in production. The development team can automate the creation of a copy of the production environment to troubleshot production issues.
-- **Applies changes consistently across environments.** You should use IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow that has separate pipelines for different environments. You can use environment variables to differentiate between the environments. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
+- **Applies changes consistently across environments.** You should use IaC to consistently apply a change to every environment. You can use a GitHub action to create a deployment workflow that has separate pipelines for different environments. Environment variables allow you to differentiate between the environments. When you deploy a fix to the development environment, you can manually trigger a deployment of the same code to the production environment.
 - **Maximizes productivity.** Use automation to set up new environments and reduce the operational overhead managing environments manually.
 - **Improves governance.** IaC makes it easier to audit and review production changes deployed to Azure because they're checked in to source control.
 
