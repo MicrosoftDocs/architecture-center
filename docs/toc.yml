@@ -2686,6 +2686,8 @@ items:
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Anomaly detector process
         href: solution-ideas/articles/anomaly-detector-process.yml
+      - name: Automated fab scheduling and dispatching
+        href: example-scenario/manufacturing/fab-scheduling-azure.yml  
       - name: Batch integration in a factory
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: CAE simulations for manufacturing
