@@ -17,6 +17,7 @@ products:
   - azure-application-gateway
   - azure-key-vault
   - azure-spring-apps
+  - azure-database-mysql
 name:  Azure Spring Apps baseline architecture
 summary: Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
 thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-reference-architecture.png

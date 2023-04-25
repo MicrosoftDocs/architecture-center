@@ -2,7 +2,7 @@ This reference architecture describes an approach for running Java Spring Boot w
 
 This architecture is useful when you want to:
 
-- Increase the the availability of your application over a single-zone deployment.
+- Increase the availability of your application over a single-zone deployment.
 - Increase the overall resilience and service level objective (SLO) of your application.
 
 > [!TIP]
@@ -43,9 +43,9 @@ Here are the Azure services used in this architecture. For product documentation
 
 ## Redundancy
 
-Building redundancy in the workload will minimize single points of failure. In this architecture, components are replicated across zones within the selected region. When you use availability zones in your architecture, make sure you use availability zones for all the components in your setup.
+Building redundancy in the workload can minimize single points of failure. In this architecture, components are replicated across zones within the selected region. When you use availability zones in your architecture, make sure you use availability zones for all the components in your setup.
 
-Azure services aren't supported in all regions and and not all regions support zones. Before selecting a region, check regional and zone support in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+Azure services aren't supported in all regions and not all regions support zones. Before selecting a region, check regional and zone support in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 Azure Spring Apps supports zonal redundancy. With this feature, all underlying infrastructure of the service is spread across multiple availability zones providing higher availability for the application. The advantage is that applications are horizontally scaled without any code changes. 
 
@@ -89,7 +89,7 @@ You can control access by using private endpoints. These network interfaces use 
 
 The architecture has Azure services that automatically set up the private endpoints. 
 
-Azure Spring Apps is deployed into that network using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network). As part of provisioning the neccessary private endpoints are automatically created. The application is accessed by reaching the private IP address.
+Azure Spring Apps is deployed into that network using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network). As part of provisioning the necessary private endpoints are automatically created. The application is accessed by reaching the private IP address.
 
 The database also follows a similar model. The [flexible server deployment mode of Azure Database for MySQL](https://azure.microsoft.com/products/mysql) supports virtual network integration through a dedicated subnet.
 
@@ -134,7 +134,7 @@ This solution stores the application secrets and certificates in a single key va
 
 Integrate all components of this solution with [Azure Monitor](/azure/azure-monitor/overview) logs to provide end-to-end insight into your application.
 
-You can use [Application Insights](azure/azure-monitor/app/app-insights-overview) in [Azure Monitor](/azure/azure-monitor/overview) to get logs and metrics from the application. This  comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
+You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) in [Azure Monitor](/azure/azure-monitor/overview) to get logs and metrics from the application. This  comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
 
 ## Automated deployment
 
@@ -150,13 +150,11 @@ There's a tradeoff on cost. Expect higher cost because the components are deploy
 
 To address costs:
 
-- You can deploy different applications and application types to a single instance of Azure Spring Apps. By deploying multiple applications, the cost of the underlying infrastructure is shared across applications.
+- You can deploy different applications and application types to a single instance of Azure Spring Apps. When multiple applications are deployed, the cost of the underlying infrastructure is shared across applications.
 - Azure Spring Apps supports application autoscaling triggered by metrics or schedules, which can improve utilization and cost efficiency.
 - You can use Application Insights in [Azure Monitor](/azure/azure-monitor/overview) to lower operational costs. 
 
 The cost of services was estimated in [Azure pricing calculator](https://azure.com/e/414c5e0b15494e5081cc9f008d82fdaa) with reasonable default values for a small-scale application. You can update this estimate based on the throughput values you expect for your application.
-
-
 
 
 ## Deploy this scenario
