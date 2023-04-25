@@ -110,12 +110,16 @@ For specific circumstances, you can create a single host pool with a mix of sess
 
 ### General
 
-This approach is based on an active-passive model with another Virtual Desktop host pool that you create in the secondary region. You can create this host pool inside the same workspace or a different one, depending on the model.
-
-This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
+In order to deploy either an active-active or active-passive configuration using multiple host pools and an FSLogix cloud cache mechanism, you can create the host pool inside the same workspace or a different one, depending on the model. This approach requires you to maintain the alignment and updates, keeping both host pools in sync and at the same configuration level. In addition to a new host pool for the secondary disaster recovery region, you need:
 
 - To create new distinct application groups and related applications for the new host pool.
 - To revoke user assignments to the primary host pool, and then manually reassign them to the new host pool during the failover.
+
+Review the [Business continuity and disaster recovery options for FSLogix](/fslogix/concepts-container-recovery-business-continuity).
+
+- [No profile recovery](/fslogix/concepts-container-recovery-business-continuity#option-1-no-profile-recovery) is not covered in this document. 
+- [Cloud cache (active/passive)](/fslogix/concepts-container-recovery-business-continuity#option-2-cloud-cache-primary--failover) is included in this document but is implemented it using the same host pool.
+- [Cloud cache (active/active)](/fslogix/concepts-container-recovery-business-continuity#option-3-cloud-cache-active--active) is covered in the remaining part of this document. 
 
 There are some limits for Virtual Desktop resources. For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits).
 

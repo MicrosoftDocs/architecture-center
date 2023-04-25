@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 04/10/2023
+ms.date: 04/24/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -25,8 +25,27 @@ The following new and updated articles have recently been published in the Azure
 
 ## April 2023
 
+### New articles
+
+- [SaaS and multitenant solution architecture](./guide/saas/overview.md)
+- [Overview of the journey for designing SaaS and multitenant solutions](./guide/saas/plan-journey-saas.md)
+- [Azure landing zones - Azure Virtual Desktop landing zone design considerations](./landing-zones/azure-virtual-desktop/design-guide.md)
+- [Migrate a simple app from Service Fabric to AKS](./guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md)
+- [Migrate your workload from Service Fabric to AKS](./guide/aks/service-fabric-azure-kubernetes-service.md)
+- [Mission-critical global content delivery](./guide/networking/global-web-applications/mission-critical-content-delivery.md)
+- [Mission-critical global HTTP ingress](./guide/networking/global-web-applications/mission-critical-global-http-ingress.md)
+- [Global routing redundancy for mission-critical web applications](./guide/networking/global-web-applications/overview.md)
+- [Scale out an Azure IoT solution to support millions of devices](./guide/iot/scale-iot-solution-azure.md)
+- [Use AI to forecast customer orders](./solution-ideas/articles/next-order-forecasting.yml)
+
 ### Updated articles
 
+- [Use Profisee MDM to migrate SQL Server Master Data Services to Azure](./example-scenario/profisee-mds/profisee-mds-migration-utility.yml)  ([#d93744236](https://github.com/MicrosoftDocs/architecture-center/commit/d93744236))
+- [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#74f8e2498](https://github.com/MicrosoftDocs/architecture-center/commit/74f8e2498))
+- [High-performance computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#f34a7a3b6](https://github.com/MicrosoftDocs/architecture-center/commit/f34a7a3b6))
+- [Elastic Enterprise Search on Azure](./solution-ideas/articles/elastic-workplace-search.yml)  ([#a00457730](https://github.com/MicrosoftDocs/architecture-center/commit/a00457730))
+- [Data governance with Profisee and Microsoft Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)  ([#c87d140e9](https://github.com/MicrosoftDocs/architecture-center/commit/c87d140e9))
+- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#a8c7e9718](https://github.com/MicrosoftDocs/architecture-center/commit/a8c7e9718))
 - [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#5e982b9d0](https://github.com/MicrosoftDocs/architecture-center/commit/5e982b9d0))
 - [Basic enterprise integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml)  ([#14cfddb15](https://github.com/MicrosoftDocs/architecture-center/commit/14cfddb15))
 - [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#79eb9b90e](https://github.com/MicrosoftDocs/architecture-center/commit/79eb9b90e))
@@ -92,7 +111,7 @@ The following new and updated articles have recently been published in the Azure
 - [Azure Sandbox](./guide/azure-sandbox/azure-sandbox.yml)
 - [Deploy Sandi HiFUN on an Azure virtual machine](./guide/hpc/hpc-sandi-hifun.yml)
 - [Data scrambling for SAP applications using Delphix and Azure Data Factory or Azure Synapse Analytics](./example-scenario/ai/data-scrambling-for-sap-using-delphix-and-azure-data-factory.yml)
-- [Use Profisee MDM to migrate SQL Server MDS to Azure](./example-scenario/profisee-mds/profisee-mds-migration-utility.yml)
+- [Use Profisee MDM to migrate SQL Server Master Data Services to Azure](./example-scenario/profisee-mds/profisee-mds-migration-utility.yml)
 - [Replicate mainframe data by using Precisely Connect](./example-scenario/mainframe/mainframe-replication-precisely-connect.yml)
 - [Considerations for multitenant control planes](./guide/multitenant/considerations/control-planes.yml)
 

@@ -2573,6 +2573,11 @@
       "redirect_document_id": false
     },   
     {
+      "source_path": "docs/guide/saas/saas-digital-business-journey-azure.md",
+      "redirect_url": "/azure/architecture/guide/saas/plan-journey-saas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/reference-architectures/reliable-web-app/dotnet/pattern-overview.yml",
       "redirect_url": "docs/reference-architectures/reliable-web-app/dotnet/plan-implementation",
       "redirect_document_id": false

@@ -2,12 +2,140 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-04-10T16:01:58.671Z</updated>
+    <updated>2023-04-24T16:11:06.803Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[SaaS and multitenant solution architecture]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/overview"/>
+        <updated>2023-04-21T17:03:19.000Z</updated>
+        <summary type="html"><![CDATA[This guide provides an overview of the architectural content for SaaS, startups, and multitenancy.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Overview of the journey for designing SaaS and multitenant solutions]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas/plan-journey-saas</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/plan-journey-saas"/>
+        <updated>2023-04-21T17:03:19.000Z</updated>
+        <summary type="html"><![CDATA[This guide provides an overview of the journey to create a SaaS solution. It also provides links to resources used in many SaaS, multitenant, Azure Marketplace, and ISV & Startup scenarios.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Azure landing zones - Azure Virtual Desktop landing zone design considerations]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/landing-zones/azure-virtual-desktop/design-guide</id>
+        <link href="https://learn.microsoft.com/azure/architecture/landing-zones/azure-virtual-desktop/design-guide"/>
+        <updated>2023-04-20T02:34:31.000Z</updated>
+        <summary type="html"><![CDATA[Design considerations for using the enterprise-scale Azure Virtual Desktop landing zone, which is part of the Cloud Adoption Framework for Azure.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate a simple app from Service Fabric to AKS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aks/migrate-app-service-fabric-azure-kubernetes-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aks/migrate-app-service-fabric-azure-kubernetes-service"/>
+        <updated>2023-04-19T20:42:31.000Z</updated>
+        <summary type="html"><![CDATA[Use an example to guide the migration of your application from Azure Service Fabric to Azure Kubernetes Service.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Migrate your workload from Service Fabric to AKS]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/aks/service-fabric-azure-kubernetes-service</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/aks/service-fabric-azure-kubernetes-service"/>
+        <updated>2023-04-19T20:42:31.000Z</updated>
+        <summary type="html"><![CDATA[Compare AKS to Service Fabric and learn best practices for transitioning from Service Fabric to AKS.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mission-critical global content delivery]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery"/>
+        <updated>2023-04-18T19:38:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to develop highly resilient global HTTP applications when your focus is on content delivery and caching.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mission-critical global HTTP ingress]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-global-http-ingress</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/mission-critical-global-http-ingress"/>
+        <updated>2023-04-18T19:38:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to develop highly resilient global HTTP applications when your focus is on HTTP ingress.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Global routing redundancy for mission-critical web applications]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/overview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/networking/global-web-applications/overview"/>
+        <updated>2023-04-18T19:38:12.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to develop highly resilient global web applications.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Scale out an Azure IoT solution to support millions of devices]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/iot/scale-iot-solution-azure"/>
+        <updated>2023-04-12T20:12:42.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to scale out your Azure IoT solution to support millions of devices.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use AI to forecast customer orders]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/next-order-forecasting</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/next-order-forecasting"/>
+        <updated>2023-04-11T22:52:33.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use AI and machine learning to forecast a customer's future order quantity for a specific SKU.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use Profisee MDM to migrate SQL Server Master Data Services to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/profisee-mds/profisee-mds-migration-utility</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/profisee-mds/profisee-mds-migration-utility"/>
+        <updated>2023-04-19T20:31:37.000Z</updated>
+        <summary type="html"><![CDATA[Use Profisee to migrate from SQL Server Master Data Services to a full-featured master data management (MDM) platform in the Azure cloud.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Publish internal APIs to external users]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/publish-internal-apis-externally</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/publish-internal-apis-externally"/>
+        <updated>2023-04-12T19:02:06.000Z</updated>
+        <summary type="html"><![CDATA[In this scenario, an organization consolidates multiple APIs internally using Azure API Management deployed inside a Virtual Network.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[High-performance computing (HPC) on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/topics/high-performance-computing</id>
+        <link href="https://learn.microsoft.com/azure/architecture/topics/high-performance-computing"/>
+        <updated>2023-04-12T15:42:21.000Z</updated>
+        <summary type="html"><![CDATA[Learn about high-performance computing (HPC) on Azure, which uses many CPU or GPU-based computers to solve complex mathematical tasks.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Elastic Enterprise Search on Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/solution-ideas/articles/elastic-workplace-search</id>
+        <link href="https://learn.microsoft.com/azure/architecture/solution-ideas/articles/elastic-workplace-search"/>
+        <updated>2023-04-10T21:01:38.000Z</updated>
+        <summary type="html"><![CDATA[Elastic Enterprise Search streamlines search for all work documents and data. Learn how to deploy it and optimize productivity.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Data governance with Profisee and Microsoft Purview]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-purview</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/data/profisee-master-data-management-purview"/>
+        <updated>2023-04-10T20:21:00.000Z</updated>
+        <summary type="html"><![CDATA[Integrate the Profisee master data management platform with Microsoft Purview to govern and manage data. Produce and deliver high-quality, trusted data.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Extend on-premises AD FS to Azure]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adfs</id>
+        <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/identity/adfs"/>
+        <updated>2023-04-10T16:45:18.000Z</updated>
+        <summary type="html"><![CDATA[Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Baseline architecture for an AKS cluster]]></title>
         <id>https://learn.microsoft.com/azure/architecture/reference-architectures/containers/aks/baseline-aks</id>
@@ -425,11 +553,11 @@
         <category label="new" term="new"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Use Profisee MDM to migrate SQL Server MDS to Azure]]></title>
+        <title type="html"><![CDATA[Use Profisee MDM to migrate SQL Server Master Data Services to Azure]]></title>
         <id>https://learn.microsoft.com/azure/architecture/example-scenario/profisee-mds/profisee-mds-migration-utility</id>
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/profisee-mds/profisee-mds-migration-utility"/>
         <updated>2023-02-03T16:29:32.000Z</updated>
-        <summary type="html"><![CDATA[Migrate from SQL Server Master Data Services (MDS) to a full-featured master data management (MDM) in the Azure cloud with Profisee.]]></summary>
+        <summary type="html"><![CDATA[Use Profisee to migrate from SQL Server Master Data Services to a full-featured master data management (MDM) platform in the Azure cloud.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
