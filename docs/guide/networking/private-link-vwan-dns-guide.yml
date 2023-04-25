@@ -2,10 +2,10 @@
 metadata:
   title: Guide to Private Link and DNS in Azure Virtual WAN 
   titleSuffix: Azure Architecture Center
-  description: This is the landing page for a series of articles that provide guidance on implementing DNS to support private endpoints in a Virtual WAN network. These scenarios are particularly challenging because every Virtual Hub has a Firewall with DNS Proxy enabled.
+  description: Learn how to implement DNS to support private endpoints in a Virtual WAN network. In these scenarios, every Virtual WAN hub has a firewall that has DNS proxy enabled.
   author: robbag
   ms.author: robbag
-  ms.date: 01/30/2023
+  ms.date: 04/26/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -13,12 +13,12 @@ name: Guide to Private Link and DNS in Azure Virtual WAN
 azureCategories:
   - networking
   - security
-summary: This is the landing page for a series of articles that provide guidance on implementing DNS to support private endpoints in a Virtual WAN network. These scenarios are particularly challenging because every Virtual Hub has a Firewall with DNS Proxy enabled.
+summary: Learn how to implement DNS to support private endpoints in a Virtual WAN network. In these scenarios, every Virtual WAN hub has a firewall that has DNS proxy enabled.
 products:
   - azure-private-link
   - azure-dns
   - azure-firewall
   - azure-virtual-wan
-thumbnailUrl: /azure/architecture/browse/thumbs/dns-private-endpoints-vwan-baseline-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/dns-private-endpoints-virtual-wan-baseline-architecture.png
 content: |
-   [!include[](private-link-vwan-dns-guide-content.md)]
+   [!include[](private-link-virtual-wan-dns-guide-content.md)]

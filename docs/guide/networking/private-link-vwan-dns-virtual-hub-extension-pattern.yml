@@ -2,10 +2,10 @@
 metadata:
   title: Virtual hub extension pattern 
   titleSuffix: Azure Architecture Center
-  description: This article describes a pattern to expose shared services, such as DNS, in a hub-and-spoke topology that uses Azure Virtual WAN.
+  description: This article describes a pattern for exposing shared services, such as DNS, in a hub-and-spoke topology that uses Azure Virtual WAN.
   author: robbag
   ms.author: robbag
-  ms.date: 03/15/2023
+  ms.date: 04/26/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -13,12 +13,12 @@ name: Virtual hub extension pattern
 azureCategories:
   - networking
   - security
-summary: This article describes a pattern to expose shared services, such as DNS,  in a hub-and-spoke topology that uses Azure Virtual WAN.
+summary: This article describes a pattern for exposing shared services, such as DNS, in a hub-and-spoke topology that uses Azure Virtual WAN.
 products:
   - azure-private-link
   - azure-dns
   - azure-firewall
   - azure-virtual-wan
-thumbnailUrl: /azure/architecture/browse/thumbs/dns-private-endpoints-vwan-baseline-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/dns-private-endpoints-virtual-wan-baseline-architecture.png
 content: |
    [!include[](private-link-vwan-dns-virtual-hub-extension-pattern-content.md)]
