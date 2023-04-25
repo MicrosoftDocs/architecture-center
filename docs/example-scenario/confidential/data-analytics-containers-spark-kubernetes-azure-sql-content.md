@@ -4,7 +4,7 @@ _Apache®, Apache Ignite, Ignite, and the flame logo are either registered trade
 
 ## Architecture
 
-:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.png" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.png":::
+:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.svg" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.svg":::
 Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve are: ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
 :::image-end:::
 

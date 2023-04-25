@@ -4,7 +4,7 @@ This article describes a solution that uses Azure Purview to build a foundation 
 
 ## Architecture
 
-:::image type="complex" border="false" source="../media/data-lake-purview.png" alt-text="Architecture diagram that shows how Azure Purview scans and classifies data.":::
+:::image type="complex" border="false" source="../media/data-lake-purview.svg" alt-text="Architecture diagram that shows how Azure Purview scans and classifies data.":::
  Diagram that shows how Azure Purview scans and classifies data. Data Lake Storage connects to Azure Purview via a modern data platform. Azure Purview also connects to Power BI. The diagram also shows integration among these services and Azure AD, Azure Monitor, and Azure Key Vault.
 :::image-end:::
 

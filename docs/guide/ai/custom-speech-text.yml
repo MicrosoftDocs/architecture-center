@@ -4,7 +4,7 @@ metadata:
   description: Learn about approaches for implementing high-quality speech-aware applications that use AI. This article describes the problem space and decision-making process. 
   author: mishrapratyush
   ms.author: pmishra
-  ms.date: 01/05/2023 
+  ms.date: 04/07/2023 
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

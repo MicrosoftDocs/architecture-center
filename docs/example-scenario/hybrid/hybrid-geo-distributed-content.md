@@ -2,8 +2,9 @@ This solution uses Azure Traffic Manager to route traffic to endpoints to satisf
 
 ## Architecture
 
-![Diagram that shows an architecture for geographic traffic routing.](../hybrid/media/hybrid-geo-distributed.png)
-*Download an [SVG file](https://arch-center.azureedge.net/geo-distributed.svg) of this architecture.*
+![Diagram that shows an architecture for geographic traffic routing.](../hybrid/media/hybrid-geo-distributed.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/hybrid-geo-distributed.vsdx) of this architecture.*
 
 ### Dataflow
 

@@ -53,7 +53,7 @@ Performance tests of AVL FIRE M on Azure use [HBv3-series VMs](/azure/virtual-ma
 
 To use InfiniBand, you need to [enable InfiniBand drivers](/azure/virtual-machines/workloads/hpc/enable-infiniband).
 
-## AVL FIRE M installation
+## AVL FIRE M 2022 R1 installation
 
 Before you install AVL FIRE M, you deploy and connect a VM or an Azure HPC cluster.
 
@@ -66,7 +66,7 @@ For more information on deploying the Azure CycleCloud and Azure HPC cluster, se
 
 You can download AVL FIRE M products on the AVL self-service portal. Alternately, you can install the application without downloading the large installation image by running the installer executable (AVL SETUP.run). For more information on how to download, install, and license AVL FIRE M, see the [AVL Fire M website](https://www.avl.com/fire-m).
 
-## AVL FIRE M performance results
+## AVL FIRE M 2022 R1 performance results
 
 For the performance results, AVL FIRE M ran steady state simulations. The following are details on the models used for AVL FIRE M performance validation on Virtual Machines.
 
@@ -167,8 +167,8 @@ You can use the [Azure pricing calculator](https://azure.microsoft.com/pricing/c
 |  1 |                                7.5|
 |  2 |                                3.8|
 |  4 |                                1.9|
-|  8 |                                0.09|
-|  16 |                                0.06|
+|  8 |                                0.9|
+|  16 |                                0.6|
 
 
 ### DrivAer_EmbeddedBody

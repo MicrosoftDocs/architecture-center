@@ -140,4 +140,4 @@ Principal authors:
 - [Conditional Access for zero trust](../../guide/security/conditional-access-zero-trust.md)
 - [Conditional Access architecture](../../guide/security/conditional-access-architecture.yml)
 - [Conditional Access framework and policies](../../guide/security/conditional-access-framework.md)
-- [SWIFT's Alliance Connect in Azure](../finance/swift-on-azure-srx.yml)
+

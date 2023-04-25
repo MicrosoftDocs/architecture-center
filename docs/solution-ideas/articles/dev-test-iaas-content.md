@@ -39,7 +39,7 @@ This section assumes you have read [Azure Pipelines baseline architecture](../..
 
 This section assumes you have read [Azure Pipelines baseline architecture components section](../../example-scenario/apps/devops-dotnet-baseline.yml#components) and only focuses on the specifics of deploying a workload to Azure DevTest Labs for staging.
 
-- [Azure DevTest Labs](/azure/devtest-labs/devtest-lab-overview) is a service for creating, using, and managing environments used for development, testing and deployment purposes. The service allows you to easily deploy pre-configured environments in a cost-effictive manner.
+- [Azure DevTest Labs](/azure/devtest-labs/devtest-lab-overview) is a service for creating, using, and managing environments used for development, testing and deployment purposes. The service allows you to easily deploy pre-configured environments in a cost-effective manner.
 
 ### Alternatives
 

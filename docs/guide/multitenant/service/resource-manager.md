@@ -19,6 +19,7 @@ ms.category:
 ms.custom:
   - guide
   - fcp
+  - devx-track-arm-template
 ---
 
 # Multitenancy and Azure Resource Manager

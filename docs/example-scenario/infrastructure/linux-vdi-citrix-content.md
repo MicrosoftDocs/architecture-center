@@ -93,7 +93,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The Citrix XenDesktop licenses are not included in Azure service charges.
 - The Citrix NetScaler license is included in a pay-as-you-go model.
-- Using reserved instances will greatly reduce the compute cost for the solution.
+- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices.
 - The ExpressRoute cost is not included.
 
 ## Deploy this scenario
