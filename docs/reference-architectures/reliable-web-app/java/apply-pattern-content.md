@@ -232,8 +232,8 @@ spring.cloud.azure.keyvault.secret.property-source-enabled=true
 
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.datasource.url=
-spring.datasource.username=${airsonic-database-admin}
-spring.datasource.password=${airsonic-database-admin-password}
+spring.datasource.username=${database-app-user}
+spring.datasource.password=${database-app-user-password}
 ```
 
 **Avoid using access keys for temporary access where possible.** Granting permanent access to a storage account is a security risk. If compromised, they provide attackers permanent access to your data. It's a best practice to use temporary permissions to grant access to resources. Temporary permissions reduce the risk of unauthorized access or data breaches.
@@ -262,7 +262,7 @@ You should restrict access on the application platform (App Service) to accept o
 
 You need to configure what traffic you want to pass through your WAF. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation)
 
-*Reference implementation.* The reference implementation uses Azure Front Door as the host name URL, but you should use your own host name.
+*Reference implementation.* The reference implementation filters requests to ensure they pass through the WAF. It uses a native network control in App Service that looks for a specific `X-Azure-FDID` value.
 
 ## Cost optimization
 
@@ -419,16 +419,6 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
   name                           = "postgresql-diagnostic-settings"
   target_resource_id             = azurerm_postgresql_flexible_server.postresql_database.id
   log_analytics_workspace_id     = var.log_analytics_workspace_id
-  #log_analytics_destination_type = "AzureDiagnostics"
-
-  enabled_log {
-    category_group = "audit"
-
-    retention_policy {
-      days    = 0
-      enabled = false
-    }
-  }
 
   enabled_log {
     category_group = "allLogs"
@@ -436,15 +426,6 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
     retention_policy {
       days    = 0
       enabled = false
-    }
-  }
-
-  metric {
-    category = "AllMetrics"
-    enabled  = true
-    retention_policy {
-      enabled = false
-      days    = 0
     }
   }
 }
