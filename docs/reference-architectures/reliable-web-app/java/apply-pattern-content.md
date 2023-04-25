@@ -196,7 +196,7 @@ You should use managed identities when you can because of the security and opera
 - [Azure services that support managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identities-status)
 - [Access Azure Storage from a web app](/azure/active-directory/develop/multi-service-web-app-access-storage)
 
-*Reference implementation.* The reference implementation demonstrates a scenario in which the developer kept the on-premises authentication mechanism rather than switching to managed identities. The reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system-assigned) to retrieve runtime secrets from Key Vault.
+*Reference implementation.* The reference implementation demonstrates a scenario in which the developer kept the on-premises authentication mechanism (username and password) rather than switching to managed identities. As a result, the reference implementation stores the database secret in Key Vault. The web app uses a managed identity (system-assigned) to retrieve runtime secrets from Key Vault.
 
 ### Use a central secrets store (Key Vault)
 
@@ -244,8 +244,7 @@ For temporary account access, you should use a shared access signature (SAS). Th
 
 ### Use private endpoints
 
-Private endpoints provide private connections between resources in an Azure virtual network and Azure services. By default, communication to most Azure services crosses the public internet. You should use private endpoints in all production environments for all supported Azure services. Private endpoints don't require any code changes, app configurations, or connection strings.
-For more information, see:
+Private endpoints provide private connections between resources in an Azure virtual network and Azure services. By default, communication to most Azure services crosses the public internet. You should use private endpoints in all production environments for all supported Azure services. Private endpoints don't require any code changes, app configurations, or connection strings. For more information, see:
 
 - [How to create a private endpoint](/azure/architecture/example-scenario/private-web-app/private-web-app#deploy-this-scenario)
 - [Best practices for endpoint security](/azure/architecture/framework/security/design-network-endpoints)
@@ -462,6 +461,18 @@ The Cache-Aside pattern introduces a few benefits to the web application. It red
 **Keep cache data fresh.** You should periodically refresh the data in the cache to keep it relevant. The process involves getting the latest version of the data from the database to ensure that the cache has the most requested data and the most current information. The goal is to ensure that users get current data fast. The frequency of the refreshes depends on the application.
 
 **Ensure data consistency.** To ensure data consistency, you should update the cached data whenever a user makes changes. You can implement an event-driven system for these updates, or you can access cached data through the repository class responsible for managing the create and edit events.
+
+### Database performance
+
+Database performance can affect the performance and scalability of an application. It's important to test the performance of your database to ensure it's optimized. Some key considerations include choosing the right cloud region, connection pooling, cache-aside pattern, and optimizing queries.
+
+**Test network hops.** Moving an application to the cloud can introduce additional network hops and latency to your database. You should test for additional hops that the new cloud environment introduces.
+
+**Establish a performance baseline.** You should use on-premises performance metrics as the initial baseline to compare application performance in the cloud.
+
+**Use Application Insights.** Application Insights provides detailed metrics on database queries and any JDBC interfaces. You should use it to ensure a ported database is meeting its SLAs or to find queries that need tuning. You should never use Dynamic SQL because it creates security and performance issues.
+
+**Use connection pools.** You should use JDBC connection pools and fine-tune them based on the transactions per second (TPS) metrics and SLAs. You should use native database metrics and tools as part of a thorough end to end performance test to evaluate database performance exclusively under load.
 
 ## Deploy the reference implementation
 
