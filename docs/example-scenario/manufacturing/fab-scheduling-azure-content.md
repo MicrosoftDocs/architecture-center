@@ -2,7 +2,7 @@ This article demonstrates the automation of fab scheduling and dispatching for s
 
 ## Architecture
 
-:::image type="content" source="media/fab-scheduling.png" alt-text="Image alt text." lightbox="media/fab-scheduling.png" border="false":::
+:::image type="content" source="media/fab-scheduling.png" alt-text="Diagram that shows an architecture for automating fab scheduling and dispatching." lightbox="media/fab-scheduling.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/fab-scheduling.pptx) of this architecture.*
 
@@ -39,9 +39,9 @@ This workflow provides a high-level overview of the architecture that's used for
 
 Effective tool modeling and effective and efficient scheduling and dispatching methods are critical for manufacturers.
 
-To take advantage of cutting edge AI and machine learning solutions, enterprises need a scalable and cost-effective HPC infrastructure. Execution of highly complex workloads can take days to complete with on on-premises infrastructures. On-premises systems are also typically less energy efficient than Azure solutions. 
+To take advantage of cutting edge AI and machine learning solutions, enterprises need a scalable and cost-effective HPC infrastructure. Execution of highly complex workloads can take days to complete with on-premises infrastructures. On-premises systems are also typically less energy efficient than Azure solutions. 
 
-Microsoft partner minds.ai created the Maestro scheduling and dispatching solution to help fab semiconductor manufacturing companies optimize wafer fabrication KPIs.
+Microsoft partner minds.ai created the Maestro scheduling and dispatching solution to help semiconductor manufacturing companies optimize wafer fabrication KPIs.
 
 This solution uses AKS to deploy, manage, and scale container-based applications in a cluster environment. A REST API is used to provide a user-friendly interface to AKS. You can use Container Registry to build, store, and manage container images like DeepSim. The containers have high portability and increase agility for on-demand workflows. 
 
@@ -53,7 +53,7 @@ This solution can help line control engineers improve product cycle time, throug
 
 The solution uses RL to train models. The deployed solutions are trained, in simulations, to quickly respond to dynamic fab states. The workflow automatically generates schedule recommendations.  
 
-In real-world a scenario, the resulting schedules saved an enterprise tens of millions of dollars per year by: 
+In a real-world scenario, the resulting schedules saved an enterprise tens of millions of dollars per year by: 
 - Increasing throughput by 1-2%. 
 - Decreasing critical queue time violations by 1-2%. 
 - Decreasing new product cycle time by 2-7%.
@@ -62,7 +62,7 @@ In real-world a scenario, the resulting schedules saved an enterprise tens of mi
 
 ### Supervised learning for fab tool modeling
 
-Getting accurate information about tools and equipment is another critical aspect of a fab's planning and operation. Business requirements often include models for measuring tool reliability and predictability, including Equipment Health Index (EHI) and the Remaining Useful Life (RUL).
+Getting accurate information about tools and equipment is another critical aspect of a fab's planning and operation. Business requirements often include models for measuring tool reliability and predictability, including Equipment Health Index (EHI) and Remaining Useful Life (RUL).
 
 Maestro includes applications for training EHI and RUL models. Historical data that's part of the fab's logging system is used to train the models. Azure GPU hardware speeds up this process. The resulting models are used for risk-aware scheduling to optimize productivity, yield, and preventative maintenance and significantly improve EHI.
 
@@ -83,7 +83,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-minds.ai solutions are deployed in some of the world's most complex, critical processes for chip and energy production, so reliability is essential. On the Azure platform, you can keep your running environments stable by using availability zones, availability sets, geo-redundant storage, and Azure Site Recovery. If issues are detected, the system automatically restarts part of the compute environment and restarts the training process. This capability ensures that you get a trained agent or neural network model within the expected timeframe.
+minds.ai solutions are deployed in some of the world's most complex, critical processes for chip and energy production, so reliability is essential. On the Azure platform, you can keep your running environments stable by using availability zones, availability sets, geo-redundant storage, and Azure Site Recovery. If issues are detected, the system automatically restarts part of the compute environment and restarts the training process. This capability helps ensure that you get a trained agent or neural network model within the expected timeframe.
 
 This system augments your existing solutions, so you can always fall back to those solutions.
 
@@ -91,7 +91,7 @@ This system augments your existing solutions, so you can always fall back to tho
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview). 
 
-This solution is deployed as a single-tenant solution. Sole control of the software, data, and in-prcess simulations remains with you. 
+This solution is deployed as a single-tenant solution. Sole control of the software, data, and in-process simulations remains with you. 
 
 AKS provides role-based access control (RBAC), which helps you ensure that engineers can access only information that they need to do their jobs.
 
@@ -102,8 +102,8 @@ For more information about network security options, see [Secure traffic between
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 Maestro training runs can operate in an interruptible manner, which enables two options:
-- Spot VMs. Reduce costs, but increase the chances of jobs taking more time to finish because of interruptions.
-- Reserved instances. Increase costs, but get dedicated compute resources that result in predictable runtimes.
+- Spot VMs reduce costs but increase the chance of jobs taking more time to finish because of interruptions.
+- Reserved instances increase costs but use dedicated compute resources that result in predictable runtimes.
 
 You can use Spot Virtual Machines to take advantage of unused Azure capacity at significant cost savings. If Azure needs the capacity back, it evicts the spot virtual machines, and the minds.ai software automatically starts new instances and resumes the training process.
 
@@ -145,7 +145,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 This architecture uses HBv3-series VMs with AMD CPUs for reinforcement learning and NCv3-series VMs with NVIDIA GPUs for supervised learning.  
 
-[HBv3-series VMs](/azure/virtual-machines/hbv3-series) have compute-intensive processors and high bandwidth memory that are well suited for reinforcement learning. You can use them in multi-node cluster configurations to achieve scalable performance.
+[HBv3-series VMs](/azure/virtual-machines/hbv3-series) have compute-intensive processors and high-bandwidth memory that are well suited for reinforcement learning. You can use them in multi-node cluster configurations to achieve scalable performance.
 
 [NCv3-series VMs](/azure/virtual-machines/ncv3-series) have compute-intensive GPU-accelerated processors that are well suited for the demands of supervised learning. They can use multi-GPU capabilities to achieve scalable performance.
 
