@@ -6671,6 +6671,8 @@ items:
             items:
               - name: Spring Apps through a reverse Proxy
                 href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml 
+              - name: Blue/green deployments for applications
+                href: web-apps/spring-apps/blue-green-spring.yml
           - name: Architecture
             items:              
             - name: Zone-redundant Spring Apps

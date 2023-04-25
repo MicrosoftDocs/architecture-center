@@ -71,8 +71,6 @@ Depending on your database setup, you might incur extra latency when data needs 
 
 ## Network security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
 The application needs to be protected from unauthorized access from the internet, systems in private networks, other Azure services, and even some tighly coupled dependencies.
 
 [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for each region that you use for deployment. Components are placed in subnets to create further isolation. For example, Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Spring Boot applications.
@@ -175,7 +173,7 @@ Principal author:
 
 ## Next steps
 
-To increase application resilience and reliability, you can alternatively deploy the application to multiple regions.
+To increase application resilience and reliability, you can deploy the application to multiple regions.
 
 > [!div class="nextstepaction"]
 > [Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
