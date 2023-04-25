@@ -12,16 +12,21 @@ This article outlines a solution for using edge AI when you're disconnected from
 
 ### Dataflow
 
-1. An OpCon container provides core services, which are deployed within Azure Kubernetes Service. Persistent volumes (Storage Class Azurefile) are used to store logs and configuration information. These volumes provide data persistence across container restarts. Solution Manager is a web-based user interface that's part of OpCon core services. Users can interact with the entire OpCon environment by using Solution Manager.
+1. An OpCon container provides core services, which are deployed within Azure Kubernetes Service (AKS). Solution Manager is a web-based user interface that's part of OpCon core services. Users can interact with the entire OpCon environment by using Solution Manager.
 
-1. An Azure SQL database serves as the OpCon database. The core services have secure access to this database through Azure Private Endpoint.
+   Persistent volumes store logs and configuration information. These volumes provide data persistence across container restarts. For these volumes, the solution uses Azure Files, which is configured in the `StorageClass` value.
+
+   Network security groups limit traffic flow between subnets.
+
+1. The solution uses an Azure SQL database as the OpCon database. The core services have secure access to this database through Azure Private Endpoint.
 
 1. OpCon core services use OpCon connector technology to interact with Azure Storage and manage data in Blob Storage. OpCon Managed File Transfer (MFT) also provides support for Azure Storage.
 
-1. The application subnet includes the following components:
+1. The application subnet contains an OpCon MFT Server that provides comprehensive file-transfer functionality. Capabilities include compression, encryption, decryption, decompression, file watching, and enterprise-grade automated file routing.
 
-   - The virtual machines (VMs) that provide the application infrastructure. These VMs and on-premises legacy systems require connections to OpCon core services to manage their workloads. Applications that provide Rest-API endpoints require no additional software to connect to the core services.  
-   - An OpCon MFT Server that provides comprehensive file-transfer functionality. Capabilities include compression, encryption, decryption, decompression, file watching, and enterprise-grade automated file routing.  
+   Azure virtual machines (VMs) make up the application infrastructure.
+   - To manage workloads on these VMs and on-premises legacy systems, OpCon Core services communicate with OpCon agents that are installed on the VMs. The core services communicate with on-premises systems through the site-to-site connection on the virtual network gateway.
+   - OpCon core services communicate directly with applications that provide REST API endpoints. These applications don't need extra software to connect to the core services. With on-premises systems, the communication goes via the virtual network gateway by using REST API connectivity options.
 
 1. In a hybrid environment, the Gateway subnet uses a site-to-site VPN tunnel to provide a secure connection between the on-premises environment and the Azure cloud environment.
 
@@ -42,7 +47,23 @@ This article outlines a solution for using edge AI when you're disconnected from
 
 ### Components
 
+### Alternatives
 
+The following sections describe alternatives that you can consider when you implement the solution.
+
+#### Virtual networks and subnets
+
+The application subnet can include the application VMs. You can also install the application servers in multiple subnets or virtual networks. Use this approach when you want to create separate environments for different types of servers, such as web and application servers.
+
+#### Azure SQL Managed Instance
+
+Instead of using Azure SQL, you can use Azure SQL Managed Instance as the OpCon database. You can install the SQL managed instance in the OpCon subnet. Alternatively, you can install the database in a separate subnet that you use exclusively for SQL managed instances in the existing virtual network.
+
+#### Azure ExpressRoute
+
+Instead of using a VPN gateway and a site-to-site VPN tunnel, you can use an ExpressRoute connection that provides a private connection to the Microsoft Global Network by using a connectivity provider. ExpressRoute connections don't go over the public internet.
+
+We recommend ExpressRoute for hybrid applications that run large-scale business-critical workloads that require a high degree of scalability and resiliency.
 
 ## Scenario details
 
