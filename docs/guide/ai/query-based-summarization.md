@@ -46,78 +46,77 @@ Some benefits of using summarization service for any use case are:
 
 ### In-context learning
 
-Azure OpenAI Service uses generative completion models. that uses Natural Language (NL) instructions to identify the task at hand and the skill required - aka Prompt Engineering. In this approach, the first part of the prompt includes NL instructions and/or examples of the desired task. The model then completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
+Azure OpenAI Service uses generative completion models. The model uses natural language instructions to identify the task at hand and the skill required, a process known as *prompt engineering*. In this approach, the first part of the prompt includes natural language instructions and/or examples of the desired task. The model completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
 
-> [!note] 
-> In-context learning is a method of using language models to learn tasks from few examples. It consists of providing the language model with a prompt containing a list of input-output pairs that demonstrate a task, followed by a test input. The model is then able to make a prediction by conditioning on the prompt and predicting the next tokens.
+In-context learning, language models can learn tasks from just a few examples. The language model is given a prompt that contains a list of input-output pairs that demonstrate a task, and then with a test input. The model makes a prediction by conditioning on the prompt and predicting the next tokens.
 
-There are three main approaches for in-context learning: **Zero-Shot** examples, **Few-shot** prompt engineering examples and **Fine-tuning** methods to change and improve the output summaries. These approaches vary based on the amount of task-specific data that is given to the model.
+There are three main approaches to in-context learning: *zero-shot learning*, *few-shot learning*, and *fine-tuning* methods to change and improve the output. These approaches vary based on the amount of task-specific data that's provided to the model.
 
-**Zero-Shot:** In this case, no examples are provided to the model and only the task request is given as input. In Zero-Shot learning, the models depend on previously trained concepts and only knows how to respond based on the data it was trained on. Though it doesn't necessarily understand the semantic meaning but understands statistically based on everything it has learnt over the internet about what it thinks should be generated next. The model tries to relate the given task to existing categories that it has already learnt about and responds accordingly.
+**Zero-shot:** In this approach, no examples are provided to the model. Only the task request is provided as input. In zero-shot learning, the model depends on previously trained concepts. It respponds based only on data that it's trained on. It doesn't necessarily understand the semantic meaning, but it has a statistic understanding that's based on everything that it's learned over the internet about what should be generated next. The model tries to relate the given task to existing categories that it has already learned about and responds accordingly.
 
-**Few-shot:** In this case, a user includes several examples in the call prompt that demonstrate the expected answer format and content. The model in this case is provided with a very small training dataset to guide its predictions. Training with a small set of examples enables the model to generalize and understand unrelated, but previously unseen tasks. Creating these Few-Shot examples can be tricky, since you need to be accurate on how you articulate the “task” that you want the model to perform. One commonly observed issue is that models are sensitive to the writing style used in the training examples, especially the smaller models. 
+**Few-shot:** In this approach, several examples that demonstrate the expected answer format and content are included in the call prompt. The model is provided with a very small training dataset to guide its predictions. Training with a small set of examples enables the model to generalize and understand unrelated but previously unseen tasks. Creating few-shot examples can be challenging because you need to accurately articulate the task that you want the model to perform. One commonly observed problem is that models are sensitive to the writing style that's used in the training examples, especially small models.
 
-**Fine-Tuning:** Fine tuning lets you tailor the models to your personal datasets. This customization step will let you get more out of the service by: 
+**Fine-tuning:** Fine-tuning is a process of tailoring models to your personal datasets. In this customization step, you can improve the process by: 
 
-- Including a relatively larger set of example data (at least 500 and above). 
-- Traditional optimization techniques are used with Back Propagation to re-adjust the weights of the model -- this enables higher quality results than mere Zero-Shot or Few-Shot. 
-- Improving the Few-shot learning approach by training the model weights using specific prompts and structure. This lets you achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens.
+- Including a larger set of data (at least 500 examples). 
+- Using traditional optimization techniques with backpropagation to re-adjust the weights of the model. These techniques provide higher quality results than zero-shot or few-shot by themselves. 
+- Improving the few-shot approach by training the model weights with specific prompts and a specific structure. This technique enables you to achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens.
 
-While creating any GPT-3 solution, the primary effort is the considerations of the design and content of the training prompt. 
+When you create a GPT-3 solution, the main effort is in the design and content of the training prompt. 
 
-### Prompt Engineering
+### Prompt engineering
 
-Prompt engineering is an NL processing concept that involves discovering inputs that yield desirable or useful outputs. When the user *prompts* the machine, the content expression can dramatically change the output. This process is called *Prompt Design*. Prompt Design thus becomes the most significant process in priming the GPT-3 model to give a favourable and contextual response. Here in this guide, we will be using the Completion Endpoint for summarization. Completion endpoint refers to a [Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more text completions that continue or complete the input text. The user provides input text as a prompt and the model generates text that attempts to match the context or pattern that was provided to the model. Designing the appropriate prompt is very task and data dependent. Injecting prompt engineering into a fine-tuning dataset and investigating what works best before taking it to production requires a lot of time and effort.
+*Prompt engineering* is a natural language processing discipline that involves discovering inputs that yield desirable or useful outputs. When a user *prompts* the system, the way the content is expressed can dramatically change the output. This process is called *prompt design*. Prompt design is the most significant process in ensuring that the GPT-3 model provides a desirable and contextual response. The architecture described in this article uses the completions endpoint for summarization. The completions endpoint is a [Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more outputs that continue or complete the input text. A user provides input text as a prompt and the model generates text that attempts to match the context or pattern that's provided. The prompt design is highly depenedent on the task and data. Incorporating prompt engineering into a fine-tuning dataset and investigating what works best before using the system in production requires significant time and effort.
 
-#### Prompt Design
+#### Prompt design
 
-GPT-3 models can perform multiple tasks. However, that introduces the need to be explicit in the goals of this design. The models work their way estimating and guessing the desired output based on the provided prompt. 
+GPT-3 models can perform multiple tasks, so you need to be explicit in the goals of the design. The models estimate the desired output based on the provided prompt.
 
-For instance, if one sends the words "Give me a list of cat breeds", the model wouldn't automatically assume that you're asking for a list of cat breeds. You could just as easily be asking the model to continue a conversation where the first words are "Give me a list of cat breeds" and the next ones are "and I'll tell you which ones I like." If the model only assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
+For example, if you input the words "Give me a list of cat breeds," the model doesn't automatically assume that you're asking for a list of cat breeds. You could be asking the model to continue a conversation in which the first words are "Give me a list of cat breeds" and the next ones are "and I'll tell you which ones I like." If the model just assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
 
-As documented in [Completions Endpoint Prompt Design](), there are three basic guidelines for creating prompts:
+As described in [Learn how to generate or manipulate text](/azure/cognitive-services/openai/how-to/completions#prompt-design), there are three basic guidelines for creating prompts:
 
-- **Show and tell.** Make it clear what you want either through instructions, examples, or a combination of the two. If you want the model to rank a list of items in alphabetical order or to classify a paragraph by sentiment, then show that need.
-- **Provide quality data.** If you are trying to build a classifier or get the model to follow a pattern, make sure that there are enough examples. Be sure to proofread your examples though the model is usually smart enough to see through basic spelling mistakes and give you a response, but the model might assume this is intentional and it can affect the response.
-- **Check your settings.** The ‘temperature’ and ‘top_p’ settings control how deterministic the model is in response generation. If you're asking it for a response where there's only one right answer, then you'd want to set these settings to a lower level. If you're looking for more diverse responses, then you might want to set the settings to a higher level. A common error with regard to the settings is the assumption that these are "cleverness" or "creativity" controls.
+- **Show and tell.** Provide clarity about what you want by providing instructions, examples, or a combination of the two. If you want the model to rank a list of items in alphabetical order or to classify a paragraph by sentiment, show it that's what you want.
+- **Provide quality data.** If you're building a classifier or want the model to follow a pattern, be sure to provide enough examples. Be sure to proofread your examples. The model is usually able to recognize basic spelling mistakes and give you a response, but it might assume misspellings are intentional, which can affect the response.
+- **Check your settings.** The `temperature` and `top_p` settings control how deterministic the model is in generating a response. If you ask it for a response that has only one right answer, configure these settings at a lower level. If you want more diverse responses, you might want to configure the settings at a higher level. A common error is to assume that these settings are "cleverness" or "creativity" controls.
 
 ### Alternatives
 
-An alternative to Summarizer is the Azure CLU [(Conversational Language Understanding - Azure Cognitive Services | Microsoft Learn)](/azure/cognitive-services/language-service/conversational-language-understanding/overview). The main purpose of using Azure CLU is to build models to predict the overall intention of an incoming utterance, extract valuable information from it, and produce an appropriate response in line with the topic. It is useful in chatbot applications where it can refer an existing knowledgebase for finding the most appropriate solution or suggestion in correspondence for the incoming utterance. This wouldn’t help much when the input text doesn’t require a response. Our intent is to generate a short summary of long text content where the crux of the content is described in a very concise manner with all important information intact.
-
-Let’s begin with a use case where we summarize a corpus of US bills passed through Congress and fine tune it to generate a summary closer to a human generated summary, referred to as *Ground Truth*. 
+ [Azure conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview) is an alternative to the summarizer used here. The main purpose of conversational language understanding is to build models that predict the overall intention of an incoming utterance, extract valuable information from it, and produce a response that aligns with the topic. It's useful in chatbot applications when it can refer an existing knowledge base to find the suggestion that best corresponds to the incoming utterance. This doesn't help much when the input text doesn't require a response. The intent in this architecture is to generate a short summary of long textual content. The essence of the content is described in a concise manner and all important information is represented.
 
 ## Example scenarios
 
-### Use Case 1: Summarizing Legal Documents 
+### Use case: Summarizing legal documents 
 
-This is a use case where **Zero-Shot** prompt engineering is used for summarizing legislative bills and the prompt & settings are modified to generate different summary outputs.
+In this use case, a collection of bills passed through Congress is summarized. The summary is fine-tuned to bring it closer to a human-generated summary, which is referred to as the *ground truth* summary.
+
+Zero-shot prompt engineering is used to summarize legislative bills. The prompt and settings are modified to generate different summary outputs.
 
 #### Dataset
 
-The first dataset is the BillSum dataset for summarization of US Congressional and California state bills. For illustration purposes, we will look solely at the US bills. The corpus consists of bills from the 103rd to the 115th (1993-2018) sessions of US Congress. The data was split into 18,949 train bills and 3,269 test bills. The BillSum corpus focuses on mid-length legislation from 5,000 to 20,000 characters in length. It has already been cleaned/pre-processed.
+The first dataset is the BillSum dataset, which summarizes of US Congressional and California state bills. This example uses only the Congressional bills. The data is split into 18,949 bills to use for training and 3,269 bills to use for tesing. BillSum focuses on mid-length legislation that's between 5,000 and 20,000 characters long. It's cleaned and pre-processed.
 
-More information on the dataset and downloading instructions can be found [here](https://github.com/FiscalNote/BillSum).
+For more information about the dataset and instructions for download, see [FiscalNote / BillSum](https://github.com/FiscalNote/BillSum).
 
-##### US Congressional Bills Schema
+##### BillSum schema
 
 The schema of the BillSum dataset includes:
-- bill_id: an identifier for the bill
-- text: US bill text
-- summary: human written bill summary
-- title: bill title
-- text_len: character length of the bill
-- sum_len: character length of the bill summary
+- `bill_id`. An identifier for the bill
+- `text`. The bill text
+- `summary`. A human-written summary of the bill
+- `title`. The bill title
+- `text_len`. The character length of the bill
+- `sum_len`. The character length of the bill summary
 
-In our use case, we will use the text and summary components.
+In this use case, the `text` and `summary` elements are used.
 
-#### Zero-Shot
+#### Zero-shot
 
-The goal here is to teach the GPT-3 model to learn conversation style input. We use the "Completion" to create an Azure OpenAI API and craft a prompt that would generate the best summary of the US bill. It is vital to create the prompts carefully to extract relevant information. To extract general summaries from the given US bill, we will be using the following format:
-1.	Prefix: What do you want it to do
-2.	Context primer: Describe what the context is
-3.	Context: # The information needed to answer the question. In the case of summary, the prose that needs to be summarized.
-4.	Suffix: Describe the intended form of the answer (should it be an answer, a completion, a summary, etc)
+The goal here is to teach the GPT-3 model to learn conversation-style input. The completions endpoint is used to create an Azure OpenAI API and a prompt that generates the best summary of the bill. It's important to create the prompts carefully so they extract relevant information. To extract general summaries from a given bill, the following format is used.
+- Prefix: What you want it to do.
+- Context primer: The context.
+- Context: The information needed to provide a response. In this case, the text to summarize.
+- Suffix: The intended form of the answer. For example, an answer, a completion, or a summary.
 
 ```python
 API_KEY = # SET YOUR OWN API KEY HERE
@@ -136,54 +135,45 @@ response = openai.Completion.create(
     top_p = 1.0,
     frequency_penalty=0.5,
     presence_penalty = 0.5,
-    stop=['\n\n###\n\n'], #the ending token used during inference, once reaches this token GPT-3 knows the completion is over
+    stop=['\n\n###\n\n'], #The ending token used during inference. Once it reaches this token, GPT-3 knows the completion is over.
     best_of = 1
     )
  = 1
 ```
 
-**Original text:** [Refer to SAMPLE_BILL_1](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#sample_bill_1)
+**Original text:** [SAMPLE_BILL_1](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#sample_bill_1).
 
-**Ground Truth:** National Science Education Tax Incentive for Businesses Act of 2007 - Amends the Internal Revenue Code to allow a general business tax credit for contributions of property or services to elementary and secondary schools and for teacher training to promote instruction in science, technology, engineering, or mathematics.
+**Ground truth:** National Science Education Tax Incentive for Businesses Act of 2007 - Amends the Internal Revenue Code to allow a general business tax credit for contributions of property or services to elementary and secondary schools and for teacher training to promote instruction in science, technology, engineering, or mathematics.
 
-**Zero-Shot model summary:** The National Science Education Tax Incentive for Businesses Act of 2007 would create a new tax credit for businesses that make contributions to science, technology, engineering, and mathematics (STEM) education at the elementary and secondary school level. The credit would be equal to 100 percent of the qualified STEM contributions of the taxpayer for the taxable year. Qualified STEM contributions would include STEM school contributions, STEM teacher externship expenses, and STEM teacher training expenses.
+**Zero-shot model summary:** The National Science Education Tax Incentive for Businesses Act of 2007 would create a new tax credit for businesses that make contributions to science, technology, engineering, and mathematics (STEM) education at the elementary and secondary school level. The credit would be equal to 100 percent of the qualified STEM contributions of the taxpayer for the taxable year. Qualified STEM contributions would include STEM school contributions, STEM teacher externship expenses, and STEM teacher training expenses.
 
-**Zero-Shot Observations**
-
-As we can see, Zero-Shot model does an excellent job at generating a succinct summary of the legal document that is general in nature. It is very similar to the human written ground truth and captures those same key points. It flows like a human summary and stays direct to the point.
+**Observations:** The zero-shot model generates a succinct, generalized summary of the document. It's similar to the human-written ground truth and captures the same key points. It flows like a human-written summary and remains focused on the point.
 
 #### Fine-tuning
 
-Fine-tuning lets you get more out of the models available through the API by providing:
-- Higher quality results than prompt design
-- Ability to train on more examples than what can fit in a prompt
-- Token savings due to shorter prompts
-- Lower latency requests
+Fine-tuning improves on zero-shot learning by training on more examples than you can include in the prompt, so you achieve better results on a wider number of tasks. After a model is fine-tuned, you don't need to provide examples in the prompt. This saves money by reducing the number of tokens required and enables lower-latency requests.
 
-Fine-tuning improves on Few-Shot learning by training on many examples that can fit in the prompt, letting you achieve better results on a wide number of tasks. Once a model has been fine-tuned, you won't need to provide examples in the prompt anymore. This saves costs by saving the tokens required and enables lower-latency requests.
+At a high level, fine-tuning includes these steps:
+ 
+- Prepare and upload training data.
+- Train a new fine-tuned model.
+- Use the fine-tuned model.
 
-At a high level, Fine-tuning involves the following steps:
-- Prepare and upload training data
-- Train a new fine-tuned model
-- Use your fine-tuned model
+For more information, see [How to customize a model with Azure OpenAI](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio).
 
-source: [How to customize a model with Azure OpenAI - Azure OpenAI | Microsoft Learn](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio) 
+##### Prepare data for fine-tuning
 
-*Note: we will be fine-tuning only the legal bills dataset and not the financial reports dataset (second use case), since there is not enough data available for it.*
+This step enables you improve upon the zero-shot model by incorporating prompt engineering into the prompts that are used for fine-tuning. Doing so helps give directions to the model on how to approach the prompt/completion pairs. In a fine-tune model, prompts provide a starting point that the model can learn from and use to make preditions. This process enables the model to start with a basic understanding of the data, which can then be improved upon gradually as the model is exposed to more data. Additionally, prompts can help the model to identify patterns in the data that it might otherwise miss.
 
-##### Preparing data for fine-tuning
-
-This function allows us to leverage the power of the Zero-Shot model by injecting prompt engineering into the prompts used for fine-tuning. This helps give directions to the model on how to approach the prompt/completion pairs. Prompts are used to prime a fine-tune model by providing a starting point for the model to learn from. By providing a prompt, the model can begin to learn from the data it is given and make predictions based on the prompt. This allows the model to start with a basic understanding of the data, which can then be gradually improved upon as the model is exposed to more data. Additionally, prompts can help the model to identify patterns in the data that it may have otherwise missed.
-
-The same prompt engineering structure is also used during inference once the model is finished training so that it recognizes the behaviors to follow that were taught to the model during training and can generate completions as "instructed".
+The same prompt engineering structure is also used during inference, after the model is finished training, so that the model recognizes the behavior that it learned during training and can generate completions as instructed.
 
 ```python
-#adding variables used to design prompt consistently across all examples
-#more info can be found here: https://learn.microsoft.com/azure/cognitive-services/openai/how-to/prepare-dataset
+#Adding variables used to design prompts consistently across all examples
+#You can learn more here: https://learn.microsoft.com/azure/cognitive-services/openai/how-to/prepare-dataset
 
 LINE_SEP = " \n "
 PROMPT_END = " [end] "
-#Injecting the Zero-Shot prompt into fine-tune dataset
+#Injecting the zero-shot prompt into the fine-tune dataset
 def stage_examples(proc_df):
     proc_df['prompt'] = proc_df.apply(lambda x:"Summarize the legislative bill. Do not make up facts.\n\nText:\n"+" ".join([normalize_text(x['prompt'])])+'\n\nSummary:', axis=1)
     proc_df['completion'] = proc_df.apply(lambda x:" "+normalize_text(x['completion'])+PROMPT_END, axis=1)
@@ -207,7 +197,7 @@ openai tools fine_tunes.prepare_data -f data/billsum_v4_1/prompt_completion_stag
 
 ```
 
-##### Fine-tune dataset
+##### Fine-tune the dataset
 
 ```python
 payload = {
@@ -240,9 +230,9 @@ print('Response Information \n\n {text}'.format(text=r.text))
 
 ```
 
-##### Evaluation of fine-tuned model
+##### Evaluate the fine-tuned model
 
-This section will demonstrate how to evaluate a fine-tuned model.
+This section demonstrates how to evaluate a fine-tuned model.
 
 ```python
 #Run this cell to check status
@@ -263,37 +253,40 @@ print('Status: {status}'.format(status = data['status']))
 print('Response Information \n\n {text}'.format(text=r.text))
 
 ```
-**Original text:** Refer to [SAMPLE_BILL_1](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#sample_bill_1).
 
-**Ground Truth:** National Science Education Tax Incentive for Businesses Act of 2007 - Amends the Internal Revenue Code to allow a general business tax credit for contributions of property or services to elementary and secondary schools and for teacher training to promote instruction in science, technology, engineering, or mathematics.
+**Original text:** [SAMPLE_BILL_1](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#sample_bill_1).
 
-**Fine-tune model summary:** This bill provides a tax credit for contributions to elementary and secondary schools that benefit science, technology, engineering, and mathematics education. The credit is equal to 100% of qualified STEM contributions made by taxpayers during the taxable year. Qualified STEM contributions include: (1) STEM school contributions, (2) STEM teacher externship expenses, and (3) STEM teacher training expenses. The bill also provides a tax credit for contributions to elementary and secondary schools that benefit science, technology, engineering, or mathematics education. The credit is equal to 100% of qualified STEM service contributions made by taxpayers during the taxable year. Qualified STEM service contributions include: (1) STEM service contributions paid or incurred during the taxable year for services provided in the United States or on a military base outside the United States; and (2) STEM inventory property contributed during the taxable year which is used by an educational organization located in the United States or on a military base outside the United States in providing education in grades K-12 in science, technology, engineering or mathematics.
+**Ground truth:** National Science Education Tax Incentive for Businesses Act of 2007 - Amends the Internal Revenue Code to allow a general business tax credit for contributions of property or services to elementary and secondary schools and for teacher training to promote instruction in science, technology, engineering, or mathematics.
 
-You may refer to a subset containing summary results of few more US bills and their performance with Zero-Shot and Fine-tune approaches [here](https://github.com/ajayc-ms/azureopenai/blob/9706c2f198ba191f83128a257f162bc735eb152a/notebooks/SemanticSearch_Summarization/SME_Summarization_Dataset_Appendix.md).
+**Fine-tuned model summary:** This bill provides a tax credit for contributions to elementary and secondary schools that benefit science, technology, engineering, and mathematics education. The credit is equal to 100% of qualified STEM contributions made by taxpayers during the taxable year. Qualified STEM contributions include: (1) STEM school contributions, (2) STEM teacher externship expenses, and (3) STEM teacher training expenses. The bill also provides a tax credit for contributions to elementary and secondary schools that benefit science, technology, engineering, or mathematics education. The credit is equal to 100% of qualified STEM service contributions made by taxpayers during the taxable year. Qualified STEM service contributions include: (1) STEM service contributions paid or incurred during the taxable year for services provided in the United States or on a military base outside the United States; and (2) STEM inventory property contributed during the taxable year which is used by an educational organization located in the United States or on a military base outside the United States in providing education in grades K-12 in science, technology, engineering or mathematics.
 
-#### Fine-tune observations
+For the results of summarizing a few more bills by using the zero-shot and fine-tune approaches, see [Results for BillSum Dataset](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#results-for-billsum-dataset).
 
-Overall, the fine-tuned model does an excellent job in summarizing the bill. It captures the domain specific jargon and can capture the key points, that is represented but not explained in the human-written ground truth. It differentiates itself from the Zero-Shot model by providing a more detailed and comprehensive summary.
+**Observations:** Overall, the fine-tuned model does an excellent job of summarizing the bill. It captures domain-specific jargon and the key points that are represented but not explained in the human-written ground truth. It differentiates itself from the zero-shot model by providing a more detailed and comprehensive summary.
 
-#### Zero-Shot Summary of Summaries
+### Use case: Financial reports
 
-A key consideration while writing prompts is that GPT-3 prompt and the resulting completion must add up to fewer than 4000 tokens. Due to this, we are limited to a couple of pages of text for summarization. Therefore, for documents which are typically greater than 4000 tokens (roughly 3000 words), we will use a Summary of Summaries approach. In this case, the entire text is first chunked up based on the token constraints, then their corresponding summaries are derived and in the next step, the summary of summaries are created. We will now demonstrate the summary of summaries approach using a Zero-Shot model. This architecture is useful for long documents. Additionally, we will identify how different prompt engineering practices can vary the results.
+In this use case, zero-shot prompt engineering is used to create summaries of financial reports. A summary of summaries approach is used to generate the results.
 
-### Use case 2: Financial Reports
+#### Summary of summaries approach
 
-This is a use case where Zero-Shot prompt engineering is used for creating the summary of financial reports. The prompt is modified and the Summary of Summaries approach is used to generate different summarization outputs.
+When you write prompts, the GPT-3 prompt and the resulting completion must add up to fewer than 4,000 tokens, so you're limited to a couple pages of summary text. For documents that typically contain more than 4,000 tokens (roughly 3,000 words), you can use a *summary of summaries* approach. When you use this approach, the entire text is first divided up to meet the token constraints. Summaries of the shorter texts are then derived. In the next step, a summary of the summaries is created. This use case demonstrates the summary of summaries approach with a zero-shot model. This solution is useful for long documents. Additionally, this section describes how different prompt engineering practices can vary the results.
+
+> [!Note] 
+> Fine-tuning is not applied in the financial use case because there's not enough data available to complete that step.
 
 #### Dataset
 
-The dataset used for this use case is technical and includes key quantitative metrics to assess company performance.
+The dataset for this use case is technical and includes key quantitative metrics to assess a company's performance.
 
 The financial dataset includes:
-- url: URL for the financial report
-- pages: the page in the report with key information to be summarized (1 - indexed)
-- completion: ground truth summary of report
-- comments: any additional information needed.
 
-The example from the dataset that we will focus on is [Rathbone's financial report](). Rathbone's is an individual investment and wealth management company for private clients. This report highlights Rathbone's performance in the 2020 calendar year, and mentions performance metrics such as profit, FUMA, and income. The key information we aim to summarize can be found on page 1 of the PDF.
+- `url`: The URL for the financial report.
+- `pages`: The page in the report that contains key information to be summarized (1-indexed).
+- `completion`: The ground truth summary of the report.
+- `comments`: Any additional information that's needed.
+
+In this use case, [Rathbone's financial report](https://www.rathbones.com/sites/rathbones.com/files/imce/rathbones_2020_preliminary_results_announcement_-_final-.pdf), from the dataset, will be summarized. Rathbone's is an individual investment and wealth management company for private clients. The report highlights Rathbone's performance in 2020 and mentions performance metrics like profit, FUMA, and income. The key information to summarize is on page 1 of the PDF.
 
 ```python
 API_KEY = # SET YOUR OWN API KEY HERE
@@ -330,14 +323,14 @@ print("Text extracted from " + name)
 t
 ```
 
-##### Zero-Shot approach
+##### Zero-shot approach
 
-A Zero-Shot example gets zero solved examples. We only provide it with the command and the unsolved input. We will use the Instruct model that has specifically been created to take in an instruction and record an answer for it without an extra context, ideal for Zero-Shot.
+When you use the zero-shot approach, you don't provide solved examples. You provide only the command and the unsolved input. In this example, the Instruct model is used. This model was created  specifically to take in an instruction and record an answer for it without extra context, which is ideal for the zero-shot approach.
 
-Now that we have extracted the text, let's walk through the progression of prompt engineering to see how it can affect the summary quality.
+After you extract the text, you can use various prompts to see how they influence the quality of the summary:
 
 ```python
-#Using the text above from the Rathbone's report, we can try different prompts to see how it impacts the summary
+#Using the text from the Rathbone's report, you can try different prompts to see how they affect the summary
 
 prompt_i = 'Summarize the key financial information in the report using qualitative metrics.\n\nText:\n'+" ".join([normalize_text(t)])+'\n\nKey metrics:\n'
 
@@ -380,13 +373,15 @@ print(response.choices[0].text)
 
 ##### Challenges
 
-1.	As we can see the model may come up with ghost metrics (never mentioned in the original text).
-Proposed solution: This can be changed by altering the prompt.
-2.	The summary may narrow on one section of the article, neglecting other important information.
+- As you can see, the model might produce ghost metrics that aren't mentioned in the original text.
 
-    Proposed solution: We can try a summary of summaries approach. We will chunk the report into sections and gather smaller summaries that will be summarized together to form the output summary.
+   Proposed solution: You can resolve this problem by changing the prompt.
 
-Let us check how implementing the above proposed solutions affect the result.
+- The summary might focus on one section of the article and neglect other important information.
+
+    Proposed solution: You can try a summary of summaries approach. Divide the report into sections and create smaller summaries you can then summarize to create the output summary.
+
+This code implements the proposed solutions:
 
 ```python
 # Body of function
@@ -447,17 +442,15 @@ response = openai.Completion.create(
 print(trim_incomplete(response.choices[0].text))
 ```
 
-The input prompt includes the original text scraped from Rathbone’s financial report for a specific year.
+The input prompt includes the original text from Rathbone's financial report for a specific year.
 
-**Ground Truth:** Rathbones has reported revenue of £366.1m in 2020, up from £348.1m in 2019, and an increase in underlying profit before tax to £92.5m from £88.7m. Assets under management rose 8.5% from £50.4bn to £54.7bn, with assets in wealth management increasing 4.4% to £44.9bn. Net inflows were £2.1bn in 2020 compared with £600m in the previous year, driven primarily by £1.5bn inflows into its funds business and £400m due to the transfer of assets from Barclays Wealth.
+**Ground truth:** Rathbones has reported revenue of £366.1m in 2020, up from £348.1m in 2019, and an increase in underlying profit before tax to £92.5m from £88.7m. Assets under management rose 8.5% from £50.4bn to £54.7bn, with assets in wealth management increasing 4.4% to £44.9bn. Net inflows were £2.1bn in 2020 compared with £600m in the previous year, driven primarily by £1.5bn inflows into its funds business and £400m due to the transfer of assets from Barclays Wealth.
 
-**Zero-Shot summary of summaries model summary:** Rathbones delivered a strong performance in 2020, with funds under management and administration (FUMA) growing by 8.5% to reach £54.7 billion at the end of the year. Underlying profit before tax increased by 4.3% to £92.5 million, delivering an underlying operating margin of 25.3%. Total net inflows across the group were £2.1 billion, representing a growth rate of 4.2%. Profit before tax for the year was £43.8 million, with basic earnings per share totalling 49.6p. Operating income for the year was 5.2% ahead of the prior year, totalling £366.1 million.
+**Zero-shot summary of summaries output:** Rathbones delivered a strong performance in 2020, with funds under management and administration (FUMA) growing by 8.5% to reach £54.7 billion at the end of the year. Underlying profit before tax increased by 4.3% to £92.5 million, delivering an underlying operating margin of 25.3%. Total net inflows across the group were £2.1 billion, representing a growth rate of 4.2%. Profit before tax for the year was £43.8 million, with basic earnings per share totalling 49.6p. Operating income for the year was 5.2% ahead of the prior year, totalling £366.1 million.
 
-##### Zero-Shot Summary of Summaries observations
+**Observations:** The summary of summaries approach generates a great result set that resolves the challenges encountered initially when a more detailed and comprehensive summary was provided. It does a great job of capturing the domain-specific jargon and the key points, which are represented in the ground truth but not explained well.
 
-The summary of summaries approach has generated a great result set and has overcome the challenges faced initially by providing a more detailed and comprehensive summary. It does a great job at capturing the domain-specific jargon and the key points, which has represented in the Ground Truth but not explained that well.
-
-The Zero-Shot model works well for summarizing documents general in nature. If the data is industry- or topic-specific, containing industry specific jargons or needs industry specific understanding, then fine-tuning will perform the best. Documents such as medical journals, law forms, financial statements, etc., would qualify for such a use case. We use Few-Shot versus Zero-Shot to provide the model examples on how to formulate its summary, so it can learn to mimic the instructions provided. With Few-Shot, we are guiding the model on how to respond without retraining the model. However, for Zero-Shot and Few-Shot, we are not retraining the model. Therefore, its knowledge is based on what the GPT-3 models were trained on (which is most of the internet) and can perform well on tasks that do not require specific knowledge.
+The zero-shot model works well for summarizing mainstream documents. If the data is industry-specific or topic-specific, contains industry-specific jargon, or requires industry-specific knowledge, fine-tuning performs best. For example, this approach works well for medical journals, legal forms, and financial statements. We use Few-Shot versus Zero-Shot to provide the model examples on how to formulate its summary, so it can learn to mimic the instructions provided. With Few-Shot, we are guiding the model on how to respond without retraining the model. However, for Zero-Shot and Few-Shot, we are not retraining the model. Therefore, its knowledge is based on what the GPT-3 models were trained on (which is most of the internet) and can perform well on tasks that do not require specific knowledge.
 
 You may refer to a subset of results achieved using the Zero-Shot Summary of Summaries approach applied on the financial dataset [here]().
 
@@ -467,7 +460,8 @@ There are many ways to approach summarization utilizing GPT-3. Each approach (Ze
 
 ### Recommendations
 
-However, based on observations from our exploration, here are few recommendations that you can follow:
+However, based on observations from our exploration, here are few recommendations:
+
 - **Zero-Shot** is best for documents that are general in nature and do not require specific domain knowledge. It will try to capture all the high-level information in a very succinct human-like manner and will provide a high-quality baseline summary. This approach resulted in high quality summary for the legal dataset used in this article.
 - **Few-shot** proves difficult for long document summarization because providing an example text will surpass the token limitation. To combat this, a Zero-Shot summary of summaries approach can be used for long documents or increasing the dataset to enable successful fine-tuning. This approach generated excellent result for the financial dataset used in this article.
 - **Fine-tuning** is most useful for technical or domain specific use cases where the information is not readily available. This requires a dataset of a couple thousand samples for the best results. Fine-tuning will capture the summary in a few templated ways, trying to conform to how the dataset presents the summaries. This approach generated a much higher quality summary than the Zero-Shot result for the legal dataset.
