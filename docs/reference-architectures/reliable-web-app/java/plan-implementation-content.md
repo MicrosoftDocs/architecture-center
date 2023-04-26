@@ -22,7 +22,7 @@ Company leadership wants to expand business into the EdTech application market. 
 
 | Short-term goals | Long-term goals |
 | --- | --- |
-| ▪ Apply low-cost, high-value code changes to the LOB web application <br> ▪ Mature development team practices for cloud development and operations <br> ▪ Create cost-optimized production and development environments <br> ▪ Implement reliability and security best practices in the cloud <br> ▪ Service level objective of 99.86%| ▪ Open the application directly to online customers through multiple web and mobile experiences <br> ▪ Improve availability <br> ▪ Reduce time required to deliver new features <br> ▪ Independently scale different components of the system, based on traffic
+| ▪ Apply low-cost, high-value code changes to the LOB web application <br> ▪ Mature development team practices for cloud development and operations <br> ▪ Create cost-optimized production and development environments <br> ▪ Implement reliability and security best practices in the cloud <br> ▪ Service level objective of 99.9%| ▪ Open the application directly to online customers through multiple web and mobile experiences <br> ▪ Improve availability <br> ▪ Reduce time required to deliver new features <br> ▪ Independently scale different components of the system, based on traffic
 
 ## Web application starting point
 
