@@ -30,11 +30,8 @@ You need a DNS record in the DNS flow that is able to resolve the fully qualifie
 1. It isn't possible to link a private DNS zone that maintains the storage accounts necessary DNS records to a virtual hub.
 1. You can link a private DNS zone to the workload network, so you might think that would work. Unfortunately, the [baseline architecture](private-link-virtual-wan-dns-guide.yml#starting-network-topology) stipulates that each connected virtual network has DNS servers configured to point to use the Azure Firewall DNS proxy.
 
-For the following two reasons, the Azure DNS servers don't have a mechanism to resolve the (FQDN) of the storage account to the private IP address of the private endpoint:
+Because you can't link a private DNS zone to a virtual hub, and the virtual network is configured to use the Azure Firewall DNS proxy, Azure DNS servers don't have any mechanism to resolve the (FQDN) of the storage account to the private IP address of the private endpoint. The result is that the client receives an erroneous DNS response.
 
-- You can't link a private DNS zone to a virtual hub
-- The virtual network is configured to use the Azure Firewall DNS proxy.
-The result is that the client receives an erroneous DNS response.
 #### DNS and HTTP flows
 
 Let's review the DNS and resulting HTTP request flows for this workload. The review helps us visualize the impediment that was described earlier.
@@ -45,6 +42,7 @@ Diagram that shows the single-region challenge. The secured virtual hub can't re
 *Figure 2: Single-region scenario for Virtual WAN with Private Link and Azure DNS - the challenge*
 
 *Download a [Visio file](https://arch-center.azureedge.net/dns-private-endpoints-virtual-wan.vsdx) of this architecture.*
+
 **DNS flow**
 
 1. The DNS query for `stgworkload00.blob.core.windows.net` from the client is sent to the configured DNS server, which is Azure Firewall in the peered regional hub.
@@ -101,7 +99,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
     :::image type="content" source="images/private-dns-zone-linked-to-virtual-network.png" lightbox="images/private-dns-zone-linked-to-virtual-network.png" alt-text="Screenshot of the private DNS zone virtual network links showing a link to the DNS extension virtual network.":::
     *Figure 6: Private DNS zone virtual network links*
 
-1. Azure DNS consults the linked private DNS zone resolves the FQDN of `stgworkload00.blob.core.windows.net` to 10.1.2.4, which is the IP address of the private endpoint for the storage account. This response is provided to Azure Firewall DNS, which then returns the storage account's private IP address to the client.
+1. Azure DNS consults the linked private DNS zone and resolves the FQDN of `stgworkload00.blob.core.windows.net` to 10.1.2.4, which is the IP address of the private endpoint for the storage account. This response is provided to Azure Firewall DNS, which then returns the storage account's private IP address to the client.
 
     :::image type="content" source="images/private-dns-zone-config.png" lightbox="images/private-dns-zone-config.png" alt-text="Screenshot of the private DNS zone with the A record with name stgworkload00 and value 10.1.2.4":::
     *Figure 7: Private DNS zone with the A record for storage account private endpoint*
@@ -151,7 +149,7 @@ With a well-managed virtual hub DNS extension in place, let's turn back to the w
 
 ### Storage account
 
-- Set **Disable public access and use private access** under **Network connectivity** to ensure that the storage account can only be accessed via private endpoints.
+- Set **Public network access**: **Disabled** under **Network connectivity** to ensure that the storage account can only be accessed via private endpoints.
 - Add a private endpoint to a dedicated private endpoint subnet in the workload's virtual network.
 - Send Azure Diagnostics to the workload Log Analytics Workspace. You can use the access logs to help troubleshoot configuration issues.
 

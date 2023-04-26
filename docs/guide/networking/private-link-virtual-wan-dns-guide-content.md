@@ -1,4 +1,4 @@
-Azure Private Link makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing. For each service, you configure a private endpoint in your network that uses a private IP address from your network. Clients can then use the private endpoint to connect privately to the service.
+Azure Private Link makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing. For each service, you configure a private endpoint that uses a private IP address from your network. Clients can then use the private endpoint to connect privately to the service.
 
 Clients continue to use the fully qualified domain name (FQDN) of a service to connect to it. You configure DNS in your network to resolve the FQDN of the service to the private IP address of the private endpoint.
 
@@ -6,7 +6,7 @@ Your network design and, in particular, your DNS configuration, are key factors 
 
 ## Starting network topology
 
-The *starting network topology* is a network architecture that serves as the starting point for all the scenarios in this series of articles. The architecture is a typical hub-spoke network. It uses Azure Virtual WAN.
+The *starting network topology* is a network architecture that serves as the starting point for all the scenarios in this series of articles. The architecture is a typical hub-spoke network that uses Azure Virtual WAN.
 
 :::image type="complex" source="images/dns-private-endpoints-virtual-wan-baseline-architecture.svg" lightbox="images/dns-private-endpoints-virtual-wan-baseline-architecture.svg" alt-text="Diagram that shows the starting Virtual WAN architecture that's used for this series of articles.":::
 The diagram shows a network with Virtual WAN. The network has two regions, each with a secured virtual hub. Each secured virtual hub is secured with Azure Firewall. The firewall is configured with DNS Proxy enabled. There are two virtual networks connected to each virtual hub. The virtual networks have a dotted line to the firewall on their hub, noting that the firewall instance is their configured DNS.
@@ -16,15 +16,15 @@ The diagram shows a network with Virtual WAN. The network has two regions, each 
 *Download a [Visio file](https://arch-center.azureedge.net/dns-private-endpoints-virtual-wan.vsdx) of this architecture.*
 This topology has the following characteristics:
 
-- It's a hub-spoke network that's implemented by using Standard Virtual WAN.
+- It's a hub-spoke network that's implemented with Azure Virtual WAN.
 - There are two regions, each with a regional Azure Firewall secured virtual hub.
 - Each secured regional virtual hub has the following security settings for Azure Virtual Network connections:
-  - **Internet traffic**: The setting is **Secured by Azure Firewall**. All traffic out to the internet flows through the regional hub firewall.
-  - **Private traffic**: The setting is **Secured by Azure Firewall**. All traffic that transits from spoke to spoke flows through the the regional hub firewall.
+  - **Internet traffic**: **Secured by Azure Firewall** - All traffic out to the internet flows through the regional hub firewall.
+  - **Private traffic**: **Secured by Azure Firewall** - All traffic that transits from spoke to spoke flows through the the regional hub firewall.
 - Each regional virtual hub is secured with Azure Firewall. The regional hub firewalls have the following settings:
-  - **DNS Servers**: The setting is **Default (Azure provided)**. The regional hub firewall explicitly uses Azure DNS for FQDN resolution in rule collections.
-  - **DNS Proxy**: The setting is **Enabled**. The regional hub firewall responds to DNS queries on port 53. It forwards queries to Azure DNS for uncached values.
-  - The firewall logs firewall rule evaluations and DNS proxy requests to a Log Analytics workspace that's in the same region. Logging of these events is a common network security logging requirement.
+  - **DNS Servers**:  **Default (Azure provided)** - The regional hub firewall explicitly uses Azure DNS for FQDN resolution in rule collections.
+  - **DNS Proxy**: **Enabled** - The regional hub firewall responds to DNS queries on port 53. It forwards queries to Azure DNS for uncached values.
+  - The firewall logs rule evaluations and DNS proxy requests to a Log Analytics workspace that's in the same region. Logging of these events is a common network security logging requirement.
 - Each connected virtual network spoke has its default DNS server configured to be the private IP address of the regional hub firewall. Otherwise [the FQDN rule evaluation can be out of sync](/azure/firewall/dns-details#clients-not-configured-to-use-the-firewall-dns-proxy).
 
 ### Multi-region routing
@@ -48,9 +48,12 @@ The starting network topology creates challenges for configuring DNS for private
 While the use of Virtual WAN gives you a managed hub experience, the tradeoff is that there's limited ability to influence the configuration of the virtual hub or the ability to add more components into it.
 A traditional hub-spoke topology allows you to isolate workloads in spokes while sharing common network services, such as DNS records, in the self-managed hub. You typically link the private DNS zone to the hub network so that Azure DNS can resolve private endpoint IP addresses for clients.
 
-However, it isn't possible to link private DNS zones to Virtual WAN hubs, so any DNS resolution that happens within the hub isn't aware of private zones. Specifically, this is a problem for Azure Firewall in this architecture. The firewall is the configured DNS provider for workload spokes and uses Azure DNS for FQDN resolution.
+However, it isn't possible to link private DNS zones to Virtual WAN hubs, so any DNS resolution that happens within the hub isn't aware of private zones. Specifically, this is a problem for Azure Firewall, the configured DNS provider for workload spokes, which is using DNS for FQDN resolution.
 
-When you use Virtual WAN hubs, it seems intuitive that you'd link private DNS zones to the spoke virtual networks where workloads expect DNS resolution. However, as noted in the architecture, DNS proxy is enabled on the regional firewalls and it's expected that all spokes use their regional firewall as their DNS source. To configure the regional firewall to be the spoke's dns provider, set the custom DNS server on the spoke virtual network to point to the private IP of the firewall instead of to the normal Azure DNS value. Azure DNS is called from the firewall instead of from the workload's network, so any private DNS zone links on the workload network aren't used in the resolution.
+When you use Virtual WAN hubs, it seems intuitive that you'd link private DNS zones to the spoke virtual networks where workloads expect DNS resolution. However, as noted in the architecture, DNS proxy is enabled on the regional firewalls and it's expected that all spokes use their regional firewall as their DNS source. Azure DNS is called from the firewall instead of from the workload's network, so any private DNS zone links on the workload network aren't used in the resolution.
+
+> [!NOTE]
+> To configure the regional firewall to be the spoke's dns provider, set the custom DNS server on the spoke virtual network to point to the private IP of the firewall instead of to the normal Azure DNS value.
 
 Given the complexity that results from enabling DNS proxy on the regional firewalls, let's review the reasons for enabling it.
 
