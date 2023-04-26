@@ -4987,8 +4987,6 @@ items:
         href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
       - name: Serverless apps using Azure Cosmos DB
         href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
-      - name: Streaming using HDInsight
-        href: solution-ideas/articles/streaming-using-hdinsight.yml
   - name: DataOps
     items:
     - name: Get started
