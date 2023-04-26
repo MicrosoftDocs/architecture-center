@@ -2686,6 +2686,8 @@ items:
         href: example-scenario/ai/real-time-anomaly-detection-conveyor-belt.yml
       - name: Anomaly detector process
         href: solution-ideas/articles/anomaly-detector-process.yml
+      - name: Automated fab scheduling and dispatching
+        href: example-scenario/manufacturing/fab-scheduling-azure.yml  
       - name: Batch integration in a factory
         href: example-scenario/iot/batch-integration-azure-data-factory-digital-twins.yml
       - name: CAE simulations for manufacturing
@@ -4985,8 +4987,6 @@ items:
         href: solution-ideas/articles/retail-and-e-commerce-using-cosmos-db.yml
       - name: Serverless apps using Azure Cosmos DB
         href: solution-ideas/articles/serverless-apps-using-cosmos-db.yml
-      - name: Streaming using HDInsight
-        href: solution-ideas/articles/streaming-using-hdinsight.yml
   - name: DataOps
     items:
     - name: Get started
@@ -5768,30 +5768,6 @@ items:
           href: guide/security/conditional-access-architecture.yml
         - name: Conditional Access framework
           href: guide/security/conditional-access-framework.md
-      - name: Identity in multitenant applications
-        items:
-        - name: Introduction
-          href: multitenant-identity/index.yml
-        - name: The Tailspin scenario
-          href: multitenant-identity/tailspin.yml
-        - name: Authentication
-          href: multitenant-identity/authenticate.yml
-        - name: Claims-based identity
-          href: multitenant-identity/claims.md
-        - name: Tenant sign-up
-          href: multitenant-identity/signup.md
-        - name: Application roles
-          href: multitenant-identity/app-roles.md
-        - name: Authorization
-          href: multitenant-identity/authorize.md
-        - name: Secure a web API
-          href: multitenant-identity/web-api.yml
-        - name: Cache access tokens
-          href: multitenant-identity/token-cache.md
-        - name: Client certificate
-          href: multitenant-identity/client-certificate.yml
-        - name: Federate with a customer's AD FS
-          href: multitenant-identity/adfs.yml
       - name: Integrate on-premises AD with Azure
         href: reference-architectures/identity/index.yml
       - name: Deployment guidance

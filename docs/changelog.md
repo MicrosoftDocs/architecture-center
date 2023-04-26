@@ -157,7 +157,6 @@ The following new and updated articles have recently been published in the Azure
 - [Personalization using Azure Cosmos DB](./solution-ideas/articles/personalization-using-cosmos-db.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
 - [Retail and e-commerce using Azure Database for MySQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-mysql.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
 - [Retail and e-commerce using Azure Database for PostgreSQL](./solution-ideas/articles/retail-and-ecommerce-using-azure-database-for-postgresql.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
-- [Streaming using HDInsight](./solution-ideas/articles/streaming-using-hdinsight.yml)  ([#586f19c53](https://github.com/MicrosoftDocs/architecture-center/commit/586f19c53))
 - [Azure Private Link in a hub-and-spoke network](./guide/networking/private-link-hub-spoke-network.yml)  ([#13425d83d](https://github.com/MicrosoftDocs/architecture-center/commit/13425d83d))
 - [Azure icons](./icons/index.md)  ([#8763c35f7](https://github.com/MicrosoftDocs/architecture-center/commit/8763c35f7))
 - [Gridwich Azure DevOps setup](./reference-architectures/media-services/set-up-azure-devops.yml)  ([#c7dffcd9d](https://github.com/MicrosoftDocs/architecture-center/commit/c7dffcd9d))
