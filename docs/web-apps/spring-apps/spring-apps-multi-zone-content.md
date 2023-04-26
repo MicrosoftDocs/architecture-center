@@ -10,7 +10,7 @@ This architecture is useful when you want to:
 
 ## Architecture
 
-:::image type="content" source="./_images/zone-redundant-spring-apps-reference-architecture.png" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/zone-redundant-spring-apps-reference-architecture.png":::
+:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ha-zone-redundant-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.*
 
@@ -45,9 +45,21 @@ Here are the Azure services used in this architecture. For product documentation
 
 Building redundancy in the workload can minimize single points of failure. In this architecture, components are replicated across zones within the selected region. When you use availability zones in your architecture, make sure you use availability zones for all the components in your setup.
 
-Azure services aren't supported in all regions and not all regions support zones. Before selecting a region, check regional and zone support in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+Azure services aren't supported in all regions and not all regions support zones. Before selecting a region, check regional and zone support in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) and [Azure services with availability zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support).
 
-Azure Spring Apps supports zonal redundancy. With this feature, all underlying infrastructure of the service is spread across multiple availability zones providing higher availability for the application. The advantage is that applications are horizontally scaled without any code changes. 
+The following table shows the resiliency types for the services in this architecture. Zone-redundant services replicate or distribute resources across zones automatically. Always-available services are always available across all Azure geographies, and are resilient to both zone-wide and region-wide outages.
+
+|Service|Resiliency|
+|---|---|
+|Azure DNS|Always available|
+|Application Gateway|Zone redundant|
+|Azure Spring Apps|Zone redundant|
+|Azure Database for MySQL|Zone redundant|
+|Key Vault|Zone redundant|
+|Virtual Network|Zone redundant|
+|Azure private endpoints|Zone redundant|
+
+Azure Spring Apps supports zonal redundancy. With this feature, all underlying infrastructure of the service is spread across multiple availability zones providing higher availability for the application. The advantage is that applications are horizontally scaled without any code changes. Azure availability zones are connected by a high-performance network with a roundtrip latency of less than 2 ms. An added benefit is that you don't have to rely on asynchronous replication for data workloads, which often presents extra design challenges.
 
 Multiple availability zones are set up for Application Gateway including the public IP address used by the Application Gateway. [Availability zone](/azure/virtual-network/ip-services/public-ip-addresses#availability-zone) support is available for public IP addresses with a standard SKU.
 

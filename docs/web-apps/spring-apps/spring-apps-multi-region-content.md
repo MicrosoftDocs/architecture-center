@@ -1,32 +1,85 @@
-Setting up [Azure Spring Apps](/azure/spring-apps/overview) clusters in multiple regions poses availability, automation, and traffic forwarding challenges. This reference architecture runs multiple Azure Spring Apps instances across multiple regions in an active/active and highly available configuration. For a templated deployment of this architecture, see [Deploy this scenario](#deploy-this-scenario).
+
+This reference architecture runs multiple Azure Spring Apps instances across regions in an active-active configuration.
+
+This design builds on the [**Azure Spring Apps baseline architecture**](spring-apps-multi-zone.yml) that focuses on deploying a Java Spring Boot application to multiple [availability zones](/azure/availability-zones/az-overview#availability-zones) within a single region. The multiple zones spread the application workload across physically separate locations that can tolerate local failures within the Azure region.
+
+However, if the entire region experiences an outage, the baseline will become unavailable to the user. The intent of this design build high availabily that can withstand a regional outage.
+
+> [!TIP]
+> ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-region) that illustrates design choices that deal with the challenges of multi-region deployment, automation, and traffic routing.  
 
 ## Architecture
 
-![Diagram that shows a multiregion Azure Spring Apps reference architecture.](./_images/spring-apps-reference-architecture.png)
+![Diagram that shows a multiregion Azure Spring Apps reference architecture.](./_images/spring-apps-reference-architecture-multi-region.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/ha-zr-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.*
+### Components
+
+The components of this architecture are same as the [**baseline architecture**](spring-apps-multi-zone-content.md#components). This list only highlights the added components. For product documentation about Azure services, see [Related resources](#related-resources).
+
+- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) acts as the global load balancer. It was chose because of its capability to deliver higher availability with lower latency, greater scale, and caching at the edge. 
 
 ### Workflow
 
-1. The user accesses the application via browser by using the HTTP host name of the application, for example `www.contoso.com`. [Azure DNS](/azure/dns/dns-overview) or another public DNS service resolves the request for this host name to Azure Front Door.
+1. The user accesses the application via browser by using the HTTP host name of the application, for example `www.contoso.com`. Azure DNS resolves the request for this host name to Azure Front Door.
 
-1. [Azure Front Door](/azure/frontdoor/front-door-overview) uses various load balancing configurations to forward the requests to specific regions. This example uses an equal-weight load balancing rule between the two regions. Azure Front Door is configured with:
+1. Azure Front Door uses various load balancing configurations to forward the incoming requests to the public endpoint of Azure Application Gateway in each region. 
+
+1. Application Gateway with integrated WAF inspects the request and forwards the allowed traffic to the IP address of the load balancer in the provisioned Azure Spring Apps instance. The Application Gateways are configured with the same custom domain name and TLS certificate name as Azure Front Door. Web Application Firewall allows incoming calls only from the specified Azure Front Door profile.
+
+1. Application Gateway forwards the allowed traffic to the Azure Spring Apps load balancers.
+
+1. The internal load balancer only routes the traffic from Application Gateway to the backend services.
+
+1. Azure Spring Apps runs the application workload inside a virtual network in each region.
+
+1. As part of processing the request, the application communicates with other Azure services inside the virtual network. For example, it reaches Key Vault for secrets and the database for storing state.
+
+  The components inside the virtual networks use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to the databases and the key vaults.
+
+   - The example uses [Azure Database for MySQL](/azure/mysql/single-server/overview) for data storage, but you can use any database.
+
+   - [Azure Key Vault](/azure/key-vault/general/overview) stores application secrets and certificates. The microservices running in Azure Spring Apps use the application secrets. Azure Spring Apps, Application Gateway, and Azure Front Door use the certificates for host name preservation.
+
+
+## Global distribution
+
+How you set up this architecture is dependent on your business case. For example, if you're designing for global presence, you might want to use more than two regions. If you're designing for high availability, you can set up this architecture in an *active-active*, *active-passive with hot standby*, or *active-passive with cold standby* mode.
+
+##### Active-active
+
+All regions process requests simultaneously. Two regions exist, and both answer requests.
+
+- The biggest challenge with this mode is keeping the data synchronization between the regions.
+- Active-active is a costly approach, because you pay twice for almost all components.
+
+This architecture uses active-active deployment in two regions.
+
+##### Active-passive with hot standby
+
+The secondary region doesn't receive any requests from Azure Front Door as long as the primary region is active. Make sure you replicate your application data from your primary to your secondary region. If a failure occurs in your primary region, you need to change the roles of your backend databases and fail over all traffic through Azure Front Door to your secondary region.
+
+- It's easier to keep all data in sync, because failover is expected to take some time.
+- This mode is as costly as active-active mode.
+  
+##### Active-passive with cold standby
+
+The primary region has all the resources and serves traffic. The secondary region might have fewer components, or components with lower compute resources. The technology choices will depend on how much downtime is acceptable as per the business requirements. The extent of your secondary region setup also affects costs. Make sure that at least application data is present in the secondary region.
+
+  - It's easier to keep the data synchronized because failover is expected to take some time.
+  - This mode is the most cost effective, because you don't deploy all the resources to both regions.
+
+If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources when needed. You can use Bicep/Azure Resource Manager (ARM) or Terraform templates, and automate infrastructure setup in a continuous integration/continuous deployment (CD/CD) pipeline. You should regularly test recreating your secondary region to make sure your templates are deployable in an emergency.
+
+### Routing between regions
+
+This example configures Azure Front Door with equal routing between the two deployment regions. Azure Front Door also provides other [traffic routing methods to origin](/azure/frontdoor/routing-methods). If you want to route clients to their closest origin, latency-based routing makes the most sense. If you're designing for an active/passive solution, priority-based routing is more appropriate.
+
+This example uses an equal-weight load balancing rule between the two regions. Azure Front Door is configured with:
 
    - A custom domain and a transport-layer security (TLS) certificate that are named the same as the application host name, for example `www.contoso.com`.
    
    - One origin per region where the application is deployed. Each origin is an [Azure Application Gateway](/azure/application-gateway/overview) instance.
-
-1. Application Gateway deploys with [Azure Web Application Firewall](/azure/web-application-firewall/overview) in each region. The Application Gateways are configured with the same custom domain name and TLS certificate name as Azure Front Door. Web Application Firewall allows incoming calls only from the specified Azure Front Door profile.
-
-1. Application Gateway forwards allowed traffic to the Azure Spring Apps load balancers, which allow incoming calls only from the Application Gateway.
-
-1. Azure Spring Apps runs the application workload inside a virtual network in each region.
-
-1. The components inside the virtual networks use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to the databases and the key vaults.
-
-   - The example uses [Azure Database for MySQL](/azure/mysql/single-server/overview) for data storage, but you can use any database. For alternatives, see [Backend database](#backend-database).
-
-   - [Azure Key Vault](/azure/key-vault/general/overview) stores application secrets and certificates. The microservices running in Azure Spring Apps use the application secrets. Azure Spring Apps, Application Gateway, and Azure Front Door use the certificates for host name preservation.
 
 ### Design patterns
 
@@ -35,51 +88,6 @@ This reference architecture uses the following cloud design patterns:
 - [Geographical nodes (Geodes)](../../patterns/geodes.yml), where any region can service any request
 - [Deployment Stamps](../../patterns/deployment-stamp.yml), where multiple independent copies of an application or component can deploy from a single template
 
-### Components
-
-- [Azure DNS](https://azure.microsoft.com/products/dns) is a hosting service for Domain Name System (DNS) domains that provides name resolution by using Azure infrastructure. This solution uses Azure DNS for DNS resolution from your custom domain to your Azure Front Door endpoint.
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) helps you deliver higher availability, lower latency, greater scale, and more secure experiences to your users wherever they are. In this solution, Azure Front Door acts as a load balancer for incoming calls to the regions that host your workload.
-- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway acts as a local reverse proxy in each region your application runs in. Application Gateway is optional in this solution. For alternatives, see [Reverse proxy setup](#reverse-proxy-setup).
-- [Azure Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall) provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall on the Application Gateway allows incoming calls only from Azure Front Door, and tracks Open Web Application Security Project (OWASP) exploits.
-- [Azure Spring Apps](https://azure.microsoft.com/products/spring-apps) makes it easy to deploy Java Spring Boot applications to Azure without any code changes.
-- [Azure Database for MySQL](https://azure.microsoft.com/products/mysql) is a relational database service in the Azure cloud that's based on the MySQL Community Edition.
-- [Key Vault](https://azure.microsoft.com/products/key-vault) is one of several key management solutions in Azure that help manage keys, secrets, and certificates. This solution uses Key Vault for storing application secrets and the certificates that Azure Front Door, Application Gateway, and Azure Spring Apps use.
-- [Azure resource groups](https://azure.microsoft.com/get-started/azure-portal/resource-manager) are logical containers for Azure resources. In this solution, resource groups organize components per region. As a naming convention, the setup includes a short string for the component's region, so it's easy to identify which region the component is running in.
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This solution uses a virtual network for each region you deploy to.
-- [Azure Private Link](https://azure.microsoft.com/products/private-link) provides private endpoints that connect privately and securely to services. These network interfaces use private IP addresses to bring the services into the virtual networks. This solution uses private endpoints for the database and the key vault.
-- [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) in [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory) provide automatically managed identities that applications can use to connect to resources that support Azure AD authentication. Applications can use managed identities to get Azure AD tokens without having to manage any credentials. This architecture uses managed identities for several interactions, for example between Azure Spring Apps and the key vault.
-
-## Alternatives
-
-The following sections discuss alternatives for several aspects of this architecture.
-
-### Multizone deployment
-
-To increase application resilience and reliability, you can alternatively deploy the application to multiple [availability zones](/azure/availability-zones/az-overview#availability-zones) within a single region. The multiple zones spread the application workload across physically separate locations that can tolerate local failures within the Azure region.
-
-Azure availability zones are connected by a high-performance network with a roundtrip latency of less than 2 ms. An added benefit is that you don't have to rely on asynchronous replication for data workloads, which often presents extra design challenges.
-
-To deploy your workload to multiple zones instead of multiple regions:
-
-- The region you're deploying to must support multiple zones. For a list of regions that support zones, see [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
-
-- Preferably, all services in your solution should support multiple zones. For a list of services that support zones, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support).
-
-The following table shows the resiliency types for the services in this architecture. Zone-redundant services replicate or distribute resources across zones automatically. Always-available services are always available across all Azure geographies, and are resilient to both zone-wide and region-wide outages.
-
-|Service|Resiliency|
-|---|---|
-|Azure DNS|Always available|
-|Azure Front Door|Always available|
-|Application Gateway|Zone redundant|
-|Azure Spring Apps|Zone redundant|
-|Azure Database for MySQL|Zone redundant|
-|Key Vault|Zone redundant|
-|Azure resource groups|Not applicable|
-|Virtual Network|Zone redundant|
-|Azure private endpoints|Zone redundant|
-
-You can also combine a multizone solution with a multiregion solution.
 
 ### Backend database
 
@@ -111,27 +119,7 @@ The current solution uses two reverse proxies: Azure Front Door and Application 
 
 For information about different reverse proxy scenarios, how to set them up, and their security considerations, see [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml).
 
-### Routing between regions
 
-This example configures Azure Front Door with equal routing between the two deployment regions. Azure Front Door also provides other [traffic routing methods to origin](/azure/frontdoor/routing-methods). If you want to route clients to their closest origin, latency-based routing makes the most sense. If you're designing for an active/passive solution, priority-based routing is more appropriate.
-
-### High availability mode
-
-How you set up this architecture is dependent on your business case. For example, if you're designing for global presence, you might want to use more than two regions. If you're designing for high availability, you can set up this architecture in an *active/active*, *active/passive with hot standby*, or *active/passive with cold standby* mode.
-
-- **Active/active** is the mode in the current example. Two regions exist, and both answer requests.
-  - The biggest challenge with this mode is keeping the data between the regions in sync.
-  - Active/active is a costly solution, because you pay twice for almost all components.
-  
-- **Active/passive with hot standby** is similar to the current setup, but the secondary region doesn't receive any requests from Azure Front Door as long as the primary region is active. You make sure to properly replicate your application data from your primary to your secondary region. If a failure occurs in your primary region, you change the roles of your backend databases and fail over all traffic through Azure Front Door to your secondary region.
-  - It's easier to keep all data in sync, because failover is expected to take some time.
-  - This mode is as costly as active/active mode.
-  
-- **Active/passive with cold standby** might initially deploy fewer components, or components with lower compute resources, to the secondary region. Whether to use a more or less extended solution in your secondary region depends on how much downtime your business permits if there's a failure. The extent of your secondary region setup also affects costs. You should make sure that at least the application data is present in the secondary region.
-  - It's easier to keep data in sync, because failover is expected to take some time.
-  - This mode is the most cost effective, because you don't deploy all the resources to both regions.
-
-  If your entire solution setup uses templates, you can easily deploy a cold standby secondary region by creating its resources on the fly. You can use Bicep/Azure Resource Manager (ARM) or Terraform templates, and automate infrastructure setup in a continuous integration/continuous deployment (CD/CD) pipeline. You should regularly test recreating your secondary region to make sure your templates are deployable in an emergency.
 
 ### Key vault
 
