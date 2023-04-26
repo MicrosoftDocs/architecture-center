@@ -1,4 +1,4 @@
-The reliable web app pattern provides implementation guidance to replatform web applications transitioning to the cloud. The pattern focuses on the minimal changes you need to make to be successful in the cloud. For more information, see [Overview of the reliable web app pattern](../overview.md) and the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
+The reliable web app pattern provides implementation guidance to replatform web applications transitioning to the cloud. The pattern focuses on the minimal changes you need to make to be successful in the cloud. For more information, see [Reliable web app pattern principles](../overview.md) and the [Reliable web app pattern video series (YouTube)](https://aka.ms/eap/rwa/dotnet/videos).
 
 There are two articles in this series. This article describes how to plan the implementation of the reliable web app pattern for .NET. The companion article describes how to [apply the pattern](apply-pattern.yml).
 
@@ -14,12 +14,6 @@ The business context, existing web app, service level objective (SLO), and codin
 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
-
-The following table lists the principles of the reliable web app pattern and how the reference implementation applies these principles.
-
-| Reliable web app principles | Implementation for .NET |
-| --- | --- |
-|▪ Follow Azure Well-Architected Framework principles<br>▪ Low-cost, high-value wins<br>▪ Minimal code changes to:<ol>▫ Meet security best practices<br>▫ Apply reliability design patterns<br>▫ Improve operational excellence</ol>▪ Cost-optimized environment(s)<br>▪ Business-driven service level objective |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Right-size resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring |
 
 ## Business context
 

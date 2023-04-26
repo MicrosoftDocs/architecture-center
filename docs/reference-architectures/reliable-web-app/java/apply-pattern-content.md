@@ -1,4 +1,4 @@
-The reliable web app pattern provides implementation guidance to replatform web applications transitioning to the cloud. The pattern focuses on the minimal changes you need to make to be successful in the cloud. For more information, see [Overview of the reliable web app pattern](../overview.md).
+The reliable web app pattern provides implementation guidance to replatform web applications transitioning to the cloud. The pattern focuses on the minimal changes you need to make to be successful in the cloud. For more information, see [Reliable web app pattern principles](../overview.md).
 
 There are two articles in this series. This article shows you how to apply the reliable web app pattern. The companion article describes how to [plan an implementation](plan-implementation.yml).
 
@@ -13,12 +13,6 @@ A well-architected web application needs quality code, and quality code needs a 
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
 - [Non-production environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
-
-The following table lists the principles of the reliable web app pattern and how the reference implementation applies these principles.
-
-| Reliable web app principles | Implementation for Java |
-| --- | --- |
-|▪ Low-cost, high-value wins<br>▪ Minimal code changes to:<ol>▫ Meet security best practices<br>▫ Apply reliability design patterns<br>▫ Improve operational excellence</ol>▪ Cost-optimized environments<br>▪ Follow Azure Well-Architected Framework principles<br>▪ Business-driven service level objective |▪ Retry pattern <br> ▪ Circuit Breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsize resource <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Repeatable infrastructure <br>▪ Telemetry, logging, monitoring |
 
 ## Reliability
 
