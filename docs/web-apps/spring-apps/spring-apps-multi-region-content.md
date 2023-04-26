@@ -35,11 +35,6 @@ The components of this architecture are same as the [**baseline architecture**](
 
 1. As part of processing the request, the application communicates with other Azure services inside the virtual network. For example, it reaches Key Vault for secrets and the database for storing state.
 
-  The components inside the virtual networks use [private endpoints](/azure/private-link/private-endpoint-overview) to connect privately and securely to other Azure services. This solution uses private endpoints to connect to the databases and the key vaults.
-
-   - The example uses [Azure Database for MySQL](/azure/mysql/single-server/overview) for data storage, but you can use any database.
-
-   - [Azure Key Vault](/azure/key-vault/general/overview) stores application secrets and certificates. The microservices running in Azure Spring Apps use the application secrets. Azure Spring Apps, Application Gateway, and Azure Front Door use the certificates for host name preservation.
 
 
 ## Global distribution
@@ -174,23 +169,18 @@ For application deployment, make sure your deployment systems target the multipl
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+The design considerations for the baseline architecture still apply in this use case. Review these points in the context of this architecture: 
 
-### Reliability
+- **Newtork security**. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the backend database and the key vault, is also locked down by using private endpoints. 
 
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+  > For details, see [Network security](spring-apps-multi-zone-content.md#network-security)
 
-This architecture explicitly increases the availability of your application over a single-region deployment. From an application workload viewpoint, you can use this architecture in either an active/passive or an active/active configuration. With an active/active approach, Azure Front Door routes traffic to both regions simultaneously.
+- **Identity and access management**. Access is further secured through managed identities to connect between different components. For example, Azure Spring Apps uses a managed identity to connect to Key Vault.
 
-### Security
+  > For details, see [Identity and access management](spring-apps-multi-zone-content.md#identity-and-access-management)
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-From a networking perspective, this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the backend database and the key vault, is also locked down by using private endpoints.
 
-This architecture provides extra security by using a managed identity to connect between different components. For example, Azure Spring Apps uses a managed identity to connect to Key Vault. Key Vault allows Azure Spring Apps only minimal access to read the needed secrets, certificates, and keys.
-
-You should also protect your virtual networks with [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview). DDoS Protection, combined with application design best practices, provides enhanced mitigations to defend against distributed denial-of-service (DDoS) attacks.
 
 ### Cost optimization
 
