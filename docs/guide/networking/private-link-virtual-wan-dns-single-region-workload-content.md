@@ -89,7 +89,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 
 1. Azure Firewall proxies the request to the regional Azure DNS Private Resolver in the hub extension - 10.200.1.4 in this case, which is the private IP address of the DNS Private Resolver's inbound endpoint.
 
-    :::image type="complex" source="images/firewall-policy-dns-settings.png" lightbox="images/firewall-policy-dns-settings.png" alt-text="Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set":::
+    :::image type="complex" source="images/firewall-policy-dns-settings.png" lightbox="images/firewall-policy-dns-settings.png" alt-text="Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set.":::
     Screenshot of the Azure Firewall policy where DNS Proxy is enabled and the DNS servers are set to Custom. The entry points to the private IP address of the DNS Private Resolver input endpoint.
     :::image-end:::
     *Figure 5: DNS configuration in Azure Firewall policy*
@@ -101,7 +101,7 @@ The diagram shows a virtual hub that Azure Firewall secures. It's connected to t
 
 1. Azure DNS consults the linked private DNS zone and resolves the FQDN of `stgworkload00.blob.core.windows.net` to 10.1.2.4, which is the IP address of the private endpoint for the storage account. This response is provided to Azure Firewall DNS, which then returns the storage account's private IP address to the client.
 
-    :::image type="content" source="images/private-dns-zone-config.png" lightbox="images/private-dns-zone-config.png" alt-text="Screenshot of the private DNS zone with the A record with name stgworkload00 and value 10.1.2.4":::
+    :::image type="content" source="images/private-dns-zone-config.png" lightbox="images/private-dns-zone-config.png" alt-text="Screenshot of the private DNS zone with the A record with name stgworkload00 and value 10.1.2.4.":::
     *Figure 7: Private DNS zone with the A record for storage account private endpoint*
 
 **HTTP flow**
@@ -120,7 +120,7 @@ When implementing the extension for your enterprise, consider the following guid
 
 #### Spoke virtual network
 
-- Following the single responsibility principal, the virtual network for the DNS extension should only contain the resources required for DNS resolution and shouldn't be shared with other resources.
+- Following the single responsibility principle, the virtual network for the DNS extension should only contain the resources required for DNS resolution and shouldn't be shared with other resources.
 - The virtual network for the DNS extension should follow the same configuration guidelines under [Adding spoke networks](./private-link-virtual-wan-dns-guide.yml#adding-spoke-networks).
 
 #### Azure DNS Private Resolver
@@ -171,7 +171,7 @@ Besides any other network rules that your workload requires, configure the follo
   - Allow compute ASG to access storage account ASG.
   - Allow compute ASG to the regional hub Azure Firewall's private IP for UDP on port 53.
 
-:::image type="content" source="images/workload-nsg-rules.png" lightbox="images/workload-nsg-rules.png" alt-text="Picture showing NSG rules for workload subnet.":::
+:::image type="content" source="images/workload-nsg-rules.png" lightbox="images/workload-nsg-rules.png" alt-text="Screenshot showing NSG rules for workload subnet.":::
 *Figure 9: NSG rules for workload subnet
 
 #### NSG rules for subnet containing private endpoints
@@ -186,7 +186,7 @@ This scenario allows for a highly restrictive network security group to apply.
 - Outbound rules:
   - Deny all traffic
 
-:::image type="content" source="images/private-endpoint-nsg-rules.png" lightbox="images/private-endpoint-nsg-rules.png" alt-text="Picture showing NSG rules for private endpoint subnet.":::
+:::image type="content" source="images/private-endpoint-nsg-rules.png" lightbox="images/private-endpoint-nsg-rules.png" alt-text="Screenshot showing NSG rules for private endpoint subnet.":::
 *Figure 10: NSG rules for private endpoint subnet
 
 #### Private endpoint security in action

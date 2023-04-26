@@ -20,7 +20,7 @@ This topology has the following characteristics:
 - There are two regions, each with a regional Azure Firewall secured virtual hub.
 - Each secured regional virtual hub has the following security settings for Azure Virtual Network connections:
   - **Internet traffic**: **Secured by Azure Firewall** - All traffic out to the internet flows through the regional hub firewall.
-  - **Private traffic**: **Secured by Azure Firewall** - All traffic that transits from spoke to spoke flows through the the regional hub firewall.
+  - **Private traffic**: **Secured by Azure Firewall** - All traffic that transits from spoke to spoke flows through the regional hub firewall.
 - Each regional virtual hub is secured with Azure Firewall. The regional hub firewalls have the following settings:
   - **DNS Servers**:  **Default (Azure provided)** - The regional hub firewall explicitly uses Azure DNS for FQDN resolution in rule collections.
   - **DNS Proxy**: **Enabled** - The regional hub firewall responds to DNS queries on port 53. It forwards queries to Azure DNS for uncached values.
@@ -57,7 +57,7 @@ When you use Virtual WAN hubs, it seems intuitive that you'd link private DNS zo
 
 Given the complexity that results from enabling DNS proxy on the regional firewalls, let's review the reasons for enabling it.
 
-- Azure Firewall network rules support FQDN-based limits in order to more precisely control egress traffic that application rules don't handle. This features requires that DNS proxy is enabled. A common use is limiting Network Time Protocol (NTP) traffic to known endpoints, such as time.windows.com.
+- Azure Firewall network rules support FQDN-based limits in order to more precisely control egress traffic that application rules don't handle. This feature requires that DNS proxy is enabled. A common use is limiting Network Time Protocol (NTP) traffic to known endpoints, such as time.windows.com.
 - Security teams can benefit from DNS request logging. Azure Firewall has built-in support for DNS request logging, so requiring that all spoke resources use Azure Firewall as their DNS provider ensures broad logging coverage.
 
 To illustrate the challenges, the following sections describe two configurations. There's a simple example that works, and a more complex one that doesn't, but its failure is instructive.
