@@ -16,7 +16,7 @@ ms.custom:
   - e2e-aks
 ---
 
-# Check AKS cluster health
+## Check AKS cluster health
 
 Start by checking the health of the overall cluster and networking.
 
@@ -77,7 +77,7 @@ To learn more about this feature, see [Azure Resource Health overview](/azure/se
 
 To learn more about this feature, see [Azure Advisor overview](/azure/advisor/advisor-overview).
 
-# Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Examine the node and pod health](aks-triage-node-health.md)
