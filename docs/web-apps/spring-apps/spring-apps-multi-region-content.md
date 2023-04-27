@@ -247,6 +247,7 @@ We recommend these guides to get deeper understanding around the choices made in
 - [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
 
+This architecture has been designed keeping alignment with the pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). We recommend that you review the design principles for each pillar.
 
 
 
