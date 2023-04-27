@@ -69,6 +69,8 @@ You should also enforce least privileges on the workload identity for all Azure 
 - [Access to Key Vault](/azure/key-vault/general/rbac-guide)
 - [Access to Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
 
+*Reference implementation:* The reference implementation uses username and password to connect to the database. With this setup, make sure to use a non-admin user with privileges scoped to only the actions the user needs.
+
 ### Configure user authentication and authorization
 
 Authentication and authorization are critical aspects of web application security. *Authentication* is the process of verifying the identity of a user. *Authorization* specifies the actions a user is allowed to perform within the application. The goal is to implement authentication and authorization without weakening your security posture. To meet this goal, you need to use the features of the Azure application platform (Azure App Service) and identity provider (Azure AD).
@@ -452,11 +454,43 @@ The Cache-Aside pattern is used to manage in-memory data caching. In this patter
 
 The Cache-Aside pattern introduces a few benefits to the web application. It reduces request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages.
 
+You should use the spring boot cache starter package to enable caching. To use the starter cache, you have to provide values for certain properties. You 
+
 **Cache high-need data.** Most applications have pages that get more views than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
 
 **Keep cache data fresh.** You should periodically refresh the data in the cache to keep it relevant. The process involves getting the latest version of the data from the database to ensure that the cache has the most requested data and the most current information. The goal is to ensure that users get current data fast. The frequency of the refreshes depends on the application.
 
 **Ensure data consistency.** To ensure data consistency, you should update the cached data whenever a user makes changes. You can implement an event-driven system for these updates, or you can access cached data through the repository class responsible for managing the create and edit events.
+
+*Reference implementation:* The reference implementation uses the spring boot cache starter package to enable caching.
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-cache</artifactId>
+</dependency>
+```
+
+The starter expects the following values to be configured.
+
+```java
+spring.redis.host=
+spring.redis.port=
+spring.redis.password=${airsonic-redis-password}
+spring.redis.ssl=true
+spring.cache.type=redis
+spring.cache.redis.time-to-live=40000 
+```
+
+The code caches the `UserSettings` object. If it doesn't find the username it pulls the user settings attached to that username from the database and caches it.
+
+```java
+    @Cacheable(cacheNames = "userSettingsCache")
+    public UserSettings getUserSettings(String username) {
+        UserSettings settings = userDao.getUserSettings(username);
+        return settings == null ? createDefaultUserSettings(username) : settings;
+    }
+```
 
 ### Database performance
 
@@ -469,6 +503,10 @@ Database performance can affect the performance and scalability of an applicatio
 **Use Application Insights.** Application Insights provides detailed metrics on database queries and any JDBC interfaces. You should use it to ensure a ported database is meeting its SLAs or to find queries that need tuning. You should never use Dynamic SQL because it creates security and performance issues.
 
 **Use connection pools.** You should use JDBC connection pools and fine-tune them based on the transactions per second (TPS) metrics and SLAs. You should use native database metrics and tools as part of a thorough end to end performance test to evaluate database performance exclusively under load.
+
+### Storage performance
+
+
 
 ## Deploy the reference implementation
 
