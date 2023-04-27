@@ -77,7 +77,26 @@ Authentication and authorization are critical aspects of web application securit
 
 **Configure user authentication.** Your web app needs to prioritize the authentication of users to help ensure the security and integrity of the application. To configure user authentication, you should use the capabilities of the web application platform. App Service enables authentication with identity providers, including Azure AD. You should use this feature to reduce the responsibility of your code to handle user authentication. For more information, see [Authentication in App Service](/azure/app-service/overview-authentication-authorization).
 
-*Reference implementation.* The reference implementation uses the built-in authentication feature of App Service (EasyAuth) to manage the initial sign-in flow (cookies). It uses Azure AD as the identity platform. It ensures the users that get access to the web app are users in the directory.
+*Reference implementation.* The reference implementation uses the built-in authentication feature of App Service (EasyAuth) to manage the initial sign-in flow (cookies). It uses Azure AD as the identity platform. It ensures the users that get access to the web app are users in the directory. The following Terraform code explicitly enables authentication and requires authentication to access the web app.
+
+```terraform
+auth_settings_v2 {
+  auth_enabled                  = true
+  require_authentication        = true
+  
+  active_directory_v2 {
+    client_id                   = azuread_application.app_registration.application_id
+    tenant_auth_endpoint        = "https://login.microsoftonline.com/${data.azuread_client_config.current.tenant_id}/v2.0/"
+    client_secret_setting_name  = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+  }
+
+  login {
+    token_store_enabled = true
+  }
+}
+```
+
+The code configures Azure Active Directory as the authentication provider, using a client ID and secret stored in an Azure Key Vault. It specifies the authentication endpoint for the Azure AD tenant and enables the token store functionality for the login.
 
 **Integrate with identity provider (code).** You need to integrate the web application with the identity provider (Azure AD) in the code to help ensure secure and seamless authentication and authorization. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
 
