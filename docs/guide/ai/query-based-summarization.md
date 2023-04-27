@@ -1,12 +1,30 @@
-This guide shows how to perform document summarization by using the Azure OpenAI GPT-3 model. It descibes concepts that are related to the document summarization process, approaches to the process, and recommendations on which model to use for a specific use case. Finally, it presents two use cases, together with sample code snippets, to help you understand key concepts.
+---
+title: Query-based document summarization
+description: Implement query-based document summarization by using the Azure OpenAI GPT-3 model. Review two example use cases.
+author: raniabayoumy
+ms.author: rabayoum
+ms.date: 05/01/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-cognitive-services 
+  - azure-cognitive-search
+categories:
+  - ai-machine-learning
+---
+
+# Query-based document summarization
+
+This guide shows how to perform document summarization by using the Azure OpenAI GPT-3 model. It describes concepts that are related to the document summarization process, approaches to the process, and recommendations on which model to use for specific use cases. Finally, it presents two use cases, together with sample code snippets, to help you understand key concepts.
 
 ## Architecture
 
-The following diagram shows how a user query fetches relevant data. The summarizer generates a summary of the text extracted from the most relevant document by using GPT-3 endpoints. In this architecture, the endpoint is used to summarize the extracted text. 
+The following diagram shows how a user query fetches relevant data. The summarizer uses GPT-3 to generate a summary of the text of the most relevant document. In this architecture, the GPT-3 endpoint is used to summarize the text. 
 
 image 
 
-alt text Diagram that shows a user search and summarization that uses GPT-3 endpoints.
+alt text Diagram that shows a user search and a summarization process that uses GPT-3.
 
 link 
 
@@ -14,22 +32,22 @@ link
 
 This workflow occurs in near-real time.
 
-- A user sends a query. For example, an employee of a manufacturing company searches for specific information about a machine part on the company portal. The query is first processed by an intent recognizer like [conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview). The relevant entities or concepts in the user query are used to select and present a subset of documents from a knowledge base that's populated offline (in this case, the company's knowledge base database). The output is fed into a search and analysis engine like [Azure Elastic Search](https://www.elastic.co/partners/microsoft-azure) for document filtering, which filters the number of relevant documents, resulting in a document set of hundreds instead of thousands or tens of thousands.
-- The user query is applied again on a search endpoint like [Cognitive Search](/rest/api/searchservice/) to rank the retrieved document set in order of relevance (page ranking). Based on the ranking, the top document is selected.
-- The selected document is scanned for relevant sentences. This scanning process uses either a coarse method like extracting all sentences that contain the user query or a more sophisticated method like GPT-3 based embeddings to find semantically similar material in the document.
-- After the relevant text is extracted, the GPT-3 Completions endpoint with the summarizer summarizes the extracted content. (In this example, the summary of important details about the part that the employee specified in the query are returned.)
+1. A user sends a query. For example, an employee of a manufacturing company searches for specific information about a machine part on the company portal. The query is first processed by an intent recognizer like [conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview). The relevant entities or concepts in the user query are used to select and present a subset of documents from a knowledge base that's populated offline (in this case, the company's knowledge base database). The output is fed into a search and analysis engine like [Azure Elastic Search](https://www.elastic.co/partners/microsoft-azure), which filters the relevant documents to return a document set of hundreds instead of thousands or tens of thousands.
+1. The user query is applied again on a search endpoint like [Cognitive Search](/rest/api/searchservice/) to rank the retrieved document set in order of relevance (page ranking). The highest-ranked document is selected.
+1. The selected document is scanned for relevant sentences. This scanning process uses either a coarse method, like extracting all sentences that contain the user query, or a more sophisticated method, like GPT-3 embeddings, to find semantically similar material in the document.
+1. After the relevant text is extracted, the GPT-3 Completions endpoint with the summarizer summarizes the extracted content. In this example, the summary of important details about the part that the employee specified in the query is returned.
 
 This article focuses on the summarizer component of the architecture.
 
 ## Scenario details
 
-Enterprises frequently create and maintain a knowledge base about business processes, customers, products, and information. However, returning relevant content based on a user query of a large dataset is often challenging. The user can query the knowledge base and find an applicable document by using methods like page rank, but delving further into the document to search for relevant information typically becomes a manual task that takes time. However, with recent advances in foundation transformer models like the one developed by OpenAI, the query mechanism has been refined by semantic search methods that use encoding information like embeddings to find relevant information. This has enabled the ability to summarize content and present it to the user in a concise and succinct way.
+Enterprises frequently create and maintain a knowledge base about business processes, customers, products, and information. However, returning relevant content based on a user query of a large dataset is often challenging. The user can query the knowledge base and find an applicable document by using methods like page rank, but delving further into the document to search for relevant information typically becomes a manual task that takes time. However, with recent advances in foundation transformer models like the one developed by OpenAI, the query mechanism has been refined by semantic search methods that use encoding information like embeddings to find relevant information. These developments enable the ability to summarize content and present it to the user in a concise and succinct way.
 
-*Document summarization* is the process of creating summaries from large volumes of data while maintaining significant informational elements and content value. This article demonstrates how to use [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/) GPT-3 capabilities for your specific use case. GPT-3 is a powerful tool that you can use for a range of natural language processing tasks, including language translation, chatbots, text summarization, and content creation. The methods and architecture described here are customizable and can be applied to many datasets. Azure OpenAI Service brings Azure enterprise-level improved security, compliance, and regional availability to the OpenAI API.
+*Document summarization* is the process of creating summaries from large volumes of data while maintaining significant informational elements and content value. This article demonstrates how to use [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/) GPT-3 capabilities for your specific use case. GPT-3 is a powerful tool that you can use for a range of natural language processing tasks, including language translation, chatbots, text summarization, and content creation. The methods and architecture described here are customizable and can be applied to many datasets. 
 
 ### Potential use cases
 
-Document summarization applies to any business domain that requires users to search large amounts of reference data and generate a summary that concisely describes relevant information. Typical business and organizational settings include legal, financial, news, healthcare, and academic institutions. Potential use cases of summarization are:
+Document summarization applies to any organizational domain that requires users to search large amounts of reference data and generate a summary that concisely describes relevant information. Typical domains include legal, financial, news, healthcare, and academic organizations. Potential use cases of summarization are:
 
 - Generating summaries to highlight key insights about news, financial reporting, and so on.
 - Creating quick a reference to support an argument, for example, in legal proceedings.
@@ -37,36 +55,38 @@ Document summarization applies to any business domain that requires users to sea
 - Writing literature reviews.
 - Annotating a bibliography.
 
-Some benefits of using summarization service for any use case are:
+Some benefits of using a summarization service for any use case are:
 
 - Reduced reading time.
 - More effective searching of large volumes of disparate data.
 - Reduced chance of bias from human summarization techniques. (This benefit depends on how unbiased the training data is.)
-- Enables employees and users to focus on more in-depth analysis.
+- Enabling employees and users to focus on more in-depth analysis.
 
 ### In-context learning
 
-Azure OpenAI Service uses generative completion models. The model uses natural language instructions to identify the task at hand and the skill required, a process known as *prompt engineering*. In this approach, the first part of the prompt includes natural language instructions and/or examples of the desired task. The model completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
+Azure OpenAI Service uses generative completion models. The model uses natural language instructions to identify the requested task and the skill required, a process known as *prompt engineering*. When you use this approach, the first part of the prompt includes natural language instructions and/or examples of the desired task. The model completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
 
-In-context learning, language models can learn tasks from just a few examples. The language model is given a prompt that contains a list of input-output pairs that demonstrate a task, and then with a test input. The model makes a prediction by conditioning on the prompt and predicting the next tokens.
+In-context learning, language models can learn tasks from just a few examples. The language model is provided with a prompt that contains a list of input-output pairs that demonstrate a task, and then with a test input. The model makes a prediction by conditioning on the prompt and predicting the next tokens.
 
-There are three main approaches to in-context learning: *zero-shot learning*, *few-shot learning*, and *fine-tuning* methods to change and improve the output. These approaches vary based on the amount of task-specific data that's provided to the model.
+There are three main approaches to in-context learning: *zero-shot learning*, *few-shot learning*, and *fine-tuning* methods that change and improve the output. These approaches vary based on the amount of task-specific data that's provided to the model.
 
-**Zero-shot:** In this approach, no examples are provided to the model. Only the task request is provided as input. In zero-shot learning, the model depends on previously trained concepts. It respponds based only on data that it's trained on. It doesn't necessarily understand the semantic meaning, but it has a statistic understanding that's based on everything that it's learned over the internet about what should be generated next. The model tries to relate the given task to existing categories that it has already learned about and responds accordingly.
+**Zero-shot:** In this approach, no examples are provided to the model. Only the task request is provided as input. In zero-shot learning, the model depends on previously trained concepts. It responds based only on data that it's trained on. It doesn't necessarily understand the semantic meaning, but it has a statistic understanding that's based on everything that it's learned over the internet about what should be generated next. The model attempts to relate the given task to existing categories that it has already learned about and responds accordingly.
 
 **Few-shot:** In this approach, several examples that demonstrate the expected answer format and content are included in the call prompt. The model is provided with a very small training dataset to guide its predictions. Training with a small set of examples enables the model to generalize and understand unrelated but previously unseen tasks. Creating few-shot examples can be challenging because you need to accurately articulate the task that you want the model to perform. One commonly observed problem is that models are sensitive to the writing style that's used in the training examples, especially small models.
 
-**Fine-tuning:** Fine-tuning is a process of tailoring models to your personal datasets. In this customization step, you can improve the process by: 
+**Fine-tuning:** Fine-tuning is a process of tailoring models to your own datasets. In this customization step, you can improve the process by: 
 
 - Including a larger set of data (at least 500 examples). 
-- Using traditional optimization techniques with backpropagation to re-adjust the weights of the model. These techniques provide higher quality results than zero-shot or few-shot by themselves. 
+- Using traditional optimization techniques with backpropagation to readjust the weights of the model. These techniques enable higher quality results than the zero-shot or few-shot approaches provide by themselves.
 - Improving the few-shot approach by training the model weights with specific prompts and a specific structure. This technique enables you to achieve better results on a wider number of tasks without needing to provide examples in the prompt. The result is less text sent and fewer tokens.
 
 When you create a GPT-3 solution, the main effort is in the design and content of the training prompt. 
 
 ### Prompt engineering
 
-*Prompt engineering* is a natural language processing discipline that involves discovering inputs that yield desirable or useful outputs. When a user *prompts* the system, the way the content is expressed can dramatically change the output. This process is called *prompt design*. Prompt design is the most significant process in ensuring that the GPT-3 model provides a desirable and contextual response. The architecture described in this article uses the completions endpoint for summarization. The completions endpoint is a [Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more outputs that continue or complete the input text. A user provides input text as a prompt and the model generates text that attempts to match the context or pattern that's provided. The prompt design is highly depenedent on the task and data. Incorporating prompt engineering into a fine-tuning dataset and investigating what works best before using the system in production requires significant time and effort.
+*Prompt engineering* is a natural language processing discipline that involves discovering inputs that yield desirable or useful outputs. When a user *prompts* the system, the way the content is expressed can dramatically change the output. *Prompt design* is the most significant process for ensuring that the GPT-3 model provides a desirable and contextual response. 
+
+The architecture described in this article uses the completions endpoint for summarization. The completions endpoint is a [Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more outputs that continue or complete the input text. A user provides input text as a prompt and the model generates text that attempts to match the context or pattern that's provided. Prompt design is highly dependent on the task and data. Incorporating prompt engineering into a fine-tuning dataset and investigating what works best before using the system in production requires significant time and effort.
 
 #### Prompt design
 
@@ -76,43 +96,44 @@ For example, if you input the words "Give me a list of cat breeds," the model do
 
 As described in [Learn how to generate or manipulate text](/azure/cognitive-services/openai/how-to/completions#prompt-design), there are three basic guidelines for creating prompts:
 
-- **Show and tell.** Provide clarity about what you want by providing instructions, examples, or a combination of the two. If you want the model to rank a list of items in alphabetical order or to classify a paragraph by sentiment, show it that's what you want.
-- **Provide quality data.** If you're building a classifier or want the model to follow a pattern, be sure to provide enough examples. Be sure to proofread your examples. The model is usually able to recognize basic spelling mistakes and give you a response, but it might assume misspellings are intentional, which can affect the response.
+- **Show and tell.** Improve the clarity about what you want by providing instructions, examples, or a combination of the two. If you want the model to rank a list of items in alphabetical order or to classify a paragraph by sentiment, show it that that's what you want.
+- **Provide quality data.** If you're building a classifier or want a model to follow a pattern, be sure to provide enough examples. You should also proofread your examples. The model can usually recognize spelling mistakes and return a response, but it might assume misspellings are intentional, which can affect the response.
 - **Check your settings.** The `temperature` and `top_p` settings control how deterministic the model is in generating a response. If you ask it for a response that has only one right answer, configure these settings at a lower level. If you want more diverse responses, you might want to configure the settings at a higher level. A common error is to assume that these settings are "cleverness" or "creativity" controls.
 
 ### Alternatives
 
- [Azure conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview) is an alternative to the summarizer used here. The main purpose of conversational language understanding is to build models that predict the overall intention of an incoming utterance, extract valuable information from it, and produce a response that aligns with the topic. It's useful in chatbot applications when it can refer an existing knowledge base to find the suggestion that best corresponds to the incoming utterance. This doesn't help much when the input text doesn't require a response. The intent in this architecture is to generate a short summary of long textual content. The essence of the content is described in a concise manner and all important information is represented.
+ [Azure conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview) is an alternative to the summarizer used here. The main purpose of conversational language understanding is to build models that predict the overall intention of an incoming utterance, extract valuable information from it, and produce a response that aligns with the topic. It's useful in chatbot applications when it can refer to an existing knowledge base to find the suggestion that best corresponds to the incoming utterance. It doesn't help much when the input text doesn't require a response. The intent in this architecture is to generate a short summary of long textual content. The essence of the content is described in a concise manner and all important information is represented.
 
 ## Example scenarios
 
 ### Use case: Summarizing legal documents 
 
-In this use case, a collection of bills passed through Congress is summarized. The summary is fine-tuned to bring it closer to a human-generated summary, which is referred to as the *ground truth* summary.
+In this use case, a collection of legislative bills passed through Congress is summarized. The summary is fine-tuned to bring it closer to a human-generated summary, which is referred to as the *ground truth* summary.
 
-Zero-shot prompt engineering is used to summarize legislative bills. The prompt and settings are modified to generate different summary outputs.
+Zero-shot prompt engineering is used to summarize the  bills. The prompt and settings are then modified to generate different summary outputs.
 
 #### Dataset
 
-The first dataset is the BillSum dataset, which summarizes of US Congressional and California state bills. This example uses only the Congressional bills. The data is split into 18,949 bills to use for training and 3,269 bills to use for tesing. BillSum focuses on mid-length legislation that's between 5,000 and 20,000 characters long. It's cleaned and pre-processed.
+The first dataset is the BillSum dataset for summarization of US Congressional and California state bills. This example uses only the Congressional bills. The data is split into 18,949 bills to use for training and 3,269 bills to use for testing. BillSum focuses on mid-length legislation that's between 5,000 and 20,000 characters long. It's cleaned and preprocessed.
 
 For more information about the dataset and instructions for download, see [FiscalNote / BillSum](https://github.com/FiscalNote/BillSum).
 
 ##### BillSum schema
 
 The schema of the BillSum dataset includes:
-- `bill_id`. An identifier for the bill
-- `text`. The bill text
-- `summary`. A human-written summary of the bill
-- `title`. The bill title
-- `text_len`. The character length of the bill
-- `sum_len`. The character length of the bill summary
+- `bill_id`. An identifier for the bill.
+- `text`. The bill text.
+- `summary`. A human-written summary of the bill.
+- `title`. The bill title.
+- `text_len`. The character length of the bill.
+- `sum_len`. The character length of the bill summary.
 
 In this use case, the `text` and `summary` elements are used.
 
 #### Zero-shot
 
-The goal here is to teach the GPT-3 model to learn conversation-style input. The completions endpoint is used to create an Azure OpenAI API and a prompt that generates the best summary of the bill. It's important to create the prompts carefully so they extract relevant information. To extract general summaries from a given bill, the following format is used.
+The goal here is to teach the GPT-3 model to learn conversation-style input. The completions endpoint is used to create an Azure OpenAI API and a prompt that generates the best summary of the bill. It's important to create the prompts carefully so that they extract relevant information. To extract general summaries from a given bill, the following format is used.
+
 - Prefix: What you want it to do.
 - Context primer: The context.
 - Context: The information needed to provide a response. In this case, the text to summarize.
@@ -147,11 +168,11 @@ response = openai.Completion.create(
 
 **Zero-shot model summary:** The National Science Education Tax Incentive for Businesses Act of 2007 would create a new tax credit for businesses that make contributions to science, technology, engineering, and mathematics (STEM) education at the elementary and secondary school level. The credit would be equal to 100 percent of the qualified STEM contributions of the taxpayer for the taxable year. Qualified STEM contributions would include STEM school contributions, STEM teacher externship expenses, and STEM teacher training expenses.
 
-**Observations:** The zero-shot model generates a succinct, generalized summary of the document. It's similar to the human-written ground truth and captures the same key points. It flows like a human-written summary and remains focused on the point.
+**Observations:** The zero-shot model generates a succinct, generalized summary of the document. It's similar to the human-written ground truth and captures the same key points. It's organized like a human-written summary and remains focused on the point.
 
 #### Fine-tuning
 
-Fine-tuning improves on zero-shot learning by training on more examples than you can include in the prompt, so you achieve better results on a wider number of tasks. After a model is fine-tuned, you don't need to provide examples in the prompt. This saves money by reducing the number of tokens required and enables lower-latency requests.
+Fine-tuning improves upon zero-shot learning by training on more examples than you can include in the prompt, so you achieve better results on a wider number of tasks. After a model is fine-tuned, you don't need to provide examples in the prompt. Fine-tuning saves money by reducing the number of tokens required and enables lower-latency requests.
 
 At a high level, fine-tuning includes these steps:
  
@@ -159,11 +180,11 @@ At a high level, fine-tuning includes these steps:
 - Train a new fine-tuned model.
 - Use the fine-tuned model.
 
-For more information, see [How to customize a model with Azure OpenAI](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio).
+For more information, see [How to customize a model with Azure OpenAI Service](/azure/cognitive-services/openai/how-to/fine-tuning?pivots).
 
 ##### Prepare data for fine-tuning
 
-This step enables you improve upon the zero-shot model by incorporating prompt engineering into the prompts that are used for fine-tuning. Doing so helps give directions to the model on how to approach the prompt/completion pairs. In a fine-tune model, prompts provide a starting point that the model can learn from and use to make preditions. This process enables the model to start with a basic understanding of the data, which can then be improved upon gradually as the model is exposed to more data. Additionally, prompts can help the model to identify patterns in the data that it might otherwise miss.
+This step enables you to improve upon the zero-shot model by incorporating prompt engineering into the prompts that are used for fine-tuning. Doing so helps give directions to the model on how to approach the prompt/completion pairs. In a fine-tune model, prompts provide a starting point that the model can learn from and use to make predictions. This process enables the model to start with a basic understanding of the data, which can then be improved upon gradually as the model is exposed to more data. Additionally, prompts can help the model to identify patterns in the data that it might otherwise miss.
 
 The same prompt engineering structure is also used during inference, after the model is finished training, so that the model recognizes the behavior that it learned during training and can generate completions as instructed.
 
@@ -184,9 +205,9 @@ df_staged_full_train = stage_examples(df_prompt_completion_train)
 df_staged_full_val = stage_examples(df_prompt_completion_val)
 ```
 
-Now that the data is staged for fine-tuning in the proper format, we can start running the fine-tune commands.
+Now that the data is staged for fine-tuning in the proper format, you can start running the fine-tune commands.
 
-Next, we use OpenAI's Command Line Interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool which validates, gives suggestions, and reformats your data.
+Next, you can use the OpenAI CLI to help with some of the data preparation steps. The OpenAI tool validates data, provides suggestions, and reformats data.
 
 ```python
 openai tools fine_tunes.prepare_data -f data/billsum_v4_1/prompt_completion_staged_train.csv
@@ -232,7 +253,7 @@ print('Response Information \n\n {text}'.format(text=r.text))
 
 ##### Evaluate the fine-tuned model
 
-This section demonstrates how to evaluate a fine-tuned model.
+This section demonstrates how to evaluate the fine-tuned model.
 
 ```python
 #Run this cell to check status
@@ -266,11 +287,11 @@ For the results of summarizing a few more bills by using the zero-shot and fine-
 
 ### Use case: Financial reports
 
-In this use case, zero-shot prompt engineering is used to create summaries of financial reports. A summary of summaries approach is used to generate the results.
+In this use case, zero-shot prompt engineering is used to create summaries of financial reports. A summary of summaries approach is then used to generate the results.
 
 #### Summary of summaries approach
 
-When you write prompts, the GPT-3 prompt and the resulting completion must add up to fewer than 4,000 tokens, so you're limited to a couple pages of summary text. For documents that typically contain more than 4,000 tokens (roughly 3,000 words), you can use a *summary of summaries* approach. When you use this approach, the entire text is first divided up to meet the token constraints. Summaries of the shorter texts are then derived. In the next step, a summary of the summaries is created. This use case demonstrates the summary of summaries approach with a zero-shot model. This solution is useful for long documents. Additionally, this section describes how different prompt engineering practices can vary the results.
+When you write prompts, the GPT-3 total of the prompt and the resulting completion must include fewer than 4,000 tokens, so you're limited to a couple pages of summary text. For documents that typically contain more than 4,000 tokens (roughly 3,000 words), you can use a *summary of summaries* approach. When you use this approach, the entire text is first divided up to meet the token constraints. Summaries of the shorter texts are then derived. In the next step, a summary of the summaries is created. This use case demonstrates the summary of summaries approach with a zero-shot model. This solution is useful for long documents. Additionally, this section describes how different prompt engineering practices can vary the results.
 
 > [!Note] 
 > Fine-tuning is not applied in the financial use case because there's not enough data available to complete that step.
@@ -299,7 +320,7 @@ openai.api_version = "2022-12-01-preview"
 name = os.path.abspath(os.path.join(os.getcwd(), '---INSERT PATH OF LOCALLY DOWNLOADED RATHBONES_2020_PRELIM_RESULTS---')).replace('\\', '/')
 
 pages_to_summarize = [0]
-# Using pdfminer.six ot extract the text 
+# Using pdfminer.six to extract the text 
 # !pip install pdfminer.six
 from pdfminer.high_level import extract_text
 t = extract_text(name
@@ -312,7 +333,7 @@ openai.api_version = "2022-12-01-preview"
 name = os.path.abspath(os.path.join(os.getcwd(), '---INSERT PATH OF LOCALLY DOWNLOADED RATHBONES_2020_PRELIM_RESULTS---')).replace('\\', '/')
 
 pages_to_summarize = [0]
-# Using pdfminer.six ot extract the text 
+# Using pdfminer.six to extract the text 
 # !pip install pdfminer.six
 from pdfminer.high_level import extract_text
 t = extract_text(name
@@ -325,7 +346,7 @@ t
 
 ##### Zero-shot approach
 
-When you use the zero-shot approach, you don't provide solved examples. You provide only the command and the unsolved input. In this example, the Instruct model is used. This model was created  specifically to take in an instruction and record an answer for it without extra context, which is ideal for the zero-shot approach.
+When you use the zero-shot approach, you don't provide solved examples. You provide only the command and the unsolved input. In this example, the Instruct model is used. This model is specifically intended to take in an instruction and record an answer for it without extra context, which is ideal for the zero-shot approach.
 
 After you extract the text, you can use various prompts to see how they influence the quality of the summary:
 
@@ -373,13 +394,13 @@ print(response.choices[0].text)
 
 ##### Challenges
 
-- As you can see, the model might produce ghost metrics that aren't mentioned in the original text.
+- As you can see, the model might produce metrics that aren't mentioned in the original text.
 
    Proposed solution: You can resolve this problem by changing the prompt.
 
 - The summary might focus on one section of the article and neglect other important information.
 
-    Proposed solution: You can try a summary of summaries approach. Divide the report into sections and create smaller summaries you can then summarize to create the output summary.
+    Proposed solution: You can try a summary of summaries approach. Divide the report into sections and create smaller summaries that you can then summarize to create the output summary.
 
 This code implements the proposed solutions:
 
@@ -450,31 +471,33 @@ The input prompt includes the original text from Rathbone's financial report for
 
 **Observations:** The summary of summaries approach generates a great result set that resolves the challenges encountered initially when a more detailed and comprehensive summary was provided. It does a great job of capturing the domain-specific jargon and the key points, which are represented in the ground truth but not explained well.
 
-The zero-shot model works well for summarizing mainstream documents. If the data is industry-specific or topic-specific, contains industry-specific jargon, or requires industry-specific knowledge, fine-tuning performs best. For example, this approach works well for medical journals, legal forms, and financial statements. We use Few-Shot versus Zero-Shot to provide the model examples on how to formulate its summary, so it can learn to mimic the instructions provided. With Few-Shot, we are guiding the model on how to respond without retraining the model. However, for Zero-Shot and Few-Shot, we are not retraining the model. Therefore, its knowledge is based on what the GPT-3 models were trained on (which is most of the internet) and can perform well on tasks that do not require specific knowledge.
+The zero-shot model works well for summarizing mainstream documents. If the data is industry-specific or topic-specific, contains industry-specific jargon, or requires industry-specific knowledge, fine-tuning performs best. For example, this approach works well for medical journals, legal forms, and financial statements. You can use the few-shot approach instead of zero-shot to provide the model with examples of how to formulate a summary, so it can learn to mimic the summary provided. For the zero-shot approach, this solution doesn't retrain the model. The model's knowledge is based on the GPT-3 training. GPT-3 is trained with almost all available data from the Internet. It performs well for tasks that don't require specific knowledge.
 
-You may refer to a subset of results achieved using the Zero-Shot Summary of Summaries approach applied on the financial dataset [here]().
+For the results of using the zero-shot summary of summaries approach on a few reports in the financial dataset, see [Results for Summary of Summaries](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#results-for-summary-of-summaries).
 
 ## Conclusions
 
-There are many ways to approach summarization utilizing GPT-3. Each approach (Zero-Shot, Few-Shot, Fine-tuning) produces a different quality of summary. Based on your use case, you can explore which type of summary produces the best results for your intended use case.
+There are many ways to approach summarization by using GPT-3, including zero-shot, few-shot, and fine-tuning. The approaches produce summaries of varying quality. You can explore which approach produces the best results for your intended use case.
 
 ### Recommendations
 
-However, based on observations from our exploration, here are few recommendations:
+Based on observations on the testing presented in this article, here are few recommendations:
 
-- **Zero-Shot** is best for documents that are general in nature and do not require specific domain knowledge. It will try to capture all the high-level information in a very succinct human-like manner and will provide a high-quality baseline summary. This approach resulted in high quality summary for the legal dataset used in this article.
-- **Few-shot** proves difficult for long document summarization because providing an example text will surpass the token limitation. To combat this, a Zero-Shot summary of summaries approach can be used for long documents or increasing the dataset to enable successful fine-tuning. This approach generated excellent result for the financial dataset used in this article.
-- **Fine-tuning** is most useful for technical or domain specific use cases where the information is not readily available. This requires a dataset of a couple thousand samples for the best results. Fine-tuning will capture the summary in a few templated ways, trying to conform to how the dataset presents the summaries. This approach generated a much higher quality summary than the Zero-Shot result for the legal dataset.
+- **Zero-shot** is best for mainstream documents that don't require specific domain knowledge. This approach attempts to capture all high-level information in a succinct, human-like manner and provides a high-quality baseline summary. Zero-shot created a high quality summary for the legal dataset that's used in the tests in this article.
+- **Few-shot** is difficult to use for summarizing long documents because the token limitation is exceeded when an example text is provided. You can instead use a zero-shot summary of summaries approach for long documents or increase the dataset to enable successful fine-tuning. The summary of summaries approach generated excellent results for the financial dataset that's used in these tests.
+- **Fine-tuning** is most useful for technical or domain-specific use cases when the information isn't readily available. To achieve the best results with this approach, you need a dataset that contains a couple thousand samples. Fine-tuning captures the summary in a few templated ways, trying to conform to how the dataset presents the summaries. For the legal dataset, this approach generated a higher quality of summary than the one created by the zero-shot approach.
 
-### Evaluating Summarization
+### Evaluating summarization
 
-There are multiple techniques to evaluate the performance of summarization models.
+There are multiple techniques for evaluating the performance of summarization models.
 
-Here are some methods: 
+Here are a few: 
 
-**ROUGE (Recall-Oriented Understudy for Gisting Evaluation)** It includes measures to automatically determine the quality of a summary by comparing it to other (ideal) summaries created by humans. The measures count the number of overlapping units such as n-gram, word sequences, and word pairs between the computer-generated summary to be evaluated and the ideal summaries created by humans. 
+**ROUGE (Recall-Oriented Understudy for Gisting Evaluation).** This technique includes measures for automatically determining the quality of a summary by comparing it to ideal summaries created by humans. The measures count the number of overlapping units, like n-gram, word sequences, and word pairs, between the computer-generated summary being evaluated and the ideal summaries. 
 
-```
+Here's an example: 
+
+```python
 reference_summary = "The cat ison porch by the tree"
 generated_summary = "The cat is by the tree on the porch"
 rouge = Rouge()
@@ -484,11 +507,11 @@ rouge.get_scores(generated_summary, reference_summary)
   'rouge-1': {'r': 0.75, 'p': 0.75, 'f': 0.749999995}}]
 ```
 
-Figure 2: Rouge score example
+**BERTScore.**  This technique computes similarity scores by aligning generated and reference summaries on a token-level. Token alignments are computed greedily to maximize the cosine similarity between contextualized token embeddings from BERT.
 
-**BertScore** (Zhang et al., 2020) computes similarity scores by aligning generated and reference summaries on a token-level. Token alignments are computed greedily to maximize the cosine similarity between contextualized token embeddings from BERT.
+Here's an example:
 
-```
+```python
   import torchmetrics
   from torchmetrics.text.bert import BERTScore
   preds = "You should have ice cream in the summer"
@@ -498,34 +521,49 @@ Figure 2: Rouge score example
   print(score)
 ```
 
-Figure 3: BERT score example
+**Similarity matrix.** A similarity matrix is a representation of the similarities between different entities in a summarization evaluation. You can use it to compare different summaries of the same text and measure their similarity. It's represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. You can measure the similarity by using various methods, like cosine similarity, Jaccard similarity, and edit distance. You then use the matrix to compare the summaries and determine which one is the most accurate representation of the original text.
 
-**Similarity Matrix** is a representation of the similarities between different entities in summarization evaluation. It is used to compare different summaries of the same text and measure their similarity and is represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. The similarity can be measured using a variety of methods, such as cosine similarity, Jaccard similarity, and edit distance. The matrix is then used to compare the summaries and determine which summary is the most accurate representation of the original text.
+Here's a sample command that gets the similarity matrix of a BERTScore comparison of two similar sentences:
 
-Following is a sample command to get the similarity matrix of BertScore comparing 2 similar sentences. 
-
-```
+```python
 bert-score-show --lang en -r "The cat is on the porch by the tree"
                           -c "The cat is by the tree on the porch"
                           -f out.png
 ```
 
-The first sentence “The cat is on the porch by the tree” is referred as the candidate and the second one “The cat is by the tree on the porch” is referred as the reference and the command is using BertScore to compare both sentences for generating the matrix. 
+The first sentence, "The cat is on the porch by the tree", is referred to as the *candidate*. The second sentence is referred to as the *reference*. The command uses BERTScore to compare the sentences and generate a matrix.
 
-Figure 4 is a similarity matrix example, which displays the output matrix generated by above command.
+This following matrix displays the output that's generated by the preceding command:
 
-image 
+:::image type="content" source="media/similarity-matrix.png" alt-text="Diagram that shows an example of a similarity matrix." lightbox="media/similarity-matrix.png" border="false":::
 
-Figure 4: Similarity matrix example
-
-For a more comprehensive list and unified metrics in Pypi package, please refer to the following paper: https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00373/100686/SummEval-Re-evaluating-Summarization-Evaluation and 
-https://pypi.org/project/summ-eval/ 
+For more information, see [SummEval: Reevaluating Summarization Evaluation](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00373/100686/SummEval-Re-evaluating-Summarization-Evaluation). For a PyPI toolkit for summarization, see [summ-eval 0.892](https://pypi.org/project/summ-eval/)
 
 ## Contributors
 
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+- [Noa Ben-Efraim](https://www.linkedin.com/in/noabenefraim/) | Data & Applied Scientist
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+- [Rania Bayoumy](https://www.linkedin.com/in/raniabayoumy/) | Senior Technical Program Manager
+- [Harsha Viswanath](https://www.linkedin.com/in/harsha-viswanath-21ba6b1/) | Principal Applied Science Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
-- Azure OpenAI - Documentation, quickstarts, API reference - Azure Cognitive Services | Microsoft Learn
-- What are intents in LUIS - Azure Cognitive Services | Microsoft Learn
-- Conversational Language Understanding - Azure Cognitive Services | Microsoft Learn
-- Jupyter notebook with technical details and execution of this use case can be found at: openai-solutions/SummarizationOverview.md at main · Azure/openai-solutions (github.com)
+- [Azure OpenAI - Documentation, quickstarts, API reference](/azure/cognitive-services/openai/)
+- [What are intents in LUIS?](/azure/cognitive-services/LUIS/concepts/intents) 
+- [Conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview) 
+- [Jupyter Notebook with technical details and execution of this use case](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md)
+
+## Related resources 
+
+- [AI architecture design](../../data-guide/big-data/ai-overview.md)
+- [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
