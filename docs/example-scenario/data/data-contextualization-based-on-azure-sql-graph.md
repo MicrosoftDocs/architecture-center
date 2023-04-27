@@ -201,34 +201,34 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
 Securing the Azure SQL database is crucial to protect the data and prevent unauthorized access. Here are some best practices we can follow to secure the Azure SQL database:
-* Use strong passwords and enable multifactor authentication (MFA)
-* Implement network security by using Virtual Network (VNet) service endpoints and firewall rules to restrict access to the database from only specific IP addresses and/or subnets.
+* Use strong passwords and enable multifactor authentication (MFA).
+* Implement network security by using Virtual Network (VNet) service endpoints and firewall rules.
 * Enable Transparent Data Encryption (TDE) to encrypt data at rest, and use Always Encrypted to encrypt sensitive data in transit.
 * Use role-based access control (RBAC) to limit access to specific operations and resources within the database.
 * Implement data masking to hide sensitive data from unauthorized users.
-* Enable auditing and logging
+* Enable auditing and logging.
 * Regularly backup your Azure SQL database to protect against data loss and ensure business continuity in case of a disaster.
 
 Securing Azure Databricks involves implementing a comprehensive security strategy that covers different aspects of the platform, such as data access, network security, authentication, and authorization. Here are some best practices for securing Azure Databricks:
 * Implement Role-Based Access Control (RBAC)
 * Enable Network Security by using Azure Virtual Networks to isolate your Databricks workspace from the internet and restrict inbound and outbound traffic to only necessary sources.
 * Configure your Databricks clusters to use secure communication protocols like HTTPS, and use network security groups to restrict access to the Databricks workspace.
-* Implement Authentication and Authorization
+* Implement Authentication and Authorization.
 * Enable Azure Monitor to monitor your Databricks workspace for unusual activity, and enable logging to track user activity and security events.
 
 ### Cost optimization
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In order to optimize the cost for using Azure SQL Database, we can consider the following:
-* Choose the right pricing tier: Azure SQL Database offers several pricing tiers based on the performance, storage, and features you require. Choose the pricing tier that meets your requirements and budget.
+* Choose the right pricing tier that meets your requirements and budget.
 * Scale up and down as needed.
-* Use serverless compute: Azure SQL Database serverless compute is a cost-effective option for workloads with intermittent and unpredictable usage patterns. With serverless compute, you only pay for the resources you consume.
-* Optimize queries: Improving the efficiency of your queries can reduce the amount of resources needed to process them, which can save costs. You can use Azure SQL Database Query Performance Insight to identify queries that are consuming the most resources and optimize them.
-* Use data compression: Azure SQL Database offers data compression that can reduce the storage requirements of your database. This can help you save costs by reducing the amount of storage you need.
+* Use serverless compute.
+* Optimize queries.
+* Use data compression.
 
 To enhance cost efficiency while utilizing Azure Databricks, the subsequent factors could be taken into consideration:
 * Choose the right instance type that meets your workload requirements while minimizing costs.
-* Use auto-scaling: With auto-scaling, Azure Databricks automatically scales up or down the number of nodes based on the workload demand, which can help reduce costs by only using the necessary resources.
+* Use auto-scaling to scale up or down the number of nodes based on the workload demand.
 * Turn off clusters when not in use.
 * Use monitoring and logging to optimize performance.
 
@@ -240,7 +240,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Here are some tips to improve the performance efficiency of using an Azure SQL Database:
 * Choose the right service tier.
-* Optimize database design: Ensure that your database design is optimized for performance. This includes creating appropriate indexes, partitioning large tables, and using appropriate data types.
+* Optimize database design for performance. This includes creating appropriate indexes, partitioning large tables, and using appropriate data types.
 * Use Query Performance Insight: Use Query Performance Insight to identify slow running queries and tune them for better performance.
 * Use Elastic pools: If you have multiple databases with varying workloads, consider using elastic pools to share resources and reduce costs.
 * Enable Auto-tuning: Auto-tuning automatically optimizes the database configuration based on workload patterns.
