@@ -99,7 +99,7 @@ Let’s imagine Gary is an operation engineer from Contoso company and one of hi
 
 First, Gary has to fetch all the asset ID he is interested in from the company’s ‘Asset’ system,  then look for all the attributes belong to the asset as the input for the health check report, e.g., the operation efficiency data of the asset with ID ‘AE0520’. 
 
-![Scenario Demonstration](images/Scenario.png =500x)
+![Scenario Demonstration](media/dc-scenario.png)
 
 Contoso has many market leading products and applications to help factory owners to monitor the processes and operations, and the operation efficiency data is recorded in another application system called ‘Quality system’. 
 
@@ -118,26 +118,26 @@ Azure SQL Database offers graph database capabilities to model many-to-many rela
 
 A graph database is a collection of nodes (or vertices) and edges (or relationships). A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). 
 
-![Graph](images/graph01.png)
+![Graph Database](media/dc-graph-database.png)
 
 #### Design the Graph Model for the Demo
 For the scenario described preiously, we can design the graph model as below:
 * 'Alarm' is one of the metrics that belong to the 'Quality System'
 * The 'Quality System' is assocated with an 'Asset'
 
-![Graph](images/graph08.png)
+![Graph Design](media/dc-graph-design.png)
 
 The dummy data is prepared as below:
 
-![Graph](images/graph06.png)
+![Dummy Data](media/dc-dummy-data.png)
 
 In the graph model, the nodes and edges (relationships) can be defined as the following. As Azure SQL graph uses Edge tables to represent relationships, in our demo, there are two edge tables to record the relationships between Alarm and Quality System, Quality System and Asset.
 
-![Graph](images/graph09.png =300x)
+![Nodes and Edges](media/dc-nodes-edges.png)
 
 After creating the graph model by using the [scripts](src\sql\Create-graph-table.sql), you'll be able to find the 'Graph Tables' shown as below:
 
-![Graph](images/graph04.png)
+![Graph Tables](media/dc-graph-tables.png)
 
 To look up this graph database with nodes and edges, we use the new [MATCH](https://learn.microsoft.com/en-us/sql/t-sql/queries/match-sql-graph?view=sql-server-ver16) clause to match some patterns and traverse through the graph.
 
@@ -147,46 +147,14 @@ FROM [dbo].[Alarm], [dbo].[Asset], [dbo].[Quality_System], [dbo].[belongs_to], [
 WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
 ```
 
-#### Query JSON Data from Graph Table Node Properties
 
-JSON is a popular textual data format that's used for exchanging data in modern web and mobile applications. JSON is also used for storing unstructured data in log files or NoSQL databases such as Microsoft Azure Cosmos DB.
-
-JSON data in SQL Server enable you to combine NoSQL and relational concepts in the same database. Now you can combine classic relational columns with columns that contain documents formatted as JSON text in the same table, parse and import JSON documents in relational structures, or format relational data to JSON text.
-
-The SQL engine supports JSON Data query and graph syntax can work with JSON query as well.
-For example, we input the person details to the column (info) as JSON format. Then MATCH and JSON query can be used as a SQL search condition.
-
-![Graph](images/graph02.png)
-``` SQL
-SELECT Restaurant.name
-FROM Person_Info_Json_demo, likes_Json_demo, Restaurant
-WHERE MATCH (Person_Info_Json_demo-(likes_Json_demo)->Restaurant)
-AND JSON_value(Person_Info_Json_demo.info,'$.age') = '20';
-```
-
-Please refer to more information about [JSON data in SQL Database](https://learn.microsoft.com/en-us/sql/relational-databases/json/json-data-sql-server?view=sql-server-ver15):
-- [ISJSON (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/isjson-transact-sql?view=sql-server-ver15) tests whether a string contains valid JSON.
-- [JSON_VALUE (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-ver15) extracts a scalar value from a JSON string.
-- [JSON_QUERY (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-ver15) extracts an object or an array from a JSON string.
-- [JSON_MODIFY (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/json-modify-transact-sql?view=sql-server-ver15) changes a value in a JSON string.
-
-
-#### Performance of SQL Engine Processing JSON Data
-Azure SQL Database lets you work with text formatted as JSON. There are several ways to improve the performance. 
-
-- Store JSON in [memory-optimized tables](https://learn.microsoft.com/en-us/sql/relational-databases/json/optimize-json-processing-with-in-memory-oltp?view=sql-server-ver16#store-json-in-memory-optimized-tables)
-
-- [Validate the structure of JSON documents](https://learn.microsoft.com/en-us/sql/relational-databases/json/optimize-json-processing-with-in-memory-oltp?view=sql-server-ver16#validate) stored in memory-optimized tables by using natively compiled CHECK constraints.
-- [Expose and strongly type values](https://learn.microsoft.com/en-us/sql/relational-databases/json/optimize-json-processing-with-in-memory-oltp?view=sql-server-ver16#computedcol) stored in JSON documents by using computed columns.
-- [Index values](https://learn.microsoft.com/en-us/sql/relational-databases/json/optimize-json-processing-with-in-memory-oltp?view=sql-server-ver16#index) in JSON documents by using memory-optimized indexes.
-- [Natively compile SQL queries](https://learn.microsoft.com/en-us/sql/relational-databases/json/optimize-json-processing-with-in-memory-oltp?view=sql-server-ver16#compile) that use values from JSON documents or that format results as JSON text.
 
 ### Incremental Data Load
 As the architecture diagram shows, the system should only contextualize the new incoming data, not the whole data set in the delta table. Therefore, an incremental data loading solution is needed.
 
 In delta lake, [Change Data Feed](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) is a feature to simplify the architecture for implementing CDC. Once CDF is enabled, as shown in the diagram below, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row, so that we can evaluate the differences in the changes if needed. There is also a delete Change Type that is returned for deleted rows. Then to query the change data, we use the table_changes operation.
 
-![cdf](images/cdf.jpeg)
+![cdf](media/dc-cdf.jpeg)
 
 In our solution, we enable the change data feed feature for delta tables which store the source data, by using the following command:
 ```
@@ -226,84 +194,119 @@ Please note that enabling CDF will not make significant impact for the system pe
 
 ## Considerations
 
-> REQUIRED STATEMENT: Include the following statement to introduce this section:
-
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
-> How do I need to think about managing, maintaining, and monitoring this long term?
-
-> REQUIREMENTS: 
->   You must include the "Cost optimization" section. 
->   You must include at least two of the other H3 sub-sections/pillars: Reliability, Security, Operational excellence, and Performance efficiency.
-
-### Reliability
-
-> REQUIRED STATEMENT: If using this section, include the following statement to introduce the section:
-
-Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
-
-> This section includes resiliency and availability considerations. They can also be H4 headers in this section, if you think they should be separated.
-> Are there any key resiliency and reliability considerations (past the typical)?
 
 ### Security
 
-> REQUIRED STATEMENT: If using this section, include the following statement to introduce the section:
-
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-> This section includes identity and data sovereignty considerations.
-> Are there any security considerations (past the typical) that I should know about this?
-> Because security is important to our business, be sure to include your Azure security baseline assessment recommendations in this section. See https://aka.ms/AzureSecurityBaselines
+Securing the Azure SQL database is crucial to protect the data and prevent unauthorized access. Here are some best practices we can follow to secure the Azure SQL database:
+* Use strong passwords and enable multifactor authentication (MFA)
+* Implement network security by using Virtual Network (VNet) service endpoints and firewall rules to restrict access to the database from only specific IP addresses and/or subnets.
+* Enable Transparent Data Encryption (TDE) to encrypt data at rest, and use Always Encrypted to encrypt sensitive data in transit.
+* Use role-based access control (RBAC) to limit access to specific operations and resources within the database.
+* Implement data masking to hide sensitive data from unauthorized users.
+* Enable auditing and logging
+* Regularly backup your Azure SQL database to protect against data loss and ensure business continuity in case of a disaster.
+
+Securing Azure Databricks involves implementing a comprehensive security strategy that covers different aspects of the platform, such as data access, network security, authentication, and authorization. Here are some best practices for securing Azure Databricks:
+* Implement Role-Based Access Control (RBAC)
+* Enable Network Security by using Azure Virtual Networks to isolate your Databricks workspace from the internet and restrict inbound and outbound traffic to only necessary sources.
+* Configure your Databricks clusters to use secure communication protocols like HTTPS, and use network security groups to restrict access to the Databricks workspace.
+* Implement Authentication and Authorization
+* Enable Azure Monitor to monitor your Databricks workspace for unusual activity, and enable logging to track user activity and security events.
 
 ### Cost optimization
-
-> REQUIRED: This section is required. Cost is of the utmost importance to our customers.
-
-> REQUIRED STATEMENT: Include the following statement to introduce the section:
-
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-> How much will this cost to run? See if you can answer this without dollar amounts.
-> Are there ways I could save cost?
-> If it scales linearly, than we should break it down by cost/unit. If it does not, why?
-> What are the components that make up the cost?
-> How does scale affect the cost?
+In order to optimize the cost for using Azure SQL Database, we can consider the following:
+* Choose the right pricing tier: Azure SQL Database offers several pricing tiers based on the performance, storage, and features you require. Choose the pricing tier that meets your requirements and budget.
+* Scale up and down as needed.
+* Use serverless compute: Azure SQL Database serverless compute is a cost-effective option for workloads with intermittent and unpredictable usage patterns. With serverless compute, you only pay for the resources you consume.
+* Optimize queries: Improving the efficiency of your queries can reduce the amount of resources needed to process them, which can save costs. You can use Azure SQL Database Query Performance Insight to identify queries that are consuming the most resources and optimize them.
+* Use data compression: Azure SQL Database offers data compression that can reduce the storage requirements of your database. This can help you save costs by reducing the amount of storage you need.
 
-> Link to the pricing calculator (https://azure.microsoft.com/en-us/pricing/calculator) with all of the components in the architecture included, even if they're a $0 or $1 usage.
-> If it makes sense, include small/medium/large configurations. Describe what needs to be changed as you move to larger sizes.
+To enhance cost efficiency while utilizing Azure Databricks, the subsequent factors could be taken into consideration:
+* Choose the right instance type that meets your workload requirements while minimizing costs.
+* Use auto-scaling: With auto-scaling, Azure Databricks automatically scales up or down the number of nodes based on the workload demand, which can help reduce costs by only using the necessary resources.
+* Turn off clusters when not in use.
+* Use monitoring and logging to optimize performance.
 
-### Operational excellence
-
-> REQUIRED STATEMENT: If using this section, include the following statement to introduce the section:
-
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
-
-> This includes DevOps, monitoring, and diagnostics considerations.
-> How do I need to think about operating this solution?
+For both Azure SQL Database and Azure Databricks, you can also use Azure Advisor and review it's personalized recommendations and identify the opportunities to optimize the costs.
 
 ### Performance efficiency
 
-> REQUIRED STATEMENT: If using this section, include the following statement to introduce the section:
-
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-> This includes scalability considerations.
-> Are there any key performance considerations (past the typical)?
-> Are there any size considerations around this specific solution? What scale does this work at? At what point do things break or not make sense for this architecture?
+Here are some tips to improve the performance efficiency of using an Azure SQL Database:
+* Choose the right service tier.
+* Optimize database design: Ensure that your database design is optimized for performance. This includes creating appropriate indexes, partitioning large tables, and using appropriate data types.
+* Use Query Performance Insight: Use Query Performance Insight to identify slow running queries and tune them for better performance.
+* Use Elastic pools: If you have multiple databases with varying workloads, consider using elastic pools to share resources and reduce costs.
+* Enable Auto-tuning: Auto-tuning automatically optimizes the database configuration based on workload patterns.
+* Monitor database performance.
+* Use Azure Cache for Redis: Consider using Azure Cache for Redis to improve database performance by caching frequently accessed data.  
+
+To improve performance efficiency when using Azure Databricks, we can consider the following aspects:
+* Optimize cluster configuration: Make sure you have the right number of worker nodes and the right amount of resources allocated to each node.
+* Use autoscaling: Enable autoscaling to automatically add or remove worker nodes based on cluster utilization. 
+* Use Delta Lake: Delta Lake is a highly performant data lake that can significantly improve query times. It supports ACID transactions, data versioning, and schema enforcement.
+* Use caching: Caching frequently accessed data can significantly reduce query times. You can use Databricks’ caching APIs to cache RDDs, DataFrames, and other data structures.
+* Use efficient data formats: Choose data formats that are efficient for your use case. 
+* Use partitioning: Partition your data by the column that is most frequently used in queries. This can reduce query times by limiting the amount of data that needs to be scanned.
+* Optimize queries: Write efficient queries that use indexes and avoid unnecessary data scans. Use the Databricks query profiler to identify performance bottlenecks.
 
 ## Deploy this scenario
 
-### Prepare relevant Azure services ??
 ### Create SQL Graph
-As mentioned previously, we can use [sql script](src\sql\Create-graph-table.sql) to build the graph model.
-### Create Tbl_alarm_master and Insert Dummy Data
-Create tbl_alarm_master table which is the source data to be contextualized, and enable change data feed feature, so that we can load data incrementally.
+In Azure SQL Database, Use the following SQL script to build the graph model.
+```
+DROP TABLE IF EXISTS Alarm;
+DROP TABLE IF EXISTS Asset;
+DROP TABLE IF EXISTS Quality_System;
+
+CREATE TABLE Alarm(ID INTEGER PRIMARY KEY, Alarm_Type VARCHAR(100)) AS NODE; 
+CREATE TABLE Asset (ID INTEGER PRIMARY KEY,  Asset_ID VARCHAR(100)) AS NODE;
+CREATE TABLE Quality_System (ID INTEGER PRIMARY KEY, Quality_ID VARCHAR(100)) AS NODE;
+
+INSERT INTO Alarm (ID, Alarm_Type)
+    VALUES  (1, 'Fire Warning'),
+            (2, 'Flood Warning'),
+            (3, 'Carbon Monoxide Warning');
+
+INSERT INTO Asset (ID, Asset_ID)
+    VALUES  (1, 'AE0520'),
+            (2, 'AE0530'),
+            (3, 'AE0690');
+
+INSERT INTO Quality_System (ID, Quality_ID)
+    VALUES  (1, 'MA_0520_001'),
+            (2, 'MA_0530_002'),
+            (3, 'MA_0690_003');
+
+DROP TABLE IF EXISTS belongs_to;
+CREATE TABLE belongs_to AS EDGE;
+
+INSERT INTO [dbo].[belongs_to]
+    VALUES  ((SELECT $node_id FROM Alarm WHERE ID = '1'), (SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0520_001')),
+            ((SELECT $node_id FROM Alarm WHERE ID = '2'), (SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0530_002')),
+            ((SELECT $node_id FROM Alarm WHERE ID = '3'), (SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0690_003'));
+
+DROP TABLE IF EXISTS is_associated_with; 
+CREATE TABLE is_associated_with AS EDGE;
+
+INSERT INTO [dbo].[is_associated_with]
+    VALUES  ((SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0520_001'), (SELECT $node_id FROM Asset WHERE ID = '1')),
+            ((SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0530_002'), (SELECT $node_id FROM Asset WHERE ID = '2')),
+            ((SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0690_003'), (SELECT $node_id FROM Asset WHERE ID = '3'));
+```
+### Create tbl_alarm_master Table and Insert Dummy Data
+In Azure Databricks, create a delta table ```tbl_alarm_master``` that is the source data to be contextualized, and enable change data feed feature, so that we can load data incrementally.
 ```
 %sql
 CREATE TABLE tbl_alarm_master (alarm_id INT, alarm_type STRING, alarm_desc STRING, valid_from TIMESTAMP, valid_till TIMESTAMP) 
 USING DELTA
-LOCATION '/mnt/honeywell/raw/tbl_alarm_master'
+LOCATION '/mnt/contoso/raw/tbl_alarm_master'
 TBLPROPERTIES (delta.enableChangeDataFeed = true)
 ```
 Insert sample data into this table.
@@ -316,12 +319,12 @@ INSERT INTO tbl_alarm_master VALUES
 ```
 
 ### Create Table_commit_version
-Create table_commit_version so that we can record last commit version for each table.
+In Azure Databricks, create a delta table named ```table_commit_version``` so that we can record last commit version for each table.
 ```
 %sql
 CREATE TABLE table_commit_version (table_name STRING, last_commit_version LONG, updated_at TIMESTAMP)
 USING DELTA
-LOCATION '/mnt/honeywell/table_commit_version'
+LOCATION '/mnt/contoso/table_commit_version'
 ```
 Insert one record into this table to set last_commit_version to 1.
 ```
@@ -329,8 +332,8 @@ Insert one record into this table to set last_commit_version to 1.
 INSERT INTO table_commit_version VALUES('tbl_alarm_master', 1, current_timestamp())
 ```
 
-### Connect Azure SQL Database Using JDBC
-Azure Databricks supports connecting to external databases using JDBC. It is necessary to connect SQL Graph with Azure Databricks for further operations.
+### Connect Azure SQL Database by Using JDBC
+Azure Databricks supports connecting to external databases using JDBC. It is necessary to connect Azure SQL Graph with Azure Databricks for further operations.
 ```
 jdbcUsername = "<Username>"
 jdbcPassword = "<Password>"
@@ -356,7 +359,7 @@ ala2ass = spark.read \
 Using the T-SQL query above, we can query the knowledge graph model to get the relationship between Asset and Alarm.
 
 ### Contextualize the Source Data
-Using process_data method to contextualize source data tbl_alarm_master, adding information about asset.
+Using ```process_data``` method to contextualize source data from table ```tbl_alarm_master```, adding information about asset.
 ```
 def process_data(system): 
      # Get last_commit_version in table_commit_version for the data source table
@@ -382,7 +385,7 @@ def process_data(system):
 ```
 
 ### Write Data to the Relational Data Store
-For simplicity, we save the contextualized data to the corresponding table in the SQL database.
+After being contextualized, the data can be save to another store for later consumption. For simplicity, in this sample, we save the contextualized data to the corresponding table in the SQL database.
 ```
 df_alarm_master.write \
                .format("jdbc") \
@@ -391,14 +394,14 @@ df_alarm_master.write \
                .mode("append") \
                .save()
 ```
-
+Now, from end to end, we have incrementally loaded the incoming data, queried the conext information from Azure SQL Graph and contextualized the data, and then save it to Azure SQL Database.
 
 ## Contributors
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors: 
  - [Anuj Parashar](https://www.linkedin.com/in/promisinganuj/) | Senior Data Engineer
- - [Chenshu Cai](http://linkedin.com/ProfileURL) | Software Engineer
+ - [Chenshu Cai](https://www.linkedin.com/in/chenshu-cai-703481170/) | Software Engineer
  - [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673/) | Software Engineer
  - [Hong Bu](https://www.linkedin.com/in/hongbu/) | Senior Program Manager
  - [Gary Wang](https://www.linkedin.com/in/gang-gary-wang/) | Principal Software Engineer
@@ -406,23 +409,11 @@ Principal authors:
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
-
-> Link to Learn articles, along with any third-party documentation.
-> Where should I go next if I want to start building this?
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful? Are there product documents that go into more detail on specific technologies that are not already linked?
-
-Examples:
-* [Azure Kubernetes Service (AKS) documentation](/azure/aks)
-* [Azure Machine Learning documentation](/azure/machine-learning)
-* [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
-* [What is Language Understanding (LUIS)?](/azure/cognitive-services/luis/what-is-luis)
-* [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
-* [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
-* [Introduction to Bot Framework Composer](/composer/introduction)
-* [What is Application Insights](/azure/azure-monitor/app/app-insights-overview)
+* [What is Azure Cosmos DB for Apache Gremlin](https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/introduction)
+* [The Leading Graph Data Platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
  
 ## Related resources
 * [Graph processing with SQL Server and Azure SQL Database](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 * [Use Delta Lake change data feed on Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) 
 * [How to Simplify CDC With Delta Lake's Change Data Feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
+* [PostgreSQL Graph Search Practices - 10 Billion-Scale Graph with Millisecond Response](https://www.alibabacloud.com/blog/postgresql-graph-search-practices---10-billion-scale-graph-with-millisecond-response_595039)
