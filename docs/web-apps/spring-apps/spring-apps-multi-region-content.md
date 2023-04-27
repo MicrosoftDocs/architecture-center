@@ -3,7 +3,7 @@ This reference architecture runs multiple Azure Spring Apps instances across reg
 
 This design builds on the [**Azure Spring Apps baseline architecture**](spring-apps-multi-zone.yml) that deploys a Java Spring Boot application to multiple [availability zones](/azure/availability-zones/az-overview#availability-zones) within a single region. The multiple zones spread the application workload across separate locations that it can tolerate local failures within the Azure region.
 
-However, if the entire region experiences an outage, the baseline will become unavailable to the user. The intent of this design build high availabily that can withstand a regional outage. 
+However, if the entire region experiences an outage, the baseline will become unavailable to the user. The intent of this design is to build high availabily that can withstand a regional outage. 
 
 This architecture was designed to meet these goals:
 
@@ -14,11 +14,7 @@ This architecture was designed to meet these goals:
 
 To increase application resilience and reliability, you can deploy the application to multiple regions. For this design, you would need a global router to load balance requests to your applications across regions. The global router chosen for this architecture also addresses other goals. 
 
-
-
 The biggest challenge with a multi-region setup is replicating the data for your application between multiple regions. This isn't an issue with the multi-zone setup. Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2 ms. This latency is OK for most applications.
-
-
 
 > [!TIP]
 > ![GitHub logo](../../_images/github.svg) The architecture is backed by an [**example implementation**](https://github.com/Azure-Samples/azure-spring-apps-multi-region) that illustrates design choices that deal with the challenges of multi-region deployment, automation, and traffic routing.  
@@ -30,7 +26,7 @@ The biggest challenge with a multi-region setup is replicating the data for your
 *Download a [Visio file](https://arch-center.azureedge.net/ha-zr-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.*
 ### Components
 
-The components of this architecture are same as the [**baseline architecture**](spring-apps-multi-zone-content.md#components). This list only highlights the changes to that architecture. For product documentation about Azure services, see [Related resources](#related-resources).
+The components of this architecture are same as the [**baseline architecture**](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#components). This list only highlights the changes to that architecture. For product documentation about Azure services, see [Related resources](#related-resources).
 
 - **Azure Front Door** acts as the global load balancer. It was chosen because of its capability to deliver higher availability with lower latency, greater scale, and caching at the edge. 
 
@@ -52,7 +48,7 @@ The components of this architecture are same as the [**baseline architecture**](
 
 If you're designing for high availability, you can set up this architecture in an *active-active*, *active-passive with hot standby*, or *active-passive with cold standby* mode.
 
-That choice will depend on your business requirements. This architecture uses active-active deployment in two regions because the organization wants to have a global presence with high Uptime SLA (Service Level Agreement). If you're running mission-critical applications and want higher availability, you'll need to use more than two regions. 
+That choice depends on your business requirements. This architecture uses active-active deployment in two regions because the organization wants to have a global presence with high Uptime SLA (Service Level Agreement). If you're running mission-critical applications and want higher availability, you need to use more than two regions. 
 
 > [!NOTE] 
 > 
@@ -76,7 +72,7 @@ The secondary region doesn't receive any requests from Azure Front Door as long 
   
 ##### Active-passive with cold standby
 
-The primary region has all the resources and serves traffic. The secondary region might have fewer components, or components with lower compute resources. The technology choices will depend on how much downtime is acceptable as per the business requirements. The extent of your secondary region setup also affects costs. Make sure that at least application data is present in the secondary region.
+The primary region has all the resources and serves traffic. The secondary region might have fewer components, or components with lower compute resources. The technology choices depend on how much downtime is acceptable as per the business requirements. The extent of your secondary region setup also affects costs. Make sure that at least application data is present in the secondary region.
 
   - It's easier to keep the data synchronized because failover is expected to take some time.
   - This mode is the most cost effective, because you don't deploy all the resources to both regions.
@@ -87,7 +83,7 @@ If your entire solution setup uses templates, you can easily deploy a cold stand
 
 > [!IMPORTANT]
 > For mission-critical workloads, we recommend combining zone redundancy and regional redundancy to achieve maximum reliability and availability, with zone-redundant services deployed across multiple Azure regions.
-> For more information, refer to the [Global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#global-distribution) section of the mission-critical design methodology, and the [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
+> For more information, see the [Global distribution](/azure/architecture/framework/mission-critical/mission-critical-application-design#global-distribution) section of the mission-critical design methodology, and the [Mission-critical baseline architecture](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-intro).
 > You can also use the [Deploy Azure Spring Apps to multiple regions guidance](/azure/architecture/reference-architectures/microservices/spring-apps-multi-region) for an automated setup across regions.
 
 ## Routing between regions
@@ -98,7 +94,7 @@ Azure Front Door is configured with equal routing between the two deployment reg
 
 This example uses an equal-weight load balancing rule between the two regions. Azure Front Door is configured with:
 
-   - A custom domain and a transport-layer security (TLS) certificate that are named the same as the application host name, for example `www.contoso.com`.
+   - A custom domain and a transport-layer security (TLS) certificate that is named the same as the application host name, for example `www.contoso.com`.
    
    - One origin per region where the application is deployed. Each origin is an [Azure Application Gateway](/azure/application-gateway/overview) instance.
 
@@ -195,17 +191,17 @@ The cost of services was estimated in [Azure pricing calculator](https://azure.c
 
 The design considerations for the [**baseline architecture**](spring-apps-multi-zone.yml) still apply in this use case. Review these points in the context of this architecture: 
 
-- **Newtork security**. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the backend database and the key vault, is also locked down by using private endpoints. The most important guideline when you use a different PaaS service is to properly configure host name preservation for the custom domain in the service.
+- **Network security**. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the backend database and the key vault, is also locked down by using private endpoints. The most important guideline when you use a different PaaS service is to properly configure host name preservation for the custom domain in the service.
 
-  > For details, see [Baseline architecture: Network security](spring-apps-multi-zone-content.md#network-security)
+  > For details, see [Baseline architecture: Network security](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#network-security)
 
 - **Identity and access management**. Access is further secured through managed identities to connect between different components. For example, Azure Spring Apps uses a managed identity to connect to Key Vault.
 
-  > For details, see [Baseline architecture: Identity and access management](spring-apps-multi-zone-content.md#identity-and-access-management)
+  > For details, see [Baseline architecture: Identity and access management](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#identity-and-access-management)
 
 - **Monitoring**. Add instrumentation and enable distributed tracing to collect data from the application. Combine that data source with platform diagnostics to get an end-to-end insight into your application. 
 
-> For details, see [Baseline architecture: Monitoring](spring-apps-multi-zone-content.md#monitoring).
+> For details, see [Baseline architecture: Monitoring](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#monitoring).
 
 
 ## Deploy this scenario
@@ -222,33 +218,34 @@ Principal author:
 
  - [Gitte Vermeiren](https://www.linkedin.com/in/gitte-vermeiren-b1b2221) | FastTrack for Azure Engineer
 
-Other contributors:
-
- - [Jelle Druyts](https://www.linkedin.com/in/jelle-druyts-0b76823) | FastTrack for Azure Engineer
- - [Christof Claessens](https://www.linkedin.com/in/christofclaessens) | FastTrack for Azure Engineer
-
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
-
 ## Next steps
 
-- [What are Azure regions and availability zones?](/azure/reliability/availability-zones-overview)
-- [Azure Spring Apps reference architecture](/azure/spring-cloud/reference-architecture)
-- [Best practices for Azure Front Door](/azure/frontdoor/best-practices)
-- [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
+To integrate this workload with shared services managed by central teams in your organization, deploy it in Azure application landing zone. 
+
+> [!div class="nextstepaction"]
+> [Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml)
 
 ## Related resources
 
+For documentation on the Azure services and features used in this architecture, see these articles.
+
+- [Azure Spring Apps](/azure/spring-apps/)
+- [Azure Front Door](/azure/frontdoor/)
+- [Azure Application Gateway v2](/azure/application-gateway/overview-v2)
+- [Azure Database for MySQL](/azure/mysql/overview)
+- [Azure Key Vault](/azure/key-vault/)
+- [Azure DNS](/azure/dns/dns-overview)
+- [Azure Web Application Firewall](/azure/web-application-firewall/overview)
+- [Azure Private Link](/azure/private-link/private-link-overview)
+- [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview)
+
+We recommend these guides to get deeper understanding around the choices made in this architecture:
+
 - [Expose Azure Spring Apps through a reverse proxy](spring-cloud-reverse-proxy.yml)
-- [High-availability blue/green deployment](../../example-scenario/blue-green-spring/blue-green-spring.yml)
+- [High-availability blue/green deployment](/blue-green-spring.yml)
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](../../best-practices/host-name-preservation.yml)
 - [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml)
 
-
-#### Multi-region deployment
-
-
-
-You can also combine a multi-zone solution with a multi-region solution.
 
 
 

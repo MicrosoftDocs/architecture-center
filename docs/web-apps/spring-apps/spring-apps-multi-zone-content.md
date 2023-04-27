@@ -83,7 +83,7 @@ Depending on your database setup, you might incur extra latency when data needs 
 
 ## Network security
 
-The application needs to be protected from unauthorized access from the internet, systems in private networks, other Azure services, and even some tighly coupled dependencies.
+The application needs to be protected from unauthorized access from the internet, systems in private networks, other Azure services, and even some tightly coupled dependencies.
 
 [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for a private network in Azure. This architecture uses a virtual network for each region that you use for deployment. Components are placed in subnets to create further isolation. For example, Azure Spring Apps requires a dedicated subnet for the service runtime and a separate subnet for Spring Boot applications.
 
@@ -184,7 +184,7 @@ Principal author:
 
 - [Gitte Vermeiren](https://www.linkedin.com/in/gitte-vermeiren-b1b2221) | FastTrack for Azure Engineer
 
-*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
