@@ -135,7 +135,7 @@ In the graph model, the nodes and edges (relationships) can be defined as the fo
 
 ![Nodes and Edges](media/dc-nodes-edges.png)
 
-After creating the graph model by using the [scripts](#the-create-sql-graph), you'll be able to find the 'Graph Tables' shown as below:
+After creating the graph model by using the [scripts](#create-sql-graph), you'll be able to find the 'Graph Tables' shown as below:
 
 ![Graph Tables](media/dc-graph-tables.png)
 
