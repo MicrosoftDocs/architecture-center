@@ -142,15 +142,18 @@ This solution stores the application secrets and certificates in a single key va
 
 ## Monitoring
 
-Integrate all components of this solution with [Azure Monitor](/azure/azure-monitor/overview) logs to provide end-to-end insight into your application.
+Add instrumentation to your application to emit log and metrics at the code level. Also consider enabling distributed tracing to get observability across different services within the Spring Apps instance. Use an Application Performance Management (APM) tool to collect that data. [Application Insights](/azure/azure-monitor/app/app-insights-overview) Java agent is a good choice for the APM tool.
 
-You can use [Application Insights](/azure/azure-monitor/app/app-insights-overview) in [Azure Monitor](/azure/azure-monitor/overview) to get logs and metrics from the application. This  comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
+In addition, use platform diagnostics to get logs and metrics from all the Azure services. Integrate all data with [Azure Monitor](/azure/azure-monitor/overview) logs to provide end-to-end insight into your application.
+
+This comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
+
 
 ## Automated deployment
 
-Automate your deployments as much as possible. You should automate infrastructure deployment and application code deployments.
+Automate your infrastructure deployment and application code deployments, as much as possible.
 
-Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between environments). Infrastructure automation can also test fail over operations and quickly bringing up a secondary region.
+Automating infrastructure deployments guarantees that infrastructure is configured identically, avoiding configuration drift (for example, between environments). Infrastructure automation can also test fail over operations.
 
 You can also use a [blue-green](/azure/architecture/example-scenario/blue-green-spring/blue-green-spring) or canary deployment strategy.
 
