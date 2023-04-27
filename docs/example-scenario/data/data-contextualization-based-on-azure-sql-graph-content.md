@@ -1,4 +1,4 @@
-Data contextualization is the process of putting the information relevant to the data based on the context information, and it can improve the efficiency of big data processing and make the data useful and easier for interpretation. This article demonstrates how to contextualize data by looking up the relevant context that has been stored in the graph model in Azure SQL database. 
+Data contextualization is the process of putting the information relevant to the data based on the context information. It can improve the efficiency of big data processing and make the data useful and easier for interpretation. This article demonstrates how to contextualize data by looking up the relevant context that has been stored in the graph model in Azure SQL database. 
 
 ## Architecture
 
@@ -8,9 +8,9 @@ The following diagram shows the high-level architecture for our sample solution 
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
-In this architecture, the data from a delta lake (Silver Layer) is read incrementally, contextualized based on a graph lookup, and finally merged into a SQL database as well as another delta lake (Gold Layer).
+In this architecture, the data from a delta lake (Silver Layer) is read incrementally, contextualized based on a graph lookup, and finally merged into a SQL database and another delta lake (Gold Layer).
 
-Here are the details about the terminologies which has been used and processes definitions:
+Here are the details about the terminologies that have been used and processes definitions:
 
 ### Silver Layer
 
@@ -22,9 +22,9 @@ The data in the Silver layer has been stored in [Delta Lake](https://docs.databr
 
 ### Incremental Data Load 
 
-The solution performs incremental data processing i.e., only the data which has been modified or added since the last run is processed. This is a typical requirement for batch processing so that the data can be processed quickly and economically. 
+The solution performs incremental data processing, thus only the data that has been modified or added since the last run is processed. This is a typical requirement for batch processing so that the data can be processed quickly and economically. 
 
-Refer to the [incremental data load](#incremental-data-load-1) section for more detials.
+Refer to the [incremental data load](#incremental-data-load-1) section for more details.
 
 ### Data Contextualization
 
@@ -36,11 +36,11 @@ Also, the solution uses Azure Databricks for this data contextualization process
 
 ### Graph Database
 
-This is the database which holds the actual graph. There are many options to choose for the graph database choice such as Neo4j, Redis Graph, GraphQL over CosmosDB and so on. In this case, the [graph capabilities of SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) has been used for the creation of the graph.
+This is the database that holds the actual graph. There are many options to choose for the graph database choice such as Neo4j, Redis Graph, GraphQL over CosmosDB and so on. In this case, the [graph capabilities of SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) has been used for the creation of the graph.
 
 ### Azure SQL Database
 
-For storing the contextualized data, [Azure SQL database](https://azure.microsoft.com/en-au/products/azure-sql/database/) has been used but it can be any other storage option. To ensure idempotent processing, the data has been "merge" into the source system rather than simply been appended.
+For storing the contextualized data, [Azure SQL database](https://azure.microsoft.com/en-au/products/azure-sql/database/) has been used but it can be any other storage option. To ensure idempotent processing, the data has been "merge" into the source system rather than been appended.
 
 ### Dataflow
 
@@ -62,18 +62,18 @@ In the market, there are many graph databases to choose. Here is a Graph Databas
 
 | Name      | Azure Cosmos DB for Apache Gremlin| Neo4j | Azure Database for PostgreSQL| Azure SQL Database Graph| RedisGraph|
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Description |NoSQL JSON database for rapid, iterative app development.|Neo4j stores data in nodes connected by directed,typed relationships with properties on both,also known as a Property Graph|PostgreSQL is an object-relational database management system (ORDBMS) based on POSTGRES. CTE mechanism provides graph search (N-depth, shortest path etc) capabilities, and Apache AGE which is a PostgreSQL extension also provides graph database functionality.|SQL Server offers graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.|RedisGraph is based on a unique approach and architecture that translates Cypher queries to matrix operations executed over a GraphBLAS engine.A high-performance graph database implemented as a Redis module.|
+| Description |NoSQL JSON database for rapid, iterative app development.|Neo4j stores data in nodes connected by directed,typed relationships with properties on both,also known as a Property Graph|PostgreSQL is an object-relational database management system (ORDBMS) based on POSTGRES. CTE mechanism provides graph search (N-depth, shortest path etc.,) capabilities, and Apache AGE, which is a PostgreSQL extension also provides graph database functionality.|SQL Server offers graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.|RedisGraph is based on a unique approach and architecture that translates Cypher queries to matrix operations executed over a GraphBLAS engine.A high-performance graph database implemented as a Redis module.|
 | [Workload Type](https://csefy19.visualstudio.com/CSE_Engineer_for_Reuse/_git/Data-GraphDB?path=%2Fanalysis.md&anchor=asset-modeling-%28manufacturing%2Fenergy%29&_a=preview)| OLTP|OLTP|OLTP|OLTP|OLTP|
 | [Design Type](https://csefy19.visualstudio.com/CSE_Engineer_for_Reuse/_git/Data-GraphDB?path=%2Fanalysis.md&anchor=asset-modeling-%28manufacturing%2Fenergy%29&_a=preview)|Multi-modal|Dedicated|SQL Plugin|SQL Plugin|Multi-modal|
 | Azure Managed Service|Yes|In Azure Marketplace, Neo4j offers the single and causal cluster versions of the Enterprise Edition|Graph extension--Apache Age is not supported for Azure| Yes |No |
 |Query Language|[Gremlin query language](https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/tutorial-query)|[CypherQL](https://neo4j.com/docs/cypher-manual/5/introduction/)|[CypherQL, SQL (allow Recursive CTEs)](https://age.apache.org/age-manual/master/intro/overview.html)|[Transact-SQL](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture?view=sql-server-ver16#transact-sql-reference)|[Subset of OpenCypher](https://redis.io/docs/stack/graph/cypher_support/)|
-|Performance|low latency, fast queries and traversals|Not as performant as some of the competitors|Graph schema can be easily and significantly customized to include your requirements without affecting performance. Outstanding query performance in multiple joins via graph model|High availability|Claims high performance owing to using adjacency matrices|
+|Performance|low latency, fast queries and traversals|Not as performant as some of the competitors|Graph schema can be easily and customized to include your requirements without affecting performance. Outstanding query performance in multiple joins via graph model|High availability|Claims high performance owing to using adjacency matrices|
 |[MapReduce](https://db-engines.com/en/system/Microsoft+Azure+Cosmos+DB%3BMicrosoft+SQL+Server%3BNeo4j%3BPostgreSQL%3BRedis)|with Hadoop integration|No|No|No|through RedisGears|
 |Scale|automatic horizontal [partitioning](https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview)|scales writes vertically and reads horizontally|horizontal and vertical scaling|horizontal and vertical scaling|horizontal and vertical scaling|
 |[Partitioning methods](https://db-engines.com/en/system/Microsoft+Azure+Cosmos+DB%3BMicrosoft+SQL+Server%3BNeo4j%3BPostgreSQL%3BRedis)|Sharding|Neo4j Fabric|Partitioning by range, list and by hash|Sharding|Sharding|
-|[Multi-Tenancy](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview)|Container per tenant, Database per tenant, Database account per tenant|Database per tenant,(Community edition limited to single database)|Schema per tenant, Database per tenant|Database per tenant|Graph Per Tenant|
-|Filter|Perform filters using Gremlin's has and hasLabel|CypherQL for filitering|Hybrid Querying|using T-SQL|A query can filter out entities by creating predicates like using where argument|
-|[Benchmark](https://github.com/RedisGraph/graph-database-benchmark)|[For a 1 KB document: a read costs 1 RU, a write costs 5 RU](https://learn.microsoft.com/en-us/azure/cosmos-db/request-units)|Cypher O(1) access using fixed-size array|12,000TPS/2.1ms per query with 5 bilion nodes|-|[RedisGraph is able to create over 1 million nodes under half a second and form 500K relations within 0.3 of a second, inserting a new relationship is done in O(1)](https://redis.io/docs/stack/graph/design/)|
+|[Multi-Tenancy](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview)|Container per tenant, Database per tenant, Database account per tenant|Database per tenant(Community edition limited to single database)|Schema per tenant, Database per tenant|Database per tenant|Graph Per Tenant|
+|Filter|Perform filters using Gremlin's has and hasLabel|CypherQL for filtering|Hybrid Querying|using T-SQL|A query can filter out entities by creating predicates like using where argument|
+|[Benchmark](https://github.com/RedisGraph/graph-database-benchmark)|[For a 1-KB document: a read costs 1 RU, a write costs 5 RU](https://learn.microsoft.com/en-us/azure/cosmos-db/request-units)|Cypher O(1) access using fixed-size array|12,000TPS/2.1ms per query with 5 billion nodes|-|[RedisGraph is able to create over 1 million nodes under half a second and form 500 K relations within 0.3 of a second, inserting a new relationship is done in O(1)](https://redis.io/docs/stack/graph/design/)|
 |Support Shortest path|[Yes](https://tinkerpop.apache.org/docs/current/recipes/#shortest-path)|[Yes](https://neo4j.com/docs/graph-data-science/current/algorithms/pathfinding/)|Not provide any such function|[SHORTEST_PATH](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-shortest-path?view=sql-server-ver16) function can only be used inside MATCH, which finds an unweighted shortest path|[Yes](https://redis.io/commands/graph.query/#path-functions)|
 |Support Page ranking|[Yes](https://tinkerpop.apache.org/docs/current/recipes/#pagerank-centrality)|[Yes](https://neo4j.com/docs/graph-data-science/current/algorithms/page-rank/)|Not provide any such function|Not provide any such function|[Yes](https://redis.io/commands/graph.query/#path-functions)|
 |[Deployment Options](https://cycode.engineering/blog/aws-neptune-neo4j-arangodb-or-redisgraph-how-we-at-cycode-chose-our-graph-database/)|Cloud Offering|Cloud & Self-Hosted (Enterprise Edition requires commercial license)|Cloud Offering, but Apache AGE (AGE) Extension is not supported on Azure database for PostgreSQL|Cloud Offering|Cloud & Self-Hosted|
@@ -86,32 +86,32 @@ Reference Links:
 5. [Redis Graph](https://redis.io/docs/stack/graph/)
 6. [PostgreSQL Apache Age](https://age.apache.org/age-manual/master/intro/overview.html)
 
-Finnally we choose to use Azure SQL Database, because:
-* It's an Azure managed relational database servcie with graph capabilities.
-* It's easy to get started since we are farmiliar with SQL Server or Azure SQL Database.
+Finally we choose to use Azure SQL Database, because:
+* It's an Azure managed relational database service with graph capabilities.
+* It's easy to get started since we are familiar with SQL Server or Azure SQL Database.
 * We'll also benefit from using Transact-SQL since the graph database is based on SQL Database.
 
 ## Scenario details
 ### Sample scenario
 The sample solution in this article is derived from the scenario described below.
 
-Let’s imagine Gary is an operation engineer from Contoso company and one of his reponsibility is to provide a weekly health check report for the enterprise assets from Contoso’s factories within his city. 
+Let’s imagine Gary is an operation engineer from Contoso company and one of his responsibility is to provide a weekly health check report for the enterprise assets from Contoso’s factories within his city. 
 
-First, Gary has to fetch all the asset ID he is interested in from the company’s ‘Asset’ system,  then look for all the attributes belong to the asset as the input for the health check report, e.g., the operation efficiency data of the asset with ID ‘AE0520’. 
+First, Gary has to fetch all the asset ID he is interested in from the company’s ‘Asset’ system,  then look for all the attributes belong to the asset as the input for the health check report, for example, the operation efficiency data of the asset with ID ‘AE0520’. 
 
 ![Scenario Demonstration](media/dc-scenario.png)
 
 Contoso has many market leading products and applications to help factory owners to monitor the processes and operations, and the operation efficiency data is recorded in another application system called ‘Quality system’. 
 
-So Gary logged in the ‘Quality system’ and used the asset ID ‘AE0520’ to look up the table from AE_OP_EFF which contains the all the key attributes for operation efficiency data.
+So Gary logged in the ‘Quality system’ and used the asset ID ‘AE0520’ to look up the table from AE_OP_EFF, which contains the all the key attributes for operation efficiency data.
 
-There are many columns in the AE_OP_EFF table and Gary is speficially interested in the ‘alarm’ status. However the details for the most critical alarms of the asset is kept in another table called ‘alarm’. Gary needs to record the key ID ‘MA_0520’ of ‘alarm’ table which correspoinding to the asset ‘AE0520’, as they are using different naming conventions.  
+There are many columns in the AE_OP_EFF table and Gary is especially interested in the ‘alarm’ status. However the details for the most critical alarms of the asset are kept in another table called ‘alarm’. Gary needs to record the key ID ‘MA_0520’ of ‘alarm’ table corresponding to the asset ‘AE0520’, as they are using different naming conventions.  
  
-In the reality, the relationship is much more complicated than this. Gary has to search for more than one attribute of the asset and has to log in to many more tables from different systems to get all the data for a complete report. Gary used query and script to faciliate his work but the queries become complicated and hard to maintain. Even worse thing is, the systems are growing and the demand of the report is changing, that more data needs to be added to the report for different decision makers’ perspectives. 
+In the reality, the relationship is much more complicated than this. Gary has to search for more than one attribute of the asset and has to log in too many tables from different systems to get all the data for a complete report. Gary used query and script to facilitate his work but the queries become complicated and hard to maintain. Even worse thing is, the systems are growing and the demand of the report is changing, that more data needs to be added to the report for different decision makers’ perspectives. 
 
-One of the major pain points for Gary is, the ID of one asset in different system are different, as these systems have been developed and  mainained  separately and even using different protocols. He has to manually query the different tables to get the data for the same asset, that caused his query not only complex but also difficult to understand without domain expertise. He uses a lot of time to recruit to the newly onboarded operation engineer and explain the relationships behind. 
+One of the major pain points for Gary is, the ID of one asset in different system are different, as these systems have been developed and  maintained  separately and even using different protocols. He has to manually query the different tables to get the data for the same asset that caused his query not only complex but also difficult to understand without domain expertise. He uses a lot of time to recruit to the newly onboarded operation engineer and explain the relationships behind. 
 
-If there is a mechnism to ‘link’ the different names but belong to the same asset across systems, Gary’s life will be much easier and his report query will be much simplier.
+If there is a mechanism to ‘link’ the different names but belong to the same asset across systems, Gary’s life will be much easier, and his report query will be much simpler.
 
 ### Graph Design
 Azure SQL Database offers graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Database as the foundational database management system.
@@ -121,9 +121,9 @@ A graph database is a collection of nodes (or vertices) and edges (or relationsh
 ![Graph Database](media/dc-graph-database.png)
 
 #### Design the Graph Model for the Demo
-For the scenario described preiously, we can design the graph model as below:
+For the scenario described previously, we can design the graph model as below:
 * 'Alarm' is one of the metrics that belong to the 'Quality System'
-* The 'Quality System' is assocated with an 'Asset'
+* The 'Quality System' is associated with an 'Asset'
 
 ![Graph Design](media/dc-graph-design.png)
 
@@ -152,11 +152,11 @@ WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
 ### Incremental Data Load
 As the architecture diagram shows, the system should only contextualize the new incoming data, not the whole data set in the delta table. Therefore, an incremental data loading solution is needed.
 
-In delta lake, [Change Data Feed](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) is a feature to simplify the architecture for implementing CDC. Once CDF is enabled, as shown in the diagram below, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row, so that we can evaluate the differences in the changes if needed. There is also a delete Change Type that is returned for deleted rows. Then to query the change data, we use the table_changes operation.
+In delta lake, [Change Data Feed](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) is a feature to simplify the architecture for implementing CDC. Once CDF is enabled, as shown in the diagram below, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row. So that we can evaluate the differences in the changes if needed. There is also a delete Change Type that is returned for deleted rows. Then to query the change data, we use the table_changes operation.
 
 ![cdf](media/dc-cdf.jpeg)
 
-In our solution, we enable the change data feed feature for delta tables which store the source data, by using the following command:
+In our solution, we enable the change data feed feature for delta tables that store the source data, by using the following command:
 ```
 CREATE TABLE tbl_alarm_master 
   (alarm_id INT, alarm_type STRING, alarm_desc STRING, valid_from TIMESTAMP, valid_till TIMESTAMP)
@@ -173,7 +173,7 @@ SELECT * from table_changes('tbl_alarm_master',2)
 ```
 For more samples, please refer to [Change Data Feed demo](https://docs.databricks.com/_extras/notebooks/source/delta/cdf-demo.html).
 
-As you can see, we can leverage Change Data Feed feature to load the data incrementally. In order to get the last commit version number, we can store the relevant information into another delta table:
+As you can see, we can use Change Data Feed feature to load the data incrementally. In order to get the last commit version number, we can store the relevant information into another delta table:
 ```
 CREATE TABLE table_commit_version
 	( table_name STRING, last_commit_version LONG)
@@ -185,12 +185,12 @@ Every time we load the newly added data in raw_system_1, we take the following s
 * Get the largest commit version number of table tbl_alarm_master
 * Update last_commit_version in table table_commit_version for the next query
 
-Please note that enabling CDF will not make significant impact for the system performance and cost. The change data records are generated in line during the query execution process, and are generally much smaller than the total size of rewritten files.
+Note that enabling CDF will not make significant impact for the system performance and cost. The change data records are generated in line during the query execution process, and are much smaller than the total size of rewritten files.
 
 ### Potential use cases
 
 * A manufacturing solution provider would like to contextualize the master data and event data provided by its customers continuously. Since the context information is too complicated to be represented by relational tables, graph models are used for data contextualization.
-* A process engineer in the factory needs to troubleshoot for an issue of the factory equipment. The graph model stores the all the related data, direct or indirect, of the troubleshooting equipment that can provide a overall information for root cause analysis. 
+* A process engineer in the factory needs to troubleshoot for an issue of the factory equipment. The graph model stores the all the related data, direct or indirect, of the troubleshooting equipment that can provide an overall information for root cause analysis. 
 
 ## Considerations
 
@@ -219,7 +219,7 @@ Securing Azure Databricks involves implementing a comprehensive security strateg
 ### Cost optimization
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In order to optimize the cost for using Azure SQL Database, we can consider the following:
+In order to optimize the cost for using Azure SQL Database, we can consider the following items:
 * Choose the right pricing tier that meets your requirements and budget.
 * Scale up and down as needed.
 * Use serverless compute.
@@ -232,7 +232,7 @@ To enhance cost efficiency while utilizing Azure Databricks, the subsequent fact
 * Turn off clusters when not in use.
 * Use monitoring and logging to optimize performance.
 
-For both Azure SQL Database and Azure Databricks, you can also use Azure Advisor and review it's personalized recommendations and identify the opportunities to optimize the costs.
+For both Azure SQL Database and Azure Databricks, you can also use Azure Advisor and review its personalized recommendations and identify the opportunities to optimize the costs.
 
 ### Performance efficiency
 
@@ -344,7 +344,7 @@ jdbcDatabase ="<DatabaseName>"
 jdbc_url = f"jdbc:sqlserver://{jdbcHostname}:{jdbcPort};database={jdbcDatabase};user={jdbcUsername};password={jdbcPassword};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;"
 ```
 
-You must configure a number of settings to read data using JDBC, and then get expected data by T-SQL query.
+You must configure many settings to read data using JDBC, and then get expected data by T-SQL query.
 
 ```
 pushdown_query = "(SELECT a.Alarm_Type, b.Asset_ID\
