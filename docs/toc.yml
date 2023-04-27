@@ -6237,6 +6237,8 @@ items:
           href: solution-ideas/articles/mainframe-access-azure-databases.yml
         - name: Mainframe file replication on Azure
           href: solution-ideas/articles/mainframe-azure-file-replication.yml
+        - name: SMA OpCon in Azure
+          href: solution-ideas/articles/sma-opcon-azure.yml
   - name: Management + Governance
     items:
     - name: Get started
