@@ -20,4 +20,4 @@ name: Use Azure SQL Graph to contextualize data
 summary: Data contextualization is the process of putting the information relevant to the data based on the context information, and it can improve the efficiency of big data processing and make the data useful and easier for interpretation. This article demonstrates how to contextualize data by looking up the relevant context that has been stored in the graph model in Azure SQL database.
 thumbnailUrl: /azure/architecture/browse/thumbs/data-contextualization-based-on-azure-sql-graph.png
 content: |
-  [!include[](data-contextualization-based-on-azure-sql-graph.md)]
+  [!include[](data-contextualization-based-on-azure-sql-graph-content.md)]
