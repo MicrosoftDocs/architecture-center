@@ -523,9 +523,9 @@ Database performance can affect the performance and scalability of an applicatio
 
 **Use connection pools.** You should use JDBC connection pools and fine-tune them based on the transactions per second (TPS) metrics and SLAs. You should use native database metrics and tools as part of a thorough end to end performance test to evaluate database performance exclusively under load.
 
-### Storage performance
+### Mounted storage performance
 
-
+When using a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure optimal performance and cost-efficiency for your web application
 
 ## Deploy the reference implementation
 
