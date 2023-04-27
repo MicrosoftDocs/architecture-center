@@ -54,7 +54,7 @@ At this phase, it's important to select Azure services that mirror key on-premis
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
-- **Broad Java support.** App Service supports Java Platform Standard Edition (SE), Apache Tomcat, and JBoss Enterprise Application Platform (EAP) web apps. You can deploy Maven plug-ins from the command line or in editors (IntelliJ, Eclipse, or Visual Studio Code).
+- **Natural progression.** On-premises, Proseware deployed a `war` file to a Tomcat sever and wanted to minimize the amount of rearchitecting for that deployment model. App Service was a natural progression for Proseware, but Azure Spring Apps is an alternative.
 - **High SLA.** It has a high SLA that meets the requirements for the production environment.
 - **Reduced management overhead.** It's a fully managed hosting solution.
 - **Containerization capability.** App Service works with private container image registries like Azure Container Registry. Proseware can use these registries to containerize the web app in the future.
