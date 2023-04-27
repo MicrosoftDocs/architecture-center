@@ -201,7 +201,7 @@ The design considerations for the [**baseline architecture**](spring-apps-multi-
 
 - **Monitoring**. Add instrumentation and enable distributed tracing to collect data from the application. Combine that data source with platform diagnostics to get an end-to-end insight into your application. 
 
-> For details, see [Baseline architecture: Monitoring](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#monitoring).
+  > For details, see [Baseline architecture: Monitoring](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#monitoring).
 
 
 ## Deploy this scenario
