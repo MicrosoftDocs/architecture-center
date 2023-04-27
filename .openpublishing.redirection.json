@@ -7,7 +7,12 @@
     }, 
     {
       "source_path": "docs/solution-ideas/articles/streaming-using-hdinsight.yml",
-      "redirect_url": "/azure/architecture/data-science-process/spark-overview",
+      "redirect_url": "/azure/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/hadoop/apache-storm-migration.yml",
+      "redirect_url": "/azure/architecture",
       "redirect_document_id": false
     },
     {
