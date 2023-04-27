@@ -18,7 +18,7 @@ The business context, existing web app, service level objective (SLO), and codin
 
 The implementation guidance mirrors the cloud journey of a fictional company, Proseware, Inc. Proseware wants to migrate its on-premises LOB web application to the cloud. It's a customized version of the open-source monolithic Airsonic web-based media streamer. In this scenario, we imagine that Proseware developed the application and owns all the code.
 
-Company leadership wants to expand business into the EdTech application market. After their initial technical research, they conclude that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. To expand Proseware's business into a highly competitive EdTech market, the on-premises infrastructure needs to provide a cost-efficient means to scale. A migration to the cloud offers the best return on investment. The migration of the application should meet the increasing business demand with minimal investments in the existing monolithic app. Here are some short-term and long-term goals for the application:
+Company leadership wants to expand business into the EdTech application market. After their initial technical research, they concluded that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. The long-term goal is to expose the web app to the public and to have the capacity to handle that increase in user load. A migration to the cloud offered the best return on investment to meet the increasing business demand with minimal investments in the existing monolithic app. Here are some short-term and long-term goals for the application:
 
 | Short-term goals | Long-term goals |
 | --- | --- |
@@ -141,7 +141,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. Proseware needs a file system for saving uploaded training videos. Proseware chose Azure Files for the following reasons:
 
-- **Replaces existing file server.** Azure Files allows Proseware to replace the existing file server without needing to modify code if they wanted to add blob storage. Azure Files good simplifies the process of getting the app running on the cloud.
+- **Replaces existing file server.** Azure Files is a drop-in replacement for our on-premises network attached storage (NAS) solution. Azure Files allows Proseware to replace the existing file server without needing to modify code if they wanted to add blob storage. Azure Files simplifies the process of getting the app running on the cloud.
 - **Fully managed service.** It enables Proseware to maintain compatibility without needing to manage hardware or an operating system for a file server.
 - **Resiliency:** It's built to be highly available.
 - **Durability.** It has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
