@@ -242,7 +242,7 @@ The reference implementation uses an environment variable in the [App Service Te
 SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=var.key_vault_uri
 ```
 
-The reference implementation set the property `spring.cloud.azure.keyvault.secret.property-source-enabled` to `true` in the `application.properties` file. This property allows Spring Cloud Azure to inject secrets from Azure Key Vault. The `${airsonic-database-admin-password}` is an example of Spring Cloud Azure injecting a secret into the web application.
+The reference implementation set the property `spring.cloud.azure.keyvault.secret.property-source-enabled` to `true` in the `application.properties` file. This property allows Spring Cloud Azure to inject secrets from Azure Key Vault. The `${database-app-user-password}` is an example of Spring Cloud Azure injecting a secret into the web application.
 
 ```java
 spring.cloud.azure.keyvault.secret.property-source-enabled=true
@@ -337,7 +337,7 @@ resource "azurerm_monitor_autoscale_setting" "sitescaling" {
   profile {
     name = "default"
     capacity {
-      default = 3
+      default = 2
       minimum = 2
       maximum = 10
     }
@@ -401,7 +401,7 @@ For tracing and debugging, you should enable logging to diagnose when any reques
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-runtime-attach</artifactId>
-      <version>3.4.7</version>
+      <version>3.4.12</version>
    </dependency>
    ```
 
