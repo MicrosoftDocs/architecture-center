@@ -61,7 +61,7 @@ Route 9 depicts connectivity from either site-to-site (S2S) or point-to-site (P2
 
 Route 10 shows connectivity to AVS workloads from other workloads that run in Azure Virtual Networks. This topology uses VNet to VNet connectivity provided by Azure vWAN. Unlike in a conventional hub and spoke networking topology, where transitive connectivity can be established through either Azure Firewall or through 3rd-party NVAs, Azure vWAN's VNet-to-VNet connectivity is transitive, without needing Azure Firewall or a 3rd-party NVA.
 
-#### Public IP at NSX-T Edge in Azure VMware Solution (route 11)
+#### Public IP address on an NSX-T Edge node in the Azure VMware Solution cloud (route 11)
 
 Route 11 enables inbound and outbound internet connectivity to VMs running inside Azure VMware Solution private cloud. This connectivity uses public IP deployed on NSX-T Edge. This route provides SNAT as well as DNAT capabilities. While this route simplifies inbound and outbound to internet connectivity, it is recommended to evaluate this setup against [Internet connectivity design considerations](https://learn.microsoft.com/azure/azure-vmware/concepts-design-public-internet-access).
 
