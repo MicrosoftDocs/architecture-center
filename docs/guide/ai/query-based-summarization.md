@@ -48,7 +48,7 @@ Enterprises frequently create and maintain a knowledge base about business proce
 Document summarization applies to any organizational domain that requires users to search large amounts of reference data and generate a summary that concisely describes relevant information. Typical domains include legal, financial, news, healthcare, and academic organizations. Potential use cases of summarization are:
 
 - Generating summaries to highlight key insights about news, financial reporting, and so on.
-- Creating quick a reference to support an argument, for example, in legal proceedings.
+- Creating a quick reference to support an argument, for example, in legal proceedings.
 - Providing context for a paper's thesis, as in academic settings.
 - Writing literature reviews.
 - Annotating a bibliography.
@@ -62,13 +62,13 @@ Some benefits of using a summarization service for any use case are:
 
 ### In-context learning
 
-Azure OpenAI Service uses generative completion models. The model uses natural language instructions to identify the requested task and the skill required, a process known as *prompt engineering*. When you use this approach, the first part of the prompt includes natural language instructions and/or examples of the desired task. The model completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
+Azure OpenAI Service uses a generative completion model. The model uses natural language instructions to identify the requested task and the skill required, a process known as *prompt engineering*. When you use this approach, the first part of the prompt includes natural language instructions and/or examples of the desired task. The model completes the task by predicting the most probable next text. This technique is known as *in-context learning*. 
 
-In-context learning, language models can learn tasks from just a few examples. The language model is provided with a prompt that contains a list of input-output pairs that demonstrate a task, and then with a test input. The model makes a prediction by conditioning on the prompt and predicting the next tokens.
+With in-context learning, language models can learn tasks from just a few examples. The language model is provided with a prompt that contains a list of input-output pairs that demonstrate a task, and then with a test input. The model makes a prediction by conditioning on the prompt and predicting the next tokens.
 
 There are three main approaches to in-context learning: *zero-shot learning*, *few-shot learning*, and *fine-tuning* methods that change and improve the output. These approaches vary based on the amount of task-specific data that's provided to the model.
 
-**Zero-shot:** In this approach, no examples are provided to the model. Only the task request is provided as input. In zero-shot learning, the model depends on previously trained concepts. It responds based only on data that it's trained on. It doesn't necessarily understand the semantic meaning, but it has a statistic understanding that's based on everything that it's learned over the internet about what should be generated next. The model attempts to relate the given task to existing categories that it has already learned about and responds accordingly.
+**Zero-shot:** In this approach, no examples are provided to the model. Only the task request is provided as input. In zero-shot learning, the model depends on previously trained concepts. It responds based only on data that it's trained on. It doesn't necessarily understand the semantic meaning, but it has a statistic understanding that's based on everything that it's learned from the internet about what should be generated next. The model attempts to relate the given task to existing categories that it has already learned about and responds accordingly.
 
 **Few-shot:** In this approach, several examples that demonstrate the expected answer format and content are included in the call prompt. The model is provided with a very small training dataset to guide its predictions. Training with a small set of examples enables the model to generalize and understand unrelated but previously unseen tasks. Creating few-shot examples can be challenging because you need to accurately articulate the task that you want the model to perform. One commonly observed problem is that models are sensitive to the writing style that's used in the training examples, especially small models.
 
@@ -84,7 +84,7 @@ When you create a GPT-3 solution, the main effort is in the design and content o
 
 *Prompt engineering* is a natural language processing discipline that involves discovering inputs that yield desirable or useful outputs. When a user *prompts* the system, the way the content is expressed can dramatically change the output. *Prompt design* is the most significant process for ensuring that the GPT-3 model provides a desirable and contextual response. 
 
-The architecture described in this article uses the completions endpoint for summarization. The completions endpoint is a [Azure Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more outputs that continue or complete the input text. A user provides input text as a prompt and the model generates text that attempts to match the context or pattern that's provided. Prompt design is highly dependent on the task and data. Incorporating prompt engineering into a fine-tuning dataset and investigating what works best before using the system in production requires significant time and effort.
+The architecture described in this article uses the completions endpoint for summarization. The completions endpoint is an [Azure Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more outputs that continue or complete the input text. A user provides input text as a prompt, and the model generates text that attempts to match the context or pattern that's provided. Prompt design is highly dependent on the task and data. Incorporating prompt engineering into a fine-tuning dataset and investigating what works best before using the system in production requires significant time and effort.
 
 #### Prompt design
 
@@ -469,7 +469,7 @@ The input prompt includes the original text from Rathbone's financial report for
 
 **Observations:** The summary of summaries approach generates a great result set that resolves the challenges encountered initially when a more detailed and comprehensive summary was provided. It does a great job of capturing the domain-specific jargon and the key points, which are represented in the ground truth but not explained well.
 
-The zero-shot model works well for summarizing mainstream documents. If the data is industry-specific or topic-specific, contains industry-specific jargon, or requires industry-specific knowledge, fine-tuning performs best. For example, this approach works well for medical journals, legal forms, and financial statements. You can use the few-shot approach instead of zero-shot to provide the model with examples of how to formulate a summary, so it can learn to mimic the summary provided. For the zero-shot approach, this solution doesn't retrain the model. The model's knowledge is based on the GPT-3 training. GPT-3 is trained with almost all available data from the Internet. It performs well for tasks that don't require specific knowledge.
+The zero-shot model works well for summarizing mainstream documents. If the data is industry-specific or topic-specific, contains industry-specific jargon, or requires industry-specific knowledge, fine-tuning performs best. For example, this approach works well for medical journals, legal forms, and financial statements. You can use the few-shot approach instead of zero-shot to provide the model with examples of how to formulate a summary, so it can learn to mimic the summary provided. For the zero-shot approach, this solution doesn't retrain the model. The model's knowledge is based on the GPT-3 training. GPT-3 is trained with almost all available data from the internet. It performs well for tasks that don't require specific knowledge.
 
 For the results of using the zero-shot summary of summaries approach on a few reports in the financial dataset, see [Results for Summary of Summaries](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#results-for-summary-of-summaries).
 
@@ -479,9 +479,9 @@ There are many ways to approach summarization by using GPT-3, including zero-sho
 
 Based on observations on the testing presented in this article, here are few recommendations:
 
-- **Zero-shot** is best for mainstream documents that don't require specific domain knowledge. This approach attempts to capture all high-level information in a succinct, human-like manner and provides a high-quality baseline summary. Zero-shot created a high quality summary for the legal dataset that's used in the tests in this article.
-- **Few-shot** is difficult to use for summarizing long documents because the token limitation is exceeded when an example text is provided. You can instead use a zero-shot summary of summaries approach for long documents or increase the dataset to enable successful fine-tuning. The summary of summaries approach generated excellent results for the financial dataset that's used in these tests.
-- **Fine-tuning** is most useful for technical or domain-specific use cases when the information isn't readily available. To achieve the best results with this approach, you need a dataset that contains a couple thousand samples. Fine-tuning captures the summary in a few templated ways, trying to conform to how the dataset presents the summaries. For the legal dataset, this approach generated a higher quality of summary than the one created by the zero-shot approach.
+- **Zero-shot** is best for mainstream documents that don't require specific domain knowledge. This approach attempts to capture all high-level information in a succinct, human-like manner and provides a high-quality baseline summary. Zero-shot creates a high-quality summary for the legal dataset that's used in the tests in this article.
+- **Few-shot** is difficult to use for summarizing long documents because the token limitation is exceeded when an example text is provided. You can instead use a zero-shot summary of summaries approach for long documents or increase the dataset to enable successful fine-tuning. The summary of summaries approach generates excellent results for the financial dataset that's used in these tests.
+- **Fine-tuning** is most useful for technical or domain-specific use cases when the information isn't readily available. To achieve the best results with this approach, you need a dataset that contains a couple thousand samples. Fine-tuning captures the summary in a few templated ways, trying to conform to how the dataset presents the summaries. For the legal dataset, this approach generates a higher quality of summary than the one created by the zero-shot approach.
 
 ## Evaluating summarization
 
@@ -503,7 +503,7 @@ rouge.get_scores(generated_summary, reference_summary)
   'rouge-1': {'r': 0.75, 'p': 0.75, 'f': 0.749999995}}]
 ```
 
-**BERTScore.**  This technique computes similarity scores by aligning generated and reference summaries on a token-level. Token alignments are computed greedily to maximize the cosine similarity between contextualized token embeddings from BERT.
+**BERTScore.**  This technique computes similarity scores by aligning generated and reference summaries on a token level. Token alignments are computed greedily to maximize the cosine similarity between contextualized token embeddings from BERT.
 
 Here's an example:
 
