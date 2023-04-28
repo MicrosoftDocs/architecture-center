@@ -1,39 +1,35 @@
-This architecture provides comprehensive logging, monitoring, and security of the Azure OpenAI API, for use in enterprise deployments of the service. It enables advanced logging capabilities to track API usage and performance, as well as robust security measures to protect sensitive data and prevent malicious activity.
-
-Key Solution Advantages:
-
-- Comprehensive logging of Azure OpenAI model execution tracked to Source IP address.  Log information includes what text users are submitting to the model as well as text being received back from the model.  This ensures models are being used responsibly within the corporate environment and within the approved use cases of the service.
-- High availability of the model APIs to ensure user requests are met even if the traffic exceeds the limits of a single Azure OpenAI service.
-- Secure use of the service by ensuring role-based access managed via Azure Active Directory follows principle of least privilege.
+This architecture provides comprehensive logging and monitoring and enhanced security for enterprise deployments of the  Azure OpenAI Service API. It enables advanced logging capabilities for tracking API usage and performance and robust security measures to help protect sensitive data and help prevent malicious activity.
 
 ## Architecture
 
-image 
+:::image type="content" source="media/openai-monitor-log.png " alt-text="Diagram that shows an architecture that provides monitoring and logging for Azure OpenAI Service." lightbox="media/openai-monitor-log.png" border="false":::
 
-link 
-
+*Download a [Visio file](https://arch-center.azureedge.net/azure-openai-monitor-log.vsdx) of this architecture.*
+ 
 ### Workflow
 
-1.	Client applications can access Azure OpenAI endpoints to perform text generation (completions) and model training (fine-tuning) endpoints to leverage the power of large language models.
-2.	Application Gateway provides single point of entry to Azure OpenAI models and provides load-balancing for APIs.
+1.	Client applications can access Azure OpenAI Service endpoints to perform text generation (completions) and model training (fine-tuning).
+2.	Azure Application Gateway provides a single point of entry to Azure OpenAI models and provides load balancing for APIs.
   
-    a.	Note: Load balancing of stateful operations such as model fine-tuning, deployments, and inference of fine-tuned models is not supported.
-3.	API Management enables security controls, auditing, and monitoring of the Azure OpenAI models.  
-   a.	Secure access is granted via AAD (Azure Active Directory) Groups with subscription-based access permissions in APIM (API Management).  
-   b.	Auditing is enabled via Azure Monitor request logging for all interactions with the models.  
-   c.	Monitoring enables detailed AOAI (Azure Open AI) model usage KPIs/Metrics including prompt information as well as token statistics for usage traceability.
-4.	API Management Service connects to all Azure resources via Private Link to ensure all traffic is secured by private endpoints and contained to private network.
-5.	Multiple Azure OpenAI instances enable scale out of API usage to ensure high-availability and disaster recovery for the service.
+    > [!Note]
+    > Load balancing of stateful operations like model fine-tuning, deployments, and inference of fine-tuned models isn't supported.
+
+3.	Azure API Management enables security controls and auditing and monitoring of the Azure OpenAI models.  
+   a.	In API Management, enhanced-security access is granted via Azure Active Directory (Azure AD) groups with subscription-based access permissions.  
+   b.	Auditing is enabled for all interactions with the models via Azure Monitor request logging.  
+   c.	Monitoring enables detailed Azure OpenAI model usage KPIs and metrics, including prompt information and token statistics for usage traceability.
+4.	API Management connects to all Azure resources via Azure Private Link. This configuration provides enhanced security for all traffic via private endpoints and contains traffic in the private network.
+5.	Multiple Azure OpenAI Service instances enable scale-out of API usage to ensure high availability and disaster recovery for the service.
 
 ### Components
 
-- [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/). Application load balancer to ensure all users of the Azure OpenAI APIs can achieve the fastest response and highest throughput for model completions.
-- [Azure API Management](https://azure.microsoft.com/services/api-management/). API for accessing backend Azure OpenAI endpoints, provides additional monitoring and logging not available natively in Azure OpenAI service.
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/). Provides network isolation so all model network traffic is routed privately to the Azure OpenAI service.
-- [Azure OpenAI Cognitive Service](https://azure.microsoft.com/products/cognitive-services/openai-service/). Service which hosts models and provides Generative Model completion outputs.
-- [Azure Monitor](https://azure.microsoft.com/services/monitor/). Provides access to application logs through Kusto Query Language. Also enables Dashboard reports and Monitoring/Alerting capabilities.
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Securely stored keys and secrets for application use.
-- [Azure Storage](https://azure.microsoft.com/services/storage/). Application cloud storage, provides accessibility to model training artifacts to the Azure OpenAI service.
+- [Application Gateway](https://azure.microsoft.com/services/application-gateway/). Application load balancer to ensure that all users of the Azure OpenAI APIs can get the fastest response and highest throughput for model completions.
+- [API Management](https://azure.microsoft.com/services/api-management/). API management platform for accessing back-end Azure OpenAI endpoints. Provides additional monitoring and logging that's not available natively in Azure OpenAI Service.
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/). Provides network isolation so all model network traffic is routed privately to the Azure OpenAI Service.
+- [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/). Service that hosts models and provides generative model completion outputs.
+- [Monitor](https://azure.microsoft.com/services/monitor/). Provides access to application logs via Kusto Query Language. Also enables dashboard reports and monitoring and alerting capabilities.
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Provides enhanced-security storage for keys and secrets that are used by applications.
+- [Azure Storage](https://azure.microsoft.com/services/storage/). Application storage in the cloud. Provides accessibility to model training artifacts to the Azure OpenAI Service.
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
   - Secure Identity manager on Azure, enables authentication and authorization of users to the application as well as platform services supporting the application.
   - Enable group policies to ensure principle of least privileges is granted for all users.
@@ -63,6 +59,12 @@ Logging Comparison Table:
 ## Scenario details
 
 For large enterprises that intend to implement Generative AI (Artificial Intelligence) Models, auditing and logging of the usage of these models is paramount to ensure responsible use and corporate compliance. This solution provides enterprise level logging and monitoring for all interactions with the AI Models to mitigate harmful usage of the models and ensure security and compliance standards are met. This solution integrates with existing APIs for Azure OpenAI with little modification to leverage existing code bases.  Additionally, administrators can monitor service usage for reporting purposes.
+
+Key solution advantages:
+
+- Comprehensive logging of Azure OpenAI model execution tracked to Source IP address.  Log information includes what text users are submitting to the model as well as text being received back from the model.  This ensures models are being used responsibly within the corporate environment and within the approved use cases of the service.
+- High availability of the model APIs to ensure user requests are met even if the traffic exceeds the limits of a single Azure OpenAI service.
+- Secure use of the service by ensuring role-based access managed via Azure Active Directory follows principle of least privilege.
 
 **Example Query for Usage Monitoring:**
 
