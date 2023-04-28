@@ -467,6 +467,10 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Log all remote call failures.
 
+## Next steps
+
+[Resiliency and dependencies](/azure/well-architected/resiliency/design-resiliency).Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure
+
 <!-- links -->
 
 [api-management]: /azure/api-management
