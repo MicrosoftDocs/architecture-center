@@ -4,7 +4,9 @@ Elastic Enterprise Search streamlines the search process for searches of all typ
 
 ## Architecture
 
-:::image type="content" source="../media/elastic-workplace-search.png" alt-text="Architecture for Elastic Enterprise Search" lightbox="../media/elastic-workplace-search.png":::
+:::image type="content" source="../media/elastic-workplace-search.svg" alt-text="Architecture diagram for Elastic Workplace Search" lightbox="../media/elastic-workplace-search.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/elastic-workplace-search.vsdx) of this architecture.*
 
 ### Dataflow
 

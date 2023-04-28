@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "docs/reference-architectures/identity/adds-extend-domain.yml",
+      "redirect_url": "/azure/architecture/example-scenario/identity/adds-extend-domain",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "docs/solution-ideas/articles/streaming-using-hdinsight.yml",
+      "redirect_url": "/azure/architecture/data-science-process/spark-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/example-scenario/finance/swift-on-azure-srx.md",
       "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-on-azure-srx",
       "redirect_document_id": false
@@ -2568,34 +2578,94 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/multitenant-identity/adfs.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/app-roles.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/authenticate.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/authorize.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/claims.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/client-certificate.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/index.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/signup.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/tailspin.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/token-cache.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/web-api.yml ",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/saas/saas-digital-business-journey-azure.md",
+      "redirect_url": "/azure/architecture/guide/saas/plan-journey-saas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "docs/guide/microsoft-cloud/overview.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/introduction?branch=main",
+      "redirect_url": "/microsoft-cloud/dev/overview/introduction",
       "redirect_document_id": false
     },      
     {
       "source_path": "docs/guide/microsoft-cloud/create-deploy-more-applications-less-time.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/create-deploy-more-applications-less-time?branch=main",
+      "redirect_url": "/microsoft-cloud/dev/overview/create-deploy-more-applications-less-time",
       "redirect_document_id": false
     },  
     {
       "source_path": "docs/guide/microsoft-cloud/get-most-value-technical-talent.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/get-most-value-technical-talent?branch=main",
+      "redirect_url": "/microsoft-cloud/dev/overview/get-most-value-technical-talent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/guide/microsoft-cloud/integrate-new-applications-existing-solutions.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/integrate-new-applications-existing-solutions?branch=main",
+      "redirect_url": "/microsoft-cloud/dev/overview/integrate-new-applications-existing-solutions",
       "redirect_document_id": false
     },  
     {
       "source_path": "docs/guide/microsoft-cloud/create-run-secure-applications.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/create-run-secure-applications?branch=main",
+      "redirect_url": "/microsoft-cloud/dev/overview/create-run-secure-applications",
       "redirect_document_id": false
     },  
     {
       "source_path": "docs/guide/microsoft-cloud/summary.md",
-      "redirect_url": "https://review.learn.microsoft.com/en-us/microsoft-cloud/dev/overview/summary?branch=main",
+      "redirect_url": "/microsoft-cloud/dev/overview/summary",
       "redirect_document_id": false
-    }                    
+    }                        
   ]
 }

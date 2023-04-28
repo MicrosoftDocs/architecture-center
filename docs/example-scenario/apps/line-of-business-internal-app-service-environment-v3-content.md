@@ -78,7 +78,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - Although there's no stamp fee for an ASEv3 instance, there's a charge that's levied when no App Service Plans are configured within the ASEv3 instance. This charge is levied at the same rate as one instance of a Windows I1v2 instance, for the region in which the ASEv3 instance is deployed.
 - When configured to be zone redundant, the charging model is adjusted to account for the underlying infrastructure that's deployed in this configuration. You might be liable for additional instances, as per [ASEv3 Pricing](/azure/app-service/environment/overview#pricing).
-- Consider the option of reserved instance pricing for ASEv3 App Service Plans (known as Isolated v2 App Service Plans), which is explained in [How reservation discounts apply to Isolated v2 instances](/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances).
+- For ASEv3 App Service plans (known as Isolated v2 App Service plans), use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices. For more information, see [How reservation discounts apply to Isolated v2 instances](/azure/cost-management-billing/reservations/reservation-discount-app-service#how-reservation-discounts-apply-to-isolated-v2-instances).
 
 ### Operational excellence
 

@@ -77,7 +77,7 @@ Renovate-generated Java code is easy to understand, is rated A by SonarQube, and
 
 By using Renovate's incremental modernization approach, you, and not the tool or tool vendor, can determine the granularity and speed of change. Refactoring with Renovate is a fast, low-risk way to move COBOL workloads to cloud-native Java on Azure. 
 
-### Potential use cases 
+### Potential use cases
 
 Refactoring to Azure by using Renovate can help organizations and teams that want these benefits:
 
@@ -110,17 +110,17 @@ Security in Azure is achieved through a layered approach of policy, process, aut
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by giving you a single, unified view of costs versus budgets. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) is another offering that can help you save money by committing to one-year or three-year plans for multiple products. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution.
+Azure provides cost optimization by running VMs and Kubernetes pods on commodity hardware, scripting a schedule to turn off VMs that aren't in use, and using Kubernetes pods to increase deployment density. Reserved and spot instances can further reduce costs. Microsoft Cost Management provides cost transparency by giving you a single, unified view of costs versus budgets. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) generate significant discounts off of pay-as-you-go pricing. You can use these offerings separately or together to compound the savings. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing the solution.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
 - Jim Dugan | Principal TPM
 
-Other contributors: 
+Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Bhaskar Bandam](https://www.linkedin.com/in/bhaskar-bandam-75202a9) | Senior TPM 

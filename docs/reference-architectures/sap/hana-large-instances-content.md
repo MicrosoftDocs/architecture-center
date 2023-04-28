@@ -131,6 +131,8 @@ In this reference architecture, virtual machines are used for hosting SAP applic
 
 [HANA Large Instances SKUs][HLI-SKUs] are available as reserved VM instances. [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) can lower your cost if you can commit to one-year or three-year term. VM reservations can reduce costs up to 72 percent when compared to pay-as-you-go prices. You get a purpose-built SAP HANA infrastructure with compute, storage, and network. HANA Large Instances is coupled with NFS storage and networking and provides built-in support for backups through storage snapshots, high availability and disaster recovery and scale-out configurations. If your workload doesn't have a predictable time of completion or resource consumption, consider the pay-as-you-go option.
 
+Use [Azure savings plan overview](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) and combine with Azure Reservations. Azure savings plan is a flexible cost-saving plan that generates significant savings off pay-as-you-go prices. You agree to a one-year or three-year contract and receive discounts on eligible compute services. Savings apply to these compute services regardless of the region, instance size, or operating system. For more information, see [Azure savings plan documentation](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview).
+
 Use [Azure Spot VMs][az-spot-vms] to run workloads that can be interrupted and do not require completion within a predetermined time frame or an SLA.
 
 For more information, see the "SAP HANA on Azure Large Instances" section in [HLI for SAP HANA Virtual Machines Pricing][HLI-vms-pricing].
