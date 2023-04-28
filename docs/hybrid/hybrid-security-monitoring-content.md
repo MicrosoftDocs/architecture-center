@@ -2,7 +2,7 @@ This reference architecture illustrates how to use Microsoft Defender for Cloud 
 
 ## Architecture
 
-![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel][architectural-diagram]
+![Diagram that shows monitoring agent on on-premises as well as on Azure transferring data to Microsoft Defender for Cloud and Microsoft Sentinel.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -332,7 +332,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Centralized app configuration and security](../solution-ideas/articles/appconfig-key-vault.yml)
 - [Automate Sentinel integration with Azure DevOps](../example-scenario/devops/automate-sentinel-integration.yml)
 
-[architectural-diagram]: ./images/hybrid-security-monitoring.png
+[architectural-diagram]: ./images/hybrid-security-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx
 [azure-monitor]: /azure/azure-monitor/
 [azure-monitor-install-agent]: /azure/azure-monitor/platform/agent-windows#install-agent-using-setup-wizard

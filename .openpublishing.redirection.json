@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "docs/reference-architectures/identity/adds-extend-domain.yml",
+      "redirect_url": "/azure/architecture/example-scenario/identity/adds-extend-domain",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "docs/solution-ideas/articles/streaming-using-hdinsight.yml",
+      "redirect_url": "/azure/architecture/data-science-process/spark-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-on-azure-srx.md",
+      "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-on-azure-srx",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-access-on-azure.md",
+      "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-alliance-access-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/finance/swift-alliance-messaging-hub.md",
+      "redirect_url": "/previous-versions/azure/architecture/example-scenario/finance/swift-alliance-messaging-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/front-end.yml",
       "redirect_url": "/azure/architecture/solutions/power-platform-scenarios",
       "redirect_document_id": false
@@ -2551,6 +2576,66 @@
       "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
       "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/adfs.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/app-roles.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/authenticate.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/authorize.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/claims.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/client-certificate.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/index.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/signup.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/tailspin.yml",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/token-cache.md",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/multitenant-identity/web-api.yml ",
+      "redirect_url": "/azure/architecture/guide/multitenant/considerations/identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/saas/saas-digital-business-journey-azure.md",
+      "redirect_url": "/azure/architecture/guide/saas/plan-journey-saas",
+      "redirect_document_id": true
     }
   ]
 }

@@ -2,15 +2,13 @@
 metadata:
   title: Data governance with Profisee and Microsoft Purview
   titleSuffix: Azure Architectures
-  description: Integrate Profisee master data management with Microsoft Purview, to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.
+  description: Integrate the Profisee master data management platform with Microsoft Purview to govern and manage data. Produce and deliver high-quality, trusted data.
   author: martinekuan
   ms.author: gamal
-  ms.date: 07/08/2022
-  ms.topic: reference-architecture
+  ms.date: 04/10/2023
+  ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: reference-architecture
-  ms.custom:
-    - fcp
 azureCategories:
   - databases
   - management-and-governance
@@ -18,10 +16,10 @@ products:
   - azure-data-factory
   - azure-kubernetes-service 
   - azure-synapse-analytics 
-  - power-bi 
   - microsoft-purview
+  - power-bi
 name: Data governance with Profisee and Microsoft Purview
-summary: Integrate Profisee master data management with Microsoft Purview, to build a foundation for data governance and management. Produce and deliver high-quality, trusted data.
-thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-purview.png
+summary: Integrate the Profisee master data management platform with Microsoft Purview to govern and manage data. Produce and deliver high-quality, trusted data.
+thumbnailUrl: /azure/architecture/browse/thumbs/profisee-master-data-management-microsoft-purview.png
 content: |
   [!include[](profisee-master-data-management-purview-content.md)]

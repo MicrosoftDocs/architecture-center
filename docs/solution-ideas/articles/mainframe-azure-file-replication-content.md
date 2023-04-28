@@ -1,6 +1,6 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-Moving data from on-premises to Azure is the backbone of migrating on-premises mainframe and midrange applications. Several modernization scenarios require replicating files to Azure quickly, or maintaining a sync between on-premises and Azure files.
+When you migrate an on-premises mainframe or midrange application to Azure, moving the data is a primary consideration. Several modernization scenarios require replicating files to Azure quickly, or maintaining a sync between on-premises and Azure files.
 
 This article discusses several different processes for moving files to Azure, converting and transforming file data, and storing the data on-premises and in Azure. The article highlights a wide range of Azure services to demonstrate the possibilities.
 

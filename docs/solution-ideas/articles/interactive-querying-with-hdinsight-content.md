@@ -21,7 +21,7 @@ This article presents a solution for performing fast, interactive, SQL-like quer
 
 - [Data Factory](https://azure.microsoft.com/products/data-factory) is a hybrid data integration service that provides a way to create, schedule, and orchestrate ELT and extract, transfer, load (ETL) workflows.
 - [Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. This storage repository, which is built on Azure Blob storage, offers file system semantics and file-level security that's dedicated to big data analytics.
-- [HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed, open-source analytics service in the cloud for enterprises. HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Hive, LLAP, Apache Kafka, Apache Storm, and R in your Azure environment.
+- [HDInsight](https://azure.microsoft.com/products/hdinsight) is a managed, open-source analytics service in the cloud for enterprises. HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. With HDInsight, you can use open-source frameworks such as Hadoop, Apache Spark, Hive, LLAP, and Apache Kafka in your Azure environment.
 - [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. You can use Power BI to connect to hundreds of data sources, simplify data preparation, and drive ad hoc analysis.
 
 ## Scenario details

@@ -3,10 +3,9 @@
 This article describes a cloud-native application that uses Azure Batch. Batch provides compute resource allocation and management, application installation, resource autoscaling, and more.
 
 ## Architecture
+[ ![Architecture diagram that shows a cloud-native application that uses Azure Batch.](../media/big-compute-with-azure-batch.svg)](../media/big-compute-with-azure-batch.svg#lightbox)
 
-![Architecture Diagram](../media/big-compute-with-azure-batch.png)
-
-*Download an [SVG](../media/big-compute-with-azure-batch.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/big-compute-with-azure-batch.vsdx) of this architecture.*
 
 ### Dataflow
 

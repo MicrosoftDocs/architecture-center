@@ -185,4 +185,4 @@ Principal author:
 - [Azure DevTest Labs reference architecture for enterprises](/azure/devtest-labs/devtest-lab-reference-architecture)
 - [DevTest Labs in the enterprise](/azure/devtest-labs/devtest-lab-guidance-prescriptive-adoption)
 - [Migrate a dev/test environment to Azure DevTest Labs](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-devtest-to-labs)
-- [DevTest and DevOps for IaaS solutions](/../../solution-ideas/articles/dev-test-iaas)
+- [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)

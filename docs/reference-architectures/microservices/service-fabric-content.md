@@ -143,7 +143,7 @@ Other options for interservice communication include:
 
 - [Traefik](https://docs.traefik.io) for advanced routing.
 - [DNS](/azure/dns) for compatibility scenarios where a service expects to use DNS.
-- The [ServicePartitionClient<TCommunicationClient>](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class, which caches service endpoints. It can enable better performance, because calls go directly between services without intermediaries or custom protocols.
+- The [ServicePartitionClient\<TCommunicationClient\>](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class, which caches service endpoints. It can enable better performance, because calls go directly between services without intermediaries or custom protocols.
 
 ### Scalability
 
@@ -371,7 +371,7 @@ ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logg
 For more information, see:
 
 - [Application logging](/azure/service-fabric/service-fabric-diagnostics-event-generation-app)
-- [Add logging to your Service Fabric application](/azure/azure-monitor/app/correlation)
+- [Add logging to your Service Fabric application](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
 
 #### Service Fabric health and event data
 
@@ -419,7 +419,7 @@ It's also important to correlate tasks that are dispatched asynchronously by usi
 For more information, see:
 
 - [Performing a query across multiple resources](/azure/azure-monitor/log-query/cross-workspace-query#performing-a-query-across-multiple-resources)
-- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation)
+- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
 
 #### Alerts and dashboards
 
