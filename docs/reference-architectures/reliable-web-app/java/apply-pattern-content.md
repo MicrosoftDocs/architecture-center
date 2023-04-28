@@ -288,9 +288,9 @@ You need to configure what traffic you want to pass through your WAF. You can fi
 
 ### Configure database security
 
-Administrator-level authentication to the database is important because it grants elevated permissions that can be used to perform privileged operations (creating and deleting databases, modifying table schemas, or changing user permissions). Without administrator-level access, a developer might not be able to perform certain tasks required to maintain the database or troubleshoot issues.
+Administrator-level authentication to the database is important because it grants elevated permissions that can be used to perform privileged operations (creating and deleting databases, modifying table schemas, or changing user permissions). Without administrator-level access, a developer might not be able to perform certain tasks required to maintain the database or troubleshoot issues. You should use just-in-time access for these elevated permissions. In general, avoid permanent elevated permissions for human access.
 
-However, it's not recommended to use administrator-level authentication for day-to-day operations in the application. Instead, you should configure least-privileged access for the application to the database. This helps to minimize the risk of unauthorized access and limit the damage that can be done in the event of a security breach.
+However, it's not recommended to use administrator-level authentication for application code. Instead, you should configure least-privileged access for the application to the database. This helps to minimize the risk of bugs causing business continuity or data corruption issues access and limits the damage that can be done in the event of a security breach.
 
 You have two primary methods to access the Azure PostgreSQL database. You can use Azure AD authentication or PostgreSQL authentication. For more information, see [JDBC with Azure PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql).
 
@@ -503,9 +503,7 @@ To enable caching, you must add the `spring-boot-starter-cache` package as a dep
 The reference implementation provides explicit values for the Redis properties `application.properties` file to override the default settings from the starter cache package.
 
 ```java
-spring.redis.host=
-spring.redis.port=
-spring.redis.password=${airsonic-redis-password}
+spring.redis.password=${redis-password}
 spring.redis.ssl=true
 spring.cache.type=redis
 spring.cache.redis.time-to-live=40000 
@@ -514,11 +512,11 @@ spring.cache.redis.time-to-live=40000
 The following code defines a method called `getUserSettings`. The method retrieves a user settings associated with a given username. The `@Cacheable(cacheNames = "userSettingsCache")` annotates the `getUserSettings` method and tells the web app to cache the user settings in a cache called `userSettingsCache`.
 
 ```java
-    @Cacheable(cacheNames = "userSettingsCache")
-    public UserSettings getUserSettings(String username) {
-        UserSettings settings = userDao.getUserSettings(username);
-        return settings == null ? createDefaultUserSettings(username) : settings;
-    }
+@Cacheable(cacheNames = "userSettingsCache")
+public UserSettings getUserSettings(String username) {
+    UserSettings settings = userDao.getUserSettings(username);
+    return settings == null ? createDefaultUserSettings(username) : settings;
+}
 ```
 
 ### Database performance
