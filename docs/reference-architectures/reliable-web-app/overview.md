@@ -26,6 +26,7 @@ categories:
 The reliable web app pattern provides implementation guidance to re-platform web apps moving from on premises to the cloud. The reliable web app pattern focuses on minimal code changes you need to make for your web app to be successful in the cloud. It shows you how to take advantage of managed services and implement key reliability design patterns so you can rapidly adopt the cloud to meet business needs.
 
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
+*Figure 1. Overview of the reliable web app pattern and its foundational principles.*
 
 The reliable web app pattern outlines you prescriptive architecture and code guidance. It builds on the pillars of the Azure Well-Architected Framework while focusing on key principles for cloud adoption. These principles include infrastructure provisioning, identity-centric security, secure ingress, cost-optimization, and observability.
 
