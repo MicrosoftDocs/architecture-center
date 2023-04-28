@@ -65,7 +65,7 @@ Route 10 shows connectivity to AVS workloads from other workloads that run in Az
 
 Route 11 enables inbound and outbound internet connectivity to VMs that are running in the Azure VMware Solution private cloud. This connectivity uses a public IP address that's deployed on an NSX-T Edge node. This route provides SNAT and DNAT capabilities. Although this route simplifies inbound and outbound internet connectivity, we recommend that you evaluate this configuration by taking into account [Internet connectivity design considerations](/azure/azure-vmware/concepts-design-public-internet-access).
 
-#### HCX Migration using Public IP at NSX-T Edge in Azure VMware Solution (route 12)
+#### HCX migration via a public IP address on an NSX-T Edge node in the Azure VMware Solution cloud (route 12)
 
 HCX version 4.2+ makes it possible to perform HCX migration using VPN or SDWAN solution. These are additional options on top of Azure ExpressRoute based connection. Route 12 brings yet another option for driving HCX migration using Public IP at the NSX edge of Azure VMware Solution. It is a good option where ExpressRoute or VPN based connectivity is not possible or can be time consuming. For best migration experience though, it is recommended to use ExpressRoute based connectivity. 
 
