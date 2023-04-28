@@ -3636,6 +3636,8 @@ items:
         href: guide/ai/custom-speech-text.yml
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
+      - name: OpenAI GPT-3 summarization
+        href: guide/ai/query-based-summarization.md
       - name: R developer's guide to Azure
         href: data-guide/technology-choices/r-developers-guide.md
       - name: Machine learning

@@ -22,18 +22,16 @@ This guide shows how to perform document summarization by using the Azure OpenAI
 
 The following diagram shows how a user query fetches relevant data. The summarizer uses GPT-3 to generate a summary of the text of the most relevant document. In this architecture, the GPT-3 endpoint is used to summarize the text. 
 
-image 
+:::image type="content" source="media/summarization-diagram.png" alt-text="Diagram that shows a user search and a summarization process that uses GPT-3." lightbox="media/summarization-diagram.png" border="false"::: 
 
-alt text Diagram that shows a user search and a summarization process that uses GPT-3.
-
-link 
-
+*Download a [PowerPoint file](https://arch-center.azureedge.net/summarization-diagram.pptx) of this architecture.*
+ 
 ### Workflow
 
 This workflow occurs in near-real time.
 
 1. A user sends a query. For example, an employee of a manufacturing company searches for specific information about a machine part on the company portal. The query is first processed by an intent recognizer like [conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview). The relevant entities or concepts in the user query are used to select and present a subset of documents from a knowledge base that's populated offline (in this case, the company's knowledge base database). The output is fed into a search and analysis engine like [Azure Elastic Search](https://www.elastic.co/partners/microsoft-azure), which filters the relevant documents to return a document set of hundreds instead of thousands or tens of thousands.
-1. The user query is applied again on a search endpoint like [Cognitive Search](/rest/api/searchservice/) to rank the retrieved document set in order of relevance (page ranking). The highest-ranked document is selected.
+1. The user query is applied again on a search endpoint like [Azure Cognitive Search](/rest/api/searchservice/) to rank the retrieved document set in order of relevance (page ranking). The highest-ranked document is selected.
 1. The selected document is scanned for relevant sentences. This scanning process uses either a coarse method, like extracting all sentences that contain the user query, or a more sophisticated method, like GPT-3 embeddings, to find semantically similar material in the document.
 1. After the relevant text is extracted, the GPT-3 Completions endpoint with the summarizer summarizes the extracted content. In this example, the summary of important details about the part that the employee specified in the query is returned.
 
@@ -86,7 +84,7 @@ When you create a GPT-3 solution, the main effort is in the design and content o
 
 *Prompt engineering* is a natural language processing discipline that involves discovering inputs that yield desirable or useful outputs. When a user *prompts* the system, the way the content is expressed can dramatically change the output. *Prompt design* is the most significant process for ensuring that the GPT-3 model provides a desirable and contextual response. 
 
-The architecture described in this article uses the completions endpoint for summarization. The completions endpoint is a [Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more outputs that continue or complete the input text. A user provides input text as a prompt and the model generates text that attempts to match the context or pattern that's provided. Prompt design is highly dependent on the task and data. Incorporating prompt engineering into a fine-tuning dataset and investigating what works best before using the system in production requires significant time and effort.
+The architecture described in this article uses the completions endpoint for summarization. The completions endpoint is a [Azure Cognitive Services API](/azure/cognitive-services/openai/how-to/completions) that accepts a partial prompt or context as input and returns one or more outputs that continue or complete the input text. A user provides input text as a prompt and the model generates text that attempts to match the context or pattern that's provided. Prompt design is highly dependent on the task and data. Incorporating prompt engineering into a fine-tuning dataset and investigating what works best before using the system in production requires significant time and effort.
 
 #### Prompt design
 
@@ -475,11 +473,9 @@ The zero-shot model works well for summarizing mainstream documents. If the data
 
 For the results of using the zero-shot summary of summaries approach on a few reports in the financial dataset, see [Results for Summary of Summaries](https://github.com/Azure/openai-solutions/blob/main/Solution_Notebooks/Summarization/SummarizationOverview.md#results-for-summary-of-summaries).
 
-## Conclusions
+## Recommendations
 
 There are many ways to approach summarization by using GPT-3, including zero-shot, few-shot, and fine-tuning. The approaches produce summaries of varying quality. You can explore which approach produces the best results for your intended use case.
-
-### Recommendations
 
 Based on observations on the testing presented in this article, here are few recommendations:
 
@@ -487,7 +483,7 @@ Based on observations on the testing presented in this article, here are few rec
 - **Few-shot** is difficult to use for summarizing long documents because the token limitation is exceeded when an example text is provided. You can instead use a zero-shot summary of summaries approach for long documents or increase the dataset to enable successful fine-tuning. The summary of summaries approach generated excellent results for the financial dataset that's used in these tests.
 - **Fine-tuning** is most useful for technical or domain-specific use cases when the information isn't readily available. To achieve the best results with this approach, you need a dataset that contains a couple thousand samples. Fine-tuning captures the summary in a few templated ways, trying to conform to how the dataset presents the summaries. For the legal dataset, this approach generated a higher quality of summary than the one created by the zero-shot approach.
 
-### Evaluating summarization
+## Evaluating summarization
 
 There are multiple techniques for evaluating the performance of summarization models.
 
@@ -535,7 +531,7 @@ The first sentence, "The cat is on the porch by the tree", is referred to as the
 
 This following matrix displays the output that's generated by the preceding command:
 
-:::image type="content" source="media/similarity-matrix.png" alt-text="Diagram that shows an example of a similarity matrix." lightbox="media/similarity-matrix.png" border="false":::
+:::image type="content" source="media/similarity-matrix.png" alt-text="Diagram that shows an example of a similarity matrix." border="false":::
 
 For more information, see [SummEval: Reevaluating Summarization Evaluation](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00373/100686/SummEval-Re-evaluating-Summarization-Evaluation). For a PyPI toolkit for summarization, see [summ-eval 0.892](https://pypi.org/project/summ-eval/)
 
