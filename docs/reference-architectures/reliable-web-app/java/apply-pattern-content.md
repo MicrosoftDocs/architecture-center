@@ -529,7 +529,7 @@ Database performance can affect the performance and scalability of an applicatio
 
 **Use Application Insights.** Application Insights provides detailed metrics on database queries and any JDBC interfaces. You should use it to ensure a ported database is meeting its SLAs or to find queries that need tuning. You should never use Dynamic SQL because it creates security and performance issues.
 
-**Use connection pools.** You should use JDBC connection pools and fine-tune them based on the transactions per second (TPS) metrics and SLAs. You should use native database metrics and tools as part of a thorough end to end performance test to evaluate database performance exclusively under load.
+**Use connection pools.** You should use JDBC connection pools and fine-tune them based on the transactions per second (TPS) metrics and SLAs. You should use database performance monitoring tools to test and evaluate database performance under load.
 
 ### Mounted storage performance
 
