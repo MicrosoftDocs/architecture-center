@@ -67,7 +67,7 @@ Route 11 enables inbound and outbound internet connectivity to VMs that are runn
 
 #### HCX migration via a public IP address on an NSX-T Edge node in the Azure VMware Solution cloud (route 12)
 
-HCX version 4.2+ makes it possible to perform HCX migration using VPN or SDWAN solution. These are additional options on top of Azure ExpressRoute based connection. Route 12 brings yet another option for driving HCX migration using Public IP at the NSX edge of Azure VMware Solution. It is a good option where ExpressRoute or VPN based connectivity is not possible or can be time consuming. For best migration experience though, it is recommended to use ExpressRoute based connectivity. 
+With HCX 4.2 or later, you can perform HCX migration by using VPN or SDWAN. (You can also use Azure ExpressRoute.) Route 12 shows another option for performing HCX migration by using a public IP address on an NSX-T Edge node in the Azure VMware Solution private cloud. You might consider using this option if ExpressRoute or VPN connectivity is impossible or time-consuming. For the best migration experience, we recommend that you use ExpressRoute connectivity. 
 
 ### Components
 
