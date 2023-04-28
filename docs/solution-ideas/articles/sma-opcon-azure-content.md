@@ -16,17 +16,17 @@ This article presents a solution for automating workloads that run on various ty
    - The OpCon database.
    - Virtual machines (VMs) that run workloads.
 
-1. The solution uses Azure SQL Database as the OpCon database. The core services have secure access to this database through an Azure Private Link private endpoint.
+1. The solution uses Azure SQL Database as the OpCon database. The core services have access to this database through an Azure Private Link private endpoint.
 
-1. OpCon core services use OpCon connector technology to interact with Azure Storage and manage data in Azure Blob Storage. OpCon Managed File Transfer (MFT) also provides support for Storage.
+1. OpCon core services use OpCon connector technology to interact with Azure Storage and manage data in Azure Blob Storage. OpCon Managed File Transfer also provides support for Storage.
 
-1. The Applications subnet contains an OpCon MFT server that provides comprehensive file-transfer functionality. Capabilities include compression, encryption, decryption, decompression, file watching, and enterprise-grade automated file routing.
+1. The Applications subnet contains an OpCon Managed File Transfer server that provides comprehensive file-transfer functionality. Capabilities include compression, encryption, decryption, decompression, file watching, and enterprise-grade automated file routing.
 
 1. Azure VMs make up the application infrastructure. The placement of these VMs in subnets and virtual networks is flexible. For more information, see [Component placement](#component-placement).
    - To manage workloads on these VMs and on-premises legacy systems, OpCon core services communicate with OpCon agents that are installed on the VMs. The core services communicate with on-premises systems through a site-to-site connection on a virtual network gateway.
-   - OpCon core services communicate directly with applications that provide REST API endpoints. These applications don't need extra software to connect to the core services. With on-premises systems, the communication is via a virtual network gateway by using REST API connectivity options.
+   - OpCon core services communicate directly with applications that provide REST API endpoints. These applications don't need extra software to connect to the core services. With on-premises systems, the communication uses REST API connectivity options and travels via a virtual network gateway.
 
-1. In a hybrid environment, the Gateway subnet uses a site-to-site VPN tunnel to provide a secure connection between the on-premises environment and the Azure cloud environment.
+1. In a hybrid environment, the Gateway subnet uses a site-to-site VPN tunnel to help secure the connection between the on-premises environment and the Azure cloud environment.
 
 1. The gateway includes a cross-premises IPsec/IKE VPN tunnel connection between Azure VPN Gateway and an on-premises VPN device. All data that passes between the Azure cloud and the on-premises environment is encrypted in this site-to-site private tunnel as it crosses the internet.
 
@@ -35,11 +35,11 @@ This article presents a solution for automating workloads that run on various ty
 1. All user requests are routed via the gateway connection to the OpCon core services environment. Through that access, users interact with Solution Manager for:
 
    - OpCon administration.
-   - OpCon MFT administration.
+   - OpCon Managed File Transfer administration.
    - OpCon workflow development, execution, and monitoring.
    - Self Service, an OpCon interface for running tasks.
    - Vision, the OpCon task dashboard.
-   - OpCon MFT Central Application, a dashboard and query application.
+   - OpCon Managed File Transfer Central Application, a dashboard and query application.
 
 1. OpCon agents and application REST API endpoints are installed on legacy systems in the on-premises environment. OpCon core services use the site-to-site connection on the virtual network gateway to communicate with those agents and endpoints.
 
@@ -55,7 +55,7 @@ Throughout the solution, you can use network security groups to limit traffic fl
 
 - [Storage](https://azure.microsoft.com/products/category/storage) offers highly available, scalable, secure cloud storage for data, applications, and workloads.
 
-- [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of Storage. Azure Files offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
+- [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of Storage. Azure Files offers fully managed file shares in the cloud that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS clients.
 
 - [Blob Storage](https://azure.microsoft.com/products/storage/blobs) is a service that's part of Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data. This service is a good fit for high-performance computing, machine learning, and cloud-native workloads.
 
@@ -65,19 +65,19 @@ Throughout the solution, you can use network security groups to limit traffic fl
 
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery can replicate workloads that run on physical machines and VMs from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to a secondary location and access apps from there. After the primary location is running again, you can fail back to it.
 
-- [Azure SQL](https://azure.microsoft.com/services/azure-sql) is a family of Azure databases that are powered by the SQL Server engine. Azure SQL is composed of SQL Server on Azure Virtual Machines, Azure SQL Managed Instance, and SQL Database.
+- [Azure SQL](https://azure.microsoft.com/services/azure-sql) is a family of Azure databases that are powered by the SQL Server engine. Azure SQL includes SQL Server on Azure Virtual Machines, Azure SQL Managed Instance, and SQL Database.
 
 - [SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed PaaS database engine with AI-powered, automated features. The OpCon back end can use SQL Database to manage OpCon entries.
 
-- [SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance) is an intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. The OpCon back end can use SQL Managed Instance to manage OpCon entries.
+- [SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance) is an intelligent and scalable cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. The OpCon back end can use SQL Managed Instance to manage OpCon entries.
 
 - [OpCon](https://smatechnologies.com/opcon-cloud) core services run in a Linux container within a Kubernetes replica set. This solution uses SQL Database for the OpCon database.
 
 - [OpCon Self Service](https://smatechnologies.com/products-self-service) is a web-based implementation that provides a way for users to run on-demand tasks and optionally enter arguments within an OpCon environment.
 
-- [OpCon Vision](https://smatechnologies.com/products-opcon-vision) provides a dashboard for monitoring OpCon tasks. The dashboard displays a logical representation of the tasks across all flows. Vision uses tags to group tasks, with associated tasks in a group. When problems occur, you can drill down from the dashboard to failed tasks. Vision also provides a way to set SLA values for each group. The dashboard gives early warning when defined SLA values might not be met.
+- [OpCon Vision](https://smatechnologies.com/products-opcon-vision) provides a dashboard for monitoring OpCon tasks. The dashboard displays a logical representation of the tasks across all flows. Vision uses tags to group associated tasks together. When problems occur, you can drill down from the dashboard to failed tasks. Vision also provides a way to set SLA values for each group. The dashboard gives early warning when defined SLA values might not be met.
 
-- [OpCon MFT](https://smatechnologies.com/opcon-managed-file-transfer) provides MFT services within an OpCon environment. The OpCon MFT solution provides file transfer and monitoring functionality across an enterprise by using an integrated MFT agent and a file transfer server.
+- [OpCon Managed File Transfer](https://smatechnologies.com/opcon-managed-file-transfer) provides managed file transfer services within an OpCon environment. The OpCon Managed File Transfer solution provides file transfer and monitoring functionality across an enterprise by using an integrated managed file transfer agent and a file transfer server.
 
 ### Alternatives
 
@@ -120,11 +120,11 @@ For hybrid environments, VPN Gateway provides a secure link between cloud infras
 
 The implementation uses a single virtual network and multiple subnets to support various functions. You can use network security groups to filter network traffic between Azure resources in the virtual network.
 
-### AKS information
+### AKS configuration
 
 The deployed OpCon environment consists of two pods within a single replica set and an instance of SQL Database. A load balancer controls access to the pods. The load balancer maps external addresses and ports to internal REST API server addresses and ports.
 
-The following diagram shows configuration requirements for an environment with two pods, OpCon and Impex2. The diagram also shows the relationship between various definitions in the Kubernetes configuration YAML file.
+The following diagram shows configuration requirements for an environment with two pods: OpCon and Impex2. The diagram also shows the relationship between various definitions in the Kubernetes configuration YAML file.
 
 :::image type="content" source="../media/sma-opcon-azure-kubernetes-service-configuration.png" alt-text="Architecture diagram that shows Kubernetes configuration values that the solution uses." lightbox="../media/sma-opcon-azure-kubernetes-service-configuration.png" border="false":::
 
@@ -157,7 +157,7 @@ Many scenarios can benefit from this solution:
 - Patch management automation and deployment
 - Automation of the provisioning and decommissioning of Azure resources
 - Monitoring an entire IT environment from a single interface
-- Codifying repeatable or ad hoc processes
+- Codifying repeatable or on-demand processes
 
 ## Deploy this scenario
 
