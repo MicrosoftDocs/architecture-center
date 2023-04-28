@@ -533,7 +533,7 @@ Database performance can affect the performance and scalability of an applicatio
 
 ### Mounted storage performance
 
-When using a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure optimal performance and cost-efficiency for your web application
+When using a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure optimal performance and cost-efficiency for your web application.
 
 ## Deploy the reference implementation
 
