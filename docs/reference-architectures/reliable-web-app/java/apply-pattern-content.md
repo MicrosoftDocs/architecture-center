@@ -69,13 +69,13 @@ Security is a critical component of any architectural design. The goal is to ens
 
 As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. You should map users to roles and delegate the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
 
-You should also enforce least privileges on the workload identity for all Azure services. There are two ways to manage access for workload identities. You can control access by using Azure Active Directory (Azure AD) role-based access control (RBAC) or at the service level. You should use Azure RBAC to manage permissions before you use service-level access controls. For example, your web app should have an identity in Azure AD, and you should use Azure RBAC to grant the least number of permissions it needs to function. For more information, see:
+You should also enforce the principle of least privilege for workload identities across all Azure services. Workload identity permissions are persistent, rather than just-in-time or short-term permissions. You should assign only the necessary permissions to the workload identity so that the underlying Azure service can perform its required functions within the workload. These required functions might include include create, read, update, and delete (CRUD) operations in a database and reading secrets.
+
+There are two ways to manage access for workload identities. You can control access by using Azure Active Directory (Azure AD) role-based access control (RBAC) or at the Azure-service level with access policies. You should prioritize Azure RBAC to manage permissions over Azure-service level access controls. Azure RBAC ensures consistent, granular, and auditable access control with Azure AD that simplifies access management. For example, you need to create an identity for your web app in Azure AD. You should use Azure RBAC to grant the least number of permissions the web app needs to function to the web app identity. For more information, see:
 
 - [Access to Azure Storage](/azure/storage/blobs/authorize-access-azure-active-directory)
 - [Access to Key Vault](/azure/key-vault/general/rbac-guide)
 - [Access to Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-azure-ad-authentication)
-
-*Reference implementation:* The reference implementation uses username and password to connect to the database. With this setup, make sure to use a non-admin user with privileges scoped to only the actions the user needs.
 
 ### Configure user authentication and authorization
 
