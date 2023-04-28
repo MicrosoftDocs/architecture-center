@@ -10,11 +10,11 @@ This article presents a solution for automating workloads that run on various ty
 
 ### Workflow
 
-1. An OpCon container provides core services, which are deployed within Azure Kubernetes Service (AKS). Solution Manager is a web-based user interface that's part of the OpCon core services. Users can interact with the entire OpCon environment by using Solution Manager.
+1. An OpCon container provides core services, which are deployed within Azure Kubernetes Service (AKS). These core services include Solution Manager, a web-based user interface. Users can interact with the entire OpCon environment by using Solution Manager. The environment includes:
 
-   Persistent volumes store logs and configuration information. These volumes provide data persistence across container restarts. For these volumes, the solution uses Azure Files, which is configured in the `StorageClass` value.
-
-   Network security groups limit traffic flow between subnets.
+   - Persistent volumes that store logs and configuration information and provide data persistence across container restarts. For these volumes, the solution uses Azure Files, which is configured in the `StorageClass` value.
+   - The OpCon database.
+   - Virtual machines (VMs) that run workloads.
 
 1. The solution uses Azure SQL Database as the OpCon database. The core services have secure access to this database through an Azure Private Link private endpoint.
 
@@ -22,9 +22,9 @@ This article presents a solution for automating workloads that run on various ty
 
 1. The application subnet contains an OpCon MFT server that provides comprehensive file-transfer functionality. Capabilities include compression, encryption, decryption, decompression, file watching, and enterprise-grade automated file routing.
 
-   Azure virtual machines (VMs) make up the application infrastructure.
-   - To manage workloads on these VMs and on-premises legacy systems, OpCon core services communicate with OpCon agents that are installed on the VMs. The core services communicate with on-premises systems through the site-to-site connection on the virtual network gateway.
-   - OpCon core services communicate directly with applications that provide REST API endpoints. These applications don't need extra software to connect to the core services. With on-premises systems, the communication goes via the virtual network gateway by using REST API connectivity options.
+1. Azure VMs make up the application infrastructure. The placement of these VMs in subnets and virtual networks is flexible. For more information, see [Component placement](#component-placement).
+   - To manage workloads on these VMs and on-premises legacy systems, OpCon core services communicate with OpCon agents that are installed on the VMs. The core services communicate with on-premises systems through a site-to-site connection on a virtual network gateway.
+   - OpCon core services communicate directly with applications that provide REST API endpoints. These applications don't need extra software to connect to the core services. With on-premises systems, the communication goes via a virtual network gateway by using REST API connectivity options.
 
 1. In a hybrid environment, the Gateway subnet uses a site-to-site VPN tunnel to provide a secure connection between the on-premises environment and the Azure cloud environment.
 
@@ -32,7 +32,7 @@ This article presents a solution for automating workloads that run on various ty
 
 1. A local network gateway in the on-premises environment represents the gateway on the on-premises end of the tunnel. The local network gateway holds configuration information that's needed to build a VPN tunnel and to route traffic from or to on-premises subnets.
 
-1. All user requests are routed via the gateway connection to the OpCon core services environment. Users access the OpCon Solution Manager framework, a web-based user interface for:
+1. All user requests are routed via the gateway connection to the OpCon core services environment. Through that access, users interact with Solution Manager for:
 
    - OpCon administration.
    - OpCon MFT administration.
@@ -43,47 +43,52 @@ This article presents a solution for automating workloads that run on various ty
 
 1. OpCon agents and application REST API endpoints are installed on legacy systems in the on-premises environment. OpCon core services use the site-to-site connection on the virtual network gateway to communicate with those agents and endpoints.
 
+Throughout the solution, network security groups can limit traffic flow between subnets.
+
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure VM gives you the flexibility of virtualization but eliminates the maintenance demands of physical hardware. With Azure VMs, you have a choice of operating system which includes both Windows and Linux.
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines) is one of several types of on-demand, scalable computing resources that Azure offers. An Azure VM gives you the flexibility of virtualization but eliminates the maintenance demands of physical hardware. With Azure VMs, you have a choice of operating system that includes both Windows and Linux.
 
-- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for your private network in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network that operates in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of Azure's infrastructure.
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for your private network in Azure. Through Virtual Network, Azure resources like VMs can securely communicate with each other, the internet, and on-premises networks. An Azure virtual network is like a traditional network that operates in a datacenter. But an Azure virtual network also provides scalability, availability, isolation, and other benefits of the Azure infrastructure.
 
-- [Private Link](https://azure.microsoft.com/products/private-link/) provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure platform as a service (PaaS) services like Storage and SQL Database or to customer or partner services.
+- [Private Link](https://azure.microsoft.com/products/private-link) provides a private endpoint in a virtual network. You can use the private endpoint to connect to Azure platform as a service (PaaS) services like Storage and SQL Database or to customer or partner services.
 
-- [Storage](https://azure.microsoft.com/en-us/products/category/storage/) offers highly available, scalable, secure cloud storage for data, applications, and workloads.
+- [Storage](https://azure.microsoft.com/products/category/storage) offers highly available, scalable, secure cloud storage for data, applications, and workloads.
 
 - [Azure Files](https://azure.microsoft.com/products/storage/files) is a service that's part of Storage. Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. You can mount these file shares concurrently by cloud or on-premises deployments. Windows, Linux, and macOS clients can access these file shares.
 
-- [Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs/) is a service that's part of Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data. This service is a good fit for high-performance computing, machine learning, and cloud-native workloads.
+- [Blob Storage](https://azure.microsoft.com/products/storage/blobs) is a service that's part of Storage. Blob Storage offers optimized cloud object storage for large amounts of unstructured data. This service is a good fit for high-performance computing, machine learning, and cloud-native workloads.
 
-- [VPN Gateway](https://azure.microsoft.com/en-us/products/vpn-gateway/) is a specific type of virtual network gateway. You can use VPN Gateway to send encrypted traffic. That traffic can flow between an Azure virtual network and an on-premises location over the public internet. It can also flow between Azure virtual networks over the Azure backbone network.
+- [VPN Gateway](https://azure.microsoft.com/products/vpn-gateway) is a specific type of virtual network gateway. You can use VPN Gateway to transmit encrypted traffic. That traffic can flow between an Azure virtual network and an on-premises location over the public internet. It can also flow between Azure virtual networks over the Azure backbone network.
 
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressrout/) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. With ExpressRoute, you can establish connections to cloud services, such as Microsoft Azure and Microsoft 365.
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressrout) extends your on-premises networks into the Microsoft cloud over a private connection that's facilitated by a connectivity provider. With ExpressRoute, you can establish connections to cloud services, such as Microsoft Azure and Microsoft 365.
 
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery) helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery can replicate workloads that run on physical machines and VMs from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to a secondary location and access apps from there. After the primary location is running again, you can fail back to it.
 
-- [Azure SQL](https://azure.microsoft.com/services/azure-sql/) is a family of Azure databases that are powered by the SQL Server engine. Azure SQL is composed of SQL Server on Azure Virtual Machines, Azure SQL Managed Instance, and SQL Database.
+- [Azure SQL](https://azure.microsoft.com/services/azure-sql) is a family of Azure databases that are powered by the SQL Server engine. Azure SQL is composed of SQL Server on Azure Virtual Machines, Azure SQL Managed Instance, and SQL Database.
 
-- [SQL Database](https://azure.microsoft.com/services/sql-database/) is a fully managed PaaS database engine with AI-powered, automated features. The OpCon backend can use SQL Database to manage OpCon entries.
+- [SQL Database](https://azure.microsoft.com/services/sql-database) is a fully managed PaaS database engine with AI-powered, automated features. The OpCon backend can use SQL Database to manage OpCon entries.
 
-- [SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance/) is an intelligent, scalable, cloud database service combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. The OpCon backend can use SQL Managed Instance to manage OpCon entries.
+- [SQL Managed Instance](https://azure.microsoft.com/services/azure-sql/sql-managed-instance) is an intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen PaaS. The OpCon backend can use SQL Managed Instance to manage OpCon entries.
 
 - [OpCon](https://smatechnologies.com/opcon-cloud) core services run in a Linux container within a Kubernetes replica set. This solution uses SQL Database for the OpCon database.
 
 - [OpCon Self Service](https://smatechnologies.com/products-self-service) is a web-based implementation that provides a way for users to run on-demand tasks and optionally enter arguments within an OpCon environment.
 
-- [OpCon Vision](https://smatechnologies.com/products-opcon-vision) provides a dashboard for monitoring OpCon tasks. The dashboard displays a logical representation of the tasks across all flows. Vision uses tags to group tasks, with associated tasks in a group. When problems occur, you can drill down from the dashboard to a failed task. Vision also provides a way to set SLA values for each group. The dashboard gives early warning when defined SLA values won't be met.
+- [OpCon Vision](https://smatechnologies.com/products-opcon-vision) provides a dashboard for monitoring OpCon tasks. The dashboard displays a logical representation of the tasks across all flows. Vision uses tags to group tasks, with associated tasks in a group. When problems occur, you can drill down from the dashboard to failed tasks. Vision also provides a way to set SLA values for each group. The dashboard gives early warning when defined SLA values won't be met.
 
 - [OpCon MFT](https://smatechnologies.com/opcon-managed-file-transfer) provides MFT services within an OpCon environment. The OpCon MFT solution provides file transfer and monitoring functionality across an enterprise by using an integrated MFT agent and a file transfer server.
 
 ### Alternatives
 
-The following sections describe alternatives that you can consider when you implement the solution.
+The following sections describe alternatives to consider when you implement the solution.
 
-#### Virtual networks and subnets
+#### Component placement
 
-The application subnet can include the application VMs. You can also install the application servers in multiple subnets or virtual networks. Use this approach when you want to create separate environments for different types of servers, such as web and application servers.
+The placement of the VMs and OpCon database is flexible.
+
+- The application subnet can include the application VMs. You can also install the application servers in multiple subnets or virtual networks. Use this approach when you want to create separate environments for different types of servers, such as web and application servers.
+- You can place the database inside or outside the OpCon subnet.
 
 #### SQL Managed Instance
 
@@ -91,7 +96,7 @@ Instead of using SQL Database, you can use SQL Managed Instance as the OpCon dat
 
 #### ExpressRoute
 
-Instead of using VPN Gateway and a site-to-site VPN tunnel, you can use ExpressRoute to provide a private connection to the Microsoft global network by using a connectivity provider. ExpressRoute connections don't go over the public internet.
+Instead of using VPN Gateway and a site-to-site VPN tunnel, you can use ExpressRoute, which uses a connectivity provider to establish a private connection to the Microsoft global network. ExpressRoute connections don't go over the public internet.
 
 We recommend ExpressRoute for hybrid applications that run large-scale business-critical workloads that require a high degree of scalability and resiliency.
 
@@ -105,7 +110,7 @@ The core OpCon module that facilitates workloads is the Schedule Activity Monito
 - IBM z/OS
 - IBM AIX
 
-SAM draws the various platforms under one automation umbrella.
+SAM draws the various platforms together under one automation umbrella.
 
 You can install OpCon in an Azure cloud environment. OpCon supports cloud-only infrastructures and also hybrid infrastructures that contain cloud and on-premises systems.
 
@@ -117,7 +122,7 @@ The implementation uses a single virtual network and multiple subnets to support
 
 ### AKS information
 
-The deployed OpCon environment consists of two pods within a single replica set and SQL Database. A load balancer controls access to the pods. The load balancer maps external addresses and ports to internal REST API server addresses and ports.
+The deployed OpCon environment consists of two pods within a single replica set and an instance of SQL Database. A load balancer controls access to the pods. The load balancer maps external addresses and ports to internal REST API server addresses and ports.
 
 The following diagram shows configuration requirements for an environment with two pods, OpCon and Impex2. The diagram also shows the relationship between various definitions in the Kubernetes configuration YAML file.
 
@@ -128,12 +133,12 @@ The following table provides detailed information about each definition.
 | Kind | Value | Description |
 | --- | --- | --- |
 | `Secret` | dbpasswords | Contains the database passwords that are required to connect to the OpCon database. |
-| `ConfigMap` | opcon | Contains the OpCon REST API information, the time zone, the language information, and the OpCon database information, such as the address, the database name, and the database user. |
-| `ConfigMap` | impex | Contains the ImpEx2 REST API information and the OpCon database information, such as the address, the database name, and the database user. |
+| `ConfigMap` | opcon | Contains the OpCon REST API information, the time zone, and the language information. Also contains OpCon database information, such as the address, the database name, and the database user. |
+| `ConfigMap` | impex | Contains the Impex2 REST API information. Also contains OpCon database information, such as the address, the database name, and the database user. |
 | `PersistentVolumeClaim` | opconconfig | Contains various .ini files and the OpCon license file. |
 | `PersistentVolumeClaim` | opconlog | Contains the log files that are associated with the OpCon environment. |
-| `PersistentVolumeClaim` | impexlog | Contains the log files that are associated with the ImpEx2 environment. |
-| `ReplicaSet` | opcon | Specifies the OpCon and ImpEx2 container definitions that reference the previously defined `Secret`, `ConfigMap`, and `PersistentVolumeClaim` definitions. |
+| `PersistentVolumeClaim` | impexlog | Contains the log files that are associated with the Impex2 environment. |
+| `ReplicaSet` | opcon | Specifies the OpCon and Impex2 container definitions that reference the previously defined `Secret`, `ConfigMap`, and `PersistentVolumeClaim` definitions. |
 | `Service` | loadbalancer | Defines the mapping of the internal REST API ports for the OpCon and Impex2 REST servers to external addresses and ports. |
 
 ### Potential use cases
@@ -328,35 +333,39 @@ spec:
     app: opconservices
 ```
 
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior Program Manager
-- [Bertie van Hinsbergen](https://www.linkedin.com/in/gys-bertie-van-hinsbergen-7802204/) | Principal Automation Consultant
+- [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Program Manager
+- [Bertie van Hinsbergen](https://www.linkedin.com/in/gys-bertie-van-hinsbergen-7802204) | Principal Automation Consultant
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-- [Virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)
-- [What is Azure Virtual Network?](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
-- [What is Azure Private Link?](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview)
-- [What is a private endpoint?](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview)
-- [What is Azure Kubernetes Service?](https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes)
-- [Introduction to Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction)
-- [Introduction to Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)
-- [What is Azure SQL?](https://learn.microsoft.com/en-us/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
-- [What is Azure SQL Database?](https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
-- [What is Azure SQL Managed Instance?](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql)
-- [What is Azure VPN Gateway?](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-- [Network security groups](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
-- [What is Azure ExpressRoute?](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction)
-- [About Site Recovery](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview)
-- [Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-quickstart)
-- For more information about this solution, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
-- [SMA Technologies](https://smatechnologies.com/) is a Microsoft Gold-level partner and a leader in the IT automation space. SMA is dedicated to the single purpose of giving clients and their employees time back by automating processes, applications, and workflows. For more information, contact [SMA](https://smatechnologies.com/contact-us).
+For more information about solution components, see the following resources:
+
+- [Virtual machines in Azure](/azure/virtual-machines/overview)
+- [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [What is Azure Private Link?](/azure/private-link/private-link-overview)
+- [What is a private endpoint?](/azure/private-link/private-endpoint-overview)
+- [What is Azure Kubernetes Service?](/azure/aks/intro-kubernetes)
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction)
+- [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
+- [What is Azure SQL?](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview?view=azuresql)
+- [What is Azure SQL Database?](/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
+- [What is Azure SQL Managed Instance?](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?view=azuresql)
+- [What is Azure VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+- [Network security groups](/azure/virtual-network/network-security-groups-overview)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
+- [About Site Recovery](/azure/site-recovery/site-recovery-overview)
+- [Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM](/azure/site-recovery/azure-to-azure-quickstart)
+
+For more information about this solution:
+
+- Contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).
+- Contact [SMA](https://smatechnologies.com/contact-us). A Microsoft Gold-level partner, [SMA Technologies](https://smatechnologies.com) is a leader in the IT automation space. SMA is dedicated to the single purpose of giving time back to clients and their employees by automating processes, applications, and workflows.
 
 ## Related resources
 
