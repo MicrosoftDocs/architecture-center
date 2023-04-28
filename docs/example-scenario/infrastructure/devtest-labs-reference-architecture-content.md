@@ -10,7 +10,7 @@ Although DTL alone doesn't have built-in limits, other Azure resources used in t
 
 [![Diagram of the reference architecture for DevTest Labs in an enterprise.](media/devtest-labs-reference-architecture-enterprise.svg)](media/devtest-labs-reference-architecture-enterprise.svg#lightbox)
 
-[Download a Visio file of this architecture.](https://arch-center.azureedge.net/devtest-labs-reference-architecture-enterprise.vsdx)
+*Download a [Visio file](https://arch-center.azureedge.net/devtest-labs-reference-architecture-enterprise.vsdx) of this architecture.*
 
 ### Dataflow
 
