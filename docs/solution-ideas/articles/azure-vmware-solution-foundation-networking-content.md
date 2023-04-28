@@ -63,7 +63,7 @@ Route 10 shows connectivity to AVS workloads from other workloads that run in Az
 
 #### Public IP address on an NSX-T Edge node in the Azure VMware Solution cloud (route 11)
 
-Route 11 enables inbound and outbound internet connectivity to VMs running inside Azure VMware Solution private cloud. This connectivity uses public IP deployed on NSX-T Edge. This route provides SNAT as well as DNAT capabilities. While this route simplifies inbound and outbound to internet connectivity, it is recommended to evaluate this setup against [Internet connectivity design considerations](https://learn.microsoft.com/azure/azure-vmware/concepts-design-public-internet-access).
+Route 11 enables inbound and outbound internet connectivity to VMs that are running in the Azure VMware Solution private cloud. This connectivity uses a public IP address that's deployed on an NSX-T Edge node. This route provides SNAT and DNAT capabilities. Although this route simplifies inbound and outbound internet connectivity, we recommend that you evaluate this configuration by taking into account [Internet connectivity design considerations](/azure/azure-vmware/concepts-design-public-internet-access).
 
 #### HCX Migration using Public IP at NSX-T Edge in Azure VMware Solution (route 12)
 
