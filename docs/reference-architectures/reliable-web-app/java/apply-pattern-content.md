@@ -242,7 +242,7 @@ The reference implementation uses an environment variable in the [App Service Te
 SPRING_CLOUD_AZURE_KEYVAULT_SECRET_PROPERTY_SOURCES_0_ENDPOINT=var.key_vault_uri
 ```
 
-The reference implementation set the property `spring.cloud.azure.keyvault.secret.property-source-enabled` to `true` in the `application.properties` file. This property allows Spring Cloud Azure to inject secrets from Azure Key Vault. The `${airsonic-database-admin-password}` is an example of Spring Cloud Azure injecting a secret into the web application.
+The reference implementation set the property `spring.cloud.azure.keyvault.secret.property-source-enabled` to `true` in the `application.properties` file. This property allows Spring Cloud Azure to inject secrets from Azure Key Vault. The `${database-app-user-password}` is an example of Spring Cloud Azure injecting a secret into the web application.
 
 ```java
 spring.cloud.azure.keyvault.secret.property-source-enabled=true
@@ -337,7 +337,7 @@ resource "azurerm_monitor_autoscale_setting" "sitescaling" {
   profile {
     name = "default"
     capacity {
-      default = 3
+      default = 2
       minimum = 2
       maximum = 10
     }
@@ -401,7 +401,7 @@ For tracing and debugging, you should enable logging to diagnose when any reques
    <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-runtime-attach</artifactId>
-      <version>3.4.7</version>
+      <version>3.4.12</version>
    </dependency>
    ```
 
@@ -451,9 +451,9 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
 
 You should use a CI/CD pipeline to automate deployments from source control to your App Service environments (test, staging, production). If you use Azure DevOps, build your pipeline with Azure Pipelines. If you use GitHub, use GitHub actions. You pipeline should follow standard best practices.
 
-**Use build tools.** You should use build tools (Maven or Gradle) to build the application binaries (jars/wars).
+**Use build tools.** You should continue to use the build tools (E.g. Maven or Gradle) your team prefers to build application binaries (jars/wars).
 
-**Use unit (JUnit) tests.** Your pipeline should execute and pass all unit (JUnit) tests before deploying the changes to the App Service environment. We recommend using code coverage tools (SonarQube) in your pipeline to ensure you test enough of your code.
+**Use unit (JUnit) tests.** Your pipeline should execute and pass all unit (JUnit) tests before deploying the changes to the App Service. We recommend using code coverage tools (SonarQube) in your pipeline to ensure you test enough of your code.
 
 **Use a Java mocking framework.** You should use a mocking framework (Mockito, Easy Mock, or other Java implementations) to simulate tests on external endpoints. With mocking frameworks, you don't need to hard-code tests to specific external endpoints. Instead, you use simulated (mock) endpoints. By simulating the endpoints, you don't need to set up and configure actual external endpoints for testing. The result is a consistent testing experience across different environments.
 
