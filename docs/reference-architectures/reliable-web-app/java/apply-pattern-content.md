@@ -465,7 +465,7 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
 
 You should use a CI/CD pipeline to automate deployments from source control to your App Service environments (test, staging, production). If you use Azure DevOps, build your pipeline with Azure Pipelines. If you use GitHub, use GitHub actions. You pipeline should follow standard best practices.
 
-**Use unit (JUnit) tests.** Your pipeline should execute and pass all unit (JUnit) tests before deploying the changes to the App Service. We recommend using code coverage tools (SonarQube) in your pipeline to ensure you test enough of your code.
+**Use unit (JUnit) tests.** Your pipeline should execute and pass all unit (JUnit) tests before deploying the changes to the App Service. We recommend using code quality and code coverage tools in your pipeline to ensure you test enough of your code. This includes tools such as SonarQube, JaCoCo, and others.
 
 **Use a Java mocking framework.** You should use a mocking framework (Mockito, Easy Mock, or other Java implementations) to simulate tests on external endpoints. With mocking frameworks, you don't need to hard-code tests to specific external endpoints. Instead, you use simulated (mock) endpoints. By simulating the endpoints, you don't need to set up and configure actual external endpoints for testing. The result is a consistent testing experience across different environments.
 
@@ -483,7 +483,7 @@ The Cache-Aside pattern is used to manage in-memory data caching. In this patter
 
 The Cache-Aside pattern introduces a few benefits to the web application. It reduces request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages.
 
-To enable caching, you must add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. The `spring-boot-starter-cache` package configures the Redis cache with default values. You should update those values in `application.properties` file or the environment variables to meet the needs of your web app. For example, the `spring.cache.redis.time-to-live` (represented in milliseconds) determines the amount of data remains in the cache before eviction. You need to provide a value that meets the needs of your web app. Finally, you have to cache the required data in your code by using the `@Cacheable` annotation.
+**Enable caching.** To enable caching, you must add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. The `spring-boot-starter-cache` package configures the Redis cache with default values. You should update those values in `application.properties` file or the environment variables to meet the needs of your web app. For example, the `spring.cache.redis.time-to-live` (represented in milliseconds) determines the amount of time that data remains in the cache before eviction. You need to provide a value that meets the needs of your web app. Finally, you need to cache the required data in your code by using the `@Cacheable` annotation.
 
 **Cache high-need data.** Most applications have pages that get more views than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
 
@@ -500,7 +500,7 @@ To enable caching, you must add the `spring-boot-starter-cache` package as a dep
 </dependency>
 ```
 
-The reference implementation provides explicit values for the Redis properties `application.properties` file to override the default settings from the starter cache package.
+The reference implementation provides explicit values for the Redis properties in the `application.properties` file to override the default settings from the starter cache package.
 
 ```java
 spring.redis.password=${redis-password}
@@ -533,7 +533,7 @@ Database performance can affect the performance and scalability of an applicatio
 
 ### Mounted storage performance
 
-When using a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure optimal performance and cost-efficiency for your web application.
+When using a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure the best performance and cost-optimization for your web application.
 
 ## Deploy the reference implementation
 
