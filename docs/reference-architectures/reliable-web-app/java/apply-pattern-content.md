@@ -1,18 +1,24 @@
-The reliable web app pattern provides implementation guidance to replatform web applications transitioning to the cloud. The pattern focuses on the minimal changes you need to make to be successful in the cloud. For more information, see [Reliable web app pattern principles](../overview.md).
+The reliable web app pattern provides implementation guidance to replatform web applications transitioning to the cloud. The pattern focuses on the minimal changes you need to make to be successful in the cloud.
 
-There are two articles in this series. This article shows you how to apply the reliable web app pattern. The companion article describes how to [plan an implementation](plan-implementation.yml).
-
-![Diagram showing GitHub icon.](../../../_images/github.png) There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) (sample web app) of the reliable web app pattern for Java that you should deploy.
+![Diagram showing GitHub icon.](../../../_images/github.png) There are two articles in this series and a reference implementation (sample web app). This article provides code and architecture implementation details to apply the reliable web app pattern to your Java web app. The companion article walks you through important decisions to [plan an implementation](plan-implementation.yml). There's a [reference implementation](https://github.com/Azure/reliable-web-app-pattern-java#reliable-web-app-pattern-for-java) of the pattern that you should deploy.
 
 ## Architecture and code
 
 A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. The following diagram illustrates how the reference implementation should look in your environment.
 
 [![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.png)](images/reliable-web-app-java.png)
-*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost, see:*
+*Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
 - [Non-production environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
+
+The following table lists the principles of the reliable web app pattern and how the reference implementation for Java applies these principles.
+
+| Reliable web app principles | Implementation for Java |
+| --- | --- |
+|▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>▪ Well-Architected Framework principles:<ol>▫ Secure ingress<br>▫ Optimized cost<br>▫ Observable<br>▫ Infrastructure as code<br>▫ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+
+For more information on the pattern, see [Reliable web app pattern](../overview.md).
 
 ## Reliability
 
@@ -455,7 +461,7 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
 }
 ```
 
-### Ues a CI/CD pipeline
+### Use a CI/CD pipeline
 
 You should use a CI/CD pipeline to automate deployments from source control to your App Service environments (test, staging, production). If you use Azure DevOps, build your pipeline with Azure Pipelines. If you use GitHub, use GitHub actions. You pipeline should follow standard best practices.
 
@@ -476,6 +482,7 @@ Performance efficiency is the ability of a workload to scale and meet the demand
 The Cache-Aside pattern is used to manage in-memory data caching. In this pattern, the application is responsible for managing data requests and data consistency between the cache and a persistent data store, like a database. When a data request reaches the application, the application first checks the cache to see if the cache has the data in memory. If it doesn't, the application queries the database, replies to the requester, and stores that data in the cache. For more information, see [Cache-aside pattern overview](https://learn.microsoft.com/azure/architecture/patterns/cache-aside).
 
 The Cache-Aside pattern introduces a few benefits to the web application. It reduces request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages.
+
 To enable caching, you must add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. The `spring-boot-starter-cache` package configures the Redis cache with default values. You should update those values in `application.properties` file or the environment variables to meet the needs of your web app. For example, the `spring.cache.redis.time-to-live` (represented in milliseconds) determines the amount of data remains in the cache before eviction. You need to provide a value that meets the needs of your web app. Finally, you have to cache the required data in your code by using the `@Cacheable` annotation.
 
 **Cache high-need data.** Most applications have pages that get more views than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
