@@ -51,6 +51,7 @@ After deciding what your business requirements are, the next stage in the journe
 - [Tenancy models](../multitenant/considerations/tenancy-models.yml) - An overview of the main tenancy models and the differences between them.
 - [Independent software vendor (ISV) considerations for Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/isv-landing-zone) - A comparison between different landing zones for ISV scenarios.
 - [Azure Well-Architected Framework](/azure/architecture/framework) - A set of guiding tenets that help improve the quality of a workload.
+- [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) -  An assessment of your SaaS product examining your knowledge of multitenant architecture.
 - [Technical guide to building SaaS apps on Azure](https://azure.microsoft.com/resources/technical-guide-to-building-saas-apps-on-azure/) - An E-book created for ISVs, technical professionals, and technical business leaders that outlines several SaaS technical decision points.
 - [Architecture for startups](../startups/startup-architecture.md) - An introduction to architectures for startups.
 
@@ -84,6 +85,7 @@ In this stage, you begin to market and sell your SaaS solution. Explore all aven
 Developing SaaS solutions is a cyclical journey. To get the most out of your SaaS product, you must constantly iterate and adapt to the needs of your customers and the market. After you have made your decisions about the current direction of your product, the process starts over at stage one. For more information, see these articles:
 
 - [Azure well-architected review](/assessments/azure-architecture-review/) - An assessment of your workload against the Azure Well Architected Framework that results in curated and personalized guidance for your scenario. Complete this review regularly to identify areas of your application you can improve.
+- [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) - An assessment of your SaaS product examining your knowledge of multitenant architecture and evaluating adherence to SaaS operation best practices.
 
 ## Contributors
 
