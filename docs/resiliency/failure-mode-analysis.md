@@ -469,7 +469,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 ## Next steps
 
-[Resiliency and dependencies](/azure/well-architected/resiliency/design-resiliency).Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure
+See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resiliency) in the Azure Well-Architected Framework. Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure.
 
 <!-- links -->
 
