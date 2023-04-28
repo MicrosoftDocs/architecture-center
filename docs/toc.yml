@@ -543,7 +543,7 @@ items:
         expanded: true
         items:
           - name: Microsoft cloud developer docs
-            href: /microsoft-cloud/dev/
+            href: /microsoft-cloud
           - name: Azure and Power Platform scenarios 
             items:
                - name: Overview
