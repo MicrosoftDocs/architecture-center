@@ -465,15 +465,14 @@ You should use a CI/CD pipeline to automate deployments from source control to y
 
 ## Performance efficiency
 
-Performance efficiency is the ability of a workload to scale and meet the demands placed on it by users in an efficient manner. In cloud environments, a workload should anticipate increases in demand to meet business requirements. You should use the Cache-Aside pattern to improve performance and optimize costs when you manage application data.
+Performance efficiency is the ability of a workload to scale and meet the demands placed on it by users in an efficient manner. In cloud environments, a workload should adapt to increases and decreases in demand. Autoscaling is the key configuration to meet this demand, and it helps optimize performance and cost. You should enable autoscaling in your App Service plan to scale out (increase the number of instances) and in (decrease the number of instances) to meet fluctuations in user demand. The Cache-Aside pattern is a performance design pattern that you should use to improve performance and optimize costs when managing application data.
 
 ### Use the Cache-Aside pattern
 
 The Cache-Aside pattern is used to manage in-memory data caching. In this pattern, the application is responsible for managing data requests and data consistency between the cache and a persistent data store, like a database. When a data request reaches the application, the application first checks the cache to see if the cache has the data in memory. If it doesn't, the application queries the database, replies to the requester, and stores that data in the cache. For more information, see [Cache-aside pattern overview](https://learn.microsoft.com/azure/architecture/patterns/cache-aside).
 
 The Cache-Aside pattern introduces a few benefits to the web application. It reduces request response time and can lead to increased response throughput. This efficiency reduces the number of horizontal scaling events, making the app more capable of handling traffic bursts. It also improves service availability by reducing the load on the primary data store and decreasing the likelihood of service outages.
-
-You should use the spring boot cache starter package to enable caching. To use the starter cache, you have to provide values for certain properties. You 
+To enable caching, you must add the `spring-boot-starter-cache` package as a dependency in your `pom.xml` file. The `spring-boot-starter-cache` package configures the Redis cache with default values. You should update those values in `application.properties` file or the environment variables to meet the needs of your web app. For example, the `spring.cache.redis.time-to-live` (represented in milliseconds) determines the amount of data remains in the cache before eviction. You need to provide a value that meets the needs of your web app. Finally, you have to cache the required data in your code by using the `@Cacheable` annotation.
 
 **Cache high-need data.** Most applications have pages that get more views than other pages. You should cache data that supports the most-viewed pages of your application to improve responsiveness for the end user and reduce demand on the database. You should use Azure Monitor to track the CPU, memory, and storage of the database. You can use these metrics to determine whether you can use a smaller database SKU.
 
@@ -481,7 +480,7 @@ You should use the spring boot cache starter package to enable caching. To use t
 
 **Ensure data consistency.** To ensure data consistency, you should update the cached data whenever a user makes changes. You can implement an event-driven system for these updates, or you can access cached data through the repository class responsible for managing the create and edit events.
 
-*Reference implementation:* The reference implementation uses the spring boot cache starter package to enable caching.
+*Reference implementation:* The following code adds the `spring-boot-starter-cache` package as a dependency to enable caching.
 
 ```xml
 <dependency>
@@ -490,7 +489,7 @@ You should use the spring boot cache starter package to enable caching. To use t
 </dependency>
 ```
 
-The starter expects the following values to be configured.
+The reference implementation provides explicit values for the Redis properties to override the default settings from the starter cache package.
 
 ```java
 spring.redis.host=
@@ -501,7 +500,7 @@ spring.cache.type=redis
 spring.cache.redis.time-to-live=40000 
 ```
 
-The code caches the `UserSettings` object. If it doesn't find the username it pulls the user settings attached to that username from the database and caches it.
+The following code defines a method called `getUserSettings`. The method retrieves a user settings associated with a given username. The `@Cacheable(cacheNames = "userSettingsCache")` annotates the `getUserSettings` method and tells the web app to cache the user settings in a cache called `userSettingsCache`.
 
 ```java
     @Cacheable(cacheNames = "userSettingsCache")
