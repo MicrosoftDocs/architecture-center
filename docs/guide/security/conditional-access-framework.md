@@ -106,6 +106,7 @@ The following table describes the Grant Control component of a policy name:
 
 |Grant type|Description/Examples|
 |----------|--------------------|
+|Block|The policy blocks sign-in|
 |MFA|The policy requires multi-factor authentication.|
 |Compliant|The policy requires a compliant device, as determined by Endpoint Manager, so the device needs to be managed by Endpoint Manager.|
 |CompliantorAADHJ|The policy requires a compliant device OR a Hybrid Azure AD joined device. A standard company computer that's domain joined is also Hybrid Azure AD  joined. Mobile phones and Windows 10 computers that are co-managed or Azure AD joined can be compliant.|
