@@ -363,6 +363,7 @@ The scenarios demonstrate how to:
 - process data that has been transformed using  Data Factory and loaded into Azure Blob by reading it in-place or load it into Teradata using its NOS capabilities. 
 
 ## Next steps
+
 - [Teradata Vantage on Azure]()
 - [Azure Data Factory]()
 - [Azure VNET peering]()
