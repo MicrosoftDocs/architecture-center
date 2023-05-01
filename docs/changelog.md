@@ -23,9 +23,6 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
 
-## May 2023
-
-
 ## April 2023
 
 ### New articles
