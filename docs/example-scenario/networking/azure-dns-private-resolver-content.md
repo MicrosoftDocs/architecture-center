@@ -60,8 +60,8 @@ The solution that uses Azure DNS Private Resolver contains the following compone
   | --- | --- | ---|
   | App1.onprem.company.com | 192.168.0.8 | Address mapping |
   | App2.onprem.company.com | 192.168.0.9 | Address mapping |
-  | privatelink.blob.core.windows.net | 10.0.0.8 | DNS forwarder |
-  | privatelink.azure-api.net | 10.0.0.8 | DNS forwarder |
+  | blob.core.windows.net | 10.0.0.8 | DNS forwarder |
+  | azure-api.net | 10.0.0.8 | DNS forwarder |
 
 - A hub network.
 
@@ -82,7 +82,7 @@ The solution that uses Azure DNS Private Resolver contains the following compone
 - Spoke networks.
 
   - VMs are hosted in all spoke networks for testing and validating DNS resolution.
-  - All Azure spoke virtual networks use the default Azure DNS server at the IP address 168.63.129.16. All spoke networks are peered with the hub virtual network.
+  - All Azure spoke virtual networks use the default Azure DNS server at the IP address 168.63.129.16. All spoke networks are optionaly peered with the hub virtual network.
   - The spoke virtual networks are linked to private DNS zones, which makes it possible to resolve the names of private endpoint link services like privatelink.blob.core.windows.net.
 
 #### Traffic flow for an on-premises DNS query
@@ -93,15 +93,15 @@ The following diagram shows the traffic flow that results when an on-premises se
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/US-1968331-azure-dns-private-resolver.pptx) of this architecture.*
 
-1. An on-premises server queries an Azure private DNS record such as privatelink.blob.core.windows.net. The request is sent to the local DNS server at IP address 192.168.0.1 or 192.168.0.2. All on-premises computers point to the local DNS server.
+1. An on-premises server queries an Azure private DNS record such as blob.core.windows.net. The request is sent to the local DNS server at IP address 192.168.0.1 or 192.168.0.2. All on-premises computers point to the local DNS server.
 
-1. A conditional forwarder on the local DNS server for privatelink.blob.core.windows.net forwards the request to the DNS resolver at IP address 10.0.0.8.
+1. A conditional forwarder on the local DNS server for blob.core.windows.net forwards the request to the DNS resolver at IP address 10.0.0.8.
 
 1. The DNS resolver queries Azure DNS and receives information about an Azure Private DNS virtual network link.
 
 1. Azure Private DNS resolves DNS queries that are sent through the Azure public DNS service to the DNS resolver inbound endpoint.
 
-#### Traffic flow for a spoke DNS query
+#### Traffic flow for a spoke DNS query (Usecase 1)
 
 The following diagram shows the traffic flow that results when VM 1 issues a DNS request. In this case, the Spoke 1 spoke network attempts to resolve the request.
 
@@ -120,6 +120,45 @@ The following diagram shows the traffic flow that results when VM 1 issues a DNS
 1. If Azure Private DNS (**2**) and Azure DNS Private Resolver (**3**) can't find a matching record, Azure DNS is used to resolve the query.
 
 Each DNS forwarding rule specifies one or more target DNS servers to use for conditional forwarding. Specified information includes the domain name, target IP address, and port.
+
+#### Traffic flow for a spoke DNS query (Usecase 2)
+
+The following diagram shows the traffic flow that results when VM 1 issues a DNS request via DNS Private Resolver Inbound endpoint. In this case, the Spoke 1 spoke network attempts to resolve the request.
+
+:::image type="content" source="./media/azure-dns-private-resolver-spoke-query-traffic.png" alt-text="Architecture diagram that shows name resolution traffic with Azure DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./media/azure-dns-private-resolver-spoke-query-traffic.png":::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1968331-azure-dns-private-resolver.pptx) of this architecture.*
+
+1. VM 1 queries a DNS record. The spoke virtual networks are configured to use 10.0.0.8 as the name resolution  DNS server. As a result, DNS Private Resolver is used to resolve the DNS query.
+
+1. If the query attempts to resolve a private name, Azure Private DNS is contacted.
+
+1. If the query doesn't match a private DNS zone that's linked to the virtual network, Azure DNS connects to Azure DNS Private Resolver. A virtual network link exists for the Spoke 1 virtual network. Azure DNS Private Resolver checks for a DNS forwarding rule set that's associated with the Spoke 1 virtual network.
+
+1. If a match is found in the DNS forwarding rule set, the DNS query is forwarded via the outbound endpoint to the IP address that's specified in the rule set.
+
+1. If Azure Private DNS (**2**) and Azure DNS Private Resolver (**3**) can't find a matching record, Azure DNS (**5**) is used to resolve the query.
+
+Each DNS forwarding rule specifies one or more target DNS servers to use for conditional forwarding. Specified information includes the domain name, target IP address, and port.
+
+#### Traffic flow for a spoke DNS query (Usecase 3)
+
+The following diagram shows the traffic flow that results when VM 1 issues a DNS request via on-premise DNS server. In this case, the Spoke 1 spoke network attempts to resolve the request.
+
+:::image type="content" source="./media/azure-dns-private-resolver-spoke-query-traffic.png" alt-text="Architecture diagram that shows name resolution traffic with Azure DNS Private Resolver when a spoke VM issues a DNS request." border="false" lightbox="./media/azure-dns-private-resolver-spoke-query-traffic.png":::
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1968331-azure-dns-private-resolver.pptx) of this architecture.*
+
+1. VM 1 queries a DNS record. The spoke virtual networks are configured to use 192.168.0.1/2 as the name resolution  DNS server. As a result, on-premise DNS server is used to resolve the DNS query.
+
+1. The request is sent to the local DNS server at IP address 192.168.0.1 or 192.168.0.2.
+
+1. A conditional forwarder on the local DNS server for blob.core.windows.net forwards the request to the DNS resolver at IP address 10.0.0.8.
+
+1. The DNS resolver queries Azure DNS and receives information about an Azure Private DNS virtual network link.
+
+1. Azure Private DNS resolves DNS queries that are sent through the Azure public DNS service to the DNS resolver inbound endpoint.
+
 
 #### Components
 
