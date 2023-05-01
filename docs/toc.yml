@@ -6404,8 +6404,6 @@ items:
           href: guide/hadoop/apache-kafka-migration.yml
         - name: Apache Sqoop migration to Azure
           href: guide/hadoop/apache-sqoop-migration.yml
-        - name: Apache Storm migration to Azure
-          href: guide/hadoop/apache-storm-migration.yml
       - name: BizTalk Server to Azure Integration Services
         items:
         - name: Migration overview
