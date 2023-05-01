@@ -3995,9 +3995,11 @@ items:
       - name: Visual assistant
         href: solution-ideas/articles/visual-assistant.yml
     -name: OpenAI
-     items: Architectures
-     - name: Monitor OpenAI models
-       href: example-scenario/ai/log-monitor-azure-openai.md
+     items: 
+     - name: Architectures
+       items: 
+       - name: Monitor OpenAI models
+         href: example-scenario/ai/log-monitor-azure-openai.md
   - name: Analytics
     items:
     - name: Get started

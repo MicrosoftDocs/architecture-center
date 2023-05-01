@@ -83,7 +83,7 @@ ApiManagementGatewayLogs
 
 Output:
 
-:::image type="content" source="media/monitor-usage.png" alt-text="Screenshot that shows the output of usage monitoring." lightbox="monitor-usage.png":::
+:::image type="content" source="media/monitor-usage.png" alt-text="Screenshot that shows the output of usage monitoring." lightbox="media/monitor-usage.png":::
 
 **Example query for prompt usage monitoring**
 
@@ -97,7 +97,7 @@ ApiManagementGatewayLogs
 
 Output: 
 
-:::image type="content" source="media/prompt-usage.png" alt-text="Screenshot that shows the output of prompt usage monitoring." lightbox="prompt-usage.png":::
+:::image type="content" source="media/prompt-usage.png" alt-text="Screenshot that shows the output of prompt usage monitoring." lightbox="media/prompt-usage.png":::
 
 
 ## Potential use cases
