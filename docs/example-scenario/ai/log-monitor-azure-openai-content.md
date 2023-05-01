@@ -24,7 +24,7 @@ This architecture provides comprehensive logging and monitoring and enhanced sec
 ### Components
 
 - [Application Gateway](https://azure.microsoft.com/services/application-gateway/). Application load balancer to ensure that all users of the Azure OpenAI APIs can get the fastest response and highest throughput for model completions.
-- [API Management](https://azure.microsoft.com/services/api-management/). API management platform for accessing back-end Azure OpenAI endpoints. Provides additional monitoring and logging that's not available natively in Azure OpenAI.
+- [API Management](https://azure.microsoft.com/services/api-management/). API management platform for accessing back-end Azure OpenAI endpoints. Provides monitoring and logging that's not available natively in Azure OpenAI.
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/). Private network infrastructure in the cloud. Provides network isolation so all model network traffic is routed privately to the Azure OpenAI Service.
 - [Azure OpenAI](https://azure.microsoft.com/products/cognitive-services/openai-service/). Service that hosts models and provides generative model completion outputs.
 - [Monitor](https://azure.microsoft.com/services/monitor/). End-to-end observability for applications. Provides access to application logs via Kusto Query Language. Also enables dashboard reports and monitoring and alerting capabilities.
@@ -100,7 +100,7 @@ Output:
 :::image type="content" source="media/prompt-usage.png" alt-text="Screenshot that shows the output of prompt usage monitoring." lightbox="media/prompt-usage.png":::
 
 
-## Potential use cases
+### Potential use cases
 
 - Deployment of Azure OpenAI for internal enterprise users to accelerate productivity
 - High availability of Azure OpenAI for internal applications
@@ -126,7 +126,7 @@ By implementing best practices for application and network level isolation of yo
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To help you explore the cost of running this scenario, we've pre-configured all the services in the Azure pricing calculator. To learn how the pricing would change for your use case, change the appropriate variables to match your expected traffic.
+To help you explore the cost of running this scenario, we've preconfigured all the services in the Azure pricing calculator. To learn how the pricing would change for your use case, change the appropriate variables to match your expected traffic.
 
 The following three sample cost profiles provide estimates based on the amount of traffic. (The estimates assume that a document contains approximately 1,000 tokens.)
 
