@@ -16,7 +16,7 @@ ms.custom:
   - e2e-aks
 ---
 
-## Check AKS cluster health
+# Check AKS cluster health
 
 Start by checking the health of the overall cluster and networking.
 
