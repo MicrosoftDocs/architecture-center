@@ -34,25 +34,25 @@ _This article is part of a series. Read the introduction [here](aks-triage-pract
 
 **Example scenario 1:** I observed that my application is getting disconnected or experiencing intermittent connection issues. In response, I click **Connectivity Issues** tile to investigate the potential causes. 
 
-![screenshot of AKS Diagnose and solve problems Results - Networking Tile.](images/aks-diagnostics-tile.png)
+![Screenshot of AKS Diagnose and solve problems Results - Networking Tile.](images/aks-diagnostics-tile.png)
 
 I received a diagnostic alert indicating that the disconnection may be related to my *Cluster DNS*. To gather more information, I clicked on *View details*. 
 
-![screenshot of AKS Diagnose and solve problems Results - Networking results.](images/aks-diagnostics-results.png)
+![Screenshot of AKS Diagnose and solve problems Results - Networking results.](images/aks-diagnostics-results.png)
 
 Based on the diagnostic result, it appears that the issue may be related to known DNS issues or VNET configuration. Thankfully, I can use the documentation links provided to address the issue and resolve the problem.
 
-![screenshot of AKS Diagnose and solve problems Results - Networking - Cluster DNS result.](images/aks-diagnostics-network.png)
+![Screenshot of AKS Diagnose and solve problems Results - Networking - Cluster DNS result.](images/aks-diagnostics-network.png)
 
 Furthermore, if the recommended documentation based on the diagnostic results doesn't resolve the issue, you can return to the previous step in AKS Diagnose and Solve Problems and refer to extra documentation.
 
-![screenshot of AKS Diagnose and solve problems Results - Additional - Docs locations.](images/aks-diagnostics-doc.png)
+![Screenshot of AKS Diagnose and solve problems Results - Additional - Docs locations.](images/aks-diagnostics-doc.png)
 
 **Example Scenario 2:** My cluster seems to be in good health. All nodes are ready, and my application runs without any issues. However, I'm curious about the best practices I can follow to prevent potential problems. So, I click on the **Best Practices** tile. tile. After reviewing the recommendations, I discovered that although my cluster appears healthy at the moment, there are still some things I can do to avoid latency or throttling issues in the future. 
 
-![screenshot of AKS Diagnose and solve problems Results - Best - Practice tile.](images/aks-diagnostics-best.png)
+![Screenshot of AKS Diagnose and solve problems Results - Best - Practice tile.](images/aks-diagnostics-best.png)
 
-![screenshot of AKS Diagnose and solve problems Results - Best - result.](images/aks-diagnostics-practice.png)
+![Screenshot of AKS Diagnose and solve problems Results - Best - result.](images/aks-diagnostics-practice.png)
 
 To learn more about this feature, see [Azure Kubernetes Service Diagnose and Solve Problems overview](/azure/aks/concepts-diagnostics).
 
@@ -64,16 +64,16 @@ To learn more about this feature, see [Azure Kubernetes Service Diagnose and Sol
 - **Unknown**. When Resource Health hasn't received any information about the resource for over 10 minutes, this status will appear. This usually happens when virtual machines have been deallocated. Although this status is not a definitive indication of the resource's state, it can be a useful data point for troubleshooting.
 - **Degraded**. This status means that your cluster has detected a loss in performance, but it's still available for use.
 
-![screenshot of AKS Resource Health overview.](images/aks-resource-health.png)
+![Screenshot of AKS Resource Health overview.](images/aks-resource-health.png)
 
 To learn more about this feature, see [Azure Resource Health overview](/azure/service-health/resource-health-overview).
 
 **Azure Advisor** offers actionable recommendations to help you optimize your AKS clusters for reliability, security, operational excellence and performance. By clicking on a recommendation, you can access detailed documentation to optimize your cluster. This empowers you to proactively take steps to improve your cluster's performance and avoid potential issues.
 
-![screenshot AKS Advisor overview.](images/aks-advisor.png)
+![Screenshot AKS Advisor overview.](images/aks-advisor.png)
 
-![screenshot of AKS Advisor Result with actions.](images/aks-advisor-action.png) 
-![screenshot of AKS Advisor Result sample 2.](images/aks-advisor-result.png) 
+![Screenshot of AKS Advisor Result with actions.](images/aks-advisor-action.png) 
+![Screenshot of AKS Advisor Result sample 2.](images/aks-advisor-result.png) 
 
 To learn more about this feature, see [Azure Advisor overview](/azure/advisor/advisor-overview).
 
