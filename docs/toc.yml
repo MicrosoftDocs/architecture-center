@@ -3997,7 +3997,7 @@ items:
     -name: OpenAI
      items: 
      - name: Monitor OpenAI models
-         href: example-scenario/ai/log-monitor-azure-openai.md
+       href: example-scenario/ai/log-monitor-azure-openai.md
   - name: Analytics
     items:
     - name: Get started
