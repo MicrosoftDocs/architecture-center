@@ -16,16 +16,14 @@ metadata:
     - scalability
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
-name: Scalable and secure WordPress on Azure
+name: WordPress on Azure
 azureCategories:
   - web
 summary: Learn about multiple hosting options to deploy a highly scalable and secure installation of WordPress.
 products:
-  - azure-cdn
-  - azure-key-vault
-  - azure-load-balancer
-  - azure-virtual-network
-  - azure-vm-scalesets
+  - azure-front-door
+  - azure-web-application-firewall
+  - azure-private-link
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
 content: |
    [!include[](wordpress-overview-content.md)]
