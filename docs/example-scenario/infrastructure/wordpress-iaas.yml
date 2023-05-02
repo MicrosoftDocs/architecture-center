@@ -21,11 +21,11 @@ azureCategories:
   - web
 summary: Learn how to use Azure Front Door, VMs and other Azure services to deploy a highly scalable and secure installation of WordPress.
 products:
-  - azure-frontdoor
+  - azure-front-door
   - azure-key-vault
   - azure-load-balancer
   - azure-virtual-network
   - azure-vm-scalesets
 thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
 content: |
-   [!include[](wordpress-content.md)]
+   [!include[](wordpress-iaas-content.md)]
