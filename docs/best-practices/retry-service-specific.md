@@ -830,7 +830,7 @@ namespace RetryCodeSamples
 
 The client library is based on [Azure Core library](https://azure.github.io/azure-sdk/general_azurecore.html), which is a library that provides cross-cutting services to other client libraries.
 
-There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale-down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration the consumer can override), our SDKs and the consumer’s application become resilient to these kinds of failures. Note that some services charge real money for each try and so consumers should be able to disable retries entirely if they prefer to save money over resiliency.
+There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale-down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration the consumer can override), our SDKs and the consumer’s application become resilient to these kinds of failures. Note that some services charge real money for each request and so consumers should be able to disable retries entirely if they prefer to save money over resiliency.
 
 ### Policy configuration
 
