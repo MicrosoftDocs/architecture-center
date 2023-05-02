@@ -1,79 +1,81 @@
 This article describes various enterprise-scale analytical scenarios that are enabled by Azure Data Factory and Teradata VantageCloud Enterprise.
 
-The architectures described here demonstrate how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines with little or no code. It describes how to quickly and securely ingest or extract Vantage data using Data Factory.  These patterns are built on the foundation of Azure scale, security and governance.
+The architecture described here demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines while writing little or no code. They describe how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory. The architecture is built on the foundation of Azure scalability, security, and governance.
 
-The three scenarios covered in this whitepaper include:
+This article describes three scenarios:
 
-1.	Data Factory pulling data from VantageCloud Enterprise and loading to Azure Blob Storage
-2.	Loading data into VantageCloud Enterprise with Data Factory.
-3.	Accessing data transformed and loaded into Azure Blob Storage by Data Factory, from VantageCloud Enterprise using Native Object Storage functionality of Teradata.
+- Data Factory pulling data from VantageCloud Enterprise and loading it into Azure Blob Storage
+- Loading data into VantageCloud Enterprise with Data Factory
+- Using the Native Object Storage (NOS) functionality of VantageCloud Enterprise to access data transformed and loaded into Blob Storage by Data Factory
 
 ## Architecture
 
-The following diagram illustrates the VNet Peering connectivity option in our architecture, using a Self-Hosted IR to connect to the Analytics Database. Teradata’s VMs are deployed with private IPs only.
+The following diagram illustrates a version of the architecture that uses virtual network peering connectivity. It uses a self-hosted integration runtime (IR) to connect to the analytics database. Teradata's VMs are deployed with only private IP addresses.
 
-:::image type="content" source="media/teradata-azure-data-factory-vnet-peering.png" alt-text="Diagram that shows the architecture with virtual network peering connectivity." lightbox="media/teradata-azure-data-factory-vnet-peering.png" border="false":::
-
-*Download a [Visio file](https://arch-center.azureedge.net/best-practices-for-teradata-vantage-and-azure-data-factory.vsdx) of this architecture.*
-
-The following diagram illustrates the Private Link connectivity option in our architecture.
-
-:::image type="content" source="media/teradata-vantage-azure-data-factory-private-link.png" alt-text="Diagram that shows the architecture with Private Link connectivity." lightbox="media/teradata-vantage-azure-data-factory-private-link.png" border="false":::
+:::image type="content" source="media/teradata-azure-data-factory-vnet-peering.png" alt-text="Diagram that shows a version of the architecture that uses virtual network peering connectivity." lightbox="media/teradata-azure-data-factory-vnet-peering.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/best-practices-for-teradata-vantage-and-azure-data-factory.vsdx) of this architecture.*
 
-The VantageCloud Enterprise on Azure (VaaS) is a fully managed service solution deployed in Teradata-owned Azure Subscription. Customers deploy cloud services in their own Azure subscriptions which then connect with the Teradata managed vantage Azure Subscriptions using one of the approved connectivity options. Currently Teradata supports the following approved connectivity options between a customer managed Azure subscription and VaaS. 
+The following diagram illustrates a version of the architecture that uses Azure Private Link connectivity.
 
-- VNet Peering
-- Private Link (PL)
-- Azure Virtual WAN (VWAN)
+:::image type="content" source="media/teradata-vantage-azure-data-factory-private-link.png" alt-text="Diagram that shows a version of the architecture that uses Private Link connectivity." lightbox="media/teradata-vantage-azure-data-factory-private-link.png" border="false":::
 
-Work with your [Teradata support](https://support.teradata.com/csm) or account team to ensure that required security group settings are in place to initiate traffic from self-hosted IR to the database through the VNet peering link.
+*Download a [Visio file](https://arch-center.azureedge.net/best-practices-for-teradata-vantage-and-azure-data-factory.vsdx) of this architecture.*
+
+VantageCloud Enterprise on Azure is a fully managed service that's deployed in a Teradata-owned Azure subscription. You deploy cloud services in your own Azure subscription, which is then connected to the Teradata-managed subscription via one of the approved connectivity options. Teradata supports the following types of connectivity between your Azure subscription and VantageCloud Enterprise on Azure:
+
+- Virtual network peering
+- Private Link
+- Azure Virtual WAN
+
+If you plan to use virtual network peering, work with [Teradata support](https://support.teradata.com/csm) or your Teradata account team to ensure that required security group settings are in place to initiate traffic from the self-hosted IR to the database via the virtual network peering link.
 
 ## Components
 
-You’ll need to be familiar with Azure Data Factory, Azure Blob Storage, Teradata VantageCloud Enterprise, and Teradata Tools and Utilities (TTU).
+To implement this architecture, you need to be familiar with Data Factory, Blob Storage, Teradata VantageCloud Enterprise, and Teradata Tools and Utilities (TTU).
 
-The following components and software version were used to create the architecture for the integration scenarios.
+These components and versions are used in the integration scenarios:
 
-- [Teradata VantageCloud Enterprise v. 17.20 hosted on Azure]()
-- [Azure Data Factory]()
-- [Azure Storage Blob]()
-- [Teradata Tools and Utilities (TTU) 17.20.12]() 
-- [Teradata ODBC Driver 17.20.12]()
-- [Teradata Studio 17.20]()
+- [Teradata VantageCloud Enterprise 17.20, hosted on Azure](https://www.teradata.com/Cloud/Azure)
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory)
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
+- [TTU 17.20](https://downloads.teradata.com/download/database/teradata-tools-and-utilities-13-10) 
+- [Teradata ODBC Driver 17.20.12](https://downloads.teradata.com/download/connectivity/odbc-driver/windows)
+- [Teradata Studio 17.20](https://downloads.teradata.com/download/tools/teradata-studio)
 
 ### Teradata Vantage
 
-Vantage is the platform for Pervasive Data Intelligence, delivering real-time intelligent answers to users and systems across all parts of an organization. In our architecture Vantage hosted on Azure is used as a source or destination for data integration tasks. Further Teradata Vantage Native Object Store (NOS) is used to integrate with data in Azure Blob Storage. 
+Vantage provides what Teradata calls Pervasive Data Intelligence. Users across your organization can use it to get real-time, intelligent answers. In this architecture, Vantage hosted on Azure is used as a source or destination for data integration tasks. Vantage NOS is used to integrate with data in Blob Storage.
 
-### Azure Data Factory
+### Data Factory
+
+Data Factory is a serverless cloud extract, transform, and load (ETL) service. You can use it to orchestrate and automate data movement and transformation. It provides a code-free user interface for data ingestion and intuitive authoring and single-pane-of-glass monitoring and management.
+
+You can use Data Factory to create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores. You can create complex ETL processes that visually transform data by using dataflows that run on Spark or compute services like Azure Batch, Azure Machine Learning, Apache Spark, SQL, Azure HDInsight with Hadoop, and Azure Databricks. Working with Data Factory involves the following layers, listed from the highest level of abstraction to the software that's closest to the data.
+
+- **Pipelines** are graphical interfaces that contain activities and data paths.
+- **Activities** perform operations on data.
+- **Sources and sinks** are activities that specify where data comes from and where it goes.
+- **Datasets** are well-defined sets of data that Data Factory ingests, loads, and transforms.
+- **Linked services** enable Data Factory to access connection information for specific external data sources.
+- **The integration runtime (IR)** provides a gateway between Data Factory and data or compute resources.
+
+### Self-hosted IR 
  
-Azure Data Factory is a serverless cloud extract, transform, and load (ETL) service that allows users to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. It offers a code-free user interface for data ingestion and intuitive authoring and single-pane-of-glass monitoring and management.You can use Azure Data Factory to create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores. You can create complex ETL processes that visually transform data using dataflows running on Spark or compute services such as Azure Batch, Azure ML, Apache Spark, SQL, Azure HDInsight Hadoop, Azure Databricks, and so on. Getting Data Factory to do the real work for you involves the following layers of technology, listed from the highest level of abstraction you interact with to the software closest to the data.
+The self-hosted IR can perform copy operations between cloud data stores and private-network data stores. You can also transform your compute resources in an on-premises network or an Azure virtual network. You need a local computer or virtual machine on your private network to install the self-hosted IR. For more information, see [Considerations for using a self-hosted IR](https://learn.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#considerations-for-using-a-self-hosted-ir). This article describes how to use self-hosted IR to connect to VantageCloud and extract data to load into Azure Data Lake Storage.
 
-- **Pipelines are graphical** interfaces that place widgets and draw data paths
-- **Activities are graphical** widgets that perform certain operations on data
-- **Sources and sinks**, activities that specify where data comes from and where it goes
-- **Dataset is** a well-defined set of data that Data Factory uses to ingest, load, transform
-- **Linked Services allow** Data Factory to access connection information for specific external data sources
-- **Integration Runtime provides** the gateway between Data Factory and the actual data or **compute** resources you need layer that allows Data Factory to communicate with software external to itself
-
-### Self-hosted IR (Integration Runtime)
+### Teradata connector
  
-The self-hosted integration runtime can perform copy operations between cloud data stores and private network data stores. You can also transform your compute resources in an on-premises network or an Azure virtual network. You need a local computer or virtual machine on your private network to install the self-hosted integration runtime. Please refer to [Self-hostedIR considerations](https://learn.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#considerations-for-using-a-self-hosted-ir) to learn more about how you can use it to meet your data ingestion needs from on-prem data center or cloud. In this white paper, we will cover how self-hosted IR is used to connect to Vantage cloud and extract data to load to Azure data lake. 
+In this architecture, Data Factory uses the Teradata connector to connect to Vantage. The Teradata connector supports:
+- Teradata versions 14.10, 15.0, 15.10, 16.0, 16.10, and 16.20.
+- Copying data by using basic, Windows, or LDAP authentication.
+- Parallel copying from a Teradata source. For more information, see  [Parallel copy from Teradata](/azure/data-factory/connector-teradata?tabs=data-factory#parallel-copy-from-teradata).
 
-### Teradata Connector 
- 
-In this paper, Data Factory uses Teradata connector to connect to Vantage. Specifically, Teradata connector supports:
-- Teradata **version 14.10, 15.0, 15.10, 16.0, 16.10, and 16.20**.
-- Copying data by using **Basic**, **Windows**, or **LDAP** authentication.
-- Parallel copying from a Teradata source. See the [Parallel copy from Teradata](https://learn.microsoft.com/azure/data-factory/connector-teradata?tabs=data-factory#parallel-copy-from-teradata) section for details.
+This article describes how to set up linked services and datasets for the Data Factory Copy activity, which ingests data from Vantage and loads it into Data Lake Storage.
 
-In this paper, we will review steps taken to set up the linked service, data sets for Copy activity. Data Factory Pipelines consists of Copy activity that ingests data from Vantage and loads to data lake.
+## Scenario 1: Data Factory extracts data from VantageCloud and loads it into Blob Storage
 
-## Scenario 1: Data Factory pulling data from VantageCloud Enterprise and loading to Azure Blob Storage 
-
-In this scenario we will use Data Factory, perform some basic transformations, and then load the data into an Azure Storage Blob container. 
+This scenario describes how to use Data Factory to exract data from VantageCloud Enterprise, perform some basic transformations, and then load the data into a Blob Storage container. 
 
 The scenario highlights the native integration between Data Factory and Vantage and how easily you can build an enterprise ETL pipeline to integrate data in Vantage.
 
@@ -211,11 +213,11 @@ For this scenario we’ll use an ODBC connector to connect to the Teradata Vanta
 Tip: Evaluate both options for performance, cost, and management considerations to choose what is best based on your requirements. 
 
 1.	We start by preparing the self-hosted IR we created in the previous scenario by installing the Teradata ODBC driver on it. We are using a windows 11 machine for self-hosted IR. 
-    - RDP into the VM.
-    - Download and install the Teradata ODBC driver. 
+    - [RDP] into the VM.
+    - Download and install the [Teradata ODBC driver]. 
     - Download and install JAVA JRE, if it is not already present. 
 
-2.	Create a 64-bit System DSN for the Teradata Database by adding an ODBC Data source. 
+2.	Create a 64-bit System DSN for the Teradata Database by [adding an ODBC Data source]. 
     - Make sure you are using the 64-bit DSN window.
     - Choose the Teradata Database ODBC Driver as shown on the following screenshot. 
     - Select Finish which will open the Drive setup window.
@@ -390,7 +392,7 @@ GROUP BY 1;
 ## Conclusion.
 
 This article highlights the various ways in which Azure Data Factory and Teradata VantageCloud Enterprise databases demonstrate enterprise integration and analytics capabilities. 
-As discussed, Private Link, VNet Peering and VWAN are used to connect an Azure Subscription and VNet with Teradata’s VNet where VantageCloud Enterprise database is deployed in a SaaS model. 
+As discussed, Private Link, VNet Peering and Virtual WAN are used to connect an Azure Subscription and VNet with Teradata’s VNet where VantageCloud Enterprise database is deployed in a SaaS model. 
 
 The scenarios demonstrate how to: 
 
@@ -406,3 +408,5 @@ The scenarios demonstrate how to:
 - [Azure Private Link Service]()
 - [Data Factory Teradata Connector]
 - [Self Hosted Integration Runtime]
+- 
+- https://learn.microsoft.com/en-us/azure/storage/blobs/
