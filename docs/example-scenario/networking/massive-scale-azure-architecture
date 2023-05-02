@@ -1,0 +1,291 @@
+Massive Scale Highly Redundant Enterprise Virtual WAN Architecture
+
+This example workload shows an Azure Virtual WAN deployment with multiple hubs per region. Each hub is peered to geographically dispersed redundant express route circuits to improve availability and scalability. This architecture is for exceptionally large and critical workloads, supporting varying business units and applications which reside on spoke Vnets. It is assumed that these spoke Vnets therefore have varying security requirements with respect to internet or spoke to spoke connectivity.
+
+## Architecture
+
+￼
+
+## Workflow
+
+2. Traffic from the spoke Vnets to the internet is routed through the NVA Firewalls in the Security Vnets in the attached to the same hub as the spoke. All Traffic between the Spoke Vnets and on-premises is inspected by the NVAs connected to the same hub as the Spoke source or destination, optimizing performance while retaining secure traffic between on-premises and Azure.
+
+3. Traffic between spokes residing on different hubs should follow the path Spoke > Hub > Hub > Spoke. If spoke owners desire more inspection they are required to implement it within their spokes. This traffic should not ride the ExpressRoute nor should it be inspected by Security Vnet NVA's
+
+4. Spoke to spoke traffic on the same hub should follow the path Spoke > Hub > Spoke. This traffic should not be inspected by Security Vnet NVA's
+
+## Components
+
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/) The architecture demonstrates the use of an Azure ExpressRoute circuit which provides a private connection between your on-premises environment and Azure resources.
+- [Azure Virtual WAN Standard](/azure/virtual-wan/virtual-wan-about) The architecture uses Azure Virtual WAN as for transit networking and routing providing interconnect between your on-premises (via ExpressRoute) and your Azure resources.
+  - Custom Route Tables: Custom Route Tables optimize routing in the solution allowing network-to-network traffic to bypass the firewalls, while network-to-on-premises traffic remains inspected.
+  - Labels: Labels in this solution significantly simplify the routing by eliminating the need to extensively propagate route individual networks to all the route tables.
+- [NVA's](https://azure.microsoft.com/solutions/network-appliances/) This architecture uses NVA's which are often required by larger organizations with established investment in firewall technology and management.
+- [ExpressRoute Direct](/azure/expressroute/expressroute-erdirect-about) (Optional) Allowing you to split off ExpressRoute circuits into local in standard circuits enabling the customer to optimize cost as long as the bandwidth necessary is already sufficient to justify using ExpressRoute Direct.
+
+## Alternatives
+
+An alternative might include a hub and spoke Vnet model with Azure route servers. This might be chosen to enable greater performance than the 50Gbps limit per hub. The implications of using this alternative solution are:
+
+- Greater performance limits
+- More complexity
+
+See Hub-spoke network topology in Azure for more details.
+
+## Scenario details
+
+1. This deployment maximizes the scalability of Virtual WAN leveraging multiple VWAN hubs per region. As of the writing of this article, the number of Vnet connections to a single hub is \<500-Total number of VWAN hubs in the services\> So for the design above with 4 hubs, each hub can support 496 Vnet Connections. Additionally, since performance linearly scales with number of hubs the VWAN design above provides both exceptional performance and Vnet space scaling.
+1. This deployment uses an open bowtie design for ExpressRoute Connectivity to the VWAN hub. Each hub has 2 ExR circuits which are geographically dispersed. This solves a number of problems and enables the use of NVA's in the design.
+   1. Optimized InterRegion Spoke to Spoke Routing: Because ExpressRoute is a preferred path for Virtual WAN, when Traffic it traveling between 2 spokes attached to different hubs, for instance "Spoke1 Vnet" -to- "Spoke 5 Vnet" if the design were a complete bowtie with a single Express Route circuit connecting to both Hub1 and Hub3, then traffic between the spokes would actually follow the path Spoke1 to Hub1 down the ExR Circuit then back up the ExR path to Hub3 then to Spoke5. This design eliminates that path enabling the Spoke to Hub to Hub to Spoke path.
+   1. Cost Benefit: Because the design is using different express route circuits, the customer can use the Local Express Route SKU for all of their standard operating traffic and the DR path which is seldom used will be a Standard Circuit SKU, optimizing Bandwidth cost in the solution
+   1. Enabling NVA inspection local to the spokes: This design enables all traffic to utilize the NVA in the Security Vnet attached to the same Hub as the Vnet in which the source of the traffic resides. In the case of an ExpressRoute Failure the backup path continues to use the local NVA. This simplifies routing, optimizes performance (avoids inspection in multiple regions in the case of using a backup path), and minimizes the risk of asymmetric routes by limiting complexity.
+1. This deployment uses the custom NVA design which allows flexibility in routing through the use of customer defined route tables in the vwan.
+1. This deployment provides highly redundant express route connectivity for each hub, and highly redundant NVA's attached to each hub.
+
+Route Tables:
+
+## Region1 Hub 1 Route Tables
+
+### Default route table
+
+| Destination | Next Hop |
+|-------------|----------|
+| 10.0.0.0/16 | SecurityVnet1Connection/NVA Internal IP Address |
+| associated | Branches |
+| propagated | Branches |
+| labels | default, Hub1Default |
+
+### Spokes route table
+
+| Destination | Next Hop |
+|-------------|----------|
+| 172.16.0.0/16 | SecurityVnet1Connection/NVA Internal IP Address |
+| 0.0.0.0/0 | SecurityVnet1Connection/NVA Internal IP Address |
+| associated | Spoke Vnet1, Spoke Vnet2 |
+| propagated ||
+| labels | AllWorkloadSpokes |
+
+### Security route table
+
+| Destination | Next Hop |
+|-------------|----------|
+| associated | Security Vnet1 |
+| propagated ||
+| labels | Hub1SecuritySpokes, AllSecuritySpokes |
+
+## Region1 Hub 2 Route Tables
+
+### Default route table (Hub2)
+
+| Destination | Next Hop |
+|-------------|----------|
+| 10.1.0.0/16 | SecurityVnet2Connection/NVA Internal IP Address |
+| associated | Branches |
+| propagated | Branches |
+| labels | default, Hub2Default |
+
+### Spokes route table
+
+| Destination | Next Hop |
+|-------------|----------|
+| 172.16.0.0/16 | SecurityVnet2Connection/NVA Internal IP Address |
+| 0.0.0.0/0 | SecurityVnet2Connection/NVA Internal IP Address |
+| associated | Spoke Vnet3, Spoke Vnet4 |
+| propagated ||
+| labels | AllWorkloadSpokes |
+
+### Security route table
+
+| Destination | Next Hop |
+|-------------|----------|
+| associated | Security Vnet2 |
+| propagated |
+| labels | Hub2SecuritySpokes, AllSecuritySpokes |
+
+ | **DEFAULT ROUTE TABLE (Hub3)** |
+ | **SPOKES ROUTE TABLE** |
+ | **SECURITY ROUTE TABLE** |
+| **Region2 Hub1 Route Tables** | Destination | Next Hop |
+ | Destination | Next Hop |
+ | Destination | Next Hop |
+| 10.2.0.0/16 | SecurityVnet3Connection/NVA Internal IP Address |
+ | 172.16.0.0/16 | SecurityVnet3Connection/NVA Internal IP Address |
+ |
+ |
+ |
+|
+ |
+ |
+ | 0.0.0.0/0 | SecurityVnet3Connection/NVA Internal IP Address |
+ |
+ |
+ |
+| associated | Branches |
+ | associated | Spoke Vnet5, Spoke Vnet6 |
+ | associated | Security Vnet3 |
+| propagated | Branches |
+ | propagated |
+ |
+ | propagated |
+ |
+| labels | default, Hub3Default |
+ | labels | AllWorkloadSpokes |
+ | labels | Hub3SecuritySpokes, AllSecuritySpokes |
+|
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+ |
+|
+ | **DEFAULT ROUTE TABLE (Hub4)** |
+ | **SPOKES ROUTE TABLE** |
+ | **SECURITY ROUTE TABLE** |
+| **Region2 Hub2 Route Tables** | Destination | Next Hop |
+ | Destination | Next Hop |
+ | Destination | Next Hop |
+| 10.3.0.0/16 | SecurityVnet4Connection/NVA Internal IP Address |
+ | 172.16.0.0/16 | SecurityVnet4Connection/NVA Internal IP Address |
+ |
+ |
+ |
+|
+ |
+ |
+ | 0.0.0.0/0 | SecurityVnet3Connection/NVA Internal IP Address |
+ |
+ |
+ |
+| associated | Branches |
+ | associated | Spoke Vnet7, Spoke Vnet8 |
+ | associated | Security Vnet4 |
+| propagated | Branches |
+ | propagated |
+ |
+ | propagated |
+ |
+| labels | default, Hub4Default |
+ | labels | AllWorkloadSpokes |
+ | labels | Hub4SecuritySpokes, AllSecuritySpokes |
+
+Labels:
+
+| **Label** | **Propagated Vnet connections** |
+| ---------- | ------------------------------- |
+| AllWorkloadSpokes | SpokeVnet1Connection, SpokeVnet2Connection, SpokeVnet3Connection, SpokeVnet4Connection, SpokeVnet5Connection, SpokeVnet6Connection, SpokeVnet7Connection, SpokeVnet8Connection, SecurityVnet1Connection, SecurityVnet2Connection, SecurityVnet3Connection, SecurityVnet4Connection |
+| AllSecuritySpokes | SpokeVnet1Connection, SpokeVnet2Connection, SpokeVnet3Connection, SpokeVnet4Connection, SpokeVnet5Connection, SpokeVnet6Connection, SpokeVnet7Connection, SpokeVnet8Connection |
+| Hub1Default | SecurityVnet1Connection |
+| Hub2Default | SecurityVnet2Connection |
+| Hub3Default | SecurityVnet3Connection |
+| Hub4Default | SecurityVnet4Connection |
+| Hub1SecuritySpokes | SpokeVnet1Connection, SpokeVnet2Connection, SecurityVnet1Connection |
+| Hub2SecuritySpokes | SpokeVnet3Connection, SpokeVnet4Connection, SecurityVnet2Connection |
+| Hub3SecuritySpokes | SpokeVnet5Connection, SpokeVnet6Connection, SecurityVnet3Connection |
+| Hub4SecuritySpokes | SpokeVnet7Connection, SpokeVnet8Connection, SecurityVnet4Connection |
+
+This network architecture integrates seamlessly with the Cloud Adoption Framework for VWAN where the VWAN service, the ExpressRoute Connections, and the Firewalls(and security vnets in this case) all reside in the connectivity subscription and the workloads, NSGs, and spoke vnets reside in separate landing zone subscriptions owned by the workload or application owners.
+
+[Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
+
+### Potential use cases
+
+This design is applicable to any business of sufficient size and footprint in Azure.
+
+- Possible replacement for existing MPLS/VWAN third party deployment
+- Massive Scale Cloud to on-premises connectivity
+- Supporting various business units and applications with disparate requirements and ownership within one tenant
+
+## Recommendations
+
+**ExpressRoute recommendations:**
+
+- ExpressRoute Direct – Customers of this scale often have previously established connectivity points and require very high bandwidth for their circuits. If a customer is migrating from a large scale MPLS (Multiprotocol Label Switching) such as NetBond and required +40Gbps circuit connectivity it can be advantageous to take advantage of their network infrastructure and establish Express Route Direct. This also supports MACsec encryption for high security workloads.
+- ExpressRoute Local – for cost optimization it is recommended that ER local is used to peer the Primary express route circuit to the regional hub of choice. The backup ER circuit should use ER Standard.
+
+**Spoke recommendations:**
+
+- Internet Egress – Egress internet traffic should route through the local NVA firewall connected to the same hub as the source vnet for that traffic
+- Internet Ingress Inspection- If customers wish to inspect ingress internet connectivity for the spoke workloads, application gateway or frontdoor are viable options for WAF inspection of traffic into the spokes. SNAT will be required to avoid routing conflicts with the 0.0.0.0/0 route being advertised by the VWAN Hub
+- NSG's - Utilize NSG's to customize the security of the application residing in your spoke Vnet.
+
+**NVA recommendations:**
+
+- Redundancy – Follow a best practice architecture for NVA deployment redundancy including the use of multiple VM's or Scale Sets and load balancers to front end and backend the solution.
+
+**Vwan Hub Routing recommendations:**
+
+- Spoke Vnet connections should only propagate to route table labels, and not to specific route tables. This simplifies infrastructure as code approaches.
+- Each hub should have its own default hub label. This allows and limits propagation of the security VNET routes to only that hub's default route table, instead of using the built-in "default" label, which would propagate across all hubs.
+- Each hub should have a route table label for that hub's Security Vnet. This streamlines infrastructure-as-code as VNET connections will propagate to this label instead of a specific route table.
+
+## Considerations
+
+These considerations address the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+
+### Reliability
+
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
+
+This workload optimizes high availability with, VWAN, redundant ExpressRoute circuits, and scale sets for NVAs resulting in the redundancy necessary for highly critical workloads.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/well-architected/security/overview).
+
+This workload provides firewall inspection between Azure and on-premises as well as inspection for outgoing internet traffic from within Azure. For inbound internet traffic please consider Azure Front Door or Azure Application Gateway and utilize SNAT to avoid routing conflicts.
+
+### Cost optimization
+
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/well-architected/cost/overview).
+
+The pricing for many of the Azure components can be found in the Azure Pricing Calculator. Ultimately, pricing for this solution is based on factors such as:
+
+- The Azure services that are used
+- The Express Route sizing
+- The Virtual WAN sizing and data traffic quantities that are processed by each hub
+- The NVA pricing
+
+While this workload prioritizes performance and availability over low cost, cost is optimized by using ExpressRoute Local for primary connections limiting bandwidth expenses. If the customer would like to compromise on performance and reliability and optimize on cost they could reduce the number of ExpressRoute circuits, and the number of firewalls to drive down cost and ride the VWAN Hubs with less efficiency to enable connection to their on-premises or cloud destinations.
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/well-architected/devops/overview).
+
+This design is compatible with Terraform/Infrastructure as code. Due to some VWAN lag in feature availability it does require the use of the Terraform Azure API provider for deployment
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/well-architected/scalability/overview).
+
+This is a highly performant network even in the case of connection failure performance and routing uses the best available path.
+
+## Deploy this Scenario
+
+Follow the instructions provided here for the initial steps to establish VWAN Service, Hubs, Spoke Vnets, and Express Routes: [Tutorial: Create an ExpressRoute association to Azure Virtual WAN](/azure/virtual-wan/virtual-wan-expressroute-portal)
+
+1. Create a Virtual Wan Service
+1. Deploy multiple hubs and an express route gateway in each hub
+1. Deploy the required number of workload spoke virtual networks to support your workload and connect them to the desired hubs
+1. Establish connections between your express route circuits and your hubs
+1. Deploy one security vnet for each hub
+1. Deploy the NVA of your choosing and configure the firewall. Please use NVA specific documentation for this step. Establish the route tables and labels noted above in the example [How to configure virtual hub routing: Azure portal - Azure Virtual WAN](/azure/virtual-wan/how-to-virtual-hub-routing)
+1. Verify Routing
+
+## Contributors
+
+- _Principal authors_: Ethan Haslett, John Poetzinger
+- _Other contributors_: Andrew Delosky, Jimmy Avila, Robert Lightner
+
+## Next steps
+
+- [About virtual hub routing](/azure/virtual-wan/about-virtual-hub-routing)
+- [Route traffic through NVAs by using custom settings](/azure/virtual-wan/scenario-route-through-nvas-custom)
+- [About ExpressRoute Connections in Azure Virtual WAN](/azure/virtual-wan/virtual-wan-expressroute-about)
+
+## Related resources
+
+[Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
