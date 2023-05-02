@@ -834,7 +834,7 @@ There are many reasons why failure can occur when a client application attempts 
 
 ### Policy configuration
 
-Retry policies are configured programmatically. It is based on [RetryOption class](/dotnet/api/azure.core.retryoptions). There is an attribute on [TableClientOptions](/dotnet/api/azure.data.tables.tableclientoptions) inherited  from [ClientOptions](/dotnet/api/azure.core.clientoptions)
+Retry policies are configured programmatically. The configuration is based on the [RetryOption class](/dotnet/api/azure.core.retryoptions). There is an attribute on [TableClientOptions](/dotnet/api/azure.data.tables.tableclientoptions) inherited  from [ClientOptions](/dotnet/api/azure.core.clientoptions)
 
 ```csharp
       var tableClientOptions = new TableClientOptions();
