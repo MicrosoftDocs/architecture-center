@@ -1,6 +1,6 @@
-This whitepaper will help you understand the different enterprise-scale analytical scenarios enabled by Azure Data Factory and Teradata VantageCloud Enterprise.
+This article describes various enterprise-scale analytical scenarios that are enabled by Azure Data Factory and Teradata VantageCloud Enterprise.
 
-This architecture demonstrates how customers can integrate Teradata VantageCloud Enterprise and Azure Data Factory together to develop data integration pipelines in low-code and no-code manner.  It describes how to quickly and securely ingest or extract Vantage data using Data Factory.  These patterns are built on the foundation of Azure scale, security and governance.
+The architectures described here demonstrate how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines with little or no code. It describes how to quickly and securely ingest or extract Vantage data using Data Factory.  These patterns are built on the foundation of Azure scale, security and governance.
 
 The three scenarios covered in this whitepaper include:
 
