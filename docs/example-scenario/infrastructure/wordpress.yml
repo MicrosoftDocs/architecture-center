@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Scalable and secure WordPress on Azure
+  title: WordPress on Azure
   titleSuffix: Azure Architecture Center
   description: Learn about multiple hosting options to deploy a highly scalable and secure installation of WordPress.
   author: vjirovsky

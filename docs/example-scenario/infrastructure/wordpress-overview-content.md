@@ -64,18 +64,25 @@ WordPress application architecture gives rise to several hosting challenges, inc
 
 - **Scalability** -  a hosting architecture must be capable of scaling out during peak traffic periods.
 - **Read&Write-Many storage** - by default, WordPress stores all static assets, plugin, and theme source codes in the `/wp-content/` directory, which must be readable and writable from all nodes during scale-out.
-- **IOPS storage class** - WordPress consists of 1000+ tiny `.php` files that are referenced, loaded, and executed during requests. Loading numerous small files can result in overhead and is often slower than loading one file with the same size (depending on the selected protocol).
+- **IOPS storage class** - WordPress consists of 1000+ tiny `.php` files that are referenced, loaded, and executed by PHP processor during incoming requests. Loading numerous small files can result in overhead and is often slower than loading one file with the same size (depending on the selected protocol).
 - **Cache invalidation** - when a new activity occurs in the application, such as publishing a new article, the cache must be invalidated across all nodes.
-- **Slow response** - for the first user of a given node, the response time may be slower until the cache is built.
+- **Building cache time** - for the first user of a given node, the response time may be slower until the cache is built.
 
 ## WordPress hosting options on Azure
+
 TODO: some decision tree
 
-### WP AppService
+### WordPress on App Service
 
-### Containers
+WordPress on App Service (on Linux) is a fully managed solution provided by Microsoft, designed to help you quickly and easily deploy a WordPress installation. This solution is ideal for small to medium-sized WordPress installations, as it provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. It automatically takes care of tasks such as automatic updates, backups, and monitoring to ensure that your site is always available.
 
-### IaaS options
+### Storage-intensive solutions
+
+For large WordPress installations, it may become necessary to use a storage solution with a higher IOPS class and low latency, in order to accommodate the storage requirements. It is important to select a storage solution that offers a Read&Write-Many mode, as the storage will be shared between all nodes.
+
+One of the storage solution meeting these requirements is Azure NetApp Files. In addition to these capabilities, Also, Azure NetApp provides additional features such as data protection, backup and restore, and disaster recovery.
+
+In container way of deployment, the WordPress could be deployed within Azure Kubernetes Service and connected with Azure NetApp Files storage via CSI driver. [More details about this deployment architecure](/azure/architecture/example-scenario/infrastructure/wordpress/container-hosting)
 
 
 ### Immutable WordPress container

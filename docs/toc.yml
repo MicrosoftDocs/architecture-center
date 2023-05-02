@@ -6710,8 +6710,16 @@ items:
         href: example-scenario/signalr/index.yml
       - name: SaaS Starter web app
         href: example-scenario/apps/saas-starter-web-app.yml
-      - name: Scalable and secure WordPress on Azure
-        href: example-scenario/infrastructure/wordpress.yml
+      - name: WordPress on Azure
+        items:
+          - name: Overview
+            href: example-scenario/infrastructure/wordpress.yml
+          - name: Container hosting
+            href: example-scenario/infrastructure/wordpress-container.yml
+          - name: WordPress on AppService
+            href: example-scenario/infrastructure/wordpress-appservice.yml
+          - name: VM hosting
+            href: example-scenario/infrastructure/wordpress-iaas.yml
       - name: Scalable cloud applications and SRE
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
       - name: Scalable order processing
