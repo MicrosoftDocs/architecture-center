@@ -1,4 +1,4 @@
-This architecture provides comprehensive logging and monitoring and enhanced security for enterprise deployments of the  Azure OpenAI Service API. It enables advanced logging capabilities for tracking API usage and performance and robust security measures to help protect sensitive data and help prevent malicious activity.
+This solution provides comprehensive logging and monitoring and enhanced security for enterprise deployments of the  Azure OpenAI Service API. The solution enables advanced logging capabilities for tracking API usage and performance and robust security measures to help protect sensitive data and help prevent malicious activity.
 
 ## Architecture
 
@@ -114,7 +114,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This scenario ensures high availability of the large language models for your enterprise users. The Azure application gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of the Azure OpenAI ensure service resilience in case of application-level failures. These architecture components can help you ensure the reliability of your application at enterprise scale.
+This scenario ensures high availability of the large language models for your enterprise users. The Azure application gateway provides an effective layer-7 application delivery mechanism to ensure fast and consistent access to applications. You can use API Management to configure, manage, and monitor access to your models. The inherent high availability of platform services like Storage, Key Vault, and Virtual Network ensure high reliability for your application. Finally, multiple instances of Azure OpenAI ensure service resilience in case of application-level failures. These architecture components can help you ensure the reliability of your application at enterprise scale.
 
 ### Security
 
@@ -132,7 +132,7 @@ The following three sample cost profiles provide estimates based on the amount o
 
 - [Small](https://azure.com/e/c367a7fdf6174ddfb39563d4f835fa14): For processing 10,000 documents per month.
 - [Medium](https://azure.com/e/e0581d8d849c48f4beb1cfcf374c1f36): For processing 100,000 documents per month.
-- [Large](https://azure.com/e/b1a2c35910ea42f0bf1eed0ea44e27bf): For processing 10 million documents tokens per month.
+- [Large](https://azure.com/e/b1a2c35910ea42f0bf1eed0ea44e27bf): For processing 10 million document tokens per month.
 
 ## Contributors
 
