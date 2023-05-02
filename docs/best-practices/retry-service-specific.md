@@ -863,7 +863,7 @@ The following tables show the possibilities for the built-in retry policies.
 
 ### Telemetry
 
-The simplest way to see the logs is to enable the console logging. To create an Azure SDK log listener that outputs messages to console use AzureEventSourceListener.CreateConsoleLogger method.
+The simplest way to see the logs is to enable console logging. To create an Azure SDK log listener that outputs messages to console use AzureEventSourceListener.CreateConsoleLogger method.
 
 ```csharp
       // Setup a listener to monitor logged events.
