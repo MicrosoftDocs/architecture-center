@@ -5,7 +5,6 @@ This example scenario describes a pipeline for mass ingestion and near real-time
 ## Architecture
 
 ![Architecture diagram: ingest and analyze RSS feeds using image and text processing and send notifications.][architecture]
-
 *Download a [Visio file][visio-download] of this architecture.*
 
 ### Dataflow
