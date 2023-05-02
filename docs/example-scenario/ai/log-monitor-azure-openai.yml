@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Implement logging and monitoring for Azure OpenAI large language models
+  titleSuffix: Azure Architecture Center
+  description: Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.
+  author: jakeatmsft
+  ms.author: jacwang
+  ms.date: 05/02/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - ai-machine-learning
+  - management-and-governance
+  - security
+products:
+  - azure-cognitive-services
+  - azure-api-management
+  - azure-monitor
+  - azure-active-directory
+name: Implement logging and monitoring for Azure OpenAI models
+summary: Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.
+thumbnailUrl: /azure/architecture/browse/thumbs/openai-monitor-log.png
+content: |
+  [!include[](log-monitor-azure-openai-content.md)]
