@@ -7,7 +7,12 @@
     }, 
     {
       "source_path": "docs/solution-ideas/articles/streaming-using-hdinsight.yml",
-      "redirect_url": "/azure/architecture/data-science-process/spark-overview",
+      "redirect_url": "/azure/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/hadoop/apache-storm-migration.yml",
+      "redirect_url": "/azure/architecture",
       "redirect_document_id": false
     },
     {
@@ -2636,6 +2641,36 @@
       "source_path": "docs/guide/saas/saas-digital-business-journey-azure.md",
       "redirect_url": "/azure/architecture/guide/saas/plan-journey-saas",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path": "docs/guide/microsoft-cloud/overview.md",
+      "redirect_url": "/microsoft-cloud/dev/overview/introduction",
+      "redirect_document_id": false
+    },      
+    {
+      "source_path": "docs/guide/microsoft-cloud/create-deploy-more-applications-less-time.md",
+      "redirect_url": "/microsoft-cloud/dev/overview/create-deploy-more-applications-less-time",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "docs/guide/microsoft-cloud/get-most-value-technical-talent.md",
+      "redirect_url": "/microsoft-cloud/dev/overview/get-most-value-technical-talent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/guide/microsoft-cloud/integrate-new-applications-existing-solutions.md",
+      "redirect_url": "/microsoft-cloud/dev/overview/integrate-new-applications-existing-solutions",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "docs/guide/microsoft-cloud/create-run-secure-applications.md",
+      "redirect_url": "/microsoft-cloud/dev/overview/create-run-secure-applications",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "docs/guide/microsoft-cloud/summary.md",
+      "redirect_url": "/microsoft-cloud/dev/overview/summary",
+      "redirect_document_id": false
+    }                        
   ]
 }
