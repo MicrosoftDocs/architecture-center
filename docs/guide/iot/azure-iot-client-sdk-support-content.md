@@ -56,7 +56,7 @@ SAS tokens can be used via the *IOTHUB\_CLIENT\_CONFIG* structure by setting the
 *deviceSasToken* member to the token and making the *deviceKey* null. Other unused values, such as *protocolGatewayHostName*, must also be set to null.
 
 ```c
-CONFIG = (IOTHUB_CLIENT_CONFIG*)malloc(sizeof(IOTHUB_CLIENT_CONFIG));
+IOTHUB_CLIENT_CONFIG* CONFIG = (IOTHUB_CLIENT_CONFIG*)malloc(sizeof(IOTHUB_CLIENT_CONFIG));
 
 CONFIG->PROTOCOL = PROTOCOL;
 CONFIG->DEVICEID = DEVICEID;
