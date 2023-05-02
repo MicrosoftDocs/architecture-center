@@ -132,7 +132,7 @@ The following three sample cost profiles provide estimates based on the amount o
 
 - [Small](https://azure.com/e/c367a7fdf6174ddfb39563d4f835fa14): For processing 10,000 documents per month.
 - [Medium](https://azure.com/e/e0581d8d849c48f4beb1cfcf374c1f36): For processing 100,000 documents per month.
-- [Large](https://azure.com/e/b1a2c35910ea42f0bf1eed0ea44e27bf): For processing 10 million document tokens per month.
+- [Large](https://azure.com/e/b1a2c35910ea42f0bf1eed0ea44e27bf): For processing 10 million documents per month.
 
 ## Contributors
 
