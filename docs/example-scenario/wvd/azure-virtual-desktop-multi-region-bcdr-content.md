@@ -223,7 +223,7 @@ The following example shows a Cloud Cache configuration and related registry key
     :::image type="content" source="images/fslogix-cloud-cache-registry-keys-office-hires.png" alt-text="Screenshot that shows the Cloud Cache registry keys for Office Container." lightbox="images/fslogix-cloud-cache-registry-keys-office-hires.png":::
 
 > [!NOTE]
-> In the screenshots above, not all the recommended registry keys for FSLogix and Cloud Cache are reported, for brevity and simplicity. For more information, see [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
+> In the screenshots above, not all the recommended registry keys for FSLogix and Cloud Cache are reported, for brevity and simplicity. For more information, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
 
 **Secondary Region = West Europe**
 
@@ -402,4 +402,4 @@ Other contributors:
 - [Azure files accessed on-premises and secured by AD DS](../hybrid/azure-files-on-premises-authentication.yml)
 - [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.yml)
 - [Enterprise file shares with disaster recovery](../file-storage/enterprise-file-shares-disaster-recovery.yml)
-- [FSLogix for the enterprise](../wvd/windows-virtual-desktop-fslogix.yml)
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)

@@ -4842,8 +4842,7 @@ items:
           maintainContext: true
       - name: Connect an on-premises network to Azure
         href: reference-architectures/hybrid-networking/index.yml
-      - name: FSLogix for the enterprise
-        href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
+
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
@@ -6425,8 +6424,6 @@ items:
       - name: Azure Storage migration guidance
         href: /azure/storage/common/storage-migration-overview
         maintainContext: true
-      - name: FSLogix for the enterprise
-        href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
       - name: Blob storage guidance
         items:
         - name: Authorize access to blobs with Azure AD
@@ -6617,8 +6614,8 @@ items:
         maintainContext: true
       - name: FSLogix guidance
         items:
-        - name: FSLogix for the enterprise
-          href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
+        - name: FSLogix configuration examples
+          href: /fslogix/concepts-configuration-examples
         - name: FSLogix profile containers and files
           href: /azure/virtual-desktop/fslogix-containers-azure-files
           maintainContext: true

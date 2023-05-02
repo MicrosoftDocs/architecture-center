@@ -111,6 +111,6 @@ the amount of storage for a file share, and the number of input/output operation
 
 - [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml)
 - [Hybrid file services](../../hybrid/hybrid-file-services.yml)
-- [FSLogix for the enterprise](../wvd/windows-virtual-desktop-fslogix.yml)
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
 - [Azure enterprise cloud file share](../../hybrid/azure-files-private.yml)
 - [Using Azure file shares in a hybrid environment](../../hybrid/azure-file-share.yml)
