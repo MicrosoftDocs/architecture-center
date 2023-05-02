@@ -872,7 +872,7 @@ The simplest way to see the logs is to enable console logging. To create an Azur
 
 ### Examples
 
-Executing the following code example with the storage emmulator off will allows us to see information about retry in the console.
+Executing the following code example with the storage emulator shut down will allow us to see information about retries in the console.
 
 ```csharp
 using Azure.Core;
