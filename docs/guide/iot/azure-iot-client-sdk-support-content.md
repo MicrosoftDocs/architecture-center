@@ -55,7 +55,7 @@ The following approach can be utilized in device applications built using the Az
 SAS tokens can be used via the *IOTHUB\_CLIENT\_CONFIG* structure by setting the
 *deviceSasToken* member to the token and making the *deviceKey* null. Other unused values, such as *protocolGatewayHostName*, must also be set to null.
 
-```bash
+```c
 CONFIG = (IOTHUB_CLIENT_CONFIG*)malloc(sizeof(IOTHUB_CLIENT_CONFIG));
 
 CONFIG->PROTOCOL = PROTOCOL;
@@ -67,9 +67,8 @@ CONFIG->DEVICESASTOKEN = TOKEN;
 CONFIG->PROTOCOLGATEWAYHOSTNAME = 0;
 
 // The created IOTHUB_CLIENT_CONFIG can then be provided to the IoTHubDeviceClient_Create function to establish a DeviceClient instance.
-if ((IOTHUBCLIENTHANDLE = IoTHubDeviceClient_Create(CONFIG)) == NULL)
-{
-    (void)printf("ERROR: IOTHUBCLIENTHANDLE is NULL!\r\n");
+if ((IOTHUBCLIENTHANDLE = IoTHubDeviceClient_Create(CONFIG)) == NULL) {
+    (void)printf("ERROR: IOTHUBCLIENTHANDLE IS NULL!\r\n");
 }
 
 // To capture SAS token authentication failures, a handler needs to be implemented for the IoTHubDeviceClient_SetConnectionStatusCallback.
