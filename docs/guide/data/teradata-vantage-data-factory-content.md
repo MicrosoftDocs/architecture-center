@@ -75,7 +75,7 @@ This article describes how to set up linked services and datasets for the Data F
 
 ## Scenario 1: Data Factory extracts data from VantageCloud and loads it into Blob Storage
 
-This scenario describes how to use Data Factory to exract data from VantageCloud Enterprise, perform some basic transformations, and then load the data into a Blob Storage container. 
+This scenario describes how to use Data Factory to exract data from VantageCloud Enterprise, perform some basic transformations, and then load the data into a Blob Storage container.
 
 The scenario highlights the native integration between Data Factory and Vantage and how easily you can build an enterprise ETL pipeline to integrate data in Vantage.
 

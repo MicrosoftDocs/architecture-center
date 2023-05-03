@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title:  
+  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
+  ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
+  ms.date:  
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  -  
+products:
+  - <Choose 1-5 products from the list at https://review.learn.microsoft.com/help/contribute/architecture-center/aac-browser-authoring#products>
+  -  
+name:  
+summary:  
+thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+content: |
+  [!include[](teradata-vantage-data-factory-content.md)]
