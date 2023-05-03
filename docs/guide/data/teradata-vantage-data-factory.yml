@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Integrate Teradata VantageCloud Enterprise with Azure Data Factory
-  description: <Write a 100-160 character description that ends with a period and ideally starts with a call to action. This becomes the browse card description.>
+  description: Learn how to use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines. 
   author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
   ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
   ms.date:  
@@ -16,8 +16,8 @@ products:
   - azure-blob-storage
   - azure-private-link
   - azure-virtual-wan
-name:  
-summary:  
+name: Integrate Teradata VantageCloud with Azure Data Factory
+summary: Learn how to use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines. 
 thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
 content: |
   [!include[](teradata-vantage-data-factory-content.md)]
