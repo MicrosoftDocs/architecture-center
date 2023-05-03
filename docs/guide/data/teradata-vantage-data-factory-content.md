@@ -1,6 +1,6 @@
 This article describes various enterprise-scale analytical scenarios that are enabled by Azure Data Factory and Teradata VantageCloud Enterprise.
 
-The architecture described here demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines while writing little or no code. They describe how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory. The architecture is built on the foundation of Azure scalability, security, and governance.
+The architecture described here demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines while writing little or no code. It shows how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory. The architecture is built on the foundation of Azure scalability, security, and governance.
 
 This article describes three scenarios:
 
@@ -62,7 +62,7 @@ You can use Data Factory to create and schedule data-driven workflows (called pi
 
 ### Self-hosted IR 
  
-The self-hosted IR can perform copy operations between cloud data stores and private-network data stores. You can also transform your compute resources in an on-premises network or an Azure virtual network. You need a local computer or virtual machine on your private network to install the self-hosted IR. For more information, see [Considerations for using a self-hosted IR](https://learn.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#considerations-for-using-a-self-hosted-ir). This article describes how to use self-hosted IR to connect to VantageCloud and extract data to load into Azure Data Lake Storage.
+The self-hosted IR can perform copy operations between cloud data stores and private-network data stores. You can also transform your compute resources in an on-premises network or an Azure virtual network. You need a local computer or virtual machine on your private network to install the self-hosted IR. For more information, see [Considerations for using a self-hosted IR](https://learn.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#considerations-for-using-a-self-hosted-ir). This article describes how to use the self-hosted IR to connect to VantageCloud and extract data to load into Azure Data Lake Storage.
 
 ### Teradata connector
  
@@ -73,190 +73,194 @@ In this architecture, Data Factory uses the Teradata connector to connect to Van
 
 This article describes how to set up linked services and datasets for the Data Factory Copy activity, which ingests data from Vantage and loads it into Data Lake Storage.
 
-## Scenario 1: Data Factory extracts data from VantageCloud and loads it into Blob Storage
+## Scenario 1: Load data into Blob Storage from VantageCloud
 
 This scenario describes how to use Data Factory to exract data from VantageCloud Enterprise, perform some basic transformations, and then load the data into a Blob Storage container.
 
 The scenario highlights the native integration between Data Factory and Vantage and how easily you can build an enterprise ETL pipeline to integrate data in Vantage.
 
-1.	Start by creating a linked service to Vantage using native connector. Select the **Manage** tab in your Azure Data Factory and select Linked Services, then select New:
+To complete this procedure, you need to have an Blob Storage container in your subscription, as shown in the architecture diagrams. 
+
+1.	To create a native connector to Vantage, in your data factory, select the **Manage** tab, select **Linked services**, and then select **New**:
 
     :::image type="content" source="media/create-linked-service.png" alt-text="Screenshot that shows the New button in Linked services." lightbox="media/create-linked-service.png":::
 
-
-2.	Search for Teradata and select the Teradata connector, then select **Continue**.
+2.	Search for *Teradata* and then select the **Teradata** connector. Then select **Continue**:
 
     :::image type="content" source="media/teradata-linked-service.png" alt-text="Screenshot that shows the Teradata connector." lightbox="media/teradata-linked-service.png"::: 
 
-3.	Configure the linked service details to connect to your Vantage database. We will be using basic authentication mechanism with user ID and password. But you can choose a different mechanism to connect based on your security posture and set other parameters accordingly. Refer to [Teradata connector linked service properties](https://learn.microsoft.com/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites) for further details. You will use a self-hosted integration runtime. Refer [how to get a self-hosted integration runtime deployed](https://learn.microsoft.com/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). Deploy it in the same VNet as your Data Factory.
+3.	Configure the linked service to connect to your Vantage database. This procedure shows how to use a basic authentication mechanism with a user ID and password. Alternatively, depending on your security needs, you can choose a different authentication mechanism and set other parameters accordingly. For more information, see [Teradata connector linked service properties](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). You'll use a self-hosted IR. For more information, see these [instructions for deploying a self-hosted IR](https://learn.microsoft.com/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). Deploy it in the same virtual network as your sata factory.
 
-- Name: Enter a name for your linked service connection
-- Connect Via integration runtime: Select SelfHostedIR  
-- Server name:
-  - If you are connecting via Vnet Peering option, provide the IP address of any of the VMs in the Teradata cluster. 
-  - If you are connecting via PL option, provide the IP address of the private endpoint created in your Vnet to connect to Teradata Cluster via PL service.
-- Authentication Type: Chose an authentication type, we are using basic authentication.
-- Username and password: Provide the credentials
-- Select Test connection to test your connection then select Create. Ensure that Interactive authoring is enabled for your integration runtime for the test connection functionality to work.
+    Use the following values to configure the linked service: 
 
-   :::image type="content" source="media/teradata-linked-service-configuration.png" alt-text="Screenshot that shows the configuration for the Teradata connector." lightbox="media/teradata-linked-service-configuration.png":::
+    - **Name**: Enter a name for your linked service connection.
+    - **Connect via integration runtime**: Select **SelfHostedIR**.  
+    - **Server name**:
+       - If you're connecting via virtual network peering, provide the IP address of any VM in the Teradata cluster. You can connect to the IP address of any VM in the cluster.
+       - If you're connecting via Private Link, provide the IP address of the private endpoint that you created in your virtual network to connect to the Teradata cluster via Private Link.
+    - **Authentication type**: Choose an authentication type. This procedure shows how to use basic authentication.
+    - **User name** and **Password**: Provide the credentials.
+    - Select **Test connection**, and then select **Create**. Be sure that interactive authoring is enabled for your IR so that the test connection functionality works.
 
-We have already created a test database in Vantage named “NYCTaxiADFIntegration.” This database has a single table named Green_Taxi_Trip_Data. You can download the data for your testing purposes from [NYC OpenData](https://data.cityofnewyork.us/Transportation/2020-Green-Taxi-Trip-Data/pkmi-4kfn). Following is a sample create table statement to understand the schema of the table. 
+    :::image type="content" source="media/teradata-linked-service-configuration.png" alt-text="Screenshot that shows the configuration for the Teradata connector." lightbox="media/teradata-linked-service-configuration.png":::
 
-```sql
-CREATE MULTISET TABLE NYCTaxiADFIntegration.Green_Taxi_Trip_Data, FALLBACK ,
-     NO BEFORE JOURNAL,
-     NO AFTER JOURNAL,
-     CHECKSUM = DEFAULT,
-     DEFAULT MERGEBLOCKRATIO,
-     MAP = TD_MAP1
-     (
-      VendorID BYTEINT,
-      lpep_pickup_datetime DATE FORMAT ‘YY/MM/DD’,
-      lpep_dropoff_datetime DATE FORMAT ‘YY/MM/DD’,
-      store_and_fwd_flag VARCHAR(1) CHARACTER SET LATIN CASESPECIFIC,
-      RatecodeID BYTEINT,
-      PULocationID SMALLINT,
-      DOLocationID SMALLINT,
-      passenger_count BYTEINT,
-      trip_distance FLOAT,
-      fare_amount FLOAT,
-      extra DECIMAL(18,16),
-      mta_tax DECIMAL(4,2),
-      tip_amount FLOAT,
-      tolls_amount DECIMAL(18,16),
-      ehail_fee BYTEINT,
-      improvement_surcharge DECIMAL(3,1),
-      total_amount DECIMAL(21,17),
-      payment_type BYTEINT,
-      trip_type BYTEINT,
-      congestion_surcharge DECIMAL(4,2))
-NO PRIMARY INDEX ;
-```
+    For testing, you can use a test database in Vantage that's called `NYCTaxiADFIntegration`. This database has a single table named `Green_Taxi_Trip_Data`. You can download the database from [NYC OpenData](https://data.cityofnewyork.us/Transportation/2020-Green-Taxi-Trip-Data/pkmi-4kfn). The following CREATE TABLE statement can help you understand the schema of the table.
 
-4.	Next, we will create a simple pipeline to copy the data from the above table, perform some basic transformation and then load the data into an Azure Blob Storage container. For this purpose, we have already created an Azure Blob storage container in the customer subscription of the architecture as shown earlier. We will start by creating a linked service to it, which will be used as the sink in our pipeline to copy the data into. 
+    ```sql
+    CREATE MULTISET TABLE NYCTaxiADFIntegration.Green_Taxi_Trip_Data, FALLBACK ,
+         NO BEFORE JOURNAL,
+         NO AFTER JOURNAL,
+         CHECKSUM = DEFAULT,
+         DEFAULT MERGEBLOCKRATIO,
+         MAP = TD_MAP1
+         (
+          VendorID BYTEINT,
+          lpep_pickup_datetime DATE FORMAT ‘YY/MM/DD’,
+          lpep_dropoff_datetime DATE FORMAT ‘YY/MM/DD’,
+          store_and_fwd_flag VARCHAR(1) CHARACTER SET LATIN CASESPECIFIC,
+          RatecodeID BYTEINT,
+          PULocationID SMALLINT,
+          DOLocationID SMALLINT,
+          passenger_count BYTEINT,
+          trip_distance FLOAT,
+          fare_amount FLOAT,
+          extra DECIMAL(18,16),
+          mta_tax DECIMAL(4,2),
+          tip_amount FLOAT,
+          tolls_amount DECIMAL(18,16),
+          ehail_fee BYTEINT,
+          improvement_surcharge DECIMAL(3,1),
+          total_amount DECIMAL(21,17),
+          payment_type BYTEINT,
+          trip_type BYTEINT,
+          congestion_surcharge DECIMAL(4,2))
+    NO PRIMARY INDEX ;
+    ```
 
-    - Select the **Manage** tab in your Azure Data Factory and select **Linked services**, then select **New**:
+4.	Next, you'll create a simple pipeline to copy the data from the table, perform some basic transformation, and then load the data into a Blob Storage container. As noted at the start of this procedure, you should have already created the Blob Storage container in your subscription. You'll first create a linked service to connect to the container, which is the sink that you'll copy the data into.
+
+    - Select the **Manage** tab in your data factory, select **Linked services**, and then select **New**:
     
-    :::image type="content" source="media/new-linked-service.png" alt-text="Screenshot that shows the New button." lightbox="media/new-linked-service.png":::
+      :::image type="content" source="media/new-linked-service.png" alt-text="Screenshot that shows the New button." lightbox="media/new-linked-service.png":::
 
-5.	Search for “Azure Blob” and select the Azure Blob Storage connector.
+5.	Search for *Azure Blob*, select the **Azure Blob Storage** connector, and then select **Connect**:
 
     :::image type="content" source="media/blob-stroage-connector.png" alt-text="Screenshot that shows the Blob Storage linked service." lightbox="media/blob-stroage-connector.png":::
     
 
-6.	Configure the linked service to connect to the blob storage account:
+6.	Configure the linked service to connect to the Blob Storage account:
 
-    - **Name**: Enter a name for your linked service connection
-    - **Connect via integration runtime**: Select AutoResolveIntegrationRuntime
-    - **Authentication type**: select “Account key”
-    - **Azure subscription**: enter your Azure subscription ID
-    - **Storage account name**: enter your Azure storage account name
+    - **Name**: Enter a name for your linked service connection.
+    - **Connect via integration runtime**: Select **AutoResolveIntegrationRuntime**.
+    - **Authentication type**: Select **Account key**.
+    - **Azure subscription**: Enter your Azure subscription ID.
+    - **Storage account name**: Enter your Azure storage account name.
     
-    Select **Test connection** to verify the connection, then select **Create**.
+    Select **Test connection** to verify the connection, and then select **Create**.
 
     :::image type="content" source="media/blob-storage-connector-configuration.png" alt-text="Screenshot that shows the configuration of the Blob Storage linked service." lightbox="media/blob-storage-connector-configuration.png":::
      
 
-7.	Now create an Azure Data Factory pipeline:
+7.	Create a Data Factory pipeline:
 
     - Select the **Author** tab. 
-    - Select the **+/plus** icon
-    - Select **Pipeline**
+    - Select the **+** button.
+    - Select **Pipeline**.
     - Provide a **Name** for the pipeline.
     
       :::image type="content" source="media/azure-data-factory-pipeline.png" alt-text="Screenshot that shows the steps for creating a pipeline." lightbox="media/azure-data-factory-pipeline.png":::
 
-8.	Now create two datasets.
+8.	Create two datasets:
 
-- Select Author tab
-- Select the +/plus icon
-- Select dataset
-- Create a dataset for the "Green_Taxi_Trip_Data" Teradata table: 
-   - Select Teradata as the Data Stroe
-   - Name: Provide a name for the data set
-   - Linked Service: Select the linked service we created in steps 2 and 3 for Teradata.
-   - Table Name: Select the Table from the dropdown list 
-   - Select OK
-- Create an Azure Blob dataset:
-   - Select Azure Blob as Data Store 
-   - Select the format type of your data. We are using parquet for this demo.
-   - Linked Service: Select the linked service we created in steps 6.
-   - File Path: Provide the file path for the blob file
-   - Select None for Import Schema
-   - Select OK
+    - Select the **Author** tab.
+    - Select the **+** button.
+    - Select **Dataset**.
+    - Create a dataset for the `Green_Taxi_Trip_Data` Teradata table: 
+      - Select **Teradata** as the Data Store.
+      - **Name**: Provide a name for the dataset.
+      - **Linked service**: Select the linked service that you created for Teradata in steps 2 and 3.
+      - **Table name**: Select the table from the list. 
+      - Select **OK**.
+    
+    :::image type="content" source="media/teradata-datasets.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="media/teradata-datasets.png":::
+    
+    - Create an Azure Blob dataset:
+      - Select **Azure Blob** as the Data Store.
+      - Select the format of your data. Parquet is used in this demonstration.
+      - **Linked service**: Select the linked service that you created in step 6.
+      - **File path**: Provide the file path of the blob file.
+      - **Import schema**: Select **None**.
+      - Select **OK**.
 
-   :::image type="content" source="media/teradata-datasets.png" alt-text="Screenshot that shows the properties for the Teradata table." lightbox="media/teradata-datasets.png":::
+    :::image type="content" source="media/azure-blob-dataset.png" alt-text="Screenshot that shows the properties for the Azure Blob Storage dataset." lightbox="media/azure-blob-dataset.png":::
 
-   :::image type="content" source="media/azure-blob-dataset.png" alt-text="Screenshot that shows the properties for the Azure Blob Storage dataset." lightbox="media/azure-blob-dataset.png":::
+9.	Drag a Copy activity onto the pipeline. 
 
-9.	Create a Copy Data Activity.
-
-    - Drag and drop the copy data activity onto the pipeline. Note that currently Teradata connector is not supported for Data Flow activity in Data Factory. If you are looking to perform transformation on the data, it is advised to create a Data flow activity following the copy activity. 
-    - Configure the Copy Data Activity with source as the Teradata Table data set and destination as the Azure Blob Storage file as shown below.
-    - Source dataset: Select Teradata dataset we created in previous step.
-    - Use Query: Select Table
-    - Leave other options as default.
+    Note that the Teradata connector doesn't currently support the Data Flow activity in Data Factory. If you want to perform transformation on the data, we recommend that you add a Data Flow activity after the Copy activity. 
+    
+10. Configure the Copy activity:
+    
+    - On the **Source** tab, under **Source dataset**, select the Teradata table dataset that you created in the previous step.
+    - For **Use query**, select **Table**.
+    - Use the default values for the other options.
       :::image type="content" source="media/copy-data-activity-source.png" alt-text="Screenshot that shows the steps for creating a copy data activity." lightbox="media/copy-data-activity-source.png":::
 
-    - Sink Dataset: Choose the Azure blob data set we created in previous step.
-    - Leave the other properties as default.
+    - On the **Sink** tab, under **Sink sataset**, select the Azure Blob dataset that you created in the previous step.
+    - Use the default values for the other options.
     
       :::image type="content" source="media/copy-data-activity-sink.png" alt-text="Screenshot that shows the configuration for the sink dataset." lightbox="media/copy-data-activity-sink.png":::
     
-10.	Click on Debug and the pipeline will copy the data from Teradata Table to a parquet file on Azure Blob Storage.
+11.	Select **Debug**. The pipeline copies the data from the Teradata table to a Parquet file in Blob Storage.
 
-## Scenario 2: Loading data into VantageCloud Enterprise with Data Factory
+## Scenario 2: Load data into VantageCloud from Blob Storage
 
-For this scenario we’ll use an ODBC connector to connect to the Teradata Vantage via the self-hosted IR VM to load the data. Since the integration time used for this needs to be installed and configured with the Teradata drive for ODBC, this option works only with Data Factory self-hosted IR option. Note that another option to load and transform data in Vantage is using TTU, Data Factory custom activity and Azure batch services can be found at this [link](https://www.teradata.com/Blogs/Connect-Teradata-Vantage-to-Azure-Data-Factory-Using-Custom-Activity-Feature). 
+This scenario describes how to use an ODBC connector to connect to Vantage via the self-hosted IR VM to load data. Because the IR needs to be installed and configured with the Teradata ODBC driver, this option works only with a Data Factory self-hosted IR. 
 
-Tip: Evaluate both options for performance, cost, and management considerations to choose what is best based on your requirements. 
+You can also use TTU, Data Factory custom activities, and Azure Batch to load data into Vantage and transform it. For more information, see [Connect Teradata Vantage to Azure Data Factory Using Custom Activity Feature](https://www.teradata.com/Blogs/Connect-Teradata-Vantage-to-Azure-Data-Factory-Using-Custom-Activity-Feature). We recommend that you evaluate both options for performance, cost, and management considerations and choose the option that's best suited to your requirements.
 
-1.	We start by preparing the self-hosted IR we created in the previous scenario by installing the Teradata ODBC driver on it. We are using a windows 11 machine for self-hosted IR. 
-    - [RDP] into the VM.
-    - Download and install the [Teradata ODBC driver]. 
-    - Download and install JAVA JRE, if it is not already present. 
+1.	Start by preparing the self-hosted IR that you created in the previous scenario. You need to install the Teradata ODBC driver on it. This scenario uses a Windows 11 VM for the self-hosted IR. 
+    1. [RDP](/azure/virtual-machines/windows/connect-rdp) into the VM.
+    1. Download and install the [Teradata ODBC driver](https://downloads.teradata.com/download/connectivity/odbc-driver/windows). 
+    1. If the JAVA JRE isn't already on the VM, download and install it. 
 
-2.	Create a 64-bit System DSN for the Teradata Database by [adding an ODBC Data source]. 
-    - Make sure you are using the 64-bit DSN window.
-    - Choose the Teradata Database ODBC Driver as shown on the following screenshot. 
-    - Select Finish which will open the Drive setup window.
+2.	Create a 64-bit system DSN for the Teradata database by [adding an ODBC data source](https://support.microsoft.com/office/administer-odbc-data-sources-b19f856b-5b9b-48c9-8b93-07484bfab5a7).
+    - Be sure to use the 64-bit DSN window.
+    - Select the **Teradata Database ODBC Driver**, as shown in the following screenshot. 
+    - Select **Finish** to open the driver setup window.
 
       :::image type="content" source="media/teradata-odbc-driver.png" alt-text="Screenshot that shows the steps for creating a data source." lightbox="media/teradata-odbc-driver.png":::
 
-
 3.	Configure the DSN properties.
-    - Name: Provide a name for the DSN . 
-    - Teradata Server info: In the Teradata Server Info Name or IP Address:
-      - If you are connecting via Vnet Peering option, provide the IP address of any of the VMs in the Teradata cluster. Note that you can connect to the IP address of any VM in the vantage cluster.
-      - If you are connecting via PL option, provide the IP address of the private endpoint created in your Vnet to connect to Teradata Cluster via PL service.
-    - Optionally provide the username and select test connection. This will prompt you to enter the credentials again. Select ok and ensure that your connection was successful. Note that you will provide the username and password in Data Factory while creating the ODBC Linked service which will be used to connect to the Teradata Database from Data Factory.
+    - **Name**: Provide a name for the DSN. 
+    - Under **Teradata Server Info**, in **Name or IP address**:
+      - If you're connecting via virtual network peering, provide the IP address of any VM in the Teradata cluster. You can connect to the IP address of any VM in the cluster.
+      - If you're connecting via Private Link, provide the IP address of the private endpoint that you created in your virtual network to connect to the Teradata cluster via Private Link.
+    - Optionally, provide the **Username** and select **Test**. You're prompted enter the credentials. Select **OK** and ensure that the connection succeeds. Note that you will provide the user name and password in Data Factory when you create the ODBC linked service that's used to connect to the Teradata database from Data Factory.
     - Leave the other fields blank.
-    - Select Ok to finish the setup.
+    - Select **OK**.
 
       :::image type="content" source="media/odbc-driver-configuration.png" alt-text="Screenshot that shows the configuration for the driver." lightbox="media/odbc-driver-configuration.png":::
 
+4.	The ODBC Data Source Administrator window will look like the one in the following screenshot. Select **Apply**. You can now close the window. Your self-hosted IR is now ready to connect to Vantage by using ODBC. 
 
-4.	The ODBC Data source Administrator window will look like the following. Select Apply and it is ok to close the window. Your self-hosted IR is now ready to connect to Vantage database using ODBC connection. 
+    :::image type="content" source="media/odbc-driver-configuration-2.png" alt-text="Screenshot that shows the ODBC Data Source Administrator window." lightbox="media/odbc-driver-configuration-2.png":::
 
-    :::image type="content" source="media/odbc-driver-configuration-2.png" alt-text="Screenshot that shows the ODBC linked service." lightbox="media/odbc-driver-configuration-2.png":::
+5.	In Data Factory, create a linked service connection. Choose **ODBC** as the data store:
 
-5.	Head back to Azure Data Factory and create a linked service connection choosing ODBC as the Data store. 
+    :::image type="content" source="media/odbc-linked-service.png" alt-text="Screenshot that shows the ODBC linked service." lightbox="media/odbc-linked-service.png":::
 
-    :::image type="content" source="media/odbc-linked-service.png" alt-text="Screenshot that shows the ODBC Data Source Administrator window." lightbox="media/odbc-linked-service.png":::
+6.	Configure the linked service with the IR that you configured in the previous steps:
 
-6.	Configure the linked service with the IR we configured in previous steps.
-
-    - Name: Provide a name for the linked service.
-    - Connect via integration runtime: Select SelfhostedIR
-    - Connection string: enter the DSN connection string with the name of the DSN created in previous steps. 
-    - Authentication type: Choose basic
-    - Enter user name and password for your Teradata ODBC connection, this will be used to connect to it. 
-    - Select Test connection to test your connect and then select Create.
+    - **Name**: Provide a name for the linked service.
+    - **Connect via integration runtime**: Select **SelfhostedIR**.
+    - **Connection string**: Enter the DSN connection string with the name of the DSN that you created in the previous steps.
+    - **Authentication type**: Select **Basic**.
+    - Enter the user name and password for your Teradata ODBC connection. 
+    - Select **Test connection**, and then select **Create**.
 
       :::image type="content" source="media/teradata-linked-service-configuration-2.png" alt-text="Screenshot that shows the configurations for the linked service." lightbox="media/teradata-linked-service-configuration-2.png":::
 
-7.	Now create a new Dataset with ODBC as the data store and choose the linked service we created in the earlier step. 
+7.	Complete the following steps to create a dataset with ODBC as the data store. Use the linked service that you created earlier. 
  
     - Select Author tab
     - Select the +/plus icon
