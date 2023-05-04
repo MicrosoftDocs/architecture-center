@@ -41,8 +41,8 @@ kind: PersistentVolume
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict any traffic flow between the application components.
 - [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
 - [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes. 
-- [Azure NetApp Files](https://azure.microsoft.com/products/storage/netapp) provides a fully managed performance-intensive and latency-sensitive storage solution, that hosts all of the WordPress content in this scenario, so that all of the pods have access to the data.
-- [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) can be used to host key-value cache for WordPress performance optimalization plugins, shared between all pods.
+- [Azure NetApp Files](https://azure.microsoft.com/products/storage/netapp) provides a fully managed performance-intensive and latency-sensitive storage solution that hosts all of the WordPress content in this scenario so that all of the pods have access to the data.
+- [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) can be used to host key-value cache for WordPress performance optimization plugins, shared between all pods.
 - [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
 
 ## Scenario details
@@ -59,9 +59,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability
 
-The combination of pods in AKS and load balancing of ingress traffic provides high availability even if there is pod failure.
+The combination of pods in AKS and load balancing of ingress traffic provides high availability even if there's pod failure.
 
-The CDN (Front Door) is global service and supports origins deployed accross multiple regions (AKS in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin is not responding. However, it's important to note that caching should not be considered a complete availability solution.
+The CDN (Front Door) is global service and supports origins deployed across multiple regions (AKS in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 
 The NetApp Files storage can be replicated between paired regions. For more information, see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
 
@@ -83,7 +83,7 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 
 ### Resiliency
 
-This scenario supports use of multiple regions, data replication and autoscalling. These networking components distribute traffic to the pods, and include health probes that ensure traffic is only distributed to healthy pods. All of these networking components are fronted via a CDN. This makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
+This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the pods, and include health probes that ensure traffic is only distributed to healthy pods. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
 
 For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
@@ -94,7 +94,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 There are a couple main things to consider:
 
 - How much traffic are you expecting in terms of GB/month? The amount of traffic has the biggest effect on your cost, as it determines the number of AKS nodes. Additionally, it directly correlates with the amount of data that is surfaced via the CDN.
-- What is the expected amount of those data that will be hosted? It's important to consider this since Azure NetApp Files pricing is based on reserved capacity.
+- What is the expected amount of hosted data? It's important to consider this since Azure NetApp Files pricing is based on reserved capacity.
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
 - How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much is cached in the CDN.
 
