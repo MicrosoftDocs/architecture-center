@@ -125,7 +125,6 @@ Product documentation:
 - [What is Azure Firewall?](/azure/firewall/overview)
 - [What is VPN Gateway?](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
-
 Microsoft Learn modules:
 
 - [Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door)
