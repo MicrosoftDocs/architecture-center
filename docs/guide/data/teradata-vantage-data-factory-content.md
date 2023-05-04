@@ -56,7 +56,7 @@ You can use Data Factory to create and schedule data-driven workflows (called pi
 
 ### Self-hosted IR 
  
-The self-hosted IR can perform copy operations between cloud data stores and private-network data stores. You can also transform your compute resources in an on-premises network or an Azure virtual network. You need a local computer or virtual machine on your private network to install the self-hosted IR. For more information, see [Considerations for using a self-hosted IR](https://learn.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#considerations-for-using-a-self-hosted-ir). This article describes how to use the self-hosted IR to connect to VantageCloud and extract data to load into Azure Data Lake Storage.
+The self-hosted IR can perform copy operations between cloud data stores and private-network data stores. You can also transform your compute resources in an on-premises network or an Azure virtual network. You need a local computer or virtual machine on your private network to install the self-hosted IR. For more information, see [Considerations for using a self-hosted IR](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory#considerations-for-using-a-self-hosted-ir). This article describes how to use the self-hosted IR to connect to VantageCloud and extract data to load into Azure Data Lake Storage.
 
 ### Teradata connector
  
@@ -91,7 +91,7 @@ To complete this procedure, you need to have an Blob Storage container in your s
 
     :::image type="content" source="media/teradata-linked-service.png" alt-text="Screenshot that shows the Teradata connector." lightbox="media/teradata-linked-service.png"::: 
 
-3.	Configure the linked service to connect to your Vantage database. This procedure shows how to use a basic authentication mechanism with a user ID and password. Alternatively, depending on your security needs, you can choose a different authentication mechanism and set other parameters accordingly. For more information, see [Teradata connector linked service properties](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). You'll use a self-hosted IR. For more information, see these [instructions for deploying a self-hosted IR](https://learn.microsoft.com/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). Deploy it in the same virtual network as your data factory.
+3.	Configure the linked service to connect to your Vantage database. This procedure shows how to use a basic authentication mechanism with a user ID and password. Alternatively, depending on your security needs, you can choose a different authentication mechanism and set other parameters accordingly. For more information, see [Teradata connector linked service properties](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). You'll use a self-hosted IR. For more information, see these [instructions for deploying a self-hosted IR](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). Deploy it in the same virtual network as your data factory.
 
     Use the following values to configure the linked service: 
 
@@ -409,12 +409,20 @@ This scenario describes how use the VantageCloud [Native Object Store (NOS)](htt
 - In addition to using schedule triggers, consider using mix of tumbling window and event triggers to load Vantage data into destination locations. Reduce unnecessary triggers to reduce cost.
 - Use Vantage NOS for ad-hoc querying to easily supply data for upstream applications.
 
+## Contributors
+
 ## Next steps
 
 - [Teradata Vantage on Azure](https://www.teradata.com/Cloud/Azure)
+- [Teradata Tools and Utilities 17.20](https://downloads.teradata.com/download/database/teradata-tools-and-utilities-13-10) 
 - [Azure Data Factory](/azure/data-factory/introduction)
 - [Azure virtual network peering](/azure/virtual-network/virtual-network-peering-overview)
 - [Azure Private Link service](/azure/private-link/private-link-service-overview)
 - [Data Factory Teradata connector](/azure/data-factory/connector-teradata?tabs=data-factory)
 - [Self-hosted IR](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory)
 - [Blob Storage documentation](/azure/storage/blobs/)
+
+## Related resources
+
+- [Big data architectures](../../data-guide/big-data/index.yml)
+- [Choose an analytical data store in Azure](../../data-guide/technology-choices/analytical-data-stores.md)
