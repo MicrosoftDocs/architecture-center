@@ -6667,6 +6667,8 @@ items:
       items:
       - name: Azure Spring Apps
         items:
+          - name: Get started
+            href: web-apps/spring-apps/index.md
           - name: Guides
             items:
               - name: Spring Apps through a reverse Proxy
