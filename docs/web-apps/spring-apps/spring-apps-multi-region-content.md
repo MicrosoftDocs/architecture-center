@@ -117,9 +117,11 @@ Resources split up in this way share the same lifecycle and can be easily create
 
 Azure Front Door does global load balancing between regions. This reverse proxy helps distribute the traffic if you deploy a workload to multiple regions. As an alternative, you can use [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview). Traffic Manager is a DNS-based traffic load balancer that load balances only at the domain level.
 
+Azure Front Door has integrated content delivery networks (CDNs) that delivers content from Microsoft’s global edge network with points of presence (PoPs) distributed around the world.
+
 The current solution uses two reverse proxies: Azure Front Door and Application Gateway. Application Gateway acts as a load balancer per region. Alternatively, you can remove Application Gateway from the setup if you address the following requirements:
 
-- Because the Web Application Firewall is attached to the Application Gateway, you need to attach the firewall to the Azure Front Door service instead.
+- Because the Web Application Firewall (WAF) is attached to the Application Gateway, you need to attach WAF to the Azure Front Door service instead.
 
 - You need a way to ensure that incoming calls originate only from the Azure Front Door instance. You can add the X-FDID header check and the Azure Front Door IP ranges check in the Spring Cloud Gateway app. For more information, see [Use Azure Front Door as the reverse proxy](spring-cloud-reverse-proxy.yml#scenario-4-using-azure-front-door-as-the-reverse-proxy).
 
@@ -138,12 +140,8 @@ You can use this feature:
 - To fail over to if your primary region fails.
 - To set up primary and secondary databases with private link connections to their respective regions, with [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) between the two regions. For more information, see [Multiregion web app with private connectivity to a database](../../example-scenario/sql-failover/app-service-private-sql-multi-region.yml).
 
-Azure Cosmos DB can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all the regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../patterns/geodes.yml) and [Globally distributed applications using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db).
+Another alternative is Azure Cosmos DB. It can [globally distribute](/azure/cosmos-db/distribute-data-globally) data by transparently replicating the data to all the regions in your Azure Cosmos DB account. You can also configure Azure Cosmos DB with [multiple write regions](/azure/cosmos-db/high-availability#multiple-write-regions). For more information, see [Geode pattern](../../patterns/geodes.yml) and [Globally distributed applications using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db).
 
-
-## Key vault
-
-This solution stores the application secrets and certificates in a single key vault. However, because application secrets and the certificates for host name preservation are different concerns, you might want to store them in separate key vaults. This alternative adds another key vault per region to your architecture.
 
 ## Automated deployment
 
@@ -178,12 +176,9 @@ This solution effectively doubles the cost estimates of the [**baseline architec
 
 To address costs:
 - You can use scaled-down versions of resources like Azure Spring Apps and Application Gateway in the standby region, and scale up the resources only when the standby becomes active.
-- You can deploy different applications and application types to a single instance of Azure Spring Apps.
-- Azure Spring Apps supports application autoscaling triggered by metrics or schedules, which can improve utilization and cost efficiency.
-- You can use Application Insights in [Azure Monitor](/azure/azure-monitor/overview) to lower operational costs. A comprehensive logging solution provides visibility for automation to scale components in real time. Analyzing log data can also reveal inefficiencies in application code that you can address to improve costs and performance.
-- The alternative setup that uses only one reverse proxy can help save costs. You need to apply extra configuration to maintain the security of this alternative.
-- An active/passive setup also saves costs. Whether active/passive is an option for you depends on your business case.
+- An active-passive setup also saves costs. Whether active/passive is an option for you depends on your business case.
 - A multizone setup in a single region can meet availability and resilience business needs and be more cost effective, because you only pay for most resources once.
+- The alternative setup that uses only one reverse proxy can help save costs. You need to apply extra configuration to maintain the security of this alternative.
 
 The cost of services was estimated in [Azure pricing calculator](https://azure.com/e/414c5e0b15494e5081cc9f008d82fdaa) with reasonable default values for a small-scale application. You can update this estimate based on the throughput values you expect for your application.
 
@@ -191,7 +186,7 @@ The cost of services was estimated in [Azure pricing calculator](https://azure.c
 
 The design considerations for the [**baseline architecture**](spring-apps-multi-zone.yml) still apply in this use case. Review these points in the context of this architecture: 
 
-- **Network security**. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the backend database and the key vault, is also locked down by using private endpoints. The most important guideline when you use a different PaaS service is to properly configure host name preservation for the custom domain in the service.
+- **Network security**. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the key vault, is also locked down by using private endpoints. The most important guideline when you use a different PaaS service is to properly configure host name preservation for the custom domain in the service.
 
   > For details, see [Baseline architecture: Network security](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#network-security)
 
@@ -202,6 +197,10 @@ The design considerations for the [**baseline architecture**](spring-apps-multi-
 - **Monitoring**. Add instrumentation and enable distributed tracing to collect data from the application. Combine that data source with platform diagnostics to get an end-to-end insight into your application. 
 
   > For details, see [Baseline architecture: Monitoring](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#monitoring).
+
+- **Secret management**. This solution stores the application secrets and certificates in a single key vault. 
+
+  > For details, see [Baseline architecture: Secret management](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#secret-management).
 
 
 ## Deploy this scenario

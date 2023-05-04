@@ -93,7 +93,7 @@ The design incorporates several PaaS services that participate in processing a u
 
 ##### Private connectivity
 
-Communication from Azure Spring Apps to supporting services, like the back-end database and the key vault, is also locked down by using either private endpoints or network integration.
+Communication from Azure Spring Apps to supporting services, like key vault, is also locked down by using either private endpoints or network integration.
 
 You can control access by using private endpoints. These network interfaces use private IP addresses to bring the services into the virtual network. 
 
@@ -165,7 +165,8 @@ To address costs:
 
 - You can deploy different applications and application types to a single instance of Azure Spring Apps. When multiple applications are deployed, the cost of the underlying infrastructure is shared across applications.
 - Azure Spring Apps supports application autoscaling triggered by metrics or schedules, which can improve utilization and cost efficiency.
-- You can use Application Insights in [Azure Monitor](/azure/azure-monitor/overview) to lower operational costs. 
+- You can use Application Insights in [Azure Monitor](/azure/azure-monitor/overview) to lower operational costs. Continuous monitoring can help address issues quicker and improve costs and performance.
+
 
 The cost of services was estimated in [Azure pricing calculator](https://azure.com/e/414c5e0b15494e5081cc9f008d82fdaa) with reasonable default values for a small-scale application. You can update this estimate based on the throughput values you expect for your application.
 

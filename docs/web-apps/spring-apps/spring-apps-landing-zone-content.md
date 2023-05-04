@@ -40,7 +40,7 @@ Your team provisions and owns these resources.
 
 - **Azure Spring Apps Enterprise** hosts your Java Spring Boot applications in Azure. This tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®. 
 
-- **Azure Application Gateway Standard_v2** is the load balancer that distributes incoming web traffic. This SKU has integrated Azure Web Application Firewall (WAF) that inspects traffic for Open Web Application Security Project (OWASP) vulnerabilities.
+- **Azure Application Gateway Standard_v2** is the reverse proxy that routes incoming web traffic to Azure Spring Apps. This SKU has integrated Azure Web Application Firewall (WAF) that inspects traffic for Open Web Application Security Project (OWASP) vulnerabilities.
 
 - **Azure Virtual Machine (VM)** acts as jump box for management operations. 
 
@@ -72,15 +72,15 @@ The reference implementation includes a sample application that illustrates a ty
 
 ##### Service discovery
 
-In a microservices pattern, service registry capability must be supported for routing and service-to-service communication. 
+In a microservices pattern, service registry capability must be supported for routing user requests and service-to-service communication. 
 
 Services should be able to communicate with other services. When new instances are spawned, they are added to the registry so that they can be dynamically discovered. In this architecture, [VMware Tanzu® Service Registry](/azure/spring-apps/how-to-enterprise-service-registry) is enabled for Azure Spring Apps. 
 
-Most microservices need [Gateway Routing](/azure/architecture/patterns/gateway-routing) that provides a single point of entry for external traffic. The gateway routes incoming requests to the active service instances found in the registry. In this design, [VMware Spring Cloud Gateway](/azure/spring-apps/how-to-use-enterprise-spring-cloud-gateway) was chosen. It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
+Azure Spring Apps implement the [Gateway Routing](/azure/architecture/patterns/gateway-routing) pattern, which that provides a single point of entry for external traffic. The gateway routes incoming requests to the active service instances found in the registry. In this design, the pattern is implemented with [VMware Spring Cloud Gateway](/azure/spring-apps/how-to-use-enterprise-spring-cloud-gateway) was chosen. It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
 
 ##### Configuration server
 
-For microservices, configuration data must be separated from the code. In this architecture, because the Enterprise tier was chosen, such data is stored externally as native Kubernetes ConfigMap resources and accessed by [Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service).  
+For microservices, configuration data must be separated from the code. In this architecture, because the Enterprise tier was chosen, [Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service) enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
 
 ##### Redundancy
@@ -117,7 +117,7 @@ The platform team decides the network topology. Hub-spoke topology is assumed in
 
 - **Hub virtual network**
 
-    The [Connectivity subscription](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure) contains a hub virtual network shared by the entire organization. It contains [these networking resources](#platform-team-owned-resources) that are owned and maintained by the platform team. These resources are in scope for this architecture:
+    The [Connectivity subscription](/azure-best-practices/traditional-azure-networking-topology) contains a hub virtual network shared by the entire organization. It contains [these networking resources](#platform-team-owned-resources) that are owned and maintained by the platform team. These resources are in scope for this architecture:
 
     - **Azure Firewall** used for controlling outbound traffic to the internet.
     - **Azure Bastion** used to securing access to the management jump box.
@@ -200,6 +200,8 @@ This architecture provisions these resources:
 Configure Azure Spring Apps instance to send diagnostics logs from the application to the provisioned Log Analytics workspace. For more information, see [Monitor applications end-to-end](/azure/spring-apps/quickstart-monitor-end-to-end-enterprise).
 
 Collect logs and metrics for other Azure services. For example, the jump box has boot diagnostics is enabled so capture events when the virtual machine is booting. 
+
+[Configure diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) to send resource logs for all other Azure resources to a Log Analytics workspace. Resource logs aren't collected until they're routed to a destination. Each Azure resource requires its own diagnostic setting.
 
 ##### Correlating data from multiple sinks 
 
