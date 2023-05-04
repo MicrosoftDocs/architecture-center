@@ -1,43 +1,34 @@
 <!-- cSpell:ignore wordpress -->
 
-Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Virtual Machine](/azure/virtual-machines/overview) and other Azure services to deploy a highly scalable and secure installation of WordPress.
-
+Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and other Azure services to deploy a highly scalable and secure installation of WordPress.
 
 ## Architecture
 
-[![Architecture overview of the Azure components involved in a scalable and secure WordPress deployment](media/secure-scalable-wordpress.png)](media/secure-scalable-wordpress.png#lightbox)
+[![Architecture overview of the WordPress deployment in AKS](media/wordpress-aks-netapp.png)](media/wordpress-aks-netapp.png#lightbox)
+
+
+> [!NOTE]
+> This architecture can be extended and combined with other tips and recommendations that are not specific to any particular WordPress hosting method. [Learn more about tips for WordPress](/azure/architecture/example-scenario/infrastructure/wordpress)
+
 
 ### Dataflow
 
-This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers and MariaDB. There are two distinct data flows in this scenario the first is users access the website:
-
-1. Users access the front-end website through a CDN.
-2. The CDN uses an [Azure load balancer](/azure/load-balancer/load-balancer-overview) as the origin, and pulls any data that isn't cached from there.
-3. The Azure load balancer distributes requests to the [Virtual Machine Scale Sets][docs-vmss] of web servers.
-4. The WordPress application pulls any dynamic information out of the Maria DB clusters, all static content is hosted in [Azure Files](/azure/storage/files/storage-files-introduction).
-5. SSL keys are stored [Azure Key Vault](/azure/key-vault/key-vault-overview).
-
-The second workflow is how authors contribute new content:
-
-1. Authors connect securely to the public VPN gateway.
-2. VPN authentication information is stored in Azure Active Directory.
-3. A connection is then established to the Admin jump boxes.
-4. From the admin jump box, the author is then able to connect to the Azure load balancer for the authoring cluster.
-5. The Azure load balancer distributes traffic to the Virtual Machine Scale Sets of web servers that have write access to the Maria DB cluster.
-6. New static content is uploaded to Azure files and dynamic content is written into the Maria DB cluster.
-7. These changes are then replicated to the alternate region via rsync or primary/secondary replication.
+1. Users access the front-end website through a CDN (Azure Front Door).
+2. The CDN uses an [internal Azure load balancer](/azure/load-balancer/load-balancer-overview) (component of AKS) as the origin, and pulls any data that isn't cached from there via private connection via Private Endpoint.
+3. The Azure load balancer distributes ingress traffic to pods within AKS.
+4. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) via AKS CSI Astra Triden driver.
+5. SSL keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 ### Components
 
-- [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) is a distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
-- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
+- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a Microsoft’s modern cloud Content Delivery Network (CDN), distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
+- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow deployed resources to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
 - [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 - [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
-- [Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate Virtual Machine Scale Sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end web servers used to author new content.
-- [Azure Files](https://azure.microsoft.com/products/storage/files) provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
+- [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes. 
+- [Azure NetApp Files](https://azure.microsoft.com/products/storage/netapp) provides a fully managed performance-intensive and latency-sensitive storage solution, that hosts all of the WordPress content in this scenario, so that all of the nodes have access to the data.
 - [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
-- [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a multitenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.
 
 ## Scenario details
 

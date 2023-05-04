@@ -1,7 +1,6 @@
 <!-- cSpell:ignore wordpress -->
 
-Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Virtual Machine](/azure/virtual-machines/overview) and other Azure services to deploy a highly scalable and secure installation of WordPress.
-
+Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure App Service](/azure/virtual-machines/overview) and other Azure services to deploy a highly scalable and secure installation of WordPress.
 
 ## Architecture
 
