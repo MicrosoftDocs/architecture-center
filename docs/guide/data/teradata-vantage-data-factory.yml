@@ -2,9 +2,9 @@
 metadata:
   title: Integrate Teradata VantageCloud Enterprise with Azure Data Factory
   description: Learn how to use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines. 
-  author: <Contributor's GitHub username. If no GitHub account, use martinekuan>
-  ms.author: <Contributor's Microsoft alias. Can include multiple contributors, separated by commas. If no alias, use the Microsoft email alias "architectures".>
-  ms.date:  
+  author: ssabat
+  ms.author: susabat
+  ms.date: 05/08/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -18,6 +18,6 @@ products:
   - azure-virtual-wan
 name: Integrate Teradata VantageCloud with Azure Data Factory
 summary: Learn how to use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines. 
-thumbnailUrl: /azure/architecture/browse/thumbs/<browse-png-filename>.png
+thumbnailUrl: /azure/architecture/browse/thumbs/teradata-azure-data-factory-vnet-peering.png
 content: |
   [!include[](teradata-vantage-data-factory-content.md)]

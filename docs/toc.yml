@@ -4650,6 +4650,8 @@ items:
           href: data-guide/big-data/batch-processing.yml
         - name: Real-time processing
           href: data-guide/big-data/real-time-processing.yml
+        - name: VantageCloud integration with Azure Data Factory
+          href: guide/data/teradata-vantage-data-factory.yml
       - name: Technology choices
         items:
         - name: Analytical data stores

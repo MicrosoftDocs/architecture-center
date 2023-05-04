@@ -411,6 +411,23 @@ This scenario describes how use the VantageCloud [Native Object Store (NOS)](htt
 
 ## Contributors
 
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Sunil Sabat](https://www.linkedin.com/in/sunilsabat/) | Principal Program Manager 
+- [Divyesh Sah](https://www.linkedin.com/in/divyeshsah/) | Director WW Cloud Architecture
+- [Jianlei Shen](https://www.linkedin.com/in/jianlei-vivian-shen-44394226/) | Senior Program Manager 
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+- [Emily Chen](https://www.linkedin.com/in/emily-chen-ms-open-tech-b47a2013b/) | Principal PM Manager 
+- [Wee Hyong Tok](https://www.linkedin.com/in/weehyongtok/) | Partner Director PM 
+- [Bunty Ranu](https://www.linkedin.com/in/buntyranu/) | Senior Director, Worldwide Cloud Architecture
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Teradata Vantage on Azure](https://www.teradata.com/Cloud/Azure)
