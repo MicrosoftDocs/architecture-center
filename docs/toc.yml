@@ -6617,7 +6617,7 @@ items:
         href: example-scenario/wvd/multi-forest-azure-managed.yml
   - name: Web
     items:
-    - name: Get started
+    - name: Overview
       href: guide/web/web-start-here.md
     - name: Guides
       items:
