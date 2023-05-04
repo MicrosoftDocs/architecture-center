@@ -2,7 +2,7 @@
 metadata:
   title: (PaaS) WordPress on App Service
   titleSuffix: WordPress in Azure Architecture Center
-  description: Learn how to use Azure Front Door, VMs and other Azure services to deploy a highly scalable and secure installation of WordPress.
+  description: Learn how to use Azure Front Door, App Service and other Azure services to deploy a highly scalable and secure installation of WordPress.
   author: vjirovsky
   ms.author: vjirovsky
   ms.date: 04/18/2023

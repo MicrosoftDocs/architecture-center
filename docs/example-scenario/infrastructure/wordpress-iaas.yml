@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: (IaaS) VM deployment
+  title: VM deployment
   titleSuffix: WordPress in Azure Architecture Center
   description: Learn how to use Azure Front Door, VMs and other Azure services to deploy a highly scalable and secure installation of WordPress.
   author: vjirovsky
@@ -16,7 +16,7 @@ metadata:
     - scalability
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
-name: IaaS WordPress on Azure
+name: VM WordPress on Azure
 azureCategories:
   - web
 summary: Learn how to use Azure Front Door, VMs and other Azure services to deploy a highly scalable and secure installation of WordPress.

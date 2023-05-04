@@ -16,7 +16,7 @@ metadata:
     - scalability
     - example-scenario
   social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
-name: Container hosting options
+name: WordPress container options on Azure
 azureCategories:
   - web
 summary: Learn how to use container services to deploy a highly scalable and secure installation of WordPress.

@@ -6716,7 +6716,7 @@ items:
             href: example-scenario/infrastructure/wordpress.yml
           - name: Container hosting
             href: example-scenario/infrastructure/wordpress-container.yml
-          - name: WordPress on AppService
+          - name: App Service hosting
             href: example-scenario/infrastructure/wordpress-appservice.yml
           - name: VM hosting
             href: example-scenario/infrastructure/wordpress-iaas.yml

@@ -2,13 +2,13 @@
 
 WordPress is a versatile and popular content management system, used for creating websites of all sizes and purposes. From small personal blogs to large-scale corporate sites and e-commerce stores, WordPress offers a range of functionalities and customizations to suit different needs. However, due to its varying sizes and use cases, WordPress also has different hosting requirements, depending on factors such as traffic volume and storage needs.
 
-This section covers deploying WordPress on Azure and provide guidance on what to consider and implement to ensure a secure, scalable, and cost-effective installation.
+This section covers deploying WordPress on Azure and provides guidance on what to consider and implement to ensure a secure, scalable, and cost-effective installation.
 
 ## General WordPress security&performance tips
 
 WordPress is a popular target for hackers, and websites running on the platform can be vulnerable to security threats such as malware and phishing attacks. To address these risks, the following tips can help to create a more secure and better-performing WordPress installation.
 
-Regardless of the hosting architecture, whether it's VM, AppService, or any other, these tips are universally applicable.
+Regardless of the hosting architecture, whether it's VM, App Service, or any other, these tips are universally applicable.
 
 ### Use Web Application Firewall
 
@@ -94,7 +94,7 @@ Another way to host WordPress with such advanced storage solution like Azure Net
 
 ### Immutable WordPress container
 
-Alternative approach to traditional hosting methods is to deploy WordPress into an immutable container, with both advantages and limitations. Source code and all resources within immutable containers are fixed and can't be modified after deployment, so all changes need to be made in a new version of the container image (including installing/updating WordPress core or a new plugin). While this approach ensures consistency and simplifies rollbacks, it brings some overhead about building deployment pipeline for all changes. Additionally, immutable containers may have limitations on persistent storage options, which could require to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments can offer benefits in terms of security, scalability, and portability.
+Alternative approach to traditional hosting methods is to deploy WordPress into an immutable container, with both advantages and limitations. Source code and all resources within immutable containers are fixed and can't be modified after deployment, so all changes, including new plugin installation or WordPress core updating, need to be made in a new version of the container image. While this approach ensures consistency and simplifies rollbacks, it brings some overhead about building deployment pipeline for all changes. Additionally, immutable containers may have limitations on persistent storage options, which could require to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments can offer benefits in terms of security, scalability, and portability.
 
 An immutable containerized version of WordPress can be deployed on various platforms, including Azure Container App, Azure Kubernetes Service, and Azure App Service with custom container image.
 
