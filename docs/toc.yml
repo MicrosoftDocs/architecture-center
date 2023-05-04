@@ -6671,11 +6671,11 @@ items:
             href: web-apps/spring-apps/index.md
           - name: Architecture
             items:              
-            - name: Zone-redundant Spring Apps
+            - name: Baseline
               href: web-apps/spring-apps/spring-apps-multi-zone.yml
-            - name: Multi-region Spring Apps
+            - name: Baseline in multiple regions
               href: web-apps/spring-apps/spring-apps-multi-region.yml
-            - name: Spring Apps landing zone accelerator
+            - name: Baseline in landing zones
               href: web-apps/spring-apps/spring-apps-landing-zone.yml
           - name: Guides
             items:

@@ -1,7 +1,7 @@
-
-This reference architecture provides guidance for deploying Spring Boot applications as an Azure Spring Apps workload. 
+This reference architecture deploys the [**baseline architecture**](spring-apps-multi-zone.yml) in Azure landing zones.
 
 In this scenario, your organization expects the workload to use federated resources managed by central teams (platform), such as networking for on-premises connectivity, identity access management, and policies. This guidance assumes that the organization has adopted Azure landing zones to apply consistent governance and save costs across multiple workloads.
+
 
 > [!IMPORTANT]
 > 

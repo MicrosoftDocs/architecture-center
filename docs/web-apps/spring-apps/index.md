@@ -32,7 +32,7 @@ Now that you have a good understanding about deploying a Spring Apps application
 
 #### Path to production
 
-Build on the baseline architecture and **build higher availability** that can withstand a regional outage. You'll need to change the baseline load balancer to a global router. Also, you have extra considerations related to your choice distribution mode such as active-active, active-passive with hot standby, or active-passive with cold standby mode. 
+Build on the baseline architecture and **add in higher availability** that can withstand a regional outage. You'll need to change the baseline load balancer to a global router. Also, you have extra considerations related to your choice distribution mode such as active-active, active-passive with hot standby, or active-passive with cold standby mode. 
 
 > [!div class="nextstepaction"] 
 > [Reference architecture: Deploy Azure Spring Apps to multiple regions](spring-apps-multi-region.yml)
