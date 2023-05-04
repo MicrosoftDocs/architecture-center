@@ -77,11 +77,11 @@ This article describes three scenarios:
 
 ### Scenario 1: Load data into Blob Storage from VantageCloud
 
-This scenario describes how to use Data Factory to exract data from VantageCloud Enterprise, perform some basic transformations, and then load the data into a Blob Storage container.
+This scenario describes how to use Data Factory to extract data from VantageCloud Enterprise, perform some basic transformations, and then load the data into a Blob Storage container.
 
 The scenario highlights the native integration between Data Factory and Vantage and how easily you can build an enterprise ETL pipeline to integrate data in Vantage.
 
-To complete this procedure, you need to have an Blob Storage container in your subscription, as shown in the architecture diagrams. 
+To complete this procedure, you need to have a Blob Storage container in your subscription, as shown in the architecture diagrams. 
 
 1.	To create a native connector to Vantage, in your data factory, select the **Manage** tab, select **Linked services**, and then select **New**:
 
@@ -198,7 +198,8 @@ To complete this procedure, you need to have an Blob Storage container in your s
 
 9.	Drag a **Copy Data** activity onto the pipeline. 
 
-    Note that the Teradata connector doesn't currently support the Data Flow activity in Data Factory. If you want to perform transformation on the data, we recommend that you add a Data Flow activity after the Copy activity. 
+    > [!Note] 
+    > The Teradata connector doesn't currently support the Data Flow activity in Data Factory. If you want to perform transformation on the data, we recommend that you add a Data Flow activity after the Copy activity. 
     
 10. Configure the Copy Data activity:
     
@@ -237,7 +238,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
     - Under **Teradata Server Info**, in **Name or IP address**:
       - If you're connecting via virtual network peering, provide the IP address of any VM in the Teradata cluster. You can connect to the IP address of any VM in the cluster.
       - If you're connecting via Private Link, provide the IP address of the private endpoint that you created in your virtual network to connect to the Teradata cluster via Private Link.
-    - Optionally, provide the **Username** and select **Test**. You're prompted enter the credentials. Select **OK** and ensure that the connection succeeds. Note that you will provide the user name and password in Data Factory when you create the ODBC linked service that's used to connect to the Teradata database from Data Factory.
+    - Optionally, provide the **Username** and select **Test**. You're prompted to enter the credentials. Select **OK** and ensure that the connection succeeds. Note that you'll provide the user name and password in Data Factory when you create the ODBC linked service that's used to connect to the Teradata database from Data Factory.
     - Leave the other fields blank.
     - Select **OK**.
 
@@ -284,9 +285,10 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
 
     - Drag a **Copy Data** activity onto the pipeline. 
      
-      Note that the Teradata ODBC connector doesn't currently support the Data Flow activity in Data Factory. If you want to perform transformation on the data, we recommend that you create a Data Flow activity before the Copy Data activity.
+      > [!Note] 
+      > The Teradata ODBC connector doesn't currently support the Data Flow activity in Data Factory. If you want to perform transformation on the data, we recommend that you create a Data Flow activity before the Copy Data activity.
 
-10. Congigure the Copy Data activity:
+10. Configure the Copy Data activity:
 
     - On the **Source** tab, select the file dataset that you want to load into Teradata.
     - Use the default values for the other options.
@@ -302,7 +304,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
 
 ### Scenario 3: Access data in Blob Storage from VantageCloud
 
-This scenario describes how use the VantageCloud [Native Object Store (NOS)](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Welcome-to-Native-Object-Store) functionality to access data that's in Blob Storage. The previous scenario is ideal when you want to load data into Vantage on a continual or scheduled basis. This scenario describes how to access data in a one-off manner from Blob Storage, with or without loading the data into Vantage. 
+This scenario describes how to use the VantageCloud [Native Object Store (NOS)](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Welcome-to-Native-Object-Store) functionality to access data that's in Blob Storage. The previous scenario is ideal when you want to load data into Vantage on a continual or scheduled basis. This scenario describes how to access data in a one-off manner from Blob Storage, with or without loading the data into Vantage. 
 
 > [!Note] 
 > You can also use NOS to [export data to Blob Storage](https://quickstarts.teradata.com/create-parquet-files-in-object-storage.html). 
@@ -405,7 +407,7 @@ This scenario describes how use the VantageCloud [Native Object Store (NOS)](htt
 - Consider using an Azure VM with a self-hosted IR to manage the cost of running pipelines. If you want to run pipelines twice per day, you start the VM twice and then shut it down.
 - Consider using [CI/CD in Data Factory](/azure/data-factory/continuous-integration-delivery) to implement Git-enabled continuous integration and development practices.
 - Optimize your pipeline activity count. Unnecessary activities increase costs and make pipelines complex.
-- Consider using [mapping data flows](/azure/data-factory/concepts-data-flow-overview) to transform Blob Storage data visually with no-code and low-code processes to prepare Vanatage data for uses like Power BI reporting.
+- Consider using [mapping data flows](/azure/data-factory/concepts-data-flow-overview) to transform Blob Storage data visually with no-code and low-code processes to prepare Vantage data for uses like Power BI reporting.
 - In addition to using schedule triggers, consider using mix of tumbling window and event triggers to load Vantage data into destination locations. Reduce unnecessary triggers to reduce cost.
 - Use Vantage NOS for ad-hoc querying to easily supply data for upstream applications.
 
