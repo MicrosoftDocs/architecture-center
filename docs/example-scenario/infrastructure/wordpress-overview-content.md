@@ -82,7 +82,7 @@ WordPress can be run on a few different Azure services - from managed PaaS servi
 
 [More details about this deployment architecture](/azure/architecture/example-scenario/infrastructure/wordpress-appservice)
 
-### Storage-intensive solutions
+### Storage-intensive workloads
 
 For large WordPress installations, it may become necessary to use a storage solution with a higher IOPS class and low latency, in order to accommodate the storage requirements. It's important to select a persistent storage solution that offers a Read&Write-Many mode, as the storage will be shared between all nodes.
 

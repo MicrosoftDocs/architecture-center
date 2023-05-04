@@ -6,10 +6,8 @@ Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes 
 
 [![Architecture overview of the WordPress deployment in AKS](media/wordpress-aks-netapp.png)](media/wordpress-aks-netapp.png#lightbox)
 
-
 > [!NOTE]
 > This architecture can be extended and combined with other tips and recommendations that are not specific to any particular WordPress hosting method. [Learn more about tips for WordPress](/azure/architecture/example-scenario/infrastructure/wordpress)
-
 
 ### Dataflow
 
@@ -17,7 +15,7 @@ Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes 
 2. The CDN uses an [internal Azure load balancer](/azure/load-balancer/load-balancer-overview) (hidden part of AKS) as the origin, and pulls any data that isn't cached from there via Private Endpoint.
 3. The Azure load balancer distributes ingress traffic to pods within AKS.
 4. SSL keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
-5. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint. 
+5. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint.
 6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) via AKS CSI Astra Triden driver by NFS protocol.
     > [!IMPORTANT]
     > For the best performance is essential to mount PersistentVolume via   **NFS protocol version 4.1** - see option *mountOptions* in following YAML example:
@@ -40,10 +38,11 @@ kind: PersistentVolume
 - [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict any traffic flow between the application components.
 - [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
-- [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes. 
+- [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes.
 - [Azure NetApp Files](https://azure.microsoft.com/products/storage/netapp) provides a fully managed performance-intensive and latency-sensitive storage solution that hosts all of the WordPress content in this scenario so that all of the pods have access to the data.
 - [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) can be used to host key-value cache for WordPress performance optimization plugins, shared between all pods.
 - [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
+- [Azure Database for MySQL - Flexible server](https://azure.microsoft.com/products/mysql/) is database used to store WordPress data.
 
 ## Scenario details
 

@@ -15,7 +15,7 @@ metadata:
     - web-apps
     - scalability
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-appservice.png
 name: WordPress on App Service
 azureCategories:
   - web
@@ -26,6 +26,7 @@ products:
   - azure-load-balancer
   - azure-virtual-network
   - azure-app-service
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
+  - azure-database-mysql
+thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-appservice.png
 content: |
    [!include[](wordpress-appservice-content.md)]
