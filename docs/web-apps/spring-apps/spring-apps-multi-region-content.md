@@ -1,7 +1,7 @@
 
 This reference architecture runs multiple Azure Spring Apps instances across regions in an active-active configuration.
 
-This design builds on the [**Azure Spring Apps baseline architecture**](spring-apps-multi-zone.yml) that deploys a Java Spring Boot application to multiple [availability zones](/azure/availability-zones/az-overview#availability-zones) within a single region. The multiple zones spread the application workload across separate locations that it can tolerate local failures within the Azure region.
+This design builds on the [**Azure Spring Apps baseline architecture**](spring-apps-multi-zone.yml). The baseline deploys a Java Spring Boot application to multiple [availability zones](/azure/availability-zones/az-overview#availability-zones) within a single region. The multiple zones spread the application workload across separate locations that it can tolerate local failures within the Azure region.
 
 However, if the entire region experiences an outage, the baseline will become unavailable to the user. The intent of this design is to build high availabily that can withstand a regional outage. 
 
