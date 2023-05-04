@@ -48,7 +48,7 @@ Refer to this architecture that deploys the baseline in an enterprise deployment
 > [Reference architecture: Azure Spring Apps integrated with landing zones](spring-apps-multi-region.yml)
 
 
-## Sample implementations
+#### Sample implementations
 
 The preceding reference architectures are all illustrated by implementations that you can reference to validate your design choices. They're available on GitHub.
 
