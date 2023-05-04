@@ -229,38 +229,38 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This workload optimizes high availability with Virtual WAN, redundant ExpressRoute circuits, and scale sets for NVAs resulting in the redundancy necessary for highly critical workloads.
+This workload optimizes high availability with Virtual WAN, redundant ExpressRoute circuits, and scale sets for NVAs, which results in the redundancy that's necessary for highly-critical workloads.
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-This workload provides firewall inspection between Azure and on-premises as well as inspection for outgoing internet traffic from within Azure. For inbound internet traffic please consider Azure Front Door or Azure Application Gateway and utilize SNAT to avoid routing conflicts.
+This workload provides firewall inspection between Azure and on-premises and inspection for outgoing internet traffic from Azure. For inbound internet traffic, consider Azure Front Door or Azure Application Gateway. Use SNAT to avoid routing conflicts.
 
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-The pricing for many of the Azure components can be found in the Azure Pricing Calculator. Ultimately, pricing for this solution is based on factors such as:
+ See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) for costs of Azure components. Pricing for this solution is based on factors, such as:
 
-- The Azure services that are used
-- The ExpressRoute sizing
-- The Virtual WAN sizing and data traffic quantities that are processed by each hub
-- The NVA pricing
+- The Azure services that are used.
+- The ExpressRoute sizing.
+- The Virtual WAN sizing and data traffic quantities that are processed by each hub.
+- The NVA pricing.
 
-While this workload prioritizes performance and availability over low cost, cost is optimized by using ExpressRoute Local for primary connections limiting bandwidth expenses. If the customer would like to compromise on performance and reliability and optimize on cost they could reduce the number of ExpressRoute circuits, and the number of firewalls to drive down cost and ride the Virtual WAN Hubs with less efficiency to enable connection to their on-premises or cloud destinations.
+This workload prioritizes performance and availability over low cost, but cost is optimized by using ExpressRoute Local for primary connections, which limits bandwidth expenses. If the customer wants to compromise performance and reliability to optimize cost, they can reduce the number of ExpressRoute circuits and firewalls. This approach reduces cost but rides the Virtual WAN hubs with less efficiency when connecting to their on-premises or cloud destinations.
 
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-This design is compatible with Terraform/Infrastructure as code. Due to some Virtual WAN lag in feature availability it does require the use of the Terraform Azure API provider for deployment.
+This design is compatible with Terraform and infrastructure as code. It requires the Terraform Azure API provider for deployment because of Virtual WAN lag in feature availability.
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-This is a highly performant network even in the case of connection failure performance and routing uses the best available path.
+This network is highly performant. Even if a connection fails, performance and routing uses the best available path.
 
 ## Deploy this scenario
 
