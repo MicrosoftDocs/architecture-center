@@ -1,12 +1,6 @@
 This article describes various enterprise-scale analytical scenarios that are enabled by Azure Data Factory and Teradata VantageCloud Enterprise.
 
-The architecture described here demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines while writing little or no code. It shows how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory. The architecture is built on the foundation of Azure scalability, security, and governance.
-
-This article describes three scenarios:
-
-- Data Factory pulling data from VantageCloud Enterprise and loading it into Azure Blob Storage
-- Loading data into VantageCloud Enterprise with Data Factory
-- Using the Native Object Storage (NOS) functionality of VantageCloud Enterprise to access data transformed and loaded into Blob Storage by Data Factory
+The architecture described here demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines with a low-code or no-code approach. It shows how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory.
 
 ## Architecture
 
@@ -73,7 +67,15 @@ In this architecture, Data Factory uses the Teradata connector to connect to Van
 
 This article describes how to set up linked services and datasets for the Data Factory Copy activity, which ingests data from Vantage and loads it into Data Lake Storage.
 
-## Scenario 1: Load data into Blob Storage from VantageCloud
+## Scenario details
+
+This article describes three scenarios:
+
+- Data Factory pulling data from VantageCloud Enterprise and loading it into Azure Blob Storage
+- Loading data into VantageCloud Enterprise with Data Factory
+- Using the Native Object Storage (NOS) functionality of VantageCloud Enterprise to access data transformed and loaded into Blob Storage by Data Factory
+
+### Scenario 1: Load data into Blob Storage from VantageCloud
 
 This scenario describes how to use Data Factory to exract data from VantageCloud Enterprise, perform some basic transformations, and then load the data into a Blob Storage container.
 
@@ -212,7 +214,7 @@ To complete this procedure, you need to have an Blob Storage container in your s
     
 11.	Select **Debug**. The pipeline copies the data from the Teradata table to a Parquet file in Blob Storage.
 
-## Scenario 2: Load data into VantageCloud from Blob Storage
+### Scenario 2: Load data into VantageCloud from Blob Storage
 
 This scenario describes how to use an ODBC connector to connect to Vantage via the self-hosted IR VM to load data. Because the IR needs to be installed and configured with the Teradata ODBC driver, this option works only with a Data Factory self-hosted IR. 
 
@@ -298,7 +300,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
 
 10.	Select **Debug**. The pipeline copies the data from the Parquet file to Vantage.
 
-## Scenario 3: Access data in Blob Storage from VantageCloud
+### Scenario 3: Access data in Blob Storage from VantageCloud
 
 This scenario describes how use the VantageCloud [Native Object Store (NOS)](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Welcome-to-Native-Object-Store) functionality to access data that's in Blob Storage. The previous scenario is ideal when you want to load data into Vantage on a continual or scheduled basis. This scenario describes how to access data in a one-off manner from Blob Storage, with or without loading the data into Vantage. 
 
@@ -399,32 +401,20 @@ This scenario describes how use the VantageCloud [Native Object Store (NOS)](htt
 - Follow the connector performance tips and best practices described in [Teradata as source](/azure/data-factory/connector-teradata?tabs=data-factory#teradata-as-source).
 - Be sure the self-hosted IR is sized correctly for your volume of data. You might want to scale out the IR to get better performance. For more information, see [this self-hosted IR performance guide](/azure/data-factory/copy-activity-performance#self-hosted-integration-runtime-scalability).
 - Use [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance) to fine-tune Data Factory pipelines for performance.
-- Use the [Data Factory copy data tool](https://learn.microsoft.com/en-us/azure/data-factory/quickstart-hello-world-copy-data-tool) to quickly set up a pipeline and run it on a schedule.
+- Use the [Data Factory copy data tool](/azure/data-factory/quickstart-hello-world-copy-data-tool) to quickly set up a pipeline and run it on a schedule.
 - Consider using an Azure VM with a self-hosted IR to manage the cost of running pipelines. If you want to run pipelines twice per day, you start the VM twice and then shut it down.
 - Consider using [CI/CD in Data Factory](/azure/data-factory/continuous-integration-delivery) to implement Git-enabled continuous integration and development practices.
 - Optimize your pipeline activity count. Unnecessary activities increase costs and make pipelines complex.
-- Consider using [mapping data flows](https://learn.microsoft.com/azure/data-factory/concepts-data-flow-overview) to transform Azure Blob data visually with no-code and low-code to prepare Vanatage data for downstream use like PowerBI reporting.
-- In addition to schedule trigger, you can use mix of tumbling window and event trigger to land Vantage data in destinations of your choice. Reduce unnecessary triggers to reduce cost.
-- Use Teradata Vantage NOS for ad-hoc query to supply data for upstream applications easily.
-
-## Conclusion.
-
-This article highlights the various ways in which Azure Data Factory and Teradata VantageCloud Enterprise databases demonstrate enterprise integration and analytics capabilities. 
-As discussed, Private Link, VNet Peering and Virtual WAN are used to connect an Azure Subscription and VNet with Teradata’s VNet where VantageCloud Enterprise database is deployed in a SaaS model. 
-
-The scenarios demonstrate how to: 
-
-- pull data from Vantage using Teradata native connector in  Data Factory by utilizing a self-hosted IR deployment and discussed the configurations that are needed to set it up and connect to Teradata over Private Link or VNet Peering.
-- push data into Vantage using ODBC connector in  Data Factory and configure self-hosted IR with the required ODBC drivers and software and connection parameters to prepare your DSN and connect to Teradata over Private Link or VNet Peering. We also pointed to solution using the custom activity in  Data Factory and utilize TTU to load/un-load large scale data at scale in Teradata. 
-- process data that has been transformed using  Data Factory and loaded into Azure Blob by reading it in-place or load it into Teradata using its NOS capabilities. 
+- Consider using [mapping data flows](/azure/data-factory/concepts-data-flow-overview) to transform Blob Storage data visually with no-code and low-code processes to prepare Vanatage data for uses like Power BI reporting.
+- In addition to using schedule triggers, consider using mix of tumbling window and event triggers to load Vantage data into destination locations. Reduce unnecessary triggers to reduce cost.
+- Use Vantage NOS for ad-hoc querying to easily supply data for upstream applications.
 
 ## Next steps
 
-- [Teradata Vantage on Azure]()
-- [Azure Data Factory]()
-- [Azure VNET peering]()
-- [Azure Private Link Service]()
-- [Data Factory Teradata Connector]
-- [Self Hosted Integration Runtime]
-- 
-- https://learn.microsoft.com/en-us/azure/storage/blobs/
+- [Teradata Vantage on Azure](https://www.teradata.com/Cloud/Azure)
+- [Azure Data Factory](/azure/data-factory/introduction)
+- [Azure virtual network peering](/azure/virtual-network/virtual-network-peering-overview)
+- [Azure Private Link service](/azure/private-link/private-link-service-overview)
+- [Data Factory Teradata connector](/azure/data-factory/connector-teradata?tabs=data-factory)
+- [Self-hosted IR](/azure/data-factory/create-self-hosted-integration-runtime?tabs=data-factory)
+- [Blob Storage documentation](/azure/storage/blobs/)
