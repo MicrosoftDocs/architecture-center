@@ -2,9 +2,9 @@ This scenario explains the architecture and considerations to take into account 
 
 ## Architecture
 
-![Diagram that demonstrates a Jenkins server running on Azure.][0]
+[ ![Architectural diagram that demonstrates a Jenkins server running on Azure.](./media/architecture-jenkins.svg)](./media/architecture-jenkins.svg#lightbox)
 
-*Access the [Visio diagram](https://office.live.com/start/Visio.aspx?omkt=en-us&templatetitle=Jenkins%20Server%20on%20Azure&templateid=TM66956692) online, through Microsoft 365. Note that you must have a Visio license to access this diagram. Or, download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) that contains a version of this architecture diagram.*
+*Download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -169,4 +169,3 @@ The following online communities can answer questions and help you configure a s
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [vm-agent]: https://plugins.jenkins.io/azure-vm-agents/
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[0]: ./media/architecture-jenkins.png
