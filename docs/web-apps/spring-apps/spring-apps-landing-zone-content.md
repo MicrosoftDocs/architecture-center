@@ -111,7 +111,7 @@ In this design, the workload is dependent on resources owned by the platform tea
 
 > Refer to [Azure Spring Apps landing zone accelerator: Network topology and connectivity](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/network-topology-and-connectivity).
 
-### Network topology
+##### Network topology
 
 The platform team decides the network topology. Hub-spoke topology is assumed in this architecture. 
 
@@ -135,7 +135,7 @@ The platform team decides the network topology. Hub-spoke topology is assumed in
     > - Provide distinct addresses for virtual networks that participate in peerings. 
     > - Allocate IP address spaces that are large enough to contain the runtime and deployments resources, and support scalability.
 
-### VNet injection and subnetting
+##### VNet injection and subnetting
 
 Azure Spring Apps is deployed using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network) to isolate the application from the Internet, systems in private networks, other Azure services, and even the service runtime. Inbound and outbound traffic from the application is allowed or denied based on network rules. 
 
@@ -153,7 +153,7 @@ The minimum size of each subnet is /28. The actual size depends on the number of
 > The selected subnet size can't overlap with the existing virtual network address space, and shouldn't overlap with any peered or on-premises subnet address ranges.
 
 
-### Network controls
+##### Network controls
 
 Inbound traffic to the spoke virtual network from the internet is restricted by Azure Application Gateway with Web Application Firewall (WAF). WAF rules allow or deny  HTTP/s connections. 
 
