@@ -15,7 +15,7 @@ metadata:
     - web-apps
     - scalability
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-at-azure.png
 name: WordPress on Azure
 azureCategories:
   - web
@@ -24,6 +24,6 @@ products:
   - azure-front-door
   - azure-web-application-firewall
   - azure-private-link
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
+thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-at-azure.png
 content: |
    [!include[](wordpress-overview-content.md)]

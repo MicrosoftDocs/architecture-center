@@ -15,8 +15,8 @@ metadata:
     - web-apps
     - scalability
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
-name: WordPress container on Azure Kubernetes Service
+  social_image_url: /azure/architecture/example-scenario/infrastructure/media/wordpress-aks-netapp.png
+name: WordPress in container on Azure Kubernetes Service
 azureCategories:
   - web
 summary: Learn how to use AKS to deploy a highly scalable and secure installation of WordPress.
@@ -29,6 +29,6 @@ products:
   - azure-container-registry
   - azure-cache-redis
   - azure-netapp-files
-thumbnailUrl: /azure/architecture/browse/thumbs/secure-scalable-wordpress.png
+thumbnailUrl: /azure/architecture/browse/thumbs/wordpress-aks-netapp.png
 content: |
    [!include[](wordpress-container-content.md)]
