@@ -6669,12 +6669,6 @@ items:
         items:
           - name: Get started
             href: web-apps/spring-apps/index.md
-          - name: Guides
-            items:
-              - name: Spring Apps through a reverse Proxy
-                href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml 
-              - name: Blue/green deployments for applications
-                href: web-apps/spring-apps/blue-green-spring.yml
           - name: Architecture
             items:              
             - name: Zone-redundant Spring Apps
@@ -6682,7 +6676,13 @@ items:
             - name: Multi-region Spring Apps
               href: web-apps/spring-apps/spring-apps-multi-region.yml
             - name: Spring Apps landing zone accelerator
-              href: web-apps/spring-apps/spring-apps-landing-zone.yml        
+              href: web-apps/spring-apps/spring-apps-landing-zone.yml
+          - name: Guides
+            items:
+              - name: Spring Apps through a reverse Proxy
+                href: web-apps/spring-apps/spring-cloud-reverse-proxy.yml 
+              - name: Blue/green deployments for applications
+                href: web-apps/spring-apps/blue-green-spring.yml                      
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.yml
       - name: Clinical insights with Cloud for Healthcare
