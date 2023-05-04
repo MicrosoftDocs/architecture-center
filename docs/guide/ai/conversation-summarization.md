@@ -1,44 +1,60 @@
-# Conversational Summarization
+---
+title: Conversation summarization
+description: Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. 
+author: martinekuan
+ms.author: mejani
+ms.date: 05/10/2023
+ms.topic: conceptual
+ms.service: architecture-center
+ms.subservice: azure-guide
+products:
+  - azure-cognitive-services
+categories:
+  - ai-machine-learning
+---
 
-Most businesses provide customer service support to assist customers with product queries, troubleshooting, and maintaining or upgrading certain features or the product itself. To provide a satisfactory resolution, customer support specialists **must respond quickly with accurate information**. OpenAI can be used in a variety of ways for customer support services.
+# Conversation summarization
 
-This guide describes how to generate summaries of customer–agent interactions by using Azure OpenAI's GPT-3 model. It contains an end-to-end example architecture with the key components involved in obtaining summary of a text input. The generation of the text input is outside the scope of this guide. The focus of this guide is a walkthrough of the implementation process of summarizing a set of sample agent-customer conversations and analyzing the outcomes of different approaches used for summarization.
+Most businesses provide customer service support to help customers with product queries, troubleshooting, and maintaining or upgrading features or the product itself. To provide a satisfactory resolution, customer support specialists must respond quickly with accurate information. OpenAI can help organizations with customer support in a variety of ways.
 
-## Conversational workflow
+This guide describes how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. It contains an end-to-end sample architecture that illustrates the key components involved in getting a summary of a text input. The generation of the text input is outside the scope of this guide. The focus of this guide is to describe the process of implementating the summarization of a set of sample agent-customer conversations and analyze the outcomes of various approaches to summarization.
 
-1.	**Self-service chatbots** (fully automated) - In this scenario, customers can interact with a GPT-3 powered chatbot, trained on industry specific data. These chatbots can understand customer questions and answer appropriately based on responses learnt from the knowledgebase (automated).  
-2.	**Enable agent responses** (semi-automated) – Sometimes, questions posed by customers are complex and requires human intervention. In such cases, GPT-3 can be used to deliver a summary of the customer-chatbot conversation and help the agent with quick lookups for additional information within a large knowledge base (semi-automated).
-3.	**Summarizing transcripts** (can be fully or partially automated) – In most customer support centers, agents are required to summarize conversations for record keeping, future follow-ups, training, and other internal processes. GPT-3 can be leveraged to provide automated or semi-automated summaries that captures salient details of the conversation for further use. 
+## Conversation scenarios
 
-In this guide, we will focus on the process for summarizing transcripts using Azure OpenAI’s GPT-3. 
+- **Self-service chatbots** (fully automated). In this scenario, customers can interact with a chatbot that's powered by GPT-3 and trained on industry-specific data. These chatbots can understand customer questions and answer appropriately based on responses learnt from the knowledgebase.  
+- **Chatbot with agent intervention** (semi-automated). Questions posed by customers are sometimes complex and necessitate human intervention. In such cases, GPT-3 can provide a summary of the customer-chatbot conversation and help the agent with quick searches for additional information from a large knowledge base.
+- **Summarizing transcripts** (fully or semi-automated). In most customer support centers, agents are required to summarize conversations for record keeping, future follow-ups, training, and other internal processes. GPT-3 can provide automated or semi-automated summaries that capture salient details of conversations for further use. 
 
-Businesses consume roughly 5-6 minutes on average to summarize a single agent-customer conversation. This can overload the service team considering the high volumes of requests they must deal with on any given day. OpenAI is a good way to help the agents with summarization related activities, which can improve the efficiency of customer support process while delivering solutions with higher precision. Conversational summarization can be applied to any customer support business that involves agent-customer interaction. 
+This guide focuses on the process for summarizing transcripts by using Azure OpenAI GPT-3.
 
-This guide includes a Jupyter Notebook that demonstrates how to use the Azure OpenAI's GPT-3 model for conversational summarization. Use this notebook to experiment with summarization on your datasets. 
+On average, it takes an agent 5 to 6 minutes to summarize a single agent-customer conversation. Given the high volumes of requests service teams handle on any given day, this additional task can overburden the team. OpenAI is a good way to help agents with summarization-related activities. It can improve the efficiency of the customer support process and provide better precision. Conversation summarization can be applied to any customer support business that involves agent-customer interaction. 
 
-### Conversational summarization service
+This guide includes a link to a Jupyter Notebook that demonstrates how to use the Azure OpenAI GPT-3 model for conversation summarization. You can use the notebook to experiment with summarization on your datasets.
 
-Conversational summarization suitable in scenarios where the customer support conversations follow a question-answer format. 
+### Conversation summarization service
 
-Some of the key benefits of using a summarization service are:
+Conversation summarization is suitable in scenarios where customer support conversations follow a question-and-answer format.
 
-1.	Increased efficiency: It allows customer service agents to quickly summarize customer conversations, eliminating the need for lengthy back-and-forth exchanges. This helps speed up resolving customer issues. 
-2.	Superior customer service: By having a summary of the conversation, customer service agents can easily access it in all future interactions to quickly find any relevant information needed to accurately resolve customer concerns.
-3.	Improved knowledge sharing: Conversation summarization can help customer service teams to share knowledge quickly and effectively with each other. This enables customer service teams to be equipped with better resolutions and simultaneously provide faster support to customers.
+Some benefits of using a summarization service are:
+
+- Increased efficiency: It allows customer service agents to quickly summarize customer conversations, eliminating the need for long back-and-forth exchanges. This efficiency helps to speed up the resolution of customer problems.
+- Improved customer service: Agents can use summaries of conversations in future interactions to quickly find the information needed to accurately resolve customer concerns.
+- Improved knowledge sharing: Conversation summarization can help customer service teams share knowledge with each other quickly and effectively. It equips customer service teams with better resolutions and helps them provide faster support.
 
 ## Architecture
 
-A typical architecture for a **conversational summarizer** service has three main stages: pre-processing, summarization, and post-processing. In case the input contains a verbal conversation or any form of speech, the speech needs to be transcribed to text. Please refer to [Azure Speech-to-text service](https://azure.microsoft.com/products/cognitive-services/speech-to-text/) for more details. 
+A typical architecture for a conversation summarizer has three main stages: pre-processing, summarization, and post-processing. If the input contains a verbal conversation or any form of speech, the speech needs to be transcribed to text. For more information, see [Azure Speech-to-text service](https://azure.microsoft.com/products/cognitive-services/speech-to-text/). 
 
-image
+Here's a sample architecture: 
 
-link 
+:::image type="content" source="media/conversation-summarization.png" alt-text="Diagram that shows an architecture for conversation summarization." lightbox="media/conversation-summarization.png" border="false":::
 
-Figure 1: Conversational Summarizer sample architecture 
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/conversation-summarization-overview.pptx) of this architecture.*
 
 ### Workflow
 
-1.	Gathering input data: Relevant input data is fed into the pipeline. In case the source is an audio file, it has to be converted to text using a TTS service such as [Azure Text-To-Speech](/azure/cognitive-services/speech-service/text-to-speech). 
+1.	Gathering input data: Relevant input data is fed into the pipeline. If the source is an audio file, you need to convert it to text by using a TTS service like [Azure Text-To-Speech](/azure/cognitive-services/speech-service/text-to-speech). 
 2.	Pre-process the data: Confidential information and any unimportant conversation is removed from the data. 
 3.	Feed the data into the summarizer model: The data is passed within the prompt by using Azure OpenAI’s APIs, which could one of three approaches for [in-context learning, be zero-shot, few-shot or a custom model](/azure/cognitive-services/openai/overview).
 4.	Generate a summary: The model generates a summary of the conversations.
@@ -223,6 +239,7 @@ The customer asked how long they could access games after they leave the Xbox ga
 ----------------------------------------
 
 Curie Zero-Shot
+
 The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
 
 #### Few-Shot
@@ -333,6 +350,7 @@ customer wants to know how long they can access games after they have left game 
 
 ----------------------------------------
 Curie Fine Tuning Result
+
 customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game 
 pass catalog they’ll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
 
@@ -343,18 +361,22 @@ Generally, Davinci model performs tasks with fewer instructions than its counter
 With our experiments, we were able to generate better summaries as we provide more instruction to the model (through few shot or fine tuning). Fine-tuned models are better at conforming to the structure and context learned from the training dataset. This is especially useful when summaries are domain specific (E.g.- Capturing summaries from Doctors Notes/Online prescription customer support). With fine-tuning, the end user has more control over the type of summaries they want to see, depending on their use case.
 
 Ground Truth
+
 customer wants to know how long they can access games after they have left game pass. agent informs customer that they would need to purchase the game to continue having access.
 
 ----------------------------------------
 Davinci Zero Shot
+
 The customer asked how long they could access games after they leave the Xbox game pass catalog. The agent told them that they would need to purchase a digital copy of the game from the Xbox app for windows or the Microsoft store in order to continue playing it. The agent also reminded the customer that they would be notified prior to a game leaving the Xbox game pass catalog. As a member the customer could purchase any game in the catalog for up to 20 off or the best available discounted price.
 
 ----------------------------------------
 Curie Zero-Shot
+
 The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
 
 ----------------------------------------
 Davinci Few-Shot
+
 customer wanted to know how long they could access games after they leave game pass. Agent informs that once a game leaves the Xbox game pass catalog the customer would need to purchase a digital copy or obtain another form of entitlement to continue playing the game.
 
 ----------------------------------------
@@ -366,6 +388,7 @@ customer has a question about the game pass. customer is good. agent needs help 
 ----------------------------------------
 
 Curie Fine Tuning Result
+
 customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game. 
 pass catalog they’ll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
 
@@ -384,6 +407,7 @@ rouge.get_scores(generated_summary, reference_summary)
   'rouge-2': {'r': 0.5714285714285714, 'p': 0.5, 'f': 0.5333333283555556},
   'rouge-1': {'r': 0.75, 'p': 0.75, 'f': 0.749999995}}]
 ```
+
 Figure 3: Rouge score example
 
 **BertScore** (Zhang et al., 2020) computes similarity scores by aligning generated and reference summaries on a token-level. Token alignments are computed greedily to maximize the cosine similarity between contextualized token embeddings from BERT. 
@@ -434,7 +458,9 @@ Meghna Jani
 ## Next steps
 
 - Jupyter notebook with technical details and execution of the use case described in this newsletter can be found at: Azure/openai-samples at conversational-summarization-v0 (github.com)
-- Further information on Azure OpenAI can be found here.
-- ROUGE reference paper can be found here.
+- Further information on Azure OpenAI can be found here](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/).
+- ROUGE reference paper can be found here](https://aclanthology.org/W04-1013.pdf).
+- Introduction to Azure OpenAI Service - Training](https://learn.microsoft.com/en-us/training/modules/explore-azure-openai/)
+- Develop AI solutions with Azure OpenAI - Training](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/) 
 
 ## Related resources 
