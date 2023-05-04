@@ -20,31 +20,25 @@ Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes 
 5. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint. 
 6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) via AKS CSI Astra Triden driver by NFS protocol.
     > [!IMPORTANT]
-> For the best performance is essential to mount PersistentVolume via **NFS protocol version 4.1** - see option *mountOptions* in following YAML example:
+    > For the best performance is essential to mount PersistentVolume via   **NFS protocol version 4.1** - see option *mountOptions* in following YAML example:
 
-    ```yaml
-    ---
-    apiVersion: v1
-    kind: PersistentVolume
-    ...
-      accessModes:
-        - ReadWriteMany
-      mountOptions:
-        - vers=4.1
-      nfs:
-        server: xx.xx.xx.xx
-    ...
-    ```
-
-
-
+```yaml
+kind: PersistentVolume
+...
+    accessModes:
+    - ReadWriteMany
+    mountOptions:
+    - vers=4.1
+    nfs:
+      server: xx.xx.xx.xx
+```
 
 ### Components
 
 - [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a Microsoft’s modern cloud Content Delivery Network (CDN), distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
 - [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow deployed resources to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
 - [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
-- [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
+- [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict any traffic flow between the application components.
 - [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
 - [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes. 
 - [Azure NetApp Files](https://azure.microsoft.com/products/storage/netapp) provides a fully managed performance-intensive and latency-sensitive storage solution, that hosts all of the WordPress content in this scenario, so that all of the pods have access to the data.
@@ -65,11 +59,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability
 
-The combination of pods in AKS and load balancing of ingress traffic provides high availability even in case of pod failure.
+The combination of pods in AKS and load balancing of ingress traffic provides high availability even if there is pod failure.
 
-The CDN (Front Door) is global service and supports origins deployed accross multiple regions (AKS in another regions). In addition, caching all responses on the CDN level can provide a small additional benefit when the origin is not responding. However, it's important to note that caching should not be considered a complete availability solution.
+The CDN (Front Door) is global service and supports origins deployed accross multiple regions (AKS in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin is not responding. However, it's important to note that caching should not be considered a complete availability solution.
 
-The NetApp Files storage can be replicated between paired regions. For more information see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
+The NetApp Files storage can be replicated between paired regions. For more information, see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
 
 For high availability of Azure Database for MySQL, see [High availability concepts in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-high-availability).
 
@@ -97,14 +91,12 @@ For general guidance on designing resilient scenarios, see [Designing reliable A
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
-
 There are a couple main things to consider:
 
-- How much traffic are you expecting in terms of GB/month? The amount of traffic will have the biggest effect on your cost, as it will determine the number of AKS nodes. Additionally, it will directly correlate with the amount of data that is surfaced via the CDN.
-- What is the expected amount of data that will be hosted? It's important to consider this since Azure NetApp Files pricing is based on reserved capacity.
+- How much traffic are you expecting in terms of GB/month? The amount of traffic has the biggest effect on your cost, as it determines the number of AKS nodes. Additionally, it directly correlates with the amount of data that is surfaced via the CDN.
+- What is the expected amount of those data that will be hosted? It's important to consider this since Azure NetApp Files pricing is based on reserved capacity.
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
-- How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much will be cached in the CDN.
+- How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much is cached in the CDN.
 
 ## Contributors
 
