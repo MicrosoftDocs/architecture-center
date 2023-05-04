@@ -45,7 +45,7 @@ Suppose, your organization wants you to **deploy the solution a part of an enter
 Refer to this architecture that deploys the baseline in an enterprise deployment that's design as per the design principles of Azure Landing Zones. Some sample requirements that should be communicated with central teams are annotated with "Platform team" notes.
 
 > [!div class="nextstepaction"] 
-> [Reference architecture: Azure Spring Apps integrated with landing zones](spring-apps-multi-region.yml)
+> [Reference architecture: Azure Spring Apps integrated with landing zones](spring-apps-landing-zone.yml)
 
 
 #### Sample implementations
