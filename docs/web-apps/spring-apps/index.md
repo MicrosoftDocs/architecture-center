@@ -12,6 +12,8 @@ products:
   - azure-spring-apps
 ---
 
+# Azure Spring Apps (ASA) architecture design
+
 Azure Spring Apps manages Spring-based applications on Azure. The service offers lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
 ## Get started
