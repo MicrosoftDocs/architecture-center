@@ -131,6 +131,7 @@ The dataset used is a set of hypothetical conversations between customer and age
 |Customer: Question on XAIL<br>Agent: Hello! How can I help you today?<br>Customer: Hi, I have a question about the Accessibility insider ring<br>Agent: Okay. I can certainly assist you with that.<br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you may require that you join an Xbox Preview ring.<br>Customer: Okay. And I can just sign up for preview ring later yeah?<br>Agent: That is correct.<br>Customer: Sweet.|	Customer wants to know if they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences may require it.|
 
 **Ideal Output** – Our goal is to create summaries that follow the format: "Customer said ABC. Agent responded DEF." Additionally, we want to capture salient features of the dialogue, such as the customer complaint, suggested resolution, further follow-up, etc. 
+
 This is an example of a customer support interaction, and a comprehensive human-written summary of same.
 
 **Dialogue**
@@ -226,18 +227,21 @@ The customer asks the agent about the Xbox game pass. the agent tells the custom
 
 #### Few-Shot
 
-Few-shot learning is when the model is provided with examples during inference to guide predictions in a certain format or learn certain context. However, updating weights of the pre-trained model is not allowed. The main advantages of few-shot are a major reduction in the need for task-specific data and reduced potential to learn an overly narrow distribution from a large but narrow fine-tuning dataset (Ref: Language Models are few-shot learners).
+Few-shot learning is when the model is provided with examples during inference to guide predictions in a certain format or learn certain context. However, updating weights of the pre-trained model is not allowed. The main advantages of few-shot are a major reduction in the need for task-specific data and reduced potential to learn an overly narrow distribution from a large but narrow fine-tuning dataset (Ref: [Language Models are few-shot learners]).
+
+context_primer = "Below are examples of conversations and their corresponding summaries:" 
 
 prefix = "Please provide a summary of the conversation below: "
 
 suffix = "The summary is as follows: "
 
-Below is a sample on how to execute a zero-shot model.
+Below is a sample on how to execute a few-shot model.
 
 ```python
-rouge = Rouge()
-# run zeroshot prediction for all the engines of interest
-deploymentNames = [“curie-instruct”,”davinci-instruct”] # aka text-davinci/text-instruct
+train_small = train[]
+train_small_json = train_small.to_dict(orient=‘records’)
+compiled_train_prompt = build_prompt_fewshot(prefix,context_primer, train_small_json, suffix)
+
 for deployment in deploymentNames:
 url = openai.api_base + “openai/deployments/” + deployment + “/completions?api-version=2022-12-01-preivew”
 response_list = []
@@ -246,7 +250,7 @@ print(“calling…” + deployment)
 for i in range(len(test)):
 response_i = openai.Completion.create(
 engine = deployment,
-prompt = build_prompt(prefix, [test[‘prompt’][i]], suffix),
+prompt = compiled_train_prompt+build_prompt(prefix, [test[‘prompt’][i]], suffix),
 temperature = 0.0,
 max_tokens = 400,
 top_p = 1.0,
@@ -258,38 +262,38 @@ scores = rouge.get_scores(normalize_text(response_i[‘choices’][ 0][‘text�
 rouge_list += [scores[0][‘rouge-1’][‘f’]],
 response_list += [response_i]
 summary_list = [normalize_text(i[‘choices’][0][‘text’]) for i in response_list]
-test[deployment + “_zeroshotsummary”] = summary_list
-test[deployment + “_zeroshotroguescore”] = rouge_list
+test[deployment + “_fewshot”] = summary_list
+test[deployment + “_FSscore1”] = rouge_list
 ```
 
-**Zero-Shot Results and observations**
+Few Shot results and observations
 
-Zero-shot model’s output is produced directly from the base model. Here, we find that both Curie and Davinci capture the summaries fairly well. The only noticeable difference is that Curie model captured a little less detail than Davinci.
-
-(“customer asks the agent about the xbox game pass” vs “customer asked how long they could access games after they leave the xbox game pass catalog”)
+We see that with few-shot, the summaries continue to capture salient features of the conversation. We find that Davinci summary is more compact and closer to the ground truth. We also see that curie fabricates some trivial details.
 
 Dialogue
 
-customer: hello. I have a question about the game pass. 
-agent: hello. How are you doing?
-customer: I’m good. 
-agent: I see that you need help with the Xbox game pass. 
+customer: Hello. I have a question about the game pass. 
+customer: I’m good. agent. I see that you need help with the xbox game pass. 
 customer: yes. I wanted to know how long can I access the games after they leave game pass 
 agent: once a game leaves the Xbox game pass catalog you’ll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. and as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
 
 ----------------------------------------
 
 Ground Truth
+
 customer wants to know how long they can access games after they have left game pass. agent informs customer that they would need to purchase the game to continue having access.
 
 ----------------------------------------
 
-Davinci Zero-Shot
-The customer asked how long they could access games after they leave the Xbox game pass catalog. The agent told them that they would need to purchase a digital copy of the game from the Xbox app for windows or the Microsoft store in order to continue playing it. The agent also reminded the customer that they would be notified prior to a game leaving the Xbox game pass catalog. as a member the customer could purchase any game in the catalog for up to 20 off or the best available discounted price.
+Davinci Few-Shot
+
+customer wanted to know how long they could access games after they leave game pass. Agent informs that once a game leaves the Xbox game pass catalog the customer would need to purchase a digital copy or obtain another form of entitlement to continue playing the game.
 
 ----------------------------------------
-Curie Zero-Shot
-The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
+
+Curie Few-Shot
+
+customer has a question about the game pass. customer is good. agent needs help with the Xbox game pass. customer asks how long they can access the games after they leave the game pass catalog. Agent informs that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. customer is happy to hear this and thanks agent.
 
 #### Fine Tuning
 
