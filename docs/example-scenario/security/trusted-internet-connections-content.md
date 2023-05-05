@@ -16,7 +16,8 @@ For more information on CLAW, TIC 3.0, and MTIPS, see:
 
 Federal organizations and government agencies are the most likely implementers of TIC 3.0 compliance solutions for their Azure-based web applications, API services, Azure Virtual Desktop, internet egress for Azure-based virtual machines, and more.
 
-> [!NOTE] Microsoft provides this information to Federal Civilian Executive Branch (FCEB) departments and agencies as part of a suggested configuration to facilitate participation in CISA’s CLAW capability. The suggested configurations are maintained by Microsoft and is subject to change.
+> [!NOTE] 
+> Microsoft provides this information to Federal Civilian Executive Branch (FCEB) departments and agencies as part of a suggested configuration to facilitate participation in CISA’s CLAW capability. The suggested configurations are maintained by Microsoft and is subject to change.
 
 ## Architecture
 
