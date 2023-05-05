@@ -1,5 +1,7 @@
 The architecture described in this article demonstrates how you can use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines with a low-code or no-code approach. It shows how to quickly ingest or extract Vantage data over an enhanced-security connection by using Data Factory.
 
+*Apache®, [Hadoop](https://hadoop.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
+
 ## Architecture
 
 The following diagram illustrates a version of the architecture that uses virtual network peering connectivity. It uses a self-hosted integration runtime (IR) to connect to the analytics database. Teradata's VMs are deployed with only private IP addresses.
@@ -89,7 +91,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
 
     :::image type="content" source="media/teradata-linked-service.png" alt-text="Screenshot that shows the Teradata connector." lightbox="media/teradata-linked-service.png"::: 
 
-3.	Configure the linked service to connect to your Vantage database. This procedure shows how to use a basic authentication mechanism with a user ID and password. Alternatively, depending on your security needs, you can choose a different authentication mechanism and set other parameters accordingly. For more information, see [Teradata connector linked service properties](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). You'll use a self-hosted IR. For more information, see these [instructions for deploying a self-hosted IR](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). Deploy it in the same virtual network as your data factory.
+3.	Configure the linked service to connect to your Vantage database. This procedure shows how to use a basic authentication mechanism with a user ID and password. Alternatively, depending on your security needs, you can choose a different authentication mechanism and set other parameters accordingly. For more information, see [Teradata connector linked service properties](/azure/data-factory/connector-teradata?tabs=data-factory&branch=main#linked-service-properties). You'll use a self-hosted IR. For more information, see these [instructions for deploying a self-hosted IR](/azure/data-factory/connector-teradata?tabs=data-factory#prerequisites). Deploy it in the same virtual network as your data factory.
 
     Use the following values to configure the linked service: 
 
@@ -137,13 +139,13 @@ To complete this procedure, you need to have a Blob Storage container in your su
     NO PRIMARY INDEX ;
     ```
 
-4.	Next, you'll create a simple pipeline to copy the data from the table, perform some basic transformation, and then load the data into a Blob Storage container. As noted at the start of this procedure, you should have already created the Blob Storage container in your subscription. First, create a linked service to connect to the container, which is the sink that you'll copy the data into.
+4.	Next, you create a simple pipeline to copy the data from the table, perform some basic transformation, and then load the data into a Blob Storage container. As noted at the start of this procedure, you should have already created the Blob Storage container in your subscription. First, create a linked service to connect to the container, which is the sink that you'll copy the data into.
 
     - Select the **Manage** tab in your data factory, select **Linked services**, and then select **New**:
     
       :::image type="content" source="media/new-linked-service.png" alt-text="Screenshot that shows the New button." lightbox="media/new-linked-service.png":::
 
-5.	Search for *Azure Blob*, select the **Azure Blob Storage** connector, and then select **Connect**:
+5.	Search for *Azure Blob*, select the **Azure Blob Storage** connector, and then select **Continue**:
 
     :::image type="content" source="media/blob-stroage-connector.png" alt-text="Screenshot that shows the Blob Storage linked service." lightbox="media/blob-stroage-connector.png":::
     
@@ -166,7 +168,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
     - Select the **Author** tab. 
     - Select the **+** button.
     - Select **Pipeline**.
-    - Provide a **Name** for the pipeline.
+    - Enter a name for the pipeline.
     
       :::image type="content" source="media/azure-data-factory-pipeline.png" alt-text="Screenshot that shows the steps for creating a pipeline." lightbox="media/azure-data-factory-pipeline.png":::
 
@@ -177,7 +179,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
     - Select **Dataset**.
     - Create a dataset for the `Green_Taxi_Trip_Data` Teradata table: 
       - Select **Teradata** as the **Data Store**.
-      - **Name**: Provide a name for the dataset.
+      - **Name**: Enter a name for the dataset.
       - **Linked service**: Select the linked service that you created for Teradata in steps 2 and 3.
       - **Table name**: Select the table from the list. 
       - Select **OK**.
@@ -188,7 +190,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
       - Select **Azure Blob** as the **Data Store**.
       - Select the format of your data. Parquet is used in this demonstration.
       - **Linked service**: Select the linked service that you created in step 6.
-      - **File path**: Provide the file path of the blob file.
+      - **File path**: Enter the file path of the blob file.
       - **Import schema**: Select **None**.
       - Select **OK**.
 
@@ -233,7 +235,7 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
       :::image type="content" source="media/teradata-odbc-driver.png" alt-text="Screenshot that shows the steps for creating a data source.":::
 
 3.	Configure the DSN properties.
-    - **Name**: Provide a name for the DSN. 
+    - **Name**: Enter a name for the DSN. 
     - Under **Teradata Server Info**, in **Name or IP address**:
       - If you're connecting via virtual network peering, provide the IP address of a VM in the Teradata cluster. You can connect to the IP address of any VM in the cluster.
       - If you're connecting via Private Link, provide the IP address of the private endpoint that you created in your virtual network to connect to the Teradata cluster via Private Link.
@@ -308,7 +310,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 > [!Note] 
 > You can also use NOS to [export data to Blob Storage](https://quickstarts.teradata.com/create-parquet-files-in-object-storage.html). 
 
-1.	You can use the following query to read, from Vantage, data that's been transformed and loaded into Blob Storage via Data Factory, without loading the data into Vantage. You can use Teradata SQL Editor to run queries. To access the data that's in the blob, you supply the storage account name and access key in the `Access_ID` and `Access_Key` fields. The query also returns a field called `Location` that specifies the path of the file that the record was read from.
+-	You can use the following query to read, from Vantage, data that's been transformed and loaded into Blob Storage via Data Factory, without loading the data into Vantage. You can use Teradata SQL Editor to run queries. To access the data that's in the blob, you supply the storage account name and access key in the `Access_ID` and `Access_Key` fields. The query also returns a field called `Location` that specifies the path of the file that the record was read from.
 
     ```sql
     FROM (  LOCATION='/AZ/yourstorageaccount.blob.core.windows.net/vantageadfdatain/NYCGreenTaxi/'
@@ -318,11 +320,11 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     :::image type="content" source="media/nos-query-blob.png" alt-text="Screenshot that shows a query for reading data." lightbox="media/nos-query-blob.png":::
 
-2.	Here's another example of querying data in-place. It uses the `READ_NOS` table operator.
+-	Here's another example of querying data in place. It uses the `READ_NOS` table operator.
 
-    :::image type="content" source="media/nos-query-blob-2.png" alt-text="Screenshot that shows another example of querying data in-place." lightbox="media/nos-query-blob-2.png":::
+    :::image type="content" source="media/nos-query-blob-2.png" alt-text="Screenshot that shows another example of querying data in place." lightbox="media/nos-query-blob-2.png":::
 
-3.	You can also query data in-place or load data into a Vantage database by creating a foreign table in the object store. You first need to create an authorization object that uses the storage account name and access key in USER and PASSWORD fields, respectively, as shown in the following syntax. You can use this object to create your foreign table so that you don't need to provide the keys when you create the table.
+-	You can also query data in place or load data into a Vantage database by creating a foreign table in the object store. You first need to create an authorization object that uses the storage account name and access key in `USER` and `PASSWORD` fields, respectively, as shown in the following syntax. You can use this object to create your foreign table so that you don't need to provide the keys when you create the table.
    
     ```
     USER 'YOUR-STORAGE-ACCOUNT-NAME'      
@@ -371,7 +373,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     :::image type="content" source="media/nos-query-blob-3.png" alt-text="Screenshot that shows how to query the data from the foreign table." lightbox="media/nos-query-blob-3.png":::
 
-4.	You've seen how to query data in object storage in-place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA). 
+4.	You've seen how to query data in object storage in place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA). 
 
     |Method|	Description|
     |-|-|
@@ -402,12 +404,12 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 - Follow the connector performance tips and best practices that are described in [Teradata as source](/azure/data-factory/connector-teradata?tabs=data-factory#teradata-as-source).
 - Be sure the self-hosted IR is sized correctly for your volume of data. You might want to scale out the IR to get better performance. For more information, see [this self-hosted IR performance guide](/azure/data-factory/copy-activity-performance#self-hosted-integration-runtime-scalability).
 - Use the [Copy activity performance and scalability guide](/azure/data-factory/copy-activity-performance) to fine-tune Data Factory pipelines for performance.
-- Use the [Data Factory copy data tool](/azure/data-factory/quickstart-hello-world-copy-data-tool) to quickly set up a pipeline and run it on a schedule.
+- Use the [Data Factory Copy Data tool](/azure/data-factory/quickstart-hello-world-copy-data-tool) to quickly set up a pipeline and run it on a schedule.
 - Consider using an Azure VM with a self-hosted IR to manage the cost of running pipelines. If you want to run pipelines twice per day, you start the VM twice and then shut it down.
 - Consider using [CI/CD in Data Factory](/azure/data-factory/continuous-integration-delivery) to implement Git-enabled continuous integration and development practices.
 - Optimize your pipeline activity count. Unnecessary activities increase costs and make pipelines complex.
 - Consider using [mapping data flows](/azure/data-factory/concepts-data-flow-overview) to transform Blob Storage data visually with no-code and low-code processes to prepare Vantage data for uses like Power BI reporting.
-- In addition to using schedule triggers, consider using mix of tumbling window and event triggers to load Vantage data into destination locations. Reduce unnecessary triggers to reduce costs.
+- In addition to using schedule triggers, consider using a mix of tumbling window and event triggers to load Vantage data into destination locations. Reduce unnecessary triggers to reduce costs.
 - Use Vantage NOS for ad-hoc querying to easily supply data for upstream applications.
 
 ## Contributors
