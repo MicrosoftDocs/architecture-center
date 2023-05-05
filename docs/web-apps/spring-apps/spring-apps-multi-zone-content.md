@@ -10,7 +10,7 @@ This architecture is useful when you want to:
 
 ## Architecture
 
-:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.svg":::
+:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ha-zone-redundant-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.*
 

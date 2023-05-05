@@ -23,7 +23,7 @@ The biggest challenge with a multi-region setup is replicating the data for your
 
 ![Diagram that shows a multiregion Azure Spring Apps reference architecture.](./_images/spring-apps-reference-architecture-multi-region.png)
 
-:::image type="content" source="./_images/spring-apps-reference-architecture-multi-region.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-multi-region.svg":::
+:::image type="content" source="./_images/spring-apps-reference-architecture-multi-region.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-multi-region.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ha-zr-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.*
 ### Components
