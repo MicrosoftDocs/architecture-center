@@ -38,7 +38,7 @@ Here are the components of this architecture listed by ownership to help determi
 
 Your team provisions and owns these resources.
 
-- **Azure Spring Apps Enterprise** hosts your Java Spring Boot applications in Azure. This tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®. 
+- **Azure Spring Apps Standard** hosts your Java Spring Boot applications in Azure. 
 
 - **Azure Application Gateway Standard_v2** is the reverse proxy that routes incoming web traffic to Azure Spring Apps. This SKU has integrated Azure Web Application Firewall (WAF) that inspects traffic for Open Web Application Security Project (OWASP) vulnerabilities.
 
@@ -68,7 +68,7 @@ This architecture assumes these resources are preprovisioned. The central teams 
 
 ## Application considerations
 
-The reference implementation includes a sample application that illustrates a typical microservices application hosted in an Azure Spring Apps instance. For more information, see [Fitness store sample](/azure/spring-apps/quickstart-sample-app-acme-fitness-store-introduction). 
+The reference implementation includes a sample application that illustrates a typical microservices application hosted in an Azure Spring Apps instance. For more information, see [PetClinic store sample](/azure/spring-apps/quickstart-sample-app-introduction). 
 
 ##### Service discovery
 
