@@ -2,7 +2,7 @@ Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises 
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
-The common components for each solution is a Log Analytics workspace, a registered application, and an Event Hub. The Log Analytics workspace sends logs to the Event Hub.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the Event Hub to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
+The common components for each solution is a Log Analytics workspace, a registered application, and an Event Hubs. The Log Analytics workspace sends logs to the Event Hubs.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the Event Hubs to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
 
 For more information on CLAW, TIC 3.0, and MTIPS, see:
 
@@ -39,7 +39,7 @@ Federal agencies are likely implementers of TIC 3.0 compliance solutions for the
    - The Log Analytics workspace is a repository for the logs.
    - It can host a service that provides custom analysis of the network traffic data from the firewall.
 1. Service Principal (Registered Application)
-1. Event Hub Standard
+1. Event Hubs Standard
 1. CISA TALON
 
 ### Components
@@ -51,8 +51,8 @@ Federal agencies are likely implementers of TIC 3.0 compliance solutions for the
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
 - [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) (Registered Application) is an entity that defines the access policy and permissions for the user/application in the Azure AD tenant.
-- [Event Hub](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) Standard is a modern big data streaming platform and event ingestion service.
-- CISA TALON is a CISA operated service running in Azure. TALON connects to the customer's Event Hub, authenticates using a CISA supplied certificate associated with a customer's Service Principal, and collect the logs on behalf of the customer for CLAW consumption.
+- [Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) Standard is a modern big data streaming platform and event ingestion service.
+- CISA TALON is a CISA operated service running in Azure. TALON connects to the customer's Event Hubs, authenticates using a CISA supplied certificate associated with a customer's Service Principal, and collect the logs on behalf of the customer for CLAW consumption.
 
 ### Alternatives
 
@@ -76,25 +76,25 @@ Federal agencies are likely implementers of TIC 3.0 compliance solutions for the
 
 ### Performance
 
-- [Azure Firewall](/azure/firewall/firewall-performance), [Application Gateway](/azure/application-gateway/application-gateway-faq#performance), [Azure Front Door](/azure/frontdoor/scenarios#performance-efficiency), and [Event Hub](/azure/architecture/serverless/event-hubs-functions/performance-scale) performance scales as usage increases.
+- [Azure Firewall](/azure/firewall/firewall-performance), [Application Gateway](/azure/application-gateway/application-gateway-faq#performance), [Azure Front Door](/azure/frontdoor/scenarios#performance-efficiency), and [Event Hubs](/azure/architecture/serverless/event-hubs-functions/performance-scale) performance scales as usage increases.
 - Azure Firewall Premium allows more TCP connections than Standard and provides greater bandwidth.
 - Application Gateway v2 automatically ensures that new instances are spread across fault domains and update domains. 
 - Azure Front Door provides caching, compression, traffic acceleration, and TLS termination to improve performance.
-- Event Hub standard and premium provides auto-inflate to scale up as load increases.
+- Event Hubs standard and premium provides auto-inflate to scale up as load increases.
 
 ### Reliability
 
 - Azure Firewall Standard and Premium tiers integrate with availability zones to increase availability.
 - Application Gateway v2 supports autoscaling and availability zones to increase reliability.
 - Multi-region implementations that include load balancing services like Azure Front Door can improve reliability and resiliency.
-- Event Hub Standard and Premium provide Geo-disaster recovery pairing that allows the namespace to fail over to a secondary region.
+- Event Hubs Standard and Premium provide Geo-disaster recovery pairing that allows the namespace to fail over to a secondary region.
 
 ### Security
 
 - Registering an enterprise application creates a service principal. Use a naming scheme for service principals that indicates their purpose.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
 - Azure Firewall has standard policies. Web Application Firewalls (WAF) associated with Application Gateway and Azure Front Door has managed rule sets to secure your web service. Start with those and build organizational policies over time based on industry requirements, best practices, and government regulations.
-- Event Hub access is authorized using Azure Active Directory Managed Identities using a CISA provided certificate.
+- Event Hubs access is authorized using Azure Active Directory Managed Identities using a CISA provided certificate.
 
 ## Deploy an Azure Firewall solution
 
@@ -110,7 +110,7 @@ The following solution integrates Azure Firewall to manage the traffic into your
 - Azure Firewall diagnostic settings that send logs to the Log Analytics workspace.
 - A route table associated with AppSubnet to route the app service to the firewall for the logs it generates.
 - A registered application
-- An Event Hub
+- An Event Hubs
 - An alert rule that sends an email if a job fails.
 
 All resources are deployed to a single subscription and virtual network for simplicity. Resources could be deployed in any combination of resource groups or across multiple virtual networks.
@@ -128,8 +128,8 @@ The following tasks must be performed after deployment is complete. They're manu
 - Obtain a public key certificate from CISA. 
 - Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
-- Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
-- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
+- Assign the application with the Azure Event Hubss Data Receiver role to the Event Hubs Namespace.
+- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hubs Namespace name, Event Hubs name, and Consumer group name with your CISA POC
 
 ## Deploy an Application Gateway with WAF solution
 
@@ -144,7 +144,7 @@ The solution includes:
 - An Application Gateway v2 with Web Application Firewall with Bot and Microsoft managed policies.
 - An Application Gateway v2 diagnostic settings that send logs to the Log Analytics workspace.
 - A registered application
-- An Event Hub
+- An Event Hubs
 - An alert rule that sends an email if a job fails.
 
 All resources are deployed to a single subscription and virtual network for simplicity. Resources could be deployed in any combination of resource groups or across multiple virtual networks.
@@ -162,8 +162,8 @@ The following tasks must be performed after deployment is complete. They're manu
 - Obtain a public key certificate from CISA. 
 - Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
-- Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
-- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
+- Assign the application with the Azure Event Hubss Data Receiver role to the Event Hubs Namespace.
+- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hubs Namespace name, Event Hubs name, and Consumer group name with your CISA POC
 
 ## Deploy an Azure Front Door with WAF solution
 
@@ -178,7 +178,7 @@ The following solution integrates an Azure Front Door with Web Application Firew
 - An Azure Front Door with Web Application Firewall with Bot and Microsoft managed policies.
 - An Azure Front Door diagnostic settings that send logs to the Log Analytics workspace.
 - A registered application
-- An Event Hub
+- An Event Hubs
 - An alert rule that sends an email if a job fails.
 
 All resources are deployed to a single subscription and virtual network for simplicity. Resources could be deployed in any combination of resource groups or across multiple virtual networks.
@@ -196,15 +196,15 @@ The following tasks must be performed after deployment is complete. They're manu
 - Obtain a public key certificate from CISA. 
 - Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
-- Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
-- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
+- Assign the application with the Azure Event Hubss Data Receiver role to the Event Hubs Namespace.
+- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hubs Namespace name, Event Hubs name, and Consumer group name with your CISA POC
 
 ## Third-party Firewall (also known as Network Virtual Application)
 
 > [!NOTE]
 > This solution does not have a Deploy to Azure capability and is meant for guidance only.
 
-The following solution defines how a Third-party firewall can be used to manage the traffic into your Azure application environment and support TIC 3.0 compliance. Third-party firewalls require use of a Syslog forwarder virtual machine with its agents registered with the Log Analytics workspace. The Third-party firewall is configured to export its logs in syslog format to the Syslog forwarder virtual machine and the agent is configured to send its logs to the Log Analytics workspace. Once the logs are in the Log Analytics workspace, They're sent to the Event Hub and processed like the other solutions outlined in this article.
+The following solution defines how a Third-party firewall can be used to manage the traffic into your Azure application environment and support TIC 3.0 compliance. Third-party firewalls require use of a Syslog forwarder virtual machine with its agents registered with the Log Analytics workspace. The Third-party firewall is configured to export its logs in syslog format to the Syslog forwarder virtual machine and the agent is configured to send its logs to the Log Analytics workspace. Once the logs are in the Log Analytics workspace, They're sent to the Event Hubs and processed like the other solutions outlined in this article.
 
 :::image type="content" source="media/trusted-internet-connections-architecture-NVA.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Third-party Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-NVA.png":::
 
@@ -217,8 +217,8 @@ The following tasks must be performed after deployment is complete. They're manu
 - Obtain a public key certificate from CISA. 
 - Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
-- Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
-- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
+- Assign the application with the Azure Event Hubss Data Receiver role to the Event Hubs Namespace.
+- Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hubs Namespace name, Event Hubs name, and Consumer group name with your CISA POC
 
 ## Pricing
 
@@ -249,7 +249,7 @@ Principal author:
 - [Azure Front Door | Microsoft Learn](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview)
 - [Introduction to Azure Web Application Firewall | Microsoft Learn](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview)
 - [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
-- [What is Azure Event Hubs? - a Big Data ingestion service - Azure Event Hubs | Microsoft Learn](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about)
+- [What is Azure Event Hubss? - a Big Data ingestion service - Azure Event Hubss | Microsoft Learn](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about)
 - [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview)
 - [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals)
 - [Use the portal to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
