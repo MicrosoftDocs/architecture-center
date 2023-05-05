@@ -54,41 +54,41 @@ Here's a sample architecture:
 
 ### Workflow
 
-1.	Gathering input data: Relevant input data is fed into the pipeline. If the source is an audio file, you need to convert it to text by using a TTS service like [Azure Text-To-Speech](/azure/cognitive-services/speech-service/text-to-speech). 
+1.	Gather input data: Relevant input data is fed into the pipeline. If the source is an audio file, you need to convert it to text by using a TTS service like [Azure text-to-speech](/azure/cognitive-services/speech-service/text-to-speech). 
 2.	Pre-process the data: Confidential information and any unimportant conversation is removed from the data. 
-3.	Feed the data into the summarizer model: The data is passed within the prompt by using Azure OpenAI’s APIs, which could one of three approaches for [in-context learning, be zero-shot, few-shot or a custom model](/azure/cognitive-services/openai/overview).
+3.	Feed the data into the summarizer model: The data is passed in the prompt via Azure OpenAI APIs. In-context learning models include [zero-shot, few-shot, or a custom model](/azure/cognitive-services/openai/overview#in-context-learning).
 4.	Generate a summary: The model generates a summary of the conversations.
-5.	Post-Process: The summary is cleared by using profanity filter and validation checks. Sensitive or confidential data that was removed during the pre-process step is added back to the summary. 
-6.	Evaluation of the results: Results are reviewed and evaluated. This can help identify areas where the model needs to be improved, and find errors that might have been missed.
+5.	Post-process the data: A profanity filter and various validation checks are applied to the summary. Sensitive or confidential data that was removed during the pre-process step is added back to the summary. 
+6.	Evaluate the results: Results are reviewed and evaluated. This step can help you identify areas where the model needs to be improved and find errors that might have been missed.
 
-In the following sections, we’ll describe the details of the three main stages.
+The following sections provide more details about the three main stages.
 
-### Pre-Process
+### Pre-process
 
-The goal of pre-processing is to make sure that the information provided to the summarizer service is relevant and doesn’t have any sensitive or confidential information. 
+The goal of pre-processing is to ensure that the data provided to the summarizer service is relevant and doesn't include sensitive or confidential information.
 
-Here are some pre-processing steps that will help condition your raw data. You may need to apply one or many steps, depending on the use case.
+Here are some pre-processing steps that will help condition your raw data. You might need to apply one or many steps, depending on the use case.
 
-1.	**Removing Personal Identification Information (PII)** – The [Conversational PII API](/azure/cognitive-services/language-service/personally-identifiable-information/overview) (preview) can be used to scrub out PII from transcribed or written text. This example shows the output after PII information has been removed using the API.
+-	**Remove Personally Identifiable Information (PII)**. You can use the [Conversational PII API](/azure/cognitive-services/language-service/personally-identifiable-information/overview) (preview) to remove PII from transcribed or written text. This example shows the output after the API has remvoed PII:
 
     ```
     Document text: Parker Doe has repaid all of their loans as of
           2020-04-25. Their SSN is 999-99-9999. To contact them, use 
-          their phone number 555-555-5555. They are originally from 
+          their phone number 555-555-0100. They are originally from 
           Brazil and have Brazilian CPF number 998.214.865-68 
     Redacted document text: ******* has repaid all of their
           loans as of *******. Their SSN is *******. To contact 
           them, use their phone number *******. They are originally from Brazil and have Brazilian CPF number 998.214.865-68
 
-    ...Entity ‘Parker Doe’ with category ‘Person’ got redacted
-    ...Entity ‘2020-04-25’ with category ‘DateTime’ got redacted
-    ...Entity ‘999-99-9999’ with category ‘USSocialSecurityNumber’ got redacted
-    ...Entity ‘555-555-5555’ with category ‘PhoneNumber’ got redacted
+    ...Entity 'Parker Doe' with category 'Person' got redacted
+    ...Entity '2020-04-25' with category 'DateTime' got redacted
+    ...Entity '999-99-9999' with category 'USSocialSecurityNumber' got redacted
+    ...Entity '555-555-0100' with category 'PhoneNumber' got redacted
     ```
 
-2.	**Removing extraneous information** – Customer agents start conversations with casual exchange that’s outside the scope of relevant information. A trigger can be marked within the conversation to identify the point where the concern/relevant question is first addressed. By removing that exchange from the context, the accuracy of the summarizer service is improved because the model is only fine-tuned on the most relevant information of the conversation.  GPT-3 based Curie is a popular choice because it’s vastly trained from the internet for identifying chit-chat.
+-	**Remove extraneous information**. Customer agents start conversations with casual exchanges that don't include relevant information. A trigger can be added a conversation to identify the point where the concern or relevant question is first addressed. Removing that exchange from the context can improve the accuracy of the summarizer service because the model is then fine-tuned on the most relevant information of the conversation. The Curie GPT-3 engine is a popular choice for this task because it's trained extensively, via content from the internet, to identify this type of casual conversation.
 
-3.	**Removing overly negative conversations** – Conversations can also involve negative sentiments from unhappy customers. Using Azure-based Content Filtering methods, such as Azure Moderator, conversations that contain insensitive information can be removed from analysis.  Alternatively, OpenAI offers a moderation endpoint, a tool that allows users to check whether content complies with OpenAI's content policy.
+-	**Remove excessively negative conversations**. Conversations can also include negative sentiments from unhappy customers. Using Azure-based Content Filtering methods, such as Azure Moderator, conversations that contain insensitive information can be removed from analysis.  Alternatively, OpenAI offers a moderation endpoint, a tool that allows users to check whether content complies with OpenAI's content policy.
 
 Summarizer model
 
