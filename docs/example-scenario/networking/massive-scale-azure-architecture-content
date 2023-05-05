@@ -4,7 +4,7 @@ This example workload shows an Azure Virtual WAN deployment with multiple hubs p
 
 :::image type="content" source="./media/massive-scale-architecture.png" alt-text="Diagram that shows the massive scale Azure Virtual WAN deployment.":::
 
-*Download a [Visio file](./massive-scale-azure-architecture-content.png) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/massive-scale-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -12,17 +12,17 @@ The following workflow corresponds to the previous diagram:
 
 1. Traffic from the spoke virtual networks to the internet routes through the NVA firewalls in the security virtual networks that are attached to the same hub as the spoke. The NVAs that are connected to the same hub as the spoke source or destination inspect all traffic between the spoke virtual networks and on-premises. This routing optimizes performance and retains secure traffic between on-premises and Azure.
 
-1. Traffic between spokes that reside on different hubs should follow the path spoke > hub > hub > spoke. If spoke owners want more inspection, they must implement it within their spokes. This traffic shouldn't ride the Azure ExpressRoute, and security virtual network NVAs shouldn't inspect it.
+1. Traffic between spokes that reside on different hubs should follow the path *spoke* > *hub* > *hub* > *spoke*. If spoke owners want more inspection, they must implement it within their spokes. This traffic shouldn't ride the Azure ExpressRoute, and security virtual network NVAs shouldn't inspect it.
 
-1. Spoke-to-spoke traffic on the same hub should follow the path spoke > hub > spoke. Security virtual network NVAs shouldn't inspect this traffic.
+1. Spoke-to-spoke traffic on the same hub should follow the path *spoke* > *hub* > *spoke*. Security virtual network NVAs shouldn't inspect this traffic.
 
 ### Components
 
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute/) The architecture demonstrates the use of an Azure ExpressRoute circuit, which provides a private connection between your on-premises environment and Azure resources.
+- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) The architecture demonstrates the use of an Azure ExpressRoute circuit, which provides a private connection between your on-premises environment and Azure resources.
 - [Azure Virtual WAN Standard](/azure/virtual-wan/virtual-wan-about) This architecture uses Azure Virtual WAN for transit networking and routing. It provides connection between your on-premises, via ExpressRoute, and your Azure resources.
   - **Custom route tables** Custom route tables optimize routing in the solution, so network-to-network traffic can bypass the firewalls. Network-to-on-premises traffic remains inspected.
   - **Labels** Labels in this solution eliminate the need to extensively propagate route individual networks to all the route tables, which simplifies the routing.
-- [NVAs](https://azure.microsoft.com/solutions/network-appliances/) This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
+- [NVAs](https://azure.microsoft.com/solutions/network-appliances) This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
 - [ExpressRoute Direct](/azure/expressroute/expressroute-erdirect-about) (optional) With this architecture, you can split off ExpressRoute circuits into local and standard circuits. The customer optimizes cost if the bandwidth necessary is already sufficient to justify using ExpressRoute Direct.
 
 ### Alternatives
@@ -33,7 +33,7 @@ For more information, see [Hub-spoke network topology in Azure](/azure/architect
 
 ## Scenario details
 
-1. This deployment maximizes the scalability of Virtual WAN leveraging multiple Virtual WAN hubs per region. As of the writing of this article, the number of virtual network connections to a single hub is \<500-Total number of Virtual WAN hubs in the services\> So for the design above with four hubs, each hub can support 496 virtual network connections. Additionally, since performance linearly scales with number of hubs the Virtual WAN design above provides both exceptional performance and virtual network space scaling.
+1. This deployment maximizes the scalability of Virtual WAN by using multiple Virtual WAN hubs per region. As of the writing of this article, the number of virtual network connections to a single hub is \<500-Total number of Virtual WAN hubs in the services\> So for the design above with four hubs, each hub can support 496 virtual network connections. Additionally, since performance linearly scales with number of hubs the Virtual WAN design above provides both exceptional performance and virtual network space scaling.
 1. This deployment uses an open bowtie design for ExpressRoute connectivity to the Virtual WAN hub. Each hub has two geographically dispersed ExpressRoute circuits. This solves many problems and enables the use of NVAs in the design.
    1. **Optimized interregional spoke-to-spoke routing** ExpressRoute is a preferred path for Virtual WAN because traffic can travel between two spokes attached to different hubs, for instance "Spoke VNet1" to "Spoke VNet5". If the design is a complete bowtie with a single ExpressRoute circuit that connects to Region1 VWAN Hub1 and Region2 VWAN Hub1, then traffic between the spokes follows the path Spoke VNet1 to Region1 VWAN Hub1. It goes down the ExpressRoute circuit and then back up the ExpressRoute path to Region2 VWAN Hub1 and then to Spoke VNet5. This design eliminates that path and enables the spoke-to-hub-to-hub-to-spoke path.
    1. **Cost benefit** The design uses different ExpressRoute circuits, so the customer can use the local ExpressRoute SKU for all their standard operating traffic. The DR path is seldom used and is a standard circuit SKU, which optimizes the bandwidth cost in the solution.
@@ -41,154 +41,108 @@ For more information, see [Hub-spoke network topology in Azure](/azure/architect
 1. This deployment uses the custom NVA design which allows routing flexibility by using customer-defined route tables in the Virtual WAN.
 1. This deployment provides highly redundant ExpressRoute connectivity for each hub. Highly redundant NVAs are attached to each hub.
 
-Route tables:
+### Region1 Hub1 route tables
 
-## Region1 Hub 1 route tables
+#### Default route table (Hub1)
 
-### Default route table
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 10.0.0.0/16 | SecurityVNet1Connection/NVA Internal IP Address | Branches | Branches | default, Hub1Default |
 
-| Destination | Next hop |
-|-------------|----------|
-| 10.0.0.0/16 | SecurityVnet1Connection/NVA Internal IP Address |
-| associated | Branches |
-| propagated | Branches |
-| labels | default, Hub1Default |
+#### Spokes route table (Hub1)
 
-### Spokes route table
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 172.16.0.0/16 | SecurityVNet1Connection/NVA Internal IP Address | Spoke VNet1, Spoke VNet2 || AllWorkloadSpokes |
+| 0.0.0.0/0 | SecurityVNet1Connection/NVA Internal IP Address | Spoke VNet1, Spoke VNet2 || AllWorkloadSpokes |
 
-| Destination | Next hop |
-|-------------|----------|
-| 172.16.0.0/16 | SecurityVnet1Connection/NVA Internal IP Address |
-| 0.0.0.0/0 | SecurityVnet1Connection/NVA Internal IP Address |
-| associated | Spoke VNet1, Spoke VNet2 |
-| propagated ||
-| labels | AllWorkloadSpokes |
+#### Security route table (Hub1)
 
-### Security route table
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+||| Security VNet1 || Hub1SecuritySpokes, AllSecuritySpokes |
 
-| Destination | Next hop |
-|-------------|----------|
-| associated | Security Vnet1 |
-| propagated ||
-| labels | Hub1SecuritySpokes, AllSecuritySpokes |
+### Region1 Hub2 route tables
 
-## Region1 Hub 2 Route Tables
+#### Default route table (Hub2)
 
-### Default route table (Hub2)
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 10.1.0.0/16 | SecurityVNet2Connection/NVA Internal IP Address | Branches | Branches | default, Hub2Default |
 
-| Destination | Next hop |
-|-------------|----------|
-| 10.1.0.0/16 | SecurityVnet2Connection/NVA Internal IP Address |
-| associated | Branches |
-| propagated | Branches |
-| labels | default, Hub2Default |
+#### Spokes route table (Hub2)
 
-### Spokes route table
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 172.16.0.0/16 | SecurityVNet2Connection/NVA Internal IP Address | Spoke VNet3, Spoke VNet4 || AllWorkloadSpokes |
+| 0.0.0.0/0 | SecurityVNet2Connection/NVA Internal IP Address | Spoke VNet3, Spoke VNet4 || AllWorkloadSpokes |
 
-| Destination | Next hop |
-|-------------|----------|
-| 172.16.0.0/16 | SecurityVnet2Connection/NVA Internal IP Address |
-| 0.0.0.0/0 | SecurityVnet2Connection/NVA Internal IP Address |
-| associated | Spoke Vnet3, Spoke Vnet4 |
-| propagated ||
-| labels | AllWorkloadSpokes |
+#### Security route table (Hub2)
 
-### Security route table
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+||| Security VNet2 || Hub2SecuritySpokes, AllSecuritySpokes |
 
-| Destination | Next Hop |
-|-------------|----------|
-| associated | Security Vnet2 |
-| propagated |
-| labels | Hub2SecuritySpokes, AllSecuritySpokes |
+### Region2 Hub1 route tables
 
- | **DEFAULT ROUTE TABLE (Hub3)** |
- | **SPOKES ROUTE TABLE** |
- | **SECURITY ROUTE TABLE** |
-| **Region2 Hub1 Route Tables** | Destination | Next Hop |
- | Destination | Next hop |
- | Destination | Next hop |
-| 10.2.0.0/16 | SecurityVnet3Connection/NVA Internal IP Address |
- | 172.16.0.0/16 | SecurityVnet3Connection/NVA Internal IP Address |
- |
- |
- |
-|
- |
- |
- | 0.0.0.0/0 | SecurityVnet3Connection/NVA Internal IP Address |
- |
- |
- |
-| associated | Branches |
- | associated | Spoke Vnet5, Spoke Vnet6 |
- | associated | Security Vnet3 |
-| propagated | Branches |
- | propagated |
- |
- | propagated |
- |
-| labels | default, Hub3Default |
- | labels | AllWorkloadSpokes |
- | labels | Hub3SecuritySpokes, AllSecuritySpokes |
-|
- |
- |
- |
- |
- |
- |
- |
- |
- |
-|
- | **DEFAULT ROUTE TABLE (Hub4)** |
- | **SPOKES ROUTE TABLE** |
- | **SECURITY ROUTE TABLE** |
-| **Region2 Hub2 Route Tables** | Destination | Next Hop |
- | Destination | Next Hop |
- | Destination | Next Hop |
-| 10.3.0.0/16 | SecurityVnet4Connection/NVA Internal IP Address |
- | 172.16.0.0/16 | SecurityVnet4Connection/NVA Internal IP Address |
- |
- |
- |
-|
- |
- |
- | 0.0.0.0/0 | SecurityVnet3Connection/NVA Internal IP Address |
- |
- |
- |
-| associated | Branches |
- | associated | Spoke Vnet7, Spoke Vnet8 |
- | associated | Security Vnet4 |
-| propagated | Branches |
- | propagated |
- |
- | propagated |
- |
-| labels | default, Hub4Default |
- | labels | AllWorkloadSpokes |
- | labels | Hub4SecuritySpokes, AllSecuritySpokes |
+#### Default route table (Hub3)
 
-Labels:
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 10.2.0.0/16 | SecurityVNet3Connection/NVA Internal IP Address | Branches | Branches | default, Hub3Default |
 
-| **Label** | **Propagated Vnet connections** |
+#### Spokes route table (Hub3)
+
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 172.16.0.0/16 | SecurityVNet3Connection/NVA Internal IP Address | Spoke VNet5, Spoke VNet6 || AllWorkloadSpokes |
+| 0.0.0.0/0 | SecurityVNet3Connection/NVA Internal IP Address | Spoke VNet5, Spoke VNet6 || AllWorkloadSpokes |
+
+#### Security route table (Hub3)
+
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+||| Security VNet3 || Hub3SecuritySpokes, AllSecuritySpokes |
+
+### Region2 Hub2 route tables
+
+#### Default route table (Hub4)
+
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 10.3.0.0/16 | SecurityVNet4Connection/NVA Internal IP Address | Branches | Branches | default, Hub4Default |
+
+#### Spokes route table (Hub4)
+
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+| 172.16.0.0/16 | SecurityVNet4Connection/NVA Internal IP Address | Spoke VNet7, Spoke VNet8 || AllWorkloadSpokes |
+| 0.0.0.0/0 | SecurityVNet3Connection/NVA Internal IP Address | Spoke VNet7, Spoke VNet8 || AllWorkloadSpokes |
+
+#### Security route table (Hub4)
+
+| Destination | Next hop | Associated | Propagated | Labels |
+|-------------|----------|------------|------------|--------|
+||| Security VNet4 || Hub4SecuritySpokes, AllSecuritySpokes |
+
+### Labels
+
+| **Label** | **Propagated virtual network connections** |
 | ---------- | ------------------------------- |
-| AllWorkloadSpokes | SpokeVnet1Connection, SpokeVnet2Connection, SpokeVnet3Connection, SpokeVnet4Connection, SpokeVnet5Connection, SpokeVnet6Connection, SpokeVnet7Connection, SpokeVnet8Connection, SecurityVnet1Connection, SecurityVnet2Connection, SecurityVnet3Connection, SecurityVnet4Connection |
-| AllSecuritySpokes | SpokeVnet1Connection, SpokeVnet2Connection, SpokeVnet3Connection, SpokeVnet4Connection, SpokeVnet5Connection, SpokeVnet6Connection, SpokeVnet7Connection, SpokeVnet8Connection |
-| Hub1Default | SecurityVnet1Connection |
-| Hub2Default | SecurityVnet2Connection |
-| Hub3Default | SecurityVnet3Connection |
-| Hub4Default | SecurityVnet4Connection |
-| Hub1SecuritySpokes | SpokeVnet1Connection, SpokeVnet2Connection, SecurityVnet1Connection |
-| Hub2SecuritySpokes | SpokeVnet3Connection, SpokeVnet4Connection, SecurityVnet2Connection |
-| Hub3SecuritySpokes | SpokeVnet5Connection, SpokeVnet6Connection, SecurityVnet3Connection |
-| Hub4SecuritySpokes | SpokeVnet7Connection, SpokeVnet8Connection, SecurityVnet4Connection |
+| AllWorkloadSpokes | SpokeVNet1Connection, SpokeVNet2Connection, SpokeVNet3Connection, SpokeVNet4Connection, SpokeVNet5Connection, SpokeVNet6Connection, SpokeVNet7Connection, SpokeVNet8Connection, SecurityVNet1Connection, SecurityVNet2Connection, SecurityVNet3Connection, SecurityVNet4Connection |
+| AllSecuritySpokes | SpokeVNet1Connection, SpokeVNet2Connection, SpokeVNet3Connection, SpokeVNet4Connection, SpokeVNet5Connection, SpokeVNet6Connection, SpokeVNet7Connection, SpokeVNet8Connection |
+| Hub1Default | SecurityVNet1Connection |
+| Hub2Default | SecurityVNet2Connection |
+| Hub3Default | SecurityVNet3Connection |
+| Hub4Default | SecurityVNet4Connection |
+| Hub1SecuritySpokes | SpokeVNet1Connection, SpokeVNet2Connection, SecurityVNet1Connection |
+| Hub2SecuritySpokes | SpokeVNet3Connection, SpokeVNet4Connection, SecurityVNet2Connection |
+| Hub3SecuritySpokes | SpokeVNet5Connection, SpokeVNet6Connection, SecurityVNet3Connection |
+| Hub4SecuritySpokes | SpokeVNet7Connection, SpokeVNet8Connection, SecurityVNet4Connection |
 
-This network architecture integrates seamlessly with the Cloud Adoption Framework for Virtual WAN where the Virtual WAN service, the ExpressRoute Connections, and the firewalls (and security virtual networks in this case) all reside in the connectivity subscription and the workloads, NSGs, and spoke virtual networks reside in separate landing zone subscriptions owned by the workload or application owners.
+This network architecture integrates seamlessly with the Cloud Adoption Framework for Virtual WAN. The Virtual WAN service, ExpressRoute connections, firewalls, and, in this case, security virtual networks  are in the connectivity subscription. The workloads, NSGs, and spoke virtual networks are in the workload or application owner’s separate landing zone subscriptions.
 
-[Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
+For more information, see [Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology).
 
 ### Potential use cases
 
@@ -241,7 +195,7 @@ This workload provides firewall inspection between Azure and on-premises and ins
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
- See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) for costs of Azure components. Pricing for this solution is based on factors, such as:
+ See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) for costs of Azure components. Pricing for this solution is based on factors, such as:
 
 - The Azure services that are used.
 - The ExpressRoute sizing.
@@ -280,14 +234,14 @@ The following steps establish the Virtual WAN service, hubs, spoke virtual netwo
 
 Principal authors:
 
-- [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841/) | Sr Cloud Solution Architect
-- [John Poetzinger](https://www.linkedin.com/in/john-poetzinger-467b9922/) | Sr Cloud Solution Architect
+- [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841) | Sr Cloud Solution Architect
+- [John Poetzinger](https://www.linkedin.com/in/john-poetzinger-467b9922) | Sr Cloud Solution Architect
 
 Other contributors:
 
-- [Jimmy Avila](https://www.linkedin.com/in/jimmyavila/) | Sr Cloud Solution Architect
-- [Andrew Delosky](https://www.linkedin.com/in/andrewdelosky/) | Principal Cloud Solution Architect
-- [Robert Lightner](https://www.linkedin.com/in/robert-lightner/) | Sr Cloud Solution Architect
+- [Jimmy Avila](https://www.linkedin.com/in/jimmyavila) | Sr Cloud Solution Architect
+- [Andrew Delosky](https://www.linkedin.com/in/andrewdelosky) | Principal Cloud Solution Architect
+- [Robert Lightner](https://www.linkedin.com/in/robert-lightner) | Sr Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
