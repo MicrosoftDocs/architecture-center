@@ -2,7 +2,7 @@ Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises 
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
-The common component for the solutions are a Log Analytics workspace, a registered application, and an Event Hub used by the Cybersecurity and Infrastructure Security Agency (CISA) TALON to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
+The common components for each solution is a Log Analytics workspace, a registered application, and an Event Hub. The Log Analytics workspace sends logs to the Event Hub.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the Event Hub to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
 
 For more information on CLAW, TIC 3.0, and MTIPS, see:
 
@@ -14,7 +14,7 @@ For more information on CLAW, TIC 3.0, and MTIPS, see:
 
 ## Potential use cases
 
-Federal organizations and government agencies are the most likely implementers of TIC 3.0 compliance solutions for their Azure-based web applications, API services, Azure Virtual Desktop, internet egress for Azure-based virtual machines, and more.
+Federal agencies are likely implementers of TIC 3.0 compliance solutions for their Azure services. These services may include web applications, API services, Azure Virtual Desktop, and internet egress for Azure-based virtual machines.
 
 > [!NOTE] 
 > Microsoft provides this information to Federal Civilian Executive Branch (FCEB) departments and agencies as part of a suggested configuration to facilitate participation in CISA’s CLAW capability. The suggested configurations are maintained by Microsoft and is subject to change.
@@ -29,7 +29,7 @@ Federal organizations and government agencies are the most likely implementers o
 
 1. Firewall
    - The firewall can be any Layer 3 or Layer 7 firewall. 
-     - Layer 3 firewalls are Azure Firewall or third-party firewall aka Network Virtual Appliance (NVA). 
+     - Layer 3 firewalls are Azure Firewall or third-party firewall also known as Network Virtual Appliance (NVA). 
      - Layer 7 firewalls are Application Gateway with a Web Application Firewall (WAF) or Azure Front Door with WAF. This article covers the Azure Firewall, Application Gateway with WAF, and Azure Front Door with WAF.
    - The firewall enforces policies, collects metrics, and logs connection transactions between web services and the users and services that access the web services.
 1. Firewall logs
@@ -38,26 +38,26 @@ Federal organizations and government agencies are the most likely implementers o
 1. Log Analytics workspace
    - The Log Analytics workspace is a repository for the logs.
    - It can host a service that provides custom analysis of the network traffic data from the firewall.
-1. Service Principle (Registered Application)
+1. Service Principal (Registered Application)
 1. Event Hub Standard
 1. CISA TALON
 
 ### Components
 
-- [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/overview) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. There are two performance tiers, Standard, and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and has additional features such as Transport Layer Security (TLS) inspection, and an intrusion detection and protection system (IDPS).
+- [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/overview) is a cloud-native, intelligent network firewall security service that provides threat protection for cloud workloads that run in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. There are two performance tiers, Standard, and Premium. Azure Firewall Premium includes all the functionality of Azure Firewall Standard and has other features such as Transport Layer Security (TLS) inspection, and an intrusion detection and protection system (IDPS).
 - [Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview) with [Web Application Firewall](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. 
 - [Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview) with [Web Application Firewall](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It includes Content Delivery Network (CDN) capabilities to speed up and modernize your applications. Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. 
 - Log Analytics is a tool in the Azure portal that's used to edit and run log queries against Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory) provides identity services, single sign-on, and multifactor authentication across Azure workloads.
-- [Service Principle](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) (Registered Application) is an entity that defines the access policy and permissions for the user/application in the Azure AD tenant.
+- [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) (Registered Application) is an entity that defines the access policy and permissions for the user/application in the Azure AD tenant.
 - [Event Hub](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) Standard is a modern big data streaming platform and event ingestion service.
-- CISA TALON is a CISA operated service running in Azure. TALON connects to the customer's Event hub, authenticates using a CISA supplied certificate associated with a customer's Service principle, and collect the logs on behalf of the customer for CLAW consumption.
+- CISA TALON is a CISA operated service running in Azure. TALON connects to the customer's Event Hub, authenticates using a CISA supplied certificate associated with a customer's Service Principal, and collect the logs on behalf of the customer for CLAW consumption.
 
 ### Alternatives
 
 - You can separate log collection into areas of responsibility. For instance, Azure AD logs can be sent to a Log Analytics workspace managed by an identity team, and network logs can be sent to a different Log Analytics workspace managed by the network team.
-- If your environment requires internet egress from Azure-based virtual machines then you will need to leverage a Layer 3 based solution like Azure Firewall or a Third-party firewall to monitor and log the outbound traffic.
+- If your environment requires internet egress from Azure-based virtual machines then you can use a Layer 3 based solution like Azure Firewall or a Third-party firewall to monitor and log the outbound traffic.
 
 ## Considerations
 
@@ -72,29 +72,29 @@ Federal organizations and government agencies are the most likely implementers o
 ### Operational excellence
 
 - [Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) is built into the solution to notify you when an upload fails to deliver logs to the CLAW. It's up to you to determine the severity of alerts and how to respond.
-- Use ARM templates to speed up the deployment of additional TIC 3.0 architectures for new applications.
+- Use ARM templates to speed up the deployment of TIC 3.0 architectures for new applications.
 
 ### Performance
 
-- [Azure Firewall](/azure/firewall/firewall-performance), [Application Gateway](/azure/application-gateway/application-gateway-faq#performance), [Azure Front Door](/azure/frontdoor/scenarios#performance-efficiency), and [Event hub](/azure/architecture/serverless/event-hubs-functions/performance-scale) performance scales as usage increases.
+- [Azure Firewall](/azure/firewall/firewall-performance), [Application Gateway](/azure/application-gateway/application-gateway-faq#performance), [Azure Front Door](/azure/frontdoor/scenarios#performance-efficiency), and [Event Hub](/azure/architecture/serverless/event-hubs-functions/performance-scale) performance scales as usage increases.
 - Azure Firewall Premium allows more TCP connections than Standard and provides greater bandwidth.
 - Application Gateway v2 automatically ensures that new instances are spread across fault domains and update domains. 
 - Azure Front Door provides caching, compression, traffic acceleration, and TLS termination to improve performance.
-- Event hub standard and premium provides auto-inflate to scale up as load increases.
+- Event Hub standard and premium provides auto-inflate to scale up as load increases.
 
 ### Reliability
 
 - Azure Firewall Standard and Premium tiers integrate with availability zones to increase availability.
 - Application Gateway v2 supports autoscaling and availability zones to increase reliability.
 - Multi-region implementations that include load balancing services like Azure Front Door can improve reliability and resiliency.
-- Event hub Standard and Premium provide Geo-disaster recovery pairing that allows the namespace to failover to a secondary region.
+- Event Hub Standard and Premium provide Geo-disaster recovery pairing that allows the namespace to fail over to a secondary region.
 
 ### Security
 
 - Registering an enterprise application creates a service principal. Use a naming scheme for service principals that indicates their purpose.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
 - Azure Firewall has standard policies. Web Application Firewalls (WAF) associated with Application Gateway and Azure Front Door has managed rule sets to secure your web service. Start with those and build organizational policies over time based on industry requirements, best practices, and government regulations.
-- Event hub access is authorized using Azure Active Directory Managed Identities using a CISA provided certificate.
+- Event Hub access is authorized using Azure Active Directory Managed Identities using a CISA provided certificate.
 
 ## Deploy an Azure Firewall solution
 
@@ -121,12 +121,12 @@ All resources are deployed to a single subscription and virtual network for simp
 
 ### Post-deployment tasks for all solutions
 
-Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you will need a certificate from CISA to associate with your Service Principle. For step-by-step details see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
+Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-The following tasks must be performed after deployment is complete. They are manual tasks—an ARM template can't do them.
+The following tasks must be performed after deployment is complete. They're manual tasks—an ARM template can't do them.
 
 - Obtain a public key certificate from CISA. 
-- Create a Service Principle (App Registration).
+- Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
 - Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
 - Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
@@ -155,12 +155,12 @@ All resources are deployed to a single subscription and virtual network for simp
 
 ### Post-deployment tasks for all solutions
 
-Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you will need a certificate from CISA to associate with your Service Principle. For step-by-step details see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
+Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-The following tasks must be performed after deployment is complete. They are manual tasks—an ARM template can't do them.
+The following tasks must be performed after deployment is complete. They're manual tasks—an ARM template can't do them.
 
 - Obtain a public key certificate from CISA. 
-- Create a Service Principle (App Registration).
+- Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
 - Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
 - Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
@@ -189,33 +189,33 @@ All resources are deployed to a single subscription and virtual network for simp
 
 ### Post-deployment tasks for all solutions
 
-Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you will need a certificate from CISA to associate with your Service Principle. For step-by-step details see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
+Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-The following tasks must be performed after deployment is complete. They are manual tasks—an ARM template can't do them.
+The following tasks must be performed after deployment is complete. They're manual tasks—an ARM template can't do them.
 
 - Obtain a public key certificate from CISA. 
-- Create a Service Principle (App Registration).
+- Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
 - Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
 - Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
 
-## Third-party Firewall (aka Network Virtual Application)
+## Third-party Firewall (also known as Network Virtual Application)
 
 > [!NOTE]
 > This solution does not have a Deploy to Azure capability and is meant for guidance only.
 
-The following solution defines how a Third-party firewall can be used to manage the traffic into your Azure application environment and support TIC 3.0 compliance. Third-party firewalls require use of a Syslog forwarder virtual machine, usually Linux-based, with its agents registered with the Log Analytics workspace. The Third-party firewall is configured to export its logs in syslog format to the Syslog forwarder virtual machine and the agent is configured to send its logs to the Log Analytics workspace. Once the logs are in the Log Analytics workspace they are sent to the Event hub and processed like the other solutions outlined in this article.
+The following solution defines how a Third-party firewall can be used to manage the traffic into your Azure application environment and support TIC 3.0 compliance. Third-party firewalls require use of a Syslog forwarder virtual machine with its agents registered with the Log Analytics workspace. The Third-party firewall is configured to export its logs in syslog format to the Syslog forwarder virtual machine and the agent is configured to send its logs to the Log Analytics workspace. Once the logs are in the Log Analytics workspace, They're sent to the Event Hub and processed like the other solutions outlined in this article.
 
 :::image type="content" source="media/trusted-internet-connections-architecture-NVA.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with Third-party Firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture-NVA.png":::
 
 ### Post-deployment tasks for all solutions
 
-Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you will need a certificate from CISA to associate with your Service Principle. For step-by-step details see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
+Up to now your environment is performing the firewall capabilities and logging connections. To be TIC 3.0 compliant for Network Telemetry collection, those logs must make it to CISA CLAW. The post-deployment steps finish the tasks towards compliance. These steps require coordination with CISA because you need a certificate from CISA to associate with your Service Principal. For step-by-step details, see [Post Deployment Tasks](https://github.com/Azure/trusted-internet-connection/tree/main/Architecture/Post-Deployment-Tasks).
 
-The following tasks must be performed after deployment is complete. They are manual tasks—an ARM template can't do them.
+The following tasks must be performed after deployment is complete. They're manual tasks—an ARM template can't do them.
 
 - Obtain a public key certificate from CISA. 
-- Create a Service Principle (App Registration).
+- Create a Service Principal (App Registration).
 - Add the CISA-provided certificate to the App Registration.
 - Assign the application with the Azure Event Hubs Data Receiver role to the Event Hub Namespace.
 - Activate Feed by sharing Azure Tenant ID, Application (client) ID, Event Hub Namespace name, Event Hub name, and Consumer group name with your CISA POC
