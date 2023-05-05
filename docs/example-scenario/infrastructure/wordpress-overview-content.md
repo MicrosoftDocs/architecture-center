@@ -4,9 +4,9 @@ WordPress is a versatile and popular content management system, used for creatin
 
 This section covers deploying WordPress on Azure and provides guidance on what to consider and implement to ensure a secure, scalable, and cost-effective installation.
 
-## General WordPress security&performance tips
+## General WordPress security & performance tips
 
-WordPress is a popular target for hackers, and websites running on the platform can be vulnerable to security threats such as malware and phishing attacks. To address these risks, the following tips can help to create a more secure and better-performing WordPress installation.
+Because of its overwhelming popularity, WordPress is a target for hackers, and websites running on the platform can be vulnerable to security threats such as malware and phishing attacks. To address these risks, the following tips can help to create a more secure and better-performing WordPress installation.
 
 Regardless of the hosting architecture, whether it's VM, App Service, or any other, these tips are universally applicable.
 
@@ -62,12 +62,20 @@ To ensure the security of WordPress deployments on Azure, it's recommended to st
 
 By storing secrets in Key Vault, they can be securely accessed by authorized applications and services without the need to store them in plain text within the WordPress container image or in application code.
 
+### Performance tunning
+
+WordPress performance can be improved by tuning various settings and using plugins to optimize website speed. These plugin can assist in debugging WordPress installation:
+
+- [Query Monitor](https://wordpress.org/plugins/query-monitor/) - breakdown of time spent for each SQL query and more (PHP errors, hooks and actions, block editor blocks, enqueued scripts and stylesheets, HTTP API calls)
+- [Laps](https://github.com/Rarst/laps) - provides a breakdown of where time is spent serving a page
+
+
 ## Hosting challenges of WordPress
 
 WordPress application architecture gives rise to several hosting challenges, including:
 
 - **Scalability** -  a hosting architecture must be capable of scaling out during peak traffic periods.
-- **Read&Write-Many storage** - by default, WordPress stores all static assets, plugin, and theme source codes in the `/wp-content/` directory, which must be readable and writable from all nodes during scale-out.
+- **Read&Write-Many storage (*RWX*)** - by default, WordPress stores all static assets, plugin, and theme source codes in the `/wp-content/` directory, which must be readable and writable from all nodes during scale-out.
 - **IOPS storage class** - WordPress consists of 1000+ tiny `.php` files that are referenced, loaded, and executed by PHP processor during incoming requests. Loading numerous small files can result in overhead and is often slower than loading one file with the same size (depending on the selected protocol).
 - **Cache invalidation** - when a new activity occurs in the application, such as publishing a new article, the cache must be invalidated across all nodes.
 - **Building cache time** - for the first user of a given node, the response time may be slower until the cache is built.

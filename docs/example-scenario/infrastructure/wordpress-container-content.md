@@ -51,6 +51,7 @@ This example scenario is applicable for any larger installation of WordPress wit
 ### Alternatives
 
 - Redis cache - the cache could be self-hosted pod within AKS cluster instead of managed product Azure Cache for Redis.
+- [Rook-Ceph storage](https://rook.io/) - instead of managed storage solution like Azure NetApp Files, is possible to use self-hosted storage solution. For more information, see [How to use Rook-Ceph on AKS](https://github.com/Azure/kubernetes-volume-drivers/tree/master/rook-ceph).
 
 ## Considerations
 
