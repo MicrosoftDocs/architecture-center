@@ -2,7 +2,7 @@ Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises 
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
-The common components for each solution is a Log Analytics workspace, a registered application, and an Event Hubs. The Log Analytics workspace sends logs to the Event Hubs.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the Event Hubs to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
+The common components for each solution are a Log Analytics workspace, a registered application, and an Event Hubs. The Log Analytics workspace sends logs to the Event Hubs.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the Event Hubs to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
 
 For more information on CLAW, TIC 3.0, and MTIPS, see:
 
@@ -80,7 +80,7 @@ Federal agencies are likely implementers of TIC 3.0 compliance solutions for the
 - Azure Firewall Premium allows more TCP connections than Standard and provides greater bandwidth.
 - Application Gateway v2 automatically ensures that new instances are spread across fault domains and update domains. 
 - Azure Front Door provides caching, compression, traffic acceleration, and TLS termination to improve performance.
-- Event Hubs standard and premium provides auto-inflate to scale up as load increases.
+- Event Hub standard and premium provide auto-inflate to scale up as load increases.
 
 ### Reliability
 
