@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure Architecture Center
   description: Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
   author: vermegi
-  ms.author: vermegi
+  ms.author: prwilk
   ms.date: 02/10/2023
   ms.topic: conceptual
   ms.service: architecture-center

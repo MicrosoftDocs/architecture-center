@@ -10,7 +10,7 @@ This architecture is useful when you want to:
 
 ## Architecture
 
-:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.png":::
+:::image type="content" source="./_images/spring-apps-reference-architecture-single-region-zone-redundant.svg" alt-text="Diagram that shows a multi-region Azure Spring Apps reference architecture." lightbox="./_images/spring-apps-reference-architecture-single-region-zone-redundant.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/ha-zone-redundant-spring-apps-reference-architecture.vsdx) that contains this architecture diagram.*
 
@@ -99,7 +99,7 @@ You can control access by using private endpoints. These network interfaces use 
 
 The architecture has Azure services that automatically set up the private endpoints. 
 
-Azure Spring Apps is deployed into that network using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network). As part of provisioning the necessary private endpoints are automatically created. The application is accessed by reaching the private IP address.
+Azure Spring Apps is deployed into that network using [vnet-injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network). The application is accessed by reaching the private IP address.
 
 The database also follows a similar model. The [flexible server deployment mode of Azure Database for MySQL](https://azure.microsoft.com/products/mysql) supports virtual network integration through a dedicated subnet.
 
