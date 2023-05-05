@@ -168,7 +168,7 @@ To complete this procedure, you need to have a Blob Storage container in your su
     1. Select the **Author** tab. 
     1. Select the **+** button.
     1. Select **Pipeline**.
-    1, Enter a name for the pipeline.
+    1. Enter a name for the pipeline.
     
       :::image type="content" source="media/azure-data-factory-pipeline.png" alt-text="Screenshot that shows the steps for creating a pipeline." lightbox="media/azure-data-factory-pipeline.png":::
 
