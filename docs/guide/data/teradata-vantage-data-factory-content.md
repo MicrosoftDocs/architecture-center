@@ -165,19 +165,19 @@ To complete this procedure, you need to have a Blob Storage container in your su
 
 7.	Create a Data Factory pipeline:
 
-    - Select the **Author** tab. 
-    - Select the **+** button.
-    - Select **Pipeline**.
-    - Enter a name for the pipeline.
+    1. Select the **Author** tab. 
+    1. Select the **+** button.
+    1. Select **Pipeline**.
+    1, Enter a name for the pipeline.
     
       :::image type="content" source="media/azure-data-factory-pipeline.png" alt-text="Screenshot that shows the steps for creating a pipeline." lightbox="media/azure-data-factory-pipeline.png":::
 
 8.	Create two datasets:
 
-    - Select the **Author** tab.
-    - Select the **+** button.
-    - Select **Dataset**.
-    - Create a dataset for the `Green_Taxi_Trip_Data` Teradata table: 
+    1. Select the **Author** tab.
+    1. Select the **+** button.
+    1. Select **Dataset**.
+    1. Create a dataset for the `Green_Taxi_Trip_Data` Teradata table: 
       - Select **Teradata** as the **Data Store**.
       - **Name**: Enter a name for the dataset.
       - **Linked service**: Select the linked service that you created for Teradata in steps 2 and 3.
@@ -266,10 +266,10 @@ You can also use TTU, Data Factory custom activities, and Azure Batch to load da
 
 7.	Complete the following steps to create a dataset with ODBC as the data store. Use the linked service that you created earlier. 
  
-    - Select the **Author** tab.
-    - Select the **+** button.
-    - Select **Dataset**.
-    - Create a dataset for the `Green_Taxi_Trip_DataIn` Teradata table: 
+    1. Select the **Author** tab.
+    1. Select the **+** button.
+    1. Select **Dataset**.
+    1. Create a dataset for the `Green_Taxi_Trip_DataIn` Teradata table: 
       - Select **ODBC** as the data store, and then select **Continue**.
       - **Name**: Provide a name for the dataset.
       - **Linked service**: Select the ODBC linked service that you created in the previous steps.
@@ -318,11 +318,11 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
     ) as GreenTaxiData;
     ```
 
-    :::image type="content" source="media/nos-query-blob.png" alt-text="Screenshot that shows a query for reading data." lightbox="media/nos-query-blob.png":::
+    :::image type="content" source="media/query-blob.png" alt-text="Screenshot that shows a query for reading data." lightbox="media/query-blob.png":::
 
 -	Here's another example of querying data in place. It uses the `READ_NOS` table operator.
 
-    :::image type="content" source="media/nos-query-blob-2.png" alt-text="Screenshot that shows another example of querying data in place." lightbox="media/nos-query-blob-2.png":::
+    :::image type="content" source="media/query-blob-2.png" alt-text="Screenshot that shows another example of querying data in place." lightbox="media/query-blob-2.png":::
 
 -	You can also query data in place or load data into a Vantage database by creating a foreign table in the object store. You first need to create an authorization object that uses the storage account name and access key in `USER` and `PASSWORD` fields, respectively, as shown in the following syntax. You can use this object to create your foreign table so that you don't need to provide the keys when you create the table.
    
@@ -371,7 +371,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     You can now query the data from the foreign table just as you can query any other table:
 
-    :::image type="content" source="media/nos-query-blob-3.png" alt-text="Screenshot that shows how to query the data from the foreign table." lightbox="media/nos-query-blob-3.png":::
+    :::image type="content" source="media/query-blob-3.png" alt-text="Screenshot that shows how to query the data from the foreign table." lightbox="media/query-blob-3.png":::
 
 -	You've seen how to query data in object storage in place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA). 
 
