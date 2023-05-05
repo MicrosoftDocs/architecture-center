@@ -18,7 +18,7 @@ This architecture builds on the one shown in [Run Windows VMs for an N-tier appl
 
 - [Availability sets][availability-set] are logical groupings of VMs. Place the VMs for each SharePoint role into separate availability sets, and provision at least two VMs for each role. This configuration makes the VMs eligible for a higher service level agreement (SLA).
 
-- [Azure Load Balancer][load-balancer-service-page] distributes SharePoint request traffic from the on-premises network to the front-end web servers of the SharePoint farm. This solution uses an internal load balancer.
+- [Azure Load Balancer][load-balancer-service-page] distributes SharePoint request traffic from the on-premises network to the front-end web servers of the SharePoint farm. This solution uses an internal load balancer. Alternative for Http traffic, [Azure Application Gateway could be choosen](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview). 
 
 - [Network security groups][nsg] filter traffic in an Azure virtual network. For each subnet that contains VMs, a network security group is created. Use network security groups to restrict network traffic within a virtual network, in order to isolate subnets.
 
