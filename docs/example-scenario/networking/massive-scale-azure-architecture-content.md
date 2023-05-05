@@ -27,19 +27,25 @@ The following workflow corresponds to the previous diagram:
 
 ### Alternatives
 
-An alternative is a hub and spoke virtual network model with Azure route servers. This alternative can enable greater performance than the 50Gbps limit per hub. This solution can have greater performance limits but more complexity.
+An alternative is a hub and spoke virtual network model with Azure route servers. This alternative can enable greater performance than the 50-Gbps limit per hub. This solution can have greater performance limits but more complexity.
 
 For more information, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ## Scenario details
 
-1. This deployment maximizes the scalability of Virtual WAN by using multiple Virtual WAN hubs per region. As of the writing of this article, the number of virtual network connections to a single hub is \<500-Total number of Virtual WAN hubs in the services\> So for the design above with four hubs, each hub can support 496 virtual network connections. Additionally, since performance linearly scales with number of hubs the Virtual WAN design above provides both exceptional performance and virtual network space scaling.
-1. This deployment uses an open bowtie design for ExpressRoute connectivity to the Virtual WAN hub. Each hub has two geographically dispersed ExpressRoute circuits. This solves many problems and enables the use of NVAs in the design.
-   1. **Optimized interregional spoke-to-spoke routing** ExpressRoute is a preferred path for Virtual WAN because traffic can travel between two spokes attached to different hubs, for instance "Spoke VNet1" to "Spoke VNet5". If the design is a complete bowtie with a single ExpressRoute circuit that connects to Region1 VWAN Hub1 and Region2 VWAN Hub1, then traffic between the spokes follows the path Spoke VNet1 to Region1 VWAN Hub1. It goes down the ExpressRoute circuit and then back up the ExpressRoute path to Region2 VWAN Hub1 and then to Spoke VNet5. This design eliminates that path and enables the spoke-to-hub-to-hub-to-spoke path.
-   1. **Cost benefit** The design uses different ExpressRoute circuits, so the customer can use the local ExpressRoute SKU for all their standard operating traffic. The DR path is seldom used and is a standard circuit SKU, which optimizes the bandwidth cost in the solution.
-   1. **Enable NVA inspection local to the spokes** This design enables traffic to utilize the NVA in the security virtual network that's attached to the same hub as the virtual network where the source of the traffic resides. During an ExpressRoute failure, the backup path continues to use the local NVA. The backup path simplifies routing, optimizes performance by avoiding inspection in multiple regions, and minimizes the risk of asymmetric routes by limiting complexity.
-1. This deployment uses the custom NVA design which allows routing flexibility by using customer-defined route tables in the Virtual WAN.
-1. This deployment provides highly redundant ExpressRoute connectivity for each hub. Highly redundant NVAs are attached to each hub.
+- This deployment maximizes the scalability of Virtual WAN by using multiple Virtual WAN hubs per region. As of the writing of this article, the number of virtual network connections to a single hub is \<500-Total number of Virtual WAN hubs in the services\> In the previous design with four hubs, each hub can support 496 virtual network connections. Performance scales linearly with the number of hubs, so the previous Virtual WAN design provides exceptional performance and virtual network space scaling.
+
+- This deployment uses an open bowtie design for ExpressRoute connectivity to the Virtual WAN hub. Each hub has two geographically dispersed ExpressRoute circuits. This design solves many problems and enables the use of NVAs.
+
+- ExpressRoute is a preferred path for Virtual WAN because traffic can travel between two spokes attached to different hubs, for instance "Spoke VNet1" to "Spoke VNet5". If the design is a complete bowtie with a single ExpressRoute circuit that connects to Region1 VWAN Hub1 and Region2 VWAN Hub1, then traffic between the spokes follows the path Spoke VNet1 to Region1 VWAN Hub1. It goes down the ExpressRoute circuit and then back up the ExpressRoute path to Region2 VWAN Hub1 and then to Spoke VNet5. This design eliminates that path and enables the spoke-to-hub-to-hub-to-spoke path.
+
+- The design uses different ExpressRoute circuits, so the customer can use the local ExpressRoute SKU for all their standard operating traffic. The disaster recovery path is rarely used and is a standard circuit SKU, which optimizes the bandwidth cost in the solution.
+
+- Traffic can utilize the NVA in the security virtual network that's attached to the same hub as the virtual network where the source of the traffic resides. During an ExpressRoute failure, the backup path continues to use the local NVA. The backup path simplifies routing, optimizes performance by avoiding inspection in multiple regions, and minimizes the risk of asymmetric routes by limiting complexity.
+
+- Custom NVA design allows routing flexibility by using customer-defined route tables in the Virtual WAN.
+
+- This deployment provides highly redundant ExpressRoute connectivity for each hub. Highly redundant NVAs are attached to each hub.
 
 ### Region1 Hub1 route tables
 
@@ -156,13 +162,13 @@ This design is applicable to any business of sufficient size and footprint in Az
 
 **ExpressRoute recommendations:**
 
-- **ExpressRoute Direct** Customers of this scale often have previously established connectivity points and require very high bandwidth for their circuits. If a customer migrates from a large-scale Multiprotocol Label Switching (MPLS), such as NetBond, and requires +40Gbps circuit connectivity, they can take advantage of their network infrastructure and establish ExpressRoute Direct. ExpressRoute Direct  supports MACsec encryption for high security workloads.
+- **ExpressRoute Direct** Customers of this scale often have previously established connectivity points and require high bandwidth for their circuits. If a customer migrates from a large-scale Multiprotocol Label Switching (MPLS), such as NetBond, and requires +40Gbps circuit connectivity, they can take advantage of their network infrastructure and establish ExpressRoute Direct. ExpressRoute Direct supports MACsec encryption for high-security workloads.
 - **ExpressRoute Local** For cost optimization, use ExpressRoute Local to peer the primary ExpressRoute circuit to the regional hub of choice. The backup ExpressRoute circuit should use ExpressRoute Standard.
 
 **Spoke recommendations:**
 
 - **Internet egress** Egress internet traffic should route through the local NVA firewall that's connected to the same hub as the source virtual network for that traffic.
-- **Internet ingress inspection** Customers can inspect ingress internet connectivity for the spoke workloads. Use Azure Application Gateway or Azure Front Door for WAF inspection of traffic into the spokes. Source network address translation (SNAT) is required to avoid routing conflicts with the 0.0.0.0/0 route being advertised by the Virtual WAN hub.
+- **Internet ingress inspection** Customers can inspect ingress internet connectivity for the spoke workloads. They can use Azure Application Gateway or Azure Front Door for WAF inspection of traffic into the spokes. Source network address translation (SNAT) is required to avoid routing conflicts with the 0.0.0.0/0 route that's advertised by the Virtual WAN hub.
 - **NSGs** Use NSGs to customize the security of the application that resides in your spoke virtual network.
 
 **NVA recommendations:**
@@ -183,7 +189,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-This workload optimizes high availability with Virtual WAN, redundant ExpressRoute circuits, and scale sets for NVAs, which results in the redundancy that's necessary for highly-critical workloads.
+This workload optimizes high availability with Virtual WAN, redundant ExpressRoute circuits, and scale sets for NVAs. This combination results in the redundancy that's necessary for highly critical workloads.
 
 ### Security
 
@@ -199,10 +205,10 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The Azure services that are used.
 - The ExpressRoute sizing.
-- The Virtual WAN sizing and data traffic quantities that are processed by each hub.
+- The Virtual WAN sizing and data traffic quantities that each hub processes.
 - The NVA pricing.
 
-This workload prioritizes performance and availability over low cost, but cost is optimized by using ExpressRoute Local for primary connections, which limits bandwidth expenses. If the customer wants to compromise performance and reliability to optimize cost, they can reduce the number of ExpressRoute circuits and firewalls. This approach reduces cost but rides the Virtual WAN hubs with less efficiency when connecting to their on-premises or cloud destinations.
+This workload prioritizes performance and availability over low cost. But using ExpressRoute Local for primary connections optimizes cost because it limits bandwidth expenses. If the customer wants to compromise performance and reliability to optimize cost, they can reduce the number of ExpressRoute circuits and firewalls. This approach reduces cost but rides the Virtual WAN hubs with less efficiency when connecting to their on-premises or cloud destinations.
 
 ### Operational excellence
 
