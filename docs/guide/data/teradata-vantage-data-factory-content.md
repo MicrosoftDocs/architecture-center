@@ -373,7 +373,7 @@ This scenario describes how to use the Vantage [Native Object Store (NOS)](https
 
     :::image type="content" source="media/nos-query-blob-3.png" alt-text="Screenshot that shows how to query the data from the foreign table." lightbox="media/nos-query-blob-3.png":::
 
-4.	You've seen how to query data in object storage in place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA). 
+-	You've seen how to query data in object storage in place. However, you might want to load the data permanently into a table in the database for better query performance. You can load data from Blob Storage into a permanent table by using the following statements. Some options might work only for certain data file formats. For details, see the Teradata documentation. For sample code, see [Loading External Data into a Database](https://docs.teradata.com/r/Teradata-VantageTM-Native-Object-Store-Getting-Started-Guide/January-2021/Reading-Parquet-Data/Parquet-Examples-For-DBAs-and-Advanced-Users/Loading-External-Parquet-Data-into-the-Database/Loading-External-Data-into-the-Database-Using-CREATE-TABLE-AS...WITH-DATA). 
 
     |Method|	Description|
     |-|-|
