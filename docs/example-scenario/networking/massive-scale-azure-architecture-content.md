@@ -10,6 +10,8 @@ This example workload shows an Azure Virtual WAN deployment with multiple hubs p
 
 The following workflow corresponds to the previous diagram:
 
+1. 
+
 1. Traffic from the spoke virtual networks to the internet routes through the NVA firewalls in the security virtual networks that are attached to the same hub as the spoke. The NVAs that are connected to the same hub as the spoke source or destination inspect all traffic between the spoke virtual networks and on-premises. This routing optimizes performance and retains secure traffic between on-premises and Azure.
 
 1. Traffic between spokes that reside on different hubs should follow the path *spoke* > *hub* > *hub* > *spoke*. If spoke owners want more inspection, they must implement it within their spokes. This traffic shouldn't ride the Azure ExpressRoute, and security virtual network NVAs shouldn't inspect it.
@@ -33,7 +35,7 @@ For more information, see [Hub-spoke network topology in Azure](/azure/architect
 
 ## Scenario details
 
-- This deployment maximizes the scalability of Virtual WAN by using multiple Virtual WAN hubs per region. As of the writing of this article, the number of virtual network connections to a single hub is \<500-Total number of Virtual WAN hubs in the services\> In the previous design with four hubs, each hub can support 496 virtual network connections. Performance scales linearly with the number of hubs, so the previous Virtual WAN design provides exceptional performance and virtual network space scaling.
+- This deployment maximizes the scalability of Virtual WAN by using multiple Virtual WAN hubs per region. The number of virtual network connections to a single hub is 500 minus the total number of Virtual WAN hubs in the services. In the previous design with four hubs, each hub can support 496 virtual network connections. Performance scales linearly with the number of hubs, so the previous Virtual WAN design provides exceptional performance and virtual network space scaling.
 
 - This deployment uses an open bowtie design for ExpressRoute connectivity to the Virtual WAN hub. Each hub has two geographically dispersed ExpressRoute circuits. This design solves many problems and enables the use of NVAs.
 
