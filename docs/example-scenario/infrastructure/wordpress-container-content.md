@@ -12,8 +12,8 @@ Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes 
 ### Dataflow
 
 1. Users access the front-end website through a CDN (Azure Front Door).
-2. The CDN uses an [internal Azure load balancer](/azure/load-balancer/load-balancer-overview) (hidden part of AKS) as the origin, and pulls any data that isn't cached from there via Private Endpoint.
-3. The Azure load balancer distributes ingress traffic to pods within AKS.
+2. The CDN uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) (hidden part of AKS) as the origin, and pulls any data that isn't cached from there via Private Endpoint.
+3. The Azure Load Balancer distributes ingress traffic to pods within AKS.
 4. SSL keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
 5. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint.
 6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) via AKS CSI Astra Triden driver by NFS protocol.
