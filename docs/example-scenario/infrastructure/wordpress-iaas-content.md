@@ -49,7 +49,7 @@ This example scenario is applicable for any larger installation of WordPress wit
 
 ### Alternatives
 
-- Redis cache - the cache could be self-hosted pod within AKS cluster instead of managed product Azure Cache for Redis.
+- Redis cache - the cache could be self-hosted pod within VM instead of managed product Azure Cache for Redis.
 
 ## Considerations
 
