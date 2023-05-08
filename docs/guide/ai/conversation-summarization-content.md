@@ -1,16 +1,16 @@
-Most businesses provide customer service support to help customers with product queries, troubleshooting, and maintaining or upgrading features or the product itself. To provide a satisfactory resolution, customer support specialists must respond quickly with accurate information. OpenAI can help organizations with customer support in a variety of ways.
+Most businesses provide customer service support to help customers with product queries, troubleshooting, and maintaining or upgrading features or the product itself. To provide a satisfactory resolution, customer support specialists need to respond quickly with accurate information. OpenAI can help organizations with customer support in a variety of ways.
 
 This guide describes how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. It contains an end-to-end sample architecture that illustrates the key components involved in getting a summary of a text input. The generation of the text input is outside the scope of this guide. The focus of this guide is to describe the process of implementing the summarization of a set of sample agent-customer conversations and analyze the outcomes of various approaches to summarization.
 
 ## Conversation scenarios
 
-- **Self-service chatbots** (fully automated). In this scenario, customers can interact with a chatbot that's powered by GPT-3 and trained on industry-specific data. These chatbots can understand customer questions and answer appropriately based on responses learned from a knowledge base.  
+- **Self-service chatbots** (fully automated). In this scenario, customers can interact with a chatbot that's powered by GPT-3 and trained on industry-specific data. The chatbot can understand customer questions and answer appropriately based on responses learned from a knowledge base.  
 - **Chatbot with agent intervention** (semi-automated). Questions posed by customers are sometimes complex and necessitate human intervention. In such cases, GPT-3 can provide a summary of the customer-chatbot conversation and help the agent with quick searches for additional information from a large knowledge base.
-- **Summarizing transcripts** (fully or semi-automated). In most customer support centers, agents are required to summarize conversations for record keeping, future follow-ups, training, and other internal processes. GPT-3 can provide automated or semi-automated summaries that capture salient details of conversations for further use. 
+- **Summarizing transcripts** (fully automated or semi-automated). In most customer support centers, agents are required to summarize conversations for record keeping, future follow-up, training, and other internal processes. GPT-3 can provide automated or semi-automated summaries that capture salient details of conversations for further use. 
 
 This guide focuses on the process for summarizing transcripts by using Azure OpenAI GPT-3.
 
-On average, it takes an agent 5 to 6 minutes to summarize a single agent-customer conversation. Given the high volumes of requests service teams handle on any given day, this additional task can overburden the team. OpenAI is a good way to help agents with summarization-related activities. It can improve the efficiency of the customer support process and provide better precision. Conversation summarization can be applied to any customer support business that involves agent-customer interaction. 
+On average, it takes an agent 5 to 6 minutes to summarize a single agent-customer conversation. Given the high volumes of requests service teams handle on any given day, this additional task can overburden the team. OpenAI is a good way to help agents with summarization-related activities. It can improve the efficiency of the customer support process and provide better precision. Conversation summarization can be applied to any customer support task that involves agent-customer interaction. 
 
 For a demonstration of how to use the Azure OpenAI GPT-3 model for conversation summarization, see this [Jupyter Notebook](https://github.com/Azure/openai-solutions/tree/conversational-summarization-v0/Solution_Notebooks/Conversational%20Summarization). You can use the notebook to experiment with summarization on your datasets.
 
@@ -36,12 +36,12 @@ Here's a sample architecture:
 
 ### Workflow
 
-1.	Gather input data: Relevant input data is fed into the pipeline. If the source is an audio file, you need to convert it to text by using a TTS service like [Azure text-to-speech](/azure/cognitive-services/speech-service/text-to-speech). 
-2.	Pre-process the data: Confidential information and any unimportant conversation is removed from the data. 
-3.	Feed the data into the summarizer: The data is passed in the prompt via Azure OpenAI APIs. In-context learning models include [zero-shot, few-shot, or a custom model](/azure/cognitive-services/openai/overview#in-context-learning).
-4.	Generate a summary: The model generates a summary of the conversations.
-5.	Post-process the data: A profanity filter and various validation checks are applied to the summary. Sensitive or confidential data that was removed during the pre-process step is added back to the summary. 
-6.	Evaluate the results: Results are reviewed and evaluated. This step can help you identify areas where the model needs to be improved and find errors that might have been missed.
+1.	Gather input data: Feed relevant input data into the pipeline. If the source is an audio file, you need to convert it to text by using a TTS service like [Azure text-to-speech](/azure/cognitive-services/speech-service/text-to-speech). 
+2.	Pre-process the data: Remove confidential information and any unimportant conversation from the data. 
+3.	Feed the data into the summarizer: Pass the data in a prompt via Azure OpenAI APIs. In-context learning models include [zero-shot, few-shot, or a custom model](/azure/cognitive-services/openai/overview#in-context-learning).
+4.	Generate a summary: The model generates a summary of the conversation.
+5.	Post-process the data: Apply a profanity filter and various validation checks to the summary. Add sensitive or confidential data that was removed during the pre-process step back into the summary. 
+6.	Evaluate the results: Review and evaluate the results. This step can help you identify areas where the model needs to be improved and find errors.
 
 The following sections provide more details about the three main stages.
 
@@ -68,7 +68,7 @@ Here are some pre-processing steps that can help condition your raw data. You mi
     ...Entity '555-555-0100' with category 'PhoneNumber' got redacted
     ```
 
--	**Remove extraneous information**. Customer agents start conversations with casual exchanges that don't include relevant information. A trigger can be added a conversation to identify the point where the concern or relevant question is first addressed. Removing that exchange from the context can improve the accuracy of the summarizer service because the model is then fine-tuned on the most relevant information of the conversation. The Curie GPT-3 engine is a popular choice for this task because it's trained extensively, via content from the internet, to identify this type of casual conversation.
+-	**Remove extraneous information**. Customer agents start conversations with casual exchanges that don't include relevant information. A trigger can be added a conversation to identify the point where the concern or relevant question is first addressed. Removing that exchange from the context can improve the accuracy of the summarizer service because the model is then fine-tuned on the most relevant information in the conversation. The Curie GPT-3 engine is a popular choice for this task because it's trained extensively, via content from the internet, to identify this type of casual conversation.
 
 -	**Remove excessively negative conversations**. Conversations can also include negative sentiments from unhappy customers. You can use Azure content-filtering methods like Azure Content Moderator to remove conversations that contain sensitive information from analysis. Alternatively, OpenAI offers a moderation endpoint, a tool that you can use to check whether content complies with OpenAI's content policies.
 
@@ -86,9 +86,11 @@ There are three main approaches for training models for in-context learning: zer
 - **Zero-shot**: In this approach, no examples are provided to the model. The task request is the only input. In zero-shot learning, the model relies on data that GPT-3 is already trained on (almost all available data from the internet). It attempts to relate the given task to existing categories that it has already learned about and responds accordingly.
 - **Few-shot**: When you use this approach, you include a small number of examples in the prompt that demonstrate the expected answer format and the context. The model is provided with a very small amount of training data, typically just a few examples, to guide its predictions. Training with a small set of examples enables the model to generalize and understand related but previously unseen tasks. Creating these few-shot examples can be challenging because they need to clarify the task you want the model to perform. One commonly observed problem is that models, especially small ones, are sensitive to the writing style that's used in the training examples. 
 
-   With this approach, you can't update the weights of the pretrained model. 
+     The main advantages of this approach are a significant reduction in the need for task-specific data and reduced potential to learn an excessively narrow distribution from a large but narrow fine-tuning dataset. 
 
-   The main advantages of this approach are a major reduction in the need for task-specific data and reduced potential to learn an excessively narrow distribution from a large but narrow fine-tuning dataset. For more information, see [Language Models are few-shot learners](https://arxiv.org/pdf/2005.14165.pdf).
+     With this approach, you can't update the weights of the pretrained model. 
+ 
+    For more information, see [Language Models are few-shot learners](https://arxiv.org/pdf/2005.14165.pdf).
 - **Fine-tuning**: Fine-tuning is the process of tailoring models to get a specific desired outcome from your own datasets. It involves retraining models on new data. For more information, see [Learn how to customize a model for your application](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio).
   
   You can use this customization step to improve your process by:
@@ -118,11 +120,11 @@ We recommend that you check the validity of the results that you get from GPT-3.
 
 Finally, reintroduce any vital information that was previously removed from the summary, like confidential information. 
 
-In some cases, a summary of the conversation is also sent to the customer, along with the original transcript. In these cases, post-processing involves appending the transcript to the summary. It can also include adding lead-in sentences like "Please see the summary below:" before sending the summary to the customer. 
+In some cases, a summary of the conversation is also sent to the customer, along with the original transcript. In these cases, post-processing involves appending the transcript to the summary. It can also include adding lead-in sentences like "Please see the summary below."  
 
 ### Considerations
 
-It's important to fine-tune your base models with an industry-specific training dataset and change the size of available datasets. Fine-tuned models perform best when the training data includes at least 1,000 datapoints and the ground truth (human-generated summaries) used to train the models is of high quality. 
+It's important to fine-tune your base models with an industry-specific training dataset and change the size of available datasets. Fine-tuned models perform best when the training data includes at least 1,000 data points and the ground truth (human-generated summaries) used to train the models is of high quality. 
 
 The tradeoff is cost. The process of labeling and cleaning datasets can be expensive. To ensure high-quality training data, you might need to manually inspect ground truth summaries and rewrite low-quality summaries. Consider the following points about the summarization stage:
 
@@ -139,7 +141,7 @@ The dataset used in this scenario is a set of hypothetical conversations between
 
 |Prompt|	Completion|
 |-|-|
-|Customer: Question on XAIL<br>Agent: Hello! How can I help you today?<br>Customer: Hi, I have a question about the Accessibility insider ring<br>Agent: Okay. I can certainly assist you with that.<br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you may require that you join an Xbox Preview ring.<br>Customer: Okay. And I can just sign up for preview ring later yeah?<br>Agent: That is correct.<br>Customer: Sweet.|	Customer wants to know if they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences may require it.|
+|Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you may require that you join an Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.|	Customer wants to know if they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences may require it.|
 
 **Ideal output**. The goal is to create summaries that follow this format: "Customer said *x*. Agent responded *y*." Another goal is to capture salient features of the dialogue, like the customer complaint, suggested resolution, and follow-up actions.
 
@@ -155,7 +157,7 @@ Customer: I'm good.
 
 Agent. I see that you need help with the Xbox Game Pass.
 
-Customer: Yes. I wanted to know how long can I access the games after they leave game pass?
+Customer: Yes. I wanted to know how long can I access the games after they leave game pass.
 
 Agent: Once a game leaves the Xbox Game Pass catalog, you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft Store, play from a disc, or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox Game Pass catalog. And, as a member, you can purchase any game in the catalog for up to 20% off (or the best available discounted price) to continue playing a game once it leaves the catalog.
 
@@ -205,21 +207,21 @@ test[deployment + "_zeroshotroguescore"] = rouge_list
 
 #### Results and observations
 
-The zero-shot model's output is produced directly from the base model. In this case, both Curie and Davinci summarize the dialogue fairly well. The only noticeable difference is that Curie model provides a little less detail. Curie starts the summary with "customer asks the agent about the Xbox game pass." The corresponding sentence in Davinci is "customer asked how long they could access games after they leave the Xbox game pass catalog."
+The zero-shot model's output is produced directly from the base model. In this case, both Curie and Davinci summarize the dialogue fairly well. The only noticeable difference is that the Curie model provides a little less detail. Curie starts the summary with "customer asks the agent about the Xbox game pass." The corresponding sentence in Davinci is "customer asked how long they could access games after they leave the Xbox game pass catalog."
 
 **Dialogue**
 
-customer: hello. I have a question about the game pass. 
+Customer: Hello. I have a question about the game pass. 
 
-agent: hello. How are you doing?
+Agent: Hello. How are you doing?
 
-customer: I'm good. 
+Customer: I'm good. 
 
-agent: I see that you need help with the Xbox game pass. 
+Agent: I see that you need help with the Xbox Game Pass. 
 
-customer: Yes. I wanted to know how long can I access the games after they leave game pass 
+Customer: Yes. I wanted to know how long can I access the games after they leave game pass.
 
-agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
+Agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft Store, play from a disc, or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox Game Pass catalog. And, as a member, you can purchase any game in the catalog for up to 20% off or the best available discounted price to continue playing a game once it leaves the catalog.
 
 **Ground truth**
 
@@ -280,17 +282,17 @@ With the few-shot approach, the summaries continue to capture salient features o
 
 **Dialogue**
 
-customer: Hello. I have a question about the game pass.
+Customer: Hello. I have a question about the game pass.
 
-agent: Hello. How are you doing? 
+Agent: Hello. How are you doing? 
 
-customer: I'm good. 
+Customer: I'm good. 
 
-agent: I see that you need help with the xbox game pass. 
+Agent: I see that you need help with the Xbox Game Pass. 
 
-customer: yes. I wanted to know how long can I access the games after they leave game pass. 
+Customer: Yes. I wanted to know how long can I access the games after they leave game pass. 
 
-agent: once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
+Agent: Once a game leaves the Xbox Game Pass catalog, you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft Store, play from a disc, or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox Game Pass catalog. And, as a member, you can purchase any game in the catalog for up to 20% off or the best available discounted price to continue playing a game once it leaves the catalog.
 
 **Ground truth**
 
@@ -304,7 +306,7 @@ customer wanted to know how long they could access games after they leave game p
 
 customer has a question about the game pass. customer is good. agent needs help with the Xbox game pass. customer asks how long they can access the games after they leave the game pass catalog. Agent informs that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. customer is happy to hear this and thanks agent.
 
-#### Fine-tuning
+### Fine-tuning
 
 [Fine-tuning](#summarizer) is the process of tailoring models to get a specific desired outcome from your own datasets. 
 
@@ -322,21 +324,21 @@ Testing suggests that a fine-tuned Curie model leads to results that are  compar
 
 **Dialogue**
 
-customer: Hello. I have a question about the game pass. 
+Customer: Hello. I have a question about the game pass. 
 
-agent: Hello. How are you doing? 
+Agent: Hello. How are you doing? 
 
-customer: I'm good. 
+Customer: I'm good. 
 
-agent: I see that you need help with the xbox game pass. 
+Agent: I see that you need help with the Xbox Game Pass. 
 
-customer: Yes. I wanted to know how long can I access the games after they leave game pass.
+Customer: Yes. I wanted to know how long can I access the games after they leave game pass.
 
-agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
+Agent: Once a game leaves the Xbox Game Pass catalog, you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft Store, play from a disc, or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox Game Pass catalog. And, as a member, you can purchase any game in the catalog for up to 20% off or the best available discounted price to continue playing a game once it leaves the catalog.
 
 **Ground truth**
 
-Customer wants to know how long they can access games after they have left game pass. Agent informs customer that they would need to purchase the game to continue having access.
+Customer wants to know how long they can access games after they have left Game Pass. Agent informs customer that they would need to purchase the game to continue having access.
 
 **Curie result**
 
@@ -345,9 +347,9 @@ pass catalog they'll need to purchase a digital copy from the Xbox app for windo
 
 ## Conclusions
 
-Generally, the Davinci model requires fewer instructions to perform tasks than other models, like Curie. Davinci is better suited for summarizing text that requires an understanding of context or specific language. Because Davinci is the most complex model, its latency is higher than that of other models. Curie is faster than Davinci and is capable of summarizing conversations.
+Generally, the Davinci model requires fewer instructions to perform tasks than other models, such as Curie. Davinci is better suited for summarizing text that requires an understanding of context or specific language. Because Davinci is the most complex model, its latency is higher than that of other models. Curie is faster than Davinci and is capable of summarizing conversations.
 
-These tests suggest that you can generate better summaries when you provide more instruction to the model via few-shot or fine-tuning. Fine-tuned models are better at conforming to the structure and context learned from the training dataset. This capability is especially useful when summaries are domain specific (for example, generating summaries from a doctor's notes or online prescription customer support). If you use fine-tuning, you have more control over the types of summaries that you see.
+These tests suggest that you can generate better summaries when you provide more instruction to the model via few-shot or fine-tuning. Fine-tuned models are better at conforming to the structure and context learned from a training dataset. This capability is especially useful when summaries are domain specific (for example, generating summaries from a doctor's notes or online-prescription customer support). If you use fine-tuning, you have more control over the types of summaries that you see.
 
 For the sake of easy comparison, here's a summary of the results that are presented earlier:
 
@@ -373,8 +375,8 @@ customer has a question about the game pass. customer is good. agent needs help 
  
 **Curie fine-tuning result** 
 
-customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game. 
-pass catalog they’ll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
+customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game
+pass catalog they'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
 
 ### Evaluating summarization
 
@@ -410,7 +412,7 @@ Here's an example:
   print(score)
 ```
 
-**Similarity matrix**. A similarity matrix is a representation of the similarities between different entities in summarization evaluation. You can use it to compare different summaries of the same text and measure their similarity. It's represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. You can measure the similarity by using a variety of methods, like cosine similarity, Jaccard similarity, and edit distance. You then use the matrix to compare the summaries and determine which one is the most accurate representation of the original text.
+**Similarity matrix**. A *similarity matrix* is a representation of the similarities between different entities in summarization evaluation. You can use it to compare different summaries of the same text and measure their similarity. It's represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. You can measure the similarity by using a variety of methods, like cosine similarity, Jaccard similarity, and edit distance. You then use the matrix to compare the summaries and determine which one is the most accurate representation of the original text.
 
 Here's a sample command that gets the similarity matrix of a BERTScore comparison of two similar sentences:
 
@@ -430,7 +432,7 @@ For more information, see [SummEval: Reevaluating Summarization Evaluation](http
 
 ### Responsible use
 
-GPT can produce excellent results, but you need to check the output for social, ethical, and legal biases and harmful results. When you fine- tune models, you need to remove any data points that might be harmful for the model to learn. You can use red teaming to identify any harmful outputs from the model. You can implement this process manually and support it by using semi-automated methods. You can generate test cases by using language models and then use a classifier to detect harmful behavior in the test cases. Finally, you should perform a manual check of generated summaries to ensure that they're ready to be used.
+GPT can produce excellent results, but you need to check the output for social, ethical, and legal biases and harmful results. When you fine-tune models, you need to remove any data points that might be harmful for the model to learn. You can use red teaming to identify any harmful outputs from the model. You can implement this process manually and support it by using semi-automated methods. You can generate test cases by using language models and then use a classifier to detect harmful behavior in the test cases. Finally, you should perform a manual check of generated summaries to ensure that they're ready to be used.
 
 For more information, see [Red Teaming Language Models with Language Models](https://arxiv.org/pdf/2202.03286.pdf).
 
