@@ -1,34 +1,34 @@
-This article provides recommendations for building an app deployment pipeline for containerized apps running on Azure Kubernetes Service hybrid deployment options on Azure Stack HCI/Windows Server. Specifically, the guidance is for deployments using Azure Arc and GitOps.
+This article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service (AKS) hybrid clusters that are running on Azure Stack HCI or Windows Server. Specifically, the guidance is for deployments that use Azure Arc and GitOps.
 
-Running containers at scale requires an orchestrator to automate scheduling, deployment, networking, scaling, health monitoring, and container management. Kubernetes is the de facto standard orchestrator for new containerized deployments. As the number of Kubernetes cluster and environments grow, managing these individually can become a challenge. Using Azure Arc-enabled services such as Arc enabled Kubernetes, GitOps, Monitor, Policy reduces the administrative burden and helps address this challenge.
+Running containers at scale requires an orchestrator to automate scheduling, deployment, networking, scaling, health monitoring, and container management. Kubernetes is a commonly used orchestrator for new containerized deployments. As the number of Kubernetes clusters and environments grows, managing them individually can be challenging. Using Azure Arc-enabled services like Azure Arc-enabled Kubernetes, GitOps, Azure Monitor, and Azure Policy reduces the administrative burden and helps address this challenge.
 
-## Architecture 
+## Architecture
 
-image
- 
-link
+:::image type="content" source="media/aks-stack-hci.png" alt-text="Diagram that shows an architecture for AKS hybrid clusters that are running on Azure Stack HCI or Windows Server." lightbox="media/aks-stack-hci.png" border="false":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/aks-on-hci-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
-The architecture illustrates an implementation that deploys containerized applications on Azure Kubernetes Service (AKS) hybrid clusters running on Azure Stack HCI or Windows Server infrastructure. It uses GitOps to manage the infrastructure-as-code (IaC).
+The architecture illustrates an implementation that deploys containerized applications on  AKS hybrid clusters that are running on Azure Stack HCI or Windows Server. It uses GitOps to manage the infrastructure as code (IaC).
 
-1.	An operator sets up an on-premises infrastructure using Azure Stack HCI or Windows Server hardware capable of hosting an AKS hybrid cluster.
-2.	On-premises, the administrator deploys an AKS hybrid cluster on the Azure Stack HCI or Windows Server infrastructure and connects the AKS hybrid cluster to Azure using Azure Arc. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS hybrid cluster.
-3.	GitOps configurations facilitate infrastructure as code. These GitOps configurations represent the desired state of the AKS hybrid cluster and use the information provided by the local administration experience. The local administration experience refers to the management tools, interfaces, and practices that are provided by the AKS hybrid cluster deployed on Azure Stack HCI or Windows Server infrastructure.
-4.	The administrator pushes GitOps configurations to a Git repository. You can also use Helm, or Kustomize    repositories. The Flux components in the AKS hybrid cluster monitor these repositories for changes, detecting and applying updates as needed.
-5.	The Flux extension in the AKS hybrid cluster receives a notification when changes to the desired configuration happen in the repo(s), from the GitOps flow and automatically triggers deployment of the desired  configuration using Helm charts and Kustomize.
-6.	Application changes in the form of new or updated configuration or code    are pushed to the designated repositories, including corresponding container image updates. These container  image updates are pushed to private or public container registries.
+1.	An operator sets up an on-premises infrastructure on Azure Stack HCI or Windows Server hardware that's capable of hosting an AKS hybrid cluster.
+2.	On-premises, an administrator deploys an AKS hybrid cluster on the Azure Stack HCI or Windows Server infrastructure and connects the AKS hybrid cluster to Azure by using Azure Arc. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS hybrid cluster.
+3.	GitOps configurations facilitate infrastructure as code. These GitOps configurations represent the desired state of the AKS hybrid cluster and use the information provided by the local administration. The *local administration* refers to the management tools, interfaces, and practices that are provided by the AKS hybrid cluster that's deployed on Azure Stack HCI or Windows Server.
+4.	The administrator pushes GitOps configurations to a Git repository. You can also use Helm or Kustomize repositories. The Flux components in the AKS hybrid cluster monitor these repositories for changes, detecting and applying updates as needed.
+5.	The Flux extension in the AKS hybrid cluster receives a notification from the GitOps flow when changes to the desired configuration happen in the repos. It automatically triggers deployment of the desired  configuration by using Helm charts or Kustomize.
+6.	Application changes in the form of new or updated configuration or code are pushed to the designated repositories, including corresponding container image updates. These container image updates are pushed to private or public container registries.
 7.	The Flux operator in the AKS hybrid cluster detects changes in the repositories and initiates their deployment to the cluster.
-8.	Changes are implemented in a rolling fashion on the cluster, ensuring minimal downtime and preserving the desired state of the cluster.
+8.	Changes are implemented in a rolling fashion on the cluster to ensure minimal downtime and preserve the desired state of the cluster.
 
 ### Components
 
-- Azure Stack HCI is a hyper-converged infrastructure (HCI) solution from Microsoft that enables customers to run virtualized workloads on-premises, using a combination of software-defined compute, storage, and networking technologies. It is built on top of Windows Server and integrates with Azure services, providing a hybrid cloud experience for customers.
-- AKS on Azure Stack HCI enables developers and admins deploy and manage containerized apps with Azure Kubernetes Service (AKS) on Azure Stack HCI. Customers can advantage of consistency with AKS on Azure, extend to Azure with hybrid capabilities, run apps with confidence with built-in security, and use familiar tools to modernize Windows apps. 
-- Azure Arc is a hybrid cloud management solution from Microsoft that allows customers to manage servers, Kubernetes clusters, and applications across on-premises, multi-cloud, and edge environments. It provides a unified management experience by allowing users to govern resources across different environments using Azure management services such as Azure Policy, Azure Security Center, and Azure Monitor.
-- Git/Helm/Bucket repositories (public and private) are for hosting GitOps configurations, including Azure DevOps and GitHub repos.
-- Container registry (public and private) hosts container images, including Azure Container Registry and Docker Hub.
-- [Azure Pipelines is a continuous integration (CI) and continuous deployment (CD) service that automates updates to repositories and registries.    
+- [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/) is a hyperconverged infrastructure (HCI) solution that you can use to run virtualized workloads on-premises. It uses a combination of software-defined compute, storage, and networking technologies. It's built on top of Windows Server and integrates with Azure services to provide a hybrid cloud experience.
+- [AKS on Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/aks-hci/) enables developers and admins deploy and manage containerized apps with AKS on Azure Stack HCI. 
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a hybrid cloud-management solution that you can use to manage servers, Kubernetes clusters, and applications across on-premises, multi-cloud, and edge environments. It provides a unified management experience by enabling you to govern resources across different environments by using Azure management services like Azure Policy, Azure Security Center, and Azure Monitor.
+- Git, Helm, and Bitbucket repositories (public and private) are for hosting GitOps configurations, including Azure DevOps and GitHub repos.
+- Container registries (public and private), including Azure Container Registry and Docker Hub, host container images.
+- [Azure Pipelines]() is a continuous integration (CI) and continuous deployment (CD) service that automates updates to repositories and registries.
 - Flux is an open source GitOps deployment tool that Arc¬¬–enabled Kubernetes clusters can use. You can use the Azure Arc connection to implement the cluster components responsible for tracking changes to the Git, Helm, or Kustomize repositories you designate and applying them to the local    cluster. The Flux operator periodically (or based on a trigger) reviews the existing cluster configuration to ensure that it matches the one residing in the Git repository. In case differences are detected, Flux remediates them by applying or (in case of a configuration drift) reapplying the desired configuration.  
 
 ## Considerations
@@ -40,7 +40,8 @@ Considering the inherent integration of on-premises AKS deployments with Azure-b
 **Use high-availability features in Kubernetes.** To ensure high reliability in GitOps-based solutions, you should use the inherent high-availability features of the Kubernetes platform.
 
 **Use Flux v2.** You should use Flux v2 to further increase application availability in deployments that span multiple locations or clusters.
-Use automated deployments. Reduce the possibility of human error by making use of automated deployments.
+
+**Use automated deployments.** Reduce the possibility of human error by making use of automated deployments.
 
 **Use CI/CD pipeline.** You should integrate a CI/CD pipeline into your architecture to improve the effectiveness of automated testing.
 
