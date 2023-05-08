@@ -2684,17 +2684,17 @@
     },
     {
       "source_path": "docs/solution-ideas/articles/cicd-for-azure-vms.yml",
-      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-iaas-vms-architecture.md",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-iaas-vms-architecture",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps-content.yml",
-      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-azure-web-apps-architecture.md",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-azure-web-apps-architecture",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/solution-ideas/articles/dev-test-iaas.yml",
-      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-devtest-iaas-architecture.md",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-devtest-iaas-architecture",
       "redirect_document_id": false
     }      
   ]
