@@ -6851,6 +6851,8 @@ items:
         - name: Interconnect with China
           href: /azure/virtual-wan/interconnect-china
           maintainContext: true
+        - name: Massive-scale VWAN architecture design
+          href: /example-scenario/networking/massive-scale-azure-architecture-content
         - name: Migrate to Azure Virtual WAN
           href: /azure/virtual-wan/migrate-from-hub-spoke-topology
           maintainContext: true

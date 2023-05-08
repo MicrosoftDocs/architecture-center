@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Massive scale VWAN Network architecture design
+  title: Massive-scale VWAN architecture design
   titleSuffix: Azure Architecture Center
   description: Learn about the architecture for a massive scale Azure Virtual WAN deployment that has multiple hubs per region.
   author: ehaslett
@@ -18,6 +18,6 @@ products:
   - azure-expressroute
 name: Massive scale VWAN Network architecture design
 summary: Learn about the architecture for a massive scale Azure Virtual WAN deployment that has multiple hubs per region.
-thumbnailUrl: /azure/architecture/browse/thumbs/massive-scale-azure-architecture-design.png
+thumbnailUrl: /azure/architecture/browse/thumbs/massive-scale-architecture-design.png
 content: |
   [!include[](massive-scale-azure-architecture-content.md)]

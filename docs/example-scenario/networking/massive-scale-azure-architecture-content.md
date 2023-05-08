@@ -1,8 +1,8 @@
-This example workload shows an Azure Virtual WAN deployment with multiple hubs per region. To improve availability and scalability, each hub peers to geographically dispersed, redundant ExpressRoute circuits. This architecture is for exceptionally large and critical workloads. It supports business units and applications that reside on spoke virtual networks. The spoke virtual networks often have security requirements for internet-to-spoke or spoke-to-spoke connectivity.
+This example workload shows an Azure Virtual WAN deployment with multiple hubs per region. To improve availability and scalability, each hub peers to geographically dispersed, redundant Azure ExpressRoute circuits. This architecture is for exceptionally large and critical workloads. It supports business units and applications that reside on spoke virtual networks. The spoke virtual networks often have security requirements for internet-to-spoke or spoke-to-spoke connectivity.
 
 ## Architecture
 
-:::image type="content" source="./media/massive-scale-architecture.png" alt-text="Diagram that shows the massive scale Azure Virtual WAN deployment." lightbox="./media/massive-scale-architecture.png":::
+:::image type="content" source="./media/massive-scale-architecture.png" alt-text="Diagram that shows a massive-scale Azure Virtual WAN deployment." lightbox="./media/massive-scale-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/massive-scale-architecture.vsdx) of this architecture.*
 
@@ -10,18 +10,18 @@ This example workload shows an Azure Virtual WAN deployment with multiple hubs p
 
 The following workflow corresponds to the previous diagram:
 
-1. 
+1. Traffic from the spoke virtual networks to the internet routes through the network virtual appliance (NVA) firewalls in the security virtual networks that are attached to the same hub as the spoke.
 
-1. Traffic from the spoke virtual networks to the internet routes through the NVA firewalls in the security virtual networks that are attached to the same hub as the spoke. The NVAs that are connected to the same hub as the spoke source or destination inspect all traffic between the spoke virtual networks and on-premises. This routing optimizes performance and retains secure traffic between on-premises and Azure.
+1. The NVAs that are connected to the same hub as the spoke source or destination inspect all traffic between the spoke virtual networks and on-premises. This routing optimizes performance and retains secure traffic between on-premises and Azure.
 
-1. Traffic between spokes that reside on different hubs should follow the path *spoke* > *hub* > *hub* > *spoke*. If spoke owners want more inspection, they must implement it within their spokes. This traffic shouldn't ride the Azure ExpressRoute, and security virtual network NVAs shouldn't inspect it.
+1. Traffic between spokes that reside on different hubs follow the path *spoke* > *hub* > *hub* > *spoke*. If spoke owners want more inspection, they must implement it within their spokes. This traffic doesn't traverse ExpressRoute connections, and security virtual network NVAs don't inspect it.
 
-1. Spoke-to-spoke traffic on the same hub should follow the path *spoke* > *hub* > *spoke*. Security virtual network NVAs shouldn't inspect this traffic.
+1. Spoke-to-spoke traffic on the same hub follows the path *spoke* > *hub* > *spoke*. Security virtual network NVAs don't inspect this traffic.
 
 ### Components
 
-- [Azure ExpressRoute](https://azure.microsoft.com/products/expressroute) The architecture demonstrates the use of an Azure ExpressRoute circuit, which provides a private connection between your on-premises environment and Azure resources.
-- [Azure Virtual WAN Standard](/azure/virtual-wan/virtual-wan-about) This architecture uses Azure Virtual WAN for transit networking and routing. It provides connection between your on-premises, via ExpressRoute, and your Azure resources.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute) provides a private connection between your on-premises environment and Azure resources.
+- [Virtual WAN Standard](/azure/virtual-wan/virtual-wan-about) This architecture uses Virtual WAN for transit networking and routing. It provides connection between your on-premises, via ExpressRoute, and your Azure resources.
   - **Custom route tables** Custom route tables optimize routing in the solution, so network-to-network traffic can bypass the firewalls. Network-to-on-premises traffic remains inspected.
   - **Labels** Labels in this solution eliminate the need to extensively propagate route individual networks to all the route tables, which simplifies the routing.
 - [NVAs](https://azure.microsoft.com/solutions/network-appliances) This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
