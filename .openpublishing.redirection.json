@@ -2688,7 +2688,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps-content.yml",
+      "source_path": "docs/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml",
       "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-azure-web-apps-architecture",
       "redirect_document_id": false
     },
