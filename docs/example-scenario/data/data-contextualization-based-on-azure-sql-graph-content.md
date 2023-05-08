@@ -160,7 +160,7 @@ WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
 
 As the architecture diagram shows, the system should only contextualize the new incoming data, not the whole data set in the delta table. Therefore, an incremental data loading solution is needed.
 
-In delta lake, [Change Data Feed](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) is a feature to simplify the architecture for implementing CDC. Once CDF is enabled, as shown in the diagram, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row. So that we can evaluate the differences in the changes if needed. There is also a delete Change Type that is returned for deleted rows. Then to query the change data, we use the table_changes operation.
+In delta lake, [Change Data Feed](/azure/databricks/delta/delta-change-data-feed) (CDF) is a feature to simplify the architecture for implementing change data capture (CDC). Once CDF is enabled, as shown in the diagram, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row. So that we can evaluate the differences in the changes if needed. There is also a delete change type that is returned for deleted rows. Then to query the change data, you use the table_changes operation.
 
 ![cdf](media/dc-cdf.jpeg)
 
@@ -236,6 +236,7 @@ Securing Azure Databricks involves implementing a comprehensive security strateg
 
 ### Cost optimization
 
+
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 In order to optimize the cost for using Azure SQL Database, you should consider the following items:
@@ -247,6 +248,7 @@ In order to optimize the cost for using Azure SQL Database, you should consider 
 * Use data compression.
 
 To enhance cost efficiency while utilizing Azure Databricks, the subsequent factors could be taken into consideration:
+
 
 * Choose the right instance type that meets your workload requirements while minimizing costs.
 * Use autoscaling to scale up or down the number of nodes based on the workload demand.
@@ -260,6 +262,7 @@ For both Azure SQL Database and Azure Databricks, you can also use Azure Advisor
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
 Here are some tips to improve the performance efficiency of using an Azure SQL Database:
+
 
 * Choose the right service tier.
 * Optimize database design, including creating appropriate indexes, partitioning large tables, and using appropriate data types.
