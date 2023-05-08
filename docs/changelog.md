@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 05/01/2023
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -22,6 +22,17 @@ The Azure Architecture Center (AAC) helps you design, build, and operate solutio
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWxOYN]
 
 The following new and updated articles have recently been published in the Azure Architecture Center.
+
+## May 2023
+
+### New articles
+
+- [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./guide/data/teradata-vantage-data-factory.yml)
+- [Implement logging and monitoring for Azure OpenAI large language models](./example-scenario/ai/log-monitor-azure-openai.yml)
+
+### Updated articles
+
+- [AKS triage - cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#7761b2771](https://github.com/MicrosoftDocs/architecture-center/commit/7761b2771))
 
 ## April 2023
 
