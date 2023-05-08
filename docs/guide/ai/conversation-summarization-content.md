@@ -445,6 +445,8 @@ Principal author:
 Other contributors:
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 
+ *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+
 ## Next steps
 
 - [Jupyter Notebook with technical details and execution of the use case described in this article](https://github.com/Azure/openai-solutions/tree/conversational-summarization-v0/Solution_Notebooks/Conversational%20Summarization)
