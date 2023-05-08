@@ -2,7 +2,7 @@ This example workload shows an Azure Virtual WAN deployment with multiple hubs p
 
 ## Architecture
 
-:::image type="content" source="./media/massive-scale-architecture.png" alt-text="Diagram that shows the massive scale Azure Virtual WAN deployment.":::
+:::image type="content" source="./media/massive-scale-architecture.png" alt-text="Diagram that shows the massive scale Azure Virtual WAN deployment." lightbox="./media/massive-scale-architecture.png":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/massive-scale-architecture.vsdx) of this architecture.*
 
@@ -29,9 +29,7 @@ The following workflow corresponds to the previous diagram:
 
 ### Alternatives
 
-An alternative is a hub and spoke virtual network model with Azure route servers. This alternative can enable greater performance than the 50-Gbps limit per hub. This solution can have greater performance limits but more complexity.
-
-For more information, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+An alternative is a hub and spoke virtual network model with Azure route servers. This alternative can enable greater performance than the 50-Gbps limit per hub. This solution can have greater performance limits but more complexity. For more information, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
 ## Scenario details
 
@@ -164,18 +162,18 @@ This design is applicable to any business of sufficient size and footprint in Az
 
 **ExpressRoute recommendations:**
 
-- **ExpressRoute Direct** Customers of this scale often have previously established connectivity points and require high bandwidth for their circuits. If a customer migrates from a large-scale Multiprotocol Label Switching (MPLS), such as NetBond, and requires +40Gbps circuit connectivity, they can take advantage of their network infrastructure and establish ExpressRoute Direct. ExpressRoute Direct supports MACsec encryption for high-security workloads.
-- **ExpressRoute Local** For cost optimization, use ExpressRoute Local to peer the primary ExpressRoute circuit to the regional hub of choice. The backup ExpressRoute circuit should use ExpressRoute Standard.
+- **ExpressRoute Direct**: Customers of this scale often have previously established connectivity points and require high bandwidth for their circuits. If a customer migrates from a large-scale Multiprotocol Label Switching (MPLS), such as NetBond, and requires +40Gbps circuit connectivity, they can take advantage of their network infrastructure and establish ExpressRoute Direct. ExpressRoute Direct supports MACsec encryption for high-security workloads.
+- **ExpressRoute Local**: For cost optimization, use ExpressRoute Local to peer the primary ExpressRoute circuit to the regional hub of choice. The backup ExpressRoute circuit should use ExpressRoute Standard.
 
 **Spoke recommendations:**
 
-- **Internet egress** Egress internet traffic should route through the local NVA firewall that's connected to the same hub as the source virtual network for that traffic.
-- **Internet ingress inspection** Customers can inspect ingress internet connectivity for the spoke workloads. They can use Azure Application Gateway or Azure Front Door for WAF inspection of traffic into the spokes. Source network address translation (SNAT) is required to avoid routing conflicts with the 0.0.0.0/0 route that's advertised by the Virtual WAN hub.
-- **NSGs** Use NSGs to customize the security of the application that resides in your spoke virtual network.
+- **Internet egress**: Egress internet traffic should route through the local NVA firewall that's connected to the same hub as the source virtual network for that traffic.
+- **Internet ingress inspection**: Customers can inspect ingress internet connectivity for the spoke workloads. They can use Azure Application Gateway or Azure Front Door for WAF inspection of traffic into the spokes. Source network address translation (SNAT) is required to avoid routing conflicts with the 0.0.0.0/0 route that's advertised by the Virtual WAN hub.
+- **NSGs**: Use NSGs to customize the security of the application that resides in your spoke virtual network.
 
 **NVA recommendations:**
 
-- **Redundancy** Follow a best practice architecture for NVA deployment redundancy. Use multiple virtual machines or scale sets and load balancers to front end and backend the solution.
+- **Redundancy**: Follow a best practice architecture for NVA deployment redundancy. Use multiple virtual machines or scale sets and load balancers to front end and backend the solution.
 
 **Virtual WAN hub routing recommendations:**
 
