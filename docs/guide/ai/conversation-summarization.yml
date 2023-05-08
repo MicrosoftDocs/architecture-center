@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Conversation summarization
+  description: Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. 
+  author: martinekuan
+  ms.author: mejani
+  ms.date: 05/10/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - ai-machine-learning
+products:
+  - azure-cognitive-services
+name: Conversation summarization
+summary: Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. 
+thumbnailUrl: /azure/architecture/browse/thumbs/conversation-summarization.png
+content: |
+  [!include[](conversation-summarization-content.md)]

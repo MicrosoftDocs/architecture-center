@@ -1,27 +1,10 @@
----
-title: Conversation summarization
-description: Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. 
-author: martinekuan
-ms.author: mejani
-ms.date: 05/10/2023
-ms.topic: conceptual
-ms.service: architecture-center
-ms.subservice: azure-guide
-products:
-  - azure-cognitive-services
-categories:
-  - ai-machine-learning
----
-
-# Conversation summarization
-
 Most businesses provide customer service support to help customers with product queries, troubleshooting, and maintaining or upgrading features or the product itself. To provide a satisfactory resolution, customer support specialists must respond quickly with accurate information. OpenAI can help organizations with customer support in a variety of ways.
 
-This guide describes how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. It contains an end-to-end sample architecture that illustrates the key components involved in getting a summary of a text input. The generation of the text input is outside the scope of this guide. The focus of this guide is to describe the process of implementating the summarization of a set of sample agent-customer conversations and analyze the outcomes of various approaches to summarization.
+This guide describes how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. It contains an end-to-end sample architecture that illustrates the key components involved in getting a summary of a text input. The generation of the text input is outside the scope of this guide. The focus of this guide is to describe the process of implementing the summarization of a set of sample agent-customer conversations and analyze the outcomes of various approaches to summarization.
 
 ## Conversation scenarios
 
-- **Self-service chatbots** (fully automated). In this scenario, customers can interact with a chatbot that's powered by GPT-3 and trained on industry-specific data. These chatbots can understand customer questions and answer appropriately based on responses learnt from the knowledgebase.  
+- **Self-service chatbots** (fully automated). In this scenario, customers can interact with a chatbot that's powered by GPT-3 and trained on industry-specific data. These chatbots can understand customer questions and answer appropriately based on responses learned from a knowledge base.  
 - **Chatbot with agent intervention** (semi-automated). Questions posed by customers are sometimes complex and necessitate human intervention. In such cases, GPT-3 can provide a summary of the customer-chatbot conversation and help the agent with quick searches for additional information from a large knowledge base.
 - **Summarizing transcripts** (fully or semi-automated). In most customer support centers, agents are required to summarize conversations for record keeping, future follow-ups, training, and other internal processes. GPT-3 can provide automated or semi-automated summaries that capture salient details of conversations for further use. 
 
@@ -29,7 +12,7 @@ This guide focuses on the process for summarizing transcripts by using Azure Ope
 
 On average, it takes an agent 5 to 6 minutes to summarize a single agent-customer conversation. Given the high volumes of requests service teams handle on any given day, this additional task can overburden the team. OpenAI is a good way to help agents with summarization-related activities. It can improve the efficiency of the customer support process and provide better precision. Conversation summarization can be applied to any customer support business that involves agent-customer interaction. 
 
-For a demonstration of how to use the Azure OpenAI GPT-3 model for conversation summarization, see this [Jupyter Notebook](). You can use the notebook to experiment with summarization on your datasets.
+For a demonstration of how to use the Azure OpenAI GPT-3 model for conversation summarization, see this [Jupyter Notebook](https://github.com/Azure/openai-solutions/tree/conversational-summarization-v0/Solution_Notebooks/Conversational%20Summarization). You can use the notebook to experiment with summarization on your datasets.
 
 ### Conversation summarization service
 
@@ -47,7 +30,7 @@ A typical architecture for a conversation summarizer has three main stages: pre-
 
 Here's a sample architecture: 
 
-:::image type="content" source="media/conversation-summarization.png" alt-text="Diagram that shows an architecture for conversation summarization." lightbox="media/conversation-summarization.png" border="false":::
+:::image type="content" source="media/conversation-summarization-overview.png" alt-text="Diagram that shows an architecture for conversation summarization." lightbox="media/conversation-summarization-overview.png" border="false":::
 
 *Download a [PowerPoint file](https://arch-center.azureedge.net/conversation-summarization-overview.pptx) of this architecture.*
 
@@ -55,7 +38,7 @@ Here's a sample architecture:
 
 1.	Gather input data: Relevant input data is fed into the pipeline. If the source is an audio file, you need to convert it to text by using a TTS service like [Azure text-to-speech](/azure/cognitive-services/speech-service/text-to-speech). 
 2.	Pre-process the data: Confidential information and any unimportant conversation is removed from the data. 
-3.	Feed the data into the summarizer model: The data is passed in the prompt via Azure OpenAI APIs. In-context learning models include [zero-shot, few-shot, or a custom model](/azure/cognitive-services/openai/overview#in-context-learning).
+3.	Feed the data into the summarizer: The data is passed in the prompt via Azure OpenAI APIs. In-context learning models include [zero-shot, few-shot, or a custom model](/azure/cognitive-services/openai/overview#in-context-learning).
 4.	Generate a summary: The model generates a summary of the conversations.
 5.	Post-process the data: A profanity filter and various validation checks are applied to the summary. Sensitive or confidential data that was removed during the pre-process step is added back to the summary. 
 6.	Evaluate the results: Results are reviewed and evaluated. This step can help you identify areas where the model needs to be improved and find errors that might have been missed.
@@ -66,9 +49,9 @@ The following sections provide more details about the three main stages.
 
 The goal of pre-processing is to ensure that the data provided to the summarizer service is relevant and doesn't include sensitive or confidential information.
 
-Here are some pre-processing steps that will help condition your raw data. You might need to apply one or many steps, depending on the use case.
+Here are some pre-processing steps that can help condition your raw data. You might need to apply one or many steps, depending on the use case.
 
--	**Remove personally identifiable information (PII)**. You can use the [Conversational PII API](/azure/cognitive-services/language-service/personally-identifiable-information/overview) (preview) to remove PII from transcribed or written text. This example shows the output after the API has remvoed PII:
+-	**Remove personally identifiable information (PII)**. You can use the [Conversational PII API](/azure/cognitive-services/language-service/personally-identifiable-information/overview) (preview) to remove PII from transcribed or written text. This example shows the output after the API has removed PII:
 
     ```
     Document text: Parker Doe has repaid all of their loans as of
@@ -93,15 +76,20 @@ Here are some pre-processing steps that will help condition your raw data. You m
 
 OpenAI's text-completion API endpoint is called the *completions endpoint*. To start the text-completion process, it requires a prompt. *Prompt engineering* is a process used in large language models. The first part of the prompt includes natural language instructions and/or examples of the specific task requested (in this scenario, summarization). Prompts allow developers to provide some context to the API, which can help it generate more relevant and accurate text completions. The model then completes the task by predicting the most probable next text. This technique is known as *in-context* learning.
 
+> [!Note]
+> *Extractive summarization* attempts to identify and extract salient information from a text and group it to produce a concise summary without understanding the meaning or context. 
+>
+> *Abstractive summarization* rewrites a text by first creating an internal semantic representation and then creating a summary by using natural language processing. This process involves paraphrasing.
+
 There are three main approaches for training models for in-context learning: zero-shot, few-shot and fine-tuning. These approaches vary based on the amount of task-specific data that's provided to the model.
 
 - **Zero-shot**: In this approach, no examples are provided to the model. The task request is the only input. In zero-shot learning, the model relies on data that GPT-3 is already trained on (almost all available data from the internet). It attempts to relate the given task to existing categories that it has already learned about and responds accordingly.
-- **Few-shot**: When you use this approach, you include several examples in the prompt that demonstrate the expected answer format and the context. The model is provided with a very small amount of training data to guide its predictions. Training with a small set of examples enables the model to generalize and understand related but previously unseen tasks. Creating these few-shot examples can be challenging because they need to clarify the task you want the model to perform. One commonly observed problem is that models, especially small ones, are sensitive to the writing style that's used in the training examples. 
+- **Few-shot**: When you use this approach, you include a small number of examples in the prompt that demonstrate the expected answer format and the context. The model is provided with a very small amount of training data, typically just a few examples, to guide its predictions. Training with a small set of examples enables the model to generalize and understand related but previously unseen tasks. Creating these few-shot examples can be challenging because they need to clarify the task you want the model to perform. One commonly observed problem is that models, especially small ones, are sensitive to the writing style that's used in the training examples. 
 
-   With this approach, you can't update the weights of the pre-trained model. 
+   With this approach, you can't update the weights of the pretrained model. 
 
-   The main advantages of this appraoch are a major reduction in the need for task-specific data and reduced potential to learn an excessively narrow distribution from a large but narrow fine-tuning dataset. For more information, see [Language Models are few-shot learners](https://arxiv.org/pdf/2005.14165.pdf).
-- **Fine-tuning**: Fine-tuning is the process of tailoring models to get a specific desired outcome from your own datasets. It involves re-training models on new data. For more information, see [Learn how to customize a model for your application](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio)
+   The main advantages of this approach are a major reduction in the need for task-specific data and reduced potential to learn an excessively narrow distribution from a large but narrow fine-tuning dataset. For more information, see [Language Models are few-shot learners](https://arxiv.org/pdf/2005.14165.pdf).
+- **Fine-tuning**: Fine-tuning is the process of tailoring models to get a specific desired outcome from your own datasets. It involves retraining models on new data. For more information, see [Learn how to customize a model for your application](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio).
   
   You can use this customization step to improve your process by:
 
@@ -113,7 +101,7 @@ There are three main approaches for training models for in-context learning: zer
 
   Creating a dataset for model customization is different from designing prompts for use with the other models. Prompts for completion calls often use either detailed instructions or few-shot learning techniques and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input example and its desired output. You don't need to provide detailed instructions or examples in the prompt.
 
-  As you increase the number of training examples, your results will improve. We recommend including at least a 500 examples. It's typical to use between thousands and hundreds of thousands of labelled examples. Testing indicates that each doubling of the dataset size leads to a linear increase in model quality.
+  As you increase the number of training examples, your results improve. We recommend including at least a 500 examples. It's typical to use between thousands and hundreds of thousands of labeled examples. Testing indicates that each doubling of the dataset size leads to a linear increase in model quality.
 
 This guide demonstrates the curie-instruct/text-curie-001 and davinci-instruct/text-davinci-001 engines. These engines are frequently updated. The version you use might be different.
 
@@ -123,7 +111,7 @@ We recommend that you check the validity of the results that you get from GPT-3.
 
 - Verify that no significant points are missed.
 - Check for factual inaccuracies.
-- Check for any bias introducted by the training data used on the model.
+- Check for any bias introduced by the training data used on the model.
 - Verify that the model doesn't change text by adding new ideas or points. This problem is known as *hallucination*.
 - Check for grammatical and spelling errors.
 - Use a content profanity filter like [Content Moderator](https://azure.microsoft.com/products/cognitive-services/content-moderator/) to ensure that no inappropriate or irrelevant content is included. 
@@ -147,12 +135,7 @@ The tradeoff is cost. The process of labeling and cleaning datasets can be expen
 
 This scenario demonstrates how the Azure OpenAI summarization feature can help customer service agents with summarization tasks. It tests the zero-shot, few-shot, and fine-tuning approaches and compares the results against human-generated summaries.
  
-The dataset used in this scenario is a set of hypothetical conversations between customers and agents in the Xbox customer support center about various Xbox products and services. The hypothetical chat is labelled with *Prompt*. The human-written abstractive summary is labeled with *Completion*.
-
-> [!Note]
-> *Extractive summarization* attempts to identify and extract salient information from a text and group it to produce a concise summary without understanding the meaning or context. 
->
-> *Abstractive summarization* rewrites a text by first creating an internal semantic representation and then creating a summary by using natural language processing. This process involves paraphrasing.
+The dataset used in this scenario is a set of hypothetical conversations between customers and agents in the Xbox customer support center about various Xbox products and services. The hypothetical chat is labeled with *Prompt*. The human-written abstractive summary is labeled with *Completion*.
 
 |Prompt|	Completion|
 |-|-|
@@ -180,11 +163,11 @@ Customer: Got it, thanks
 
 **Ground truth summary**
 
-Customer wants to know how long they can access games after they have left game pass. Agent informs customer that they would need to purchase the game to continue having access.
+Customer wants to know how long they can access games after they have left Game Pass. Agent informs customer that they would need to purchase the game to continue having access.
 
 ### Zero-shot
 
-The [zero-shot](#summarizer) approach is useful when you don't have ample labelled training data. In this case, there aren't enough ground truth summaries. It's important to design prompts carefully to extract relevant information. The following format is used to extract general summaries from customer-agent chats:
+The [zero-shot](#summarizer) approach is useful when you don't have ample labeled training data. In this case, there aren't enough ground truth summaries. It's important to design prompts carefully to extract relevant information. The following format is used to extract general summaries from customer-agent chats:
 
 `prefix = "Please provide a summary of the conversation below: "`
 
@@ -222,25 +205,25 @@ test[deployment + "_zeroshotroguescore"] = rouge_list
 
 #### Results and observations
 
-The zero-shot model's output is produced directly from the base model. In this case, both Curie and Davinci summarize the dialogue fairly well. The only noticeable difference is that Curie model provides a little less detail. Curie starts the summary with "customer asks the agent about the xbox game pass." The corresponding sentence in Davinci is "customer asked how long they could access games after they leave the xbox game pass catalog."
+The zero-shot model's output is produced directly from the base model. In this case, both Curie and Davinci summarize the dialogue fairly well. The only noticeable difference is that Curie model provides a little less detail. Curie starts the summary with "customer asks the agent about the Xbox game pass." The corresponding sentence in Davinci is "customer asked how long they could access games after they leave the Xbox game pass catalog."
 
 **Dialogue**
 
-Customer: Hello. I have a question about the game pass. 
+customer: hello. I have a question about the game pass. 
 
-Agent: Hello. How are you doing?
+agent: hello. How are you doing?
 
-Customer: I'm good. 
+customer: I'm good. 
 
-Agent: I see that you need help with the Xbox game pass. 
+agent: I see that you need help with the Xbox game pass. 
 
-Customer: Yes. I wanted to know how long can I access the games after they leave game pass 
+customer: Yes. I wanted to know how long can I access the games after they leave game pass 
 
-Agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
+agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
 
 **Ground truth**
 
-Customer wants to know how long they can access games after they have left game pass. Agent informs customer that they would need to purchase the game to continue having access.
+Customer wants to know how long they can access games after they have left Game Pass. Agent informs customer that they would need to purchase the game to continue having access.
 
 **Davinci result** 
 
@@ -297,21 +280,21 @@ With the few-shot approach, the summaries continue to capture salient features o
 
 **Dialogue**
 
-Customer: Hello. I have a question about the game pass.
+customer: Hello. I have a question about the game pass.
 
-Agent: Hello. How are you doing? 
+agent: Hello. How are you doing? 
 
-Customer: I'm good. 
+customer: I'm good. 
 
-Agent: I see that you need help with the Xbox game pass. 
+agent: I see that you need help with the xbox game pass. 
 
-Customer: Yes. I wanted to know how long can I access the games after they leave game pass. 
+customer: yes. I wanted to know how long can I access the games after they leave game pass. 
 
-Agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
+agent: once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
 
 **Ground truth**
 
-Customer wants to know how long they can access games after they have left game pass. Agent informs customer that they would need to purchase the game to continue having access.
+Customer wants to know how long they can access games after they have left Game Pass. Agent informs customer that they would need to purchase the game to continue having access.
 
 **Davinci result**
 
@@ -339,17 +322,17 @@ Testing suggests that a fine-tuned Curie model leads to results that are  compar
 
 **Dialogue**
 
-Customer: Hello. I have a question about the game pass. 
+customer: Hello. I have a question about the game pass. 
 
-Agent: Hello. How are you doing? 
+agent: Hello. How are you doing? 
 
-Customer: I'm good. 
+customer: I'm good. 
 
-Agent: I see that you need help with the Xbox game pass. 
+agent: I see that you need help with the xbox game pass. 
 
-Customer: Yes. I wanted to know how long can I access the games after they leave game pass.
+customer: Yes. I wanted to know how long can I access the games after they leave game pass.
 
-Agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for Windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
+agent: Once a game leaves the Xbox game pass catalog you'll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. Remember, Xbox will notify members prior to a game leaving the Xbox game pass catalog. And as a member you can purchase any game in the catalog for up to 20 off or the best available discounted price to continue playing a game once it leaves the catalog.
 
 **Ground truth**
 
@@ -366,11 +349,42 @@ Generally, the Davinci model requires fewer instructions to perform tasks than o
 
 These tests suggest that you can generate better summaries when you provide more instruction to the model via few-shot or fine-tuning. Fine-tuned models are better at conforming to the structure and context learned from the training dataset. This capability is especially useful when summaries are domain specific (for example, generating summaries from a doctor's notes or online prescription customer support). If you use fine-tuning, you have more control over the types of summaries that you see.
 
+For the sake of easy comparison, here's a summary of the results that are presented earlier:
+
+**Ground truth**
+
+Customer wants to know how long they can access games after they have left Game Pass. Agent informs customer that they would need to purchase the game to continue having access.
+
+**Davinci zero-shot result**
+
+The customer asked how long they could access games after they leave the Xbox game pass catalog. The agent told them that they would need to purchase a digital copy of the game from the Xbox app for windows or the Microsoft store in order to continue playing it. The agent also reminded the customer that they would be notified prior to a game leaving the Xbox game pass catalog. As a member the customer could purchase any game in the catalog for up to 20 off or the best available discounted price.
+
+**Curie zero-shot result**
+
+The customer asks the agent about the Xbox game pass. the agent tells the customer that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. The agent also reminds the customer that Xbox will notify members prior to a game leaving the Xbox game pass catalog.
+
+**Davinci few-shot result**
+
+customer wanted to know how long they could access games after they leave game pass. Agent informs that once a game leaves the Xbox game pass catalog the customer would need to purchase a digital copy or obtain another form of entitlement to continue playing the game.
+
+**Curie few-shot result**
+
+customer has a question about the game pass. customer is good. agent needs help with the Xbox game pass. customer asks how long they can access the games after they leave the game pass catalog. Agent informs that once a game leaves the Xbox game pass catalog the customer will need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game. customer is happy to hear this and thanks agent.
+ 
+**Curie fine-tuning result** 
+
+customer wants to know how long they can access the games after they leave game pass. agent explains that once a game leaves the Xbox game. 
+pass catalog they’ll need to purchase a digital copy from the Xbox app for windows or the Microsoft store play from a disc or obtain another form of entitlement to continue playing the game.
+
 ### Evaluating summarization
 
-There are multiple techniques to evaluate the performance of summarization models. Below are a few methods: 
+There are multiple techniques for evaluating the performance of summarization models.
 
-**ROUGE (Recall-Oriented Understudy for Gisting Evaluation)** It includes measures to automatically determine the quality of a summary by comparing it to other (ideal) summaries created by humans. The measures count the number of overlapping units such as n-gram, word sequences, and word pairs between the computer-generated summary to be evaluated and the ideal summaries created by humans. 
+Here are a few:
+
+**ROUGE (Recall-Oriented Understudy for Gisting Evaluation)**. This technique includes measures for automatically determining the quality of a summary by comparing it to ideal summaries created by humans. The measures count the number of overlapping units, like n-gram, word sequences, and word pairs, between the computer-generated summary that's being evaluated and the ideal summaries.
+
+Here's an example:
 
 ```python
 reference_summary = "The cat ison porch by the tree"
@@ -382,9 +396,9 @@ rouge.get_scores(generated_summary, reference_summary)
   'rouge-1': {'r': 0.75, 'p': 0.75, 'f': 0.749999995}}]
 ```
 
-Figure 3: Rouge score example
+**BertScore**. This technique computes similarity scores by aligning generated and reference summaries on a token level. Token alignments are computed greedily to maximize the cosine similarity between contextualized token embeddings from BERT. 
 
-**BertScore** (Zhang et al., 2020) computes similarity scores by aligning generated and reference summaries on a token-level. Token alignments are computed greedily to maximize the cosine similarity between contextualized token embeddings from BERT. 
+Here's an example:
 
 ```python
   import torchmetrics
@@ -396,11 +410,9 @@ Figure 3: Rouge score example
   print(score)
 ```
 
-Figure 4: BERT score example
+**Similarity matrix**. A similarity matrix is a representation of the similarities between different entities in summarization evaluation. You can use it to compare different summaries of the same text and measure their similarity. It's represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. You can measure the similarity by using a variety of methods, like cosine similarity, Jaccard similarity, and edit distance. You then use the matrix to compare the summaries and determine which one is the most accurate representation of the original text.
 
-**Similarity Matrix** is a representation of the similarities between different entities in summarization evaluation. It is used to compare different summaries of the same text and measure their similarity and is represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. The similarity can be measured using a variety of methods, such as cosine similarity, Jaccard similarity, and edit distance. The matrix is then used to compare the summaries and determine which summary is the most accurate representation of the original text.
-
-Following is a sample command to get the similarity matrix of BertScore comparing 2 similar sentences.
+Here's a sample command that gets the similarity matrix of a BERTScore comparison of two similar sentences:
 
 ```python
 bert-score-show --lang en -r "The cat is on the porch by the tree"
@@ -408,33 +420,41 @@ bert-score-show --lang en -r "The cat is on the porch by the tree"
                           -f out.png
 ```
 
-The first sentence “The cat is on the porch by the tree” is referred as the candidate and the second one “The cat is by the tree on the porch” is referred as the reference and the command is using BertScore to compare both sentences for generating the matrix. 
+The first sentence "The cat is on the porch by the tree" is referred to as the *candidate*. The second sentence is referred as the *reference*. The command uses BERTScore to compare the sentences and generate a matrix. 
 
-Figure 4: Similarity matrix example - displays the output matrix generated by above command.
+This following matrix displays the output that's generated by the preceding command:
 
-image 
+:::image type="content" source="media/similarity-matrix-conversation.png " alt-text="Diagram that shows a similarity matrix." lightbox="media/similarity-matrix-conversation.png" border="false":::
 
-Figure 5: Similarity matrix example
+For more information, see [SummEval: Reevaluating Summarization Evaluation](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00373/100686/SummEval-Re-evaluating-Summarization-Evaluation). For a PyPI toolkit for summarization, see [summ-eval 0.892](https://pypi.org/project/summ-eval/).
 
-For a more comprehensive list and unified metrics in Pypi package, please refer to the following paper: https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00373/100686/SummEval-Re-evaluating-Summarization-Evaluation and 
-https://pypi.org/project/summ-eval/ 
+### Responsible use
 
-### Responsible Use
+GPT can produce excellent results, but you need to check the output for social, ethical, and legal biases and harmful results. When you fine- tune models, you need to remove any data points that might be harmful for the model to learn. You can use red teaming to identify any harmful outputs from the model. You can implement this process manually and support it by using semi-automated methods. You can generate test cases by using language models and then use a classifier to detect harmful behavior in the test cases. Finally, you should perform a manual check of generated summaries to ensure that they're ready to be used.
 
-While GPT can produce excellent results, it is imperative to check the output for social, ethical, and legal biases/safety. While fine tuning models, it is important to remove any data-points that may be harmful for the model to learn. Red teaming can be leveraged to identify any harmful outputs from the model. This can be done manually and can be supported with semi- automated methods (Generate test cases uses language models and use a classifier to detect harmful behavior on test cases). Finally, a manual check of the generated summary should be done to ensure that the summaries are ready to be used.
-
-Read more on the DeepMind paper [here].
+For more information, see [Red Teaming Language Models with Language Models](https://arxiv.org/pdf/2202.03286.pdf).
 
 ## Contributors
 
-Meghna Jani
+*This article is maintained by Microsoft. It was originally written by the following contributors.*
+
+Principal author:
+
+- [Meghna Jani](https://www.linkedin.com/in/meghnajani/) | Data & Applied Scientist II 
+
+Other contributors:
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 
 ## Next steps
 
-- Jupyter notebook with technical details and execution of the use case described in this newsletter can be found at: Azure/openai-samples at conversational-summarization-v0 (github.com)
-- Further information on Azure OpenAI can be found here](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/).
-- ROUGE reference paper can be found here](https://aclanthology.org/W04-1013.pdf).
-- Introduction to Azure OpenAI Service - Training](https://learn.microsoft.com/en-us/training/modules/explore-azure-openai/)
-- Develop AI solutions with Azure OpenAI - Training](https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/) 
+- [Jupyter Notebook with technical details and execution of the use case described in this article](https://github.com/Azure/openai-solutions/tree/conversational-summarization-v0/Solution_Notebooks/Conversational%20Summarization)
+- [More information about Azure OpenAI](/azure/cognitive-services/openai/)
+- [ROUGE reference article](https://aclanthology.org/W04-1013.pdf)
+- [Training module: Introduction to Azure OpenAI Service](/training/modules/explore-azure-openai/)
+- [Learning path: Develop AI solutions with Azure OpenAI](/training/paths/develop-ai-solutions-azure-openai/) 
 
 ## Related resources 
+
+- [Query-based document summarization](../../guide/ai/query-based-summarization.md)
+- [Choose a Microsoft cognitive services technology](../../data-guide/technology-choices/cognitive-services.md)
+- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
