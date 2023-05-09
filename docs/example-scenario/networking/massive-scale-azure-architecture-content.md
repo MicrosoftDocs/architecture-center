@@ -20,16 +20,17 @@ The following workflow corresponds to the previous diagram:
 
 ### Components
 
-- [ExpressRoute](https://azure.microsoft.com/products/expressroute) provides a private connection between your on-premises environment and Azure resources.
-- [Virtual WAN](https://azure.microsoft.com/products/virtual-wan) provides transit for networking and routing. It provides a connection via ExpressRoute between your on-premises resources and your Azure resources.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute) is a service that provides a private connection between your on-premises environment and Azure resources.
+- [Virtual WAN](https://azure.microsoft.com/products/virtual-wan) is a networking service that provides optimized and automated branch to branch connectivity through Azure. It provides transit for networking and routing via ExpressRoute between your on-premises resources and your Azure resources.
   - Custom route tables optimize routing in the solution, so network-to-network traffic can bypass the firewalls. Traffic between networks and on-premises environments remains inspected.
   - Labels simplify the routing by eliminating the need to extensively propagate the routes of individual networks to all route tables.
-- [NVAs](https://azure.microsoft.com/solutions/network-appliances) This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
-- [ExpressRoute Direct](/azure/expressroute/expressroute-erdirect-about) (optional) With this architecture, you can split off ExpressRoute circuits into local and standard circuits. You can optimize cost if the necessary bandwidth is sufficient to justify using ExpressRoute Direct.
+- [NVAs](https://azure.microsoft.com/solutions/network-appliances) are virtual machines that control routing to manage the flow of network traffic. This architecture uses NVAs. Large organizations with established investment in firewall technology and management often require NVAs.
 
 ### Alternatives
 
 An alternative is a hub-and-spoke virtual network model with Azure route servers. You can have better performance than the 50-Gbps limit per hub. This alternative has better performance limits but more complexity. For more information, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+
+You can use ExpressRoute Direct to split off ExpressRoute circuits into local and standard circuits. This alternative can optimize cost if the necessary bandwidth is sufficient to justify using ExpressRoute Direct.
 
 ## Scenario details
 
@@ -48,6 +49,8 @@ Custom NVA design allows routing flexibility by using customer-defined route tab
 This deployment provides highly redundant ExpressRoute connectivity for each hub. Highly redundant NVAs are attached to each hub.
 
 ### Region1 Hub1 route tables
+
+The following tables show the defined routing options for Region1 Hub1.
 
 #### Default (Hub1)
 
@@ -70,6 +73,8 @@ This deployment provides highly redundant ExpressRoute connectivity for each hub
 
 ### Region1 Hub2 route tables
 
+The following tables show the defined routing options for Region1 Hub2.
+
 #### Default route table (Hub2)
 
 | Destination | Next hop | Associated | Propagated | Labels |
@@ -91,6 +96,8 @@ This deployment provides highly redundant ExpressRoute connectivity for each hub
 
 ### Region2 Hub1 route tables
 
+The following tables show the defined routing options for Region2 Hub1.
+
 #### Default (Hub3)
 
 | Destination | Next hop | Associated | Propagated | Labels |
@@ -111,6 +118,8 @@ This deployment provides highly redundant ExpressRoute connectivity for each hub
 |-|-| Security VNet3 |-| Hub3SecuritySpokes, AllSecuritySpokes |
 
 ### Region2 Hub2 route tables
+
+The following tables show the defined routing options for Region2 Hub2.
 
 #### Default (Hub4)
 
