@@ -2,9 +2,9 @@ Large enterprises need to consider many factors when modernizing their existing 
 
 ## Architecture
 
-:::image type="content" source="media/enterprise-monitoring.png" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.png":::
+:::image type="content" source="media/enterprise-monitoring.svg" alt-text="Architectural diagram that shows enterprise workspaces and monitoring capabilities." border="false" lightbox="media/enterprise-monitoring.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/EnterpriseMonitoringFinal.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/enterprise-monitoring.vsdx) of this architecture.*
 
 ### Workflow
 
