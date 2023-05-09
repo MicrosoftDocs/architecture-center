@@ -49,20 +49,20 @@ This deployment provides highly redundant ExpressRoute connectivity for each hub
 
 ### Region1 Hub1 route tables
 
-#### Default route table (Hub1)
+#### Default (Hub1)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
 | 10.0.0.0/16 | SecurityVNet1Connection/NVA internal IP address | Branches | Branches | default, Hub1Default |
 
-#### Spokes route table (Hub1)
+#### Spokes (Hub1)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
 | 172.16.0.0/16 | SecurityVNet1Connection/NVA internal IP address | Spoke VNet1, Spoke VNet2 |-| AllWorkloadSpokes |
 | 0.0.0.0/0 | SecurityVNet1Connection/NVA internal IP address | Spoke VNet1, Spoke VNet2 |-| AllWorkloadSpokes |
 
-#### Security route table (Hub1)
+#### Security (Hub1)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
@@ -76,14 +76,14 @@ This deployment provides highly redundant ExpressRoute connectivity for each hub
 |-------------|----------|------------|------------|--------|
 | 10.1.0.0/16 | SecurityVNet2Connection/NVA internal IP address | Branches | Branches | default, Hub2Default |
 
-#### Spokes route table (Hub2)
+#### Spokes (Hub2)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
 | 172.16.0.0/16 | SecurityVNet2Connection/NVA internal IP address | Spoke VNet3, Spoke VNet4 |-| AllWorkloadSpokes |
 | 0.0.0.0/0 | SecurityVNet2Connection/NVA internal IP address | Spoke VNet3, Spoke VNet4 |-| AllWorkloadSpokes |
 
-#### Security route table (Hub2)
+#### Security (Hub2)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
@@ -91,20 +91,20 @@ This deployment provides highly redundant ExpressRoute connectivity for each hub
 
 ### Region2 Hub1 route tables
 
-#### Default route table (Hub3)
+#### Default (Hub3)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
 | 10.2.0.0/16 | SecurityVNet3Connection/NVA internal IP address | Branches | Branches | default, Hub3Default |
 
-#### Spokes route table (Hub3)
+#### Spokes (Hub3)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
 | 172.16.0.0/16 | SecurityVNet3Connection/NVA internal IP address | Spoke VNet5, Spoke VNet6 |-| AllWorkloadSpokes |
 | 0.0.0.0/0 | SecurityVNet3Connection/NVA internal IP address | Spoke VNet5, Spoke VNet6 |-| AllWorkloadSpokes |
 
-#### Security route table (Hub3)
+#### Security (Hub3)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
@@ -112,20 +112,20 @@ This deployment provides highly redundant ExpressRoute connectivity for each hub
 
 ### Region2 Hub2 route tables
 
-#### Default route table (Hub4)
+#### Default (Hub4)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
 | 10.3.0.0/16 | SecurityVNet4Connection/NVA internal IP address | Branches | Branches | default, Hub4Default |
 
-#### Spokes route table (Hub4)
+#### Spokes (Hub4)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
 | 172.16.0.0/16 | SecurityVNet4Connection/NVA internal IP address | Spoke VNet7, Spoke VNet8 |-| AllWorkloadSpokes |
 | 0.0.0.0/0 | SecurityVNet3Connection/NVA internal IP address | Spoke VNet7, Spoke VNet8 |-| AllWorkloadSpokes |
 
-#### Security route table (Hub4)
+#### Security (Hub4)
 
 | Destination | Next hop | Associated | Propagated | Labels |
 |-------------|----------|------------|------------|--------|
@@ -259,5 +259,11 @@ Other contributors:
 - [What is Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
 
 ## Related resources
+
+[Hub-spoke network topology with Azure Virtual WAN](/azure/architecture/networking/hub-spoke-vwan-architecture)
+
+[Migrate to Azure Virtual WAN](/azure/virtual-wan/migrate-from-hub-spoke-topology)
+
+[Virtual WAN architecture optimized for department-specific requirements](/azure/architecture/example-scenario/infrastructure/performance-security-optimized-vwan)
 
 [Virtual WAN network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
