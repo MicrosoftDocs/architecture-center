@@ -2,8 +2,9 @@ This solution moves Azure resources across regions efficiently, securely, and se
 
 ## Architecture
 
-![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
-
+![Diagram that shows the dataflow of moving Azure resources across regions solution.](../media/move-azure-resources-architecture-diagram.svg)
+*Download a [Visio file](https://arch-center.azureedge.net/move-azure-resources-across-regions.vsdx) of this architecture.*
+ 
 ### Dataflow
 
 - **On-premises data center network**: A private local-area network running within an organization to support the on-premises resources.
