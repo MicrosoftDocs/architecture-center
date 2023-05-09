@@ -4,8 +4,8 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 
 ## Architecture
 
-![Architecture diagram](../media/hpc-risk-analysis.png)
-*Download an [SVG](../media/hpc-risk-analysis.svg) of this architecture.*
+![Diagram showing a flowchart of risk analysis solution.](../media/hpc-risk-analysis.svg)
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-risk-analysis.vsdx) of this architecture.*
 
 ### Dataflow
 
