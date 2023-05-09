@@ -2,7 +2,7 @@
 metadata:
   title: Conversation summarization
   description: Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. 
-  author: martinekuan
+  author: mejani
   ms.author: mejani
   ms.date: 05/10/2023
   ms.topic: conceptual
