@@ -1,6 +1,6 @@
 Most businesses provide customer service support to help customers with product queries, troubleshooting, and maintaining or upgrading features or the product itself. To provide a satisfactory resolution, customer support specialists need to respond quickly with accurate information. OpenAI can help organizations with customer support in a variety of ways.
 
-This guide describes how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. It contains an end-to-end sample architecture that illustrates the key components involved in getting a summary of a text input. The generation of the text input is outside the scope of this guide. The focus of this guide is to describe the process of implementing the summarization of a set of sample agent-customer conversations and analyze the outcomes of various approaches to summarization.
+This guide describes how to generate summaries of customer-agent interactions by using the Azure OpenAI GPT-3 model. It contains an end-to-end sample architecture that illustrates the key components involved in getting a summary of a text input. The generation of the text input is outside the scope of this guide. The focus of this guide is to describe the process of implementing the summarization of a set of sample agent-customer conversations and analyze the outcomes of various approaches to summarization.
 
 ## Conversation scenarios
 
@@ -68,7 +68,7 @@ Here are some pre-processing steps that can help condition your raw data. You mi
     ...Entity '555-555-0100' with category 'PhoneNumber' got redacted
     ```
 
--	**Remove extraneous information**. Customer agents start conversations with casual exchanges that don't include relevant information. A trigger can be added a conversation to identify the point where the concern or relevant question is first addressed. Removing that exchange from the context can improve the accuracy of the summarizer service because the model is then fine-tuned on the most relevant information in the conversation. The Curie GPT-3 engine is a popular choice for this task because it's trained extensively, via content from the internet, to identify this type of casual conversation.
+-	**Remove extraneous information**. Customer agents start conversations with casual exchanges that don't include relevant information. A trigger can be added to a conversation to identify the point where the concern or relevant question is first addressed. Removing that exchange from the context can improve the accuracy of the summarizer service because the model is then fine-tuned on the most relevant information in the conversation. The Curie GPT-3 engine is a popular choice for this task because it's trained extensively, via content from the internet, to identify this type of casual conversation.
 
 -	**Remove excessively negative conversations**. Conversations can also include negative sentiments from unhappy customers. You can use Azure content-filtering methods like Azure Content Moderator to remove conversations that contain sensitive information from analysis. Alternatively, OpenAI offers a moderation endpoint, a tool that you can use to check whether content complies with OpenAI's content policies.
 
@@ -103,7 +103,7 @@ There are three main approaches for training models for in-context learning: zer
 
   Creating a dataset for model customization is different from designing prompts for use with the other models. Prompts for completion calls often use either detailed instructions or few-shot learning techniques and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input example and its desired output. You don't need to provide detailed instructions or examples in the prompt.
 
-  As you increase the number of training examples, your results improve. We recommend including at least a 500 examples. It's typical to use between thousands and hundreds of thousands of labeled examples. Testing indicates that each doubling of the dataset size leads to a linear increase in model quality.
+  As you increase the number of training examples, your results improve. We recommend including at least 500 examples. It's typical to use between thousands and hundreds of thousands of labeled examples. Testing indicates that each doubling of the dataset size leads to a linear increase in model quality.
 
 This guide demonstrates the curie-instruct/text-curie-001 and davinci-instruct/text-davinci-001 engines. These engines are frequently updated. The version you use might be different.
 
@@ -130,7 +130,7 @@ The tradeoff is cost. The process of labeling and cleaning datasets can be expen
 
 - Prompt engineering: When provided with little instruction, Davinci often performs better than other models. To optimize results, experiment with different prompts for different models.
 - Token size: A summarizer that's based on GPT-3 is limited to a total of 4,098 tokens, including the prompt and completion. To summarize larger passages, separate the text into parts that conform to these constraints. Summarize each part individually and then collect the results in a final summary.
-- Garbage in, garbage out: Trained models are only as good as the training data that you provide. Be sure that the ground truth summaries in the training data are well suited to the information that you eventually want to summarize in your dialogues. 
+- Garbage in, garbage out: Trained models are only as good as the training data that you provide. Be sure that the ground truth summaries in the training data are well suited to the information that you eventually want to summarize in your dialogs. 
 - Stopping point: The model stops summarizing when it reaches a natural stopping point or a stop sequence that you provide. Test this parameter to choose among multiple summaries and to check whether summaries look incomplete.
 
 ## Example scenario: Summarizing transcripts in call centers
@@ -143,11 +143,11 @@ The dataset used in this scenario is a set of hypothetical conversations between
 |-|-|
 |Customer: Question on XAIL<br><br>Agent: Hello! How can I help you today?<br><br>Customer: Hi, I have a question about the Accessibility insider ring<br><br>Agent: Okay. I can certainly assist you with that.<br><br>Customer: Do I need to sign up for the preview ring to join the accessibility league?<br><br>Agent: No. You can leave your console out of Xbox Preview rings and still join the League. However, note that some experiences made available to you may require that you join an Xbox Preview ring.<br><br>Customer: Okay. And I can just sign up for preview ring later yeah?<br><br>Agent: That is correct.<br><br>Customer: Sweet.|	Customer wants to know if they need to sign up for preview rings to join Xbox Accessibility Insider League. Agent responds that it is not mandatory, but that some experiences may require it.|
 
-**Ideal output**. The goal is to create summaries that follow this format: "Customer said *x*. Agent responded *y*." Another goal is to capture salient features of the dialogue, like the customer complaint, suggested resolution, and follow-up actions.
+**Ideal output**. The goal is to create summaries that follow this format: "Customer said *x*. Agent responded *y*." Another goal is to capture salient features of the dialog, like the customer complaint, suggested resolution, and follow-up actions.
 
 Here's an example of a customer support interaction, followed by a comprehensive human-written summary of it:
 
-**Dialogue**
+**Dialog**
 
 Customer: Hello. I have a question about the game pass.
 
@@ -207,9 +207,9 @@ test[deployment + "_zeroshotroguescore"] = rouge_list
 
 #### Results and observations
 
-The zero-shot model's output is produced directly from the base model. In this case, both Curie and Davinci summarize the dialogue fairly well. The only noticeable difference is that the Curie model provides a little less detail. Curie starts the summary with "customer asks the agent about the Xbox game pass." The corresponding sentence in Davinci is "customer asked how long they could access games after they leave the Xbox game pass catalog."
+The zero-shot model's output is produced directly from the base model. In this case, both Curie and Davinci summarize the dialog fairly well. The only noticeable difference is that the Curie model provides a little less detail. Curie starts the summary with "customer asks the agent about the Xbox game pass." The corresponding sentence in Davinci is "customer asked how long they could access games after they leave the Xbox game pass catalog."
 
-**Dialogue**
+**Dialog**
 
 Customer: Hello. I have a question about the game pass. 
 
@@ -280,7 +280,7 @@ test[deployment + "_FSscore1"] = rouge_list
 
 With the few-shot approach, the summaries continue to capture salient features of the conversation. The Davinci summary is more compact and closer to the ground truth. Curie fabricates some trivial details.
 
-**Dialogue**
+**Dialog**
 
 Customer: Hello. I have a question about the game pass.
 
@@ -322,7 +322,7 @@ Here's an example format:
 
 Testing suggests that a fine-tuned Curie model leads to results that are  comparable to those of a Davinci few-shot model. Both summaries capture the customer's question and the agent's answer without capturing the details about discounts and without adding content. Both summaries are similar to the ground truth.
 
-**Dialogue**
+**Dialog**
 
 Customer: Hello. I have a question about the game pass. 
 
@@ -414,7 +414,7 @@ Here's an example:
 
 **Similarity matrix**. A *similarity matrix* is a representation of the similarities between different entities in summarization evaluation. You can use it to compare different summaries of the same text and measure their similarity. It's represented by a two-dimensional grid, where each cell contains a measure of the similarity between two summaries. You can measure the similarity by using a variety of methods, like cosine similarity, Jaccard similarity, and edit distance. You then use the matrix to compare the summaries and determine which one is the most accurate representation of the original text.
 
-Here's a sample command that gets the similarity matrix of a BERTScore comparison of two similar sentences:
+Here's a sample command that generates the similarity matrix of a BERTScore comparison of two similar sentences:
 
 ```python
 bert-score-show --lang en -r "The cat is on the porch by the tree"
@@ -422,7 +422,7 @@ bert-score-show --lang en -r "The cat is on the porch by the tree"
                           -f out.png
 ```
 
-The first sentence "The cat is on the porch by the tree" is referred to as the *candidate*. The second sentence is referred as the *reference*. The command uses BERTScore to compare the sentences and generate a matrix. 
+The first sentence, "The cat is on the porch by the tree" is referred to as the *candidate*. The second sentence is referred as the *reference*. The command uses BERTScore to compare the sentences and generate a matrix. 
 
 This following matrix displays the output that's generated by the preceding command:
 

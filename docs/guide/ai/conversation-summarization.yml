@@ -14,6 +14,6 @@ products:
   - azure-cognitive-services
 name: Conversation summarization
 summary: Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model. 
-thumbnailUrl: /azure/architecture/browse/thumbs/conversation-summarization.png
+thumbnailUrl: /azure/architecture/browse/thumbs/conversation-summarization-overview.png
 content: |
   [!include[](conversation-summarization-content.md)]
