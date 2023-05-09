@@ -2,7 +2,8 @@ This article describes how to use a Citrix-based solution to create a Virtual De
 
 ## Architecture
 
-[![Diagram of Virtual Desktop Infrastructure architecture](./media/azure-citrix-sample-diagram.png "Architecture Diagram")](./media/azure-citrix-sample-diagram.png#lightbox)
+[![Diagram of Virtual Desktop Infrastructure architecture](./media/azure-citrix-sample-diagram.svg "Architecture Diagram")](./media/azure-citrix-sample-diagram.svg#lightbox)
+*Download a [Visio file](https://arch-center.azureedge.net/linux-vdi-citrix.vsdx) of this architecture.*
 
 ### Workflow
 
