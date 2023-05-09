@@ -1,7 +1,5 @@
 This article provides recommendations for building an app deployment pipeline for containerized apps on Azure Kubernetes Service hybrid deployment options (AKS hybrid) that are running on Azure Stack HCI or Windows Server. Specifically, the guidance is for deployments that use Azure Arc and GitOps.
 
-Running containers at scale requires an orchestrator to automate scheduling, deployment, networking, scaling, health monitoring, and container management. Kubernetes is a commonly used orchestrator for new containerized deployments. As the number of Kubernetes clusters and environments grows, managing them individually can be challenging. Using Azure Arc-enabled services like Azure Arc-enabled Kubernetes, GitOps, Azure Monitor, and Azure Policy reduces the administrative burden and helps address this challenge.
-
 ## Architecture
 
 :::image type="content" source="media/aks-stack-hci.png" alt-text="Diagram that shows an architecture for AKS hybrid clusters that are running on Azure Stack HCI or Windows Server." lightbox="media/aks-stack-hci.png" border="false":::
@@ -25,11 +23,15 @@ The architecture illustrates an implementation that deploys containerized applic
 
 - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/) is a hyperconverged infrastructure (HCI) solution that you can use to run virtualized workloads on-premises. It uses a combination of software-defined compute, storage, and networking technologies. It's built on top of Windows Server and integrates with Azure services to provide a hybrid cloud experience.
 - [AKS on Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/aks-hci/) enables developers and admins deploy and manage containerized apps with AKS on Azure Stack HCI. 
-- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a hybrid cloud-management solution that you can use to manage servers, Kubernetes clusters, and applications across on-premises, multi-cloud, and edge environments. It provides a unified management experience by enabling you to govern resources across different environments by using Azure management services like Azure Policy, Azure Security Center, and Azure Monitor.
+- [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a hybrid cloud-management solution that you can use to manage servers, Kubernetes clusters, and applications across on-premises, multicloud, and edge environments. It provides a unified management experience by enabling you to govern resources across different environments by using Azure management services like Azure Policy, Azure Security Center, and Azure Monitor.
 - Git, Helm, and Bitbucket repositories (public and private) are for hosting GitOps configurations, including Azure DevOps and GitHub repos.
 - Container registries (public and private), including Azure Container Registry and Docker Hub, host container images.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a continuous integration (CI) and continuous delivery (CD) service that automates updates to repositories and registries.
 - Flux is an open-source GitOps deployment tool that Azure Arc-enabled Kubernetes clusters can use. You can use the Azure Arc connection to implement the cluster components that track changes to the Git, Helm, or Kustomize repositories that you designate and apply them to the local cluster. The Flux operator periodically (or based on a trigger) reviews the existing cluster configuration to ensure that it matches the one in the Git repository. If it detects differences, Flux remediates them by applying or, in the case of configuration drift, reapplying the desired configuration.  
+
+## Scenario details
+
+Running containers at scale requires an orchestrator to automate scheduling, deployment, networking, scaling, health monitoring, and container management. Kubernetes is a commonly used orchestrator for new containerized deployments. As the number of Kubernetes clusters and environments grows, managing them individually can be challenging. Using Azure Arc-enabled services like Azure Arc-enabled Kubernetes, GitOps, Azure Monitor, and Azure Policy reduces the administrative burden and helps address this challenge.
 
 ## Considerations
 
@@ -46,6 +48,25 @@ Reliability ensures that your application can meet the commitments you make to y
 - **Use automated deployments** to reduce the possibility of human error.
 - **Integrate a CI/CD pipeline** into your architecture to improve the effectiveness of automated testing.
 - **Track all code changes** so that you can quickly identify and resolve problems. To track these operational changes, use the built-in capabilities of GitHub or Azure DevOps. You can use these tools to implement policies and automation to make sure changes are tracked, follow the appropriate approval process, and are maintainable.
+
+### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+**Understand the security benefits of the architecture.** With Flux v2, Kustomize, GitOps pipelines, and DevOps pipelines operational changes are applied via automation. You can control and audit the code that implements these operational practices by taking advantage of mechanisms like branch protection, pull request reviews, and immutable history. The IaC approach removes the need to manage permissions for accessing the infrastructure and supports the principle of least privilege. Flux support for namespace-based configuration scoping facilitates multitenant scenarios.
+
+**Understand encryption.** To help ensure data security, the cluster configuration service stores the Flux configuration resource data in an Azure Cosmos DB database and encrypts it at rest.
+
+**Consider using private endpoints.** GitOps supports Azure Private Link for connectivity to Azure Arc–related services.
+
+#### Use Azure policies with Azure Arc
+
+Azure Arc extends the scope of resource management beyond Azure. The extended scope provides a range of benefits that apply to physical and virtual servers. In the context of AKS, these benefits include:
+
+- **Governance**. Azure Arc can enforce runtime governance that affects AKS clusters and their pods by using Azure Policy for Kubernetes and centralized reporting of the corresponding policy compliance. You can use this capability to, for example, enforce the use of HTTPS for ingress traffic that targets the Kubernetes cluster. You can also use it to ensure that containers listen only on specific ports that you designate.
+- **Improved operations**. Azure Arc provides enhanced support for automated cluster configuration via GitOps. 
+
+Azure Policy facilitates centralized GitOps management via the built-in *Deploy GitOps to Kubernetes cluster* policy definition. After you assign this policy, it automatically applies any GitOps-based configuration you choose to Azure Arc–enabled Kubernetes clusters that you designate, if their Azure Resource Manager resources are in the scope of the assignment.
 
 ### Cost optimization
 
@@ -125,7 +146,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Cluster workloads benefit from the scalability and agility that's inherent to the Kubernetes platform. Flux v2 offers additional agility, reducing the time required for end-to-end software delivery.
 
-**Optimize your Kubernetes cluster and infrastructure** setup for your specific workloads. We recommend that you work with the application developer to determine the required settings .
+**Optimize your Kubernetes cluster and infrastructure** setup for your specific workloads. We recommend that you work with the application developer to determine the required settings.
 
 **Use the autoscaling feature** in Kubernetes. For more information, see [Cluster autoscaling in AKS hybrid](/azure/aks/hybrid/concepts-cluster-autoscaling).
 
@@ -133,26 +154,21 @@ Cluster workloads benefit from the scalability and agility that's inherent to th
 
 **Establish a performance baseline.** Benchmark your architecture and use metrics and monitoring tools to identify any problems or bottlenecks that affect performance. 
 
-### Security
-
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
-
-**Understand the security benefits of the architecture.** With Flux v2, Kustomize, GitOps pipelines, and DevOps pipelines operational changes are applied via automation. You can control and audit the code that implements these operational practices by taking advantage of mechanisms like branch protection, pull request reviews, and immutable history. The IaC approach removes the need to manage permissions for accessing the infrastructure and supports the principle of least privilege. Flux support for namespace-based configuration scoping facilitates multitenant scenarios.
-
-**Understand encryption.** To help ensure data security, the cluster configuration service stores the Flux configuration resource data in an Azure Cosmos DB database and encrypts it at rest.
-
-**Consider using private endpoints.** GitOps supports Azure Private Link for connectivity to Azure Arc–related services.
-
-#### Use Azure policies with Azure Arc
-
-Azure Arc extends the scope of resource management beyond Azure. The extended scope provides a range of benefits that apply to physical and virtual servers. In the context of AKS, these benefits include:
-
-- **Governance**. Azure Arc can enforce runtime governance that affects AKS clusters and their pods by using Azure Policy for Kubernetes and centralized reporting of the corresponding policy compliance. You can use this capability to, for example, enforce the use of HTTPS for ingress traffic that targets the Kubernetes cluster or to ensure that containers listen only on specific ports that you designate.
-- **Improved operations**. Azure Arc provides enhanced support for automated cluster configuration via GitOps. 
-
-Azure Policy facilitates centralized GitOps management via the built-in *Deploy GitOps to Kubernetes cluster* policy definition. After you assign this policy, it automatically applies any GitOps-based configuration you choose to Azure Arc–enabled Kubernetes clusters that you designate, if their Azure Resource Manager resources are in the scope of the assignment.
-
 ## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal authors:
+
+- [Sarah Cooley](https://www.linkedin.com/in/cooleys/) | Principal Program Manager 
+- [Mike Kostersitz](https://www.linkedin.com/in/mikekostersitz/) | Principal Program Manager Lead 
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+- [Nate Waters](https://www.linkedin.com/in/nate-waters/) | Product Marketing Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
