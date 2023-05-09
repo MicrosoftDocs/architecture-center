@@ -30,7 +30,7 @@ The following workflow corresponds to the previous diagram:
 
 An alternative is a hub-and-spoke virtual network model with Azure route servers. You can have better performance than the 50-Gbps limit per hub. This alternative has better performance limits but more complexity. For more information, see [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 
-You can use ExpressRoute Direct to split off ExpressRoute circuits into local and standard circuits. This alternative can optimize cost if the necessary bandwidth is sufficient to justify using ExpressRoute Direct.
+As another alternative, ExpressRoute Direct splits off ExpressRoute circuits into local and standard circuits. This service can optimize cost if the necessary bandwidth is sufficient to justify using ExpressRoute Direct.
 
 ## Scenario details
 
