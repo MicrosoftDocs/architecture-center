@@ -2136,7 +2136,7 @@
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(13000):26"/>
 			</v:userDefs>
 			<title>Virtual Machines (Classic)</title>
-			<desc>Virtual Machines / Physical Machines</desc>
+			<desc>Virtual machines / Physical machines</desc>
 			<g id="shape98-297" v:mID="98" v:groupContext="shape" transform="translate(0,-9.62194)">
 				<title>Sheet.98</title>
 				<v:userDefs>
@@ -2202,8 +2202,8 @@
 				<v:textBlock v:margins="rect(0,0,0,0)"/>
 				<v:textRect cx="17.28" cy="1185" width="69.12" height="48.0037"/>
 				<text x="2.95" y="1170" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Virtual <tspan
-							x="-6.99" dy="1.2em" class="st17">Machines / </tspan><tspan x="-0.17" dy="1.2em" class="st17">Physical </tspan><tspan
-							x="-3.67" dy="1.2em" class="st17">Machines</tspan></text>			</g>
+							x="-6.8" dy="1.2em" class="st17">machines / </tspan><tspan x="-0.17" dy="1.2em" class="st17">Physical </tspan><tspan
+							x="-3.49" dy="1.2em" class="st17">machines</tspan></text>			</g>
 		</g>
 		<g id="group240-322" transform="translate(1049.05,-840.615)" v:mID="240" v:groupContext="group">
 			<v:userDefs>
