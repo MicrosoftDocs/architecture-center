@@ -150,7 +150,9 @@ Azure Arc extends the scope of resource management beyond Azure. The extended sc
 - **Governance**. Azure Arc can enforce runtime governance that affects AKS clusters and their pods by using Azure Policy for Kubernetes and centralized reporting of the corresponding policy compliance. You can use this capability to, for example, enforce the use of HTTPS for ingress traffic that targets the Kubernetes cluster or to ensure that containers listen only on specific ports that you designate.
 - **Improved operations**. Azure Arc provides enhanced support for automated cluster configuration via GitOps. 
 
-Azure Policy facilitates centralized GitOps management via the built-in *Deploy GitOps to Kubernetes cluster* policy definition. After you assign this policy, it automatically applies any GitOps-based configuration you choose to Azure Arc–enabled Kubernetes clusters that you designate, if their Azure Resource Manager resources are in the scope of the assignment. 
+Azure Policy facilitates centralized GitOps management via the built-in *Deploy GitOps to Kubernetes cluster* policy definition. After you assign this policy, it automatically applies any GitOps-based configuration you choose to Azure Arc–enabled Kubernetes clusters that you designate, if their Azure Resource Manager resources are in the scope of the assignment.
+
+## Contributors
 
 ## Next steps
 
