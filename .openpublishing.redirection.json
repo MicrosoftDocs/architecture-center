@@ -2671,6 +2671,11 @@
       "source_path": "docs/guide/microsoft-cloud/summary.md",
       "redirect_url": "/microsoft-cloud/dev/overview/summary",
       "redirect_document_id": false
-    }                        
+    },   
+    {
+      "source_path": "docs/example-scenario/wvd/windows-virtual-desktop-fslogix.yml",
+      "redirect_url": "/fslogix/concepts-configuration-examples",
+      "redirect_document_id": false
+    }       
   ]
 }

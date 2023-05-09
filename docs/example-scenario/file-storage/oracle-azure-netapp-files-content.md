@@ -186,7 +186,6 @@ Principal author:
 
 Fully deployable architectures that use Azure NetApp Files:
 
-- [FSLogix for the enterprise][FSLogix for the enterprise]
 - [Run SAP BW/4HANA with Linux virtual machines on Azure][Run SAP BW/4HANA with Linux virtual machines on Azure]
 - [Run SAP NetWeaver in Windows on Azure][Run SAP NetWeaver in Windows on Azure]
 
@@ -203,7 +202,6 @@ Fully deployable architectures that use Azure NetApp Files:
 [Cross-region replication of Azure NetApp Files volumes]: /azure/azure-netapp-files/cross-region-replication-introduction
 [Enterprise-scale data management section of this article]: #enterprise-scale-data-management
 [FAQs About Azure NetApp Files - Security FAQs]: /azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs
-[FSLogix for the enterprise]: ../wvd/windows-virtual-desktop-fslogix.yml
 [Highly performant systems section of this article]: #highly-performant-systems
 [Implement Oracle Data Guard on an Azure Linux virtual machine]: /azure/virtual-machines/workloads/oracle/configure-oracle-dataguard
 [Key benefits diagram in .svg format]: ./media/oracle-azure-netapp-files-key-values.svg

@@ -2128,8 +2128,6 @@ items:
         href: example-scenario/iot/automated-guided-vehicles-fleet-control.yml
       - name: Automotive test data analytics
         href: industries/automotive/automotive-telemetry-analytics.yml
-      - name: Building blocks for autonomous driving
-        href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
       - name: IoT Edge railroad maintenance and safety
         href: /azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance
       - name: Machine teaching for autonomous vehicles
@@ -3699,9 +3697,7 @@ items:
     - name: Guides
       items:
       - name: Access an AKS API server
-      - name: AKS cluster best practices
-        href: /azure/aks/best-practices
-        maintainContext: true
+        href: guide/security/access-azure-kubernetes-service-cluster-api-server.yml
       - name: AKS day-2 operations guide
         items:
         - name: Introduction
@@ -3739,43 +3735,12 @@ items:
           href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
         - name: Choose a bare-metal Kubernetes option
           href: operator-guides/aks/choose-bare-metal-kubernetes.yml
-      - name: Cost governance with Kubecost
-        href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/cost-governance-with-kubecost
-        maintainContext: true
-      - name: Docker guidance
-        items:
-        - name: Monolithic applications
-          href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications
-          maintainContext: true
-        - name: Containerize monolithic applications
-          href: /dotnet/architecture/microservices/architect-microservice-container-applications/containerize-monolithic-applications
-          maintainContext: true
-        - name: Containers for DevOps collaboration
-          href: /dotnet/architecture/containerized-lifecycle/docker-application-lifecycle/containers-foundation-for-devops-collaboration
-          maintainContext: true
       - name: High availability for multitier AKS apps
         href: guide/aks/aks-high-availability.yml
       - name: Overview of migration from Service Fabric to AKS
         href: guide/aks/service-fabric-azure-kubernetes-service.md
       - name: Migrate an app from Service Fabric to AKS
         href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
-      - name: Operations management for AKS
-        href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/management
-        maintainContext: true
-      - name: Orchestrate multi-container applications
-        href: /dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/orchestrate-high-scalability-availability
-        maintainContext: true
-      - name: Security considerations
-        items:
-        - name: Security for AKS
-          href: /azure/cloud-adoption-framework/scenarios/app-platform/aks/security
-          maintainContext: true
-        - name: Confidential containers on Azure
-          href: /azure/confidential-computing/confidential-containers
-          maintainContext: true
-        - name: Security baseline for AKS
-          href: /security/benchmark/azure/baselines/aks-security-baseline
-          maintainContext: true
     - name: Architectures
       items:
       - name: Advanced microservices on AKS
@@ -3812,8 +3777,6 @@ items:
         href: industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml
       - name: Blue-green deployment of AKS clusters
         href: reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml
-      - name: Build a telehealth system
-        href: example-scenario/apps/telehealth-system.yml
       - name: Build CNCF projects by using AKS
         href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
       - name: Build and deploy apps on AKS
@@ -3830,12 +3793,6 @@ items:
         href: example-scenario/serverless/microservices-with-container-apps.yml
       - name: Microservices with Dapr and KEDA
         href: example-scenario/serverless/microservices-with-container-apps-dapr.yml
-      - name: Multiplayer server hosting with ACI
-        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aci
-        maintainContext: true
-      - name: Multiplayer server hosting with AKS
-        href: /gaming/azure/reference-architectures/multiplayer-synchronous-aks
-        maintainContext: true
       - name: Multitenancy with AKS and AGIC
         href: example-scenario/aks-agic/aks-agic.yml
     - name: Solution ideas
@@ -4842,8 +4799,7 @@ items:
           maintainContext: true
       - name: Connect an on-premises network to Azure
         href: reference-architectures/hybrid-networking/index.yml
-      - name: FSLogix for the enterprise
-        href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
+
       - name: Troubleshoot a hybrid VPN connection
         href: reference-architectures/hybrid-networking/troubleshoot-vpn.yml
     - name: Architectures
@@ -6425,8 +6381,6 @@ items:
       - name: Azure Storage migration guidance
         href: /azure/storage/common/storage-migration-overview
         maintainContext: true
-      - name: FSLogix for the enterprise
-        href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
       - name: Blob storage guidance
         items:
         - name: Authorize access to blobs with Azure AD
@@ -6617,8 +6571,8 @@ items:
         maintainContext: true
       - name: FSLogix guidance
         items:
-        - name: FSLogix for the enterprise
-          href: example-scenario/wvd/windows-virtual-desktop-fslogix.yml
+        - name: FSLogix configuration examples
+          href: /fslogix/concepts-configuration-examples
         - name: FSLogix profile containers and files
           href: /azure/virtual-desktop/fslogix-containers-azure-files
           maintainContext: true
