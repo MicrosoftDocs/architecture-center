@@ -2,7 +2,7 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.svg" lightbox="media/automated-api-deployments-architecture-diagram.svg" border="false":::
+:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-apiops-architecture-diagram.svg" lightbox="media/automated-api-deployments-apiops-architecture-diagram.svg" border="false":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture-diagram.vsdx) of this architecture._
 
