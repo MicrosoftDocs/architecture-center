@@ -13,7 +13,7 @@ The architecture illustrates an implementation that deploys containerized applic
 1.	An operator sets up an on-premises infrastructure on Azure Stack HCI or on Windows Server hardware that's capable of hosting an AKS hybrid cluster.
 2.	On-premises, an administrator deploys an AKS hybrid cluster on the Azure Stack HCI or Windows Server infrastructure and connects the AKS hybrid cluster to Azure by using Azure Arc. To enable GitOps, the administrator also deploys the Flux extension and its configuration to the AKS hybrid cluster.
 3.	GitOps configurations facilitate infrastructure as code. These GitOps configurations represent the desired state of the AKS hybrid cluster and use the information provided by the local administration. The *local administration* refers to the management tools, interfaces, and practices that are provided by the AKS hybrid cluster that's deployed on Azure Stack HCI or Windows Server.
-4.	The administrator pushes GitOps configurations to a Git repository. You can also use Helm or Kustomize repositories. The Flux components in the AKS hybrid cluster monitor these repositories for changes, detecting and applying updates as needed.
+4.	The administrator pushes GitOps configurations to a Git repository. You can also use a Helm or Kustomize repository. The Flux components in the AKS hybrid cluster monitor the repository for changes, detecting and applying updates as needed.
 5.	The Flux extension in the AKS hybrid cluster receives a notification from the GitOps flow when changes are made to the configurations in the repos. It automatically triggers deployment of the desired configuration by using Helm charts or Kustomize.
 6.	Application changes in the form of new or updated configuration or code are pushed to the designated repositories, including corresponding container image updates. These container image updates are pushed to private or public container registries.
 7.	The Flux operator in the AKS hybrid cluster detects changes in the repositories and initiates their deployment to the cluster.
@@ -22,12 +22,12 @@ The architecture illustrates an implementation that deploys containerized applic
 ### Components
 
 - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/) is a hyperconverged infrastructure (HCI) solution that you can use to run virtualized workloads on-premises. It uses a combination of software-defined compute, storage, and networking technologies. It's built on top of Windows Server and integrates with Azure services to provide a hybrid cloud experience.
-- [AKS on Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/aks-hci/) enables developers and admins to deploy and manage containerized apps by using AKS on Azure Stack HCI. 
+- [AKS on Azure Stack HCI](https://azure.microsoft.com/pricing/details/azure-stack/aks-hci/) enables developers and admins to use AKS to deploy and manage containerized apps on Azure Stack HCI. 
 - [Azure Arc](https://azure.microsoft.com/products/azure-arc/) is a hybrid cloud-management solution that you can use to manage servers, Kubernetes clusters, and applications across on-premises, multicloud, and edge environments. It provides a unified management experience by enabling you to govern resources across different environments by using Azure management services like Azure Policy, Azure Security Center, and Azure Monitor.
-- Git, Helm, and Bitbucket repositories (public and private) are for hosting GitOps configurations, including Azure DevOps and GitHub repos.
+- Git, Helm, and Bitbucket repositories (public and private) can host GitOps configurations, including Azure DevOps and GitHub repos.
 - Container registries (public and private), including Azure Container Registry and Docker Hub, host container images.
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) is a continuous integration (CI) and continuous delivery (CD) service that automates updates to repositories and registries.
-- Flux is an open-source GitOps deployment tool that Azure Arc-enabled Kubernetes clusters can use. You can use the Azure Arc connection to implement the cluster components that track changes to the Git, Helm, or Kustomize repositories that you designate and apply them to the local cluster. The Flux operator periodically (or based on a trigger) reviews the existing cluster configuration to ensure that it matches the one in the Git repository. If it detects differences, Flux remediates them by applying or, in the case of configuration drift, reapplying the desired configuration.  
+- Flux is an open-source GitOps deployment tool that Azure Arc-enabled Kubernetes clusters can use. You can use the Azure Arc connection to implement the cluster components that track changes to the Git, Helm, or Kustomize repositories that you designate and apply them to the local cluster. The Flux operator periodically (or based on a trigger) reviews the existing cluster configuration to ensure that it matches the one in the repository. If it detects differences, Flux remediates them by applying or, in the case of configuration drift, reapplying the desired configuration.  
 
 ## Scenario details
 
@@ -37,13 +37,13 @@ Running containers at scale requires an orchestrator to automate scheduling, dep
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-The framework provides guiding principles that help with assessing and optimizing the benefits of cloud-based solutions. Given the inherent integration of on-premises AKS deployments with Azure technologies, it's appropriate to apply Well-Architected Framework recommendations to your design and implementation of GitOps. 
+The Well-Architected Framework provides guiding principles that help with assessing and optimizing the benefits of cloud-based solutions. Given the inherent integration of on-premises AKS deployments with Azure technologies, it's appropriate to apply framework recommendations to your design and implementation of GitOps. 
 
 ### Reliability
 
 Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-- **Use high-availability features of Kubernetes** to ensure high reliability in GitOps-based solutions.
+- **Use the high-availability features of Kubernetes** to ensure high reliability in GitOps-based solutions.
 - **Use Flux v2** to further increase application availability in deployments that span multiple locations or clusters.
 - **Use automated deployments** to reduce the possibility of human error.
 - **Integrate a CI/CD pipeline** into your architecture to improve the effectiveness of automated testing.
@@ -53,17 +53,17 @@ Reliability ensures that your application can meet the commitments you make to y
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-**Understand the security benefits of the architecture.** With Flux v2, Kustomize, GitOps pipelines, and DevOps pipelines operational changes are applied via automation. You can control and audit the code that implements these operational practices by taking advantage of mechanisms like branch protection, pull request reviews, and immutable history. The IaC approach removes the need to manage permissions for accessing the infrastructure and supports the principle of least privilege. Flux support for namespace-based configuration scoping facilitates multitenant scenarios.
+- **Understand the security benefits of the architecture.** With Flux v2, Kustomize, GitOps, and DevOps pipelines operational changes are applied via automation. You can control and audit the code that implements these operational practices by taking advantage of mechanisms like branch protection, pull request reviews, and immutable history. The IaC approach removes the need to manage permissions for accessing the infrastructure and supports the principle of least privilege. Flux support for namespace-based configuration scoping facilitates multitenant scenarios.
 
-**Understand encryption.** To help ensure data security, the cluster configuration service stores the Flux configuration resource data in an Azure Cosmos DB database and encrypts it at rest.
+- **Understand encryption.** To help ensure data security, the cluster configuration service stores the Flux configuration resource data in an Azure Cosmos DB database and encrypts it at rest.
 
-**Consider using private endpoints.** GitOps supports Azure Private Link for connectivity to Azure Arc–related services.
+- **Consider using private endpoints.** GitOps supports Azure Private Link for connectivity to Azure Arc–related services.
 
-#### Use Azure policies with Azure Arc
+#### Use Azure policies and Azure Arc
 
 Azure Arc extends the scope of resource management beyond Azure. The extended scope provides a range of benefits that apply to physical and virtual servers. In the context of AKS, these benefits include:
 
-- **Governance**. Azure Arc can enforce runtime governance that affects AKS clusters and their pods by using Azure Policy for Kubernetes and centralized reporting of the corresponding policy compliance. You can use this capability to, for example, enforce the use of HTTPS for ingress traffic that targets the Kubernetes cluster. You can also use it to ensure that containers listen only on specific ports that you designate.
+- **Governance**. Azure Arc can enforce runtime governance that affects AKS clusters and their pods by using Azure Policy for Kubernetes and centralized reporting of the corresponding policy compliance. You can use this capability to, for example, enforce the use of HTTPS for ingress traffic that targets the Kubernetes cluster, or to ensure that containers listen only on specific ports that you designate.
 - **Improved operations**. Azure Arc provides enhanced support for automated cluster configuration via GitOps. 
 
 Azure Policy facilitates centralized GitOps management via the built-in *Deploy GitOps to Kubernetes cluster* policy definition. After you assign this policy, it automatically applies any GitOps-based configuration you choose to Azure Arc–enabled Kubernetes clusters that you designate, if their Azure Resource Manager resources are in the scope of the assignment.
@@ -74,7 +74,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 - **Use the automation** that GitOps provides to minimize your management and maintenance overhead. The simplified operational model requires less effort to maintain and results in reduced operational costs.
 
-- **Use AKS hybrid.** AKS hybrid provides built-in support for autoscaling the computing resources and increased workload density that's inherent to containerization. Autoscaling can help you to right-size your physical infrastructure and speed up data center consolidation initiatives, which can help you save money.
+- **Use AKS hybrid.** AKS hybrid provides built-in support for autoscaling the computing resources and increased workload density that's inherent to containerization. Autoscaling can help you right-size your physical infrastructure and speed up datacenter consolidation initiatives, which can help you save money.
 
 ### Operational excellence
 
@@ -84,11 +84,11 @@ The following recommendations apply to this architecture:
 
 - **Use GitOps repositories** to provide a single source of truth that stores all AKS application and cluster infrastructure data. These repositories can serve as the only component that applies changes to the cluster. 
 
-- **Take advantage of the GitOps integration with the DevOps approach** to infrastructure to shorten the time required to deliver new software releases. We also recommend that you use Azure Resource Manager and Azure Arc to build a consistent operational model for cloud-based and on-premises containerized workloads. To control GitOps configurations at different levels, use Azure Policy together with the capabilities of Flux operators. By doing so, you can establish control at the enterprise level, at the level of an individual AKS cluster, or even at the level of specific namespaces within a cluster.
+- **Take advantage of the GitOps integration with the DevOps approach to infrastructure** to shorten the time required to deliver new software releases. We also recommend that you use Azure Resource Manager and Azure Arc to build a consistent operational model for cloud-based and on-premises containerized workloads. To control GitOps configurations at different levels, use Azure Policy together with the capabilities of Flux operators. By doing so, you can establish control at the enterprise level, at the level of an individual AKS cluster, or even at the level of specific namespaces within a cluster.
 
 - **Create GitOps configurations that are scoped to a cluster** (or to multiple clusters) to implement a baseline for components of the containerized infrastructure, like ingress controllers, service meshes, security products, and monitoring solutions. Doing so can help you ensure that your clusters satisfy the baseline infrastructure requirements.
 
-- **Create namespace-level GitOps configurations** that enable you to control the resources of your workloads at a more granular level (for example, pods, services, and ingress routes), and therefore ensure that your workloads conform to application standards. By following these guidelines, you can ensure that your deployment and management of AKS hybrid applications remain efficient, cost-effective, and effective.
+- **Create namespace-level GitOps configurations** that enable you to control the resources of your workloads at a more granular level (for example, pods, services, and ingress routes), and therefore ensure that your workloads conform to application standards. By following these guidelines, you can ensure that your deployment and management of AKS hybrid applications remain efficient, effective, and cost-effective.
 
 #### Use GitOps
 
@@ -98,15 +98,15 @@ Code changes are subject to version control, auditing, and optional reviews and 
 
 GitOps significantly minimizes the need for direct cluster management, resulting in a simplified operational model and also increased security. GitOps supports the principle of least privilege. For example, GitOps removes the need to modify clusters manually via kubectl, so fewer privileges are required. GitOps also provides early feedback about proposed policy changes. Early feedback is particularly valuable to developers because it helps then reduce the risk and costs that are associated with bugs.
 
-GitOps simplifies standardizing cluster configurations across your organization to meet compliance and governance requirements. You can define a baseline configuration that you want to apply to every cluster and its components, including, for example, network policies, role bindings, and pod security policies. To implement that configuration across all Azure Arc-enabled clusters, you can use Azure Policy, targeting resource groups or subscriptions. These policies apply automatically to existing resources and also to resources that are created after the policy assignment.
+GitOps simplifies the standardization of cluster configurations across your organization to meet compliance and governance requirements. You can define a baseline configuration that you want to apply to every cluster and its components, including, for example, network policies, role bindings, and pod security policies. To implement that configuration across all Azure Arc-enabled clusters, you can use Azure Policy, targeting resource groups or subscriptions. These policies apply automatically to existing resources and also to resources that are created after the policy assignment.
 
-GitOps links your cluster with one or more Git repositories. Each repository can be used to describe different aspects of cluster configuration. The resulting declarative model facilitates automation of the provisioning and management of Kubernetes resources like namespaces or deployments via their manifest files. You can also use Helm charts, which, together with Flux v2 and Kustomize, facilitate the automated deployment of containerized applications, or Kustomize files that describe environment-specific changes.
+GitOps links your cluster with one or more Git repositories. You can use each repository to describe different aspects of cluster configuration. The resulting declarative model facilitates automation of the provisioning and management of Kubernetes resources like namespaces or deployments via their manifest files. You can also use Helm charts, which, together with Flux v2 and Kustomize, facilitate the automated deployment of containerized applications, or Kustomize files that describe environment-specific changes.
 
 #### Use Flux
 
 Flux is implemented as a Kubernetes operator. It uses a set of controllers and corresponding declarative APIs. The controllers manage a set of custom resources that work collectively to deliver the intended functionality.
 
-GitOps is enabled in an Azure Arc-enabled Kubernetes cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` cluster extension. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync the content of configuration sources to the cluster and reconcile the cluster to the desired state.
+GitOps is enabled in an Azure Arc-enabled Kubernetes cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` cluster extension. After you install the `microsoft.flux` cluster extension, you can create one or more `fluxConfigurations` resources that sync the content of configuration sources to the cluster and reconcile the cluster to a desired state.
 
 By default, the `microsoft.flux` extension installs the Flux controllers (Source, Kustomize, Helm, and Notification) and FluxConfig Custom Resource Definitions (CRD), `fluxconfig-agent`, and `fluxconfig-controller`. You can also choose which of these controllers you want to install and can optionally install the Flux `image-automation` and `image-reflector` controllers, which facilitate updating and retrieving Docker images.
 
