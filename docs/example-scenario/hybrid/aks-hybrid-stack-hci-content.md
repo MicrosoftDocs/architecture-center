@@ -146,13 +146,13 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 
 Cluster workloads benefit from the scalability and agility that's inherent to the Kubernetes platform. Flux v2 offers additional agility, reducing the time required for end-to-end software delivery.
 
-**Optimize your Kubernetes cluster and infrastructure** setup for your specific workloads. We recommend that you work with the application developer to determine the required settings.
+- **Optimize your Kubernetes cluster and infrastructure** setup for your specific workloads. We recommend that you work with the application developer to determine the required settings.
 
-**Use the autoscaling feature** in Kubernetes. For more information, see [Cluster autoscaling in AKS hybrid](/azure/aks/hybrid/concepts-cluster-autoscaling).
+- **Use the autoscaling feature** in Kubernetes. For more information, see [Cluster autoscaling in AKS hybrid](/azure/aks/hybrid/concepts-cluster-autoscaling).
 
-**Add a cache** to optimize the application. 
+- **Add a cache** to optimize the application. 
 
-**Establish a performance baseline.** Benchmark your architecture and use metrics and monitoring tools to identify any problems or bottlenecks that affect performance. 
+- **Establish a performance baseline.** Benchmark your architecture and use metrics and monitoring tools to identify any problems or bottlenecks that affect performance. 
 
 ## Contributors
 
