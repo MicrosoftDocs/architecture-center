@@ -18,19 +18,16 @@ ms.custom:
 
 # Different Types of Speech API Services
 
-**When to use Speech API's/ When to use Language API's?**
+Azure Cognitive Speech service is used to perform spoken language transformations such as speech-to-text, text-to-speech, speech translation and speaker recognition.
 
-Azure Cognitive Services provides with Speech API's and Language API's which often overlap with the functionalities they cater.
+> [!NOTE]
+> Use [Azure Cognitive Search for Language](/azure/cognitive-services/language-service/overview) if you wish to dig deeper insights in terms detailed analysis of either spoken or written languages (Transform+Analyze+Filter).
 
-- Speech API's - Assist in spoken language transformations
-- Language API's - Understand conversations and unstructured text
+## Service categories
 
-The key differentiation factor among the choice you make between the 2 is the use case intent. If you only wish to transform the format in either real-time or in batches its recommended to go with Speech services approach. If you wish to dig deeper insights in terms detailed analysis of either spoken or written languages (Transform+Analyze+Filter) its recommended to go with Language services approach.Language support varies by Speech service functionality.
-
-## Resource Categories
-
-- **A Speech resource** - choose this resource type if you only plan to use the Speech service, or if you want to manage access and billing for the resource separately from other services.
-- **A Cognitive Services resource** - choose this resource type if you plan to use the Speech service in combination with other cognitive services, and you want to manage access and billing for these services together.
+- [Speech-to-text](/azure/cognitive-services/speech-service/index-speech-to-text) - Speech-to-text can convert audio streams to text in real-time or in batch.
+- [Text-to-Speech](/azure/cognitive-services/speech-service/text-to-speech) - Text-to-speect enables applications to convert text to humanlike speech.
+- [Speech translation](/azure/cognitive-services/speech-service/speech-translation) - Speech translation supports multi-language speech-to-speech and speech-to-text translation of audio streams.
 
 ## Key considerations
 
@@ -49,26 +46,24 @@ The right side of the graph focusses on input data type Text to output data type
 
 1. Text-To-Speech - used to generate spoken audio from a text source.
 
-### Common Use Cases
+## Common Use Cases
 
-Some of the common use cases for them as follows: </br></br>
-**Speech-To-Text API's** </br>
+The following table lists some of the common use cases.</br></br>
 
-- Providing closed captions for recorded or live videos
-- Creating a transcript of a phone call or meeting
-- Automated note dictation
-- Determining intended user input for further processing
-
-**Text-To-Speech API's**</br>
-
-- Generating spoken responses to user input.
-- Creating voice menus for telephone systems.
-- Reading email or text messages aloud in hands-free scenarios.
-- Broadcasting announcements in public locations, such as railway stations or airports.
-
-**Speech-To-Speech API's**</br>
-
-- Real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation
+| Use Case | Type of Service to Use |
+|----------|-----------------|
+| **Speech-To-Text API's** ||
+| Providing closed captions for recorded or live videos | |
+| Creating a transcript of a phone call or meeting | |
+| Automated note dictation | |
+| Determining intended user input for further processing | |
+| **Text-To-Speech API's** ||
+| Generating spoken responses to user input. | |
+| Creating voice menus for telephone systems. | |
+| Reading email or text messages aloud in hands-free scenarios. | |
+| Broadcasting announcements in public locations, such as railway stations or airports. | |
+| **Speech-To-Speech API's** ||
+| Real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation | |
 
 ### Contributors
 

@@ -15,13 +15,18 @@ ms.custom:
   - analytics
   - guide
 ---
+
 # Different Types of Vision API Services
 
-Vision API is one of the broadest categories under Cognitive Services. At a high Level Vision API's are categorized as follows
+Azure Cognitive Service for Vision is one of the broadest categories under Cognitive Services. The APIs allow you to incorporate vision features such as analyzing images, face detection, spatial analysis, and optical character recognition (OCR) to your applications with no machine learning knowledge.
 
-1. **Computer Vision** -With this API you can access advanced algorithms that process images and return information based on the visual features you're interested in. It provides 4 major services namely Optical Character Recognition(OCR), Face, Image Analysis and Spatial Analysis. Form recognizer is an advanced version of OCR.
-2. **Custom Vision** -Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models
-3. **Face Service** - This provides AI algorithms that detect, recognize, and analyze human faces in images.
+## Service categories
+
+At a high Level Vision API's are categorized as follows
+
+- [Computer Vision](/azure/cognitive-services/computer-vision/overview) - With this API you can access advanced algorithms that process images and return information based on the visual features you're interested in. It provides 4 major services namely Optical Character Recognition(OCR), Face, Image Analysis and Spatial Analysis. Form recognizer is an advanced version of OCR.
+- [Custom Vision](/azure/cognitive-services/Custom-Vision-Service/overview) - Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models
+- [Face Service](/azure/cognitive-services/computer-vision/overview-identity) - This provides AI algorithms that detect, recognize, and analyze human faces in images.
 
 ## Key considerations
 
