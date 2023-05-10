@@ -73,12 +73,15 @@ The metadata API thus becomes the storage layer manager, which can spread data a
 * [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) provides a serverless based web app service that hosts the Metadata API
 
 ## Federate Data Operations
-In an organization that implement AVOps, multiple teams contribute to DataOps in due to complexity of the entire data loop required for Autonomous Vehicles. For example, one team could be in charge of data collection / data ingestion.  Another team could be in charge of data quality management.  Another team could be responsible for data labeling and owning the labeled datasets. For that reason principles of a Data Mesh architecture are considered for DataOps:
+In an organization that implement AVOps, multiple teams contribute to DataOps due to complexity required for Autonomous Vehicles operations. For example, one team could be in charge of data collection / data ingestion.  Another team is responsible for data quality management of Lidar data.  For that reason principles of a Data Mesh architecture are considered for DataOps:
 
 - Domain-Oriented decentralization of data ownership and architecture: One dedicated team is responsible for one data domain that provides data products for that domain (e. g. labeled datasets)
 - Data as a product: Each data domain has different zones (on data lake implemented storage containers), zones for internal usage and one zone that contains published data products for other data domains / external usage to avoid data duplication
 - Self-serve data as a platform to enable autonomous, domain-oriented data teams
 - Federated governance to enable interoperability and access between AVOps data domains (for example, labeling data domain needs to get access for the data collection domain) that requires a centralized Meta-Data store and Data Catalog
+
+Further details and guidance for Data Mesh implementation are described on 
+[Cloud-scale analytics](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
 ### AVOps Data Domains Example Structure
 
@@ -97,10 +100,21 @@ Each AVOps data domain is set up based on a blueprint structure (including [Azur
 
 ### Meta-Data and Data Discovery 
 
-Each data domain manages it corresponding AVOps data products decentrally. For central data discovery and to know where data products are located, two components are required:
+Each data domain manages it corresponding AVOps data products de-centrally. For central data discovery and to know where data products are located, two components are required:
 
-- Centralized Meta-data store that persists meta-data about processed measurement files and data streams (e. g. video sequences) to make the data discoverable and traceable 
-- Centralized Data Catalog (as an example [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview)) that shows lineage and dependencies between AVOps data domains.
+-  Meta-data store that persists meta-data about processed measurement files and data streams (e. g. video sequences) to make the data discoverable and traceable with additional annotations (that need to be indexed like for searching meta-data of unlabeled files, e. g. return all frames collected by specific VINs or frames with pedestrians or other objects based on enrichments)
+-  Data Catalog (as an example [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview)) that shows lineage and dependencies between AVOps data domains and which data stores are involved in the AVOps data loop
+
+Depending on final scenario for data discovery, Meta-Data store (based on Cosmos DB can be extended by Azure Data Explorer or Azure Cognitive Search for semantic search capabilities).
+
+### Data Sharing
+
+Data Sharing in an AVOPs data loop is a common scenario (for data sharing between data domains and external sharing, e. g. to  integrate labeling partners). Microsoft Purview provides these capabilities to allow efficient data sharing in the data loop:
+
+
+- [Self-service data discovery and access](https://learn.microsoft.com/en-us/azure/purview/concept-self-service-data-access-policy)
+
+- [In-place data sharing](https://learn.microsoft.com/en-us/azure/purview/concept-data-share)
 
 ## Data Pipeline
 ### Landing Zone to Raw Zone
