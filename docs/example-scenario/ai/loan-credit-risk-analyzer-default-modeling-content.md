@@ -1,45 +1,45 @@
-Loan originations in the Financial Industry needs to observe the credit risk of the individuals or businesses that need the credit lines. The model evaluates the delinquency and default probability of the party requesting for the funds. The Machine Learning based models’ decisions are based on the fiscal behaviour of the requester and will understand the huge set of data points that can segment/score the eligibility of the customer.
+This article describes an architecture that uses Azure Machine Learning to predict the delinquency and default probability of parties requesting loans. The model's predictions are based on the fiscal behavior of the requester. The model uses a huge set of data points that segment and score the eligibility of the requestor.
 
-The following article describes an architecture built with Azure Machine Learning (ML) using Azure Synapse Analytics, Data Factory, Azure App Service and Power BI for an end-to-end solution.
+*Apache®, [Spark](https://spark.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by the Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-image
+:::image type="content" source="media/loan-credit-model.png" alt-text="Diagram that shows an architecture for predicting credit risk." lightbox="media/loan-credit-model.png" border="false":::
 
-link 
+*Download a [Visio file](https://arch-center.azureedge.net/loan_credit_model_arch.vsdx) of this architecture.* 
 
 ### Dataflow
 
-1.	Store: Data is retained in a database like Synapse pools if it is structured. There could be older SQL databases that can be integrated into the loan processing system. The semi and unstructured data of any volumes can be organized into a data lake. 
-2.	Ingestion and Pre-processing: Synapse processing pipelines and ETL processing can connect to data housed in Azure or 3rd party sources with built-in connectors. Synapse supports multiple analysis methodologies using Sql/Spark/ADX /PowerBI. You can also use existing Azure Data Factory (ADF) orchestration for the data pipelines. 
-3.	Process: Azure Machine Learning enables the development and management of machine learning models, throughout their lifecycle. Azure ML supports code-first and low/no-code approaches to machine learning.
-    1.	Pre-Processing: During this stage, raw data is processed creating a curated dataset that will train a machine learning model. Typical operations include data type formatting; imputation of missing values; feature engineering; feature selection; dimensionality reduction; amongst others.
+1.	Storage: Data is stored in a database like an Azure Synapse Analytics pool if it's structured. Older SQL databases can be integrated into the loan processing system. Semi-structured and unstructured data can be organized into a data lake.
+2.	Ingestion and pre-processing: Azure Synapse Analytics processing pipelines and ETL processing can connect to data stored in Azure or third-party sources via built-in connectors. Azure Synapse Analytics supports multiple analysis methodologies that use SQL, Spark, Azure Data Explorer, and Power BI. You can also use existing Azure Data Factory orchestration for the data pipelines. 
+3.	Processing: Azure Machine Learning is used to develop and manage the machine learning models.
+    1.	Initial processing: During this stage, raw data is processed to create a curated dataset that will train a machine learning model. Typical operations include data type formatting, imputation of missing values, feature engineering, feature selection, and dimensionality reduction.
 
-     1.   Model Training: During the training stage, Azure  ML uses the pre-processed dataset to train and select the best credit risk model.
+     1.   Training: During the training stage, Azure Machine Learning uses the processed dataset to train the credit risk model and select the best model.
        
-     - Model training: A wide range of machine learning models can be used, including classical machine learning, as well as deep learning models. Additionally, hyperparameter tunning allows for the optimisation of the model performance.
+     - Model training: You can use a range of machine learning models, including classical machine learning and deep learning models. You can use hyperparameter tuning to optimize model performance.
        
-     - Model evaluation: The evaluation of models allows Azure ML to assess the performance of each trained model and enables you to select the best performing model for deployment.
+     - Model evaluation: Azure Machine Learning assesses the performance of each trained model so you can select the best one for deployment.
       
-      -  Model Registration: The model with best performance is registered in Azure Machine Learning, which makes it available for deployment.
+      -  Model registration: The model with best performance is registered in Azure Machine Learning, which makes it available for deployment.
     
-    c. Responsible AI: Responsible Artificial Intelligence (Responsible AI) is an approach to developing, assessing, and deploying AI systems in a safe, trustworthy, and ethical way. Since the model infers an approval / denial decision for a loan request, implementing the principles of Responsible AI is very important  as listed below:
+    c. Responsible AI: Responsible AI is an approach to developing, assessing, and deploying AI systems in a safe, trustworthy, and ethical way. Because this model infers an approval or denial decision for a loan request, implementing the principles of Responsible AI is important:
 
-    - Fairness metrics assess the impact of unfair behavior and enable mitigation strategies. Sensitive features /attributes are identified across the entire dataset and cohorts of the population. [Fairness Documentation](/azure/machine-learning/concept-fairness-ml)
+    - Fairness metrics assess the effect of unfair behavior and enable mitigation strategies. Sensitive features and attributes are identified in the dataset and in cohorts of the population. For more information, see [Model performance and fairness](/azure/machine-learning/concept-fairness-ml)
 
-    - Interpretability is important to understand the behavior of the model. This component helps to generate human-understandable descriptions of the predictions of a machine learning model. [Interpretability Documentation](/azure/machine-learning/how-to-machine-learning-interpretability)
+    - Interpretability is a measure of how well you can understand the behavior of a machine learning model. This component of Responsible AI generates human-understandable descriptions of the predictions of the model. For more information, see [Model interpretability](/azure/machine-learning/how-to-machine-learning-interpretability).
 
-4.	Real time ML Deployment: Real-time model inference is needed when the request needs to be reviewed immediately for approval.
-    1. Managed ML Online Endpoint – For Real-time scoring, the deployment options need to be appropriate compute selection.
-    1. The online requests for loans need real-time scoring based on the inputs from the customer forms or loan application.
-    1. The decision and the inputs used for the model scoring need to be stored in persistent storage and can be retrieved for any future reference.
-5.	Batch ML Deployment: For offline loan processing, the model is scheduled to be triggered at regular intervals.
-    1. Managed ML Endpoint: The batch inference is scheduled and the result dataset is created with decisioning based on the credit worthiness of the applicant.
-    1. The result set of scoring from batch processing is persisted in the Database or Synapse data warehouse 
-6.	Interface to Storage on the customer activity: The details plugged in by the customer, the internal credit profile and the model decision are all staged/stored in the appropriate data services. These are used in the decision engine for future scoring and are hence documented.
-    - Storage: Each detail of the credit processing is retained in persistent storage infrastructure.
-    - User Interface: The decision outcome of the model approval /denial from the model scoring is presented to the customer.
-7.	Reporting: The real time insight into the no. of applications processed, approve/deny outcomes is continuously presented to the managers and leadership. Examples are near real-time reports with amounts approved, the loan portfolio created,  model performance etc. 
+4.	Real-time machine learning deployment: You need to use real-time model inference when the request needs to be reviewed immediately for approval.
+    1. Managed machine learning online endpoint. For real-time scoring, you need to choose an appropriate compute target.
+    1. Online requests for loans use real-time scoring based on the input from applicant forms or loan applications.
+    1. The decision and the input used for model scoring are stored in persistent storage and can be retrieved for future reference.
+5.	Batch machine learning deployment: For offline loan processing, the model is scheduled to be triggered at regular intervals.
+    1. Managed batch endpoint. Batch inference is scheduled and the result dataset is created. Decisions are based on the creditworthiness of the applicant.
+    1. The result set of scoring from batch processing is persisted in the database or Azure Synapse Analytics data warehouse. 
+6.	Interface to data about the applicant activity: The details input by the applicant, the internal credit profile, and the model decision are all staged and stored in appropriate data services. These services are used in the decision engine for future scoring, so they're documented.
+    - Storage: Each detail of the credit processing is retained in persistent storage.
+    - User interface: The approval or denial decision is presented to the customer.
+7.	Reporting: The real-time insights about the number of applications processed and approve or deny outcomes is continuously presented to managers and leadership. Examples include near real-time reports of amounts approved, the loan portfolio created, and model performance. 
 
 ### Components
 
@@ -47,7 +47,7 @@ link
 - [Azure Data Lake Storage Gen2]( ) is the storage foundation for building cost effective enterprise scale data lake on Azure. It is blob storage with hierarchical folder structure with enhanced performance, management, and security. It services multiple petabytes of information while sustaining hundreds of gigabits of throughput.
 - [Azure Synapse]() is an enterprise analytics service   that brings together the best of SQL and Spark technologies with unified user experience for Data explorer, pipelines. It integrates seamlessly with PowerBI / Cosmos DB and Azure ML.  The tool supports both dedicated and serverless form factors and the ability to switch between the analysis methods.
 - [Azure Sql DB]() fully managed relational database service built for the cloud. Build your next app with the simplicity and flexibility of a multi-model database that scales to meet demand. The DB is built with intelligent threat protection and built-in HA with performance SLA of 99.995%. Fully managed and always on the latest version of SQL. Eliminate the complexity of configuring and managing high availability, tuning, backups, and other database tasks.
-- [Azure Machine Learning]() is a cloud service for accelerating and managing the machine learning project lifecycle. It is an integrated environment for data exploration, model building/management and deploying. The wizard-based model building aimed for citizen developers, notebook experience for the data scientists, organized into workspaces and managed by and admin.
+- [Azure Machine Learning]() is a cloud service for accelerating and managing the machine learning project lifecycle. It is an integrated environment for data exploration, model building/management and deploying. The wizard-based model building aimed for citizen developers, notebook experience for the data scientists, organized into workspaces and managed by and admin. moved > Azure ML supports code-first and low/no-code approaches to machine learning.
 - [Power BI]() is the Azure Paas Service visualization tool with easier integration to Azure resources. It has a rich set of connectors for non-azure and on-prem services. It’s a low/no code environment with business insights tool with drill down capabilities into granular level data for users with personas ranging from developers, report creators, business users and executives.
 - [Azure App Services]() : Azure PaaS service enables you to build and host web apps, mobile back ends, and RESTful APIs with cloud scale infrastructure. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. 
  
@@ -56,6 +56,10 @@ link
 - [Databricks](): The first party solution to develop, build, deploy and manage ML models and analytics. The platform integrates with cloud storage and security in your cloud account and is a unified environment for model development.
 
 ## Scenario details
+
+Organizations in the financial industry need to predict the credit risk of individuals or businesses that request credit. The model evaluates the delinquency and default probability of the party requesting for the funds. (moved)
+
+The following article describes an architecture built with Azure Machine Learning (ML) using Azure Synapse Analytics, Azure App Service and Power BI for an end-to-end solution. (moved)
 
 The Financial services industry aims at maximizing the loan originations and keep the charged off losses to minimum. The loans are issued to individuals with responsible credit behaviours. This customer profiling is a balancing act of profitability and loss mitigation. The quality of the portfolio needs to be evaluated continuously against the economic variables. 
 
