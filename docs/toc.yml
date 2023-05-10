@@ -71,6 +71,8 @@ items:
       href: guide/design-principles/build-for-business.md
     - name: Resiliency checklist for services
       href: checklist/resiliency-per-service.md
+    - name: Failure mode analysis for services
+      href: resiliency/failure-mode-analysis.md
   - name: Technology choices
     items:
     - name: Overview
@@ -210,6 +212,8 @@ items:
         href: data-guide/technology-choices/analytical-data-stores.md
       - name: Analytics and reporting
         href: data-guide/technology-choices/analysis-visualizations-reporting.md
+      - name: Advanced analytics
+        href: data-guide/scenarios/advanced-analytics.md
       - name: Batch processing
         href: data-guide/technology-choices/batch-processing.md
       - name: Stream processing
@@ -3058,6 +3062,8 @@ items:
               href: data-science-process/select-features.md
           - name: Deploy models in production
             href: data-science-process/deploy-models-in-production.md
+          - name: Build and deploy a model using Azure Synapse Analytics
+            href: data-science-process/sqldw-walkthrough.md
     - name: Architectures
       items:
       - name: Analyze browser information
@@ -3879,6 +3885,8 @@ items:
             href: guide/technology-choices/data-store-decision-tree.md
           - name: Criteria for choosing a data store
             href: guide/technology-choices/data-store-considerations.md
+        - name: Interactive data exploration
+          href: data-guide/scenarios/interactive-data-exploration.md
         - name: Pipeline orchestration
           href: data-guide/technology-choices/pipeline-orchestration-data-movement.md
         - name: Real-time message ingestion
@@ -6629,6 +6637,8 @@ items:
       - name: Red Hat JBoss EAP on Azure
         href: /azure/developer/java/ee/jboss-on-azure
         maintainContext: true
+      - name: Automate Application Gateway reconfiguration for web apps
+        href: example-scenario/serverless/automation-application-gateway.yml
       - name: Eventual consistency in Power Platform
         href: guide/power-platform/eventual-consistency.yml
       - name: Single-page application authorization
