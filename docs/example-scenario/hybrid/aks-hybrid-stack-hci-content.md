@@ -80,8 +80,6 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
-The following recommendations apply to this architecture:
-
 - **Use GitOps repositories** to provide a single source of truth that stores all AKS application and cluster infrastructure data. These repositories can serve as the only component that applies changes to the cluster. 
 
 - **Take advantage of the GitOps integration with the DevOps approach to infrastructure** to shorten the time required to deliver new software releases. We also recommend that you use Azure Resource Manager and Azure Arc to build a consistent operational model for cloud-based and on-premises containerized workloads. To control GitOps configurations at different levels, use Azure Policy together with the capabilities of Flux operators. By doing so, you can establish control at the enterprise level, at the level of an individual AKS cluster, or even at the level of specific namespaces within a cluster.
