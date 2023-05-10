@@ -40,7 +40,7 @@ When managing a multi-region AKS cluster, multiple AKS instances are deployed ac
 - Select deployment tooling that allows for flexible, repeatable, and idempotent deployment
 - In an active/active stamp configuration, consider how traffic is balanced across each stamp
 - As stamps are added and removed from the collection, consider capacity and cost concerns
-- Consider how to gain visibility and/or monitor the collection of stamps as a single unit
+- Consider how to gain visibility and/or monitor the collection of stamps as a single unit.
 
 Each of these items is detailed with specific guidance in the following sections of this reference architecture.
 
@@ -75,11 +75,11 @@ Once the cluster stamp definition has been defined, you have many options for de
 - Integration with code / deployment source control
 - Deployment history and logging
 
-As new stamps are added or removed from the global cluster, the deployment pipeline needs to be updated to stay consistent. In the reference implementation, each region is deployed as an individual step within a GitHub Action workflow [(example)](https://github.com/mspnp/aks-baseline-multi-region/blob/main/github-workflow/aks-deploy.yaml#L44). This configuration is simple in that each cluster instance is clearly defined within the deployment pipeline. This configuration does carry some administrative overhead in adding and removing clusters from the deployment.
+As new stamps are added or removed from the global cluster, the deployment pipeline needs to be updated to stay consistent. In the reference implementation, each region is deployed as an individual step within a GitHub Action workflow [(example)](https://github.com/mspnp/aks-baseline-multi-region/blob/main/github-workflow/aks-deploy.yaml#L44). This configuration is simple in that each cluster instance is clearly defined within the deployment pipeline. This configuration does include some administrative overhead in adding and removing clusters from the deployment.
 
 Another option would be to utilize logic to create clusters based on a list of desired locations or other indicating data points. For instance, the deployment pipeline could contain a list of desired regions; a step within the pipeline could then loop through this list, deploying a cluster into each region found in the list. The disadvantage to this configuration is the complexity in deployment generalization and that each cluster stamp isn't explicitly detailed in the deployment pipeline. The positive benefit is that adding or removing cluster stamps from the pipeline becomes a simple update to the list of desired regions.
 
-Also, removing a cluster stamp from the deployment pipeline doesn't necessarily ensure that it's also decommissioned. Depending on your deployment technology and configuration, you might need an extra step to ensure that the AKS instances have appropriately been decommissioned.
+Also, removing a cluster stamp from the deployment pipeline doesn't necessarily ensure that it's also decommissioned. Depending on your deployment solution and configuration, you might need an extra step to ensure that the AKS instances have appropriately been decommissioned.
 
 #### Cluster bootstrapping
 
@@ -199,7 +199,7 @@ This configuration is defined in the cluster stamp ARM template so that each tim
 
 #### Azure Monitor
 
-The Azure Monitor Container insights feature is the recommended tool to monitor and understand the performance and health of your cluster and container workloads. [Container insights](/azure/azure-monitor/containers/container-insights-overview) utilizes both a Log Analytics workspace for storing log data, and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to store numeric time-series data. Prometheus metrics can also be scraped by Container Insights and send the data to either [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) or [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs).
+The Azure Monitor Container insights feature is the recommended tool to monitor and understand the performance and health of your cluster and container workloads. [Container insights](/azure/azure-monitor/containers/container-insights-overview) utilizes both a Log Analytics workspace for storing log data, and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to store numeric time-series data. Prometheus metrics can also be collected by Container Insights and send the data to either [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) or [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs).
 
 You can also configure your [AKS cluster diagnostic settings](/azure/aks/monitor-aks#collect-resource-logs) to collect and analyze resource logs from the AKS control plane components and forward to a Log Analytics workspace.
 
@@ -207,7 +207,7 @@ AKS For more information, see the [AKS baseline reference architecture](/azure/a
 
 When considering monitoring for a cross-region implementation such as this reference architecture, it's important to consider the coupling between each stamp. In this case, consider each stamp a component of a single unit (regional cluster). The multi-region AKS reference implementation utilizes a single Log Analytics workspace, shared by each Kubernetes cluster. Like with the other shared resources, define your regional stamp to consume information about the single Log Analytics workspace and connect each cluster to it.
 
-Now that each regional cluster is omitting diagnostic logs to a single Log Analytics workspace, this data, along with resource metrics, can be used to more easily build reports and dashboards that represent the entirety of the global cluster.
+Now that each regional cluster is emitting diagnostic logs to a single Log Analytics workspace, this data, along with resource metrics, can be used to more easily build reports and dashboards that represent the entirety of the global cluster.
 
 #### Azure Front Door
 
@@ -247,7 +247,7 @@ If your workload utilizes a caching solution, ensure that it's architected so th
 
 ### Cost optimization
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in Microsoft Azure Well-Architected Framework.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in Microsoft Azure Well-Architected Framework, and specific cost-optimization configuration options in the [Optimize costs](/azure/aks/best-practices-cost) article.
 
 ## Next steps
 
