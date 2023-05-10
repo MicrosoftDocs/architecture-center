@@ -2696,6 +2696,51 @@
       "source_path": "docs/solution-ideas/articles/dev-test-iaas.yml",
       "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-devtest-iaas-architecture",
       "redirect_document_id": false
-    }      
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml",
+      "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/dataplate2e/data-platform-end-to-end-experiment.yml",
+      "redirect_url": "/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/data/cluedin-experiment.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/cluedin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reliability/architect.md",
+      "redirect_url": "/azure/well-architected/resiliency/app-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/predictive-maintenance-architecture.md",
+      "redirect_url": "/azure/architecture/industries/aerospace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/ads.md",
+      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/code-with.md",
+      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/durable-functions-containers.yml",
+      "redirect_url": "/azure/architecture/example-scenario/serverless/automation-application-gateway",
+      "redirect_document_id": false
+    }
   ]
 }
