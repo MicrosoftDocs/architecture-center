@@ -4865,7 +4865,8 @@ items:
           href: example-scenario/hybrid/aks-baseline.yml
         - name: AKS on Azure Stack HCI network architecture
           href: example-scenario/hybrid/aks-network.yml
-        - name: Deploy apps with AKS hybrid on Azure Stack ACI  
+        - name: Deploy apps with AKS hybrid on Azure Stack ACI
+          href: example-scenario/hybrid/aks-hybrid-stack-hci.yml  
       - name: Azure Automation solutions
         items:
         - name: Azure Automation hybrid environment
