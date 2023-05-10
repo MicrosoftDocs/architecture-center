@@ -33,4 +33,4 @@ products:
   - sql-server
 thumbnailUrl: /azure/architecture/browse/thumbs/loan-credit-risk-analyzer-default-modeling.png
 content: |
-   [!include[](loan-credit-risk-analyzer-and-default-modeling-content.md)]
+   [!include[](loan-credit-risk-analyzer-default-modeling-content.md)]
