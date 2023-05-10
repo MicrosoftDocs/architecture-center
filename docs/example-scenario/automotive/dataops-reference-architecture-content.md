@@ -107,6 +107,10 @@ Each data domain manages it corresponding AVOps data products de-centrally. For 
 
 Depending on final scenario for data discovery, Meta-Data store (based on Cosmos DB can be extended by Azure Data Explorer or Azure Cognitive Search for semantic search capabilities).
 
+Diagram below shows a typical unified meta-data model (as guidance) used across the several AVOps data loop pillars:
+
+@ryan could you please insert the picture?
+
 ### Data Sharing
 
 Data Sharing in an AVOPs data loop is a common scenario (for data sharing between data domains and external sharing, e. g. to  integrate labeling partners). Microsoft Purview provides these capabilities to allow efficient data sharing in the data loop:
