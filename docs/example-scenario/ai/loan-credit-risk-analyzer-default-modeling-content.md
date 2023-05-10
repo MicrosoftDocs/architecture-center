@@ -1,6 +1,6 @@
 Loan originations in the Financial Industry needs to observe the credit risk of the individuals or businesses that need the credit lines. The model evaluates the delinquency and default probability of the party requesting for the funds. The Machine Learning based models’ decisions are based on the fiscal behaviour of the requester and will understand the huge set of data points that can segment/score the eligibility of the customer.
 
-The following article describes an architecture built with Azure Machine Learning (ML) using Synapse, Data Factory, Azure App Services and Power BI for an end-to-end solution.
+The following article describes an architecture built with Azure Machine Learning (ML) using Azure Synapse Analytics, Data Factory, Azure App Service and Power BI for an end-to-end solution.
 
 ## Architecture
 
