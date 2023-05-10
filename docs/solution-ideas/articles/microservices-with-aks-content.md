@@ -22,7 +22,7 @@ Architecture diagram of an Azure pipeline. The diagram shows the following steps
 5. The CD pipeline deploys a YAML template to the staging AKS environment. The template specifies the container image from the non-production environment. The pipeline then performs acceptance tests against the staging environment to validate the deployment. If the tests succeed, a manual validation task is run, requiring a person to validate the deployment and resume the pipeline. The manual validation step is optional. Some organizations will automatically deploy.
 6. If the manual intervention is resumed, the CD pipeline promotes the image from the non-production Azure Container Registry to the production registry.
 7. The CD pipeline deploys a YAML template to the production AKS environment. The template specifies the container image from the production environment.
-8. Container Insights forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor every 3 minutes.
+8. Container Insights forwards performance metrics, inventory data, and health state information from container hosts and containers to Azure Monitor periodically.
 9. Azure Monitor collects observability data such as logs and metrics so that an operator can analyze health, performance, and usage data. Application Insights collects all application-specific monitoring data, such as traces. Azure Log Analytics is used to store all that data.
 
 ### Components
@@ -30,6 +30,7 @@ Architecture diagram of an Azure pipeline. The diagram shows the following steps
 - [Container Insights](/azure/azure-monitor/containers/container-insights-overview) collects logs and metrics and logs and forwards them to Azure Monitor.
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Use Container Registry to store private container images.
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/container-registry) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance.
+- [Defender for DevOps](azure/defender-for-cloud/azure-devops-extension) consider using Microsoft Defender for DevOps in Azure DevOps to perform static analysis and gain visibility of security postures across multiple pipelines in AKS development and deployment. 
 
 ## Next steps
 
