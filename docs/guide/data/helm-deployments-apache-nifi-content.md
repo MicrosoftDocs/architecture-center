@@ -4,7 +4,9 @@ This solution shows you how to use Helm charts when you deploy NiFi on Azure Kub
 
 ## Architecture
 
-:::image type="content" source="./media/helm-deployments-apache-nifi-architecture.png" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture-lightbox.png":::
+:::image type="content" source="./media/helm-deployments-apache-nifi-architecture.svg" alt-text="Diagram showing how a user configures a Helm chart to deploy an application on Kubernetes. Components include pods and volumes that Kubernetes creates." border="false" lightbox="./media/helm-deployments-apache-nifi-architecture.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/helm-deployments-apache-nifi.vsdx) of this architecture.*
 
 ### Workflow
 

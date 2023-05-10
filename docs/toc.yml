@@ -2856,6 +2856,8 @@ items:
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: OpenAI GPT-3 summarization
         href: guide/ai/query-based-summarization.md
+      - name: Conversation summarization
+        href: guide/ai/conversation-summarization.yml  
       - name: R developer's guide to Azure
         href: data-guide/technology-choices/r-developers-guide.md
       - name: Machine learning
@@ -4638,8 +4640,6 @@ items:
         href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
       - name: CI/CD pipeline for chatbots with ARM
         href: example-scenario/apps/devops-cicd-chatbot.yml
-      - name: CI/CD pipeline using Azure DevOps
-        href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: DevSecOps in GitHub
         href: solution-ideas/articles/devsecops-in-github.yml
       - name: Enterprise monitoring with Azure Monitor
@@ -4656,10 +4656,6 @@ items:
         href: example-scenario/devops/teacher-provisioned-virtual-labs-azure.yml
     - name: Solution ideas
       items:
-      - name: CI/CD for Azure VMs
-        href: solution-ideas/articles/cicd-for-azure-vms.yml
-      - name: CI/CD for Azure Web Apps
-        href: solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml
       - name: CI/CD for Containers
         href: solution-ideas/articles/cicd-for-containers.yml
       - name: CI/CD for Microsoft Power Platform
@@ -4678,8 +4674,6 @@ items:
         href: solution-ideas/articles/devsecops-infrastructure-as-code.yml
       - name: DevSecOps with a rolling main branch
         href: solution-ideas/articles/devsecops-rolling-branch.yml
-      - name: DevTest and DevOps for IaaS
-        href: solution-ideas/articles/dev-test-iaas.yml
       - name: DevTest and DevOps for PaaS
         href: solution-ideas/articles/dev-test-paas.yml
       - name: DevTest and DevOps with microservices
@@ -6055,6 +6049,8 @@ items:
         - name: Interconnect with China
           href: /azure/virtual-wan/interconnect-china
           maintainContext: true
+        - name: Massive-scale VWAN architecture design
+          href: example-scenario/networking/massive-scale-azure-architecture.yml
         - name: Migrate to Azure Virtual WAN
           href: /azure/virtual-wan/migrate-from-hub-spoke-topology
           maintainContext: true
