@@ -398,7 +398,7 @@ Other contributors:
 
 ## Related resources
 
-- [Architecting Azure applications for resiliency and availability](../../reliability/architect.md)
+- [Design reliable Azure applications](/azure/well-architected/resiliency/app-design)
 - [Azure files accessed on-premises and secured by AD DS](../hybrid/azure-files-on-premises-authentication.yml)
 - [Azure Virtual Desktop for the enterprise](windows-virtual-desktop.yml)
 - [Enterprise file shares with disaster recovery](../file-storage/enterprise-file-shares-disaster-recovery.yml)
