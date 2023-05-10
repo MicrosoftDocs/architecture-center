@@ -3793,8 +3793,6 @@ items:
         href: example-scenario/aks-firewall/aks-firewall.yml
       - name: GitOps for AKS
         href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
-      - name: Magento e-commerce in AKS
-        href: example-scenario/magento/magento-azure.yml
       - name: Microservices architecture on AKS
         href: reference-architectures/containers/aks-microservices/aks-microservices.yml
       - name: Microservices with Container Apps
