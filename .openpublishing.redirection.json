@@ -2713,6 +2713,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/reference-architectures/data/cluedin-experiment.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/cluedin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reliability/architect.md",
+      "redirect_url": "/azure/well-architected/resiliency/app-design",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-science-process/predictive-maintenance-architecture.md",
       "redirect_url": "/azure/architecture/industries/aerospace",
       "redirect_document_id": false
@@ -2728,7 +2738,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "solution-ideas/articles/durable-functions-containers.yml",
+      "source_path": "docs/solution-ideas/articles/durable-functions-containers.yml",
       "redirect_url": "/azure/architecture/example-scenario/serverless/automation-application-gateway",
       "redirect_document_id": false
     }
