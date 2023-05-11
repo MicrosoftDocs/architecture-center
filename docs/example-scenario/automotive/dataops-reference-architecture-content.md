@@ -1,4 +1,4 @@
-This architecture provides guidance and recommendations for developing data operations and data management (DataOps) for an automated driving solution. DataOps reference architecture is built upon the framework outlined in the [AVOps Design Guide](https://learn.microsoft.com/en-us/azure/architecture/guide/machine-learning/avops-design-guide). 
+This architecture provides guidance and recommendations for developing offline data operations and data management (DataOps) for an automated driving solution. DataOps reference architecture is built upon the framework outlined in the [AVOps Design Guide](https://learn.microsoft.com/en-us/azure/architecture/guide/machine-learning/avops-design-guide). 
  DataOps is one of the building blocks of AVOps, in addition to MLOps, ValOps, DevOps and Centralized AVOps functions. 
 
 ## Scenario Details
@@ -24,16 +24,16 @@ The AVOps DataOps reference architecture provides guidance how to address and so
 *Download a [Visio file](https://arch-center.azureedge.net/dataops-architecture.vsdx) that contains the architecture diagrams in this article.*
 
 ## Data Flow
-1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/) or [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/), ingests data into Azure.  Measurement data in formats such as MDF4, TDMS, Rosbag land in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) via a dedicated storage account called the Landing Zone. Landing Zone is the storage account into which all the measurements from the vehicles are uploaded and validated. Only valid measurements are copied over the Raw Zone and raw data streams are created for them. Validation and data quality checks, like checksum, are performed to remove low quality data. 
-1. Once data is available at the Landing Zone, an [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered at the scheduled interval to process the data. The [Azure Data Factory](/azure/data-factory/introduction) pipeline does the following functions:
-    - Perform a data quality check early in the data pipeline to ensure only quality data passes through to the next stage.   Code to perform data quality checks is executed by calling a service using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview).  Data that is deemed incomplete are archived for future processing.  
+1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/) or [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/), ingests data into Azure.  Measurement data in formats such as MDF4, TDMS, Rosbag land in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) via a dedicated storage account called "Landing". The Landing storage account into which all the measurements from the vehicles are uploaded and validated. Only valid measurements are copied over the "Raw" storage account and raw data streams are created for them. Validation and data quality checks, like checksum, are performed to remove low quality data. 
+1. Once data is available at the Landing storage account, an [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered at the scheduled interval to process the data. The [Azure Data Factory](/azure/data-factory/introduction) pipeline does the following functions:
+    - Perform a data quality check such as a checksum early in the data pipeline to ensure only quality data passes through to the next stage.   Code to perform data quality checks is executed by calling a service using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview).  Data that is deemed incomplete are archived for future processing.  
     - Lineage Tracking: Pipeline calls the Metadata API using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview) to update the metadata in [Azure Cosmos DB](/azure/cosmos-db) to create a new datastream. For each measurement, there's a datastream of type “Raw”
     - Once the Metadata API creates the datastream, the data is copied to the Raw Zone storage account in  [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). The data in the Raw folder has a hierarchical structure
     ```
         raw/YYYY/MM/DD/VIN/MeasurementID/DatastreamID  
     ```
     - Once all the data is copied to the Raw folder, another call to Metadata API is made to mark the datastream as “Complete” so the datastream can be consumed further.  
-    - Once all measurement files are copied, the measurements are archived and removed from the Landing zone.  
+    - Once all measurement files are copied, the measurements are archived and removed from the Landing storage account.  
 1. The data in the Raw zone is still in a raw format such as [Rosbag](http://wiki.ros.org/rosbag) format and need to be extracted so the downstream systems can consume them.  
     
     [Azure Data Factory](/azure/data-factory/introduction) and [Azure Batch](/azure/batch/) process the files from the Raw zone.  Code executed in [Azure Batch](/azure/batch/) reads the data from the topics in the Raw file and outputs the data into the selected topics into the respective folders.  
@@ -107,9 +107,10 @@ Each data domain manages it corresponding AVOps data products de-centrally. For 
 
 Depending on final scenario for data discovery, Meta-Data store (based on Cosmos DB can be extended by Azure Data Explorer or Azure Cognitive Search for semantic search capabilities).
 
-Diagram below shows a typical unified meta-data model (as guidance) used across the several AVOps data loop pillars:
+The Metadata Model diagram shows a typical unified meta-data model (as guidance) used across the several AVOps data loop pillars:
 
-@ryan could you please insert the picture?
+
+![Metadata Model](.\images\metadata-model.png)
 
 ### Data Sharing
 
@@ -121,8 +122,8 @@ Data Sharing in an AVOPs data loop is a common scenario (for data sharing betwee
 - [In-place data sharing](https://learn.microsoft.com/en-us/azure/purview/concept-data-share)
 
 ## Data Pipeline
-### Landing Zone to Raw Zone
-The data pipeline is triggered based on a schedule. Once triggered, the data is copied from landing zone to raw zone.
+### Landing Storage Account to Raw Storage Account
+The data pipeline is triggered based on a schedule. Once triggered, the data is copied from "Landing" storage account to the "Raw" storage account.
 ![ADF Copy pipeline](images/adf-copy-landing-raw.png)
 
 Once the pipeline gets triggered, it fetches all the measurement folders and iterates through all of the folders. Here's the sequence of activities that happen against each measurement:
@@ -135,19 +136,19 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
 
 **Call Update Datastream State API**: Make a web API call to update the state of the stream to Start Copy, on successful call start the copy activity to copy measurement files to the datastream location. On failure move to the on error activity.
 
-**Copy Measurement Files**: [Azure Batch](/azure/batch/) is used to copy measurement files from Landing zone to Raw Zone. [Azure Data Factory](/azure/data-factory/introduction) pipeline invokes [Azure Batch](/azure/batch/) for copying a measurement. Copy module of orchestrator app creates following Copy job with following tasks for each measurement:
+**Copy Measurement Files**: [Azure Batch](/azure/batch/) is used to copy measurement files from Landing storage account to Raw storage account. [Azure Data Factory](/azure/data-factory/introduction) pipeline invokes [Azure Batch](/azure/batch/) for copying a measurement. Copy module of orchestrator app creates following Copy job with following tasks for each measurement:
 
-- Copy measurement files to Raw Zone
-- Copy measurement files to Archive Zone
-- Remove measurement files from Landing Zone
+- Copy measurement files to Raw storage account
+- Copy measurement files to Archive storage account
+- Remove measurement files from Landing storage account
 
 **Note**: [Azure Batch](/azure/batch/) makes use of orchestrator pool for copying data and AzCopy tool is used for copying and removing data based on above tasks. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in keyvault and are referenced via landingsaskey, archivesaskey and rawsaskey
 
 **Call Update Datastream State API**: Make a web api call to update the state of the stream to Copy Complete, on successful call move to the next activity to delete measurement from the landing zone. On failure move to the on error activity.
 
-**Move Measurement To Landing Zone Archive**: This activity moves the measurement files from landing zone to Landing Zone Archive. This helps to rerun a particular measurement by moving it back to Landing zone via hydrate copy pipeline. Life cycle management is enabled on this zone to automatically delete or archive measurements from this zone.
+**Move Measurement To Landing Archive**: This activity moves the measurement files from landing storage account to Landing Archive. This helps to rerun a particular measurement by moving it back to Landing storage account via hydrate copy pipeline. Life cycle management is enabled on this zone to automatically delete or archive measurements from this zone.
 
-**On-Error**: In this activity, measurements are moved to Error Zone where from it can be rerun by moving it to landing zone.  Alternatively, it can be auto deleted/archived by life cycle management.
+**On-Error**: In this activity, measurements are moved to Error Zone where from it can be rerun by moving it to landing storage account.  Alternatively, it can be auto deleted/archived by life cycle management.
 
 **Notes**:
 - These pipelines are triggered based on a schedule, as it helps in better traceability of pipeline runs and avoid unnecessary pipeline runs.
