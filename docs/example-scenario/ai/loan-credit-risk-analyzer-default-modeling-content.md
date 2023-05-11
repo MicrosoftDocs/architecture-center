@@ -190,5 +190,5 @@ Other contributor:
 ## Related resources
 
 - [MLOps framework](../../example-scenario/mlops/mlops-technical-paper.yml)
-- [Responsible AI](/azure/cloud-adoption-framework/strategy/responsible-ai?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
-- [Responsible and trusted AI](/azure/cloud-adoption-framework/innovate/best-practices/trusted-ai?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) 
+- [Responsible AI](/azure/cloud-adoption-framework/strategy/responsible-ai)
+- [Responsible and trusted AI](/azure/cloud-adoption-framework/innovate/best-practices/trusted-ai) 
