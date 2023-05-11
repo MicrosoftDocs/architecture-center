@@ -257,7 +257,7 @@ Other contributors:
 - [Jimmy Avila](https://www.linkedin.com/in/jimmyavila) | Sr Cloud Solution Architect
 - [Andrew Delosky](https://www.linkedin.com/in/andrewdelosky) | Principal Cloud Solution Architect
 - [Robert Lightner](https://www.linkedin.com/in/robert-lightner) | Sr Cloud Solution Architect
-- [Rodrigo Santos](https://www.linkedin.com/in/reisrodrigo) | Principle Cloud Solution Architect
+- [Rodrigo Santos](https://www.linkedin.com/in/reisrodrigo) | Principal Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
