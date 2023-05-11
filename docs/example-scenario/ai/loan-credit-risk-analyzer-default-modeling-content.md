@@ -87,11 +87,11 @@ Real-time access to the status of online loan requests must be available to the 
 
 ### Responsible AI
 
-The [Responsible AI dashboard](/azure/machine-learning/concept-responsible-ai-dashboard?view=azureml-api-2) provides a single interface for multiple mature tools that can help you implement Responsible AI. The Responsible AI Standard is based on six principles: 
+The [Responsible AI dashboard](/azure/machine-learning/concept-responsible-ai-dashboard?view=azureml-api-2) provides a single interface for multiple tools that can help you implement Responsible AI. The Responsible AI Standard is based on six principles: 
 
 :::image type="content" source="media/six-principles-ai.png" alt-text="Diagram that shows the six principles of Responsible AI." border="false":::
 
-**Fairness and inclusiveness in Azure Machine Learning**. This component of the Responsible AI dashboard helps you evaluate unfair behaviors by avoiding harms of allocation harms of quality-of-service. You can use it to assess fairness across sensitive groups defined in terms of gender, age, ethnicity, and other characteristics. During assessment, fairness is quantified via disparity metrics. You should implement the mitigation algorithms in the [Fairlearn](https://fairlearn.org/) open-source package, which use parity constraints.
+**Fairness and inclusiveness in Azure Machine Learning**. This component of the Responsible AI dashboard helps you evaluate unfair behaviors by avoiding harms of allocation and harms of quality-of-service. You can use it to assess fairness across sensitive groups defined in terms of gender, age, ethnicity, and other characteristics. During assessment, fairness is quantified via disparity metrics. You should implement the mitigation algorithms in the [Fairlearn](https://fairlearn.org/) open-source package, which use parity constraints.
 
 **Reliability and safety in Azure Machine Learning**. The error analysis component of Responsible AI can help you:
 - Gain a deep understanding of how failure is distributed for a model.
@@ -102,7 +102,7 @@ The [Responsible AI dashboard](/azure/machine-learning/concept-responsible-ai-da
 - *Model interpretability* helps you understand what influences the behavior of the model. It generates human-understandable descriptions of the model's predictions. This understanding helps to ensure that you can trust the model and helps you debug and improve it. [InterpretML](https://interpret.ml/) can help you understand the structure of glass-box models or the relationship among features in black-box deep neural network models.
 - *Counterfactual what-if* can help you understand and debug a machine learning model in terms of how it reacts to feature changes and perturbations.
 
-**Privacy and security in Azure Machine Learning**. Machine learning administrators need to create a secure configuration to develop and manage the deployment of models. [Security and governance features](/azure/machine-learning/concept-enterprise-security?view=azureml-api-2) can help you comply your organization's security policies. Other tools can help you assess and secure your models. 
+**Privacy and security in Azure Machine Learning**. Machine learning administrators need to create a secure configuration to develop and manage the deployment of models. [Security and governance features](/azure/machine-learning/concept-enterprise-security?view=azureml-api-2) can help you comply with your organization's security policies. Other tools can help you assess and secure your models. 
 
 **Accountability in Azure Machine Learning**. Machine learning operations (MLOps) is based on DevOps principles and practices that increase the efficiency of AI workflows. Azure Machine Learning can help you implement MLOps capabilities:
 
