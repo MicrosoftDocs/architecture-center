@@ -25,7 +25,7 @@ This article describes an architecture that uses Azure Machine Learning to predi
     
     c. Responsible AI: Responsible AI is an approach to developing, assessing, and deploying AI systems in a safe, trustworthy, and ethical way. Because this model infers an approval or denial decision for a loan request, implementing the principles of Responsible AI is important:
 
-    - Fairness metrics assess the effect of unfair behavior and enable mitigation strategies. Sensitive features and attributes are identified in the dataset and in cohorts of the population. For more information, see [Model performance and fairness](/azure/machine-learning/concept-fairness-ml)
+    - Fairness metrics assess the effect of unfair behavior and enable mitigation strategies. Sensitive features and attributes are identified in the dataset and in cohorts (subsets) of the data. For more information, see [Model performance and fairness](/azure/machine-learning/concept-fairness-ml)
 
     - Interpretability is a measure of how well you can understand the behavior of a machine learning model. This component of Responsible AI generates human-understandable descriptions of the predictions of the model. For more information, see [Model interpretability](/azure/machine-learning/how-to-machine-learning-interpretability).
 
@@ -38,123 +38,133 @@ This article describes an architecture that uses Azure Machine Learning to predi
     1. The result set of scoring from batch processing is persisted in the database or Azure Synapse Analytics data warehouse. 
 6.	Interface to data about the applicant activity: The details input by the applicant, the internal credit profile, and the model decision are all staged and stored in appropriate data services. These services are used in the decision engine for future scoring, so they're documented.
     - Storage: Each detail of the credit processing is retained in persistent storage.
-    - User interface: The approval or denial decision is presented to the customer.
-7.	Reporting: The real-time insights about the number of applications processed and approve or deny outcomes is continuously presented to managers and leadership. Examples include near real-time reports of amounts approved, the loan portfolio created, and model performance. 
+    - User interface: The approval or denial decision is presented to the applicant.
+7.	Reporting: Real-time insights about the number of applications processed and approve or deny outcomes is continuously presented to managers and leadership. Examples of reporting include near real-time reports of amounts approved, the loan portfolio created, and model performance.
 
 ### Components
 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable and secure object storage for unstructured data. It is optimized for storing files like binary files, activity logs, streaming audio/video  and files that does not adhere to any formats.
-- [Azure Data Lake Storage Gen2]( ) is the storage foundation for building cost effective enterprise scale data lake on Azure. It is blob storage with hierarchical folder structure with enhanced performance, management, and security. It services multiple petabytes of information while sustaining hundreds of gigabits of throughput.
-- [Azure Synapse]() is an enterprise analytics service   that brings together the best of SQL and Spark technologies with unified user experience for Data explorer, pipelines. It integrates seamlessly with PowerBI / Cosmos DB and Azure ML.  The tool supports both dedicated and serverless form factors and the ability to switch between the analysis methods.
-- [Azure Sql DB]() fully managed relational database service built for the cloud. Build your next app with the simplicity and flexibility of a multi-model database that scales to meet demand. The DB is built with intelligent threat protection and built-in HA with performance SLA of 99.995%. Fully managed and always on the latest version of SQL. Eliminate the complexity of configuring and managing high availability, tuning, backups, and other database tasks.
-- [Azure Machine Learning]() is a cloud service for accelerating and managing the machine learning project lifecycle. It is an integrated environment for data exploration, model building/management and deploying. The wizard-based model building aimed for citizen developers, notebook experience for the data scientists, organized into workspaces and managed by and admin. moved > Azure ML supports code-first and low/no-code approaches to machine learning.
-- [Power BI]() is the Azure Paas Service visualization tool with easier integration to Azure resources. It has a rich set of connectors for non-azure and on-prem services. It’s a low/no code environment with business insights tool with drill down capabilities into granular level data for users with personas ranging from developers, report creators, business users and executives.
-- [Azure App Services]() : Azure PaaS service enables you to build and host web apps, mobile back ends, and RESTful APIs with cloud scale infrastructure. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. 
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs) provides scalable object storage for unstructured data. It's optimized for storing files like binary files, activity logs, and files that don't adhere to a specific format.
+- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage/) is the storage foundation for creating cost-effective data lakes on Azure. It provides blob storage with a hierarchical folder structure and enhanced performance, management, and security. It services multiple petabytes of information while sustaining hundreds of gigabits of throughput.
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) is an analytics service that brings together the best of SQL and Spark technologies and a unified user experience for Azure Synapse Data Explorer and pipelines. It integrates with Power BI, Azure Cosmos DB, and Azure Machine Learning. The service supports both dedicated and serverless resource models and the ability to switch between the models.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is an always up-to-date, fully managed relational database that's built for the cloud.
+- [Azure Machine Learning](https://azure.microsoft.com/products/machine-learning/) is a cloud service for managing machine learning project lifecycles. It provides an integrated environment for data exploration, model building and management, and deployment and supports code-first and low-code/no-code approaches to machine learning.
+- [Power BI](https://powerbi.microsoft.com/) is a visualization tool that provides easy integration with Azure resources. 
+- [Azure App Service](https://azure.microsoft.com/products/app-service/) enables you to build and host web apps, mobile back ends, and RESTful APIs without managing infrastructure. Supported languages include .NET, .NET Core, Java, Ruby, Node.js, PHP, and Python.
  
 ### Alternatives
 
-- [Databricks](): The first party solution to develop, build, deploy and manage ML models and analytics. The platform integrates with cloud storage and security in your cloud account and is a unified environment for model development.
+You can use [Azure Databricks](https://azure.microsoft.com/products/databricks)to develop, deploy, and manage machine learning models and analytics workloads. The service provides a unified environment for model development.
 
 ## Scenario details
 
-Organizations in the financial industry need to predict the credit risk of individuals or businesses that request credit. The model evaluates the delinquency and default probability of the party requesting for the funds. (moved)
+Organizations in the financial industry need to predict the credit risk of individuals or businesses that request credit. This model evaluates the delinquency and default probability of loan applicants.
 
-The following article describes an architecture built with Azure Machine Learning (ML) using Azure Synapse Analytics, Azure App Service and Power BI for an end-to-end solution. (moved)
+Credit risk prediction involves deep analysis of population behavior and classification of the customer base into segments based on fiscal responsibility. Other variables include market factors and economic conditions, which have a significant influence on results.
 
-The Financial services industry aims at maximizing the loan originations and keep the charged off losses to minimum. The loans are issued to individuals with responsible credit behaviours. This customer profiling is a balancing act of profitability and loss mitigation. The quality of the portfolio needs to be evaluated continuously against the economic variables. 
+**Challenges.** Input data includes tens of millions of customer profiles and data about customer credit behavior and spending habits that's based on billions of records from disparate systems, like internal customer activity. The third-party economic conditions data and the country's market analysis can come from monthly or quarterly snapshots that require the loading and maintenance of hundreds of GBs of files. The data consists of structured purchase activity of credit lines, free-form text of the loan request, and customer service notes. Credit bureau information about the applicant or semi-structured rows of customer data, and cross joins between these datasets and quality checks to validate the integrity of the data, is needed. 
 
-Loan processing is heavily prediction exercise. It involves deeper analysis of the past population behaviour, classification of current customer base into segments to understand the fiscal responsibility. The other variables in this analysis are the market factors and the economic conditions. There is a strong influence of the current financial situation of the country on top of behavioural patterns and the financial worthiness of the individual. 
+The data usually consists of wide tables of the customer information from credit bureaus together with the market analysis. The customer activity consists of records with dynamic layout that might not be structured. Data is also available in free-form text from the customer service notes and applcant-interaction forms.
 
-**Data Challenges**: The data input is the analysis of 10s of millions of customer profiles. and analysing their credit behaviour and spending habits by crunching billions of records that are coming from disparate systems like internal customer activity. The third-party economic conditions data, country market analysis could be monthly or quarterly snapshot that needs loading and maintaining 100s of GB of files.  The data would be structured purchase activity of the credit lines, free form text of the request and customer service notes. The credit bureau information pertaining to the requesting party or semi structured rows of customer, cross joins between these datasets and quality checks to validate the integrity of the data is needed. 
+Processing these large volumes of data and ensuring the results are current requires streamlined processing. You need a low-latency storage and retrieval process. The data infrastructure should be able to scale to support disparate data sources and provide the ability to manage and secure the data perimeter. The machine learning platform needs to support the complex analysis of the many models that are trained, tested, and validated across many population segments.
 
-The data is usually wide tables of the customer information from credit bureaus along with the Market analysis. The customer activity is records with dynamic layout that may not be structured. There is also data available in free form text coming in from the customer service notes and the customer interactions forms. 
+**Data sensitivity and privacy.** The data processing for this model involves personal data and demographic details. All personal data must be restricted for any access to direct visibility. Examples include account numbers, credit card details, social security numbers, names, addresses, and postal codes.
 
-Churning through the huge volumes of the data and updating the results to the most recent timeframe needs a streamlined processing. The storage and retrieval process needs to be low latency. The data infrastructure should scale to support disparate data sources with the ability to manage and secure the data perimeter. The machine learning platform needs to support the complex analysis of the many models that are trained/tested/validated across many population segments.
+The profiling of populations needs to be avoided. The credit card and bank account numbers always need to be obfuscated. Certain data elements need to be masked and always encrypted, providing with no access to the underlying information, but enabled for analysis.
 
-**Data Sensitivity and Privacy**: The data processing involves Personal Identifiable Information (PII) data and demographics details. All the personally identifiable information should be restricted for any access to the direct visibility example account number, credit card details, SSN, name/address, zip codes.
+Data needs to be encrypted at rest, in transit, and during processing via secure enclaves. Access to the data items is logged in a monitoring solution. The production system needs to be set up with appropriate CI/CD pipelines with approvals that trigger model deployments and processes. Audit of the logs and workflow should provide the interactions with the data for any compliance needs.
 
-Profiling of the population is a possibility that needs to be avoided. The credit card and bank account number is sensitive data that always needs to be obfuscated.  Certain data elements need to be masked and always encrypted with no access to the underlying information but enabled for analysis using different techniques. 
+**Processing.** This model requires high computational power for analysis, contextualizing, and model training and deployment. Model scoring is validated against random samples to ensure that credit decisions don't include any race, gender, ethnic, or geographic location bias. The decision model needs to be documented and archived for future reference. Every factor that's involved in the decision outcomes is stored.
 
-The data needs to be encrypted at rest, at transit times and at processing (secure enclaves). The access to the data items is logged in to a monitoring solution. The production system needs to be set up with appropriate CI/CD pipelines with approvals that trigger model deployments and processes. Audit of the logs and workflow should give the interactions with the data for any compliance needs. 
+Data processing requires high CPU usage. It includes SQL processing of structured data in DB and JSON format, Spark processing of the data frames, or big data analytics on terabytes of information in various document formats. Data ELT/ETL jobs are scheduled or triggered at regular intervals or in real time, depending on the value of most recent data.
 
-**Processing**: The effort needs high computational power for analysing, contextualising, and model training/deployment. The model scoring is validated against random samples to ensure the credit decisioning is not involving any race/gender/ethnic/geolocation bias. The credit decisioning model needs to be documented and archived for any future reference. Every factor that was involved in the approval/deny outcomes are stored. 
+**Compliance and regulatory framework.** Every detail of loan processing needs to be documented, including the submitted application, the features used in model scoring, and the result set of the model. Model training information, data used for training, and training results should be registered for future reference and audit and compliance requests.
 
-Data processing involves high CPU usage, with sql processing of structured data in DB and json format, or spark processing of the data frames or big data analytics on top of the Terabytes of information on different document formats. The data ELT/ETL jobs are scheduled or triggered at regular intervals or real time based on the value of most recent data.
+**Batch versus real-time scoring.** Certain tasks are proactive and can be processed as batch jobs, like pre-approved balance transfers. Some requests, like online credit line increases, require real-time approval.
 
-**Compliance / Regulatory framework**: every detail of the loan processing needs to be documented starting from the application submitted, the features used in model scoring, the result set of the model output. The model training information, the data used for training and the training results should be registered for future reference and audit /compliance requests. 
-
-**Batch /Realtime scoring**: Certain campaigns/programs from the loan offerings are proactive and can be batch processing (example: pre-approved balance transfers). And some requests need the real time approval (example: online credit line increases)
-
-There is real-time access needed for the status of the online loan requests to the customer. The loan issuing financial institution continuously monitors the performance of the credit model and needs insights into the loan approval status, no. of loans approves, dollar issued, quality of the new originations, etc.
+Real-time access to the status of online loan requests must be available to the applicant. The loan-issuing financial institution continuously monitors the performance of the credit model and needs insight into metrics like loan-approval status, number of approved loans, dollar amounts issued, and the quality of new loan originations.
 
 ### Responsible AI
 
-The [Responsible AI Dashboard](/azure/machine-learning/concept-responsible-ai-dashboard?view=azureml-api-2) provides a single interface to multiple mature tools to implement Responsible AI. Microsoft built the Responsible AI Standard according to six principles: 
+The [Responsible AI dashboard](/azure/machine-learning/concept-responsible-ai-dashboard?view=azureml-api-2) provides a single interface for multiple mature tools that can help you implement Responsible AI. The Responsible AI Standard is based on six principles: 
 
-image 
+:::image type="content" source="media/six-principles-ai.png" alt-text="Diagram that shows the six principles of Responsible AI." border="false":::
 
-**Fairness and inclusiveness in Azure Machine Learning**: Fairness Assessment component of Responsible AI Dashboard (RAI) helps to evaluate unfair behaviors by avoiding the harm of allocation and harm of quality of service. It enables fairness towards the sensitive groups defined in terms of gender, age, ethnicity etc. During assessment, Fairness is quantified through disparity metrics. Use the mitigation algorithms in the [Fairlearn](https://fairlearn.org/) package using parity constraints. 
+**Fairness and inclusiveness in Azure Machine Learning**. This component of the Responsible AI dashboard helps you evaluate unfair behaviors by avoiding harms of allocation harms of quality-of-service. You can use it to assess fairness across sensitive groups defined in terms of gender, age, ethnicity, and other characteristics. During assessment, fairness is quantified via disparity metrics. You should implement the mitigation algorithms in the [Fairlearn](https://fairlearn.org/) open-source package, which use parity constraints.
 
-**Reliability and safety in Azure Machine Learning**:  The error analysis component of RAI helps.
-- Get a deep understanding of how failure is distributed for a model.
-- Identify cohorts (subsets) of data with a higher error rate than the overall benchmark.
+**Reliability and safety in Azure Machine Learning**. The error analysis component of Responsible AI can help you:
+- Gain a deep understanding of how failure is distributed for a model.
+- Identify cohorts of data that have a higher error rate than the overall benchmark.
 
+**Transparency in Azure Machine Learning**. A crucial part of transparency is understanding how features affect the machine learning model.
 
-**Transparency in Azure Machine Learning**: Crucial part of Transparency is understanding how the features affect the ML model. Model Interpretability and counter-factual-what-if analysis of RAI generated human understandable descriptions of the model predictions.
- - Model Interpretability helps you to understand what influences the behavior of the model. “diagnose” stage of the model lifecycle workflow by generating human-understandable descriptions of the predictions of ML model. This understanding helps to trust the model and debug/improve your model. [MLInterpret](https://interpret.ml/) can help with understanding the structure of Glass-Box models or relationship of the features in Black-Box deep neural network models.
-- The counterfactual what-if component enables understanding and debugging a machine learning model in terms of how it reacts to feature changes and perturbations.
+- *Model interpretability* helps you understand what influences the behavior of the model. It generates human-understandable descriptions of the model's predictions. This understanding helps to ensure that you can trust the model and helps you debug and improve it. [InterpretML](https://interpret.ml/) can help you understand the structure of glass-box models or the relationship among features in black-box deep neural network models.
+- *Counterfactual what-if* can help you understand and debug a machine learning model in terms of how it reacts to feature changes and perturbations.
 
-**Privacy and security in Azure Machine Learning**: ML administrators need to create a secure configuration to develop, manage, deployment of the models. There are Azure cloud [Foundation Security controls](/azure/machine-learning/concept-enterprise-security?view=azureml-api-2) that could be leveraged to comply with the company security policies. Also, there are other tools that helps to assess and secure the models. 
+**Privacy and security in Azure Machine Learning**. Machine learning administrators need to create a secure configuration to develop and manage the deployment of models. [Security and governance features](/azure/machine-learning/concept-enterprise-security?view=azureml-api-2) can help you comply your organizaion's security policies. Other tools can help you assess and secure your models. 
 
-**Accountability in Azure Machine Learning**: MLOps framework enables the streamlined DevOps capabilities to increase the efficiency of AI workflows. This helps the complete ML model lifecycle management with register, package and deploy models and notify alerts with changes in the models. It captures governance data for end-to-end flow and monitor the application for operational issues.
+**Accountability in Azure Machine Learning**. Machine learning operations (MLOps) is based on DevOps principles and practices that increase the efficiency of AI workflows. Azure Machine Learning can help you implement MLOps capabilities:
 
-**MLOps framework using Azure ML**:
+- Register, package, and deploy models  
+- Get notifications and alerts to changes in models 
+- Capture governance data for the end-to-end lifecycle
+- Monitor applications for operational issues
 
-image 
+This diagram illustrates the MLOps capabilities of Azure Machine Learning: 
+
+:::image type="content" source="media/machine-learning-operations.png" alt-text="Diagram that describes the MLOps capabilities of Azure Machine Learning." border="false":::
 
 ### Potential use cases
 
 You can apply this solution to the following scenarios:
-- Financial Industry: The solution can help with financial or cross sales analysis of a customer for targeted marketing campaigns.
-- Health Care: The solution can also be built into a health care solution for any treatment offerings with patient information as the driver for the analysis.
-- Hospitality: The design can be used to build a customer profile and create offerings for hotels/flights/cruise packages and memberships.
+
+- Finance: Get financial analysis of customers or cross-sales analysis of customers for targeted marketing campaigns.
+- Healthcare: Use patient information as input to suggest treatment offerings.
+- Hospitality: Create a customer profile to suggest offerings for hotels, flights, cruise packages, and memberships.
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-
-The machine learning solutions needs to be scalable and standardized for the easier management/maintenance inline with the MLOps. Ensure the solution you implement supports ongoing inference with retraining cycles and automated redeployments of models. 
-
-For more information, see [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
-Azure solutions provide Defense in Depth with a Zero Trust approach. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
+Azure solutions provide defense in depth and a Zero Trust approach.
 
 Consider implementing the following security features in this architecture:
-- https://learn.microsoft.com/azure/virtual-network/virtual-network-for-azure-services
+
+- [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/virtual-network-for-azure-services)
 - [Azure SQL Database security capabilities](/azure/azure-sql/database/security-overview?view=azuresql)
-- [Secure the credentials in Data Factory by using Key Vault](/azure/data-factory/store-credentials-in-key-vault)
+- [Secure the credentials in data factory by using Key Vault](/azure/data-factory/store-credentials-in-key-vault)
 - [Enterprise security and governance for Azure Machine Learning](/azure/machine-learning/concept-enterprise-security)
 - [Azure security baseline for Synapse Analytics Workspace](/security/benchmark/azure/baselines/synapse-analytics-workspace-security-baseline)
 
 ### Cost optimization
 
-Building operational efficiencies and reducing costs with on-demand resources is an easier way to reduce costs. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-Consider these resources for planning on the expenses and cost control:
-- To estimate the cost of implementing this solution, use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator).
+To estimate the cost of implementing this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+Also consider these resources:
+
 - [Plan and manage costs for Azure Synapse Analytics](/azure/synapse-analytics/plan-manage-costs)
-- [Plan to manage costs for Azure Machine Learning](/azure/machine-learning/concept-plan-manage-cost)
+- [Plan and manage costs for Azure Machine Learning](/azure/machine-learning/concept-plan-manage-cost)
+
+### Operational excellence
+
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
+
+Machine learning solutions need to be scalable and standardized for easier management and maintenance. Ensure that your solution supports ongoing inference with retraining cycles and automated redeployments of models.
+
+For more information, see [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2).
 
 ### Performance efficiency
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-Consider these resources for building efficiencies into the solution:
 - For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/architecture/framework/scalability/overview).
-- [Scale AI and machine learning initiatives in regulated industries](../../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)
-- Manage Synapse environment with appropriate [SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview) , [Spark](/azure/synapse-analytics/spark/apache-spark-autoscale) and [Serverless Sql](/azure/synapse-analytics/sql/on-demand-workspace-overview)
+- For information about regulated industries, see [Scale AI and machine learning initiatives in regulated industries](../../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml).
+- Manage your Azure Synapse Analytics environment with [SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), [Spark](/azure/synapse-analytics/spark/apache-spark-autoscale), or [serverless SQL](/azure/synapse-analytics/sql/on-demand-workspace-overview) pools.
  
 ## Contributors
 
@@ -164,17 +174,21 @@ Principal author:
 
 - [Charitha Basani](https://www.linkedin.com/in/charitha-basani-54196031) | Senior Cloud Solution Architect
 
+Other contributor: 
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+
 *To see non-public LinkedIn profiles, sign into LinkedIn.*
 
 ## Next steps
-- Azure security baseline for Azure Machine Learning
-- Azure Synapse Analytics
-- Deploy machine learning models to Azure
-- MLOps framework
-- Responsible Artificial Intelligence
+
+- [Azure security baseline for Azure Machine Learning](/security/benchmark/azure/baselines/machine-learning-security-baseline)
+- [Azure Synapse Analytics](/azure/synapse-analytics)
+- [Deploy machine learning models to Azure](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
+- [What is Responsible AI?](/azure/machine-learning/concept-responsible-ai)
 
 ## Related resources
 
-- https://learn.microsoft.com/azure/machine-learning/concept-responsible-ai
-
-
+- [MLOps framework](../../example-scenario/mlops/mlops-technical-paper.yml)
+- [Responsible AI](/azure/cloud-adoption-framework/strategy/responsible-ai?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json)
+- [Responsible and trusted AI](/azure/cloud-adoption-framework/innovate/best-practices/trusted-ai?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json) 
