@@ -249,14 +249,14 @@ The following steps establish the Virtual WAN service, hubs, spoke virtual netwo
 
 Principal authors:
 
-- [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841) | Sr Cloud Solution Architect
-- [John Poetzinger](https://www.linkedin.com/in/john-poetzinger-467b9922) | Sr Cloud Solution Architect
+- [Ethan Haslett](https://www.linkedin.com/in/ethan-haslett-1502841) | Senior Cloud Solution Architect
+- [John Poetzinger](https://www.linkedin.com/in/john-poetzinger-467b9922) | Senior Cloud Solution Architect
 
 Other contributors:
 
-- [Jimmy Avila](https://www.linkedin.com/in/jimmyavila) | Sr Cloud Solution Architect
+- [Jimmy Avila](https://www.linkedin.com/in/jimmyavila) | Senior Cloud Solution Architect
 - [Andrew Delosky](https://www.linkedin.com/in/andrewdelosky) | Principal Cloud Solution Architect
-- [Robert Lightner](https://www.linkedin.com/in/robert-lightner) | Sr Cloud Solution Architect
+- [Robert Lightner](https://www.linkedin.com/in/robert-lightner) | Senior Cloud Solution Architect
 - [Rodrigo Santos](https://www.linkedin.com/in/reisrodrigo) | Principal Cloud Solution Architect
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
