@@ -4087,6 +4087,8 @@ items:
         href: example-scenario/data/hybrid-etl-with-adf.yml
       - name: 'IaaS: Web app with relational database'
         href: high-availability/ref-arch-iaas-web-and-db.yml
+      - name: Loan credit risk modeling
+        href: example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml
       - name: Master data management with CluedIn
         href: reference-architectures/data/cluedin.yml
       - name: Master data management with Profisee
@@ -4156,8 +4158,6 @@ items:
         href: solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml
       - name: Loan charge-off prediction with SQL Server
         href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml
-      - name: Loan credit risk modeling
-        href: solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml
       - name: Loan credit risk with SQL Server
         href: solution-ideas/articles/loan-credit-risk-with-sql-server.yml
       - name: Logical data warehouse with Azure Synapse
