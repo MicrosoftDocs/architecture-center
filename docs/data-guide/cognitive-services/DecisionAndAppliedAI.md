@@ -37,10 +37,6 @@ There are several resource categories for these API services. A few of them are 
 
 ## Key considerations
 
-- **Type of Data:** Text/Image/Video
-- **Processing Mechanism:** Batch/Real-Time
-- **Algorithm Used:** Pre-built/Custom
-
 The following flow chart guides you in choosing the Decision/Open-AI service based on your processing needs
 
 :::image type="content" source="../images/CognitiveServicesDecisionandAppliedAI.png" alt-text="Diagram that shows how to select Speech Services" lightbox="../images/CognitiveServicesDecisionandAppliedAI.png":::

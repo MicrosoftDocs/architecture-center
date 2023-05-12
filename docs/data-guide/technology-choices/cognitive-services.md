@@ -86,7 +86,7 @@ Once the first decision is made you go deeper into your requirements.
 
 ## Deploying services
 
-When deploying Cognitive Services, you can either deploy services independently or use the Azure Cognitive Services multi-service resource. The multi-service resource deploys Decision, Language, Speech, Vision, and Applied AI services. Use the following to guide you on deploying services.
+When [deploying Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account#types-of-cognitive-services-resources), you can either deploy services independently or use the Azure Cognitive Services multi-service resource. The multi-service resource deploys Decision, Language, Speech, Vision, and Applied AI services. Use the following to guide you on deploying services.
 
 - Deploy the individual service if you do not need other services or if you want to manage access and billing on a per-service basis.
 - Deploy the multi-service Cognitive Services resource if you are using multiple services and want to manage access and billing for all the services together.
