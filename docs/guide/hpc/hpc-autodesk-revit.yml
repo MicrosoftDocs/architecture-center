@@ -1,0 +1,20 @@
+### YamlMime:Architecture
+metadata:
+  title: Deploy Revit on an Azure virtual machine
+  description: Learn how Autodesk Revit building information modeling software performs on an Azure virtual machine.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 05/17/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Deploy Revit on an Azure virtual machine
+summary: Learn how Autodesk Revit building information modeling software performs on an Azure virtual machine. 
+thumbnailUrl: /azure/architecture/browse/thumbs/hpc-revit.png
+content: |
+  [!include[](hpc-autodesk-revit-content.md)]

@@ -1,8 +1,10 @@
-This document briefly explains the steps to install and run Autodesk Revit application on a virtual machine (VM) in Azure and presents the performance results. Revit software helps architecture, engineering, and construction (AEC) teams create high-quality buildings and infrastructure.
+This article briefly explains the steps for installing and running Autodesk Revit on a virtual machine (VM) in Azure. It also presents the performance results of running Revit on Azure. 
 
-Engineers uses Revit to model shapes, structures, and systems in 3D with parametric accuracy, precision, and streamline documentation work with instant revisions to plans, elevations, schedules, and section as projects change. 
+Revit helps architecture, engineering, and construction (AEC) teams create high-quality buildings and infrastructure.
 
-Revit has built-in automation for documenting design and managing deliverables. It saves, syncs, and shares model-based BIM and CAD data to connect multidisciplinary teams and workflows. Revit is use as the data backbone of your BIM process. Develop and deploy standards, workflows, and content.
+Engineers use Revit to model shapes, structures, and systems in 3D with parametric accuracy and precision and to streamline documentation work. 
+
+Revit has built-in automation for documenting design and managing deliverables. It saves, syncs, and shares model-based BIM and CAD data to connect multidisciplinary teams and workflows.
 
 ## Why deploy Revit on Azure?
 
@@ -13,41 +15,48 @@ Revit has built-in automation for documenting design and managing deliverables. 
 
 ## Architecture
 
-:::image type="content" source="media/ .png" alt-text="Diagram that shows an architecture for deploying ." lightbox="media/   .png" border="false":::
+:::image type="content" source="media/hpc-revit.png" alt-text="Diagram that shows an architecture for deploying Revit." lightbox="media/hpc-revit.png" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/   .vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/hpc-revit.vsdx) of this architecture.*
 
 ### Components
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) run a Windows operating system. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
-- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) creates a private network in the cloud.
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) is used to create Windows VMs and run Windows. For information about deploying the VM and installing the drivers, see [Windows VMs on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+- [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network in the cloud.
 - [Network security groups](/azure/virtual-network/network-security-groups-overview) restrict access to VMs at the subnet level.
-- The public IP address allows users to use the Revit application via the internet. 
+- A public IP address allows users to access Revit via the internet. 
 - A physical solid-state drive (SSD) is used for storage.
 
 ## Deploy infrastructure and install Revit
 
-**Deploy Azure VMs.** Before you install Revit, you need to deploy your Azure VMs. You should use a [NVadsA10_v5 series](/azure/virtual-machines/nva10v5-series) or [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) VM for your Revit application. You should use a Premium SSD managed disk and attach it to the VM.
+**Deploy Azure VMs.** Before you install Revit, deploy your Azure VMs. You should use a [NVadsA10_v5 series](/azure/virtual-machines/nva10v5-series) or [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) VM to run Revit. You should use a Premium SSD managed disk and attach it to the VM.
 
-**Create and configure supporting infrastructure.** You also need to configure a public IP address for inbound connectivity and secure the subnet with network security groups.
+**Create and configure the supporting infrastructure.** You need to configure a public IP address for inbound connectivity use network security groups to provide security for the subnet.
 
-**Install NVIDIA drivers.** You need to install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) to take the advantage of GPU capabilities of NVadsA10_v5 and NCasT4_v3 series VMs. To install the NVIDIA drivers, you need to connect to a VM and install the required NVIDIA drivers. For information about deploying the VM and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml) or [Run a Linux VM on Azure](../../reference-architectures/n-tier/linux-vm.yml).
+**Install NVIDIA drivers.** You need to install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) to take the advantage of the GPU capabilities of NVadsA10_v5 and NCasT4_v3 series VMs. For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
-**Download and install the Autodesk Revit product.** After installing the NVIDIA drivers, you need to install the Revit product. To install, you need to log into your [Autodesk](https://www.autodesk.com/products/revit/overview) account. Search for “Revit” under “products”. Download and install Revit. For more information, see the Autodesk support website. 
+**Download and install Revit.** After you install the NVIDIA drivers, install Revit. To install the product, log in to your [Autodesk](https://www.autodesk.com/products/revit/overview) account. Select **Revit** under **Products**. For more information, see the Autodesk support website.
 
-## Autodesk Revit performance on Azure Virtual Machines
+## Revit performance on Azure Virtual Machines
 
-HPC workloads require significant compute, memory, and storage resources. By understanding the performance of different VM types with the Revit application, you can select the most appropriate VM for your workload and optimize performance and cost. 
+HPC workloads require significant compute, memory, and storage resources. Understanding the performance of different VM types with the Revit application can help you select the most appropriate VM for your workload and optimize performance and cost.
 
-We ran six test scenarios (scripts) for the Autodesk Revit application. We ran these performance tests with Autodesk Revit 2022 trial version installed on [NVadsA10_v5 series](/azure/virtual-machines/nva10v5-series) and [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) Azure VMs. We provided the results of these performance test below so you can determine the right hardware for your Azure deployment.
+We ran six test scenarios, via scripts, for Revit. The tests were run on a trial version of Revit 2022 on [NVadsA10_v5 series](/azure/virtual-machines/nva10v5-series) and [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) Azure VMs. The results of these performance tests are presented later in this document to help you determine the right hardware for your Azure deployment.
 
-### Model Details
+### Model details
 
-[RFO Benchmark](https://www.revitforum.org/node/442015) tool (automatic test suite) is used to measure performance matrix of Revit installed on Azure Virtual Machines. Some project layout models are already available in benchmark script. We used six prebuilt test scenarios in the RFO Benchmark tool to analyse performance. The names of the RFO Benchmarks tests are (1) graphics acceleration test, (2) full expanded test, (3) full simplified test, (3) full standard test, (5) graphics comparison test, and (6) graphics expanded test.
+The [RFO Benchmark](https://www.revitforum.org/node/442015) automatic test suite is used to measure the performance of Revit on Azure Virtual Machines. Some prebuilt test scenarios are availble in the Benchmark script. We used six of these scenarios to analyze performance: 
+
+- Graphics_Acceleration 
+- Full_Expanded 
+- Full_Simplified 
+- Full_Standard 
+- Graphics_Comparison  
+- Graphics_Expanded
 
 ### Results on NVadsA10_v5
 
-Below table shows the Elapsed time in Seconds for different test sets on different VM configurations of NVadsA10_v5 series.
+The following table shows the elapsed times in seconds for different test sets on different VM configurations of NVadsA10_v5 series.
 
 |RFO Benchmark test names|6 vCPU (1/6th GPU)|18 vCPU (1/2 GPU)|	36 vCPU (1 GPU)|72 vCPU (2 GPU)|
 |-|-|-|-|-|
@@ -73,7 +82,7 @@ This graph shows the relative speed increase for all the six test cases. A highe
 
 image 
 
-### Results on NCasT4_v3 Virtual Machine
+### Results on NCasT4_v3 
 
 Below table shows the Elapsed time in Seconds for different test sets
 
@@ -149,6 +158,5 @@ Other contributors:
 ## Related resources
 
 - Run a Windows VM on Azure
-- Run a Linux VM on Azure
 - HPC system and big-compute solutions
 - HPC cluster deployed in the cloud
