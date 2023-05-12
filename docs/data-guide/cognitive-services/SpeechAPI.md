@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Different Types of Speech API Services
+# Different types of speech API services
 
 Azure Cognitive Speech service is used to perform spoken language transformations such as speech-to-text, text-to-speech, speech translation and speaker recognition.
 
@@ -26,7 +26,7 @@ Azure Cognitive Speech service is used to perform spoken language transformation
 ## Service categories
 
 - [Speech-to-text](/azure/cognitive-services/speech-service/index-speech-to-text) - Speech-to-text can convert audio streams to text in real-time or in batch.
-- [Text-to-Speech](/azure/cognitive-services/speech-service/text-to-speech) - Text-to-speect enables applications to convert text to humanlike speech.
+- [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech) - Text-to-speech enables applications to convert text to humanlike speech.
 - [Speech translation](/azure/cognitive-services/speech-service/speech-translation) - Speech translation supports multi-language speech-to-speech and speech-to-text translation of audio streams.
 
 ## Key considerations
@@ -39,14 +39,14 @@ The following flow chart helps you how to go about choosing the Speech service b
 
 In the above diagram the left side of the graph focusses on input data type : the Audio Format to output data type Audio/Text
 
-1. Speech-To-Text - used to transcribe speech from an audio source to text format.
-2. Speech-To-Speech (Speech Translation) - used to translate speech in one language to text or speech in another.
+1. Speech-to-text - used to transcribe speech from an audio source to text format.
+2. Speech-to-speech (Speech Translation) - used to translate speech in one language to text or speech in another.
 
 The right side of the graph focusses on input data type Text to output data type as Audio Format
 
-1. Text-To-Speech - used to generate spoken audio from a text source.
+1. Text-to-speech - used to generate spoken audio from a text source.
 
-## Common Use Cases
+## Common use cases
 
 The following table lists some of the common use cases.</br></br>
 
@@ -84,7 +84,7 @@ Co-authors:
 - [What is Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/overview)
 - [Speech API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-speech-api-s-azure-ai-applied-services/ba-p/3509510)
 
-### Learning Paths
+### Learning paths
 
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
 - [Learning path: Process and Translate Speech with Azure Cognitive Speech Services](/training/paths/process-translate-speech-azure-cognitive-speech-services/)

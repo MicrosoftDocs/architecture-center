@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Different Types of Decision API & Applied AI Services
+# Different types of decision API & Applied AI Services
 
 Azure Cognitive Service for Decision is a cloud-based service that provides Natural Language Processing (NLP) features to provide recommendations for informed and efficient decision-making. They help with making smart decisions faster.
 
@@ -24,7 +24,7 @@ Azure Applied AI Services combine Azure Cognitive Services, specialized AI, and 
 
 ## Service categories
 
-There are several resource categories for these API services. A few of them are as follows:
+There are several service categories for these API services. A few of them are as follows:
 
 1. [Azure Bot Service](https://azure.microsoft.com/products/bot-services/) - Azure Bot Service provides an integrated development environment for building conversational AI bots with no code needed through integration with Power Virtual Agents. Power Virtual Agents is available as both *a standalone web app*, and as *a discrete app within Microsoft Teams*.
 2. [Anomaly Detector](https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/overview) - Anomaly Detector ingests *time-series data of all types* and selects the best anomaly detection algorithm. The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning . It uses univariate and multivariate APIs to monitor data over time.You can use it for either *batch validation or real-time inference*.
@@ -41,7 +41,7 @@ The following flow chart guides you in choosing the Decision/Open-AI service bas
 
 :::image type="content" source="../images/CognitiveServicesDecisionandAppliedAI.png" alt-text="Diagram that shows how to select Speech Services" lightbox="../images/CognitiveServicesDecisionandAppliedAI.png":::
 
-## Common Use Cases
+## Common use cases
 
 1. **Azure Bot Service**
   Some of the ways that Power Virtual Agents bots have been used include:
@@ -96,7 +96,7 @@ Co-authors:
 - [Azure Open AI](/azure/cognitive-services/openai/overview)
 - [Decision API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-decision-api-s-azure-ai-applied/ba-p/3520408)
 
-### Learning Paths
+### Learning paths
 
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
 - [Learning path: Identify principals and practices for Responsible AI](/training/paths/responsible-ai-business-principles/)

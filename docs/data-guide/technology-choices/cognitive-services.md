@@ -30,7 +30,7 @@ Microsoft cognitive services are cloud-based APIs that you can use in artificial
 - Only available over the web. Internet connectivity is generally required. An exception is the Custom Vision Service, whose trained model you can export for prediction on devices and at the IoT edge.
 - Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
 
-## Categories of Azure cognitive services?
+## Categories of Azure Cognitive Services
 
 In Azure, there are dozens of Cognitive Services available. The following is a listing categorized by the functional area they support:
 

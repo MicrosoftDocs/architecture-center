@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Different Types of Vision API Services
+# Different types of vision API services
 
 Azure Cognitive Service for Vision is one of the broadest categories under Cognitive Services. The APIs allow you to incorporate vision features such as analyzing images, face detection, spatial analysis, and optical character recognition (OCR) to your applications with no machine learning knowledge.
 
@@ -36,7 +36,7 @@ At a high Level Vision API's are categorized as follows
 The following flow chart helps you how to go about choosing the Vision service based on your processing needs
 ![Diagram that shows how to select Speech Services](../images/CognitiveServicesVisionAPI.png)
 
-### Common Use Cases
+### Common use cases
 
 1. **Computer Vision**
    - **Describing an image** -to analyze an image, evaluate the objects that are detected, and generate a human-readable phrase or sentence that can describe what was detected in the image.
@@ -85,7 +85,7 @@ Co-authors:
 - [What is Azure Cognitive Service for Vision](/azure/cognitive-services/computer-vision/overview)
 - [Vision API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-vision-api-s-azure-ai-applied-services/ba-p/3506727)
 
-### Learning Paths
+### Learning paths
 
 - [Create Language Understanding solution with Azure Cognitive Services](/training/paths/create-language-solution-azure-cognitive-services/)
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]

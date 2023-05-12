@@ -80,7 +80,7 @@ Co-authors:
 - [What is Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
 - [Language API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-language-api-s-azure-ai-applied/ba-p/3514278)
 
-### Learning Paths
+### Learning paths
 
 - [Create Language Understanding solution with Azure Cognitive Services](/training/paths/create-language-solution-azure-cognitive-services/)
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
