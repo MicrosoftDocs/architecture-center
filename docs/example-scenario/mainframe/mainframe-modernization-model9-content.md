@@ -1,46 +1,41 @@
-This article outlines how to use Model9 Manager to send Mainframe data directly to Azure Blob storage as part of a Mainframe modernization journey.
+This article describes how to use Model9 Manager to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
 
-Model9 Shield with Azure Blog storage presents an alternative for Virtual Tape Library (VTS) for backing up data in a faster and more cost-effective way.
+You can use Model9 Shield together with Azure Blob Storage as an alternative to virtual tape library (VTL) to back up data in a faster and more cost-effective way.
 
-Model9 Gravity transform the Mainframe data that was transferred to Azure Blob storage into open formats that can feed into other Azure services.
+Model9 Gravity transforms mainframe data that's transferred to Azure Blob Storage into open formats that can feed into other Azure services.
 
-*Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
+*Apache®, [Kafka](https://kafka.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
 ## Architecture
 
-:::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.png" alt-text="Screenshot that shows the Azure architecture to migrate mainframe data to the cloud." lightbox="media/model9-mainframe-midrange-data-archive-azure.png":::
+:::image type="content" source="media/model9-mainframe-midrange-data-archive-azure.png" alt-text="Diagram that shows an architecture for migrating mainframe data to the cloud." lightbox="media/model9-mainframe-midrange-data-archive-azure.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/model9-mainframe-midrange-data-archive-azure.vsdx) of this architecture.*
 
 ### Workflow
 
-1.	The Model9 agent is a z/OS started tasks that sends mainframe data directly to Azure Blob storage. 
-2.	The Model9 agent sends the data encrypted to Azure Blob storage securely over TCP/IP.
-3.	Model9 Management server is a Web application running in a Docker container and responsible for managing Model9 policies, activities and storage.
-4.	Model9 Gravity transforms mainframe data on Azure Blob storage into open formats that can be used by Azure services.
+1.	The Model9 agent acts as an interface for data migration between z/OS and Azure. 
+2.	The Model9 agent sends the data, which is encrypted, to Azure Blob Storage over TCP/IP.
+3.	 Model9 management server manages Model9 policies, activities, and storage.
+4.	Model9 Gravity transforms mainframe data in Azure Blob Storage into open formats that can be used by Azure services.
 
 ### Components
 
-The solution uses the following components.
+This solution uses the following components.
 
 #### Model9 cloud data platform components
 
 The main components of Model9 cloud data platform are:
 
-- **Model9 agent**\
-    A Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs).  It reads and writes data directly from and to Azure Blob over TCP/IP.   The Model9 agent can run on zIIP engines and by that dramatically reduce general CPU consumption.
+- **Model9 agent**. A Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs). It reads and writes data directly from and to Azure Blob Storage over TCP/IP. The Model9 agent can run on zIIP engines, which dramatically reduces general CPU consumption.
 
-- **Management server**\
-    A docker-based application that manages the web UI and the communication to the z/OS agents. It provides a way for you to define several types of policies for data protection, migration, and data archival.
+- **Model9 management server**. A web application that runs in a Docker container. It manages the web UI and the communication with z/OS agents. It provides a way for you to define several types of policies for data protection, migration, and data archival.
 
-- **Lifecycle management engine**\
-    A Java-based application that runs on-premises on a z/OS LPAR and deletes expired data both from the object storage and from z/OS.
+- **Lifecycle management engine**. A Java-based application that runs on-premises on a z/OS LPAR and deletes expired data both from the object storage and from z/OS.
 
-- **Data management command-line interface (CLI)**\
-    A Command Line Interface that runs on z/OS LPAR that can be used to issue backup, restore, archive, recall and delete resource-based actions to and from Azure Blog Storage.
+- **Data management command-line interface (CLI)**. A CLI that runs on z/OS LPAR. You can use it to perform backup, restore, archive, recall, and delete resource-based actions to and from Azure Blog Storage.
 
-- **Gravity**\
-    A Docker-based application that supports the transformation of Model9 managed objects into an open format that gets processed by AI, business intelligence, and machine learning applications. The data can be transformed either to a CSV or JSON file, or directly to Azure Database for SQL.
+- **Gravity**. A Docker-based application that supports the transformation of Model9 managed objects into an open format that gets processed by AI, business intelligence, and machine learning applications. The data can be transformed either to a CSV or JSON file, or directly to Azure Database for SQL.
 
 #### Networking and identity
 
@@ -80,7 +75,7 @@ The main components of Model9 cloud data platform are:
 
 ### Alternatives
 
-- Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. On a Linux or z/Linux OS, you can also install the Management server on z/OS container extension (zCX).
+- Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. On a Linux or z/Linux OS, you can also install the management server on z/OS Container Extensions (zCX).
 
 - Model9 data transformation service runs externally to the mainframe in an on-premises environment. This setup saves expensive mainframe resources. You can also deploy on the cloud by using either a server instance or container services.
 
@@ -88,15 +83,13 @@ The main components of Model9 cloud data platform are:
 
 ## Scenario details
 
-Mainframe data that's stored in physical or virtual tape libraries is critical for customers. As this data grows, its sheer volume can require an unfathomable amount of storage. The data can then become more demanding to maintain on-premises. You can easily migrate this data to Azure storage and use it for AI, business intelligence, machine learning, and analytics applications. Azure storage carries several unique benefits over traditional on-premises storage approaches, and includes data management services, scalability, performance, reliability, and security.
+Mainframe data that's stored in physical or virtual tape libraries is critical for customers. As this data grows, its volume can require a significant amount of storage. The data can then become more demanding to maintain on-premises. You can easily migrate this data to Azure storage and use it for AI, business intelligence, machine learning, and analytics applications. Azure storage carries several unique benefits over traditional on-premises storage approaches, and includes data management services, scalability, performance, reliability, and security.
 
 Model9 provides an end-to-end suite of cloud data management solutions for mainframes that solves the migration problem — elegantly, cost effectively, and with no application changes. Based on a unique, proven technology, Model9 solutions migrate mainframe data by using secure and expedited technology to access the Azure cloud.
 
 Model9 solutions are designed to save expensive mainframe CPU resources by using the mainframe zIIP engines and to connect the mainframe data to Azure cloud storage. Cloud applications can use the migrated data in Azure storage services. This article outlines a solution for migrating mainframe data to the cloud. Besides Model9, the solution's core components include Azure storage and database services.
 
-Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.
-
-## Potential use cases
+### Potential use cases
 
 Model9 offers a suite of services that are based on the Model9 cloud data platform. These services are suitable for the following use cases:
 
@@ -106,17 +99,19 @@ Model9 offers a suite of services that are based on the Model9 cloud data platfo
 
 - Have mainframe applications write and read data directly to and from Blob Storage.
 
-- Defend mainframe data against cyberattacks by creating an immutable third copy in Azure.
+- Protect mainframe data against cyberattacks by creating an immutable third copy in Azure.
 
 ## Considerations
 
-The following considerations, based on the [Azure Well-Architected Framework](/azure/architecture/framework/index), apply to this solution.
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Cost optimization
 
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 ### Reliability
+
+Reliability ensures that your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
 - Deploy Model9 cloud data manager in the cloud on Azure Virtual Machines, and on the customer's virtual network for superior availability.
 
@@ -125,20 +120,15 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - Combine the Application Insights and Log Analytics features of Monitor to stay informed about the health of Azure resources.
 
 - For guidance on resiliency in Azure, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
-
-### Scalability
-
-- Use multiple agents to increase scalability and throughput on all the LPARs within the same sysplex.
-
-- Use multiple transformation instances behind a load balancer to increase scalability and performance.
-
-- Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ### Security
 
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+
 - Authenticate Azure resources by using Azure AD. Manage permissions by using role-based access control (RBAC).
 
-- Model9 uses the z/OS security authorization facility (SAF) for authentication of actions and the traffic between the Model9 agent to Azure Blob Storage is encrypted. 
+- Model9 uses the z/OS Security Authorization Facility (SAF) for authentication of actions. The traffic between the Model9 agent and Azure Blob Storage is encrypted. 
 
 - The security options in Azure database services are:
 
@@ -147,6 +137,16 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
     * Always-encrypted database.
 
 - For general guidance on designing secure solutions, see [Azure security documentation](/azure/security).
+
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
+
+- Use multiple agents to increase scalability and throughput on all the LPARs within the same sysplex.
+
+- Use multiple transformation instances behind a load balancer to increase scalability and performance.
+
+- Blob Storage is a scalable system for storing backups, archival data, secondary data files, and other unstructured digital objects.
 
 ## Contributors
 
@@ -179,7 +179,7 @@ Other contributors:
 
 ## Related resources
 
-- [Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)
+- [Modernize mainframe and midrange data](../../example-scenario/mainframe/modernize-mainframe-data-to-azure.yml)
 - [Re-engineer mainframe batch applications on Azure](../../example-scenario/mainframe/reengineer-mainframe-batch-apps-azure.yml)
 - [Replicate and sync mainframe data in Azure](../../reference-architectures/migration/sync-mainframe-data-with-azure.yml)
 - [Mainframe access to Azure databases](../../solution-ideas/articles/mainframe-access-azure-databases.yml)
