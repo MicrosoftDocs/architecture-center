@@ -63,9 +63,9 @@ Organizations in the financial industry need to predict the credit risk of indiv
 
 Credit risk prediction involves deep analysis of population behavior and classification of the customer base into segments based on fiscal responsibility. Other variables include market factors and economic conditions, which have a significant influence on results.
 
-**Challenges.** Input data includes tens of millions of customer profiles and data about customer credit behavior and spending habits that's based on billions of records from disparate systems, like internal customer activity systems. The third-party economic conditions data and the country's market analysis can come from monthly or quarterly snapshots that require the loading and maintenance of hundreds of GBs of files. Credit bureau information about the applicant or semi-structured rows of customer data, and cross joins between these datasets and quality checks to validate the integrity of the data, are needed. 
+**Challenges.** Input data includes tens of millions of customer profiles and data about customer credit behavior and spending habits that's based on billions of records from disparate systems, like internal customer activity systems. The third-party data about economic conditions and the country's market analysis can come from monthly or quarterly snapshots that require the loading and maintenance of hundreds of GBs of files. Credit bureau information about the applicant or semi-structured rows of customer data, and cross joins between these datasets and quality checks to validate the integrity of the data, are needed. 
 
-The data usually consists of wide-column tables of customer information from credit bureaus together with market analysis. The customer activity consists of records with dynamic layout that might not be structured. Data is also available in free-form text from the customer service notes and applcant-interaction forms.
+The data usually consists of wide-column tables of customer information from credit bureaus together with market analysis. The customer activity consists of records with dynamic layout that might not be structured. Data is also available in free-form text from the customer service notes and applicant-interaction forms.
 
 Processing these large volumes of data and ensuring the results are current requires streamlined processing. You need a low-latency storage and retrieval process. The data infrastructure should be able to scale to support disparate data sources and provide the ability to manage and secure the data perimeter. The machine learning platform needs to support the complex analysis of the many models that are trained, tested, and validated across many population segments.
 
@@ -164,7 +164,7 @@ For more information, see [Azure MLOps (v2) solution accelerator](https://github
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
 
-- For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/architecture/framework/scalability/overview).
+- For more information about designing scalable solutions, see [Performance efficiency checklist](/azure/well-architected/scalability/performance-efficiency).
 - For information about regulated industries, see [Scale AI and machine learning initiatives in regulated industries](../../example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml).
 - Manage your Azure Synapse Analytics environment with [SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), [Spark](/azure/synapse-analytics/spark/apache-spark-autoscale), or [serverless SQL](/azure/synapse-analytics/sql/on-demand-workspace-overview) pools.
  
