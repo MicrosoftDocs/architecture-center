@@ -48,21 +48,21 @@ The following are some common use cases for Azure Cognitive Services.
 
 | Use Case | Category |
 | --- | --- |
-| Transcribe audible speech into readable, searchable text. |   |
-| Convert text to lifelike speech for more natural interfaces. |   |
-| Integrate real-time speech translation into your apps. |   |
-| Identify and verify the people speaking based on audio. |   |
-| Identify commonly-used and domain-specific terms. |   |
-| Automatically detect sentiments and opinions from text. |   |
-| Distill information into easy-to-navigate questions and answers. |   |
-| Enable your apps to interact with users through natural language. |   |
-| Translate more than 100 languages and dialects. |   |
-| Identify and analyze content within images and videos. |   |
-| Customize image recognition to fit your business needs. |   |
-| Identify potential problems early on. |   |
-| Detect potentially offensive or unwanted content. |   |
-| Create rich, personalized experiences for every user. |   |
-| Apply advanced coding and language models to a variety of use cases. |   |
+| Transcribe audible speech into readable, searchable text. | Speech |
+| Convert text to lifelike speech for more natural interfaces. | Speech |
+| Integrate real-time speech translation into your apps. | Speech |
+| Identify and verify the people speaking based on audio. | Speech |
+| Identify commonly-used and domain-specific terms. | Language |
+| Automatically detect sentiments and opinions from text. | Language |
+| Distill information into easy-to-navigate questions and answers. | Language |
+| Enable your apps to interact with users through natural language. | Language  |
+| Translate more than 100 languages and dialects. | Language |
+| Identify and analyze content within images and videos. | Vision |
+| Customize image recognition to fit your business needs. | Vision |
+| Identify potential problems early on. | Decision services / Anomoly Detector  |
+| Detect potentially offensive or unwanted content. | Decision services / Content Moderator  |
+| Create rich, personalized experiences for every user. | Decision services / Personalizer  |
+| Apply advanced coding and language models to a variety of use cases. | OpenAI  |
 
 ## Key selection criteria
 

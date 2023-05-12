@@ -62,7 +62,10 @@ The following flow chart guides you in choosing the Decision/Open-AI service bas
 
 3. **Personalizer**
   Some common use cases for Personalizer are:
-    - Use Case
+    - **E-commerce recommendation** What product should be shown to customers to maximize the likelihood of a purchase?
+    - **Content recommendation** What articles should be recommended to increase the click-through rate?
+    - **Content design** Where should an advertisement be placed to optimize user engagement on a website?
+    - **Communication** When and how should a notification be sent to maximize the chance of a response?
 
 4. **Content Moderator**
 The service is capable of scanning *text, image, and video* content for potential risky, offensive, or undesirable aspects
