@@ -109,7 +109,7 @@ The [Responsible AI dashboard](/azure/machine-learning/concept-responsible-ai-da
 - Register, package, and deploy models  
 - Get notifications and alerts to changes in models 
 - Capture governance data for the end-to-end lifecycle
-- Monitor applications for operational issues
+- Monitor applications for operational problems
 
 This diagram illustrates the MLOps capabilities of Azure Machine Learning: 
 
