@@ -1,8 +1,8 @@
 This article describes how to use Model9 Manager to send mainframe data directly to Azure Blob Storage as part of a mainframe modernization migration.
 
-You can use Model9 Shield together with Azure Blob Storage as an alternative to virtual tape library (VTL) to back up data in a faster and more cost-effective way.
+You can use Model9 Shield together with Azure Blob Storage as an alternative to a virtual tape library (VTL) to back up data in a faster and more cost-effective way.
 
-Model9 Gravity transforms mainframe data that's transferred to Azure Blob Storage into open formats that can feed into other Azure services.
+Model9 Gravity transforms mainframe data that's transferred to Azure Blob Storage into open formats that can be used by other Azure services.
 
 *Apache®, [Kafka](https://kafka.apache.org/), and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -99,7 +99,7 @@ Model9 offers a suite of services that are based on the Model9 cloud data platfo
 
 - Have mainframe applications write and read data directly to and from Blob Storage.
 
-- Protect mainframe data against cyberattacks by creating an immutable third copy in Azure.
+- Provide protection for mainframe data against cyberattacks by creating an immutable third copy in Azure.
 
 ## Considerations
 
@@ -108,6 +108,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 ### Cost optimization
 
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ### Reliability
 
@@ -120,7 +122,6 @@ Reliability ensures that your application can meet the commitments you make to y
 - Combine the Application Insights and Log Analytics features of Monitor to stay informed about the health of Azure resources.
 
 - For guidance on resiliency in Azure, see [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
 ### Security
 
@@ -128,7 +129,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - Authenticate Azure resources by using Azure AD. Manage permissions by using role-based access control (RBAC).
 
-- Model9 uses the z/OS Security Authorization Facility (SAF) for authentication of actions. The traffic between the Model9 agent and Azure Blob Storage is encrypted. 
+- Model9 uses the z/OS Security Authorization Facility (SAF) for authentication of actions. Traffic between the Model9 agent and Azure Blob Storage is encrypted. 
 
 - The security options in Azure database services are:
 
