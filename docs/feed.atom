@@ -2,12 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-05-01T16:01:42.895Z</updated>
+    <updated>2023-05-08T16:01:45.021Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Integrate Teradata VantageCloud Enterprise with Azure Data Factory]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/data/teradata-vantage-data-factory</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/data/teradata-vantage-data-factory"/>
+        <updated>2023-05-05T18:19:11.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to use Teradata VantageCloud Enterprise together with Azure Data Factory to develop data integration pipelines.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Implement logging and monitoring for Azure OpenAI large language models]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/log-monitor-azure-openai"/>
+        <updated>2023-05-02T22:19:10.000Z</updated>
+        <summary type="html"><![CDATA[Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[AKS triage - cluster health]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health</id>
+        <link href="https://learn.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-cluster-health"/>
+        <updated>2023-05-01T18:45:55.000Z</updated>
+        <summary type="html"><![CDATA[Learn to check the overall health of an Azure Kubernetes Service (AKS) cluster, as part of a triage step for AKS clusters.]]></summary>
+        <category label="updated" term="updated"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SaaS and multitenant solution architecture]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/saas/overview</id>
