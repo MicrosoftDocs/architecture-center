@@ -1,4 +1,8 @@
-This article outlines a solution for migrating mainframe data to the cloud. Besides Model9, the solution's core components include Azure storage and database services.
+This article outlines how to use Model9 Manager to send Mainframe data directly to Azure Blob storage as part of a Mainframe modernization journey.
+
+Model9 Shield with Azure Blog storage presents an alternative for Virtual Tape Library (VTS) for backing up data in a faster and more cost-effective way.
+
+Model9 Gravity transform the Mainframe data that was transferred to Azure Blob storage into open formats that can feed into other Azure services.
 
 *Apache®, Apache Ignite, Ignite, and the flame logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.*
 
@@ -10,13 +14,10 @@ This article outlines a solution for migrating mainframe data to the cloud. Besi
 
 ### Workflow
 
-1. The Model9 agent acts as an interface for data migration between z/OS and Azure.
-
-2. The agent reads data from the mainframe and then migrates that data to Blob Storage.
-
-3. Model9 cloud data platform for mainframe manages and transforms the migrated data from on-premises to Blob Storage.
-
-4. The Model9 cloud data platform transfers migrated data to Azure data services.
+1.	The Model9 agent is a z/OS started tasks that sends mainframe data directly to Azure Blob storage. 
+2.	The Model9 agent sends the data encrypted to Azure Blob storage securely over TCP/IP.
+3.	Model9 Management server is a Web application running in a Docker container and responsible for managing Model9 policies, activities and storage.
+4.	Model9 Gravity transforms mainframe data on Azure Blob storage into open formats that can be used by Azure services.
 
 ### Components
 
@@ -27,7 +28,7 @@ The solution uses the following components.
 The main components of Model9 cloud data platform are:
 
 - **Model9 agent**\
-    A Java-based agent that runs on-premises on one or more z/OS logical partitions (LPARs). It performs the read and write operations from and to the Azure cloud object storage. It also uses zIIP engines to save expensive CPU consumption.
+    A Java-based application that runs as a started task on one or more z/OS logical partitions (LPARs).  It reads and writes data directly from and to Azure Blob over TCP/IP.   The Model9 agent can run on zIIP engines and by that dramatically reduce general CPU consumption.
 
 - **Management server**\
     A docker-based application that manages the web UI and the communication to the z/OS agents. It provides a way for you to define several types of policies for data protection, migration, and data archival.
@@ -36,13 +37,10 @@ The main components of Model9 cloud data platform are:
     A Java-based application that runs on-premises on a z/OS LPAR and deletes expired data both from the object storage and from z/OS.
 
 - **Data management command-line interface (CLI)**\
-    A CLI that runs on-premises on a z/OS LPAR. You can use this interface to perform backup, restore, archive, recall, and delete resource-based actions to and from the Azure cloud object storage.
+    A Command Line Interface that runs on z/OS LPAR that can be used to issue backup, restore, archive, recall and delete resource-based actions to and from Azure Blog Storage.
 
-- **Data engine**\
-    A Java-based application that supports the transformation of Model9 managed objects into an open format that gets processed by AI, business intelligence, and machine learning applications. The data can be transformed either to a CSV or JSON file, or directly to Azure Database for SQL.
-
-- **Data Transformation CLI**\
-    A Java-based application that invokes data transformation requests wraps the standard REST–API based calls into a basic, easy-to-use client.
+- **Gravity**\
+    A Docker-based application that supports the transformation of Model9 managed objects into an open format that gets processed by AI, business intelligence, and machine learning applications. The data can be transformed either to a CSV or JSON file, or directly to Azure Database for SQL.
 
 #### Networking and identity
 
@@ -82,7 +80,7 @@ The main components of Model9 cloud data platform are:
 
 ### Alternatives
 
-- Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. You can use the z/OS container extension (zCX) to deploy it directly on z/OS.
+- Instead of installing the Model9 management server in the cloud on Azure Virtual Network, you can install it on-premises. On a Linux or z/Linux OS, you can also install the Management server on z/OS container extension (zCX).
 
 - Model9 data transformation service runs externally to the mainframe in an on-premises environment. This setup saves expensive mainframe resources. You can also deploy on the cloud by using either a server instance or container services.
 
@@ -140,7 +138,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 - Authenticate Azure resources by using Azure AD. Manage permissions by using role-based access control (RBAC).
 
-- Model9 uses the z/OS security authorization facility (SAF) for authentication of actions that are performed.
+- Model9 uses the z/OS security authorization facility (SAF) for authentication of actions and the traffic between the Model9 agent to Azure Blob Storage is encrypted. 
 
 - The security options in Azure database services are:
 
@@ -154,14 +152,16 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal authors:
+Principal author:
 
 * [Seetharaman Sankaran](https://www.linkedin.com/in/seetharamsan/) | Senior Engineering Architect
 
 Other contributors:
 
-* [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Senior Engineering Architect Manager
-* [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | Engineering Architect 
+* [Pratim Dasgupta](https://www.linkedin.com/in/pratimdasgupta/) | Senior Engineering Architect 
+* [Ashish Khandelwal](https://www.linkedin.com/in/ashish-khandelwal-839a851a3/) | Principal Engineering Architect Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
