@@ -8,8 +8,9 @@ This solution provides a continuous integration and continuous deployment (CI/CD
 
 ## Architecture
 
-![Architecture diagram](../media/java-cicd-using-jenkins-and-azure-web-apps.png)
-*Download an [SVG](../media/java-cicd-using-jenkins-and-azure-web-apps.svg) of this architecture.*
+![Diagram showing a continuous integration and continuous deployment pipeline using Jenkins and Azure web apps.](../media/java-cicd-using-jenkins-and-azure-web-apps.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/java-cicd-using-jenkins-and-azure-web-apps.vsdx) of this architecture.*
 
 ### Dataflow
 
