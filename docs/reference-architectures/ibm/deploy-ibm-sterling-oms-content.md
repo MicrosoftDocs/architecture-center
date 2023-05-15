@@ -67,7 +67,7 @@ For more OMS use cases, see [IBM Sterling Order Management](https://www.ibm.com/
 
 ## Recommendations
 
-This guidance supports Sterling OMS 10.0 Q3 2022 and later versions. These versions provide the best integration options with Azure because they support PostgresSQL and the Azure Red Hat OpenShift container platform. Before you build out your own deployment, use [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling) to deploy Sterling OMS. When you then understand how the deployment and configuration work, you can more quickly determine your implementation's design requirements.
+This guidance supports Sterling OMS 10.0 Q3 2022 and later versions. These versions provide the best integration options with Azure because they support PostgreSQL and the Azure Red Hat OpenShift container platform. Before you build out your own deployment, use [QuickStart Guide: Sterling Order Management on Azure](https://github.com/azure/sterling) to deploy Sterling OMS. When you then understand how the deployment and configuration work, you can more quickly determine your implementation's design requirements.
 
 Microsoft works closely with IBM and other partners to ensure that the guidance, architecture, and quickstart guide give you the best experience on Azure. These resources follow the best practices as outlined in the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). For support beyond this documentation, contact your IBM account team.
 
@@ -159,7 +159,7 @@ Use [network security groups](/azure/virtual-network/security-overview) to filte
 The port numbers and ranges that you need to open depend on many factors. Some to consider are:
 
 - Port 443, for service-to-service communication.
-- Database-specific ports such as port 5432 for the flexible server option of Azure Database for PostgresSQL.
+- Database-specific ports such as port 5432 for the flexible server option of Azure Database for PostgreSQL.
 - Message queue ports such as port 1414 for IBM MQ.
 
 Also consider these points:

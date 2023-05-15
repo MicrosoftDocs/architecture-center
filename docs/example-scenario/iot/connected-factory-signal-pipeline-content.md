@@ -72,8 +72,6 @@ The KEPServerEX automation is the first implementation of the generic gateway co
 
 This architecture uses AKS for running the Pipeline Configuration API, the Pipeline Publisher module, and the Asset Registry. As an alternative, you can run these microservices in [Azure Container Instances](https://azure.microsoft.com/services/container-instances). Container Instances offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
 
-As an alternative to Azure Stream Analytics, you could use [HDInsight Storm](/azure/hdinsight/storm/apache-storm-overview) or [HDInsight Spark](/azure/hdinsight/spark/apache-spark-overview) to do streaming analytics.
-
 ## Scenario details
 
 A manufacturing floor might have hundreds or thousands of internet of things (IoT) and industrial IoT (IIoT) devices that capture data at different intervals. Legacy *brownfield* and modern *greenfield* devices often coexist. These devices must capture and format data consistently to analyze and act on. Reliably interconnecting this landscape of heterogeneous devices can be difficult.

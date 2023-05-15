@@ -27,7 +27,6 @@ This article is an overview of migrating Hadoop to Azure. The other articles in 
 - [Apache HBase migration to Azure](apache-hbase-migration.yml)
 - [Apache Kafka migration to Azure](apache-kafka-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)
 
 Hadoop provides an extensive ecosystem of services and frameworks. These articles don't describe the Hadoop components and Azure implementations of them in detail. Instead, they provide high-level guidance and considerations to serve as a starting point for you to migrate your on-premises and cloud Hadoop applications to Azure.
 
@@ -51,7 +50,6 @@ The key components of a Hadoop system are listed in the following table. For eac
 |[Apache MapReduce](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/mapreduce) |Distributed computation framework||MapReduce, Spark|
 |[Apache Zookeeper](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/zookeeper) |Distributed coordination service||ZooKeeper on a VM, built-in solution in platform as a service (PaaS)|
 |[Apache YARN](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/yarn) | Resource manager for Hadoop ecosystem||YARN on a VM, built-in solution in PaaS|
-|[Apache Storm](apache-storm-migration.yml) |Distributed real-time computing system|[Choosing landing targets for Apache Storm on Azure](images/flowchart-storm-azure-landing-targets.png)|Storm, Apache Flink, other on a VM, Azure Stream Analytics, Spark Streaming in HDInsight, Structured Streaming in Databricks, Azure Functions|
 |[Apache Sqoop](apache-sqoop-migration.yml)|Command line interface tool for transferring data between Apache Hadoop clusters and relational databases|[Choosing landing targets for Apache Sqoop on Azure](images/flowchart-sqoop-azure-landing-targets.png)|Sqoop on a VM, Sqoop in HDInsight, Azure Data Factory|
 |[Apache Kafka](apache-kafka-migration.yml)|Highly scalable fault-tolerant distributed messaging system|[Choosing landing targets for Apache Kafka on Azure](images/flowchart-kafka-azure-landing-targets.png)|Kafka on a VM, Event Hubs for Kafka, Kafka on HDInsight|
 |[Apache Atlas](https://github.com/Azure/Hadoop-Migrations/tree/main/docs/atlas)|Open source framework for data governance and metadata management||Azure Purview|
@@ -191,4 +189,3 @@ Other contributors:
 - [Apache HBase migration to Azure](apache-hbase-migration.yml)
 - [Apache Kafka migration to Azure](apache-kafka-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)
