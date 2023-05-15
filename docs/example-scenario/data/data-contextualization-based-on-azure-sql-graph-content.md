@@ -216,38 +216,38 @@ Security provides assurances against deliberate attacks and the abuse of your va
 For this use case, we need to consider how to secure the data at rest (that is, the data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks) and data in transit between them.
 
 For Azure Data Lake Storage Gen 2:
-* Azure Storage service-side encryption (SSE)'s been enabled to protect the data at rest
-* We use shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
+* Azure Storage service-side encryption (SSE) is enabled to protect the data at rest
+* Use shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
 
 For Azure SQL Database:
-* We use role-based access control (RBAC) to limit access to specific operations and resources within the database.
-* Strong password's been used for accessing Azure SQL Database. The password's been saved in Azure Key Vault.
-* TLS' been enabled to secure the transit data between Azure SQL Database and Azure Databricks.
+* Use role-based access control (RBAC) to limit access to specific operations and resources within the database.
+* Strong password should be used for accessing Azure SQL Database. The password should be saved in Azure Key Vault.
+* TLS is enabled to secure the transit data between Azure SQL Database and Azure Databricks.
 
 For Azure Databricks:
-* Role-Based Access Control (RBAC)'s been implemented.
-* We've enabled Azure Monitor to monitor your Databricks workspace for unusual activity, and enabled logging to track user activity and security events.
+* Implement Role-Based Access Control (RBAC)
+* Enable Azure Monitor to monitor your Databricks workspace for unusual activity and enable logging to track user activity and security events.
 * In order to protect the data in transit, TLS is enabled for the JDBC connection to Azure SQL Database.
 
-In the production environment, we may put these resources into an Azure Virtual Network that isolates the them from the public internet to reduce the attack surface and data exfiltration.
+In the production environment, put these resources into an Azure Virtual Network that isolates them from the public Internet to reduce the attack surface and data exfiltration.
 
 ### Cost optimization
 
-
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In our sample solution, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
+In this architecture, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
 
 In order to optimize the cost for using Azure SQL Database:
-* Since the solution's performance isn't our focus, we choose the lowest pricing tier that meets our requirements and budget.
-* We use serverless compute tier (billed per second based on compute cores used).
+* Since the solution's performance isn't this architecture's focus, this solution chooses the lowest pricing tier that meets the requirements.
+* Use serverless compute tier, billed per second based on compute cores used.
 
 To improve cost efficiency while utilizing Azure Databricks:
-* We choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
-* We use autoscaling to scale up or down the number of nodes based on the workload demand.
-* Clusters are turned off when they aren't in use.
+* Choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
+* Use autoscaling to scale up or down the number of nodes based on the workload demand.
+* Turn off clusters when they aren't in use.
 
 ## Contributors
+
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors: 
@@ -265,6 +265,7 @@ Principal authors:
 * [The Leading Graph Data Platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
  
 ## Related resources
+
 * [Graph processing with SQL Server and Azure SQL Database](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 * [Use Delta Lake change data feed on Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) 
 * [How to Simplify CDC With Delta Lake's Change Data Feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
