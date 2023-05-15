@@ -3544,6 +3544,8 @@ items:
             href: guide/hpc/civil-3d.yml
           - name: Autodesk Inventor
             href: guide/hpc/autodesk-inventor.yml
+          - name: Autodesk Revit 
+            href: guide/hpc/hpc-autodesk-revit.yml 
           - name: Autodesk VRED
             href: guide/hpc/hpc-autodesk-vred.md
         - name: AVL FIRE M
