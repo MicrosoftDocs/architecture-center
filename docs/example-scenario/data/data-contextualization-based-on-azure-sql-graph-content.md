@@ -70,7 +70,7 @@ In the market, as mentioned previously, there are many graph databases to choose
 4. [Redis Graph](https://redis.io/docs/stack/graph/)
 5. [PostgreSQL Apache Age](https://age.apache.org/age-manual/master/intro/overview.html)
 
-These products and services have pros and cons. Some of them are Azure managed services, some aren't. Finally we choose to use Azure SQL Database, because:
+These products and services have pros and cons. Some of them are Azure managed services, some aren't. This architecture uses Azure SQL Database, because:
 * It's an Azure managed relational database service with graph capabilities.
 * It's easy to get started since many are familiar with SQL Server or Azure SQL Database.
 * Solutions often benefit from using Transact-SQL in parallel, since the graph database is based on SQL Database.
@@ -97,7 +97,7 @@ In the reality, the relationship is much more complicated. Gary needs to search 
 
 One of the major pain points for Gary is, the ID of one asset in different system are different, as these systems are developed and maintained separately and even using different protocols. Gary has to manually query the different tables to get the data for the same asset that caused the query not only complex but also difficult to understand without domain expertise. As a result, Gary spends a lot of time on coaching the newly onboarded operation engineers and explaining the relationships in the data.
 
-If there's a mechanism to *link* the different names that belong to the same asset across systems, the report query will be simpler, and Gary’s life will be easier.
+If there's a mechanism to *link* the different names that belong to the same asset across systems, the report query will be simpler, and Gary's life will be easier.
 
 ### Graph design
 
@@ -227,7 +227,7 @@ For Azure SQL Database:
 For Azure Databricks:
 * Role-Based Access Control (RBAC)'s been implemented.
 * We've enabled Azure Monitor to monitor your Databricks workspace for unusual activity, and enabled logging to track user activity and security events.
-* In order to protect the data in transit, TLS' been enabled for the JDBC connection to Azure SQL Database.
+* In order to protect the data in transit, TLS is enabled for the JDBC connection to Azure SQL Database.
 
 In the production environment, we may put these resources into an Azure Virtual Network that isolates the them from the public internet to reduce the attack surface and data exfiltration.
 
