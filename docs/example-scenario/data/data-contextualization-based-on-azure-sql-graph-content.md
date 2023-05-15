@@ -1,10 +1,12 @@
-Data contextualization is the process of putting the information relevant to the data based on the context information. It can improve the efficiency of big data processing and make the data useful and easier for interpretation. This article demonstrates how to contextualize data by looking up the relevant context that has been stored in the graph model in Azure SQL database. 
+Data contextualization refers to the process of adding contextual information to raw data in order to enhance its meaning and relevance. It involves the use of additional information such as metadata, annotations, and other relevant details to provide a better understanding of the data. Contextualization can help analysts to better understand the relationships between data points and the environment in which they were collected. For example, contextualization can provide information on the time, location, and other environmental factors that may have influenced the data. In data processing, contextualization is becoming increasingly important as data sets become larger and more complex. Without proper contextualization, it can be difficult to interpret data accurately and make informed decisions based on it.
+
+This article demonstrates how to contextualize data by looking up the relevant context that has been stored in the graph model in Azure SQL database. 
 
 ## Architecture
 
 The following diagram shows the high-level architecture for our sample solution for data contextualization.
 
-![Diagram of the data architecture.](media/data-contextualization-based-on-azure-sql-graph.png)
+![Data contextualization solution architecture](media/data-contextualization-based-on-azure-sql-graph.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
@@ -58,35 +60,16 @@ As show in the architecture diagram, the data flow goes through the following st
 * [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores graph models and contextualized data.
 
 ### Alternatives
-In the market, there are many graph databases to choose. Here is a Graph Database Comparison Spreadsheet to show the differences of some of the popular products.
+In the market, there are many graph databases such as Azure Cosmos DB, Azure Database for PostgreSQL, Neo4j and RedisGraph etc.
 
-| Name      | Azure Cosmos DB for Apache Gremlin| Neo4j | Azure Database for PostgreSQL| Azure SQL Database Graph| RedisGraph|
-| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Description |NoSQL JSON database for rapid, iterative app development.|Neo4j stores data in nodes connected by directed, typed relationships with properties on both,also known as a Property Graph|PostgreSQL is an object-relational database management system (ORDBMS) based on POSTGRES. CTE mechanism provides graph search (N-depth, shortest path etc.) capabilities, and Apache AGE, which is a PostgreSQL extension also provides graph database functionality.|SQL Server offers graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.|RedisGraph is based on a unique approach and architecture that translates Cypher queries to matrix operations executed over a GraphBLAS engine.A high-performance graph database implemented as a Redis module.|
-| [Workload Type](https://csefy19.visualstudio.com/CSE_Engineer_for_Reuse/_git/Data-GraphDB?path=%2Fanalysis.md&anchor=asset-modeling-%28manufacturing%2Fenergy%29&_a=preview)| OLTP|OLTP|OLTP|OLTP|OLTP|
-| [Design Type](https://csefy19.visualstudio.com/CSE_Engineer_for_Reuse/_git/Data-GraphDB?path=%2Fanalysis.md&anchor=asset-modeling-%28manufacturing%2Fenergy%29&_a=preview)|Multi-modal|Dedicated|SQL Plugin|SQL Plugin|Multi-modal|
-| Azure Managed Service|Yes|In Azure Marketplace, Neo4j offers the single and causal cluster versions of the Enterprise Edition|Graph extension--Apache Age is not supported for Azure| Yes |No |
-|Query Language|[Gremlin query language](https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/tutorial-query)|[CypherQL](https://neo4j.com/docs/cypher-manual/5/introduction/)|[CypherQL, SQL (allow Recursive CTEs)](https://age.apache.org/age-manual/master/intro/overview.html)|[Transact-SQL](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-architecture?view=sql-server-ver16#transact-sql-reference)|[Subset of OpenCypher](https://redis.io/docs/stack/graph/cypher_support/)|
-|Performance|low latency, fast queries and traversals|Not as performant as some of the competitors|Graph schema can be easily and customized to include your requirements without affecting performance. Outstanding query performance in multiple joins via graph model|High availability|Claims high performance owing to using adjacency matrices|
-|[MapReduce](https://db-engines.com/en/system/Microsoft+Azure+Cosmos+DB%3BMicrosoft+SQL+Server%3BNeo4j%3BPostgreSQL%3BRedis)|with Hadoop integration|No|No|No|through RedisGears|
-|Scale|automatic horizontal [partitioning](https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview)|scale writes vertically and reads horizontally|horizontal and vertical scaling|horizontal and vertical scaling|horizontal and vertical scaling|
-|[Partitioning methods](https://db-engines.com/en/system/Microsoft+Azure+Cosmos+DB%3BMicrosoft+SQL+Server%3BNeo4j%3BPostgreSQL%3BRedis)|Sharding|Neo4j Fabric|Partitioning by range, list and by hash|Sharding|Sharding|
-|[Multi-Tenancy](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview)|Container per tenant, Database per tenant, Database account per tenant|Database per tenant(Community edition limited to single database)|Schema per tenant, Database per tenant|Database per tenant|Graph Per Tenant|
-|Filter|Perform filters using Gremlin's has and hasLabel|CypherQL for filtering|Hybrid Querying|using T-SQL|A query can filter out entities by creating predicates like using where argument|
-|[Benchmark](https://github.com/RedisGraph/graph-database-benchmark)|[For a 1-KB document: a read costs 1 RU, a write costs 5 RU](https://learn.microsoft.com/en-us/azure/cosmos-db/request-units)|Cypher O(1) access using fixed-size array|12,000TPS/2.1ms per query with 5 billion nodes|-|[RedisGraph is able to create over 1 million nodes under half a second and form 500-K relations within 0.3 of a second, inserting a new relationship is done in O(1)](https://redis.io/docs/stack/graph/design/)|
-|Support Shortest path|[Yes](https://tinkerpop.apache.org/docs/current/recipes/#shortest-path)|[Yes](https://neo4j.com/docs/graph-data-science/current/algorithms/pathfinding/)|Not provide any such function|[SHORTEST_PATH](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-shortest-path?view=sql-server-ver16) function can only be used inside MATCH, which finds an unweighted shortest path|[Yes](https://redis.io/commands/graph.query/#path-functions)|
-|Support Page ranking|[Yes](https://tinkerpop.apache.org/docs/current/recipes/#pagerank-centrality)|[Yes](https://neo4j.com/docs/graph-data-science/current/algorithms/page-rank/)|Not provide any such function|Not provide any such function|[Yes](https://redis.io/commands/graph.query/#path-functions)|
-|[Deployment Options](https://cycode.engineering/blog/aws-neptune-neo4j-arangodb-or-redisgraph-how-we-at-cycode-chose-our-graph-database/)|Cloud Offering|Cloud & Self-Hosted (Enterprise Edition requires commercial license)|Cloud Offering, but Apache AGE (AGE) Extension is not supported on Azure database for PostgreSQL|Cloud Offering|Cloud & Self-Hosted|
-
-Reference Links:
-1. [Graph Database Analysis](https://csefy19.visualstudio.com/CSE_Engineer_for_Reuse/_git/Data-GraphDB?path=%2Fanalysis.md&anchor=asset-modeling-%28manufacturing%2Fenergy%29&_a=preview)
+Refer to the following links for more information:
+1. [Azure SQL Database Graph](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 2. [Azure Cosmos DB for Apache Gremlin](https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/)
-3. [Azure SQL Database Graph](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
-4. [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
-5. [Redis Graph](https://redis.io/docs/stack/graph/)
-6. [PostgreSQL Apache Age](https://age.apache.org/age-manual/master/intro/overview.html)
+3. [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
+4. [Redis Graph](https://redis.io/docs/stack/graph/)
+5. [PostgreSQL Apache Age](https://age.apache.org/age-manual/master/intro/overview.html)
 
-Finally we choose to use Azure SQL Database, because:
+These products and services have pros and cons. Some of them are Azure managed services, some are not. Finally we choose to use Azure SQL Database, because:
 * It's an Azure managed relational database service with graph capabilities.
 * It's easy to get started since we are familiar with SQL Server or Azure SQL Database.
 * We'll also benefit from using Transact-SQL since the graph database is based on SQL Database.
@@ -99,7 +82,7 @@ Let’s imagine Gary is an operation engineer from Contoso company and one of hi
 
 First, Gary has to fetch all the asset ID he is interested in from the company’s ‘Asset’ system. Then he looks for all the attributes belong to the asset as the input for the health check report, for example, the operation efficiency data of the asset with ID ‘AE0520’. 
 
-![Scenario Demonstration](media/dc-scenario.png)
+![Sample scenario](media/dc-scenario.png)
 
 Contoso has many market leading products and applications to help factory owners to monitor the processes and operations. Its operation efficiency data is recorded in another application system called ‘Quality system’. 
 
@@ -118,43 +101,56 @@ Azure SQL Database offers graph database capabilities to model many-to-many rela
 
 A graph database is a collection of nodes (or vertices) and edges (or relationships). A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). 
 
-![Graph Database](media/dc-graph-database.png)
+![Components in a graph database](media/dc-graph-database.png)
 
 #### Design the Graph Model for the Demo
 For the scenario described previously, we can design the graph model described as:
 * 'Alarm' is one of the metrics that belong to the 'Quality System'
 * The 'Quality System' is associated with an 'Asset'
 
-![Graph Design](media/dc-graph-design.png)
+![Graph design for the sample scenario](media/dc-graph-design.png)
 
 The dummy data is prepared as:
 
-![Dummy Data](media/dc-dummy-data.png)
+![Dummy data used in the sample scenario](media/dc-dummy-data.png)
 
 In the graph model, the nodes and edges (relationships) can be defined as the following. As Azure SQL graph uses Edge tables to represent relationships, in our demo, there are two edge tables to record the relationships between Alarm and Quality System, Quality System and Asset.
 
-![Nodes and Edges](media/dc-nodes-edges.png)
+![Graph nodes and edges](media/dc-nodes-edges.png)
 
-After creating the graph model by using the [scripts](#create-sql-graph), you'll be able to find the 'Graph Tables' shown as:
+In order to create these nodes and edges in Azure SQL Database, we can use the following SQL scripts: 
+```
+...
+CREATE TABLE Alarm(ID INTEGER PRIMARY KEY, Alarm_Type VARCHAR(100)) AS NODE; 
+CREATE TABLE Asset (ID INTEGER PRIMARY KEY,  Asset_ID VARCHAR(100)) AS NODE;
+CREATE TABLE Quality_System (ID INTEGER PRIMARY KEY, Quality_ID VARCHAR(100)) AS NODE;
+CREATE TABLE belongs_to AS EDGE;
+CREATE TABLE is_associated_with AS EDGE;
+...
+```
 
-![Graph Tables](media/dc-graph-tables.png)
+The SQL scripts created a list of 'graph tables' as:
+* dbo.Alarm
+* dbo.Asset
+* dbo.belongs.to
+* dbo.is_associated_with
+* dbo.Quality_System
 
-To look up this graph database with nodes and edges, we use the new [MATCH](https://learn.microsoft.com/en-us/sql/t-sql/queries/match-sql-graph?view=sql-server-ver16) clause to match some patterns and traverse through the graph.
+To query this graph database with nodes and edges, we use the new [MATCH](https://learn.microsoft.com/en-us/sql/t-sql/queries/match-sql-graph?view=sql-server-ver16) clause to match some patterns and traverse through the graph.
 
 ``` SQL
 SELECT [dbo].[Alarm].Alarm_Type, [dbo].[Asset].Asset_ID
 FROM [dbo].[Alarm], [dbo].[Asset], [dbo].[Quality_System], [dbo].[belongs_to], [dbo].[is_associated_with]
 WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
 ```
-
-
+The query result will used to join the incoming raw data for contextualization.
 
 ### Incremental Data Load
 As the architecture diagram shows, the system should only contextualize the new incoming data, not the whole data set in the delta table. Therefore, an incremental data loading solution is needed.
 
 In delta lake, [Change Data Feed](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) is a feature to simplify the architecture for implementing CDC. Once CDF is enabled, as shown in the diagram, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row. So that we can evaluate the differences in the changes if needed. There is also a delete Change Type that is returned for deleted rows. Then to query the change data, we use the table_changes operation.
 
-![cdf](media/dc-cdf.jpeg)
+![How Change Data Feed works](media/dc-cdf.jpeg)
 
 In our solution, we enable the change data feed feature for delta tables that store the source data, by using the following command:
 ```
@@ -198,203 +194,39 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assuradnces against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Securing the Azure SQL database is crucial to protect the data and prevent unauthorized access. Here are some best practices we can follow to secure the Azure SQL database:
-* Use strong passwords and enable multifactor authentication (MFA).
-* Implement network security by using Virtual Network (VNet) service endpoints and firewall rules.
-* Enable Transparent Data Encryption (TDE) to encrypt data at rest, and use Always Encrypted to encrypt sensitive data in transit.
-* Use role-based access control (RBAC) to limit access to specific operations and resources within the database.
-* Implement data masking to hide sensitive data from unauthorized users.
-* Enable auditing and logging.
-* Regularly backup your Azure SQL database.
+For this use case, we need to consider how to secure the data at rest ( data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks ) and data in transit between them.
 
-Securing Azure Databricks involves implementing a comprehensive security strategy that covers different aspects of the platform, such as data access, network security, authentication, and authorization. Here are some best practices for securing Azure Databricks:
-* Implement Role-Based Access Control (RBAC)
-* Enable Network Security by using Azure Virtual Networks to isolate your Databricks workspace from the internet and restrict inbound and outbound traffic to only necessary sources.
-* Configure your Databricks clusters to use secure communication protocols like HTTPS, and use network security groups to restrict access to the Databricks workspace.
-* Implement Authentication and Authorization.
-* Enable Azure Monitor to monitor your Databricks workspace for unusual activity, and enable logging to track user activity and security events.
+For Azure Data Lake Storage Gen 2:
+* Azure Storage service-side encryption (SSE)'s been enabled to protect the data at rest
+* We leverage shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
+
+For Azure SQL Database:
+* We use role-based access control (RBAC) to limit access to specific operations and resources within the database.
+* Strong password's been used for accessing Azure SQL Database. The password's been saved in Azure Key Vault.
+* TLS' been enabled to secure the transitted data between Azure SQL Database and Azure Databricks.
+
+For Azure Databricks:
+* Role-Based Access Control (RBAC)'s been implemented.
+* We've enabled Azure Monitor to monitor your Databricks workspace for unusual activity, and enabled logging to track user activity and security events.
+* In order to protect the data in transit, TLS's been enabled for the JDBC connection to Azure SQL Database.
+
+In the production envionment, we may put these resources into an Azure Virtual Network that isolates the them from the public internet to reduce the attack surface and data exfiltration.
 
 ### Cost optimization
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In order to optimize the cost for using Azure SQL Database, we can consider the following items:
-* Choose the right pricing tier that meets your requirements and budget.
-* Scale up and down as needed.
-* Use serverless compute.
-* Optimize queries.
-* Use data compression.
+In our sample soluton, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
 
-To enhance cost efficiency while utilizing Azure Databricks, the subsequent factors could be taken into consideration:
-* Choose the right instance type that meets your workload requirements while minimizing costs.
-* Use autoscaling to scale up or down the number of nodes based on the workload demand.
-* Turn off clusters when not in use.
-* Use monitoring and logging to optimize performance.
+In order to optimize the cost for using Azure SQL Database:
+* Since the solution performance is not our focus, we choose the lowest pricing tier that meets our requirements and budget.
+* We use serverless compute tier (billed per second based on compute cores used).
 
-For both Azure SQL Database and Azure Databricks, you can also use Azure Advisor and review its personalized recommendations and identify the opportunities to optimize the costs.
-
-### Performance efficiency
-
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview).
-
-Here are some tips to improve the performance efficiency of using an Azure SQL Database:
-* Choose the right service tier.
-* Optimize database design, including creating appropriate indexes, partitioning large tables, and using appropriate data types.
-* Use Query Performance Insight: Use Query Performance Insight to identify slow running queries and tune them for better performance.
-* Use Elastic pools: If you have multiple databases with varying workloads, consider using elastic pools to share resources and reduce costs.
-* Enable automatic tuning to optimize the database configuration based on workload patterns.
-* Monitor database performance.
-* Use Azure Cache for Redis: Consider using Azure Cache for Redis to improve database performance by caching frequently accessed data.  
-
-To improve performance efficiency when using Azure Databricks, we can consider the following aspects:
-* Optimize cluster configuration: Make sure you have the right number of worker nodes and the right amount of resources allocated to each node.
-* Use autoscaling: Enable autoscaling to automatically add or remove worker nodes based on cluster utilization. 
-* Use Delta Lake: Delta Lake is a highly performant data lake that can significantly improve query times. It supports ACID transactions, data versioning, and schema enforcement.
-* Use caching: Caching frequently accessed data can significantly reduce query times. You can use Databricks’ caching APIs to cache RDDs, DataFrames, and other data structures.
-* Use efficient data formats: Choose data formats that are efficient for your use case. 
-* Use partitioning: Partition your data by the column that is most frequently used in queries.
-* Optimize queries: Write efficient queries that use indexes and avoid unnecessary data scans. Use the Databricks query profiler to identify performance bottlenecks.
-
-## Deploy this scenario
-
-### Create SQL Graph
-In Azure SQL Database, Use the following SQL script to build the graph model.
-```
-DROP TABLE IF EXISTS Alarm;
-DROP TABLE IF EXISTS Asset;
-DROP TABLE IF EXISTS Quality_System;
-
-CREATE TABLE Alarm(ID INTEGER PRIMARY KEY, Alarm_Type VARCHAR(100)) AS NODE; 
-CREATE TABLE Asset (ID INTEGER PRIMARY KEY,  Asset_ID VARCHAR(100)) AS NODE;
-CREATE TABLE Quality_System (ID INTEGER PRIMARY KEY, Quality_ID VARCHAR(100)) AS NODE;
-
-INSERT INTO Alarm (ID, Alarm_Type)
-    VALUES  (1, 'Fire Warning'),
-            (2, 'Flood Warning'),
-            (3, 'Carbon Monoxide Warning');
-
-INSERT INTO Asset (ID, Asset_ID)
-    VALUES  (1, 'AE0520'),
-            (2, 'AE0530'),
-            (3, 'AE0690');
-
-INSERT INTO Quality_System (ID, Quality_ID)
-    VALUES  (1, 'MA_0520_001'),
-            (2, 'MA_0530_002'),
-            (3, 'MA_0690_003');
-
-DROP TABLE IF EXISTS belongs_to;
-CREATE TABLE belongs_to AS EDGE;
-
-INSERT INTO [dbo].[belongs_to]
-    VALUES  ((SELECT $node_id FROM Alarm WHERE ID = '1'), (SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0520_001')),
-            ((SELECT $node_id FROM Alarm WHERE ID = '2'), (SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0530_002')),
-            ((SELECT $node_id FROM Alarm WHERE ID = '3'), (SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0690_003'));
-
-DROP TABLE IF EXISTS is_associated_with; 
-CREATE TABLE is_associated_with AS EDGE;
-
-INSERT INTO [dbo].[is_associated_with]
-    VALUES  ((SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0520_001'), (SELECT $node_id FROM Asset WHERE ID = '1')),
-            ((SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0530_002'), (SELECT $node_id FROM Asset WHERE ID = '2')),
-            ((SELECT $node_id FROM Quality_System WHERE Quality_ID = 'MA_0690_003'), (SELECT $node_id FROM Asset WHERE ID = '3'));
-```
-### Create tbl_alarm_master Table and Insert Dummy Data
-In Azure Databricks, create a delta table ```tbl_alarm_master``` that is the source data to be contextualized, and enable change data feed feature, so that we can load data incrementally.
-```
-%sql
-CREATE TABLE tbl_alarm_master (alarm_id INT, alarm_type STRING, alarm_desc STRING, valid_from TIMESTAMP, valid_till TIMESTAMP) 
-USING DELTA
-LOCATION '/mnt/contoso/raw/tbl_alarm_master'
-TBLPROPERTIES (delta.enableChangeDataFeed = true)
-```
-Insert sample data into this table.
-```
-%sql
-INSERT INTO tbl_alarm_master VALUES 
-(1, "Carbon Monoxide Warning", "TAG_1", "2023-01-01 00:00:00.0000", "2999-12-31 23:59:59.0000"),
-(2, "Fire Warning", "TAG_2", "2023-01-01 00:00:00.0001", "2999-12-31 23:59:59.0000"),
-(3, "Flood Warning", "TAG_3",  "2023-01-01 00:00:00.0002", "2999-12-31 23:59:59.0000")
-```
-
-### Create Table_commit_version
-In Azure Databricks, create a delta table named ```table_commit_version``` so that we can record last commit version for each table.
-```
-%sql
-CREATE TABLE table_commit_version (table_name STRING, last_commit_version LONG, updated_at TIMESTAMP)
-USING DELTA
-LOCATION '/mnt/contoso/table_commit_version'
-```
-Insert one record into this table to set last_commit_version to 1.
-```
-%sql
-INSERT INTO table_commit_version VALUES('tbl_alarm_master', 1, current_timestamp())
-```
-
-### Connect Azure SQL Database by Using JDBC
-Azure Databricks supports connecting to external databases using JDBC. It is necessary to connect Azure SQL Graph with Azure Databricks for further operations.
-```
-jdbcUsername = "<Username>"
-jdbcPassword = "<Password>"
-jdbcHostname = "<Hostname>.database.windows.net"
-jdbcPort = 1433
-jdbcDatabase ="<DatabaseName>"
-
-jdbc_url = f"jdbc:sqlserver://{jdbcHostname}:{jdbcPort};database={jdbcDatabase};user={jdbcUsername};password={jdbcPassword};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;"
-```
-
-You must configure many settings to read data using JDBC, and then get expected data by T-SQL query.
-
-```
-pushdown_query = "(SELECT a.Alarm_Type, b.Asset_ID\
-                   FROM Alarm a, belongs_to, Asset b, is_associated_with, Quality_System c\
-                   WHERE MATCH (a-(belongs_to)->c-(is_associated_with)->b)) as new_tbl2"
-
-ala2ass = spark.read \
-        .format("jdbc") \
-        .option("url", jdbc_url) \
-        .option("dbtable", pushdown_query).load()
-```
-Using this T-SQL query, we can query the knowledge graph model to get the relationship between Asset and Alarm.
-
-### Contextualize the Source Data
-Using ```process_data``` method to contextualize source data from table ```tbl_alarm_master```, adding information about asset.
-```
-def process_data(system): 
-     # Get last_commit_version in table_commit_version for the data source table
-    last_commit_version = spark.sql(f"select max(last_commit_version) as last_commit_version from table_commit_version where table_name='{system}'").collect()[0].asDict()['last_commit_version']
-
-    # Get the max(_commit_version) from the table_changes
-    max_commit_version = spark.sql(f"select max(_commit_version) as max_commit_version from table_changes('{system}',1)").collect()[0].asDict()['max_commit_version']
-    
-    # Query and process the newly added data since the last_commit_version
-    df_tlb_change = spark.sql(f"select * from table_changes('{system}',{last_commit_version})")
-    
-    if(last_commit_version == max_commit_version + 1):
-        return None
-    
-    df = spark.sql(f"select raw.alarm_id, raw.alarm_type, raw.alarm_desc, raw.valid_from, raw.valid_till,a.asset_id context_asset from table_changes('{system}',{last_commit_version}) raw left join ala2ass a on raw.alarm_type = a.alarm_type")
-    
-    max_commit_version = max_commit_version + 1
-    
-    # Update last_commit_version in table_commit_version for the data source table
-    spark.sql(f"update table_commit_version set last_commit_version={max_commit_version} where table_name='{system}'")
-    
-    return df, df_tlb_change
-```
-
-### Write Data to the Relational Data Store
-After being contextualized, the data can be saved to another store for later consumption. For simplicity, in this sample, we save the contextualized data to the corresponding table in the SQL database.
-```
-df_alarm_master.write \
-               .format("jdbc") \
-               .option("url", jdbc_url) \
-               .option("dbtable", "Tbl_Alarm_Master") \
-               .mode("append") \
-               .save()
-```
-Now, from end to end, we have incrementally loaded the incoming data, queried the conext information from Azure SQL Graph and contextualized the data, and then save it to Azure SQL Database.
+To improve cost efficiency while utilizing Azure Databricks:
+* We choose the right instance type (all-purpose compute workload and premium tier)that meets your workload requirements while minimizing costs.
+* We use autoscaling to scale up or down the number of nodes based on the workload demand.
+* Clusters are turned off when they are not in use.
 
 ## Contributors
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
