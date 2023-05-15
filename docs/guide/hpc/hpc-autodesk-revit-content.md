@@ -67,7 +67,7 @@ The following table shows the elapsed times, in seconds, for running the test se
 |Graphics Comparison|	205.31|	100.58	|83.22|	78.82|
 |Graphics Expanded|2,824.53|	1,259.49|	921.05|	1,000.70|
 
-The following table shows the relative speed increases as the number of vCPUS increases. The elapsed time for 1/6th GPU is used as a baseline.
+The following table shows the relative speed increases as the number of vCPUs increases. The elapsed time for 1/6th GPU is used as a baseline.
 
 |RFO Benchmark test name|6 vCPUs (1/6th GPU)|18 vCPUs (1/2 GPU)|36 vCPUs (1 GPU)|	72 vCPUs (2 GPUs)|
 |-|-|-|-|-|
