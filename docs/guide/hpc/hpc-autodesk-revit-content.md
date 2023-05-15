@@ -1,4 +1,4 @@
-This article briefly explains the steps for installing and running Autodesk Revit on a virtual machine (VM) in Azure. It also presents the performance results of running Revit on Azure. 
+This article briefly describes the steps for installing and running Autodesk Revit on a virtual machine (VM) on Azure. It also presents the performance results of running Revit on Azure. 
 
 Revit helps architecture, engineering, and construction (AEC) teams create high-quality buildings and infrastructure.
 
@@ -25,13 +25,13 @@ Revit has built-in automation for documenting design and managing deliverables. 
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) is used to create a private network in the cloud.
 - [Network security groups](/azure/virtual-network/network-security-groups-overview) restrict access to VMs at the subnet level.
 - A public IP address allows users to access Revit via the internet. 
-- A physical solid-state drive (SSD) is used for storage.
+- A physical solid-state drive (SSD) provides storage.
 
 ## Deploy infrastructure and install Revit
 
-**Deploy Azure VMs.** Before you install Revit, deploy your Azure VMs. You should use a [NVadsA10_v5 series](/azure/virtual-machines/nva10v5-series) or [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) VM to run Revit. You should use a Premium SSD managed disk and attach it to the VM.
+**Deploy Azure VMs.** Before you install Revit, deploy your Azure VMs. You should use a [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) or [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) series VM to run Revit. You should use a Premium SSD managed disk and attach it to the VM.
 
-**Create and configure the supporting infrastructure.** You need to configure a public IP address for inbound connectivity use network security groups to provide security for the subnet.
+**Create and configure the supporting infrastructure.** You need to configure a public IP address for inbound connectivity and use network security groups to provide security for the subnet.
 
 **Install NVIDIA drivers.** You need to install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) to take the advantage of the GPU capabilities of NVadsA10_v5 and NCasT4_v3 series VMs. For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
@@ -41,7 +41,7 @@ Revit has built-in automation for documenting design and managing deliverables. 
 
 HPC workloads require significant compute, memory, and storage resources. Understanding the performance of different VM types with the Revit application can help you select the most appropriate VM for your workload and optimize performance and cost.
 
-We ran six test scenarios, via scripts, for Revit. The tests were run on a trial version of Revit 2022 on [NVadsA10_v5 series](/azure/virtual-machines/nva10v5-series) and [NCasT4_v3 series](/azure/virtual-machines/nct4-v3-series) Azure VMs. The results of these performance tests are presented later in this document to help you determine the right hardware for your Azure deployment.
+We ran six test scenarios, via scripts, for Revit. The tests were run on a trial version of Revit 2022 on [NVadsA10_v5](/azure/virtual-machines/nva10v5-series) and [NCasT4_v3](/azure/virtual-machines/nct4-v3-series) series Azure VMs. The results of these performance tests are presented later in this document to help you determine the right hardware for your Azure deployment.
 
 ### Model details
 
@@ -56,7 +56,7 @@ The [RFO Benchmark](https://www.revitforum.org/node/442015) automatic test suite
 
 ### Results on NVadsA10_v5
 
-The following table shows the elapsed times, in seconds, for the test sets on four NVadsA10_v5 VM configurations.
+The following table shows the elapsed times, in seconds, for running the test sets on four NVadsA10_v5 VM configurations.
 
 |RFO Benchmark test name|6 vCPUs (1/6th GPU)|18 vCPUs (1/2 GPU)|	36 vCPUs (1 GPU)|72 vCPUs (2 GPUs)|
 |-|-|-|-|-|
@@ -67,7 +67,7 @@ The following table shows the elapsed times, in seconds, for the test sets on fo
 |Graphics Comparison|	205.31|	100.58	|83.22|	78.82|
 |Graphics Expanded|2,824.53|	1,259.49|	921.05|	1,000.70|
 
-The following table shows the relative speed increases, for all test sets, as the number of vCPUS increases. The elapsed time for 1/6th GPU is used as a baseline.
+The following table shows the relative speed increases as the number of vCPUS increases. The elapsed time for 1/6th GPU is used as a baseline.
 
 |RFO Benchmark test name|6 vCPUs (1/6th GPU)|18 vCPUs (1/2 GPU)|36 vCPUs (1 GPU)|	72 vCPUs (2 GPUs)|
 |-|-|-|-|-|
@@ -84,9 +84,9 @@ This graph shows the relative speed increases for the six test cases. A high rel
 
 ### Results on NCasT4_v3 
 
-The following table shows the elapsed times, in seconds, for the test sets on two NCasT4_v3 VM configurations.
+The following table shows the elapsed times, in seconds, for running the test sets on two NCasT4_v3 VM configurations.
 
-|RFO Benchmark test names|4 vCPUs<br> (1 GPU)|	64 vCPUs<br> (4 GPUs)|
+|RFO Benchmark test name|4 vCPUs<br> (1 GPU)|	64 vCPUs<br> (4 GPUs)|
 |-|-|-|
 |Full Simplified	|184.47|	193.91|
 |Full Expanded|	864.42	|741.36|
@@ -97,7 +97,7 @@ The following table shows the elapsed times, in seconds, for the test sets on tw
 
 The following table shows the relative speed increases for the six test sets, as the number of vCPUs increases.
 
-|RFO Benchmark test names|4 vCPUs<br>(1 GPU)|	64 vCPUs<br>(4 GPUs)|
+|RFO Benchmark test name|4 vCPUs<br>(1 GPU)|	64 vCPUs<br>(4 GPUs)|
 |-|-|-|
 |Full Simplified|	1	|0.95|
 |Full Expanded	|1	|1.17|
@@ -112,7 +112,7 @@ This graph shows the relative speed increases for the six test cases. A high rel
 
 ## Azure cost
 
-You can use the following data to calculate the cost of running your workload. To compute the cost, multiply the total elapsed time by the hourly cost for the VM. Because the hourly rates of VMs can change, you should use the [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) to make these calculations. The total elapsed time doesn't include application installation. It includes only the total time for completing the test scenarios for all models. 
+You can use the following data to calculate the cost of running your workload. To compute the cost, multiply the total elapsed time by the hourly cost for the VM. Because the hourly rates of VMs can change, you should use the [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#pricing) calculator to compute the cost. The total elapsed time doesn't include application installation. It includes only the total time for completing the test scenarios for all models. 
 
 |VM series|	Number of vCPUs|	Number of GPUs|	Total elapsed time, in hours|
 |-|-|-|-|
@@ -125,9 +125,10 @@ You can use the following data to calculate the cost of running your workload. T
 
 ## Summary
 
-- We deployed and tested Revit on Azure NVadsA10_v5 and NCasT4_v3 series VMs.
+We deployed and tested Revit on Azure NVadsA10_v5 and NCasT4_v3 series VMs.
+
 - On NVadsA10_v5 VMs, most VM configuration upgrades result in speed increases. The relative speed increases until one GPU is reached. There's a saturation in performance with further increases in GPUs.
-- On NCasT4_v3 VMs, the only a performance difference occurs between four GPUs and one GPU for four of the six test scenarios. We recommend that you use a NCasT4_v3 VM with one GPU.
+- On NCasT4_v3 VMs, for four of the six test scenarios, the only performance difference occurs when the number of GPUs is increased from one to four. We recommend that you use a NCasT4_v3 VM with one GPU.
 
 ## Contributors
 
