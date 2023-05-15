@@ -150,7 +150,9 @@ SELECT [dbo].[Alarm].Alarm_Type, [dbo].[Asset].Asset_ID
 FROM [dbo].[Alarm], [dbo].[Asset], [dbo].[Quality_System], [dbo].[belongs_to], [dbo].[is_associated_with]
 WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
 ```
-The query result will used to join the incoming raw data for contextualization.
+Later the query result will be used to join the incoming raw data for contextualization.
+
+## Incremental Data Load
 
 As the architecture diagram shows, the system should only contextualize the new incoming data, not the whole data set in the delta table. Therefore, an incremental data loading solution is needed.
 
@@ -182,7 +184,7 @@ WHERE _change_type = 'insert'
 
 For more samples, please refer to [Change Data Feed demo](https://docs.databricks.com/_extras/notebooks/source/delta/cdf-demo.html).
 
-As you can see, you can use Change Data Feed feature to load the data incrementally. In order to get the last commit version number, you can store the relevant information into another delta table.
+As you can see, you can use CDF feature to load the data incrementally. In order to get the last commit version number, you can store the relevant information into another delta table.
 
 ```
 CREATE TABLE table_commit_version
@@ -228,7 +230,7 @@ For Azure Databricks:
 * We've enabled Azure Monitor to monitor your Databricks workspace for unusual activity, and enabled logging to track user activity and security events.
 * In order to protect the data in transit, TLS's been enabled for the JDBC connection to Azure SQL Database.
 
-In the production envionment, we may put these resources into an Azure Virtual Network that isolates the them from the public internet to reduce the attack surface and data exfiltration.
+In the production environment, we may put these resources into an Azure Virtual Network that isolates the them from the public internet to reduce the attack surface and data exfiltration.
 
 ### Cost optimization
 
