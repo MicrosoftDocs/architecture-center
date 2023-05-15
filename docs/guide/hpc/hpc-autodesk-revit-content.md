@@ -33,7 +33,7 @@ Revit has built-in automation for documenting design and managing deliverables. 
 
 **Create and configure the supporting infrastructure.** You need to configure a public IP address for inbound connectivity and use network security groups to provide security for the subnet.
 
-**Install NVIDIA drivers.** You need to install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) to take the advantage of the GPU capabilities of NVadsA10_v5 and NCasT4_v3 series VMs. For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
+**Install NVIDIA drivers.** You need to install [NVIDIA GPU drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) to take advantage of the GPU capabilities of NVadsA10_v5 and NCasT4_v3 series VMs. For information about deploying VMs and installing the drivers, see [Run a Windows VM on Azure](../../reference-architectures/n-tier/windows-vm.yml).
 
 **Download and install Revit.** After you install the NVIDIA drivers, install Revit. To install the product, sign in to your [Autodesk](https://www.autodesk.com/products/revit/overview) account. Select **Revit** under **Products**. For more information, see the Autodesk support website.
 
