@@ -26,7 +26,7 @@ The data in the silver layer has been stored in [Delta Lake](https://docs.databr
 
 The solution performs incremental data processing, thus only the data that has been modified or added since the last run is processed. It is a typical requirement for batch processing so that the data can be processed quickly and economically. 
 
-For more information, refer to the [incremental data load](#incremental-data-load-1).
+For more information, see the [incremental data load](#incremental-data-load-1).
 
 ### Data contextualization
 
@@ -90,7 +90,7 @@ First, Gary has to fetch all the asset IDs he is interested in from the company'
 
 Contoso has many market leading products and applications to help factory owners to monitor the processes and operations. Its operation efficiency data is recorded in their 'quality system', another stand-alone application.
 
-So, Gary logged in the 'quality system' and used the asset ID 'AE0520' to look up the table from AE_OP_EFF, which contains the all the key attributes for operation efficiency data.
+Gary logged in the 'quality system' and used the asset ID 'AE0520' to look up the table from AE_OP_EFF. That table contains the all the key attributes for operation efficiency data.
 
 There are many columns in the AE_OP_EFF table and Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called 'alarm'. Gary needs to record the key ID 'MA_0520' of 'alarm' table corresponding to the asset 'AE0520', as they are using different naming conventions.  
  
@@ -150,7 +150,7 @@ SELECT [dbo].[Alarm].Alarm_Type, [dbo].[Asset].Asset_ID
 FROM [dbo].[Alarm], [dbo].[Asset], [dbo].[Quality_System], [dbo].[belongs_to], [dbo].[is_associated_with]
 WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
 ```
-Later the query result will be used to join the incoming raw data for contextualization.
+Later the query result can be used to join the incoming raw data for contextualization.
 
 ## Incremental Data Load
 
@@ -192,7 +192,7 @@ CREATE TABLE table_commit_version
 	USING DELTA
 ```
 
-Every time you load the newly added data in raw_system_1, you'll take the following steps:
+Every time you load the newly added data in raw_system_1, you need to take the following steps:
 
 1. Get the last_commit_version in table_commit_version for table tbl_alarm_master
 1. Query and load the newly added data since last_commit_version
@@ -214,16 +214,16 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assuradnces against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For this use case, we need to consider how to secure the data at rest ( data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks ) and data in transit between them.
+For this use case, we need to consider how to secure the data at rest ( that is, the data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks ) and data in transit between them.
 
 For Azure Data Lake Storage Gen 2:
 * Azure Storage service-side encryption (SSE)'s been enabled to protect the data at rest
-* We leverage shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
+* We use shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
 
 For Azure SQL Database:
 * We use role-based access control (RBAC) to limit access to specific operations and resources within the database.
 * Strong password's been used for accessing Azure SQL Database. The password's been saved in Azure Key Vault.
-* TLS' been enabled to secure the transitted data between Azure SQL Database and Azure Databricks.
+* TLS' been enabled to secure the transit data between Azure SQL Database and Azure Databricks.
 
 For Azure Databricks:
 * Role-Based Access Control (RBAC)'s been implemented.
@@ -237,14 +237,14 @@ In the production environment, we may put these resources into an Azure Virtual 
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In our sample soluton, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
+In our sample solution, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
 
 In order to optimize the cost for using Azure SQL Database:
 * Since the solution performance is not our focus, we choose the lowest pricing tier that meets our requirements and budget.
 * We use serverless compute tier (billed per second based on compute cores used).
 
 To improve cost efficiency while utilizing Azure Databricks:
-* We choose the right instance type (all-purpose compute workload and premium tier)that meets your workload requirements while minimizing costs.
+* We choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
 * We use autoscaling to scale up or down the number of nodes based on the workload demand.
 * Clusters are turned off when they are not in use.
 
