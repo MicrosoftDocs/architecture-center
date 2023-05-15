@@ -24,13 +24,13 @@ The data in the silver layer has been stored in [Delta Lake](https://docs.databr
 
 ### Incremental data load 
 
-The solution performs incremental data processing, thus only the data that has been modified or added since the last run is processed. It is a typical requirement for batch processing so that the data can be processed quickly and economically. 
+The solution performs incremental data processing, thus only the data that has been modified or added since the last run is processed. It's a typical requirement for batch processing so that the data can be processed quickly and economically. 
 
 For more information, see the [incremental data load](#incremental-data-load-1).
 
 ### Data contextualization
 
-Data contextualization is quite a broad term. In context of the architecture, contextualization is defined as the process of performing a graph lookup based on one or many input columns and retrieving one or many matching values.
+Data contextualization is quite a broad term. In context of the architecture, contextualization a process of performing a graph lookup and retrieve matching values.
 
 The solution assumes that the graph has already been created in a graph database. The internal complexity of the graph isn't a concern here as the graph query is passed via a configuration and executed dynamically by passing the input values.
 
@@ -38,11 +38,11 @@ Also, the solution uses Azure Databricks for this data contextualization process
 
 ### Graph database
 
-The graph database is the database that holds the actual graph models. There are many options to choose for the graph database choice such as Neo4j, Redis Graph, GraphQL over CosmosDB and so on. In this case, the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) has been used for the creation of the graph.
+The graph database is the database that holds the actual graph models. There are many options to choose for the graph database choice such as Neo4j, Redis Graph, GraphQL over Cosmos DB and so on. In this case, the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) has been used for the creation of the graph.
 
 ### Azure SQL Database
 
-For storing the contextualized data, [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database/) has been used, but it can be any other storage option. To ensure idempotent processing, the data has been "merged" into the source system rather than been appended.
+[Azure SQL database](https://azure.microsoft.com/products/azure-sql/database/) has been used to store the contextualized data, but it can be any other storage option. To ensure idempotent processing, the data has been "merged" into the source system rather than been appended.
 
 ### Dataflow
 
@@ -62,16 +62,15 @@ As shown in the architecture diagram, the data flow goes through the following s
 * [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores graph models and contextualized data.
 
 ### Alternatives
-In the market, there are many graph databases such as Azure Cosmos DB, Azure Database for PostgreSQL, Neo4j and RedisGraph etc.
 
-Refer to the following links for more information:
+In the market, as mentioned previously, there are many graph databases to choose. For more information, see:
 1. [Azure SQL Database Graph](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 2. [Azure Cosmos DB for Apache Gremlin](https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/)
 3. [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
 4. [Redis Graph](https://redis.io/docs/stack/graph/)
 5. [PostgreSQL Apache Age](https://age.apache.org/age-manual/master/intro/overview.html)
 
-These products and services have pros and cons. Some of them are Azure managed services, some are not. Finally we choose to use Azure SQL Database, because:
+These products and services have pros and cons. Some of them are Azure managed services, some aren't. Finally we choose to use Azure SQL Database, because:
 * It's an Azure managed relational database service with graph capabilities.
 * It's easy to get started since many are familiar with SQL Server or Azure SQL Database.
 * Solutions often benefit from using Transact-SQL in parallel, since the graph database is based on SQL Database.
@@ -82,23 +81,23 @@ These products and services have pros and cons. Some of them are Azure managed s
 
 The sample solution in this article is derived from the scenario described in this section.
 
-Let's imagine Gary is an operation engineer from Contoso company and one of his responsibilities is to provide a weekly health check report for the enterprise assets from Contoso's factories within a specific city. 
+Gary is an operation engineer from Contoso company and one of his responsibilities is to provide a weekly health check report for the enterprise assets from Contoso's factories within a specific city. 
 
-First, Gary has to fetch all the asset IDs he is interested in from the company's 'asset' system. Then he looks for all the attributes belong to the asset as the input for the health check report, for example, the operation efficiency data of the asset with ID 'AE0520'.
+First, Gary needs to fetch all the asset IDs that he's interested in from the company's 'asset' system. Then Gary looks for all the attributes belong to the asset as the input for the health check report, for example, the operation efficiency data of the asset with ID 'AE0520'.
 
 ![Sample scenario](media/dc-scenario.png)
 
-Contoso has many market leading products and applications to help factory owners to monitor the processes and operations. Its operation efficiency data is recorded in their 'quality system', another stand-alone application.
+Contoso has many products and applications to help factory owners to monitor the processes and operations. Its operation efficiency data is recorded in their 'quality system', another stand-alone application.
 
-Gary logged in the 'quality system' and used the asset ID 'AE0520' to look up the table from AE_OP_EFF. That table contains the all the key attributes for operation efficiency data.
+Gary logs in the 'quality system' and uses the asset ID 'AE0520' to look up the table from AE_OP_EFF. That table contains the all the key attributes for operation efficiency data.
 
-There are many columns in the AE_OP_EFF table and Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called 'alarm'. Gary needs to record the key ID 'MA_0520' of 'alarm' table corresponding to the asset 'AE0520', as they are using different naming conventions.  
+There are many columns in the AE_OP_EFF table and Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called 'alarm'. Therefore, Gary needs to record the key ID 'MA_0520' of 'alarm' table corresponding to the asset 'AE0520', as they're using different naming conventions.  
  
-In the reality, the relationship is much more complicated than this one. Gary has to search for more than one attribute of the asset and has to log in many tables from different systems to get all the data for a complete report. Gary used queries and scripts to perform his work, but the queries become complicated and hard to maintain. Even worse, the systems are growing, and the demand of the report is changing, that more data needs to be added to the report for different decision makers' perspectives.
+In the reality, the relationship is much more complicated. Gary needs to search for more than one attribute of the asset and log in many tables from different systems to get all the data for a complete report. Gary uses queries and scripts to perform his work, but the queries become complicated and hard to maintain. Even worse, the systems are growing, and the demand of the report is changing, so more data needs to be added to the report for different decision makers' perspectives.
 
-One of the major pain points for Gary is, the ID of one asset in different system are different, as these systems have been developed and maintained separately and even using different protocols. He has to manually query the different tables to get the data for the same asset that caused his query not only complex but also difficult to understand without domain expertise. He uses a lot of time to recruit to the newly onboarded operation engineer and explain the relationships behind.
+One of the major pain points for Gary is, the ID of one asset in different system are different, as these systems are developed and maintained separately and even using different protocols. Gary has to manually query the different tables to get the data for the same asset that caused the query not only complex but also difficult to understand without domain expertise. As a result, Gary spends a lot of time on coaching the newly onboarded operation engineers and explaining the relationships in the data.
 
-If there is a mechanism to *link* the different names that belong to the same asset across systems, Gary’s life will be easier, and his report query will be simpler.
+If there's a mechanism to *link* the different names that belong to the same asset across systems, the report query will be simpler, and Gary’s life will be easier.
 
 ### Graph design
 
@@ -156,7 +155,7 @@ Later the query result can be used to join the incoming raw data for contextuali
 
 As the architecture diagram shows, the system should only contextualize the new incoming data, not the whole data set in the delta table. Therefore, an incremental data loading solution is needed.
 
-In delta lake, [Change Data Feed](/azure/databricks/delta/delta-change-data-feed) (CDF) is a feature to simplify the architecture for implementing change data capture (CDC). Once CDF is enabled, as shown in the diagram, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row. So that we can evaluate the differences in the changes if needed. There is also a delete change type that is returned for deleted rows. Then to query the change data, you use the table_changes operation.
+In delta lake, [Change Data Feed](/azure/databricks/delta/delta-change-data-feed) (CDF) is a feature to simplify the architecture for implementing change data capture (CDC). Once CDF is enabled, as shown in the diagram, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row. So that we can evaluate the differences in the changes if needed. There's also a delete change type that is returned for deleted rows. Then to query the change data, you use the table_changes operation.
 
 ![How Change Data Feed works](media/dc-cdf.jpeg)
 
@@ -199,7 +198,7 @@ Every time you load the newly added data in raw_system_1, you need to take the f
 1. Get the largest commit version number of table tbl_alarm_master
 1. Update last_commit_version in table table_commit_version for the next query
 
-Enabling CDF will not make significant impact for the system performance and cost. The change data records are generated inline during the query execution process and are much smaller than the total size of rewritten files.
+Enabling CDF won't make significant impact for the system performance and cost. The change data records are generated inline during the query execution process and are much smaller than the total size of rewritten files.
 
 ### Potential use cases
 
@@ -212,9 +211,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Security
 
-Security provides assuradnces against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For this use case, we need to consider how to secure the data at rest ( that is, the data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks ) and data in transit between them.
+For this use case, we need to consider how to secure the data at rest (that is, the data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks) and data in transit between them.
 
 For Azure Data Lake Storage Gen 2:
 * Azure Storage service-side encryption (SSE)'s been enabled to protect the data at rest
@@ -228,7 +227,7 @@ For Azure SQL Database:
 For Azure Databricks:
 * Role-Based Access Control (RBAC)'s been implemented.
 * We've enabled Azure Monitor to monitor your Databricks workspace for unusual activity, and enabled logging to track user activity and security events.
-* In order to protect the data in transit, TLS's been enabled for the JDBC connection to Azure SQL Database.
+* In order to protect the data in transit, TLS' been enabled for the JDBC connection to Azure SQL Database.
 
 In the production environment, we may put these resources into an Azure Virtual Network that isolates the them from the public internet to reduce the attack surface and data exfiltration.
 
@@ -240,13 +239,13 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 In our sample solution, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
 
 In order to optimize the cost for using Azure SQL Database:
-* Since the solution performance is not our focus, we choose the lowest pricing tier that meets our requirements and budget.
+* Since the solution's performance isn't our focus, we choose the lowest pricing tier that meets our requirements and budget.
 * We use serverless compute tier (billed per second based on compute cores used).
 
 To improve cost efficiency while utilizing Azure Databricks:
 * We choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
 * We use autoscaling to scale up or down the number of nodes based on the workload demand.
-* Clusters are turned off when they are not in use.
+* Clusters are turned off when they aren't in use.
 
 ## Contributors
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
