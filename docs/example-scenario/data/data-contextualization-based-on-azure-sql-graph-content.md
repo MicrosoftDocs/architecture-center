@@ -203,7 +203,7 @@ Enabling CDF won't make significant impact for the system performance and cost. 
 
 ### Potential use cases
 
-* A manufacturing solution provider would like to contextualize the master data and event data provided by its customers continuously. Since the context information is too complicated to be represented by relational tables, graph models are used for data contextualization.
+* A manufacturing solution provider would like to contextualize the data and event provided by its customers continuously. Since the context information is too complicated to be represented by relational tables, graph models are used for data contextualization.
 * A process engineer in the factory needs to troubleshoot for an issue of the factory equipment. The graph model stores the all the related data, direct or indirect, of the troubleshooting equipment that can provide an overall information for root cause analysis. 
 
 ## Considerations
