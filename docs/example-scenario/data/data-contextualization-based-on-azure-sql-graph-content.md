@@ -125,14 +125,15 @@ In the graph model, the nodes and edges (relationships) need to be defined. As A
 ![Graph nodes and edges](media/dc-nodes-edges.png)
 
 In order to create these nodes and edges in Azure SQL Database, we can use the following SQL scripts: 
-```
-...
+
+```SQL
+…
 CREATE TABLE Alarm(ID INTEGER PRIMARY KEY, Alarm_Type VARCHAR(100)) AS NODE; 
 CREATE TABLE Asset (ID INTEGER PRIMARY KEY,  Asset_ID VARCHAR(100)) AS NODE;
 CREATE TABLE Quality_System (ID INTEGER PRIMARY KEY, Quality_ID VARCHAR(100)) AS NODE;
 CREATE TABLE belongs_to AS EDGE;
 CREATE TABLE is_associated_with AS EDGE;
-...
+…
 ```
 
 The SQL scripts created a list of 'graph tables' as:
