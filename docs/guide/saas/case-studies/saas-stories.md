@@ -49,5 +49,5 @@ In our second episode with Zammo’s Stacey Kyler and Nicholas Spagnola, we lear
 
 ## Next steps
 
-- [Plan your own journey to SaaS](plan-journey-saas.md)
-- [Learn about multitenant architectural approaches](../multitenant/overview.md)
+- [Plan your own journey to SaaS](../plan-journey-saas.md)
+- [Learn about multitenant architectural approaches](../../multitenant/overview.md)
