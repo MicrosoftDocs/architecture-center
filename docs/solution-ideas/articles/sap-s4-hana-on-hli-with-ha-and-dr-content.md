@@ -8,8 +8,9 @@ This system takes advantage of OS clustering for database performance, high avai
 
 ## Architecture
 
-![Architecture diagram shows Front-end route, through Primary Azure Region to O S Clustering, to D R storage replication in D R Azure Region.](../media/sap-s4-hana-on-hli-with-ha-and-dr.png)
-*Download an [SVG](../media/sap-s4-hana-on-hli-with-ha-and-dr.svg) of this architecture.*
+![Architecture diagram shows Front-end route, through Primary Azure Region to OS Clustering, to DR storage replication in DR Azure Region.](../media/sap-s4-hana-on-hli-with-ha-and-dr.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/..vsdx) of this architecture.*
 
 ### Dataflow
 
