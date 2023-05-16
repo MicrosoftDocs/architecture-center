@@ -4156,8 +4156,6 @@ items:
         href: solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml
       - name: Interactive querying with HDInsight
         href: solution-ideas/articles/interactive-querying-with-hdinsight.yml
-      - name: Loan charge-off prediction with HDInsight
-        href: solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml
       - name: Loan charge-off prediction with SQL Server
         href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml
       - name: Loan credit risk with SQL Server

@@ -2746,6 +2746,11 @@
       "source_path": "docs/solution-ideas/articles/durable-functions-containers.yml",
       "redirect_url": "/azure/architecture/example-scenario/serverless/automation-application-gateway",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling",
+      "redirect_document_id": false
     }
   ]
 }
