@@ -192,7 +192,7 @@ CREATE TABLE table_commit_version
 	USING DELTA
 ```
 
-Every time you load the newly added data in raw_system_1, you need to take the following steps:
+Every time you load the newly added data in tbl_alarm_master, you need to take the following steps:
 
 1. Get the last_commit_version in table_commit_version for table tbl_alarm_master
 1. Query and load the newly added data since last_commit_version
@@ -236,7 +236,7 @@ In the production environment, put these resources into an Azure Virtual Network
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In this architecture, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
+In this architecture, there's more space of cost optimization for Azure SQL Database and Azure Databricks. 
 
 In order to optimize the cost for using Azure SQL Database:
 * Since the solution's performance isn't this architecture's focus, this solution chooses the lowest pricing tier that meets the requirements.
@@ -246,6 +246,8 @@ To improve cost efficiency while utilizing Azure Databricks:
 * Choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
 * Use autoscaling to scale up or down the number of nodes based on the workload demand.
 * Turn off clusters when they aren't in use.
+
+For more information about the cost for this scenario, see: [estimated monthly cost](https://azure.com/e/f7db655c6bcf402caee6e8528e146d7a)
 
 ## Contributors
 
