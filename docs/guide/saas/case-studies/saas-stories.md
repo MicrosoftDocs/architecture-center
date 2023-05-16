@@ -1,7 +1,7 @@
 ---
-title: Architecting multitenant solutions on Azure
+title: Microsoft SaaS stories
 titleSuffix: Azure Architecture Center
-description: Learn how to build multitenant solutions on Azure through the guidance we provide in this series.
+description: Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.
 author: arsenvlad
 ms.author: arsenv
 ms.date: 05/16/2023
