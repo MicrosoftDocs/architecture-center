@@ -8,8 +8,9 @@ This system takes advantage of OS clustering for high availability, premium stor
 
 ## Architecture
 
-![Architecture diagram shows Front-end route, through Primary Azure Region to O S Clustering, to S Q L Server AlwaysOn to D R storage in Azure Region.](../media/sap-netweaver-on-sql-server.png)
-*Download an [SVG](../media/sap-netweaver-on-sql-server.svg) of this architecture.*
+![Architecture diagram shows Front-end route, through Primary Azure Region to OS Clustering, to SQL Server AlwaysOn to DR storage in Azure Region.](../media/sap-netweaver-on-sql-server.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/sap-netweaver-on-sql-server.vsdx) of this architecture.*
 
 ### Dataflow
 
