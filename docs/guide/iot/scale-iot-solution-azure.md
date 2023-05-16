@@ -7,6 +7,7 @@ ms.date: 04/18/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
+ms.technology: iot
 products:
   - azure-iot
   - azure-iot-dps
