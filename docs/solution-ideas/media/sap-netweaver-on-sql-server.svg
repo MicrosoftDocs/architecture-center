@@ -31,7 +31,7 @@
 		.st24 {fill:#9cebff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st25 {fill:url(#grad0-118);stroke:none;stroke-linecap:butt;stroke-width:0.75}
 		.st26 {marker-end:url(#mrkr4-89);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
-		.st27 {marker-start:url(#mrkr4-341);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st27 {marker-start:url(#mrkr4-337);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
 		.st28 {fill:#000000;font-family:Segoe UI Semibold;font-size:0.916672em}
 		.st29 {fill:#000000;font-family:Segoe UI Semibold;font-size:1.00001em}
 		.st30 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
@@ -85,7 +85,7 @@
 		<marker id="mrkr4-89" class="st20" refX="-5.36" orient="auto" markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
 		</marker>
-		<marker id="mrkr4-341" class="st20" refX="5.12" orient="auto" markerUnits="strokeWidth" overflow="visible">
+		<marker id="mrkr4-337" class="st20" refX="5.12" orient="auto" markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(2.68) "/>
 		</marker>
 	</defs>
@@ -426,203 +426,195 @@
 			<title>Directed line 1.1225</title>
 			<path d="M0 594 L47.82 594" class="st19"/>
 		</g>
-		<g id="group1226-190" transform="translate(440.069,-373.034)">
-			<title>Sheet.1226</title>
-			<g id="group1000-191" transform="translate(26.0302,-40.9655)">
-				<title>Icon-compute-21.1000</title>
-				<g id="shape1001-192" transform="translate(0,-9.78339)">
-					<title>Sheet.1001</title>
-					<path d="M0 592.73 A1.26786 1.26786 -180 0 0 1.27 594 L36.77 594 A1.26786 1.26786 -180 0 0 38.03 592.73 L38.03
-								 569.91 A1.26786 1.26786 -180 0 0 36.77 568.64 L1.27 568.64 A1.26786 1.26786 -180 0 0 0 569.91 L0
-								 592.73 Z" class="st21"/>
-				</g>
-				<g id="shape1002-195" transform="translate(19.0174,-15.066)">
-					<title>Sheet.1002</title>
-					<path d="M6.34 582.91 L6.34 590.28 L0 594 L0 586.6 L6.34 582.91 Z" class="st22"/>
-				</g>
-				<g id="shape1003-197" transform="translate(12.6783,-22.4405)">
-					<title>Sheet.1003</title>
-					<path d="M12.68 590.28 L6.34 594 L0 590.28 L6.34 586.58 L12.68 590.28 Z" class="st23"/>
-				</g>
-				<g id="shape1004-199" transform="translate(12.6783,-15.066)">
-					<title>Sheet.1004</title>
-					<path d="M6.34 586.63 L6.34 594 L0 590.28 L0 582.91 L6.34 586.63 Z" class="st24"/>
-				</g>
-				<g id="shape1005-201" transform="translate(12.6783,-15.066)">
-					<title>Sheet.1005</title>
-					<path d="M0 590.28 L6.34 586.6 L6.34 594 L0 590.28 Z" class="st23"/>
-				</g>
-				<g id="shape1006-203" transform="translate(19.0174,-15.066)">
-					<title>Sheet.1006</title>
-					<path d="M6.34 590.28 L0 586.6 L0 594 L6.34 590.28 Z" class="st24"/>
-				</g>
-				<g id="shape1007-205" transform="translate(9.5087,0)">
-					<title>Sheet.1007</title>
-					<path d="M17.14 591.89 C13.38 591.3 13.23 588.59 13.23 584.22 L5.77 584.22 C5.77 588.59 5.64 591.3 1.88 591.89
-								 A2.11304 2.11304 -180 0 0 0 594 L19.02 594 A2.11304 2.11304 -180 0 0 17.14 591.89 Z" class="st25"/>
-				</g>
+		<g id="group1000-190" transform="translate(466.099,-414)">
+			<title>Icon-compute-21.1000</title>
+			<g id="shape1001-191" transform="translate(0,-9.78339)">
+				<title>Sheet.1001</title>
+				<path d="M0 592.73 A1.26786 1.26786 -180 0 0 1.27 594 L36.77 594 A1.26786 1.26786 -180 0 0 38.03 592.73 L38.03 569.91
+							 A1.26786 1.26786 -180 0 0 36.77 568.64 L1.27 568.64 A1.26786 1.26786 -180 0 0 0 569.91 L0 592.73 Z"
+						class="st21"/>
 			</g>
-			<g id="shape1142-208">
-				<title>Sheet.1142</title>
-				<desc>SQL Server virtual machine Primary (active)</desc>
-				<rect x="0" y="563.081" width="86.2759" height="30.9185" class="st11"/>
-				<text x="16.84" y="568.64" class="st12">SQL Server <tspan x="6.14" dy="1.2em" class="st13">virtual machine </tspan><tspan
-							x="4.33" dy="1.2em" class="st13"> </tspan>Primary (active)</text>			</g>
-		</g>
-		<g id="group1235-213" transform="translate(617.85,-373.5)">
-			<title>Sheet.1235</title>
-			<g id="shape1157-214">
-				<title>Sheet.1157</title>
-				<desc>SQL Server virtual machine Secondary (standby)</desc>
-				<rect x="0" y="563.081" width="127.746" height="30.9185" class="st11"/>
-				<text x="21.08" y="568.64" class="st12">SQL Server virtual <tspan x="43.36" dy="1.2em" class="st13">machine </tspan><tspan
-							x="13.01" dy="1.2em" class="st13"> </tspan>Secondary (standby)</text>			</g>
-			<g id="group1227-219" transform="translate(44.6139,-36.6207)">
-				<title>Icon-compute-21.1184</title>
-				<g id="shape1228-220" transform="translate(0,-9.90764)">
-					<title>Sheet.1228</title>
-					<path d="M-0 592.72 A1.28396 1.28396 -180 0 0 1.28 594 L37.23 594 A1.28396 1.28396 -180 0 0 38.52 592.72 L38.52
-								 569.61 A1.28396 1.28396 -180 0 0 37.23 568.32 L1.28 568.32 A1.28396 1.28396 -180 0 0 0 569.61 L0
-								 592.72 Z" class="st21"/>
-				</g>
-				<g id="shape1229-223" transform="translate(19.2589,-15.2573)">
-					<title>Sheet.1229</title>
-					<path d="M6.42 582.77 L6.42 590.23 L0 594 L0 586.51 L6.42 582.77 Z" class="st22"/>
-				</g>
-				<g id="shape1230-225" transform="translate(12.8393,-22.7255)">
-					<title>Sheet.1230</title>
-					<path d="M12.84 590.23 L6.42 594 L0 590.23 L6.42 586.49 L12.84 590.23 Z" class="st23"/>
-				</g>
-				<g id="shape1231-227" transform="translate(12.8393,-15.2573)">
-					<title>Sheet.1231</title>
-					<path d="M6.42 586.53 L6.42 594 L0 590.23 L0 582.77 L6.42 586.53 Z" class="st24"/>
-				</g>
-				<g id="shape1232-229" transform="translate(12.8393,-15.2573)">
-					<title>Sheet.1232</title>
-					<path d="M0 590.23 L6.42 586.51 L6.42 594 L0 590.23 Z" class="st23"/>
-				</g>
-				<g id="shape1233-231" transform="translate(19.2589,-15.2573)">
-					<title>Sheet.1233</title>
-					<path d="M6.42 590.23 L0 586.51 L0 594 L6.42 590.23 Z" class="st24"/>
-				</g>
-				<g id="shape1234-233" transform="translate(9.62946,0)">
-					<title>Sheet.1234</title>
-					<path d="M17.35 591.86 C13.55 591.26 13.4 588.52 13.4 584.09 L5.84 584.09 C5.84 588.52 5.71 591.26 1.9 591.86
-								 A2.13988 2.13988 -180 0 0 0 594 L19.26 594 A2.13988 2.13988 -180 0 0 17.35 591.86 Z" class="st25"/>
-				</g>
+			<g id="shape1002-194" transform="translate(19.0174,-15.066)">
+				<title>Sheet.1002</title>
+				<path d="M6.34 582.91 L6.34 590.28 L0 594 L0 586.6 L6.34 582.91 Z" class="st22"/>
+			</g>
+			<g id="shape1003-196" transform="translate(12.6783,-22.4405)">
+				<title>Sheet.1003</title>
+				<path d="M12.68 590.28 L6.34 594 L0 590.28 L6.34 586.58 L12.68 590.28 Z" class="st23"/>
+			</g>
+			<g id="shape1004-198" transform="translate(12.6783,-15.066)">
+				<title>Sheet.1004</title>
+				<path d="M6.34 586.63 L6.34 594 L0 590.28 L0 582.91 L6.34 586.63 Z" class="st24"/>
+			</g>
+			<g id="shape1005-200" transform="translate(12.6783,-15.066)">
+				<title>Sheet.1005</title>
+				<path d="M0 590.28 L6.34 586.6 L6.34 594 L0 590.28 Z" class="st23"/>
+			</g>
+			<g id="shape1006-202" transform="translate(19.0174,-15.066)">
+				<title>Sheet.1006</title>
+				<path d="M6.34 590.28 L0 586.6 L0 594 L6.34 590.28 Z" class="st24"/>
+			</g>
+			<g id="shape1007-204" transform="translate(9.5087,0)">
+				<title>Sheet.1007</title>
+				<path d="M17.14 591.89 C13.38 591.3 13.23 588.59 13.23 584.22 L5.77 584.22 C5.77 588.59 5.64 591.3 1.88 591.89 A2.11304
+							 2.11304 -180 0 0 0 594 L19.02 594 A2.11304 2.11304 -180 0 0 17.14 591.89 Z" class="st25"/>
 			</g>
 		</g>
-		<g id="shape1236-236" transform="translate(379.636,-429.3)">
+		<g id="shape1142-207" transform="translate(440.069,-373.034)">
+			<title>Sheet.1142</title>
+			<desc>SQL Server virtual machine</desc>
+			<rect x="0" y="563.081" width="86.2759" height="30.9185" class="st11"/>
+			<text x="16.84" y="568.64" class="st12">SQL Server <tspan x="6.14" dy="1.2em" class="st13">virtual machine</tspan></text>		</g>
+		<g id="shape1157-211" transform="translate(617.85,-373.5)">
+			<title>Sheet.1157</title>
+			<desc>SQL Server virtual machine</desc>
+			<rect x="0" y="563.081" width="127.746" height="30.9185" class="st11"/>
+			<text x="21.08" y="568.64" class="st12">SQL Server virtual <tspan x="43.36" dy="1.2em" class="st13">machine</tspan></text>		</g>
+		<g id="group1227-215" transform="translate(662.464,-410.121)">
+			<title>Icon-compute-21.1184</title>
+			<g id="shape1228-216" transform="translate(0,-9.90764)">
+				<title>Sheet.1228</title>
+				<path d="M-0 592.72 A1.28396 1.28396 -180 0 0 1.28 594 L37.23 594 A1.28396 1.28396 -180 0 0 38.52 592.72 L38.52 569.61
+							 A1.28396 1.28396 -180 0 0 37.23 568.32 L1.28 568.32 A1.28396 1.28396 -180 0 0 0 569.61 L0 592.72 Z"
+						class="st21"/>
+			</g>
+			<g id="shape1229-219" transform="translate(19.2589,-15.2573)">
+				<title>Sheet.1229</title>
+				<path d="M6.42 582.77 L6.42 590.23 L0 594 L0 586.51 L6.42 582.77 Z" class="st22"/>
+			</g>
+			<g id="shape1230-221" transform="translate(12.8393,-22.7255)">
+				<title>Sheet.1230</title>
+				<path d="M12.84 590.23 L6.42 594 L0 590.23 L6.42 586.49 L12.84 590.23 Z" class="st23"/>
+			</g>
+			<g id="shape1231-223" transform="translate(12.8393,-15.2573)">
+				<title>Sheet.1231</title>
+				<path d="M6.42 586.53 L6.42 594 L0 590.23 L0 582.77 L6.42 586.53 Z" class="st24"/>
+			</g>
+			<g id="shape1232-225" transform="translate(12.8393,-15.2573)">
+				<title>Sheet.1232</title>
+				<path d="M0 590.23 L6.42 586.51 L6.42 594 L0 590.23 Z" class="st23"/>
+			</g>
+			<g id="shape1233-227" transform="translate(19.2589,-15.2573)">
+				<title>Sheet.1233</title>
+				<path d="M6.42 590.23 L0 586.51 L0 594 L6.42 590.23 Z" class="st24"/>
+			</g>
+			<g id="shape1234-229" transform="translate(9.62946,0)">
+				<title>Sheet.1234</title>
+				<path d="M17.35 591.86 C13.55 591.26 13.4 588.52 13.4 584.09 L5.84 584.09 C5.84 588.52 5.71 591.26 1.9 591.86 A2.13988
+							 2.13988 -180 0 0 0 594 L19.26 594 A2.13988 2.13988 -180 0 0 17.35 591.86 Z" class="st25"/>
+			</g>
+		</g>
+		<g id="shape1236-232" transform="translate(379.636,-429.3)">
 			<title>Directed line 1.1236</title>
 			<path d="M0 594 L62.32 594" class="st19"/>
 		</g>
-		<g id="shape1237-241" transform="translate(509.4,-429.3)">
+		<g id="shape1237-237" transform="translate(509.4,-429.3)">
 			<title>Directed line 1.1237</title>
 			<path d="M0 594 L36.06 594" class="st19"/>
 		</g>
-		<g id="shape1238-246" transform="translate(611.1,-429.3)">
+		<g id="shape1238-242" transform="translate(611.1,-429.3)">
 			<title>Directed line 1.1238</title>
 			<path d="M0 594 L36.06 594" class="st19"/>
 		</g>
-		<g id="shape1239-251" transform="translate(1080.9,226.35) rotate(90)">
+		<g id="shape1239-247" transform="translate(1080.9,226.35) rotate(90)">
 			<title>Directed line 1.1239</title>
 			<path d="M0 594 L36.87 594" class="st19"/>
 		</g>
-		<g id="shape1240-256" transform="translate(1276.26,227.032) rotate(90)">
+		<g id="shape1240-252" transform="translate(1276.26,227.032) rotate(90)">
 			<title>Directed line 1.1240</title>
 			<path d="M0 594 L36.87 594" class="st19"/>
 		</g>
-		<g id="shape1242-261" transform="translate(445.355,-169.548)">
+		<g id="shape1242-257" transform="translate(445.355,-169.548)">
 			<title>Sheet.1242</title>
 			<desc>SQLServer AlwaysOn</desc>
 			<rect x="0" y="556.06" width="78.4009" height="37.94" class="st11"/>
 			<text x="14.41" y="571.73" class="st12">SQLServer <tspan x="15.29" dy="1.2em" class="st13">AlwaysOn</tspan></text>		</g>
-		<g id="group1243-265" transform="translate(297.871,-48.5769)">
+		<g id="group1243-261" transform="translate(297.871,-48.5769)">
 			<title>Sheet.1243</title>
-			<g id="shape1041-266" transform="translate(223.548,-48.9468)">
+			<g id="shape1041-262" transform="translate(223.548,-48.9468)">
 				<title>Directed line 1.1000</title>
 				<path d="M0 594 L63.96 594" class="st26"/>
 			</g>
-			<g id="group1202-271" transform="translate(9,-7.65934)">
+			<g id="group1202-267" transform="translate(9,-7.65934)">
 				<title>Sheet.1202</title>
-				<g id="shape1171-272">
+				<g id="shape1171-268">
 					<title>Sheet.1171</title>
 					<desc>Azure Premium Storage for QA</desc>
 					<rect x="0" y="575.767" width="98.7672" height="18.2332" class="st11"/>
 					<text x="12.15" y="581.58" class="st12">Azure Premium <tspan x="12.99" dy="1.2em" class="st13">Storage for QA</tspan></text>				</g>
-				<g id="group1193-276" transform="translate(32.5086,-24.8276)">
+				<g id="group1193-272" transform="translate(32.5086,-24.8276)">
 					<title>Icon-compute-32.1193</title>
-					<g id="shape1194-277" transform="translate(0,-3.76995)">
+					<g id="shape1194-273" transform="translate(0,-3.76995)">
 						<title>Sheet.1194</title>
 						<ellipse cx="16.8301" cy="587.088" rx="16.8301" ry="6.91157" class="st14"/>
 					</g>
-					<g id="shape1195-279" transform="translate(11.6689,-9.22291)">
+					<g id="shape1195-275" transform="translate(11.6689,-9.22291)">
 						<title>Sheet.1195</title>
 						<ellipse cx="5.5876" cy="592.474" rx="5.5876" ry="1.52593" class="st15"/>
 					</g>
-					<g id="shape1196-281" transform="translate(31.1694,-7.13597)">
+					<g id="shape1196-277" transform="translate(31.1694,-7.13597)">
 						<title>Sheet.1196</title>
 					</g>
-					<g id="shape1197-282" transform="translate(0,-19.0966)">
+					<g id="shape1197-278" transform="translate(0,-19.0966)">
 						<title>Sheet.1197</title>
 						<ellipse cx="16.8301" cy="587.088" rx="16.8301" ry="6.91157" class="st16"/>
 					</g>
-					<g id="shape1198-285" transform="translate(11.6689,-24.572)">
+					<g id="shape1198-281" transform="translate(11.6689,-24.572)">
 						<title>Sheet.1198</title>
 						<ellipse cx="5.5876" cy="592.474" rx="5.5876" ry="1.52593" class="st17"/>
 					</g>
-					<g id="shape1199-287">
+					<g id="shape1199-283">
 						<title>Sheet.1199</title>
 						<path d="M16.92 590.1 C26.23 590.1 33.75 587 33.75 583.18 L33.75 587.27 C33.44 590.97 26.03 594 16.92 594
 									 C7.81 594 0.09 590.9 0.09 587.09 L0.09 583.18 C0 587 7.54 590.1 16.92 590.1 Z" class="st15"/>
 					</g>
-					<g id="shape1200-289" transform="translate(31.1694,-7.13597)">
+					<g id="shape1200-285" transform="translate(31.1694,-7.13597)">
 						<title>Sheet.1200</title>
 					</g>
-					<g id="shape1201-290" transform="translate(0,-15.3491)">
+					<g id="shape1201-286" transform="translate(0,-15.3491)">
 						<title>Sheet.1201</title>
 						<path d="M16.92 590.1 C26.23 590.1 33.75 587 33.75 583.18 L33.75 587.27 C33.44 590.97 26.03 594 16.92 594
 									 C7.81 594 0.09 590.9 0.09 587.09 L0.09 583.18 C0 587 7.54 590.1 16.92 590.1 Z" class="st18"/>
 					</g>
 				</g>
 			</g>
-			<g id="group1211-292" transform="translate(145.492,0)">
+			<g id="group1211-288" transform="translate(145.492,0)">
 				<title>Sheet.1211</title>
-				<g id="shape1180-293">
+				<g id="shape1180-289">
 					<title>Sheet.1180</title>
 					<desc>SQL Server virtual machine (DR / QA)</desc>
 					<rect x="0" y="563.081" width="87.944" height="30.9185" class="st11"/>
 					<text x="17.67" y="568.64" class="st12">SQL Server <tspan x="6.97" dy="1.2em" class="st13">virtual machine </tspan><tspan
 								x="19.15" dy="1.2em" class="st13"> </tspan>(DR / QA)</text>				</g>
-				<g id="group1203-298" transform="translate(24.7131,-37.4798)">
+				<g id="group1203-294" transform="translate(24.7131,-37.4798)">
 					<title>Icon-compute-21.1184</title>
-					<g id="shape1204-299" transform="translate(0,-9.90764)">
+					<g id="shape1204-295" transform="translate(0,-9.90764)">
 						<title>Sheet.1204</title>
 						<path d="M-0 592.72 A1.28396 1.28396 -180 0 0 1.28 594 L37.23 594 A1.28396 1.28396 -180 0 0 38.52 592.72
 									 L38.52 569.61 A1.28396 1.28396 -180 0 0 37.23 568.32 L1.28 568.32 A1.28396 1.28396 -180 0 0
 									 0 569.61 L0 592.72 Z" class="st21"/>
 					</g>
-					<g id="shape1205-302" transform="translate(19.2589,-15.2573)">
+					<g id="shape1205-298" transform="translate(19.2589,-15.2573)">
 						<title>Sheet.1205</title>
 						<path d="M6.42 582.77 L6.42 590.23 L0 594 L0 586.51 L6.42 582.77 Z" class="st22"/>
 					</g>
-					<g id="shape1206-304" transform="translate(12.8393,-22.7255)">
+					<g id="shape1206-300" transform="translate(12.8393,-22.7255)">
 						<title>Sheet.1206</title>
 						<path d="M12.84 590.23 L6.42 594 L0 590.23 L6.42 586.49 L12.84 590.23 Z" class="st23"/>
 					</g>
-					<g id="shape1207-306" transform="translate(12.8393,-15.2573)">
+					<g id="shape1207-302" transform="translate(12.8393,-15.2573)">
 						<title>Sheet.1207</title>
 						<path d="M6.42 586.53 L6.42 594 L0 590.23 L0 582.77 L6.42 586.53 Z" class="st24"/>
 					</g>
-					<g id="shape1208-308" transform="translate(12.8393,-15.2573)">
+					<g id="shape1208-304" transform="translate(12.8393,-15.2573)">
 						<title>Sheet.1208</title>
 						<path d="M0 590.23 L6.42 586.51 L6.42 594 L0 590.23 Z" class="st23"/>
 					</g>
-					<g id="shape1209-310" transform="translate(19.2589,-15.2573)">
+					<g id="shape1209-306" transform="translate(19.2589,-15.2573)">
 						<title>Sheet.1209</title>
 						<path d="M6.42 590.23 L0 586.51 L0 594 L6.42 590.23 Z" class="st24"/>
 					</g>
-					<g id="shape1210-312" transform="translate(9.62946,0)">
+					<g id="shape1210-308" transform="translate(9.62946,0)">
 						<title>Sheet.1210</title>
 						<path d="M17.35 591.86 C13.55 591.26 13.4 588.52 13.4 584.09 L5.84 584.09 C5.84 588.52 5.71 591.26 1.9 591.86
 									 A2.13988 2.13988 -180 0 0 0 594 L19.26 594 A2.13988 2.13988 -180 0 0 17.35 591.86 Z"
@@ -630,104 +622,104 @@
 					</g>
 				</g>
 			</g>
-			<g id="group1212-315" transform="translate(271.161,-7.65934)">
+			<g id="group1212-311" transform="translate(271.161,-7.65934)">
 				<title>Sheet.1212</title>
-				<g id="shape1213-316">
+				<g id="shape1213-312">
 					<title>Sheet.1213</title>
 					<desc>Azure Premium Storage for DR</desc>
 					<rect x="0" y="575.767" width="98.7672" height="18.2332" class="st11"/>
 					<text x="12.15" y="581.58" class="st12">Azure Premium <tspan x="13.53" dy="1.2em" class="st13">Storage for DR</tspan></text>				</g>
-				<g id="group1214-320" transform="translate(32.5086,-24.8276)">
+				<g id="group1214-316" transform="translate(32.5086,-24.8276)">
 					<title>Icon-compute-32.1193</title>
-					<g id="shape1215-321" transform="translate(0,-3.76995)">
+					<g id="shape1215-317" transform="translate(0,-3.76995)">
 						<title>Sheet.1215</title>
 						<ellipse cx="16.8301" cy="587.088" rx="16.8301" ry="6.91157" class="st14"/>
 					</g>
-					<g id="shape1216-323" transform="translate(11.6689,-9.22291)">
+					<g id="shape1216-319" transform="translate(11.6689,-9.22291)">
 						<title>Sheet.1216</title>
 						<ellipse cx="5.5876" cy="592.474" rx="5.5876" ry="1.52593" class="st15"/>
 					</g>
-					<g id="shape1217-325" transform="translate(31.1694,-7.13597)">
+					<g id="shape1217-321" transform="translate(31.1694,-7.13597)">
 						<title>Sheet.1217</title>
 					</g>
-					<g id="shape1218-326" transform="translate(0,-19.0966)">
+					<g id="shape1218-322" transform="translate(0,-19.0966)">
 						<title>Sheet.1218</title>
 						<ellipse cx="16.8301" cy="587.088" rx="16.8301" ry="6.91157" class="st16"/>
 					</g>
-					<g id="shape1219-329" transform="translate(11.6689,-24.572)">
+					<g id="shape1219-325" transform="translate(11.6689,-24.572)">
 						<title>Sheet.1219</title>
 						<ellipse cx="5.5876" cy="592.474" rx="5.5876" ry="1.52593" class="st17"/>
 					</g>
-					<g id="shape1220-331">
+					<g id="shape1220-327">
 						<title>Sheet.1220</title>
 						<path d="M16.92 590.1 C26.23 590.1 33.75 587 33.75 583.18 L33.75 587.27 C33.44 590.97 26.03 594 16.92 594
 									 C7.81 594 0.09 590.9 0.09 587.09 L0.09 583.18 C0 587 7.54 590.1 16.92 590.1 Z" class="st15"/>
 					</g>
-					<g id="shape1221-333" transform="translate(31.1694,-7.13597)">
+					<g id="shape1221-329" transform="translate(31.1694,-7.13597)">
 						<title>Sheet.1221</title>
 					</g>
-					<g id="shape1222-334" transform="translate(0,-15.3491)">
+					<g id="shape1222-330" transform="translate(0,-15.3491)">
 						<title>Sheet.1222</title>
 						<path d="M16.92 590.1 C26.23 590.1 33.75 587 33.75 583.18 L33.75 587.27 C33.44 590.97 26.03 594 16.92 594
 									 C7.81 594 0.09 590.9 0.09 587.09 L0.09 583.18 C0 587 7.54 590.1 16.92 590.1 Z" class="st18"/>
 					</g>
 				</g>
 			</g>
-			<g id="shape1241-336" transform="translate(83.6129,-48.9468)">
+			<g id="shape1241-332" transform="translate(83.6129,-48.9468)">
 				<title>Directed line 1.1241</title>
 				<path d="M7.68 594 L8.04 594 L72 594" class="st27"/>
 			</g>
 		</g>
-		<g id="shape1244-342" transform="translate(1081.16,423.871) rotate(90)">
+		<g id="shape1244-338" transform="translate(1081.16,423.871) rotate(90)">
 			<title>Directed line 1.1244</title>
 			<path d="M0 594 L38.03 594" class="st19"/>
 		</g>
-		<g id="shape1245-347" transform="translate(511.548,-177.677)">
+		<g id="shape1245-343" transform="translate(511.548,-177.677)">
 			<title>Number.1245</title>
 			<desc>7</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">7</text>		</g>
-		<g id="shape1246-350" transform="translate(475.548,-139.355)">
+		<g id="shape1246-346" transform="translate(475.548,-139.355)">
 			<title>Number.1246</title>
 			<desc>8</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">8</text>		</g>
-		<g id="shape1250-353" transform="translate(427.935,-449.419)">
+		<g id="shape1250-349" transform="translate(427.935,-449.419)">
 			<title>Sheet.1250</title>
 			<desc>OS clustering</desc>
 			<rect x="0" y="574.377" width="78.4009" height="19.6232" class="st11"/>
 			<text x="6.03" y="587.49" class="st28">OS clustering</text>		</g>
-		<g id="shape1251-356" transform="translate(144.014,-210.375)">
+		<g id="shape1251-352" transform="translate(144.014,-210.375)">
 			<title>Sheet.1251</title>
 			<path d="M0 594 L619.85 594 L619.85 325.12 L0 325.12 L0 594 Z" class="st3"/>
 		</g>
-		<g id="shape1252-358" transform="translate(135,-477.871)">
+		<g id="shape1252-354" transform="translate(135,-477.871)">
 			<title>Sheet.1252</title>
 			<desc>Primary Azure region</desc>
 			<rect x="0" y="570.339" width="134.601" height="23.6613" class="st11"/>
 			<text x="9.59" y="585.77" class="st29">Primary Azure region</text>		</g>
-		<g id="shape1253-361" transform="translate(141.75,-130.065)">
+		<g id="shape1253-357" transform="translate(141.75,-130.065)">
 			<title>Sheet.1253</title>
 			<desc>Disaster recovery Azure region</desc>
 			<rect x="0" y="570.339" width="179.673" height="23.6613" class="st11"/>
 			<text x="6.42" y="585.77" class="st29">Disaster recovery Azure region</text>		</g>
-		<g id="shape1255-364" transform="translate(445.355,771.677) scale(1,-1)">
+		<g id="shape1255-360" transform="translate(445.355,771.677) scale(1,-1)">
 			<title>Sides.1029</title>
 			<path d="M0 594 L-31.35 594 L-31.35 364.43 L1.11 364.43" class="st26"/>
 		</g>
-		<g id="group1256-369" transform="translate(24.8276,-503.182)">
+		<g id="group1256-365" transform="translate(24.8276,-503.182)">
 			<title>Sheet.1256</title>
-			<g id="group1042-370" transform="translate(51.5172,-25.0251)">
+			<g id="group1042-366" transform="translate(51.5172,-25.0251)">
 				<title>On Premises.1042</title>
-				<g id="group1043-371">
+				<g id="group1043-367">
 					<title>Sheet.1043</title>
-					<g id="shape1044-372">
+					<g id="shape1044-368">
 						<title>Sheet.1044</title>
 						<path d="M14.47 561.56 L14.47 554.57 L0 554.57 L0 594 L24.95 594 L24.95 569.54 L23.46 569.54 L23.46 565.55
 									 L21.96 565.55 L21.96 561.56 L20.46 561.56 L20.46 557.07 L15.97 557.07 L15.97 561.56 L14.47 561.56
 									 Z" class="st30"/>
 					</g>
-					<g id="shape1045-374" transform="translate(1.49727,-1.49727)">
+					<g id="shape1045-370" transform="translate(1.49727,-1.49727)">
 						<title>Sheet.1045</title>
 						<path d="M20.46 572.54 L20.46 568.55 L18.97 568.55 L18.97 564.55 L17.47 564.55 L17.47 560.06 L15.97 560.06
 									 L15.97 564.55 L14.47 564.55 L14.47 568.55 L12.98 568.55 L12.98 572.54 L11.48 572.54 L11.48 557.57
@@ -746,26 +738,26 @@
 					</g>
 				</g>
 			</g>
-			<g id="group1110-376" transform="translate(-7.99361E-15,-25.0251)">
+			<g id="group1110-372" transform="translate(-7.99361E-15,-25.0251)">
 				<title>Sheet.1110</title>
-				<g id="group1071-377">
+				<g id="group1071-373">
 					<title>Laptop.1085.1071</title>
-					<g id="shape1072-378" transform="translate(6.11635,-5.09696)">
+					<g id="shape1072-374" transform="translate(6.11635,-5.09696)">
 						<title>Sheet.1072</title>
 						<path d="M34.66 572.59 L34.66 594 L0 594 L0 572.59 C0 571.47 0.92 570.55 2.04 570.55 L32.62 570.55 C33.74
 									 570.55 34.66 571.47 34.66 572.59 ZM31.6 590.94 L31.6 573.61 L3.06 573.61 L3.06 590.94 L31.6
 									 590.94 Z" class="st32"/>
 					</g>
-					<g id="shape1073-380">
+					<g id="shape1073-376">
 						<title>Sheet.1073</title>
 						<path d="M26.5 590.94 L46.89 590.94 L46.89 591.96 C46.89 593.08 45.97 594 44.85 594 L2.04 594 C0.92 594 0
 									 593.08 0 591.96 L0 590.94 L20.39 590.94 L20.39 591.45 C20.39 591.76 20.59 591.96 20.9 591.96
 									 L25.99 591.96 C26.3 591.96 26.5 591.76 26.5 591.45 L26.5 590.94 Z" class="st32"/>
 					</g>
 				</g>
-				<g id="group1108-382" transform="translate(15.7528,-9.52495)">
+				<g id="group1108-378" transform="translate(15.7528,-9.52495)">
 					<title>Sheet.1108</title>
-					<g id="shape1109-383" transform="translate(0,-0.781558)">
+					<g id="shape1109-379" transform="translate(0,-0.781558)">
 						<title>Sheet.1109</title>
 						<path d="M0 582.72 L5.37 581.99 L5.37 587.16 L0 587.19 L0 582.72 ZM5.37 587.75 L5.37 592.92 L0 592.18 L0
 									 587.72 L5.37 587.75 ZM6.02 581.9 L13.14 580.86 L13.14 587.09 L6.02 587.15 L6.02 581.9 ZM13.14
@@ -773,43 +765,43 @@
 					</g>
 				</g>
 			</g>
-			<g id="shape1111-385" transform="translate(4.62696,0)">
+			<g id="shape1111-381" transform="translate(4.62696,0)">
 				<title>Sheet.1111</title>
 				<desc>On-premises SAP user</desc>
 				<rect x="0" y="575.767" width="73.125" height="18.2332" class="st11"/>
 				<text x="5.47" y="581.58" class="st12">On-premises <tspan x="15.27" dy="1.2em" class="st13">SAP user</tspan></text>			</g>
 		</g>
-		<g id="shape1257-389" transform="translate(79.5484,-439.548)">
+		<g id="shape1257-385" transform="translate(79.5484,-439.548)">
 			<title>Number.1257</title>
 			<desc>2</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">2</text>		</g>
-		<g id="shape1258-392" transform="translate(232.839,-439.548)">
+		<g id="shape1258-388" transform="translate(232.839,-439.548)">
 			<title>Number.1258</title>
 			<desc>3</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">3</text>		</g>
-		<g id="shape1259-395" transform="translate(361.161,-439.548)">
+		<g id="shape1259-391" transform="translate(361.161,-439.548)">
 			<title>Number.1259</title>
 			<desc>4</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">4</text>		</g>
-		<g id="shape1260-398" transform="translate(444.774,-312.387)">
+		<g id="shape1260-394" transform="translate(444.774,-312.387)">
 			<title>Number.1260</title>
 			<desc>5</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">5</text>		</g>
-		<g id="shape1261-401" transform="translate(502.839,-312.387)">
+		<g id="shape1261-397" transform="translate(502.839,-312.387)">
 			<title>Number.1261</title>
 			<desc>6</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">6</text>		</g>
-		<g id="shape1262-404" transform="translate(162.692,-97.6154)">
+		<g id="shape1262-400" transform="translate(162.692,-97.6154)">
 			<title>Number.1262</title>
 			<desc>9</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
 			<text x="8.17" y="586.25" class="st10">9</text>		</g>
-		<g id="shape1-407" transform="translate(-7.36364,4.90909)">
+		<g id="shape1-403" transform="translate(-7.36364,4.90909)">
 			<title>Sheet.1</title>
 			<rect x="0" y="521.773" width="136.74" height="72.2266" class="st11"/>
 			<image x="0" y="521.773" width="136.74" height="72.2266" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -1186,5 +1178,15 @@
 						BAAAAAAAgFr/vPz/GhoivpSh09AAAAAASUVORK5CYII="/>
 			<rect x="0" y="521.773" width="136.74" height="72.2266" class="st11"/>
 		</g>
+		<g id="shape1263-407" transform="translate(439.332,-364.909)">
+			<title>Sheet.1263</title>
+			<desc>Primary (active)</desc>
+			<rect x="0" y="576" width="87.75" height="18" class="st11"/>
+			<text x="8.08" y="588.6" class="st12">Primary (active)</text>		</g>
+		<g id="shape1264-410" transform="translate(627.723,-363.784)">
+			<title>Sheet.1264</title>
+			<desc>Secondary (standby)</desc>
+			<rect x="0" y="573.75" width="108" height="20.25" class="st11"/>
+			<text x="4.65" y="587.48" class="st12">Secondary (standby)</text>		</g>
 	</g>
 </svg>
