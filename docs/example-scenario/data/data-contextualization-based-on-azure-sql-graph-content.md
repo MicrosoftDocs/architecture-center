@@ -70,7 +70,7 @@ In the market, as mentioned previously, there are many graph databases to choose
 4. [Redis Graph](https://redis.io/docs/stack/graph/)
 5. [PostgreSQL Apache Age](https://age.apache.org/age-manual/master/intro/overview.html)
 
-These products and services have pros and cons. Some of them are Azure managed services, some aren't. Finally we choose to use Azure SQL Database, because:
+These products and services have pros and cons. Some of them are Azure managed services, some aren't. This architecture uses Azure SQL Database, because:
 * It's an Azure managed relational database service with graph capabilities.
 * It's easy to get started since many are familiar with SQL Server or Azure SQL Database.
 * Solutions often benefit from using Transact-SQL in parallel, since the graph database is based on SQL Database.
@@ -97,7 +97,7 @@ In the reality, the relationship is much more complicated. Gary needs to search 
 
 One of the major pain points for Gary is, the ID of one asset in different system are different, as these systems are developed and maintained separately and even using different protocols. Gary has to manually query the different tables to get the data for the same asset that caused the query not only complex but also difficult to understand without domain expertise. As a result, Gary spends a lot of time on coaching the newly onboarded operation engineers and explaining the relationships in the data.
 
-If there's a mechanism to *link* the different names that belong to the same asset across systems, the report query will be simpler, and Gary’s life will be easier.
+If there's a mechanism to *link* the different names that belong to the same asset across systems, the report query will be simpler, and Gary's life will be easier.
 
 ### Graph design
 
@@ -125,14 +125,15 @@ In the graph model, the nodes and edges (relationships) need to be defined. As A
 ![Graph nodes and edges](media/dc-nodes-edges.png)
 
 In order to create these nodes and edges in Azure SQL Database, we can use the following SQL scripts: 
-```
-...
-CREATE TABLE Alarm(ID INTEGER PRIMARY KEY, Alarm_Type VARCHAR(100)) AS NODE; 
-CREATE TABLE Asset (ID INTEGER PRIMARY KEY,  Asset_ID VARCHAR(100)) AS NODE;
+
+```SQL
+…
+CREATE TABLE Alarm (ID INTEGER PRIMARY KEY, Alarm_Type VARCHAR(100)) AS NODE; 
+CREATE TABLE Asset (ID INTEGER PRIMARY KEY, Asset_ID VARCHAR(100)) AS NODE;
 CREATE TABLE Quality_System (ID INTEGER PRIMARY KEY, Quality_ID VARCHAR(100)) AS NODE;
 CREATE TABLE belongs_to AS EDGE;
 CREATE TABLE is_associated_with AS EDGE;
-...
+…
 ```
 
 The SQL scripts created a list of 'graph tables' as:
@@ -202,7 +203,7 @@ Enabling CDF won't make significant impact for the system performance and cost. 
 
 ### Potential use cases
 
-* A manufacturing solution provider would like to contextualize the master data and event data provided by its customers continuously. Since the context information is too complicated to be represented by relational tables, graph models are used for data contextualization.
+* A manufacturing solution provider would like to contextualize the data and event provided by its customers continuously. Since the context information is too complicated to be represented by relational tables, graph models are used for data contextualization.
 * A process engineer in the factory needs to troubleshoot for an issue of the factory equipment. The graph model stores the all the related data, direct or indirect, of the troubleshooting equipment that can provide an overall information for root cause analysis. 
 
 ## Considerations
@@ -216,38 +217,38 @@ Security provides assurances against deliberate attacks and the abuse of your va
 For this use case, we need to consider how to secure the data at rest (that is, the data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks) and data in transit between them.
 
 For Azure Data Lake Storage Gen 2:
-* Azure Storage service-side encryption (SSE)'s been enabled to protect the data at rest
-* We use shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
+* Azure Storage service-side encryption (SSE) is enabled to protect the data at rest
+* Use shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
 
 For Azure SQL Database:
-* We use role-based access control (RBAC) to limit access to specific operations and resources within the database.
-* Strong password's been used for accessing Azure SQL Database. The password's been saved in Azure Key Vault.
-* TLS' been enabled to secure the transit data between Azure SQL Database and Azure Databricks.
+* Use role-based access control (RBAC) to limit access to specific operations and resources within the database.
+* Strong password should be used for accessing Azure SQL Database. The password should be saved in Azure Key Vault.
+* TLS is enabled to secure the transit data between Azure SQL Database and Azure Databricks.
 
 For Azure Databricks:
-* Role-Based Access Control (RBAC)'s been implemented.
-* We've enabled Azure Monitor to monitor your Databricks workspace for unusual activity, and enabled logging to track user activity and security events.
-* In order to protect the data in transit, TLS' been enabled for the JDBC connection to Azure SQL Database.
+* Implement Role-Based Access Control (RBAC)
+* Enable Azure Monitor to monitor your Databricks workspace for unusual activity and enable logging to track user activity and security events.
+* In order to protect the data in transit, TLS is enabled for the JDBC connection to Azure SQL Database.
 
-In the production environment, we may put these resources into an Azure Virtual Network that isolates the them from the public internet to reduce the attack surface and data exfiltration.
+In the production environment, put these resources into an Azure Virtual Network that isolates them from the public Internet to reduce the attack surface and data exfiltration.
 
 ### Cost optimization
 
-
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In our sample solution, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
+In this architecture, Azure SQL Database and Azure Databricks are the services that generate the major cost. 
 
 In order to optimize the cost for using Azure SQL Database:
-* Since the solution's performance isn't our focus, we choose the lowest pricing tier that meets our requirements and budget.
-* We use serverless compute tier (billed per second based on compute cores used).
+* Since the solution's performance isn't this architecture's focus, this solution chooses the lowest pricing tier that meets the requirements.
+* Use serverless compute tier, billed per second based on compute cores used.
 
 To improve cost efficiency while utilizing Azure Databricks:
-* We choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
-* We use autoscaling to scale up or down the number of nodes based on the workload demand.
-* Clusters are turned off when they aren't in use.
+* Choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
+* Use autoscaling to scale up or down the number of nodes based on the workload demand.
+* Turn off clusters when they aren't in use.
 
 ## Contributors
+
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors: 
@@ -265,6 +266,7 @@ Principal authors:
 * [The Leading Graph Data Platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
  
 ## Related resources
+
 * [Graph processing with SQL Server and Azure SQL Database](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 * [Use Delta Lake change data feed on Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) 
 * [How to Simplify CDC With Delta Lake's Change Data Feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
