@@ -3544,6 +3544,8 @@ items:
             href: guide/hpc/civil-3d.yml
           - name: Autodesk Inventor
             href: guide/hpc/autodesk-inventor.yml
+          - name: Autodesk Revit 
+            href: guide/hpc/hpc-autodesk-revit.yml 
           - name: Autodesk VRED
             href: guide/hpc/hpc-autodesk-vred.md
         - name: AVL FIRE M
@@ -4154,8 +4156,6 @@ items:
         href: solution-ideas/articles/intelligent-apps-using-azure-database-for-postgresql.yml
       - name: Interactive querying with HDInsight
         href: solution-ideas/articles/interactive-querying-with-hdinsight.yml
-      - name: Loan charge-off prediction with HDInsight
-        href: solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml
       - name: Loan charge-off prediction with SQL Server
         href: solution-ideas/articles/loan-chargeoff-prediction-with-sql-server.yml
       - name: Loan credit risk with SQL Server
