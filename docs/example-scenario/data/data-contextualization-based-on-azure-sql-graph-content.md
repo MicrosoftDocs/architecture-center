@@ -162,7 +162,7 @@ In delta lake, [Change Data Feed](/azure/databricks/delta/delta-change-data-feed
 
 In this solution, the change data feed feature is enabled for delta tables that store the source data, by using the following command:
 ```SQL
-CREATE TABLE tbl_alarm_master 
+CREATE TABLE tbl_alarm 
   (alarm_id INT, alarm_type STRING, alarm_desc STRING, valid_from TIMESTAMP, valid_till TIMESTAMP)
 	USING DELTA
 	TBLPROPERTIES (delta.enableChangeDataFeed = true)
@@ -171,14 +171,14 @@ And running the following query can get the newly changed rows in the table (‘
 
 ```SQL
 SELECT *
-FROM table_changes('tbl_alarm_master', 2)
+FROM table_changes('tbl_alarm', 2)
 ```
 
 If only newly inserted data is needed, we can use:
 
 ```SQL
 SELECT *
-FROM table_changes('tbl_alarm_master', 2)
+FROM table_changes('tbl_alarm', 2)
 WHERE _change_type = 'insert'
 ```
 
@@ -192,11 +192,11 @@ CREATE TABLE table_commit_version
 	USING DELTA
 ```
 
-Every time you load the newly added data in tbl_alarm_master, you need to take the following steps:
+Every time you load the newly added data in tbl_alarm, you need to take the following steps:
 
-1. Get the last_commit_version in table_commit_version for table tbl_alarm_master
+1. Get the last_commit_version in table_commit_version for table tbl_alarm
 1. Query and load the newly added data since last_commit_version
-1. Get the largest commit version number of table tbl_alarm_master
+1. Get the largest commit version number of table tbl_alarm
 1. Update last_commit_version in table table_commit_version for the next query
 
 Enabling CDF won't make significant impact for the system performance and cost. The change data records are generated inline during the query execution process and are much smaller than the total size of rewritten files.
