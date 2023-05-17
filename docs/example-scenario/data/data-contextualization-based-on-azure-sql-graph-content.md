@@ -14,7 +14,7 @@ In this architecture, the data from a delta lake (silver layer) is read incremen
 
 Here are the details about the terminologies that have been used and processes definitions:
 
-### Silver layer
+### Data layers
 
 The solution is based on Databricks' [Medallion Architecture](https://www.databricks.com/glossary/medallion-architecture) where the data is logically organized in different layers with the goal of incrementally and progressively improving the structure and quality of data.
 
