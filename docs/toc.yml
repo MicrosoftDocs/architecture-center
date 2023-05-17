@@ -382,6 +382,10 @@ items:
       items:
       - name: Plan your journey to SaaS
         href: guide/saas/plan-journey-saas.md
+      - name: Case studies
+        items:
+        - name: Microsoft SaaS stories
+          href: guide/saas/case-studies/saas-stories.md
       - name: Resources
         items:
         - name: SaaS starter web app reference architecture
