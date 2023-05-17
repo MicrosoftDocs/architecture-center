@@ -213,7 +213,7 @@ The final set of visualizations shows the data shuffle metrics associated with a
 
 - [Monitoring Azure Databricks](index.md)
 - [Send Azure Databricks application logs to Azure Monitor](application-logs.md)
-- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 
 <!-- links -->
