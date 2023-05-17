@@ -1,16 +1,49 @@
-*Data contextualization* refers to the process of adding contextual information to raw data in order to enhance its meaning and relevance. It involves the use of additional information such as metadata, annotations, and other relevant details to provide a better understanding of the data. Contextualization can help analysts to better understand the relationships between data points and the environment in which they were collected. For example, contextualization can provide information on the time, location, and other environmental factors that may have influenced the data. In data processing, contextualization is becoming increasingly important as data sets become larger and more complex. Without proper contextualization, it can be difficult to interpret data accurately and make informed decisions based on it.
+*Data contextualization* refers to the process of adding contextual information to raw data in order to enhance its meaning and relevance. It involves the use of additional information like metadata, annotations, and other relevant details to provide a better understanding of the data. Contextualization can help analysts to better understand the relationships between data points and the environment in which they were collected. For example, contextualization can provide information on the time, location, and other environmental factors that might have influenced the data. In data processing, contextualization is becoming increasingly important as data sets become larger and more complex. Without proper contextualization, it can be difficult to interpret data accurately and make informed decisions based on it.
 
-This article demonstrates how to contextualize data by looking up the relevant context that has been stored in the graph model in Azure SQL database. 
+This article demonstrates how to contextualize data by looking up the relevant context that's stored in the graph model in Azure SQL Database. 
 
 ## Architecture
 
-The following diagram shows the high-level architecture for our sample solution for data contextualization.
-
-![Data contextualization solution architecture](media/data-contextualization-based-on-azure-sql-graph.png)
+![Diagram that shows an architecture for data contextualization.](media/data-contextualization-based-on-azure-sql-graph.png)
 
 *Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
 
-In this architecture, the data from a delta lake (silver layer) is read incrementally, contextualized based on a graph lookup, and finally merged into an Azure SQL database and another delta lake (gold layer).
+In this architecture, data stored in Delta Lake in the silver layer is read incrementally, contextualized based on a graph lookup, and merged into Azure SQL Database and another Delta Lake instance in the gold layer.
+
+### Dataflow
+
+The following dataflow corresponds to the preceding diagram:
+
+1. The incoming data that needs to be contextualized is appended into the Delta table in the silver layer.
+2. The incoming data is incrementally loaded to Azure Databricks.
+3. Contextual information is retrieved from a graph database.
+4. The incoming data is contextualized.
+5. The contextualized data is appended into the corresponding table in SQL Database.
+6. Optionally, the contextualized data is appended into the corresponding Delta table in the gold layer.
+
+### Components
+
+* [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores input data and contextualized data in Delta tables.
+* [Azure Databricks](https://azure.microsoft.com/products/databricks) is the platform on which Python notebook files are used to contextualize data.
+* [SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores graph models and contextualized data.
+
+### Alternatives
+
+Many graph databases are available. For more information, see:
+
+- [Graph processing with SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
+- [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/)
+- [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
+- [RedisGraph](https://redis.io/docs/stack/graph/)
+- [Apache Age for PostgreSQL](https://age.apache.org/age-manual/master/intro/overview.html)
+
+There are pros and cons associated with these products and services. Some of them are Azure managed services, and some aren't. This architecture uses SQL Database, because:
+
+* It's an Azure-managed relational database service that has graph capabilities.
+* It's easy to get started if you're familiar with SQL Server or SQL Database.
+* Solutions often benefit from the use of Transact-SQL in parallel, since the graph database is based on SQL Database.
+
+## Scenario details
 
 Here are the details about the terminologies that have been used and processes definitions:
 
@@ -44,38 +77,6 @@ The graph database is the database that holds the actual graph models. There are
 
 [Azure SQL database](https://azure.microsoft.com/products/azure-sql/database/) has been used to store the contextualized data, but it can be any other storage option. To ensure idempotent processing, the data has been "merged" into the source system rather than been appended.
 
-### Dataflow
-
-As shown in the architecture diagram, the data flow goes through the following steps:
-
-1. The incoming to-be-contextualized data is appended in the delta table in the 'silver layer'
-2. The incoming data is incrementally loaded to Azure Databricks
-3. Look up the graph database to get the context information
-4. Contextualize the incoming data
-5. Append the contextualized data into the corresponding table in the SQL database
-6. (Optionally) append the contextualized data into the corresponding delta table in the 'gold layer'
-
-### Components
-
-* [Azure Data Lake Storage Gen 2](https://azure.microsoft.com/products/storage/data-lake-storage) stores input data and contextualized data in delta tables.
-* [Azure Databricks](https://azure.microsoft.com/products/databricks) is the platform where we run python notebook files to contextualize data.
-* [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores graph models and contextualized data.
-
-### Alternatives
-
-In the market, as mentioned previously, there are many graph databases to choose. For more information, see:
-1. [Azure SQL Database Graph](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
-2. [Azure Cosmos DB for Apache Gremlin](https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/)
-3. [Neo4J](https://neo4j.com/docs/operations-manual/current/introduction/)
-4. [Redis Graph](https://redis.io/docs/stack/graph/)
-5. [PostgreSQL Apache Age](https://age.apache.org/age-manual/master/intro/overview.html)
-
-These products and services have pros and cons. Some of them are Azure managed services, some aren't. This architecture uses Azure SQL Database, because:
-* It's an Azure managed relational database service with graph capabilities.
-* It's easy to get started since many are familiar with SQL Server or Azure SQL Database.
-* Solutions often benefit from using Transact-SQL in parallel, since the graph database is based on SQL Database.
-
-## Scenario details
 
 ### Sample scenario
 
