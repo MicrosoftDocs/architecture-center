@@ -303,3 +303,19 @@ App Service has built-in and integrated monitoring tools that you should enable 
 - User database Insights. For Azure SQL databases, you should configure [SQL Insights in Azure Monitor](/azure/azure-sql/database/sql-insights-overview). Database Insights uses dynamic management views to expose the data that you need to monitor health, diagnose problems, and tune performance. For more information, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
 
 If your architecture includes CosmosDB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
+
+## Governance
+
+Web apps benefit from Azure Policy by enforcing architectural and security decisions, such that it makes it impossible to deploy (deny) or easy to detect (audit) configuration drift from your preferred desired state. This helps catch a devation from agreed upon architecture that was performed through your IaC deployments or directly in the Azure portal.
+All resources that are part of your architecture should be placed under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce key network topology, service feature, security, and monitoring decisions, for example:
+
+- App Service should disable public network access
+- App service should be injected into a virtual network
+- App Service should use private link
+- App Service should have local authentication methods disabled for FTP & SCM site deployments
+- App Service should have remote debugging turned off
+- App Service apps should use the latest TLS version
+- Microsoft Defender for App Service should be enabled
+- Web Application Firewall (WAF) should be enabled for Application Gateway
+
+See more built-in policies for key services such as [Application Gateway and networking components](/azure/governance/policy/samples/built-in-policies#network), [App Service](/azure/governance/policy/samples/built-in-policies#app-service), [Key Vault](/azure/governance/policy/samples/built-in-policies#key-vault), and [Monitoring](/azure/governance/policy/samples/built-in-policies#monitoring). It's possible to create custom policies or use community policies (such as from Azure Landing Zones) if built-in policies do not fully cover your needs. Prefer built-in policies when they are available.
