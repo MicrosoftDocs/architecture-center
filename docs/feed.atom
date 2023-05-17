@@ -2,12 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-05-08T16:01:45.021Z</updated>
+    <updated>2023-05-15T16:08:12.541Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
     <category term="new"/>
     <category term="updated"/>
+    <entry>
+        <title type="html"><![CDATA[Model loan credit risk and default probability]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling"/>
+        <updated>2023-05-12T21:17:31.000Z</updated>
+        <summary type="html"><![CDATA[Use Azure Machine Learning, Azure Synapse Analytics, App Service, and Power BI to model loan credit risk and default probability.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-hybrid-stack-hci</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/hybrid/aks-hybrid-stack-hci"/>
+        <updated>2023-05-10T22:26:14.000Z</updated>
+        <summary type="html"><![CDATA[Build an app deployment pipeline for containerized apps on AKS hybrid that are running on Azure Stack HCI or Windows Server.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Massive-scale VWAN architecture design]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/example-scenario/networking/massive-scale-azure-architecture</id>
+        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/networking/massive-scale-azure-architecture"/>
+        <updated>2023-05-09T22:15:14.000Z</updated>
+        <summary type="html"><![CDATA[Learn about the architecture for a massive-scale Azure Virtual WAN deployment that has multiple hubs per region.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Conversation summarization]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/ai/conversation-summarization"/>
+        <updated>2023-05-09T19:19:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to generate summaries of customer–agent interactions by using the Azure OpenAI GPT-3 model.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Integrate Teradata VantageCloud Enterprise with Azure Data Factory]]></title>
         <id>https://learn.microsoft.com/azure/architecture/guide/data/teradata-vantage-data-factory</id>
@@ -758,14 +790,6 @@
         <link href="https://learn.microsoft.com/azure/architecture/reference-architectures/sap/sap-overview"/>
         <updated>2023-02-02T22:42:48.000Z</updated>
         <summary type="html"><![CDATA[Overview of SAP guidance and resources]]></summary>
-        <category label="updated" term="updated"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CI/CD baseline architecture with Azure Pipelines]]></title>
-        <id>https://learn.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-baseline</id>
-        <link href="https://learn.microsoft.com/azure/architecture/example-scenario/apps/devops-dotnet-baseline"/>
-        <updated>2023-02-01T23:04:50.000Z</updated>
-        <summary type="html"><![CDATA[This architecture illustrates building a continuous integration and deployment pipeline using Azure Pipelines.]]></summary>
         <category label="updated" term="updated"/>
     </entry>
     <entry>

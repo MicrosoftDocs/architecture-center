@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 05/08/2023
+ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -27,6 +27,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### New articles
 
+- [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
+- [Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server](./example-scenario/hybrid/aks-hybrid-stack-hci.yml)
+- [Massive-scale VWAN architecture design](./example-scenario/networking/massive-scale-azure-architecture.yml)
+- [Conversation summarization](./guide/ai/conversation-summarization.yml)
 - [Integrate Teradata VantageCloud Enterprise with Azure Data Factory](./guide/data/teradata-vantage-data-factory.yml)
 - [Implement logging and monitoring for Azure OpenAI large language models](./example-scenario/ai/log-monitor-azure-openai.yml)
 
@@ -148,6 +152,5 @@ The following new and updated articles have recently been published in the Azure
 - [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#47223927f](https://github.com/MicrosoftDocs/architecture-center/commit/47223927f))
 - [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#7911bb1fd](https://github.com/MicrosoftDocs/architecture-center/commit/7911bb1fd))
 - [Overview of SAP guidance and resources](./reference-architectures/sap/sap-overview.yml)  ([#895766387](https://github.com/MicrosoftDocs/architecture-center/commit/895766387))
-- [CI/CD baseline architecture with Azure Pipelines](./example-scenario/apps/devops-dotnet-baseline.yml)  ([#2d56f29fe](https://github.com/MicrosoftDocs/architecture-center/commit/2d56f29fe))
 - [Throttling pattern](./patterns/throttling.yml)  ([#fff3c6235](https://github.com/MicrosoftDocs/architecture-center/commit/fff3c6235))
 
