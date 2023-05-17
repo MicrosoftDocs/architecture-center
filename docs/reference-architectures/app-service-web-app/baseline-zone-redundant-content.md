@@ -165,7 +165,7 @@ A production web app needs to encrypt data in transit using HTTPS. HTTPS protoco
 
 #### Workflow
 
-:::image type="complex" source="images/baseline-app-service-encryption-flow.png" lightbox="images/baseline-app-service-encryption-flow.png" alt-text="Diagram that shows a baseline App Service encryption flow.":::
+:::image type="complex" source="images/baseline-app-service-encryption-flow.svg" lightbox="images/baseline-app-service-encryption-flow.svg" alt-text="Diagram that shows a baseline App Service encryption flow.":::
     The diagram adds numbers to the Baseline Azure App Service architecture to indicate the encryption flow. Number one is the user. Number two is Application Gateway with WAF. Number three is Azure Key Vault. Number four is again Application Gateway with WAF. Number 5 is the arrow to App Service. There are three number sixes. They are on Azure SQL Database, Azure Storage and Azure Monitor.
 :::image-end:::
 
