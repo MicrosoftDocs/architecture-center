@@ -28,7 +28,7 @@ products:
   - azure-databricks
   - azure-data-share
 
-name: Build Autonomous Vehicle operations utilizing Azure services
+name: Data Operations (DataOps) for Autonomous Vehicle operations (AVOps) Reference Architecture
 summary:  Learn about a data operation architecture that you can use to build automated driving solution by using Azure services.
 thumbnailUrl: /azure/architecture/browse/thumbs/avops-architecture-thumb.png
 content: |

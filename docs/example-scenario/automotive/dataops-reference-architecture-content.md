@@ -71,6 +71,7 @@ The metadata API thus becomes the storage layer manager, which can spread data a
 * [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
 * [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
 * [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) provides a serverless based web app service that hosts the Metadata API
+* [Azure Purview](https://learn.microsoft.com/purview/purview) provides data governance across organizations
 
 ## Federate Data Operations
 In an organization that implement AVOps, multiple teams contribute to DataOps due to complexity required for Autonomous Vehicles operations. For example, one team could be in charge of data collection / data ingestion.  Another team is responsible for data quality management of Lidar data.  For that reason principles of a Data Mesh architecture are considered for DataOps:
@@ -114,7 +115,7 @@ The Metadata Model diagram shows a typical unified meta-data model (as guidance)
 
 ### Data Sharing
 
-Data Sharing in an AVOPs data loop is a common scenario (for data sharing between data domains and external sharing, e. g. to  integrate labeling partners). Microsoft Purview provides these capabilities to allow efficient data sharing in the data loop:
+Data Sharing in an AVOPs data loop is a common scenario (for data sharing between data domains and external sharing, e. g. to  integrate labeling partners). [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview) provides these capabilities to allow efficient data sharing in the data loop:
 
 
 - [Self-service data discovery and access](https://learn.microsoft.com/en-us/azure/purview/concept-self-service-data-access-policy)
@@ -254,8 +255,8 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-* Auto scale and reserved instances
-* Geo redundancy
+* [Azure availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones)  are unique physical locations within the same Azure region.
+* Plan for disaster recovery and account [failover](https://learn.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json)
 
 ### Security
 
@@ -266,10 +267,17 @@ It's important to understand the division of responsibility between the automoti
 * Identity and access management that uses Azure Active Directory (Azure AD) identities and [Azure AD Conditional Access](https://learn.microsoft.com/azure/active-directory/conditional-access) policies.
 * Infrastructure governance that uses [Azure Policy](https://azure.microsoft.com/services/azure-policy).
 * Data governance that uses [Microsoft Purview](https://azure.microsoft.com/services/purview).
-
+* Data should always be encrypted at rest by using native Azure Storage and DB services.  See [Data Protection Considerations](https://learn.microsoft.com/azure/well-architected/security/design-storage)
+* Use [Key Vault](https://azure.microsoft.com/services/key-vault) to safeguard cryptographic keys and secrets
 ### Cost optimization
-Azure offers different ways of hosting your application code.  This reference architecture used Azure App Services and Azure Batch.  The following [guide](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree) provides guidance on how to choose the right service for your deployment.  
+Cost optimization looks at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview). 
 
+A key concern for OEMs/Tier1s operating DataOps for Automated Vehicles is the cost to operate.  This solution uses the following practices to help optimize costs:
+
+* Azure offers different ways of hosting your application code.  This reference architecture used Azure App Services and Azure Batch.  The following [guide](https://learn.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) provides guidance on how to choose the right service for your deployment.  
+* Azure Storage in-place [data-sharing](https://learn.microsoft.com/azure/purview/concept-data-share)
+* Optimize costs through [lifecycle management](https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview)
+* Save costs with Azure App services through [reserved instances](https://learn.microsoft.com/azure/cost-management-billing/reservations/prepay-app-service)
 ### Operational excellence
 
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
