@@ -191,7 +191,7 @@ WHERE _change_type = 'insert'
 
 For more samples, see [Change data feed demo](https://docs.databricks.com/_extras/notebooks/source/delta/cdf-demo.html).
 
-As you can see, you can use change data feed to load data incrementally. To get the version number of the most recent commit, you can store the relevant information in another Delta table:
+You can use change data feed to load data incrementally. To get the version number of the most recent commit, you can store the relevant information in another Delta table:
 
 ```sql
 CREATE TABLE table_commit_version
