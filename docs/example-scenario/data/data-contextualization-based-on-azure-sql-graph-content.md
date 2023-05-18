@@ -161,7 +161,7 @@ You can then use the query result to join the incoming raw data for contextualiz
 
 As the architecture diagram shows, the solution contextualizes only new incoming data, not the entire dataset in the Delta table. To meet this requirement, it uses an incremental data loading solution.
 
-In Delta Lake, [change data feed](/azure/databricks/delta/delta-change-data-feed) is a feature that simplifies the architecture for implementing change data capture. The following diagram illustrates how it works. When change data feed is enabled, the system records data changes, which include inserted rows and two rows that represent the pre-image and post-image of an updated row. If you need to, you can use the pre-image and post-image information to evaluate the changes. There's also a delete change type that represents deleted rows. To query the change data, you can use the `table_changes` function.
+In Delta Lake, [change data feed](/azure/databricks/delta/delta-change-data-feed) is a feature that simplifies the architecture for implementing change data capture. The following diagram illustrates how it works. When change data feed is enabled, the system records data changes, which, in this case, include inserted rows and two rows that represent the pre-image and post-image of an updated row. If you need to, you can use the pre-image and post-image information to evaluate the changes. There's also a delete change type that represents deleted rows. To query the change data, you can use the `table_changes` function.
 
 ![Diagram that illustrates how change data feed works.](media/change-data-feed.jpg)
 
