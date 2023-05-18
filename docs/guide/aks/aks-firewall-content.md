@@ -1,4 +1,4 @@
-This article describes how to create a private AKS cluster in a hub-and-spoke network topology by using [Terraform](https://www.terraform.io) and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network. 
+This guide describes how to create a private AKS cluster in a hub-and-spoke network topology by using [Terraform](https://www.terraform.io) and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network. 
 
 ## Architecture
 
@@ -104,7 +104,7 @@ Likewise, you can control ingress traffic and improve security by enabling [thre
 
 ### Potential use cases
 
-This architecture applies to scenarios in which you need to improve security of inbound and outbound traffic to and from a Kubernetes cluster.  
+This scenario addresses the need to improve security of inbound and outbound traffic to and from a Kubernetes cluster.  
 
 ### Avoid asymmetric routing
 
@@ -254,7 +254,7 @@ The following monitoring considerations aren't specific to multitenancy in AKS, 
 
 ### Cost optimization
 
-The cost of this architecture depends on the following configuration details:
+The cost of the resulting architecture depends on the following configuration details:
 
 - Service tiers
 - Scalability (the number of instances that are dynamically allocated by services to support a given demand)

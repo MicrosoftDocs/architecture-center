@@ -188,7 +188,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Patterns and implementations for a banking cloud transformation](../example-scenario/banking/patterns-and-implementations.yml)|Learn about the patterns and implementations used to transform a banking system for the cloud. Includes an architecture for Kubernetes Event-driven Autoscaler (KEDA) scaling.|Serverless|
 |[High security DevOps for AKS](../solution-ideas/articles/secure-devops-for-kubernetes.yml)|Implement DevOps with Kubernetes on Azure to balance speed and security and to deliver code faster.|Containers|
 |[Use Application Gateway Ingress Controller with a multitenant AKS cluster](../example-scenario/aks-agic/aks-agic.yml)|Learn how to use the Application Gateway Ingress Controller with your AKS cluster to expose microservice-based applications to the internet.|Containers|
-|[Use Azure Firewall to help protect an AKS cluster](../example-scenario/aks-firewall/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect the inbound and outbound traffic by using Azure Firewall.|Containers|
+|[Use Azure Firewall to help protect an AKS cluster](../guide/aks/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect the inbound and outbound traffic by using Azure Firewall.|Containers|
 
 ## Lustre
 
@@ -384,7 +384,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Immutable infrastructure CI/CD using Jenkins and Terraform on Azure](../solution-ideas/articles/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.yml)|When you develop apps, use a continuous integration and continuous deployment (CI/CD) pipeline to automatically push changes to Azure virtual machines.|DevOps|
 |[JMeter implementation for a load-testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline. The implementation uses JMeter and Terraform to provision and remove the required infrastructure.|Migration|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation. Terraform is used to deploy the SAP infrastructure into Azure.|SAP|
-|[Use Azure Firewall to help protect an AKS cluster](../example-scenario/aks-firewall/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.|Containers|
+|[Use Azure Firewall to help protect an AKS cluster](../guide/aks/aks-firewall.yml)|Deploy an AKS cluster in a hub-and-spoke network topology by using Terraform and Azure DevOps. Help protect inbound and outbound traffic by using Azure Firewall.|Containers|
 |[Virtual network integrated serverless microservices](../example-scenario/integrated-multiservices/virtual-network-integration.yml)|Learn about an end-to-end solution for health records management that uses Azure Functions microservices integrated with other services via a virtual network. Terrraform automates all code and infrastructure deployments.|Security|
 
 ## Umbraco

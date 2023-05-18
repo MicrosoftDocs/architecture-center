@@ -3825,7 +3825,7 @@ items:
               href: /azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
           - name: Firewall protection for an AKS cluster
-            href: example-scenario/aks-firewall/aks-firewall.yml
+            href: guide/aks/aks-firewall.yml
           - name: Overview of migration from Service Fabric to AKS
             href: guide/aks/service-fabric-azure-kubernetes-service.md
           - name: Multitenancy with AKS and AGIC
