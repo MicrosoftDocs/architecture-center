@@ -3761,6 +3761,8 @@ items:
         href: reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml
       - name: AKS baseline cluster
         href: /azure/architecture/reference-architectures/containers/aks/baseline-aks
+      - name: Windows containers on AKS
+        href: /azure/architecture/reference-architectures/containers/aks/windows-containers-on-aks.yml
       - name: AKS baseline for multi-region clusters
         href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
       - name: AKS cluster for a PCI-DSS workload
