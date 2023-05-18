@@ -4,8 +4,9 @@ Today, most facilities operate reactively to problems in tank levels. This react
 
 ## Architecture
 
-![Architecture diagram shows data into Azure Event Hubs / Azure Synapse. Azure Stream Analytics analyzes data while Power B I monitors oil tank level.](../media/oil-and-gas-tank-level-forecasting.png)
-*Download an [SVG](../media/oil-and-gas-tank-level-forecasting.svg) of this architecture.*
+![Architecture diagram shows data into Azure Event Hubs / Azure Synapse. Azure Stream Analytics analyzes data while Power BI monitors oil tank level.](../media/oil-and-gas-tank-level-forecasting.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/oil-and-gas-tank-level-forecasting.vsdx) of this architecture.*
 
 ### Dataflow
 

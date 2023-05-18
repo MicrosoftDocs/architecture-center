@@ -5,7 +5,7 @@ metadata:
   description: Use AI Builder and Azure Form Recognizer in a Power Automate workflow to extract text from images, for indexing and retrieval.
   author: martinekuan
   ms.author: Steve.Pucelik
-  ms.date: 02/03/2023
+  ms.date: 05/02/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

@@ -6,7 +6,9 @@ Azure native services can assist in connecting Azure VMware Solution workloads t
 
 The following high-level architecture diagram covers key networking scenarios.
 
-[![Diagram showing the Azure VMware Solution network architecture](../media/azure-vmware-solution-networking.png)](../media/azure-vmware-solution-networking.png#lightbox)
+[![Diagram showing the Azure VMware Solution network architecture.](../media/azure-vmware-solution-networking.svg)](../media/azure-vmware-solution-networking.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/azure-vmware-solution-networking.vsdx) of this architecture.*
 
 This architecture showcases a key network design that enables the following scenarios:
 
@@ -58,6 +60,14 @@ Route 9 depicts connectivity from either site-to-site (S2S) or point-to-site (P2
 #### Azure Virtual Network (route 10)
 
 Route 10 shows connectivity to AVS workloads from other workloads that run in Azure Virtual Networks. This topology uses VNet to VNet connectivity provided by Azure vWAN. Unlike in a conventional hub and spoke networking topology, where transitive connectivity can be established through either Azure Firewall or through 3rd-party NVAs, Azure vWAN's VNet-to-VNet connectivity is transitive, without needing Azure Firewall or a 3rd-party NVA.
+
+#### Public IP address on an NSX-T Edge node in the Azure VMware Solution cloud (route 11)
+
+Route 11 enables inbound and outbound internet connectivity to VMs that are running in the Azure VMware Solution private cloud. This connectivity uses a public IP address that's deployed on an NSX-T Edge node. This route provides SNAT and DNAT capabilities. Although this route simplifies inbound and outbound internet connectivity, we recommend that you evaluate this configuration by taking into account [Internet connectivity design considerations](/azure/azure-vmware/concepts-design-public-internet-access).
+
+#### HCX migration via a public IP address on an NSX-T Edge node in the Azure VMware Solution cloud (route 12)
+
+With HCX 4.2 or later, you can perform HCX migration by using VPN or SDWAN. (You can also use Azure ExpressRoute.) Route 12 shows another option for performing HCX migration by using a public IP address on an NSX-T Edge node in the Azure VMware Solution private cloud. You might consider using this option if ExpressRoute or VPN connectivity is impossible or time-consuming. For the best migration experience, we recommend that you use ExpressRoute connectivity. 
 
 ### Components
 

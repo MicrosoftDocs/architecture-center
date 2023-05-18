@@ -1,0 +1,19 @@
+### YamlMime:Architecture
+metadata:
+  title: Subscription vending implementation guidance
+  description: Subscription vending automation implementation guidance. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster.
+  author: ssumner
+  ms.author: ssumner
+  ms.date: 03/17/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+azureCategories:
+  - devops
+products:
+  - azure
+name: Subscription vending implementation guidance
+summary: Subscription vending automation implementation guidance. Subscription vending standardizes the process for requesting, deploying, and governing subscriptions, so application teams can deploy their workloads faster.
+thumbnailUrl: /azure/architecture/browse/thumbs/sample-subscription-vending-architecture.png
+content: |
+  [!include[](subscription-vending-content.md)]

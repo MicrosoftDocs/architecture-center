@@ -33,7 +33,9 @@ categories:
   - security
   - networking
   - windows-virtual-desktop
-ms.custom: fcp
+ms.custom:
+  - fcp
+  - devx-track-terraform
 ---
 
 # Open-source scenarios on Azure
@@ -65,7 +67,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |--|--|--|
 |[Azure Arc hybrid management and deployment for Kubernetes clusters](../hybrid/arc-hybrid-kubernetes.yml)|Learn how Azure Arc extends Kubernetes cluster management and configuration across datacenters, edge locations, and multiple cloud environments. This architecture uses CNCF-certified Kubernetes clusters.|Hybrid|
 |[Build CNCF projects by using Azure Kubernetes Service](../example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml)|Learn how to conceptualize, architect, build, and deploy an application that uses projects from the CNCF after deployment of AKS.|Containers|
-|[Multi-cloud blockchain distributed ledger technology (DLT)](../example-scenario/blockchain/multi-cloud-blockchain.yml)|See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multiparty DLTs to build a cross-cloud blockchain solution. This architecture uses CNCF-certified Kubernetes clusters.|Blockchain|
+|[Multicloud blockchain distributed ledger technology (DLT)](../example-scenario/blockchain/multi-cloud-blockchain.yml)|See how the open-source Blockchain Automation Framework (BAF) and Azure Arc-enabled Kubernetes work with multiparty DLTs to build a cross-cloud blockchain solution. This architecture uses CNCF-certified Kubernetes clusters.|Blockchain|
 
 ## Elastic
 
@@ -102,7 +104,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[IoT analytics with Azure Data Explorer](../solution-ideas/articles/iot-azure-data-explorer.yml)|Use Azure Data Explorer for near real-time IoT telemetry analytics on fast-flowing, high-volume streaming data from a wide variety of IoT devices. Use Grafana to build analytics dashboards.|Analytics|
 |[JMeter implementation for a load-testing pipeline](../example-scenario/banking/jmeter-load-testing-pipeline-implementation-reference.yml)|Get an overview of an implementation for a scalable cloud load-testing pipeline. The implementation supports use of Grafana for observability on solution components.|Migration|
 |[Long-term security log retention with Azure Data Explorer](../example-scenario/security/security-log-retention-azure-data-explorer.yml)|Store security logs in Azure Data Explorer on a long-term basis. Minimize costs and easily access the data. Use Grafana to build near real-time analytics dashboards.|Analytics|
-|[Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml)|Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multi-cloud environments. Use Grafana dashboards for monitoring.|Databases|
+|[Optimize administration of SQL Server instances in on-premises and multi-cloud environments by using Azure Arc](../hybrid/azure-arc-sql-server.yml)|Learn how to use Azure Arc for management, maintenance, and monitoring of SQL Server instances in on-premises and multicloud environments. Use Grafana dashboards for monitoring.|Databases|
 |[SAP workload automation using SUSE on Azure](../solution-ideas/articles/sap-workload-automation-suse.yml)|Use this solution to bolster productivity and facilitate innovation. Grafana provides monitoring.|SAP|
 |[Web application monitoring on Azure](../reference-architectures/app-service-web-app/app-monitoring.yml)|Learn about the monitoring services you can use on Azure by reviewing a reference architecture that uses a dataflow model for use with multiple data sources. Use Azure Monitor Data Source for Grafana to consolidate Azure Monitor and Application Insights metrics.|Web|
 
@@ -203,7 +205,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Core startup stack architecture](../example-scenario/startups/core-startup-stack.yml)|Review the components of a simple core startup stack architecture. Azure Database for MariaDB is one recommended relational database.|Startup|
 |[Mainframe and midrange data replication to Azure using Qlik](../example-scenario/mainframe/mainframe-midrange-data-replication-azure-qlik.yml)|Use Qlik Replicate to migrate mainframe and midrange systems to the cloud, or to extend such systems with cloud applications. Azure Database for MariaDB is one recommended relational database.|Mainframe|
 |[Mainframe file replication and sync on Azure](../solution-ideas/articles/mainframe-azure-file-replication.yml)|Learn about several options for moving, converting, transforming, and storing mainframe and midrange file system data on-premises and in Azure. Store data in Azure Database for MariaDB.|Mainframe|
-|[Modernize mainframe and midrange data](../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)|Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure. Azure Database for MariaDB is one recommended relational database.|Mainframe|
+|[Modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)|Learn how to modernize IBM mainframe and midrange data and see how to use a data-first approach to migrate this data to Azure. Azure Database for MariaDB is one recommended relational database.|Mainframe|
 |[Replicate and sync mainframe data in Azure](../reference-architectures/migration/sync-mainframe-data-with-azure.yml)|Replicate data while modernizing mainframe and midrange systems. Sync on-premises data with Azure data during modernization. Azure Database for MariaDB is one recommended relational database.|Mainframe|
 |[Scalable and secure WordPress on Azure](../example-scenario/infrastructure/wordpress.yml)|Learn how to use Content Delivery Network and other Azure services to deploy a highly scalable and highly secure installation of WordPress. In this scenario, MariaDB is used as a data store.|Web|
 |[Understand data store models](../guide/technology-choices/data-store-overview.md)|Learn about the high-level differences between the various data storage models found in Azure data services. Azure Database for MariaDB is one example of a relational database.|Databases|
@@ -314,7 +316,6 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[SAP HANA for Linux VMs in scale-up systems](../reference-architectures/sap/run-sap-hana-for-linux-virtual-machines.yml)|Learn proven practices for running SAP HANA in a high-availability, scale-up environment that supports disaster recovery. Use Red Hat Enterprise Linux in multi-node configurations. For high availability, use a Pacemaker cluster on Red Hat Enterprise Linux. |SAP|
 |[SAP S/4HANA in Linux on Azure](/azure/architecture/guide/sap/sap-s4hana)|Learn proven practices for running SAP S/4HANA in a Linux environment on Azure, with high availability. Red Hat Enterprise Linux is used for a high availability SAP Central Services cluster.|SAP|
 |[SAS on Azure](../guide/sas/sas-overview.yml)|Learn how to run SAS analytics products on Azure. SAS supports Red Hat 7 and later.|Compute|
-|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](../example-scenario/finance/swift-alliance-messaging-hub.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market. A key component, the AMH node, runs on JBoss Enterprise Application Platform (EAP) on Red Hat Enterprise Linux. |Networking|
 |[SWIFT\'s AMH with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure. A key component, the AMH node, runs on JBoss EAP on Red Hat Enterprise Linux. |Networking|
 
 ## Redis
@@ -371,7 +372,7 @@ For Apache scenarios, see the dedicated article, [Apache scenarios on Azure](/az
 |[Deployment Stamps pattern](../patterns/deployment-stamp.yml)|Learn about the Deployment Stamps pattern, which deploys many independent copies of application components. Terraform is recommended for deployment.|Networking|
 |[Design a CI/CD pipeline using Azure DevOps](../example-scenario/apps/devops-dotnet-baseline.yml)|Build a continuous integration and deployment pipeline for an application. In this architecture, Terraform can be used for deployment.|DevOps|
 |[DevOps in a hybrid environment](../solution-ideas/articles/devops-in-a-hybrid-environment.yml)|Learn about an implementation of DevOps that manages cloud and on-premises environments in tandem. Terraform is used to manage infrastructure as code.|DevOps|
-|[DevSecOps in Azure](../solution-ideas/articles/devsecops-in-azure.yml)|Learn about DevSecOps, a solution that incorporates security best practices from the beginning of development. Terraform is used to manage infrastructure as code.|DevOps|
+|[DevSecOps on AKS](../guide/devsecops/devsecops-on-aks.yml)|Learn about DevSecOps, a solution that incorporates security best practices from the beginning of development. Terraform is used to manage infrastructure as code.|DevOps|
 |[DevTest and DevOps for PaaS solutions](../solution-ideas/articles/dev-test-paas.yml)|Combine Azure PaaS resources with DevTest and DevOps practices to support rapid iteration cycles and reduced overhead. Terraform provisions and modifies resources for the environments.|DevOps|
 |[End-to-end governance in Azure](../example-scenario/governance/end-to-end-governance-in-azure.yml)|When you use CI/CD pipelines to automate deployments, apply RBAC not just on the Azure Resource Manager side but also earlier in the process when developers check in code. The scenario described uses Terraform for infrastructure as code.|Management|
 |[Gridwich cloud media system](../reference-architectures/media-services/gridwich-architecture.yml)|Learn about a stateless action execution workflow that ingests, processes, and delivers media assets using Terraform Sandwiches and Event Grid Sandwiches.|Media|

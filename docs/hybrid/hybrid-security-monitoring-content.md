@@ -2,7 +2,7 @@ This reference architecture illustrates how to use Microsoft Defender for Cloud 
 
 ## Architecture
 
-![Diagram illustrating deployed Microsoft Monitoring Agent on on-premises systems as well as on Azure based virtual machines transferring data to Microsoft Defender for Cloud and Microsoft Sentinel][architectural-diagram]
+![Diagram that shows monitoring agent on on-premises as well as on Azure transferring data to Microsoft Defender for Cloud and Microsoft Sentinel.][architectural-diagram]
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -170,9 +170,9 @@ When complete, the Log Analytics agent appears in Windows Control Panel, and you
 
 For further information about installing and configuring the agent, refer to [Install Log Analytics agent on Windows computers][azure-monitor-install-agent].
 
-The Log Analytics Agent service collects event and performance data, executes tasks, and other workflows defined in a management pack. Defender for Cloud extends its cloud workload protection platforms by integrating with **Microsoft Defender Advanced Threat Protection (ATP)** for **Servers**. Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
+The Log Analytics Agent service collects event and performance data, executes tasks, and other workflows defined in a management pack. Defender for Cloud extends its cloud workload protection platforms by integrating with **Microsoft Defender for Servers**. Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
 
-For more information about Microsoft Defender ATP, refer to [Onboard servers to the Microsoft Defender ATP service.][windows-defender-atp-onboard]
+For more information about Microsoft Defender for Servers, refer to [Onboard servers to the Microsoft Defender for Servers service.][windows-defender-atp-onboard]
 
 ### Enable Microsoft Defender for Cloud monitoring of on-premises Linux computers
 
@@ -238,7 +238,7 @@ There are two types of icons represented on the **Compute** blade:
 
 The role of Microsoft Sentinel is to ingest data from different data sources and perform data correlation across these data sources. Microsoft Sentinel leverages machine learning and AI to make threat hunting, alert detection, and threat responses smarter.
 
-To onboard Microsoft Sentinel, you need to enable it, and then connect your data sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration, including Microsoft Security Center, Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Azure Active Directory (Azure AD), Azure ATP, Microsoft Defender for Cloud Apps, and more. Additionally, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format, syslog, or the Representational State Transfer API to connect your data sources with Microsoft Sentinel.
+To onboard Microsoft Sentinel, you need to enable it, and then connect your data sources. Microsoft Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration, including Microsoft Security Center, Microsoft Threat Protection solutions, Microsoft 365 sources (including Office 365), Azure Active Directory (Azure AD), Microsoft Defender for Servers, Microsoft Defender for Cloud Apps, and more. Additionally, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format, syslog, or the Representational State Transfer API to connect your data sources with Microsoft Sentinel.
 
 ### Requirements for integrating Microsoft Sentinel with Microsoft Defender for Cloud
 
@@ -290,7 +290,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 ### Microsoft Defender for Cloud
 
 - [Microsoft Defender for Cloud][azure-security-center]
-- [Microsoft Defender for Cloud Cloud Smart Alert Correlation][azure-security-center-cloud-smart-alert-correlation]
+- [Microsoft Defender for Cloud Smart Alert Correlation][azure-security-center-cloud-smart-alert-correlation]
 - [Microsoft Defender for Cloud Connect Data][azure-security-center-connect-data]
 - [Microsoft Defender for Cloud Coverage][azure-security-center-coverage]
 - [Microsoft Defender for Cloud Endpoint Protection][azure-security-center-endpoint-protection]
@@ -332,7 +332,7 @@ To learn more about Microsoft Sentinel, refer to the following articles:
 - [Centralized app configuration and security](../solution-ideas/articles/appconfig-key-vault.yml)
 - [Automate Sentinel integration with Azure DevOps](../example-scenario/devops/automate-sentinel-integration.yml)
 
-[architectural-diagram]: ./images/hybrid-security-monitoring.png
+[architectural-diagram]: ./images/hybrid-security-monitoring.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-security-monitoring.vsdx
 [azure-monitor]: /azure/azure-monitor/
 [azure-monitor-install-agent]: /azure/azure-monitor/platform/agent-windows#install-agent-using-setup-wizard

@@ -1,8 +1,11 @@
+> [!IMPORTANT]
+> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more][20]
+
 Runbooks in Azure Automation run on the Azure cloud platform and might not have access to resources that are in other clouds or in your on-premises environment.  You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine that hosts the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
 ## Architecture
 
-![Diagram that shows Azure Automation in a user Hybrid Runbook Worker.][architectural-diagram]
+[ ![Architecture diagram that shows Azure Automation in a user Hybrid Runbook Worker.](./images/azure-automation-hybrid.svg)](./images/azure-automation-hybrid.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -24,7 +27,7 @@ The Hybrid Runbook Worker architecture consists of the following:
 
 #### User Hybrid Runbook Worker
 
-![Diagram that shows Azure Automation in a user Hybrid Runbook Worker.][architectural-diagram]
+[ ![Architecture diagram that shows Azure Automation in a user Hybrid Runbook Worker.](./images/azure-automation-hybrid.svg)](./images/azure-automation-hybrid.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source] of this architecture.*
 
@@ -32,7 +35,7 @@ Each user Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group tha
 
 #### System Hybrid Runbook Worker
 
-![Azure Automation in a System Hybrid Runbook Worker][System-architectural-diagram]
+[ ![Architecture diagram that shows Azure Automation in a System Hybrid Runbook Worker](./images/azure-automation-system.svg)](./images/azure-automation-system.svg#lightbox)
 
 *Download a [Visio file][architectural-diagram-visio-source-system] of this architecture.*
 
@@ -168,9 +171,7 @@ More about Azure Monitor and Monitor Logs:
 - [Computer forensics chain of custody in Azure](/azure/architecture/example-scenario/forensics)
 - [Disaster Recovery for Azure Stack Hub virtual machines](/azure/architecture/hybrid/azure-stack-vm-disaster-recovery)
 
-[architectural-diagram]: ./images/azure-automation-hybrid.png
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-automation-hybrid.vsdx
-[System-architectural-diagram]: ./images/azure-automation-system.png
 [architectural-diagram-visio-source-system]: https://arch-center.azureedge.net/azure-automation-system.vsdx
 [1]: /azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows
 [2]: /azure/automation/automation-windows-hrw-install
@@ -188,3 +189,4 @@ More about Azure Monitor and Monitor Logs:
 [17]: https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.7
 [18]: /azure/automation/automation-secure-asset-encryption
 [19]: /security/benchmark/azure/baselines/automation-security-baseline#network-security
+[20]: /azure/automation/migrate-existing-agent-based-hybrid-worker-to-extension-based-workers

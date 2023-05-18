@@ -266,6 +266,8 @@ catch (Exception ex)
 
 The following patterns might also be useful when implementing this pattern:
 
+- [Reliable web app pattern for .NET](../reference-architectures/reliable-web-app/dotnet/pattern-overview.yml) shows you how to apply the circuit-breaker pattern to an ASP.NET web application converging on the cloud.
+
 - [Retry pattern](./retry.yml). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
 
 - [Health Endpoint Monitoring pattern](./health-endpoint-monitoring.yml). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.

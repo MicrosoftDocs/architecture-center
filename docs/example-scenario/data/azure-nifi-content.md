@@ -4,7 +4,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 
 ## Architecture
 
-:::image type="content" source="./media/azure-nifi-architecture.svg" alt-text="Architecture diagram showing the automated flow of data through an Azure solution that uses Apache NiFi and Apache ZooKeeper." border="false":::
+:::image type="content" source="./media/azure-nifi-architecture.svg" alt-text="Architecture diagram showing the automated flow of data through an Azure solution that uses Apache NiFi and Apache ZooKeeper." border="false" lightbox="./media/azure-nifi-architecture.svg":::
 
 *Download a [Visio file][Visio file of architecture diagram] of this architecture.*
 
@@ -44,6 +44,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 - [Azure Data Factory][Data Factory] provides an alternative to this solution.
 - Instead of Key Vault, you can use a comparable service to store system secrets.
 - [Apache Airflow](https://airflow.apache.org). See [how Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
+- It is possible to use a supported enterprise NiFi alternative like [Cloudera Apache NiFi](https://www.cloudera.com/products/open-source/apache-hadoop/apache-nifi.html). The Cloudera offering is available through the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/cloudera.cloudera-data-platform-public-cloud-contact).
 
 ## Scenario details 
 
@@ -1005,7 +1006,7 @@ For more information, see the following resources:
 [Time sync for Linux VMs in Azure]: /azure/virtual-machines/linux/time-sync
 [Troubleshoot Azure virtual machine performance on Linux or Windows]: /troubleshoot/azure/virtual-machines/troubleshoot-performance-virtual-machine-linux-windows
 [Virtual Machines]: https://azure.microsoft.com/services/virtual-machines/#overview
-[Visio file of architecture diagram]: https://arch-center.azureedge.net/US-1875891-azure-nifi-architecture.vsdx
+[Visio file of architecture diagram]: https://arch-center.azureedge.net/azure-nifi-architecture.vsdx
 [What is Azure Application Gateway?]: /azure/application-gateway/overview
 [What is Azure Bastion?]: /azure/bastion/bastion-overview
 [What is Azure Private Link?]: /azure/private-link/private-link-overview

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes the different stages of a tenant lifecycle, and considerations for each stage.
 author: johndowns
 ms.author: jodowns
-ms.date: 07/16/2021
+ms.date: 02/28/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -24,46 +24,54 @@ When you're considering a multitenant architecture, it's important to consider a
 
 ## Trial tenants
 
-For SaaS solutions, consider that many customers request or require trials, before they commit to purchase a solution. Trials bring along the following unique considerations:
+When you build a SaaS solution consider that many customers request or require trials before they commit to purchase a solution.
 
-- Should the trial data be subject to the same data security, performance, and service-level requirements as the data for full customers?
-- Should you use the same infrastructure for trial tenants as for full customers, or should you have dedicated infrastructure for trial tenants?
-- If customers purchase your service after a trial, how will they migrate the data from their trial tenants into their paid tenants?
-- Are there limits around who can request a trial? How can you prevent abuse of your solution?
-- What limits do you want or need to place on trial customers, such as time limits, feature restrictions, or limitations around performance?
+Trials bring along the following unique considerations:
+
+- **Service requirements:** Should trials be subject to the same data security, performance, and service-level requirements as the data for full customers?
+- **Infrastructure:** Should you use the same infrastructure for trial tenants as for full customers, or should you have dedicated infrastructure for trial tenants?
+- **Migration:** If customers purchase your service after a trial, how will they migrate the data from their trial tenants into their paid tenants?
+- **Request process:** Are there limits around who can request a trial? How can you prevent abuse of your solution? Do you allow automated creation of trial tenants or does your team get involved in each request?
+- **Limits:** What limits do you want or need to place on trial customers, such as time limits, feature restrictions, or limitations around performance?
+
+In some situations, a [freemium pricing model](pricing-models.md#freemium-pricing) can be an alternative to providing trials.
 
 ## Onboard new tenants
 
 When onboarding a new tenant, consider the following:
 
-- Will onboarding be a self-service, automated, or manual process?
-- Does the customer have any specific requirements for data residency? For example, are there data sovereignty regulations in effect?
-- Does the customer have to meet any compliance standards (such as PCI DSS, HIPAA, and so on)?
-- Does the customer have any specific disaster recovery requirements, such as a recovery time objective (RTO) or a recovery point objective (RPO)? Are these different from the guarantees that you provide to other customers?
-- What information do you require, to be able to fully onboard the customer?
-- Does the platform provide different pricing options and billing models?
-- Does the customer require pre-production environments? And are there set expectations on availability for that environment? Is it transient (on-demand) or always available?
+- **Process:** Will onboarding be a self-service, automated, or manual process?
+- **Data residency:** Does the tenant have any specific requirements for data residency? For example, are there data sovereignty regulations in effect?
+- **Compliance:** Does the tenant have to meet any compliance standards (such as PCI DSS, HIPAA, and so on)?
+- **Disaster recovery:** Does the tenant have any specific disaster recovery requirements, such as a recovery time objective (RTO) or a recovery point objective (RPO)? Are these different from the guarantees that you provide to other tenants?
+- **Information:** What information do you require, to be able to fully onboard the tenant? For example, do you need to know their organization's legal name? Do you need their company logo to brand the application, and if so, what file size and format do you need?
+- **Billing:** Does the platform provide different pricing options and billing models?
+- **Environments:** Does the tenant require pre-production environments? And are there set expectations on availability for that environment? Is it transient (on-demand) or always available?
 
-Once tenants have been onboarded, they move into a 'business as usual' mode. However, there are still several important lifecycle events that can occur, even when they are in this mode.
+After tenants have been onboarded, they move into a 'business as usual' state. However, there are still several important lifecycle events that can occur, even when they are in this state.
 
 ## Update tenants' infrastructure
 
-You will need to consider how you apply updates to your tenants' infrastructures. Different tenants may have updates applied at different times. See [Updates](updates.md) for other considerations about updating tenants' deployments.
+You will need to consider how you apply updates to your tenants' infrastructure. Different tenants might have updates applied at different times.
+
+See [Updates](updates.md) for other considerations about updating tenants' deployments.
 
 ## Scale tenants' infrastructure
 
-Consider whether your tenants might have seasonal business patterns, or otherwise change the level of consumption for your solution. For example, if you provide a solution to retailers, you expect that certain times of the year will be particularly busy in some geographic regions, and quiet at other times. Consider whether this affects the way you design and scale your solution, and be aware of _noisy neighbor_ issues, when a subset of tenants scales unexpectedly and impacts the performance to other tenants. You can consider applying mitigations, which might include scaling individual tenants' infrastructures, moving tenants between deployments, and provisioning a sufficient level of capacity to handle spikes and troughs in traffic.
+Consider whether your tenants might have seasonal business patterns, or otherwise change the level of consumption for your solution.
 
-## Move tenants between infrastructures
+For example, if you provide a solution to retailers, you might expect that certain times of the year will be particularly busy in some geographic regions, and quiet at other times. Consider whether this seasonality affects the way you design and scale your solution. Be aware of how seasonality might affect [noisy neighbor issues](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), such as when a subset of tenants experience a sudden and unexpected increase in load that reduces the performance of other tenants. You can consider applying mitigations, which might include scaling individual tenants' infrastructure, moving tenants between deployments, and provisioning a sufficient level of capacity to handle spikes and troughs in traffic.
 
-You might need to move tenants between infrastructures for a number of reasons, including the following:
+## Move tenants between infrastructure
 
-- You are vertically partitioning your customers and choose to rebalance your tenants across your infrastructures or deployments.
-- Customers are upgrading a SKU or pricing tier, and they need to be moved to a single-tenant, dedicated deployment with higher isolation from other tenants.
-- Customers request their data to be moved to a dedicated data store.
-- Customers require their data be moved to a new geographic region. This might occur during company acquisitions, or when laws or geopolitical situations change.
+You might need to move tenants between infrastructure for a number of reasons, including the following:
 
-Consider how you move your tenants' data, as well as redirect requests to the new set of infrastructure that hosts their instance. You should also consider whether moving a tenant will result in downtime, and make sure tenants are fully aware of this.
+- **Rebalancing:** You follow a [vertically partitioned approach](tenancy-models.yml#vertically-partitioned-deployments) to map your tenants to infrastructure, and you need to move a tenant to a different deployment in order to rebalance your load.
+- **Upgrades:** A tenant upgrades their SKU or pricing tier, and they need to be moved to a single-tenant, dedicated deployment with higher isolation from other tenants.
+- **Migrations:** A tenant requests their data be moved to a dedicated data store.
+- **Region moves:** A tenant requires their data be moved to a new geographic region. This might occur during a company acquisition, or when laws or geopolitical situations change.
+
+Consider how you move your tenants' data, as well as redirect requests to the new set of infrastructure that hosts their instance. You should also consider whether moving a tenant might result in downtime, and make sure tenants are fully aware of the risk.
 
 ## Merge and split tenants
 
@@ -79,9 +87,9 @@ Consider whether you need to provide capabilities to manage the merging and sepa
 
 It's also inevitable that tenants will occasionally need be removed from your solution. In a multitenant solution, this brings along some important considerations, including the following:
 
-- How long should you maintain the customer data? Are there legal requirements to destroy data, after a certain period of time?
-- Should you provide the ability for customers to be re-onboarded?
-- If you run shared infrastructure, do you need to rebalance the allocation of tenants to infrastructure?
+- **Retention period:** How long should you maintain the customer data? Are there legal requirements to destroy data, after a certain period of time?
+- **Re-onboarding:** Should you provide the ability for customers to be re-onboarded?
+- **Rebalancing:** If you run shared infrastructure, do you need to rebalance the allocation of tenants to infrastructure?
 
 ## Deactivate and reactivate tenants
 

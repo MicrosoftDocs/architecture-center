@@ -236,7 +236,7 @@ Performance efficiency is the ability of your workload to scale to meet the dema
 [MariaDB]: https://mariadb.org/
 [Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data
 [Migration guide]: https://datamigration.microsoft.com/
-[Modernize mainframe & midrange data]: ./modernize-mainframe-data-to-azure.yml
+[Modernize mainframe & midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [MySQL Community Edition]: https://www.mysql.com/products/community/
 [Network transports and transactions]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda#network-transports-and-transactions
 [Performance tuning steps]: /azure/data-factory/copy-activity-performance#performance-tuning-steps

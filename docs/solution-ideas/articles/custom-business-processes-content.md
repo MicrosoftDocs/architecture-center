@@ -13,7 +13,7 @@ This example demonstrates how you can deploy portals that automate manual or pap
 The data flows through the solution as follows:
 
 1. The airline system communicates with a custom API hosted in [Azure API Management](/azure/api-management).
-1. A custom API coordinator receives notifications and handles incoming messages from the airline system, assigning flights to Microsoft Teams channels and sending them to [Power Apps](/power-apps).
+1. A custom API coordinator receives notifications and handles incoming messages from the airline system. It sends them to [Power Apps](/power-apps), where flights are assigned to Microsoft Teams channels.
 1. When a user selects a flight to monitor, or when the system assigns the user to a flight, the system queues a Graph API call in an Azure Storage Account queue for further processing.
 1. [Azure Functions](/azure/azure-functions) runs the Graph API calls based on the incoming messages in the storage queue, sending notifications to Teams, and also streams all events to an [Azure Event Hubs](/azure/event-hubs/) for further analytics.
 1. The airline's notification system is managed by a custom bot messaging service that employs [Azure Bot Service](/azure/bot-service).

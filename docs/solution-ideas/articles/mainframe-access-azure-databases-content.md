@@ -99,7 +99,7 @@ Principal authors:
 [Microsoft Service for DRDA]: /host-integration-server/what-is-his#Data
 [Migrate databases and data]: /azure/cloud-adoption-framework/infrastructure/mainframe-migration/application-strategies#migrate-databases-and-data
 [Migrate IBM mainframe applications to Azure with TmaxSoft OpenFrame]: ./migrate-mainframe-apps-with-tmaxsoft-openframe.yml
-[Modernize mainframe and midrange data]: ../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml
+[Modernize mainframe and midrange data]: /azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure
 [Planning and Architecting Solutions Using Microsoft Service for DRDA]: /host-integration-server/core/planning-and-architecting-solutions-using-microsoft-service-for-drda
 [Replicate and sync mainframe data in Azure]: ../../reference-architectures/migration/sync-mainframe-data-with-azure.yml
 [SQL Server technical documentation]: /sql/sql-server

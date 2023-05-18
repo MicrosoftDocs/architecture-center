@@ -73,5 +73,5 @@ Principal author:
 
 ## Related resources
 
-* [DevSecOps in Azure](/azure/architecture/solution-ideas/articles/devsecops-in-azure)
+* [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
 * [DevSecOps in GitHub](/azure/architecture/solution-ideas/articles/devsecops-in-github)

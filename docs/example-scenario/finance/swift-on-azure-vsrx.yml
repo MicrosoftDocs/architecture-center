@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT's Alliance Connect Virtual in Azure
+  title: SWIFT Alliance Connect Virtual on Azure
   description: Learn about SWIFT Alliance Connect Virtual components that can be deployed on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 06/10/2022
+  ms.date: 03/23/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide
@@ -13,7 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: SWIFT's Alliance Connect Virtual in Azure
+name: SWIFT Alliance Connect Virtual on Azure
 azureCategories:
   - integration
   - migration
@@ -24,6 +24,6 @@ products:
   - azure-logic-apps
   - azure-monitor
   - azure-active-directory
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-ref-arch-vsrx.png
+thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-connect-virtual.png
 content: |
    [!include[](swift-on-azure-vsrx-content.md)]

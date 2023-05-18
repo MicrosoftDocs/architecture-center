@@ -6,7 +6,7 @@ This solution shows how to integrate Chef Infra, Chef InSpec, Test Kitchen, Terr
 
 ## Architecture
 
-:::image type="content" border="false" source="media/faa-swim.png" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.png":::
+:::image type="content" border="false" source="media/faa-swim.svg" alt-text="Diagram that shows an architecture for automating and creating a data analytics environment." lightbox="media/faa-swim.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/faa-swim.vsdx) of this architecture.*
 

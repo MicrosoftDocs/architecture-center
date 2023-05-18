@@ -4,7 +4,7 @@ _Apache®, Apache Ignite, Ignite, and the flame logo are either registered trade
 
 ## Architecture
 
-:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.png" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.png":::
+:::image type="complex" source="./media/data-analytics-containers-confidential-data-processing.svg" alt-text="Diagram of confidential big data analytics with Apache Spark, Azure SQL Always Encrypted, AKS, and Secure Container Environment." lightbox="./media/data-analytics-containers-confidential-data-processing.svg":::
 Diagram that shows how sensitive data flows securely from ingestion phase to analytics within the bounds of a confidential computing environment. The problems that this architecture aims to solve are: ingestion and storage of sensitive data in the Azure cloud, gathering business insights by processing and storing the data at scale, and ensuring confidentiality through hardware-enforced means.
 :::image-end:::
 
@@ -137,7 +137,7 @@ Deploying this scenario involves the following high-level steps:
 
 - Clone the demo project on GitHub, [Confidential Data Analytics with Apache Spark on Intel SGX Confidential Containers](https://github.com/Azure-Samples/confidential-container-samples/tree/main/confidential-big-data-spark). This project contains all the needed resources, deployment steps, and source-code to reproduce the demo.
   
-- Deploy [Always Encrypted with secure enclaves in Azure SQL Database - Demos](https://github.com/microsoft/sql-server-samples/blob/master/samples/features/security/always-encrypted-with-secure-enclaves/azure-sql-database/README.md). These demos use a confidential dataset, ContosoHR, which is included. This scenario decrypts confidential data into plaintext inside the Spark containers enclave.
+- Deploy [Always Encrypted with secure enclaves in Azure SQL Database - Demos](https://github.com/microsoft/sql-server-samples/blob/master/samples/features/security/always-encrypted-with-secure-enclaves/azure-sql-database-sgx/README.md). These demos use a confidential dataset, ContosoHR, which is included. This scenario decrypts confidential data into plaintext inside the Spark containers enclave.
 
 - Deploy an Intel SGX-enabled AKS cluster node pool. For instructions, see [Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI](/azure/confidential-computing/confidential-enclave-nodes-aks-get-started).
 

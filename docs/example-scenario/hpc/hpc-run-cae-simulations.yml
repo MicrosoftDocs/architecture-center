@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Run CAE simulations for manufacturing on Azure
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use a high-performance computing (HPC) environment on Azure to run CAE simulations for manufacturing.
+  author: gauharjunnarkar
+  ms.author: gajunnar
+  ms.date: 03/15/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - compute
+products:
+  - azure-virtual-machines
+  - azure-virtual-network
+name: Run CAE simulations for manufacturing on Azure
+summary: Learn how to use a high-performance computing (HPC) environment on Azure to run CAE simulations for manufacturing.
+thumbnailUrl: /azure/architecture/browse/thumbs/run-cae-workloads-on-azure.png
+content: |
+  [!include[](hpc-run-cae-simulations-content.md)]

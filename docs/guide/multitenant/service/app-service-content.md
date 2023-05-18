@@ -12,22 +12,30 @@ When you use [tenant-specific custom domain names](../considerations/domain-name
 
 ### Integration with Azure Front Door
 
-App Service and Azure Functions integrate with [Azure Front Door](/azure/frontdoor/front-door-overview), to act as the internet-facing component of your solution.
+App Service and Azure Functions integrate with [Azure Front Door](/azure/frontdoor/front-door-overview), to act as the internet-facing component of your solution. Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and it provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends, based on changing business or technical requirements.
 
-Azure Front Door enables you to add a web application firewall (WAF) and edge caching, and it provides other performance optimizations. You can easily reconfigure your traffic flows to direct traffic to different backends, based on changing business or technical requirements. When you use Azure Front Door with a multitenant app, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single hostname, and all traffic flows through to that application, which helps you avoid managing custom domain names in multiple places.
+When you use Azure Front Door with a multitenant app, you can use it to manage your custom domain names and to terminate your TLS connections. Your App Service application is then configured with a single hostname, and all traffic flows through to that application, which helps you avoid managing custom domain names in multiple places.
 
 ![Diagram showing requests coming into Front Door using a variety of host names. The requests are passed to the App Service app using a single host name.](media/app-service/host-front-door.png)
 
 As in the above example, [Azure Front Door can be configured to modify the request's `Host` header](/azure/frontdoor/front-door-backend-pool#backend-host-header). The original `Host` header sent by the client is propagated through the `X-Forwarded-Host` header, and your application code can use this header to [map the request to the correct tenant](../considerations/map-requests.yml).
 
-> [!TIP]
+> [!WARNING]
 > If your application sends cookies or redirection responses, you need to take special care. Changes in the request's `Host` headers might invalidate these responses. For more information, see the [host name preservation best practice](../../../best-practices/host-name-preservation.yml).
 
 You can use [private endpoints](/azure/time-series-insights/concepts-private-links) or App Service [access restrictions](https://techcommunity.microsoft.com/t5/azure-architecture-blog/permit-access-only-from-azure-front-door-to-azure-app-service-as/ba-p/2000173) to ensure that traffic has flowed through Front Door before reaching your app.
 
+For more information about using Azure Front Door in a multitenant solution, see [Use Azure Front Door in a multitenant solution](./front-door.md)
+
 ### Authentication and authorization
 
-Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). If a request doesn't contain a token, the token is invalid, or the request isn't authorized. App Service can be configured to block the request or to redirect to your identity provider, so that the user can sign in.
+Azure App Service can [validate authentication tokens on behalf of your app](/azure/app-service/overview-authentication-authorization). When App Service receives a request, it checks to see whether each of the following conditions are met:
+
+- The request contains a token.
+- The token is valid.
+- The request is authorized.
+
+If any of the conditions aren't met, App Service can block the request, or it can redirect the user to your identity provider so that they can sign in.
 
 If your tenants use Azure Active Directory (Azure AD) as their identity system, you can configure Azure App Service to use [the /common endpoint](/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) to validate user tokens. This ensures that, regardless of the user's Azure AD tenant, their tokens are validated and accepted.
 
@@ -108,7 +116,7 @@ Whichever platform you use to host your API, consider using [Azure API Managemen
 
 Many multitenant applications need to connect to tenants' on-premises networks to send data.
 
-If you need to send outbound traffic from a known static IP address or from a set of known static IP addresses, consider using a [NAT Gateway](/azure/app-service/overview-inbound-outbound-ips#get-a-static-outbound-ip). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
+If you need to send outbound traffic from a known static IP address or from a set of known static IP addresses, consider using a NAT Gateway. For more information about how to use NAT Gateway in multitenant solutions, see [Azure NAT Gateway considerations for multitenancy](./nat-gateway.md). App Service provides [guidance on how to integrate with a NAT Gateway](/azure/app-service/networking/nat-gateway-integration).
 
 If you don't need a static outbound IP address, but instead you need to occasionally check the IP address that your application uses for outbound traffic, you can [query the current IP addresses of the App Service deployment](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors).
 
@@ -118,7 +126,12 @@ Because App Service is itself a multitenant service, you need to take care about
 
 If your application connects to a large number of databases or external services, then your app might be at risk of [SNAT port exhaustion](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors). In general, SNAT port exhaustion indicates that your code isn't correctly reusing TCP connections, and even in a multitenant solution, you should ensure you follow the recommended practices for reusing connections.
 
-However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, [consider deploying NAT Gateway](/azure/app-service/networking/nat-gateway-integration) to increase the number of SNAT ports that are available for your application to use, or use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits. Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.yml).
+However, in some multitenant solutions, the number of outbound connections to distinct IP addresses can result in SNAT port exhaustion, even when you follow good coding practices. In these scenarios, consider one of the following options:
+
+- Deploy NAT Gateway to increase the number of SNAT ports that are available for your application to use. For more information about how to use NAT Gateway in multitenant solutions, see [Azure NAT Gateway considerations for multitenancy](./nat-gateway.md).
+- Use [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) when you connect to Azure services, to bypass load balancer limits.
+
+Even with these controls in place, you might approach limits with a large number of tenants, so you should plan to scale to additional App Service plans or [deployment stamps](../../../patterns/deployment-stamp.yml).
 
 ## Contributors
 

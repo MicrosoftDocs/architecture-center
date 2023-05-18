@@ -44,7 +44,7 @@ Azure's alerting framework allows you to configure alerts to detect suspicious a
 
 AKS is integrated with Azure monitoring services:
 
-- Microsoft Defender for Containers provides many security scanning features. For example, Defender for Containers scans images pulled, pushed, and imported to container registries and provides recommendations. For details, see [Vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment). You can also use [file integrity monitoring (FIM)](/azure/defender-for-cloud/file-integrity-monitoring-overview) to check system files.
+- Microsoft Defender for Containers provides many security scanning features. For example, Defender for Containers scans images pulled, pushed, and imported to container registries and provides recommendations. For details, see [Vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-introduction#vulnerability-assessment).
 
 - Azure Monitor can be used to set alerts based on event type to protect system integrity and security. When there are any expected system failures on AKS nodes, AKS autoheals the resource in a timely manner without interruption to system processing.
 
@@ -113,7 +113,8 @@ AKS provides audit logs at multiple levels, as described in [Requirement 10.1](#
 
 - By default, activity logs provide information about critical Azure resource operations. All logs include status, time, and the identity that started the operation.
 - Enable diagnostic settings to access all records of all API calls made into the AKS cluster. The logs provide details about the requestor, the time stamp, the source of request, and the contents of the request. Store the logs in a Log Analytics workspace with an appropriate retention period. Enable Log Analytics workspace logging to make sure that even access to audit trail is logged.
-- Include audit logging for other compute such as build agents and jump boxes. Disable access to the systems directly as root. Verify all actions are being performed under a specific identity.
+- Enable [syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog) to capture AKS node-level operating system security and health event logs in your Log Analytics workspace. These logs should also be also ingested into your SIEM.
+- Include OS and usage audit logging for other compute such as build agents and jump boxes. Disable access to the systems directly as root. Verify all actions are being performed under a specific identity.
 - Log unsuccessful access attempts. This includes access requests to components such as Azure Storage, Azure Key Vault, the AKS API server, and any RDP/SSH access on other systems.
 - Take advantage of features, offered by third-party security agents, to help analyze user patterns inside your AKS cluster. These features might be useful for user-access audit data.
 

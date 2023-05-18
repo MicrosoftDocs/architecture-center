@@ -16,6 +16,7 @@ metadata:
     - fcp
     - reference-architecture
     - e2e-hybrid
+    - devx-track-azurepowershell
 name: Extend an on-premises network using ExpressRoute
 azureCategories:
   - hybrid

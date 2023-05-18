@@ -5,7 +5,9 @@ This article describes a variation of a [serverless](https://azure.microsoft.com
 
 ## Architecture
 
-![Diagram showing the data flow described in this article](../media/serverless-event-processing-aks-diagram.png)
+[ ![Architecture diagram showing the data flow described in this article.](../media/serverless-event-processing-aks-diagram.svg)](../media/serverless-event-processing-aks-diagram.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/serverless-event-processing-aks-diagram.vsdx) of this architecture.*
 
 ### Dataflow
 

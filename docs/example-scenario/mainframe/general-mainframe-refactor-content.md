@@ -182,9 +182,9 @@ Principal author:
 ## Related resources
 
 - [Azure mainframe and midrange architecture concepts and patterns](../../mainframe/mainframe-midrange-architecture.md)
-- [Refactor mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
+- [Rehost mainframe applications to Azure with Raincode compilers](../../reference-architectures/app-modernization/raincode-reference-architecture.yml)
 - [Refactor IBM z/OS mainframe Coupling Facility (CF) to Azure](../../reference-architectures/zos/refactor-zos-coupling-facility.yml)
 - [Unisys mainframe migration](../../reference-architectures/migration/unisys-mainframe-migration.yml)
-- [IBM z/OS mainframe migration with Asysco AMT](asysco-zos-migration.yml)
+- [IBM z/OS mainframe migration with Avanade AMT](asysco-zos-migration.yml)
 - [High-volume batch transaction processing](process-batch-transactions.yml)
-- [Modernize mainframe & midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml)
+- [Modernize mainframe & midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure)

@@ -171,6 +171,9 @@ A partial region failover involves cross-region connectivity, which increases la
 
 Some implementations can temporarily tolerate this behavior. After the failed app or database is restored, connectivity returns to normal inside a single region. However, in environments with strict latency requirements, even short-lived cross-region connectivity may pose a problem.
 
+> [!NOTE]
+> The use of private endpoints itself also increases latency when accessing Azure SQL Database, as mentioned in the [performance efficiency section of the single-region version][Web app private connectivity to Azure SQL database].
+
 ### Security
 
 As with the single-region scenario, the web apps in this solution use fully private connections to securely connect to both backend databases. The public internet can't access either of the database servers. This type of setup eliminates a common attack vector. Secure connections, combined with WAF integration ensures all requests are inspected for common exploits at the edge.

@@ -72,7 +72,7 @@ The following table describes how IoT Central or an IoT Hub-based PaaS solution 
 | Device template | Device templates help structure device type characteristics and behaviors. Use the templates for supported device management tasks and visualizations. | Define and manage device message templates in a private repository. |
 | Device management | Built-in Azure IoT Device Provisioning Service (DPS) capabilities provide [device integration and device management](/azure/iot-central/core/overview-iot-central#manage-your-devices). | Design and build solutions by using IoT Hub primitives, such as device twin and direct methods. Enable DPS separately. |
 | OPC UA protocol | Not supported. | Use OPC Publisher to bridge the gap between OPC UA–enabled industrial assets and Azure hosted resources by publishing telemetry data to IoT Hub. OPC Publisher supports IEC62541 OPC UA PubSub standard format and other formats. For more information, see [Microsoft OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher). |
-| SigFox and LoRaWAN protocols | Use [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge#azure-iot-central-device-bridge). | Create a custom module for Azure IoT Edge, and integrate it through Azure IoT Hub. |
+| SigFox and LoRaWAN protocols | Use [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge#azure-iot-central-device-bridge) or [Azure IoT Edge LoRaWAN Starter Kit](https://github.com/Azure/iotedge-lorawan-starterkit). | Create a custom module for Azure IoT Edge, and integrate it through Azure IoT Hub. |
 | Multi-tenancy | [Organizations](/azure/iot-central/core/howto-create-organizations) enable in-app multi-tenancy. You can define a hierarchy to manage which users can see which devices in the IoT Central application. | Achieve multi-tenancy by using separate hubs per customer. You can also build access control into the solution's data layer. |
 | Message retention | IoT Central retains data on a rolling, 30-day basis. | IoT Hub allows data retention in built-in event hubs for a maximum of seven days. |
 | Big data | Manage data from within IoT Central. | Add and manage big data Azure PaaS services. |
@@ -118,7 +118,7 @@ The following table shows the level of support for various capabilities in IoT C
 - [Vision AI with Azure IoT Edge](../../guide/iot-edge-vision/index.md)
 - [Retail buy online, pick up in store (BOPIS)](./vertical-buy-online-pickup-in-store.yml)
 - [Environment monitoring and supply chain optimization with IoT](../../solution-ideas/articles/environment-monitoring-and-supply-chain-optimization.yml)
-- [Blockchain workflow application](/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
+- [Blockchain workflow application](https://azure.microsoft.com/updates/action-required-migrate-your-azure-blockchain-service-data-by-10-september-2021)
 - [IoT using Azure Cosmos DB](../../solution-ideas/articles/iot-using-cosmos-db.yml)
 - [IoT Edge railroad maintenance and safety solution](../predictive-maintenance/iot-predictive-maintenance.yml)
 - [Predictive maintenance for industrial IoT](../../solution-ideas/articles/iot-predictive-maintenance.yml)

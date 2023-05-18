@@ -21,6 +21,6 @@ products:
   - azure-pipelines
 name: Automate API deployments with APIOps
 summary: Use APIOps with an API Management instance to build and deploy APIs. This solution provides self-service tools, auditing, policy enforcement, and early feedback.
-thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram.png
+thumbnailUrl: /azure/architecture/browse/thumbs/automated-api-deployments-architecture-diagram-thumb.png
 content: |
   [!include[](automated-api-deployments-apiops-content.md)]

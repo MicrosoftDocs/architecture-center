@@ -15,6 +15,7 @@ categories:
   - databases
 products:
   - azure-databricks
+  - azure-monitor
 ---
 
 # Monitoring Azure Databricks
@@ -42,7 +43,7 @@ Start by building the code library and deploying it to your Azure Databricks clu
 
 ## Related resources
 
-- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 - [Data science and machine learning with Azure Databricks](../solution-ideas/articles/azure-databricks-data-science-machine-learning.yml)
 - [Orchestrate MLOps by using Azure Databricks](../reference-architectures/ai/orchestrate-mlops-azure-databricks.yml)

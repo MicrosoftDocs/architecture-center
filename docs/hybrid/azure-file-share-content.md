@@ -13,7 +13,7 @@ The architecture consists of the following components:
 - **Azure Active Directory tenant**. This component is an instance of Azure Active Directory (Azure AD) that's created by your organization. It acts as a directory service for cloud applications, by storing objects that are copied from the on-premises Active Directory. It also provides identity services when accessing Azure file shares.
 - **AD DS server**. This component is an on-premises directory and identity service. The AD DS directory is synchronized with Azure AD to enable it to authenticate on-premises users.
 - **Azure AD Connect sync server**. This component is an on-premises server that runs the Azure AD Connect sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD.
-- **Virtual network gateway**. This optional component is used to send encrypted traffic between a Virtual Network NAT and an on-premises location over the internet.
+- **Virtual network gateway**. This optional component is used to send encrypted traffic between a Azure Virtual Network and an on-premises location over the internet.
 - **Azure file shares**. Azure file shares provide storage for files and folders that you can access over Server Message Block (SMB), Network File System (NFS), and Hypertext Transfer Protocol (HTTP) protocols. File shares are deployed into Azure storage accounts.
 - **Recovery Services Vault**. This optional component provides Azure file shares backup.
 - **Clients**. These components are AD DS member computers, from which users can access Azure file shares.
@@ -158,7 +158,7 @@ Explore related architectures:
 - [Multiple forests with AD DS, Azure AD, and Azure AD DS](../example-scenario/wvd/multi-forest-azure-managed.yml)
 - [Azure Virtual Desktop for the enterprise](../example-scenario/wvd/windows-virtual-desktop.yml)
 
-[architectural-diagram]: ./images/azure-file-share.png
+[architectural-diagram]: ./images/azure-file-share.svg
 [architectural-diagram-visio-source]: https://arch-center.azureedge.net/azure-file-share.vsdx
 [Create-file-share]: /azure/storage/files/storage-how-to-create-file-share
 [Premium-azure-file-share]: /azure/storage/files/storage-how-to-create-premium-fileshare

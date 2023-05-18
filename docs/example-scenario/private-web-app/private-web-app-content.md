@@ -2,9 +2,9 @@ This example scenario describes how to securely connect a web app to a backend d
 
 ## Architecture
 
-![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](media\private-web-application-app-service-private-sql-v-6.png)
+![Architectural diagram showing an App Service web app connecting to a backend Azure SQL Database through a Virtual Network using Private Link to an Azure Private DNS zone.](media\private-web-application-app-service-private-sql.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/private-webapp-appsvc-private-sql-v6.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/private-web-application-app-service-private-sql.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -87,6 +87,8 @@ The architecture creates a secure outbound connection from an App Service web ap
 
 You can set [App Service access restrictions](/azure/app-service/app-service-ip-restrictions) to prevent users from bypassing the front-end service and accessing the web app directly. For an example scenario, see [Application Gateway integration with App Service (multi-tenant)](/azure/app-service/networking/app-gateway-with-service-endpoints#integration-with-app-service-multi-tenant).
 
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 #### DNS configuration
 
 A configuration change is required to make the query to the public DNS (for example, `contoso.database.windows.net`) resolve to the IP address of the private endpoint. Regional virtual network integration allows the web app to resolve DNS queries using the virtual network's DNS service (including linked private DNS zones). The web app won't use the public IP address of the database server. It will use the IP address of the private endpoint in the virtual network. Communication between the web app and the database will traverse through the virtual network.
@@ -121,13 +123,22 @@ Any service in any Azure region that can connect through the virtual network can
 
 The same is true when using App Service regional virtual network integration. Regional virtual network integration is a solution for cross-region connectivity from App Service to a database or other private endpoint in another Azure region. You can create a [multi-region web app with private connectivity to a database](../sql-failover/app-service-private-sql-multi-region.yml). This multi-region architecture supports partial failovers when either the web app or the database fails over to another region.
 
+### Performance efficiency
+
+Connections to Azure SQL can use either a "redirect" or a "proxy" [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy). The "redirect" option is recommended for reduced latency and improved throughput. However, when you are accessing the database over a private endpoint, it will *always* use the "proxy" approach. This has performance implications, because in proxy mode the client connects through the Azure SQL Database gateways rather than being redirected directly to the node hosting the database.
+
+> [!NOTE]
+> As a general indication of the impact on performance, you can expect about a 5% increase in end-to-end latency. This is based on performing a load test between an App Service web app (single instance P3V2 tier) and an Azure SQL Database (General Purpose Gen 5 with 2 cores). The tests were run for five minutes by simulating five users all requesting a single web page which performed a single database query. The load test client, web app, and database were all deployed to the same Azure region. The average response time as seen by the load test client was increased from 8.51ms to 8.97ms when using a private endpoint.
+
+The impact of using private endpoints depends greatly on your specific workload and how your app communicates with the database. To assess whether you can still meet your non-functional requirements you should validate your end-to-end scenario using a performance test that simulates your application's access patterns.
+
 ### Cost optimization
 
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-There's no extra cost for App Service regional virtual network integration in a supported pricing tier of Standard or above. Standard is a minimum recommendation for production workloads.
+There's no extra cost for App Service regional virtual network integration in a supported pricing tier of Basic or above. Standard is a minimum recommendation for production workloads.
 
-The private endpoint has an [associated cost](https://azure.microsoft.com/pricing/details/private-link/) based on an hourly fee plus a premium on bandwidth.
+It's important to note that the private endpoint itself has an [associated cost](https://azure.microsoft.com/pricing/details/private-link/) based on an hourly fee plus a premium on bandwidth. You should take this additional cost into account, especially when you have a high-throughput workload.
 
 All the mentioned services are pre-configured in an [Azure pricing calculator estimate](https://azure.com/e/f25225ef92824212ae34f837c22d519c) with reasonable default values for a small scale application.
 

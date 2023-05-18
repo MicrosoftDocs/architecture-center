@@ -1,4 +1,4 @@
-This article provides best practices for architecting an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, non-production, and disaster recovery environments. We provide recommendations that focus on network design and not specific SAP systems. The goal is to provide our recommendations for architecting a secure, high-performing, and resilient SAP landscape.
+This article provides a reference architecture for deploying an entire SAP landscape in Azure. The SAP landscape includes multiple SAP systems across hub, production, non-production, and disaster recovery environments. We provide recommendations that focus on network design and not specific SAP systems. The goal is to provide our recommendations for architecting a secure, high-performing, and resilient SAP landscape.
 
 ## Architecture
 
@@ -75,7 +75,7 @@ The application subnet contains virtual machines running SAP application servers
 
 ##### Database subnet
 
-The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represent all the database virtual machines of one SAP environment.
+The database subnet holds virtual machines running databases. In the diagram, a pair of virtual machines with synchronous replication represents all the database virtual machines of one SAP environment.
 
 ##### Perimeter subnets
 
@@ -83,7 +83,7 @@ Perimeter subnets are internet facing and include an SAP perimeter subnet and an
 
 **SAP perimeter subnet**: The SAP perimeter subnet is a perimeter network that contains internet-facing applications such as SAProuter, SAP Cloud Connector, SAP Analytics Cloud Agent, and Application Gateway. These services have dependencies on SAP systems that an SAP team should deploy, manage, and configure. A central IT team shouldn't manage the services in the SAP perimeter subnet. For this reason, you should place these services in the SAP spoke virtual network and not the Hub virtual network. The architecture diagram only shows a production SAP perimeter network. It doesn't have an SAP perimeter subnet in the non-production virtual networks. The workloads in the non-production SAP subscription use the services in the SAP perimeter subnet.
 
-You can create separate set SAP perimeter subnet in the non-production subscription. We only recommend this approach for critical workloads or workloads that will change frequently. A dedicated non-production SAP perimeter is helpful for testing and new feature deployment. Less critical applications or applications that will only have few modifications over time don't need a separate non-production SAP perimeter subnet.
+You can create separate set SAP perimeter subnet in the non-production subscription. We only recommend this approach for critical workloads or workloads that change frequently. A dedicated non-production SAP perimeter is helpful for testing and new feature deployment. Less critical applications or applications that will only have few modifications over time don't need a separate non-production SAP perimeter subnet.
 
 **Application Gateway subnet**: Azure Application Gateway requires its own subnet. Use it to allow traffic from the Internet that SAP services, such as SAP Fiori, can use. An Azure Application Gateway requires at least a /29 size subnet. We recommend size /27 or larger. You can't use both versions of Application Gateway (v1 and v2) in the same subnet. For more information, see [subnet for Azure Application Gateway](/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet).
 
@@ -95,7 +95,7 @@ You can create separate set SAP perimeter subnet in the non-production subscript
 
 This network design provides better incident response capabilities and fine-grained network access control. However, it also increases the management complexity, network latency, and cost of the deployment. Let's discuss each point.
 
-*Better incident response*: The SAP perimeter spoke virtual network allows quick isolation of compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You don't want to rely on network security group (NSG) rules changes for incident response. Changing or removing an NSG rule only affects new connections and won't cut existing malicious connections.
+*Better incident response*: The SAP perimeter spoke virtual network allows quick isolation of compromised services if you detect a breach. You can remove virtual network peering from the SAP perimeter spoke virtual network to the hub and immediately isolate the SAP perimeter workloads and SAP application virtual network applications from the internet. You don't want to rely on network security group (NSG) rules changes for incident response. Changing or removing an NSG rule only affects new connections and doesn't cut existing malicious connections.
 
 *Fine-grained network access control*: The SAP perimeter virtual network provides more stringent network access control to and from the SAP production spoke virtual network.
 
@@ -153,7 +153,7 @@ When architecting your SAP solution, you need to properly size the individual fi
 
 You can only share `saptrans` between different SAP environments, and, as such, you should carefully consider its placement. Avoid consolidating too many SAP systems into one `saptrans` share for scalability and performance reasons.
 
-The corporate security policies will drive the architecture and separation of volumes between environments. A transport directory with separation per environment or tier will still need RFC communication between SAP environments to allow SAP transport groups or transport domain links. For more information, see:
+The corporate security policies drive the architecture and separation of volumes between environments. A transport directory with separation per environment or tier still needs RFC communication between SAP environments to allow SAP transport groups or transport domain links. For more information, see:
 
 - [SAP transport groups](https://help.sap.com/docs/SAP_NETWEAVER_750/4a368c163b08418890a406d413933ba7/44b4a0ce7acc11d1899e0000e829fbbd.html)
 - [Transport domain links](https://help.sap.com/docs/SAP_NETWEAVER_750/4a368c163b08418890a406d413933ba7/14c795388d62e450e10000009b38f889.html)
@@ -179,7 +179,7 @@ SAP solutions rely on shared services. Load balancer and application gateways ar
 
 **SAP Web Dispatcher virtual machines**: The architecture shows a pool of two or more SAP Web Dispatcher VMs. We recommend that you don't reuse SAP Web Dispatcher virtual machines between different SAP systems. Keeping them separate allows you to size the Web Dispatcher virtual machines to meet the needs of each SAP system. For smaller SAP solutions, we recommend embedding the Web Dispatcher services in the ASCS instance.
 
-**SAP services**: SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. No recommendation on reuse between SAP systems due to diverse customer requirements. Main decision to make is mentioned in networking section, if and when SAP perimeter subnet for non-production should be used. Otherwise with just production perimeter subnet for SAP, the SAP perimeter services are consumed by entire SAP landscape.
+**SAP services**: SAP services like SAProuter, Cloud Connector, and Analytics Cloud Agent, are deployed based on application requirements, either centrally or split up. No recommendation on reuse between SAP systems due to diverse customer requirements. Main decision to make is mentioned in networking section, if and when SAP perimeter subnet for non-production should be used. Otherwise, with just a production perimeter subnet for SAP, the entire SAP landscape consumes the SAP perimeter services.
 
 ### Disaster recovery
 
@@ -209,7 +209,7 @@ For smaller SAP solutions, it might be beneficial to simply the network design. 
 
 ## Contributors
 
-*Microsoft maintains this article. It was originally written by the following contributors.*
+*Microsoft maintains this article. The following contributors wrote the original version.*
 
 **Principal authors:**
 

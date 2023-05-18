@@ -30,5 +30,6 @@ The distributed nature of cloud applications requires a messaging infrastructure
 | [Priority Queue](../priority-queue.yml) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. |
 | [Publisher-Subscriber](../publisher-subscriber.yml) | Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers. |
 | [Queue-Based Load Leveling](../queue-based-load-leveling.yml) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
+| [Saga](../../reference-architectures/saga/saga.yml) | Manage data consistency across microservices in distributed transaction scenarios. A saga is a sequence of transactions that updates each service and publishes a message or event to trigger the next transaction step. |
 | [Scheduler Agent Supervisor](../scheduler-agent-supervisor.yml) | Coordinate a set of actions across a distributed set of services and other remote resources. |
 | [Sequential Convoy](../sequential-convoy.yml) | Process a set of related messages in a defined order, without blocking processing of other groups of messages. |

@@ -29,7 +29,7 @@ The following table summarizes the retry features for the Azure services describ
 | --- | --- | --- | --- | --- |
 | **[Azure Active Directory](#azure-active-directory)** |Native in MSAL library |Embedded into MSAL library |Internal |None |
 | **[Azure Cosmos DB](#azure-cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
-| **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
+| **[Data Lake Store](#data-lake-store)** |Native in client |Non-configurable |Individual operations |None |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
 | **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
 | **[Azure Cache for Redis](#azure-cache-for-redis)** |Native in client |Programmatic |Client |TextWriter |
@@ -82,6 +82,23 @@ The Azure Cosmos DB SDKs automatically retry on certain error conditions, and us
 ### Telemetry
 
 Depending on the language of your application, diagnostics and telemetry are exposed as logs or promoted properties on the operation responses. For more information, see the "Capture the diagnostics" section in [Azure Cosmos DB C# SDK](/azure/cosmos-db/sql/troubleshoot-dot-net-sdk-slow-request?#capture-diagnostics) and [Azure Cosmos DB Java SDK](/azure/cosmos-db/sql/troubleshoot-java-sdk-v4-sql?tabs=async#capture-the-diagnostics).
+
+## Data Lake Store
+
+[Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) makes Azure Storage the foundation for building enterprise data lakes on Azure. Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
+
+The [Azure Storage Files Data Lake client library](/dotnet/api/overview/azure/storage.files.datalake-readme) includes all the capabilities required to make it easy for developers, data scientists, and analysts to store data of any size, shape, and speed, and do all types of processing and analytics across platforms and languages.
+
+### Retry mechanism
+
+The [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) allows you to manipulate Azure Data Lake service resources and file systems. The storage account provides the top-level namespace for the Data Lake service. When you create the client you could provide the client configuration options for connecting to Azure Data Lake service ([DataLakeClientOptions](/dotnet/api/azure.storage.files.datalake.datalakeclientoptions)).
+ The DataLakeClientOptions includes a Retry property (inherited from Azure.Core.ClientOptions) that can be configured ([RetryOptions class](/dotnet/api/azure.core.retryoptions)).
+
+### Telemetry
+
+[Monitoring](/azure/storage/blobs/data-lake-storage-best-practices#monitor-telemetry) the use and performance of Azure Storage is an important part of operationalizing your service. Examples include frequent operations, operations with high latency, or operations that cause service-side throttling.
+
+All of the telemetry for your storage account is available through Azure Storage logs in Azure Monitor. This feature integrates your storage account with Log Analytics and Event Hubs, while also enabling you to archive logs to another storage account. To see the full list of metrics and resources logs and their associated schema, see [Azure Storage monitoring data reference](/azure/storage/blobs/monitor-blob-storage-reference).
 
 ## Event Hubs
 
@@ -314,7 +331,11 @@ Azure Search can be used to add powerful and sophisticated search capabilities t
 
 ### Retry mechanism
 
-Retry behavior in the Azure Search SDK is controlled by the `SetRetryPolicy` method on the [SearchServiceClient] and [SearchIndexClient] classes. The default policy retries with exponential backoff when Azure Search returns a 5xx or 408 (Request Timeout) response.
+Azure SDK for .NET includes an [Azure.Search.Documents](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to the previous client library, [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search). 
+
+Retry behavior in [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search) is controlled by the SetRetryPolicy method on the SearchServiceClient and SearchIndexClient classes. The default policy retries with exponential backoff when Azure Search returns a 5xx or 408 (Request Timeout) response.
+
+Retry behavior in [Azure.Search.Documents](/dotnet/api/overview/azure/search) is controlled by [SearchClientOptions](/dotnet/api/azure.search.documents.searchclientoptions) (It is part of  the [SearchClient constructor](/dotnet/api/azure.search.documents.searchclient.-ctor#azure-search-documents-searchclient-ctor(system-uri-system-string-azure-azurekeycredential-azure-search-documents-searchclientoptions))) in the property Retry, which belongs to the class [Azure.Core.RetryOptions](/dotnet/api/azure.core.retryoptions)(where all configurations are available).
 
 ### Telemetry
 
@@ -815,7 +836,7 @@ Alternate retries switch between primary and secondary storage service location 
 
 ### Policy configuration
 
-Retry policies are configured programmatically. A typical procedure is to create and populate a **TableRequestOptions**, **BlobRequestOptions**, **FileRequestOptions**, or **QueueRequestOptions** instance.
+Retry policies are configured programmatically. A typical procedure is to create and populate a **TableRequestOptions**, [**BlobClientOptions**](/azure/storage/blobs/storage-retry-policy#configure-retry-options), **FileRequestOptions**, or **QueueRequestOptions** instance.
 
 ```csharp
 TableRequestOptions interactiveRequestOption = new TableRequestOptions()

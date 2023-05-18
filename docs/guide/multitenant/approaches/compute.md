@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to support multitenancy for the compute components of your solution.
 author: DixitArora-MSFT
 ms.author: dixitaro
-ms.date: 04/11/2022
+ms.date: 03/24/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -27,7 +27,7 @@ ms.custom:
 
 Most cloud-based solutions are composed of compute resources of some kind, such as web and application tiers, batch processors, scheduled jobs, and even specialized resources like GPUs and high-performance compute (HPC). Multitenant solutions often benefit from shared compute resources, because a higher density of tenants to infrastructure reduces the operational cost and management. You should consider the isolation requirements and the implications of shared infrastructure.
 
-On this page, we provide guidance about the considerations and requirements that are essential for solution architects, when they're planning the compute services of a multitenant solution. This includes some common patterns for applying multitenancy to compute services, along with some antipatterns to avoid.
+This article provides guidance about the considerations and requirements that are essential for solution architects to consider when planning a multitenant compute tier. This includes some common patterns for applying multitenancy to compute services, along with some antipatterns to avoid.
 
 ## Key considerations and requirements
 
@@ -41,11 +41,11 @@ If you deploy dedicated resources for each tenant, you have the flexibility to s
 
 When you build cloud solutions, you can choose whether to [scale horizontally or vertically](/azure/architecture/framework/scalability/design-scale). In a multitenant solution with a growing number of tenants, scaling horizontally typically provides you with greater flexibility and a higher overall scale ceiling.
 
-Performance problems often remain undetected until an application is under load. You can use a fully managed service, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
+Performance problems often remain undetected until an application is under load. You can use a fully managed service, such as [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
 
 #### Scale triggers
 
-Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources, in order to ensure your provisioned capacity can meet the total required capacity, and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). You might also be able to plan your scaling capacity, based on the number of tenants. For example, if you measure the resources that you use to service 100 tenants, then as you onboard more tenants, you can plan to scale such that your resources double for every additional 100 tenants.
+Whichever approach you use to scale, you typically need to plan the triggers that cause your components to scale. When you have shared components, consider the workload patterns of every tenant who uses the resources, in order to ensure your provisioned capacity can meet the total required capacity, and to minimize the chance of a tenant experiencing the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml). You might also be able to plan your scaling capacity by considering the number of tenants. For example, if you measure the resources that you use to service 100 tenants, then as you onboard more tenants, you can plan to scale such that your resources double for every additional 100 tenants.
 
 ### State
 
@@ -101,7 +101,7 @@ This pattern is achieved in different ways, depending on the compute service you
 
 ### Dedicated compute resources per tenant
 
-You can also deploy dedicated compute resources for every tenant. Dedicated resources typically come with a higher cost, because you have a lower density of tenants to resources. However, dedicated resources mitigate the risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), by ensuring that the compute resources for every tenant are isolated from the others. It also enables you to deploy a distinct configuration for each tenant's resources, based on their requirements.
+You can also deploy dedicated compute resources for every tenant. Dedicated resources mitigate the risk of the [Noisy Neighbor problem](../../../antipatterns/noisy-neighbor/noisy-neighbor.yml), by ensuring that the compute resources for every tenant are isolated from the others. It also enables you to deploy a distinct configuration for each tenant's resources, based on their requirements. However, dedicated resources typically come with a higher cost, because you have a lower density of tenants to resources.
 
 Depending on the Azure compute services you use, you need to deploy different dedicated resources, as follows:
 
@@ -148,7 +148,7 @@ Instead, consider using asynchronous processing by making use of queues or other
 
 Multitenant solutions are often subject to bursty scale patterns. Shared components are particularly susceptible to this issue, because the scope for burst is higher, and the impact is greater when you have more tenants with distinct usage patterns.
 
-Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/architecture/framework/scalability/design-scale), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it behaves under different levels of load. Ensure you include the load volumes that are expected in production, and your expected growth. You can use a fully managed service, such as [Azure Load Testing Preview](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
+Ensure you make good use of the elasticity and scale of the cloud. Consider whether you should use [horizontal or vertical scaling](/azure/architecture/framework/scalability/design-scale), and use autoscaling to automatically handle spikes in load. Test your solution to understand how it behaves under different levels of load. Ensure you include the load volumes that are expected in production, and your expected growth. You can use a fully managed service, such as [Azure Load Testing](/azure/load-testing/overview-what-is-azure-load-testing), to learn how your application behaves under stress.
 
 ### No Caching antipattern
 
@@ -175,4 +175,8 @@ Other contributors:
 
 ## Next steps
 
-Consider [architectural approaches for storage and data](storage-data.yml).
+Review service-specific guidance for your compute services:
+
+- [Azure App Service and Azure Functions considerations for multitenancy](../service/app-service.yml)
+- [Considerations for using Container Apps in a multitenant solution](../service/container-apps.md)
+- [Azure Kubernetes Service (AKS) considerations for multitenancy](../service/aks.yml)

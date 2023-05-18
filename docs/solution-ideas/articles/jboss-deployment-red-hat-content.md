@@ -76,7 +76,7 @@ Principal author:
 
 ### JBoss
 
-- [Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux](/azure/virtual-machines/workloads/redhat/jboss-eap-on-rhel)
+- [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)
 - [USING JBOSS EAP IN MICROSOFT AZURE](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/using_jboss_eap_in_microsoft_azure/index)
 - [Monoliths to microservices: App Transformation](https://github.com/SpektraSystems/Red-Hat-Modernize-Apps/tree/master/docs) (GitHub)
 

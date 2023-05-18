@@ -1,8 +1,8 @@
-This article describes how [Asysco's](https://asysco.com) Automated Migration Technology (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
+This article describes how [Avanade's Automated Migration Technology](https://www.avanade.com/solutions/cloud-and-application-services/amt) (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
 
 ## Architecture
 
-![Diagram showing how Asysco A M T migration maps z/O S mainframe components to Azure capabilities.](media/asysco-zos-migration.svg)
+![Diagram showing how Avanade A M T migration maps z/O S mainframe components to Azure capabilities.](media/asysco-zos-migration.svg)
 
 ## Workflow
 
@@ -68,13 +68,13 @@ Modernizing each application on its own schedule can be more relaxed than conver
 
 Transforming proprietary legacy applications, infrastructures, and processes to standardized, benchmarked cloud technologies promotes agile DevOps principles and practices that are today's productivity norm. The transformation of legacy applications and infrastructures leads to more unified business and IT alignment.
 
-[Asysco's](https://asysco.com) Automated Migration Technology (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
+[Avanade's Automated Migration Technology](https://www.avanade.com/solutions/cloud-and-application-services/amt) (AMT) migrates an IBM z/OS mainframe system to the Azure cloud. The AMT framework converts proprietary IBM z/OS mainframe applications into native .NET applications that run on Windows Server OS virtual machines (VMs). On-premises mainframe resources migrate to cost-effective, scalable, secure Azure infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) environments.
 
 AMT provides an accelerated move into Azure without rewriting application code or redesigning data architecture. The migration framework converts legacy code to C#, while maintaining the source code in its original form. Application user interfaces and interactions can remain unchanged, minimizing the need for user retraining.
 
 ### Potential use cases
 
-Many scenarios can benefit from Asysco AMT migration. Possibilities include the following cases:
+Many scenarios can benefit from Avanade AMT migration. Possibilities include the following cases:
 
 - Modernizing infrastructure to avoid the high costs, limitations, and rigidity of mainframes.
 - Moving mainframe workloads to the cloud without the side effects of a complete redevelopment.
@@ -96,7 +96,7 @@ Azure Load Balancer builds resiliency into this solution. If one presentation or
 
 ### Scalability
 
-- Asysco has proven single-application scalability equivalent to at least 28,000 million IBM mainframe instructions per second (MIPS).
+- Avanade AMT has proven single-application scalability equivalent to at least 28,000 million IBM mainframe instructions per second (MIPS).
 
 - Each set of servers can scale out to provide more throughput. For information, see [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
@@ -110,7 +110,7 @@ Azure Load Balancer builds resiliency into this solution. If one presentation or
 
 ### Cost optimization
 
-Azure helps you avoid unnecessary costs by identifying resource needs, analyzing spending over time, and scaling to meet business needs without overspending. Asysco AMT in Azure runs on Windows VMs, which help you optimize costs by turning off VMs when not in use and scripting schedules for known usage patterns.
+Azure helps you avoid unnecessary costs by identifying resource needs, analyzing spending over time, and scaling to meet business needs without overspending. Avanade AMT in Azure runs on Windows VMs, which help you optimize costs by turning off VMs when not in use and scripting schedules for known usage patterns.
 
 - Azure services like Virtual Network, Load Balancer, and Azure Bastion are free with your Azure subscription. You pay for usage and traffic.
 
@@ -121,6 +121,16 @@ Azure helps you avoid unnecessary costs by identifying resource needs, analyzing
 - This solution works best with Premium SSD or Ultra Managed Disks. For pricing information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 To estimate and calculate costs for your implementation of this solution, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors.* 
+
+Principal author:
+
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks) | Senior Technical Program Manager
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 

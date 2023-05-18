@@ -2,7 +2,7 @@ This reference architecture illustrates how to design a hybrid Domain Name Syste
 
 ## Architecture
 
-:::image type="content" source="./images/hybrid-dns-infra.png" alt-text="Diagram showing a Hybrid Domain Name System (DNS)." border="false" lightbox="./images/hybrid-dns-infra.png" :::
+:::image type="content" source="./images/hybrid-dns-infra.svg" alt-text="Diagram showing a Hybrid Domain Name System (DNS)." border="false" lightbox="./images/hybrid-dns-infra.svg" :::
 
 *Download a [Visio file][architectual-diagram-visio-source] of this architecture.*
 
@@ -138,6 +138,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 - If you require the use of DNSSEC, consider that Azure DNS currently does **not** support it.
 - For DNSSEC validation, deploy a custom DNS server and enable DNSEC validation.
+- [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 
 ### DevOps
 
@@ -149,7 +150,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure DNS zone costs are based on the number of DNS zones hosted in Azure and the number of received DNS queries.
-- Use the [Azure pricing calculator][17] to estimate costs. Pricing models for Azure DNS is explained here.
+- Use the [Azure pricing calculator][17] to estimate costs. Pricing models for Azure DNS is explained [here](https://azure.microsoft.com/pricing/details/dns/).
 - The billing model for [Azure ExpressRoute][18] is based either on metered data, which charges you per gigabyte for outbound data transfer, or unlimited data, which charges a monthly fee including all data transfer.
 - If you're using VPN, instead of ExpressRoute, the cost is dependent on the SKU of the [virtual network gateway][19] and is charged per hour.
 
@@ -172,7 +173,6 @@ Explore related architectures:
 - [Multitenant SaaS on Azure](../example-scenario/multi-saas/multitenant-saas.yml)
 - [Extend an on-premises network using ExpressRoute](../reference-architectures/hybrid-networking/expressroute.yml)
 
-[architectual-diagram]: ./images/hybrid-dns-infra.png
 [architectual-diagram-visio-source]: https://arch-center.azureedge.net/hybrid-dns-infra.vsdx
 [1]: /azure/expressroute/expressroute-introduction
 [2]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal

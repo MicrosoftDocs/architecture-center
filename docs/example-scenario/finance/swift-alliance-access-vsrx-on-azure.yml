@@ -1,10 +1,10 @@
 ### YamlMime:Architecture
 metadata:
-  title: SWIFT's Alliance Access with Alliance Connect Virtual in Azure
+  title: SWIFT Alliance Access with Alliance Connect Virtual on Azure
   description: Deploy and run SWIFT Alliance Access with Alliance Connect Virtual on Azure.
   author: Mahesh-MSFT
   ms.author: maksh
-  ms.date: 06/09/2022
+  ms.date: 03/23/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -13,7 +13,7 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-name: SWIFT's Alliance Access with Alliance Connect Virtual in Azure
+name: SWIFT Alliance Access with Alliance Connect Virtual on Azure
 azureCategories:
   - integration
   - migration
@@ -24,6 +24,6 @@ products:
   - azure-managed-disks
   - azure-load-balancer
   - azure-firewall
-thumbnailUrl: /azure/architecture/browse/thumbs/swift-alliance-access-multi-region-thumbnail.png
+thumbnailUrl: /azure/architecture/browse/thumbs/alliance-access-with-alliance-connect-virtual.png
 content: |
    [!include[](swift-alliance-access-vsrx-on-azure-content.md)]

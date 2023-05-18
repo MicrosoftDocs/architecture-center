@@ -76,7 +76,7 @@ Analytics is a broad category and covers a range of solutions. The following res
 The vast majority of organizations need a hybrid approach to analytics because their data is hosted both on-premises and in the cloud. Organizations often
 [extend on-premises data solutions to the cloud](../../data-guide/scenarios/hybrid-on-premises-and-cloud.md). To connect environments, organizations must [choose a hybrid network architecture](../../reference-architectures/hybrid-networking/index.yml).
 
-A hybrid approach might include mainframe and midrange systems as a data source for Azure solutions. For example, your organization may want to [modernize mainframe and midrange data](../../reference-architectures/migration/modernize-mainframe-data-to-azure.yml) or provide [mainframe access to Azure databases](./mainframe-access-azure-databases.yml).
+A hybrid approach might include mainframe and midrange systems as a data source for Azure solutions. For example, your organization may want to [modernize mainframe and midrange data](/azure/architecture/example-scenario/mainframe/modernize-mainframe-data-to-azure) or provide [mainframe access to Azure databases](./mainframe-access-azure-databases.yml).
 
 ### Example solutions
 

@@ -103,8 +103,8 @@ For general guidance on designing highly secure SQL solutions, see [Azure securi
 Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 - Azure provides cost optimization by running on Windows VMs. You can turn off the VMs when they're not being used and script a schedule for known usage patterns. Azure helps you avoid unnecessary costs by identifying the right number of resource types, analyzing spending over time, and scaling to meet business needs without overspending.  
-- SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality. 
-- Azure Reserved Virtual Machine Instances with pay-as-you-go prices helps you manage costs across predictable and variable workloads. In many cases, you can further reduce costs by implementing reserved-instance size flexibility.
+- SQL Managed Instance provides various pricing tiers, like general purpose and business critical, to optimize costs based on usage and business criticality.
+- Use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices.
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate the cost of implementing this solution.
 
@@ -124,8 +124,7 @@ Other contributor:
 
 ## Next steps 
 
-- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide/UserGuide.html#_imsql_user_guide)
-- [IMSql installation guide](https://www.raincode.com/docs/IMSql/InstallationGuide/InstallationUserGuide.html#Installation-of-IMSql)
+- [IMSql user guide](https://www.raincode.com/docs/IMSql/UserGuide.html#_imsql_user_guide)
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
 For more information, contact [legacy2azure@microsoft.com](mailto:legacy2azure@microsoft.com).

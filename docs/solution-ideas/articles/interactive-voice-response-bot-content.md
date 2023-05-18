@@ -36,7 +36,7 @@ This solution idea shows how to architect an interactive voice response (IVR) ap
 
 ## Scenario details
 
-This solution idea shows how to architect an IVR application with a bot and custom machine-learning intelligence. For more details about this solution, including source code and data customization, fork or explore the [Call-Center Solution project](https://github.com/ujjwalmsft/cortana-intelligence-call-center-solution) on GitHub.
+This solution idea shows how to architect an IVR application with a bot and custom machine-learning intelligence. 
 
 Automated customer interaction is essential to a business of any size. In fact, [61 percent](https://www.talkdesk.com/blog/10-customer-services-statistics-for-call-center-supervisors) of consumers prefer to communicate via speech, and most of them prefer self-service. Because customer satisfaction is a priority for all businesses, self-service is a critical facet of any customer-facing communications strategy.
 

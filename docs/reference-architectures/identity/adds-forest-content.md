@@ -2,9 +2,9 @@
 
 This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest.
 
-![Secure hybrid network architecture with separate Active Directory domains](./images/adds-forest.png)
+[ ![Diagram that shows secure hybrid network architecture with separate Active Directory domains.](./images/adds-forest.svg)](./images/adds-forest.svg#lightbox)
 
-*Download a [Visio file][visio-download] of this architecture.*
+Download a [Visio file][visio-download] for "AD DS Forest" architecture.
 
 Active Directory Domain Services (AD DS) stores identity information in a hierarchical structure. The top node in the hierarchical structure is known as a forest. A forest contains domains, and domains contain other types of objects. This reference architecture creates an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that does not exist on-premises. Because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain.
 
@@ -65,7 +65,7 @@ For Active Directory-specific security considerations, see the security consider
 
 ## DevOps considerations
 
-For DevOps considerations, see [DevOps: Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#devops-considerations).
+For DevOps considerations, see Operational excellence in [Extending Active Directory Domain Services (AD DS) to Azure](adds-extend-domain.yml#operational-excellence).
 
 ## Cost considerations
 
