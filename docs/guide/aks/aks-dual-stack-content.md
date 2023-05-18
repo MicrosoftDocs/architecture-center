@@ -2,7 +2,7 @@ This example baseline infrastructure deploys an Azure Kubernetes Service (AKS) c
 
 ## Architecture
 
-:::image type="content" source="images/dual-stack-inline.png" alt-text="Diagram shows a dual-stack configuration with IPv4 and IPv6 traffic." lightbox="images/dual-stack-expanded.png" border="false":::
+:::image type="content" source="media/dual-stack-inline.png" alt-text="Diagram shows a dual-stack configuration with IPv4 and IPv6 traffic." lightbox="images/dual-stack-expanded.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-dual-stack.vsdx) of this architecture.*
 
@@ -170,4 +170,4 @@ Other contributor:
 - [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced microservices on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
 - [AKS baseline for multi-region cluster](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
-- [Build and deploy apps on AKS](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
+- [Build and deploy apps on AKS](../aks/aks-cicd-github-actions-and-gitops.yml)

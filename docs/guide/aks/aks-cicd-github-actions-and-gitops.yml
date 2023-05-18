@@ -6,9 +6,9 @@ metadata:
   author: iainfoulds
   ms.author: architectures
   ms.date: 10/03/2022
-  ms.topic: example-scenario
+  ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: example-scenario
+  ms.subservice: azure-guide
   ms.category:
     - containers
     - devops

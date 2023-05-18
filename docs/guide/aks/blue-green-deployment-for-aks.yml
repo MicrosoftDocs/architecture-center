@@ -8,6 +8,7 @@ metadata:
   ms.date: 02/01/2023
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: azure-guide
 azureCategories:
   - containers
   - devops

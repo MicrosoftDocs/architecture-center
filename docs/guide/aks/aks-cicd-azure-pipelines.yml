@@ -6,9 +6,9 @@ metadata:
   author: robbagby
   ms.author: robbag
   ms.date: 05/18/2024
-  ms.topic: guide
+  ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: guide
+  ms.subservice: azure-guide
   ms.category:
     - containers
     - devops

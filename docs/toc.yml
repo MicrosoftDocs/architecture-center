@@ -3833,7 +3833,7 @@ items:
           - name: AKS data protection on Azure NetApp Files
             href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
           - name: AKS dual-stack network traffic
-            href: example-scenario/aks-dualstack/aks-dual-stack.yml
+            href: guide/aks/aks-dual-stack.yml
     - name: PaaS container hosting
       items:
       - name: Architectures

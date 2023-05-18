@@ -2771,6 +2771,11 @@
       "source_path": "docs/example-scenario/apps/devops-with-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/aks-dualstack/aks-dual-stack.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-dual-stack",
+      "redirect_document_id": false
     }
   ]
 }
