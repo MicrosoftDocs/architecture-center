@@ -76,7 +76,7 @@ The graph database is the database that stores the graph models. As noted earlie
 
 ### SQL Database
 
-In this architecture, [SQL database](https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview) is used to store the contextualized data, but you can use any storage option. To ensure idempotent processing, the data is merged into the system rather than appended.
+In this architecture, [SQL database](/azure/azure-sql/database/sql-database-paas-overview) is used to store the contextualized data, but you can use any storage option. To ensure idempotent processing, the data is merged into the system rather than appended.
 
 ### Contoso scenario
 
@@ -279,8 +279,8 @@ Other contributor:
 
 * [What is Azure Cosmos DB for Apache Gremlin?](/azure/cosmos-db/gremlin/introduction)
 * [The Leading Graph Data Platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
-* [Graph processing with SQL Server and Azure SQL Database](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
-* [Use Delta Lake change data feed on Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) 
+* [Graph processing with SQL Server and Azure SQL Database](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
+* [Use Delta Lake change data feed on Azure Databricks](/azure/databricks/delta/delta-change-data-feed) 
 * [How to Simplify CDC With Delta Lake's Change Data Feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
 * [PostgreSQL Graph Search Practices - 10 Billion-Scale Graph with Millisecond Response](https://www.alibabacloud.com/blog/postgresql-graph-search-practices---10-billion-scale-graph-with-millisecond-response_595039)
 
