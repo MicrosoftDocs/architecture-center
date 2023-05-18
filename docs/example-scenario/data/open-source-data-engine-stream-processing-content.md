@@ -2,7 +2,7 @@ This article presents an example of a streaming solution that uses fully managed
 
 ## Architecture
 
-:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false":::
+:::image type="content" source="./media/open-source-data-engine-stream-processing-architecture.svg" alt-text="Architecture diagram showing how streaming data flows through a system. Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components make up the system." border="false" lightbox="./media/open-source-data-engine-stream-processing-architecture.svg":::
 
 Download a [Visio file][Visio version of architecture diagram] of this architecture.
 
