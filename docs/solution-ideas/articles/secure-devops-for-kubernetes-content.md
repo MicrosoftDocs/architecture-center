@@ -55,4 +55,4 @@ See the related architectures:
 
 - [Azure Kubernetes Service solution journey](../../reference-architectures/containers/aks-start-here.md)
 - [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)
-- [Microservices with AKS](./microservices-with-aks.yml)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)

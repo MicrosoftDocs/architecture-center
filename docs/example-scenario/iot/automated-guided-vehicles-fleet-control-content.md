@@ -204,7 +204,7 @@ Azure Architecture Center overview articles:
 - [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
 - [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
-- [Microservices with Azure Kubernetes Service (AKS)](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 
 Related architectures:
 

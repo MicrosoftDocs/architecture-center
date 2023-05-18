@@ -84,7 +84,7 @@ Principal author:
 
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [Microservices with AKS and Azure DevOps](../../solution-ideas/articles/microservices-with-aks.yml)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Use API gateways in microservices](gateway.yml)
 - [Monitor a microservices architecture in AKS](../logging-monitoring.yml)
 - [Microservices architecture on Azure Service Fabric](../../reference-architectures/microservices/service-fabric.yml)

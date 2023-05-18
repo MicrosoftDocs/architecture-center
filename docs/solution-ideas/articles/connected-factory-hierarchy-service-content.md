@@ -175,4 +175,4 @@ Principal author:
 - [Condition monitoring for Industrial IoT](condition-monitoring.yml)
 - [IoT and data analytics](../../example-scenario/data/big-data-with-iot.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [Microservices with AKS](microservices-with-aks.yml)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)

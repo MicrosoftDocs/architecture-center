@@ -2756,6 +2756,11 @@
       "source_path": "docs/reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/blue-green-deployment-for-aks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/microservices-with-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-cicd-azure-pipelines",
+      "redirect_document_id": false
     }
   ]
 }
