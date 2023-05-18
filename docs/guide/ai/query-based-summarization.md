@@ -147,15 +147,15 @@ openai.api_base = RESOURCE_ENDPOINT
 openai.api_version = "2022-12-01-preview"
 prompt_i = 'Summarize the legislative bill given the title and the text.\n\nTitle:\n'+" ".join([normalize_text(bill_title_1)])+ '\n\nText:\n'+ " ".join([normalize_text(bill_text_1)])+'\n\nSummary:\n'
 response = openai.Completion.create(
-    engine= TEXT_DAVINCI_001
-    prompt = prompt_i,
-    temperature = 0.4,
-    max_tokens = 500,
-    top_p = 1.0,
+    engine=TEXT_DAVINCI_001
+    prompt=prompt_i,
+    temperature=0.4,
+    max_tokens=500,
+    top_p=1.0,
     frequency_penalty=0.5,
-    presence_penalty = 0.5,
-    stop=['\n\n###\n\n'], #The ending token used during inference. Once it reaches this token, GPT-3 knows the completion is over.
-    best_of = 1
+    presence_penalty=0.5,
+    stop=['\n\n###\n\n'], # The ending token used during inference. Once it reaches this token, GPT-3 knows the completion is over.
+    best_of=1
     )
  = 1
 ```
@@ -254,7 +254,6 @@ This section demonstrates how to evaluate the fine-tuned model.
 url = RESOURCE_ENDPOINT + "openai/fine-tunes/<--insert fine-tune id-->?api-version=2022-12-01-preview"
 r = requests.get(url, 
     headers={
-
     "api-key": API_KEY,
     "Content-Type": "application/json"
     }
@@ -336,13 +335,13 @@ prompt_i = 'Summarize the key financial information in the report using qualitat
 
 response = openai.Completion.create(
         engine="davinci-instruct",
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = 2048-int(len(prompt_i.split())*1.5),
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=2048-int(len(prompt_i.split())*1.5),
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
     )
 print(response.choices[0].text)
 >>>
@@ -356,13 +355,13 @@ prompt_i = 'Extract most significant money related values of financial performan
 
 response = openai.Completion.create(
         engine="davinci-instruct",
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = 2048-int(len(prompt_i.split())*1.5),
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=2048-int(len(prompt_i.split())*1.5),
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
     )
 print(response.choices[0].text)
 >>>
@@ -405,30 +404,29 @@ words.\n\nText:\n'+normalize_text(r[i])+'\n\nSummary in one paragraph:'
 
     response = openai.Completion.create(
         engine=TEXT_DAVINCI_001,
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = tok_l,
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=tok_l,
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
     )
-    t = response.choices[0].text
-        t = trim_incomplete(t)
-res_lis.append(t)
+    t = trim_incomplete(response.choices[0].text)
+    res_lis.append(t)
 
 # Stage 2: Summary of summaries
 prompt_i = 'Summarize the financial performance of the business like revenue, profit, etc. in less than one hundred words. Do not make up values that are not mentioned in the Text.\n\nText:\n'+" ".join([normalize_text(res) for res in res_lis])+'\n\nSummary:\n'
 
 response = openai.Completion.create(
         engine=TEXT_DAVINCI_001,
-        prompt = prompt_i,
-        temperature = 0,
-        max_tokens = 200,
-        top_p = 1.0,
+        prompt=prompt_i,
+        temperature=0,
+        max_tokens=200,
+        top_p=1.0,
         frequency_penalty=0.5,
-        presence_penalty = 0.5,
-        best_of = 1
+        presence_penalty=0.5,
+        best_of=1
 )
 
 print(trim_incomplete(response.choices[0].text))
