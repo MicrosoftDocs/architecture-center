@@ -194,9 +194,9 @@
 						x="21.28" dy="1.2em" class="st13">virtual machine</tspan></text>		</g>
 		<g id="shape1158-59" transform="translate(542.25,-408.15)">
 			<title>Sheet.1158</title>
-			<desc>SQLServer AlwaysOn</desc>
+			<desc>SQL Server Always On</desc>
 			<rect x="0" y="556.06" width="78.4009" height="37.94" class="st11"/>
-			<text x="14.41" y="571.73" class="st12">SQLServer <tspan x="15.29" dy="1.2em" class="st13">AlwaysOn</tspan></text>		</g>
+			<text x="12.9" y="571.73" class="st12">SQL Server <tspan x="13.79" dy="1.2em" class="st13">Always On</tspan></text>		</g>
 		<g id="group1160-63" transform="translate(664.848,-282.15)">
 			<title>Icon-compute-32.1160</title>
 			<g id="shape1161-64" transform="translate(0,-3.76995)">
@@ -526,9 +526,9 @@
 		</g>
 		<g id="shape1242-257" transform="translate(445.355,-169.548)">
 			<title>Sheet.1242</title>
-			<desc>SQLServer AlwaysOn</desc>
+			<desc>SQL Server Always On</desc>
 			<rect x="0" y="556.06" width="78.4009" height="37.94" class="st11"/>
-			<text x="14.41" y="571.73" class="st12">SQLServer <tspan x="15.29" dy="1.2em" class="st13">AlwaysOn</tspan></text>		</g>
+			<text x="12.9" y="571.73" class="st12">SQL Server <tspan x="13.79" dy="1.2em" class="st13">Always On</tspan></text>		</g>
 		<g id="shape1041-261" transform="translate(521.419,-97.5237)">
 			<title>Directed line 1.1000</title>
 			<path d="M0 594 L63.96 594" class="st26"/>
@@ -667,7 +667,7 @@
 			<title>Directed line 1.1244</title>
 			<path d="M0 594 L38.03 594" class="st19"/>
 		</g>
-		<g id="shape1245-341" transform="translate(511.548,-177.677)">
+		<g id="shape1245-341" transform="translate(520.364,-176.727)">
 			<title>Number.1245</title>
 			<desc>7</desc>
 			<ellipse cx="11.52" cy="582.48" rx="11.52" ry="11.52" class="st9"/>
