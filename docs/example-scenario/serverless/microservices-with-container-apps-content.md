@@ -1,8 +1,10 @@
-This example scenario shows an example of how an existing workload, decomposed into five microservices, and originally designed to run on Kubernetes can instead run in Azure Container Apps. Azure Container Apps is well-suited for brownfield workloads where teams are looking to simplify complex infrastructure and container orchestration.
+This example scenario shows an example of an existing workload that was originally designed to run on Kubernetes can instead run in Azure Container Apps. Azure Container Apps is well-suited for brownfield workloads where teams are looking to simplify complex infrastructure and container orchestration. The example workload runs a containerized microservices application.
 
-The example takes the same workload used in [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) and rehosts it in Azure Container Apps as its application platform.
+The example takes the workload used in [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) and rehosts it in Azure Container Apps as its application platform.
 
-![GitHub logo](../../_images/github.png) You can find a code sample in the [Azure Container Apps example scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository.
+> [!TIP]
+>
+> ![GitHub logo](../../_images/github.png) The architecture is backed by an [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) that illustrates some of design choices described in this article. 
 
 ## Architecture
 
@@ -65,7 +67,7 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
-**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs at the application level. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures. This scenario uses a Log Analytics workspace for comprehensive monitoring of the infrastructure and application.
+**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs from the application. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures. This scenario uses a Log Analytics workspace for comprehensive monitoring of the infrastructure and application.
 
 **[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
@@ -79,20 +81,19 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
-Fabrikam, Inc. (a fictional company) has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. The application is composed of five containerized microservices and was [originally deployed to Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml).
+Fabrikam, Inc. (a fictional company) has implemented a drone delivery application where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. 
 
-Because the Fabrikam team wasn't making use of many of advanced or platform-specific AKS features, they were able to migrate their application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam took advantage of:
+The microservices application was deployed to an Azure Kubernetes Service (AKS) cluster. But, the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They eventually migrated the application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam was able to:
 
-- Migrating the application nearly as-is: Very minimal code changes were required when moving their application from AKS to Azure Container Apps.
-- Deploying both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
-- Exposing apps through managed ingress: Built-in support for external, https-based ingress to expose the Ingestion Service removed the need for configuring their own ingress.
-- Pulling container images from ACR: Azure Container Apps doesn't require a specific base image or registry.
-- Managing application lifecycle: The revision feature supports running multiple revisions of a particular container app and traffic-splitting across them for A/B testing or Blue/Green deployment scenarios.
-- Using managed identity: The Fabrikam team was able to use a managed identity to authenticate with Azure Key Vault and Azure Container Registry.
+- Migrate the application nearly as-is: Very minimal code changes were required when moving their application from AKS to Azure Container Apps.
+- Deploy both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
+- Expose the application through managed ingress: Built-in support for external, https-based ingress to expose the Ingestion Service removed the need for configuring their own ingress.
+- Pull container images from ACR: Azure Container Apps doesn't require a specific base image or registry.
+- Manage application lifecycle: The revision feature supports running multiple revisions of a particular container app and traffic-splitting across them for A/B testing or Blue/Green deployment scenarios.
+- Use managed identity: The Fabrikam team was able to use a managed identity to authenticate with Azure Key Vault and Azure Container Registry.
 
 ### Potential use cases
 
-In this example solution, the use cases are:
 
 - Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
 - Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
@@ -158,7 +159,7 @@ Security provides assurances against deliberate attacks and the abuse of your va
 
 #### Secrets
 
-- Your Container Apps can store and retrieve sensitive values as secrets. Once a secret is defined for a Container App, it's available for use by the application and any associated scale rules. If you're running in multi-revision mode, all revisions will share the same secrets. Because secrets are considered an application-scope change, if you change the value of a secret, no new revision is created. However, for any running revisions to load the new secret value, you'll need to restart them. In this scenario, application and environment variable values are used.
+- Your container app can store and retrieve sensitive values as secrets. After a secret is defined for the container app, it's available for use by the application and any associated scale rules. If you're running in multi-revision mode, all revisions will share the same secrets. Because secrets are considered an application-scope change, if you change the value of a secret, a new revision isn't created. However, for any running revisions to load the new secret value, you'll need to restart them. In this scenario, application and environment variable values are used.
 - Environment variables: sensitive values can be securely stored at the application level.  When environment variables are changed, the container app will spawn a new revision.
 
 #### Network security
@@ -170,8 +171,8 @@ For more network topology options, see [Networking architecture in Azure Contain
 
 #### Workload identities
 
-- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to easily authenticate other Azure AD-protected resources, such as Azure Key Vault, without managing credentials in your container app. A container app can use system-assigned, user-assigned, or both types of managed identities. For services that don't support AD authentication, you should store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets.
-- Use managed identities for Azure Container Registry access. Azure Container Apps supports using a different managed identity for the workload itself than container registry access, which is recommended when looking to achieve granular access controls on your managed identities.
+- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to authenticate itself to other Azure AD-protected resources, such as Azure Key Vault, without managing credentials in your container app. A container app can use system-assigned, user-assigned, or both types of managed identities. For services that don't support AD authentication, you should store secrets in Azure Key Vault and use a managed identity to access the secrets.
+- Use managed identities for Azure Container Registry access. Azure Container Apps supports using a different managed identity for the workload than container registry access, which is recommended when looking to achieve granular access controls on your managed identities.
 
 ### Cost optimization
 
@@ -181,7 +182,7 @@ For more network topology options, see [Networking architecture in Azure Contain
  -->
 - Azure Container Apps has consumption based pricing model.
 - Azure Container Apps supports scale to zero.  When a container app is scaled to zero, there's no charge.
-- In this scenario, the Azure Cosmos DB and Azure Cache for Redis services generate most of the costs.
+- In this scenario, Azure Cosmos DB and Azure Cache for Redis are the main cost drivers.
 
 ## Deploy this scenario
 
