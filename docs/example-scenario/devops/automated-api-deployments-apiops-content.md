@@ -8,7 +8,7 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 
 ### Workflow
 
-1. API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
+1. API operators run [the extractor pipeline](https://azure.github.io/apiops/apiops/3-apimTools/apiops-2-1-tools-extractor.html) to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
 2. If an API change is detected in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
 
