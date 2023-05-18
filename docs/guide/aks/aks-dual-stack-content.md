@@ -2,7 +2,7 @@ This example baseline infrastructure deploys an Azure Kubernetes Service (AKS) c
 
 ## Architecture
 
-:::image type="content" source="media/dual-stack-inline.png" alt-text="Diagram shows a dual-stack configuration with IPv4 and IPv6 traffic." lightbox="images/dual-stack-expanded.png" border="false":::
+:::image type="content" source="media/dual-stack-inline.png" alt-text="Diagram shows a dual-stack configuration with IPv4 and IPv6 traffic." lightbox="media/dual-stack-expanded.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/aks-dual-stack.vsdx) of this architecture.*
 
