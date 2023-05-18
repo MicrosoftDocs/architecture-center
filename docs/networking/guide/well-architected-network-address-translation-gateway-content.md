@@ -52,8 +52,7 @@ Availability zone isolation cannot be provided, unless each subnet only has reso
 
 ![Diagram that demonstrates the directional flow of a zonal stack.](./images/az-directions.png)
 
-The diagram is simple for readability, but note that [virtual networks and subnets span all availability zones in a region. You don't need to divide them by availability zones to accommodate zonal resources](
-https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview#virtual-networks-and-availability-zone)
+Virtual networks and subnets [span all availability zones in a region](/azure/virtual-network/virtual-networks-overview#virtual-networks-and-availability-zone). You don't need to divide them by availability zones to accommodate zonal resources.
 
 ## Security
 
