@@ -108,7 +108,7 @@ If you're seeking additional references that use AKS as their foundation, here a
 * [Microservices architecture on AKS](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 * [Secure DevOps for AKS](../../solution-ideas/articles/secure-devops-for-kubernetes.yml)
 * [Building a telehealth system](../../example-scenario/apps/telehealth-system.yml)
-* [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+* [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 
 ### Azure Arc-enabled Kubernetes
 

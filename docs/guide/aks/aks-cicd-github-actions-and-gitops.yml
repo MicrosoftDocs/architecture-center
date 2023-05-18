@@ -1,6 +1,6 @@
 ### YamlMime:Architecture
 metadata:
-  title: Build and deploy apps on AKS using DevOps and GitOps
+  title: CI/CD for AKS apps with GitHub Actions and GitFlow
   titleSuffix: Azure Example Scenarios
   description: Learn how to build and deploy container applications using Azure Kubernetes Service, DevOps, and GitOps.
   author: iainfoulds
@@ -20,7 +20,7 @@ metadata:
     - example-scenario
     - e2e-aks
   social_image_url: /azure/architecture/example-scenario/apps/media/ci-cd-gitops-github-actions-aks-pull.png
-name: Build and deploy apps on AKS using DevOps and GitOps
+name: CI/CD for AKS apps with GitHub Actions and GitFlow
 azureCategories:
   - containers
   - devops
@@ -35,4 +35,4 @@ products:
 
 thumbnailUrl: /azure/architecture/browse/thumbs/ci-cd-gitops-github-actions-aks-thumb.png
 content: |
-   [!include[](devops-with-aks-content.md)]
+   [!include[](aks-cicd-github-actions-and-gitops-content.md)]

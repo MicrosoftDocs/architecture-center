@@ -11,7 +11,7 @@ The following options explore push-based and pull-based CI/CD approaches.
 
 ### Option 1: Push-based CI/CD
 
-![Diagram of the push-based architecture with GitHub Actions.](./media/ci-cd-gitops-github-actions-aks-push.png)
+![Diagram of the push-based architecture with GitHub Actions.](media/ci-cd-gitops-github-actions-aks-push.png)
 
 *Push-based architecture with GitHub Actions for CI and CD.*
 
@@ -28,7 +28,7 @@ This scenario covers a push-based DevOps pipeline for a two-tier web application
 
 ### Option 2: Pull-based CI/CD (GitOps)
 
-![Diagram of the pull-based architecture with GitHub Actions and Argo CD.](./media/ci-cd-gitops-github-actions-aks-pull.png)
+![Diagram of the pull-based architecture with GitHub Actions and Argo CD.](media/ci-cd-gitops-github-actions-aks-pull.png)
 
 *Pull-based architecture with GitHub Actions for CI and Argo CD for CD.*
 

@@ -121,7 +121,7 @@ Related solution ideas:
 
 Related full architectures:
 
-- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [Mass ingestion and analysis of news feeds on Azure](../../example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis.yml)
 - [Scalable order processing](../../example-scenario/data/ecommerce-order-processing.yml)
 

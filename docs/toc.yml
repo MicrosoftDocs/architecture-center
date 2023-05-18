@@ -3782,12 +3782,12 @@ items:
             href: guide/aks/aks-high-availability.yml
           - name: Blue-green deployment of AKS clusters
             href: guide/aks/blue-green-deployment-for-aks.yml
-          - name: Build and deploy apps on AKS
-            href: example-scenario/apps/devops-with-aks.yml
-          - name: GitOps for AKS
-            href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
           - name: CI/CD for AKS apps (Azure Pipelines)
             href: guide/aks/aks-cicd-azure-pipelines.yml
+          - name: CI/CD for AKS apps (GitHub Actions and GitOps)
+            href: guide/aks/aks-cicd-github-actions-and-gitops.yml
+          - name: GitOps for AKS
+            href: example-scenario/gitops-aks/gitops-blueprint-aks.yml
           - name: Migrate an app from Service Fabric to AKS
             href: guide/aks/migrate-app-service-fabric-azure-kubernetes-service.md
         - name: Infrastructure
