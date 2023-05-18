@@ -9,7 +9,7 @@ In this scenario, your organization expects the workload to use federated resour
 >
 > The workload is deployed in an _Azure application landing zone_ subscription provisioned by the organization. As the workload owner, you own the resources in this subscription. 
 >
-> The workload depends on _Azure platform landing zones_ subscriptions for shared resources. The platform teams own these resources. However, you are accountable for driving requirements with those team so that workload can function as expected. This guidance annotates those requirements as **Platform team**.
+> The workload depends on _Azure platform landing zones_ subscriptions for shared resources. The platform teams own these resources. However, you are accountable for driving requirements with those team so that your workload can function as expected. This guidance annotates those requirements as **Platform team**.
 > 
 > We highly recommend that you understand the concept of [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/).
 
@@ -157,9 +157,7 @@ The minimum size of each subnet is /28. The actual size depends on the number of
 
 Inbound traffic to the spoke virtual network from the internet is restricted by Azure Application Gateway with Web Application Firewall (WAF). WAF rules allow or deny  HTTP/s connections. 
 
-Traffic within the network is controlled by using Network security groups (NSGs) on subnets. NSGs filter traffic as per the configured IP addresses and ports. In this design, NSGs are placed on all the subnets.
-
-//TODO: Validate NSG configuration against the codebase
+Traffic within the network is controlled by using Network security groups (NSGs) on subnets. NSGs filter traffic as per the configured IP addresses and ports. In this design, NSGs are placed on all the subnets. For example, the Bastion subnet allows HTTPS traffic from the internet, gateway services, load balancers, and the virtual network. Only  RDP and SSH communication to the virtual networks is allowed from the subnet.								
 
 Private links are used to control public connectivity between Spring Apps and other Azure services, such as access to the Azure Key Vault and the database. The private endpoints are placed in a separate subnet. 
 
