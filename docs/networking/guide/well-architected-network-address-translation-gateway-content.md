@@ -52,6 +52,8 @@ Availability zone isolation cannot be provided, unless each subnet only has reso
 
 ![Diagram that demonstrates the directional flow of a zonal stack.](./images/az-directions.png)
 
+Virtual networks and subnets [span all availability zones in a region](/azure/virtual-network/virtual-networks-overview#virtual-networks-and-availability-zone). You don't need to divide them by availability zones to accommodate zonal resources.
+
 ## Security
 
 With NAT gateway, individual virtual machines (or other compute resources) don't need public IP addresses and can remain fully private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be configured based on this predictable IP list.

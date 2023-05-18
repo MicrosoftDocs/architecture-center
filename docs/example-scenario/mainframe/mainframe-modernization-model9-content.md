@@ -14,7 +14,7 @@ Model9 Gravity transforms mainframe data that's transferred to Azure Blob Storag
 
 ### Workflow
 
-1.	The Model9 agent acts as an interface for data migration between z/OS and Azure. 
+1.	The Model9 agent is a z/OS started task that sends mainframe data directly to Azure Blob Storage. 
 2.	The Model9 agent sends the data, which is encrypted, to Azure Blob Storage over TCP/IP.
 3.	 Model9 management server manages Model9 policies, activities, and storage.
 4.	Model9 Gravity transforms mainframe data in Azure Blob Storage into open formats that can be used by Azure services.
