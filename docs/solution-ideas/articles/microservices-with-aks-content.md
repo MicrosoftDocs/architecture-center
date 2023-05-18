@@ -30,7 +30,7 @@ Architecture diagram of an Azure pipeline. The diagram shows the following steps
 - [Container Insights](/azure/azure-monitor/containers/container-insights-overview) collects logs and metrics and logs and forwards them to Azure Monitor.
 - [Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed, private container registry service on Azure. Use Container Registry to store private container images.
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/container-registry) is a managed Kubernetes service where Azure handles critical tasks, like health monitoring and maintenance.
-- [Defender for DevOps](azure/defender-for-cloud/azure-devops-extension) consider using Microsoft Defender for DevOps in Azure DevOps to perform static analysis and gain visibility of security postures across multiple pipelines in AKS development and deployment. 
+- [Defender for DevOps](azure/defender-for-cloud/azure-devops-extension) performs static analysis and helps you gain visibility of security postures across multiple pipelines in AKS development and deployment.
 
 ## Next steps
 
