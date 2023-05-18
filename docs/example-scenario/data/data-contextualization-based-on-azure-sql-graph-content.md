@@ -201,7 +201,7 @@ CREATE TABLE table_commit_version
 
 Every time you load new data in `tbl_alarm`, you need to complete these steps:
 
-1. Get the `last_commit_version` in `table_commit_version` for `table tbl_alarm`.
+1. Get the `last_commit_version` in `table_commit_version` for table `tbl_alarm`.
 1. Query and load the data added since `last_commit_version`.
 1. Get the highest commit version number of the `tbl_alarm` table.
 1. Update `last_commit_version` in the `table_commit_version` table for the next query.
