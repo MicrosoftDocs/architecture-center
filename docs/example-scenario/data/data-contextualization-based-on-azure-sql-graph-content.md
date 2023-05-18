@@ -23,9 +23,9 @@ The following dataflow corresponds to the preceding diagram:
 
 ### Components
 
-* [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores input data and contextualized data in Delta tables.
-* [Azure Databricks](https://azure.microsoft.com/products/databricks) is the platform on which Python notebook files are used to contextualize data.
-* [SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores a graph database and contextualized data.
+* [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) is a scalable data lake for high-performance analytics workloads. In this solution, it stores input data and contextualized data in Delta tables.
+* [Azure Databricks](https://azure.microsoft.com/products/databricks) is a unified set of tools for building, deploying, sharing, and maintaining enterprise-grade data solutions at scale. In this solution, it provides the platform on which Python notebook files are used to contextualize data.
+* [SQL Database](https://azure.microsoft.com/products/azure-sql/database) is an always-up-to-date, fully managed relational database service that's built for the cloud. In this solution, it stores a graph database and contextualized data.
 
 ### Alternatives
 
@@ -37,7 +37,7 @@ Many graph databases are available. For more information, see:
 - [RedisGraph](https://redis.io/docs/stack/graph/)
 - [Apache Age for PostgreSQL](https://age.apache.org/age-manual/master/intro/overview.html)
 
-There are pros and cons associated with these products and services. Some of them are Azure managed services, and some aren't. This architecture uses SQL Database, because:
+There are pros and cons associated with each of these products and services. Some of them are Azure managed services, and some aren't. This architecture uses SQL Database, because:
 
 * It's an Azure-managed relational database service that has graph capabilities.
 * It's easy to get started if you're familiar with SQL Server or SQL Database.
@@ -66,7 +66,7 @@ For more information, see [incremental data load](#incremental-data-load-1).
 
 Data contextualization can be applied in various ways. In this architecture, contextualization is the process of performing a graph lookup and retrieving matching values.
 
-The solution assumes that a graph has already been created in a graph database. The internal complexity of the graph isn't a concern because the graph query is passed via a configuration and executed dynamically by passing input values.
+The solution assumes that a graph has already been created in a graph database. The internal complexity of the graph isn't a concern because the graph query is passed via a configuration and executed dynamically with passed input values.
 
 The solution uses Azure Databricks for the data contextualization process.
 
@@ -86,7 +86,9 @@ Gary is an operations engineer at Contoso, Ltd. One of his responsibilities is t
 
 First, Gary needs to fetch all the asset IDs that he's interested in from the company's asset system. He then looks for all the attributes that belong to the assets to use as input for the health report. For example, the operational efficiency data of the asset with ID AE0520.
 
-![Diagram that shows the Contoso data relationships.](media/contextualization-scenario.png)
+The following diagram illustrates some Contoso data relationships:
+
+![Diagram that shows Contoso data relationships.](media/contextualization-scenario.png)
 
 Contoso has many applications that help factory managers monitor processes and operations. Operational efficiency data is recorded in the quality system, another stand-alone application.
 
@@ -110,7 +112,7 @@ A graph database is a collection of nodes (or *vertices*) and edges (or *relatio
 
 #### Graph model for the scenario
 
-This is the graph model for the scenario described previously:
+This is the graph model for the Contoso scenario:
 
 * `alarm` is one of the metrics that belong to `quality system`.
 * `quality system` is associated with an `asset`.
