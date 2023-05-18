@@ -4650,7 +4650,7 @@ items:
         href: example-scenario/apps/devops-cicd-chatbot.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
-      - name: Data Contextualization Based on Azure SQL Graph
+      - name: Contextualize data by using graph in SQL Database
         href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
       - name: DevSecOps in GitHub
         href: solution-ideas/articles/devsecops-in-github.yml

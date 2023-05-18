@@ -1,6 +1,6 @@
 *Data contextualization* refers to the process of adding contextual information to raw data in order to enhance its meaning and relevance. It involves the use of additional information like metadata, annotations, and other relevant details to provide a better understanding of the data. Contextualization can help analysts understand the relationships between data points and the environment in which they were collected. For example, contextualization can provide information about the time, location, and other environmental factors that might have influenced the data. In data processing, contextualization is becoming increasingly important as datasets become larger and more complex. Without proper contextualization, it can be difficult to interpret data accurately and make informed decisions based on it.
 
-This article demonstrates how to contextualize data by looking up relevant context that's stored in a graph database in Azure SQL Database. 
+This article demonstrates how to contextualize data by looking up relevant context that's stored in a graph database in Azure SQL Database.
 
 ## Architecture
 
@@ -41,7 +41,7 @@ There are pros and cons associated with these products and services. Some of the
 
 * It's an Azure-managed relational database service that has graph capabilities.
 * It's easy to get started if you're familiar with SQL Server or SQL Database.
-* Solutions often benefit from the use of Transact-SQL in parallel.
+* Solutions often benefit from the use of Transact-SQL in parallel. SQL Database graph relationships are integrated into Transact-SQL.
 
 ## Scenario details
 
@@ -68,7 +68,7 @@ Data contextualization can be applied in various ways. In this architecture, con
 
 The solution assumes that a graph has already been created in a graph database. The internal complexity of the graph isn't a concern because the graph query is passed via a configuration and executed dynamically by passing input values.
 
-The solution uses Azure Databricks for this data contextualization process.
+The solution uses Azure Databricks for the data contextualization process.
 
 ### Graph database
 
@@ -80,7 +80,7 @@ In this architecture, [SQL database](https://learn.microsoft.com/azure/azure-sql
 
 ### Contoso scenario
 
-The solution in this article is derived from the scenario that's described in this section.
+The solution in this article is based on the scenario that's described in this section.
 
 Gary is an operations engineer at Contoso, Ltd. One of his responsibilities is to provide a weekly health report for the assets in Contoso factories within a specific city.
 
@@ -90,30 +90,30 @@ First, Gary needs to fetch all the asset IDs that he's interested in from the co
 
 Contoso has many applications that help factory managers monitor processes and operations. Operational efficiency data is recorded in the quality system, another stand-alone application.
 
-Gary signs in to the quality system and uses the asset ID AE0520 to look up the table from AE_OP_EFF. That table contains the all the key attributes for operation efficiency data.
+Gary signs in to the quality system and looks up the asset ID AE0520 in the `AE_OP_EFF` table. That table contains the all the key attributes for operational efficiency data.
 
-There are many columns in the AE_OP_EFF table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `alarm` table corresponds to the asset AE0520, because they use different naming conventions.  
+There are many columns in the `AE_OP_EFF` table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `alarm` table corresponds to the asset AE0520, because they use different naming conventions.  
  
-The relationship is actually much more complicated. Gary needs to search for more than one attribute of the asset and sign in to many tables from different systems to get all the data for a complete report. He uses queries and scripts to perform his work, but the queries are complicated and hard to maintain. Worse, the systems are growing, and the demands of the report change, so more data needs to be added to the report for different decision makers.
+The relationship is actually much more complicated. Gary needs to search for more than one attribute of the asset and sign in to many tables in different systems to get all the data for a complete report. He uses queries and scripts to perform his work, but the queries are complicated and hard to maintain. Even worse, the systems are growing, and more data needs to be added to the report for different decision makers.
 
 One of the main problems for Gary is that the IDs of a given asset in various systems are different. The systems were developed and are maintained separately, and they even use different protocols. Gary needs to manually query the various tables to get data for a single asset. The queries are complex and difficult to understand. As a result, Gary spends a lot of time training new operations engineers and explaining the relationships in the data.
 
-Gary needs a mechanism to link the various names that belong to a single asset across systems. This mechanism will make report queries simpler and make Gary's job will be easier.
+Gary needs a mechanism to link the various names that belong to a single asset across systems. This mechanism will make report queries simpler and make Gary's job easier.
 
 ### Graph design
 
-SQL Database provides graph database capabilities for modelling many-to-many relationships. The graph relationships are integrated into Transact-SQL.
+SQL Database provides graph database capabilities for modeling many-to-many relationships. The graph relationships are integrated into Transact-SQL.
 
 A graph database is a collection of nodes (or *vertices*) and edges (or *relationships*). A node represents an entity, like a person or an organization. An edge represents a relationship between the two nodes that it connects, for example, *likes* or *friends*. 
 
-![Diagram that shows the components of a graph database.](media/dc-graph-database.png)
+![Diagram that shows the components of a graph database.](media/graph-database.png)
 
 #### Graph model for the scenario
 
 This is the graph model for the scenario described previously:
 
-* Alarm is one of the metrics that belong to the quality system.
-* The quality system is associated with an asset.
+* `alarm` is one of the metrics that belong to `quality system`.
+* `quality system` is associated with an `asset`.
 
 ![Diagram that illustrates the graph design for the sample scenario.](media/graph-design.png)
 
@@ -125,7 +125,7 @@ In the graph model, the nodes and edges need to be defined. Azure SQL graph uses
 
 ![Diagram that shows the graph nodes and edges.](media/nodes-edges.png)
 
-To create these nodes and edges in SQL Database, you can use the following SQL: 
+To create these nodes and edges in SQL Database, you can use the following SQL commands: 
 
 ```SQL
 …
@@ -137,7 +137,7 @@ CREATE TABLE is_associated_with AS EDGE;
 …
 ```
 
-This SQL creates the following graph tables:
+These commands create the following graph tables:
 
 * dbo.Alarm
 * dbo.Asset
@@ -157,9 +157,9 @@ You can then use the query result to join the incoming raw data for contextualiz
 
 ## Incremental data load
 
-As the architecture diagram shows, the solution contextualizes only new incoming data, not the entire data set in the Delta table. You therefore need an incremental data loading solution.
+As the architecture diagram shows, the solution contextualizes only new incoming data, not the entire dataset in the Delta table. To meet this requirement, it uses an incremental data loading solution.
 
-In Delta Lake, [change data feed](/azure/databricks/delta/delta-change-data-feed) is a feature that simplifies the architecture for implementing change data capture. The following diagram illustrates how it works. When change data feed is enabled, the system records data changes, which include inserted rows and two rows that represent the pre-image and post-image of an updated row. If you need to, you use the pre-image and post-image infromation to evaluate the differences in the changes. There's also a delete change type that represents deleted rows. To query the change data, you can use the `table_changes` function.
+In Delta Lake, [change data feed](/azure/databricks/delta/delta-change-data-feed) is a feature that simplifies the architecture for implementing change data capture. The following diagram illustrates how it works. When change data feed is enabled, the system records data changes, which include inserted rows and two rows that represent the pre-image and post-image of an updated row. If you need to, you can use the pre-image and post-image information to evaluate the changes. There's also a delete change type that represents deleted rows. To query the change data, you can use the `table_changes` function.
 
 ![Diagram that illustrates how change data feed works.](media/change-data-feed.jpg)
 
@@ -172,14 +172,14 @@ CREATE TABLE tbl_alarm
 	TBLPROPERTIES (delta.enableChangeDataFeed = true)
 ```
 
-The following query gets the newly changed rows in the table. `2` is the commit version number.
+The following query gets the changed rows in the table. `2` is the commit version number.
 
 ```SQL
 SELECT *
 FROM table_changes('tbl_alarm', 2)
 ```
 
-If you need only newly inserted data, you can use this query:
+If you only need information about newly inserted data, you can use this query:
 
 ```SQL
 SELECT *
@@ -189,11 +189,11 @@ WHERE _change_type = 'insert'
 
 For more samples, see [Change data feed demo](https://docs.databricks.com/_extras/notebooks/source/delta/cdf-demo.html).
 
-As you can see, you can use change data feed to load data incrementally. To get the version number of the most recent commit, you can store the relevant information in another delta table.
+As you can see, you can use change data feed to load data incrementally. To get the version number of the most recent commit, you can store the relevant information in another Delta table:
 
 ```sql
 CREATE TABLE table_commit_version
-	( table_name STRING, last_commit_version LONG)
+	(table_name STRING, last_commit_version LONG)
 	USING DELTA
 ```
 
@@ -201,10 +201,10 @@ Every time you load new data in `tbl_alarm`, you need to complete these steps:
 
 1. Get the `last_commit_version` in `table_commit_version` for `table tbl_alarm`.
 1. Query and load the data added since `last_commit_version`.
-1. Get the highest commit version number of table `tbl_alarm`.
-1. Update `last_commit_version` in table `table_commit_version` for the next query.
+1. Get the highest commit version number of the `tbl_alarm` table.
+1. Update `last_commit_version` in the `table_commit_version` table for the next query.
 
-Enabling change data feed doesn't have significant effect on system performance or cost. The change data records are generated inline during the query execution process and are much smaller than the total size of the rewritten files.
+Enabling change data feed doesn't have a significant effect on system performance or cost. The change data records are generated inline during the query execution process and are much smaller than the total size of the rewritten files.
 
 ### Potential use cases
 
@@ -219,7 +219,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For this scenario, you need to consider the security of data at rest (that is, data that's stored in Data Lake Storage, SQL Database, and Azure Databricks) and data in transit between the storage solutions.
+For this scenario, you need to consider the security of data at rest (that is, data that's stored in Data Lake Storage, SQL Database, and Azure Databricks) and data that's in transit between the storage solutions.
 
 For Data Lake Storage:
 
@@ -234,11 +234,11 @@ For SQL Database:
 
 For Azure Databricks:
 
-* You should use RBAC.
-* You should enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity and enable logging to track user activity and security events.
+* Use RBAC.
+* Enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity and enable logging to track user activity and security events.
 * To protect data in transit, enable TLS for the JDBC connection to SQL Database.
 
-In your production environment, put these resources into an Azure virtual network that isolates them from the public internet to reduce the attack surface and data exfiltration.
+In your production environment, put these resources into an Azure virtual network that isolates them from the public internet to reduce the attack surface and help protect against data exfiltration.
 
 ### Cost optimization
 
