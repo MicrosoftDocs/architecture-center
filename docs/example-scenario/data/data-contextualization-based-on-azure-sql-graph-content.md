@@ -1,6 +1,6 @@
-*Data contextualization* refers to the process of adding contextual information to raw data in order to enhance its meaning and relevance. It involves the use of additional information like metadata, annotations, and other relevant details to provide a better understanding of the data. Contextualization can help analysts to better understand the relationships between data points and the environment in which they were collected. For example, contextualization can provide information on the time, location, and other environmental factors that might have influenced the data. In data processing, contextualization is becoming increasingly important as data sets become larger and more complex. Without proper contextualization, it can be difficult to interpret data accurately and make informed decisions based on it.
+*Data contextualization* refers to the process of adding contextual information to raw data in order to enhance its meaning and relevance. It involves the use of additional information like metadata, annotations, and other relevant details to provide a better understanding of the data. Contextualization can help analysts understand the relationships between data points and the environment in which they were collected. For example, contextualization can provide information about the time, location, and other environmental factors that might have influenced the data. In data processing, contextualization is becoming increasingly important as datasets become larger and more complex. Without proper contextualization, it can be difficult to interpret data accurately and make informed decisions based on it.
 
-This article demonstrates how to contextualize data by looking up the relevant context that's stored in the graph model in Azure SQL Database. 
+This article demonstrates how to contextualize data by looking up relevant context that's stored in a graph database in Azure SQL Database. 
 
 ## Architecture
 
@@ -18,14 +18,14 @@ The following dataflow corresponds to the preceding diagram:
 2. The incoming data is incrementally loaded to Azure Databricks.
 3. Contextual information is retrieved from a graph database.
 4. The incoming data is contextualized.
-5. The contextualized data is appended into the corresponding table in SQL Database.
+5. The contextualized data is merged into the corresponding table in SQL Database.
 6. Optionally, the contextualized data is appended into the corresponding Delta table in the gold layer.
 
 ### Components
 
 * [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores input data and contextualized data in Delta tables.
 * [Azure Databricks](https://azure.microsoft.com/products/databricks) is the platform on which Python notebook files are used to contextualize data.
-* [SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores graph models and contextualized data.
+* [SQL Database](https://azure.microsoft.com/products/azure-sql/database) stores a graph database and contextualized data.
 
 ### Alternatives
 
@@ -41,91 +41,91 @@ There are pros and cons associated with these products and services. Some of the
 
 * It's an Azure-managed relational database service that has graph capabilities.
 * It's easy to get started if you're familiar with SQL Server or SQL Database.
-* Solutions often benefit from the use of Transact-SQL in parallel, since the graph database is based on SQL Database.
+* Solutions often benefit from the use of Transact-SQL in parallel.
 
 ## Scenario details
 
-Here are the details about the terminologies that have been used and processes definitions:
-
 ### Data layers
 
-The solution is based on Databricks' [Medallion Architecture](https://www.databricks.com/glossary/medallion-architecture) where the data is logically organized in different layers with the goal of incrementally and progressively improving the structure and quality of data.
+This solution is based on the Databricks [medallion architecture](https://www.databricks.com/glossary/medallion-architecture). In this design pattern, data is logically organized in various layers. The goal is to incrementally and progressively improve the structure and quality of the data as it moves from one layer to the next.
 
-For simplicity, the architecture uses only two layers; silver layer representing the input data and gold layer representing the contextualized data.
+For simplicity, this architecture has only two layers: 
 
-The data in the silver layer has been stored in [Delta Lake](https://docs.databricks.com/delta/index.html) and exposed as delta tables.
+- The silver layer stores the input data.
+- The gold layer stores the contextualized data.
+
+The data in the silver layer is stored in [Delta Lake](https://docs.databricks.com/delta/index.html) and exposed as Delta tables.
 
 ### Incremental data load 
 
-The solution performs incremental data processing, thus only the data that has been modified or added since the last run is processed. It's a typical requirement for batch processing so that the data can be processed quickly and economically. 
+This solution implements incremental data processing, so only data that has been modified or added since the previous run is processed. Incremental data load is typical in batch processing because it helps keep data processing fast and economical. 
 
-For more information, see the [incremental data load](#incremental-data-load-1).
+For more information, see [incremental data load](#incremental-data-load-1).
 
 ### Data contextualization
 
-Data contextualization is quite a broad term. In context of the architecture, contextualization a process of performing a graph lookup and retrieve matching values.
+Data contextualization can be applied in various ways. In this architecture, contextualization is the process of performing a graph lookup and retrieving matching values.
 
-The solution assumes that the graph has already been created in a graph database. The internal complexity of the graph isn't a concern here as the graph query is passed via a configuration and executed dynamically by passing the input values.
+The solution assumes that a graph has already been created in a graph database. The internal complexity of the graph isn't a concern because the graph query is passed via a configuration and executed dynamically by passing input values.
 
-Also, the solution uses Azure Databricks for this data contextualization process.
+The solution uses Azure Databricks for this data contextualization process.
 
 ### Graph database
 
-The graph database is the database that holds the actual graph models. There are many options to choose for the graph database choice such as Neo4j, Redis Graph, GraphQL over Cosmos DB and so on. In this case, the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) has been used for the creation of the graph.
+The graph database is the database that stores the graph models. As noted earlier, there are many graph databases available. In this solution, the [graph capabilities of SQL Server](/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16) are used to create the graph.
 
-### Azure SQL Database
+### SQL Database
 
-[Azure SQL database](https://azure.microsoft.com/products/azure-sql/database/) has been used to store the contextualized data, but it can be any other storage option. To ensure idempotent processing, the data has been "merged" into the source system rather than been appended.
+In this architecture, [SQL database](https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview) is used to store the contextualized data, but you can use any storage option. To ensure idempotent processing, the data is merged into the system rather than appended.
 
+### Contoso scenario
 
-### Sample scenario
+The solution in this article is derived from the scenario that's described in this section.
 
-The sample solution in this article is derived from the scenario described in this section.
+Gary is an operations engineer at Contoso, Ltd. One of his responsibilities is to provide a weekly health report for the assets in Contoso factories within a specific city.
 
-Gary is an operation engineer from Contoso company and one of his responsibilities is to provide a weekly health check report for the enterprise assets from Contoso's factories within a specific city. 
+First, Gary needs to fetch all the asset IDs that he's interested in from the company's asset system. He then looks for all the attributes that belong to the assets to use as input for the health report. For example, the operational efficiency data of the asset with ID AE0520.
 
-First, Gary needs to fetch all the asset IDs that he's interested in from the company's 'asset' system. Then Gary looks for all the attributes belong to the asset as the input for the health check report, for example, the operation efficiency data of the asset with ID 'AE0520'.
+![Diagram that shows the Contoso data relationships.](media/contextualization-scenario.png)
 
-![Sample scenario](media/dc-scenario.png)
+Contoso has many applications that help factory managers monitor processes and operations. Operational efficiency data is recorded in the quality system, another stand-alone application.
 
-Contoso has many products and applications to help factory owners to monitor the processes and operations. Its operation efficiency data is recorded in their 'quality system', another stand-alone application.
+Gary signs in to the quality system and uses the asset ID AE0520 to look up the table from AE_OP_EFF. That table contains the all the key attributes for operation efficiency data.
 
-Gary logs in the 'quality system' and uses the asset ID 'AE0520' to look up the table from AE_OP_EFF. That table contains the all the key attributes for operation efficiency data.
-
-There are many columns in the AE_OP_EFF table and Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called 'alarm'. Therefore, Gary needs to record the key ID 'MA_0520' of 'alarm' table corresponding to the asset 'AE0520', as they're using different naming conventions.  
+There are many columns in the AE_OP_EFF table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `alarm` table corresponds to the asset AE0520, because they use different naming conventions.  
  
-In the reality, the relationship is much more complicated. Gary needs to search for more than one attribute of the asset and log in many tables from different systems to get all the data for a complete report. Gary uses queries and scripts to perform his work, but the queries become complicated and hard to maintain. Even worse, the systems are growing, and the demand of the report is changing, so more data needs to be added to the report for different decision makers' perspectives.
+The relationship is actually much more complicated. Gary needs to search for more than one attribute of the asset and sign in to many tables from different systems to get all the data for a complete report. He uses queries and scripts to perform his work, but the queries are complicated and hard to maintain. Worse, the systems are growing, and the demands of the report change, so more data needs to be added to the report for different decision makers.
 
-One of the major pain points for Gary is, the ID of one asset in different system are different, as these systems are developed and maintained separately and even using different protocols. Gary has to manually query the different tables to get the data for the same asset that caused the query not only complex but also difficult to understand without domain expertise. As a result, Gary spends a lot of time on coaching the newly onboarded operation engineers and explaining the relationships in the data.
+One of the main problems for Gary is that the IDs of a given asset in various systems are different. The systems were developed and are maintained separately, and they even use different protocols. Gary needs to manually query the various tables to get data for a single asset. The queries are complex and difficult to understand. As a result, Gary spends a lot of time training new operations engineers and explaining the relationships in the data.
 
-If there's a mechanism to *link* the different names that belong to the same asset across systems, the report query will be simpler, and Gary's life will be easier.
+Gary needs a mechanism to link the various names that belong to a single asset across systems. This mechanism will make report queries simpler and make Gary's job will be easier.
 
 ### Graph design
 
-Azure SQL Database offers graph database capabilities to model many-to-many relationships. The graph relationships are integrated into Transact-SQL and receive the benefits of using SQL Database as the foundational database management system.
+SQL Database provides graph database capabilities for modelling many-to-many relationships. The graph relationships are integrated into Transact-SQL.
 
-A graph database is a collection of nodes (or vertices) and edges (or relationships). A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). 
+A graph database is a collection of nodes (or *vertices*) and edges (or *relationships*). A node represents an entity, like a person or an organization. An edge represents a relationship between the two nodes that it connects, for example, *likes* or *friends*. 
 
-![Components in a graph database](media/dc-graph-database.png)
+![Diagram that shows the components of a graph database.](media/dc-graph-database.png)
 
-#### Design the graph model for the scenario
+#### Graph model for the scenario
 
-For the scenario described previously, the graph model can be described as:
+This is the graph model for the scenario described previously:
 
-* 'Alarm' is one of the metrics that belong to the 'quality system'
-* The 'quality system' is associated with an 'asset'
+* Alarm is one of the metrics that belong to the quality system.
+* The quality system is associated with an asset.
 
-![Graph design for the sample scenario](media/dc-graph-design.png)
+![Diagram that illustrates the graph design for the sample scenario.](media/graph-design.png)
 
-The data is prepared as:
+This is what the data looks like:
 
-![Dummy data used in the sample scenario](media/dc-dummy-data.png)
+:::image type="content" source="media/contextualization-data.png" alt-text="Screenshot that shows the data used in the sample scenario." lightbox="media/contextualization-data.png":::
 
-In the graph model, the nodes and edges (relationships) need to be defined. As Azure SQL graph uses Edge tables to represent relationships, in this scenario, there are two edge tables to record the relationships between 'alarm' & 'quality system' and 'quality system' & 'asset'.
+In the graph model, the nodes and edges need to be defined. Azure SQL graph uses edge tables to represent relationships. In this scenario, there are two edge tables. They record the relationships between `alarm` and `quality system` and `quality system` and `asset`.
 
-![Graph nodes and edges](media/dc-nodes-edges.png)
+![Diagram that shows the graph nodes and edges.](media/nodes-edges.png)
 
-In order to create these nodes and edges in Azure SQL Database, we can use the following SQL scripts: 
+To create these nodes and edges in SQL Database, you can use the following SQL: 
 
 ```SQL
 …
@@ -137,45 +137,49 @@ CREATE TABLE is_associated_with AS EDGE;
 …
 ```
 
-The SQL scripts created a list of 'graph tables' as:
+This SQL creates the following graph tables:
+
 * dbo.Alarm
 * dbo.Asset
 * dbo.belongs.to
 * dbo.is_associated_with
 * dbo.Quality_System
 
-To query this graph database with nodes and edges, we use the new [MATCH](https://learn.microsoft.com/en-us/sql/t-sql/queries/match-sql-graph?view=sql-server-ver16) clause to match some patterns and traverse through the graph.
+To query the graph database, you can use the [MATCH](/sql/t-sql/queries/match-sql-graph?view=sql-server-ver16) clause to match patterns and traverse the graph:
 
 ``` SQL
 SELECT [dbo].[Alarm].Alarm_Type, [dbo].[Asset].Asset_ID
 FROM [dbo].[Alarm], [dbo].[Asset], [dbo].[Quality_System], [dbo].[belongs_to], [dbo].[is_associated_with]
 WHERE MATCH (Alarm-(belongs_to)->Quality_System -(is_associated_with)-> Asset)
 ```
-Later the query result can be used to join the incoming raw data for contextualization.
 
-## Incremental Data Load
+You can then use the query result to join the incoming raw data for contextualization.
 
-As the architecture diagram shows, the system should only contextualize the new incoming data, not the whole data set in the delta table. Therefore, an incremental data loading solution is needed.
+## Incremental data load
 
-In delta lake, [Change Data Feed](/azure/databricks/delta/delta-change-data-feed) (CDF) is a feature to simplify the architecture for implementing change data capture (CDC). Once CDF is enabled, as shown in the diagram, the system records data change that includes inserted rows and two rows that represent the pre- and post-image of an updated row. So that we can evaluate the differences in the changes if needed. There's also a delete change type that is returned for deleted rows. Then to query the change data, you use the table_changes operation.
+As the architecture diagram shows, the solution contextualizes only new incoming data, not the entire data set in the Delta table. You therefore need an incremental data loading solution.
 
-![How Change Data Feed works](media/dc-cdf.jpeg)
+In Delta Lake, [change data feed](/azure/databricks/delta/delta-change-data-feed) is a feature that simplifies the architecture for implementing change data capture. The following diagram illustrates how it works. When change data feed is enabled, the system records data changes, which include inserted rows and two rows that represent the pre-image and post-image of an updated row. If you need to, you use the pre-image and post-image infromation to evaluate the differences in the changes. There's also a delete change type that represents deleted rows. To query the change data, you can use the `table_changes` function.
 
-In this solution, the change data feed feature is enabled for delta tables that store the source data, by using the following command:
+![Diagram that illustrates how change data feed works.](media/change-data-feed.jpg)
+
+In this solution, change data feed is enabled for Delta tables that store the source data. You can enable it by using this command:
+
 ```SQL
 CREATE TABLE tbl_alarm 
   (alarm_id INT, alarm_type STRING, alarm_desc STRING, valid_from TIMESTAMP, valid_till TIMESTAMP)
 	USING DELTA
 	TBLPROPERTIES (delta.enableChangeDataFeed = true)
 ```
-And running the following query can get the newly changed rows in the table (‘2’ is the commit version number):
+
+The following query gets the newly changed rows in the table. `2` is the commit version number.
 
 ```SQL
 SELECT *
 FROM table_changes('tbl_alarm', 2)
 ```
 
-If only newly inserted data is needed, we can use:
+If you need only newly inserted data, you can use this query:
 
 ```SQL
 SELECT *
@@ -183,94 +187,104 @@ FROM table_changes('tbl_alarm', 2)
 WHERE _change_type = 'insert'
 ```
 
-For more samples, please refer to [Change Data Feed demo](https://docs.databricks.com/_extras/notebooks/source/delta/cdf-demo.html).
+For more samples, see [Change data feed demo](https://docs.databricks.com/_extras/notebooks/source/delta/cdf-demo.html).
 
-As you can see, you can use CDF feature to load the data incrementally. In order to get the last commit version number, you can store the relevant information into another delta table.
+As you can see, you can use change data feed to load data incrementally. To get the version number of the most recent commit, you can store the relevant information in another delta table.
 
-```
+```sql
 CREATE TABLE table_commit_version
 	( table_name STRING, last_commit_version LONG)
 	USING DELTA
 ```
 
-Every time you load the newly added data in tbl_alarm, you need to take the following steps:
+Every time you load new data in `tbl_alarm`, you need to complete these steps:
 
-1. Get the last_commit_version in table_commit_version for table tbl_alarm
-1. Query and load the newly added data since last_commit_version
-1. Get the largest commit version number of table tbl_alarm
-1. Update last_commit_version in table table_commit_version for the next query
+1. Get the `last_commit_version` in `table_commit_version` for `table tbl_alarm`.
+1. Query and load the data added since `last_commit_version`.
+1. Get the highest commit version number of table `tbl_alarm`.
+1. Update `last_commit_version` in table `table_commit_version` for the next query.
 
-Enabling CDF won't make significant impact for the system performance and cost. The change data records are generated inline during the query execution process and are much smaller than the total size of rewritten files.
+Enabling change data feed doesn't have significant effect on system performance or cost. The change data records are generated inline during the query execution process and are much smaller than the total size of the rewritten files.
 
 ### Potential use cases
 
-* A manufacturing solution provider would like to contextualize the data and event provided by its customers continuously. Since the context information is too complicated to be represented by relational tables, graph models are used for data contextualization.
-* A process engineer in the factory needs to troubleshoot for an issue of the factory equipment. The graph model stores the all the related data, direct or indirect, of the troubleshooting equipment that can provide an overall information for root cause analysis. 
+* A manufacturing solution provider wants to continuously contextualize the data and events provided by its customers. Because the context information is too complicated to represent in relational tables, the company uses graph models for data contextualization.
+* A process engineer in a factory needs to troubleshoot a problem with factory equipment. The graph model stores all data, directly or indirectly related, from troubleshooting equipment to get information for root cause analysis. 
 
 ## Considerations
 
-These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-For this use case, we need to consider how to secure the data at rest (that is, the data stored in Azure Data Lake Storage Gen 2, Azure SQL Database and Azure Databricks) and data in transit between them.
+For this scenario, you need to consider the security of data at rest (that is, data that's stored in Data Lake Storage, SQL Database, and Azure Databricks) and data in transit between the storage solutions.
 
-For Azure Data Lake Storage Gen 2:
-* Azure Storage service-side encryption (SSE) is enabled to protect the data at rest
-* Use shared access signature (SAS) to not only provide restricted access and limited permission to the data, but also use HTTPS to protect the data in transit.
+For Data Lake Storage:
 
-For Azure SQL Database:
-* Use role-based access control (RBAC) to limit access to specific operations and resources within the database.
-* Strong password should be used for accessing Azure SQL Database. The password should be saved in Azure Key Vault.
-* TLS is enabled to secure the transit data between Azure SQL Database and Azure Databricks.
+* Azure Storage service-side encryption (SSE) is enabled to help protect data at rest.
+* You should use shared access signature (SAS) to restrict access and permissions to data. Use HTTPS to protect data in transit.
+
+For SQL Database:
+
+* Use role-based access control (RBAC) to limit access to specific operations and resources within a database.
+* Use strong passwords to access SQL Database. Save passwords in Azure Key Vault.
+* Enable TLS to secure in-transit data between SQL Database and Azure Databricks.
 
 For Azure Databricks:
-* Implement Role-Based Access Control (RBAC)
-* Enable Azure Monitor to monitor your Databricks workspace for unusual activity and enable logging to track user activity and security events.
-* In order to protect the data in transit, TLS is enabled for the JDBC connection to Azure SQL Database.
 
-In the production environment, put these resources into an Azure Virtual Network that isolates them from the public Internet to reduce the attack surface and data exfiltration.
+* You should use RBAC.
+* You should enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity and enable logging to track user activity and security events.
+* To protect data in transit, enable TLS for the JDBC connection to SQL Database.
+
+In your production environment, put these resources into an Azure virtual network that isolates them from the public internet to reduce the attack surface and data exfiltration.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
+Cost optimization is about reducing unnecessary expenses and improving operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
-In this architecture, there's more space of cost optimization for Azure SQL Database and Azure Databricks. 
+Cost optimization for SQL Database:
 
-In order to optimize the cost for using Azure SQL Database:
-* Since the solution's performance isn't this architecture's focus, this solution chooses the lowest pricing tier that meets the requirements.
-* Use serverless compute tier, billed per second based on compute cores used.
+* Because solution performance isn't a goal for this architecture, it uses the lowest pricing tier that meets requirements.
+* You should use the serverless compute tier, which is billed per second based on the number of compute cores that are used.
 
-To improve cost efficiency while utilizing Azure Databricks:
-* Choose the right instance type (all-purpose compute workload and premium tier) that meets your workload requirements while minimizing costs.
-* Use autoscaling to scale up or down the number of nodes based on the workload demand.
+Cost optimization for Azure Databricks:
+
+* Choose the instance type (All-Purpose Compute workload and Premium tier) that meets your workload requirements while minimizing costs.
+* Use autoscaling to scale the number of nodes based on workload demand.
 * Turn off clusters when they aren't in use.
 
-For more information about the cost for this scenario, see: [estimated monthly cost](https://azure.com/e/f7db655c6bcf402caee6e8528e146d7a)
+For more information about the cost of this scenario, see [this monthly cost estimate](https://azure.com/e/f7db655c6bcf402caee6e8528e146d7a).
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.* 
 
 Principal authors: 
- - [Anuj Parashar](https://www.linkedin.com/in/promisinganuj/) | Senior Data Engineer
- - [Chenshu Cai](https://www.linkedin.com/in/chenshu-cai-703481170/) | Software Engineer
- - [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673/) | Software Engineer
- - [Hong Bu](https://www.linkedin.com/in/hongbu/) | Senior Program Manager
- - [Gary Wang](https://www.linkedin.com/in/gang-gary-wang/) | Principal Software Engineer
+
+- [Hong Bu](https://www.linkedin.com/in/hongbu/) | Senior Program Manager
+- [Chenshu Cai](https://www.linkedin.com/in/chenshu-cai-703481170/) | Software Engineer
+- [Anuj Parashar](https://www.linkedin.com/in/promisinganuj/) | Senior Data Engineer
+- [Bo Wang](https://www.linkedin.com/in/bo-wang-67755673/) | Software Engineer
+- [Gary Wang](https://www.linkedin.com/in/gang-gary-wang/) | Principal Software Engineer
+
+Other contributor:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
-* [What is Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/gremlin/introduction)
+* [What is Azure Cosmos DB for Apache Gremlin?](/azure/cosmos-db/gremlin/introduction)
 * [The Leading Graph Data Platform on Microsoft Azure](https://neo4j.com/partners/microsoft/)
- 
-## Related resources
-
 * [Graph processing with SQL Server and Azure SQL Database](https://learn.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver16)
 * [Use Delta Lake change data feed on Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/delta/delta-change-data-feed) 
 * [How to Simplify CDC With Delta Lake's Change Data Feed](https://www.databricks.com/blog/2021/06/09/how-to-simplify-cdc-with-delta-lakes-change-data-feed.html)
 * [PostgreSQL Graph Search Practices - 10 Billion-Scale Graph with Millisecond Response](https://www.alibabacloud.com/blog/postgresql-graph-search-practices---10-billion-scale-graph-with-millisecond-response_595039)
+
+## Related resources
+
+- [Azure security baseline for Azure Databricks](/security/benchmark/azure/baselines/azure-databricks-security-baseline?toc=https%3A%2F%2Freview.learn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Ftoc.json&bc=https%3A%2F%2Freview.learn.microsoft.com%2Fen-us%2Fazure%2Farchitecture%2Fbread%2Ftoc.json&branch=main)
+- [Databases architecture design](/azure/architecture/data-guide/databases-architecture-design?branch=main)
