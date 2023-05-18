@@ -2761,6 +2761,11 @@
       "source_path": "docs/solution-ideas/articles/microservices-with-aks.yml",
       "redirect_url": "/azure/architecture/guide/aks/aks-cicd-azure-pipelines",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/aks-firewall/aks-firewall.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-firewall",
+      "redirect_document_id": false
     }
   ]
 }
