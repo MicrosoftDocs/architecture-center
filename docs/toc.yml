@@ -3781,7 +3781,7 @@ items:
           - name: High availability for multitier AKS apps
             href: guide/aks/aks-high-availability.yml
           - name: Blue-green deployment of AKS clusters
-            href: reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml
+            href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Build and deploy apps on AKS
             href: example-scenario/apps/devops-with-aks.yml
           - name: GitOps for AKS

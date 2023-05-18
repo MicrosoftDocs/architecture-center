@@ -1,4 +1,4 @@
-A blue-green deployment makes it possible to test a new version of an Azure Kubernetes Service (AKS) cluster while continuing to run the current version. Once the new version is validated, a routing change switches user traffic to it. Deploying in this way increases availability when making changes, including upgrades, to AKS clusters. This article describes the design and implementation of a blue-green deployment of AKS that uses Azure managed services and native Kubernetes features.
+This article provides guidance on implementing a blue-green deployment strategy to test a new version of an Azure Kubernetes Service (AKS) cluster while continuing to run the current version. Once the new version is validated, a routing change switches user traffic to it. Deploying in this way increases availability when making changes, including upgrades, to AKS clusters. This article describes the design and implementation of a blue-green deployment of AKS that uses Azure managed services and native Kubernetes features.
 
 ## Architecture
 
@@ -11,7 +11,7 @@ There's also a hybrid case, not discussed here, in which there's a mix of public
 
 The following diagram shows the architecture for the public-facing case:
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-public-architecture.png" lightbox="images/blue-green-aks-deployment-diagram-public-architecture.png" alt-text="Diagram of the public-facing architecture.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-public-architecture.png" lightbox="media/blue-green-aks-deployment-diagram-public-architecture.png" alt-text="Diagram of the public-facing architecture.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996186-blue-green-deployment-for-aks.vsdx) of this architecture.*
 
@@ -21,7 +21,7 @@ Azure Application Gateway provides the front ends, which are dedicated to the pu
 
 This diagram is for the private-facing case:
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-private-architecture.png" lightbox="images/blue-green-aks-deployment-diagram-private-architecture.png" alt-text="Diagram of the private-facing architecture.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-private-architecture.png" lightbox="media/blue-green-aks-deployment-diagram-private-architecture.png" alt-text="Diagram of the private-facing architecture.":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1996186-blue-green-deployment-for-aks.vsdx) of this architecture.*
 
@@ -69,7 +69,7 @@ You can provide network discoverability for the clusters in the following ways:
 
 The initial stage, T0, is that the blue cluster is live. This stage prepares the new version of the cluster for deployment.
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-blue-cluster-on.png" lightbox="images/blue-green-aks-deployment-diagram-blue-cluster-on.png" alt-text="Diagram of the T0 stage: the blue cluster is on.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-blue-cluster-on.png" lightbox="media/blue-green-aks-deployment-diagram-blue-cluster-on.png" alt-text="Diagram of the T0 stage: the blue cluster is on.":::
 
 The trigger condition for the T1 stage is the release of a new version of the cluster, the green cluster.
 
@@ -77,17 +77,17 @@ The trigger condition for the T1 stage is the release of a new version of the cl
 
 This stage begins the deployment of the new green cluster. The blue cluster remains on, and the live traffic is still routed to it.
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-green-cluster-deployment.png" lightbox="images/blue-green-aks-deployment-diagram-green-cluster-deployment.png" alt-text="Diagram of the T1 stage: green cluster deployment.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-green-cluster-deployment.png" lightbox="media/blue-green-aks-deployment-diagram-green-cluster-deployment.png" alt-text="Diagram of the T1 stage: green cluster deployment.":::
 
 The trigger to move into the T2 stage is the validation of the green AKS cluster at the platform level. The validation uses Azure Monitor metrics and CLI commands to check the health of the deployment. For more information, see [Monitoring Azure Kubernetes Service (AKS) with Monitor](/azure/aks/monitor-aks) and [Monitoring AKS data reference](/azure/aks/monitor-aks-reference).
 
 The AKS monitoring can be split into different levels, as shown in the following diagram:
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" lightbox="images/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" alt-text="Diagram of the AKS monitoring levels.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" lightbox="media/blue-green-aks-deployment-diagram-aks-monitoring-levels.png" alt-text="Diagram of the AKS monitoring levels.":::
 
 The health of the cluster is evaluated at levels 1 and 2, and at some of level 3. For level 1, you can use the native [multi-cluster view](/azure/azure-monitor/containers/container-insights-analyze#multi-cluster-view-from-azure-monitor) from Monitor to validate the health, as shown here:
 
-:::image type="content" source="images/blue-green-aks-deployment-screenshot-azure-monitor.png" lightbox="images/blue-green-aks-deployment-screenshot-azure-monitor.png" alt-text="Screenshot of the Monitor monitoring clusters.":::
+:::image type="content" source="media/blue-green-aks-deployment-screenshot-azure-monitor.png" lightbox="media/blue-green-aks-deployment-screenshot-azure-monitor.png" alt-text="Screenshot of the Monitor monitoring clusters.":::
 
 At level 2, make sure that the Kubernetes API server and Kubelet work properly. You can use the Kubelet workbook in Monitor, specifically, the two grids of the workbook that show key operating statistics of the nodes:
 
@@ -96,11 +96,11 @@ At level 2, make sure that the Kubernetes API server and Kubelet work properly. 
 
 Level 3 is dedicated to the Kubernetes objects and applications that are deployed by default in AKS, like omsagent, kube-proxy and so on. For this check, you can use the Insights view of Monitor to check the status of the AKS deployments:
 
-:::image type="content" source="images/blue-green-aks-deployment-screenshot-azure-monitor-insights-view.png" lightbox="images/blue-green-aks-deployment-screenshot-azure-monitor-insights-view.png" alt-text="Screenshot of the Monitor Insights view.":::
+:::image type="content" source="media/blue-green-aks-deployment-screenshot-azure-monitor-insights-view.png" lightbox="media/blue-green-aks-deployment-screenshot-azure-monitor-insights-view.png" alt-text="Screenshot of the Monitor Insights view.":::
 
 As an alternative, you can use the dedicated workbook that's documented in [Deployment & HPA metrics with Container insights](/azure/azure-monitor/containers/container-insights-deployment-hpa-metrics). Here's an example:
 
-:::image type="content" source="images/blue-green-aks-deployment-screenshot-dedicated-workbook.png" lightbox="images/blue-green-aks-deployment-screenshot-dedicated-workbook.png" alt-text="Screenshot of a dedicated workbook.":::
+:::image type="content" source="media/blue-green-aks-deployment-screenshot-dedicated-workbook.png" lightbox="media/blue-green-aks-deployment-screenshot-dedicated-workbook.png" alt-text="Screenshot of a dedicated workbook.":::
 
 After validation succeeds, you can transition to the T2 stage.
 
@@ -116,7 +116,7 @@ There are various ways to sync the Kubernetes state between clusters:
 
 The following diagram shows the process of syncing the Kubernetes state:
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-green-cluster-sync.png" lightbox="images/blue-green-aks-deployment-diagram-green-cluster-sync.png" alt-text="Diagram of the T2 stage: Sync the Kubernetes state between the blue and green clusters.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-green-cluster-sync.png" lightbox="media/blue-green-aks-deployment-diagram-green-cluster-sync.png" alt-text="Diagram of the T2 stage: Sync the Kubernetes state between the blue and green clusters.":::
 
 Usually, during the sync, the deployment of new versions of applications isn't permitted in the live cluster. This period of time starts with the sync and finishes when the switch to the green cluster completes. The way to disable deployments in Kubernetes can vary. Two possible solutions are:
 
@@ -144,7 +144,7 @@ After the sync is complete and the green cluster is validated at platform and ap
 
 Here's a diagram that shows the target state after the switch is applied:
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-green-cluster-traffic-switch.png" lightbox="images/blue-green-aks-deployment-diagram-green-cluster-traffic-switch.png" alt-text="Diagram of the T3 stage: green cluster traffic switch.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-green-cluster-traffic-switch.png" lightbox="media/blue-green-aks-deployment-diagram-green-cluster-traffic-switch.png" alt-text="Diagram of the T3 stage: green cluster traffic switch.":::
 
  The techniques that are described in this article implement full switches: 100% of the traffic is routed to the new cluster. This is because the routing is applied at DNS level with an `A` or `CNAME` record assignment that's updated to point to the green cluster, and there's an application gateway for each cluster.
 
@@ -205,7 +205,7 @@ The destruction is a step that's strongly recommended in order to reduce costs a
 
 Here's the situation after the blue cluster is destroyed:
 
-:::image type="content" source="images/blue-green-aks-deployment-diagram-blue-cluster-destroyed.png" lightbox="images/blue-green-aks-deployment-diagram-blue-cluster-destroyed.png" alt-text="Diagram of the T4 stage: the blue cluster is destroyed.":::
+:::image type="content" source="media/blue-green-aks-deployment-diagram-blue-cluster-destroyed.png" lightbox="media/blue-green-aks-deployment-diagram-blue-cluster-destroyed.png" alt-text="Diagram of the T4 stage: the blue cluster is destroyed.":::
 
 ### Components
 
@@ -250,8 +250,6 @@ From the perspective of automation and CI/CD, the solution can be implemented in
 - [Azure Pipelines](https://azure.microsoft.com/products/devops/pipelines) or [GitHub Actions](https://docs.github.com/actions) for CI/CD.
 
 ## Potential use cases
-
-This solution describes a generalized architecture that can be used for many different scenarios and industries, like financial services and healthcare, in which application and workload availability is critical. It can be applied in any AKS deployment.
 
 Blue-green deployment makes it possible to make changes to clusters without affecting the running applications and workloads. Examples of changes are:
 
@@ -299,12 +297,12 @@ Operational excellence covers the operations processes that deploy an applicatio
 
 ## Deploy this scenario
 
-For an implemented example and template of this architecture, see [AKS Landing Zone Accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
+For an implemented example of a blue-green deployment described in this guide, see [AKS Landing Zone Accelerator](https://github.com/Azure/AKS-Landing-Zone-Accelerator/tree/main/Scenarios/BlueGreen-Deployment-for-AKS).
 
 This reference implementation is based on Application Gateway and [Application Gateway Ingress Controller (AGIC)](/azure/application-gateway/ingress-controller-overview). Each cluster has its own application gateway and the traffic switch is done via DNS, in particular via `CNAME` configuration.
 
 > [!IMPORTANT]
-> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this architecture with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance is available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
+> For mission-critical workloads, it is important to combine blue/green deployments as outlined in this guide with deployment automation and continuous validation to achieve zero downtime deployments. More information and guidance is available in the [Mission-critical design methodology](/azure/architecture/framework/mission-critical/mission-critical-deployment-testing#example---zero-downtime-deployment).
 
 ### Region considerations
 
@@ -323,9 +321,9 @@ There are prerequisites for deploying into the same region:
 
 There are different approaches to the deployment of the ingress controller and external load balancers:
 
-- You can have a single ingress controller with a dedicated external load balancer, like the reference implementation of this architecture. AGIC is a Kubernetes application that makes it possible to use the Application Gateway L7 load balancer to expose cloud software to the internet. In certain scenarios, there are admin endpoints in the AKS clusters in addition to the application endpoints. The admin endpoints are for doing operational tasks on the applications or for configuration tasks like updating configuration maps, secrets, network policies, and manifests.
+- You can have a single ingress controller with a dedicated external load balancer, like the reference implementation of the architecture described in this guide. AGIC is a Kubernetes application that makes it possible to use the Application Gateway L7 load balancer to expose cloud software to the internet. In certain scenarios, there are admin endpoints in the AKS clusters in addition to the application endpoints. The admin endpoints are for doing operational tasks on the applications or for configuration tasks like updating configuration maps, secrets, network policies, and manifests.
 - You can have a single external load balancer that serves multiple ingress controllers that are deployed on the same cluster or on multiple clusters. This approach isn't covered in the reference implementation. In this scenario we recommend that you have separate application gateways for public facing endpoints and for private ones.
-- The architecture that's proposed and depicted in the article and in the diagrams is based on a standard ingress controller that's deployed as part of the AKS cluster, like NGINX and Envoy. In the reference implementation we use AGIC, which means that there's a direct connection between the application gateway and the AKS pods, but this doesn’t affect the overall blue-green architecture.
+- The resulting architecture that's proposed and depicted in this guide is based on a standard ingress controller that's deployed as part of the AKS cluster, like NGINX and Envoy. In the reference implementation we use AGIC, which means that there's a direct connection between the application gateway and the AKS pods, but this doesn’t affect the overall blue-green architecture.
 
 ## Contributors
 
