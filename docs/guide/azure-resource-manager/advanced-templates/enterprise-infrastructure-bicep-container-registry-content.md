@@ -141,4 +141,4 @@ Other contributors:
 - [CI/CD pipeline for container-based workloads](../../../example-scenario/apps/devops-with-aks.yml)
 - [Design a CI/CD pipeline using Azure DevOps](../../../example-scenario/apps/devops-dotnet-baseline.yml)
 - [DevSecOps for Infrastructure as Code (IaC)](../../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
-- [Microservices with AKS and Azure DevOps](../../../guide/aks/aks-cicd-azure-pipelines)
+- [Microservices with AKS and Azure DevOps](../../../guide/aks/aks-cicd-azure-pipelines.yml)
