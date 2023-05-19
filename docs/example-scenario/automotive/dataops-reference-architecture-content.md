@@ -12,10 +12,10 @@ This architecture provides guidance and recommendations for developing offline d
 1. Once data is available at the Landing storage account, an [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered at the scheduled interval to process the data. The [Azure Data Factory](/azure/data-factory/introduction) pipeline does the following functions:
     - Perform a data quality check such as a checksum early in the data pipeline to ensure only quality data passes through to the next stage.   Code to perform data quality checks is executed by calling a service using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview).  Data that is deemed incomplete are archived for future processing.  
     - Lineage Tracking: Pipeline calls the Metadata API using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview) to update the metadata in [Azure Cosmos DB](/azure/cosmos-db) to create a new datastream. For each measurement, there's a datastream of type “Raw”
-    - Once the Metadata API creates the datastream, the data is copied to the Raw Zone storage account in  [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). The data in the Raw folder has a hierarchical structure
-    ```
-        raw/YYYY/MM/DD/VIN/MeasurementID/DatastreamID  
-    ```
+    - Once the Metadata API creates the datastream, the data is copied to the Raw Zone storage account in  [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). The data in the Raw folder has a hierarchical structure:
+
+      `raw/YYYY/MM/DD/VIN/MeasurementID/DatastreamID`
+
     - Once all the data is copied to the Raw folder, another call to Metadata API is made to mark the datastream as “Complete” so the datastream can be consumed further.  
     - Once all measurement files are copied, the measurements are archived and removed from the Landing storage account.  
 1. The data in the Raw zone is still in a raw format such as [Rosbag](http://wiki.ros.org/rosbag) format and need to be extracted so the downstream systems can consume them.  
@@ -24,10 +24,10 @@ This architecture provides guidance and recommendations for developing offline d
 
     The files in the Raw zone can each be more than 2 GB in size. For each file, we have to run parallel processing extraction functions to extract topics such as image processing, Lidar, Radar, GPS, and metadata processing. In addition to the topic extraction, there's a need down sample the data to reduce the amount of data to label/annotate. [Azure Data Factory](/azure/data-factory/introduction) and [Azure batch](/azure/batch/) provides a way to perform parallelism in a scalable manner.
 
-    The structure in the Extracted Zone storage account should also utilize a hierarchical similar to the Raw Zone storage account. 
-    ```
-        extracted/YYYY/MM/DD/VIN/MeasurementID/DatastreamID 
-    ```
+    The structure in the Extracted Zone storage account should also utilize a hierarchical similar to the Raw Zone storage account: 
+    
+    `extracted/YYYY/MM/DD/VIN/MeasurementID/DatastreamID`
+
     Utilizing the example hierarchical structure allows organizations to utilize the hierarchical namespace capability of [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction).  The hierarchical structure allows organizations to create a scalable and cost effective object storage.  In turn, the structure also improves efficiency of the object search and retrieval. Partitioning by year and vehicle ID makes it easier to search for the relevant images from the corresponding vehicles.  A storage container for each sensor  like camera, gps, lidar, and radar are created.  
 1. If data from the vehicle logger isn't synchronized across the different sensors, then another step is required in the architecture to synchronize the data to create a valid dataset.  [Azure Data Factory](/azure/data-factory/introduction) pipeline triggers synchronization of data across sensors where the synchronization algorithm shall be run on [Azure batch](/azure/batch/). If the synchronization was already executed on the vehicle logger, then this step can be skipped.
 1. The next phase is to enrich the data with other data or telemetry that has been collected via telemetry or through the vehicle logger.  This step helps to enhance the richness of the data collected and provides more insights for the Data Scientist to utilize in their algorithm development as an example. 
@@ -195,7 +195,7 @@ In the extraction pipeline, the trigger passes the path of the metadata file and
 
 [Azure Data Factory](/azure/data-factory/introduction) calls web activity to create a new datastream by calling the create datastream API. The create data stream api returns the path for the extracted datastream. The extracted path will be added to the current object and [Azure Data Factory](/azure/data-factory/introduction) will invoke the Azure batch via Custom Activity by passing the current object after appending the extracted datastream path:
 
-```
+```json
 {
 "measurementId":"210b1ba7-9184-4840-a1c8-eb£397b7c686",
 "rawDataStreamPath":"raw/2022/09/30/KA123456/210b1ba7-9184-4840-
@@ -233,8 +233,8 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 
 5. Orchestrator exits gracefully.
 
-> [!NOTE]
-> Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
+   > [!NOTE]
+   > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
 
 ## Considerations
 
