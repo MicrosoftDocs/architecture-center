@@ -1,4 +1,4 @@
-This article describes how to create a private AKS cluster in a hub-and-spoke network topology by using [Terraform](https://www.terraform.io) and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network. 
+This guide describes how to create a private AKS cluster in a hub-and-spoke network topology by using [Terraform](https://www.terraform.io) and Azure DevOps. [Azure Firewall](/azure/firewall/overview) is used to inspect traffic to and from the [Azure Kubernetes Service (AKS)](/azure/aks) cluster. The cluster is hosted by one or more spoke virtual networks peered to the hub virtual network. 
 
 ## Architecture
 
@@ -104,7 +104,7 @@ Likewise, you can control ingress traffic and improve security by enabling [thre
 
 ### Potential use cases
 
-This architecture applies to scenarios in which you need to improve security of inbound and outbound traffic to and from a Kubernetes cluster.  
+This scenario addresses the need to improve security of inbound and outbound traffic to and from a Kubernetes cluster.  
 
 ### Avoid asymmetric routing
 
@@ -254,7 +254,7 @@ The following monitoring considerations aren't specific to multitenancy in AKS, 
 
 ### Cost optimization
 
-The cost of this architecture depends on the following configuration details:
+The cost of the resulting architecture depends on the following configuration details:
 
 - Service tiers
 - Scalability (the number of instances that are dynamically allocated by services to support a given demand)
@@ -344,5 +344,5 @@ Review the recommendations and best practices for AKS in the [Microsoft Azure We
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [Microservices architecture on Azure Kubernetes Service (AKS)](../../reference-architectures/containers/aks-microservices/aks-microservices.yml)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](../../reference-architectures/containers/aks-microservices/aks-microservices-advanced.yml)
-- [CI/CD pipeline for container-based workloads](../apps/devops-with-aks.yml)
-- [Building a telehealth system on Azure](../apps/telehealth-system.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
+- [Building a telehealth system on Azure](../../example-scenario/apps/telehealth-system.yml)

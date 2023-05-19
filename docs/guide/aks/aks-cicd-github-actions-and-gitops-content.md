@@ -11,7 +11,7 @@ The following options explore push-based and pull-based CI/CD approaches.
 
 ### Option 1: Push-based CI/CD
 
-![Diagram of the push-based architecture with GitHub Actions.](./media/ci-cd-gitops-github-actions-aks-push.png)
+![Diagram of the push-based architecture with GitHub Actions.](media/ci-cd-gitops-github-actions-aks-push.png)
 
 *Push-based architecture with GitHub Actions for CI and CD.*
 
@@ -28,7 +28,7 @@ This scenario covers a push-based DevOps pipeline for a two-tier web application
 
 ### Option 2: Pull-based CI/CD (GitOps)
 
-![Diagram of the pull-based architecture with GitHub Actions and Argo CD.](./media/ci-cd-gitops-github-actions-aks-pull.png)
+![Diagram of the pull-based architecture with GitHub Actions and Argo CD.](media/ci-cd-gitops-github-actions-aks-pull.png)
 
 *Pull-based architecture with GitHub Actions for CI and Argo CD for CD.*
 
@@ -200,7 +200,7 @@ Microsoft Learn modules:
 - [Baseline architecture for an AKS cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
 - [GitOps blueprint for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
 - [CI/CD for microservices architectures](/azure/architecture/microservices/ci-cd)
-- [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+- [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
 - [Build a CI/CD pipeline for microservices on Kubernetes](/azure/architecture/microservices/ci-cd-kubernetes)
 - [Secure DevOps for AKS](/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
 - [Advanced AKS microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)

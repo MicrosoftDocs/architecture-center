@@ -1,0 +1,36 @@
+### YamlMime:Architecture
+metadata:
+  title: CI/CD for AKS apps with Azure Pipelines
+  titleSuffix: Azure Guide
+  description: Deploying Azure Kubernetes Service (AKS) apps with Azure Pipelines.
+  author: robbagby
+  ms.author: robbag
+  ms.date: 05/18/2024
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: azure-guide
+  ms.category:
+    - containers
+    - devops
+    - developer-tools
+  ms.custom:
+    - acom-architecture
+    - microservices
+    - devops
+    - kubernetes
+    - e2e-aks
+  social_image_url: /azure/architecture/guide/aks/media/aks-cicd-azure-pipelines-architecture.png
+name: CI/CD for AKS apps with Azure Pipelines
+azureCategories:
+  - containers
+  - devops
+  - developer-tools
+summary: Deploying Azure Kubernetes Service (AKS) apps with Azure Pipelines.
+products:
+  - azure-container-registry
+  - azure-devops
+  - azure-kubernetes-service
+  - github
+thumbnailUrl: /azure/architecture/browse/thumbs/aks-cicd-azure-pipelines-architecture.png
+content: |
+   [!include[](aks-cicd-azure-pipelines-content.md)]
