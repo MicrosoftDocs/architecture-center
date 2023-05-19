@@ -807,6 +807,6 @@ See the following related guide:
 See the following related architectures:
 
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
-- [Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster](/azure/architecture/example-scenario/aks-firewall/aks-firewall)
+- [Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster](../../../guide/aks/aks-firewall.yml)
 - [GitOps for Azure Kubernetes Service](/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
 - [Data streaming with AKS](/azure/architecture/solution-ideas/articles/data-streaming-scenario)

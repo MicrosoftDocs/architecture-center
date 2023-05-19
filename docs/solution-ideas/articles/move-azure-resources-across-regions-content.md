@@ -2,7 +2,9 @@ This solution moves Azure resources across regions efficiently, securely, and se
 
 ## Architecture
 
-![Diagram architecture configuration.](../media/move-azure-resources-architecture-diagram.png)
+:::image type="content" border="false" source="../media/move-azure-resources-architecture-diagram.svg" alt-text="Diagram that shows the dataflow of moving Azure resources across regions solution." lightbox="../media/move-azure-resources-architecture-diagram.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/move-azure-resources-across-regions.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -90,7 +92,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Consider the following points when making a cross-regional move:
 
-* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multi-cloud strategy containing private or public deployments.
+* Your plan for migrating across regions must take into account complex infrastructure. Modern infrastructure environments often span across on-premises infrastructure to the cloud. Some even have an extra level of complexity, with a multicloud strategy containing private or public deployments.
 
 * Move resource types together. By combining the move of similar resource types (for example, 50 virtual machines or 20 SQL databases), you can plan the preparation step of your move more easily and ensure that long-running operations complete together, which helps reduce downtime.
 

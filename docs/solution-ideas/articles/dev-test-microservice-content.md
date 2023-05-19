@@ -90,7 +90,7 @@ In this solution, a single [Azure Active Directory (Azure AD)](https://azure.mic
 
 ## Related resources
 
-- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [DevSecOps on AKS](../../guide/devsecops/devsecops-on-aks.yml)
 - [DevTest and DevOps for IaaS solutions](dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](dev-test-paas.yml)

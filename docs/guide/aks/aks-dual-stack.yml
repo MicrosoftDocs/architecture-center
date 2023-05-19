@@ -7,11 +7,11 @@ metadata:
   ms.date: 03/08/2023
   ms.topic: conceptual
   ms.service: architecture-center
+  ms.subservice: azure-guide
   ms.category:
     - containers
     - kubernetes
     - aks
-  ms.subservice: example-scenario
   ms.custom:
     - containers
     - reference-architecture
