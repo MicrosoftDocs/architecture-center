@@ -1,6 +1,6 @@
 # Considerations for running Windows containers on AKS
 
-This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-ak), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. As such, this article will focus on those configurations specific to deploying Windows on AKS and refer back to the AKS Baseline documentation for configurations already described there.
+This architecture builds on the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-ak), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. As such, this article focuses on those configurations specific to deploying Windows on AKS and refer back to the AKS Baseline documentation for configurations already described there.
 
 ## Components
 
