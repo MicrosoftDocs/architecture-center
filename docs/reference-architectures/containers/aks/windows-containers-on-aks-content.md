@@ -15,7 +15,10 @@ The diagram below shows the hub and spoke network design used in this architectu
 
 ### Node pool topology
 
-This architecture uses three node pools: A system node pool running Linux, a user node pool running Linux and a Windows node pool.  The Windows node pool is used for the Windows-based workloads, while the user node pool is used for Linux workloads, if applicable. The system node pool is used for all system-level configurations, like CoreDNS. 
+This architecture uses three node pools: A system node pool running Linux, a user node pool running Linux and a user node pool running Windows.  The Windows and Linux user node pools are used for workloads while the system node pool is used for all system-level configurations, like CoreDNS.
+
+>[!NOTE]
+> Using separate node pools for Linux-based and Windows-based workloads requires the use of a [node selector](/azure/aks/operator-best-practices-advanced-scheduler#control-pod-scheduling-using-node-selectors-and-affinity) to ensure that when you deploy a given workload, it is deployed into the appropriate node pool based on the workload type.
 
 ## Ingress design
 
@@ -104,9 +107,12 @@ All policy [guidance](/azure/architecture/reference-architectures/containers/aks
 - [Kubernetes cluster Windows containers should not run as ContainerAdministrator](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5485eac0-7e8f-4964-998b-a44f4f0c1e75)
 - [Kubernetes cluster Windows containers should only run with approved user and domain user group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F57dde185-5c62-4063-b965-afbb201e9c1c)
 
-## Cost optimizations
+## Cost management
 
-The licensing costs for Windows Server increase the cost of nodes for your AKS cluster. Cost optimization recommendations include reserving capacity or using existing licenses if you already have them for other business uses. The size of Windows container images may incur additional Azure Container Registry (ACR) costs due to the amount of storage required for multiple images, the number of concurrent nodes pulling from the ACR and geo-replication requirements.
+All cost optimization [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cost-management) found in the AKS Baseline article apply for Windows workloads.  Other cost conisderations that should be accounted for are:
+
+- The licensing costs for Windows Server increase the cost of nodes for your AKS cluster. Cost optimization recommendations for this factor include reserving capacity or using existing licenses if you already have them for other business uses. 
+- The size of Windows container images may incur additional Azure Container Registry (ACR) costs due to the amount of storage required for multiple images, the number of concurrent nodes pulling from the ACR and geo-replication requirements.
 
 ## Contributors
 
