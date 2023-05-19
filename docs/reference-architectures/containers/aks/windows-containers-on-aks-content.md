@@ -27,7 +27,7 @@ Azure Front Door with WAF and Azure Application Proxy were chosen for this archi
 
 ### Ingress traffic flow
 
-![Diagram showing the ingress solution's traffic flow](./images/aks-windows-baseline-flow.png)
+![Diagram showing the ingress solution's traffic flow](./images/aks-windows-baseline.png)
 
 1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with the DNS A record for the public IP address of Azure Front Door. This traffic is encrypted to make sure that the traffic between the client browser and gateway can't be inspected or changed.
 1. Azure Front Door has an integrated web application firewall (WAF) and negotiates the TLS handshake for bicycle.contoso.com, allowing only secure ciphers. Azure Front Door Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault.
