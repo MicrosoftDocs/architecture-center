@@ -169,20 +169,20 @@ The baseline App Service architecture focuses on essential security recommendati
 
 A production web app needs to encrypt data in transit using HTTPS. HTTPS protocol relies on Transport Layer Security (TLS) and uses public and private keys for encryption. You need to store a certificate (X.509) in Key Vault and give Application Gateway permission to retrieve the private key. For data at rest, some services automatically encrypt data and others allow you to customize.
 
-#### Workflow
+#### Data in transit
+
+In the baseline architecture, data in transit is encrypted from the user to the web app in App Service. The following workflow describes how the encryption works at a high level.
 
 :::image type="complex" source="images/baseline-app-service-encryption-flow.svg" lightbox="images/baseline-app-service-encryption-flow.svg" alt-text="Diagram that shows a baseline App Service encryption flow.":::
-    The diagram adds numbers to the Baseline Azure App Service architecture to indicate the encryption flow. Number one is the user. Number two is Application Gateway with WAF. Number three is Azure Key Vault. Number four is again Application Gateway with WAF. Number 5 is the arrow to App Service. There are three number sixes. They are on Azure SQL Database, Azure Storage and Azure Monitor.
+    The diagram adds numbers to the Baseline Azure App Service architecture to indicate the encryption flow. Number one is the user. Number two is Application Gateway with WAF. Number three is Azure Key Vault, storing the X.509 certificate. Number four represents the encrypted traffic sent from the application gateway to App Service.
 :::image-end:::
 
 1. The user sends an HTTPS request to the web app.
 1. The HTTPS request reaches the the application gateway.
-1. The application gateway uses a certificate (X.509) in Key Vault to create a secure TLS connection with the user's web browser.
-1. The web application firewall inspects incoming traffic. The rules either allow or deny the inbound traffic.
-1. The application gateway re-encrypts inbound traffic and sends the encrypted traffic to the web app. The application gateway creates an HTTPS connection with App Service. App Service provides native support for HTTPS, so you don’t need to add a certificate to App Service. Application gateway sends the encrypted traffic to App Service. App Service decrypts the traffic, and the web app processes the request.
-1. The baseline architecture encrypts all the data at rest in Azure Storage, Azure SQL Database, and Azure Monitor (Log Analytic workspace).
+1. The application gateway uses a certificate (X.509) in Key Vault to create a secure TLS connection with the user's web browser. The application gateway decrypts the HTTPS request so the web application firewall can inspect it.
+1. The application gateway creates a TLS connection with App Service to re-encrypt the user request. App Service provides native support for HTTPS, so you don’t need to add a certificate to App Service. The application gateway sends the encrypted traffic to App Service. App Service decrypts the traffic, and the web app processes the request.
 
-#### Data in transit
+Consider the following recommendations when configuring encryption of data in transit.
 
 - Create or upload your certificate to Key Vault. HTTPS encryption requires a certificate (X.509). You need a certificate from a trusted certificate authority for your custom domain.
 - Store the private key to the certificate in Key Vault.
