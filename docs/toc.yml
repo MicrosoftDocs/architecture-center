@@ -3716,30 +3716,6 @@ items:
           href: operator-guides/aks/choose-kubernetes-edge-compute-option.md
         - name: Choose a bare-metal Kubernetes option
           href: operator-guides/aks/choose-bare-metal-kubernetes.yml
-      - name: Solution ideas
-        items:
-        - name: Build CNCF projects by using AKS
-          href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
-        - name: Data streaming with AKS
-          href: solution-ideas/articles/data-streaming-scenario.yml
-        - name: JBoss deployment with Red Hat on Azure
-          href: solution-ideas/articles/jboss-deployment-red-hat.yml
-        - name: API-first SaaS business model with AKS
-          href: solution-ideas/articles/aks-api-first.yml
-        - name: Build cloud native applications
-          href: solution-ideas/articles/cloud-native-apps.yml
-        - name: Bursting from AKS with ACI
-          href: solution-ideas/articles/scale-using-aks-with-aci.yml
-        - name: Elastic demand handling with AKS
-          href: solution-ideas/articles/aks-demand-spikes.yml
-        - name: Instant IoT data streaming with AKS
-          href: solution-ideas/articles/aks-iot-data-streaming.yml
-        - name: Lift and shift to containers with App Service
-          href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
-        - name: Secure DevOps for AKS
-          href: solution-ideas/articles/secure-devops-for-kubernetes.yml          
-        - name: AKS in event stream processing
-          href: solution-ideas/articles/serverless-event-processing-aks.yml          
       - name: Architectures
         items:
         - name: Application
@@ -3751,7 +3727,7 @@ items:
         - name: Infrastructure
           items: 
           - name: AKS baseline cluster
-            href: /azure/architecture/reference-architectures/containers/aks/baseline-aks
+            href: reference-architectures/containers/aks/baseline-aks
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
           - name: AKS cluster for a PCI-DSS workload
@@ -3780,8 +3756,6 @@ items:
           items:
           - name: High availability for multitier AKS apps
             href: guide/aks/aks-high-availability.yml
-          - name: Blue-green deployment of AKS clusters
-            href: guide/aks/blue-green-deployment-for-aks.yml
           - name: CI/CD for AKS apps (Azure Pipelines)
             href: guide/aks/aks-cicd-azure-pipelines.yml
           - name: CI/CD for AKS apps (GitHub Actions and GitOps)
@@ -3824,6 +3798,8 @@ items:
             - name: Common issues
               href: /azure/aks/troubleshooting?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json
               maintainContext: true
+          - name: Blue-green deployment of AKS clusters
+            href: guide/aks/blue-green-deployment-for-aks.yml
           - name: Firewall protection for an AKS cluster
             href: guide/aks/aks-firewall.yml
           - name: Overview of migration from Service Fabric to AKS
@@ -3834,6 +3810,30 @@ items:
             href: example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml
           - name: AKS dual-stack network traffic
             href: guide/aks/aks-dual-stack.yml
+      - name: Solution ideas
+        items:
+        - name: Build CNCF projects by using AKS
+          href: example-scenario/apps/build-cncf-incubated-graduated-projects-aks.yml
+        - name: Data streaming with AKS
+          href: solution-ideas/articles/data-streaming-scenario.yml
+        - name: JBoss deployment with Red Hat on Azure
+          href: solution-ideas/articles/jboss-deployment-red-hat.yml
+        - name: API-first SaaS business model with AKS
+          href: solution-ideas/articles/aks-api-first.yml
+        - name: Build cloud native applications
+          href: solution-ideas/articles/cloud-native-apps.yml
+        - name: Bursting from AKS with ACI
+          href: solution-ideas/articles/scale-using-aks-with-aci.yml
+        - name: Elastic demand handling with AKS
+          href: solution-ideas/articles/aks-demand-spikes.yml
+        - name: Instant IoT data streaming with AKS
+          href: solution-ideas/articles/aks-iot-data-streaming.yml
+        - name: Lift and shift to containers with App Service
+          href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
+        - name: Secure DevOps for AKS
+          href: solution-ideas/articles/secure-devops-for-kubernetes.yml          
+        - name: AKS in event stream processing
+          href: solution-ideas/articles/serverless-event-processing-aks.yml          
     - name: PaaS container hosting
       items:
       - name: Architectures
