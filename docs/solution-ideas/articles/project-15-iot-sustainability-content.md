@@ -1,6 +1,16 @@
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
-The mission of [Project 15 from Microsoft][Project 15 from Microsoft] is to empower scientists and conservationists around the world. The project pairs conservation teams with a community of developers, students, and Microsoft partners. The project helps these teams capture and analyze the data they need to preserve critical species and ecosystems which are backed by the power of Azure and an Internet of Things (IoT) open platform.
+## About Project 15 Open Platform
+
+The goal with [Project 15 Open Platform][Project 15 from Microsoft] is to bring the latest Microsoft cloud and Internet of Things (IoT) technologies to accelerate scientific teams building sustainability and conservation solutions like species tracking & observation, poaching prevention, ecosystem monitoring, pollution detection, etc.
+
+The core goals of the P15 Open Platform are:
+
+* Close the Skill Gap Boost innovation with a ready-made platform, allowing the scientific developer to expand into specific use cases.
+* Increase Speed to Deployment Open Platform get teams 80% of the way with their projects, dramatically reducing the time to start building crucial insights.
+* Lower the development cost The Open Platform lowers the cost of overall development and reduces complexity. Opens up opportunities for partnering with the Open Source developer community and universities.
+
+Currently maintained by developers at Microsoft, Project 15’s Open Platform is not an official product from Microsoft.
 
 ## Architecture
 
@@ -12,23 +22,29 @@ Diagram showing components and functionality of the Project 15 Open Platform. Ba
 
 *Download a [Visio file](https://arch-center.azureedge.net/project-15-open-platform-overview.vsdx) of this architecture.*
 
-### Dataflow
+### Solution Overview
 
-Open Platform components fall into these categories:
+The solution has three main categories:
 
-- **Fully included:** Azure Services that you deploy once. You expand these components when you add devices to the solution.
+* **Components that are fully included**
 
-- **Included but needing customization:** Services that the solution deploys. You modify these services to suit your use case. See [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide] for detailed information on these services. For a high-level view of the services, see [Solution details][Solution details] later in this article.
+These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path](Internet of Things Learning Path). Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT](Introduction to Azure IoT) has all you need. All our learning resources here, are free to you.
 
-- **Not included and requiring full customization:** The place where intellectual property resides. Once you deploy the solution to your own Azure account, it's yours to build out. Think of how you use a word processor. The word processor is a tool, and the book you write is yours. The story you publish is yours, and the revenue you generate is yours. With Project 15 Open Platform, the same idea applies. This solution is a tool you use to create your own solutions.
+* **Included Components but needs customization**
+
+Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide]. The high level architecture of what services are involved, see below.
+
+* **Not Included, requires full customization**
+
+This is the part where your IP will reside.  How this works is once you `Deploy` the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
 
 ### Solution details
 
-:::image type="complex" source="../media/project-15-ref-architecture-new.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
+:::image type="complex" source="../media/project-15-ref-arch-2023.png" alt-text="Diagram showing how the Project 15 Open Platform collects, processes, analyzes, stores, secures, visualizes, and monitors IoT device data.":::
 Diagram showing the Azure components that make up the Project 15 Open Platform. Boxes represent layers of the solution, such as the gateway, the data process layer, the presentation layer, and the storage layer. Arrows show how data flows between these layers. Arrows show how users and devices interact with the system.
 :::image-end:::
 
-*Download a [Visio file](https://arch-center.azureedge.net/project-15-ref-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/project-15-ref-arch-2023.vsdx) of this architecture.*
 
 Various Azure services and configurations make up the Project 15 Open Platform:
 
@@ -45,15 +61,16 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
    - Azure SignalR Service messaging provides real-time visualization.
    - Azure App Service and its Web Apps feature provide platforms for building, deploying, and scaling web apps.
-   - Tools like Time Series Insights and Power BI visualize IoT devices, telemetry, and events in websites.
+   - Tools like Power BI visualize IoT devices, telemetry, and events in websites.
+   - Tools like Power Apps and Power Automate solve the "app gap challenge" and proview low-code apps and automated workflows.
 
 1. Databases, Azure Blob Storage, and tables store telemetry and file data from offices in the field.
 
 1. Other Azure components provide more functionality:
 
-   - Azure Functions and the API Apps feature of Azure App Service work to make device management events available in websites.
+   - Azure Functions and Azure API Management work to make device management events available in websites.
    - Azure Active Directory (Azure AD) manages users.
-   - API Apps and Event Grid manage external data.
+   - API Management and Event Grid manage external data.
    - Azure Digital Twins offers modeling capabilities for optimizing operations.
    - Microsoft Defender for Cloud secures the solution by establishing security policies and access controls.
    - Azure Notification Hubs and Azure Logic Apps handle notifications.
@@ -73,8 +90,6 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 - [Stream Analytics][Stream Analytics] provides real-time serverless stream processing that can run queries in the cloud and on devices on the edge of the network. Stream Analytics on IoT Edge can filter or aggregate data that you send to the cloud for further processing or storage.
 
 - [Functions][Functions] are an event-driven serverless compute platform that you can use to build and debug locally without extra setup. With Functions, you can deploy and operate at scale in the cloud and use triggers and bindings to integrate services.
-
-- [Time Series Insights][Time Series Insights] is an analytics platform that you can use to monitor, analyze, and visualize IoT time series data.
 
 - [Azure SignalR Service][Azure SignalR Service] is an open-source software library that provides a way to send notifications to web apps in real time.
 
@@ -100,19 +115,11 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Azure Maps][Azure Maps] offers geospatial APIs for adding maps, spatial analytics, and mobility solutions to apps.
 
-## Scenario details
-
-A key part of these solutions is the Project 15 Open Platform, which Microsoft designed and built. This open-source software connects to the cloud and securely manages devices that conservation projects use. Its architecture serves as a reference for building end-to-end IoT solutions.
-
-By getting teams roughly 80 percent of the way to finished solutions, the Project 15 Open Platform helps meet these goals:
-
-- **Close the skill gap**. The ready-made platform boosts innovation. Scientific developers can expand into specific use cases.
-- **Increase speed to deployment**. By helping teams overcome technical challenges, the platform reduces the time needed to build crucial insights.
-- **Lower the development cost**. The platform reduces complexity, resulting in lower overall development costs. It also opens up opportunities for partnering with open-source developer communities and universities.
+- [Microsoft Power Platform][Microsoft Power Platform] provides a low-code development platform for analyzing data, automating processes, and building apps, websites, and virtual agents.
 
 ### Potential use cases
 
-With its Open Platform, Project 15 contributes the latest Azure and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
+[Project 15 Open Platform][Project 15 on GitHub] contributes the latest Azure and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
 
 - Species tracking and observation
 - Poaching prevention
@@ -127,19 +134,23 @@ With its Open Platform, Project 15 contributes the latest Azure and IoT technolo
 
 ## Contributors
 
-*This article is maintained by Microsoft. It was originally written by the following contributors.*
+*This article is maintained by Microsoft. It was originally written and updated by the following contributors.*
 
 Principal author:
 
+ * [Sarah Maston](https://www.linkedin.com/in/smwmaston/) | Director, Global Partner Development
+ * [Daisuke Nakahara](https://www.linkedin.com/in/daisuke-nakahara/) Director, Sony Semiconductor Solutions
+ * [Linda Nichols]() | App Innovation Global Blackbelt
  * [Pamela Cortez](https://www.linkedin.com/in/pamelacortezhellotechie) | Azure IoT Principal PM
 
 ## Next steps
 
 - Visit [Project 15 on GitHub][Project 15 on GitHub] to deploy to Azure and learn more about customizing conservation and ecological sustainability solutions.
+- See [Introduction to Azure IoT][Introduction to Azure IoT]
+- See [Internet of Things Learning Path](Internet of Things Learning Path)
+- [Planetary Computer](https://planetarycomputer.microsoft.com/) 
 - [Microsoft & Sustainability][Microsoft & Sustainability]
-- [AI for Earth][AI for Earth]
-- The Project 15 team periodically adds content to the [Project 15 YouTube Channel][Project 15 YouTube Channel] and other [Microsoft channels](/training).
-- See [Introduction to Azure IoT][Introduction to Azure IoT].
+- [Seeed Studio’s IoT Into the Wild](https://www.seeedstudio.com/iot_into_the_wild.html)
 
 ## Related resources
 
@@ -147,7 +158,6 @@ Principal author:
 - [Getting started with Azure IoT solutions](/azure/architecture/reference-architectures/iot/iot-architecture-overview)
 - [Environment monitoring and supply chain optimization with IoT](/azure/architecture/solution-ideas/articles/environment-monitoring-and-supply-chain-optimization)
 
-[AI for Earth]: https://www.microsoft.com/ai/ai-for-earth
 [API Apps]: https://azure.microsoft.com/services/app-service/api
 [App Service]: https://azure.microsoft.com/services/app-service
 [Azure AD]: /azure/active-directory/fundamentals/active-directory-whatis
@@ -174,5 +184,7 @@ Principal author:
 [Project 15 YouTube Channel]: https://aka.ms/project15video
 [Solution details]: #solution-details
 [Stream Analytics]: https://azure.microsoft.com/services/stream-analytics
-[Time Series Insights]: https://azure.microsoft.com/services/time-series-insights
 [Web Apps]: https://azure.microsoft.com/services/app-service/web
+[Microsoft Power Platform]: https://powerplatform.microsoft.com
+[Internet of Things Learning Path]: https://aka.ms/iotlp
+[Introduction to Azure IoT]: https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/
