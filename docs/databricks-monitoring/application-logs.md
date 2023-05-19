@@ -164,7 +164,7 @@ Deploy the performance monitoring dashboard that accompanies this code library t
 
 - [Monitoring Azure Databricks](index.md)
 - [Troubleshoot performance bottlenecks in Azure Databricks](performance-troubleshooting.md)
-- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml)
+- [Modern analytics architecture with Azure Databricks](../solution-ideas/articles/azure-databricks-modern-analytics-architecture.yml)
 - [Ingestion, ETL, and stream processing pipelines with Azure Databricks](../solution-ideas/articles/ingest-etl-stream-with-adb.yml)
 
 <!-- links -->

@@ -294,4 +294,3 @@ Other contributors:
 - [Apache HBase migration to Azure](apache-hbase-migration.yml)
 - [Apache Kafka migration to Azure](apache-kafka-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)
