@@ -2,7 +2,9 @@ This example shows how to establish a development and test environment for SAP N
 
 ## Architecture
 
-![Architecture diagram for dev/test environments for S A P workloads.](./media/architecture-sap-dev-test-architecture.png)
+[ ![Architecture diagram for dev/test environments for SAP workloads.](./media/architecture-sap-dev-test-architecture.svg)](./media/architecture-sap-dev-test-architecture.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/architecture-sap-dev-test-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
