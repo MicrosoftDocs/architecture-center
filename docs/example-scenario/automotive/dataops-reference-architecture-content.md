@@ -1,4 +1,4 @@
-This architecture provides guidance and recommendations for developing offline data operations and data management (DataOps) for an automated driving solution. DataOps reference architecture is built upon the framework outlined in the [AVOps Design Guide](https://learn.microsoft.com/en-us/azure/architecture/guide/machine-learning/avops-design-guide). 
+This architecture provides guidance and recommendations for developing offline data operations and data management (DataOps) for an automated driving solution. DataOps reference architecture is built upon the framework outlined in the [AVOps Design Guide](https://learn.microsoft.com/azure/architecture/guide/machine-learning/avops-design-guide). 
  DataOps is one of the building blocks of AVOps, in addition to MLOps, ValOps, DevOps and Centralized AVOps functions. 
 
 ## Architecture
@@ -57,8 +57,8 @@ The metadata API thus becomes the storage layer manager, which can spread data a
 * [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
 * [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) provides a serverless based web app service that hosts the Metadata API
 * [Azure Purview](https://learn.microsoft.com/purview/purview) provides data governance across organizations
-* [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) stores topic processing containers. All the container images required for processing in the execution pool are pushed to container registry(JFrog). The execution pool is provided with configurations to connect to this registry and pull the required images. While not shown in the diagram above, use of the container registry is discussed later in the [Data pipeline batch design section](#batch-design).
-* [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) that provides application performance monitoring. Application Insights can be integrated to log custom events, custom metrics and log information while processing a particular measurement for extraction. Application Insights helps in building the observability around measurement extraction. We can build queries on log analytics to get the all the details about a measurement. While not shown in the diagram above, use of Application Insights is discussed later in the [Data pipeline batch design section](#batch-design).
+* [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) stores topic processing containers. All the container images required for processing in the execution pool are pushed to container registry(JFrog). The execution pool is provided with configurations to connect to this registry and pull the required images. While not shown in the [architecture diagram](#architecture), use of the container registry is discussed later in the [Data pipeline batch design section](#batch-design).
+* [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) that provides application performance monitoring. Application Insights can be integrated to log custom events, custom metrics and log information while processing a particular measurement for extraction. Application Insights helps in building the observability around measurement extraction. We can build queries on log analytics to get the all the details about a measurement. While not shown in the [architecture diagram](#architecture), use of Application Insights is discussed later in the [Data pipeline batch design section](#batch-design).
 
 ## Scenario Details
 
@@ -89,7 +89,7 @@ In an organization that implement AVOps, multiple teams contribute to DataOps du
 - Federated governance to enable interoperability and access between AVOps data domains (for example, labeling data domain needs to get access for the data collection domain) that requires a centralized Meta-Data store and Data Catalog
 
 Further details and guidance for Data Mesh implementation are described on 
-[Cloud-scale analytics](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+[Cloud-scale analytics](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
 ##### AVOps Data Domains Example Structure
 
@@ -108,10 +108,10 @@ Each AVOps data domain is set up based on a blueprint structure (including [Azur
 
 ##### Meta-Data and Data Discovery 
 
-Each data domain manages it corresponding AVOps data products de-centrally. For central data discovery and to know where data products are located, two components are required:
+Each data domain are decentralized and individually manages its corresponding AVOps data products. For central data discovery and to know where data products are located, two components are required:
 
--  Meta-data store that persists meta-data about processed measurement files and data streams (e. g. video sequences) to make the data discoverable and traceable with additional annotations (that need to be indexed like for searching meta-data of unlabeled files, e. g. return all frames collected by specific VINs or frames with pedestrians or other objects based on enrichments)
--  Data Catalog (as an example [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview)) that shows lineage and dependencies between AVOps data domains and which data stores are involved in the AVOps data loop
+-  Meta-data store that persists meta-data about processed measurement files and data streams (e. g. video sequences) to make the data discoverable and traceable with more annotations (that need to be indexed like for searching meta-data of unlabeled files, e. g. return all frames collected by specific VINs or frames with pedestrians or other objects based on enrichments)
+-  Data Catalog (as an example [Microsoft Purview](https://learn.microsoft.com/purview/purview)) that shows lineage and dependencies between AVOps data domains and which data stores are involved in the AVOps data loop
 
 Depending on final scenario for data discovery, Meta-Data store (based on Cosmos DB can be extended by Azure Data Explorer or Azure Cognitive Search for semantic search capabilities).
 
@@ -122,16 +122,18 @@ The Metadata Model diagram shows a typical unified meta-data model (as guidance)
 
 ##### Data Sharing
 
-Data Sharing in an AVOPs data loop is a common scenario (for data sharing between data domains and external sharing, e. g. to  integrate labeling partners). [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview) provides these capabilities to allow efficient data sharing in the data loop:
+Data Sharing in an AVOps data loop is a common scenario (for data sharing between data domains and external sharing, e. g. to  integrate labeling partners). [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview) provides these capabilities to allow efficient data sharing in the data loop:
 
 
-- [Self-service data discovery and access](https://learn.microsoft.com/en-us/azure/purview/concept-self-service-data-access-policy)
+- [Self-service data discovery and access](https://learn.microsoft.com/azure/purview/concept-self-service-data-access-policy)
 
-- [In-place data sharing](https://learn.microsoft.com/en-us/azure/purview/concept-data-share)
+- [In-place data sharing](https://learn.microsoft.com/azure/purview/concept-data-share)
 
 ### Data Pipeline
 
-@rmats808 - it would be great if we had an opener sentence or two here, something that ties this section back to the relevant callouts in the main arch diagram (ie: how it provides more detail on callout 1, 2, 3, etc.)
+In the DataOps architecture, the movement of data between different stages in the data pipeline is automated.  By doing so, the process brings efficiency, scalability, consistency, reproducibility, adaptability, and error handling benefits.  It enhances the overall development process, accelerates progress, and supports the safe and effective deployment of autonomous driving technologies.  
+
+The following sections details how an organization can implement the data movement between stages and how an organization should structure the storage account structure. A well-organized folder structure is a vital component of a data pipeline in autonomous driving development. It provides a systematic and easily navigable arrangement of data files, facilitating efficient data management and retrieval.
 
 ##### Landing Storage Account to Raw Storage Account
 The data pipeline is triggered based on a schedule. Once triggered, the data is copied from "Landing" storage account to the "Raw" storage account.
@@ -154,7 +156,7 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
 - Remove measurement files from Landing storage account
 
 > [!NOTE]
-> [Azure Batch](/azure/batch/) makes use of orchestrator pool for copying data and AzCopy tool is used for copying and removing data based on above tasks. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in keyvault and are referenced via landingsaskey, archivesaskey and rawsaskey
+> [Azure Batch](/azure/batch/) makes use of orchestrator pool for copying data and AzCopy tool is used for copying and removing data based on above tasks. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in keyvault and are referenced via "landingsaskey", "archivesaskey" and "rawsaskey"
 
 **Call Update Datastream State API**: Make a web api call to update the state of the stream to Copy Complete, on successful call move to the next activity to delete measurement from the landing zone. On failure move to the on error activity.
 
