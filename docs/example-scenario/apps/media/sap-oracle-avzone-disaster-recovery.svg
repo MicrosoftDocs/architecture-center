@@ -2220,7 +2220,7 @@
 						class="st44"/>
 			</g>
 		</g>
-		<g id="group1184-446" transform="translate(20.25,-364.038)" v:mID="1184" v:groupContext="group">
+		<g id="group1184-446" transform="translate(18,-364.038)" v:mID="1184" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(103000):26"/>
 			</v:userDefs>
@@ -2245,7 +2245,7 @@
 				<text x="19.36" y="616.69" class="st45" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>On-premises <tspan
 							x="28.57" dy="1.2em" class="st6">network</tspan></text>			</g>
 		</g>
-		<g id="group1188-456" transform="translate(27.495,-394.476)" v:mID="1188" v:groupContext="group">
+		<g id="group1188-456" transform="translate(25.2449,-394.476)" v:mID="1188" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(104000):26"/>
 			</v:userDefs>
@@ -2452,7 +2452,7 @@
 				</g>
 			</g>
 		</g>
-		<g id="group1216-516" transform="translate(69.39,-421.53)" v:mID="1216" v:groupContext="group">
+		<g id="group1216-516" transform="translate(67.14,-421.53)" v:mID="1216" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(105000):26"/>
 			</v:userDefs>
@@ -2469,14 +2469,14 @@
 							 617.44 27.72 616.83 27.72 616.11 C27.61 615.45 27.33 614.78 26.84 614.29 Z" class="st34"/>
 			</g>
 		</g>
-		<g id="shape1218-519" v:mID="1218" v:groupContext="shape" transform="translate(199.404,824.61) rotate(-179.984)">
+		<g id="shape1218-519" v:mID="1218" v:groupContext="shape" transform="translate(199.574,824.61) rotate(180)">
 			<title>Sheet.1218</title>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(106000):26"/>
 			</v:userDefs>
-			<path d="M0 630 L102.46 630" class="st13"/>
+			<path d="M0 630 L104.71 630" class="st13"/>
 		</g>
-		<g id="group1219-522" transform="translate(125.64,-451.528)" v:mID="1219" v:groupContext="group">
+		<g id="group1219-522" transform="translate(127.151,-451.528)" v:mID="1219" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(107000):26"/>
 			</v:userDefs>
@@ -2506,16 +2506,16 @@
 				<ellipse cx="3.7114" cy="626.289" rx="3.7114" ry="3.7114" class="st58"/>
 			</g>
 		</g>
-		<g id="shape1226-541" v:mID="1226" v:groupContext="shape" transform="translate(106.489,-436.715)">
+		<g id="shape1226-541" v:mID="1226" v:groupContext="shape" transform="translate(108,-436.715)">
 			<title>Sheet.1226</title>
-			<desc>ExpresRoute</desc>
+			<desc>ExpressRoute</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(108000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="33.0114" cy="623.725" width="66.03" height="12.55"/>
 			<rect x="0" y="617.45" width="66.0229" height="12.55" class="st16"/>
-			<text x="8.44" y="626.43" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>ExpresRoute</text>		</g>
+			<text x="6.53" y="626.43" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>ExpressRoute</text>		</g>
 		<g id="group1227-544" transform="translate(199.905,-421.53)" v:mID="1227" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(109000):26"/>

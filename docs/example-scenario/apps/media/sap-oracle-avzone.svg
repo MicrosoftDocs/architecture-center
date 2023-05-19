@@ -1640,7 +1640,7 @@
 			</v:userDefs>
 			<path d="M0 396 L9.86 396" class="st14"/>
 		</g>
-		<g id="group1245-362" transform="translate(142.129,-208.528)" v:mID="1245" v:groupContext="group">
+		<g id="group1245-362" transform="translate(137.629,-208.528)" v:mID="1245" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(81000):26"/>
 			</v:userDefs>
@@ -1670,16 +1670,16 @@
 				<ellipse cx="3.7114" cy="392.289" rx="3.7114" ry="3.7114" class="st41"/>
 			</g>
 		</g>
-		<g id="shape1252-381" v:mID="1252" v:groupContext="shape" transform="translate(122.977,-196.225)">
+		<g id="shape1252-381" v:mID="1252" v:groupContext="shape" transform="translate(118.477,-196.225)">
 			<title>Sheet.1252</title>
-			<desc>ExpresRoute</desc>
+			<desc>ExpressRoute</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(82000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="33.0114" cy="389.725" width="66.03" height="12.55"/>
 			<rect x="0" y="383.45" width="66.0229" height="12.55" class="st16"/>
-			<text x="8.44" y="392.43" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>ExpresRoute</text>		</g>
+			<text x="6.53" y="392.43" class="st5" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>ExpressRoute</text>		</g>
 		<g id="group1253-384" transform="translate(303.634,-93.3515)" v:mID="1253" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(83000):26"/>
