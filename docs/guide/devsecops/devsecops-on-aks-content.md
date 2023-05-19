@@ -13,7 +13,7 @@ When DevSecOps is applied to Azure Kubernetes Service (AKS), different organizat
 
 This article is broken out into different DevOps lifecycle stages with considerations and recommendations for embedding security controls and security best practices. This guide includes common processes and tools to incorporate into continuous integration and continuous delivery (CI/CD) pipelines, opting for easy-to-use built-in tools where available.
 
-As a prerequisite to this article, we recommend you review [Build and deploy apps on AKS by using DevOps and GitOps](/azure/architecture/example-scenario/apps/devops-with-aks).
+As a prerequisite to this article, we recommend you review [Build and deploy apps on AKS by using DevOps and GitOps](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops).
 
 ## Process flow
 
@@ -192,7 +192,7 @@ During the deployment phase, developers, application operators, and cluster oper
 
 - [OpenID Connect (OIDC)](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) lets your GitHub Action workflows access resources in Azure without needing to store the Azure credentials as long-lived GitHub secrets.
 - By using environments for deployment, you can configure environments with protection rules and secrets.
-  - A pull-based approach to CI/CD with [GitOps](/azure/architecture/example-scenario/apps/devops-with-aks) lets you shift security credentials to your Kubernetes cluster, which reduces the security and risk surface by removing credentials from being stored in your external CI tooling. You can also reduce allowed inbound connections and limit admin-level access to your Kubernetes clusters.
+  - A pull-based approach to CI/CD with [GitOps](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) lets you shift security credentials to your Kubernetes cluster, which reduces the security and risk surface by removing credentials from being stored in your external CI tooling. You can also reduce allowed inbound connections and limit admin-level access to your Kubernetes clusters.
 
 #### Best practice – Run dynamic application security tests (DAST) to find vulnerabilities in your running application
 
