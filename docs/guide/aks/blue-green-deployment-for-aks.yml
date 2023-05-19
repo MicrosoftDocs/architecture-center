@@ -2,7 +2,7 @@
 metadata:
   title: Blue-green deployment of AKS clusters
   titleSuffix: Azure Architecture Center
-  description: Learn how to implement a blue-green deployment system on AKS that uses Azure managed services and native Kubernetes features. 
+  description: Learn how to deploy AKS clusters using a blue-green strategy.
   author: vimorra
   ms.author: vimorra
   ms.date: 02/01/2023
@@ -20,7 +20,7 @@ products:
   - azure-front-door
   - azure-dns
 name: Blue-green deployment of AKS clusters
-summary: Learn how to implement a blue-green deployment system on AKS that uses Azure managed services and native Kubernetes features. 
+summary: Learn how to deploy AKS clusters using a blue-green strategy. 
 thumbnailUrl: /azure/architecture/browse/thumbs/blue-green-aks-deployment-diagram-public-architecture-thumb.png
 content: |
    [!include[](blue-green-deployment-for-aks-content.md)]
