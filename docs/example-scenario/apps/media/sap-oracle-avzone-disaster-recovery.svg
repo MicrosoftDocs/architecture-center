@@ -255,7 +255,7 @@
 			</v:userDefs>
 			<path d="M0 630 L133.64 630 L133.64 369 L0 369 L0 630 Z" class="st7"/>
 		</g>
-		<g id="shape397-30" v:mID="397" v:groupContext="shape" transform="translate(243,-577.765)">
+		<g id="shape397-30" v:mID="397" v:groupContext="shape" transform="translate(193.781,-577.765)">
 			<title>Sheet.397</title>
 			<desc>Hub virtual network</desc>
 			<v:userDefs>
@@ -274,14 +274,14 @@
 		</g>
 		<g id="shape405-35" v:mID="405" v:groupContext="shape" transform="translate(369,-546.201)">
 			<title>Sheet.405</title>
-			<desc>Application Layer Subnet</desc>
+			<desc>Application layer subnet</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(17000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,0,4,0)"/>
 			<v:textRect cx="126" cy="621" width="252" height="18"/>
 			<rect x="0" y="612" width="252" height="18" class="st4"/>
-			<text x="76.48" y="623.25" class="st5" v:langID="1046"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Application Layer Subnet</text>		</g>
+			<text x="77.99" y="623.25" class="st5" v:langID="1033"><v:paragraph v:spLine="-1" v:horizAlign="1"/><v:tabList/>Application layer subnet</text>		</g>
 		<g id="shape406-38" v:mID="406" v:groupContext="shape" transform="translate(638.115,-330.965)">
 			<title>Sheet.406</title>
 			<v:userDefs>
@@ -306,7 +306,7 @@
 			</v:userDefs>
 			<path d="M0 630 L421.55 630 L421.55 369 L0 369 L0 630 Z" class="st9"/>
 		</g>
-		<g id="shape426-45" v:mID="426" v:groupContext="shape" transform="translate(673.467,-577.765)">
+		<g id="shape426-45" v:mID="426" v:groupContext="shape" transform="translate(516.734,-577.765)">
 			<title>Sheet.426</title>
 			<desc>Spoke virtual network</desc>
 			<v:userDefs>
