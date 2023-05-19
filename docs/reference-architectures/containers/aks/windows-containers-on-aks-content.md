@@ -1,4 +1,4 @@
-This article is meant to be considered a companion piece to the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-ak), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. The focus of this article is on providing best practices relative to deploying Windows containers on AKS. As such, this article will focus on those configurations specific to deploying Windows on AKS and refer back to the AKS Baseline documentation for configurations already described there.
+This article is meant to be considered a companion piece to the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-ak), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. The focus of this article is on providing best practices relative to deploying Windows containers on AKS. As such, this article focuses on those configurations specific to deploying Windows on AKS and refer back to the AKS Baseline documentation for configurations already described there.
 
 Refer to the [AKS Windows baseline GitHub project](https://github.com/Azure/aks-baseline-windows) to review the reference implementation associated with this reference architecture including sample deployment code.
 
@@ -31,7 +31,7 @@ Azure Front Door with WAF and Azure Application Proxy were chosen for this archi
 
 1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with the DNS A record for the public IP address of Azure Front Door. This traffic is encrypted to make sure that the traffic between the client browser and gateway can't be inspected or changed.
 1. Azure Front Door has an integrated web application firewall (WAF) and negotiates the TLS handshake for bicycle.contoso.com, allowing only secure ciphers. Azure Front Door Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault.
-1. AFD routes the user request to the Azure Application Proxy. The user will need to authenticate with Azure AD if pre-authentication is enabled.
+1. AFD routes the user request to the Azure Application Proxy. The user must authenticate with Azure AD if pre-authentication is enabled.
 1. The App Proxy routes the user to the backend app container via the AKS load balancer.
 
 >[!NOTE]
@@ -51,7 +51,7 @@ All [guidance](/azure/architecture/reference-architectures/containers/aks/baseli
 
 The process for upgrading Windows nodes is unchanged from guidance provided in the [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) documentation but you should consider the following schedule differences to plan your upgrade cadence.
 
-Microsoft provides new Windows Server images, including up-to-date patches, for nodes monthly and doesn't perform any automatic patching or updates.  As such, you'll need to manually or programmatically update your nodes according to this schedule.  Using GitHub Actions to create a cron job that runs on a schedule allows you to programmatically schedule monthly upgrades.  The guidance provided in the documentation linked above reflects Linux node processes, but you can update the YAML file to set your cron schedule to run monthly rather than biweekly. you'll also need to change the “runs-on” parameter in the YAML file to “windows-latest” to ensure that you're upgrading to the most recent Windows Server image
+Microsoft provides new Windows Server images, including up-to-date patches, for nodes monthly and doesn't perform any automatic patching or updates.  As such, you must manually or programmatically update your nodes according to this schedule.  Using GitHub Actions to create a cron job that runs on a schedule allows you to programmatically schedule monthly upgrades.  The guidance provided in the documentation linked above reflects Linux node processes, but you can update the YAML file to set your cron schedule to run monthly rather than biweekly. you'll also need to change the “runs-on” parameter in the YAML file to “windows-latest” to ensure that you're upgrading to the most recent Windows Server image
 
 >[!NOTE]
 > Clusters must be upgraded before performing node and node pool upgrades.  Follow the [Cluster upgrades](/azure/aks/upgrade-cluster?tabs=azure-cli) guidance to perform the upgrade.
@@ -70,7 +70,7 @@ What differs between Linux and Windows containers with respect to pod scaling op
 
 Benchmarking exercises should be performed to understand the time impact of performing scaling operations and this data should be weighed against business requirements.  If your workload needs to scale faster than is possible through autoscaling, it is recommended to consider the following alternative “hot spare” solution:
 
-you'll first need to conduct baseline testing to identify how many pods you'll need to run at peak load times and off-peak load times.  With this baseline established, you can plan your node count to account for the total number of nodes you'll need to have available at any given time. This solution involves using manual scaling for your cluster and setting the initial number of nodes to the off-peak number of nodes required. When you approach a peak time period, you'll need to preemptively scale to the peak-load time number of nodes. As time goes on, you'll need to re-establish your baseline regularly to account for changing app usage or other business requirements.
+You'll first need to conduct baseline testing to identify how many pods you'll need to run at peak load times and off-peak load times.  With this baseline established, you can plan your node count to account for the total number of nodes you'll need to have available at any given time. This solution involves using manual scaling for your cluster and setting the initial number of nodes to the off-peak number of nodes required. When you approach a peak time period, you'll need to preemptively scale to the peak-load time number of nodes. As time goes on, you'll need to re-establish your baseline regularly to account for changing app usage or other business requirements.
 
 ## Monitoring
 
