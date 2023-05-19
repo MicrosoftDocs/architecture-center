@@ -1,19 +1,18 @@
 ### YamlMime:Architecture
 metadata:
   title: DataOps for Autonomous Vehicle Operations (AVOps) Reference Architecture
-  titleSuffix: Azure Architecture Architectures
+  titleSuffix: Azure Architecture Center
   description: Data Operations reference architecture that shows how one would use Azure services to build Automated driving solution
   author: rmats808
   ms.author: rmatsumura
   ms.date: 3/31/2023
   ms.topic: conceptual
   ms.service: architecture-center
-  ms.subservice: reference-architecture
+  ms.subservice: example-workload
 azureCategories:
   - analytics
   - compute
   - databases
-  - devops
   - security
   - storage
 products:

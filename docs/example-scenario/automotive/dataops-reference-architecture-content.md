@@ -3,7 +3,7 @@ This architecture provides guidance and recommendations for developing offline d
 
 ## Architecture
 
-![DataOps Reference architecture.](.\images\dataops.png)
+[![DataOps Reference architecture.](.\images\dataops.png)]()
 *Download a [Visio file](https://arch-center.azureedge.net/dataops-architecture.vsdx) that contains the architecture diagrams in this article.*
 
 ### Data Flow
@@ -137,7 +137,7 @@ The following sections details how an organization can implement the data moveme
 
 ##### Landing Storage Account to Raw Storage Account
 The data pipeline is triggered based on a schedule. Once triggered, the data is copied from "Landing" storage account to the "Raw" storage account.
-![ADF Copy pipeline](images/adf-copy-landing-raw.png)
+[![ADF Copy pipeline](images/adf-copy-landing-raw.png)]()
 
 Once the pipeline gets triggered, it fetches all the measurement folders and iterates through all of the folders. Here's the sequence of activities that happen against each measurement:
 
@@ -176,7 +176,7 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
 
 All the extraction logic is packaged in different container images based on the extraction processes. [Azure Batch](/azure/batch/) runs those container workloads in parallel for the extraction of measurement files.
 
-![Batch Design](images/azure-batch-design.png)
+[![Batch Design](images/azure-batch-design.png)]()
 
 In [Azure Batch](/azure/batch/) two batch pools, an orchestrator pool(non container) and an execution pool(container based) are used for processing workloads. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads for the topic extractions. Here's the design for batch processing:
 
@@ -208,7 +208,7 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 
 ##### Step wise extraction process
 
-![Step Wise Extraction Process](images/step-wise-extraction-process.png)
+[![Step Wise Extraction Process](images/step-wise-extraction-process.png)]()
 
 
 1. [Azure Data Factory](https://azure.microsoft.com/products/data-factory) schedules a job with one task for the orchestrator pool to process a measurement for extraction. It passes the following information to orchestrator pool:
@@ -233,8 +233,8 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 
 5. Orchestrator exits gracefully.
 
-   > [!NOTE]
-   > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
+  > [!NOTE]
+  > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
 
 ## Considerations
 
