@@ -13,6 +13,10 @@ The diagram below shows the hub and spoke network design used in this architectu
 
 ![Diagram that shows the network topology design for the Windows containers on AKS reference architecture](./images/aks-windows-baseline.png)
 
+### Node pool topology
+
+This architecture uses three node pools: A system node pool running Linux, a user node pool running Linux and a Windows node pool.  The Windows node pool is used for the Windows-based workloads, while the user node pool is used for Linux workloads, if applicable. The system node pool is used for all system-level configurations, like CoreDNS. 
+
 ## Ingress design
 
 Kubernetes ingress resources route and distribute incoming traffic to the cluster.  The Windows AKS reference implementation makes use of [Azure Front Door](/azure/frontdoor/front-door-overview) and [Azure AD Application Proxy](/azure/active-directory/app-proxy/what-is-application-proxy) to secure ingress traffic, as opposed to Azure App Gateway, which is used in the [baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources).  The components are described below.
@@ -43,7 +47,7 @@ All [guidance](/azure/architecture/reference-architectures/containers/aks/baseli
 
 Unlike AKS clusters with Linux node pools, AKS clusters with Windows node pools require Azure CNI.  Using Azure CNI allows a pod to be assigned an IP address from an Azure Virtual Network. The pod can then communicate via the Azure Virtual Network just like any other device. It can connect to other pods, to peered networks or on-premises networks using ExpressRoute or a VPN, or to other Azure services using Private Link.
 
-All [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#plan-the-ip-addresses) relative to planning the IP addresses provided in the AKS Baseline architecture article applies here, with one additional recommendation: consider provisioning a dedicated subnet for your domain controllers.
+All [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#plan-the-ip-addresses) relative to planning the IP addresses provided in the AKS Baseline architecture article applies here, with one additional recommendation: consider provisioning a dedicated subnet for your domain controllers.  With regard to the Windows node pool, it is recommended that you segregate that from the other node pools logically through separate subnets within the Azure CNI configuration.
 
 ## Node pool upgrade
 
@@ -53,6 +57,10 @@ Microsoft provides new Windows Server images, including up-to-date patches, for 
 
 >[!NOTE]
 > Clusters must be upgraded before performing node and node pool upgrades.  Follow the [Cluster upgrades](/azure/aks/upgrade-cluster?tabs=azure-cli) guidance to perform the upgrade.
+
+## Compute considerations
+
+The larger image sizes associated with Windows server-based images requires the deployment of appopriately sized OS disks in your node pool.  Using ephemeral OS disks is recommended for your workloads, so ensure that you understand the [size requirements](/azure/virtual-machines/ephemeral-os-disks#size-requirements) you must adhere to when planning your deployment.
 
 ## Identity management
 
