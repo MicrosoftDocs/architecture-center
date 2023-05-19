@@ -205,6 +205,6 @@ Principal author:
 
 - [Build microservices on Azure](/azure/architecture/microservices)
 - [Design a microservices architecture](/azure/architecture/microservices/design)
-- [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
