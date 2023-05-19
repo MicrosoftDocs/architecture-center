@@ -28,15 +28,15 @@ The solution has three main categories:
 
 * **Components that are fully included**
 
-These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path](Internet of Things Learning Path). Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT](Introduction to Azure IoT) has all you need. All our learning resources here, are free to you.
+  These are Azure services that if someone was standing up the solution these parts of the infrastructure only need to be deployed once and then expanded as devices get added to the solution. To learn all the ins   and outs of these services is a lift and would take time. Our theory here is that by this method, the technologist doesn't need to know every nitty-gritty detail and can expand their learning as needed. For       learning about building an IoT Solution, a great resource to ramp up quickly on the concepts with real world examples and labs is available at [Internet of Things Learning Path][Internet of Things Learning         Path]. Of course, if one wants to learn all the details, Microsoft Learn's [Introduction to Azure IoT][Introduction to Azure IoT] has all you need. All our learning resources here, are free to you.
 
 * **Included Components but needs customization**
 
-Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform Developer Guide][Project 15 Open Platform Developer Guide]. The high level architecture of what services are involved, see below.
+  Here the solution will deploy these services for you, but you will start to modify and add to them based on your use case. The details of the services here are all explained in our [Project 15 Open Platform       Developer Guide][Project 15 Open Platform Developer Guide]. The high level architecture of what services are involved, see below.
 
 * **Not Included, requires full customization**
 
-This is the part where your IP will reside.  How this works is once you `Deploy` the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
+  This is the part where your IP will reside.  How this works is once you `Deploy` the solution to your own Azure account, **it is yours to build out**. Think of how you use a word processor. The word processor     is a tool and the book you write, is yours. Meaning the story you publish is yours, the revenue generated is yours. Same idea. This solution is a tool for you to use to write your own solutions.
 
 ### Solution details
 
@@ -117,15 +117,6 @@ Various Azure services and configurations make up the Project 15 Open Platform:
 
 - [Microsoft Power Platform][Microsoft Power Platform] provides a low-code development platform for analyzing data, automating processes, and building apps, websites, and virtual agents.
 
-### Potential use cases
-
-[Project 15 Open Platform][Project 15 on GitHub] contributes the latest Azure and IoT technologies to conservation and ecosystem sustainability efforts. In so doing, Project 15 accelerates scientific innovation in these and other areas:
-
-- Species tracking and observation
-- Poaching prevention
-- Ecosystem monitoring
-- Pollution detection
-
 ## Deploy this scenario
 
 - Deployment to Azure happens with the push of a button. The main components of the infrastructure for a standard IoT solution are then up and running.
@@ -140,17 +131,17 @@ Principal author:
 
  * [Sarah Maston](https://www.linkedin.com/in/smwmaston/) | Director, Global Partner Development
  * [Daisuke Nakahara](https://www.linkedin.com/in/daisuke-nakahara/) Director, Sony Semiconductor Solutions
- * [Linda Nichols]() | App Innovation Global Blackbelt
+ * [Linda Nichols](https://www.linkedin.com/in/lynnaloo/) | App Innovation Global Blackbelt
  * [Pamela Cortez](https://www.linkedin.com/in/pamelacortezhellotechie) | Azure IoT Principal PM
 
 ## Next steps
 
 - Visit [Project 15 on GitHub][Project 15 on GitHub] to deploy to Azure and learn more about customizing conservation and ecological sustainability solutions.
-- See [Introduction to Azure IoT][Introduction to Azure IoT]
-- See [Internet of Things Learning Path](Internet of Things Learning Path)
-- [Planetary Computer](https://planetarycomputer.microsoft.com/) 
+- See [Introduction to Azure IoT][Introduction to Azure IoT].
+- See [Internet of Things Learning Path][Internet of Things Learning Path].
+- [Planetary Computer][Planetary Computer] 
 - [Microsoft & Sustainability][Microsoft & Sustainability]
-- [Seeed Studio’s IoT Into the Wild](https://www.seeedstudio.com/iot_into_the_wild.html)
+- [Seeed Studio’s IoT Into the Wild][Seeed Studio’s IoT Into the Wild]
 
 ## Related resources
 
@@ -188,3 +179,5 @@ Principal author:
 [Microsoft Power Platform]: https://powerplatform.microsoft.com
 [Internet of Things Learning Path]: https://aka.ms/iotlp
 [Introduction to Azure IoT]: https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/
+[Seeed Studio’s IoT Into the Wild]: https://www.seeedstudio.com/iot_into_the_wild.html
+[Planetary Computer]: https://planetarycomputer.microsoft.com/
