@@ -115,7 +115,7 @@ A graph database is a collection of nodes (or *vertices*) and edges (or *relatio
 This is the graph model for the Contoso scenario:
 
 * `Alarm` is one of the metrics that belong to `Quality_System`.
-* `quality system` is associated with an `asset`.
+* `Quality_System` is associated with an `Asset`.
 
 ![Diagram that illustrates the graph design for the sample scenario.](media/graph-design.png)
 
