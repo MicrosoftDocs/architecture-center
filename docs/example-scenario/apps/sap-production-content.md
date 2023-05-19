@@ -7,14 +7,14 @@ The first diagram shows a reference architecture for SAP on Oracle in Azure, whi
 [![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avset.svg)](./media/sap-oracle-avset.svg#lightbox)
 *Figure - The architecture of a production SAP system on Oracle, in Azure with availability sets.*
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures._
 
 The second diagram shows a reference architecture for SAP on Oracle in Azure, which uses availability zones for increased resiliency.
 
 [![Diagram of the architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone.svg)](./media/sap-oracle-avzone.svg#lightbox)
 *Figure - The architecture of a production SAP system on Oracle, in Azure with availability zones.*
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures._
 
 > [!NOTE]
 > To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -133,7 +133,7 @@ For  SAP application part, see the details in architecture guide [Run SAP NetWea
 [![Diagram that shows an architecture of a production SAP system on Oracle in Azure.](./media/sap-oracle-avzone-disaster-recovery.svg)](./media/sap-oracle-avzone-disaster-recovery.svg#lightbox)
 *Figure - Architecture of a production SAP system on Oracle in Azure with AvZone and DR*
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architecture._
+_Download a [Visio file](https://arch-center.azureedge.net/sap-oracle-architecture-avzone.vsdx) for all architectures._
 
 Every tier in the SAP application stack uses a different DR strategy.
 
