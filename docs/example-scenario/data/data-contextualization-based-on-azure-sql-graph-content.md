@@ -191,7 +191,7 @@ WHERE _change_type = 'insert'
 
 For more samples, see [Change data feed demo](https://docs.databricks.com/_extras/notebooks/source/delta/cdf-demo.html).
 
-You can use change data feed to load data incrementally. To get the version number of the most recent commit, you can store the relevant information in another Delta table:
+You can use change data feed to load data incrementally. To do that, you need the version number of the most recent commit. You can create a Delta table to store that version number:
 
 ```sql
 CREATE TABLE table_commit_version
@@ -201,16 +201,16 @@ CREATE TABLE table_commit_version
 
 Every time you load new data in `tbl_alarm`, you need to complete these steps:
 
-1. Get the `last_commit_version` in `table_commit_version` for table `tbl_alarm`.
-1. Query and load the data added since `last_commit_version`.
+1. Get the `last_commit_version` for the `tbl_alarm` table from `table_commit_version`.
+1. Query and load the data added since the version that's stored in `last_commit_version`.
 1. Get the highest commit version number of the `tbl_alarm` table.
-1. Update `last_commit_version` in the `table_commit_version` table for the next query.
+1. Update `last_commit_version` in the `table_commit_version` table to prepare it for the next query.
 
 Enabling change data feed doesn't have a significant effect on system performance or cost. The change data records are generated inline during the query execution process and are much smaller than the total size of the rewritten files.
 
 ### Potential use cases
 
-* A manufacturing solution provider wants to continuously contextualize the data and events provided by its customers. Because the context information is too complicated to represent in relational tables, the company uses graph models for data contextualization.
+* A manufacturing solution provider wants to continuously contextualize the data and events that are provided by its customers. Because the context information is too complicated to represent in relational tables, the company uses graph models for data contextualization.
 * A process engineer in a factory needs to troubleshoot a problem with factory equipment. The graph model stores all data, directly or indirectly related, from troubleshooting equipment to get information for root cause analysis. 
 
 ## Considerations
@@ -232,13 +232,13 @@ For SQL Database:
 
 * Use role-based access control (RBAC) to limit access to specific operations and resources within a database.
 * Use strong passwords to access SQL Database. Save passwords in Azure Key Vault.
-* Enable TLS to secure in-transit data between SQL Database and Azure Databricks.
+* Enable TLS to help secure in-transit data between SQL Database and Azure Databricks.
 
 For Azure Databricks:
 
 * Use RBAC.
-* Enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity and enable logging to track user activity and security events.
-* To protect data in transit, enable TLS for the JDBC connection to SQL Database.
+* Enable Azure Monitor to monitor your Azure Databricks workspace for unusual activity. Enable logging to track user activity and security events.
+* To provide a layer of protection for data in transit, enable TLS for the JDBC connection to SQL Database.
 
 In your production environment, put these resources into an Azure virtual network that isolates them from the public internet to reduce the attack surface and help protect against data exfiltration.
 
@@ -253,7 +253,7 @@ Cost optimization for SQL Database:
 
 Cost optimization for Azure Databricks:
 
-* Choose the instance type (All-Purpose Compute workload and Premium tier) that meets your workload requirements while minimizing costs.
+* Use the All-Purpose Compute workload and the Premium tier. Choose the instance type  that meets your workload requirements while minimizing costs.
 * Use autoscaling to scale the number of nodes based on workload demand.
 * Turn off clusters when they aren't in use.
 
