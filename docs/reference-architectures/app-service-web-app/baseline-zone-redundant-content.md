@@ -90,13 +90,19 @@ Consider the following points when implementing virtual network integration and 
 
 ### Virtual network segmentation and security
 
-The network in this architecture is divided into subnets for the Application Gateway, App Service integration components and private endpoints. Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required.  
+The network in this architecture is divided into subnets for the Application Gateway, App Service integration components and private endpoints. Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The tables gives the rule name and function.
+
+| Subnet   | Inbound | Outbound |
+| -------  | ---- | ---- |
+| snet-AppGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.AppServices`: Allow outbound access to AppServicesSubnet<br><br>`AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor
+| snet-PrivateEndpoints | Default rules: Allow inbound from vnet | Default rules: Allow outbound to vnet
+| snet-AppService | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 
 Consider the following points when implementing virtual network segmentation and security.
 
 - Enable [DDoS protection](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
-- Add a network security group to every subnet. You should use the strictest rules possible to enable web app functionality. The web app baseline adds network security groups (NSGs) to all three subnets in the virtual network. For more information, see [Network security groups overview](/azure/virtual-network/network-security-groups-overview).
-- Use application security groups. Application security groups allow you to group network security groups. They make rule creation easier for complex environments. You can create NSG rules that have application security groups as the source or destination of the rule. The rule applies to every NSG in the application security group, so you don’t have to create the same rule for every subnet. For more information, see [Create application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups).
+- [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet. You should use the strictest rules possible to enable web app functionality. The web app baseline adds NSGs to all three subnets in the virtual network.
+- Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs and make rule creation easier for complex environments.
 
 ## Reliability  
 
