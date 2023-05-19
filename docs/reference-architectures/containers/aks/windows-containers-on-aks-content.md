@@ -92,7 +92,7 @@ Container insight monitoring for a Windows Server cluster has the following limi
 
 All policy [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-ak#policy-management) found in the AKS baseline article apply for Windows workloads.  Additional Windows-specific policies found in the [Azure Policy built-in definitions for Azure Kubernetes Service](/azure/aks/policy-reference) reference article to consider are:
 
-- [Kubernetes cluster Windows containers should not overcommit CPU and memory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2abc456-f0ae-464b-bd3a-07a)3cdbd7fb1)
+- [Kubernetes cluster Windows containers should not overcommit CPU and memory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2abc456-f0ae-464b-bd3a-07a3cdbd7fb1)
 - [Kubernetes cluster Windows containers should not run as ContainerAdministrator](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5485eac0-7e8f-4964-998b-a44f4f0c1e75)
 - [Kubernetes cluster Windows containers should only run with approved user and domain user group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F57dde185-5c62-4063-b965-afbb201e9c1c)
 
