@@ -1,4 +1,4 @@
-This article is meant to be considered a companion piece to the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-ak), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. The focus of this article is on providing best practices relative to deploying Windows containers on AKS. As such, this article focuses on those configurations specific to deploying Windows on AKS and refer back to the AKS Baseline documentation for configurations already described there.
+This article is meant to be considered as a companion piece to the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-ak), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. The focus of this article is on providing best practices relative to deploying Windows containers on AKS. As such, this article focuses on those configurations specific to deploying Windows on AKS and you should refer back to the AKS Baseline documentation for configurations already described there.
 
 Refer to the [AKS Windows baseline GitHub project](https://github.com/Azure/aks-baseline-windows) to review the reference implementation associated with this reference architecture including sample deployment code.
 
@@ -26,8 +26,6 @@ In order to implement this design, AFD must be configured to use the Application
 Azure Front Door with WAF and Azure Application Proxy were chosen for this architecture because Kerberos authentication isn't supported natively with Azure Application Gateway. Azure Application Gateway serves as both an ingress controller and supports WAF. For Windows deployments using modern authentication, Azure Application Gateway with WAF is recommended. NGINX Pro ingress controller supports both Kerberos and modern authentication; however, it doesn't provide networking protection for your cluster. It is recommended that you either use NGINX with Azure Front Door or Azure Application Gateway to protect your workloads.
 
 ### Ingress traffic flow
-
-![Diagram showing the ingress solution's traffic flow](./images/aks-windows-baseline.png)
 
 1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with the DNS A record for the public IP address of Azure Front Door. This traffic is encrypted to make sure that the traffic between the client browser and gateway can't be inspected or changed.
 1. Azure Front Door has an integrated web application firewall (WAF) and negotiates the TLS handshake for bicycle.contoso.com, allowing only secure ciphers. Azure Front Door Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault.
