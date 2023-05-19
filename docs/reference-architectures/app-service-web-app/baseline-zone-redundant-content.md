@@ -171,7 +171,7 @@ A production web app needs to encrypt data in transit using HTTPS. HTTPS protoco
 
 #### Data in transit
 
-The baseline architecture encrypts data in transit from the user to the web app in App Service. The following workflow describes how the encryption works at a high level.
+In the baseline architecture, data in transit is encrypted from the user to the web app in App Service. The following workflow describes how the encryption works at a high level.
 
 :::image type="complex" source="images/baseline-app-service-encryption-flow.svg" lightbox="images/baseline-app-service-encryption-flow.svg" alt-text="Diagram that shows a baseline App Service encryption flow.":::
     The diagram adds numbers to the Baseline Azure App Service architecture to indicate the encryption flow. Number one is the user. Number two is Application Gateway with WAF. Number three is Azure Key Vault, storing the X.509 certificate. Number four represents the encrypted traffic sent from the application gateway to App Service.
