@@ -94,7 +94,7 @@ Contoso has many applications that help factory managers monitor processes and o
 
 Gary signs in to the quality system and looks up the asset ID AE0520 in the `AE_OP_EFF` table. That table contains the all the key attributes for operational efficiency data.
 
-There are many columns in the `AE_OP_EFF` table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `alarm` table corresponds to the asset AE0520, because they use different naming conventions.  
+There are many columns in the `AE_OP_EFF` table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `Alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `Alarm` table corresponds to the asset AE0520, because they use different naming conventions.  
  
 The relationship is actually much more complicated. Gary needs to search for more than one attribute of the asset and sign in to many tables in different systems to get all the data for a complete report. He uses queries and scripts to perform his work, but the queries are complicated and hard to maintain. Even worse, the systems are growing, and more data needs to be added to the report for different decision makers.
 
@@ -114,7 +114,7 @@ A graph database is a collection of nodes (or *vertices*) and edges (or *relatio
 
 This is the graph model for the Contoso scenario:
 
-* `alarm` is one of the metrics that belong to `quality system`.
+* `Alarm` is one of the metrics that belong to `Quality_System`.
 * `quality system` is associated with an `asset`.
 
 ![Diagram that illustrates the graph design for the sample scenario.](media/graph-design.png)
@@ -123,9 +123,15 @@ This is what the data looks like:
 
 :::image type="content" source="media/contextualization-data.png" alt-text="Screenshot that shows the data used in the sample scenario." lightbox="media/contextualization-data.png":::
 
-In the graph model, the nodes and edges need to be defined. Azure SQL graph uses edge tables to represent relationships. In this scenario, there are two edge tables. They record the relationships between `alarm` and `quality system` and `quality system` and `asset`.
+In the graph model, the nodes and edges need to be defined. Azure SQL graph uses edge tables to represent relationships. In this scenario, there are two edge tables. They record the relationships between `Alarm` and `Quality_System` and `Quality_System` and `Asset`.
 
-![Diagram that shows the graph nodes and edges.](media/nodes-edges.png)
+The following table shows the nodes and edges:
+
+|Nodes|Edges|
+|-|-|
+|Alarm|Alarm -> belongs_to -> Quality_System|
+|Quality_System|Quality_System -> is_associated_with -> Asset|
+|Asset||
 
 To create these nodes and edges in SQL Database, you can use the following SQL commands: 
 
