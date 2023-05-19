@@ -3727,7 +3727,7 @@ items:
         - name: Infrastructure
           items: 
           - name: AKS baseline cluster
-            href: reference-architectures/containers/aks/baseline-aks
+            href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
           - name: AKS cluster for a PCI-DSS workload
