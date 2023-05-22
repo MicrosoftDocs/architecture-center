@@ -18,6 +18,6 @@ products:
   - azure-data-lake-gen2
 name: Contextualize data by using graph in SQL Database
 summary: Learn how to contextualize data by looking up context that's stored in a graph database in SQL Database. 
-thumbnailUrl: /azure/architecture/browse/thumbs/data-contextualization-based-on-azure-sql-graph.png
+thumbnailUrl: /azure/architecture/browse/thumbs/data-contextualization.png
 content: |
   [!include[](data-contextualization-based-on-azure-sql-graph-content.md)]

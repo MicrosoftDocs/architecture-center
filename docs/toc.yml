@@ -3332,6 +3332,8 @@ items:
         href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
       - name: Customer 360 with Azure Synapse
         href: example-scenario/analytics/synapse-customer-insights.yml
+      - name: Data contextualization with graph in SQL Database
+        href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
       - name: Data lake queries via Synapse serverless
         href: example-scenario/data/synapse-exploratory-data-analytics.yml
       - name: Data warehouse for small business
@@ -4650,8 +4652,6 @@ items:
         href: example-scenario/apps/devops-cicd-chatbot.yml
       - name: CI/CD pipeline using Azure DevOps
         href: example-scenario/apps/devops-dotnet-baseline.yml
-      - name: Contextualize data by using graph in SQL Database
-        href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
       - name: DevSecOps in GitHub
         href: solution-ideas/articles/devsecops-in-github.yml
       - name: Enterprise monitoring with Azure Monitor

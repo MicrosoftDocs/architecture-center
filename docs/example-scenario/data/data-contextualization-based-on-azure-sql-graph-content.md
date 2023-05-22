@@ -4,9 +4,9 @@ This article demonstrates how to contextualize data by looking up relevant conte
 
 ## Architecture
 
-![Diagram that shows an architecture for data contextualization.](media/data-contextualization-based-on-azure-sql-graph.png)
+![Diagram that shows an architecture for data contextualization.](media/data-contextualization.png)
 
-*Download a [Visio file](https://arch-center.azureedge.net/[file-name].vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/data-contextualization.vsdx) of this architecture.*
 
 In this architecture, data stored in Delta Lake in the silver layer is read incrementally, contextualized based on a graph lookup, and merged into Azure SQL Database and another Delta Lake instance in the gold layer.
 
