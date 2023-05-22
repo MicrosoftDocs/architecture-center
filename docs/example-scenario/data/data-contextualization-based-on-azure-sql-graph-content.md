@@ -4,7 +4,7 @@ This article demonstrates how to contextualize data by looking up relevant conte
 
 ## Architecture
 
-![Diagram that shows an architecture for data contextualization.](media/data-contextualization.png)
+:::image type="content" source="media/data-contextualization.png" alt-text="Diagram that shows an architecture for data contextualization." lightbox="media/data-contextualization.png" border="false":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/data-contextualization.vsdx) of this architecture.*
 
