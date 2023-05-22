@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 05/15/2023
+ms.date: 05/22/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -28,6 +28,8 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
+- [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)
+- [Deploy Revit on an Azure virtual machine](./guide/hpc/hpc-autodesk-revit.yml)
 - [Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server](./example-scenario/hybrid/aks-hybrid-stack-hci.yml)
 - [Massive-scale VWAN architecture design](./example-scenario/networking/massive-scale-azure-architecture.yml)
 - [Conversation summarization](./guide/ai/conversation-summarization.yml)
@@ -36,7 +38,8 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [AKS triage - cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#7761b2771](https://github.com/MicrosoftDocs/architecture-center/commit/7761b2771))
+- [Deploy SAS Grid 9.4 on Azure NetApp Files](./guide/hpc/netapp-files-sas.yml)  ([#171bf64397](https://github.com/MicrosoftDocs/architecture-center/commit/171bf64397))
+- [AKS triage - cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#7761b27710](https://github.com/MicrosoftDocs/architecture-center/commit/7761b27710))
 
 ## April 2023
 
@@ -62,16 +65,16 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#5708b592c](https://github.com/MicrosoftDocs/architecture-center/commit/5708b592c))
-- [Use Profisee MDM to migrate SQL Server Master Data Services to Azure](./example-scenario/profisee-mds/profisee-mds-migration-utility.yml)  ([#d93744236](https://github.com/MicrosoftDocs/architecture-center/commit/d93744236))
-- [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#74f8e2498](https://github.com/MicrosoftDocs/architecture-center/commit/74f8e2498))
-- [High-performance computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#f34a7a3b6](https://github.com/MicrosoftDocs/architecture-center/commit/f34a7a3b6))
-- [Elastic Enterprise Search on Azure](./solution-ideas/articles/elastic-workplace-search.yml)  ([#a00457730](https://github.com/MicrosoftDocs/architecture-center/commit/a00457730))
-- [Data governance with Profisee and Microsoft Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)  ([#c87d140e9](https://github.com/MicrosoftDocs/architecture-center/commit/c87d140e9))
-- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#a8c7e9718](https://github.com/MicrosoftDocs/architecture-center/commit/a8c7e9718))
-- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#5e982b9d0](https://github.com/MicrosoftDocs/architecture-center/commit/5e982b9d0))
-- [Basic enterprise integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml)  ([#14cfddb15](https://github.com/MicrosoftDocs/architecture-center/commit/14cfddb15))
-- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#79eb9b90e](https://github.com/MicrosoftDocs/architecture-center/commit/79eb9b90e))
+- [Azure VMware Solution networking](./solution-ideas/articles/azure-vmware-solution-foundation-networking.yml)  ([#5708b592c7](https://github.com/MicrosoftDocs/architecture-center/commit/5708b592c7))
+- [Use Profisee MDM to migrate SQL Server Master Data Services to Azure](./example-scenario/profisee-mds/profisee-mds-migration-utility.yml)  ([#d93744236e](https://github.com/MicrosoftDocs/architecture-center/commit/d93744236e))
+- [Publish internal APIs to external users](./example-scenario/apps/publish-internal-apis-externally.yml)  ([#74f8e24988](https://github.com/MicrosoftDocs/architecture-center/commit/74f8e24988))
+- [High-performance computing (HPC) on Azure](./topics/high-performance-computing.md)  ([#f34a7a3b66](https://github.com/MicrosoftDocs/architecture-center/commit/f34a7a3b66))
+- [Elastic Enterprise Search on Azure](./solution-ideas/articles/elastic-workplace-search.yml)  ([#a00457730b](https://github.com/MicrosoftDocs/architecture-center/commit/a00457730b))
+- [Data governance with Profisee and Microsoft Purview](./reference-architectures/data/profisee-master-data-management-purview.yml)  ([#c87d140e94](https://github.com/MicrosoftDocs/architecture-center/commit/c87d140e94))
+- [Extend on-premises AD FS to Azure](./reference-architectures/identity/adfs.yml)  ([#a8c7e97189](https://github.com/MicrosoftDocs/architecture-center/commit/a8c7e97189))
+- [Baseline architecture for an AKS cluster](./reference-architectures/containers/aks/baseline-aks.yml)  ([#5e982b9d0d](https://github.com/MicrosoftDocs/architecture-center/commit/5e982b9d0d))
+- [Basic enterprise integration on Azure](./reference-architectures/enterprise-integration/basic-enterprise-integration.yml)  ([#14cfddb151](https://github.com/MicrosoftDocs/architecture-center/commit/14cfddb151))
+- [Enhanced-security hybrid messaging — client access](./example-scenario/hybrid/secure-hybrid-messaging-client.yml)  ([#79eb9b90e8](https://github.com/MicrosoftDocs/architecture-center/commit/79eb9b90e8))
 
 ## March 2023
 
@@ -93,30 +96,30 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [Protect backend APIs in Azure](./solution-ideas/articles/protect-backend-apis-azure-management.yml)  ([#9ff9f177e](https://github.com/MicrosoftDocs/architecture-center/commit/9ff9f177e))
-- [Line of business extension](./solution-ideas/articles/lob.yml)  ([#eb3f21456](https://github.com/MicrosoftDocs/architecture-center/commit/eb3f21456))
-- [SWIFT Alliance Access with Alliance Connect Virtual on Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)  ([#f1d3da3ef](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3ef))
-- [SWIFT Alliance Lite2 on Azure](./example-scenario/finance/swift-alliance-lite2-on-azure.yml)  ([#f1d3da3ef](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3ef))
-- [SWIFT Alliance Connect Virtual on Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)  ([#f1d3da3ef](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3ef))
-- [Azure service retry guidance](./best-practices/retry-service-specific.md)  ([#8000935c2](https://github.com/MicrosoftDocs/architecture-center/commit/8000935c2))
-- [CI/CD pipeline for chatbots with ARM templates](./example-scenario/apps/devops-cicd-chatbot.yml)  ([#d5f4075e1](https://github.com/MicrosoftDocs/architecture-center/commit/d5f4075e1))
-- [Background jobs guidance](./best-practices/background-jobs.md)  ([#5cd494b25](https://github.com/MicrosoftDocs/architecture-center/commit/5cd494b25))
-- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#924f5e599](https://github.com/MicrosoftDocs/architecture-center/commit/924f5e599))
-- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#5ff05eae2](https://github.com/MicrosoftDocs/architecture-center/commit/5ff05eae2))
-- [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)  ([#b4b724827](https://github.com/MicrosoftDocs/architecture-center/commit/b4b724827))
-- [Reliable web app pattern for .NET -  Apply the pattern](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)  ([#47558cb03](https://github.com/MicrosoftDocs/architecture-center/commit/47558cb03))
-- [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#9042e8a0f](https://github.com/MicrosoftDocs/architecture-center/commit/9042e8a0f))
-- [Multitenant SaaS on Azure](./example-scenario/multi-saas/multitenant-saas.yml)  ([#139802b59](https://github.com/MicrosoftDocs/architecture-center/commit/139802b59))
-- [Master data management with Profisee and Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)  ([#d1671805f](https://github.com/MicrosoftDocs/architecture-center/commit/d1671805f))
-- [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)  ([#693c6382d](https://github.com/MicrosoftDocs/architecture-center/commit/693c6382d))
-- [DevOps checklist](./checklist/dev-ops.md)  ([#d4ccd9995](https://github.com/MicrosoftDocs/architecture-center/commit/d4ccd9995))
-- [DevSecOps with GitHub Security](./solution-ideas/articles/devsecops-in-github.yml)  ([#8d6dd058a](https://github.com/MicrosoftDocs/architecture-center/commit/8d6dd058a))
-- [Connected factory signal processing pipeline](./example-scenario/iot/connected-factory-signal-pipeline.yml)  ([#c2fd38216](https://github.com/MicrosoftDocs/architecture-center/commit/c2fd38216))
-- [Azure DevTest Labs architecture for enterprises](./example-scenario/infrastructure/devtest-labs-reference-architecture.yml)  ([#0134ee6bc](https://github.com/MicrosoftDocs/architecture-center/commit/0134ee6bc))
-- [Considerations when using domain names in a multitenant solution](./guide/multitenant/considerations/domain-names.yml)  ([#aeed32dd1](https://github.com/MicrosoftDocs/architecture-center/commit/aeed32dd1))
-- [Tenant lifecycle considerations in a multitenant solution](./guide/multitenant/considerations/tenant-lifecycle.md)  ([#aeed32dd1](https://github.com/MicrosoftDocs/architecture-center/commit/aeed32dd1))
-- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#aeed32dd1](https://github.com/MicrosoftDocs/architecture-center/commit/aeed32dd1))
-- [Deploy highly available Kubernetes cluster on Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md)  ([#15987656d](https://github.com/MicrosoftDocs/architecture-center/commit/15987656d))
+- [Protect backend APIs in Azure](./solution-ideas/articles/protect-backend-apis-azure-management.yml)  ([#9ff9f177e0](https://github.com/MicrosoftDocs/architecture-center/commit/9ff9f177e0))
+- [Line of business extension](./solution-ideas/articles/lob.yml)  ([#eb3f21456a](https://github.com/MicrosoftDocs/architecture-center/commit/eb3f21456a))
+- [SWIFT Alliance Access with Alliance Connect Virtual on Azure](./example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)  ([#f1d3da3efd](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3efd))
+- [SWIFT Alliance Lite2 on Azure](./example-scenario/finance/swift-alliance-lite2-on-azure.yml)  ([#f1d3da3efd](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3efd))
+- [SWIFT Alliance Connect Virtual on Azure](./example-scenario/finance/swift-on-azure-vsrx.yml)  ([#f1d3da3efd](https://github.com/MicrosoftDocs/architecture-center/commit/f1d3da3efd))
+- [Azure service retry guidance](./best-practices/retry-service-specific.md)  ([#8000935c2d](https://github.com/MicrosoftDocs/architecture-center/commit/8000935c2d))
+- [CI/CD pipeline for chatbots with ARM templates](./example-scenario/apps/devops-cicd-chatbot.yml)  ([#d5f4075e11](https://github.com/MicrosoftDocs/architecture-center/commit/d5f4075e11))
+- [Background jobs guidance](./best-practices/background-jobs.md)  ([#5cd494b254](https://github.com/MicrosoftDocs/architecture-center/commit/5cd494b254))
+- [Azure App Service and Azure Functions considerations for multitenancy](./guide/multitenant/service/app-service.yml)  ([#924f5e599b](https://github.com/MicrosoftDocs/architecture-center/commit/924f5e599b))
+- [Deploy Azure landing zones](./landing-zones/landing-zone-deploy.md)  ([#5ff05eae2e](https://github.com/MicrosoftDocs/architecture-center/commit/5ff05eae2e))
+- [High-availability Kubernetes with Azure Stack Hub](./example-scenario/hybrid/high-availability-kubernetes.yml)  ([#b4b724827e](https://github.com/MicrosoftDocs/architecture-center/commit/b4b724827e))
+- [Reliable web app pattern for .NET -  Apply the pattern](./reference-architectures/reliable-web-app/dotnet/apply-pattern.yml)  ([#47558cb037](https://github.com/MicrosoftDocs/architecture-center/commit/47558cb037))
+- [Scale AI and machine learning initiatives in regulated industries](./example-scenario/ai/scale-ai-and-machine-learning-in-regulated-industries.yml)  ([#9042e8a0fa](https://github.com/MicrosoftDocs/architecture-center/commit/9042e8a0fa))
+- [Multitenant SaaS on Azure](./example-scenario/multi-saas/multitenant-saas.yml)  ([#139802b59c](https://github.com/MicrosoftDocs/architecture-center/commit/139802b59c))
+- [Master data management with Profisee and Azure Data Factory](./reference-architectures/data/profisee-master-data-management-data-factory.yml)  ([#d1671805f9](https://github.com/MicrosoftDocs/architecture-center/commit/d1671805f9))
+- [GitOps for Azure Kubernetes Service](./example-scenario/gitops-aks/gitops-blueprint-aks.yml)  ([#693c6382d6](https://github.com/MicrosoftDocs/architecture-center/commit/693c6382d6))
+- [DevOps checklist](./checklist/dev-ops.md)  ([#d4ccd9995b](https://github.com/MicrosoftDocs/architecture-center/commit/d4ccd9995b))
+- [DevSecOps with GitHub Security](./solution-ideas/articles/devsecops-in-github.yml)  ([#8d6dd058a6](https://github.com/MicrosoftDocs/architecture-center/commit/8d6dd058a6))
+- [Connected factory signal processing pipeline](./example-scenario/iot/connected-factory-signal-pipeline.yml)  ([#c2fd38216d](https://github.com/MicrosoftDocs/architecture-center/commit/c2fd38216d))
+- [Azure DevTest Labs architecture for enterprises](./example-scenario/infrastructure/devtest-labs-reference-architecture.yml)  ([#0134ee6bcf](https://github.com/MicrosoftDocs/architecture-center/commit/0134ee6bcf))
+- [Considerations when using domain names in a multitenant solution](./guide/multitenant/considerations/domain-names.yml)  ([#aeed32dd1a](https://github.com/MicrosoftDocs/architecture-center/commit/aeed32dd1a))
+- [Tenant lifecycle considerations in a multitenant solution](./guide/multitenant/considerations/tenant-lifecycle.md)  ([#aeed32dd1a](https://github.com/MicrosoftDocs/architecture-center/commit/aeed32dd1a))
+- [Considerations for updating a multitenant solution](./guide/multitenant/considerations/updates.md)  ([#aeed32dd1a](https://github.com/MicrosoftDocs/architecture-center/commit/aeed32dd1a))
+- [Deploy highly available Kubernetes cluster on Azure Stack Hub](./hybrid/deployments/solution-deployment-guide-highly-available-kubernetes.md)  ([#15987656da](https://github.com/MicrosoftDocs/architecture-center/commit/15987656da))
 
 ## February 2023
 
@@ -140,17 +143,17 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
-- [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/asysco-zos-migration.yml)  ([#e0b0e346b](https://github.com/MicrosoftDocs/architecture-center/commit/e0b0e346b))
-- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#97e88e162](https://github.com/MicrosoftDocs/architecture-center/commit/97e88e162))
-- [Automating diagnostic Jupyter Notebook execution](./example-scenario/data/automating-diagnostic-jupyter-notebook.yml)  ([#af68726d4](https://github.com/MicrosoftDocs/architecture-center/commit/af68726d4))
-- [Automate multistage pipeline setup in Azure](./example-scenario/devops/automate-azure-pipelines.yml)  ([#cf2c219ce](https://github.com/MicrosoftDocs/architecture-center/commit/cf2c219ce))
-- [Automate Sentinel integration with Azure DevOps](./example-scenario/devops/automate-sentinel-integration.yml)  ([#45641a8d1](https://github.com/MicrosoftDocs/architecture-center/commit/45641a8d1))
-- [Asynchronous messaging options](./guide/technology-choices/messaging.yml)  ([#fe745bff1](https://github.com/MicrosoftDocs/architecture-center/commit/fe745bff1))
-- [Architecture for startups](./guide/startups/startup-architecture.md)  ([#9a53db238](https://github.com/MicrosoftDocs/architecture-center/commit/9a53db238))
-- [Web app private connectivity to Azure SQL Database](./example-scenario/private-web-app/private-web-app.yml)  ([#58bb15ae0](https://github.com/MicrosoftDocs/architecture-center/commit/58bb15ae0))
-- [Compensating Transaction pattern](./patterns/compensating-transaction.yml)  ([#53405d85b](https://github.com/MicrosoftDocs/architecture-center/commit/53405d85b))
-- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#47223927f](https://github.com/MicrosoftDocs/architecture-center/commit/47223927f))
-- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#7911bb1fd](https://github.com/MicrosoftDocs/architecture-center/commit/7911bb1fd))
-- [Overview of SAP guidance and resources](./reference-architectures/sap/sap-overview.yml)  ([#895766387](https://github.com/MicrosoftDocs/architecture-center/commit/895766387))
-- [Throttling pattern](./patterns/throttling.yml)  ([#fff3c6235](https://github.com/MicrosoftDocs/architecture-center/commit/fff3c6235))
+- [IBM z/OS mainframe migration with Avanade AMT](./example-scenario/mainframe/asysco-zos-migration.yml)  ([#e0b0e346b9](https://github.com/MicrosoftDocs/architecture-center/commit/e0b0e346b9))
+- [Automated API deployments using APIOps](./example-scenario/devops/automated-api-deployments-apiops.yml)  ([#97e88e162f](https://github.com/MicrosoftDocs/architecture-center/commit/97e88e162f))
+- [Automating diagnostic Jupyter Notebook execution](./example-scenario/data/automating-diagnostic-jupyter-notebook.yml)  ([#af68726d49](https://github.com/MicrosoftDocs/architecture-center/commit/af68726d49))
+- [Automate multistage pipeline setup in Azure](./example-scenario/devops/automate-azure-pipelines.yml)  ([#cf2c219cec](https://github.com/MicrosoftDocs/architecture-center/commit/cf2c219cec))
+- [Automate Sentinel integration with Azure DevOps](./example-scenario/devops/automate-sentinel-integration.yml)  ([#45641a8d18](https://github.com/MicrosoftDocs/architecture-center/commit/45641a8d18))
+- [Asynchronous messaging options](./guide/technology-choices/messaging.yml)  ([#fe745bff1c](https://github.com/MicrosoftDocs/architecture-center/commit/fe745bff1c))
+- [Architecture for startups](./guide/startups/startup-architecture.md)  ([#9a53db2385](https://github.com/MicrosoftDocs/architecture-center/commit/9a53db2385))
+- [Web app private connectivity to Azure SQL Database](./example-scenario/private-web-app/private-web-app.yml)  ([#58bb15ae03](https://github.com/MicrosoftDocs/architecture-center/commit/58bb15ae03))
+- [Compensating Transaction pattern](./patterns/compensating-transaction.yml)  ([#53405d85be](https://github.com/MicrosoftDocs/architecture-center/commit/53405d85be))
+- [Data partitioning strategies](./best-practices/data-partitioning-strategies.yml)  ([#47223927f1](https://github.com/MicrosoftDocs/architecture-center/commit/47223927f1))
+- [Hub-spoke network topology in Azure](./reference-architectures/hybrid-networking/hub-spoke.yml)  ([#7911bb1fd1](https://github.com/MicrosoftDocs/architecture-center/commit/7911bb1fd1))
+- [Overview of SAP guidance and resources](./reference-architectures/sap/sap-overview.yml)  ([#8957663875](https://github.com/MicrosoftDocs/architecture-center/commit/8957663875))
+- [Throttling pattern](./patterns/throttling.yml)  ([#fff3c62358](https://github.com/MicrosoftDocs/architecture-center/commit/fff3c62358))
 

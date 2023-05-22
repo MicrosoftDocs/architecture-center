@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id/>
     <title>Azure Architecture Center</title>
-    <updated>2023-05-15T16:08:12.541Z</updated>
+    <updated>2023-05-22T16:05:23.748Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <subtitle>Updated articles for Azure Architecture Center</subtitle>
     <rights>https://learn.microsoft.com/legal/termsofuse</rights>
@@ -14,6 +14,22 @@
         <link href="https://learn.microsoft.com/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling"/>
         <updated>2023-05-12T21:17:31.000Z</updated>
         <summary type="html"><![CDATA[Use Azure Machine Learning, Azure Synapse Analytics, App Service, and Power BI to model loan credit risk and default probability.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Microsoft SaaS stories]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/saas/case-studies/saas-stories"/>
+        <updated>2023-05-17T17:39:52.000Z</updated>
+        <summary type="html"><![CDATA[Collection of insightful interviews featuring Microsoft partners who have embarked on their unique software as a service (SaaS) journey.]]></summary>
+        <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy Revit on an Azure virtual machine]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-autodesk-revit</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/hpc-autodesk-revit"/>
+        <updated>2023-05-15T22:28:44.000Z</updated>
+        <summary type="html"><![CDATA[Learn how Autodesk Revit building information modeling software performs on an Azure virtual machine.]]></summary>
         <category label="new" term="new"/>
     </entry>
     <entry>
@@ -55,6 +71,14 @@
         <updated>2023-05-02T22:19:10.000Z</updated>
         <summary type="html"><![CDATA[Implement comprehensive logging and monitoring and enhanced security for Azure OpenAI Service large language models.]]></summary>
         <category label="new" term="new"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Deploy SAS Grid 9.4 on Azure NetApp Files]]></title>
+        <id>https://learn.microsoft.com/azure/architecture/guide/hpc/netapp-files-sas</id>
+        <link href="https://learn.microsoft.com/azure/architecture/guide/hpc/netapp-files-sas"/>
+        <updated>2023-05-18T16:28:45.000Z</updated>
+        <summary type="html"><![CDATA[Learn about running SAS Grid 9.4 on Azure, using Azure NetApp Files for SASDATA storage, and about storage options for SASWORK.]]></summary>
+        <category label="updated" term="updated"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[AKS triage - cluster health]]></title>
