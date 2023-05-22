@@ -21,7 +21,7 @@ DevSecOps makes security best practices an integral part of DevOps while maintai
 
 When GitHub Security identifies a vulnerability, it takes the steps illustrated in the following diagram:
 
-   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.png" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
+   :::image type="complex" source="../media/devsecops-in-github-vulnerability-management-data-flow.svg" alt-text="Architecture diagram illustrating the chain of events that the identification of a vulnerability triggers, including alerts, upgrades, and deployment." border="false":::
 Architecture diagram illustrating a chain of events in a GitHub DevSecOps implementation. At the outset, GitHub identifies a vulnerability and sends an email alert. Dependabot then creates a branch, updates the vulnerability source, and creates a PR. The branch merges. In the final step, GitHub Actions deploy the new app.
    :::image-end:::
   
