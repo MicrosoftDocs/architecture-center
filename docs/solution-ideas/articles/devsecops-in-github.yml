@@ -26,6 +26,6 @@ products:
   - azure-policy
   - azure-security-center
   - github
-thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-github.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/devsecops-in-github-data-flow.png
 content: |
    [!include[](devsecops-in-github-content.md)]
