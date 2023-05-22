@@ -3828,8 +3828,6 @@ items:
           href: solution-ideas/articles/aks-demand-spikes.yml
         - name: Instant IoT data streaming with AKS
           href: solution-ideas/articles/aks-iot-data-streaming.yml
-        - name: Lift and shift to containers with App Service
-          href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
         - name: Secure DevOps for AKS
           href: solution-ideas/articles/secure-devops-for-kubernetes.yml          
         - name: AKS in event stream processing
@@ -6731,6 +6729,8 @@ items:
         href: solution-ideas/articles/highly-available-sharepoint-farm.yml
       - name: Hybrid SharePoint farm with Microsoft 365
         href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+      - name: Lift-and-shift migration to containers with App Service
+        href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
       - name: Modern customer support portal
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
       - name: Real-time presence with Microsoft 365
