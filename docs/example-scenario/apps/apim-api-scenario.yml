@@ -18,7 +18,6 @@ metadata:
     - app-modernization
     - example-scenario
     - internal-intro
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-apim-api-scenario.png
 name: Migrate a web app using Azure API Management
 azureCategories:
   - web

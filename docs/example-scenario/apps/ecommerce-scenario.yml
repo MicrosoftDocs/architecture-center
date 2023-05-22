@@ -16,7 +16,6 @@ metadata:
     - web-apps
     - ecommerce
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-scenario.png
 name: E-commerce front end
 azureCategories:
   - web

@@ -18,7 +18,6 @@ metadata:
     - e2e-hybrid
     - "https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/disaster-recovery-smb-azure-site-recovery.png
 name: SMB disaster recovery with Azure Site Recovery
 azureCategories:
   - management-and-governance
