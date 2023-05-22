@@ -2,8 +2,7 @@ This architecture provides guidance and recommendations for developing offline d
  DataOps is one of the building blocks of AVOps, in addition to MLOps, ValOps, DevOps and Centralized AVOps functions. 
 
 ## Architecture
-
-[![DataOps Reference architecture.](.\images\dataops.png)]()
+:::image type="content" source="./images/dataops.png" alt-text="Diagram Dataops Architecture" border="false" lightbox="./images/dataops.png":::
 *Download a [Visio file](https://arch-center.azureedge.net/dataops-architecture.vsdx) that contains the architecture diagrams in this article.*
 
 ### Data Flow
@@ -137,7 +136,8 @@ The following sections details how an organization can implement the data moveme
 
 ##### Landing Storage Account to Raw Storage Account
 The data pipeline is triggered based on a schedule. Once triggered, the data is copied from "Landing" storage account to the "Raw" storage account.
-[![ADF Copy pipeline](images/adf-copy-landing-raw.png)]()
+
+:::image type="content" source="./images/adf-copy-landing-raw.png" alt-text="Diagram that shows ADF Copy pipeline" border="false" lightbox="./images/adf-copy-landing-raw.png":::
 
 Once the pipeline gets triggered, it fetches all the measurement folders and iterates through all of the folders. Here's the sequence of activities that happen against each measurement:
 
@@ -176,8 +176,7 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
 
 All the extraction logic is packaged in different container images based on the extraction processes. [Azure Batch](/azure/batch/) runs those container workloads in parallel for the extraction of measurement files.
 
-[![Batch Design](images/azure-batch-design.png)]()
-
+:::image type="content" source="images/azure-batch-design.png" alt-text="Diagram that shows Batch Design" border="false" lightbox="images/azure-batch-design.png":::
 In [Azure Batch](/azure/batch/) two batch pools, an orchestrator pool(non container) and an execution pool(container based) are used for processing workloads. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads for the topic extractions. Here's the design for batch processing:
 
 - **Orchestrator Pool**: This pool has linux nodes without container runtime support.  The pool runs a python code that utilizes [Azure Batch](/azure/batch/) API to create jobs and tasks for the execution pool.  The pool also monitors those tasks. [Azure Data Factory](https://azure.microsoft.com/products/data-factory) triggers this pool with the required configurations. 
@@ -207,9 +206,7 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 ```
 
 ##### Step wise extraction process
-
-[![Step Wise Extraction Process](images/step-wise-extraction-process.png)]()
-
+:::image type="content" source="images/step-wise-extraction-process.png" alt-text="Diagram that shows Step Wise Extraction Process" border="false" lightbox="images/step-wise-extraction-process.png":::
 
 1. [Azure Data Factory](https://azure.microsoft.com/products/data-factory) schedules a job with one task for the orchestrator pool to process a measurement for extraction. It passes the following information to orchestrator pool:
 
@@ -236,7 +233,7 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
   > [!NOTE]
   > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
 
-## Considerations
+  > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
