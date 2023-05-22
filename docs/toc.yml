@@ -6597,6 +6597,12 @@ items:
         href: example-scenario/wvd/multi-forest.yml
       - name: Multiple forests with Azure AD DS
         href: example-scenario/wvd/multi-forest-azure-managed.yml
+  - name: VM
+    items: 
+    - name: IaaS baseline architecture on Azure
+      href: vm/iaas-baseline.yml
+    - name: IaaS baseline in Azure landing zones
+      href: vm/iaas-baseline-landing-zone.yml
   - name: Web
     items:
     - name: Get started

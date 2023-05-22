@@ -1,19 +1,13 @@
 
-This article provides a foundational reference architecture for an Infrastructure-as-a-Service (IaaS) workload. The intent is to showcase a typical lift-and-shift use case in which an application is rehosted from on-premises to Azure without any code changes.  
+This article provides a reference architecture and guidance for building out the foundational components for an Infrastructure-as-a-Service (IaaS) solution. The scope includes all of the typical infrastructure layer services and components required, such as compute, storage, networking, monitoring and more. 
 
-The focus of this architecture isn't that application. Instead it provides guidance for configuring and deploying the infrastructure components with which the application interacts. This includes the components such as compute, storage, networking, monitoring and more. 
-
-On-premises architecture are designed with a Capital Expense (CAPEX) mindset. When migrating to the cloud, take advantage of the elastic nature of the cloud services. Certain configurations that worked on-premises can be cost optimized on Azure. Do rigorous testing to establish a baseline that's inline with the expectation of the on-premises systems but can be easily extended to adapt to the changes in business requirements.
-
-> [!TIP]
-> ![GitHub logo](../_images/github.svg) The best practices described in this architecture is demonstrated by a [**reference implementation**](). Consider the implementation as your first step towards production for a lift-and-shift application.
-> The implementation includes an application that's a small test harness that will exercise the infrastructure set up end-to-end. 
-
-
+Note that guidance for the following items is out of scope for this article:
+- The application layer requirements for hosting a specific workload or application (only a small test harness that will exercise the infrastructure end-to-end).
+- The data tier requirements for infrastructure and storage components, as this will vary greatly depending on the workload being hosted.
 
 ## Architecture
 
-:::image type="content" source="./media/iaas-baseline-architecture.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-architecture.png":::
+:::image type="content" source="./media/iaas-baseline.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline.png":::
 
 *Download a [Visio file](https://microsoft-my.sharepoint.com/:u:/r/personal/josev_microsoft_com/_layouts/15/doc2.aspx?sourcedoc=%7B07ba5bba-c61b-4b5e-bd37-1d4c20adf6b3%7D&action=view&share=IQG6W7oHG8ZeS703HUwgrfazAfcpYv2OBI9EIkxS8W1jamA&cid=12c82ef1-48e5-4fdf-b442-c52eb52ea874) of this architecture.*
 
@@ -21,267 +15,38 @@ On-premises architecture are designed with a Capital Expense (CAPEX) mindset. Wh
 //TODO: Refresh all images from Visio and convert to .svg  
 //TODO: Create thumbnail for browser  
 
-#### Workload resources
-
-- **Azure Virtual Machine** (VM) serves as the compute needed for the application. For illustrative purposes, there's a mix of both Windows and Linux images. The VMs are spread across availability zones so that the application is resilient to data center failures within a zone.  
-
-- **Azure Virtual Machine Scale Sets** in Flexible orchestration mode provisions and manages the virtual machines individually. This mode was chosen because of the ease of operations, for example automatically spreading VMs across fault domains. Also, scaling demands of the application are met by provisioning more or decommissioning VMs, as needed. For more information, see [Scale sets with Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration).
-
-- **Azure Virtual Network** provides a private network for all workload resources. The network is segmented into subnets that act as isolation boundaries.
-
-- **Azure Application Gateway Standard_v2** is the single point of ingress. It routes user requests to front end servers.  
-
-    This SKU has integrated Azure Web Application Firewall (WAF) that inspects incoming requests to check for OWASP vulnerabilities.
-
-    It also supports cross-zone redundancy.
-
-- **Azure Load Balancer** routes traffic from the frontend tier to the backend servers. The load balancer has zonal redundancy to enable distribution to VMs across zones.  
-
-- **Azure Key Vault** stored certificates used for end-to-end TLS communication by the workload. It also stores application secrets. 
-
-#### Workload supporting resources
-
-- **Azure Bastion** provides operational access to the VMs over Remote Desktop Protocol (RDP) and Secure Shell (SSH). Communication is over a private connection that prevents the VMs from being exposed through public IP addresses.  
-
-- **Azure Application Insights** collects logs and metrics from the application. 
-
-- **Azure Log Analytics** is the monitoring data sink that collects logs and metrics from the Azure resources and Application Insights. A storage account is provisioned as part of the workspace. 
-
 ### Workflow
 
-<!-- FOR DRAFT REFERENCE ONLY - TO BE REMOVED -->
-THIS DIAGRAM IS TEMPORARY FOR REFERENCE ONLY:
-:::image type="content" source="./media/iaas-baseline-architecture-temp.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-architecture-temp.png":::
-<!-- FOR DRAFT REFERENCE ONLY - TO BE REMOVED -->
+### Components
 
-##### Workload user
+##### General
 
-1. Workload user browses to the web site via public IP address and connects to Azure Application Gateway. 
-1. Application Gateway receives HTTPS traffic and uses the external certificate to decrypt data for inspection by WAF. If data passes the WAF test, Application Gateway encrypts the data using the internal wildcard certificate for transport to the web tier. 
-1. The zone-redundant Application Gateway balances traffic across the three zones in the frontend, connecting to a VM in the pool of web tier VMs, on behalf of the user session.
-1. The front-end web tier is the first layer of the three-tier application, with VMs hosted in three availability zones. The front-end VM that receives the request uses the internal certificate to decrypt data for inspection, then encrypts the data for transport to the back-end tier based on the request. 
-1. The front-end web app connects to the zone-redundant back-end Azure Load Balancer. Load Balancer connects to a VM in the pool of zone-redundant API tier VMs, forwarding the call to the API app.
-1. The back-end VM that receives the request uses the internal certificate to decrypt data for inspection, then encrypts the data for transport to the data tier based on the request.
-1. The back-end API app makes an API call to the data tier, which returns a result set to the API app. The API app returns the result to the web tier app. The web tier app returns the result to the Application Gateway, which returns it to the user.
+- [Resource groups](https://azure.microsoft.com/get-started/azure-portal/resource-manager) are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
 
-##### Operations user
+- [Availability zones](https://azure.microsoft.com/explore/global-infrastructure/availability-zones) are separate physical locations within an Azure region, each with one or more datacenters that have independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
 
-1. Operations user signs in to Azure portal.
-1. The operations user accesses Azure Bastion service, then remotes into desired VM for troubleshooting using the appropriate tool.
-1. TBD 
+##### Compute
 
-## Compute layout and design choices
+- [Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines/) allow you to migrate your Windows and Linux workloads to Azure compute. [Multiple series options](https://azure.microsoft.com/pricing/details/virtual-machines/series/) are available to customize your configuration based on your web, API, and data layer workload requirements.
+- [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/products/virtual-machine-scale-sets) let you create and manage a group of heterogeneous load-balanced virtual machines (VMs). Increase or decrease the number of VMs automatically in response to demand or based on a schedule you define.
 
-The sample application can be represented in two tiers, each requiring its own compute.  
+##### Networking and load balancing
 
-1. Frontend runs the web server and receives user requests.
-1. Backend runs business logic to process those requests. 
+- [Azure Virtual Network](https://azure.microsoft.com/products/virtual-network) is the fundamental building block for private networks in Azure. Every Azure VM is deployed into a virtual network that can be segmented into subnets with one subnet for each tier.
 
-Both compute are stateless to reduce complexity during scaling operations. Temporary state can be stored on [disks](#managed-disks). This layout may be extended to include a database tier for storing state from the frontend and backend compute. That tier is outside the scope of this architecture.
+- [Application Gateway](https://azure.microsoft.com/products/application-gateway) is a layer-7 load balancer. In this architecture, a zone-redundant Application Gateway instance routes HTTP requests to the web front end. Application Gateway also provides [Azure Web Application Firewall](https://azure.microsoft.com/products/web-application-firewall), which protects the application from common exploits and vulnerabilities. The v2 SKU of Application Gateway supports cross-zone redundancy. A single Application Gateway deployment can run multiple gateway instances. For production workloads, run at least two. For more information, see [Autoscaling and zone-redundant Application Gateway v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant) and [How does Application Gateway support high availability and scalability?](/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability).
 
-##### VM SKUs
+- [Azure Load Balancer](https://azure.microsoft.com/products/load-balancer) is a layer-4 load balancer. In this architecture, a zone-redundant [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) directs network traffic from the web tier to SQL Server. Because a zone-redundant load balancer isn't pinned to a specific zone, the application continues to distribute the network traffic during a zone failure. A zone-redundant load balancer is used to provide availability when the active SQL Server instance becomes unavailable. The standard SKU of Load Balancer supports cross-zone redundancy. For more information, see [Standard Load Balancer and availability zones](/azure/load-balancer/load-balancer-standard-availability-zones).
 
-When migrating an existing workload to the cloud, have a baseline expectation for performance that matches your on-premises servers. This will impact the capabilities you choose for virtual machines on Azure, such as:
+- [Network security groups](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkSecurityGroup) are used to restrict network traffic within a virtual network. In this architecture, the web tier only accepts traffic from the public IP endpoint. Also, the database tier doesn't accept traffic from any subnet other than the web-tier subnet.
 
-- CPU, memory, and disk input/output operations per second (IOPS)
-- Storage volumes
-- Processors architecture
-- Operating system (OS)
+- [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) provides secure and seamless Remote Desktop Protocol (RDP) and Secure Shell (SSH) access to the VMs within a virtual network. This service provides access while limiting the exposed public IP addresses of the VMs within the virtual network. Azure Bastion provides a cost-effective alternative to a **provisioned** VM to provide access to all VMs within the same virtual network.
 
-As an example of changes to the architecture in the cloud from on-premises, consider the OS. The OS ran on a disk with fixed capacity. In Azure, the OS footprint influences your choice in VM and disk SKUs.
+- [Azure Key Vault](https://azure.microsoft.com/products/key-vault) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates. It's used in this architecture to store certificates used for TLS communication and to by the workload to store application secrets.
 
-For information about the supported VM SKUs, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
-
-##### VM connectivity
-
-To enable a VM to communicate with the virtual network, you need Network interfaces (NICs).
-
-On-premises servers can have virtualized networking where hosts connect to external networks through virtual switches. The switches have policies in place that control traffic going in and out of the servers.
-
-If the workload needs low latency, that set up can be a disadvantage because the policy processing requires an extra hop at the switch. Azure VM NICs support **accelerated networking**. The processing is directly offloaded by the VM NIC to the underlying hardware. This results in lower latency and the CPU can process the payload faster. For more information, see [Benefits of accelerated networking](/azure/virtual-network/accelerated-networking-overview?tabs=redhat#benefits).
-
-If you require multiple NICs for your VM, be aware that a maximum number of NICs is defined for each VM size.
-
-//This is disabled on the NIC.
-
-##### Disks
-
-Storage area network (SAN) volumes are needed to run the operating system and application components. They can be used to run the OS or store temporary data. In Azure, these volumes or disks, are _attached_ to the VM. **Ephemeral OS disks** are recommended for OS. **Managed disks** are recommended for data storage.
-
-Azure offers options varying in performance, tunability, and cost. Most production workloads should start with Premium SSD. The choice is tied to the VM SKU. VM SKUs that support Premium SSD contain 's' in the resource name, for example 'Dsv4' but not 'Dv4.'
-
-For more information about the disk options with metrics such as capacity, IOPS, throughput and others, see [Disk type comparison](/azure/virtual-machines/disks-types#disk-type-comparison).
-
-When choosing the appropriate disk, keep in mind the disk characteristics and performance expectations. 
-
-Here are some considerations:
-
-- **The limitations of the VM SKU**. Disks run in context the VM to which its attached. VMs have limits for both IOPS and throughput across all attached disks. A disk must not impose a cap on the attached VM's limits, and vice versa. Determine the required disk size and performance along with the VM core, CPU, and memory capabilities. Then, choose and test SKU combinations that will run the application component optimally on that VM instance.
-
-    Don't overprovision either resource because the overall cost will be impacted.
-
-- **Configuration changes**. You can change certain disk performance and capacity configurations while a VM instance is running. However, many changes might require a complete re-provisioning and rebuilding of content on the disk. Bringing a VM down to make a disk change might impact the availability of the workload. Take a “measure twice, cut once” approach to disk and virtual machine SKU selection in your architecture planning to minimize availability impact and rework.
-
-//{CHAD} What's the workaround for the use case that requires re-provisioning. Include something about scaling? 
-
-- **Ephemeral OS disks**. OS disks must not store application components or state. OS disks should be provisioned as [ephemeral disks](/azure/virtual-machines/ephemeral-os-disks). Managed disks can be considered only when OS files need to be persisted. 
-
-    Ephemeral OS disks capacity is based on the selected virtual machine SKU. Your OS image's expected disk size should be less than the available cache or temp disk available on the SKU. Remaining space can be used for temporary storage. 
-
-- **Disk performance**. It's a common practice to pre-provision disk space based on peak load. However, most workloads don't sustain peak load, which might lead to under utilized resources. 
-
-    Monitor the workload's usage patterns. For example, you might notice a spike during certain times. At other times, there might be sustained high-read operations. Factor in this pattern when you select VM and managed disk SKUs. 
-    
-    You can change the performance on demand by changing the [performance tiers](/azure/virtual-machines/disks-change-performance#what-tiers-can-be-changed). Another way is to take advantage of the [bursting features](/azure/virtual-machines/disk-bursting) offered in some managed disks SKUs. 
-
-    Over provisioning will need less bursting, however, the tradeoff is unused provisioned capacity that you pay for. To get the best results, combine the two features if possible.
-
-- **Tune caching for the workload**. All disks should have their cache setting configured based on the application component usage. 
-     
-    Application components that mostly do read operations don't require high disk transactional consistency and can benefit from read-only caching. Components that are write heavy, require high disk transactional consistency. For these disks, caching is often disabled.
-    
-    Read-write caching for workload components could lead to data loss in the event of a virtual machine crash and is generally not recommended for most data disk scenarios.
-
-In this architecture, the both backend and frontend VMs use Standard HDD LRS. //this seems to be off. 
-
-- All virtual machine OS disks are ephemeral, and are placed on the cache disk. This places the Windows page file on the same ephemeral disk.
-- Each virtual machine has its own Premium SSD P3 managed disk attached, giving a base provisioned throughput suitable for our workload.
-
-
-##### Virtual Machine Scale Sets with flexible orchestration
-
-In this architecture, VMs are provisioned as part of **Virtual Machine Scale Sets (VMSS) with Flexible orchestration** to facilitate operations at scale. VMSS represent a logical organization of VMs. The expected capacity can be met by allocating identical VMs or multiple virtual machine types. You can manage the machine lifecycle, including network interfaces and disks using the standard Azure VM APIs and commands. 
-
-Another benefit is that flexible orchestration can spread VMs across fault domains within an Availability Zone. You to scale out the application while maintaining fault domain isolation.
-
-
-## Identity and access management
-
-[Azure Active Directory (Azure AD)](/azure/active-directory/) is recommended for authenication of all actors, both users and software components such as services. Use [Azure Role Based Access Control (RBAC)](/azure/role-based-access-control/overview) for authorization of all actors accessing resources, and implementation of the [principle of least privilege](/azure/active-directory/develop/secure-least-privileged-access) when applying roles and permissions to actors. 
-
-In the workload, services will need to communicate with other services. For example, VMs need to reach Key Vault to get certificates. To make sure that access is secure, the service needs to authenticate its identity to the other service. Using managed identity is recommended. Managed identities are based on Azure Active Directory service principals internally, but much easier to use due to the automatic management of the service principal object.
-
-These services in this architecture use [user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). The identities are created and assigned during deployment. 
-
-- **Azure Application Gateway** uses its user-assigned managed identity to access Azure Key Vault and retrieve external and internal TLS certificates. The external certificate is used for encrypting traffic to/from the user, and the internal certificate is used to encrypt traffic to/from the front-end web tier.
-
-- **Front-end web tier and back-end API tier VMs** use their own user-assigned managed identities to access Azure Key Vault and retrieve the internal TLS certificate. The internal certificate is used for encrypting traffic between frontend and backend VMs. VMs also use their managed identity to access the Azure Storage account issued during deployment, which is used to store boot diagnostics.
-
-// It's a good place to add some example of how to continue to use managed identity for extension cases. Like Backend servers would need managed identity for getting secrets from KV for database connection purposes. 
-
-## Secret management
-
-[Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets. This architecture uses Key Vault to store the TLS certificates used by the various actors for encrypting and decrypting data in transit between layers. 
-
-The managed identities configured during deployment are used by Application Gateway and the VMs for Key Vault authentication and authorization. Key Vault access policy is configured to allow the managed identities to retrieve the certificate properties. The VMs also use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) for automatic refresh of Key Vault certificates if changes are detected in the certificate store. The extension supports certificate content types PKCS #12, and PEM. 
-
-The certificates stored in Key Vault are identified by the following common names:
-- **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic
-- ***.worload.contoso.com**: A wildcard certificate used by the infrastructure componenets for secure internal traffic.
-
-It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
-
-**TODO:** do we need to say anything about cert rotation?
-//Yes, i think you cover that with the extension.
-
-***
-***
-
-## Dump zone
-
-## Networking 
-
-This architecture uses a single virtual network in which the workload resources are deployed. Isololation boundaries are created through subnetting.
-
-:::image type="content" source="./media/iaas-baseline-network-topology.png" alt-text="IaaS baseline architectural diagram" lightbox="./media/iaas-baseline-network-topology.png":::
-*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
-
-- Update image to show overall network topology with components for each subsection below
-- Q: Do we need to add Azure DDoS Protection?
-
-Do not expose the VMs directly to the Internet, but instead give each VM a private IP address. Clients connect using the public IP address of the load balancer.
-
-If you need to log into the VMs behind the load balancer, consider adding a single VM as a jumpbox (also called a bastion host) with a public IP address you can log into. And then log into the VMs behind the load balancer from the jumpbox. Alternatively, you can configure the load balancer's inbound network address translation (NAT) rules. However, having a jumpbox is a better solution when you are hosting n-tier workloads or multiple workloads.
-
-## Redundancy
-
-#### Redundancy in disks
-
-Managed disks are a regional resource and can only be attached to a virtual machine in the same region. Managed disks can be either LRS or ZRS. For most IaaS architectures, LRS is sufficient for data disks. ZRS is a good candidate for workloads that require lower RTO and RPO options on data disks, but requires a recovery strategy designed to advantage of availability zones and ideally pre-provisioned compute in alternate availability zones ready to recover from a zonal failure. ZRS also introduces an added bit of write latency that should be validated in your workload. Even LRS disks have [zonal failure mitigations](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks), but only ZRS is capable of achieving zero RPO.
-
-Some specialty workloads, such as SQL Server Always On, can write data to multiple zones. Likewise, custom applications that you write can also follow that strategy and achieving multi-zone redundancy while still using LRS disks. Architecting your IaaS application to take advantage of the flexibility and raw storage access can be a boon for the overall reliability of your workload.
-
-In this architecture, data disks are configured as LRS as no state is persisted locally on any tiers, and the DR playbook for this architecture is redeploy.
-
-- Azure Managed disks themselves do not have a financially backed SLA, no matter what tier is selected. Their availability typically impacts the availability of the virtual machines they are attached to or worse, they do not, but still impact the availability of the workload.
-
-## Scalability
-
-## Patching and updates
-
-## Monitoring
-
-#### VM insights (will we using other insights?)
-
-#### Managed disks
-
-Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. When designing your monitoring solution be aware that there is an Azure-platform perspective on managed disks and there is the Guest OS perspective on the managed disks.  The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected.  The guest-perspective represented the type of metrics that the workload operator would view, regardless of the underlying disk technology.  In Azure, workload teams have the responsibility of monitoring both as part of their solution.
-
-##### Platform perspective
-
-The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a potential performance issue, as both the individual disks and the VM can cap total performance. To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks.
-
-If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics.  Running out of credits can be expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
-
-##### OS perspective
-
-VM Insights is how we recommend you get key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
-
-## Security
-
-#### Disk encryption
-
-##### Azure disk storage encryption
-
-At the infrastructure level, managed disks, by default are encrypted-at-rest with a platform-managed encryption solution (PMK). Unless your compliance requires an alternative, using this platform-managed encryption is recommended for most architectures. For situations that require the use of customer-managed encryption solutions (CMK) or even double encryption (PMK + CMK), you'll need to introduce a Disk Encryption Set and an Azure Key Vault for your key encryption key (KEK) into the solution architecture as a critical regional component. Disk encryption is applied at the individual disk level, so one virtual machine can support multiple combinations of disk encryption configurations to fit workload requirements. All disk encryption at the platform level is completely transparent to the virtual machine's OS.
-
-Azure disk storage encryption does not encrypt VM temp disks, ephemeral OS disks, disk caches, nor the SAN connection (encryption-at-flow) to disk storage. To extend encryption to the virtual machine's ephemeral disks and the SAN connection, use Encryption at host.
-
-##### Azure disk encryption (ADE)
-
-At the operating system level, there is no default encryption applied. OS-level encryption is provided by solutions such as DM-Crypt on Linux and BitLocker on Windows Server. If your solution absolutely requires OS-level/managed encryption on OS and/or data disks, it is recommended to manage these native OS encryption methods though the ADE virtual machine extension. This scenario is relatively niche and is not covered in the IaaS baseline architecture as it is not a common concern for many architectures.
-
-- PMK is used for server-side encryption, encryption at host nor ADE are enabled.
-
-##### Strategy
-
-Let your security and compliance requirements dictate your disk encryption strategy. Tradeoffs for introducing CMK in Azure disk storage encryption or ADE are additional critical infrastructure components to monitor and manage, additional cost, and potential impact to RTO related to human-error, backups, and failover. Most general-purpose IaaS solutions will find PMK Azure disk storage sufficient; extend to use CMK and/or encryption at host for added broad compliance coverage only when necessary.
-
-## Cost optimization
-
-It's recommended that bursting features of managed disks are considered as part of your SKU selection and cost optimization strategy for IaaS infrastructure. The free bursting credit feature of Premium SSD should be used to achieve desired performance characteristics without the need for excessive over-provisioning.
-
-Balance between disk and VM skus. Don't overprovision either resource because the overall cost will be impacted.
-
-#### Azure reservations
-
-Many IaaS workloads have prolonged expected deployment durations, often years. Ensure your IaaS lifecycle, resource SKUs, and disk needs are available to your cloud FinOps team for inclusion in your organization's pre-purchase reservation scopes.
-
-Resources in this architecture that can benefit from Azure reservations:
-
-- [Azure managed disks](/azure/virtual-machines/disks-reserved-capacity)
-
-
-
-##### Zone redundancy
-
-Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures
-
-By replicating VMs across availability zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best [VM uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). For more information, see [Building solutions for high availability using availability zones](../high-availability/building-solutions-for-high-availability.yml).
-
-##### Update domains
-
-Spreading resources across availability zones also protects an application from planned maintenance. When VMs are distributed across three availability zones, they are, in effect, spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones aren't updated at the same time.
+- [Azure Monitor](https://azure.microsoft.com/products/monitor) collects data on environments and Azure resources. It helps maintain availability and performance monitoring. In addition to analyzing and maintaining costs for other Azure services.
+- 
+### Alternatives
 
 ## Scenario details
 
@@ -291,7 +56,17 @@ The architecture uses resources spread across multiple zones to provide high ava
 
 ### Business continuity and disaster recovery (BCDR)
 
+#### Guidance for VMs
 
+##### Availability Zones
+
+Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. The physical separation of availability zones within a region limits the impact to applications and data from zone failures
+
+By replicating VMs across availability zones, you can protect your applications and data from a zone failure. This is how Azure meets the industry-best [VM uptime service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9). For more information, see [Building solutions for high availability using availability zones](../high-availability/building-solutions-for-high-availability.yml).
+
+##### Update domains
+
+Spreading resources across availability zones also protects an application from planned maintenance. When VMs are distributed across three availability zones, they are, in effect, spread across three update domains. The Azure platform recognizes this distribution across update domains to ensure that VMs in different zones aren't updated at the same time.
 
 ##### Guidance for PaaS and other components
 
@@ -352,6 +127,11 @@ If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-
 
 Store and version scripts and template files in your source control system.
 
+### Identity and access management
+
+##### Managed identities
+##### Authorization for solution components
+##### Role based access control (RBAC)
 
 ### Monitoring
 
@@ -542,8 +322,20 @@ For considerations about designing a health probe endpoint, see [Health Endpoint
 
 Encrypt sensitive data at rest and use [Azure Key Vault](https://azure.microsoft.com/services/key-vault) to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
 
+##### Certificate
 
+In this architecture we configure the VMs with the Azure Key Vault extension (see [extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)). The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and, upon detecting a change, retrieves, and installs the corresponding certificates. 
 
+The extension supports certificate content types PKCS #12, and PEM. VM/VMSS must have assigned a user assigned managed identity, and the Key Vault Access Policy must be set with secrets get and list permission for VM/VMSS managed identity to retrieve a secret's portion of the certificate.
+
+##### Key rotation
+
+### Storage
+Generic guidance based on technology choice
+
+### Potential use cases
+
+Potential use cases include....
 
 ## Recommendations
 
