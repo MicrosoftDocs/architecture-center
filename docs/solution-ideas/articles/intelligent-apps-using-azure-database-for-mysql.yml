@@ -21,7 +21,6 @@ metadata:
     - app-dev
     - "https://azure.microsoft.com/solutions/architecture/intelligent-apps-using-azure-database-for-mysql"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/intelligent-apps-using-azure-database-for-mysql.png
 name: Intelligent apps using Azure Database for MySQL
 azureCategories:
   - databases

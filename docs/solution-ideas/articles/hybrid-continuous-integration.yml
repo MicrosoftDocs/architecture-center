@@ -17,7 +17,6 @@ metadata:
     - interactive-diagram
     - hybrid-infrastructure
     - e2e-hybrid
-  social_image_url: /azure/architecture/solution-ideas/articles/media/hybrid-continuous-integration.png
 azureCategories:
   - hybrid
   - devops

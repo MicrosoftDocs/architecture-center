@@ -23,7 +23,6 @@ metadata:
     - interactive-diagram
     - is-deployable
     - "https://azure.microsoft.com/solutions/architecture/java-cicd-using-jenkins-and-azure-web-apps"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/java-cicd-using-jenkins-and-azure-web-apps.png
 name: Java CI/CD using Jenkins and Azure Web Apps
 azureCategories:
   - devops

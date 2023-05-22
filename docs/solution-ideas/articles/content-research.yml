@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-content-research.png
 name: Knowledge mining for content research
 azureCategories:
   - ai-machine-learning

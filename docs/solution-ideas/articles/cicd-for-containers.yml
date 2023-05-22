@@ -22,7 +22,6 @@ metadata:
     - interactive-diagram
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/cicd-for-containers"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/cicd-for-containers.png
 name: CI/CD for containers
 azureCategories:
   - devops

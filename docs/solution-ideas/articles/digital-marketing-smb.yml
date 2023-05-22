@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - web-apps
     - "https://azure.microsoft.com/solutions/architecture/digital-marketing-smb"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-smb.png
 name: Simple digital marketing website
 azureCategories:
   - web
