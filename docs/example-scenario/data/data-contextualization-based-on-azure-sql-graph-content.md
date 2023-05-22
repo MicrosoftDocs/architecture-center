@@ -15,7 +15,7 @@ In this architecture, data stored in Delta Lake in the silver layer is read incr
 The following dataflow corresponds to the preceding diagram:
 
 1. The incoming data that needs to be contextualized is appended into the Delta table in the silver layer.
-2. The incoming data is incrementally loaded to Azure Databricks.
+2. The incoming data is incrementally loaded into Azure Databricks.
 3. Contextual information is retrieved from a graph database.
 4. The incoming data is contextualized.
 5. The contextualized data is merged into the corresponding table in SQL Database.
@@ -92,7 +92,7 @@ The following diagram illustrates some Contoso data relationships:
 
 Contoso has many applications that help factory managers monitor processes and operations. Operational efficiency data is recorded in the quality system, another stand-alone application.
 
-Gary signs in to the quality system and looks up the asset ID AE0520 in the `AE_OP_EFF` table. That table contains the all the key attributes for operational efficiency data.
+Gary signs in to the quality system and looks up the asset ID AE0520 in the `AE_OP_EFF` table. That table contains all the key attributes for operational efficiency data.
 
 There are many columns in the `AE_OP_EFF` table. Gary is especially interested in the alarm status. However, the details for the most critical alarms of the asset are kept in another table called `Alarm`. Therefore, Gary needs to record that the key ID MA_0520 of the `Alarm` table corresponds to the asset AE0520, because they use different naming conventions.  
  
@@ -205,7 +205,7 @@ CREATE TABLE table_commit_version
 	USING DELTA
 ```
 
-Every time you load new data in `tbl_alarm`, you need to complete these steps:
+Every time you load new data into `tbl_alarm`, you need to complete these steps:
 
 1. Get the `last_commit_version` for the `tbl_alarm` table from `table_commit_version`.
 1. Query and load the data added since the version that's stored in `last_commit_version`.
