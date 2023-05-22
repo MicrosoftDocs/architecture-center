@@ -93,8 +93,6 @@ With the general availability of Windows Server support for AKS, an AKS cluster 
 
 [Container insights](/azure/azure-monitor/containers/container-insights-overview) supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Moby and any CRI-compatible runtime such as CRI-O and ContainerD. Docker is no longer supported as a container runtime as of September 2022.  
 
-Container insights support for Windows Server 2022 operating system and AKS for ARM nodes is in public preview.
-
 Container insight monitoring for a Windows Server cluster has the following limitations:
 
 - Windows doesn't have a Memory RSS metric. As a result, it isn't available for Windows nodes and containers. The [Working Set](/windows/win32/memory/working-set) metric is available
@@ -108,6 +106,10 @@ All policy [guidance](/azure/architecture/reference-architectures/containers/aks
 - [Kubernetes cluster Windows containers should not overcommit CPU and memory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2abc456-f0ae-464b-bd3a-07a3cdbd7fb1)
 - [Kubernetes cluster Windows containers should not run as ContainerAdministrator](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5485eac0-7e8f-4964-998b-a44f4f0c1e75)
 - [Kubernetes cluster Windows containers should only run with approved user and domain user group](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F57dde185-5c62-4063-b965-afbb201e9c1c)
+
+## Cluster bootstrapping
+
+Cluster bootstrapping is not currently configured in the reference implementation, but it is a recommended practice.  The [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-bootstrapping) provided in the AKS Baseline article apply here.
 
 ## Cost management
 
