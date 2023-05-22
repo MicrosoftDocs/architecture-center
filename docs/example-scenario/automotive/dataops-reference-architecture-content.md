@@ -34,7 +34,7 @@ This architecture provides guidance and recommendations for developing offline d
 1. [Azure Data Factory](/azure/data-factory/introduction) pipeline for scene detection. Scene Metadata is kept in the metadata store while scenes themselves as objects can be stored in Parquet or Delta files.
 1. Third-party partners can be utilized in the next phase to perform labeling regardless of via manually or via auto labeling. The data is shared securely to Third-party partners via [Azure Data Share](/azure/data-share/) and integrated in Microsoft Purview.  [Azure Data Share](/azure/data-share/) allows organizations to securely share data without the need for extra data copying (snapshot).  Once labeling is performed, the data can again be shared back with the organization via [Azure Data Share](/azure/data-share/).  [Azure Data Share](/azure/data-share/) shares data back to the organization into a dedicated storage account named Labeled in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction).
     
-     Labeled data sets are provided to further [MLOps](#mlops) processes.  [MLOps](#mlops) is used by organizations to create specialized algorithms such as perception and sensor fusion models. The algorithms can be used to detect scenes such as the ability to detect lane changes, blocked roads, pedestrian, traffic lights, and traffic signs. [COCO Datasets](https://cocodataset.org/#home) or [ASAM OpenLabel Datasets](https://www.asam.net/standards/detail/openlabel/) are recommended formats for label data exchange.
+     Labeled data sets are provided to further [MLOps](/azure/architecture/solution-ideas/articles/avops-architecture#mlops) processes.  [MLOps](/azure/architecture/solution-ideas/articles/avops-architecture#mlops) is used by organizations to create specialized algorithms such as perception and sensor fusion models. The algorithms can be used to detect scenes such as the ability to detect lane changes, blocked roads, pedestrian, traffic lights, and traffic signs. [COCO Datasets](https://cocodataset.org/#home) or [ASAM OpenLabel Datasets](https://www.asam.net/standards/detail/openlabel/) are recommended formats for label data exchange.
 
 1. The Metadata store in [Azure Cosmos DB](/azure/cosmos-db) is used to store metadata about measurements (drive data), lineage of data as it goes through each process of extraction, down sampling, synchronization, enrichment and scene detection. Metadata about enrichment and scene's detected.
 Metadata API is used to access measurements, Lineage, scenes and find out where data is stored.
@@ -230,10 +230,10 @@ alc8-ebf39767c68b/57472a44-0886-475-865a-ca32{c851207",
 
 5. Orchestrator exits gracefully.
 
-  > [!NOTE]
-  > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
+   > [!NOTE]
+   > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
 
-  > Tasks are a separate container image that has the corresponding logic defined for a task.  Tasks accept certain configurations like where to write the output, which measurement file to process, an array of topic types [“sensor_msgs/Image“] as an example. When validation is implemented, then all the tasks depend on the validation task, and it shall create a dependent task to proceed. All of the other tasks can process independently and can run in parallel.
+## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
