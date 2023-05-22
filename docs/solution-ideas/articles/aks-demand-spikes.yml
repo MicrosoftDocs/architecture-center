@@ -14,7 +14,6 @@ metadata:
     - web
   ms.custom:
     - acom-architecture
-  social_image_url: /azure/architecture/solution-ideas/media/aks-demand-spikes.png
 name: Elastic demand handling with AKS
 azureCategories:
   - containers

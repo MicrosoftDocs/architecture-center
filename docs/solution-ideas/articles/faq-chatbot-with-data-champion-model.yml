@@ -22,7 +22,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/faq-chatbot-with-data-champion-model"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/faq-chatbot-with-data-champion-model.png
 name: Create an FAQ bot from existing data with continuous improvement guided by data champions
 azureCategories:
   - ai-machine-learning

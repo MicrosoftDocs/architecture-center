@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - web-apps
     - "https://azure.microsoft.com/solutions/architecture/digital-marketing-episerver"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/digital-marketing-episerver.png
 name: Scalable Episerver marketing website
 azureCategories:
   - web

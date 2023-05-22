@@ -24,7 +24,6 @@ metadata:
     - edge intelligence
     - "https://azure.microsoft.com/solutions/architecture/ai-at-the-edge"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/ai-at-the-edge.png
 name: AI at the edge with Azure Stack Hub
 azureCategories:
   - ai-machine-learning

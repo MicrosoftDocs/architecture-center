@@ -22,7 +22,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/predictive-marketing-campaigns-with-machine-learning-and-spark"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/predictive-marketing-campaigns-with-machine-learning-and-spark.png
 name: Predictive marketing with machine learning
 azureCategories:
   - ai-machine-learning

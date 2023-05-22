@@ -20,7 +20,6 @@ metadata:
     - web-apps
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/ecommerce-website-running-in-secured-ase"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/ecommerce-website-running-in-secured-ase.png
 name: E-commerce website running in secured App Service Environment
 azureCategories:
   - web

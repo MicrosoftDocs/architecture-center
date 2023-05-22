@@ -16,7 +16,6 @@ metadata:
     - IoT
     - data-analytics
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-big-data-with-iot.svg
 name: IoT and data analytics
 azureCategories:
   - iot

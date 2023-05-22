@@ -15,7 +15,6 @@ metadata:
   ms.custom:
     - fcp
     - kr2b-contr-experiment
-  social_image_url: /azure/architecture/solution-ideas/media/devsecops-in-github-data-flow.svg
 name: DevSecOps with GitHub Security
 azureCategories:
   - devops
