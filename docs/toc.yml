@@ -228,13 +228,13 @@ items:
       - name: API services  
         items:
         - name: Language API services
-          href: data-guide/cognitive-services/LanguageAPI.md
+          href: data-guide/cognitive-services/language-api.md
         - name: Speech API services
-          href: data-guide/cognitive-services/SpeechAPI.md
+          href: data-guide/cognitive-services/speech-api.md
         - name: Vision API services
-          href: data-guide/cognitive-services/VisionAPI.md
+          href: data-guide/cognitive-services/vision-api.md
         - name: Decision API and Applied AI services
-          href: data-guide/cognitive-services/DecisionAndAppliedAI.md
+          href: data-guide/cognitive-services/decision-applied-ai.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning

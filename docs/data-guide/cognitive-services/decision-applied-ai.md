@@ -1,39 +1,39 @@
 ---
-title: Different Types of Decision API & Applied AI Services
-description: Learn about Azure Cognitive Service for Decision which helps with recommendations for informed and efficient decision-making.Azure OpenAI Service offers industry-leading coding and language AI models that you can fine-tune for your use cases. 
+title: Decision APIs and Applied AI Services
+description: Learn about Cognitive Services Decision APIs, which can help you make recommendations for decision-making, and Applied AI Services, which provides NLP features.
 author: kruti-m
-categories: azure
-ms.date: 03/14/2023
+ms.author: krmeht
+ms.date: 05/30/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-cognitive-services
-  - decision-service
-  - applied-ai
+categories: 
+  - ai-machine-learning
 ms.custom:
   - analytics
   - guide
 ---
 
-# Different types of decision API & Applied AI Services
+# Decision APIs and Applied AI Services
 
-Azure Cognitive Service for Decision is a cloud-based service that provides Natural Language Processing (NLP) features to provide recommendations for informed and efficient decision-making. They help with making smart decisions faster.
+Azure Cognitive Services Decision APIs are cloud-based APIs that provide natural language processing (NLP) features to produce recommendations for informed and efficient decision-making. They can help you make smart decisions faster.
 
-Azure Applied AI Services combine Azure Cognitive Services, specialized AI, and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. One such service, Azure Cognitive Search, is a cloud search service with built-in AI capabilities.
+Azure Applied AI Services combine Cognitive Services, specialized AI, and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure Cognitive Search is a cloud search service that has built-in AI capabilities.
 
-## Service categories
+## Services
 
-There are several service categories for these API services. A few of them are as follows:
+Here are a few of the specific services:
 
-1. [Azure Bot Service](https://azure.microsoft.com/products/bot-services/) - Azure Bot Service provides an integrated development environment for building conversational AI bots with no code needed through integration with Power Virtual Agents. Power Virtual Agents is available as both *a standalone web app*, and as *a discrete app within Microsoft Teams*.
-2. [Anomaly Detector](https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/overview) - Anomaly Detector ingests *time-series data of all types* and selects the best anomaly detection algorithm. The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning . It uses univariate and multivariate APIs to monitor data over time.You can use it for either *batch validation or real-time inference*.
-3. [Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/) - Azure Personalizer is a cloud-based service that helps your applications choose the **best content item to show your users**. Personalizer's ability to select the best content item is based on the contextual information it receives. Personalizer uses *reinforcement learning* to select the best item (action) based on collective behavior and reward scores across all users. Actions are the content items, such as news articles, specific movies, or products.
-4. [Content Moderator](/azure/cognitive-services/content-moderator/) - Content Moderator is a service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable.
+- [Azure Bot Service](https://azure.microsoft.com/products/bot-services/) provides an integrated development environment for creating conversational AI bots without writing code. It's integrated with [Power Virtual Agents](https://powervirtualagents.microsoft.com/), which is available as both a standalone web app and a discrete app in Microsoft Teams.
+- [Anomaly Detector](https://learn.microsoft.com/azure/cognitive-services/anomaly-detector/overview) ingests time-series data of all types and selects the best anomaly detection algorithm. The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning . It uses univariate and multivariate APIs to monitor data over time.You can use it for either batch validation or real-time inference.
+- [Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/) - Azure Personalizer is a cloud-based service that helps your applications choose the **best content item to show your users**. Personalizer's ability to select the best content item is based on the contextual information it receives. Personalizer uses *reinforcement learning* to select the best item (action) based on collective behavior and reward scores across all users. Actions are the content items, such as news articles, specific movies, or products.
+- [Content Moderator](/azure/cognitive-services/content-moderator/) - Content Moderator is a service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable.
     - **Text Moderation** - Scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data. Can use both pre-built or custom models
     - **Image Moderation** - Scans images for adult or racy content, detects text in images with the Optical Character Recognition (OCR) capability, and detects faces.Can use both pre-built or custom models
     - **Video Moderation** - Scans videos for adult or racy content and returns time markers for said content.Only supports in-built models as of today
-5. [Azure Applied Services](/azure/applied-ai-services/what-are-applied-ai-services) - These services allow you to unlock the value of data by applying AI into their key business scenarios. These services are built on top of the AI APIS of Azure Cognitive Services. [Azure Cognitive Search](/azure/applied-ai-services/what-are-applied-ai-services#azure-cognitive-search) is one of the key Applied AI Services.
+- [Azure Applied Services](/azure/applied-ai-services/what-are-applied-ai-services) - These services allow you to unlock the value of data by applying AI into their key business scenarios. These services are built on top of the AI APIS of Azure Cognitive Services. [Azure Cognitive Search](/azure/applied-ai-services/what-are-applied-ai-services#azure-cognitive-search) is one of the key Applied AI Services.
 
 ## Key considerations
 
