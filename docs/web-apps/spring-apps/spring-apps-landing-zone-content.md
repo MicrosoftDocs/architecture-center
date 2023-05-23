@@ -44,7 +44,7 @@ Your team provisions and owns these resources.
 
 - **Azure Virtual Machine (VM)** acts as jump box for management operations. 
 
-- **Azure Database for PostGres** stores application data. 
+- **Azure Database for MySQL** stores application data. 
 
 - **Azure Key Vault** stores secrets and configuration, such as connection string to the database. 
 
@@ -131,7 +131,7 @@ The platform team decides the network topology. Hub-spoke topology is assumed in
     > [!IMPORTANT]
     > 
     > **Platform team**
-    > - Assign the Azure Spring Apps Resource Provider `Owner` rights on the created virtual network
+    > - Assign the Azure Spring Apps Resource Provider `Owner` rights on the created virtual network.
     > - Provide distinct addresses for virtual networks that participate in peerings. 
     > - Allocate IP address spaces that are large enough to contain the runtime and deployments resources, and support scalability.
 
@@ -184,11 +184,22 @@ Outbound traffic from virtual network must be restricted to prevent data exfiltr
 
 ## Identity and access management
 
-TBD
+The workload's identity implementation must align with the organizational best practices so that the application doesn't violate organizational security or governance boundaries. 
+
+> Refer to [Azure Spring Apps landing zone accelerator: Identity and access management](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/identity-and-access-management).
+
+Azure Active Directory (Azure AD) is recommended for authenicating users and services that interact with the Azure Spring Apps instance.
+
+It's recommended that managed identities is enabled for the application so that it can authenticate itself to other services. In this architecture, system-assigned managed identities are used for ease of management.  
+
+For authorization, use Azure Role Based Access Control (RBAC) by applying the principle of least privilege when granting permissions.
+
 
 ## Monitoring considerations
 
 The Azure landing zone platform provides shared observability resources as part of the Management subscriptions. However, provisioning your own monitoring resources is recommended to simplify the overall management of the workload. 
+
+> Refer to [Azure Spring Apps landing zone accelerator: Monitor operations](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/management).
 
 This architecture provisions these resources:
 
@@ -231,26 +242,48 @@ For more information, see [How to configure health probes](/azure/spring-apps/ho
 
 ## Security considerations
 
-##### Security benchmark
+The centralized teams provide networking and identity controls as part of the platform. However, the workload should have security affordances to reduce the attack surface.
 
-Adherence to at least one Security Benchmark should be enforced.
+> Refer to [Azure Spring Apps landing zone accelerator: Security](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/security).
 
 ##### Data at rest
 
 Data at rest should be encrypted.
 
+The application itself is stateless. Any data is persisted in an external database, in this case Azure Database for MySQL. This service encrypts the data, including backups, and temporary files created while running queries.
+
+
 ##### Data in transit
 
-Data in transit should be encrypted.
+Data in transit should be encrypted.  
+
+Traffic between the user's browser and Azure Application Gateway must be encrypted to make sure it's not changed in transit. In this architecture, Azure Application Gateway only accepts HTTPS traffic and negotiates TLS handshake. This check is enforced through NSG rules on the Application Gateway subnet. The TLS certificate is loaded directly during deployment. 
+
+Web application firewall (WAF) is integrated with Application Gateway and further inspects traffic blocking OWASP vulnerabilities.
+
+Traffic from Application Gateway to the Spring Apps instance is re-encrypted to make sure only secure traffic reaches the application. The Spring Apps runtime receives that traffic and this is the TLS termination point. From here on, inter-service communication within the application and isn't encrypted. However, communication with other Azure PaaS services and the runtime is over TLS.
+
+You can choose to implement [end-to-end TLS communication through Azure Spring Apps](/azure/spring-apps/how-to-enable-ingress-to-app-tls). Consider the tradeoffs.  There might be an impact on latency and operations. 
+
 
 ##### DDoS protection
 
-Azure DDoS Protection should be enabled.
+Distributed denial of service (DDoS) can take down a system by overburdening it with requests. 
+
+Basic DDoS Protection is enabled at the infrastructure level for all Azure services to defend against such attacks. Consider upgrading to Azure DDoS Protection Service to take advantage of features such as monitoring, alerts, the the ability set thresholds for the application. 
+
+For more information, see [Azure DDoS Protection Service frequently asked questions](/azure/ddos-protection/ddos-faq).
 
 
 ##### Secret management
 
 Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault.
+
+There are alternate ways to store secrets depending on the Azure service and intent. For example, in this architecture:
+
+- Certificates are loaded during deployment. 
+- The connection string to MySQL is implementated using [Service Connector](/azure/service-connector/quickstart-portal-spring-cloud-connection).
+
 
 ## Cost optimization strategies
 
@@ -267,6 +300,19 @@ A deployment for this reference architecture is available at [Azure Spring Apps 
 The artifacts in this repository provide a foundation that you can customize for your environment. The implementation provisions a hub network with shared resources such as Azure Firewall for illustrative purposes. This grouping can be mapped to separate landing zone subscriptions to keep workload and platform functions separate.  
 
 The deployment uses Terraform templates. To deploy the architecture, follow the [step-by-step instructions](https://github.com/Azure/azure-spring-apps-landing-zone-accelerator/tree/main/Scenarios/ASA-Secure-Baseline/Terraform).
+
+
+## Upgrade to the Enterprise tier
+
+You might want to consider the Azure Spring Apps Enterprise tier, if you want managed VMware Tanzu® support for you live deployments. 
+
+For example, [VMware Tanzu® Service Registry](/azure/spring-apps/how-to-enterprise-service-registry) is integrated for Azure Spring Apps, which allows for service discovery and registration.
+
+For gateway routing you can switch to [VMware Spring Cloud Gateway](/azure/spring-apps/how-to-use-enterprise-spring-cloud-gateway). It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
+
+In the the Enterprise tier, [Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service) enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+
+There are other VMware services supported on this tier. For more information, see [Enterprise tier in Azure Marketplace](/azure/spring-apps/how-to-enterprise-marketplace-offer).
 
 
 ## Related resources
@@ -289,7 +335,7 @@ For more scenarios, see these articles.
 
 Review the design areas of the [Azure Spring Apps landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator).
 
-## Related resources
+
 
 
 
