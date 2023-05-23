@@ -24,7 +24,7 @@ This architecture uses three node pools: A system node pool running Linux, a use
 
 Kubernetes ingress resources route and distribute incoming traffic to the cluster. This architecture makes use of [Azure Front Door](/azure/frontdoor/front-door-overview) and [Azure AD Application Proxy](/azure/active-directory/app-proxy/what-is-application-proxy) to secure ingress traffic, as opposed to Azure App Gateway, which is used in the [baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources). The components are described below.
 
-- **Azure Front Door with WAF** (AFD): AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AKS Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks traffic between AFD and the cluster to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
+- **Azure Front Door with WAF** (AFD): AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks traffic between AFD and the cluster to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
 - **Azure AD Application Proxy**: This component serves as the second ingress point in front of the internal load balancer managed by AKS. It has Azure Active Directory enabled for pre-authentication of users and uses a conditional access policy to prevent unauthorized IP ranges and users from accessing the site. This is the only way to route Kerberos authentication requests while using an Azure service that supports WAF. For a detailed description of providing single sign-on access to Application Proxy-protected apps, refer to [Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy](/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd)
 - **Internal load balancer**: Managed by AKS. This load balancer exposes the ingress controller through a private static IP address. It serves as a single point of contact that receives inbound HTTP requests.
 
@@ -109,13 +109,13 @@ All policy [guidance](./baseline-aks.yml#policy-management) found in the AKS bas
 
 ## Cluster bootstrapping
 
-Cluster bootstrapping is not currently configured in the reference implementation, but it is a recommended practice.  The [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-bootstrapping) provided in the AKS Baseline article apply here.
+As with the cluster bootstrapping [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-bootstrapping) provided in the AKS Baseline article, cluster operators should consider thier bootstrapping approach for Windows-based workloads as well.  The same guidance provided in the AKS Baseline article apply here as well.
 
 ## Cost management
 
 All cost optimization [guidance](./baseline-aks.yml#cost-management) found in the AKS Baseline article apply for Windows workloads.  Other cost considerations that should be accounted for are:
 
-- The licensing costs for Windows Server increase the cost of nodes for your AKS cluster. Cost optimization recommendations for this factor include reserving capacity or using existing licenses if you already have them for other business uses. 
+- The licensing costs for Windows Server increase the cost of nodes for your AKS cluster. Cost optimization recommendations for this factor include reserving capacity or using existing licenses if you already have them for other business uses. See the [Azure Hybrid Benefit for Windows Server](/windows-server/get-started/azure-hybrid-benefit)(AHUB) documentation to learn about discounts for your Software Assurance (SA) applicable Windows Server licenses.
 - The size of Windows container images may incur additional Azure Container Registry (ACR) costs due to the amount of storage required for multiple images, the number of concurrent nodes pulling from the ACR and geo-replication requirements.
 
 ## Contributors
