@@ -161,6 +161,15 @@ Scaling database resources is a complex topic outside of the scope of this archi
 - [Use read-only replicas to offload read-only query workloads]( /azure/azure-sql/database/read-scale-out)
 - Consider [App Service Environment]( /azure/app-service/environment/overview) if noisy neighbors are a concern.
 
+### Other scalability guidance
+
+- Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service) to ensure that services scale to demand.
+- Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
+  - Semi-static transaction data.
+  - Session state.
+  - HTML output. This can be useful in applications that render complex HTML output.
+- Cache static content in [Azure Content Delivery Network](https://azure.microsoft.com/products/cdn/).
+
 ## Security
 
 The baseline App Service architecture focuses on essential security recommendations for your web app. Understanding how encryption and identity work at every layer is critical to securing your workload.
@@ -243,6 +252,8 @@ The following highlights key deployment guidance for the baseline architecture.
 - Consider using a blend of managed and self-hosted agents.
   - Use [Self-hosted agents](/azure/devops/pipelines/agents/agents#install) to upload the package zip file to the storage account over the private endpoint. The [agent initiates communication to the pipeline through polling](/azure/devops/pipelines/agents/agents#communication) so it isn't required to open up the network for an inbound call.
   - Use managed agents for the other jobs in the pipeline.
+- Automate infrastructure deployments with [Infrastructure as Code (IaC)](https://learn.microsoft.com/devops/deliver/what-is-infrastructure-as-code).
+- Continuously validate the workload to test the performance and resilience of the entire solution using services such as [Azure Load Testing](https://azure.microsoft.com/products/load-testing/) and [Azure Chaos Studio](https://azure.microsoft.com/products/chaos-studio/).
 
 ## Configuration
 
