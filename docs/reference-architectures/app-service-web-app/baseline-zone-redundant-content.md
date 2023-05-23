@@ -1,4 +1,4 @@
-This architecture provides guidance for designing a network-secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Framework and routes requests to Azure App Service through Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure PaaS services such as Azure Key Vault and Azure SQL Database.
+This article provides a baseline architecture for running web applications on Azure App Service in a single region. It details guidance for designing a secure, zone-redundant, and highly available web application on Azure. The architecture exposes a public endpoint via Azure Application Gateway with Web Application Firewall. It routes requests to Azure App Service through Private Link. The App Service application uses virtual network integration and Private Link to securely communicate to Azure PaaS services such as Azure Key Vault and Azure SQL Database.
 
 ## Architecture
 
@@ -43,12 +43,12 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 
 1. The user issues a request to the Application Gateway public IP. 
 2. The WAF Rules are evaluated. WAF rules positively affect the reliability of the system by protecting against various attacks such as cross-site scripting (XSS) and SQL injection. Azure Application Gateway returns an error to the requester if a WAF rule is violated, and processing stops. If there are no WAF rules violated, Application Gateway routes the request to the backend pool, which in this case is the App Service default domain.
-3. Because a private DNS zone, `privatelink.azurewebsites.net`, is linked to the virtual network. The DNS zone has an A record that maps the App Service default domain to the private IP address of the App Service private endpoint. This linked private DNS zone allows Azure DNS to resolve the default domain to the private endpoint IP address.
+3. The private DNS zone `privatelink.azurewebsites.net` is linked to the virtual network. The DNS zone has an A record that maps the App Service default domain to the private IP address of the App Service private endpoint. This linked private DNS zone allows Azure DNS to resolve the default domain to the private endpoint IP address.
 4. The request is routed to an App Service instance through the private endpoint.
 
 #### Outbound flow
 
-1. App Service makes a request to the DNS name of the required Azure Service. These requests could be a call to Azure Key Vault to get a secret, to Azure Storage to get a publish zip file, to an Azure SQL Database, or any number of other Private Link enabled Azure Services. Because [virtual network integration](/azure/app-service/overview-vnet-integration) is configured for App Services, the request is routed through the virtual network.
+1. App Service makes a request to the DNS name of the required Azure Service. The request could be to Azure Key Vault to get a secret, Azure Storage to get a publish zip file, Azure SQL Database, or any other Azure service that supports Private Link. The App Service [virtual network integration](/azure/app-service/overview-vnet-integration) feature routes the request through the virtual network.
 2. Like step 3 in the inbound flow, the linked private DNS zone has an A record that maps the Azure Service domain to the private IP address of the private endpoint. Again, this linked private DNS zone allows Azure DNS to resolve the domain to the private endpoint IP address of the service.
 3. The request is routed to the service through the private endpoint.
 
@@ -327,7 +327,7 @@ Web apps benefit from Azure Policy by enforcing architectural and security decis
 All resources that are part of your architecture should be placed under Azure Policy governance. Use built-in policies or policy initiatives where possible to enforce key network topology, service feature, security, and monitoring decisions, for example:
 
 - App Service should disable public network access
-- App service should be injected into a virtual network
+- App service should use virtual network integration
 - App Service should use private link
 - App Service should have local authentication methods disabled for FTP & SCM site deployments
 - App Service should have remote debugging turned off
