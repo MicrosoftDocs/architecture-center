@@ -2,9 +2,9 @@ This article explains how to automate the process of creating developer, test, a
 
 ## Architecture
 
-:::image type="content" source="./media/automate-azure-pipelines.png" alt-text="Architecture diagram that shows how to use the Azure DevOps Services REST API and Logic Apps to automate the setup of a DevOps pipeline." border="false" lightbox="./media/automate-azure-pipelines.png":::
+:::image type="content" source="./media/automate-azure-pipelines.svg" alt-text="Architecture diagram that shows how to use the Azure DevOps Services REST API and Logic Apps to automate the setup of a DevOps pipeline." border="false" lightbox="./media/automate-azure-pipelines.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1896523-automate-azure-pipelines.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-azure-pipelines.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -122,7 +122,7 @@ Principal author:
 
 ## Related resources
 
-- [Build and deploy apps on AKS using DevOps and GitOps](../apps/devops-with-aks.yml)
+- [Build and deploy apps on AKS using DevOps and GitOps](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [DevTest and DevOps for microservice solutions](../../solution-ideas/articles/dev-test-microservice.yml)
 - [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)
 - [DevTest and DevOps for PaaS solutions](../../solution-ideas/articles/dev-test-paas.yml)

@@ -4,7 +4,7 @@ metadata:
   description: Learn how to build, deploy, and monitor a machine learning model for employee attrition that can be integrated with external applications using Databricks and Kubernetes.
   author: nfmoore
   ms.author: nimoore
-  ms.date: 09/18/2022
+  ms.date: 03/16/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

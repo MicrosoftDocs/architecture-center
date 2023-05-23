@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: This article describes approaches to consider for integrations in a multitenant solution.
 author: johndowns
 ms.author: jodowns
-ms.date: 08/17/2022
+ms.date: 05/08/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

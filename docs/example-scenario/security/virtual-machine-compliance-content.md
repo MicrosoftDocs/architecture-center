@@ -9,7 +9,7 @@ The solution consists of two processes:
 
 :::image type="content" source="./media/virtual-machine-compliance-golden-image-publishing-architecture.svg" alt-text="Architecture diagram showing how the solution manages Azure Marketplace images. Illustrated steps include customization, tracking, testing, and publishing." border="false":::
 
-*Download a [Visio file][Visio version of golden image publishing process architecture diagram] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-golden-image-publishing-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -25,7 +25,7 @@ The golden image publishing process runs monthly and contains these steps:
 
 :::image type="content" source="./media/virtual-machine-compliance-track-compliance-architecture.svg" alt-text="Architecture diagram showing how the solution manages compliance by assigning policy definitions, evaluating machines, and displaying data in a dashboard." border="false":::
 
-*Download a [Visio file][Visio version of VM compliance architecture diagram] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/virtual-machine-compliance-track-compliance-architecture.vsdx) of this architecture.*
 
 The process of tracking VM compliance contains these steps:
 
@@ -40,7 +40,7 @@ The process of tracking VM compliance contains these steps:
 
 - [Azure Policy][Azure Policy and the policy dashboard] offers policy definitions. You can use these definitions to enforce your organization's standards and to assess compliance at scale. The Azure Policy dashboard displays results from Azure Policy evaluations. This data keeps you informed about the compliance status of your resources.
 
-- The [guest configuration feature of Azure Policy][Azure Policy guest configuration feature] provides a way to dynamically audit or assign configurations to machines through code. The configurations generally include environment or operating system settings.
+- The [Azure Automanage Machine Configuration feature of Azure Policy][Azure Automanage Machine configuration] provides a way to dynamically audit or assign configurations to machines through code. The configurations generally include environment or operating system settings.
 
 ### Alternatives
 
@@ -168,7 +168,7 @@ Generally, you should use Azure Policy to manage any control-plane compliance ac
 - Capturing diagnostic logs.
 - Improving the visibility of VM compliance.
 
-Use the guest configuration feature of Azure Policy to audit the configuration changes that you make during image customization. When drift occurs, the Azure Policy dashboard lists the affected VM as non-compliant. Azure Policy can use image tattooing information to track when you use outdated images or operating systems.
+Use the Azure Automanage Machine Configuration feature of Azure Policy to audit the configuration changes that you make during image customization. When drift occurs, the Azure Policy dashboard lists the affected VM as non-compliant. Azure Policy can use image tattooing information to track when you use outdated images or operating systems.
 
 Audit pet servers for each application. By using Azure Policies with an audit effect, you can improve the visibility of these servers. Adjust the audit process according to your company's risk appetite and internal risk management processes.
 
@@ -176,7 +176,7 @@ Each DevOps team can track its applications' compliance levels in the Azure Poli
 
 IT risk managers and security officers can also use the Azure Policy dashboard to manage company risks according to their company's risk appetite.
 
-By using the guest configuration feature of Azure Policy with remediation options, you can apply corrective actions automatically. But interrogating a VM frequently or making changes on a VM that you use for a business-critical application can degrade performance. Plan remediation actions carefully for production workloads. Give a DevOps team ownership of application compliance in all environments. This approach is essential for pet servers and environments, which are usually long-term Azure components.
+By using the Azure Automanage Machine configuration feature of Azure Policy with remediation options, you can apply corrective actions automatically. But interrogating a VM frequently or making changes on a VM that you use for a business-critical application can degrade performance. Plan remediation actions carefully for production workloads. Give a DevOps team ownership of application compliance in all environments. This approach is essential for pet servers and environments, which are usually long-term Azure components.
 
 ## Considerations
 
@@ -196,7 +196,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 Unless you use a third-party service such as Ansible or Terraform, this approach is nearly free of charge. Storage and egress costs might apply. Other potential charges involve these components:
 
-- Azure Policy and [Azure Policy guest configuration][Azure Policy guest configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
+- Azure Policy and [Azure Automanage Machine configuration][Azure Automanage Machine configuration] are free of charge for Azure resources. If your company uses a hybrid approach, there are extra charges for Azure Arc resources.
 - During the public preview period, [VM Image Builder][Azure VM Image Builder - pricing] is using a single compute instance type with 1 vCPU and 3.5 GB of RAM. Charges might apply for data storage and transfer.
 - [Compute Gallery][Azure Shared Image Galleries] has no charges except:
 
@@ -220,7 +220,7 @@ Principal author:
 - [Azure VM Image Builder][Azure VM Image Builder]
 - [Azure Compute Gallery][Azure Compute Gallery]
 - [Azure Policy and the policy dashboard][Azure Policy and the policy dashboard]
-- [Azure Policy guest configuration feature][Azure Policy guest configuration feature]
+- [Azure Automanage Machine Configuration][Azure Automanage Machine configuration]
 
 ## Related resources
 
@@ -231,8 +231,7 @@ Principal author:
 [Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Azure VM Image Builder]: /azure/virtual-machines/image-builder-overview
 [Azure landing zone]: /azure/cloud-adoption-framework/ready/landing-zone
-[Azure Policy guest configuration feature]: /azure/governance/policy/concepts/guest-configuration
-[Azure Policy guest configuration]: https://azure.microsoft.com/pricing/details/azure-policy
+[Azure Automanage Machine configuration]: /azure/governance/machine-configuration
 [Azure Policy and the policy dashboard]: /azure/governance/policy/overview
 [Azure Policy Regulatory Compliance controls for Azure Virtual Machines]: /azure/virtual-machines/security-controls-policy
 [Azure Shared Image Galleries]: /azure/virtual-machines/shared-image-galleries#billing
@@ -252,6 +251,4 @@ Principal author:
 [Scaling for Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries#scaling
 [Store and share images in an Azure Compute Gallery]: /azure/virtual-machines/shared-image-galleries
 [Store and share images in an Azure Compute Gallery - Limits]: /azure/virtual-machines/shared-image-galleries#limits
-[Visio version of golden image publishing process architecture diagram]: https://arch-center.azureedge.net/US-1891283-virtual-machine-compliance-golden-image-publishing-architecture.vsdx
-[Visio version of VM compliance architecture diagram]: https://arch-center.azureedge.net/US-1891283-virtual-machine-compliance-track-compliance-architecture.vsdx
 [What is an Azure landing zone?]: /azure/cloud-adoption-framework/ready/landing-zone

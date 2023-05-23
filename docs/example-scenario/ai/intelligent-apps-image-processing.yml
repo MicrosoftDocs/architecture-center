@@ -14,7 +14,6 @@ metadata:
   ms.custom:
     - example-scenario
     - ai-machine-learning
-  social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
 name: Image classification on Azure
 azureCategories:
   - ai-machine-learning

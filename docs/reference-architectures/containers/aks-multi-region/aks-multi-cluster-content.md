@@ -256,7 +256,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 - [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../aks/baseline-aks.yml)
-- [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+- [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
 - [AKS Azure AD integration](/azure/aks/azure-ad-rbac)
 - [Azure Front Door documentation](/azure/frontdoor)
 - [Azure Cosmos DB documentation](/azure/cosmos-db)

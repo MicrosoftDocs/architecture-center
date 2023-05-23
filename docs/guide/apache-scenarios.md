@@ -2,7 +2,6 @@
 title: Apache scenarios on Azure
 description: Review a list of architectures and solutions that use Apache open-source solutions.
 author: martinekuan
-ms.author: architectures
 ms.date: 07/26/2022
 ms.topic: conceptual
 ms.service: architecture-center
@@ -223,7 +222,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Real-time analytics on big data architecture](../solution-ideas/articles/real-time-analytics.yml)|Get deep-learning analytics and insights from live streaming data. Run advanced analytics on IoT device data and website clickstream logs in near real time. Apache Spark pools clean, transform, and analyze the streaming data and combine it with structured data.|Analytics|
 |[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency. In this scenario, you can use Spark for an analytical data store and Spark Streaming for stream processing.|Analytics|
 |[Stream processing with fully managed open-source data engines](../example-scenario/data/open-source-data-engine-stream-processing.yml)|Stream events by using fully managed Azure data services. Use open-source technologies like Spark, Kafka, Kubernetes, Cassandra, PostgreSQL, and Redis components.|Analytics|
-|[Streaming using HDInsight](../solution-ideas/articles/streaming-using-hdinsight.yml)|Ingest and process millions of streaming events per second by using Kafka, Storm, and Spark Streaming.|Databases|
 
 ## Apache Sqoop
 
@@ -234,17 +232,6 @@ This article provides a summary of architectures and solutions that use Azure to
 |[Choose a data transfer technology](../data-guide/scenarios/data-transfer.md)|Learn about data transfer options like Azure Import/Export, Data Box, and Sqoop.|Databases|
 |[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency. In this scenario, you can use Oozie and Sqoop to manage batch workflows for captured real-time data. |Databases|
 
-## Apache Storm
-
-|Architecture|Summary|Technology focus|
-|--|--|--|
-|[AI at the edge with Azure Stack Hub](../solution-ideas/articles/ai-at-the-edge.yml)|Bring your trained AI model to the edge with Azure Stack Hub. Integrate it with your applications for low-latency intelligence. Use Storm to store data.|AI|
-|[AI at the edge with Azure Stack Hub - disconnected](../solution-ideas/articles/ai-at-the-edge-disconnected.yml)|Take advantage of edge AI when disconnected from the internet and move your AI models to the edge with a solution that includes Azure Stack Hub. Use Storm to store data.|AI|
-|[Big data architectures](../data-guide/big-data/index.yml)|Learn about big data architectures that handle the ingestion, processing, and analysis of data that's too large or complex for traditional database systems. In these scenarios, you can use Storm for stream processing.|Databases|
-[Choose a stream processing technology](../data-guide/technology-choices/stream-processing.md)|Compare options for real-time message stream processing in Azure, including HDInsight with Storm.|Analytics|
-|[Interactive querying with HDInsight](../solution-ideas/articles/interactive-querying-with-hdinsight.yml)|Use Apache Hive Live Long and Process (LLAP) to perform fast, interactive SQL queries at scale, over structured or unstructured data. HDInsight makes it easy to process data from Storm.|Databases|
-|[IoT using Azure Cosmos DB](../solution-ideas/articles/iot-using-cosmos-db.yml)|Learn how to use Azure Cosmos DB to accommodate diverse and unpredictable IoT workloads without sacrificing ingestion or query performance. In this architecture, you can use Storm on HDInsight for streaming analytics.|IoT|
-|[Real-time processing](../data-guide/big-data/real-time-processing.yml)|Use real-time processing solutions to capture data streams and generate reports or automated responses with minimal latency. In this scenario, you can use Storm for stream processing.|Databases|
 
 ## Apache ZooKeeper
 

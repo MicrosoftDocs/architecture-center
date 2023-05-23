@@ -5,7 +5,7 @@ metadata:
   description: This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 12/19/2022
+  ms.date: 03/17/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
@@ -13,7 +13,6 @@ metadata:
     - fasttrack
     - ecommerce
     - web-app
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-search.png
 name: Intelligent product search engine for e-commerce
 summary: This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 azureCategories:

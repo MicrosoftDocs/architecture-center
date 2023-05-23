@@ -25,6 +25,6 @@ products:
   - azure-policy
   - azure-security-center
   - azure-stack-hci
-thumbnailUrl: /azure/architecture/browse/thumbs/azure_stack_robo.png
+thumbnailUrl: /azure/architecture/browse/thumbs/azure-stack-robo.png
 content: |
    [!include[](azure-stack-robo-content.md)]

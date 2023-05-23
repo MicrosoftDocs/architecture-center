@@ -53,7 +53,7 @@ If the team uses an ITSM system, Logic Apps can call the REST endpoint of the sy
 
 #### Application Insights
 
-[Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps teams. Application Insights can monitor live services, detect anomalies in performance and analytics tools, diagnose and trace problems, and query log data. You can use Application Insights to do [distributed tracing](/azure/azure-monitor/app/distributed-tracing#enabling-via-application-insights-through-auto-instrumentation-or-sdks) through the Application Insights SDK. You can also use Application Insights from [within Visual Studio](/azure/azure-monitor/app/visual-studio).
+[Application Insights](/azure/azure-monitor/app/app-insights-overview), a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps teams. Application Insights can monitor live services, detect anomalies in performance and analytics tools, diagnose and trace problems, and query log data. You can use Application Insights to do [distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation) through the Application Insights SDK. You can also use Application Insights from [within Visual Studio](/azure/azure-monitor/app/visual-studio).
 
 #### Microsoft Sentinel
 

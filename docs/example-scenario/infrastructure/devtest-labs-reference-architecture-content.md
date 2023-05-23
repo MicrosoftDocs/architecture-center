@@ -8,9 +8,9 @@ The application team’s responsibility lies with provisioning the core DTL reso
 
 Although DTL alone doesn't have built-in limits, other Azure resources used in the lab might extend beyond the Azure subscription limits. In these cases, multiple Azure subscriptions might be needed to cover large deployments of DTL.
 
-[![Diagram of the reference architecture for DevTest Labs in an enterprise.](media/devtest-labs-reference-architecture-enterprise.png)](media/devtest-labs-reference-architecture-enterprise.png#lightbox)
+[![Diagram of the reference architecture for DevTest Labs in an enterprise.](media/devtest-labs-reference-architecture-enterprise.svg)](media/devtest-labs-reference-architecture-enterprise.svg#lightbox)
 
-[Download a Visio file of this architecture.](https://arch-center.azureedge.net/devtest-labs-reference-architecture-enterprise.vsdx)
+*Download a [Visio file](https://arch-center.azureedge.net/devtest-labs-reference-architecture-enterprise.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -185,4 +185,4 @@ Principal author:
 - [Azure DevTest Labs reference architecture for enterprises](/azure/devtest-labs/devtest-lab-reference-architecture)
 - [DevTest Labs in the enterprise](/azure/devtest-labs/devtest-lab-guidance-prescriptive-adoption)
 - [Migrate a dev/test environment to Azure DevTest Labs](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-devtest-to-labs)
-- [DevTest and DevOps for IaaS solutions](/../../solution-ideas/articles/dev-test-iaas)
+- [DevTest and DevOps for IaaS solutions](../../solution-ideas/articles/dev-test-iaas.yml)

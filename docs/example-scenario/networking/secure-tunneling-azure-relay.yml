@@ -1,0 +1,25 @@
+### YamlMime:Architecture
+metadata:
+  title: Secure tunneling with Azure Relay
+  titleSuffix: Azure Architecture Center
+  description: Establish enhanced-security bidirectional connections to edge devices without making significant changes to the firewall or network configuration on the edge.
+  author: olasowemimo
+  ms.author: olsowemi, evmolyva
+  ms.date:  04/26/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - iot
+  - security
+products:
+  - azure-relay
+  - azure-iot-hub
+  - azure-functions
+  - azure-container-instances
+  - azure-container-registry
+name: Secure tunneling with Azure Relay
+summary: When devices are installed at remote locations and protected by firewalls, users who need to access them for troubleshooting or other operational tasks often need to be present onsite or connected to the same local network as the device. Secure tunneling enables users to establish enhanced-security bidirectional connections to edge devices without making significant changes to the firewall or to network configuration on the edge.
+thumbnailUrl: /azure/architecture/browse/thumbs/secure-tunneling-azure-relay.png
+content: |
+  [!include[](secure-tunneling-azure-relay-content.md)]

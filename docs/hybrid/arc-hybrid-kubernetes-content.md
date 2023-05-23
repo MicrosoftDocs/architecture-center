@@ -72,29 +72,29 @@ You can enable Azure Monitor Container insights for one or more deployments of K
 
 To enable monitoring for Arc-enabled Kubernetes clusters, see [Enable monitoring of Azure Arc-enabled Kubernetes cluster][Enable monitoring of Azure Arc-enabled Kubernetes cluster]
 
-### Use Azure Policy to apply cluster configuration
+### Use Azure Policy to enable GitOps-based application deployment
 
-Use Azure Policy to enforce that each **Microsoft.Kubernetes/connectedclusters** resource or Git-Ops–enabled **Microsoft.ContainerService/managedClusters** resource has specific **Microsoft.KubernetesConfiguration/sourceControlConfigurations** applied on it. For example, you can apply a baseline configuration to one or more clusters, or deploy specific applications to multiple clusters. To use Azure Policy, select a definition from the [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes][Azure Policy built-in definitions for Azure Arc-enabled Kubernetes], and then create a policy assignment.
+Use Azure Policy to enforce that each GitOps–enabled **Microsoft.Kubernetes/connectedclusters** resource or **Microsoft.ContainerService/managedClusters** resource has specific **Microsoft.KubernetesConfiguration/fluxConfigurations** applied on it. For example, you can apply a baseline configuration to one or more clusters, or deploy specific applications to multiple clusters. To use Azure Policy, select a definition from the [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes][Azure Policy built-in definitions for Azure Arc-enabled Kubernetes], and then create a policy assignment.
 
- When you create the policy assignment, set the scope to an Azure resource group or subscription. Also set the parameters for the **sourceControlConfiguration** that's created. When the assignment is created, the Policy engine will identify all **connectedCluster** or **managedCluster** resources that are located within the scope, and then apply the **sourceControlConfiguration** to each.
+ When you create the policy assignment, set the scope to an Azure resource group or subscription. Also set the parameters for the **fluxConfiguration** that's created. When the assignment is created, the Policy engine will identify all **connectedCluster** or **managedCluster** resources that are located within the scope, and then apply the **fluxConfiguration** to each.
 
-If you're using multiple GitHub repos for each cluster (for example, one repo for the central IT/cluster operator and other repos for application teams), activate this by using multiple policy assignments and configure each policy assignment to use a different Git repo.
+If you're using multiple source repositories for each cluster (for example, one repo for the central IT/cluster operator and other repos for application teams), activate this by using multiple policy assignments and configure each policy assignment to use a different source repo.
 
-For more information, see [Use Azure Policy to apply cluster configurations at scale][Use Azure Policy to apply cluster configurations at scale].
+For more information, see [Deploy applications consistently at scale using Flux v2 configurations and Azure Policy][Deploy applications at scale].
 
-### Deploying and enforcing GitOps using Azure Policy
+### Deploy applications using GitOps
 
-GitOps is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a Git repository. This is followed by a polling and pull-based deployment of these configurations to the cluster by using an operator. Azure Policy and Flux work together to provide GitOps on Azure Arc-enabled Kubernetes clusters.
+GitOps is the practice of declaring the desired state of Kubernetes configuration (deployments, namespaces, and so on) in a source repository, such as a Git or Helm repository, Buckets, or Azure Blob Storage. This is followed by a polling and pull-based deployment of these configurations to the cluster by using an operator.
 
-The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager as a **sourceControlConfiguration** extension resource. The **sourceControlConfiguration** resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The **sourceControlConfiguration** data is stored encrypted at rest in an Azure Cosmos DB database to ensure data confidentiality.
+The connection between your cluster and one or more source repositories is enabled by deploying the **microsoft.flux** extension to your cluster. The **fluxConfiguration** resource properties represent where and how Kubernetes resources should flow from the source repository to your cluster. The **fluxConfiguration** data is stored encrypted at rest in an Azure Cosmos DB database to ensure data confidentiality.
 
-The **config-agent** that runs in your cluster is responsible for watching for new or updated **sourceControlConfiguration** extension resources on the Azure Arc-enabled Kubernetes resource, for deploying a flux operator to watch the Git repository, and for propagating any updates that are made to the **sourceControlConfiguration**. It's even possible to create multiple **sourceControlConfiguration** resources by using the **namespace** scope on the same Azure Arc-enabled Kubernetes cluster to achieve multi-tenancy. In such a case, each operator can only deploy configurations to its respective namespace.
+The **flux-config** agent that runs in your cluster is responsible for watching for new or updated **fluxConfiguration** extension resources on the Azure Arc-enabled Kubernetes resource, for deploying applications from the source repository, and for propagating any updates that are made to the **fluxConfiguration**. You can even create multiple **fluxConfiguration** resources by using the **namespace** scope on the same Azure Arc-enabled Kubernetes cluster to achieve multi-tenancy.
 
-The Git repository can contain any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, and DaemonSets. It can also contain Helm charts for deploying applications. Common Git repository scenarios include defining a baseline configuration for your organization that can include common role-base access control (RBAC) roles and bindings, monitoring agents, logging agents, and cluster-wide services.
+The source repository can contain any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, and DaemonSets. It can also contain Helm charts for deploying applications. Common source repository scenarios include defining a baseline configuration for your organization that can include common role-base access control (RBAC) roles and bindings, monitoring agents, logging agents, and cluster-wide services.
 
-You can also manage a larger collection of clusters that are deployed across heterogeneous environments. For example, you can have one repository that defines the baseline configuration for your organization, and then apply that to multiple Kubernetes clusters simultaneously. Azure policy can automate the creation of a **sourceControlConfiguration** with a specific set of parameters on all Azure Arc-enabled Kubernetes resources under a scope (subscription or resource group).
+You can also manage a larger collection of clusters that are deployed across heterogeneous environments. For example, you can have one repository that defines the baseline configuration for your organization, and then apply that to multiple Kubernetes clusters simultaneously. You can also deploy applications to a cluster from multiple source repositories.
 
-For more information, see [Deploy configurations using GitOps on an Arc-enabled Kubernetes cluster][Deploy configurations using GitOps on an Arc-enabled Kubernetes cluster].
+For more information, see [Deploy applications using GitOps with Flux v2][Deploy applications using GitOps with Flux v2].
 
 ### Topology, network, and routing
 
@@ -108,6 +108,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs in order to
 |`https://github.com:443`, `git://github.com:9418`|Example GitOps repos are hosted on GitHub. The configuration agent requires connectivity to whichever git endpoint that you specify.|
 |`https://login.microsoftonline.com:443`|Required to fetch and update Azure Resource Manager tokens.|
 |`https://azurearcfork8s.azurecr.io:443`|Required to pull container images for Azure Arc agents.
+
+For a complete list of URLs across Azure Arc services, see [Azure Arc network requirements][Azure Arc network requirements].
 
 ## Considerations
 
@@ -139,7 +141,7 @@ General cost considerations are described in the [Principles of cost optimizatio
 Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview).
 
 - Before you configure your Azure Arc-enabled Kubernetes clusters, review the Azure Resource Manager [Subscription limits][subscription limits] and [Resource group limits][resource group limits] to plan for the number of clusters.
-- Use Helm, the open-source packaging tool, to install and manage the Kubernetes application lifecycles. Similar to Linux package managers such as APT and Yum, you use Helm to manage Kubernetes *charts*, which are packages of preconfigured Kubernetes resources. For more information, see [Deploy Helm Charts using GitOps on Arc-enabled Kubernetes cluster][Deploy Helm Charts using GitOps on Arc-enabled Kubernetes cluster].
+- Use Helm, the open-source packaging tool, to install and manage the Kubernetes application lifecycles. Similar to Linux package managers such as APT and Yum, you use Helm to manage Kubernetes *charts*, which are packages of preconfigured Kubernetes resources.
 
 ## Contributors
 
@@ -180,6 +182,7 @@ Related architectures:
 [Architecture visio]: https://arch-center.azureedge.net/arc-hybrid-kubernetes.vsdx
 [Azure Arc]: /azure/azure-arc
 [Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/
+[Azure Arc network requirements]: /azure/azure-arc/network-requirements-consolidated
 [Azure Kubernetes Service]: /azure/aks/
 [Azure Policy]: /azure/governance/policy/
 [Azure Monitor]: /azure/azure-monitor/
@@ -189,12 +192,11 @@ Related architectures:
 [Azure Monitor Container insights overview]: /azure/azure-monitor/insights/container-insights-overview
 [Enable monitoring of Azure Arc-enabled Kubernetes cluster]: /azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters?toc=%252fazure%252fazure-arc%252ftoc.json
 [Azure Policy built-in definitions for Azure Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/policy-samples
-[Use Azure Policy to apply cluster configurations at scale]: /azure/azure-arc/kubernetes/use-azure-policy
-[Deploy configurations using GitOps on an Arc-enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-connected-cluster
+[Deploy applications at scale]: /azure/azure-arc/kubernetes/use-azure-policy-flux-2
+[Deploy applications using GitOps with Flux v2]: /azure/azure-arc/kubernetes/tutorial-use-gitops-flux2
 [Supported regions]: /azure/azure-arc/kubernetes/overview#supported-regions
 [Subscription limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#subscription-limits
 [resource group limits]: /azure/azure-resource-manager/management/azure-subscription-service-limits#resource-group-limits
-[Deploy Helm Charts using GitOps on Arc-enabled Kubernetes cluster]: /azure/azure-arc/kubernetes/use-gitops-with-helm
 [Use managed identities in Azure Kubernetes Service]: /azure/aks/use-managed-identity
 [Principles of cost optimization]: /azure/architecture/framework/cost/overview
 [kubernetes]: https://kubernetes.io

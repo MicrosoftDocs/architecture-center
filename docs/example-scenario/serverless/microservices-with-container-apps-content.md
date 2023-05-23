@@ -1,6 +1,10 @@
-This example scenario demonstrates how to deploy microservice containers without needing to manage complex infrastructure and container orchestration.  
+This example scenario shows an example of an existing workload that was originally designed to run on Kubernetes can instead run in Azure Container Apps. Azure Container Apps is well-suited for brownfield workloads where teams are looking to simplify complex infrastructure and container orchestration. The example workload runs a containerized microservices application.
 
-You can find a code sample in the [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository.
+The example takes the workload used in [Microservices architecture on Azure Kubernetes Service](../../reference-architectures/containers/aks-microservices/aks-microservices.yml) and rehosts it in Azure Container Apps as its application platform.
+
+> [!TIP]
+>
+> ![GitHub logo](../../_images/github.png) The architecture is backed by an [example implementation](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) that illustrates some of design choices described in this article. 
 
 ## Architecture
 
@@ -19,7 +23,7 @@ The services sharing the same environment benefit from:
 The workflow service container app is running in single revision mode.  A container app running in single revision mode will have a single revision that is backed by zero-many replicas. A replica is composed of the application container and any required sidecar containers. This example isn't making use of sidecar containers, therefore each container app replica represents a single container.  Since this example doesn't employ scaling, there will be only one replica running for each container app.
 
 The workflow uses a hybrid approach to managing secrets.  Managed identities are used in the services where such implementation required no code changes.  The Drone Scheduler and Delivery services use user-assigned managed identities to authenticate with Azure Key Vault to access the secrets stored there.  The remaining services store secrets via Container Apps service at the application level.
- 
+
 :::image type="content" border="false" source="./media/microservices-with-container-apps-runtime-diagram.png" alt-text="Diagram showing the runtime architecture for the solution." lightbox="./media/microservices-with-container-apps-runtime-diagram.png":::
 
 This diagram illustrates the runtime architecture for the solution.  
@@ -63,11 +67,11 @@ Many of the complexities of the previous AKS architecture are replaced by these 
 
 **[Azure Cache for Redis](https://azure.microsoft.com/services/cache)** adds a caching layer to the application architecture to improve speed and performance for heavy traffic loads.
 
-**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs at the application level. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures.  This scenario uses a Log Analytics workspace for comprehensive monitoring of the application.
+**[Azure Monitor](/azure/azure-monitor)** collects and stores metrics and logs from the application. Use this data to monitor the application, set up alerts and dashboards, and do root cause analysis of failures. This scenario uses a Log Analytics workspace for comprehensive monitoring of the infrastructure and application.
 
 **[Application Insights](/azure/azure-monitor/app/app-insights-overview)** provides extensible application performance management (APM) and monitoring for the services.  Each service is instrumented with the Application Insights SDK to monitor the app and direct the data to Azure Monitor.
 
-**[Azure Resource Manager (ARM) Templates](/azure/azure-resource-manager/templates/overview)** to configure and deploy the applications.
+**[Bicep Templates](/azure/azure-resource-manager/bicep/overview)** to configure and deploy the applications.
 
 ### Alternatives
 
@@ -77,31 +81,24 @@ An alternative scenario of this example is the Fabrikam Drone Delivery applicati
 
 Your business can simplify the deployment and management of microservice containers by using Azure Container Apps. Container Apps provides a fully managed serverless environment for building and deploying modern applications.
 
-Fabrikam, Inc. (a fictional company) has implemented a drone delivery service where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time.  When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. The application is composed of containerized microservices and was originally deployed to Azure Kubernetes Service.
+Fabrikam, Inc. (a fictional company) has implemented a drone delivery application where users can request a drone to pick up goods for delivery. When a customer schedules a pickup, a backend system assigns a drone and notifies the user with an estimated delivery time. 
 
-This solution is ideal for the aircraft and aerospace industries.
+The microservices application was deployed to an Azure Kubernetes Service (AKS) cluster. But, the Fabrikam team wasn't taking advantage of the advanced or platform-specific AKS features. They eventually migrated the application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam was able to:
 
-With Azure Container Apps, Fabrikam can run their containerized applications on a flexible, serverless platform purpose-built to support microservices. Azure Container Apps runs on Azure Kubernetes Service, and includes several open-source projects: Kubernetes Event Driven Autoscaling (KEDA), Distributed Application Runtime (Dapr), and Envoy. This open-source foundation enables teams to build and run portable applications powered by Kubernetes and open standards. With these built-in platform capabilities, teams can avoid the management complexity of working with the Kubernetes platform and APIs directly.
-
-Because the Fabrikam team wasn't making use of many of advanced AKS configuration settings, they were able to migrate their application to Azure Container Apps without much overhead. By porting their solution to Azure Container Apps, Fabrikam took advantage of:
-
-- Migrating the application as-is: No code changes were required when moving their application from AKS to Azure Container Apps.
-- Deploying with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
-- Exposing apps through managed ingress: Built-in support for external, https-based ingress to expose the Ingestion Service removed the need for configuring their own ingress.
-- Pulling container images from ACR: Azure Container Apps doesn't require a specific base image or registry.
-- Managing application lifecycle: The revision feature supports running multiple revisions of a particular container app and traffic-splitting across them for A/B testing or Blue/Green deployment scenarios.
-- Using managed identity: The Fabrikam team was able to use a managed identity to authenticate with Azure Key Vault.
-
-You can find a code sample in the [Container Apps Example Scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository.
+- Migrate the application nearly as-is: Very minimal code changes were required when moving their application from AKS to Azure Container Apps.
+- Deploy both infrastructure and the workload with Bicep templates: No Kubernetes YAML manifests were needed to deploy their application containers.
+- Expose the application through managed ingress: Built-in support for external, https-based ingress to expose the Ingestion Service removed the need for configuring their own ingress.
+- Pull container images from ACR: Azure Container Apps doesn't require a specific base image or registry.
+- Manage application lifecycle: The revision feature supports running multiple revisions of a particular container app and traffic-splitting across them for A/B testing or Blue/Green deployment scenarios.
+- Use managed identity: The Fabrikam team was able to use a managed identity to authenticate with Azure Key Vault and Azure Container Registry.
 
 ### Potential use cases
 
-This drone delivery solution applies to the aerospace, aircraft, and robotics industries. In this example solution, the use cases are:
 
 - Deploy a brownfield microservice-based application into a platform as a service (PaaS) offering to avoid the operational complexity of managing a container orchestrator.
 - Optimize operations and management by migrating containerized services to a platform that supports native scale-to-zero.
-  - Execute a long-running background process, such as the workflow service in single revision mode.
-  
+- Execute a long-running background process, such as the workflow service in single revision mode.
+
 Other common uses of Container Apps include:
 
 - Running containerized workloads on a serverless, consumption-based platform.
@@ -120,9 +117,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 Container Apps allows you to more easily deploy, manage, maintain and monitor the applications.  Availability can be ensured by these key features:
 
 - Revisions help you deploy application updates with zero downtime. You can use revisions to manage the deployment of application updates and split traffic between the revisions to support blue/green deployments and A/B testing (not currently used in this example workload).
-- With Container Apps end-to-end observability features, you have a holistic view of your running applications.  Container Apps is integrated with Azure Monitor and Log Analytics, which allows you to track container app execution, and set alerts based on metrics and events.  
-- When an app unexpectedly terminates, the Container Apps service automatically restarts it.  
-- You can enable autoscaling rules to meet demand as traffic and workloads increase. 
+- With Container Apps end-to-end observability features, you have a holistic view of your running applications.  Container Apps is integrated with Azure Monitor and Log Analytics, which allows you to track container app execution, and set alerts based on metrics and events.
+- When an app unexpectedly terminates, the Container Apps service automatically restarts it.
+- You can enable autoscaling rules to meet demand as traffic and workloads increase.
 - Performance is optimized by the dynamic load balancing features of Container Apps (not currently used in this example workload).
 
 ### Operational excellence
@@ -160,13 +157,22 @@ Performance monitoring through Log Analytics and Azure Monitor allows you to eva
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Secrets:  Your Container Apps can store and retrieve sensitive values as secrets. Once a secret is defined for a Container App, it's available for use by the application and any associated scale rules. If you're running in multi-revision mode, all revisions will share the same secrets. Because secrets are considered an application-scope change, if you change the value of a secret, no new revision is created. However, for any running revisions to load the new secret value, you'll need to restart them. In this scenario, application and environment variable values are used.
+#### Secrets
 
+- Your container app can store and retrieve sensitive values as secrets. After a secret is defined for the container app, it's available for use by the application and any associated scale rules. If you're running in multi-revision mode, all revisions will share the same secrets. Because secrets are considered an application-scope change, if you change the value of a secret, a new revision isn't created. However, for any running revisions to load the new secret value, you'll need to restart them. In this scenario, application and environment variable values are used.
 - Environment variables: sensitive values can be securely stored at the application level.  When environment variables are changed, the container app will spawn a new revision.
 
-- Network security:  Backend services in the drone delivery app aren't exposed via external ingress. All requests are passed from the **Ingestion service** through the Azure Service Bus.
+#### Network security
 
-- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to easily authenticate other Azure AD-protected resources such as Azure Key Vault, without managing credentials in your container app.  For services that don't support AD authentication, you can store secrets in Azure Key Vault and use a managed identity to access Key Vault to access the secrets. 
+- Ingress: To limit external access, only the Ingestion service is configured for external ingress. The backend services are accessible only through the internal virtual network in the Container Apps environment. Only expose services to the Internet where required. Because this architecture uses the built-in external ingress feature, this solution does not offer the ability to completely position your ingress point behind a web application firewall (WAF) or to include it in DDoS Protection plans. All web facing workloads should be fronted with a web application firewall.
+- Virtual network: When you create an environment, you can provide a custom virtual network; otherwise, a virtual network is automatically generated and managed by Microsoft. You cannot manipulate this Microsoft-managed virtual network, such as by adding network security groups (NSGs) or force tunneling traffic to a egress firewall. This example uses an automatically generated virtual network.
+
+For more network topology options, see [Networking architecture in Azure Container Apps](/azure/container-apps/networking).
+
+#### Workload identities
+
+- Container Apps supports Azure Active Directory (AD) managed identities allowing your app to authenticate itself to other Azure AD-protected resources, such as Azure Key Vault, without managing credentials in your container app. A container app can use system-assigned, user-assigned, or both types of managed identities. For services that don't support AD authentication, you should store secrets in Azure Key Vault and use a managed identity to access the secrets.
+- Use managed identities for Azure Container Registry access. Azure Container Apps supports using a different managed identity for the workload than container registry access, which is recommended when looking to achieve granular access controls on your managed identities.
 
 ### Cost optimization
 
@@ -176,12 +182,11 @@ Security provides assurances against deliberate attacks and the abuse of your va
  -->
 - Azure Container Apps has consumption based pricing model.
 - Azure Container Apps supports scale to zero.  When a container app is scaled to zero, there's no charge.
-- In this scenario, the Azure Cosmos DB and Azure Cache for Redis services generate most of the costs.  
-- To avoid accruing charges, don't leave this example running.
+- In this scenario, Azure Cosmos DB and Azure Cache for Redis are the main cost drivers.
 
 ## Deploy this scenario
 
-Follow the steps in the README.md in the [sample repository](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) to deploy this scenario.
+Follow the steps in the README.md in the [Azure Container Apps example scenario](https://github.com/mspnp/container-apps-fabrikam-dronedelivery) repository to deploy this scenario.
 
 ## Contributors
 
@@ -200,7 +205,6 @@ Principal author:
 
 - [Build microservices on Azure](/azure/architecture/microservices)
 - [Design a microservices architecture](/azure/architecture/microservices/design)
-- [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
 - [Microservices architecture on Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices)
-- [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric)

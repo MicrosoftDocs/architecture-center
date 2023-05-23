@@ -21,7 +21,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/commerce-chatbot"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/commerce-chatbot.png
 name: Commerce chatbot for customer service
 azureCategories:
   - ai-machine-learning

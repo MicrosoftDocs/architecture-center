@@ -39,7 +39,7 @@ This article explores Microsoft partner and third-party, non-open source scenari
 
 Microsoft partners make up a community of organizations that work with Microsoft to create innovative solutions for you. Driven by the opportunities of the intelligent cloud, Microsoft is prioritizing investments that support these opportunities.
 
-The [Azure Sponsorship for ISVs program](https://partner.microsoft.com/asset/collection/azure-sponsorship-for-isvs#) helps independent software vendors (ISVs) use Azure services to drive platform innovation and develop new solutions that can accelerate your digital transformation. 
+The [Azure Sponsorship for ISVs program](https://azure.microsoft.com/partners/isv) helps independent software vendors (ISVs) use Azure services to drive platform innovation and develop new solutions that can accelerate your digital transformation. 
 
 Visit [Azure Marketplace](https://azuremarketplace.microsoft.com) to discover, try, and deploy cloud software from Microsoft and Microsoft partners.
 
@@ -149,7 +149,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Application data protection for AKS workloads on Azure NetApp Files](../example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files.yml)|Deploy Astra Control Service with Azure NetApp Files for data protection, disaster recovery, and mobility for AKS applications.|Storage|
 |[SAP workload development and test settings](../example-scenario/apps/sap-dev-test.yml)|Learn how to establish non-production development and test environments for SAP NetWeaver in a Windows or Linux environment on Azure. Azure NetApp Files is recommended for storage of SAP executables and HANA data and logs.|SAP|
 |[Enterprise file shares with disaster recovery](../example-scenario/file-storage/enterprise-file-shares-disaster-recovery.yml)|Learn how to implement resilient NetApp file shares. Failure of the primary Azure region causes automatic failover to the secondary Azure region.|Storage|
-|[FSLogix for the enterprise](../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)|Learn how to build virtual desktop infrastructure solutions at enterprise scale by using FSLogix. Azure NetApp Files is recommended for storing profiles.  |Hybrid|
+|[FSLogix configuration examples](/fslogix/concepts-configuration-examples)|Learn how to build virtual desktop infrastructure solutions at enterprise scale by using FSLogix. Azure NetApp Files is recommended for storing profiles.  |Hybrid|
 |[General mainframe refactor to Azure](../example-scenario/mainframe/general-mainframe-refactor.yml)|Learn how to refactor mainframe applications to run more cost-effectively and efficiently on Azure. Azure NetApp Files is recommended for file storage. |Mainframe|
 |[Moodle deployment with Azure NetApp Files](../example-scenario/file-storage/moodle-azure-netapp-files.yml)|Deploy Moodle with Azure NetApp Files for a resilient solution that offers high-throughput, low-latency access to scalable shared storage.|Storage|
 |[Multiple forests with AD DS and Azure AD](../example-scenario/wvd/multi-forest.yml)|Learn how to create multiple Active Directory forests with Azure Virtual Desktop. Azure NetApp Files is one recommended storage solution for the scenario.|Virtual Desktop|
@@ -180,7 +180,6 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 |[Run SAP NetWeaver in Windows on Azure](/azure/architecture/guide/sap/sap-netweaver)|Learn proven practices for running SAP NetWeaver in a Windows environment on Azure, with high availability. Oracle is one recommended database.|SAP|
 |[SAP deployment on Azure using an Oracle database](../example-scenario/apps/sap-production.yml)|Learn proven practices for running SAP on Oracle in Azure, with high availability.|Oracle|
 |[Security considerations for highly sensitive IaaS apps in Azure](../reference-architectures/n-tier/high-security-iaas.yml)|Learn about VM security, encryption, NSGs, perimeter networks (also known as DMZs), access control, and other security considerations for highly sensitive IaaS and hybrid apps. A common replication scenario for IaaS architectures uses Oracle Active Data Guard. |Security|
-|[SWIFT\'s Alliance Access on Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure. An Alliance Access component contains an embedded Oracle database.|Networking|
 |[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure. An Alliance Access component contains an embedded Oracle database.|Networking|
 |[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market. A key component, the AMH node, runs an Oracle database.|Networking|
 
@@ -209,7 +208,7 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[Refactor mainframe applications to Azure with Raincode compilers](../reference-architectures/app-modernization/raincode-reference-architecture.yml)|Learn how the Raincode COBOL compiler modernizes mainframe legacy applications.|Mainframe|
+|[Rehost mainframe applications to Azure with Raincode compilers](../reference-architectures/app-modernization/raincode-reference-architecture.yml)|Learn how the Raincode COBOL compiler modernizes mainframe legacy applications.|Mainframe|
 
 ## SAP
 
@@ -266,13 +265,10 @@ We also recommend you browse our open-source solutions for Microsoft Azure:
 
 |Architecture|Summary|Technology focus|
 |--|--|--|
-|[SWIFT\'s Alliance Access on Azure](../example-scenario/finance/swift-alliance-access-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access on Azure.|Networking|
 |[SWIFT\'s Alliance Access with Alliance Connect Virtual on Azure](../example-scenario/finance/swift-alliance-access-vsrx-on-azure.yml)|View a reference architecture for deploying and running SWIFT Alliance Access with Alliance Connect Virtual on Azure.|Networking|
 |[SWIFT Alliance Cloud on Azure](../example-scenario/finance/swift-alliance-cloud-on-azure.yml)|Deploy Azure infrastructure for SWIFT Alliance Cloud.|Networking|
-|[SWIFT Alliance Connect on Azure](../example-scenario/finance/swift-on-azure-srx.yml)|View a series of articles about SWIFT Alliance Connect components that can be deployed on Azure.|Security|
 |[SWIFT Alliance Connect Virtual on Azure](../example-scenario/finance/swift-on-azure-vsrx.yml)|View a series of articles about SWIFT Alliance Connect Virtual components that can be deployed on Azure.|Security|
 |[SWIFT Alliance Lite2 on Azure](../example-scenario/finance/swift-alliance-lite2-on-azure.yml)|Deploy SWIFT Alliance Lite2 on Azure. Migrate an existing deployment from on-premises or create a new deployment.|Networking|
-|[SWIFT\'s Alliance Messaging Hub (AMH) with Alliance Connect](../example-scenario/finance/swift-alliance-messaging-hub.yml)|Run SWIFT AMH on Azure. This messaging solution helps financial institutions securely and efficiently bring new services to market.|Networking|
 |[SWIFT\'s AMH with Alliance Connect Virtual](../example-scenario/finance/swift-alliance-messaging-hub-vsrx.yml)|Run SWIFT AMH on Azure. Use this messaging solution with the Alliance Connect Virtual networking solution, which also runs on Azure.|Networking|
 
 ## Syncier

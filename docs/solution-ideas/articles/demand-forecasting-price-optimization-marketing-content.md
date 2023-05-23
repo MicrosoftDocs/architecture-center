@@ -4,8 +4,9 @@ This solution predicts future customer demand and optimizes pricing to maximize 
 
 ## Architecture
 
-![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for price optimization with Microsoft AI platform](../media/demand-forecasting-price-optimization-marketing.png)
-*Download an [SVG](../media/demand-forecasting-price-optimization-marketing.svg) of this architecture.*
+![Architecture diagram showing the flow of sample data to Power B I: demand forecasting for price optimization with Microsoft AI platform.](../media/demand-forecasting-price-optimization-marketing.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/demand-forecasting-price-optimization-marketing.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -13,7 +14,7 @@ This solution predicts future customer demand and optimizes pricing to maximize 
 
 1. Azure Data Lake (or Azure Blob Storage) stores the weekly raw sales data.
 2. Apache Spark for Azure HDInsight ingests the data and executes data preprocessing, forecasting modeling, and price optimization algorithms.
-3. Data Factory orchestrates and schedules the entire data flow.
+3. Azure Data Factory orchestrates and schedules the entire data flow.
 
 ### Components
 

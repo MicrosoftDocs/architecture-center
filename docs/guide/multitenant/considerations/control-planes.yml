@@ -4,7 +4,7 @@ metadata:
   description: Learn about the responsibilities of control planes in multitenant solutions and how to design a control plane that meets your needs.
   author: johndowns
   ms.author: jodowns
-  ms.date: 02/02/2023
+  ms.date: 05/08/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

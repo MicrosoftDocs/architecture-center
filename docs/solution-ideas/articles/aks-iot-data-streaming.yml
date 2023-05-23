@@ -15,7 +15,6 @@ metadata:
     - analytics
   ms.custom:
     - acom-architecture
-  social_image_url: /azure/architecture/solution-ideas/media/aks-demand-spikes.png
 name: Instant IoT data streaming with AKS
 azureCategories:
   - containers

@@ -23,7 +23,6 @@ metadata:
     - ai gallery
     - "https://azure.microsoft.com/solutions/architecture/loan-credit-risk-with-sql-server/"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/loan-credit-risk-with-sql-server.png
 name: Loan credit risk with SQL Server
 azureCategories:
   - databases

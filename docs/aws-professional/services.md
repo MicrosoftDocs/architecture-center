@@ -140,7 +140,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
 | [Glue](https://aws.amazon.com/glue) | [Azure Purview](https://azure.microsoft.com/services/purview) | A unified data governance service that helps you manage and govern your on-premises, multicloud, and software as a service (SaaS) data. |
-| [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
+
 
 ### Analytics and visualization
 
@@ -290,7 +290,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | [Multi-Factor Authentication](https://aws.amazon.com/iam/features/mfa) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory) | Safeguard access to data and applications, while meeting user demand for a simple sign-in process. |
 | [Directory Service](https://aws.amazon.com/directoryservice) | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds) | Provides managed domain services, such as domain join, group policy, LDAP, and Kerberos/NTLM authentication, which are fully compatible with Windows Server Active Directory. |
 | [Cognito](https://aws.amazon.com/cognito) | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
-| [Organizations](https://aws.amazon.com/organizations) | [Policy](https://azure.microsoft.com/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. |
+| [AWS Config](https://aws.amazon.com/config/) | [Policy](https://azure.microsoft.com/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. |
 | [Organizations](https://aws.amazon.com/organizations) | [Management Groups](/azure/governance/management-groups/) | Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale, no matter what type of subscriptions you have. |
 
 ### Encryption
@@ -313,7 +313,7 @@ In addition to front-end testing, the [Azure DevTest Labs](https://azure.microso
 | ----------- | ------------- | ----------- |
 | [Inspector](https://aws.amazon.com/inspector) | [Defender for Cloud](https://azure.microsoft.com/services/security-center) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
 | [Certificate Manager](https://aws.amazon.com/certificate-manager) | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
-| [GuardDuty](https://aws.amazon.com/guardduty/) | [Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection) | Detect and investigate advanced attacks on-premises and in the cloud. |
+| [GuardDuty](https://aws.amazon.com/guardduty/) | [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel/) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | [Artifact](https://aws.amazon.com/artifact) | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
 | [Shield](https://aws.amazon.com/shield) | [DDos Protection Service](/azure/security/fundamentals/ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
 

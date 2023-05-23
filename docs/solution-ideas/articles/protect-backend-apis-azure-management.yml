@@ -5,7 +5,7 @@ metadata:
   description: See an architecture that protects backend APIs by using API Management and Azure AD B2C to validate bearer tokens. The APIs can be in Azure or other environments.
   author: arshadazeem
   ms.author: arazeem, rhudson, rapencha
-  ms.date: 01/11/2023
+  ms.date: 04/11/2023
   ms.topic: solution-idea
   ms.service: architecture-center
   ms.subservice: solution-idea

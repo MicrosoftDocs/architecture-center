@@ -2,7 +2,8 @@ This solution shows you how to build, test, and deploy an app that runs on multi
 
 ## Architecture
 
-![Diagram of a multi-cloud deployment architecture.](../media/hybrid-continuous-integration.png)
+![Diagram of a multi-cloud deployment architecture.](../media/hybrid-continuous-integration.svg)
+
 *Download a [Visio file](https://arch-center.azureedge.net/hybrid-continuous-integration.vsdx) of this architecture.*
 
 ### Dataflow
@@ -105,5 +106,5 @@ Principal author:
 ## Related resources
 
 - [Design a CI/CD pipeline using Azure DevOps](../../example-scenario/apps/devops-dotnet-baseline.yml)
-- [CI/CD pipeline for container-based workloads](../../example-scenario/apps/devops-with-aks.yml)
+- [CI/CD pipeline for container-based workloads](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [DevOps Checklist](../../checklist/dev-ops.md)

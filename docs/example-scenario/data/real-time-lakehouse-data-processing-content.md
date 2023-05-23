@@ -6,9 +6,9 @@ This article describes an end-to-end solution for near real-time data processing
 
 ## Architecture
 
-[![A diagram that shows the dataflow for the end-to-end data processing solution.](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.png)](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.png#lightbox)
+[![A diagram that shows the dataflow for the end-to-end data processing solution.](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg)](media/real-time-lakehouse-data-processing/real-time-lakehouse-data-processing.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/AzureNearRealtimeDataprocessing.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-near-realtime-data-processing.vsdx) of this architecture.*
 
 ### Dataflow
 

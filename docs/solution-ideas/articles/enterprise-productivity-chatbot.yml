@@ -19,7 +19,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/enterprise-productivity-chatbot"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/enterprise-productivity-chatbot.png
 name: Enterprise bot for employee productivity
 azureCategories:
   - ai-machine-learning

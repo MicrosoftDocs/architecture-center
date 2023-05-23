@@ -87,6 +87,8 @@ The architecture creates a secure outbound connection from an App Service web ap
 
 You can set [App Service access restrictions](/azure/app-service/app-service-ip-restrictions) to prevent users from bypassing the front-end service and accessing the web app directly. For an example scenario, see [Application Gateway integration with App Service (multi-tenant)](/azure/app-service/networking/app-gateway-with-service-endpoints#integration-with-app-service-multi-tenant).
 
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
+
 #### DNS configuration
 
 A configuration change is required to make the query to the public DNS (for example, `contoso.database.windows.net`) resolve to the IP address of the private endpoint. Regional virtual network integration allows the web app to resolve DNS queries using the virtual network's DNS service (including linked private DNS zones). The web app won't use the public IP address of the database server. It will use the IP address of the private endpoint in the virtual network. Communication between the web app and the database will traverse through the virtual network.

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Multitenancy enables you to serve multiple distinct tenants in your Azure-hosted solution. Use this checklist to assess your multitenancy requirements and architecture. 
 author: arsenvlad
 ms.author: arsenv
-ms.date: 02/14/2022
+ms.date: 04/26/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
@@ -22,6 +22,9 @@ ms.custom:
 # Checklist for architecting and building multitenant solutions on Azure
 
 When you build your multitenant solution in Azure, there are many elements that you need to consider. Use this checklist as a starting point to help you design and build your multitenant solution. This checklist is a companion resource to the [Architecting multitenant solutions on Azure](./overview.md) series of articles. The checklist is structured around the business and technical considerations, and the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework).
+
+> [!TIP]
+> After going through this checklist, take the [SaaS journey review](/assessments/3a5bbc6d-c7be-4ccf-92f8-c1a0bdb0196a/) to evaluate your SaaS product by analyzing your understanding of multitenant architecture and its alignment with SaaS operation best practices.
 
 ## Business considerations
 
@@ -62,6 +65,7 @@ When you build your multitenant solution in Azure, there are many elements that 
 
 * Review the [Azure Well-Architected Operational Excellence checklist](../../checklist/data-ops.md), which is applicable to all workloads.
 * Use automation to manage the [tenant lifecycle](./considerations/tenant-lifecycle.md), such as onboarding, [deployment, provisioning, and configuration](./approaches/deployment-configuration.yml).
+* Understand the differences between [control plane](./considerations/control-planes.yml) and data plane in your multitenant solution.
 * Find the right balance for [deploying service updates](./considerations/updates.md). Consider both your tenants' requirements and your own operational requirements.
 * Monitor the health of the overall system, as well as each tenant.
 * Configure and test alerts to notify you when specific tenants are experiencing issues or are exceeding their consumption limits.

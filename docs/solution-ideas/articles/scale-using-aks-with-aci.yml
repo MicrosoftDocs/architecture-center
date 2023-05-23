@@ -18,7 +18,6 @@ metadata:
     - kubernetes
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/scale-using-aks-with-aci"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/scale-using-aks-with-aci.png
 name: Bursting from AKS with ACI
 azureCategories:
   - containers

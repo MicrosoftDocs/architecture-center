@@ -4,9 +4,9 @@ This article describes how you can improve your organization's governance proces
 
 ## Architecture
 
-[![Architecture diagram shows how Azure Purview scans and classifies data and data lake storage](../media/azure-purview-sql-estate-architecture.png)](../media/azure-purview-sql-estate-architecture.png#lightbox)
+[![Architecture diagram shows how Azure Purview scans and classifies data and data lake storage.](../media/azure-purview-sql-estate-architecture.svg)](../media/azure-purview-sql-estate-architecture.svg#lightbox)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.pptx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-purview-sql-estate-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 

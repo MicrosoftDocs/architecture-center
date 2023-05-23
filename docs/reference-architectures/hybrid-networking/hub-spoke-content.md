@@ -100,7 +100,7 @@ Virtual network peering or connected groups are non-transitive relationships bet
 
 #### Spoke connections through Azure Firewall or NVA
 
-The number of virtual network peerings per virtual network is limited. If you have several spokes that need to connect with each other, you run out of possible peering connections quickly. Connected groups also have limitations. For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits) and [Connected groups limits](/azure/virtual-network-manager/faq#what-are-the-service-limitations-of-azure-virtual-network-manager).
+The number of virtual network peerings per virtual network is limited. If you have many spokes that need to connect with each other, you could run out of peering connections. Connected groups also have limitations. For more information, see [Networking limits](/azure/azure-subscription-service-limits#networking-limits) and [Connected groups limits](/azure/virtual-network-manager/faq#what-are-the-service-limitations-of-azure-virtual-network-manager).
 
 In this scenario, consider using user-defined routes (UDRs) to force spoke traffic to be sent to Azure Firewall or another NVA that acts as a router at the hub. This change allows the spokes to connect to each other. To support this configuration, you must implement Azure Firewall with forced tunnel configuration enabled. For more information, see [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
 
@@ -364,8 +364,7 @@ Select the following button to deploy the reference architecture as an ARM templ
 
 ---
 
-
-<!-- For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) that deploy this solution.-->
+For detailed information and extra deployment options, see the [Hub and Spoke ARM and Bicep templates](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) that deploy this solution.
 
 ## Contributors
 

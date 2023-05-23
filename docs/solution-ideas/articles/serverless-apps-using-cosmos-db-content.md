@@ -81,4 +81,4 @@ See the following architectures that feature Azure Cosmos DB:
 - [Personalization using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/personalization-using-cosmos-db)
 - [Scalable order processing](/azure/architecture/example-scenario/data/ecommerce-order-processing)
 - [Deliver highly scalable customer service and ERP applications](/azure/architecture/solution-ideas/articles/erp-customer-service)
-- [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+- [CI/CD pipeline for container-based workloads](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
