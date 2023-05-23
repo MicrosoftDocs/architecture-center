@@ -30,34 +30,39 @@ Microsoft cognitive services are cloud-based APIs that you can use in artificial
 - Only available over the web. Internet connectivity is generally required. An exception is the Custom Vision Service, whose trained model you can export for prediction on devices and at the IoT edge.
 - Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
 
+## Categories of Azure Cognitive Services
+
+In Azure, there are dozens of Cognitive Services available. The following is a listing categorized by the functional area they support:
+
+| Service | Decision Guide | Description |
+| --- | --- | --- |
+| [Language](https://azure.microsoft.com/products/cognitive-services/language-service/) | [decision guide](../cognitive-services/LanguageAPI.md) | Language cognitive services are services that provide Natural Language Processing (NLP) features for understanding and analyzing text. |
+| [Speech](https://azure.microsoft.com/products/cognitive-services/speech-services/) | [decision guide](../cognitive-services/SpeechAPI.md) | Speech cognitive services are services that provide industry-leading speech capabilities such as speech-to-text, text-to-speech, speech translation, and speaker recognition. |
+| [Vision](https://azure.microsoft.com/products/cognitive-services/vision-services/) | [decision guide](../cognitive-services/VisionAPI.md) | Vision cognitive services are services that provide image and video recognition capabilities. |
+| Decision services<br/><ul><li>[Anomoly Detector](https://azure.microsoft.com/products/cognitive-services/anomaly-detector/)</li><li>[Content Moderator](https://azure.microsoft.com/products/cognitive-services/content-moderator/)</li><li>[Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/)</li></ul><br/>Applied AI Services<br/><ul><li>[Azure Cognitive Search](https://azure.microsoft.com/products/search/)</li></ul> | [decision guide](../cognitive-services/DecisionAndAppliedAI.md) | Decision cognitive services are services that provides Natural Language Processing (NLP) features to provide recommendations for informed and efficient decision-making |
+| [Open AI](https://azure.microsoft.com/products/cognitive-services/openai-service/) | N/A | Azure OpenAI Service provides REST API access to OpenAI's powerful language models |
+
 ## Common Use Cases
 
-- Transcribe audible speech into readable, searchable text.
-- Convert text to lifelike speech for more natural interfaces.
-- Integrate real-time speech translation into your apps.
-- Identify and verify the people speaking based on audio.
-- Identify commonly-used and domain-specific terms.
-- Automatically detect sentiments and opinions from text.
-- Distill information into easy-to-navigate questions and answers.
-- Enable your apps to interact with users through natural language.
-- Translate more than 100 languages and dialects.
-- Identify and analyze content within images and videos.
-- Customize image recognition to fit your business needs.
-- Identify potential problems early on.
-- Detect potentially offensive or unwanted content.
-- Create rich, personalized experiences for every user.
-- Apply advanced coding and language models to a variety of use cases.
+The following are some common use cases for Azure Cognitive Services.
 
-## Categories of Azure cognitive services?
-
-In Azure, there are dozens of Cognitive Services available. The current listing of these is available in a directory categorized by the functional area they support:
-
-- [Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/)
-- [Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)
-- [Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)
-- [Decision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)
-- [Open AI](https://azure.microsoft.com/products/cognitive-services/openai-service)
-- [Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)
+| Use Case | Category |
+| --- | --- |
+| Transcribe audible speech into readable, searchable text. | Speech |
+| Convert text to lifelike speech for more natural interfaces. | Speech |
+| Integrate real-time speech translation into your apps. | Speech |
+| Identify and verify the people speaking based on audio. | Speech |
+| Identify commonly-used and domain-specific terms. | Language |
+| Automatically detect sentiments and opinions from text. | Language |
+| Distill information into easy-to-navigate questions and answers. | Language |
+| Enable your apps to interact with users through natural language. | Language  |
+| Translate more than 100 languages and dialects. | Language |
+| Identify and analyze content within images and videos. | Vision |
+| Customize image recognition to fit your business needs. | Vision |
+| Identify potential problems early on. | Decision services / Anomoly Detector  |
+| Detect potentially offensive or unwanted content. | Decision services / Content Moderator  |
+| Create rich, personalized experiences for every user. | Decision services / Personalizer  |
+| Apply advanced coding and language models to a variety of use cases. | OpenAI  |
 
 ## Key selection criteria
 
@@ -79,7 +84,17 @@ Once the first decision is made you go deeper into your requirements.
 - Are you trying to observe & assess docs/text/documents [**Vision API's**](../cognitive-services/VisionAPI.md)
 - Or do you want to observe and take some decision on the display [**Decision API's &/or Applied AI**](../cognitive-services/DecisionAndAppliedAI.md)
 
-### Contributors
+## Deploying services
+
+When [deploying Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account#types-of-cognitive-services-resources), you can either deploy services independently or use the Azure Cognitive Services multi-service resource. The multi-service resource deploys Decision, Language, Speech, Vision, and Applied AI services. Use the following to guide you on deploying services.
+
+- Deploy the individual service if you do not need other services or if you want to manage access and billing on a per-service basis.
+- Deploy the multi-service Cognitive Services resource if you are using multiple services and want to manage access and billing for all the services together.
+
+> [!NOTE]
+> Resource categories under these API services are ever evolving rapidly. Please make sure you check the latest documents for additional categories
+
+## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
