@@ -52,7 +52,7 @@ All [guidance](./baseline-aks.yml#egress-traffic-flow) found in the AKS Baseline
 
 Unlike AKS clusters with Linux node pools, AKS clusters with Windows node pools require Azure CNI.  Using Azure CNI allows a pod to be assigned an IP address from an Azure Virtual Network. The pod can then communicate via the Azure Virtual Network just like any other device. It can connect to other pods, to peered networks or on-premises networks using ExpressRoute or a VPN, or to other Azure services using Private Link.
 
-All [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#plan-the-ip-addresses) relative to planning the IP addresses provided in the AKS Baseline architecture article applies here, with one additional recommendation: consider provisioning a dedicated subnet for your domain controllers.  With regard to the Windows node pool, it is recommended that you segregate that from the other node pools logically through separate subnets within the Azure CNI configuration.
+All [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#plan-the-ip-addresses) relative to planning the IP addresses provided in the AKS Baseline architecture article applies here, with one additional recommendation: consider provisioning a dedicated subnet for your domain controllers.  With regard to the Windows node pool, it is recommended that you segregate that from the other node pools logically through separate subnets.
 
 ## Node pool upgrade
 
