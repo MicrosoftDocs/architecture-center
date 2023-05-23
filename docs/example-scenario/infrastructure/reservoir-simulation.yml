@@ -14,7 +14,6 @@ metadata:
   ms.custom:
     - fcp
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-hpc-reservoir-simulation.png
 name: Run reservoir simulation software on Azure
 azureCategories:
   - compute

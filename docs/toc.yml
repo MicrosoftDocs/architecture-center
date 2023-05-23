@@ -3336,6 +3336,8 @@ items:
         href: example-scenario/confidential/data-analytics-containers-spark-kubernetes-azure-sql.yml
       - name: Customer 360 with Azure Synapse
         href: example-scenario/analytics/synapse-customer-insights.yml
+      - name: Data contextualization with graph in SQL Database
+        href: example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml
       - name: Data lake queries via Synapse serverless
         href: example-scenario/data/synapse-exploratory-data-analytics.yml
       - name: Data warehouse for small business
@@ -3828,8 +3830,6 @@ items:
           href: solution-ideas/articles/aks-demand-spikes.yml
         - name: Instant IoT data streaming with AKS
           href: solution-ideas/articles/aks-iot-data-streaming.yml
-        - name: Lift and shift to containers with App Service
-          href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
         - name: Secure DevOps for AKS
           href: solution-ideas/articles/secure-devops-for-kubernetes.yml          
         - name: AKS in event stream processing
@@ -4661,6 +4661,8 @@ items:
         href: example-scenario/infrastructure/devtest-labs-reference-architecture.yml
       - name: CI/CD pipeline for chatbots with ARM
         href: example-scenario/apps/devops-cicd-chatbot.yml
+      - name: CI/CD pipeline using Azure DevOps
+        href: example-scenario/apps/devops-dotnet-baseline.yml
       - name: DevSecOps in GitHub
         href: solution-ideas/articles/devsecops-in-github.yml
       - name: Enterprise monitoring with Azure Monitor
@@ -6731,6 +6733,8 @@ items:
         href: solution-ideas/articles/highly-available-sharepoint-farm.yml
       - name: Hybrid SharePoint farm with Microsoft 365
         href: solution-ideas/articles/sharepoint-farm-microsoft-365.yml
+      - name: Lift-and-shift migration to containers with App Service
+        href: solution-ideas/articles/migrate-existing-applications-to-container-apps.yml
       - name: Modern customer support portal
         href: solution-ideas/articles/modern-customer-support-portal-powered-by-an-agile-business-process.yml
       - name: Real-time presence with Microsoft 365

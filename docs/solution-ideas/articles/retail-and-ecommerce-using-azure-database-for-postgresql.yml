@@ -21,7 +21,6 @@ metadata:
     - azure
     - solutions
     - "https://azure.microsoft.com/solutions/architecture/retail-and-ecommerce-using-azure-database-for-postgresql"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/retail-and-ecommerce-using-azure-database-for-postgresql.svg
 name: Retail and e-commerce using Azure Database for PostgreSQL
 azureCategories:
   - databases

@@ -20,7 +20,6 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/secure-devops-for-kubernetes"
     - e2e-aks
-  social_image_url: /azure/architecture/solution-ideas/articles/media/secure-devops-for-kubernetes.png
 name: Secure DevOps for AKS
 azureCategories:
   - containers

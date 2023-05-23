@@ -18,7 +18,6 @@ metadata:
     - app-dev
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/migrate-existing-applications-to-container-apps"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/migrate-existing-applications-to-container-apps.png
 name: Lift and shift to containers with Azure App Service
 azureCategories:
   - migration

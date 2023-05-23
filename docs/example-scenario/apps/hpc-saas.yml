@@ -14,7 +14,6 @@ metadata:
   ms.custom:
     - HPC
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/apps/media/architecture-hpc-saas.png
 name: Computer-aided engineering
 azureCategories:
   - compute

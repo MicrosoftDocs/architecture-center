@@ -19,7 +19,6 @@ metadata:
     - microservices
     - example-scenario
     - e2e-aks
-  social_image_url: /azure/architecture/guide/aks/media/ci-cd-gitops-github-actions-aks-pull.png
 name: CI/CD for AKS apps with GitHub Actions and GitFlow
 azureCategories:
   - containers

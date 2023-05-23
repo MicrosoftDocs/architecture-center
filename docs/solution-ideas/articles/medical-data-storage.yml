@@ -22,7 +22,6 @@ metadata:
     - medical data storage
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/medical-data-storage"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/medical-data-storage.png
 name: Medical data storage solutions
 azureCategories:
   - storage
