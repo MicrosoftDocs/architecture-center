@@ -23,7 +23,13 @@ products:
 # Send Azure Databricks application logs to Azure Monitor
 
 > [!NOTE]
-> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring. The original library supports Azure Databricks Runtimes 10.x (Spark 3.2.x) and earlier. Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above: https://github.com/mspnp/spark-monitoring/tree/l4jv2. Please note the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. This library and Github repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding this library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact azure-spark-monitoring-help@databricks.com.
+> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring.
+>
+> The original library supports Azure Databricks Runtimes 10.x (Spark 3.2.x) and earlier.
+>
+> Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above on the `l4jv2` branch at: https://github.com/mspnp/spark-monitoring/tree/l4jv2.
+>
+> Please note that the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. This library and Github repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding this library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact azure-spark-monitoring-help@databricks.com.
 
 This article shows how to send application logs and metrics from Azure Databricks to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub.
 
