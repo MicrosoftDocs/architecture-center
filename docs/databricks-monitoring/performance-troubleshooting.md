@@ -21,7 +21,7 @@ products:
 # Troubleshoot performance bottlenecks in Azure Databricks
 
 > [!NOTE]
-> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring. The library supports Azure Databricks 10.x (Spark 3.2.x) and earlier. Azure Databricks 11.0 includes [breaking changes](/azure/databricks/release-notes/runtime/11.0#log4j-is-upgraded-from-log4j-1-to-log4j-2) to the logging systems that the **spark-monitoring** library integrates with. The work required to update the **spark-monitoring** library to support Azure Databricks 11.0 (Spark 3.3.0) and newer is not currently planned.
+> This article relies on an open source library hosted on GitHub at: https://github.com/mspnp/spark-monitoring. The original library supports Azure Databricks Runtimes 10.x (Spark 3.2.x) and earlier. Databricks has contributed an updated version to support Azure Databricks Runtimes 11.0 (Spark 3.3.x) and above: https://github.com/mspnp/spark-monitoring/tree/l4jv2. Please note the 11.0 release is not backwards compatible due to the different logging systems used in the Databricks Runtimes. Be sure to use the correct build for your Databricks Runtime. This library and Github repository are in maintenance mode. There are no plans for further releases, and issue support will be best-effort only. For any additional questions regarding this library or the roadmap for monitoring and logging of your Azure Databricks environments, please contact azure-spark-monitoring-help@databricks.com.
 
 This article describes how to use monitoring dashboards to find performance bottlenecks in Spark jobs on Azure Databricks.
 
