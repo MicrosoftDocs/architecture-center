@@ -4,7 +4,7 @@ This scenario explains the architecture and considerations to take into account 
 
 [ ![Architectural diagram that demonstrates a Jenkins server running on Azure.](./media/architecture-jenkins.svg)](./media/architecture-jenkins.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/Jenkins-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/jenkins-architecture.vsdx) of this architecture.*
 
 ### Workflow
 
