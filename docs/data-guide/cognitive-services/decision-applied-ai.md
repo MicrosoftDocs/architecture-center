@@ -101,6 +101,6 @@ Other contributors:
 
 ## Related resources
 
-- [Types of Language API services](language-api.md)
-- [Types of Speech API services](speech-api.md)
-- [Types of Vision API services](vision-api.md)
+- [Types of language API services](language-api.md)
+- [Types of speech API services](speech-api.md)
+- [Types of vision API services](vision-api.md)
