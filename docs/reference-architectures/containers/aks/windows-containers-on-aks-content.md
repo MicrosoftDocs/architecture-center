@@ -92,13 +92,12 @@ Monitoring your Windows containers can be done in two ways: Azure Monitor and us
 
 Containers running Windows can be monitored with Azure Monitor and [Container Insights](/azure/azure-monitor/containers/container-insights-overview), much like Linux containers. Log Monitor allows you to pull logs from Windows services and application events and port them to STDOUT for consumption by kubectl logs.
 
-With the general availability of Windows Server support for AKS, an AKS cluster with Windows Server nodes has a preview agent installed as a daemonset pod on each individual Windows Server node to collect logs and forward them to Log Analytics. For performance metrics, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor for all Windows nodes in the cluster.
+An AKS cluster with Windows Server nodes has a preview agent installed as a daemonset pod on each individual Windows Server node to collect logs and forward them to Log Analytics. For performance metrics, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor for all Windows nodes in the cluster.
 
 Container insight monitoring for a Windows Server cluster has the following limitations:
 
 - Windows doesn't have a Memory RSS metric. As a result, it isn't available for Windows nodes and containers. The [Working Set](/windows/win32/memory/working-set) metric is available
 - Disk storage capacity information isn't available for Windows nodes.
-- Only pod environments are monitored, not Docker environments.
 
 ## Policy management
 
@@ -116,7 +115,9 @@ As with the cluster bootstrapping [guidance](/azure/architecture/reference-archi
 
 All cost optimization [guidance](./baseline-aks.yml#cost-management) found in the AKS Baseline article apply for Windows workloads.  Other cost considerations that should be accounted for are:
 
-- The licensing costs for Windows Server increase the cost of nodes for your AKS cluster. Cost optimization recommendations for this factor include reserving capacity or using existing licenses if you already have them for other business uses. See the [Azure Hybrid Benefit for Windows Server](/windows-server/get-started/azure-hybrid-benefit)(AHUB) documentation to learn about discounts for your Software Assurance (SA) applicable Windows Server licenses.
+- The licensing costs for Windows Server increase the cost of nodes for your AKS cluster. Cost optimization recommendations for this factor include reserving capacity or using existing licenses if you already have them for other business uses. 
+  - See the [Azure Hybrid Benefit for Windows Server](/windows-server/get-started/azure-hybrid-benefit)(AHUB) documentation to learn about discounts for your Software Assurance (SA) applicable Windows Server licenses.
+  - See the [Windows Server containers FAQ](/azure/aks/windows-faq?tabs=azure-cli#can-i-use-azure-hybrid-benefit-with-windows-nodes) for instructions on applying the benefit to new and existing clusters.
 - The size of Windows container images may incur additional Azure Container Registry (ACR) costs due to the amount of storage required for multiple images, the number of concurrent nodes pulling from the ACR and geo-replication requirements.
 
 ## Contributors
