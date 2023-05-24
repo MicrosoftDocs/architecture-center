@@ -6,15 +6,15 @@ This reference architecture describes a common production system. You can choose
 
 The first diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability sets.
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avset.png)](./images/sap-hana-scale-up-avset.png#lightbox)
+[![Reference architecture for SAP HANA ScaleUp.](./images/sap-hana-scale-up-avset.svg)](./images/sap-hana-scale-up-avset.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability set.*
 
 The second diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability zones.
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avzone.png)](./images/sap-hana-scale-up-avzone.png#lightbox)
+[![Reference architecture for SAP HANA ScaleUp.](./images/sap-hana-scale-up-avzone.svg)](./images/sap-hana-scale-up-avzone.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone.*
 
-_Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) of this architecture, containing all versions including disaster recovery._
+*Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) of all diagrams in this article.*
 
 > [!NOTE]
 > To deploy this reference architecture, you need the appropriate licensing of SAP products and other non-Microsoft technologies.
@@ -121,7 +121,7 @@ Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disk
 
 ### Disaster recovery
 
-[![Reference architecture for SAP HANA ScaleUp](./images/sap-hana-scale-up-avzone-dr.png)](./images/sap-hana-scale-up-avzone-dr.png#lightbox)
+[![Reference architecture for SAP HANA ScaleUp.](./images/sap-hana-scale-up-avzone-dr.svg)](./images/sap-hana-scale-up-avzone-dr.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone, with disaster recovery.*
 
 In this architecture, HSR is used for database replication to a database instance in the secondary region. It's optional to use a cluster in the secondary region, but doing so can improve SAP HANA availability after a disaster recovery failover.
