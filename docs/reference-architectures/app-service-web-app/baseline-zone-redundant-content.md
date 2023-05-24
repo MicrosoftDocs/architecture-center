@@ -311,7 +311,7 @@ App Service has built-in and integrated monitoring tools that you should enable 
 - [Enable distributed tracing.](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation) Auto-instrumentation offers a way to monitor distributed cloud systems via distributed tracing and a performance profiler.
 - Use code-based instrumentation for custom telemetry. ­Azure Application Insights also supports code-based instrumentation for custom application telemetry. Add the Application Insights SDK to your code and use the Application Insights API.
 - [Enable App Service logs](/azure/app-service/troubleshoot-diagnostic-logs). The App Service platform supports four additional logs that you should enable to support troubleshooting. These logs are application logs, web server logs, detailed error messages, and failed request tracing.
-- Use structured logging. Add a structured logging library to your application code. Update your code to use key-values pairs and enable Application logs in App Service to store these logs in the filesystem (temporary) or blob storage.
+- Use structured logging. Add a structured logging library to your application code. Update your code to use key-values pairs and enable Application logs in App Service to store these logs in your Log Analytics Workspace.
 - [Turn on the App Service Health check.](/azure/app-service/monitor-instances-health-check) Health check reroutes requests away from unhealthy instances and replaces the unhealthy instances. Your App Service plan needs to use two or more instances for Health checks to work.
 
 ## Database
