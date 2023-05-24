@@ -22,7 +22,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/campaign-optimization-with-sql-server"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/campaign-optimization-with-sql-server.png
 name: Campaign optimization with SQL Server and machine learning
 azureCategories:
   - databases

@@ -125,7 +125,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Operational excellence
 
-- Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks) to deploy the services in this example workload automatically. Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://github.com/features/actions).
+- Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) to deploy the services in this example workload automatically. Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://github.com/features/actions).
 
 - Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of your Azure services and to monitor and diagnose networking issues.
 
@@ -175,5 +175,5 @@ Microsoft learning paths:
 - [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
 - [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
-- [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)

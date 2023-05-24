@@ -23,7 +23,6 @@ metadata:
     - process order payment
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/scalable-ecommerce-web-app"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/scalable-ecommerce-web-app.png
 name: Architect scalable e-commerce web app
 azureCategories:
   - web

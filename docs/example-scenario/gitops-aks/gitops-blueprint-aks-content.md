@@ -265,7 +265,7 @@ Principal author:
 
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](../../reference-architectures/containers/aks/baseline-aks.yml)
 - [AKS baseline for multiregion clusters](../../reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml)
-- [Build and deploy apps on AKS using DevOps and GitOps](../../example-scenario/apps/devops-with-aks.yml)
+- [Build and deploy apps on AKS using DevOps and GitOps](../../guide/aks/aks-cicd-github-actions-and-gitops.yml)
 - [DevSecOps on Azure Kubernetes Service (AKS)](../../guide/devsecops/devsecops-on-aks.yml)
 - [DevSecOps for infrastructure as code (IaC)](../../solution-ideas/articles/devsecops-infrastructure-as-code.yml)
 - [Enterprise infrastructure as code using Bicep and Azure Container Registry](../../guide/azure-resource-manager/advanced-templates/enterprise-infrastructure-bicep-container-registry.yml)

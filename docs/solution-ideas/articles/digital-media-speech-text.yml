@@ -17,7 +17,6 @@ metadata:
     - speech
     - "https://azure.microsoft.com/solutions/architecture/digital-media-speech-text"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media-speech-text.png
 name: Keyword search and speech-to-text
 azureCategories:
   - ai-machine-learning

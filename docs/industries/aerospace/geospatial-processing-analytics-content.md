@@ -6,7 +6,7 @@ An implementation of this architecture is available on [GitHub](https://github.c
 
 ## Architecture
 
-:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-architecture.png" alt-text="Diagram that shows the geospatial processing analytics solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-architecture.png":::
+:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-architecture.svg" alt-text="Diagram that shows the geospatial processing analytics solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/geospatial-processing-analytics-arch.vsdx) of this architecture.*
 
@@ -181,7 +181,7 @@ These resources provide information about pricing and cost optimization:
 
 A [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep) deployment of the sample solution is available. To get started with this deployment, see [these instructions](https://github.com/Azure/Azure-Orbital-Analytics-Samples).
 
-:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png" alt-text="Diagram that demonstrates the architecture of the deployed sample solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.png":::
+:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.svg" alt-text="Diagram that demonstrates the architecture of the deployed sample solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-deploy.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/geospatial-processing-analytics-deploy.vsdx) of this architecture.*
 
@@ -335,7 +335,7 @@ An implementation of this architecture is available on [GitHub](https://github.c
 
 This diagram shows the steps in the sample solution:
 
-:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png" alt-text="Diagram that shows the steps in the sample solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.png":::
+:::image type="content" border="false" source="./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.svg" alt-text="Diagram that shows the steps in the sample solution." lightbox="./images/geospatial-processing-analytics/geospatial-processing-analytics-sequence-diagram.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/geospatial-processing-analytics-sequence-diagram.vsdx) of this architecture.*
 
