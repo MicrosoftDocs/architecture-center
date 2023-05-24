@@ -50,7 +50,7 @@ You can also consider providing federation as a feature that only applies to cus
 
 Single sign-on experiences enable users to switch between applications seamlessly, without being prompted to reauthenticate at each point.
 
-When users visits an application, the application directs them to an IdP. If the IdP sees they have an existing session, it issues a new token without requiring the users to interact with the login process. A federated identity model support single sign-on experiences, by enabling users to use a single identity across multiple applications.
+When users visit an application, the application directs them to an IdP. If the IdP sees they have an existing session, it issues a new token without requiring the users to interact with the login process. A federated identity model support single sign-on experiences, by enabling users to use a single identity across multiple applications.
 
 In a multitenant solution, you might also enable another form of single sign-on. If users are authorized to work with data for multiple tenants, you might need to provide a seamless experience when the users change their context from one tenant to another. Consider whether you need to support seamless transitions between tenants, and if so, whether your identity provider needs to reissue tokens with specific tenant claims. For example, a user who signed into the Azure portal can switch between different Azure AD directories, which causes reauthentication, and it reissues the token from the newly selected Azure AD instance.
 
