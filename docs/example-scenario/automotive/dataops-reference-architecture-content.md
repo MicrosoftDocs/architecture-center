@@ -145,7 +145,8 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
  
 **Call Create Measurement API**: Make a web API call to the create measurement API and pass the json payload from measurement manifest json file. On successful call, parse the response to retrieve the measurement ID and on failure move to the on error activity.
 
-**Note** The DataOps architecture assumes that an organization will limit the number of requests to the app service.  If an indeterminate number of requests could be made in the architecture, consider a [rate limiting pattern](https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern).
+> [!NOTE]
+> The DataOps architecture assumes that an organization will limit the number of requests to the app service.  If an indeterminate number of requests could be made in the architecture, consider a [rate limiting pattern](https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern).
 
 **Call Create Datastream API**: Make a web API call to the create datastream api by creating the required json payload. On successful call, parse the response to retrieve the datastream ID and the datastream location. On failure move to the on error activity.
 
