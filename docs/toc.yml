@@ -1675,8 +1675,6 @@ items:
         href: example-scenario/forensics/index.yml
       - name: Hybrid security monitoring in Azure
         href: hybrid/hybrid-security-monitoring.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
     - name: Datasets
       items:
       - name: MNIST handwritten digits
@@ -4124,8 +4122,6 @@ items:
         maintainContext: true
       - name: SQL Managed Instance with CMK
         href: example-scenario/data/sql-managed-instance-cmk.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
       - name: Windows N-tier applications
         href: reference-architectures/n-tier/n-tier-sql-server.yml
     - name: Solution ideas
@@ -6331,8 +6327,6 @@ items:
         href: example-scenario/data/sql-managed-instance-cmk.yml
       - name: Virtual network integrated microservices
         href: example-scenario/integrated-multiservices/virtual-network-integration.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
     - name: Solution ideas
       items:
       - name: Centralize app configuration and security
@@ -6666,8 +6660,6 @@ items:
         href: example-scenario/apps/ecommerce-scenario.yml
       - name: Highly available multi-region web app
         href: reference-architectures/app-service-web-app/multi-region.yml
-      - name: Highly available zone-redundant web app
-        href: reference-architectures/app-service-web-app/zone-redundant.yml
       - name: 'IaaS: Web app with relational database'
         href: high-availability/ref-arch-iaas-web-and-db.yml
       - name: Improved access to multitenant web apps
@@ -6678,8 +6670,6 @@ items:
         href: example-scenario/apps/apim-api-scenario.yml
       - name: Multi-region web app with private database
         href: example-scenario/sql-failover/app-service-private-sql-multi-region.yml
-      - name: Multi-tier app service with private endpoint
-        href: example-scenario/web/multi-tier-app-service-private-endpoint.yml
       - name: Multi-tier app service with service endpoint
         href: reference-architectures/app-service-web-app/multi-tier-app-service-service-endpoint.yml
       - name: Multi-tier web app built for HA/DR
@@ -6696,16 +6686,12 @@ items:
         href: example-scenario/apps/scalable-apps-performance-modeling-site-reliability.yml
       - name: Scalable order processing
         href: example-scenario/data/ecommerce-order-processing.yml
-      - name: Scalable web app
-        href: reference-architectures/app-service-web-app/scalable-web-app.yml
       - name: Serverless web app
         href: reference-architectures/serverless/web-app.yml
       - name: Virtual health on Cloud for Healthcare
         href: example-scenario/mch-health/virtual-health-mch.yml
       - name: Web app monitoring on Azure
         href: reference-architectures/app-service-web-app/app-monitoring.yml
-      - name: Web app private database connectivity
-        href: example-scenario/private-web-app/private-web-app.yml
     - name: Solution ideas
       items:
       - name: Dynamics Business Central as a service
