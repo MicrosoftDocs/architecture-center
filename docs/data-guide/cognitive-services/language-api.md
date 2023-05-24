@@ -1,6 +1,6 @@
 ---
 title: Types of language API services
-description: Learn about Azure Cognitive Service for Language for understanding and analyzing text.
+description: Learn about using Azure Cognitive Service for Language to understand and analyze text. Learn which service to use for a specific use case. 
 author: kruti-m
 ms.author: architectures
 categories: azure
