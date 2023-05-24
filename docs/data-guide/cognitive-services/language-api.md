@@ -1,5 +1,5 @@
 ---
-title: Different Types of Language API Services
+title: Types of language API services
 description: Learn about Azure Cognitive Service for Language for understanding and analyzing text.
 author: kruti-m
 ms.author: architectures
@@ -16,7 +16,7 @@ ms.custom:
   - guide
 ---
 
-# Different types of language API services
+# Types of language API services
 
 Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
 
