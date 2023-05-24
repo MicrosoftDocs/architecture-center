@@ -6,7 +6,7 @@ The reliable web app pattern provides implementation guidance to replatform web 
 
 The business context, existing web app, service level objective (SLO), and coding language determine (1) how you apply the reliable web app pattern and (2) the architecture of the web app. The following diagram illustrates how the reference implementation should look in your environment.
 
-[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.png)](images/reliable-web-app-java.png)
+[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.svg)](images/reliable-web-app-java.svg)
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
@@ -28,7 +28,7 @@ Company leadership wants to expand business into the EdTech application market. 
 
 | Short-term goals | Long-term goals |
 | --- | --- |
-| ▪ Apply low-cost, high-value code changes to the LOB web application <br> ▪ Mature development team practices for cloud development and operations <br> ▪ Create cost-optimized production and development environments <br> ▪ Implement reliability and security best practices in the cloud <br> ▪ Service level objective of 99.8%| ▪ Open the application directly to online customers through multiple web and mobile experiences <br> ▪ Improve availability <br> ▪ Reduce time required to deliver new features <br> ▪ Independently scale different components of the system, based on traffic
+| ▪ Apply low-cost, high-value code changes to the LOB web application <br> ▪ Mature development team practices for cloud development and operations <br> ▪ Create cost-optimized production and development environments <br> ▪ Implement reliability and security best practices in the cloud <br> ▪ Service level objective of 99.9%| ▪ Open the application directly to online customers through multiple web and mobile experiences <br> ▪ Improve availability <br> ▪ Reduce time required to deliver new features <br> ▪ Independently scale different components of the system, based on traffic
 
 ## Web application starting point
 
@@ -36,16 +36,16 @@ The on-premises starting point is a monolithic Java web application that runs on
 
 ## Service level objective
 
-A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.8% for availability. You need to define what availability means for your web application. For Proseware, the web app is considered available when employees can watch training videos 99.8% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
+A service level objective (SLO) for availability defines how available you want a web app to be for users. Proseware has a target SLO of 99.9% for availability. You need to define what availability means for your web application. For Proseware, the web app is considered available when employees can watch training videos 99.9% of the time. When you have a definition of *available*, list all the dependencies on the critical path of availability. Dependencies should include Azure services and third-party solutions.
 
 For each dependency in the critical path, you need to assign an availability goal. Service Level Agreements (SLAs) from Azure provide a good starting point. SLAs don't factor in (1) downtime associated with the application code run on those services, (2) deployment and operations methodologies, or (3) architecture choices to connect the services. The availability metric you assign to a dependency shouldn't exceed the SLA.
 
 For example, Proseware used Azure SLAs for Azure services. The following diagram illustrates Proseware's dependency list and shows availability goals for each dependency.
 
-[![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](images/java-slo-dependecies.png)](images/java-slo-dependecies.png)
+[![Diagram showing Proseware's dependencies on the critical path and the assigned availability metric for each dependency.](images/java-slo-dependecies.svg)](images/java-slo-dependecies.svg)
 *Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
 
-Finally, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. For more information, see:
+Finally, you need to use the formulas for composite SLAs to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Proseware needed a multi-region architecture to meet the 99.9% SLO. For more information, see:
 
 - [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional SLA formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
@@ -54,7 +54,7 @@ Finally, you need to use the formulas for composite SLAs to estimate the composi
 
 The Azure services you choose should support your short-term objectives while preparing your application to meet any long-term goals. You should pick services that (1) meet the SLO for the production environment, (2) require minimal migration effort, and (3) support planned modernization efforts.
 
-At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLA of 99.8% for the production environment and (2) an average load of 1,000 users daily.
+At this phase, it's important to select Azure services that mirror key on-premises choices to minimize the migration effort. For example, you should keep the same database engine (PostgreSQL -> Azure Database for PostgreSQL Flexible Server). Containerization of your application typically doesn't meet the short-term objectives of the reliable web app pattern, but the application platform you choose now should support containerization if it's a long-term goal. The two main requirements Proseware used when choosing Azure services were (1) an SLO of 99.9% for the production environment and (2) an average load of 1,000 users daily.
 
 ### Application platform
 
@@ -116,17 +116,18 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 - **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
 - **Enabling non-sticky sessions:** The cache allows the web app to externalize session state use non-sticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Proseware has a fully-managed, scalable cache service to improve scalability and performance of their applications. Proseware was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
-### Global ingress gateway
+### Global load balancer
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a content delivery network that uses the Azure backbone network to route traffic between regions. This choice sets up features like Azure Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-7 global load balancer that uses the Azure backbone network to route traffic between regions. Proseware needed to a multi-region architecture to meet their 99.9% SLO. They needed Front Door to provide layer-7 routing between regions. Front Door also provides extra features, such as Web Application Firewall, and positions Proseware to use a content delivery network. The content delivery network provides site acceleration as the traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
 
-- **Internet-facing security.** It provides built-in layer 3-4 DDoS protection and integrates with Azure Web Application Firewall to help protect web apps against common web attacks.
-- **Traffic acceleration.** It uses AnyCast to reach the nearest Azure point of presence and find the fastest route to the web app.
+- **Routing flexibility.** It allows the application team to configure ingress needs to support future changes in the application.
+- **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
 - **Custom domains.** It supports custom domain names with flexible domain validation.
-- **Health probes.** The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing your client requests.
-- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Azure Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It enables the application to log each request and failed health probes.
+- **Health probes.** The application needs intelligent health probe monitoring. Azure Front Door uses responses from the probe to determine the best origin for routing client requests.
+- **Monitoring support.** It supports built-in reports with an all-in-one dashboard for both Front Door and security patterns. You can configure alerts that integrate with Azure Monitor. It lets the application log each request and failed health probes.
+- **DDoS protection.** It has built-in layer 3-4 DDoS protection.
 
-### Web Application Firewall
+### Web application firewall
 
 [Azure Web Application Firewall](/azure/web-application-firewall/overview) helps provide centralized protection of your web applications from common exploits and vulnerabilities. It's built into Azure Front Door and helps prevent malicious attacks close to the attack sources before they enter your virtual network. Web Application Firewall provides the following benefits:
 
@@ -143,13 +144,13 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 - **Monitoring and logging.** It facilitates audit access and generates alerts when stored secrets change.
 - **Integration.** It supports two methods for the web app to access secrets. You can use app settings in the hosting platform (App Service), or you can reference the secret in your application code (app properties file).
 
-### Object storage
+### File storage
 
 Azure Files offers fully managed file shares in the cloud that are accessible via Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST API. Proseware needs a file system for saving uploaded training videos. Proseware chose Azure Files for the following reasons:
 
 - **Replaces existing file server.** Azure Files is a drop-in replacement for our on-premises network attached storage (NAS) solution. Azure Files allows Proseware to replace the existing file server without needing to modify code if they wanted to add blob storage. Azure Files simplifies the process of getting the app running on the cloud.
 - **Fully managed service.** It enables Proseware to maintain compatibility without needing to manage hardware or an operating system for a file server.
-- **Resiliency:** It's built to be highly available.
+- **Resiliency:** It has a geo-zone-redundant storage (GZRS) option that supports Proseware's disaster recovery plan. In the primary region, the GZRS option copies data synchronously across three Azure availability zones. In the secondary region, GZRS copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times.
 - **Durability.** It has zone-redundant storage to improve data redundancy and application resiliency. For more information, see [Data redundancy](/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) and [Zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 ### Endpoint security
