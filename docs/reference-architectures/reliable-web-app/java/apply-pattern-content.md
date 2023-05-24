@@ -6,7 +6,7 @@ The reliable web app pattern provides implementation guidance to replatform web 
 
 A well-architected web application needs quality code, and quality code needs a well-architected solution. The reliable web app pattern situates code changes within the pillars of the Azure Well-Architected Framework to reinforce the close relationship between code and architecture. The following diagram illustrates how the reference implementation should look in your environment.
 
-[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.png)](images/reliable-web-app-java.png)
+[![Diagram showing the architecture of the reference implementation.](images/reliable-web-app-java.svg)](images/reliable-web-app-java.svg)
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
@@ -22,11 +22,19 @@ For more information on the pattern, see [Reliable web app pattern](../overview.
 
 ## Reliability
 
-A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* is a measure of whether your users can access your web application when they need to. We recommend using the Retry and Circuit Breaker patterns as a critical first step toward improving application reliability. These design patterns introduce self-healing qualities and help your application maximize the reliability features of the cloud. Here are our reliability recommendations.
+A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* measures whether your users can access your web application. The following reliability recommendations cover resiliency and availability at the infrastructure, application, and data levels.
 
-### Use the Retry pattern
+### Build the infrastructure to meet your service level objective
 
-The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available in Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
+You should design your architecture to meet your service level objective (SLO). For example, your decision to use a single region or multiple regions should align with your SLO.
+
+*Reference implementation.* The reference implementation uses two regions. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO.
+
+### Configure application reliability
+
+Reliability design patterns essential for web apps in the cloud. The Retry pattern an Circuit Breaker pattern are the two most critical design patterns for application reliability at this stage. These two design patterns introduce self-healing qualities that help your application maximize the reliability features of the cloud.
+
+**Use the Retry pattern.** The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available in Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
 
 - [Transient fault handling](/azure/architecture/best-practices/transient-faults)
 - [Retry pattern](/azure/architecture/patterns/retry)
@@ -49,17 +57,13 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 *Simulate the Retry pattern:* You can simulate the Retry pattern in the reference implementation. For instructions, see [Simulate the Retry pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
   
-### Use the Circuit Breaker pattern
-
-You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from the task to avoid wasting CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker). For more ways to configure Resilience4j, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
+**Use the Circuit Breaker pattern.** You should pair the Retry pattern with the Circuit Breaker pattern. The Circuit Breaker pattern handles faults that aren't transient. The goal is to prevent an application from repeatedly invoking a service that is down. The Circuit Breaker pattern releases the application from the task to avoid wasting CPU cycles and improves application performance. For more information, see [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker). For more ways to configure Resilience4j, see [Spring Circuit Breaker](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/#usage-documentation) and [Resilience4j documentation](https://resilience4j.readme.io/v1.7.0/docs/getting-started-3).
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
-### Use multiple availability zones
+### Configure data reliability
 
-Azure availability zones are physically separate datacenters within an Azure region that have independent power, networking, and cooling. Availability zones increase resiliency for reduced risk of data loss or downtime. If you can use multiple availability zones and performance or cost factors don't create a risk, you should use them for production workloads. You can use a single availability zone in your development environment to save money.
 
-*Reference implementation.* The reference implementation uses Azure Database for PostgreSQL - Flexible Server with zone redundant high availability for the production environment only. To save money, the development environment uses a single availability zone. The reference implementation also uses Azure Storage with [zone-redundant storage](/azure/storage/common/storage-redundancy#zone-redundant-storage) for improved data redundancy.
 
 ## Security
 
