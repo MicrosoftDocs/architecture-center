@@ -2,33 +2,30 @@ This article is meant to be considered as an extension to the [AKS Baseline arch
 
 Refer to the [AKS Windows baseline GitHub project](https://github.com/Azure/aks-baseline-windows) to review the reference implementation associated with this reference architecture including sample deployment code.
 
-## Network topology
+## Network design
 
 The network design used in this architecture is based off of the [design](./baseline-aks.yml#network-topology) used in the AKS Baseline architecture and therefore shares all of the core components with that design except for the following changes.
 
-- The ingress solution in this architecture was replaced with a solution that uses Azure Application Proxy to support Kerberos authentication.
-- Active Directory domain controllers and Azure Application Proxy have been added.
-
-The diagram below shows the hub-spoke network design used in this architecture.
-
-![Diagram that shows the network topology design for the Windows containers on AKS reference architecture](./images/aks-windows-baseline.png)
-
-### Node pool topology
-
-This architecture uses three node pools: A system node pool running Linux, a user node pool running Linux, and a user node pool running Windows.  The Windows and Linux user node pools are used for workloads while the system node pool is used for all system-level configurations, like CoreDNS.
+- Active Directory domain controllers have been added to support the Windows-based workloads.
+- The ingress solution in this architecture makes use of [Azure Front Door](/azure/frontdoor/front-door-overview) (AFD) and [Azure AD Application Proxy](/azure/active-directory/app-proxy/what-is-application-proxy) (AAP) rather than Azure App Gateway, which is used ih the AKS Baseline architecture.
 
 >[!NOTE]
-> Using separate node pools for Linux-based and Windows-based workloads requires the use of a [node selector](/azure/aks/operator-best-practices-advanced-scheduler#control-pod-scheduling-using-node-selectors-and-affinity) to ensure that when you deploy a given workload, it is deployed into the appropriate node pool based on the workload type.
+>  Migrating windows workloads into AKS usually does not include major refactoring efforts, and as such the workloads might be using features that were relatively easy to implement on-premises, but pose a challenge on Azure. One example would be an application that uses gMSA and Kerberos authentication.  This is a common use case, and as such, this architecture leads with components that address those workloads' needs. Specifically, using AAP fronted by AFD as part of ingress path.  If your workload doesn't need this support, you can follow the same [guidance]((/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources) as in the AKS baseline for ingress. 
 
-## Ingress design
+### Ingress design
 
-Kubernetes ingress resources route and distribute incoming traffic to the cluster. This architecture makes use of [Azure Front Door](/azure/frontdoor/front-door-overview) and [Azure AD Application Proxy](/azure/active-directory/app-proxy/what-is-application-proxy) to secure ingress traffic, as opposed to Azure App Gateway, which is used in the [baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources). These products were chosen for this architecture because Kerberos authentication isn't supported natively with Azure Application Gateway. Azure Application Gateway serves as both an ingress controller and supports WAF. For Windows deployments using modern authentication, Azure Application Gateway with WAF is recommended. NGINX Pro ingress controller supports both Kerberos and modern authentication; however, it doesn't provide networking protection for your cluster. It is recommended that you either use NGINX with Azure Front Door or Azure Application Gateway to protect your workloads. The components are described below.
+Kubernetes ingress resources route and distribute incoming traffic to the cluster. This architecture makes use of Azure Front Door and Azure AD Application Proxy to secure ingress traffic, as opposed to Azure App Gateway, which is used in the [baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources).  The components are described below.
 
 - **Azure Front Door with WAF** (AFD): AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks traffic between AFD and the cluster to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
 - **Azure AD Application Proxy**: This component serves as the second ingress point in front of the internal load balancer managed by AKS. It has Azure Active Directory enabled for pre-authentication of users and uses a conditional access policy to prevent unauthorized IP ranges and users from accessing the site. This is the only way to route Kerberos authentication requests while using an Azure service that supports WAF. For a detailed description of providing single sign-on access to Application Proxy-protected apps, refer to [Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy](/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd)
 - **Internal load balancer**: Managed by AKS. This load balancer exposes the ingress controller through a private static IP address. It serves as a single point of contact that receives inbound HTTP requests.
 
 In order to implement this design, AFD must be configured to use the Application Proxy URL that is created when the app is published in that service.  This configuration routes inbound traffic to the proxy and allows pre-authentication to happen.
+
+The diagram below shows the hub-spoke network design used in this architecture.
+
+![Diagram that shows the network topology design for the Windows containers on AKS reference architecture](./images/aks-windows-baseline.png)
+
 
 ### Ingress traffic flow
 
@@ -45,6 +42,13 @@ In order to implement this design, AFD must be configured to use the Application
 ### Egress traffic flow
 
 All [guidance](./baseline-aks.yml#egress-traffic-flow) found in the AKS Baseline article apply here with an additional recommendation for Windows workloads: In order to take advantage of automatic Windows Server updates, you must not block the [required FQDNs](/azure/aks/outbound-rules-control-egress#windows-server-based-node-pools-required-fqdn--application-rules) in your Azure Firewall ruleset.
+
+### Node pool topology
+
+This architecture uses three node pools: A system node pool running Linux, a user node pool running Linux, and a user node pool running Windows.  The Windows and Linux user node pools are used for workloads while the system node pool is used for all system-level configurations, like CoreDNS.
+
+>[!NOTE]
+> Using separate node pools for Linux-based and Windows-based workloads requires the use of a [node selector](/azure/aks/operator-best-practices-advanced-scheduler#control-pod-scheduling-using-node-selectors-and-affinity) to ensure that when you deploy a given workload, it is deployed into the appropriate node pool based on the workload type.
 
 ## IP address planning
 
