@@ -19,8 +19,12 @@ Components:
 - **Azure Front Door with WAF** (AFD): AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks traffic between AFD and the cluster to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
 - **Azure AD Application Proxy**: This component serves as the second ingress point in front of the internal load balancer managed by AKS. It has Azure Active Directory enabled for pre-authentication of users and uses a conditional access policy to prevent unauthorized IP ranges and users from accessing the site. This is the only way to route Kerberos authentication requests while using an Azure service that supports WAF. For a detailed description of providing single sign-on access to Application Proxy-protected apps, refer to [Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy](/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd)
 - **Internal load balancer**: Managed by AKS. This load balancer exposes the ingress controller through a private static IP address. It serves as a single point of contact that receives inbound HTTP requests.
+- No in-cluster ingress controllers (like NGINX) are used in this architecture.
 
 In order to implement this design, AFD must be configured to use the Application Proxy URL that is created when the app is published in that service.  This configuration routes inbound traffic to the proxy and allows pre-authentication to happen.
+
+>[!NOTE]
+> Client source IP preservation [is not supported](/azure/aks/windows-faq?tabs=azure-cli#is-preserving-the-client-source-ip-supported), so application architects should plan alternative measures to externalize that logic outside of the cluster for apps that depend on the source IP address.
 
 ### Network topology
 
