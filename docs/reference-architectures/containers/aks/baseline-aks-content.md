@@ -81,7 +81,7 @@ This architecture uses a hub-spoke network topology. The hub and spoke(s) are de
 
 For more information, see [Hub-spoke network topology in Azure](../../hybrid-networking/hub-spoke.yml).
 
-To review the network topology changes included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review the network design changes included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#network-design).
 
 ### Hub
 
@@ -157,7 +157,7 @@ For the complete set of considerations for this architecture, see [AKS baseline 
 
 For information related to planning IP for an AKS cluster, see [Plan IP addressing for your cluster](/azure/aks/configure-azure-cni#plan-ip-addressing-for-your-cluster).
 
-To review the IP address planning considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review the IP address planning considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#ip-address-planning).
 
 ## Add-ons and preview features
 
@@ -291,7 +291,7 @@ The ingress controller is a critical component of cluster. Consider these points
 >
 > Another choice is Azure Application Gateway Ingress Controller, and it's well integrated with AKS. Apart from its capabilities as an ingress controller, it offers other benefits. For example, Application Gateway acts as the virtual network entry point of your cluster. It can observe traffic entering the cluster. If you have an application that requires WAF, Application Gateway is a good choice because it's integrated with WAF. Also, it provides the opportunity to do TLS termination.
 
-To review the ingress design used in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review the ingress design used in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#ingress-design).
 
 ### Router settings
 
@@ -384,7 +384,7 @@ An exception to the zero-trust control is when the cluster needs to communicate 
 
 If Private Link or service endpoints aren't an option, you can reach other services through their public endpoints, and control access through Azure Firewall rules and the firewall built into the target service. Because this traffic will go through the static IP addresses of the firewall, those addresses can be added the service's IP allowlist. One downside is that Azure Firewall needs to have additional rules to make sure only traffic from a specific subnet is allowed. Factor in those addresses when you're planning multiple IP addresses for egress traffic with Azure Firewall, otherwise you could reach port exhaustion. For more information about multiple IP address planning, see [Restrict and control outbound traffic](/azure/aks/limit-egress-traffic#restrict-egress-traffic-using-azure-firewall).
 
-To review Windows-specific egress considerations used in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review Windows-specific egress considerations used in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#egress-traffic-flow).
 
 ### Pod-to-pod traffic
 
@@ -456,7 +456,7 @@ The implementation also sets additional policies that are not part of any built-
 
 To observe how Azure Policy is functioning from within your cluster, you can access the pod logs for all pods in the `gatekeeper-system` namespace as well as the logs for the `azure-policy` and `azure-policy-webhook` pods in the `kube-system` namespace.
 
-To review Windows-specific Azure Policy considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review Windows-specific Azure Policy considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#policy-management).
 
 ## Node and pod scalability
 
@@ -492,7 +492,7 @@ When you enable autoscaler, set the maximum and minimum node count. The recommen
 
 For the system node pool, the recommended minimum value is 3.
 
-To review scaling considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review scaling considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#node-and-pod-scaling).
 
 ## Business continuity decisions
 
@@ -618,7 +618,7 @@ While Azure Monitor includes a set of existing log queries to start with, you ca
 
 For more information about our monitoring best practices for AKS, see [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](/azure/aks/monitor-aks).
 
-To review Windows-specific monitoring considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review Windows-specific monitoring considerations included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#monitoring).
 
 ### Enable self-healing
 
@@ -748,7 +748,7 @@ Advanced deployment techniques such as [Blue-green deployment](https://martinfow
 
 Start by reviewing the cost optimization design checklist and list of recommendations outlined in the [Well Architected Framework for AKS](/azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service#cost-optimization). Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs for the services used in the architecture. Other best practices are described in the [Cost Optimization](/azure/architecture/framework/cost/overview) section in [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/cost/overview).
 
-To review cost management considerations specific to Windows-based workloads included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml).
+To review cost management considerations specific to Windows-based workloads included in the Windows containers on AKS baseline reference architecture, see the [companion article](./windows-containers-on-aks.yml#cost-management).
 
 ### Provision
 
