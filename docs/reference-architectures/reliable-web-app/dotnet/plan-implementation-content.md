@@ -44,7 +44,7 @@ Relecloud used Azure SLAs for Azure services. The following diagram illustrates 
 [![Diagram showing Relecloud's dependencies on the critical path and assigned availability metric for each dependency.](images/slo-dependencies.png)](images/slo-dependencies.png)
 *Azure SLAs are subject to change. The SLAs shown here are examples used to illustrate the process of estimating composite availability. For information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).*
 
-Finally, use the formulas for composite SLAs and multi-region availability to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. For more information, see:
+Finally, use the formulas for composite SLAs and multi-region availability to estimate the composite availability of the dependencies on the critical path. This number should meet or exceed your SLO. Relecloud needed a multi-region architecture to meet the 99.9% SLO. For more information, see:
 
 - [Composite SLA formula](/azure/architecture/framework/resiliency/business-metrics#composite-slas)
 - [Multiregional SLA formula](/azure/architecture/framework/resiliency/business-metrics#slas-for-multiregion-deployments)
@@ -116,7 +116,7 @@ Azure Monitor is a comprehensive suite of monitoring tools that collect data fro
 
 ### Global load balancer
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-7 global load balancer that uses the Azure backbone network to route traffic between regions. This choice sets up extra features such as Web Application Firewall and positions you to use a content delivery network to provide site acceleration as traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
+[Azure Front Door](/azure/frontdoor/front-door-overview) is a layer-7 global load balancer that uses the Azure backbone network to route traffic between regions. Relecloud needed to a multi-region architecture to meet their 99.9% SLO. They needed Front Door to provide layer-7 routing between regions. Front Door also provides extra features, such as Web Application Firewall, and positions Relecloud to use a content delivery network. The content delivery network provides site acceleration as the traffic to the web app increases. The web app uses Azure Front Door because it provides the following benefits:
 
 - **Routing flexibility.** It allows the application team to configure ingress needs to support future changes in the application.
 - **Traffic acceleration.** It uses anycast to reach the nearest Azure point of presence and find the fastest route to the web app.
