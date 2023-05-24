@@ -6658,6 +6658,8 @@ items:
       items:
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.yml
+      - name: Baseline web application with zone redundancy
+        href: reference-architectures/app-service-web-app/baseline-zone-redundant.yml
       - name: Clinical insights with Cloud for Healthcare
         href: example-scenario/mch-health/medical-data-insights.yml
       - name: Common web app architectures

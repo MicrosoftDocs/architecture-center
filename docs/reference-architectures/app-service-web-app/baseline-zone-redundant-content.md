@@ -237,9 +237,9 @@ Deployment for the baseline App Service application follows the guidance in [CI/
 3. The self-hosted deployment agent uploads the zip file to the storage account through the storage account private endpoint.
 4. The pipeline continues, and a managed agent picks up a subsequent job. The managed agent [makes a CLI call to update the appSetting](https://learn.microsoft.com/cli/azure/webapp/config/appsettings) WEBSITE_RUN_FROM_PACKAGE to the name of the new publish zip file for the staging slot.
 
-  ```bash
-  az webapp config appsettings set -g MyResourceGroupName -n MyUniqueApp --slot staging --settings WEBSITE_RUN_FROM_PACKAGE=UriToNewZip
-  ```
+    ```bash
+    az webapp config appsettings set -g MyResourceGroupName -n MyUniqueApp --slot staging --settings WEBSITE_RUN_FROM_PACKAGE=UriToNewZip
+    ```
 
 5. Azure App Service pulls the new publish zip file from storage via the storage account private endpoint. The staging instance restarts with the new package because WEBSITE_RUN_FROM_PACKAGE was set to a different file name.
 6. The pipeline resumes and runs any smoke tests or waits for approval. If the tests pass or the approval is given, the pipeline swaps the staging and production slots.
@@ -341,7 +341,7 @@ See more built-in policies for key services such as [Application Gateway and net
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Read the [Highly available multi-region web application](./multi-region.yml)
+> [Read Highly available multi-region web application](./multi-region.yml)
 
 ## Related resources
 
