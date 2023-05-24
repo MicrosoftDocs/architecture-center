@@ -13,7 +13,7 @@ This architecture provides guidance and recommendations for developing offline d
     - Lineage Tracking: Pipeline calls the Metadata API using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview) to update the metadata in [Azure Cosmos DB](/azure/cosmos-db) to create a new datastream. For each measurement, there's a datastream of type “Raw”
     - Once the Metadata API creates the datastream, the data is copied to the Raw Zone storage account in  [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). The data in the Raw folder has a hierarchical structure:
 
-      `raw/YYYY/MM/DD/VIN/MeasurementID/DatastreamID`
+      `region/raw/MeasurementID/DatastreamID/YYYY/MM/DD`
 
     - Once all the data is copied to the Raw folder, another call to Metadata API is made to mark the datastream as “Complete” so the datastream can be consumed further.  
     - Once all measurement files are copied, the measurements are archived and removed from the Landing storage account.  
@@ -25,7 +25,7 @@ This architecture provides guidance and recommendations for developing offline d
 
     The structure in the Extracted Zone storage account should also utilize a hierarchical similar to the Raw Zone storage account: 
     
-    `extracted/YYYY/MM/DD/VIN/MeasurementID/DatastreamID`
+    `region/extracted/MeasurementID/DatastreamID/YYYY/MM/DD`
 
     Utilizing the example hierarchical structure allows organizations to utilize the hierarchical namespace capability of [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction).  The hierarchical structure allows organizations to create a scalable and cost effective object storage.  In turn, the structure also improves efficiency of the object search and retrieval. Partitioning by year and vehicle ID makes it easier to search for the relevant images from the corresponding vehicles.  A storage container for each sensor  like camera, gps, lidar, and radar are created.  
 1. If data from the vehicle logger isn't synchronized across the different sensors, then another step is required in the architecture to synchronize the data to create a valid dataset.  [Azure Data Factory](/azure/data-factory/introduction) pipeline triggers synchronization of data across sensors where the synchronization algorithm shall be run on [Azure batch](/azure/batch/). If the synchronization was already executed on the vehicle logger, then this step can be skipped.
