@@ -19,7 +19,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/demand-forecasting-price-optimization-marketing"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/demand-forecasting-price-optimization-marketing.png
 name: Use a demand forecasting model for price optimization
 azureCategories:
   - analytics

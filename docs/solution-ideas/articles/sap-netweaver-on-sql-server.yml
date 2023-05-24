@@ -21,7 +21,6 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/sap-netweaver-on-sql-server"
     - e2e-sap
-  social_image_url: /azure/architecture/solution-ideas/articles/media/sap-netweaver-on-sql-server.png
 name: SAP NetWeaver on SQL Server
 azureCategories:
   - databases

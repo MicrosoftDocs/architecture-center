@@ -16,7 +16,6 @@ metadata:
     - fcp
     - data-analytics
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/dataplate2e/media/azure-analytics-end-to-end.png
 name: Analytics end-to-end with Azure Synapse
 azureCategories:
   - databases

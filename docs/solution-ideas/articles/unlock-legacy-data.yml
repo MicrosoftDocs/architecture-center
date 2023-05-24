@@ -21,7 +21,6 @@ metadata:
     - app modernization
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/unlock-legacy-data"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/unlock-legacy-data.png
 name: Unlock legacy data with Azure Stack
 azureCategories:
   - migration

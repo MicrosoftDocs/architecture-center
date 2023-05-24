@@ -22,7 +22,6 @@ metadata:
     - sharepoint farm solution
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/sharepoint-farm-devtest"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/sharepoint-farm-devtest.png
 name: SharePoint farm for development testing
 azureCategories:
   - devops

@@ -23,7 +23,6 @@ metadata:
     - Companion Web App
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/social-mobile-and-web-app-with-authentication"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/social-mobile-and-web-app-with-authentication.png
 name: Social app for mobile and web with authentication
 azureCategories:
   - mobile

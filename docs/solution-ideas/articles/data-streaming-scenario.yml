@@ -17,7 +17,6 @@ metadata:
     - interactive-diagram
     - data
     - "https://azure.microsoft.com/solutions/architecture/data-streaming-scenario"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/data-streaming-scenario.png
 name: Data streaming with AKS
 azureCategories:
   - databases

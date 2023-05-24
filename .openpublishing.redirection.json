@@ -2771,6 +2771,31 @@
       "source_path": "docs/example-scenario/web/multi-tier-app-service-private-endpoint.yml",
       "redirect_url": "/azure/architecture/reference-architectures/baseline-zone-redundant",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/blue-green-deployment-for-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/microservices-with-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-cicd-azure-pipelines",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/aks-firewall/aks-firewall.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/apps/devops-with-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/aks-dualstack/aks-dual-stack.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-dual-stack",
+      "redirect_document_id": true
     }
   ]
 }

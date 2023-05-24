@@ -20,7 +20,6 @@ metadata:
     - machine learning marketing
     - "https://azure.microsoft.com/solutions/architecture/optimize-marketing-with-machine-learning/"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/optimize-marketing-with-machine-learning.png
 name: Optimize marketing with machine learning
 azureCategories:
   - ai-machine-learning
