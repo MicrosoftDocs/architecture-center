@@ -21,7 +21,6 @@ metadata:
     - Create Custom Image
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/dev-test-image-factory"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/dev-test-image-factory.png
 name: DevTest Image Factory
 azureCategories:
   - devops

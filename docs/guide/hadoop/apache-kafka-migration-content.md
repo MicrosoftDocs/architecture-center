@@ -180,4 +180,3 @@ Other contributors:
 - [Apache HDFS migration to Azure](apache-hdfs-migration.yml)
 - [Apache HBase migration to Azure](apache-hbase-migration.yml)
 - [Apache Sqoop migration to Azure](apache-sqoop-migration.yml)
-- [Apache Storm migration to Azure](apache-storm-migration.yml)

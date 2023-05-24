@@ -16,7 +16,6 @@ metadata:
     - fasttrack
     - web-apps
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/data/media/architecture-ecommerce-order-processing.png
 name: Scalable order processing
 azureCategories:
   - web

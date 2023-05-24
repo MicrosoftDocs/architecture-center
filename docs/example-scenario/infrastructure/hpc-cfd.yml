@@ -16,7 +16,6 @@ metadata:
     - fasttrack
     - hpc
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-hpc-cfd.png
 name: Run CFD simulations
 azureCategories:
   - compute

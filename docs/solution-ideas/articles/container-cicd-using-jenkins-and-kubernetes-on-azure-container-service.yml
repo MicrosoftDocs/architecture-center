@@ -18,7 +18,6 @@ metadata:
     - continuous delivery
     - CI/CD
     - continuous deployment
-  social_image_url: /azure/architecture/solution-ideas/articles/media/container-cicd-using-jenkins-and-kubernetes-on-azure-container-service.png
 name: Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
 azureCategories:
   - devops

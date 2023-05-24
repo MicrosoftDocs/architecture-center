@@ -16,7 +16,6 @@ metadata:
     - acom-architecture
     - e2e-hybrid
     - kr2b-contr-experiment
-  social_image_url: /azure/architecture/guide/devsecops/media/devsecops-azure-aks.png
 name: DevSecOps on Azure Kubernetes Service (AKS)
 azureCategories:
   - devops

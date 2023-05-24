@@ -469,7 +469,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 ## Next steps
 
-For more information about the FMA process, see [Resilience by design for cloud services][resilience-by-design-pdf] (PDF download).
+See [Resiliency and dependencies](/azure/well-architected/resiliency/design-resiliency) in the Azure Well-Architected Framework. Building failure recovery into the system should be part of the architecture and design phases from the beginning to avoid the risk of failure.
 
 <!-- links -->
 
@@ -499,7 +499,6 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.yml
 [redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
-[resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
 [RoleEnvironment.Stopping]: /previous-versions/azure/reference/ee758136(v=azure.100)
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/

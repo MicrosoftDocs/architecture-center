@@ -25,7 +25,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/website-content-tag-suggestion-with-deep-learning-and-nlp"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/website-content-tag=suggestion-with-deep-learning-and-nlp.png
 name: Suggest content tags with NLP using deep learning
 azureCategories:
   - ai-machine-learning

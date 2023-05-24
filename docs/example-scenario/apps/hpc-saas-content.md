@@ -2,7 +2,9 @@ This example scenario demonstrates delivery of a software-as-a-service (SaaS) pl
 
 ## Architecture
 
-![Architecture for a SaaS solution enabling HPC capabilities][architecture]
+![Architecture for a SaaS solution enabling HPC capabilities.][architecture]
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 ### Workflow
 
@@ -93,6 +95,7 @@ Principal author:
 - [Monitoring and diagnostics guidance](/azure/architecture/best-practices/monitoring)
 
 <!-- links -->
-[architecture]: ./media/architecture-hpc-saas.png
+[architecture]: ./media/architecture-hpc-saas.svg
 [source-document]: https://customers.microsoft.com/story/altair-manufacturing-azure
 [calculator]: https://azure.com/e/3cb9ccdc893f41ffbcdb00c328178ccf
+[visio-download]: https://arch-center.azureedge.net/hpc-saas.vsdx

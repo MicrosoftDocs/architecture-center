@@ -47,7 +47,7 @@ The following diagram presents a high-level architecture for deploying ArcGIS co
 - [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway) is an application delivery controller-as-a-service offering that provides layer-7 load balancing, security, and web application firewall functionality. 
 - [FSLogix](/fslogix) enhances and enables user profile management for Windows remote computing environments. It allows users to roam between remote computing session hosts, minimize sign-in times for virtual desktop environments, and optimize file I/O between the host/client and the remote profile store.  
 
-  For information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix).
+  For information about FSLogix Profile Container, Azure Files, and Azure NetApp Files best practices, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
 - [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network) enables you to create your own private network infrastructure in the cloud. 
 - [ArcGIS Pro](https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview) is Esri's professional desktop GIS application. It enables power users to explore, geovisualize, and analyze data. It includes 2D and 3D capabilities and runs best on Azure high performance computing VMs, like those in the NV-Series. You can scale the use of ArcGIS by using Azure Virtual Desktop.  
 - [ArcGIS Enterprise](https://enterprise.arcgis.com/en/get-started/latest/windows/what-is-arcgis-enterprise-.htm) is a platform for mapping and geovisualization, analytics, and data management that hosts data, applications, and custom low-code or no-code applications. It works with ArcGIS Pro or ArcGIS Desktop (not included here because it has been replaced by ArcGIS Pro). ArcGIS Enterprise isn't part of this reference architecture, but you can extend the architecture to include it.  
@@ -150,5 +150,5 @@ Other contributor:
 ## Related resources
 
 - [Azure Virtual Desktop for the enterprise](../wvd/windows-virtual-desktop.yml)
-- [FSLogix for the enterprise - best practices documentation](../wvd/windows-virtual-desktop-fslogix.yml)
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
 - [Multiple forests with AD DS and Azure AD](../wvd/multi-forest.yml)
