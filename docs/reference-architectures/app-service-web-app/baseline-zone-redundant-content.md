@@ -13,14 +13,14 @@ This article provides a baseline architecture for running web applications on Az
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/products/active-directory/) is a cloud-based identity and access management service. It provides a single identity control plane to manage permissions and roles for users accessing your web application. It integrates with App Service and simplifies authentication and authorization for web apps.
 - [Application Gateway](https://azure.microsoft.com/products/application-gateway/) is a layer 7 (HTTP/S) load balancer and web traffic manager. It uses URL path-based routing to distribute incoming traffic across availability zones and offloads encryption to improve application performance.
-- [Web Application Firewall (WAF)](https://azure.microsoft.com/products/web-application-firewall/) is a cloud-native service that protects web apps from common web-hacking techniques such as SQL injection and cross-site scripting. WAF provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
+- [Web Application Firewall (WAF)](https://azure.microsoft.com/products/web-application-firewall/) is a cloud-native service that protects web apps from common exploits such as SQL injection and cross-site scripting. WAF provides visibility into the traffic to and from your web application, enabling you to monitor and secure your application.
 - [App Service](https://azure.microsoft.com/services/app-service) is a fully managed platform for building, deploying, and scaling web applications.
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor/) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment. 
-- [Azure virtual network (VNet)](https://azure.microsoft.comproducts/virtual-network/) is a service that enables you to create isolated and secure private networks in Azure. For a web application on App Service, you need a VNet to use private endpoints for more secure communication between resources.
-- [Private Link](https://azure.microsoft.com/products/private-link/) enables private endpoints that provide private IP access to Azure services within a virtual network. Private endpoints enhance the security of web applications by ensuring data does not traverse the public internet.
-- [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. A web app with private endpoints uses private DNS zones to make network configuration easier to manage.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/product-overview) is a managed relational database service for web app data. 
+- [Azure virtual network (VNet)](https://azure.microsoft.comproducts/virtual-network/) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a VNet to use private endpoints for network-secure communication between resources.
+- [Private Link](https://azure.microsoft.com/products/private-link/) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
+- [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully-qualified domain name (FQDN) to the private IP address of a private endpoint.
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/product-overview) is a managed relational database service for relational data. 
 
 ## Networking
 
@@ -60,7 +60,7 @@ Application Gateway is a regional resource that meets the requirements of this b
 - Implement [end-to-end TLS encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption).
 - Use [private endpoints to implement inbound private access to your App Service](/azure/app-service/networking/private-endpoint).
 - Consider implementing [autoscaling](/azure/application-gateway/overview-v2) for Application Gateway to remove the requirement to choose the correct instance count when provisioning. 
-- Configure a minimum instance count of no less than and use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, [creating a new instance upon a failure can take up to 7 minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
+- Configure a minimum instance count of no less than three and use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, [creating a new instance upon a failure can take up to 7 minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
 - Disable public network access on the App Service to ensure network isolation. In Bicep, this is accomplished by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
 
 ### Egress from App Services to Azure services
@@ -69,7 +69,7 @@ This architecture uses [virtual network integration](/azure/app-service/overview
 
 Azure services that don't require access from the public internet should have private endpoints enabled and public endpoints disabled. Private endpoints are used throughout this architecture to improve security by allowing your App Service to connect to Private Link services directly from your private virtual network without using public IP addressing.
 
-In this architecture, Azure SQL Database, Azure Storage and Key Vault all have public endpoints disabled.  Azure service firewalls are used to only allow traffic from other authorized Azure services. You should configure other Azure services, such as Azure Cosmos DB and Azure Redis Cache, with private endpoints as well. In this architecture, Azure Monitor doesn't use a private endpoint but could.
+In this architecture, Azure SQL Database, Azure Storage and Key Vault all have public endpoints disabled.  Azure service firewalls are used to only allow traffic from other authorized Azure services. You should configure other Azure services, such as Azure Cosmos DB and Azure Redis Cache, with private endpoints as well. In this architecture, Azure Monitor doesn't use a private endpoint, but it could.
 
 The baseline architecture implements a private DNS zone for each service. The private DNS zone contains an A record that maps between the service fully qualified domain name and the private endpoint private IP address. The zones are linked to the virtual network. Private DNS zone groups ensure that private link DNS records are automatically created and updated.
 
@@ -100,7 +100,7 @@ The network in this architecture has separate subnets for the Application Gatewa
 Consider the following points when implementing virtual network segmentation and security.
 
 - Enable [DDoS protection](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
-- [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet. You should use the strictest rules possible that enable web app functionality.
+- [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules possible that enable web app functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs and make rule creation easier for complex environments.
 
 ## Reliability  
@@ -259,8 +259,8 @@ The following highlights key deployment guidance for the baseline architecture.
 Applications require both configuration values and secrets. Use the following guidance for configuration and secrets management.
 
 - Never check secrets such as passwords or access keys into source control.
-- Use [Azure Key Vault] (/azure/key-vault/general/overview) to store secrets.
-- Use [App Service configuration] (/azure/app-service/configure-common) for your application configuration instead. If you have the need to externalize configuration from your application config or require [feature flag support] (/azure/azure-app-configuration/concept-feature-management), consider using [Azure App Configuration] (/azure/azure-app-configuration/overview).
+- Use [Azure Key Vault](/azure/key-vault/general/overview) to store secrets.
+- Use [App Service configuration](/azure/app-service/configure-common) for your application configuration. If you need to externalize the configuration from your application config or require [feature flag support](/azure/azure-app-configuration/concept-feature-management), consider using [Azure App Configuration](/azure/azure-app-configuration/overview).
 - [Use Key Vault references](/app-service/app-service-key-vault-references) in App Service configuration to securely expose secrets in your application.
 - Create app settings that stick to a slot and don't get swapped if you need different production and staging settings. When you swap a deployment slot, the app settings are swapped by default.
 - Set local environment variables for local development or take advantage of application platform features. App Services configuration exposes app settings as environment variables. Visual Studio, for example, lets you set environment variables in launch profiles. It also allows you to use App Settings and user secrets to store local application settings and secrets.
@@ -269,7 +269,7 @@ Applications require both configuration values and secrets. Use the following gu
 
 Monitoring is the collection and analysis of data from IT systems. The goal of monitoring is observability at multiple layers to track web app health and security. Observability is a key facet of the baseline App Service architecture.
 
-To monitor your web app, you need to collect and analyze metrics and logs from your application code, infrastructure (runtime), and the platform (Azure resources).For more information, see [Azure activity log](/azure/azure-monitor/essentials/activity-log?tabs=powershell), [Azure resource logs](/azure/azure-monitor/essentials/resource-logs), and  Application logs.
+To monitor your web app, you need to collect and analyze metrics and logs from your application code, infrastructure (runtime), and the platform (Azure resources). For more information, see [Azure activity log](/azure/azure-monitor/essentials/activity-log?tabs=powershell), [Azure resource logs](/azure/azure-monitor/essentials/resource-logs), and Application logs.
 
 ### Monitor the platform
 
@@ -277,31 +277,31 @@ Platform monitoring is the collection of data from the Azure services in your ar
 
 - Add a diagnostic setting for every Azure resource. Each Azure service has a different set of logs and metrics you can capture. Use the following table to figure out the metrics and logs you want to collect.
 
-|Azure resource | Metrics and logs descriptions |
-| --- | --- |
-|Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
-|Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
-|App Service | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
-|Azure SQL Database | [Azure SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
-|CosmosDB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference)
+  |Azure resource | Metrics and logs descriptions |
+  | --- | --- |
+  |Application Gateway | [Application Gateway metrics and logs descriptions](/azure/application-gateway/monitor-application-gateway-reference) |
+  |Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
+  |App Service | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
+  |Azure SQL Database | [Azure SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
+  |CosmosDB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference)
 Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
-|Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
-| Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
-| Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
+  |Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
+  | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
+  | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
 
 - Understand the cost of collecting metrics and logs. In general, the more metrics and logs you collect, the more it costs. For more information, see [Log Analytics cost calculations and options](/azure/azure-monitor/logs/cost-logs) and [Pricing for Log Analytics workspace](https://azure.microsoft.com/pricing/details/monitor/).
 - Create alerts. You should create alerts for all the Azure resources in the architecture and configure Actions to remediate issues. Pick common and recommended alert rules to start with and modify over time as needed. For more information, see:
 
-- [Overview of Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview)
-- [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2)
-- [App Service alerts](/azure/app-service/monitor-app-service#alerts)
-- [Azure SQL Database alerts](/azure/app-service/monitor-app-service#alerts)
-- [Blob storage alerts](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#alerts)
-- [Key vault alerts](/azure/key-vault/general/monitor-key-vault#alerts)
+  - [Overview of Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview)
+  - [Application Gateway alerts](/azure/application-gateway/high-traffic-support#alerts-for-application-gateway-v2-sku-standard_v2waf_v2)
+  - [App Service alerts](/azure/app-service/monitor-app-service#alerts)
+  - [Azure SQL Database alerts](/azure/app-service/monitor-app-service#alerts)
+  - [Blob storage alerts](/azure/storage/blobs/monitor-blob-storage?tabs=azure-portal#alerts)
+  - [Key vault alerts](/azure/key-vault/general/monitor-key-vault#alerts)
 
 #### Application Gateway
 
-- Application Gateway automatically monitors the health of resources in its backend pool. Use the Application Gateway Access logs to information like the timestamp, the HTTP response code, and the URL path. For more information, see [Application Gateway default health probe](/azure/application-gateway/application-gateway-probe-overview#default-health-probe) and [Backend health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging).
+Application Gateway automatically monitors the health of resources in its backend pool. Use the Application Gateway Access logs to information like the timestamp, the HTTP response code, and the URL path. For more information, see [Application Gateway default health probe](/azure/application-gateway/application-gateway-probe-overview#default-health-probe) and [Backend health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging).
 
 #### App Service
 
@@ -317,8 +317,7 @@ App Service has built-in and integrated monitoring tools that you should enable 
 ## Database
 
 - User database Insights. For Azure SQL databases, you should configure [SQL Insights in Azure Monitor](/azure/azure-sql/database/sql-insights-overview). Database Insights uses dynamic management views to expose the data that you need to monitor health, diagnose problems, and tune performance. For more information, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
-
-If your architecture includes CosmosDB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
+- If your architecture includes CosmosDB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
 
 ## Governance
 
