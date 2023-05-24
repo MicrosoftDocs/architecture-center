@@ -14,9 +14,9 @@ The business context, existing web app, service level objective (SLO), and codin
 
 The following table lists the principles of the reliable web app pattern and how the reference implementation for Java applies these principles.
 
-| Reliable web app principles | Implementation for Java |
-| --- | --- |
-|▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>▪ Well-Architected Framework principles:<ol>▫ Secure ingress<br>▫ Optimized cost<br>▫ Observable<br>▫ Infrastructure as code<br>▫ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| Enterprise app patterns principles | Reliable web app pattern principles | Implementation for Java |
+| --- | --- | --- |
+| Well-Architected Framework principles:<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security |▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern](../overview.md).
 
