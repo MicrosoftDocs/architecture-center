@@ -145,6 +145,8 @@ Once the pipeline gets triggered, it fetches all the measurement folders and ite
  
 **Call Create Measurement API**: Make a web API call to the create measurement API and pass the json payload from measurement manifest json file. On successful call, parse the response to retrieve the measurement ID and on failure move to the on error activity.
 
+**Note** The DataOps architecture assumes that an organization will limit the number of requests to the app service.  If an indeterminate number of requests could be made in the architecture, consider a [rate limiting pattern](https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern).
+
 **Call Create Datastream API**: Make a web API call to the create datastream api by creating the required json payload. On successful call, parse the response to retrieve the datastream ID and the datastream location. On failure move to the on error activity.
 
 **Call Update Datastream State API**: Make a web API call to update the state of the stream to Start Copy, on successful call start the copy activity to copy measurement files to the datastream location. On failure move to the on error activity.
@@ -301,4 +303,4 @@ Other contributors:
 * [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
 * [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
-- [Process real-time vehicle data using IoT](../../example-scenario/data/realtime-analytics-vehicle-iot.yml)
+- [Process real-time vehicle data using IoT](../data/realtime-analytics-vehicle-iot.yml)
