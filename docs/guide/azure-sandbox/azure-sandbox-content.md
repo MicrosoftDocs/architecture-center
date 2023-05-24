@@ -4,7 +4,7 @@ Depending on your Azure offer type and region, a fully provisioned Azure Sandbox
   
 ## Architecture
 
-[![Diagram that shows the Azure Sandbox environment.](images/create-azure-sandbox.png)](images/create-azure-sandbox.png#lightbox)
+[![Diagram that shows the Azure Sandbox environment.](images/create-azure-sandbox.svg)](images/create-azure-sandbox.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/create-an-azure-sandbox.vsdx) of this architecture.*
 ### Components
