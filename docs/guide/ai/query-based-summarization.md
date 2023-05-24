@@ -12,6 +12,9 @@ products:
   - azure-cognitive-search
 categories:
   - ai-machine-learning
+ms.custom:
+  - build-2023
+  - build-2023-dataai
 ---
 
 # Query-based document summarization

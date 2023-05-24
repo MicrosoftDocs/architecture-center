@@ -9,6 +9,9 @@ metadata:
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: example-scenario
+  ms.custom:
+    - build-2023
+    - build-2023-dataai
 azureCategories:
   - ai-machine-learning
   - management-and-governance

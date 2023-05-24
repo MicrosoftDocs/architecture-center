@@ -15,6 +15,8 @@ metadata:
     - data-analytics
     - data-warehouse
     - example-scenario
+    - build-2023
+    - build-2023-dataai
 name: Data warehousing and analytics
 azureCategories:
   - analytics
