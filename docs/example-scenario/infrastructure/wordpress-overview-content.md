@@ -92,7 +92,7 @@ WordPress can be run on a few different Azure services - from managed PaaS servi
 
 ### Storage-intensive workloads
 
-For large WordPress installations, it may become necessary to use a storage solution with a higher IOPS class and low latency, in order to accommodate the storage requirements. It's important to select a persistent storage solution that offers a Read&Write-Many mode, as the storage will be shared between all nodes.
+Large WordPress installations can ben storage intensive. In these scenarios, you should use a storage solution with a higher IOPS class and low latency to accommodate the storage requirements. It's important to select a persistent storage solution that offers a Read&Write-Many mode since all the nodes share the storage.
 
 One of the storage solutions meeting these requirements is [Azure NetApp Files](/azure/azure-netapp-files/). In addition to these capabilities, Also, Azure NetApp provides extra features such as data protection, backup and restore, cross-region replication and disaster recovery.
 
