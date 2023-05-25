@@ -86,7 +86,7 @@ WordPress can be run on a few different Azure services - from managed PaaS servi
 
 ### WordPress on App Service
 
-[WordPress on App Service (on Linux)](/azure/app-service/quickstart-wordpress) is a fully managed solution provided by Microsoft, designed to help you quickly and easily deploy a WordPress installation. This solution is ideal for small to medium-sized WordPress installations, as it provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. It automatically takes care of tasks such as automatic updates, backups, and monitoring to ensure that your site is always available.
+[WordPress on App Service (on Linux)](/azure/app-service/quickstart-wordpress) is a fully managed solution provided by Microsoft and designed to help you quickly and easily deploy a WordPress installation. This solution is ideal for small to medium-sized WordPress installations. It provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. It performs automatic updates, backups, and monitoring to ensure that your site is always available.
 
 [More details about this deployment architecture](/azure/architecture/example-scenario/infrastructure/wordpress-appservice)
 
