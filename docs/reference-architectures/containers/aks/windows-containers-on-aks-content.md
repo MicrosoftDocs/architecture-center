@@ -42,7 +42,7 @@ This architecture uses three node pools: A system node pool running Linux, a use
 
 1. The client sends an HTTPS request to the domain name: bicycle.contoso.com. That name is associated with the DNS A record for the public IP address of Azure Front Door. This traffic is encrypted to make sure that the traffic between the client browser and gateway can't be inspected or changed.
 1. Azure Front Door has an integrated web application firewall (WAF) and negotiates the TLS handshake for bicycle.contoso.com, allowing only secure ciphers. Azure Front Door Gateway is a TLS termination point, as it's required to process WAF inspection rules, and execute routing rules that forward the traffic to the configured backend. The TLS certificate is stored in Azure Key Vault.
-1. AFD routes the user request to the Azure Application Proxy. The user must authenticate with Azure AD if pre-authentication is enabled.
+1. AFD routes the user request to the Azure Application Proxy. AFD is configured to only allow HTTPS traffic. The user must authenticate with Azure AD if pre-authentication is enabled.
 1. The App Proxy routes the user to the backend app container via the AKS load balancer.
 
 >[!NOTE]
