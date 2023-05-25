@@ -14,25 +14,32 @@ The business context, existing web app, service level objective (SLO), and codin
 
 The following table lists the principles of the reliable web app pattern and how the reference implementation for Java applies these principles.
 
-| Enterprise app patterns principles | Reliable web app pattern principles | Implementation for Java |
-| --- | --- | --- |
-| Well-Architected Framework principles:<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security |▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services |▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| Reliable web app pattern principles | Implementation for Java |
+| --- | --- |
+|Minimal code changes<br><br>Reliability design patterns<br>Managed services<br><br>Well-Architected Framework principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
-For more information on the pattern, see [Reliable web app pattern](../overview.md).
+| Reliable web app pattern principles | Implementation for Java |
+| --- | --- |
+|Minimal code changes<br><br>Reliability design patterns<br>Managed services<br><br>Well-Architected Framework principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| **Well-Architected Framework principles:** | Secure ingress, Optimized cost, Observable, Infrastructure as code, Identity-centric security. |
+
+For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
 ## Business context
 
-The implementation guidance mirrors the cloud journey of a fictional company, Proseware, Inc. Proseware wants to migrate its on-premises LOB web application to the cloud. It's a customized version of the open-source monolithic Airsonic web-based media streamer. In this scenario, we imagine that Proseware developed the application and owns all the code.
+For business context, these articles follow a fictional company called Proseware in a real world scenario. Like many businesses, Proseware wants to migrate its on-premises, monolithic, line-of-business (LOB) web application to the cloud.
 
-Company leadership wants to expand business into the EdTech application market. After their initial technical research, they concluded that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. The long-term goal is to expose the web app to the public and to have the capacity to handle that increase in user load. A migration to the cloud offered the best return on investment to meet the increasing business demand with minimal investments in the existing monolithic app. Here are some short-term and long-term goals for the application:
+Company leadership at Proseware wants to expand business into the EdTech application market. After their initial technical research, they concluded that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. The long-term goal is to expose the web app to the public and to have the capacity to handle that increase in user load. In the short term, a migration to the cloud offered the best return on investment to meet the increasing business demand with minimal investments in the existing monolithic app.
 
-| Short-term goals | Long-term goals |
+| Short-term application goals | Long-term application goals |
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes to the LOB web application <br> ▪ Mature development team practices for cloud development and operations <br> ▪ Create cost-optimized production and development environments <br> ▪ Implement reliability and security best practices in the cloud <br> ▪ Service level objective of 99.9%| ▪ Open the application directly to online customers through multiple web and mobile experiences <br> ▪ Improve availability <br> ▪ Reduce time required to deliver new features <br> ▪ Independently scale different components of the system, based on traffic
 
 ## Web application starting point
 
-The on-premises starting point is a monolithic Java web application that runs on an Apache Tomcat web server with a PostgreSQL database. It’s an employee-facing LOB training application. Proseware employees use the application to complete required HR training. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
+The on-premises starting point is a monolithic Java web application that runs a web based media stream called Airsonic. Airsonic is a well-known open-source project. For this guidance, we imagine that Proseware developed Airsonic in-house and owns all the code. Code ownership is more common scenario than an upstream dependency. The on-premises web app runs on an Apache Tomcat web server with a PostgreSQL database.
+
+The web app is an employee-facing, LOB, training application. Proseware employees use the application to complete required HR training. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features and difficulty scaling different application components under higher load.
 
 ## Service level objective
 
