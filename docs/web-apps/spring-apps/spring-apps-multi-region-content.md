@@ -118,7 +118,7 @@ Azure Front Door does global load balancing between regions. This reverse proxy 
 
 Azure Front Door has integrated content delivery networks (CDNs) that delivers content from Microsoft’s global edge network with points of presence (PoPs) distributed around the world.
 
-The current solution uses two reverse proxies: Azure Front Door and Application Gateway. Application Gateway acts as a load balancer per region. Alternatively, you can remove Application Gateway from the setup if you address the following requirements:
+The current solution uses two reverse proxies to maintain consistency with the baseline architecture. Azure Front Door is the global router. Application Gateway acts as a load balancer per region. In most cases, you won't need this setup. You can remove Application Gateway if you address the following requirements:
 
 - Because the Web Application Firewall (WAF) is attached to the Application Gateway, you need to attach WAF to the Azure Front Door service instead.
 
