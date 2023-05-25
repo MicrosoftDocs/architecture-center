@@ -173,7 +173,10 @@ These services in this architecture use [user-assigned managed identities](/azur
 
 [Azure Key Vault](/azure/key-vault/general/overview) provides secure management of secrets. This architecture uses Key Vault to store the TLS certificates used by the various actors for encrypting and decrypting data in transit between layers. 
 
-The managed identities configured during deployment are used by Application Gateway and the VMs for Key Vault authentication and authorization. Key Vault access policy is configured to allow the managed identities to retrieve the certificate properties. The VMs also use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) for automatic refresh of Key Vault certificates if changes are detected in the certificate store. The extension supports certificate content types PKCS #12, and PEM. 
+The managed identities configured during deployment are used by Application Gateway and the VMs for Key Vault authentication and authorization. Key Vault access policy is configured to allow the managed identities to retrieve the certificate properties. The VMs also use the [Azure Key Vault VM extension](/azure/virtual-machines/extensions/key-vault-linux) for automatic refresh of monitored certificates. If changes are detected in the local certificate store, the extension retrieves and installs the corresponding certificates in Key Vault. The extension supports certificate content types PKCS #12, and PEM. 
+
+> [!IMPORTANT]
+> It is your responsibility to ensure your locally stored certificates are rotated regularly. See [Azure Key Vault VM extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) or [Azure Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) for more details. 
 
 The certificates stored in Key Vault are identified by the following common names:
 - **app.contoso.com**: An external certificate used by clients and Application Gateway for secure public Internet traffic
@@ -181,8 +184,6 @@ The certificates stored in Key Vault are identified by the following common name
 
 It's also a good idea to use Key Vault for storage of secrets used for database encryption. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). We also recommend that you store application secrets, such as database connection strings, in Key Vault.
 
-**TODO:** do we need to say anything about cert rotation?
-//Yes, i think you cover that with the extension.
 
 ***
 ***
