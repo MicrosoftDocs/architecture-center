@@ -12,7 +12,7 @@ Regardless of the hosting architecture, whether it's VM, App Service, or any oth
 
 ### Use Web Application Firewall
 
-Using a web application firewall (WAF) in front of WordPress installation is a crucial step in securing the website against common web-based attacks. A WAF acts as a filter between the website and the internet, monitoring incoming traffic and blocking malicious requests that can exploit vulnerabilities in your website's code. It can protect your website from a range of attacks, including SQL injections, cross-site scripting (XSS), and cross-site request forgery (CSRF).
+You should place a web application firewall (WAF) in front of your WordPress installation. This configuration is a crucial step in securing the website against common web-based attacks. A WAF acts as a filter between the website and the internet, monitoring incoming traffic and blocking malicious requests that can exploit vulnerabilities in your website's code. It can protect your website from a range of attacks, including SQL injections, cross-site scripting (XSS), and cross-site request forgery (CSRF).
 
 Azure Front Door is Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Web Application Firewall (WAF) on Azure Front Door provides centralized protection for your web applications. WAF defends your web services against common exploits and vulnerabilities.
 
