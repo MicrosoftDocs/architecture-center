@@ -14,8 +14,9 @@ Organizations utilize this solution for some of the benefits that include:
 
 ## Architecture
 
-![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png)
-*Download an [SVG](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg) of this architecture.*
+[ ![Architectural diagram that shows immutable infrastructure CI/CD using Jenkins and Terraform on Azure.](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg)](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 

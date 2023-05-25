@@ -4,9 +4,9 @@ BCDR strategies include availability zone redundancy, automated recovery provide
 
 ## Architecture
 
-![Diagram that shows availability zones and regions for Azure Synapse Analytics and Data Factory pipelines BCDR.](media/pipelines-disaster-recovery.png)
+[ ![Diagram that shows availability zones and regions for Azure Synapse Analytics and Data Factory pipelines BCDR.](media/pipelines-disaster-recovery.svg)](media/pipelines-disaster-recovery.svg#lightbox)
 
-*Download a [Visio file](https://arch-center.azureedge.net/BCDR_Azure_Synapse_Data_Factory.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure_synapse_data_factory.vsdx) of this architecture.*
 
 ### Workflow
 

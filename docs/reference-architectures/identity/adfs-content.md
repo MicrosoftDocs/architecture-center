@@ -136,6 +136,8 @@ The [Microsoft System Center Management Pack for Active Directory Federation Ser
 - The performance data that the AD FS performance counters collect.
 - The overall health of the AD FS system and web applications (relying parties), and provides alerts for critical issues and warnings.
 
+Another option is [Monitor AD FS using Azure AD Connect Health](/azure/active-directory/hybrid/connect/how-to-connect-health-adfs). [Azure Active Directory (Azure AD) Connect Health](/azure/active-directory/hybrid/connect/whatis-azure-ad-connect) provides robust monitoring of your on-premises identity infrastructure. It enables you to maintain a reliable connection to Microsoft 365 and Microsoft Online Services. This reliability is achieved by providing monitoring capabilities for your key identity components. Also, it makes the key data points about these components easily accessible.
+
 ## Considerations
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).

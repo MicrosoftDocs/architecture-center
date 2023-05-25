@@ -16,7 +16,6 @@ metadata:
     - Linux
     - HPC
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-image-modeling.png
 name: Digital image-based modeling on Azure
 azureCategories:
   - compute

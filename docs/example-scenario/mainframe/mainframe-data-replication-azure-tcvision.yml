@@ -5,7 +5,7 @@ metadata:
   description: Learn how to use tcVISION, a mainframe data replication solution, to migrate data to and from multiple Azure Data Platform services.
   author: sandippk
   ms.author: sandipk
-  ms.date: 02/01/2023
+  ms.date: 05/02/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

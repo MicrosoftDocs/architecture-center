@@ -14,7 +14,6 @@ metadata:
   ms.custom:
     - acom-architecture
     - "https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-double-take-dr"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/disaster-recovery-smb-double-take-dr.png
 name: SMB disaster recovery with Double-Take DR
 azureCategories:
   - management-and-governance

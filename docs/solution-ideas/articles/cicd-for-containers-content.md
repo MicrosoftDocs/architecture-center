@@ -3,7 +3,7 @@
 Containers make it easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 
 > [!NOTE]
-> This document is about CI/CD for containers on Azure DevOps. If you are looking for solutions using github, see [DevOps with AKS](../../example-scenario/apps/devops-with-aks.yml).
+> This document is about CI/CD for containers on Azure DevOps. If you are looking for solutions using github, see [DevOps with AKS](../../guide/aks/aks-cicd-github-actions-and-gitops.yml).
 
 ## Potential use cases
 

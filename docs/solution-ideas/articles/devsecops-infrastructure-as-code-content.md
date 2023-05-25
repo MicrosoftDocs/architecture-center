@@ -6,7 +6,7 @@ This solution idea illustrates the DevSecOps pipeline using GitHub for IaC and h
 
 ## Architecture
 
-:::image type="content" source="../media/devsecops-for-iac.png" alt-text="Diagram that shows the architecture for DevSecOps for IaC." lightbox="../media/devsecops-for-iac.png":::
+:::image type="content" source="../media/devsecops-for-iac.svg" alt-text="Diagram that shows the architecture for DevSecOps for IaC." lightbox="../media/devsecops-for-iac.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/devsecops-for-iac.vsdx) of this architecture.*
 

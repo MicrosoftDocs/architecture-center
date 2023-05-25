@@ -20,7 +20,6 @@ metadata:
     - "https://azure.microsoft.com/solutions/architecture/customer-churn-prediction"
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/customer-churn-prediction.png
 name: Customer churn prediction using real-time analytics
 azureCategories:
   - ai-machine-learning

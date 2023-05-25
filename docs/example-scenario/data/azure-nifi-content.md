@@ -44,6 +44,7 @@ Apache®, Apache NiFi®, and NiFi® are either registered trademarks or trademar
 - [Azure Data Factory][Data Factory] provides an alternative to this solution.
 - Instead of Key Vault, you can use a comparable service to store system secrets.
 - [Apache Airflow](https://airflow.apache.org). See [how Airflow and NiFi are different](https://algoscale.com/blog/airflow-and-nifi-data-integration-tools).
+- It is possible to use a supported enterprise NiFi alternative like [Cloudera Apache NiFi](https://www.cloudera.com/products/open-source/apache-hadoop/apache-nifi.html). The Cloudera offering is available through the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/cloudera.cloudera-data-platform-public-cloud-contact).
 
 ## Scenario details 
 

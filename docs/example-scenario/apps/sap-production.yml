@@ -19,7 +19,6 @@ metadata:
     - Azure
     - example-scenario
     - e2e-sap
-  social_image_url: /azure/architecture/example-scenario/apps/media/sap-oracle-avzone.png
 name: SAP deployment on Azure using an Oracle database
 azureCategories:
   - databases

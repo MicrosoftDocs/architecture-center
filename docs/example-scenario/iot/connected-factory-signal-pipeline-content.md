@@ -2,7 +2,7 @@ This connected factory signal processing pipeline simplifies device interconnect
 
 ## Architecture
 
-[ ![Diagram showing the connected factory signal pipeline architecture.](./media/connected-factory-signal-pipeline-01.png) ](./media/connected-factory-signal-pipeline-01.png#lightbox)
+[ ![Diagram showing the connected factory signal pipeline architecture.](./media/connected-factory-signal-pipeline-01.svg) ](./media/connected-factory-signal-pipeline-01.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-factory-signal-pipeline.vsdx) of this architecture.*
 
@@ -57,7 +57,7 @@ This architecture uses a pipeline configuration that tracks the details of machi
 
 Using KEPServerEX as the OPC-UA gateway lets brownfield devices connect with the signal pipeline. Supported device types can be configured to automatically connect to the gateway. Removing the need to manage any configuration directly in the gateway's user interface simplifies and standardizes the device setup process.
 
-[ ![Diagram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-server.png) ](./media/connected-factory-signal-pipeline-server.png#lightbox)
+[ ![Diagram showing the KEPServer gateway configuration.](./media/connected-factory-signal-pipeline-server.svg) ](./media/connected-factory-signal-pipeline-server.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/connected-factory-signal-pipeline-server.vsdx) of this architecture.*
 
@@ -71,8 +71,6 @@ The KEPServerEX automation is the first implementation of the generic gateway co
 ### Alternatives
 
 This architecture uses AKS for running the Pipeline Configuration API, the Pipeline Publisher module, and the Asset Registry. As an alternative, you can run these microservices in [Azure Container Instances](https://azure.microsoft.com/services/container-instances). Container Instances offers the fastest and simplest way to run a container in Azure, without having to adopt a higher-level service like AKS.
-
-As an alternative to Azure Stream Analytics, you could use [HDInsight Storm](/azure/hdinsight/storm/apache-storm-overview) or [HDInsight Spark](/azure/hdinsight/spark/apache-spark-overview) to do streaming analytics.
 
 ## Scenario details
 
@@ -127,7 +125,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ### Operational excellence
 
-- Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/example-scenario/apps/devops-with-aks) to deploy the services in this example workload automatically. Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://github.com/features/actions).
+- Use [continuous integration/continuous deployment (CI/CD) processes](/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops) to deploy the services in this example workload automatically. Use a solution like [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) or [GitHub Actions](https://github.com/features/actions).
 
 - Also consider using [Azure Monitor](https://azure.microsoft.com/services/monitor) to analyze and optimize the performance of your Azure services and to monitor and diagnose networking issues.
 
@@ -177,5 +175,5 @@ Microsoft learning paths:
 - [IoT and data analytics](/azure/architecture/example-scenario/data/big-data-with-iot)
 - [Predictive maintenance](/azure/architecture/solution-ideas/articles/predictive-maintenance)
 - [Advanced Azure Kubernetes Service (AKS) microservices architecture](/azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced)
-- [Microservices with AKS](/azure/architecture/solution-ideas/articles/microservices-with-aks)
+- [CI/CD for AKS apps with Azure Pipelines](/azure/architecture/guide/aks/aks-cicd-azure-pipelines)
 - [Stream processing with Azure Stream Analytics](/azure/architecture/reference-architectures/data/stream-processing-stream-analytics)

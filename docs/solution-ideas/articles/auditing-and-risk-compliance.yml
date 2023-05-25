@@ -15,7 +15,6 @@ metadata:
     - acom-architecture
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/solution-ideas/articles/media/knowledge-mining-auditing-and-risk-compliance.png
 name: Knowledge mining in auditing, risk, and compliance management
 azureCategories:
   - ai-machine-learning
