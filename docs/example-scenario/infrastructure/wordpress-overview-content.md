@@ -18,7 +18,7 @@ Azure Front Door is Content Delivery Network (CDN) that provides fast, reliable,
 
 ### Remove unused plugins and themes
 
-Removing unused plugins and themes is an important step in keeping your WordPress website secure and optimizing its performance. Even if you're not actively using a plugin or theme, it can still pose a security risk by providing an entry point for hackers to exploit vulnerabilities in outdated or unmaintained code. Additionally, having too many plugins and themes installed on your website can slow down its performance by increasing the load time and server resource usage. Therefore, it's best practice to remove any unused plugins and themes to reduce the attack surface and improve website performance.
+You should remove unused plugins and themes. It's an important step in keeping your WordPress website secure and optimizing its performance. Even if you're not actively using a plugin or theme, it can still pose a security risk by providing an entry point for hackers to exploit vulnerabilities in outdated or unmaintained code. Additionally, having too many plugins and themes installed on your website can slow down its performance by increasing the load time and server resource usage.
 
 ### Offload static content away from PHP processor
 
