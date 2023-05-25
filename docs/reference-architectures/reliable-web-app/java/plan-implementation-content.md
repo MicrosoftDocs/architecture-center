@@ -12,24 +12,19 @@ The business context, existing web app, service level objective (SLO), and codin
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
 - [Non-production environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
 
-The following table lists the principles of the reliable web app pattern and how the reference implementation for Java applies these principles.
+The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework (WAF) principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
 
-| Reliable web app pattern principles | Implementation for Java |
+| Pattern principles | Pattern implementation |
 | --- | --- |
-|Minimal code changes<br><br>Reliability design patterns<br>Managed services<br><br>Well-Architected Framework principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
-
-| Pattern principles | Java reference implementation |
-| --- | --- |
-| **Reliable web app pattern principles:**<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>**Enterprise app patterns principles:**<br>Well-Architected Framework principles:<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|
-| **Implementation for Java:**<br>▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Enterprise app patterns principles*<br>▪ WAF principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
 ## Business context
 
-For business context, these articles follow a fictional company called Proseware in a real world scenario.Company leadership at Proseware wants to expand their business into the EdTech application market. After their initial technical research, they concluded that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. The long-term goal is to expose the web app to the public and to have the capacity to handle that increase in user load.
+These articles follow the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web application as a starting point. They long term plan is to make the web app a customer facing application. Proseware will need to update the application to handle that increase in user load.
 
-A migration to the cloud offered the best return on investment to meet the increased business demand with minimal investments in the existing monolithic app.
+To reach these long term goals, Proseware calculated that moving the web app to the cloud offered the best return on investment. The cloud offered them a way to meet the increased business demand with minimal investments in the existing web app.
 
 | Short-term application goals | Long-term application goals |
 | --- | --- |
