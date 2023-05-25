@@ -9,6 +9,8 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-cognitive-services
+  - azure-bot-service
+  - azure-appliead-ai-services
 categories: 
   - ai-machine-learning
 ms.custom:
@@ -20,26 +22,26 @@ ms.custom:
 
 Azure Cognitive Services decision APIs are cloud-based APIs that provide natural language processing (NLP) features to produce recommendations for informed and efficient decision-making. They can help you make smart decisions faster.
 
-Azure Applied AI Services combine Cognitive Services, specialized AI, and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure Cognitive Search is a cloud search service that has built-in AI capabilities.
+Azure Applied AI Services combines Cognitive Services, specialized AI, and built-in business logic to provide ready-to-use AI solutions for frequently encountered business scenarios. Azure Cognitive Search is a cloud search service that has built-in AI capabilities.
 
 ## Services
 
-Here are a few of the specific services:
+Here are a few of the decision and applied AI services:
 
 - [Azure Bot Service](https://azure.microsoft.com/products/bot-services/) provides an integrated development environment for creating conversational AI bots without writing code. It's integrated with [Power Virtual Agents](https://powervirtualagents.microsoft.com/), which is available as both a standalone web app and a discrete app in Microsoft Teams.
 - [Anomaly Detector](/azure/cognitive-services/anomaly-detector/overview) ingests time-series data of all types and selects the best anomaly detection algorithm. The Anomaly Detector API enables you to monitor and detect abnormalities in your time-series data even if you have limited knowledge of machine learning. It uses univariate and multivariate APIs to monitor data over time. You can use it for either batch validation or real-time inference.
 - [Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/) is a cloud-based service that helps your applications choose content items to show your users. Personalizer uses reinforcement learning to select the best item, or *action*, based on collective behavior and reward scores across all users. Actions are content items, like news articles, movies, or products.
 - [Content Moderator](/azure/cognitive-services/content-moderator/) is a service that checks text, image, and video content for material that's potentially offensive, risky, or otherwise undesirable.
     - **Text moderation** scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data. You can use prebuilt or custom models.
-    - **Image moderation** scans images for adult or racy content, detects text in images by using optical character recognition, and detects faces. You can use prebuilt or custom models
+    - **Image moderation** scans images for adult or racy content, detects text in images by using optical character recognition, and detects faces. You can use prebuilt or custom models.
     - **Video moderation** scans videos for adult or racy content and returns time markers for the content. This API currently supports only prebuilt models.
-- [Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services) enables you to apply AI to key business data scenarios. These services are built on the AI APIs of Cognitive Services. [Azure Cognitive Search](/azure/applied-ai-services/what-are-applied-ai-services#azure-cognitive-search) is one of the key Applied AI Services.
+- [Applied AI Services](/azure/applied-ai-services/what-are-applied-ai-services) enables you to apply AI to key business data scenarios. These services are built on the AI APIs of Cognitive Services. [Azure Cognitive Search](/azure/applied-ai-services/what-are-applied-ai-services#azure-cognitive-search) is a key part of Applied AI Services.
 
 ## How to choose a service
 
-This flow chart can help you choose the Decision API or Applied AI Services option that suits your needs:
+This flow chart can help you choose the decision API or Applied AI Services option that suits your needs:
 
-:::image type="content" source="images/cognitive-services-decision-applied-ai.png" alt-text="Diagram that shows how to select Speech Services" lightbox="images/cognitive-services-decision-applied-ai.png":::
+:::image type="content" source="images/cognitive-services-decision-applied-ai.png" alt-text="Diagram that shows how to choose a decision or applied AI service." lightbox="images/cognitive-services-decision-applied-ai.png":::
 
 ## Common use cases
 
@@ -51,8 +53,8 @@ This flow chart can help you choose the Decision API or Applied AI Services opti
     
 - **Anomaly Detector**
     - Detect anomalies in your streaming data by using previously seen data points to determine whether the latest one is anomalous.
-    - Detect anomalies in an entire data series at a specific time. This operation generates a model by using all of your time-series data. The same model analyzes each data point.
-    - Detect any trend change points that exist in your data at a specific time. This operation generates a model by using all of your time-series data. The same model analyzes each data point.
+    - Detect anomalies in an entire data series at a specific time. This operation generates a model by using all your time-series data. The same model analyzes each data point.
+    - Detect any trend change points that exist in your data at a specific time. This operation generates a model by using all your time-series data. The same model analyzes each data point.
 
 - **Personalizer**
     - Get recommendations for e-commerce. Determine the best products to present to customers to maximize purchases.
@@ -63,7 +65,7 @@ This flow chart can help you choose the Decision API or Applied AI Services opti
 - **Content Moderator**
   - Scan text, images, or video for potentially risky, offensive, or undesirable content.
 
-- **Azure Applied AI Services** 
+- **Applied AI Services** 
    - Implement ready-to-deploy AI solutions. Common use cases include [content filtering](/azure/cognitive-services/openai/concepts/content-filter) and [embeddings](/azure/cognitive-services/openai/concepts/understand-embeddings).
 
 ## Contributors
@@ -72,7 +74,7 @@ This flow chart can help you choose the Decision API or Applied AI Services opti
 
 Principal authors:
 
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-track Engineer
+- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
 - [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
 
 Other contributors:
@@ -82,7 +84,7 @@ Other contributors:
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
 - [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-track Engineer
+- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
