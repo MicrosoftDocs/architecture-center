@@ -97,7 +97,7 @@ Other contributors:
 - [Azure OpenAI](/azure/cognitive-services/openai/overview)
 - [Decision APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-decision-api-s-azure-ai-applied/ba-p/3520408)
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
-- [Learning path: Identify principals and practices for responsible AI](/training/paths/responsible-ai-business-principles/)
+- [Learning path: Identify principles and practices for responsible AI](/training/paths/responsible-ai-business-principles/)
 - [Learning path: Introduction to responsible bots](/training/modules/responsible-bots-introduction/)
 - [Learning path: Get started with AI](/training/paths/get-started-with-artificial-intelligence-on-azure/)
 

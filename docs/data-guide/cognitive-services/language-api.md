@@ -28,7 +28,7 @@ Here are some details about language API services:
 - [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) provides several NLP features for understanding and analyzing text. This service brings together Text Analytics, QnA Maker, and LUIS. These features can be:
   - Preconfigured, which means that the AI models the feature uses aren't customizable. You just send your data and use the feature's output in your applications.
   - Customizable, which means that you use Azure Cognitive Services tools to train an AI model to fit your data.
-- [Azure OpenAI Service](/azure/cognitive-services/openai/) provides REST API access to powerful OpenAI language models, including GPT-3, Codex, and embeddings. You can easily adopt these models to your specific task. Tasks include content generation, summarization, semantic search, and natural language to code translation. You can access the service via REST APIs, a Python SDK, or the web-based interface in the Azure OpenAI Studio.
+- [Azure OpenAI Service](/azure/cognitive-services/openai/) provides REST API access to powerful OpenAI language models, including GPT-3, Codex, and embeddings. You can easily adopt these models to your specific task. Tasks include content generation, summarization, semantic search, and natural-language-to-code translation. You can access the service via REST APIs, a Python SDK, or the web-based interface in Azure OpenAI Studio.
 - [Cognitive Services Translator](/azure/cognitive-services/translator/translator-overview) is a translation service that provides text-to-text APIs.
 - [QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) is a cloud-based NLP service that you can use to create a natural conversational layer over your data.
 
@@ -87,7 +87,7 @@ Other contributors:
 - [Language APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-language-api-s-azure-ai-applied/ba-p/3514278)
 - [Learning path: Create a language understanding solution with Azure Cognitive Services](/training/paths/create-language-solution-azure-cognitive-services/)
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
-- [Learning path: Identify principals and practices for responsible AI](/training/paths/responsible-ai-business-principles/)
+- [Learning path: Identify principles and practices for responsible AI](/training/paths/responsible-ai-business-principles/)
 - [Learning path: Introduction to responsible bots](/training/modules/responsible-bots-introduction/)
 
 ## Related resources
