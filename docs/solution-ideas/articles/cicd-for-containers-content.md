@@ -11,7 +11,7 @@ By setting up a continuous build to produce your container images and orchestrat
 
 ## Architecture
 
-![Architecture diagram](../media/cicd-for-containers.png)
+[ ![Architecture diagram that show CI/CD for containers](../media/cicd-for-containers.svg)](../media/cicd-for-containers.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/cicd-for-containers.vsdx) of this architecture.*
 
