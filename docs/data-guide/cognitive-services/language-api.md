@@ -19,14 +19,14 @@ ms.custom:
 
 # Types of language API services
 
-Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. This service can help you build intelligent applications. It provides tools like a web-based Language Studio, REST APIs, and client libraries.
+Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. This service can help you build intelligent applications. It provides tools like the web-based Language Studio, REST APIs, and client libraries.
 
 ## Services
 
-Here are a some details about language API services: 
+Here are some details about language API services: 
 
 - [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) provides several NLP features for understanding and analyzing text. This service brings together Text Analytics, QnA Maker, and LUIS. These features can be:
-  - Pre-configured, which means that the AI models the feature uses aren't customizable. You just send your data and use the feature's output in your applications.
+  - Preconfigured, which means that the AI models the feature uses aren't customizable. You just send your data and use the feature's output in your applications.
   - Customizable, which means that you use Azure Cognitive Services tools to train an AI model to fit your data.
 - [Azure OpenAI Service](/azure/cognitive-services/openai/) provides REST API access to powerful OpenAI language models, including GPT-3, Codex, and embeddings. You can easily adopt these models to your specific task. Tasks include content generation, summarization, semantic search, and natural language to code translation. You can access the service via REST APIs, a Python SDK, or the web-based interface in the Azure OpenAI Studio.
 - [Cognitive Services Translator](/azure/cognitive-services/translator/translator-overview) is a translation service that provides text-to-text APIs.
@@ -46,7 +46,7 @@ The following table provides recommend services for specific use cases.
 |**Identification**|| Language |
 |Identify sensitive information and PII|[Cognitive Services Personally Identifiable Information (PII) detection](/azure/cognitive-services/language-service/personally-identifiable-information/overview)| Language |
 |Identify sensitive information, PII, and PHI|[Cognitive Services Text Analytics for health](/azure/cognitive-services/language-service/text-analytics-for-health/overview)| Language |
-|Identify entities in text and categorize them into pre-defined types|[Cognitive Services named entity eecognition](/azure/cognitive-services/language-service/named-entity-recognition/overview)| Language |
+|Identify entities in text and categorize them into predefined types|[Cognitive Services named entity recognition](/azure/cognitive-services/language-service/named-entity-recognition/overview)| Language |
 |Extract domain-specific entities or information | [Cognitive Services custom named entity recognition](/azure/cognitive-services/language-service/custom-named-entity-recognition/overview) | Language |
 |Extract the main key phrases from text |[Cognitive Services key phrase extraction](/azure/cognitive-services/language-service/key-phrase-extraction/overview)| Language |
 |Summarize a document|[Azure OpenAI GPT-3 text summarization](/azure/cognitive-services/openai/quickstart#try-text-summarization)| Azure OpenAI |
@@ -79,7 +79,7 @@ Other contributors:
 - [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
 - [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
 
- *To see non-public LinkedIn profiles, sign in to LinkedIn.*
+ *To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
