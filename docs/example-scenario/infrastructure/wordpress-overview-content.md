@@ -104,9 +104,7 @@ Another way to host WordPress with such advanced storage solution like Azure Net
 
 Alternative approach to traditional hosting methods is to deploy WordPress into an immutable container, with both advantages and limitations. Source code and all resources within immutable containers are fixed and can't be modified after deployment, so all changes, including new plugin installation or WordPress core updating, need to be made in a new version of the container image. While this approach ensures consistency and simplifies rollbacks, it brings some overhead about building deployment pipeline for all changes. Additionally, immutable containers may have limitations on persistent storage options, which could require to develop a solution for handling media files and other data. Despite these limitations, immutable container deployments can offer benefits in terms of security, scalability, and portability.
 
-An immutable containerized version of WordPress can be deployed on various platforms, including Azure Container App, Azure Kubernetes Service, and Azure App Service with custom container image.
-
-The container image can be hosted in Azure Container Registry.
+You can deploy an immutable containerized version of WordPress on various platforms, including Azure Container App, Azure Kubernetes Service, and Azure App Service with a custom container image. You can host the container image in Azure Container Registry.
 
 ## Contributors
 
