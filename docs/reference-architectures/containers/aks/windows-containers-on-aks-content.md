@@ -16,7 +16,7 @@ The network design used in this architecture is based off of the [design](./base
 
 Components:
 
-- **Azure Front Door with WAF** (AFD): AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks traffic between AFD and the cluster to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
+- **Azure Front Door with WAF** (AFD): AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks internal app traffic to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
 - **Azure AD Application Proxy**: This component serves as the second ingress point in front of the internal load balancer managed by AKS. It has Azure Active Directory enabled for pre-authentication of users and uses a conditional access policy to prevent unauthorized IP ranges and users from accessing the site. This is the only way to route Kerberos authentication requests while using an Azure service that supports WAF. For a detailed description of providing single sign-on access to Application Proxy-protected apps, refer to [Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy](/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd)
 - **Internal load balancer**: Managed by AKS. This load balancer exposes the ingress controller through a private static IP address. It serves as a single point of contact that receives inbound HTTP requests.
 - No in-cluster ingress controllers (like Nginx) are used in this architecture.
@@ -66,6 +66,8 @@ All [guidance](/azure/architecture/reference-architectures/containers/aks/baseli
 The process for upgrading Windows nodes is unchanged from guidance provided in the [Azure Kubernetes Service (AKS) node image upgrade](/azure/aks/node-image-upgrade) documentation but you should consider the following schedule differences to plan your upgrade cadence.
 
 Microsoft provides new Windows Server images, including up-to-date patches, for nodes monthly and doesn't perform any automatic patching or updates. As such, you must manually or programmatically update your nodes according to this schedule. Using GitHub Actions to create a cron job that runs on a schedule allows you to programmatically schedule monthly upgrades. The guidance provided in the documentation linked above reflects Linux node processes, but you can update the YAML file to set your cron schedule to run monthly rather than biweekly. You'll also need to change the “runs-on” parameter in the YAML file to “windows-latest” to ensure that you're upgrading to the most recent Windows Server image.
+
+See the AKS operator's guide on [worker node patching and updating](/azure/architecture/operator-guides/aks/aks-upgrade-practices) for additional guidance.
 
 >[!NOTE]
 > Clusters must be upgraded before performing node and node pool upgrades.  Follow the [Cluster upgrades](/azure/aks/upgrade-cluster) guidance to perform the upgrade.
