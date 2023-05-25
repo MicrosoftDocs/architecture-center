@@ -13,25 +13,27 @@ The business context, existing web app, service level objective (SLO), and codin
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
 - [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-The following table lists the principles of the reliable web app pattern and how the reference implementation for .NET applies these principles.
+The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework (WAF) principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
 
-| Reliable web app principles | Implementation for .NET |
+| Pattern principles | Pattern implementation |
 | --- | --- |
-|▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>▪ Well-Architected Framework principles:<ol>▫ Secure ingress<br>▫ Optimized cost<br>▫ Observable<br>▫ Infrastructure as code<br>▫ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Enterprise app patterns principles*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
-For more information, see [Reliable web app pattern principles](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
+For more information, see [Reliable web app pattern overview](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
 
 ## Business context
 
-The implementation guidance mirrors the cloud journey of a fictional company (Relecloud). The company wants to take an on-premises, LOB web application to the cloud. The goal is to meet increasing business demand with minimal investments in the existing monolithic app. Traffic to the on-premises application has increased due to increased sales with more increases in the forecast. The on-premises infrastructure doesn't provide a cost-efficient means to scale. A migration to the cloud offers the most return on investment. The company identified these short-term and long-term business goals for the application.
+The implementation guidance mirrors the cloud journey of a fictional company called Relecloud. The goal is to meet increasing business demand with minimal investments in the existing monolithic app. Traffic to the on-premises application has increased due to increased sales. Relecloud expects the demand to continue to increase.
 
-| Short-term goals | Long-term goals |
+The on-premises infrastructure doesn't provide a cost-efficient means to scale. The company decided that a migration to the cloud offered the best return on investment to meet their short and long-term goals.
+
+| Short-term app goals | Long-term app goals |
 | --- | --- |
-| ▪ Apply low-cost, high-value code changes to the LOB web application. <br> ▪ Mature development team practices for modern development and operations. <br> ▪ Create cost-optimized production and development environments. <br> ▪ Implement reliability and security best practices in the cloud. <br> ▪ Service-level objective of 99.9%.| ▪ Open the application directly to online customers through multiple web and mobile experiences. <br> ▪ Improve availability. <br> ▪ Reduce time required to deliver new features. <br> ▪ Independently scale different components of the system based on traffic.
+| ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Expose the application customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Expedite new feature delivery<br>▪ Scale components based on traffic.
 
 ## Web application starting point
 
-The on-premises starting point is a monolithic eCommerce ASP.NET web application that runs on two virtual machines and has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. The employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
+The on-premises starting point is an ASP.NET monolithic web app. It's an eCommerce, line-of-business web application that runs on two virtual machines. It also has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. Relecloud employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
 
 ## Service level objective
 

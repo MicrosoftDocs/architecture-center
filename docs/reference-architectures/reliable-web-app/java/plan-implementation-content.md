@@ -16,19 +16,19 @@ The following table lists the principles of the reliable web app pattern. It inc
 
 | Pattern principles | Pattern implementation |
 | --- | --- |
-| *Reliable web app pattern principles*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Enterprise app patterns principles*<br>▪ WAF principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Enterprise app patterns principles*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
 ## Business context
 
-These articles follow the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web application as a starting point. They long term plan is to make the web app a customer facing application. Proseware will need to update the application to handle that increase in user load.
+The implementation guidance mirrors the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web application as a starting point. They long term plan is to make the web app a customer facing application. Proseware will need to update the application to handle that increase in user load.
 
 To reach these long term goals, Proseware calculated that moving the web app to the cloud offered the best return on investment. The cloud offered them a way to meet the increased business demand with minimal investments in the existing web app.
 
-| Short-term application goals | Long-term application goals |
+| Short-term app goals | Long-term app goals |
 | --- | --- |
-| ▪ Apply low-cost, high-value code changes to the LOB web application <br> ▪ Mature development team practices for cloud development and operations <br> ▪ Create cost-optimized production and development environments <br> ▪ Implement reliability and security best practices in the cloud <br> ▪ Service level objective of 99.9%| ▪ Open the application directly to online customers through multiple web and mobile experiences <br> ▪ Improve availability <br> ▪ Reduce time required to deliver new features <br> ▪ Independently scale different components of the system, based on traffic
+| ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Expose the application customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Expedite new feature delivery<br>▪ Scale components based on traffic.
 
 ## Web application starting point
 
