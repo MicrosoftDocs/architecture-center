@@ -31,7 +31,7 @@ The on-premises infrastructure doesn't provide a cost-efficient means to scale. 
 | --- | --- |
 | ▪ Apply low-cost, high-value code changes<br>▪ Reach a service level objective of 99.9%<br>▪ Adopt DevOps practices<br>▪ Create cost-optimized environments <br>▪ Improve reliability and security|▪ Expose the application customers<br>▪ Develop web and mobile experiences<br>▪ Improve availability<br> ▪ Expedite new feature delivery<br>▪ Scale components based on traffic.
 
-## Web application starting point
+## On-premises context
 
 The on-premises starting point is an ASP.NET monolithic web app. It's an eCommerce, line-of-business web application that runs on two virtual machines. It also has a Microsoft SQL Server database. The web application is employee-facing. The only application users are Relecloud's call center employees. Relecloud employees use the application to buy tickets on behalf of Relecloud customers. The on-premises web application suffers from common challenges. These challenges include extended timelines to build and ship new features difficulty scaling different components of the application under a higher load.
 
