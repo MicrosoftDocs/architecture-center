@@ -18,10 +18,11 @@ The following table lists the principles of the reliable web app pattern and how
 | --- | --- |
 |Minimal code changes<br><br>Reliability design patterns<br>Managed services<br><br>Well-Architected Framework principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
-| Reliable web app pattern principles | Implementation for Java |
+| Pattern framework | Description |
 | --- | --- |
-|Minimal code changes<br><br>Reliability design patterns<br>Managed services<br><br>Well-Architected Framework principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
-| **Well-Architected Framework principles:** | Secure ingress, Optimized cost, Observable, Infrastructure as code, Identity-centric security. |
+| **Reliable web app pattern principles** |▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>|
+| **Implementation for Java** | ▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| **Enterprise app patterns foundation:** | Well-Architected Framework principles:<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
