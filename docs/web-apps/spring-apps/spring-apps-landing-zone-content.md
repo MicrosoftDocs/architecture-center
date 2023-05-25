@@ -74,13 +74,13 @@ The reference implementation includes a sample application that illustrates a ty
 
 In a microservices pattern, service registry capability must be supported for routing user requests and service-to-service communication. 
 
-Services should be able to communicate with other services. When new instances are spawned, they're added to the registry so that they can be dynamically discovered. In this architecture, [VMware Tanzu® Service Registry](/azure/spring-apps/how-to-enterprise-service-registry) is enabled for Azure Spring Apps. 
+Services should be able to communicate with other services. When new instances are spawned, they're added to the registry so that they can be dynamically discovered. In this architecture, [Managed Spring Cloud Service Registry (OSS)](/azure/spring-apps/how-to-service-registration) is enabled for Azure Spring Apps. This service maintains a registry of live app instances, enables client-side load-balancing, and decouples service providers from clients without relying on DNS.
 
-Azure Spring Apps implement the [Gateway Routing](/azure/architecture/patterns/gateway-routing) pattern, which that provides a single point of entry for external traffic. The gateway routes incoming requests to the active service instances found in the registry. In this design, the pattern is implemented with [VMware Spring Cloud Gateway](/azure/spring-apps/how-to-use-enterprise-spring-cloud-gateway) was chosen. It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
+Azure Spring Apps implement the [Gateway Routing](/azure/architecture/patterns/gateway-routing) pattern, which that provides a single point of entry for external traffic. The gateway routes incoming requests to the active service instances found in the registry. In this design, the pattern is implemented with open-source implementation of [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway). It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
 
 ##### Configuration server
 
-For microservices, configuration data must be separated from the code. In this architecture, because the Enterprise tier was chosen, [Application Configuration Service for Tanzu](/azure/spring-apps/how-to-enterprise-application-configuration-service) enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+For microservices, configuration data must be separated from the code. In this architecture, [Azure Spring Apps Config Server](/azure/spring-apps/how-to-config-server) enables the management of resources and through a pluggable repository that supports local storage and Git repositories.
 
 
 ##### Redundancy
@@ -308,7 +308,7 @@ You might want to consider the Azure Spring Apps Enterprise tier, if you want ma
 
 For example, [VMware Tanzu® Service Registry](/azure/spring-apps/how-to-enterprise-service-registry) is integrated for Azure Spring Apps, which allows for service discovery and registration.
 
-For gateway routing you can switch to [VMware Spring Cloud Gateway](/azure/spring-apps/how-to-use-enterprise-spring-cloud-gateway). It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
+For gateway routing, you can switch to [VMware Spring Cloud Gateway](/azure/spring-apps/how-to-use-enterprise-spring-cloud-gateway). It offers a feature set that includes authentication/authorization, resiliency features, rate limiting, and others. 
 
 In the Enterprise tier, [Application Configuration Service for Tanzu®](/azure/spring-apps/how-to-enterprise-application-configuration-service) enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
