@@ -10,7 +10,7 @@ ms.subservice: azure-guide
 products:
   - azure-cognitive-services
   - azure-bot-service
-  - azure-appliead-ai-services
+  - azure-applied-ai-services
 categories: 
   - ai-machine-learning
 ms.custom:

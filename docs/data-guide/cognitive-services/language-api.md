@@ -2,15 +2,16 @@
 title: Types of language API services
 description: Learn about using Azure Cognitive Service for Language to understand and analyze text. Learn which service to use for a specific use case. 
 author: kruti-m
-ms.author: architectures
-categories: azure
-ms.date: 03/14/2023
+ms.author: krmeht
+categories: 
+- ai-machine-learning
+ms.date: 05/30/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-cognitive-services
-  - language-service
+  - azure-qna-maker
 ms.custom:
   - analytics
   - guide
@@ -18,45 +19,47 @@ ms.custom:
 
 # Types of language API services
 
-Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.
+Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. This service can help you build intelligent applications. It provides tools like a web-based Language Studio, REST APIs, and client libraries.
 
-## Service categories
+## Services
 
-- [Language service](/azure/cognitive-services/language-service/overview) - This language service provides several Natural Language Processing (NLP) features to understand and analyze text. Language service unifies Text Analytics, QnA Maker, and LUIS. These features can either be:
-  - Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
-  - Customizable, which means you'll train an AI model using our tools to fit your data specifically.
-- [Azure OpenAI Service](/azure/cognitive-services/openai/) - Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
-- [Azure Cognitive Services Translator](/azure/cognitive-services/translator/translator-overview) - Translator Services falling under Language API's provide Text-To-Text API's but this too involves language detection and conversion.
-- [QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) - QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows you to create a natural conversational layer over your data.
+Here are a some details about language API services: 
+
+- [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) provides several NLP features for understanding and analyzing text. This service brings together Text Analytics, QnA Maker, and LUIS. These features can be:
+  - Pre-configured, which means that the AI models the feature uses aren't customizable. You just send your data and use the feature's output in your applications.
+  - Customizable, which means that you use Azure Cognitive Services tools to train an AI model to fit your data.
+- [Azure OpenAI Service](/azure/cognitive-services/openai/) provides REST API access to powerful OpenAI language models, including GPT-3, Codex, and embeddings. You can easily adopt these models to your specific task. Tasks include content generation, summarization, semantic search, and natural language to code translation. You can access the service via REST APIs, a Python SDK, or the web-based interface in the Azure OpenAI Studio.
+- [Cognitive Services Translator](/azure/cognitive-services/translator/translator-overview) is a translation service that provides text-to-text APIs.
+- [QnA Maker](/azure/cognitive-services/qnamaker/overview/overview) is a cloud-based NLP service that you can use to create a natural conversational layer over your data.
 
 ## Use cases
 
-The following table helps summarize the API service based on your processing needs
+The following table provides recommend services for specific use cases.
 
-| Use case | Type of Service to Use | Service Category |
+| Use case | Service to use | Service category |
 |----------|-----------------|---|
-|**Translation Needs**| | |
-|Translate text from an industry specific point of view|[Cognitive Services Customize Translator](/azure/cognitive-services/translator/custom-translator/overview)| Translator |
-|Translate text from a generic point of view|[Cognitive Services  Translator](/azure/cognitive-services/translator/text-translation-overview)| Translator |
-|Translate natural language into SQL queries|[Azure OpenAI Natural Language to SQL](/azure/cognitive-services/openai/how-to/work-with-code#explaining-an-sql-query)| Azure OpenAI |
-|Enable my apps to interact using Natural Language|[Cognitive Services Conversational Language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview)| Language |
-|**Identification Needs**|| Language |
-|Identify Sensitive and PII|[Cognitive Services Extract PII](/azure/cognitive-services/language-service/personally-identifiable-information/overview)| Language |
-|Identify Sensitive, PII and PHI|[Cognitive Services Extract Health Information](/azure/cognitive-services/language-service/text-analytics-for-health/overview?tabs=relation-extraction)| Language |
-|Identify entities in text and categorize them into pre-defined types|[Cognitive Services Extract named entities](/azure/cognitive-services/language-service/named-entity-recognition/overview)| Language |
-|Extract domain specific entities or information | [Cognitive Services Custom named entity recognition](/azure/cognitive-services/language-service/custom-named-entity-recognition/overview) | Language |
-|Extract the main Key Phrases from text |[Cognitive Services Extract Key Phrases](/azure/cognitive-services/language-service/key-phrase-extraction/overview)| Language |
-|Extract document summary|[Azure OpenAI Summarize Text-GPT3](https://learn.microsoft.com/azure/cognitive-services/openai/quickstart?pivots=programming-language-studio#try-text-summarization)| Azure OpenAI |
-|**Classification Needs**||  |
-| Classify text using sentiment analysis | [Cognitive Services Sentiment Analysis](/azure/cognitive-services/language-service/sentiment-opinion-mining/quickstart?source=recommendations&tabs=windows&pivots=programming-language-csharp) | Language |
-| Classify text using custom classes | [Cognitive Services Custom Text Classification](/azure/cognitive-services/language-service/custom-text-classification/quickstart?tabs=multi-classification&pivots=language-studio)| Language |
-| Classify items into categories provided at inference time | [Azure OpenAI Classify Text](/azure/cognitive-services/openai/how-to/completions#classification) | Azure OpenAI |
-| Classify text by detecting the language | [Cognitive Services Detect Language](/azure/cognitive-services/language-service/language-detection/overview) | Language |
-| **Understanding the Context Needs** | | |
-|Link the identity of an entity found with a knowledge base | [Cognitive Services Find Linked Entities](/azure/search/cognitive-search-skill-entity-linking-v3) | Language |
-| Understand Questions and Answers (generic) | [Cognitive Services Answer Questions](/azure/cognitive-services/language-service/question-answering/overview) | QnA Maker |
-| Understand Questions and Answers (specific) | [Cognitive Services Custom Question Answering](/azure/cognitive-services/language-service/question-answering/overview) | QnA Maker |
-| Combine Multiple Cognitive Services | [Cognitive Services Orchestration workflow](/azure/cognitive-services/language-service/orchestration-workflow/overview) | Language |
+|**Translation**| | |
+|Translate industry-specific text|[Cognitive Services Custom Translator](/azure/cognitive-services/translator/custom-translator/overview)| Translator |
+|Translate generic text that isn't specific to an industry|[Cognitive Services  Translator](/azure/cognitive-services/translator/text-translation-overview)| Translator |
+|Translate natural language into SQL queries|[Azure OpenAI natural language to SQL](/azure/cognitive-services/openai/how-to/work-with-code#explaining-an-sql-query)| Azure OpenAI |
+|Enable apps to process and analyze natural language|[Cognitive Services conversational language understanding](/azure/cognitive-services/language-service/conversational-language-understanding/overview)| Language |
+|**Identification**|| Language |
+|Identify sensitive information and PII|[Cognitive Services Personally Identifiable Information (PII) detection](/azure/cognitive-services/language-service/personally-identifiable-information/overview)| Language |
+|Identify sensitive information, PII, and PHI|[Cognitive Services Text Analytics for health](/azure/cognitive-services/language-service/text-analytics-for-health/overview)| Language |
+|Identify entities in text and categorize them into pre-defined types|[Cognitive Services named entity eecognition](/azure/cognitive-services/language-service/named-entity-recognition/overview)| Language |
+|Extract domain-specific entities or information | [Cognitive Services custom named entity recognition](/azure/cognitive-services/language-service/custom-named-entity-recognition/overview) | Language |
+|Extract the main key phrases from text |[Cognitive Services key phrase extraction](/azure/cognitive-services/language-service/key-phrase-extraction/overview)| Language |
+|Summarize a document|[Azure OpenAI GPT-3 text summarization](/azure/cognitive-services/openai/quickstart#try-text-summarization)| Azure OpenAI |
+|**Classification**||  |
+| Classify text by using sentiment analysis | [Cognitive Services sentiment analysis](/azure/cognitive-services/language-service/sentiment-opinion-mining/quickstart) | Language |
+| Classify text by using custom classes | [Cognitive Services custom text classification](/azure/cognitive-services/language-service/custom-text-classification/quickstart)| Language |
+| Classify items into categories provided at inference time | [Azure OpenAI text classification](/azure/cognitive-services/openai/how-to/completions#classification) | Azure OpenAI |
+| Classify text by detecting the language | [Cognitive Services language detection](/azure/cognitive-services/language-service/language-detection/overview) | Language |
+| **Understanding context** | | |
+|Link an entity with knowledge base articles | [Cognitive Services Entity Linking](/azure/search/cognitive-search-skill-entity-linking-v3) | Language |
+| Understand questions and answers (generic) | [Cognitive Services question answering](/azure/cognitive-services/language-service/question-answering/overview) | QnA Maker |
+| Understand questions and answers (custom) | [Cognitive Services custom question answering](/azure/cognitive-services/language-service/question-answering/overview) | QnA Maker |
+| Combine multiple cognitive services | [Cognitive Services orchestration workflow](/azure/cognitive-services/language-service/orchestration-workflow/overview) | Language |
 
 ## Contributors
 
@@ -64,26 +67,31 @@ The following table helps summarize the API service based on your processing nee
 
 Principal authors:
 
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-track Engineer
 - [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
+- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
 
-Co-authors:
+Other contributors:
 
-- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-track Engineer
-- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
-- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
+- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
+- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
+- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
+- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
 
-### Next steps
+ *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
-- [What is Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview)
-- [Language API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-language-api-s-azure-ai-applied/ba-p/3514278)
+## Next steps
 
-### Learning paths
-
-- [Create Language Understanding solution with Azure Cognitive Services](/training/paths/create-language-solution-azure-cognitive-services/)
-- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
-- [Learning path: Identify principals and practices for Responsible AI](/training/paths/responsible-ai-business-principles/)
+- [What is Azure Cognitive Service for Language?](/azure/cognitive-services/language-service/overview)
+- [Language APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-language-api-s-azure-ai-applied/ba-p/3514278)
+- [Learning path: Create a language understanding solution with Azure Cognitive Services](/training/paths/create-language-solution-azure-cognitive-services/)
+- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
+- [Learning path: Identify principals and practices for responsible AI](/training/paths/responsible-ai-business-principles/)
 - [Learning path: Introduction to responsible bots](/training/modules/responsible-bots-introduction/)
 
+## Related resources
+
+- [Types of decision APIs and Applied AI Services](decision-applied-ai.md)
+- [Types of speech API services](speech-api.md)
+- [Types of vision API services](vision-api.md)
