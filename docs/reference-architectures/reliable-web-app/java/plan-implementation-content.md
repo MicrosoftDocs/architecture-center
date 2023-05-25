@@ -18,19 +18,18 @@ The following table lists the principles of the reliable web app pattern and how
 | --- | --- |
 |Minimal code changes<br><br>Reliability design patterns<br>Managed services<br><br>Well-Architected Framework principles<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
-| Pattern framework | Description |
+| Pattern principles | Java reference implementation |
 | --- | --- |
-| **Reliable web app pattern principles** |▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>|
-| **Implementation for Java** | ▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
-| **Enterprise app patterns foundation:** | Well-Architected Framework principles:<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security |
+| **Reliable web app pattern principles:**<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>**Enterprise app patterns principles:**<br>Well-Architected Framework principles:<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|
+| **Implementation for Java:**<br>▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
 ## Business context
 
-For business context, these articles follow a fictional company called Proseware in a real world scenario. Like many businesses, Proseware wants to migrate its on-premises, monolithic, line-of-business (LOB) web application to the cloud.
+For business context, these articles follow a fictional company called Proseware in a real world scenario.Company leadership at Proseware wants to expand their business into the EdTech application market. After their initial technical research, they concluded that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. The long-term goal is to expose the web app to the public and to have the capacity to handle that increase in user load.
 
-Company leadership at Proseware wants to expand business into the EdTech application market. After their initial technical research, they concluded that they can use their existing internal training platform as a starting point and modernize it into a B2C EdTech app. The long-term goal is to expose the web app to the public and to have the capacity to handle that increase in user load. In the short term, a migration to the cloud offered the best return on investment to meet the increasing business demand with minimal investments in the existing monolithic app.
+A migration to the cloud offered the best return on investment to meet the increased business demand with minimal investments in the existing monolithic app.
 
 | Short-term application goals | Long-term application goals |
 | --- | --- |
