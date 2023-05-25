@@ -22,15 +22,15 @@ For more information on the pattern, see [Reliable web app pattern overview](../
 
 ## Reliability
 
-A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. *Availability* measures whether your users can access your web application. The following reliability recommendations cover resiliency and availability at the infrastructure, application, and data levels.
+A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function and normally involves data redundancy (distributed copies of data). *Availability* measures whether your users can access your web application. The following reliability recommendations cover resiliency and availability at the infrastructure, application, and data levels.
 
-### Build the infrastructure to meet your service level objective
+### Architect infrastructure reliability
 
 You should design your architecture to meet your service level objective (SLO). For example, your decision to use a single region or multiple regions should align with your SLO.
 
-*Reference implementation.* The reference implementation uses two regions. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO.
+*Reference implementation.* The reference implementation uses two regions. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO. The reference implementation uses an active passive configuration. All inbound traffic passes through Azure Front Door, and Front Door routes 100% of inbound traffic to the active region. If a failure occurs in the active region, Proseware will manually update Front Door to route all traffic to the passive region.
 
-### Configure application reliability
+### Add application reliability
 
 Reliability design patterns essential for web apps in the cloud. The Retry pattern an Circuit Breaker pattern are the two most critical design patterns for application reliability at this stage. These two design patterns introduce self-healing qualities that help your application maximize the reliability features of the cloud.
 
@@ -61,9 +61,17 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
-### Configure data reliability
+### Architect data redundancy
 
+Data redundancy refers to distributed copies of data. Storing copies of data in different regions provides a higher data redundancy than storing data copies in different availability zones with a single region. Data redundancy is like data insurance. Better data redundancy lowers risk but also increases cost. Your data redundancy plan needs balance your threshold for risk and cost for each web app. It needs to meet your recovery point objective (RPO) (acceptable data loss) in case of an outage and the budget you set for the web app.
 
+*Reference implementation.* The reference implementation has two main sources of data: Azure Files and PostgreSQL database. To meet the 99.9% SLO, Proseware configured geo-zone-redundnant storage in Azure Files and a read replica for Azure Database for PostgreSQL.
+
+Azure Database for PostgreSQL uses zone redundant high availability with standby servers in two availability zones
+
+### Create failover plan
+
+You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for you web app. For example, you can define failure in minutes of downtime or loss of specific app function.
 
 ## Security
 
