@@ -1,4 +1,4 @@
-The reliable web app pattern provides implementation guidance to replatform web applications moving to the cloud. The reliable web app pattern focuses on the minimal changes you need to make for your web app to be successful in the cloud.
+The reliable web app pattern provides prescriptive implementation guidance for re-platforming web applications moving to the cloud. The pattern focuses on the minimal changes you need to make for your web app to be successful as it transitions to the cloud.
 
 ![Diagram showing GitHub icon.](../../../_images/github.png) There are two articles in this series and a reference implementation (sample web app). This article provides code and architecture implementation details to apply the reliable web app pattern to your .NET web app. The second article walks you through important decisions to [plan the implementation](plan-implementation.yml). There's a [reference implementation for .NET](https://aka.ms/eap/rwa/dotnet) that you should deploy.
 
