@@ -61,7 +61,9 @@
       "template_folder": "_themes.pdf"
     }
   },
-  "docs_build_engine": {},
+  "docs_build_engine": {
+      "name": "docfx_v3"
+  },
   "skip_source_output_uploading": false,
   "contribution_branch_mappings": {},
   "need_generate_pdf": true,
