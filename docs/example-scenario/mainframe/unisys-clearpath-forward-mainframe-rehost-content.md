@@ -88,7 +88,7 @@ To learn more about Unisys CPF offerings and pricing, visit the [Unisys ClearPat
 
 Principal author:
 
- - [Philip Brooks] (https://www.linkedin.com/in/philipbbrooks/) | Senior TPM
+ - [Philip Brooks](https://www.linkedin.com/in/philipbbrooks/) | Senior TPM
 
 *To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
