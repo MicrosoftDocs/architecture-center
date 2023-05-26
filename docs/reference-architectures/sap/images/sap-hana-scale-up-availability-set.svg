@@ -67,7 +67,7 @@
 		.st59 {fill:#5ea0ef;stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st60 {fill:#83b9f9;fill-opacity:0.2;stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st61 {fill:#5ea0ef;fill-opacity:0.2;stroke:none;stroke-linecap:butt;stroke-width:34}
-		.st62 {fill:url(#grad0-449);stroke:none;stroke-linecap:butt;stroke-width:34}
+		.st62 {fill:url(#grad0-450);stroke:none;stroke-linecap:butt;stroke-width:34}
 		.st63 {stroke:#595959;stroke-width:1.5}
 		.st64 {fill:none;stroke:#ffffff;stroke-linecap:butt;stroke-opacity:0.0078;stroke-width:0.01224}
 		.st65 {fill:#0072c6;stroke:none;stroke-linecap:butt;stroke-width:12.24}
@@ -124,7 +124,7 @@
 			<stop offset="0.53" stop-color="#a2a2a2" stop-opacity="1"/>
 			<stop offset="1" stop-color="#b3b3b3" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-449" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+		<linearGradient id="grad0-450" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
 			<stop offset="0" stop-color="#1490df" stop-opacity="1"/>
 			<stop offset="0.98" stop-color="#1f56a3" stop-opacity="1"/>
 		</linearGradient>
@@ -154,7 +154,7 @@
 		</g>
 	</g>
 	<g>
-		<title>sap-hana-avset</title>
+		<title>sap-hana-availability-set</title>
 		<g id="group1033-3" transform="translate(146.868,-173.675)">
 			<title>Icon-networking-79</title>
 			<g id="shape1034-4" transform="translate(158.379,35.1309) rotate(30)">
@@ -216,9 +216,9 @@
 		</g>
 		<g id="shape1043-38" transform="translate(206.706,-104.673)">
 			<title>Sheet.1043</title>
-			<desc>Zone redundant gateway</desc>
+			<desc>Zone-redundant gateway</desc>
 			<rect x="0" y="267.937" width="54" height="42" class="st9"/>
-			<text x="16.9" y="282.19" class="st13">Zone <tspan x="6.33" dy="1em" class="st12">redundant</tspan> <tspan x="10.46"
+			<text x="15.1" y="282.19" class="st13">Zone-<tspan x="6.33" dy="1em" class="st12">redundant</tspan> <tspan x="10.46"
 						dy="1em" class="st12">gateway</tspan></text>		</g>
 		<g id="shape1044-43" transform="translate(218.369,-144.423)">
 			<title>Gateway.336</title>
@@ -265,9 +265,9 @@
 		</g>
 		<g id="shape1104-72" transform="translate(239.157,156.065) rotate(-90)">
 			<title>Sheet.1104</title>
-			<desc>HANA System Replication</desc>
+			<desc>HANA system replication</desc>
 			<rect x="0" y="287.19" width="55.9362" height="22.747" class="st9"/>
-			<text x="3.23" y="296.56" class="st17">HANA System <tspan x="8.38" dy="1em" class="st12">Replication</tspan></text>		</g>
+			<text x="3.66" y="296.56" class="st17">HANA system <tspan x="9.38" dy="1em" class="st12">replication</tspan></text>		</g>
 		<g id="group1105-76" transform="translate(479.804,-195.723)">
 			<title>Database Server VM</title>
 			<g id="shape1106-77" transform="translate(-0.75,-0.510204)">
@@ -1049,12 +1049,12 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape1410-411" transform="translate(266.487,-174.938)">
+		<g id="shape1410-411" transform="translate(263.118,-162)">
 			<title>Sheet.1410</title>
-			<desc>AD / DNS</desc>
-			<rect x="0" y="289.688" width="66.2886" height="20.25" class="st9"/>
-			<text x="13.96" y="302.06" class="st13">AD / DNS</text>		</g>
-		<g id="shape1-414" transform="translate(0,5.83549)">
+			<desc>Active Directory / DNS</desc>
+			<rect x="0" y="274.219" width="72.1324" height="35.7188" class="st9"/>
+			<text x="23.96" y="289.83" class="st13">Active <tspan x="4.79" dy="1em" class="st12">Directory / DNS</tspan></text>		</g>
+		<g id="shape1-415" transform="translate(0,5.83549)">
 			<title>Sheet.1</title>
 			<rect x="0" y="246.165" width="120.736" height="63.773" class="st9"/>
 			<image x="0" y="246.165" width="120.736" height="63.773" preserveAspectRatio="none" xlink:href="data:image/png;base64,
@@ -1431,72 +1431,72 @@
 						BAAAAAAAgFr/vPz/GhoivpSh09AAAAAASUVORK5CYII="/>
 			<rect x="0" y="246.165" width="120.736" height="63.773" class="st9"/>
 		</g>
-		<g id="group1411-418" transform="translate(40,-125.333)">
+		<g id="group1411-419" transform="translate(40,-125.333)">
 			<title>Sheet.1411</title>
-			<g id="group1412-419" transform="translate(6.19504E-13,-49.1994)">
+			<g id="group1412-420" transform="translate(6.19504E-13,-49.1994)">
 				<title>Sheet.1412</title>
-				<g id="group1413-420">
+				<g id="group1413-421">
 					<title>Page-1</title>
-					<g id="group1414-421">
+					<g id="group1414-422">
 						<title>Virtual Machine (classic)</title>
-						<g id="group1415-422">
+						<g id="group1415-423">
 							<title>Icon-compute-28</title>
-							<g id="group1416-423" transform="translate(0,-5.92004)">
+							<g id="group1416-424" transform="translate(0,-5.92004)">
 								<title>Sheet.1416</title>
-								<g id="shape1417-424">
+								<g id="shape1417-425">
 									<title>Sheet.1417</title>
 									<path d="M0 309.17 a0.78756 0.767194 -0 0 0 0.787639 0.766802 L22.84 309.94 a0.78756 0.767194
 												 -0 0 0 0.787639 -0.766802 L23.63 295.36 a0.78756 0.767194 -0 0 0 -0.787639 -0.766802
 												 L0.79 294.59 a0.78756 0.767194 -0 0 0 -0.787639 0.766802 L0 309.17 Z" class="st37"/>
 								</g>
 							</g>
-							<g id="group1418-427" transform="translate(1.31257,-7.19869)">
+							<g id="group1418-428" transform="translate(1.31257,-7.19869)">
 								<title>Sheet.1418</title>
-								<g id="shape1419-428">
+								<g id="shape1419-429">
 									<title>Sheet.1419</title>
 									<path d="M-0 309.52 a0.433156 0.421958 -0 0 0 0.43341 0.420908 L20.57 309.94 a0.433156 0.421958
 												 -0 0 0 0.43341 -0.420908 L21 297.57 a0.433156 0.421958 -0 0 0 -0.43341 -0.420908
 												 L0.43 297.15 a0.433156 0.421958 -0 0 0 -0.43341 0.420908 L0 309.52 Z" class="st56"/>
 								</g>
 							</g>
-							<g id="group1420-430" transform="translate(11.8131,-9.11661)">
+							<g id="group1420-431" transform="translate(11.8131,-9.11661)">
 								<title>Sheet.1420</title>
-								<g id="shape1421-431">
+								<g id="shape1421-432">
 									<title>Sheet.1421</title>
 									<path d="M3.94 303.22 L3.94 307.69 L0 309.94 L0 305.46 L3.94 303.22 Z" class="st57"/>
 								</g>
 							</g>
-							<g id="group1422-433" transform="translate(7.87539,-13.579)">
+							<g id="group1422-434" transform="translate(7.87539,-13.579)">
 								<title>Sheet.1422</title>
-								<g id="shape1423-434">
+								<g id="shape1423-435">
 									<title>Sheet.1423</title>
 									<path d="M7.88 307.69 L3.94 309.94 L0 307.69 L3.94 305.45 L7.88 307.69 Z" class="st58"/>
 								</g>
 							</g>
-							<g id="group1424-436" transform="translate(7.87539,-9.11661)">
+							<g id="group1424-437" transform="translate(7.87539,-9.11661)">
 								<title>Sheet.1424</title>
-								<g id="shape1425-437">
+								<g id="shape1425-438">
 									<title>Sheet.1425</title>
 									<path d="M3.94 305.47 L3.94 309.94 L0 307.69 L0 303.22 L3.94 305.47 Z" class="st59"/>
 								</g>
 							</g>
-							<g id="group1426-439" transform="translate(7.87539,-9.11661)">
+							<g id="group1426-440" transform="translate(7.87539,-9.11661)">
 								<title>Sheet.1426</title>
-								<g id="shape1427-440">
+								<g id="shape1427-441">
 									<title>Sheet.1427</title>
 									<path d="M0 307.69 L3.94 305.46 L3.94 309.94 L0 307.69 Z" class="st60"/>
 								</g>
 							</g>
-							<g id="group1428-442" transform="translate(11.8131,-9.11661)">
+							<g id="group1428-443" transform="translate(11.8131,-9.11661)">
 								<title>Sheet.1428</title>
-								<g id="shape1429-443">
+								<g id="shape1429-444">
 									<title>Sheet.1429</title>
 									<path d="M3.94 307.69 L0 305.46 L0 309.94 L3.94 307.69 Z" class="st61"/>
 								</g>
 							</g>
-							<g id="group1430-445" transform="translate(5.90654,1.7053E-13)">
+							<g id="group1430-446" transform="translate(5.90654,1.7053E-13)">
 								<title>Sheet.1430</title>
-								<g id="shape1431-446">
+								<g id="shape1431-447">
 									<title>Sheet.1431</title>
 									<path d="M10.63 308.66 C8.31 308.3 8.22 306.65 8.22 304.02 L3.58 304.02 C3.58 306.65 3.49 308.3
 												 1.17 308.66 A1.31257 1.27863 -0 0 0 -0 309.94 L11.81 309.94 A1.31257 1.27863 -0
@@ -1507,70 +1507,70 @@
 					</g>
 				</g>
 			</g>
-			<g id="group1432-450" transform="translate(0,-24.5997)">
+			<g id="group1432-451" transform="translate(0,-24.5997)">
 				<title>Sheet.1432</title>
-				<g id="group1433-451">
+				<g id="group1433-452">
 					<title>Page-1</title>
-					<g id="group1434-452">
+					<g id="group1434-453">
 						<title>Virtual Machine (classic)</title>
-						<g id="group1435-453">
+						<g id="group1435-454">
 							<title>Icon-compute-28</title>
-							<g id="group1436-454" transform="translate(0,-5.92004)">
+							<g id="group1436-455" transform="translate(0,-5.92004)">
 								<title>Sheet.1436</title>
-								<g id="shape1437-455">
+								<g id="shape1437-456">
 									<title>Sheet.1437</title>
 									<path d="M0 309.17 a0.78756 0.767194 -0 0 0 0.787639 0.766802 L22.84 309.94 a0.78756 0.767194
 												 -0 0 0 0.787639 -0.766802 L23.63 295.36 a0.78756 0.767194 -0 0 0 -0.787639 -0.766802
 												 L0.79 294.59 a0.78756 0.767194 -0 0 0 -0.787639 0.766802 L0 309.17 Z" class="st37"/>
 								</g>
 							</g>
-							<g id="group1438-458" transform="translate(1.31257,-7.19869)">
+							<g id="group1438-459" transform="translate(1.31257,-7.19869)">
 								<title>Sheet.1438</title>
-								<g id="shape1439-459">
+								<g id="shape1439-460">
 									<title>Sheet.1439</title>
 									<path d="M-0 309.52 a0.433156 0.421958 -0 0 0 0.43341 0.420908 L20.57 309.94 a0.433156 0.421958
 												 -0 0 0 0.43341 -0.420908 L21 297.57 a0.433156 0.421958 -0 0 0 -0.43341 -0.420908
 												 L0.43 297.15 a0.433156 0.421958 -0 0 0 -0.43341 0.420908 L0 309.52 Z" class="st56"/>
 								</g>
 							</g>
-							<g id="group1440-461" transform="translate(11.8131,-9.11661)">
+							<g id="group1440-462" transform="translate(11.8131,-9.11661)">
 								<title>Sheet.1440</title>
-								<g id="shape1441-462">
+								<g id="shape1441-463">
 									<title>Sheet.1441</title>
 									<path d="M3.94 303.22 L3.94 307.69 L0 309.94 L0 305.46 L3.94 303.22 Z" class="st57"/>
 								</g>
 							</g>
-							<g id="group1442-464" transform="translate(7.87539,-13.579)">
+							<g id="group1442-465" transform="translate(7.87539,-13.579)">
 								<title>Sheet.1442</title>
-								<g id="shape1443-465">
+								<g id="shape1443-466">
 									<title>Sheet.1443</title>
 									<path d="M7.88 307.69 L3.94 309.94 L0 307.69 L3.94 305.45 L7.88 307.69 Z" class="st58"/>
 								</g>
 							</g>
-							<g id="group1444-467" transform="translate(7.87539,-9.11661)">
+							<g id="group1444-468" transform="translate(7.87539,-9.11661)">
 								<title>Sheet.1444</title>
-								<g id="shape1445-468">
+								<g id="shape1445-469">
 									<title>Sheet.1445</title>
 									<path d="M3.94 305.47 L3.94 309.94 L0 307.69 L0 303.22 L3.94 305.47 Z" class="st59"/>
 								</g>
 							</g>
-							<g id="group1446-470" transform="translate(7.87539,-9.11661)">
+							<g id="group1446-471" transform="translate(7.87539,-9.11661)">
 								<title>Sheet.1446</title>
-								<g id="shape1447-471">
+								<g id="shape1447-472">
 									<title>Sheet.1447</title>
 									<path d="M0 307.69 L3.94 305.46 L3.94 309.94 L0 307.69 Z" class="st60"/>
 								</g>
 							</g>
-							<g id="group1448-473" transform="translate(11.8131,-9.11661)">
+							<g id="group1448-474" transform="translate(11.8131,-9.11661)">
 								<title>Sheet.1448</title>
-								<g id="shape1449-474">
+								<g id="shape1449-475">
 									<title>Sheet.1449</title>
 									<path d="M3.94 307.69 L0 305.46 L0 309.94 L3.94 307.69 Z" class="st61"/>
 								</g>
 							</g>
-							<g id="group1450-476" transform="translate(5.90654,1.7053E-13)">
+							<g id="group1450-477" transform="translate(5.90654,1.7053E-13)">
 								<title>Sheet.1450</title>
-								<g id="shape1451-477">
+								<g id="shape1451-478">
 									<title>Sheet.1451</title>
 									<path d="M10.63 308.66 C8.31 308.3 8.22 306.65 8.22 304.02 L3.58 304.02 C3.58 306.65 3.49 308.3
 												 1.17 308.66 A1.31257 1.27863 -0 0 0 -0 309.94 L11.81 309.94 A1.31257 1.27863 -0
@@ -1581,70 +1581,70 @@
 					</g>
 				</g>
 			</g>
-			<g id="group1452-480">
+			<g id="group1452-481">
 				<title>Sheet.1452</title>
-				<g id="group1453-481">
+				<g id="group1453-482">
 					<title>Page-1</title>
-					<g id="group1454-482">
+					<g id="group1454-483">
 						<title>Virtual Machine (classic)</title>
-						<g id="group1455-483">
+						<g id="group1455-484">
 							<title>Icon-compute-28</title>
-							<g id="group1456-484" transform="translate(0,-5.92004)">
+							<g id="group1456-485" transform="translate(0,-5.92004)">
 								<title>Sheet.1456</title>
-								<g id="shape1457-485">
+								<g id="shape1457-486">
 									<title>Sheet.1457</title>
 									<path d="M0 309.17 a0.78756 0.767194 -0 0 0 0.787639 0.766802 L22.84 309.94 a0.78756 0.767194
 												 -0 0 0 0.787639 -0.766802 L23.63 295.36 a0.78756 0.767194 -0 0 0 -0.787639 -0.766802
 												 L0.79 294.59 a0.78756 0.767194 -0 0 0 -0.787639 0.766802 L0 309.17 Z" class="st37"/>
 								</g>
 							</g>
-							<g id="group1458-488" transform="translate(1.31257,-7.19869)">
+							<g id="group1458-489" transform="translate(1.31257,-7.19869)">
 								<title>Sheet.1458</title>
-								<g id="shape1459-489">
+								<g id="shape1459-490">
 									<title>Sheet.1459</title>
 									<path d="M-0 309.52 a0.433156 0.421958 -0 0 0 0.43341 0.420908 L20.57 309.94 a0.433156 0.421958
 												 -0 0 0 0.43341 -0.420908 L21 297.57 a0.433156 0.421958 -0 0 0 -0.43341 -0.420908
 												 L0.43 297.15 a0.433156 0.421958 -0 0 0 -0.43341 0.420908 L0 309.52 Z" class="st56"/>
 								</g>
 							</g>
-							<g id="group1460-491" transform="translate(11.8131,-9.11661)">
+							<g id="group1460-492" transform="translate(11.8131,-9.11661)">
 								<title>Sheet.1460</title>
-								<g id="shape1461-492">
+								<g id="shape1461-493">
 									<title>Sheet.1461</title>
 									<path d="M3.94 303.22 L3.94 307.69 L0 309.94 L0 305.46 L3.94 303.22 Z" class="st57"/>
 								</g>
 							</g>
-							<g id="group1462-494" transform="translate(7.87539,-13.579)">
+							<g id="group1462-495" transform="translate(7.87539,-13.579)">
 								<title>Sheet.1462</title>
-								<g id="shape1463-495">
+								<g id="shape1463-496">
 									<title>Sheet.1463</title>
 									<path d="M7.88 307.69 L3.94 309.94 L0 307.69 L3.94 305.45 L7.88 307.69 Z" class="st58"/>
 								</g>
 							</g>
-							<g id="group1464-497" transform="translate(7.87539,-9.11661)">
+							<g id="group1464-498" transform="translate(7.87539,-9.11661)">
 								<title>Sheet.1464</title>
-								<g id="shape1465-498">
+								<g id="shape1465-499">
 									<title>Sheet.1465</title>
 									<path d="M3.94 305.47 L3.94 309.94 L0 307.69 L0 303.22 L3.94 305.47 Z" class="st59"/>
 								</g>
 							</g>
-							<g id="group1466-500" transform="translate(7.87539,-9.11661)">
+							<g id="group1466-501" transform="translate(7.87539,-9.11661)">
 								<title>Sheet.1466</title>
-								<g id="shape1467-501">
+								<g id="shape1467-502">
 									<title>Sheet.1467</title>
 									<path d="M0 307.69 L3.94 305.46 L3.94 309.94 L0 307.69 Z" class="st60"/>
 								</g>
 							</g>
-							<g id="group1468-503" transform="translate(11.8131,-9.11661)">
+							<g id="group1468-504" transform="translate(11.8131,-9.11661)">
 								<title>Sheet.1468</title>
-								<g id="shape1469-504">
+								<g id="shape1469-505">
 									<title>Sheet.1469</title>
 									<path d="M3.94 307.69 L0 305.46 L0 309.94 L3.94 307.69 Z" class="st61"/>
 								</g>
 							</g>
-							<g id="group1470-506" transform="translate(5.90654,1.7053E-13)">
+							<g id="group1470-507" transform="translate(5.90654,1.7053E-13)">
 								<title>Sheet.1470</title>
-								<g id="shape1471-507">
+								<g id="shape1471-508">
 									<title>Sheet.1471</title>
 									<path d="M10.63 308.66 C8.31 308.3 8.22 306.65 8.22 304.02 L3.58 304.02 C3.58 306.65 3.49 308.3
 												 1.17 308.66 A1.31257 1.27863 -0 0 0 -0 309.94 L11.81 309.94 A1.31257 1.27863 -0
@@ -1656,37 +1656,37 @@
 				</g>
 			</g>
 		</g>
-		<g id="shape1032-510" transform="translate(105.676,-159.023)">
+		<g id="shape1032-511" transform="translate(105.676,-159.023)">
 			<title>Sheet.1032</title>
 			<path d="M0 309.94 L112.8 309.94" class="st63"/>
 		</g>
-		<g id="group1472-513" transform="translate(281.118,-138.706)">
+		<g id="group1472-514" transform="translate(281.118,-138.706)">
 			<title>Sheet.1472</title>
-			<g id="shape1473-514" transform="translate(1.65867E-13,-0.265233)">
+			<g id="shape1473-515" transform="translate(1.65867E-13,-0.265233)">
 				<title>Sheet.1473</title>
 				<path d="M32.49 277.45 L32.49 309.27 L0.66 309.27 L0.66 277.45 L32.49 277.45 ZM33.15 276.78 L0 276.78 L0 309.94 L33.15
 							 309.94 L33.15 276.78 Z" class="st64"/>
 			</g>
-			<g id="shape1474-516">
+			<g id="shape1474-517">
 				<title>Sheet.1474</title>
 				<path d="M14.79 301.25 C10.48 304.24 3.58 308.81 2.92 309.34 C2.06 309.94 0.8 309.67 0.4 309.14 C0 308.55 0 307.29
 							 0.86 306.69 C1.39 306.36 10.48 300.19 13.26 298.27 L14.85 299.99 C15.58 300.72 14.79 301.25 14.79 301.25
 							 Z" class="st65"/>
 			</g>
-			<g id="shape1475-518" transform="translate(4.84049,-9.87991)">
+			<g id="shape1475-519" transform="translate(4.84049,-9.87991)">
 				<title>Sheet.1475</title>
 				<path d="M9.75 306.95 C9.75 306.95 1.79 298.4 0.86 297.47 C0 296.48 0.8 295.35 1.26 294.95 C1.72 294.55 3.12 293.96
 							 3.85 294.69 C4.58 295.42 13.46 304.96 14.12 305.69 C14.79 306.42 14.72 307.55 13.59 308.35 C13.39 308.48
 							 12.86 308.88 12.07 309.41 C12 309.47 11.67 309.74 11.34 309.94 C11.34 309.94 12.07 309.41 11.54 308.81
 							 L9.75 306.95 Z" class="st65"/>
 			</g>
-			<g id="shape1476-520" transform="translate(19.6272,-7.22759)">
+			<g id="shape1476-521" transform="translate(19.6272,-7.22759)">
 				<title>Sheet.1476</title>
 				<path d="M0.66 298.67 C4.24 302.51 9.81 308.55 10.41 309.14 C11.14 309.94 12.4 309.94 12.93 309.47 C13.46 309.01
 							 13.73 307.82 13 307.02 C12.6 306.56 5.11 298.53 2.85 296.08 L0.93 297.41 C0 297.94 0.66 298.67 0.66
 							 298.67 Z" class="st65"/>
 			</g>
-			<g id="shape1477-522" transform="translate(16.1129,-19.8261)">
+			<g id="shape1477-523" transform="translate(16.1129,-19.8261)">
 				<title>Sheet.1477</title>
 				<path d="M4.97 307.35 C4.97 307.35 14.59 300.65 15.65 299.86 C16.71 299.06 16.18 297.8 15.78 297.34 C15.38 296.87
 							 14.19 295.95 13.33 296.54 C12.47 297.14 1.79 304.57 0.99 305.16 C0.2 305.76 0 306.82 0.99 307.88 C1.13

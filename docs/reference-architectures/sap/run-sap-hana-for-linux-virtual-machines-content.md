@@ -6,12 +6,12 @@ This reference architecture describes a common production system. You can choose
 
 The first diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability sets.
 
-[![Reference architecture for SAP HANA ScaleUp.](./images/sap-hana-scale-up-avset.svg)](./images/sap-hana-scale-up-avset.svg#lightbox)
+[![Diagram that shows an architecture that uses availabity sets.](./images/sap-hana-scale-up-availability-set.svg)](./images/sap-hana-scale-up-availability-set.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability set.*
 
 The second diagram shows a reference architecture for SAP HANA in Azure, which utilizes availability zones.
 
-[![Reference architecture for SAP HANA ScaleUp.](./images/sap-hana-scale-up-avzone.svg)](./images/sap-hana-scale-up-avzone.svg#lightbox)
+[![Diagram that shows an architecture that uses availabity zones.](./images/sap-hana-scale-up-availability-zone.svg)](./images/sap-hana-scale-up-availability-zone.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone.*
 
 *Download a [Visio file](https://arch-center.azureedge.net/sap-hana-architecture.vsdx) of all diagrams in this article.*
@@ -121,7 +121,7 @@ Alternatively to using SBD VMs, [Azure shared disk](/azure/virtual-machines/disk
 
 ### Disaster recovery
 
-[![Reference architecture for SAP HANA ScaleUp.](./images/sap-hana-scale-up-avzone-dr.svg)](./images/sap-hana-scale-up-avzone-dr.svg#lightbox)
+[![Diagram that shows an architecture with disaster recovery.](./images/sap-hana-scale-up-availability-zone-dr.svg)](./images/sap-hana-scale-up-availability-zone-dr.svg#lightbox)
 *Figure - The architecture of a production HANA environment, in Azure with availability zone, with disaster recovery.*
 
 In this architecture, HSR is used for database replication to a database instance in the secondary region. It's optional to use a cluster in the secondary region, but doing so can improve SAP HANA availability after a disaster recovery failover.
