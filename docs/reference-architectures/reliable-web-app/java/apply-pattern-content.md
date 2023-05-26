@@ -63,15 +63,22 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 ### Architect data redundancy
 
-Data redundancy refers to distributed copies of data. Storing copies of data in different regions provides a higher data redundancy than storing data copies in different availability zones with a single region. Data redundancy is like data insurance. Better data redundancy lowers risk but also increases cost. Your data redundancy plan needs balance your threshold for risk and cost for each web app. It needs to meet your recovery point objective (RPO) (acceptable data loss) in case of an outage and the budget you set for the web app.
+Data redundancy refers to distributed copies of data. Storing copies of data across regions provides a higher data redundancy than across availability zones. Data redundancy is insurance for your data. More data redundancy lowers your risk exposure, but it also increases your cost. The level you choose needs to align with business 
 
-*Reference implementation.* The reference implementation has two main sources of data: Azure Files and PostgreSQL database. To meet the 99.9% SLO, Proseware configured geo-zone-redundnant storage in Azure Files and a read replica for Azure Database for PostgreSQL.
+Your data redundancy plan needs balance your threshold for risk and cost for each web app. It needs to meet your recovery point objective (RPO) or acceptable data loss threshold (5 minutes of data). It also needs to meet the budget you set for the web app.
 
-Azure Database for PostgreSQL uses zone redundant high availability with standby servers in two availability zones
+*Reference implementation.* The reference implementation has two main sources of data: Azure Files and PostgreSQL database. Proseware configured geo-zone-redundnant storage in Azure Files and a read replica for Azure Database for PostgreSQL.
+
+Azure Database for PostgreSQL uses zone redundant high availability with standby servers in two availability zones.
+
+FOR OTHER DATABASES YOU COULD DO DIFFERENT OPTIONS.
 
 ### Create failover plan
 
-You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for you web app. For example, you can define failure in minutes of downtime or loss of specific app function.
+You need to define a failover plan for your web app.
+
+- The failover plan should define a recovery time objective (RTO) that aligns with your SLO.
+- The failover plan should define what a failure is for you web app. For example, you can define failure in minutes of downtime or loss of specific app function.
 
 ## Security
 
