@@ -63,22 +63,19 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 ### Architect data redundancy
 
-Data redundancy refers to distributed copies of data. Storing copies of data across regions provides a higher data redundancy than across availability zones. Data redundancy is insurance for your data. More data redundancy lowers your risk exposure, but it also increases your cost. The level you choose needs to align with business 
+Data redundancy refers to distributed copies of data. Storing copies of data across regions provides a higher data redundancy than across availability zones. Data redundancy is insurance for your data. More data redundancy lowers your risk exposure, but it also increases your cost. The level you choose needs to align with your business need.
 
-Your data redundancy plan needs balance your threshold for risk and cost for each web app. It needs to meet your recovery point objective (RPO) or acceptable data loss threshold (5 minutes of data). It also needs to meet the budget you set for the web app.
+Your data redundancy plan should balance your threshold for risk and cost for each web app. It needs to meet your recovery point objective (RPO) or acceptable data loss threshold, for example, 5 minutes of data. Each data service requires a different configuration for data redundancy. The solution you build needs to account for your web app architecture.
 
-*Reference implementation.* The reference implementation has two main sources of data: Azure Files and PostgreSQL database. Proseware configured geo-zone-redundnant storage in Azure Files and a read replica for Azure Database for PostgreSQL.
-
-Azure Database for PostgreSQL uses zone redundant high availability with standby servers in two availability zones.
-
-FOR OTHER DATABASES YOU COULD DO DIFFERENT OPTIONS.
+*Reference implementation.* The reference implementation has two main sources of data that it needs to recover in case of a regional failure: Azure Files and PostgreSQL database. Proseware configured Azure Files to use geo-zone-redundnant storage (GZRS). GZRS asynchronously creates a copy of Azure Files data in the passive region. Proseware also configured Azure Database for PostgreSQL to use zone redundant high availability with standby servers in two availability zones. This provide high availability within a single region. To support their failover plan, Proseware also set up a read replica in the passive region. If the active region has an outage, Proseware can failover to the passive region with minimal data loss from both Azure Files and Azure Database for PostgreSQL.
 
 ### Create failover plan
 
-You need to define a failover plan for your web app.
+You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for you web app. For example, you can define failure in minutes of downtime or loss of specific app function.
 
-- The failover plan should define a recovery time objective (RTO) that aligns with your SLO.
-- The failover plan should define what a failure is for you web app. For example, you can define failure in minutes of downtime or loss of specific app function.
+You can automate failover or do it manually. Automating failover streamlines the process, but it creates a risk that someone could trigger a failover accidentally.
+
+*Reference implementation.* Proseware created a manual failover plan.
 
 ## Security
 
