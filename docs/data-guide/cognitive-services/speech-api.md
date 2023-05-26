@@ -50,7 +50,7 @@ The following table recommends services for some common use cases.
 
 | Use case | Service to use |
 |----------|-----------------|
-| Providie closed captions for recorded or live videos | Speech-to-text |
+| Provide closed captions for recorded or live videos | Speech-to-text |
 | Create a transcript of a phone call or meeting | Speech-to-text |
 | Implement automated note dictation | Speech-to-text |
 | Determine intended user input for further processing | |
@@ -60,7 +60,7 @@ The following table recommends services for some common use cases.
 | Broadcast announcements in public locations, like railway stations or airports | Text-to-speech |
 | Produce real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation | Speech-to-speech |
 
-### Contributors
+## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
