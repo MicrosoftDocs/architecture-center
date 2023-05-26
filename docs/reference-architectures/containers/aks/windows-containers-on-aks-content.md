@@ -94,12 +94,12 @@ You'll first need to conduct baseline testing to identify how many pods you'll n
 
 ## Monitoring
 
-Containers running Windows can be monitored with Azure Monitor and [Container Insights](/azure/azure-monitor/containers/container-insights-overview), much like Linux containers. As such, the [guidance](monitor-and-collect-metrics) found in the AKS Baseline article apply here as well for the most part. However, Container Insights monitoring for a Windows Server cluster has the following limitations:
+Containers running Windows can be monitored with Azure Monitor and [Container Insights](/azure/azure-monitor/containers/container-insights-overview), much like Linux containers. As such, the [guidance](./baseline-aks.yml#monitor-and-collect-metrics) found in the AKS Baseline article apply here as well for the most part. However, Container Insights monitoring for a Windows Server cluster has the following limitations:
 
 - Windows doesn't have a Memory RSS metric. As a result, it isn't available for Windows nodes and containers. The [Working Set](/windows/win32/memory/working-set) metric is available
 - Disk storage capacity information isn't available for Windows nodes.
 
-You can also compliment Container Insights by using [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to [collect events and performance counters](azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal) from your Windows Server systems.
+You can also compliment Container Insights by using [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to [collect events and performance counters](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal) from your Windows Server systems.
 
 ## Policy management
 
