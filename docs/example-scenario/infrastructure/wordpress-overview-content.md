@@ -31,13 +31,13 @@ Another benefit of serving static resources from a CDN service such as [Azure Fr
 
 #### CDN cache invalidation
 
-One of the challenges that arises when caching on a CDN side with large WordPress installations is cache invalidation. Whenever a new event occurs, such as publishing a new article, updating an existing page, or adding a new comment, the cache in the CDN for the affected page must be invalidated. This model requires implementing some logic to discover all affected URLs by the change, including dynamically generated pages such as categories and archives, and invalidate them in the CDN cache. Depending on the installed theme and plugins, even a minor change may affect every page.
+For large WordPress installations using a CDN, you need to implement cache invalidation logic. Whenever a new event occurs, such as publishing a new article, updating an existing page, or adding a new comment, your need to invalidate the cache in the CDN for the affected page. The invalidation logic needs to discover all the URLs the change affected. The logic needs to discover and invalidate dynamically generated pages, such as categories and archives, in the CDN cache. Depending on the installed theme and plugins, even a minor change may affect every page.
 
 An easy way to implement some discovery logic could be through a plugin that enables manual triggering of cache invalidation for all URLs. However, this cache purge could cause traffic peaks to WordPress when all URLs are invalidated at once. [Example implementation on GitHub](https://github.com/vjirovsky/pr-crisis-wp-website/blob/master/wordpress/wp-content/plugins/azure-invalidate-cdn/plugin.php)
 
 ### Enable Two-Factor Authentication (2FA)
 
-One way to enable 2FA for your WordPress installation is by using the use of a plugin such a [MiniOrange authentication plugin](https://wordpress.org/plugins/miniorange-2-factor-authentication/). This plugin allows, among other methods, to use the Microsoft Authenticator as provider for 2FA method before gaining access to your WordPress site. This can greatly increase the security of your installation and help protect against unauthorized access or attacks.
+Two-factor authentication increases the security of your installation and help protect against unauthorized access or attacks. You can use of a plugin such a [MiniOrange authentication plugin](https://wordpress.org/plugins/miniorange-2-factor-authentication/). This plugin allows, among other methods, to use the Microsoft Authenticator as provider for 2FA method before gaining access to your WordPress site. 
 
 ### Disable XML-RPC access
 
@@ -54,17 +54,17 @@ An example, how to achieve this restriction, could be blocking any access to pri
 
 [![Example architecture diagram describing blocking public access to administration and introducing an internal access via VPN in Hub&spoke topology](media/wordpress-architecture-restrict-ntw.png)](media/wordpress-architecture-restrict-ntw.png#lightbox)
 
-In some cases, certain WordPress plugins may require that the URL `/wp-admin/admin-ajax.php` publicly accessible and removed from this deny rule.
+In some cases, certain WordPress plugins require the URL `/wp-admin/admin-ajax.php` be publicly accessible and removed from this deny rule.
 
 ### Store secrets in Azure Key Vault
 
-To ensure the security of WordPress deployments on Azure, it's recommended to store secrets such as database passwords and SSL certificates in Azure Key Vault. Azure Key Vault is a cloud-based service that provides secure storage and management of cryptographic keys, certificates, and secrets.
+To ensure the security of WordPress deployments on Azure, it's recommended to store secrets, such as database passwords and SSL certificates, in Azure Key Vault. Azure Key Vault is a cloud-based service that provides secure storage and management of cryptographic keys, certificates, and secrets.
 
 By storing secrets in Key Vault, they can be securely accessed by authorized applications and services without the need to store them in plain text within the WordPress container image or in application code.
 
-### Performance tunning
+### Tune performance
 
-WordPress performance can be improved by tuning various settings and using plugins to optimize website speed. These plugin can assist in debugging WordPress installation:
+You should tune various settings and use plugins to optimize WordPress performance. The following plugin can assist in debugging WordPress installation:
 
 - [Query Monitor](https://wordpress.org/plugins/query-monitor/) - breakdown of time spent for each SQL query and more (PHP errors, hooks and actions, block editor blocks, enqueued scripts and stylesheets, HTTP API calls)
 - [Laps](https://github.com/Rarst/laps) - provides a breakdown of where time is spent serving a page
@@ -74,15 +74,15 @@ WordPress performance can be improved by tuning various settings and using plugi
 
 WordPress application architecture gives rise to several hosting challenges, including:
 
-- **Scalability** -  a hosting architecture must be capable of scaling out during peak traffic periods.
-- **Read&Write-Many storage (*RWX*)** - by default, WordPress stores all static assets, plugin, and theme source codes in the `/wp-content/` directory, which must be readable and writable from all nodes during scale-out.
-- **IOPS storage class** - WordPress consists of 1000+ tiny `.php` files that are referenced, loaded, and executed by PHP processor during incoming requests. Loading numerous small files can result in overhead and is often slower than loading one file with the same size (depending on the selected protocol).
-- **Cache invalidation** - when a new activity occurs in the application, such as publishing a new article, the cache must be invalidated across all nodes.
-- **Building cache time** - for the first user of a given node, the response time may be slower until the cache is built.
+- **Scalability**: A hosting architecture must be capable of scaling out during peak traffic periods.
+- **Read&Write-Many storage (*RWX*)**: By default, WordPress stores all static assets, plugin, and theme source codes in the `/wp-content/` directory, which must be readable and writable from all nodes during scale-out.
+- **IOPS storage class**: WordPress consists of 1000+ tiny `.php` files that are referenced, loaded, and executed by PHP processor during incoming requests. Loading numerous small files can result in overhead and is often slower than loading one file with the same size (depending on the selected protocol).
+- **Cache invalidation**: When a new activity occurs in the application, such as publishing a new article, the cache must be invalidated across all nodes.
+- **Building cache time**: For the first user of a given node, the response time may be slower until the cache is built.
 
 ## WordPress hosting options on Azure
 
-WordPress can be run on a few different Azure services - from managed PaaS service WordPress on App Service, through Azure Kubernetes Service (AKS) to Virtual Machine (VM). The size of the installation is an important factor for decision. For small to medium installations, manged App Service can be a suitable and cost-effective option. However, for larger installations you should consider AKS or VM hosting.
+WordPress can run on App Service, Azure Kubernetes Service (AKS), and virtual machines (VMs). The size of the installation is an important factor for decision. For small to medium installations, App Service is a cost-effective option. However, for larger installations you should consider AKS or VM hosting.
 
 ### WordPress on App Service
 

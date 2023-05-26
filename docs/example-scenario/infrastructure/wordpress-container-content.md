@@ -1,6 +1,6 @@
 <!-- cSpell:ignore wordpress -->
 
-Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and other Azure services to deploy a highly scalable and secure installation of WordPress.
+This example scenario is applicable for any larger installation of WordPress with storage-intensive requirements. It uses [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and other Azure services to deploy a highly scalable and secure installation of WordPress.
 
 ## Architecture
 
@@ -14,11 +14,11 @@ Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure Kubernetes 
 1. Users access the front-end website through a CDN (Azure Front Door).
 2. The CDN uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) (hidden part of AKS) as the origin, and pulls any data that isn't cached from there via Private Endpoint.
 3. The Azure Load Balancer distributes ingress traffic to pods within AKS.
-4. SSL keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
-5. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint.
-6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) via AKS CSI Astra Triden driver by NFS protocol.
+- The private key (X.509 certificate) and other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
+- The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via Private Endpoint.
+- All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) using the AKS CSI Astra Trident driver with the NFS protocol.
     > [!IMPORTANT]
-    > For the best performance is essential to mount PersistentVolume via   **NFS protocol version 4.1** - see option *mountOptions* in following YAML example:
+    > For the best performance is essential to mount PersistentVolume via **NFS protocol version 4.1**, see option *mountOptions* in following YAML example:
 
 ```yaml
 kind: PersistentVolume
@@ -33,11 +33,11 @@ kind: PersistentVolume
 
 ### Components
 
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a Microsoft’s modern cloud Content Delivery Network (CDN), distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
-- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow deployed resources to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
+- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) is a Microsoft’s modern cloud Content Delivery Network (CDN). It's a distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
+- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow deployed resources to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via virtual network peering.
 - [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
-- [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict any traffic flow between the application components.
-- [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
+- [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The subnets in this scenario are secured with network security group rules that restrict any traffic flow between the application components.
+- [Load balancers](https://azure.microsoft.com/solutions/load-balancing-with-azure) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content delivery network to the front-end web servers.
 - [Azure Kubernetes Service](https://azure.microsoft.com/products/kubernetes-service) is a fully managed service that makes it easy to deploy, manage, and scale containerized applications using Kubernetes.
 - [Azure NetApp Files](https://azure.microsoft.com/products/storage/netapp) provides a fully managed performance-intensive and latency-sensitive storage solution that hosts all of the WordPress content in this scenario so that all of the pods have access to the data.
 - [Azure Cache for Redis](https://azure.microsoft.com/products/cache/) can be used to host key-value cache for WordPress performance optimization plugins, shared between all pods.
@@ -50,8 +50,8 @@ This example scenario is applicable for any larger installation of WordPress wit
 
 ### Alternatives
 
-- Redis cache - the cache could be self-hosted pod within AKS cluster instead of managed product Azure Cache for Redis.
-- [Rook-Ceph storage](https://rook.io/) - instead of managed storage solution like Azure NetApp Files, is possible to use self-hosted storage solution. For more information, see [How to use Rook-Ceph on AKS](https://github.com/Azure/kubernetes-volume-drivers/tree/master/rook-ceph).
+- Redis cache - The cache could be a self-hosted pod within the AKS cluster instead of the Azure Cache for Redis managed product.
+- [Rook-Ceph storage](https://rook.io/) - Instead of managed storage solution like Azure NetApp Files, it's possible to use self-hosted storage solution. For more information, see [How to use Rook-Ceph on AKS](https://github.com/Azure/kubernetes-volume-drivers/tree/master/rook-ceph).
 
 ## Considerations
 
@@ -69,7 +69,7 @@ For high availability of Azure Database for MySQL, see [High availability concep
 
 ### Scalability
 
-This scenario hosts front-end in pods in AKS. With autoscale feature, the number of pods that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Scaling options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-scale).
+This scenario uses pods in AKS to host the front-end. With the autoscale feature, the number of pods that run the front-end application tier can automatically scale in response to customer demand or based on a defined schedule. For more information, see [Scaling options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-scale).
 
 For more resiliency and scalability guidance, see the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service) in the Azure Architecture Center.
 
@@ -83,7 +83,7 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 
 ### Resiliency
 
-This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the pods, and include health probes that ensure traffic is only distributed to healthy pods. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
+This scenario supports use of multiple regions, data replication, and auto-scalling. These networking components distribute traffic to the pods and include health probes that ensure traffic is only distributed to healthy pods. All of these networking components are fronted by a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
 
 For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
