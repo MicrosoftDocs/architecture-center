@@ -16,8 +16,8 @@ The network design used in this architecture is based off of the [design](./base
 
 Components:
 
-- **Azure Front Door with WAF** (AFD): AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks internal app traffic to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
-- **Azure AD Application Proxy**: This component serves as the second ingress point in front of the internal load balancer managed by AKS. It has Azure Active Directory enabled for pre-authentication of users and uses a conditional access policy to prevent unauthorized IP ranges and users from accessing the site. This is the only way to route Kerberos authentication requests while using an Azure service that supports WAF. For a detailed description of providing single sign-on access to Application Proxy-protected apps, refer to [Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy](/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd)
+- **Azure Front Door with WAF**: AFD is the public-facing ingress point for the apps hosted on the AKS cluster.  AFD Premium is used in this design as it allows the use of [Private Link](/azure/frontdoor/private-link), which locks internal app traffic to private networking, providing the highest level of security. [Web Application Firewall](/azure/web-application-firewall/afds/afds-overview) (WAF) protects against common web application exploits and vulnerabilities.
+- **Azure AD Application Proxy**: This component serves as the second ingress point in front of the internal load balancer managed by AKS. It has Azure Active Directory enabled for pre-authentication of users and uses a [conditional access policy](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#other-applications) to prevent unauthorized IP ranges (AAP sees the originating client IP, which it compares to the conditional access policy) and users from accessing the site. This is the only way to route Kerberos authentication requests while using an Azure service that supports WAF. For a detailed description of providing single sign-on access to Application Proxy-protected apps, refer to [Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy](/azure/active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd)
 - **Internal load balancer**: Managed by AKS. This load balancer exposes the ingress controller through a private static IP address. It serves as a single point of contact that receives inbound HTTP requests.
 - No in-cluster ingress controllers (like Nginx) are used in this architecture.
 
@@ -78,7 +78,7 @@ The larger image sizes associated with Windows server-based images requires the 
 
 ## Identity management
 
-If you require Active Directory authentication and authorization through [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) (gMSA) must enable the gMSA profile on your AKS cluster running Windows nodes. The [gMSA PowerShell module](/virtualization/windowscontainers/manage-containers/gmsa-aks-ps-module) demonstrates how to confirm you that have enabled the gMSA profile successfully and walks through the steps to set up the integration. During the setup, you're asked to create an Azure Key Vault for storing the user credentials required to retrieve the service account and a Managed Identity. If you already have a Key Vault or Managed Identity you’d like to use, use the names of the existing resources for the parameter values in the PowerShell module. Prior to setting up your gMSA integration, ensure you have a domain controller that is running and is accessible by the AKS cluster.
+Windows containers cannot be domain joined, so if you require Active Directory authentication and authorization, you can use [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) (gMSA). In order to use gMSA, you must enable the gMSA profile on your AKS cluster running Windows nodes. Refer to the [gMSA AKS documentation](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts) for a full review of the architecture and a guide on enabling the profile.  
 
 ## Node and pod scaling
 
@@ -94,16 +94,12 @@ You'll first need to conduct baseline testing to identify how many pods you'll n
 
 ## Monitoring
 
-Monitoring your Windows containers can be done in two ways: Azure Monitor and using the [Windows Containers Log Monitor](https://github.com/microsoft/windows-container-tools/tree/main/LogMonitor) tool.
-
-Containers running Windows can be monitored with Azure Monitor and [Container Insights](/azure/azure-monitor/containers/container-insights-overview), much like Linux containers. Log Monitor allows you to pull logs from Windows services and application events and port them to STDOUT for consumption by kubectl logs.
-
-An AKS cluster with Windows Server nodes has a preview agent installed as a daemonset pod on each individual Windows Server node to collect logs and forward them to Log Analytics. For performance metrics, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor for all Windows nodes in the cluster.
-
-Container insight monitoring for a Windows Server cluster has the following limitations:
+Containers running Windows can be monitored with Azure Monitor and [Container Insights](/azure/azure-monitor/containers/container-insights-overview), much like Linux containers. As such, the [guidance](monitor-and-collect-metrics) found in the AKS Baseline article apply here as well for the most part. However, Container Insights monitoring for a Windows Server cluster has the following limitations:
 
 - Windows doesn't have a Memory RSS metric. As a result, it isn't available for Windows nodes and containers. The [Working Set](/windows/win32/memory/working-set) metric is available
 - Disk storage capacity information isn't available for Windows nodes.
+
+You can also compliment Container Insights by using [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to [collect events and performance counters](azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal) from your Windows Server systems.
 
 ## Policy management
 
