@@ -10,19 +10,19 @@ The business context, existing web app, service level objective (SLO), and codin
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
-- [Non-production environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
+- [Nonproduction environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
 
 The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework (WAF) principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
 
 | Pattern principles | Pattern implementation |
 | --- | --- |
-| *Reliable web app pattern principles*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Enterprise app patterns principles*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*WAF principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
 ## Business context
 
-The implementation guidance mirrors the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web application as a starting point. They long term plan is to make the web app a customer facing application. Proseware will need to update the application to handle that increase in user load.
+The implementation guidance mirrors the cloud journey of a fictional company called Proseware. Company leadership at Proseware wants to expand their business into the education technology application market. After their initial technical research, they concluded that they can use their existing internal training web application as a starting point. They long term plan is to make the web app a customer facing application. Proseware needs to update the application to handle that increase in user load.
 
 To reach these long term goals, Proseware calculated that moving the web app to the cloud offered the best return on investment. The cloud offered them a way to meet the increased business demand with minimal investments in the existing web app.
 
@@ -62,7 +62,7 @@ At this phase, it's important to select Azure services that mirror key on-premis
 
 [Azure App Service](/azure/app-service/overview) is an HTTP-based managed service for hosting web applications, REST APIs, and mobile back ends. Azure has many viable [compute options](/azure/architecture/guide/technology-choices/compute-decision-tree). The web app uses Azure App Service because it meets the following requirements:
 
-- **Natural progression.** On-premises, Proseware deployed a `war` file to a Tomcat sever and wanted to minimize the amount of rearchitecting for that deployment model. App Service was a natural progression for Proseware, but Azure Spring Apps is an alternative.
+- **Natural progression.** On-premises, Proseware deployed a `war` file to a Tomcat server and wanted to minimize the amount of rearchitecting for that deployment model. App Service was a natural progression for Proseware, but Azure Spring Apps is an alternative.
 - **High SLA.** It has a high SLA that meets the requirements for the production environment.
 - **Reduced management overhead.** It's a fully managed hosting solution.
 - **Containerization capability.** App Service works with private container image registries like Azure Container Registry. Proseware can use these registries to containerize the web app in the future.
@@ -117,7 +117,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 - **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 - **Diverse supportability.** It's a unified cache location that all instances of the web app can use.
 - **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-- **Enabling non-sticky sessions:** The cache allows the web app to externalize session state use non-sticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Proseware has a fully-managed, scalable cache service to improve scalability and performance of their applications. Proseware was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
+- **Enabling non-sticky sessions:** The cache allows the web app to externalize session state use nonsticky sessions. Most Java web app running on premises use in-memory, client-side caching. In-memory, client-side caching doesn't scale well and increases the memory footprint on the host. By using Azure Cache for Redis, Proseware has a fully managed, scalable cache service to improve scalability and performance of their applications. Proseware was using a cache abstraction framework (Spring Cache) and only needed minimal configuration changes to swap out the cache provider. It allowed them to switch from an Ehcache provider to the Redis provider.
 
 ### Global load balancer
 

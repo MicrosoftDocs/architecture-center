@@ -10,13 +10,13 @@ A well-architected web application needs quality code, and quality code needs a 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-java.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
-- [Non-production environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
+- [Nonproduction environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
 
-The following table lists the principles of the reliable web app pattern and how the reference implementation for Java applies these principles.
+The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework (WAF) principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
 
-| Reliable web app pattern principles | Implementation for Java |
+| Pattern principles | Pattern implementation |
 | --- | --- |
-|▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>▪ Well-Architected Framework principles:<ol>▫ Secure ingress<br>▫ Optimized cost<br>▫ Observable<br>▫ Infrastructure as code<br>▫ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*WAF principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
@@ -28,11 +28,11 @@ A reliable web application is one that's both resilient and available. *Resilien
 
 You should design your architecture to meet your service level objective (SLO). For example, your decision to use a single region or multiple regions should align with your SLO.
 
-*Reference implementation.* The reference implementation uses two regions. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO. The reference implementation uses an active passive configuration. All inbound traffic passes through Azure Front Door, and Front Door routes 100% of inbound traffic to the active region. If a failure occurs in the active region, Proseware will manually update Front Door to route all traffic to the passive region.
+*Reference implementation.* The reference implementation uses two regions. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO. The reference implementation uses an active passive configuration. All inbound traffic passes through Azure Front Door, and Front Door routes 100% of inbound traffic to the active region. If a failure occurs in the active region, Proseware manually updates Front Door to route all traffic to the passive region.
 
 ### Add application reliability
 
-Reliability design patterns essential for web apps in the cloud. The Retry pattern an Circuit Breaker pattern are the two most critical design patterns for application reliability at this stage. These two design patterns introduce self-healing qualities that help your application maximize the reliability features of the cloud.
+Reliability design patterns essential for web apps in the cloud. The Retry pattern and Circuit Breaker pattern are the two most critical design patterns for application reliability at this stage. These two design patterns introduce self-healing qualities that help your application maximize the reliability features of the cloud.
 
 **Use the Retry pattern.** The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available in Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
 
@@ -67,11 +67,11 @@ Data redundancy refers to distributed copies of data. Storing copies of data acr
 
 Your data redundancy plan should balance your threshold for risk and cost for each web app. It needs to meet your recovery point objective (RPO) or acceptable data loss threshold, for example, 5 minutes of data. Each data service requires a different configuration for data redundancy. The solution you build needs to account for your web app architecture.
 
-*Reference implementation.* The reference implementation has two main sources of data that it needs to recover in case of a regional failure: Azure Files and PostgreSQL database. Proseware configured Azure Files to use geo-zone-redundnant storage (GZRS). GZRS asynchronously creates a copy of Azure Files data in the passive region. Proseware also configured Azure Database for PostgreSQL to use zone redundant high availability with standby servers in two availability zones. This provide high availability within a single region. To support their failover plan, Proseware also set up a read replica in the passive region. If the active region has an outage, Proseware can failover to the passive region with minimal data loss from both Azure Files and Azure Database for PostgreSQL.
+*Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. Proseware configured Azure Files to use geo-zone-redundnant storage (GZRS). GZRS asynchronously creates a copy of Azure Files data in the passive region. Proseware also configured Azure Database for PostgreSQL to use zone redundant high availability with standby servers in two availability zones. This configuration provides high availability within a single region. To support their failover plan, Proseware also set up a read replica in the passive region. If the active region has an outage, Proseware can fail over to the passive region with minimal data loss from both Azure Files and Azure Database for PostgreSQL.
 
 ### Create failover plan
 
-You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for you web app. For example, you can define failure in minutes of downtime or loss of specific app function.
+You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for your web app. For example, you can define failure in minutes of downtime or loss of specific app function.
 
 You can automate failover or do it manually. Automating failover streamlines the process, but it creates a risk that someone could trigger a failover accidentally.
 
@@ -85,7 +85,7 @@ Security is a critical component of any architectural design. The goal is to ens
 
 As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. You should map users to roles and delegate the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
 
-You should also enforce the principle of least privilege for workload identities across all Azure services. Workload identity permissions are persistent, rather than just-in-time or short-term permissions. You should assign only the necessary permissions to the workload identity so that the underlying Azure service can perform its required functions within the workload. These required functions might include include create, read, update, and delete (CRUD) operations in a database and reading secrets.
+You should also enforce the principle of least privilege for workload identities across all Azure services. Workload identity permissions are persistent, rather than just-in-time or short-term permissions. You should assign only the necessary permissions to the workload identity so that the underlying Azure service can perform its required functions within the workload. These required functions include create, read, update, and delete (CRUD) operations in a database and reading secrets.
 
 There are two ways to manage access for workload identities. You can control access by using Azure Active Directory (Azure AD) role-based access control (RBAC) or at the Azure-service level with access policies. You should prioritize Azure RBAC to manage permissions over Azure-service level access controls. Azure RBAC ensures consistent, granular, and auditable access control with Azure AD that simplifies access management. For example, you need to create an identity for your web app in Azure AD. You should use Azure RBAC to grant the least number of permissions the web app needs to function to the web app identity. For more information, see:
 
@@ -118,7 +118,7 @@ auth_settings_v2 {
 }
 ```
 
-The code configures Azure Active Directory as the authentication provider, using a client ID and secret stored in an Azure Key Vault. It specifies the authentication endpoint for the Azure AD tenant and enables the token store functionality for the login.
+The code configures Azure Active Directory as the authentication provider, using a client ID and secret stored in an Azure Key Vault. It specifies the authentication endpoint for the Azure AD tenant and enables the token store functionality for the sign in.
 
 **Integrate with identity provider (code).** You need to integrate the web application with the identity provider (Azure AD) in the code to help ensure secure and seamless authentication and authorization. The Microsoft Authentication Library (MSAL) is a powerful tool that can help with this task.
 
@@ -296,7 +296,7 @@ You don't need to populate data in production, so you should always use a privat
 
 You should protect web applications with a web application firewall. The web application firewall provides a level protection against common security attacks and botnets. To take full advantage of the web application firewall, you must prevent traffic from bypassing it.
 
-You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can (1) [use Azure Front Door private endpoint](/azure/frontdoor/private-link), or (2) you can filter requests by the `X-Azure-FDID` header value. The App Service platform and Java Spring can filter by header value. You should App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code.
+You should restrict access on the application platform (App Service) to accept only inbound communication from your gateway instance, Azure Front Door in this architecture. You can (1) [use Azure Front Door private endpoint](/azure/frontdoor/private-link), or (2) you can filter requests by the `X-Azure-FDID` header value. The App Service platform and Java Spring can filter by header value. You should use App Service as the first option. Filtering at the platform level prevents unwanted requests from reaching your code.
 
 You need to configure what traffic you want to pass through your WAF. You can filter based on the host name, client IP, and other values. For more information, see [Preserve the original HTTP host name](/azure/architecture/best-practices/host-name-preservation)
 
@@ -304,9 +304,11 @@ You need to configure what traffic you want to pass through your WAF. You can fi
 
 ### Configure database security
 
-Administrator-level authentication to the database is important because it grants elevated permissions that can be used to perform privileged operations (creating and deleting databases, modifying table schemas, or changing user permissions). Without administrator-level access, a developer might not be able to perform certain tasks required to maintain the database or troubleshoot issues. You should use just-in-time access for these elevated permissions. In general, avoid permanent elevated permissions for human access.
+Administrator-level access to the database grants permissions to perform privileged operations. Privileged operations include creating and deleting databases, modifying table schemas, or changing user permissions. Developers often need administrator-level access to maintain the database or troubleshoot issues.
 
-However, it's not recommended to use administrator-level authentication for application code. Instead, you should configure least-privileged access for the application to the database. This helps to minimize the risk of bugs causing business continuity or data corruption issues access and limits the damage that can be done in the event of a security breach.
+**Avoid permanent elevated permissions.** You should only grant the developers just-in-time access to perform privileged operations. With just-in-time access, users receive temporary permissions to perform privileged tasks
+
+**Don't give application elevated permissions.** You shouldn't grant administrator-level access to the application identity. You should configure least-privileged access for the application to the database. It limits the blast radius of bugs and security breaches.
 
 You have two primary methods to access the Azure PostgreSQL database. You can use Azure AD authentication or PostgreSQL authentication. For more information, see [JDBC with Azure PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql).
 
@@ -318,9 +320,9 @@ Cost optimization principles balance business goals with budget justification to
 
 ### Rightsize resources for each environment
 
-Production environments need SKUs that meet the service level agreements (SLAs), features, and scale needed for production. But non-production environments don't normally need the same capabilities. You can optimize costs in non-production environments by using cheaper SKUs that have lower capacity and SLAs. You should consider Azure Dev/Test pricing and Azure Reservations. How and whether you use these cost-saving methods depends on your environment.
+Production environments need SKUs that meet the service level agreements (SLAs), features, and scale needed for production. But nonproduction environments don't normally need the same capabilities. You can optimize costs in nonproduction environments by using cheaper SKUs that have lower capacity and SLAs. You should consider Azure Dev/Test pricing and Azure Reservations. How and whether you use these cost-saving methods depends on your environment.
 
-**Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for non-production environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
+**Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for nonproduction environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
 
 *Reference implementation.* This architecture doesn't apply Azure Dev/Test pricing. Azure Dev/Test pricing didn't cover any of the components.
 
@@ -411,9 +413,9 @@ resource "azurerm_monitor_autoscale_setting" "sitescaling" {
 }
 ```
 
-### Delete non-production environments
+### Delete nonproduction environments
 
-To optimize cost, it's recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it's important to ensure that any unused environments are deleted in a controlled and repeatable process. For example, you can build a deployment pipeline with automated steps for deleting environments.
+To optimize cost, it's recommended that you delete nonproduction environments during periods of low activity such as business hours or holidays. Additionally, it's important to ensure that any unused environments are deleted in a controlled and repeatable process. For example, you can build a deployment pipeline with automated steps for deleting environments.
 
 ## Operational excellence
 
@@ -447,7 +449,7 @@ This dependency adds the necessary Application Insights components to your appli
 **Gather log-based metrics.** You should track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](https://learn.microsoft.com/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. You can run these queries in the portal. Under **Monitoring**, select **Logs** to run your queries. For more information, see:
 
 - [Azure Application Insights log-based metrics](https://learn.microsoft.com/azure/azure-monitor/essentials/app-insights-metrics)
-- [Log-based and pre-aggregated metrics in Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
+- [Log-based and preaggregated metrics in Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
 
 ### Enable platform diagnostics
 
@@ -479,9 +481,9 @@ resource "azurerm_monitor_diagnostic_setting" "postgresql_diagnostic" {
 
 ### Use a CI/CD pipeline
 
-You should use a CI/CD pipeline to automate deployments from source control to your App Service environments (test, staging, production). If you use Azure DevOps, build your pipeline with Azure Pipelines. If you use GitHub, use GitHub actions. You pipeline should follow standard best practices.
+You should use a CI/CD pipeline to automate deployments from source control to your App Service environments (test, staging, production). If you use Azure DevOps, build your pipeline with Azure Pipelines. If you use GitHub, use GitHub actions. Your pipeline should follow standard best practices.
 
-**Use unit (JUnit) tests.** Your pipeline should execute and pass all unit (JUnit) tests before deploying the changes to the App Service. We recommend using code quality and code coverage tools in your pipeline to ensure you test enough of your code. This includes tools such as SonarQube, JaCoCo, and others.
+**Use unit (JUnit) tests.** Your pipeline should execute and pass all unit (JUnit) tests before deploying the changes to the App Service. We recommend using code quality and code coverage tools in your pipeline to ensure you test enough of your code. It includes tools such as SonarQube, JaCoCo, and others.
 
 **Use a Java mocking framework.** You should use a mocking framework (Mockito, Easy Mock, or other Java implementations) to simulate tests on external endpoints. With mocking frameworks, you don't need to hard-code tests to specific external endpoints. Instead, you use simulated (mock) endpoints. By simulating the endpoints, you don't need to set up and configure actual external endpoints for testing. The result is a consistent testing experience across different environments.
 
@@ -525,7 +527,7 @@ spring.cache.type=redis
 spring.cache.redis.time-to-live=40000 
 ```
 
-The following code defines a method called `getUserSettings`. The method retrieves a user settings associated with a given username. The `@Cacheable(cacheNames = "userSettingsCache")` annotates the `getUserSettings` method and tells the web app to cache the user settings in a cache called `userSettingsCache`.
+The following code defines a method called `getUserSettings`. The method retrieves the user settings associated with a given username. The `@Cacheable(cacheNames = "userSettingsCache")` annotates the `getUserSettings` method and tells the web app to cache the user settings in a cache called `userSettingsCache`.
 
 ```java
 @Cacheable(cacheNames = "userSettingsCache")
@@ -539,7 +541,7 @@ public UserSettings getUserSettings(String username) {
 
 Database performance can affect the performance and scalability of an application. It's important to test the performance of your database to ensure it's optimized. Some key considerations include choosing the right cloud region, connection pooling, cache-aside pattern, and optimizing queries.
 
-**Test network hops.** Moving an application to the cloud can introduce additional network hops and latency to your database. You should test for additional hops that the new cloud environment introduces.
+**Test network hops.** Moving an application to the cloud can introduce extra network hops and latency to your database. You should test for extra hops that the new cloud environment introduces.
 
 **Establish a performance baseline.** You should use on-premises performance metrics as the initial baseline to compare application performance in the cloud.
 
@@ -549,7 +551,7 @@ Database performance can affect the performance and scalability of an applicatio
 
 ### Mounted storage performance
 
-When using a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure the best performance and cost-optimization for your web application.
+When you use a mounted storage solution for your web applications, such as Azure Files, it's important to choose a storage tier that meets the input/output operations per second (IOPS) requirements of your application. Azure Files offers different performance tiers with varying IOPS capabilities and costs. Make sure to select the appropriate tier to ensure the best performance and cost-optimization for your web application.
 
 ## Deploy the reference implementation
 

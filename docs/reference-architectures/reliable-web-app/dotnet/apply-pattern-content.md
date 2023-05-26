@@ -11,15 +11,15 @@ A well-architected web application needs quality code, and quality code needs a 
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
-- [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
+- [Nonproduction environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
-The following table lists the principles of the reliable web app pattern and how the reference implementation for .NET applies these principles.
+The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework (WAF) principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
 
-| Reliable web app principles | Implementation for .NET |
+| Pattern principles | Pattern implementation |
 | --- | --- |
-|▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br>▪ Well-Architected Framework principles:<ol>▫ Secure ingress<br>▫ Optimized cost<br>▫ Observable<br>▫ Infrastructure as code<br>▫ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*WAF principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
-For more information on the pattern, see [Reliable web app pattern](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
+For more information on the pattern, see [Reliable web app pattern overview](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
 
 ## Reliability
 
@@ -211,16 +211,16 @@ Cost optimization principles balance business goals with budget justification to
 
 ### Rightsize resources for each environment
 
-Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. But non-production environments don't normally need the same capabilities. You can optimize costs in non-production environments by using cheaper SKUs that have lower capacity and SLAs. You should consider Azure Dev/Test pricing and Azure Reservations. How or whether you use these cost-saving methods depends on your environment.
+Production environments need SKUs that meet the service level agreements (SLA), features, and scale needed for production. But nonproduction environments don't normally need the same capabilities. You can optimize costs in nonproduction environments by using cheaper SKUs that have lower capacity and SLAs. You should consider Azure Dev/Test pricing and Azure Reservations. How or whether you use these cost-saving methods depends on your environment.
 
-**Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for non-production environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
+**Consider Azure Dev/Test pricing.** Azure Dev/Test pricing gives you access to select Azure services for nonproduction environments at discounted pricing under the Microsoft Customer Agreement. The plan reduces the costs of running and managing applications in development and testing environments, across a range of Microsoft products. For more information, see [Dev/Test pricing options](https://azure.microsoft.com/pricing/dev-test/#overview).
 
 **Consider Azure Reservations or an Azure savings plan.** You can combine an Azure savings plan with Azure Reservations to optimize compute cost and flexibility. Azure Reservations help you save by committing to one-year or three-year plans for multiple products. The Azure savings plan for compute is the most flexible savings plan. It generates savings on pay-as-you-go prices. Pick a one-year or three-year commitment for compute services, regardless of region, instance size, or operating system. Eligible compute services include virtual machines, dedicated hosts, container instances, Azure Functions Premium, and Azure app services. For more information, see:
 
 - [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Azure savings plans for compute](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
 
-*Reference implementation:* The reference implementation uses Bicep parameters to trigger resource deployment configurations. One of these parameters tells Azure Resource Manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production and non-production environments:
+*Reference implementation:* The reference implementation uses Bicep parameters to trigger resource deployment configurations. One of these parameters tells Azure Resource Manager which SKUs to select. The following code gives Azure Cache for Redis different SKUs for production and nonproduction environments:
 
 ```bicep
 var redisCacheSkuName = isProd ? 'Standard' : 'Basic'
@@ -228,7 +228,7 @@ var redisCacheFamilyName = isProd ? 'C' : 'C'
 var redisCacheCapacity = isProd ? 1 : 0
 ```
 
-The web app uses the Standard C1 SKU for the production environment and the Basic C0 SKU for the non-production environment. The Basic C0 SKU costs less than the Standard C1 SKU. It provides the behavior needed for testing without the data capacity or availability targets needed for the production environment (see following table). For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+The web app uses the Standard C1 SKU for the production environment and the Basic C0 SKU for the nonproduction environment. The Basic C0 SKU costs less than the Standard C1 SKU. It provides the behavior needed for testing without the data capacity or availability targets needed for the production environment (see following table). For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 
 |   | Standard C1 SKU | Basic C0 SKU|
 | --- | --- | --- |
@@ -267,9 +267,9 @@ resource webAppScaleRule 'Microsoft.Insights/autoscalesettings@2021-05-01-previe
 }
 ```
 
-### Delete non-production environments
+### Delete nonproduction environments
 
-To optimize cost, it is recommended that you delete non-production environments during periods of low activity such as business hours or holidays. Additionally, it is important to ensure that any unused environments are deleted in a controlled and repeatable process. One way to achieve this is by building a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
+To optimize cost, it's recommended that you delete nonproduction environments during periods of low activity such as business hours or holidays. Additionally, it's important to use a controlled and repeatable process to delete unused environments. For example, you can build a deployment pipeline that includes steps for deleting environments in an automated and standardized manner.
 
 ### Use cache to support multiple data types
 
@@ -340,7 +340,7 @@ this.telemetryClient.TrackEvent("AddToCart", new Dictionary<string, string> {
 **Gather log-based metrics.** You should track log-based metrics to gain more visibility into essential application health and metrics. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) queries in Application Insights to find and organize data. You can run these queries in the portal. Under **Monitoring**, select **Logs** to run your queries. For more information, see:
 
 - [Azure Application Insights log-based metrics](/azure/azure-monitor/essentials/app-insights-metrics)
-- [Log-based and pre-aggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
+- [Log-based and preaggregated metrics in Application Insights](/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics)
 
 ## Performance efficiency
 
@@ -428,7 +428,7 @@ public async Task<CreateResult> CreateConcertAsync(Concert newConcert)
 }
 ```
 
-**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event-driven system can make these updates. Another option is to ensure that cached data is only accessed directly from the repository class that's responsible for handling the create and edit events.
+**Ensure data consistency.** You need to change cached data whenever a user makes an update. An event-driven system can make these updates. There's another option. Only allow the repository class responsible for the create and edit events to access the cached data.
 
 *Reference implementation:* The reference implementation uses the `UpdateConcertAsync` method to keep the data in the cache consistent.
 
@@ -444,7 +444,7 @@ public async Task<UpdateResult> UpdateConcertAsync(Concert existingConcert),
 
 ### Autoscale by performance metrics
 
-Autoscale based on performance metrics so that users aren't affected by SKU constraints. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application.
+You should use performance metrics to autoscale. CPU utilization performance triggers are a good starting point if you don't understand the scaling criteria of your application. You need to configure and adapt scaling triggers (CPU, RAM, network, and disk) to correspond to the behavior of your web application.
 
 *Reference implementation:* The reference implementation uses CPU usage as the trigger for scaling in and out. The web app hosting platform scales out at 85% CPU usage and scales in at 60%. The scale-out setting of 85%, rather than a percentage closer to 100%, provides a buffer to protect against accumulated user traffic caused by sticky sessions. It also protects against high bursts of traffic by scaling early to avoid maximum CPU usage. These autoscale rules aren't universal.
 
