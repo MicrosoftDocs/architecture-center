@@ -101,6 +101,9 @@ Containers running Windows can be monitored with Azure Monitor and [Container In
 
 You can also compliment Container Insights by using [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to [collect events and performance counters](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal) from your Windows Server systems.
 
+>[!NOTE]
+> Container insights for Windows Server 2022 operating system is in public preview.
+
 ## Policy management
 
 All policy [guidance](./baseline-aks.yml#policy-management) found in the AKS baseline article apply for Windows workloads. Additional Windows-specific policies found in the [Azure Policy built-in definitions for Azure Kubernetes Service](/azure/aks/policy-reference) reference article to consider are:
