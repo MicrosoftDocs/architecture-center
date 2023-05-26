@@ -10,6 +10,7 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
+  - devx-track-jenkins
 ms.category:
   - analytics
   - ai-machine-learning

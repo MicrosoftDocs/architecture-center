@@ -12,6 +12,8 @@ metadata:
   ms.subservice: reference-architecture
   ms.category:
   - featured
+  ms.custom:
+    - devx-track-dotnet
 azureCategories:
   - migration
   - web
