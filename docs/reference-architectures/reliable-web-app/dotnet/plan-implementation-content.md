@@ -11,15 +11,15 @@ The business context, existing web app, service level objective (SLO), and codin
 *Download a [Visio file](https://arch-center.azureedge.net/reliable-web-app-dotnet.vsdx) of this architecture. For the estimated cost of each environment, see:*
 
 - [Production environment estimated cost](https://azure.com/e/26f1165c5e9344a4bf814cfe6c85ed8d)
-- [Non-production environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
+- [Nonproduction environment estimated cost](https://azure.com/e/8a574d4811a74928b55956838db71093)
 
 The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework (WAF) principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
 
 | Pattern principles | Pattern implementation |
 | --- | --- |
-| *Reliable web app pattern principles*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Enterprise app patterns principles*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Bicep deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*WAF principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
-For more information, see [Reliable web app pattern overview](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
+For more information on the pattern, see [Reliable web app pattern overview](../overview.md) and the [Reliable web app pattern videos](https://aka.ms/eap/rwa/dotnet/videos).
 
 ## Business context
 
@@ -114,7 +114,7 @@ Azure Monitor is a comprehensive suite of monitoring tools that collect data fro
 - **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow changing data.
 - **Diverse supportability.** It's a unified cache location for all instances of the web app to use.
 - **Externalized.** The on-premises application servers performed VM-local caching. This setup didn't offload highly frequented data, and it couldn't invalidate data.
-- **Non-sticky sessions.** Externalizing session state supports non-sticky sessions.
+- **Non-sticky sessions.** Externalizing session state supports nonsticky sessions.
 
 ### Global load balancer
 
