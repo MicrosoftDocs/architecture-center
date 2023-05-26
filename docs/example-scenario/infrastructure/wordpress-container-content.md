@@ -12,8 +12,9 @@ This example scenario is applicable for any larger installation of WordPress wit
 ### Dataflow
 
 1. Users access the front-end website through a CDN (Azure Front Door).
-2. The CDN uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) (hidden part of AKS) as the origin, and pulls any data that isn't cached from there via Private Endpoint.
-3. The Azure Load Balancer distributes ingress traffic to pods within AKS.
+2. The CDN uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) (hidden component of AKS) as the origin, and pulls from there any data that isn't cached from there via Private Endpoint.
+3. The internal Azure Load Balancer distributes ingress traffic to pods within AKS.
+
 - The private key (X.509 certificate) and other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
 - The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via Private Endpoint.
 - All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) using the AKS CSI Astra Trident driver with the NFS protocol.
@@ -61,7 +62,9 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 The combination of pods in AKS and load balancing of ingress traffic provides high availability even if there's pod failure.
 
-The CDN (Front Door) is global service and supports origins deployed across multiple regions (AKS in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
+This scenario supports use of multiple regions, data replication, and auto-scalling. These networking components distribute traffic to the pods and include health probes that ensure traffic is only distributed to healthy pods. All of these networking components are fronted by a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
+
+The CDN (e.g. Azure Front Door) is global service and supports origins deployed across multiple regions (AKS in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 
 The NetApp Files storage can be replicated between paired regions. For more information, see [cross-region replication with Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-requirements-considerations).
 
@@ -77,15 +80,11 @@ For more resiliency and scalability guidance, see the [resiliency checklist](/az
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-All the virtual network traffic into the front-end application tier and protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
+All the virtual network traffic into the front-end application tier and protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. You should disable public access to resources (where applicable) and use Private Endpoints - for components Database for MySQL, Cache for Redis, Key Vault, Container Registry. See the article [Integrate Key Vault with Azure Private Link]( https://aka.ms/akvprivatelink).
+
+For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
-
-### Resiliency
-
-This scenario supports use of multiple regions, data replication, and auto-scalling. These networking components distribute traffic to the pods and include health probes that ensure traffic is only distributed to healthy pods. All of these networking components are fronted by a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
-
-For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ### Cost optimization
 
