@@ -1,66 +1,64 @@
 ---
-title: Different Types of Speech API Services
-description: Learn about Azure Cognitive Service for Speech that provides speech-to-text and text-to-speech capabilities.
+title: Types of speech API services
+description: Learn about the Azure Cognitive Services Speech service, which provides speech-to-text and text-to-speech capabilities.
 author: kruti-m
-ms.author: architectures
-categories: azure
-ms.date: 03/14/2023
+ms.author: krmeht
+categories: 
+  - analytics
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-cognitive-services
-  - speech-service
 ms.custom:
   - analytics
   - guide
 ---
 
-# Different types of speech API services
+# Types of speech API services
 
-Azure Cognitive Speech service is used to perform spoken language transformations such as speech-to-text, text-to-speech, speech translation and speaker recognition.
+You can use the Azure Cognitive Services Speech service to perform spoken language transformations, including speech-to-text, text-to-speech, speech translation, and speaker recognition.
 
 > [!NOTE]
-> Use [Azure Cognitive Search for Language](/azure/cognitive-services/language-service/overview) if you wish to gather deeper insights on terms or phrases, or detailed contextual analysis of spoken or written languages.
+> Use [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written languages.
 
-## Service categories
+## Services
 
-- [Speech-to-text](/azure/cognitive-services/speech-service/index-speech-to-text) - Speech-to-text can convert audio streams to text in real-time or in batch.
-- [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech) - Text-to-speech enables applications to convert text to humanlike speech.
-- [Speech translation](/azure/cognitive-services/speech-service/speech-translation) - Speech translation supports multi-language speech-to-speech and speech-to-text translation of audio streams.
+- [Speech-to-text](/azure/cognitive-services/speech-service/index-speech-to-text) can convert audio streams to text in real time or in batch.
+- [Text-to-speech](/azure/cognitive-services/speech-service/text-to-speech) enables applications to convert text to human-like speech.
+- [Speech translation](/azure/cognitive-services/speech-service/speech-translation) provides multi-language speech-to-speech and speech-to-text translation of audio streams.
 
-## Key considerations
+## How to choose a speech service
 
-- **Type of Data:** Text/Audio
-- **Processing Mechanism:** Batch/Real-Time
+This flow chart can help you choose the speech service that suits your needs:
 
-The following flow chart helps you how to go about choosing the Speech service based on your processing needs
-![Diagram that shows how to select Speech Services](../images/CognitiveServicesSpeechAPI.png)
+![Diagram that shows how to choose a speech service.](images/cognitive-services-speech-api.png)
 
-In the above diagram the left side of the graph focusses on input data type : the Audio Format to output data type Audio/Text
+The left side of the diagram illustrates audio-to-audio or audio-to-text processes. 
 
-1. Speech-to-text - used to transcribe speech from an audio source to text format.
-2. Speech-to-speech (Speech Translation) - used to translate speech in one language to text or speech in another.
+- Speech-to-text is used to convert speech from an audio source to a text format.
+- Speech-to-speech is used to translate speech in one language to text or to speech in another language.
 
-The right side of the graph focusses on input data type Text to output data type as Audio Format
+The right side of the diagram illustrates text-to-audio processes.
 
-1. Text-to-speech - used to generate spoken audio from a text source.
+- Text-to-speech is used to generate spoken audio from a text source.
 
 ## Common use cases
 
-The following table lists some of the common use cases.</br></br>
+The following table recommends services for some common use cases.
 
-| Use Case | Type of Service to Use |
+| Use case | Service to use |
 |----------|-----------------|
-| Providing closed captions for recorded or live videos | Speech-to-text |
-| Creating a transcript of a phone call or meeting | Speech-to-text |
-| Automated note dictation | Speech-to-text |
-| Determining intended user input for further processing | |
-| Generating spoken responses to user input. | Text-to-speech |
-| Creating voice menus for telephone systems. | Text-to-speech |
-| Reading email or text messages aloud in hands-free scenarios. | Text-to-speech |
-| Broadcasting announcements in public locations, such as railway stations or airports. | Text-to-speech |
-| Real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation | Speech-to-speech |
+| Providie closed captions for recorded or live videos | Speech-to-text |
+| Create a transcript of a phone call or meeting | Speech-to-text |
+| Implement automated note dictation | Speech-to-text |
+| Determine intended user input for further processing | |
+| Generate spoken responses to user input | Text-to-speech |
+| Create voice menus for telephone systems | Text-to-speech |
+| Read email or text messages aloud in hands-free scenarios | Text-to-speech |
+| Broadcast announcements in public locations, like railway stations or airports | Text-to-speech |
+| Produce real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation | Speech-to-speech |
 
 ### Contributors
 
@@ -68,23 +66,29 @@ The following table lists some of the common use cases.</br></br>
 
 Principal authors:
 
-- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-track Engineer
+- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
 - [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
 
-Co-authors:
+Other contributors:
 
-- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
-- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-track Engineer
-- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
-- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer
+- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect 
 - [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
+- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
+- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
+- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
 
-### Next steps
+*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
 
-- [What is Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/overview)
-- [Speech API's Bifurcations](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-speech-api-s-azure-ai-applied-services/ba-p/3509510)
+## Next steps
 
-### Learning paths
+- [What is the Speech service?](/azure/cognitive-services/speech-service/overview)
+- [Speech APIs blog post](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-cognitive-services-speech-api-s-azure-ai-applied-services/ba-p/3509510)
+- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
+- [Learning path: Process and translate speech with Azure Cognitive Speech Services](/training/paths/process-translate-speech-azure-cognitive-speech-services/)
 
-- [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)]
-- [Learning path: Process and Translate Speech with Azure Cognitive Speech Services](/training/paths/process-translate-speech-azure-cognitive-speech-services/)
+## Related resources
+
+- [Types of decision APIs and Applied AI Services](decision-applied-ai.md)
+- [Types of language API services](language-api.md)
+- [Types of vision API services](vision-api.md)
