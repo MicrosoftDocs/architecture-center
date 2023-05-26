@@ -2,7 +2,7 @@ Protect applications and services using a dedicated host instance that acts as a
 
 ## Context and problem
 
-Applications expose their functionality to clients by accepting and processing requests. In cloud-hosted scenarios, applications expose endpoints clients connect to, and typically include the code to handle the requests from clients. This code performs authentication and validation, some or all request processing, and is likely to access storage and other services on behalf of the client.
+Cloud services expose endpoints which allow client applications to authenticate and request services through APIs. The code used to implement the APIs triggers or performs several tasks, including but not limited to authentication, authorization, parameter validation, and some or all request processing. The API code is likely to access storage and other services on behalf of the client.
 
 If a malicious user can compromise the system and gain access to the application's hosting environment, the security mechanisms it uses, such as credentials and storage keys, and the services and data it accesses, are exposed. As a result, the malicious user can gain unrestricted access to sensitive information and other services.
 
