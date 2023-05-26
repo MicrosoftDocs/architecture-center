@@ -71,11 +71,9 @@ Your data redundancy plan should balance your threshold for risk and cost for ea
 
 ### Create failover plan
 
-You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for your web app. For example, you can define failure in minutes of downtime or loss of specific app function.
+You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for your web app. For example, you can define failure in minutes of downtime or loss of specific app function. You can automate failover or do it manually. Automating failover streamlines the process, but it creates a risk that someone could trigger a failover accidentally.
 
-You can automate failover or do it manually. Automating failover streamlines the process, but it creates a risk that someone could trigger a failover accidentally.
-
-*Reference implementation.* Proseware created a manual failover plan.
+*Reference implementation.* Proseware created a manual failover plan. MORE DETAILS TBD.
 
 ## Security
 
