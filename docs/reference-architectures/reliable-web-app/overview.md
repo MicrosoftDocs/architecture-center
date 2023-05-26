@@ -23,16 +23,16 @@ categories:
 
 # Reliable web app pattern
 
-The reliable web app pattern provides implementation guidance to re-platform web apps moving from on premises to the cloud. The reliable web app pattern focuses on minimal code changes you need to make for your web app to be successful in the cloud. It shows you how to take advantage of managed services and implement key reliability design patterns so you can rapidly adopt the cloud to meet business needs.
+The reliable web app pattern provides prescriptive implementation guidance web applications moving to the cloud. The pattern shows you how to re-platforming web application with the minimal changes to be successful in the cloud. It shows you how to take advantage of managed services and implement key reliability design patterns so you can rapidly adopt the cloud to meet business needs (*see Figure 1*).
 
-[![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.png)](images/reliable-web-app-overview.png)
-*Figure 1. Overview of the reliable web app pattern and its foundational principles.*
+[![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.svg)](images/reliable-web-app-overview.svg)
+*Figure 1. Overview of the reliable web app pattern.*
 
-The reliable web app pattern outlines you prescriptive architecture and code guidance. It builds on the pillars of the Azure Well-Architected Framework while focusing on key principles for cloud adoption. These principles include infrastructure provisioning, identity-centric security, secure ingress, cost-optimization, and observability.
+The reliable web app pattern builds on the pillars of the Azure Well-Architected Framework (WAF), and it implements WAF principles that are essential for cloud adoption. These essential WAF principles are secure ingress, cost optimized, observable, infrastructure as code, and identity based security
 
 ## Next steps
 
-We created reliable web app pattern for .NET and Java web apps. Both have written guidance and a reference implementation (sample web app) that you should deploy. Use the following buttons to find the guidance for your web app framework.
+There's implementation guidance for for .NET and Java web apps. Both have a reference implementation (sample web app) that you should deploy. Use the following buttons to find the guidance and reference implementation.
 
 >[!div class="nextstepaction"]
 >[Reliable web app pattern for .NET](./dotnet/plan-implementation.yml)
