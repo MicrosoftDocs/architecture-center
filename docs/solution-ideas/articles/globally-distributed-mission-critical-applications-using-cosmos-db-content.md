@@ -111,7 +111,6 @@ More about Traffic Manager:
 
 Related solution ideas:
 
-- [Build cloud native applications](./cloud-native-apps.yml)
 - [Deliver highly scalable customer service and ERP applications](./erp-customer-service.yml)
 - [Gaming using Azure Cosmos DB](./gaming-using-cosmos-db.yml)
 - [IoT using Azure Cosmos DB](./iot-using-cosmos-db.yml)

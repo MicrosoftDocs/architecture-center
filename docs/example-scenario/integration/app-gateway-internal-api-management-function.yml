@@ -15,7 +15,6 @@ azureCategories:
 products:
   - azure-api-management
   - azure-application-gateway
-  - azure-dev-tool-integrations
   - azure-functions
   - dotnet-core
 name: Azure API Management landing zone accelerator
