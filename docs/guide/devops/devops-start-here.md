@@ -16,6 +16,7 @@ products:
   - azure-monitor
   - azure-pipelines
   - azure-devtest-labs
+  - devsecops
 ms.custom:
   - overview
   - fcp
@@ -76,10 +77,11 @@ Plan your path to production by reviewing:
 | [Azure Lab Services](https://azure.microsoft.com/services/lab-services) | [Azure Lab Services documentation](/azure/lab-services) | A tool for setting up and providing on-demand access to preconfigured virtual machines (VMs). |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor) | [Azure Monitor documentation](/azure/azure-monitor) | Provides full observability into your applications, infrastructure, and network. |
 | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines) | [Azure Pipelines documentation](/azure/devops/pipelines) | Helps you automate build and deployment by using cloud-hosted pipelines. |
-  [Azure Repos](https://azure.microsoft.com/services/devops/repos) | [Azure Repos documentation](/azure/devops/repos) | Provides unlimited, cloud-hosted private Git repos for your project. |
+  [Azure Repos](https://azure.microsoft.com/services/devops/repos) | [Azure Repos documentation](/azure/devops/repos) | Provides unlimited, cloud-hosted private Git repos for your project and coupled with GitHub Advanced Security's powerful suite of security features. |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager) | [Azure Resource Manager documentation](/azure/azure-resource-manager) | Provides consistent deployment, organization, and control for resource management. |
 | [Azure Resource Manager templates (ARM templates)](/azure/azure-resource-manager/templates/overview) | [ARM template documentation](/azure/azure-resource-manager/templates) | Templates that you can use to define the infrastructure and configuration for your project. |
 | [Azure Test Plans](https://azure.microsoft.com/services/devops/test-plans) | [Azure Test Plans documentation](/azure/devops/test) | Provides planned and exploratory testing services for your apps. |
+
 
 ### Example DevOps architectures
 
