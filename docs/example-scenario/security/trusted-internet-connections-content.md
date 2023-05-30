@@ -145,7 +145,7 @@ The following solution integrates an Application Gateway with Web Application Fi
 
 The solution includes:
 
-- A virtual network with a subnet for the firewall and servers.
+- A virtual network with separate subnets for the firewall and servers.
 - A Log Analytics workspace.
 - An Application Gateway v2 with Web Application Firewall with Bot and Microsoft managed policies.
 - An Application Gateway v2 diagnostic settings that send logs to the Log Analytics workspace.
@@ -179,7 +179,7 @@ The following solution integrates an Azure Front Door with Web Application Firew
 
  The solution includes:
 
-- A virtual network with a subnet for the firewall and servers.
+- A virtual network with separate subnets for the firewall and servers.
 - A Log Analytics workspace.
 - An Azure Front Door with Web Application Firewall with Bot and Microsoft managed policies.
 - An Azure Front Door diagnostic settings that send logs to the Log Analytics workspace.
