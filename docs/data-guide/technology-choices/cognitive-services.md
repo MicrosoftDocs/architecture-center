@@ -21,7 +21,7 @@ ms.custom:
 
 # Choose an Azure Cognitive Services technology
 
-Azure Cognitive Services is a set of cloud-based APIs that you can use in AI applications and data flows. They provide pretrained models that are ready to use in your applications, requiring no data and no model training on your part. The cognitive services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms. They're consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
+Azure Cognitive Services is a set of cloud-based APIs that you can use in AI applications and data flows. It provides pretrained models that are ready to use in your applications, requiring no data and no model training on your part. The services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms. They're consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
 
 **Key benefits:**
 
@@ -34,7 +34,7 @@ Azure Cognitive Services is a set of cloud-based APIs that you can use in AI app
 - These services are only available over the web. Internet connectivity is generally required. An exception is the Custom Vision service, whose trained model you can export for prediction on devices and at the IoT edge.
 - Although considerable customization is supported, the available services might not suit all predictive analytics requirements.
 
-## Categories of Azure Cognitive Services
+## Categories of Azure cognitive services
 
 Dozens of cognitive services are available in Azure. Here's a list, categorized by the functional area they support:
 
@@ -57,7 +57,7 @@ The following are some common use cases for Azure Cognitive Services.
 | Integrate real-time speech translation into your apps. | Speech |
 | Identify and verify the person speaking by using voice characteristics. | Speech |
 | Identify commonly used and domain-specific terms. | Language |
-| Automatically detect sentiments and opinions from text. | Language |
+| Automatically detect sentiments and opinions in text. | Language |
 | Distill information into easy-to-navigate questions and answers. | Language |
 | Enable your apps to interact with users through natural language. | Language  |
 | Translate more than 100 languages and dialects. | Language |
@@ -74,13 +74,13 @@ To narrow down the choices, start by answering these questions:
 
 - Are you processing something related to spoken language, or are you processing text, images, or documents?
 
-- Do you have the data to train a model? If yes, consider the custom services that enable you to train their underlying models with data that you provide. Doing so can improve accuracy and performance.
+- Do you have the data to train a model? If yes, consider using the custom services that enable you to train their underlying models with data that you provide. Doing so can improve accuracy and performance.
 
 This flow chart can help you choose the best API service for your use case.
 
 ![Diagram that shows how to select a Cognitive Services API.](../cognitive-services/images/cognitive-services-flow-chart.png)
 
-- If your use case requires speech-to-text, text-to-speech, speech-to-speech, use a [speech API](../cognitive-services/speech-api.md).
+- If your use case requires speech-to-text, text-to-speech, or speech-to-speech, use a [speech API](../cognitive-services/speech-api.md).
 - If your use case requires language analysis, text assessment, or  text-to-text, use a [language API](../cognitive-services/language-api.md).
 - If you need to analyze images, video, or text, use a [vision API](../cognitive-services/vision-api.md).
 - If you need to make a decision, use a [decision API or Applied AI Services](../cognitive-services/decision-applied-ai.md).
@@ -93,7 +93,7 @@ When you [deploy Cognitive Services](/azure/cognitive-services/cognitive-service
 - Deploy the multi-service resource if you're using multiple services and want to manage access and billing for all services together.
 
 > [!NOTE]
-> The resource categories in these API services change frequently. Be sure to check the latest documents for new categories.
+> The resource categories in these API services change frequently. Be sure to check the latest documentation for new categories.
 
 ## Contributors
 
