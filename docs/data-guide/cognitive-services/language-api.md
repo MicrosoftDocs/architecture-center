@@ -5,7 +5,7 @@ author: kruti-m
 ms.author: krmeht
 categories: 
 - ai-machine-learning
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide

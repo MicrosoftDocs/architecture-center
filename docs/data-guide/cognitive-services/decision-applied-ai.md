@@ -3,7 +3,7 @@ title: Types of decision APIs and Applied AI Services
 description: Learn about Cognitive Services Decision APIs, which can help you make recommendations for decision-making, and Applied AI Services, which provides NLP features.
 author: kruti-m
 ms.author: krmeht
-ms.date: 05/30/2023
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
