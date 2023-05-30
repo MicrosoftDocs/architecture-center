@@ -17,6 +17,7 @@ metadata:
     - reference-architecture
     - ai-machine-learning
     - aml-project-improvement
+    - devx-track-python
 name: Real-time scoring of machine learning models in Python
 azureCategories:
   - ai-machine-learning

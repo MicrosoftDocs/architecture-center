@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-python
+---
 This architecture guide shows how to build a scalable solution for batch scoring models [Azure Machine Learning][amls]. The solution can be used as a template and can generalize to different problems.
 
 ## Architecture

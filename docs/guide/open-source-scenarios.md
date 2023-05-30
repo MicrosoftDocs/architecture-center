@@ -36,6 +36,7 @@ categories:
 ms.custom:
   - fcp
   - devx-track-terraform
+  - devx-track-jenkins
 ---
 
 # Open-source scenarios on Azure
