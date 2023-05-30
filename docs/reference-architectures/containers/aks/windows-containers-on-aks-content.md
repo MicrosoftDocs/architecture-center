@@ -114,7 +114,7 @@ All policy [guidance](./baseline-aks.yml#policy-management) found in the AKS bas
 
 ## Cluster bootstrapping
 
-As with the cluster bootstrapping [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-bootstrapping) provided in the AKS Baseline article, cluster operators should consider thier bootstrapping approach for Windows-based workloads as well.  The same guidance provided in the AKS Baseline article apply here as well.
+As with the cluster bootstrapping [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#cluster-bootstrapping) provided in the AKS Baseline article, cluster operators should consider their bootstrapping approach for Windows-based workloads as well.  The same guidance provided in the AKS Baseline article apply here as well.
 
 ## Cost management
 
