@@ -43,18 +43,18 @@ The following flow chart can help you choose a vision service for your specific 
    - **Categorize an image.** Categorize images based on their content.
    - **Implement OCR.** Detect printed and handwritten text in images.
    - **Detect image types.** For example, identify clip art images or line drawings.
-   - **Detect image color schemes.** Identify the dominant foreground, background, and dominant and accent colors in an image.
+   - **Detect color schemes.** Identify the dominant foreground, background, and dominant and accent colors in an image.
    - **Generate thumbnails.** Create small versions of images.
    - **Moderate content.** Detect images that contain adult content or depict gory scenes.
    - **Detect domain-specific content.** Use two specialized domain models:
-      - **Celebrities.** Identify thousands of well-known celebrities from the worlds of sports, entertainment, and business.
+      - **Celebrities.** Identify thousands of well-known celebrities from sports, entertainment, and business domains.
       - **Landmarks.** Identify famous landmarks, like the Taj Mahal and the Statue of Liberty.
    - **Detect objects.** Identify common objects and return the coordinates of a bounding box.
    - **Detect brands.** Identify logos from an existing database of thousands of globally recognized product logos.
    - **Detect faces.** Detect and analyze human faces in an image. You can determine the age of the subject and return a bounding box that specifies the locations of faces. The facial analysis capabilities of the Computer Vision service are a subset of the ones provided by the dedicated Face service.
 
 - **Custom Vision**
-    - **Classify images.** Predict a category, or *class*, based on set of inputs, which are called *features*. Calculate a probability score for each possible class and a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels.
+    - **Classify images.** Predict a category, or *class*, based on set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels.
     - **Detect objects.** Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels.
 
 - **Face services**
