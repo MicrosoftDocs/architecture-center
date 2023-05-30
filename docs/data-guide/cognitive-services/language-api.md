@@ -34,7 +34,7 @@ Here are some details about language API services:
 
 ## Use cases
 
-The following table provides recommend services for specific use cases.
+The following table provides recommended services for specific use cases.
 
 | Use case | Service to use | Service category |
 |----------|-----------------|---|
