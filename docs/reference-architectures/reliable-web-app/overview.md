@@ -28,7 +28,7 @@ The reliable web app pattern provides prescriptive implementation guidance for w
 [![Diagram showing the principles of the reliable web app pattern](images/reliable-web-app-overview.svg)](images/reliable-web-app-overview.svg)
 *Figure 1. Overview of the reliable web app pattern.*
 
-The reliable web app pattern builds on the pillars of the Azure Well-Architected Framework (WAF), and it implements WAF principles that are essential for cloud adoption. These essential WAF principles are secure ingress, cost optimized, observable, infrastructure as code, and identity based security
+The reliable web app pattern builds on the pillars of the Azure Well-Architected Framework. The enterprise app patterns adheres to Azure Well-Architected principles and highlights several that are essential for the cloud adoption journey. These essential principles are secure ingress, cost optimized, observable, infrastructure as code, and identity based security
 
 ## Next steps
 

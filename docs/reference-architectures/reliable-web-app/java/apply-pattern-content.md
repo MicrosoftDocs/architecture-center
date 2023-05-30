@@ -12,11 +12,11 @@ A well-architected web application needs quality code, and quality code needs a 
 - [Production environment estimated cost](https://azure.com/e/65354031bc084e539b6c8ccfc1a7b097)
 - [Nonproduction environment estimated cost](https://azure.com/e/af7d105ce24340dab93dfe666909a3e0)
 
-The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework (WAF) principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
+The following table lists the principles of the reliable web app pattern. It includes the foundational Well-Architected Framework principles that form the foundation of all the Enterprise App Patterns. The table also highlights key feature of the pattern implementation.
 
 | Pattern principles | Pattern implementation |
 | --- | --- |
-| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*WAF principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Foundational Well Architected<br>Framework principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
