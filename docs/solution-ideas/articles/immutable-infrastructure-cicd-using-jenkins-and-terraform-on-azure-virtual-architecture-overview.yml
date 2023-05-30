@@ -24,6 +24,7 @@ metadata:
     - is-deployable
     - 'https://azure.microsoft.com/solutions/architecture/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview'
     - devx-track-terraform
+    - devx-track-jenkins
 name: Immutable infrastructure CI/CD using Jenkins and Terraform on Azure
 azureCategories:
   - devops
