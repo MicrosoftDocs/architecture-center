@@ -2,7 +2,7 @@ Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises 
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
-The common components for each solution are a Log Analytics workspace, a registered application, and an Event Hubs. The Log Analytics workspace sends logs to the Event Hubs.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the Event Hubs to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
+The core components for each solution is firewall. The firewall can be an Azure Firewall, Front Door with Web Application Firewall (WAL), Application Gateway with a WAF, or a Network Virtual Appliance (NVA). The Firewall secures the cloud perimeter, saving logs on each transaction. Independent of the firewall layer, the log collection and delivery solution require a Log Analytics workspace, a registered application, and an Event Hubs. The Log Analytics workspace sends logs to the Event Hubs.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the Event Hubs to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
 
 For more information on CLAW, TIC 3.0, and MTIPS, see:
 
@@ -14,7 +14,7 @@ For more information on CLAW, TIC 3.0, and MTIPS, see:
 
 ## Potential use cases
 
-Federal agencies are likely implementers of TIC 3.0 compliance solutions for their Azure services. These services may include web applications, API services, Azure Virtual Desktop, and internet egress for Azure-based virtual machines.
+Federal organizations and government agencies are the most likely implementers of TIC 3.0 compliance solutions for their Azure-based web applications and API services.
 
 > [!NOTE] 
 > Microsoft provides this information to Federal Civilian Executive Branch (FCEB) departments and agencies as part of a suggested configuration to facilitate participation in CISA’s CLAW capability. The suggested configurations are maintained by Microsoft and is subject to change.
@@ -68,6 +68,7 @@ Federal agencies are likely implementers of TIC 3.0 compliance solutions for the
   - Additional information about achieving compliance.
   - ARM templates to simplify deployment.
   - Information to assist with integrating existing resources into the solution.
+  - The types of logs collected per service layer.
 
 ### Operational excellence
 
@@ -104,7 +105,7 @@ The following solution integrates Azure Firewall to manage the traffic into your
 
  The solution includes:
 
-- A virtual network with a subnet for the firewall and servers.
+- A virtual network with separate subnets for the firewall and servers.
 - A Log Analytics workspace.
 - Azure Firewall with a network policy for internet access.
 - Azure Firewall diagnostic settings that send logs to the Log Analytics workspace.
