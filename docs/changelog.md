@@ -2,7 +2,7 @@
 title: What's New in Azure Architecture Center
 description: New and updated articles in Azure Architecture Center
 author: martinekuan
-ms.date: 05/22/2023
+ms.date: 05/29/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.author: martinek
@@ -28,6 +28,7 @@ The following new and updated articles have recently been published in the Azure
 ### New articles
 
 - [Model loan credit risk and default probability](./example-scenario/ai/loan-credit-risk-analyzer-default-modeling.yml)
+- [Contextualize data by using graph in SQL Database](./example-scenario/data/data-contextualization-based-on-azure-sql-graph.yml)
 - [Microsoft SaaS stories](./guide/saas/case-studies/saas-stories.md)
 - [Deploy Revit on an Azure virtual machine](./guide/hpc/hpc-autodesk-revit.yml)
 - [Deploy and operate apps with AKS hybrid on Azure Stack HCI or Windows Server](./example-scenario/hybrid/aks-hybrid-stack-hci.yml)
@@ -38,6 +39,10 @@ The following new and updated articles have recently been published in the Azure
 
 ### Updated articles
 
+- [Send Databricks app logs to Azure Monitor](./databricks-monitoring/application-logs.md)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
+- [Dashboards to visualize Azure Databricks metrics](./databricks-monitoring/dashboards.md)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
+- [Observability patterns and metrics](./databricks-monitoring/databricks-observability.yml)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
+- [Troubleshoot Databricks performance issues](./databricks-monitoring/performance-troubleshooting.md)  ([#a468053fea](https://github.com/MicrosoftDocs/architecture-center/commit/a468053fea))
 - [Deploy SAS Grid 9.4 on Azure NetApp Files](./guide/hpc/netapp-files-sas.yml)  ([#171bf64397](https://github.com/MicrosoftDocs/architecture-center/commit/171bf64397))
 - [AKS triage - cluster health](./operator-guides/aks/aks-triage-cluster-health.md)  ([#7761b27710](https://github.com/MicrosoftDocs/architecture-center/commit/7761b27710))
 

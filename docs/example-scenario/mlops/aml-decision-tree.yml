@@ -8,7 +8,9 @@ metadata:
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario
-  ms.custom: fcp
+  ms.custom:
+    - fcp
+    - devx-track-python
 azureCategories:
   - developer-tools
   - hybrid
