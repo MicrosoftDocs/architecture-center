@@ -38,7 +38,7 @@ This flow chart can help you choose the speech service that suits your needs:
 The left side of the diagram illustrates audio-to-audio or audio-to-text processes. 
 
 - Speech-to-text is used to convert speech from an audio source to a text format.
-- Speech-to-speech is used to translate speech in one language to text or to speech in another language.
+- Speech-to-speech is used to translate speech in one language to speech in another language.
 
 The right side of the diagram illustrates text-to-audio processes.
 
@@ -53,7 +53,7 @@ The following table recommends services for some common use cases.
 | Provide closed captions for recorded or live videos | Speech-to-text |
 | Create a transcript of a phone call or meeting | Speech-to-text |
 | Implement automated note dictation | Speech-to-text |
-| Determine intended user input for further processing | |
+| Determine intended user input for further processing | Speech-to-text|
 | Generate spoken responses to user input | Text-to-speech |
 | Create voice menus for telephone systems | Text-to-speech |
 | Read email or text messages aloud in hands-free scenarios | Text-to-speech |
