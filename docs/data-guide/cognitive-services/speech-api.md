@@ -21,7 +21,7 @@ ms.custom:
 You can use the Azure Cognitive Services Speech service to perform spoken language transformations, including speech-to-text, text-to-speech, speech translation, and speaker recognition.
 
 > [!NOTE]
-> Use [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written languages.
+> Use [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/overview) if you want to gather insights on terms or phrases or get detailed contextual analysis of spoken or written language.
 
 ## Services
 
@@ -58,7 +58,7 @@ The following table recommends services for some common use cases.
 | Create voice menus for telephone systems | Text-to-speech |
 | Read email or text messages aloud in hands-free scenarios | Text-to-speech |
 | Broadcast announcements in public locations, like railway stations or airports | Text-to-speech |
-| Produce real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation | Speech-to-speech |
+| Produce real-time closed captioning for a speech or simultaneous two-way translation of a spoken conversation | Speech-to-text |
 
 ## Contributors
 

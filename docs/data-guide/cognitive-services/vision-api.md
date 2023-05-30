@@ -1,40 +1,41 @@
 ---
-title: Different Types of Vision API Services
-description: Learn about Azure Cognitive Service for Vision for understanding and analyzing text.
+title: Types of vision API services
+description: Learn about using Cognitive Service for Vision to understand and analyze images and video. Learn which service to use for a specific use case.
 author: kruti-m
-ms.author: architectures
-categories: azure
-ms.date: 03/14/2023
+ms.author: krmeht
+categories: 
+  - ai-machine-learning
+  - analytics 
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-cognitive-services
-  - vision-service
 ms.custom:
   - analytics
   - guide
 ---
 
-# Different types of vision API services
+# Types of vision API services
 
-Azure Cognitive Service for Vision is one of the broadest categories under Cognitive Services. The APIs allow you to incorporate vision features such as analyzing images, face detection, spatial analysis, and optical character recognition (OCR) to your applications with no machine learning knowledge.
+Azure Cognitive Service for Vision is one of the broadest categories in Cognitive Services. You can use the APIs to incorporate vision features like image analysis, face detection, spatial analysis, and optical character recognition (OCR) in your applications, even if you have limited knowledge of machine learning.
 
-## Service categories
+## Services
 
-At a high Level Vision API's are categorized as follows
+Here are some broad categories of vision APIs:
 
-- [Computer Vision](/azure/cognitive-services/computer-vision/overview) - With this API you can access advanced algorithms that process images and return information based on the visual features you're interested in. It provides 4 major services namely Optical Character Recognition(OCR), Face, Image Analysis and Spatial Analysis. Form recognizer is an advanced version of OCR.
-- [Custom Vision](/azure/cognitive-services/Custom-Vision-Service/overview) - Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models
-- [Face Service](/azure/cognitive-services/computer-vision/overview-identity) - This provides AI algorithms that detect, recognize, and analyze human faces in images.
+- [Computer Vision](/azure/cognitive-services/computer-vision/overview) provides advanced algorithms that process images and return information based on the visual features you're interested in. It provides four services: OCR, Face service, Image Analysis, and Spatial Analysis. Form Recognizer is an advanced version of OCR.
+- [Custom Vision](/azure/cognitive-services/Custom-Vision-Service/overview) is an image recognition service that you can use to build, deploy, and improve your own image identifier models.
+- [Face service](/azure/cognitive-services/computer-vision/overview-identity) provides AI algorithms that detect, recognize, and analyze human faces in images.
 
-## Key considerations
+## How to choose a service
 
 - **Type of Data:** Images/Text/Videos
 - **What is the operation you are performing:** Extracting/Detecting/Classifying
 
 The following flow chart helps you how to go about choosing the Vision service based on your processing needs
-![Diagram that shows how to select Speech Services](../images/CognitiveServicesVisionAPI.png)
+![Diagram that shows how to select vision Services](../images/CognitiveServicesVisionAPI.png)
 
 ### Common use cases
 
