@@ -55,7 +55,7 @@ The following flow chart can help you choose a vision service for your specific 
    - **Detect faces.** Detect and analyze human faces in an image. You can determine the age of the subject and return a bounding box that specifies the locations of faces. The facial analysis capabilities of the Computer Vision service are a subset of the ones provided by the dedicated Face service.
 
 - **Custom Vision**
-    - **Classify images.** Predict a category, or *class*, based on set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels.
+    - **Classify images.** Predict a category, or *class*, based on a set of inputs, which are called *features*. Calculate a probability score for each possible class and return a label that indicates the class that the object most likely belongs to. To use this model, you need data that consists of features and their labels.
     - **Detect objects.** Get the coordinates of an object in an image. To use this model, you need data that consists of features and their labels.
 
 - **Face services**
