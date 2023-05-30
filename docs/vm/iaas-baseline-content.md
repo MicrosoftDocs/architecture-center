@@ -187,11 +187,16 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 ## Monitoring
 //{BRYAN} pulling this above the line for now so we can iterate 
 
-### Collecting data
+:::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS network data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
+*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
+
+### Data collection
 
 Talk about the various ways logs/metrics/etc are collected via agents, Azure log analytics, etc.
 
-##### VM Insights
+##### Health probes
+##### Logs
+##### Log analytic workspace
 
 ##### Managed disks
 
@@ -207,10 +212,12 @@ If your architecture uses bursting for cost optimization, then you’ll want to 
 
 VM Insights is how we recommend you get key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
 
+##### Workload metrics and instrumentation
+##### VM Insights
 
-### Analyzing data
+### Data analysis
 
-Talk about how we analyze monitoring data 
+Talk about how we analyze the monitoring data collected from various sources
 
 
 
@@ -366,17 +373,7 @@ If you need to write a sequence of commands, use [Azure CLI](/cli/azure/what-is-
 Store and version scripts and template files in your source control system.
 
 
-### Monitoring
 
-:::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS network data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
-*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
-
-##### VM insights (will we using other insights?)
-##### Workload metrics and instrumentation
-##### Health probes
-##### Platform metrics
-##### Logs
-##### Log analytic workspace
 
 ### Networking
 
