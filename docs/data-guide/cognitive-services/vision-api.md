@@ -33,9 +33,9 @@ Here are some broad categories of vision APIs:
 
 The following flow chart can help you choose a vision service for your specific use case:
 
-![Diagram that shows how to choose a vision service.](images/cognitive-services-vision-api.png)
+:::image type="content" source="images/cognitive-services-vision-api.png" alt-text="Diagram that shows how to choose a vision service." lightbox="images/cognitive-services-vision-api.png" border="false":::
 
-### Common use cases
+## Common use cases
 
 - **Computer Vision**
    - **Describe an image.** Analyze an image, evaluate the objects that are detected, and generate a human-readable phrase or sentence that describes the image.
