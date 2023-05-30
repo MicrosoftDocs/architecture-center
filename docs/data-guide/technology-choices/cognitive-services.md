@@ -3,12 +3,16 @@ title: Choose a cognitive services technology
 description: Learn about Azure cognitive services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
 author: kruti-m
 ms.author: krmeht
-categories: azure
+categories: 
+  - ai-machine-learning
+  - analytics
 ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
+  - azure-cognitive-services
+  - azure-applied-ai-services
   - azure-custom-vision
 ms.custom:
   - cognitive services
@@ -21,7 +25,7 @@ Azure cognitive services are cloud-based APIs that you can use in AI application
 
 **Key benefits:**
 
-- Minimal development effort for state-of-the-art AI services. Use pre-defined algorithms or create custom algorithms on top of pre-built libraries.
+- Minimal development effort for state-of-the-art AI services. Use predefined algorithms or create custom algorithms on top of pre-built libraries.
 - Easy integration into apps via HTTP REST interfaces.
 - Developers and data scientists of all skill levels can easily add AI capabilities to apps.
 
@@ -39,7 +43,7 @@ Dozens of cognitive services are available in Azure. Here's a list, categorized 
 | [Language](https://azure.microsoft.com/products/cognitive-services/language-service/) | [Choose a language service](../cognitive-services/language-api.md) | Language cognitive services are services that provide Natural Language Processing (NLP) features for understanding and analyzing text. |
 | [Speech](https://azure.microsoft.com/products/cognitive-services/speech-services/) | [Choose a speech service](../cognitive-services/speech-api.md) | Speech cognitive services are services that provide speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. |
 | [Vision](https://azure.microsoft.com/products/cognitive-services/vision-services/) | [Choose a vision service](../cognitive-services/vision-api.md) | Vision cognitive services are services that provide image and video recognition capabilities. |
-| Decision services<br/><ul><li>[Anomoly Detector](https://azure.microsoft.com/products/cognitive-services/anomaly-detector/)</li><li>[Content Moderator](https://azure.microsoft.com/products/cognitive-services/content-moderator/)</li><li>[Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/)</li></ul><br/>Applied AI Services<br/><ul><li>[Azure Cognitive Search](https://azure.microsoft.com/products/search/)</li></ul> | [Choose a decision API or applied AI service](../cognitive-services/decision-applied-ai.md) | Decision cognitive services are services that provide NLP features to produce recommendations for informed and efficient decision-making. |
+| Decision services<br/><ul><li>[Anomaly Detector](https://azure.microsoft.com/products/cognitive-services/anomaly-detector/)</li><li>[Content Moderator](https://azure.microsoft.com/products/cognitive-services/content-moderator/)</li><li>[Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/)</li></ul><br/>Applied AI Services<br/><ul><li>[Azure Cognitive Search](https://azure.microsoft.com/products/search/)</li></ul> | [Choose a decision API or applied AI service](../cognitive-services/decision-applied-ai.md) | Decision cognitive services are services that provide NLP features to produce recommendations for informed and efficient decision-making. |
 | [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/) | N/A | Azure OpenAI Service provides REST API access to powerful OpenAI  language models. |
 
 ## Common use cases
@@ -52,17 +56,17 @@ The following are some common use cases for Azure Cognitive Services.
 | Convert text to lifelike speech for more natural interfaces. | Speech |
 | Integrate real-time speech translation into your apps. | Speech |
 | Identify and verify the person speaking by using voice characteristics. | Speech |
-| Identify commonly-used and domain-specific terms. | Language |
+| Identify commonly used and domain-specific terms. | Language |
 | Automatically detect sentiments and opinions from text. | Language |
 | Distill information into easy-to-navigate questions and answers. | Language |
 | Enable your apps to interact with users through natural language. | Language  |
 | Translate more than 100 languages and dialects. | Language |
 | Identify and analyze content in images and video. | Vision |
 | Customize image recognition to fit your business needs. | Vision |
-| Identify potential problems early. | Decision services / Anomoly Detector  |
+| Identify potential problems early. | Decision services / Anomaly Detector  |
 | Detect potentially offensive or unwanted content. | Decision services / Content Moderator  |
 | Create rich, personalized experiences for every user. | Decision services / Personalizer  |
-| Apply advanced coding and language models to a variety of use cases. | Azure OpenAI  |
+| Apply advanced coding and language models to various use cases. | Azure OpenAI  |
 
 ## Key selection criteria
 
