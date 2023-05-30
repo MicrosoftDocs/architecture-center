@@ -12,6 +12,7 @@ ms.service: architecture-center
 ms.subservice: azure-guide
 products:
   - azure-cognitive-services
+  - azure-custom-vision
 ms.custom:
   - analytics
   - guide
