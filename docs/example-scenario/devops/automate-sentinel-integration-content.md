@@ -334,7 +334,7 @@ By following this practice, your team can evaluate your MITRE coverage based on 
 
 The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions that you can take.
 
-:::image type="content" source="./media/build-artifact-process-lightbox.png" alt-text="Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.png":::
+:::image type="content" source="./media/build-artifact-process-lightbox.svg" alt-text="Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -356,7 +356,7 @@ Usually, multiple teams work over several Microsoft Sentinel instances to genera
 
 The following diagram shows an example artifact extraction process.
 
-:::image type="content" source="./media/artifact-extraction-process-lightbox.png" alt-text="Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.png":::
+:::image type="content" source="./media/artifact-extraction-process-lightbox.svg" alt-text="Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -372,7 +372,7 @@ Development teams use the process to ensure they can deploy, test, and validate 
 
 The following diagram shows the deployment process sequence that ensures your artifacts are deployed in the right order.
 
-:::image type="content" source="./media/artifact-deployment-process-lightbox.png" alt-text="Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.png":::
+:::image type="content" source="./media/artifact-deployment-process-lightbox.svg" alt-text="Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -402,7 +402,7 @@ Depending on the automation language you choose, some automation capabilities mi
 
 The following diagram shows the components of simplifying Microsoft Sentinel access with managed service identity.
 
-![Diagram of simplifying Microsoft Sentinel access with managed service identity.](./media/azure-sentinel-managed-service-identity.png)
+![Diagram of simplifying Microsoft Sentinel access with managed service identity.](./media/azure-sentinel-managed-service-identity.svg)
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
