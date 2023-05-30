@@ -112,7 +112,7 @@ Azure Monitor is a comprehensive suite of monitoring tools for collecting data f
 
 ### Cache
 
-[Azure Cache for Redis](/azure-cache-for-redis/cache-overview) is a managed in-memory data store that's based on Redis software. The web app needs a cache that provides the following benefits:
+[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) is a managed in-memory data store that's based on Redis software. The web app needs a cache that provides the following benefits:
 
 - **Speed and volume.** It has high-data throughput and low latency reads for commonly accessed, slow-changing data.
 - **Diverse supportability.** It's a unified cache location that all instances of the web app can use.
