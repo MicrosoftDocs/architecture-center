@@ -21,7 +21,7 @@ ms.custom:
 
 # Choose an Azure Cognitive Services technology
 
-Azure cognitive services are cloud-based APIs that you can use in AI applications and data flows. They provide pretrained models that are ready to use in your applications, requiring no data and no model training on your part. The cognitive services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms. They're consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
+Azure Cognitive Services is a set of cloud-based APIs that you can use in AI applications and data flows. They provide pretrained models that are ready to use in your applications, requiring no data and no model training on your part. The cognitive services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms. They're consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
 
 **Key benefits:**
 
