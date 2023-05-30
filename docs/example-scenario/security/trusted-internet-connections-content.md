@@ -58,13 +58,16 @@ Federal organizations and government agencies are the most likely implementers o
   - [Event Hubs](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about) Standard is a modern big data streaming platform and event ingestion service.
   - CISA TALON is a CISA operated service running in Azure. TALON connects to the customer's Event Hubs, authenticates using a CISA supplied certificate associated with a customer's Service Principal, and collect the logs on behalf of the customer for CLAW consumption.
 
-
 ### Alternatives
+
+A few alternatives exist for this solution:
 
 - You can separate log collection into areas of responsibility. For instance, Azure AD logs can be sent to a Log Analytics workspace managed by an identity team, and network logs can be sent to a different Log Analytics workspace managed by the network team.
 - If your environment requires internet egress from Azure-based virtual machines then you can use a Layer 3 based solution like Azure Firewall or a Third-party firewall to monitor and log the outbound traffic.
 
 ## Considerations
+
+These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/architecture/framework).
 
 - There are various solutions that you can deploy, depending on your current situation. Evaluate your current architecture to determine which solution provides your best approach to TIC 3.0 compliance.
 - Contact your CISA representative to request CLAW access.
@@ -77,10 +80,14 @@ Federal organizations and government agencies are the most likely implementers o
 
 ### Operational excellence
 
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/devops/overview).
+
 - [Azure Alerts](/azure/azure-monitor/alerts/alerts-overview) is built into the solution to notify you when an upload fails to deliver logs to the CLAW. It's up to you to determine the severity of alerts and how to respond.
 - Use ARM templates to speed up the deployment of TIC 3.0 architectures for new applications.
 
-### Performance
+### Performance efficiency
+
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/overview).
 
 - [Azure Firewall](/azure/firewall/firewall-performance), [Application Gateway](/azure/application-gateway/application-gateway-faq#performance), [Azure Front Door](/azure/frontdoor/scenarios#performance-efficiency), and [Event Hubs](/azure/architecture/serverless/event-hubs-functions/performance-scale) performance scales as usage increases.
 - Azure Firewall Premium allows more TCP connections than Standard and provides greater bandwidth.
@@ -90,12 +97,16 @@ Federal organizations and government agencies are the most likely implementers o
 
 ### Reliability
 
+Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview).
+
 - Azure Firewall Standard and Premium tiers integrate with availability zones to increase availability.
 - Application Gateway v2 supports autoscaling and availability zones to increase reliability.
 - Multi-region implementations that include load balancing services like Azure Front Door can improve reliability and resiliency.
 - Event Hubs Standard and Premium provide Geo-disaster recovery pairing that allows the namespace to fail over to a secondary region.
 
 ### Security
+
+Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](https://learn.microsoft.com/en-us/azure/architecture/framework/security/overview).
 
 - Registering an enterprise application creates a service principal. Use a naming scheme for service principals that indicates their purpose.
 - Perform audits to determine the activity of service principals and the status of service principal owners.
