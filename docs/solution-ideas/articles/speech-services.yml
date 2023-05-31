@@ -19,7 +19,6 @@ metadata:
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/speech-services"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/speech-services.png
 name: Speech services
 azureCategories:
   - ai-machine-learning

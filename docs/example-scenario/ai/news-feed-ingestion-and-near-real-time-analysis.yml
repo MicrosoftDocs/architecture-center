@@ -18,7 +18,6 @@ metadata:
     - internal-intro
     - ai-machine-learning
     - aml-project-improvement
-  social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
 name: Analyze news feeds with near real-time analytics using image and natural language processing
 azureCategories:
   - analytics

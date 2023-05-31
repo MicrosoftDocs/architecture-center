@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.date: 01/22/2022
 ms.author: tdsp
 ms.custom:
-  - devx-track-python
   - previous-author=deguhath
   - previous-ms.author=deguhath
 products:

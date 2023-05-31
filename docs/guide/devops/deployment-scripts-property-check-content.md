@@ -10,7 +10,7 @@ You can adapt the files for your deployment. The azResourceStateCheck.bicep modu
 
 ## Architecture
 
-[![Diagram that shows the architecture that the Workflow section describes.](images/deployment-scripts-property-check.png)](images/deployment-scripts-property-check.png#lightbox)
+[![Diagram that shows the architecture that the Workflow section describes.](images/deployment-scripts-property-check.svg)](images/deployment-scripts-property-check.svg#lightbox)
 
 *Download a [Visio file](https://arch-center.azureedge.net/deployment-scripts-property-check.vsdx) of this architecture.*
 

@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-python
+---
 This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins or Travis.
 
 A reference implementation for this architecture is available on [GitHub][repo].

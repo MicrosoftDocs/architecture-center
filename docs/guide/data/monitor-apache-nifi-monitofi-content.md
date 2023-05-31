@@ -6,7 +6,8 @@ This solution monitors deployments of Apache NiFi on Azure by using MonitoFi. Th
 
 ## Architecture
 
-:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.png" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false":::
+:::image type="content" source="./media/monitor-apache-nifi-monitofi-architecture.svg" alt-text="Diagram showing the flow of data between a NiFi cluster and MonitoFi. Other architecture components include Application Insights, InfluxDB, and Grafana." border="false" lightbox="./media/monitor-apache-nifi-monitofi-architecture.svg":::
+*Download a [Visio file](https://arch-center.azureedge.net/monitor-apache-nifi-monitofi.vsdx) of this architecture.*
 
 ### Workflow
 

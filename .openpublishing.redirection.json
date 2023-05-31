@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "docs/solution-ideas/articles/loan-credit-risk-analyzer-and-default-modeling.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-and-default-modeling",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "docs/reference-architectures/identity/adds-extend-domain.yml",
       "redirect_url": "/azure/architecture/example-scenario/identity/adds-extend-domain",
       "redirect_document_id": false
@@ -2508,6 +2513,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "docs/solution-ideas/articles/aks-api-first.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/aks-demand-spikes.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/aks-iot-data-streaming.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cloud-native-apps.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/scale-using-aks-with-aci.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/secure-devops-for-kubernetes.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/containers/aks-start-here",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/solution-ideas/articles/scalable-web-apps-content.md",
       "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
       "redirect_document_id": false
@@ -2671,6 +2706,106 @@
       "source_path": "docs/guide/microsoft-cloud/summary.md",
       "redirect_url": "/microsoft-cloud/dev/overview/summary",
       "redirect_document_id": false
-    }                        
+    },   
+    {
+      "source_path": "docs/example-scenario/wvd/windows-virtual-desktop-fslogix.yml",
+      "redirect_url": "/fslogix/concepts-configuration-examples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/apps/devops-dotnet-baseline.yml",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-baseline-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/cicd-for-azure-vms.yml",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-iaas-vms-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps.yml",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-azure-web-apps-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/dev-test-iaas.yml",
+      "redirect_url": "/azure/devops/pipelines/architectures/devops-pipelines-devtest-iaas-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/azure-databricks-modern-analytics-architecture-experiment.yml",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/azure-databricks-modern-analytics-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/infrastructure/multi-tier-app-disaster-recovery-experiment.yml",
+      "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/dataplate2e/data-platform-end-to-end-experiment.yml",
+      "redirect_url": "/azure/architecture/example-scenario/dataplate2e/data-platform-end-to-end",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/data/cluedin-experiment.yml",
+      "redirect_url": "/azure/architecture/reference-architectures/data/cluedin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reliability/architect.md",
+      "redirect_url": "/azure/well-architected/resiliency/app-design",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/data-science-process/predictive-maintenance-architecture.md",
+      "redirect_url": "/azure/architecture/industries/aerospace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/ads.md",
+      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/serverless-quest/code-with.md",
+      "redirect_url": "/azure/architecture/serverless-quest/serverless-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/durable-functions-containers.yml",
+      "redirect_url": "/azure/architecture/example-scenario/serverless/automation-application-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters.yml",
+      "redirect_url": "/azure/architecture/example-scenario/ai/loan-credit-risk-analyzer-default-modeling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/containers/blue-green-deployment-for-aks/blue-green-deployment-for-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/blue-green-deployment-for-aks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/solution-ideas/articles/microservices-with-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-cicd-azure-pipelines",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/aks-firewall/aks-firewall.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/apps/devops-with-aks.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "docs/example-scenario/aks-dualstack/aks-dual-stack.yml",
+      "redirect_url": "/azure/architecture/guide/aks/aks-dual-stack",
+      "redirect_document_id": true
+    }
   ]
 }

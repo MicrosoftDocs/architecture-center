@@ -20,7 +20,7 @@ The diagram's dataflow elements are described here:
 
 - To increase capacity, the customer uses two Azure subscriptions in a hub-spoke architecture and connects them via virtual network peering.
 
-For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.yml).
+For more information about FSLogix Profile Container - Azure Files and Azure NetApp Files best practices, see [FSLogix configuration examples](/fslogix/concepts-configuration-examples).
 
 ### Components
 
@@ -150,7 +150,7 @@ Azure Virtual Desktop, much like Azure, has certain service limitations that you
 - For automated session-host scaling tools, the limits are around 2,500 VMs per Azure subscription per region, because VM status interaction consumes more resources.
 - To manage enterprise environments with more than 5,000 VMs per Azure subscription in the same region, you can create multiple Azure subscriptions in a hub-spoke architecture and connect them via virtual network peering, as in the preceding example architecture. You could also deploy VMs in a different region in the same subscription to increase the number of VMs.
 - Azure Resource Manager (ARM) subscription API throttling limits don't allow more than 600 Azure VM reboots per hour via the Azure portal. You can reboot all your machines at once via the operating system, which doesn't consume any Azure Resource Manager subscription API calls. For more information about counting and troubleshooting throttling limits based on your Azure subscription, see [Troubleshoot API throttling errors](/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors).
-- You can currently deploy 399 VMs per Azure Virtual Desktop ARM template deployment without [Availability Sets](/azure/virtual-machines/availability#availability-sets), or 200 VMs per Availability Set. You can increase the number of VMs per deployment by switching off Availability Sets in either the ARM template or the Azure portal host pool enrollment.
+- You can currently deploy up to 132 VMs in a single ARM template deployment in the Azure Virtual Desktop portal. To create more than 132 VMs, run the ARM template deployment in the Azure Virtual Desktop portal multiple times.
 - Azure VM session-host name prefixes can't exceed 11 characters, due to auto-assigning of instance names and the NetBIOS limit of 15 characters per computer account.
 - By default, you can deploy up to 800 instances of most resource types in a resource group. Azure Compute doesn't have this limit.
 
@@ -200,5 +200,4 @@ Principal author:
 
 ## Related resources
 
-- For best practices documentation, see [FSLogix for the enterprise](./windows-virtual-desktop-fslogix.yml).
 - For more information about multiple Active Directory forests architecture, see [Multiple Active Directory forests architecture in Azure Virtual Desktop](./multi-forest.yml).
