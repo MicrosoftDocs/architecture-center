@@ -27,20 +27,22 @@ This article provides a baseline architecture for running web applications on Az
 
 ## Networking
 
-Network security is at the core of the App Services baseline architecture (*see Figure 2*). From a high level, the network architecture ensures three things:
+Network security is at the core of the App Services baseline architecture (*see Figure 2*). From a high level, the network architecture ensures the following:
 
 1. A single secure entry point for client traffic
-2. Virtual network integration to minimize network exposure for PaaS services
-3. Network segmentation to logically group and isolate network resources from each other.
+1. Network traffic is filtered
+1. Data in transit is encrypted end-to-end with TLS
+1. Data exfiltration is minimized by keeping traffic in Azure through the use of Private Link
+1. Network resources are logically grouped and isolated from each other through network segmentation
 
 ### Network flows
 
 :::image type="complex" source="images/baseline-app-service-network-architecture.svg" lightbox="images/baseline-app-service-network-architecture.svg" alt-text="Diagram that shows a baseline App Service network architecture.":::
-    The diagram is the same as the Baseline Azure App Service architecture with two numbered network flows. The inbound flow shows a line from the user to the Azure Application Gateway with Web Application Firewall (WAF). The second number is for WAF. The third number shows that private DNS zones are linked to the virtual network. The fourth number shows App Gateway using private endpoints to communicate to App Service. The first number in the outbound flow shows an arrow from App Service to a virtual interface. The second, again shows that private DNS zones are linked to the virtual network. The third shows arrows from the virtual interface communicating via private endpoints to Azure PaaS services.
+    The diagram is the same as the Baseline Azure App Service architecture with two numbered network flows. The inbound flow shows a line from the user to the Azure Application Gateway with Web Application Firewall (WAF). The second number is for WAF. The third number shows that private DNS zones are linked to the virtual network. The fourth number shows App Gateway using private endpoints to communicate to App Service. The first number in the flow from App Service to Azure PaaS services shows an arrow from App Service to a virtual interface. The second, again shows that private DNS zones are linked to the virtual network. The third shows arrows from the virtual interface communicating via private endpoints to Azure PaaS services.
 :::image-end:::
 *Figure 2: Network architecture of the baseline Azure App Service application*
 
-The following are descriptions of the inbound flow of internet traffic to the App Service instance, and the outbound flow from the App Service to Azure services.
+The following are descriptions of the inbound flow of internet traffic to the App Service instance, and the flow from the App Service to Azure services.
 
 #### Inbound flow
 
@@ -49,7 +51,7 @@ The following are descriptions of the inbound flow of internet traffic to the Ap
 3. The private DNS zone `privatelink.azurewebsites.net` is linked to the virtual network. The DNS zone has an A record that maps the App Service default domain to the private IP address of the App Service private endpoint. This linked private DNS zone allows Azure DNS to resolve the default domain to the private endpoint IP address.
 4. The request is routed to an App Service instance through the private endpoint.
 
-#### Outbound flow
+#### App Service to Azure PaaS services flow
 
 1. App Service makes a request to the DNS name of the required Azure service. The request could be to Azure Key Vault to get a secret, Azure Storage to get a publish zip file, Azure SQL Database, or any other Azure service that supports Private Link. The App Service [virtual network integration](/azure/app-service/overview-vnet-integration) feature routes the request through the virtual network.
 2. Like step 3 in the inbound flow, the linked private DNS zone has an A record that maps the Azure service's domain to the private IP address of the private endpoint. Again, this linked private DNS zone allows Azure DNS to resolve the domain to the private endpoint IP address of the service.
@@ -66,7 +68,7 @@ Application Gateway is a regional resource that meets the requirements of this b
 - Consider using a minimum scale instance count of no less than three and always use all the availability zones your region supports. While Application Gateway is deployed in a highly available fashion, even for a single scale instance, [creating a new instance upon a failure can take up to seven minutes](/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability). Deploying multiple instances across Availability Zones help ensure, upon a failure, an instance is running while a new instance is being created.
 - Disable public network access on the App Service to ensure network isolation. In Bicep, this is accomplished by setting `publicNetworkAccess: 'Disabled'` under properties/siteConfig.
 
-### Egress from App Services to Azure services
+### Flow from App Services to Azure services
 
 This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) for the App Service, specifically to route traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing* to force all outbound traffic through the virtual network, just traffic bound for private endpoints.
 
@@ -82,7 +84,7 @@ Consider the following points when implementing virtual network integration and 
 - Configure service firewalls to ensure the storage account, key vault, SQL Database, and other Azure services can only be connected to privately.
   - [Set storage account default network access rule](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule) to deny all traffic.
   - [Enable Key Vault for Private Link](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link).
-  - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings?view=azuresql&tabs=azure-portal#deny-public-network-access)
+  - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings?view=azuresql&tabs=azure-portal#deny-public-network-access).
 
 ### Virtual network segmentation and security
 
@@ -102,20 +104,18 @@ Consider the following points when implementing virtual network segmentation and
 
 ## Reliability  
 
-The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability Zones provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). When one zone experiences downtime, the other zones are unaffected.
+The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). When one zone experiences downtime, the other zones are unaffected.
 
-The architecture also ensures there are enough instances of the Azure services to meet demand. The following sections provide reliability guidance for key services in the architecture.
+The architecture also ensures there are enough instances of the Azure services to meet demand. The following sections provide reliability guidance for key services in the architecture. In this way, availability zones help you achieve reliability by providing high availability and fault tolerance.
 
 ### Application Gateway
 
-- Deploy Azure Application Gateway v2 in a zone redundant configuration. Set the minimum capacity of the autoscale configuration to at least two to avoid the six to seven-minute startup time for an instance of Application Gateway if there is a failure.
-- Implement autoscaling for Application Gateway to scale in or out to meet demand.
+Deploy Azure Application Gateway v2 in a zone redundant configuration. Consider using a minimum scale instance count of no less than three to avoid the six to seven-minute startup time for an instance of Application Gateway if there is a failure.
 
 ### App Services
 
-- Deploy a minimum of three instances of App Services with Availability Zone support. Availability zones are physically separate locations within a region. They help you achieve reliability by providing high availability and fault tolerance.
+- Deploy a minimum of three instances of App Services with Availability Zone support.
 - Implement health check endpoints in your apps and configure the App Service health check feature to reroute requests away from unhealthy instances. For more information about App Service Health check, see [Monitor App Service instances using health check](/azure/app-service/monitor-instances-health-check). For more information about implementing health check endpoints in ASP.NET applications, see [Health checks in ASP.NET Core](https://learn.microsoft.com/aspnet/core/host-and-deploy/health-checks).
-- Create autoscale rules to automatically add more instances to take the load if a zone or instance fails. For more information about autoscale best practices in Azure, see [Autoscaling](/azure/architecture/best-practices/auto-scaling).
 - Over provision capacity to be able to handle zone failures.
 
 ### SQL Database  
@@ -136,17 +136,18 @@ Scalability allows applications to handle increases and decreases in demand whil
 
 - Implement autoscaling for Application Gateway to scale in or out to meet demand.
 - Set the maximum instance count to a number higher than your expected need. You'll only be charged for the Capacity Units you use.
-- Set a minimum instance count that can handle small spikes in traffic. Autoscaling takes six to seven minutes to scale out and provision instances ready to take traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
-- Ensure your Application Gateway subnet has enough available IP addresses to meet your scaling needs. If your scaling needs exceed your subnet size, you'll have to redeploy your Application Gateway in a new, larger subnet.
+- Set a minimum instance count that can handle small spikes in traffic. You can use [average Compute Unit usage](/azure/application-gateway/high-traffic-support#set-your-minimum-instance-count-based-on-your-average-compute-unit-usage) to calculate your minimum instance count.
+- Follow the [guidance on sizing the Application Gateway subnet](/azure/application-gateway/configuration-infrastructure#size-of-the-subnet).
 
 ### App Service
 
-- Use Standard or higher plans with two or more worker instances for high availability.
+- Use Standard or higher plans with three or more worker instances for high availability.
 - Enable [Autoscale](/azure/azure-monitor/autoscale/autoscale-get-started) to make sure you can scale up and down to meet demand.
 - Consider [opening a support ticket to increase the maximum number of workers to two times the instance count](/azure/well-architected/services/compute/azure-app-service/reliability#configuration-recommendations) if your App Service consistently uses half the number of maximum instances. The maximum number of instances defaults to up to 30 for a Premium App Service plan and 10 for a Standard plan.
 - Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
 - Choose the right [Azure App Service plan]( /azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
 - [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
+- Consider [App Service Environment]( /azure/app-service/environment/overview) if noisy neighbors are a concern.
 
 ### SQL Server
 
@@ -155,7 +156,6 @@ Scaling database resources is a complex topic outside of the scope of this archi
 - [Dynamically scale database resources with minimal downtime]( /azure/azure-sql/database/scale-resources)
 - [Scaling out with Azure SQL Database]( /azure/azure-sql/database/elastic-scale-introduction)
 - [Use read-only replicas to offload read-only query workloads]( /azure/azure-sql/database/read-scale-out)
-- Consider [App Service Environment]( /azure/app-service/environment/overview) if noisy neighbors are a concern.
 
 ### Other scalability guidance
 
@@ -164,7 +164,6 @@ Scaling database resources is a complex topic outside of the scope of this archi
   - Semi-static transaction data.
   - Session state.
   - HTML output. This can be useful in applications that render complex HTML output.
-- Cache static content in [Azure Content Delivery Network](https://azure.microsoft.com/products/cdn/).
 
 ## Security
 
@@ -200,7 +199,7 @@ Consider the following recommendations when configuring data-in-transit encrypti
 - Minimize database encryption latency. To minimize encryption latency, place the data you need to secure in its own database and only enable encryption for that database.
 - Understand built-in encryption support. [Azure Storage automatically encrypts](/azure/storage/common/storage-service-encryption) data at rest using server-side encryption (256-bit AES). Azure Monitor automatically encrypts data at rest using Microsoft-managed key (MMKs).
 
-### Identity
+### Identity and Access Management
 
 The App Service baseline configures authentication and authorization for user identities (users) and workload identities (Azure resources) and implements the principle of least privilege.
 
