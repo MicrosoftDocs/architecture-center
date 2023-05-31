@@ -32,6 +32,6 @@ products:
   - azure-hdinsight
   - azure-search
   - azure-storage
-thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-postgresql.svg
+thumbnailUrl: /azure/architecture/browse/thumbs/retail-and-ecommerce-using-azure-database-for-postgresql.png
 content: |
    [!include[](retail-and-ecommerce-using-azure-database-for-postgresql-content.md)]
