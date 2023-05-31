@@ -11,22 +11,23 @@ This solution is ideal for small to medium-sized WordPress installations. It pro
 
 ### Dataflow
 
-This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers and MariaDB. There are two distinct data flows in this scenario the first is users access the website:
+This scenario covers a scalable and secure installation of WordPress that uses managed PaaS service [WordPress on AppService](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress). 
 
-1. Users access the front-end website through a CDN (Azure Front Door *or* Azure CDN).
+1. Users access the front-end website through a CDN ([Azure Front Door](https://azure.microsoft.com/products/frontdoor) *or* [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn).
 2. The CDN load balances requests across Azure App Service instances that WordPress is running on and pulls any data that isn't cached from the WordPress web app 
 3. The WordPress application accesses the [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via Private Endpoint and pulls any dynamic information out.
-5. The WordPress application pulls any dynamic information out of the Maria DB clusters via Private Endpoint, all static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
+5. All static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 
 ### Components
 
-- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) *or* [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) is a Microsoft’s modern cloud Content Delivery Network (CDN), distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
-- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
+- [WordPress on App Service](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress) is a managed solution template, combined from [Azure App Service](https://azure.microsoft.com/products/appservice) and other Azure services mentioned below
+- [Azure Front Door](https://azure.microsoft.com/products/frontdoor) *or* [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn) product are a Microsoft’s modern cloud Content Delivery Network (CDN), distributed network of servers that efficiently delivers web content to users. CDNs minimize latency by storing cached content on edge servers in point-of-presence locations near to end users.
+- [Virtual networks](https://azure.microsoft.com/products/virtual-network) allow resources to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
 - [Azure DDoS Protection Standard](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to provide more defense against DDoS attacks. You should enable [Azure DDOS Protection Standard](/azure/ddos-protection/ddos-protection-overview) on any perimeter virtual network.
 - [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 - [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
 - [Azure Database for MySQL - Flexible server](https://azure.microsoft.com/products/mysql/) is database used to store WordPress data.
-
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/) is scalable and secure object storage for cloud-native workloads, archives, data lakes, high-performance computing, and machine learning.
 
 ### Potential use cases
 
@@ -49,7 +50,9 @@ App Service provides built-in load balancing and health check features to mainta
 
 Using the CDN to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 
-You can replicate Azure Blob Storage to a paired region for data redundancy. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
+This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the pods, and include health probes that ensure traffic is only distributed to healthy instances. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
+
+You can replicate Azure Blob Storage to a paired region for data redundancy across multiple regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
 
 For high availability of Azure Database for MySQL, see [High availability concepts in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-high-availability).
 
@@ -63,15 +66,9 @@ For more resiliency and scalability guidance, see the [resiliency checklist](/az
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-All the virtual network traffic into the front-end application tier and protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
+All the virtual network traffic point into the front-end application tier and should be protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
-
-### Resiliency
-
-This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the pods, and include health probes that ensure traffic is only distributed to healthy instances. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
-
-For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ### Cost optimization
 
