@@ -15,9 +15,9 @@ This scenario covers a scalable and secure installation of WordPress that uses U
 1. Users access the front-end website through a CDN (Azure Front Door).
 2. The CDN uses an [internal Azure Load Balancer](/azure/load-balancer/load-balancer-overview) as the origin, and pulls any data that isn't cached from there via Private Endpoint.
 3. The Azure Load Balancer distributes requests to the [Virtual Machine Scale Sets][docs-vmss] of web servers.
-4. SSL keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
-5. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint.
-6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction), mounted to VMs via NFS protocol.
+4. Keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
+5. The WordPress application access privately via Private Endpoint of [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) and pulls any dynamic information out.
+6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and mounted to VMs via NFS protocol.
     > [!IMPORTANT]
     > For the best performance is essential to mount storage via  **NFS protocol version 4.1** - see option *vers* in following bash example for Ubuntu:
 

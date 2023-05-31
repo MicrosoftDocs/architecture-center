@@ -41,9 +41,7 @@ Two-factor authentication increases the security of your installation and help p
 
 ### Disable XML-RPC access
 
-XML-RPC is a remote protocol that allows third-party applications to interact with your website's server. However, this protocol is also a common target for hackers who use it to launch brute force attacks or exploit vulnerabilities in the CMS.
-
-One way to disable XML-RPC is by setting up a deny rule for URL `/xmlrpc.php` in the Azure Front Door component.
+XML-RPC is a remote protocol that allows third-party applications to interact with your website's server. However, this protocol is also a common target for hackers who use it to launch brute force attacks or exploit vulnerabilities in the CMS. If you're using Front Door, you can set up a deny rule for URL `/xmlrpc.php` to disable XML-RPC.
 
 ### Restrict access to administration
 
@@ -60,7 +58,7 @@ In some cases, certain WordPress plugins require the URL `/wp-admin/admin-ajax.p
 
 To ensure the security of WordPress deployments on Azure, it's recommended to store secrets, such as database passwords and SSL certificates, in Azure Key Vault. Azure Key Vault is a cloud-based service that provides secure storage and management of cryptographic keys, certificates, and secrets.
 
-By storing secrets in Key Vault, they can be securely accessed by authorized applications and services without the need to store them in plain text within the WordPress container image or in application code.
+Authorized applications and services can securely access secrets without storing them in plain text within the WordPress container image or in application code.
 
 ### Tune performance
 
