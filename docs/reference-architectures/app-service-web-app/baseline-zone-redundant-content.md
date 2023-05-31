@@ -23,7 +23,7 @@ This article provides a baseline architecture for running web applications on Az
 - [Azure virtual network](https://azure.microsoft.comproducts/virtual-network/) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
 - [Private Link](https://azure.microsoft.com/products/private-link/) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully-qualified domain name (FQDN) to the private IP address of a private endpoint.
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/product-overview) is a managed relational database service for relational data. 
+- [Azure SQL Database](/azure/azure-sql/) is a managed relational database service for relational data.
 
 ## Networking
 
@@ -159,7 +159,7 @@ Scaling database resources is a complex topic outside of the scope of this archi
 
 ### Other scalability guidance
 
-- Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service) to ensure that services scale to demand.
+- Review [subscription limits and quotas](/azure/azure-resource-manager/management/azure-subscription-service-limits) to ensure that services scale to demand.
 - Consider [caching](/azure/architecture/best-practices/caching) for the following kinds of data to increase performance and scalability:
   - Semi-static transaction data.
   - Session state.
@@ -256,7 +256,7 @@ Applications require both configuration values and secrets. Use the following gu
 - Never check secrets such as passwords or access keys into source control.
 - Use [Azure Key Vault](/azure/key-vault/general/overview) to store secrets.
 - Use [App Service configuration](/azure/app-service/configure-common) for your application configuration. If you need to externalize the configuration from your application config or require [feature flag support](/azure/azure-app-configuration/concept-feature-management), consider using [Azure App Configuration](/azure/azure-app-configuration/overview).
-- [Use Key Vault references](/app-service/app-service-key-vault-references) in App Service configuration to securely expose secrets in your application.
+- [Use Key Vault references](/azure/app-service/app-service-key-vault-references) in App Service configuration to securely expose secrets in your application.
 - Create app settings that stick to a slot and don't get swapped if you need different production and staging settings. When you swap a deployment slot, the app settings are swapped by default.
 - Set local environment variables for local development or take advantage of application platform features. App Services configuration exposes app settings as environment variables. Visual Studio, for example, lets you set environment variables in launch profiles. It also allows you to use App Settings and user secrets to store local application settings and secrets.
 
