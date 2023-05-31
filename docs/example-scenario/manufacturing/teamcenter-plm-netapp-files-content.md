@@ -1,0 +1,5 @@
+The solution demonstrates how to enhance performance, availability, and improve data management, resource utilization of databases and shared file systems by utilizing [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as the storage solution for Siemens Teamcenter Product Lifecycle Management (PLM).  Azure NetApp Files provides key data backup and redundancy features to improve the availability of your Siemens Teamcenter PLM data. 
+
+**Data backups:** Azure NetApp Files provides two data backup options: snapshots and backup. Snapshots provide a point-in-time backup of data. They allow you to quickly recover data in the event of data loss or corruption. Azure NetApp Files also has a fully managed backup solution. It provides long-term retention and recovery options for snapshots. You can combine snapshots and backups for a comprehensive backup and recovery solution. 
+
+**Data redundancy:** For high-availability purposes Azure NetApp Files offers two key functionalities: availability zone volume placement and cross-zone replication. 
