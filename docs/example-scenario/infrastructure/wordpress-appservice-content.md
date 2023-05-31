@@ -1,6 +1,6 @@
 <!-- cSpell:ignore wordpress -->
 
-Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure App Service](/azure/app-service/quickstart-wordpress) and other Azure services to deploy a highly scalable and secure installation of WordPress.
+This solution is ideal for small to medium-sized WordPress installations. It provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For larger or storage-intensive installations, see other [hosting options for WordPress](/azure/wordpress#wordpress-hosting-options-on-azure).
 
 ## Architecture
 
@@ -15,8 +15,7 @@ This scenario covers a scalable and secure installation of WordPress that uses U
 
 1. Users access the front-end website through a CDN (Azure Front Door *or* Azure CDN).
 2. The CDN load balances requests across Azure App Service instances that WordPress is running on and pulls any data that isn't cached from the WordPress web app 
-3. The Azure load balancer distributes ingress traffic to App Service instances.
-4. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint.
+3. The WordPress application accesses the [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via Private Endpoint and pulls any dynamic information out.
 5. The WordPress application pulls any dynamic information out of the Maria DB clusters via Private Endpoint, all static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 
 ### Components
@@ -28,13 +27,8 @@ This scenario covers a scalable and secure installation of WordPress that uses U
 - [Azure Key Vault](https://azure.microsoft.com/products/active-directory) is used to store and tightly control access to passwords, certificates, and keys.
 - [Azure Database for MySQL - Flexible server](https://azure.microsoft.com/products/mysql/) is database used to store WordPress data.
 
-## Scenario details
-
-This solution is ideal for small to medium-sized WordPress installations, as it provides the scalability, reliability, and security of the Azure platform without the need for complex configuration or management. For larger or storage-intensive installations, see other [hosting options for WordPress](/azure/wordpress#wordpress-hosting-options-on-azure).
 
 ### Potential use cases
-
-Other relevant use cases include:
 
 - Media events that cause traffic surges.
 - Blogs that use WordPress as their content management system.
@@ -51,17 +45,17 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Availability
 
-The App Service comes with load balancing and health check features, if there's instance failure.
+App Service provides built-in load balancing and health check features to maintain availability if an App Service instance fails.
 
-The CDN (Front Door) is global service and supports origins deployed across multiple regions (App Service deployed in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
+Using the CDN to cache all responses can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 
-The Azure Blob Storage storage can be replicated between paired regions. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
+You can replicate Azure Blob Storage to a paired region for data redundancy. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-disaster-recovery-guidance).
 
 For high availability of Azure Database for MySQL, see [High availability concepts in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-high-availability).
 
 ### Scalability
 
-This scenario hosts front-end in App Service. With autoscale feature, the number of instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
+This scenario hosts the WordPress front-end in App Service. You should enable the autoscale feature to automatically scale the number of App Service instances. You can set a trigger to response to customer demand or based on a defined schedule. For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
 
 For more resiliency and scalability guidance, see the [resiliency checklist](/azure/architecture/checklist/resiliency-per-service) in the Azure Architecture Center.
 
