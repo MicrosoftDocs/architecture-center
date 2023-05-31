@@ -20,7 +20,7 @@ This article provides a baseline architecture for running web applications on Az
 - [App Service](https://azure.microsoft.com/services/app-service) is a fully managed platform for building, deploying, and scaling web applications.
 - [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) is a service that securely stores and manages secrets, encryption keys, and certificates. It centralizes the management of sensitive information.
 - [Azure Monitor](https://azure.microsoft.com/products/monitor/) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment. 
-- [Azure virtual network (VNet)](https://azure.microsoft.comproducts/virtual-network/) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a VNet to use private endpoints for network-secure communication between resources.
+- [Azure virtual network](https://azure.microsoft.comproducts/virtual-network/) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
 - [Private Link](https://azure.microsoft.com/products/private-link/) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
 - [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully-qualified domain name (FQDN) to the private IP address of a private endpoint.
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/product-overview) is a managed relational database service for relational data. 
@@ -96,14 +96,14 @@ The network in this architecture has separate subnets for the Application Gatewa
 
 | Subnet   | Inbound | Outbound |
 | -------  | ---- | ---- |
-| snet-AppGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.AppServices`: Allow outbound access to AppServicesSubnet<br><br>`AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor
-| snet-PrivateEndpoints | Default rules: Allow inbound from vnet | Default rules: Allow outbound to vnet
+| snet-AppGateway    | `AppGw.In.Allow.ControlPlane`: Allow inbound control plane access<br><br>`AppGw.In.Allow443.Internet`: Allow inbound internet HTTPS access | `AppGw.Out.Allow.AppServices`: Allow outbound access to AppServicesSubnet<br><br>`AppGw.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
+| snet-PrivateEndpoints | Default rules: Allow inbound from virtual network | Default rules: Allow outbound to virtual network |
 | snet-AppService | Default rules: Allow inbound from vnet  | `AppPlan.Out.Allow.PrivateEndpoints`: Allow outbound access to PrivateEndpointsSubnet<br><br>`AppPlan.Out.Allow.AzureMonitor`: Allow outbound access to Azure Monitor |
 
 Consider the following points when implementing virtual network segmentation and security.
 
 - Enable [DDoS protection](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) for the virtual network with a subnet that is part of an application gateway with a public IP.
-- [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules possible that enable web app functionality.
+- [Add an NSG](/azure/virtual-network/network-security-groups-overview) to every subnet where possible. You should use the strictest rules that enable full solution functionality.
 - Use [application security groups](/azure/virtual-network/tutorial-filter-network-traffic#create-application-security-groups). Application security groups allow you to group NSGs and make rule creation easier for complex environments.
 
 ## Reliability  
@@ -197,7 +197,7 @@ Consider the following recommendations when configuring encryption of data in tr
 
 - Create or upload your certificate to Key Vault. HTTPS encryption requires a certificate (X.509). You need a certificate from a trusted certificate authority for your custom domain.
 - Store the private key to the certificate in Key Vault.
-- Follow the guidance in [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don’t use Key Vault policies to provide access. Key Vault policies only let you to grant permissions to an entire key vault, not just a specific secret.
+- Follow the guidance in [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide) and [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) to provide Application Gateway access to the certificate private key. Don't use Key Vault access policies to provide access. Access policies only let you to grant broad permissions not just to specific values.
 - [Enable end to end encryption](/azure/application-gateway/ssl-overview#end-to-end-tls-encryption). App Service is the backend pool for the application gateway. When you configure the backend setting for the backend pool, use the HTTPS protocol over the backend port 443.
 
 #### Data at rest
@@ -213,13 +213,13 @@ The App Service baseline configures authentication and authorization for user id
 
 #### User identities
 
-- Use the [integrated authentication mechanism for App Service (“EasyAuth”)](/azure/app-service/overview-authentication-authorization). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don’t have to make any code changes.
+- Use the [integrated authentication mechanism for App Service ("EasyAuth")](/azure/app-service/overview-authentication-authorization). EasyAuth simplifies the process of integrating identity providers into your web app. It handles authentication outside your web app, so you don't have to make significant code changes.
 - Configure the reply URL for the custom domain. You need to redirect the web app to `https://<application-gateway-endpoint>/.auth/login/<provider>/callback`. Replace `<application-gateway-endpoint>` with either the public IP address or the custom domain name associated with your application gateway. Replace `<provider>` with the authentication provider you're using such as "aad" for Azure Active Directory. You can use [the Azure Front documentation](/azure/app-service/overview-authentication-authorization#considerations-when-using-azure-front-door) to set up this flow with Application Gateway or [Setting up Application Gateway](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/setting-up-application-gateway-with-an-app-service-that-uses/ba-p/392490).
 
 #### Workload identities
 
 - Use managed identity for workload identities. Managed identity eliminates the need for developers to manage authentication credentials.
-- Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail. You should use user-assigned managed identities to avoid deployment errors. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+- Use user-assigned managed identities. A system-assigned identity can cause infrastructure-as-code deployments to fail based on race conditions and order of operations. You can use user-assigned managed identities to avoid some of these deployment error scenarios. For more information, see [Managed identities](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
 ## Deployment
 
@@ -286,8 +286,8 @@ Platform monitoring is the collection of data from the Azure services in your ar
   |Web Application Firewall | [Web application firewall metrics and logs descriptions](/azure/web-application-firewall/ag/application-gateway-waf-metrics) |
   |App Service | [App Service metrics and logs descriptions](/azure/app-service/monitor-app-service-reference) |
   |Azure SQL Database | [Azure SQL Database metrics and logs description](/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference?view=azuresql) |
-  |CosmosDB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference)
-| Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
+  |CosmosDB | [Azure Cosmos DB metrics and logs descriptions](/azure/cosmos-db/monitor-reference) |
+  | Key Vault | [Key Vault metrics and logs descriptions](/azure/key-vault/general/monitor-key-vault-reference) |
   |Blob Storage | [Azure Blob Storage metrics and logs descriptions](/azure/storage/blobs/monitor-blob-storage-reference) |
   | Application Insights | [Application Insights metrics and logs descriptions](/azure/azure-monitor/app/api-custom-events-metrics) |
   | Public IP address | [Public IP address metrics and logs descriptions](/azure/virtual-network/ip-services/monitor-public-ip) |
@@ -304,11 +304,11 @@ Platform monitoring is the collection of data from the Azure services in your ar
 
 #### Application Gateway
 
-Application Gateway automatically monitors the health of resources in its backend pool. Use the Application Gateway Access logs to information like the timestamp, the HTTP response code, and the URL path. For more information, see [Application Gateway default health probe](/azure/application-gateway/application-gateway-probe-overview#default-health-probe) and [Backend health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging).
+Application Gateway monitors the health of resources in its backend pool. Use the Application Gateway Access logs to information like the timestamp, the HTTP response code, and the URL path. For more information, see [Application Gateway default health probe](/azure/application-gateway/application-gateway-probe-overview#default-health-probe) and [Backend health and diagnostic logs](/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging).
 
 #### App Service
 
-App Service has built-in and integrated monitoring tools that you should enable for improved observability. If your web app already has telemetry and monitoring features (“in-process instrumentation”), it should continue to work on App Service.
+App Service has built-in and integrated monitoring tools that you should enable for improved observability. If your web app already has telemetry and monitoring features ("in-process instrumentation"), it should continue to work on App Service.
 
 - [Enable auto-instrumentation.](/azure/azure-monitor/app/codeless-overview) App Service has an instrumentation extension that you can enable with no code changes. You gain application performance monitoring (APM) visibility. For more information, see [Monitor Azure App Service performance](/azure/azure-monitor/app/azure-web-apps).
 - [Enable distributed tracing.](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation) Auto-instrumentation offers a way to monitor distributed cloud systems via distributed tracing and a performance profiler.
