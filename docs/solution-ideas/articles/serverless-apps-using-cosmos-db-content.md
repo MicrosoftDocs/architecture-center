@@ -63,7 +63,6 @@ See the following architectures that include Functions and Azure Cosmos DB:
 - [Gaming using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db)
 - [Globally distributed applications using Azure Cosmos DB](/azure/architecture/solution-ideas/articles/globally-distributed-mission-critical-applications-using-cosmos-db)
 - [Code walkthrough: Serverless application with Functions](/azure/architecture/serverless/code)
-- [Build cloud native applications](/azure/architecture/solution-ideas/articles/cloud-native-apps)
 - [Analyze news feeds with near real-time analytics using image and natural language processing](/azure/architecture/example-scenario/ai/news-feed-ingestion-and-near-real-time-analysis)
 
 See the following architectures that feature Functions:

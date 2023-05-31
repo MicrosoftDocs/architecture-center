@@ -3817,19 +3817,7 @@ items:
         - name: Data streaming with AKS
           href: solution-ideas/articles/data-streaming-scenario.yml
         - name: JBoss deployment with Red Hat on Azure
-          href: solution-ideas/articles/jboss-deployment-red-hat.yml
-        - name: API-first SaaS business model with AKS
-          href: solution-ideas/articles/aks-api-first.yml
-        - name: Build cloud native applications
-          href: solution-ideas/articles/cloud-native-apps.yml
-        - name: Bursting from AKS with ACI
-          href: solution-ideas/articles/scale-using-aks-with-aci.yml
-        - name: Elastic demand handling with AKS
-          href: solution-ideas/articles/aks-demand-spikes.yml
-        - name: Instant IoT data streaming with AKS
-          href: solution-ideas/articles/aks-iot-data-streaming.yml
-        - name: Secure DevOps for AKS
-          href: solution-ideas/articles/secure-devops-for-kubernetes.yml          
+          href: solution-ideas/articles/jboss-deployment-red-hat.yml         
         - name: AKS in event stream processing
           href: solution-ideas/articles/serverless-event-processing-aks.yml          
     - name: PaaS container hosting
@@ -4143,8 +4131,6 @@ items:
       items:
       - name: Big data analytics with Azure Data Explorer
         href: solution-ideas/articles/big-data-azure-data-explorer.yml
-      - name: Build cloud native applications
-        href: solution-ideas/articles/cloud-native-apps.yml
       - name: Campaign optimization with SQL Server
         href: solution-ideas/articles/campaign-optimization-with-sql-server.yml
       - name: Data streaming

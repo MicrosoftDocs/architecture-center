@@ -14,6 +14,7 @@ products:
   - azure-machine-learning
 ms.custom:
   - fcp
+  - devx-track-jenkins
 keywords:
   - Google Cloud experts
   - Azure comparison
