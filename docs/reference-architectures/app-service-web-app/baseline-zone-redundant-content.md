@@ -169,6 +169,10 @@ Scaling database resources is a complex topic outside of the scope of this archi
 
 The baseline App Service architecture focuses on essential security recommendations for your web app. Understanding how encryption and identity work at every layer is critical to securing your workload.
 
+### Threat intelligence
+
+[Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security). You should enable all the Defender for Cloud plans to find, detect, and remediate vulnerabilities related to your web app.
+
 ### Encryption
 
 A production web app needs to encrypt data in transit using HTTPS. HTTPS protocol relies on Transport Layer Security (TLS) and uses public and private keys for encryption. You need to store a certificate (X.509) in Key Vault and give Application Gateway permission to retrieve the private key. For data at rest, some services automatically encrypt data and others allow you to customize.
