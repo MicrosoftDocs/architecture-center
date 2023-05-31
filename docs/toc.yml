@@ -223,8 +223,18 @@ items:
         maintainContext: true
     - name: Choose an AI/ML service
       items:
-      - name: Cognitive services
+      - name: Cognitive Services
         href: data-guide/technology-choices/cognitive-services.md
+      - name: API services  
+        items:
+        - name: Language API services
+          href: data-guide/cognitive-services/language-api.md
+        - name: Speech API services
+          href: data-guide/cognitive-services/speech-api.md
+        - name: Vision API services
+          href: data-guide/cognitive-services/vision-api.md
+        - name: Decision APIs and Applied AI Services
+          href: data-guide/cognitive-services/decision-applied-ai.md
       - name: Natural language processing
         href: data-guide/technology-choices/natural-language-processing.yml
       - name: Machine learning
