@@ -14,7 +14,7 @@ Use [Azure Front Door](/azure/frontdoor/front-door-overview), [Azure App Service
 This scenario covers a scalable and secure installation of WordPress that uses Ubuntu web servers and MariaDB. There are two distinct data flows in this scenario the first is users access the website:
 
 1. Users access the front-end website through a CDN (Azure Front Door *or* Azure CDN).
-2. The CDN uses an [internal Azure load balancer](/azure/load-balancer/load-balancer-overview) (hidden part of App Service) as the origin, and pulls any data that isn't cached from there.
+2. The CDN load balances requests across Azure App Service instances that WordPress is running on and pulls any data that isn't cached from the WordPress web app 
 3. The Azure load balancer distributes ingress traffic to App Service instances.
 4. The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview), access privately via Private Endpoint.
 5. The WordPress application pulls any dynamic information out of the Maria DB clusters via Private Endpoint, all static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
