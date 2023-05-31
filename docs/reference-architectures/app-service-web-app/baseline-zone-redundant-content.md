@@ -78,18 +78,11 @@ The baseline architecture implements a private DNS zone for each service. The pr
 
 Consider the following points when implementing virtual network integration and private endpoints.
 
-- Use the DNS zone name of `privatelink.vaultcore.azure.net` for the Key Vault private DNS zone. Don’t use *privatelink.vault.azure.net*. In Bicep, using the environment().suffixes.keyvaultDns resolves to the latter (*privatelink.vault.azure.net*). Currently, you must hardcode the name to *privatelink.vaultcore.azure.net*.
-- To ensure the storage account and key vault can only be connected to privately, set the following network ACLs on each:
-
-  ```bicep
-  networkAcls: {
-    bypass: 'None'
-    defaultAction: 'Deny'
-  }
-  ```
-~~
-
-- To ensure you can only connect to the SQL Database privately, set the *publicNetworkAccess* to *Disabled*.
+- Use the [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns) guidance for naming private DNS zones.
+- Configure service firewalls to ensure the storage account, key vault, SQL Database, and other Azure services can only be connected to privately.
+  - [Set storage account default network access rule](/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule) to deny all traffic.
+  - [Enable Key Vault for Private Link](/azure/key-vault/general/network-security#key-vault-firewall-enabled-private-link).
+  - [Deny public network access to Azure SQL](/azure/azure-sql/database/connectivity-settings?view=azuresql&tabs=azure-portal#deny-public-network-access)
 
 ### Virtual network segmentation and security
 
