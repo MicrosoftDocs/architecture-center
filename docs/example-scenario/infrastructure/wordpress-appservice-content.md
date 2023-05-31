@@ -44,7 +44,7 @@ This scenario covers a scalable and secure installation of WordPress that uses m
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Availability
+### Reliability
 
 App Service provides built-in load balancing and health check features to maintain availability if an App Service instance fails.
 

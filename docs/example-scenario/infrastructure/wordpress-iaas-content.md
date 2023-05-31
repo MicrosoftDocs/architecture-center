@@ -55,9 +55,11 @@ This example scenario is applicable for any larger installation of WordPress wit
 
 These considerations implement the pillars of the Azure Well-Architected Framework, which is a set of guiding tenets that can be used to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
 
-### Availability
+### Reliability
 
 The combination of VMs and load balancing of ingress traffic provides high availability even if there's VM failure.
+
+This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the VMs, and include health probes that ensure traffic is only distributed to healthy VMs. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
 
 The CDN (Front Door) is global service and supports origins deployed across multiple regions (Virtual Machine Scale Sets in another regions). In addition, caching all responses on the CDN level can provide a small availability benefit when the origin isn't responding. However, it's important to note that caching shouldn't be considered a complete availability solution.
 
@@ -75,15 +77,11 @@ For more resiliency and scalability guidance, see the [resiliency checklist](/az
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-All the virtual network traffic into the front-end application tier and protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
+All the virtual network traffic into the front-end application tier and protected by [WAF on Azure Front Door](/azure/web-application-firewall/afds/afds-overview). No outbound Internet traffic is allowed from the database tier. No access to private storage is allowed from public. You should disable public access to resources (where applicable) and use Private Endpoints - for components Database for MySQL, Cache for Redis, Key Vault, Container Registry. See the article [Integrate Key Vault with Azure Private Link]( https://aka.ms/akvprivatelink).
+
+For more information about WordPress security, see [General WordPress security&performance tips](/azure/wordpress#general-wordpress-securityperformance-tips).
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
-
-### Resiliency
-
-This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the VMs, and include health probes that ensure traffic is only distributed to healthy VMs. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
-
-For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design).
 
 ### Cost optimization
 

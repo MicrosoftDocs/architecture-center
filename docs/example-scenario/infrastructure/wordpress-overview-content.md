@@ -37,7 +37,7 @@ An easy way to implement some discovery logic could be through a plugin that ena
 
 ### Enable Two-Factor Authentication (2FA)
 
-Two-factor authentication increases the security of your installation and help protect against unauthorized access or attacks. You can use of a plugin such a [MiniOrange authentication plugin](https://wordpress.org/plugins/miniorange-2-factor-authentication/). This plugin allows, among other methods, to use the Microsoft Authenticator as provider for 2FA method before gaining access to your WordPress site. 
+Two-factor authentication increases the security of your installation and help protect all accounts accessing the administration against unauthorized access or attacks. You can use of a plugin such a [MiniOrange authentication plugin](https://wordpress.org/plugins/miniorange-2-factor-authentication/). This plugin allows, among other methods, to use the Microsoft Authenticator as provider for 2FA method before gaining access to administration of your WordPress site.
 
 ### Disable XML-RPC access
 
