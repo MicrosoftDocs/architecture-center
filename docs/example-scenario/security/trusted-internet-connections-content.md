@@ -51,7 +51,6 @@ Federal organizations and government agencies are the most likely implementers o
   - [Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/overview) with [Web Application Firewall](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview) is a regional web traffic load balancer that enables you to manage traffic to your web applications. Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. 
   - [Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview) with [Web Application Firewall](https://learn.microsoft.com/en-us/azure/web-application-firewall/overview) is a global web traffic load balancer that enables you to manage traffic to your web applications. It includes Content Delivery Network (CDN) capabilities to speed up and modernize your applications. Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. 
   - Third-party Firewall is a Network Virtual Appliance (NVA) that runs on an Azure virtual machine using firewall services from non-Microsoft vendors. Microsoft supports a large ecosystem of third-party vendors running firewall services. 
-
 - Logging and authentication (All required)
   - Log Analytics is a tool in the Azure portal that's used to edit and run log queries against Azure Monitor Logs. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
   - [Azure Monitor](https://azure.microsoft.com/services/monitor) is a comprehensive solution for collecting, analyzing, and acting on telemetry.
@@ -75,11 +74,11 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - There are various solutions that you can deploy, depending on your current situation. Evaluate your current architecture to determine which solution provides your best approach to TIC 3.0 compliance.
 - Contact your CISA representative to request CLAW access.
 - Use the **Deploy to Azure** buttons to deploy one or more of the solutions to a test environment. That should help you become familiar with the process and the deployed resources.
-- See [Trusted Internet Connection (TIC) 3.0 compliance for internet-facing applications](https://github.com/Azure/trusted-internet-connection) in GitHub for:
+- See [Trusted Internet Connection (TIC) 3.0 compliance for internet-facing applications](https://github.com/Azure/trusted-internet-connection), a complimentary article providing additional detail and dynamic content for TIC 3.0:
   - Additional information about achieving compliance.
   - ARM templates to simplify deployment.
   - Information to assist with integrating existing resources into the solution.
-  - The types of logs collected per service layer.
+  - The types of logs collected per service layer, includes Kusto queries to review logs collected by CISA. The queries can be leveraged for your organization's security requirements.
 
 ### Operational excellence
 
