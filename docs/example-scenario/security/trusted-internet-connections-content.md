@@ -2,9 +2,11 @@ Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises 
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
-Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in each solution. The firewall can be an Azure Firewall, Front Door with Web Application Firewall (WAF), Application Gateway with WAF, or a third-party Network Virtual Appliance (NVA). The firewall secures the cloud perimeter, saving logs of each transaction. Independent of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub The Log Analytics workspace sends logs to the event hub.  The Cybersecurity and Infrastructure Security Agency (CISA) TALON connects to the event hub to pull logs into their Cloud Log Aggregation Warehouse (CLAW).
+Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in each solution. The firewall can be an Azure Firewall, Front Door with Web Application Firewall (WAF), Application Gateway with WAF, or a third-party Network Virtual Appliance (NVA). The firewall secures the cloud perimeter, saving logs of each transaction. Independent of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub The Log Analytics workspace sends logs to the event hub.  
 
-For more information on CLAW, TIC 3.0, and MTIPS, see:
+The Cloud Log Aggregation Warehouse (CLAW) is a Cybersecurity and Infrastructure Security Agency (CISA) managed service. In late 2022, CISA released TALON. TALON is a CISA managed service leveraging Azure native capabilities with a instance running in each Azure region. The TALON connects to government agency managed Event hubs to pull that agency's firewall and Azure AD logs into the CISA CLAW. 
+
+For more information on CLAW, TIC 3.0, TALON, and MTIPS, see:
 
 - [Trusted Internet Connections guidance](/azure/azure-government/compliance/compliance-tic)
 - [TIC 3.0 core guidance documents | CISA](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
@@ -63,6 +65,7 @@ Federal organizations and government agencies are the most likely implementers o
 A few alternatives exist for this solution:
 
 - You can separate log collection into areas of responsibility. For instance, Azure AD logs can be sent to a Log Analytics workspace managed by an identity team, and network logs can be sent to a different Log Analytics workspace managed by the network team.
+- This article defines each example using a single firewall option, but organizational requirements or architectures require two or more is acceptable. Should the architecture have an Azure Firewall then an Application Gateway with a WAF, that is acceptable. However many firewalls are used to secure the cloud perimeter, logs for each firewall must be collected and made available for the CISA TALON to collect.
 - If your environment requires internet egress from Azure-based virtual machines then you can use a Layer 3 based solution like Azure Firewall or a Third-party firewall to monitor and log the outbound traffic.
 
 ## Considerations
