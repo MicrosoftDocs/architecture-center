@@ -4,7 +4,7 @@ This article describes how to automate Microsoft Sentinel integration and deploy
 
 The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
-:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram showing the Architecture for automating a Microsoft Sentinel infrastructure as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
+:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram showing the architecture for automating a Microsoft Sentinel infrastructure as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
