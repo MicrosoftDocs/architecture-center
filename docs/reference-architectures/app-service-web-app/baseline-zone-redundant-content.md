@@ -147,15 +147,15 @@ Scalability allows applications to handle increases and decreases in demand whil
 - Consider deploying multiple stamps of the application when your App Service starts hitting the upper limits.
 - Choose the right [Azure App Service plan]( /azure/app-service/overview-hosting-plans#manage-an-app-service-plan) that meets your workload requirements.
 - [Add Azure CDN to Azure App Service](/azure/cdn/cdn-add-to-web-app) to serve static content.
-- Consider [App Service Environment]( /azure/app-service/environment/overview) if noisy neighbors are a concern.
+- Consider [App Service Environment](/azure/app-service/environment/overview) if noisy neighbors are a concern.
 
 ### SQL Server
 
 Scaling database resources is a complex topic outside of the scope of this architecture. Consider the following resources when scaling your database,
 
-- [Dynamically scale database resources with minimal downtime]( /azure/azure-sql/database/scale-resources)
-- [Scaling out with Azure SQL Database]( /azure/azure-sql/database/elastic-scale-introduction)
-- [Use read-only replicas to offload read-only query workloads]( /azure/azure-sql/database/read-scale-out)
+- [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources)
+- [Scaling out with Azure SQL Database](/azure/azure-sql/database/elastic-scale-introduction)
+- [Use read-only replicas to offload read-only query workloads](/azure/azure-sql/database/read-scale-out)
 
 ### Other scalability guidance
 
@@ -215,7 +215,7 @@ The App Service baseline configures authentication and authorization for user id
 
 ## Deployment
 
-Deployment for the baseline App Service application follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps). In addition to that guidance, the App Services baseline architecture takes into account that the application and deployment storage account are network secured. The architecture denies public access to App Service. This means you can't deploy from outside the virtual network. The baseline shows you how to deploy the application code within the virtual network using self-hosted deployment agents. The following deployment guidance focuses on deploying the application code and not deploying infrastructure or database changes. 
+Deployment for the baseline App Service application follows the guidance in [CI/CD for Azure Web Apps with Azure Pipelines](/azure/architecture/solution-ideas/articles/azure-devops-continuous-integration-and-continuous-deployment-for-azure-web-apps). In addition to that guidance, the App Services baseline architecture takes into account that the application and deployment storage account are network secured. The architecture denies public access to App Service. This means you can't deploy from outside the virtual network. The baseline shows you how to deploy the application code within the virtual network using self-hosted deployment agents. The following deployment guidance focuses on deploying the application code and not deploying infrastructure or database changes.
 
 :::image type="complex" source="images/baseline-app-service-deployments.svg" lightbox="images/baseline-app-service-deployments.svg" alt-text="Diagram that shows a baseline App Service deployment architecture.":::
     The diagram shows a subnet containing self-hosted deployment agents. It also adds an Azure Pipelines with managed agents. The last change is numbered for the deployment flow. Number one is on Azure Pipelines. Number two is an arrow from the self-hosted agents to Azure Pipelines. Three is an arrow from the self-hosted agent to the private endpoint for Azure Storage. Four is again above Azure Pipelines and the managed agents. Five is in App Services. Six is again over Azure Pipelines and the managed agents.
