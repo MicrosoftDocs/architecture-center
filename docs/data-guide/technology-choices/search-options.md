@@ -72,7 +72,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Cognitive Search | Elasticsearch | SQL Database |
 | --- | --- | --- | --- |
-| Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes |
+| Row-level security | Partial (requires application query to filter by group ID) | Partial (requires application query to filter by group ID) | Yes |
 | Transparent data encryption | No | No | Yes |
 | Restrict access to specific IP addresses | Yes | Yes | Yes |
 | Restrict access to allow virtual network access only | Yes | Yes | Yes |
