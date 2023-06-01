@@ -19,9 +19,7 @@
     }
   ],
   "notification_subscribers": [],
-  "sync_notification_subscribers": [
-    "cloud-arch-content@microsoft.com"
-  ],
+  "sync_notification_subscribers": [],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/microsoftdocs/architecture-center",
   "git_repository_branch_open_to_public_contributors": "main",
