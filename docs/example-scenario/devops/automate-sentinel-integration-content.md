@@ -4,7 +4,7 @@ This article describes how to automate Microsoft Sentinel integration and deploy
 
 The following diagram shows an Azure DevOps and Microsoft Sentinel IaC setup.
 
-:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram of the Architecture for automating a Microsoft Sentinel infrastructure as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
+:::image type="content" border="false" source="./media/automate-sentinel-architecture.svg" alt-text="Diagram showing the Architecture for automating a Microsoft Sentinel infrastructure as code pipeline." lightbox="./media/automate-sentinel-architecture.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -334,7 +334,7 @@ By following this practice, your team can evaluate your MITRE coverage based on 
 
 The objective of your build process is to ensure that you generate the highest quality artifacts. The following diagram shows some of the build process actions that you can take.
 
-:::image type="content" source="./media/build-artifact-process-lightbox.svg" alt-text="Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.svg":::
+:::image type="content" source="./media/build-artifact-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -356,7 +356,7 @@ Usually, multiple teams work over several Microsoft Sentinel instances to genera
 
 The following diagram shows an example artifact extraction process.
 
-:::image type="content" source="./media/artifact-extraction-process-lightbox.svg" alt-text="Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.svg":::
+:::image type="content" source="./media/artifact-extraction-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -372,7 +372,7 @@ Development teams use the process to ensure they can deploy, test, and validate 
 
 The following diagram shows the deployment process sequence that ensures your artifacts are deployed in the right order.
 
-:::image type="content" source="./media/artifact-deployment-process-lightbox.svg" alt-text="Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.svg":::
+:::image type="content" source="./media/artifact-deployment-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.svg":::
 
 *Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
@@ -491,7 +491,7 @@ For more information on how to create an ARM template, see [Create and deploy AR
 
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 
-:::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg" alt-text="Diagram of a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg":::
+:::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg" alt-text="Diagram showing a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg":::
 
 1. An MSP offering is integrated through an ARM template or an Azure Marketplace service offering.
 1. Azure delegated resource management checks that the request is from a partner tenant and calls a managed service resource provider.
