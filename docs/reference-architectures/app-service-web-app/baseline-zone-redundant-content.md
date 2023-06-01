@@ -169,9 +169,12 @@ Scaling database resources is a complex topic outside of the scope of this archi
 
 The baseline App Service architecture focuses on essential security recommendations for your web app. Understanding how encryption and identity work at every layer is critical to securing your workload.
 
-### Threat intelligence
+### App Service
 
-[Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security). You should enable all the Defender for Cloud plans to find, detect, and remediate vulnerabilities related to your web app.
+- Disable local authentication methods for FTP and SCM site deployments
+- Turn off remote debugging.
+- Use the latest TLS version.
+- [Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security).
 
 ### Encryption
 
