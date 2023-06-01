@@ -373,14 +373,14 @@
 		</g>
 		<g id="shape1030-79" v:mID="1030" v:groupContext="shape" transform="translate(575.333,-301.021)">
 			<title>Sheet.1030</title>
-			<desc>Azure Spring Cloud</desc>
+			<desc>Azure Spring Apps</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:val="VT0(13000):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="76" cy="360.125" width="152" height="20"/>
 			<rect x="0" y="350.125" width="152" height="20" class="st4"/>
-			<text x="25.9" y="363.43" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Spring Cloud</text>		</g>
+			<text x="27.89" y="363.43" class="st21" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure Spring Apps</text>		</g>
 		<g id="shape1033-82" v:mID="1033" v:groupContext="shape" transform="translate(231.202,-143.229)">
 			<title>Sheet.1033</title>
 			<desc>GitHub</desc>
