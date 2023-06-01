@@ -175,6 +175,7 @@ The baseline App Service architecture focuses on essential security recommendati
 - Turn off remote debugging.
 - Use the latest TLS version.
 - [Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security).
+- Use the latest versions of supported platforms, programming languages, protocols, and frameworks.
 
 ### Encryption
 
