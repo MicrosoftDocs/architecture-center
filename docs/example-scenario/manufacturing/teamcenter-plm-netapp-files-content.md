@@ -1,4 +1,4 @@
-The solution demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). Doing so can help you  enhance performance and availability and improve data management and resource utilization of databases and shared file systems. Azure NetApp Files provides key data backup and redundancy features to improve the availability of your Teamcenter PLM data. 
+The solution demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
 
 ## Architecture
 
@@ -18,7 +18,31 @@ The architecture centralizes the digital assets and product data in the Root FSC
 
 **Dataflow:** The databases and the Root FSC servers in the resource tier store and retrieve data from Azure NetApp Files volumes. The dataflow between the architecture tiers helps provide efficient and secure access to product data and digital assets because Azure NetApp Files volumes are hosted in the customer virtual network, in availability zones. Azure NetApp Files provides on-demand, non-disruptive scalability and HA across availability zones.
 
-**Data replication:** The architecture uses SQL Server Always On availability groups to synchronously replicate the database across availability zones. Azure NetApp Files uses cross-zone replication to asynchronously replicate data across availability zones. 
+**Data replication:** The architecture uses SQL Server Always On availability groups to synchronously replicate the database across availability zones. Azure NetApp Files uses cross-zone replication to asynchronously replicate data across availability zones.
+
+## Scenario details
+
+Using Azure NetApp Files as a storage solution for Teamcenter PLM can help you enhance performance and availability and improve data management and resource utilization of databases and shared file systems. Azure NetApp Files provides key data backup and redundancy features to improve the availability of your Teamcenter PLM data.
+
+### Potential use cases
+
+**Requirements engineering, model-based systems engineering, and PLM process management:** Azure NetApp Files provides high-performance storage with low latency, enabling faster access to critical data and improving overall system performance. These qualities are particularly important for use cases like requirements engineering, model-based systems engineering, and PLM process management, which rely heavily on accessing and processing large volumes of data.
+
+**Bill of materials management and product configuration:** Azure NetApp Files also provides flexible storage options that can scale up or down based on changing business needs. These qualites are useful for use cases like bill of materials management and product configurations, which require significant storage capacity and can experience frequent changes in data volume.
+
+**Product cost management:** Azure NetApp Files provides advanced data protection features, including point-in-time backups and disaster recovery options. Data protection is important for use cases like product cost management, where accurate and up-to-date data is critical.
+
+**Development across departments and domains:** Azure NetApp Files contributes to improving collaboration across departments and domains by providing a high-performance, reliable, and scalable storage service for Teamcenter PLM deployments. 
+
+**Mechanical design management:** Azure NetApp Files can provide high-speed access to large design files, allowing engineers to quickly iterate on designs and make necessary changes. For electronics and electrical CAD management, Azure NetApp Files can provide a centralized location for storing and managing CAD data.
+
+**Software design management:** Azure NetApp Files can provide high-performance storage for build artifacts and development environments, enabling fast build and deployment times. 
+
+**Product document management:** Azure NetApp Files can provide a centralized location for storing and managing product documentation, making it easy to access and share information across teams.
+
+**Product visualization and desktop mockup:** Azure NetApp Files can provide high-speed access to large graphic files and simulations, enabling faster visualization and mockup times. For simulation process and data management, Azure NetApp Files can provide fast and reliable storage for simulation data, allowing engineers to quickly run simulations and analyze results.
+
+**Product visibility and insight:** Azure NetApp Files enables the delivery of product visibility and insight by providing fast access to PLM data and analytics, which can help organizations make informed decisions and optimize product development processes. For example, PLM analytics can provide insights into the performance of products and help identify areas for improvement. Sustainable product development can help organizations track the environmental impact of products and make more sustainable choices.
 
 ## Considerations 
 
@@ -65,14 +89,14 @@ You can use **volume restore** to recover an entire volume from a snapshot or ba
   
 The following diagram shows Azure NetApp Files snapshot restore options that are specific to Teamcenter PLM application areas.
 
-:::image type="content" source="media/restore-options.png" alt-text="Diagram that shows Azure NetApp Files snapshot restore options that are specific to Teamcenter PLM application areas." lightbox="media/restore-options.png":::
+:::image type="content" source="media/restore-options.png" alt-text="Diagram that shows Azure NetApp Files snapshot restore options that are specific to Teamcenter PLM application areas." lightbox="media/restore-options.png" border="false":::
 
 Use online snapshots for most restore operations, rather than using offline backups (vaulted snapshots). For more information, see [How Azure NetApp Files snapshots work](/azure/azure-netapp-files/snapshots-introduction).
 
 **Set up cross-region replication for disaster recovery.** For higher availability, you can replicate the storage volumes to another Azure region by using Azure NetApp Files [cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction). (See the following image.) There are two main advantages to replicating the storage volumes by using Azure NetApp Files replication rather than application-level or host-level replication: 
 
-- There's no additional load on the application virtual machines or your virtual network. Azure NetApp Files replicates the storage content without using any compute infrastructure resources.
--  It eliminates the need to continuously run virtual machines in the destination region during normal operations. The destination virtual machines don't need to be running to support this scenario.
+- There's no additional load on the application virtual machines (VMs) or your virtual network. Azure NetApp Files replicates the storage content without using any compute infrastructure resources.
+-  It eliminates the need to continuously run VMs in the destination region during normal operations. The destination VMs don't need to be running to support this scenario.
 
 The typical recovery point objective (RPO) for this solution is less than 20 minutes when the cross-region replication update interval is set to 10 minutes. The recovery time objective (RTO), or the maximum tolerable business application downtime, depends on how long it takes to bring up the application and provide access to the data at the second site. The storage portion of the RTO, for breaking the peering relationship to activate the destination volume and provide read and write data access to the second site, is expected to be complete within a minute. For more information, see [Create volume replication for Azure NetApp Files](/azure/azure-netapp-files/cross-region-replication-create-peering).
 
@@ -117,85 +141,69 @@ Azure NetApp Files provides a [cost-effective storage solution with a pay-as-you
 
 **Consider dynamically resizing volumes and capacity pools**. If your capacity pool size requirements fluctuate (for example, because of variable capacity or performance needs), consider [dynamically resizing your volumes and capacity pools](/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes) to balance cost with your capacity and performance needs.
 
-**Consider dynamically changing the volume tier (service level).** If your capacity pool size requirements remain the same but performance requirements fluctuate, consider [dynamically changing the service level of a volume](/azure/azure-netapp-files/dynamic-change-volume-service-level). You can provision and deprovision capacity pools of different types throughout the month, providing just-in-time performance and reducing costs during periods when you don’t need high performance. It is recommended to use these capabilities when setting up a DR scenario across Azure regions, where the secondary region gets provisioned on the lowest, most cost-effective (standard) tier, and volumes only move volumes to the appropriate performance in case of a disaster/failover event.
+**Consider dynamically changing the volume tier (service level).** If your capacity pool size requirements remain the same but your performance requirements fluctuate, consider [dynamically changing the service level of a volume](/azure/azure-netapp-files/dynamic-change-volume-service-level). You can provision and deprovision capacity pools of different types throughout the month to get just-in-time performance and reduce costs during periods when you don't need high performance. We recommend that you use this capability when you set up a DR scenario across Azure regions. The secondary region gets provisioned on the lowest, most cost-effective (Standard) tier, and you move volumes to the appropriate performance tier only in case of a disaster/failover event.
 
-**Use cross-region and cross-zone replication.** The use of [cross-region and cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction) takes away the need for host-based replication mechanisms, avoiding virtual machine and software license cost.
+**Use cross-region and cross-zone replication.** If you use [cross-region and cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction), you don't need to use host-based replication mechanisms, so you can avoid VM and software license costs.
 
-Azure NetApp Files also optimizes cost for the [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) and [SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) database applications, by allowing heavy, storage I/O intensive databases to run on smaller Azure VM SKUs within a series. You should leverage [Azure constrained vCPU SKUs](/azure/virtual-machines/constrained-vcpu) where possible to save on compute and software license cost.
+Azure NetApp Files also optimizes costs for [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) and [SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) database applications by allowing you to run storage-I/O intensive databases on smaller Azure VM SKUs within a series. You should use [Azure constrained vCPU SKUs](/azure/virtual-machines/constrained-vcpu) when you can to save on compute and software license costs.
 
-**Understand performance requirements.** Based on your capacity and performance requirements, determine the Azure NetApp Files service level you need (Standard, Premium, or Ultra). Then use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator) to evaluate the costs for these components:
+**Understand performance requirements.** Use your capacity and performance requirements to determine the Azure NetApp Files service level that you need (Standard, Premium, or Ultra). Then use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to evaluate the costs for these components:
 
-- Siemens Teamcenter PLM on Azure components
-- Database on Azure components
+- Teamcenter PLM components on Azure 
+- Database components on Azure 
 - Azure NetApp Files, cross-region replication, and backup
-- Managed disk (OS boot disks)
+- Managed disks (OS boot disks)
 - Networking components
 
-**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/advanced/) helps you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
+**Use the Azure NetApp Files performance calculator.** The [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/advanced/) can help you determine the correct Azure NetApp Files storage tier for your cost and performance needs.
 
-**Consult with an Azure Solutions Architect.** It’s recommended to consult an Azure Cloud Solution Architect (CSA) to assist with application sizing and selecting the smallest applicable VM SKU.
+**Consult with an Azure Cloud Solutions Architect.** We recommend that you consult an Azure Cloud Solution Architect (CSA) to help you with application sizing and selecting the smallest applicable VM SKU.
 
 ### Operational excellence
 
-Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview). Azure NetApp Files for Siemens Teamcenter PLM can help you comply with several of the Azure Well-architected Framework Operational excellence topics:
+Operational excellence covers the operations processes that deploy an application and keep it running in production. For more information, see [Overview of the operational excellence pillar](/azure/architecture/framework/devops/overview). 
 
-**Use native monitoring features.** Azure NetApp Files provides [built-in monitoring and diagnostics capabilities](/azure/azure-netapp-files/monitor-azure-netapp-files) that enable you to monitor the performance and health of your Teamcenter PLM application, CAD file shares, and databases. You can set up alerts and notifications for critical events, such as file system capacity and performance issues, and take corrective actions proactively.
+Using Azure NetApp Files for Teamcenter PLM can help you implement several of the Well-Architected Framework operational excellence recommendations:
 
-**Manage performance.** Azure NetApp Files offers non-disruptive, on-demand [capacity scaling](/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes) and [service level changes](/azure/azure-netapp-files/dynamic-change-volume-service-level), allowing you to scale up or down quickly as required by your Teamcenter PLM applications, CAD file shares, and databases. This, together with volume resizing or manual QoS settings, helps to [manage the performance](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) and availability of your application.
+**Use native monitoring features.** Azure NetApp Files provides [built-in monitoring and diagnostics capabilities](/azure/azure-netapp-files/monitor-azure-netapp-files) that you can use to monitor the performance and health of your Teamcenter PLM application, CAD file shares, and databases. You can set up alerts and notifications for critical events, like file system capacity and performance problems, and take corrective actions proactively.
 
-**Automate infrastructure deployments.** Azure NetApp Files enables you to automate the deployment of your Teamcenter PLM application infrastructure, CAD file shares, and databases. You can use [Azure Resource Manager templates](/azure/azure-netapp-files/azure-netapp-files-sdk-cli#azure-resource-manager-templates) to define and deploy the required resources, such as file shares, storage accounts, virtual machines, and databases, to support your application.
+**Manage performance.** Azure NetApp Files offers non-disruptive on-demand [capacity scaling](/azure/azure-netapp-files/azure-netapp-files-resize-capacity-pools-or-volumes) and [service-level changes](/azure/azure-netapp-files/dynamic-change-volume-service-level), which enable you to scale up or down quickly as required by your Teamcenter PLM applications, CAD file shares, and databases. These capabilities, together with volume resizing or manual quality of service (QoS) settings, can help you [manage the performance](/azure/azure-netapp-files/azure-netapp-files-performance-considerations) and availability of your application.
 
-**Test deployments.** Azure NetApp Files provides a reliable and scalable platform for deploying your Teamcenter PLM application code, CAD files, and databases. You can use the [cloning via snapshot restore feature](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume) to create a new volume for testing purposes quickly. This helps to ensure that your application is always up-to-date and stable, and you can test new releases or upgrades quickly and easily.
+**Automate infrastructure deployments.** Azure NetApp Files enables you to automate the deployment of your Teamcenter PLM application infrastructure, CAD file shares, and databases. You can use [Azure Resource Manager templates](/azure/azure-netapp-files/azure-netapp-files-sdk-cli#azure-resource-manager-templates) to define and deploy the required resources, like file shares, storage accounts, VMs, and databases, that support your application.
 
-**Test environments.** Azure NetApp Files allows you to create and manage test environments quickly and easily by [cloning your production data via snapshot restore to a new volume](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume). This helps you to isolate testing activities from production environments and provides a quick and easy way to test disaster recovery scenarios. You can also use the same process to test new releases or upgrades in a non-disruptive manner. This helps to ensure that your application is robust and reliable.
+**Test deployments.** Azure NetApp Files provides a reliable and scalable platform for deploying your Teamcenter PLM application code, CAD files, and databases. You can use [cloning via snapshot restore](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume) to quickly create a new volume for testing. Cloning helps to ensure that your application is always up-to-date and stable, and you can test new releases or upgrades easily.
+
+**Test environments.** You can use Azure NetApp Files to create and manage test environments quickly by [cloning your production data via snapshot restore to a new volume](/azure/azure-netapp-files/snapshots-introduction#restoring-cloning-an-online-snapshot-to-a-new-volume). Doing so helps you to isolate testing activities from production environments and provides an easy way to test disaster recovery scenarios. You can also use the same process to test new releases or upgrades in a non-disruptive manner.
 
 ### Performance efficiency
 
-Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview). Azure NetApp Files provides high-performance storage with low latency, high throughput, and consistent performance. This means that your Teamcenter PLM [database will be able to handle high volumes of data, users, and transactions without any performance degradation](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545). It also means that your CAD files will be able to be accessed and modified quickly and efficiently, which can help improve productivity and collaboration.
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview). 
 
-**Pick the right compute and performance tiers.** To ensure optimal performance of your Teamcenter PLM environment, use the right Azure VM types and Azure NetApp Files performance tier. Azure NetApp Files volumes are available in three performance tiers (or ‘service level’): [Ultra, Premium, and Standard](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). Choose the tier that best suits your performance requirements, taking into account that available performance bandwidth [scales with the size of a volume](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). You can optimize performance by resizing or changing the service level of a volume at any time. For more information about the Azure NetApp Files cost model, see these [pricing examples](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).  
+Azure NetApp Files provides high-performance storage with low latency, high throughput, and consistent performance. This enables your Teamcenter PLM [database to handle high volumes of data, users, and transactions without performance degradation](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545). Your users will be able to access and modify your CAD files quickly and efficiently.
 
-The VM type and performance tiers need to meet storage needs of the (1) Siemens Teamcenter servers (Root FSC), (2) database servers, and (3) engineering workstations (*see Figure 2*).
+**Pick the right compute and performance tiers.** To ensure optimal performance of your Teamcenter PLM environment, use the right Azure VM types and Azure NetApp Files performance tier. Azure NetApp Files volumes are available in three performance tiers (or *service levels*): [Ultra, Premium, and Standard](/azure/azure-netapp-files/azure-netapp-files-service-levels#supported-service-levels). Choose the tier that best suits your performance requirements, taking into account that available performance bandwidth [scales with the size of a volume](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limits). You can optimize performance by resizing a volume or changing the service level of a volume at any time. For more information about the Azure NetApp Files cost model, see [these pricing examples](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).  
 
-image 
+The VM type and performance tiers need to meet storage needs of the Teamcenter servers (Root FSC), database servers, and engineering workstations. This diagram shows the storage tier requirements for various infrastructure components: 
 
-Figure 2: Varied storage tier requirements across infrastructure components.
+:::image type="content" source="media/storage-requirements.png" alt-text="Diagram that shows the storage tier requirements for various infrastructure components." lightbox="media/storage-requirements.png" border="false":::
 
-- *Siemens Teamcenter Servers (Root FSC)* require medium-to-high storage performance for file data management. Depending on volume capacities, the Azure NetApp Files Premium tier is typically recommended unless [performance sizing](https://anftechteam.github.io/calc/advanced) shows otherwise. You should use Azure D or F series VMs for the Root FSC servers. Azure NetApp Files provides high level SLAs to maintain operability and IOPS levels.
-- *Database servers ([SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) or [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545))* require minimal latency between it and storage. Azure NetApp Files provides latencies of less than 1 millisecond. You should use E/M-series Azure VMs for your database servers. Where possible, enable [constrained vCPU](/azure/virtual-machines/constrained-vcpu) to save on SKU and license cost. For the most demanding database applications, you should use the Azure NetApp Files Ultra tier unless database [performance sizing](https://anftechteam.github.io/calc/advanced) shows otherwise.
-- *Engineering workstations* should use NV series VMs for the engineering workstations and leverage NVIDIA GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops. Azure NetApp Files also optimizes GPU enabled engineering workstations by providing fast and concurrent access to file data to multiple workstations and therefore fostering collaboration. Typically, Azure NetApp Files Standard tier is sufficient for this use case, especially since the standard tier provides same low latency performance experience as the other tiers even at low bandwidth requirements – also in situations with high concurrency (like many users access the volume in parallel).
+- Teamcenter servers (Root FSC) require medium-to-high storage performance for file data management. Depending on volume capacities, we typically recommend the Azure NetApp Files Premium tier unless [performance sizing](https://anftechteam.github.io/calc/advanced) suggests otherwise. You should use Azure D or F series VMs for the Root FSC servers. Azure NetApp Files provides high SLAs to maintain operability and IOPS levels.
+- Database servers ([SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) or [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)) require minimal latency between the server and storage. Azure NetApp Files provides latencies of less than 1 millisecond. You should use E or M series Azure VMs for your database servers. When you can, enable [constrained vCPU](/azure/virtual-machines/constrained-vcpu) to save on SKU and license costs. For the most demanding database applications, you should use the Azure NetApp Files Ultra tier unless database [performance sizing](https://anftechteam.github.io/calc/advanced) suggests otherwise.
+- Engineering workstations should use NV series VMs and NVIDIA GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops. Azure NetApp Files also optimizes GPU-enabled engineering workstations by providing fast and concurrent access to file data to multiple workstations, which fosters collaboration. Typically, the Standard tier is sufficient for this use case, especially because that tier provides the same low-latency performance as the other tiers, even at low bandwidth requirements and in situations with high concurrency, like when many users access the volume in parallel.
 
-**Scale your storage capacity.** With Azure NetApp Files, you can easily scale your storage capacity and performance to meet your changing business needs. You can [add or remove capacity and performance resources on-demand, without any downtime or data migration which helps improve TCO](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
+**Scale your storage capacity.** With Azure NetApp Files, you can easily scale your storage capacity and performance to meet your changing business needs. You can [add or remove capacity and performance resources on-demand, without any downtime or data migration, which helps you improve TCO](/azure/azure-netapp-files/azure-netapp-files-cost-model#pricing-examples).
 
-Azure NetApp Files provides several features that help to scale on-demand for performance and cost, while ensuring that the changes are transparent to the applications running on top:
+Azure NetApp Files provides several features that help to scale on-demand for performance and cost while ensuring that the changes are transparent to the applications that are running on it:
 
-1.	[Dynamic service level changes](/azure/azure-netapp-files/dynamic-change-volume-service-level): Azure NetApp Files allows you to change the service level of your volumes on-demand, without any disruption to your applications. This means that you can increase or decrease the performance or capacity of your volumes as required, without impacting the availability of your applications. This helps you to optimize the performance and cost of your storage resources based on your workload requirements.
-2.	[Adjusting performance when using ‘auto QoS’](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool): By default, Azure NetApp Files automatically applies Quality of Service (QoS) to your volumes to ensure that they receive the required level of performance. When you resize your volumes, the QoS settings are automatically adjusted to reassign the level of performance. This means that your applications continue to receive the adjusted level of performance as the storage capacity changes.
-3.	[Adjusting performance when using 'Manual QoS'](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool): Azure NetApp Files also allows you to manually assign QoS policies to your volumes to ensure that they receive the required level of performance. Without resizing your volumes, you can adjust the QoS settings to optimize the performance and cost of your storage resources. This means that you can fine-tune the performance of your applications based on your workload requirements.
+-	[Dynamic service-level changes](/azure/azure-netapp-files/dynamic-change-volume-service-level). Azure NetApp Files allows you to change the service level of your volumes on-demand, without any disruption to your applications. You can increase or decrease the performance or capacity of your volumes as required, without affecting the availability of your applications. 
+-	[Adjusting performance when you use auto QoS](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool). By default, Azure NetApp Files automatically applies QoS to your volumes to ensure that they receive the required level of performance. When you resize your volumes, the QoS settings are automatically adjusted to reassign the level of performance. Your applications continue to receive the adjusted level of performance as the storage capacity changes.
+-	[Adjusting performance when you use manual QoS](/azure/azure-netapp-files/azure-netapp-files-service-levels#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool). Azure NetApp Files also allows you to manually assign QoS policies to your volumes to ensure that they receive the required level of performance. Without resizing your volumes, you can adjust the QoS settings to optimize the performance and cost of your storage resources. You can fine-tune the performance of your applications based on your workload requirements.
 
-All of these changes are transparent to the Siemens Teamcenter components running on top of Azure NetApp Files. The applications continue to access the volumes in the same way, and the performance and availability are maintained at the required level. This helps you to scale your storage resources on-demand for performance and cost, without disrupting your business operations.
+All of these changes are transparent to the Teamcenter components that run on top of Azure NetApp Files. The applications continue to access the volumes in the same way, and the performance and availability are maintained at the required level. You can scale your storage resources on-demand for performance and cost without disrupting your business operations.
 
-**Run performance test.** Customer deployments and performance validation tests of Azure NetApp Files for Siemens Teamcenter PLM have validated significant decreases in execution times and significant improvements in both read and write times. This results in overall productivity gains and optimizes resource utilization. Use the [Azure NetApp Files Performance Calculator](https://anftechteam.github.io/calc/) to get started with an initial sizing and cost estimation. 
+**Run a performance test.** Customer deployments and performance validation tests of Azure NetApp Files for Teamcenter PLM have validated significant decreases in runtimes and significant improvements in both read and write times. Use the [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/) to get started with an initial sizing and cost estimation. 
 
-### Potential use cases
 
-**Requirements engineering, model-based systems engineering, and PLM process management:** Azure NetApp Files offers high-performance storage with low latency, enabling faster access to critical data and improving overall system performance. This is particularly important for use cases such as requirements engineering, model-based systems engineering, and PLM process management, which rely heavily on accessing and processing large volumes of data.
-
-**Bill of materials management and product configuration:** Azure NetApp Files also provides flexible storage options that can scale up or down based on changing business needs. This is particularly useful for use cases such as bill of materials management and product configurations, which require significant storage capacity and may experience frequent changes in data volume.
-
-**Product cost management:** Azure NetApp Files provides advanced data protection features, including point-in-time backups and disaster recovery options, which can help ensure data availability and minimize the risk of data loss. This is important for use cases such as product cost management, where accurate and up-to-date data is critical for making informed decisions.
-
-**Development across departments and domains:** Azure NetApp Files contributes to improving development across departments and domains by providing a high-performance, reliable, and scalable storage service for Siemens Teamcenter PLM deployments. With Azure NetApp Files, PLM data can be accessed quickly and easily, allowing for efficient collaboration between different departments and domains.
-
-**Mechanical design management:** Azure NetApp Files can provide high-speed access to large design files, allowing engineers to quickly iterate on designs and make necessary changes. For electronics and electrical CAD management, Azure NetApp Files can provide a centralized location for storing and managing CAD data, making it easy for engineers to collaborate on designs and share data across departments.
-
-**Software design management:** Azure NetApp Files can provide high-performance storage for build artifacts and development environments, enabling fast build and deployment times. 
-
-**Product document management:** Azure NetApp Files can provide a centralized location for storing and managing product documentation, making it easy to access and share information across different teams.
-
-**Product visualization and desktop mockup:** Azure NetApp Files can provide high-speed access to large graphic files and simulations, enabling faster visualization and mockup times. And for simulation process and data management, Azure NetApp Files can provide fast and reliable storage for simulation data, allowing engineers to quickly run simulations and analyze results.
-
-**Product visibility and insight:** Azure NetApp Files enables the delivery of product visibility and insight by providing fast and reliable access to PLM data and analytics, which can help organizations make informed decisions and optimize their product development processes. For example, PLM analytics can provide insights into the performance of products and help identify areas for improvement, while sustainable product development can help organizations track the environmental impact of their products and make more sustainable choices. 
 
 ## Contributors
 
@@ -203,26 +211,29 @@ All of these changes are transparent to the Siemens Teamcenter components runnin
 
 Principal authors: 
 
-- Tilman Schroeder - Cloud Lead Automotive, NetApp
-- Geert van Teylingen - Azure NetApp Files Group Product Manager
+- [Tilman Schroeder](https://www.linkedin.com/in/tilman-schroeder-80957a155/) | Cloud Lead, Automotive
+- [Geert van Teylingen](https://www.linkedin.com/in/geertvanteylingen) | Azure NetApp Files Group Product Manager
 
 
 Other contributors:
  
-- Sunita Phanse – Senior Technical Program Manager, Microsoft
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Sunita Phanse](https://www.linkedin.com/in/sunita-phanse-176969/) | Senior Technical Program Manager
 
-line 
+*To see non-public LinkedIn profiles, sign in to LinkedIn.* 
 
 ## Next steps
 
-To find out more about Azure capabilities related to implementing a robust data management layer for PLM, read the following: 
+- [Azure Marketplace solutions for Teamcenter](https://azuremarketplace.microsoft.com/marketplace/apps?search=teamcenter)
+- [Oracle solutions on Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#oracle)
+- [SQL Server solutions on Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#sql-server)
+- [Benefits of using Azure NetApp Files for SQL Server deployment](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server)
+- [Azure Virtual Desktop solutions with Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#windows-virtual-desktop)
+- [File sharing solutions with Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-solution-architectures#file-sharing-and-global-file-caching)
+- [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/)
+- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)
 
-- Azure Marketplace solutions for Siemens Teamcenter
-- Oracle solutions on Azure NetApp Files
-- SQL Server solutions on Azure NetApp Files
-- Benefits of using Azure NetApp Files for SQL Server Deployment
-- Azure Virtual Desktop solutions with Azure NetApp Files
-- File sharing solutions with Azure NetApp Files
-- Azure Architecture Center solutions with Azure NetApp Files
-- Azure NetApp Files Performance Calculator
-- Azure Pricing calculator
+## Related resources
+
+- [Azure NetApp Files solutions on the Azure Architecture Center](/azure/architecture/browse/?terms=Azure%20NetApp%20Files)
+- [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
