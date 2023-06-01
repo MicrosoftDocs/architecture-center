@@ -6,6 +6,8 @@ This article outlines an e-commerce solution that engages customers by using Azu
 
 ![Architecture diagram that shows an e-commerce system. Components include Azure App Service, Azure Cognitive Search, and storage services.](../media/retail-and-ecommerce-using-azure-database-for-postgresql.svg)
 
+*Download a [Visio file](https://arch-center.azureedge.net/retail-e-commerce-azure-database-postgresql.vsdx) of this architecture.*
+
 ### Dataflow
 
 1. The Web Apps feature of Azure App Service hosts a web application.
