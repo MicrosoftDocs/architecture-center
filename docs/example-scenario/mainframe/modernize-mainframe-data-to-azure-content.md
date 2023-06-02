@@ -33,9 +33,9 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
       COBOL, PL/I, and assembly language copybooks define the data structure of these files. Data Provider for Host Files converts the data from EBCDIC to ASCII format based on the copybook layout.
 
-      An Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets. 
+      An Azure Data Factory custom connector uses the Host File client component of Host Integration Server to convert mainframe datasets.
 
-      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. 
+      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications.
 
       A solution that's based on open-source software and is used in [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics) converts data. 
 
