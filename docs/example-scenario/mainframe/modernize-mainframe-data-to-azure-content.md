@@ -31,7 +31,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
    a. FTP transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format and corresponding copybook to Azure.
    
-   b. Data conversion. The Azure Data Factory custom connector is a solution developed by using the Host File client component of Host Integration Server to convert mainframe datasets.
+   b. Data is converted. The Azure Data Factory custom connector is a solution developed by using the Host File client component of Host Integration Server to convert mainframe datasets.
 
       [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. Host Integration Server is a Host File client component that you can use to develop custom solutions for dataset conversion.
 
@@ -166,7 +166,7 @@ Some other factors to consider related to the performance and efficiency of this
 
 - The key pillars of performance efficiency are performance management, capacity planning, scalability, and performance pattern.
 - You can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.
-- Azure SQL Database offers the ability to dynamically scale your databases. In the case of the serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
+- Azure SQL Database offers the ability to dynamically scale your databases. In a serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
 
 ## Contributors
 
