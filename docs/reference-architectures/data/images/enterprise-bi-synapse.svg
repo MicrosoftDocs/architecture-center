@@ -147,11 +147,11 @@
 		<v:layer v:name="Connector" v:index="0"/>
 		<g id="shape1000-3" v:mID="1000" v:groupContext="shape" transform="translate(41.475,-221.625)">
 			<title>Sheet.1000</title>
-			<desc>Data Sources</desc>
+			<desc>Data sources</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:verticalAlign="0"/>
 			<v:textRect cx="46.7625" cy="352.688" width="93.53" height="133.875"/>
 			<rect x="0" y="285.75" width="93.525" height="133.875" class="st2"/>
-			<text x="15.02" y="299.65" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data Sources</text>		</g>
+			<text x="15.61" y="299.65" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data sources</text>		</g>
 		<g id="shape1002-6" v:mID="1002" v:groupContext="shape" transform="translate(184.838,-222.75)">
 			<title>Sheet.1002</title>
 			<desc>Ingestion</desc>
@@ -298,11 +298,11 @@
 		</g>
 		<g id="shape1032-57" v:mID="1032" v:groupContext="shape" transform="translate(194.475,-239.063)">
 			<title>Sheet.1032</title>
-			<desc>Data source</desc>
+			<desc>Blog storage</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="37.125" cy="408.375" width="74.25" height="22.5"/>
 			<rect x="0" y="397.125" width="74.25" height="22.5" class="st4"/>
-			<text x="8.04" y="411.98" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data source</text>		</g>
+			<text x="6.84" y="411.98" class="st12" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Blog storage</text>		</g>
 		<g id="shape1033-60" v:mID="1033" v:groupContext="shape" transform="translate(318.713,-236.813)">
 			<title>Sheet.1033</title>
 			<desc>Azure Synapse</desc>
