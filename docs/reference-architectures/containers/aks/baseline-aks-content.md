@@ -603,7 +603,7 @@ Azure Monitor [Container insights](/azure/azure-monitor/containers/container-ins
 
 Most workloads hosted in pods emit Prometheus metrics. Container insights is capable of integrating with Prometheus to view application and workload metrics it collects from nodes and Kubernetes.
 
-There are some third-party solutions that integrate with Kubernetes you can take advantage of, such as Grafana or Datadog, if your organization already uses them.
+There are some third-party solutions that integrate with Kubernetes you can take advantage of, such as Grafana, Datadog, or New Relic, if your organization already uses them.
 
 With AKS, Azure manages some core Kubernetes services and the logs for the AKS control plane components are implemented in Azure as [resource logs](/azure/azure-monitor/essentials/resource-logs). It is recommended that most clusters have the following enabled at all times as they can help you troubleshoot cluster issues and have a relatively low log density:
 
