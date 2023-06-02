@@ -1844,6 +1844,10 @@ items:
     items:
     - name: Overview
       href: industries/manufacturing.md
+    - name: Siemens Teamcenter
+      items: 
+      - name: Teamcenter with NetApp Files
+        href: example-scenario/manufacturing/teamcenter-plm-netapp-files.yml  
     - name: Guides
       items:
       - name: HPC for manufacturing
