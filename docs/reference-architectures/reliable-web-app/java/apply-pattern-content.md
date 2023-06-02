@@ -103,7 +103,7 @@ For more information, see [App Service disaster recovery](/azure/app-service/ove
 
 Security is a critical component of any architectural design. The goal is to ensure the confidentiality, integrity, and availability of your data and systems. The following guidance outlines the key security concepts that you need to implement.
 
-### Enforce the principle of least privilege
+### Enforce least privileges
 
 As a fundamental security tenet, you should grant users and services (workload identities) only the permissions they need. You should map users to roles and delegate the appropriate permissions to those roles. The number and type of roles you use depends on the needs of your application.
 
