@@ -4,10 +4,10 @@ The solution demonstrates how to use [Azure NetApp Files](/azure/azure-netapp-fi
 
 This architecture illustrates a multi-zone deployment of Teamcenter PLM on Azure NetApp Files. The architecture is designed to deliver exceptional performance, scalability, and high availability (HA). By using Azure NetApp Files  volume placement and replication capabilities across multiple [Azure availability zones](/azure/reliability/availability-zones-overview#availability-zones), this architecture enables high performance, data resilience, and fault tolerance. Teamcenter PLM running on Azure NetApp Files enables you to distribute and replicate data across availability zones to create a resilient PLM solution in the cloud.
 
-image Teamcenter PLM with Azure NetApp Files.
+:::image type="content" source="media/teamcenter-plm-netapp-files.png" alt-text="Diagram that shows a Teamcenter PLM architecture that uses Azure NetApp Files." lightbox="media/teamcenter-plm-netapp-files.png" border="false":::
 
-link 
-
+*Download a [PowerPoint file](https://arch-center.azureedge.net/teamcenter-plm-netapp-files.pptx) of this architecture.*
+ 
 **Availability zones:** The architecture uses two availability zones and replicates data across zones. This configuration helps to ensure the availability of data and to protect against data loss or corruption. The availability zones enable scalability. This flexibility enables you to meet evolving demands without sacrificing availability or performance.
 
 **Resource tier:** Teamcenter PLM relies heavily on the resource tier to provide a scalable and reliable platform for managing product data and collaborating across teams and organizations. The resource tier provides access to resources like documents, 3D models, and drawings. This tier includes the primary and failover databases. The databases store database server data and log volumes. The resource tier also contains the Root FSC file server that stores digital assets (metadata) that are associated with the product data. It handles CAD files that are stored on data volumes. 
@@ -28,7 +28,7 @@ Using Azure NetApp Files as a storage solution for Teamcenter PLM can help you e
 
 **Requirements engineering, model-based systems engineering, and PLM process management:** Azure NetApp Files provides high-performance storage with low latency, enabling faster access to critical data and improving overall system performance. These qualities are particularly important for use cases like requirements engineering, model-based systems engineering, and PLM process management, which rely heavily on accessing and processing large volumes of data.
 
-**Bill of materials management and product configuration:** Azure NetApp Files also provides flexible storage options that can scale up or down based on changing business needs. These qualites are useful for use cases like bill of materials management and product configurations, which require significant storage capacity and can experience frequent changes in data volume.
+**Bill of materials management and product configuration:** Azure NetApp Files also provides flexible storage options that can scale up or down based on changing business needs. These qualities are useful for use cases like bill of materials management and product configurations, which require significant storage capacity and can experience frequent changes in data volume.
 
 **Product cost management:** Azure NetApp Files provides advanced data protection features, including point-in-time backups and disaster recovery options. Data protection is important for use cases like product cost management, where accurate and up-to-date data is critical.
 
@@ -60,7 +60,7 @@ Azure NetApp Files provides two data backup options: snapshots and backup. Snaps
 
 **Replicate data across availability zones.** Azure NetApp Files offers two important features: [availability zone volume placement](/azure/azure-netapp-files/use-availability-zones) and [cross-zone replication](/azure/azure-netapp-files/cross-zone-replication-introduction). Both contribute to HA architectures across availability zones for Teamcenter Root FSC and Oracle or SQL database servers.
 
-We recommend that you use availability zone volume placement to ensure that the Teamcenter Oracle or SQL database servers, together with their associated data, are located in the same availability zone. This placement enhances performance by reducing network latency and provides fault isolation, enabling seamless fail over within the availability zone in case of failure when implemented together with Oracle Data Guard or SQL Server Always On availability groups.
+We recommend that you use availability zone volume placement to ensure that the Teamcenter Oracle or SQL database servers, together with their associated data, are located in the same availability zone. This placement enhances performance by reducing network latency and provides fault isolation, enabling seamless failover within the availability zone in case of failure when implemented together with Oracle Data Guard or SQL Server Always On availability groups.
 
 You should use cross-zone replication when you require data redundancy and HA across multiple availability zones and don't want to use or require application-level replication. If you use cross-zone replication, any changes made in one availability zone are automatically replicated to volumes in other zones. This replication ensures data consistency and enables fail over to a secondary zone in case of a zone-level failure. It enhances data protection, disaster recovery, and overall system resilience for Teamcenter Root FSC file data.
 
@@ -68,7 +68,7 @@ You should use cross-zone replication when you require data redundancy and HA ac
 
 You can set up Azure NetApp Files snapshots via schedule policy or manually in the Azure portal or by using Azure SDKs or APIs. Your application consistency requirements can help you determine which method to use:
 
-- For applications like Oracle or SQL Server that require application consistency, create snapshots manually. Because SQL Server and Oracle databases require application consistency when storage-based snapshots are used, you need to ensure that correct application-to-storage snapshot orchestration occurs. You can achieve this orchestration by implementing an application freeze-snapshot-thaw cycle that enables snapshots to be taken consistently without interupting database operation. For more information about snapshot consistency with Azure NetApp Files, see [SQL Server snapshot consistency](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798) or [Oracle snapshot consistency](/azure/azure-netapp-files/azacsnap-introduction).
+- For applications like Oracle or SQL Server that require application consistency, create snapshots manually. Because SQL Server and Oracle databases require application consistency when storage-based snapshots are used, you need to ensure that correct application-to-storage snapshot orchestration occurs. You can achieve this orchestration by implementing an application freeze-snapshot-thaw cycle that enables snapshots to be taken consistently without interrupting database operation. For more information about snapshot consistency with Azure NetApp Files, see [SQL Server snapshot consistency](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798) or [Oracle snapshot consistency](/azure/azure-netapp-files/azacsnap-introduction).
 - Use a snapshot policy for Root FSC file data. The Root FSC file data hosted on Azure NetApp Files volumes doesn't require any application consistency or orchestration because those volumes are general file shares. We recommend that you use an [Azure NetApp Files snapshot policy](/azure/azure-netapp-files/snapshots-manage-policy) to automatically schedule and initiate snapshots at required intervals.
 
 **Configure Azure NetApp Files backup.** [Azure NetApp Files backup](/azure/azure-netapp-files/backup-introduction) expands the data protection capabilities of Azure NetApp Files by providing a fully managed backup solution for long-term recovery, archive, and compliance. The service stores backups in Azure storage. These backups are independent from volume snapshots that are available for near-term recovery or cloning. You can restore backups taken by this service to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups.  
@@ -103,12 +103,14 @@ The typical recovery point objective (RPO) for this solution is less than 20 min
 This architecture shows a disaster recovery solution that uses cross-region replication:
 
 :::image type="content" source="media/cross-region-replication.png" alt-text="Diagram that shows a disaster recovery solution that uses cross-region replication." lightbox="media/cross-region-replication.png" border="false":::
- 
+
+*Download a [PowerPoint file](https://arch-center.azureedge.net/teamcenter-plm-netapp-files.pptx) of this architecture.*
+
 #### Dataflow 
 
 1.	The client tier, web app tier, enterprise tier, and resource tier in the production environment use the Azure NetApp Files in the storage tier. 
 2.	The applications in their respective tiers use application replication *if needed* to replicate data to an Azure disaster recovery (DR) region. We recommend that you use Azure NetApp Files cross-region replication if you can.
-3.	Azure NetApp Files cross-region replication asynchronously replicates the data volumes, including all snapshots, to a DR region to facilitate fail over if there's a regional disaster. To save money when you're not performing a DR fail over, you can use Standard service levels for the destination volumes during replication.
+3.	Azure NetApp Files cross-region replication asynchronously replicates the data volumes, including all snapshots, to a DR region to facilitate failover if there's a regional disaster. To save money when you're not performing a DR failover, you can use Standard service levels for the destination volumes during replication.
 4.	In case of a disaster, the client, web app, enterprise and resource tiers in the *DR environment* use the Azure NetApp Files storage tier for data storage and performance in the DR environment. In a DR scenario, you should change the Azure NetApp Files volume in the DR environment to the Premium or Ultra tier required for running the applications.
 5.	When the disaster is over, you can initiate a failback event to return the replicated data to its original region. The failback event replicates changes made to the data back to the original region in stages, including any new snapshots created on the DR site, with critical data prioritized first. After replication is complete, applications can resume normal operations in the original region.
 
@@ -187,6 +189,8 @@ The VM type and performance tiers need to meet storage needs of the Teamcenter s
 
 :::image type="content" source="media/storage-requirements.png" alt-text="Diagram that shows the storage tier requirements for various infrastructure components." lightbox="media/storage-requirements.png" border="false":::
 
+*Download a [PowerPoint file](https://arch-center.azureedge.net/teamcenter-plm-netapp-files.pptx) of this architecture.*
+
 - Teamcenter servers (Root FSC) require medium-to-high storage performance for file data management. Depending on volume capacities, we typically recommend the Azure NetApp Files Premium tier unless [performance sizing](https://anftechteam.github.io/calc/advanced) suggests otherwise. You should use Azure D or F series VMs for the Root FSC servers. Azure NetApp Files provides high SLAs to maintain operability and IOPS levels.
 - Database servers ([SQL Server](/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-sql-server) or [Oracle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)) require minimal latency between the server and storage. Azure NetApp Files provides latencies of less than 1 millisecond. You should use E or M series Azure VMs for your database servers. When you can, enable [constrained vCPU](/azure/virtual-machines/constrained-vcpu) to save on SKU and license costs. For the most demanding database applications, you should use the Azure NetApp Files Ultra tier unless database [performance sizing](https://anftechteam.github.io/calc/advanced) suggests otherwise.
 - Engineering workstations should use NV series VMs and NVIDIA GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops. Azure NetApp Files also optimizes GPU-enabled engineering workstations by providing fast and concurrent access to file data to multiple workstations, which fosters collaboration. Typically, the Standard tier is sufficient for this use case, especially because that tier provides the same low-latency performance as the other tiers, even at low bandwidth requirements and in situations with high concurrency, like when many users access the volume in parallel.
@@ -232,5 +236,5 @@ Other contributors:
 
 ## Related resources
 
-- [Azure NetApp Files solutions on the Azure Architecture Center](/azure/architecture/browse/?terms=Azure%20NetApp%20Files)
-- [Solutions for the manufacturing industry](/azure/architecture/industries/manufacturing)
+- [Azure NetApp Files solutions on the Azure Architecture Center](../../browse/index.yml?terms=Azure%20NetApp%20Files)
+- [Solutions for the manufacturing industry](../../industries/manufacturing.md)
