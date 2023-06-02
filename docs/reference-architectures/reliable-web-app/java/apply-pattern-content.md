@@ -16,23 +16,17 @@ The following table lists the principles of the reliable web app pattern. It inc
 
 | Pattern principles | Pattern implementation |
 | --- | --- |
-| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Foundational Well Architected<br>Framework principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
+| *Reliable web app pattern principles:*<br>▪ Minimal code changes<br>▪ Reliability design patterns<br>▪ Managed services<br><br>*Well Architected Framework principles:*<br>▪ Secure ingress<br>▪ Optimized cost<br>▪ Observable<br>▪ Infrastructure as code<br>▪ Identity-centric security|▪ Retry pattern <br> ▪ Circuit-breaker pattern <br>▪ Cache-aside pattern <br>▪ Rightsized resources <br>▪ Managed identities <br>▪ Private endpoints <br>▪ Secrets management <br>▪ Terraform deployment <br>▪ Telemetry, logging, monitoring |
 
 For more information on the pattern, see [Reliable web app pattern overview](../overview.md).
 
 ## Reliability
 
-A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function and normally involves data redundancy (distributed copies of data). *Availability* measures whether your users can access your web application. The following reliability recommendations cover resiliency and availability at the infrastructure, application, and data levels.
+A reliable web application is one that's both resilient and available. *Resiliency* is the ability of the system to recover from failures and continue to function. *Availability* measures whether your users can access your web application. The following reliability recommendations cover resiliency and availability at the infrastructure, application, and data levels.
 
-### Architect infrastructure reliability
+### Add reliability design patterns to your code
 
-You should design your architecture to meet your service level objective (SLO). For example, your decision to use a single region or multiple regions should align with your SLO.
-
-*Reference implementation.* The reference implementation uses two regions. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO. The reference implementation uses an active passive configuration. All inbound traffic passes through Azure Front Door, and Front Door routes 100% of inbound traffic to the active region. If a failure occurs in the active region, Proseware manually updates Front Door to route all traffic to the passive region.
-
-### Add application reliability
-
-Reliability design patterns essential for web apps in the cloud. The Retry pattern and Circuit Breaker pattern are the two most critical design patterns for application reliability at this stage. These two design patterns introduce self-healing qualities that help your application maximize the reliability features of the cloud.
+Reliability design patterns improve the reliability of service to service communication in the cloud. The Retry pattern and Circuit Breaker pattern are design patterns you should add to web apps in the cloud.
 
 **Use the Retry pattern.** The Retry pattern is a technique for handling temporary service interruptions. These temporary service interruptions are known as *transient faults* and typically resolve themselves in a few seconds. In the cloud, the leading causes of transient faults are service throttling, dynamic load distribution, and network connectivity. The Retry pattern handles transient faults by resending failed requests to the service. You can configure the amount of time between retries and how many retries to attempt before throwing an exception. If your code already uses the Retry pattern, you should update your code to use the [Retry mechanisms](/azure/architecture/best-practices/retry-service-specific) available in Azure services and client SDKs. If your application doesn't have a Retry pattern, you should add one based on the following guidance. For more information, see:
 
@@ -61,17 +55,47 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 *Simulate the Circuit Breaker pattern:* You can simulate the Circuit Breaker pattern in the reference implementation. For instructions, see [Simulate the Circuit Breaker pattern](https://github.com/Azure/reliable-web-app-pattern-java/blob/main/simulate-patterns.md#retry-and-circuit-break-pattern).
 
-### Architect data redundancy
+### Design architecture reliability
 
-Data redundancy refers to distributed copies of data. Storing copies of data across regions provides a higher data redundancy than across availability zones. Data redundancy is insurance for your data. More data redundancy lowers your risk exposure, but it also increases your cost. The level you choose needs to align with your business need.
+Architecture refers to the arrangement and distribution of components supporting your web app. Architecture availability is an important metric. The availability of your web app architecture should meet or exceed the service level objective (SLO) for the web app. Use availability metrics when estimating architecture availability, not durability. Durability applies to data storage, and it ensures the integrity of your data. Durability service level agreements are generally higher than availability service level agreements.
 
-Your data redundancy plan should balance your threshold for risk and cost for each web app. It needs to meet your recovery point objective (RPO) or acceptable data loss threshold. Each data service could require a different configuration for data redundancy. Your needs to account for your web app architecture.
+**Determine number of regions.** Use the web app service level objective as main factor for determining how many regions to use. If a single region doesn't offer the availability estimates you need, you should consider adding a region to your web app.
 
-*Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers two availability zones. It also asynchronously replicates to read replica in the passive region. Azure Files GZRS and Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
+**Determine region configuration.** A multi-region web app can have an active-active configuration or active-passive configuration. An active-active configuration distributes (load balances) traffic between regions. An active-passive configuration sends all traffic to one region and uses the other region only for a failover.
 
-### Create failover plan
+**Understand data implications.** A multi-region web app requires a different data strategy than a single region web app. A multi-region web app needs to replicate data across regions. A single-region web app doesn't. For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
 
-You need to define a failover plan for your web app. The failover plan should define a recovery time objective (RTO) that aligns with your SLO. The failover plan should define what a failure is for your web app. For example, you can define failure in minutes of downtime or loss of specific app function. You can automate failover or do it manually. Automating failover streamlines the process, but it creates a risk that someone could trigger a failover accidentally.
+*Reference implementation.* The reference implementation uses two regions in an active-passive configuration. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO. The active-passive configuration aligns with Proseware's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Proseware manually initiates its failover plan and routes all traffic to the passive region.
+
+### Architect data reliability
+
+Data reliability relies on replicating data across multiple locations.  In general, the more isolated those locations are from each other the better your data reliability.
+
+**Determine high need data.** Replicating data increases cost. You should only replicate data that you need during a failover.
+
+**Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're willing to loose during an outage. For example, an RPO of one hour means the web app loses one hour of the most recent data. If that web app goes down at 2PM, the disaster recovery process can only recover data before 1PM.
+
+**Determine replication frequency.** Your recovery point objective (RPO) should drive your data replication frequency. The frequency of your data replication needs to be less than or equal to your RPO. An RPO of one hour requires data replication every hour.
+
+**Determine replication configurations.** You need to use your RPO and architecture to apply the right data replication configurations. For a single region web app, you need to determine how many availability zones to use. Many Azure storage services offer native data replication options. For a multi-region web app with an active-passive configuration, you need to replicate data to the passive region for diaster recovery. The replication frequency in an active-passive configuration needs to meet your RPO. For a multi-region web app in an active-active configuration, you need to configure synchronous data replication.
+
+*Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. Check the [last sync time property](/azure/storage/common/last-sync-time-get) to get an estimated RPO. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers two availability zones. It also asynchronously replicates to read replica in the passive region. Azure Files GZRS and Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
+
+### Create a failover plan
+
+A failover plan details the procedure in the event of an outage. The plan should define what an outage means for your web app. For example, you can define outage in terms of downtime or loss of functionality.
+
+**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum amount of downtime you're willing to accept during an outage. An RTO of four hours means your okay with the web app being offline for up to four hours.
+
+**Define failover duration.** The failover process needs to take as much or less time than your RTO. An RTO of four hours means you need to failover within four hours.
+
+**Determine failover mechanism.** You can automate failover or do it manually. Automating failover streamlines the process, but it adds risk that someone could trigger a failover accidentally. Consider a manual failover process and run tests to ensure failover proficiency.
+
+**Outline the return process.** The failover plan needs to define the steps to return to normal operations. Most failover plans revert to the state before the failover.
+
+**Test failover plan in test environment.** You need to test the failover plan regularly. You should use a test environment to avoid production issues. The test environment should resemble the production environment as closely as possible.
+
+For more information, see [App Service disaster recovery](/azure/app-service/overview-disaster-recovery).
 
 *Reference implementation.* Proseware created a manual failover plan. MORE DETAILS TBD.
 
