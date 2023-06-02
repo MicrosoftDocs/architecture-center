@@ -1,0 +1,21 @@
+### YamlMime:Architecture
+metadata:
+  title: Use Teamcenter PLM with Azure NetApp Files
+  titleSuffix: Azure Architecture Center
+  description: Learn how to use Azure NetApp Files as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
+  author: gvanteylingen
+  ms.author: b-gevant
+  ms.date: 06/06/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-scenario
+azureCategories:
+  - storage 
+products:
+  - azure-netapp-files
+  - azure-sql-database
+name: Use Teamcenter PLM with Azure NetApp Files
+summary: Learn how to use Azure NetApp Files as a storage solution for Siemens Teamcenter product lifecycle management (PLM). 
+thumbnailUrl: /azure/architecture/browse/thumbs/teamcenter-plm-netapp-files.png
+content: |
+  [!include[](teamcenter-plm-netapp-files-content.md)]

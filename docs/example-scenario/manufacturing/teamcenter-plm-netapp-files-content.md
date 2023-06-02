@@ -52,7 +52,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-Azure NetApp Files provides JA with [built-in data replication, failover, and disaster recovery capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even in the event of a regional, zonal, or software failure.
+Azure NetApp Files provides HA with [built-in data replication, failover, and disaster recovery capabilities](/azure/azure-netapp-files/snapshots-introduction). These capabilities help ensure that your Teamcenter PLM database and CAD files are always available, even in the event of a regional, zonal, or software failure.
 
 Azure NetApp Files provides a high [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) for all tiers and all supported regions. Azure NetApp Files also supports provisioning volumes in [availability zones](/azure/azure-netapp-files/use-availability-zones) that you choose, and HA deployments across zones. 
 
@@ -203,8 +203,6 @@ All of these changes are transparent to the Teamcenter components that run on to
 
 **Run a performance test.** Customer deployments and performance validation tests of Azure NetApp Files for Teamcenter PLM have validated significant decreases in runtimes and significant improvements in both read and write times. Use the [Azure NetApp Files performance calculator](https://anftechteam.github.io/calc/) to get started with an initial sizing and cost estimation. 
 
-
-
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
@@ -213,7 +211,6 @@ Principal authors:
 
 - [Tilman Schroeder](https://www.linkedin.com/in/tilman-schroeder-80957a155/) | Cloud Lead, Automotive
 - [Geert van Teylingen](https://www.linkedin.com/in/geertvanteylingen) | Azure NetApp Files Group Product Manager
-
 
 Other contributors:
  
