@@ -1,4 +1,4 @@
-This article is meant to be considered as an extension to the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-ak), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. The focus of this article is on providing guidance relative to deploying Windows containers on AKS. As such, this article focuses on those configurations specific to deploying Windows on AKS and you should refer back to the AKS Baseline documentation for configurations already described there.
+This article is meant to be considered as an extension to the [AKS Baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks), which provides a thorough review of the recommended configurations to deploy an AKS cluster into a production environment. The focus of this article is on providing guidance relative to deploying Windows containers on AKS. As such, this article focuses on those configurations specific to deploying Windows on AKS and you should refer back to the AKS Baseline documentation for configurations already described there.
 
 Refer to the [AKS Windows baseline GitHub project](https://github.com/Azure/aks-baseline-windows) to review the reference implementation associated with this reference architecture including sample deployment code.
 
@@ -10,7 +10,7 @@ The network design used in this architecture is based off of the [design](./base
 - The ingress solution in this architecture makes use of [Azure Front Door](/azure/frontdoor/front-door-overview) (AFD) and [Azure AD Application Proxy](/azure/active-directory/app-proxy/what-is-application-proxy) (AAP) rather than Azure App Gateway, which is used in the AKS Baseline architecture.
 
 >[!NOTE]
->  Migrating windows workloads into AKS usually does not include major refactoring efforts, and as such the workloads might be using features that were relatively easy to implement on-premises, but pose a challenge on Azure. One example would be an application that uses gMSA and Kerberos authentication.  This is a common use case, and as such, this architecture leads with components that address those workloads' needs. Specifically, using AAP fronted by AFD as part of ingress path.  If your workload doesn't need this support, you can follow the same [guidance]((/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources) as in the AKS baseline for ingress. 
+>  Migrating windows workloads into AKS usually does not include major refactoring efforts, and as such the workloads might be using features that were relatively easy to implement on-premises, but pose a challenge on Azure. One example would be an application that uses gMSA and Kerberos authentication.  This is a common use case, and as such, this architecture leads with components that address those workloads' needs. Specifically, using AAP fronted by AFD as part of ingress path.  If your workload doesn't need this support, you can follow the same [guidance](/azure/architecture/reference-architectures/containers/aks/baseline-aks#deploy-ingress-resources) as in the AKS baseline for ingress. 
 
 ### Ingress design
 
@@ -31,6 +31,7 @@ In order to implement this design, AFD must be configured to use the Application
 The diagram below shows the hub-spoke network design used in this architecture.
 
 ![Diagram that shows the network topology design for the Windows containers on AKS reference architecture](./images/aks-windows-baseline.png)
+*Download a [Visio file](https://arch-center.azureedge.net/aks-windows-baseline.vsdx) of this architecture.*
 
 ### Node pool topology
 
