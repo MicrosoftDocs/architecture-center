@@ -4,7 +4,7 @@ metadata:
   description: Expose Azure Spring Apps with improved security by using reverse proxy services like Application Gateway, Azure Front Door, and Spring Cloud Gateway.
   author: jelledruyts
   ms.author: jelled
-  ms.date: 05/10/2023
+  ms.date: 06/06/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

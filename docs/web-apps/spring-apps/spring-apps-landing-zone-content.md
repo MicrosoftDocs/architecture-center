@@ -259,11 +259,13 @@ Data in transit should be encrypted.
 
 Traffic between the user's browser and Azure Application Gateway must be encrypted to make sure it's not changed in transit. In this architecture, Azure Application Gateway only accepts HTTPS traffic and negotiates TLS handshake. This check is enforced through NSG rules on the Application Gateway subnet. The TLS certificate is loaded directly during deployment. 
 
-Web application firewall (WAF) is integrated with Application Gateway and further inspects traffic blocking OWASP vulnerabilities.
-
 Traffic from Application Gateway to the Spring Apps instance is re-encrypted to make sure only secure traffic reaches the application. The Spring Apps runtime receives that traffic and this is the TLS termination point. From here on, inter-service communication within the application and isn't encrypted. However, communication with other Azure PaaS services and the runtime is over TLS.
 
 You can choose to implement [end-to-end TLS communication through Azure Spring Apps](/azure/spring-apps/how-to-enable-ingress-to-app-tls). Consider the tradeoffs.  There might be an impact on latency and operations. 
+
+Data in transit should be inspected for vulnerabilities. 
+
+Web application firewall (WAF) is integrated with Application Gateway and further inspects traffic blocking OWASP vulnerabilities. You can configure WAF to detect, monitor, and log threat alerts. Or, you can set up WAF to blocks intrusions and attacks detected by the rules.
 
 
 ##### DDoS protection

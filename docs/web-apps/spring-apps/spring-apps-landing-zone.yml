@@ -5,7 +5,7 @@ metadata:
   description: Reference architecture for Spring Boot applications hosted in Azure Spring Apps. The application is deployed in an Azure landing zone so that the workload can use shared resources managed by central teams of an organization. 
   author: PageWriter-MSFT
   ms.author: prwilk
-  ms.date: 05/10/2023
+  ms.date: 06/06/2023
   ms.topic: reference-architecture
   ms.service: architecture-center
   ms.subservice: reference-architecture
