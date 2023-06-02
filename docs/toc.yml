@@ -4388,8 +4388,6 @@ items:
             href: microservices/design/index.yml
           - name: Choose a compute option
             href: microservices/design/compute-options.md
-          - name: Spring Apps via reverse proxy
-            href: reference-architectures/microservices/spring-cloud-reverse-proxy.yml
           - name: Interservice communication
             href: microservices/design/interservice-communication.yml
           - name: API design
@@ -4434,21 +4432,12 @@ items:
             maintainContext: true
       - name: Architectures
         items:
-        - name: Azure Spring Apps multiregion deployment
-          href: reference-architectures/microservices/spring-apps-multi-region.yml
-        - name: Blue/green on Azure Spring Apps
-          href: example-scenario/blue-green-spring/blue-green-spring.yml
         - name: Decompose apps with Service Fabric
           href: example-scenario/infrastructure/service-fabric-microservices.yml
         - name: Enterprise-grade logging on Azure
           href: reference-architectures/logging/enterprise-grade-logging.yml
-        - name: Highly available zone-redundant Spring Apps
-          href: reference-architectures/microservices/spring-apps-multi-zone.yml
         - name: Microservices on Azure Service Fabric
           href: reference-architectures/microservices/service-fabric.yml
-        - name: Microservices with Azure Spring Apps
-          href: /azure/spring-apps/reference-architecture
-          maintainContext: true
         - name: Microservices with Container Apps
           href: example-scenario/serverless/microservices-with-container-apps.yml
         - name: Microservices with Dapr and KEDA

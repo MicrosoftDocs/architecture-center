@@ -20,6 +20,6 @@ products:
   - azure-database-mysql
 name:  Azure Spring Apps baseline architecture
 summary: Deploy Azure Spring Apps instances in multiple zones for increased availability, resilience, and performance.
-thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-reference-architecture.png
+thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-reference-architecture-single-region-zone-redundant.svg
 content: |
   [!include[](spring-apps-multi-zone-content.md)]

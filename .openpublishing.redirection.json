@@ -2566,6 +2566,26 @@
       "source_path": "docs/solution-ideas/articles/devsecops-in-azure.yml",
       "redirect_url": "/azure/architecture/guide/devsecops/devsecops-on-aks",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "docs/reference-architectures/microservices/spring-apps-multi-region.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/blue-green-spring/blue-green-spring.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/blue-green-spring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/microservices/spring-apps-multi-zone.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/reference-architectures/microservices/spring-cloud-reverse-proxy.yml",
+      "redirect_url": "/azure/architecture/web-apps/spring-apps/spring-cloud-reverse-proxy",
+      "redirect_document_id": false
+    }               
   ]
 }
