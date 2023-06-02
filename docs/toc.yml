@@ -3714,7 +3714,7 @@ items:
         href: solution-ideas/articles/hpc-risk-analysis.yml
       - name: HPC system and big compute
         href: solution-ideas/articles/big-compute-with-azure-batch.yml
-      - name: Hybrid HPC with HPC Pack
+      - name: Hybrid HPC with HPC Packwindows-containers-on-aks
         href: solution-ideas/articles/hybrid-hpc-in-azure-with-hpc-pack.yml
   - name: Containers
     items:
@@ -3742,6 +3742,8 @@ items:
             href: reference-architectures/containers/aks/baseline-aks.yml
           - name: AKS baseline for multi-region clusters
             href: reference-architectures/containers/aks-multi-region/aks-multi-cluster.yml
+          - name: Running Windows containers on AKS
+            href: reference-architectures/containers/aks/windows-containers-on-aks.yml
           - name: AKS cluster for a PCI-DSS workload
             items:
             - name: Introduction
