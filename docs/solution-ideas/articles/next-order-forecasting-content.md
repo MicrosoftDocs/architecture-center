@@ -174,6 +174,7 @@ Other contributors:
 
 ## Next steps
 
+- [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models#many-models-solution-accelerator)
 - [What is Azure Machine Learning?](/azure/machine-learning/overview-what-is-azure-ml)
 - [Track machine learning models with MLflow and Azure Machine Learning](/azure/machine-learning/how-to-use-mlflow)
 - [Azure Data Factory documentation](/azure/data-factory/introduction)

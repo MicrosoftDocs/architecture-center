@@ -14,8 +14,9 @@ Some popular uses for Azure DevTest Labs include:
 
 ## Architecture
 
-![Architecture shows I T admin to Visual Studios Teams to Image factory to Virtual Machines.](../media/dev-test-image-factory.png)
-*Download an [SVG](../media/dev-test-image-factory.svg) of this architecture.*
+[ ![Architecture shows I T admin to Visual Studios Teams to Image factory to Virtual Machines.](../media/dev-test-image-factory.svg)](../media/dev-test-image-factory.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/dev-test-image-factory.vsdx) of this architecture.*
 
 ### Dataflow
 

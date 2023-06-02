@@ -21,7 +21,6 @@ metadata:
     - ai gallery
     - "https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare"
     - ai-machine-learning
-  social_image_url: /azure/architecture/solution-ideas/articles/media/population-health-management-for-healthcare.png
 name: Population health management for healthcare
 azureCategories:
   - ai-machine-learning

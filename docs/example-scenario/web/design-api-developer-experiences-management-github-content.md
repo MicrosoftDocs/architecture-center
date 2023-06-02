@@ -199,5 +199,4 @@ Principal author:
 
 - [Protect APIs with Azure Application Gateway and Azure API Management](../../reference-architectures/apis/protect-apis.yml)
 - [Highly available multi-region web app - Azure Architecture Center](../../reference-architectures/app-service-web-app/multi-region.yml)
-- [API-first SaaS business model](../../solution-ideas/articles/aks-api-first.yml)
 - [Basic enterprise integration on Azure](../../reference-architectures/enterprise-integration/basic-enterprise-integration.yml)

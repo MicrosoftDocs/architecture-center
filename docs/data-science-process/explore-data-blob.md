@@ -14,6 +14,7 @@ ms.custom:
   - previous-author=deguhath
   - previous-ms.author=deguhath
   - fcp
+  - devx-track-python
 products:
   - azure-machine-learning
 categories:

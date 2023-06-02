@@ -150,32 +150,13 @@ ms.service: architecture-center
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/devops-dotnet-baseline.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="~/guide/aks/aks-cicd-github-actions-and-gitops.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="~/example-scenario/apps/media/azure-devops-ci-cd-architecture.png" alt="Architecture diagram for Design a CI/CD pipeline using Azure DevOps" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Design a CI/CD pipeline using Azure DevOps</h3>
-                        <p>Build and release a .NET app to Azure Web Apps using Azure DevOps.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="~/example-scenario/apps/devops-with-aks.yml" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="~/example-scenario/apps/media/architecture-devops-with-aks.png" alt="Architecture diagram for CI/CD pipeline for container-based workloads" height="140px" />
+                            <img src="~/guide/aks/media/aks-cicd-azure-pipelines-architecture.png" alt="Architecture diagram for CI/CD pipeline for container-based workloads" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

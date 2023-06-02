@@ -4,8 +4,9 @@ This solution idea describes how to use the TimeXtender graphical interface to d
 
 ## Architecture
 
-![Architecture Diagram](../media/cloud-scale-analytics-with-discovery-hub.png)
-*Download an [SVG](../media/cloud-scale-analytics-with-discovery-hub.svg) of this architecture.*
+![Diagram showing the dataflow for TimeXtender with cloud scale analytics solution.](../media/cloud-scale-analytics-with-discovery-hub.svg)
+
+*Download a [Visio file](https://arch-center.azureedge.net/cloud-scale-analytics-with-discovery-hub.vsdx) of this architecture.*
 
 ### Dataflow
 

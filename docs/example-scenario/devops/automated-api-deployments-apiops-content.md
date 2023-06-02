@@ -2,13 +2,13 @@ APIOps is a methodology that applies the concepts of GitOps and [DevOps](/devops
 
 ## Architecture
 
-:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-architecture-diagram.png" lightbox="media/automated-api-deployments-architecture-diagram.png" border="false":::
+:::image type="content" alt-text="Diagram of the architecture for automated API deployments using APIOps on Azure." source="media/automated-api-deployments-apiops-architecture-diagram.svg" lightbox="media/automated-api-deployments-apiops-architecture-diagram.svg" border="false":::
 
 _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deployments-apiops-architecture-diagram.vsdx) of this architecture._
 
 ### Workflow
 
-1. API operators run the extractor pipeline to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
+1. API operators run [the extractor pipeline](https://azure.github.io/apiops/apiops/3-apimTools/apiops-2-1-tools-extractor.html) to synchronize the Git repository with the API Management instance and populate the Git repository with API Management objects in the required format.
 
 2. If an API change is detected in the API Management instance, a pull request (PR) is created for operators to review. Operators merge the changes into the Git repository.
 
@@ -37,8 +37,6 @@ _Download a [Visio file](https://arch-center.azureedge.net/automated-api-deploym
 - [Azure Repos](https://azure.microsoft.com/products/devops/repos) is a set of version control tools, including standard Git, that you can use to manage your code.
 
 ### Alternatives
-
-The original implementation of this solution used a modified version of the [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit). We extended the utilities, such as the extractor and the creator, to deploy changes to the API. The implementation is now more technology agnostic. You can now use Terraform, Azure Resource Manager, PowerShell, the REST API, and so on, to easily format and push newly extracted changes back to the portal.
 
 This solution uses [Azure Repos](/azure/devops/repos/) to provide Git functionality and [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) provides the pipelines. You can use any comparable technologies.
 

@@ -41,7 +41,7 @@ The AKS infrastructure features used in this architecture include:
 
   - [System and user node pool separation](/azure/aks/use-system-pools#system-and-user-node-pools)
   - [AKS-managed Azure AD for role-based access control (RBAC)](/azure/aks/managed-aad)
-  - [Azure AD workload identity](/azure/aks/workload-identity-overview) (preview)
+  - [Azure AD workload identity](/azure/aks/workload-identity-overview)
   - [Azure Policy Add-on for AKS](/azure/aks/use-pod-security-on-azure-policy)
   - [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
   - [Azure Monitor container insights](/azure/azure-monitor/insights/container-insights-overview)
@@ -223,7 +223,6 @@ CA and HPA work well together, so enable both autoscaler options in your AKS clu
 The following example sets resource metrics for HPA:
 
 ```yaml
-
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -295,7 +294,7 @@ Consider the following points when planning for scalability.
 
 - You can't change the VM size after creating a cluster, so do initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
 
-- Multi-tenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, currently in public preview, see [Add a node pool with a unique subnet (preview)](/azure/aks/use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet-preview). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
+- Multi-tenant or other advanced workloads might have node pool isolation requirements that demand more and likely smaller subnets. For more information about creating node pools with unique subnets, see [Add a node pool with a unique subnet](/azure/aks/use-multiple-node-pools). Organizations have different standards for their hub-spoke implementations. Be sure to follow your organizational guidelines.
 
 ### Manageability
 
@@ -315,7 +314,7 @@ Consider the following points when planning for security.
 
 - An AKS pod authenticates itself by using a *workload identity* stored in Azure AD. Using a workload identity is preferable because it doesn't require a client secret.
 
-- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) workload identity](/azure/aks/workload-identity-overview) (preview).
+- With managed identities, the executing process can quickly get Azure Resource Manager OAuth 2.0 tokens; there is no need for passwords or connection strings. In AKS, you can assign identities to individual pods by using [Azure Active Directory (Azure AD) workload identity](/azure/aks/workload-identity-overview).
 
 - Each service in the microservice application should be assigned a unique workload identity to facilitate least-privileged RBAC assignments. You should only assign identities to services that require them.
 

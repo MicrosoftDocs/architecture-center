@@ -18,7 +18,6 @@ azureCategories:
 products:
   - azure-cloud-services
   - azure-devops
-  - azure-dev-tool-integrations
   - azure-managed-applications
 ms.custom:
   - fcp

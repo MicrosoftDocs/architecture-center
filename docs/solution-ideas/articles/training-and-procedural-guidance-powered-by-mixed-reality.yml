@@ -23,7 +23,6 @@ metadata:
     - Video Indexer
     - interactive-diagram
     - "https://azure.microsoft.com/solutions/architecture/training-and-procedural-guidance-powered-by-mixed-reality"
-  social_image_url: /azure/architecture/solution-ideas/articles/media/training-and-procedural-guidance-powered-by-mixed-reality.png
 name: Training and procedural guidance powered by mixed reality
 azureCategories:
   - mixed-reality

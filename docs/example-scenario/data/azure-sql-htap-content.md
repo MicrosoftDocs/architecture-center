@@ -2,9 +2,9 @@ This article outlines a solution for a hybrid transaction/analytical processing 
 
 ## Architecture
 
-:::image type="content" source="./media/azure-sql-htap.png" alt-text="Architecture diagram showing how data flows through an H T A P solution with Azure SQL Database at its center." border="false":::
+:::image type="content" alt-text="Architecture diagram showing how data flows through an HTAP solution with Azure SQL Database at its center." source="./media/azure-sql-htap.svg" lightbox="./media/azure-sql-htap.svg":::
 
-*Download an [SVG file][SVG file of architecture diagram] of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/azure-sql-htap.vsdx) of this architecture.*
 
 ### Dataflow
 

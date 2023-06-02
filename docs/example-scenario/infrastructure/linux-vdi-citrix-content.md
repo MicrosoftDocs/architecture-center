@@ -2,7 +2,8 @@ This article describes how to use a Citrix-based solution to create a Virtual De
 
 ## Architecture
 
-[![Diagram of Virtual Desktop Infrastructure architecture](./media/azure-citrix-sample-diagram.png "Architecture Diagram")](./media/azure-citrix-sample-diagram.png#lightbox)
+[![Diagram of Virtual Desktop Infrastructure architecture](./media/azure-citrix-sample-diagram.svg "Architecture Diagram")](./media/azure-citrix-sample-diagram.svg#lightbox)
+*Download a [Visio file](https://arch-center.azureedge.net/linux-vdi-citrix.vsdx) of this architecture.*
 
 ### Workflow
 
@@ -85,7 +86,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 - This example scenario does not include Disaster Recovery capabilities. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) could be a good add-on to this design.
 - Consider deploying the VM instances in this scenario across [Availability Zones](/azure/availability-zones/az-overview). Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Each enabled region has a minimum of three availability zones. This distribution of VM instances across zones provides high availability to the application tiers. For more information, see [What are Availability Zones in Azure?](/azure/availability-zones/az-overview). You can also [deploy VPN and ExpressRoute gateways in Azure Availability Zones](/azure/vpn-gateway/about-zone-redundant-vnet-gateways).
 - For a production deployment management solution should be implemented such as [backup](/azure/backup/backup-introduction-to-azure-backup), [monitoring](/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](/azure/automation/update-management/overview).
-- This example should work for about 250 concurrent (about 50-60 per VDA server) users with a mixed usage. But that will greatly depended on the type of applications being used. For production use, rigorous load testing should be performed.
+- This example should work for about 250 concurrent (about 50-60 per VDA server) users with a mixed usage. But that will greatly depend on the type of applications being used. For production use, rigorous load testing should be performed.
 
 ### Cost optimization
 
@@ -93,7 +94,7 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 - The Citrix XenDesktop licenses are not included in Azure service charges.
 - The Citrix NetScaler license is included in a pay-as-you-go model.
-- Using reserved instances will greatly reduce the compute cost for the solution.
+- For compute, use [Azure Reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/#benefits-and-features) with a one-year or three-year contract and receive significant savings off pay-as-you-go prices.
 - The ExpressRoute cost is not included.
 
 ## Deploy this scenario
