@@ -19,6 +19,6 @@ products:
   - azure-spring-apps
 name: Azure Spring Apps integrated with landing zones
 summary: Reference architecture for Spring Boot applications hosted in Azure Spring Apps. The application is deployed in an Azure landing zone so that the workload can use shared resources managed by central teams of an organization.
-thumbnailUrl: /azure/architecture/browse/thumbs/spring-apps-reference-architecture-landing-zone.svg
+thumbnailUrl: ../../browse/thumbs/spring-apps-reference-architecture-landing-zone.svg
 content: |
   [!include[](spring-apps-landing-zone-content.md)]

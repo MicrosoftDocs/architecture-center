@@ -25,7 +25,7 @@ The biggest challenge with a multi-region setup is replicating the data for your
 
 ### Components
 
-The components of this architecture are same as the [**baseline architecture**](spring-apps-multi-zone-content.md#components). This list only highlights the changes to that architecture. For product documentation about Azure services, see [Related resources](#related-resources).
+The components of this architecture are same as the [**baseline architecture**](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#components). This list only highlights the changes to that architecture. For product documentation about Azure services, see [Related resources](#related-resources).
 
 - **Azure Front Door** acts as the global load balancer. It was chosen because of its capability to deliver higher availability with lower latency, greater scale, and caching at the edge. 
 
@@ -168,7 +168,7 @@ This architecture has several components that can autoscale based on metrics:
 
 ## Cost considerations
 
-This solution effectively doubles the cost estimates of the [**baseline architecture**](spring-apps-multi-zone-content.md#cost-considerations). Main cost drivers for this architecture are as follows:
+This solution effectively doubles the cost estimates of the [**baseline architecture**](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#cost-considerations). Main cost drivers for this architecture are as follows:
 
 - The primary and secondary databases must use the same service tier. Otherwise, the secondary database might not keep up with replication changes.
 - Significant cross-region traffic increases costs. Network traffic between Azure regions incurs charges.
@@ -187,19 +187,19 @@ The design considerations for the [**baseline architecture**](spring-apps-multi-
 
 - **Network security**. Incoming calls this architecture is locked down to allow incoming calls only from Azure Front Door. These calls are routed to the Application Gateway in each region. From the Application Gateway, the calls route to the backend Azure Spring Apps service. Communication from Azure Spring Apps to supporting services, like the key vault, is also locked down by using private endpoints. The most important guideline when you use a different PaaS service is to properly configure host name preservation for the custom domain in the service.
 
-  > For details, see [Baseline architecture: Network security](spring-apps-multi-zone-content.md#network-security)
+  > For details, see [Baseline architecture: Network security](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#network-security)
 
 - **Identity and access management**. Access is further secured through managed identities to connect between different components. For example, Azure Spring Apps uses a managed identity to connect to Key Vault.
 
-  > For details, see [Baseline architecture: Identity and access management](spring-apps-multi-zone-content.md#identity-and-access-management)
+  > For details, see [Baseline architecture: Identity and access management](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#identity-and-access-management)
 
 - **Monitoring**. Add instrumentation and enable distributed tracing to collect data from the application. Combine that data source with platform diagnostics to get an end-to-end insight into your application. 
 
-  > For details, see [Baseline architecture: Monitoring](spring-apps-multi-zone-content.md#monitoring).
+  > For details, see [Baseline architecture: Monitoring](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#monitoring).
 
 - **Secret management**. This solution stores the application secrets and certificates in a single key vault. 
 
-  > For details, see [Baseline architecture: Secret management](spring-apps-multi-zone-content.md#secret-management).
+  > For details, see [Baseline architecture: Secret management](/azure/architecture/web-apps/spring-apps/spring-apps-multi-zone#secret-management).
 
 
 ## Deploy this scenario

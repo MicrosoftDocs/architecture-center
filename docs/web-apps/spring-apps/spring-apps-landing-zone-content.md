@@ -30,6 +30,7 @@ Typical uses for this architecture include:
 
 The use cases are similar except for their security and network traffic rules. 
 
+
 ### Components
 
 Here are the components of this architecture listed by ownership to help determine your responsibilities and what you share with the platform teams of the organization. For product documentation about Azure services, see [Related resources](#related-resources). 
