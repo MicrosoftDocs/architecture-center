@@ -6,7 +6,7 @@ This article outlines an e-commerce solution that engages customers by using Azu
 
 ![Architecture diagram that shows an e-commerce system. Components include Azure App Service, Azure Cognitive Search, and storage services.](../media/retail-and-ecommerce-using-azure-database-for-mysql.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/intelligent-apps-azure-database-for-mysql.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/retail-ecommerce-azure-database-for-mysql.vsdx) of this architecture.*
 
 ### Dataflow
 
