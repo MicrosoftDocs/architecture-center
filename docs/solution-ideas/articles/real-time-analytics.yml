@@ -21,7 +21,6 @@ metadata:
     - pricing-calculator
     - "https://azure.microsoft.com/solutions/architecture/real-time-analytics"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media/real-time-analytics.png
 name: Real-time analytics on big data architecture
 azureCategories:
   - analytics

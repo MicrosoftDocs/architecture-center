@@ -12,6 +12,7 @@ metadata:
     - azcat-ai
     - ai-machine-learning
     - aml-project-improvement
+    - devx-track-python
 name: Distributed hyperparameter tuning for machine learning models
 azureCategories:
   - ai-machine-learning

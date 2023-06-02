@@ -65,13 +65,12 @@ The following sections, organized by category, provide links to example scenario
 ### Azure Virtual Desktop for the enterprise
 
 - [Azure Virtual Desktop for the enterprise](../../example-scenario/wvd/windows-virtual-desktop.yml)
-- [FSLogix for the enterprise](../../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)
 
 ### FSLogix
 
 FSLogix is designed for roaming profiles in remote computing environments like Azure Virtual Desktop. It stores a complete user profile in a single container. At sign-in, this container is dynamically attached to the computing environment. For more information, see these resources:
 
-- [FSLogix for the enterprise](../../example-scenario/wvd/windows-virtual-desktop-fslogix.yml)
+- [FSLogix configuration examples](/fslogix/concepts-configuration-examples)
 - [FSLogix profile containers and Azure Files](/azure/virtual-desktop/fslogix-containers-azure-files?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 - [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile?toc=/azure/architecture/toc.json&bc=/azure/architecture/_bread/toc.json)
 

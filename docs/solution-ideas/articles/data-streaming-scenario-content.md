@@ -84,4 +84,3 @@ Microsoft training modules:
 
 - [Azure Kubernetes Service (AKS) architecture design](../../reference-architectures/containers/aks-start-here.md)
 - [Azure Kubernetes in event stream processing](serverless-event-processing-aks.yml)
-- [Instant IoT data streaming with AKS](aks-iot-data-streaming.yml)

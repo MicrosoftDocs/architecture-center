@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-azurepowershell
+---
 This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
 
 ## Architecture

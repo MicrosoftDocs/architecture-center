@@ -4,7 +4,7 @@ metadata:
   description: Read about high availability for multitier application deployment in AKS clusters, including a checklist to identify and eliminate points of failure.
   author: akanso
   ms.author: alkanso
-  ms.date: 01/19/2023
+  ms.date: 04/20/2023
   ms.topic: conceptual
   ms.service: architecture-center
   ms.subservice: azure-guide

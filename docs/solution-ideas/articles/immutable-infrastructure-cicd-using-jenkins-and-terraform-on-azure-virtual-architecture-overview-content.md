@@ -1,3 +1,8 @@
+---
+ms.custom:
+  - devx-track-jenkins
+  - devx-track-terraform
+---
 [!INCLUDE [header_file](../../../includes/sol-idea-header.md)]
 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, you'll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
@@ -14,8 +19,9 @@ Organizations utilize this solution for some of the benefits that include:
 
 ## Architecture
 
-![Architecture diagram](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.png)
-*Download an [SVG](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg) of this architecture.*
+[ ![Architectural diagram that shows immutable infrastructure CI/CD using Jenkins and Terraform on Azure.](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg)](../media/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture-overview.svg#lightbox)
+
+*Download a [Visio file](https://arch-center.azureedge.net/immutable-infrastructure-cicd-using-jenkins-and-terraform-on-azure-virtual-architecture.vsdx) of this architecture.*
 
 ### Dataflow
 

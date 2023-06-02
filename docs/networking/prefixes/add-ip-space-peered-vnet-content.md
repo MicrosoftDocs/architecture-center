@@ -1,3 +1,7 @@
+---
+ms.custom:
+  - devx-track-azurepowershell
+---
 Many organizations deploy a virtual networking architecture that follows the [hub-spoke](../../reference-architectures/hybrid-networking/hub-spoke.yml) model. At some point, the hub virtual network might require additional IP address spaces. However, address ranges can't be added or deleted from a virtual network's address space once it's peered with another virtual network. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering manually. The scripts described in this article can make that process easier.
 
 > [!NOTE]

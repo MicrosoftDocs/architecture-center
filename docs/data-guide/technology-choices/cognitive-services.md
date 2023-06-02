@@ -1,124 +1,132 @@
 ---
 title: Choose a cognitive services technology
-description: Learn about Microsoft cognitive services that you can use in artificial intelligence applications and data flows.
-author: martinekuan
-ms.author: architectures
-categories: azure
-ms.date: 07/25/2022
+description: Learn about Azure cognitive services that you can use in AI applications and data flows. Choose the appropriate service for your use case.
+author: kruti-m
+ms.author: krmeht
+categories: 
+  - ai-machine-learning
+  - analytics
+ms.date: 06/01/2023
 ms.topic: conceptual
 ms.service: architecture-center
 ms.subservice: azure-guide
 products:
+  - azure-cognitive-services
+  - azure-applied-ai-services
   - azure-custom-vision
 ms.custom:
-  - AI
-  - guide
+  - cognitive services
+  - AI guide
 ---
 
-# Choose a Microsoft cognitive services technology
+# Choose an Azure Cognitive Services technology
 
-Microsoft cognitive services are cloud-based APIs that you can use in artificial intelligence (AI) applications and data flows. They provide you with pretrained models that are ready to use in your application, requiring no data and no model training on your part. The cognitive services are developed by Microsoft's AI and Research team and leverage the latest deep learning algorithms. They are consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
+Azure Cognitive Services is a set of cloud-based APIs that you can use in AI applications and data flows. It provides pretrained models that are ready to use in your applications, requiring no data and no model training on your part. The services are developed by the Microsoft AI and Research team and expose the latest deep learning algorithms. They're consumed over HTTP REST interfaces. In addition, SDKs are available for many common application development frameworks.
 
-The cognitive services include:
+**Key benefits:**
 
-- Text analysis
-- Computer vision
-- Video analytics
-- Speech recognition and generation
-- Natural language understanding
-- Intelligent search
-
-Key benefits:
-
-- Minimal development effort for state-of-the-art AI services.
+- Minimal development effort for state-of-the-art AI services. Use predefined algorithms or create custom algorithms on top of pre-built libraries.
 - Easy integration into apps via HTTP REST interfaces.
-- Built-in support for consuming cognitive services in Azure Data Lake Analytics.
+- Developers and data scientists of all skill levels can easily add AI capabilities to apps.
 
-Considerations:
+**Considerations:**
 
-- Only available over the web. Internet connectivity is generally required. An exception is the Custom Vision Service, whose trained model you can export for prediction on devices and at the IoT edge.
+- These services are only available over the web. Internet connectivity is generally required. An exception is the Custom Vision service, whose trained model you can export for prediction on devices and at the IoT edge.
+- Although considerable customization is supported, the available services might not suit all predictive analytics requirements.
 
-- Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
+## Categories of Azure cognitive services
 
-## What are your options when choosing amongst the cognitive services?
+Dozens of cognitive services are available in Azure. Here's a list, categorized by the functional area they support:
 
-In Azure, there are dozens of Cognitive Services available. The current listing of these is available in a directory categorized by the functional area they support:
+| Service | Link to decision guide | Description |
+| --- | --- | --- |
+| [Language](https://azure.microsoft.com/products/cognitive-services/language-service/) | [Choose a language service](../cognitive-services/language-api.md) | Language cognitive services are services that provide Natural Language Processing (NLP) features for understanding and analyzing text. |
+| [Speech](https://azure.microsoft.com/products/cognitive-services/speech-services/) | [Choose a speech service](../cognitive-services/speech-api.md) | Speech cognitive services are services that provide speech capabilities like speech-to-text, text-to-speech, speech translation, and speaker recognition. |
+| [Vision](https://azure.microsoft.com/products/cognitive-services/vision-services/) | [Choose a vision service](../cognitive-services/vision-api.md) | Vision cognitive services are services that provide image and video recognition capabilities. |
+| Decision services<br/><ul><li>[Anomaly Detector](https://azure.microsoft.com/products/cognitive-services/anomaly-detector/)</li><li>[Content Moderator](https://azure.microsoft.com/products/cognitive-services/content-moderator/)</li><li>[Personalizer](https://azure.microsoft.com/products/cognitive-services/personalizer/)</li></ul><br/>Applied AI Services<br/><ul><li>[Azure Cognitive Search](https://azure.microsoft.com/products/search/)</li></ul> | [Choose a decision API or applied AI service](../cognitive-services/decision-applied-ai.md) | Decision cognitive services are services that provide NLP features to produce recommendations for informed and efficient decision-making. |
+| [Azure OpenAI Service](https://azure.microsoft.com/products/cognitive-services/openai-service/) | N/A | Azure OpenAI Service provides REST API access to powerful OpenAI  language models. |
 
-- [Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)
-- [Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)
-- [Decision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)
-- [Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)
-- [Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/)
+## Common use cases
+
+The following are some common use cases for Azure Cognitive Services.
+
+| Use case | Category |
+| --- | --- |
+| Transcribe audible speech into readable, searchable text. | Speech |
+| Convert text to lifelike speech for more natural interfaces. | Speech |
+| Integrate real-time speech translation into your apps. | Speech |
+| Identify and verify the person speaking by using voice characteristics. | Speech |
+| Identify commonly used and domain-specific terms. | Language |
+| Automatically detect sentiments and opinions in text. | Language |
+| Distill information into easy-to-navigate questions and answers. | Language |
+| Enable your apps to interact with users through natural language. | Language  |
+| Translate more than 100 languages and dialects. | Language |
+| Identify and analyze content in images and video. | Vision |
+| Customize image recognition to fit your business needs. | Vision |
+| Identify potential problems early. | Decision services / Anomaly Detector  |
+| Detect potentially offensive or unwanted content. | Decision services / Content Moderator  |
+| Create rich, personalized experiences for every user. | Decision services / Personalizer  |
+| Apply advanced coding and language models to various use cases. | Azure OpenAI  |
 
 ## Key selection criteria
 
-To narrow the choices, start by answering these questions:
+To narrow down the choices, start by answering these questions:
 
-- What type of data are you dealing with? Narrow your options based on the type of input data you are working with. For example, if your input is text, select from the services that have an input type of text.
+- Are you processing something related to spoken language, or are you processing text, images, or documents?
 
-- Do you have the data to train a model? If yes, consider the custom services that enable you to train their underlying models with data that you provide, for improved accuracy and performance.
+- Do you have the data to train a model? If yes, consider using the custom services that enable you to train their underlying models with data that you provide. Doing so can improve accuracy and performance.
 
-## Capability matrix
+This flow chart can help you choose the best API service for your use case.
 
-The following tables summarize the key differences in capabilities.
+![Diagram that shows how to select a Cognitive Services API.](../cognitive-services/images/cognitive-services-flow-chart.png)
 
-### Uses prebuilt models
+- If your use case requires speech-to-text, text-to-speech, or speech-to-speech, use a [speech API](../cognitive-services/speech-api.md).
+- If your use case requires language analysis, text assessment, or  text-to-text, use a [language API](../cognitive-services/language-api.md).
+- If you need to analyze images, video, or text, use a [vision API](../cognitive-services/vision-api.md).
+- If you need to make a decision, use a [decision API or Applied AI Services](../cognitive-services/decision-applied-ai.md).
 
-| Capability |             Input type              |                                                                                Key benefit                                                                                |
-|---------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                Text Analytics API                 |                Text                 |                                                       Evaluate sentiment and topics to understand what users want.                                                        |
-|                Entity Linking API                 |                Text                 |                                               Power your app's data links with named entity recognition and disambiguation.                                               |
-| Language Understanding Intelligent Service (LUIS) |                Text                 |                                                          Teach your apps to understand commands from your users.                                                          |
-|                 QnA Maker Service                 |                Text                 |                                             Distill FAQ formatted information into conversational, easy-to-navigate answers.                                              |
-|              Linguistic Analysis API              |                Text                 |                                                            Simplify complex language concepts and parse text.                                                             |
-|           Knowledge Exploration Service           |                Text                 |                                          Enable interactive search experiences over structured data via natural language inputs.                                          |
-|              Web Language Model API               |                Text                 |                                                         Use predictive language models trained on web-scale data.                                                         |
-|              Academic Knowledge API               |                Text                 |                                        Tap into the wealth of academic content in the Microsoft Academic Graph populated by Bing.                                         |
-|               Bing Autosuggest API                |                Text                 |                                                        Give your app intelligent autosuggest options for searches.                                                        |
-|               Bing Spell Check API                |                Text                 |                                                             Detect and correct spelling mistakes in your app.                                                             |
-|                Translator Text API                |                Text                 |                                                                           Machine translation.                                                                            |
-|                Recommendations API                |                Text                 |                                                             Predict and recommend items your customers want.                                                              |
-|              Bing Entity Search API               |       Text (web search query)       |                                                           Identify and augment entity information from the web.                                                           |
-|               Bing Image Search API               |       Text (web search query)       |                                                                            Search for images.                                                                             |
-|               Bing News Search API                |       Text (web search query)       |                                                                             Search for news.                                                                              |
-|               Bing Video Search API               |       Text (web search query)       |                                                                            Search for videos.                                                                             |
-|                Bing Web Search API                |       Text (web search query)       |                                                        Get enhanced search details from billions of web documents.                                                        |
-|                  Bing Speech API                  |           Text or Speech            |                                                                  Convert speech to text and back again.                                                                   |
-|              Speaker Recognition API              |               Speech                |                                                       Use speech to identify and authenticate individual speakers.                                                        |
-|               Translator Speech API               |               Speech                |                                                                   Perform real-time speech translation.                                                                   |
-|                Computer Vision API                |    Images (or frames from video)    | Distill actionable information from images, automatically create description of photos, derive tags, recognize celebrities, extract text, and create accurate thumbnails. |
-|                 Content Moderator                 |        Text, Images or Video        |                                                               Automated image, text, and video moderation.                                                                |
-|                    Emotion API                    | Images (photos with human subjects) |                                                              Identify the range emotions of human subjects.                                                               |
-|                     Face API                      | Images (photos with human subjects) |                                                       Detect, identify, analyze, organize, and tag faces in photos.                                                       |
-|                   Video Indexer                   |                Video                |                        Video insights such as sentiment, transcript speech, translate speech, recognize faces and emotions, and extract keywords.                         |
+## Deploying services
 
-### Trained with custom data you provide
+When you [deploy Cognitive Services](/azure/cognitive-services/cognitive-services-apis-create-account#types-of-cognitive-services-resources), you can either deploy services independently or use the Cognitive Services multi-service resource. The multi-service resource deploys decision, language, speech, vision, and applied AI services. 
 
-| Capability | Input type | Key benefit |
-| --- | --- | --- |
-| Custom Vision Service | Images (or frames from video) | Customize your own computer vision models. |
-| Custom Speech Service | Speech | Overcome speech recognition barriers like speaking style, background noise, and vocabulary. |
-| Custom Decision Service | Web content (for example, RSS feed) | Use machine learning to automatically select the appropriate content for your home page |
-| Bing Custom Search API | Text (web search query) | Commercial-grade search tool. |
+- Deploy an individual service if you don't need other services or if you want to manage access and billing on a per-service basis.
+- Deploy the multi-service resource if you're using multiple services and want to manage access and billing for all services together.
+
+> [!NOTE]
+> The resource categories in these API services change frequently. Be sure to check the latest documentation for new categories.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author:
+Principal authors:
 
+- [Ashish Chahuan](https://www.linkedin.com/in/a69171115/) | Senior Cloud Solution Architect
+- [Kruti Mehta](https://www.linkedin.com/in/thekrutimehta) | Azure Senior Fast-Track Engineer
 - [Zoiner Tejada](https://www.linkedin.com/in/zoinertejada) | CEO and Architect
+
+Other contributors:
+
+- [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414/) | Technical Writer 
+- [Brandon Cowen](https://www.linkedin.com/in/brandon-cowen-1658211b/) | Senior Cloud Solution Architect
+- [Oscar Shimabukuro](https://www.linkedin.com/in/oscarshk/) | Senior Cloud Solution Architect
+- [Manjit Singh](https://www.linkedin.com/in/manjit-singh-0b922332) | Software Engineer
+- [Christina Skarpathiotaki](https://www.linkedin.com/in/christinaskarpathiotaki/) | Senior Cloud Solution Architect
+- [Nathan Widdup](https://www.linkedin.com/in/nwiddup) | Azure Senior Fast-Track Engineer
+
+*To see non-public LinkedIn profiles, sign in to LinkedIn.*
 
 ## Next steps
 
 - [Learning path: Provision and manage Azure Cognitive Services](/training/paths/provision-manage-azure-cognitive-services)
 - [Azure Cognitive Services documentation](/azure/cognitive-services)
 - [What are Azure Cognitive Services?](/azure/cognitive-services/what-are-cognitive-services)
+- [Blog post: Which AI Am I?](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/which-ai-am-i-azure-ai-applied-services-part-1/ba-p/3506572)
 
 ## Related resources
 
-- [Natural language processing technology](../../data-guide/technology-choices/natural-language-processing.yml)
+- [Automate document processing by using Azure Form Recognizer](../../example-scenario/ai/automate-document-processing-azure-form-recognizer.yml)
+- [Build a chatbot for hotel booking](../../example-scenario/ai/commerce-chatbot.yml)
+- [End-to-end computer vision at the edge for manufacturing](../../reference-architectures/ai/end-to-end-smart-factory.yml)
+- [Image classification on Azure](../../example-scenario/ai/intelligent-apps-image-processing.yml)
 - [Use a speech-to-text transcription pipeline to analyze recorded conversations](../../example-scenario/ai/speech-to-text-transcription-analytics.yml)
-- [Enterprise bot for employee productivity](../../solution-ideas/articles/enterprise-productivity-chatbot.yml)
-- [Analyze video content with Computer Vision and Azure Machine Learning](../../example-scenario/ai/analyze-video-computer-vision-machine-learning.yml)
-- [Optimize marketing with machine learning](../../solution-ideas/articles/optimize-marketing-with-machine-learning.yml)

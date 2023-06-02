@@ -5,7 +5,7 @@ metadata:
   description: Learn how to manage Microsoft 365 tenant configuration by using Microsoft365DSC and Azure DevOps. 
   author: desmay
   ms.author: desmay
-  ms.date: 10/31/2022
+  ms.date: 05/02/2023
   ms.topic: example-scenario
   ms.service: architecture-center
   ms.subservice: example-scenario

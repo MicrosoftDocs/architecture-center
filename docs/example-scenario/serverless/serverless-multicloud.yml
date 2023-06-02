@@ -17,7 +17,6 @@ metadata:
     - cse
     - example-scenario
     - e2e-hybrid
-  social_image_url: /azure/architecture/example-scenario/serverless/media/multi-cloud-serverless-architecture.png
 name: Multicloud solutions with the Serverless Framework
 azureCategories:
   - developer-tools

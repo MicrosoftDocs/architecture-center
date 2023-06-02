@@ -8,13 +8,15 @@ This solution is for organizations that use automation and security tools like [
 
 ## Architecture
 
-[![Architecture diagram for DevSecOps with GitHub.](../media/devsecops-architecture.png)](../media/devsecops-architecture.png#lightbox)
-**Diagram 1: DevSecOps with GitHub.** *Download a [PowerPoint file](https://arch-center.azureedge.net/devsecops-architecture.pptx) of this architecture.*
+[![Architecture diagram for DevSecOps with GitHub.](../media/devsecops-architecture.svg)](../media/devsecops-architecture.svg#lightbox)
+**Diagram 1: DevSecOps with GitHub.**
 
 <BR>
 
-[![Architecture diagram for DevSecOps with a rolling main branching strategy.](../media/devsecops-with-rolling-branch.png)](../media/devsecops-with-rolling-branch.png#lightbox)
-**Diagram 2: DevSecOps with rolling main branch strategy.** *Download a [PowerPoint file](https://arch-center.azureedge.net/devsecops-with-rolling-branch.pptx) of this architecture.*
+[![Architecture diagram for DevSecOps with a rolling main branching strategy.](../media/devsecops-with-rolling-branch.svg)](../media/devsecops-with-rolling-branch.svg#lightbox)
+**Diagram 2: DevSecOps with rolling main branch strategy.**
+
+*Download a [Visio file](https://arch-center.azureedge.net/devsecops-rolling-branch.vsdx) of all diagrams in this article.*
 
 ### Dataflow
 

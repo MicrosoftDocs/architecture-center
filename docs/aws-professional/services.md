@@ -10,6 +10,7 @@ ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom:
   - fcp
+  - devx-track-jenkins
 ms.category:
   - analytics
   - ai-machine-learning
@@ -140,7 +141,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | [Data Pipeline](https://aws.amazon.com/datapipeline), [Glue](https://aws.amazon.com/glue) | [Data Factory](https://azure.microsoft.com/services/data-factory) | Processes and moves data between different compute and storage services, as well as on-premises data sources at specified intervals. Create, schedule, orchestrate, and manage data pipelines. |
 | [Glue](https://aws.amazon.com/glue) | [Azure Purview](https://azure.microsoft.com/services/purview) | A unified data governance service that helps you manage and govern your on-premises, multicloud, and software as a service (SaaS) data. |
-| [Dynamo DB](https://aws.amazon.com/dynamodb)| [Table storage](https://azure.microsoft.com/services/storage/tables), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) | NoSQL key-value store for rapid development using massive semi-structured datasets.|
+
 
 ### Analytics and visualization
 

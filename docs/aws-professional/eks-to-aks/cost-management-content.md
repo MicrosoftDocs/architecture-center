@@ -46,7 +46,7 @@ It's best to use the Standard tier in production workloads to provide higher con
 
 In AKS, you create agent or worker nodes in one or more node pools, which can use many Azure core capabilities within the Kubernetes environment. AKS charges only for the nodes attached to the AKS cluster.
 
-AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure virtual machine (VM) types directly within AKS. You can use [Azure Reservations](https://azure.microsoft.com/reservations) to get automatic discounts on these resources.
+AKS nodes use several Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. For example, you can use most Azure virtual machine (VM) types directly within AKS. You can use [Azure Reservations](https://azure.microsoft.com/reservations) and [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) to get significant discounts on these resources.
 
 AKS cluster pricing is based on the class, number, and size of the VMs in the node pools. VM cost depends on size, CPU type, number of vCPUs, memory, family, and storage type available, such as high-performance SSD or standard HDD. For more information, see [Virtual Machine Series](https://azure.microsoft.com/pricing/details/virtual-machines/series). Plan node size according to application requirements, number of nodes, and cluster scalability needs.
 
@@ -197,7 +197,7 @@ The following recommendations help you optimize your AKS cluster costs:
 
 - Use [ResourceQuota](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/resource-quota-v1) objects to set quotas for the total amount of memory and CPU for all pods that are running in a given [namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces). The systematic use of resource quotas avoids noisy neighbor issues, improves application density, and reduces the number of agent nodes and total costs. Also use [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range) objects to configure the default CPU and memory requests for pods in a namespace.
 
-- Use Container Instances for bursting. For more information, see [Bursting from AKS with Azure Container Instances](/azure/architecture/solution-ideas/articles/scale-using-aks-with-aci).
+- Use Container Instances for bursting.
 
 - Your AKS workloads might not need to run continuously, such as specific workloads in development cluster node pools. To optimize costs, you can completely turn off an AKS cluster or stop one or more node pools in your AKS cluster. For more information, see [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster) and [Start and stop a node pool on Azure Kubernetes Service (AKS)](/azure/aks/start-stop-nodepools).
 - Azure Policy integrates with AKS through built-in policies to apply centralized, consistent, at-scale enforcements and safeguards. Enable the Azure Policy add-on on your cluster, and apply the default CPU requests and limits and [memory resource limits](https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace), which ensure that CPU and memory resource limits are defined on cluster containers.

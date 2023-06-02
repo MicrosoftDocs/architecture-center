@@ -17,7 +17,6 @@ metadata:
     - media
     - "https://azure.microsoft.com/solutions/architecture/digital-media-video"
     - internal-intro
-  social_image_url: /azure/architecture/solution-ideas/articles/media-video.png
 name: Video-on-demand digital media
 azureCategories:
   - media

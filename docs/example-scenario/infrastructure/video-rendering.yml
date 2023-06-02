@@ -16,7 +16,6 @@ metadata:
     - hpc
     - media
     - example-scenario
-  social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 name: 3D video rendering
 azureCategories:
   - compute
