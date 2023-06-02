@@ -12,7 +12,7 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 The following dataflow outlines a process for modernizing a mainframe data tier. It corresponds to the preceding diagram.
 
-1. Mainframe and midrange systems store data in data sources, like file systems (Virtual Storage Access Method (VSAM), flat file, or tape), relational databases (Db2 for z/OS, Db2 for IBM i, or Db2 for Linux UNIX and Windows), or non-relational databases (IMS, ADABAS, IDMS).
+1. Mainframe and midrange systems store data in data sources, like file systems (VSAM, flat file, LTFS), relational databases (Db2 for z/OS, Db2 for IBM i, Db2 for Linux UNIX and Windows), or non-relational databases (IMS, ADABAS, IDMS).
 
 1. The object conversion process extracts object definitions from source objects. The definitions are then converted into corresponding objects in the target data store.
 
@@ -22,15 +22,20 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
        - Mapping the copybooks to C# objects that .NET applications use.
    - Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
-1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC encoded format in file formats like indexed [VSAM](/sql/ssma/sql-server-migration-assistant) files, non-indexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files, and flat files. COBOL, PL/I, and assembly language copybooks define the data structure of these files.
+1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC encoded format in file formats like:
+   - Indexed [VSAM](/sql/ssma/sql-server-migration-assistant) files
+   - Non-indexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files
+   - Flat files
+   
+    COBOL, PL/I, and assembly language copybooks define the data structure of these files.
 
    a. FTP transfers mainframe and midrange file system datasets with single layouts and unpacked fields in binary format and corresponding copybook to Azure.
    
    b. Data conversion. The Azure Data Factory custom connector is a solution developed by using the Host File client component of Host Integration Server to convert mainframe datasets.
 
-      [Host Integration Server](/host-integration-server/what-is-his)(HIS) integrates existing IBM host systems, programs, messages, and data with Azure applications. The Host File client component HIS can be used to develop custom solutions for dataset conversion.
+      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. Host Integration Server is a Host File client component that you can use to develop custom solutions for dataset conversion.
 
-      It’s a solution that’s based on the open-source Spark framework and runs on [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). Like any other solution, it can parse the copybook and also convert data. Manage the service for data conversion by using the [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) Parse Host File Contents connector.
+      The solution is based on the open-source Spark framework, and it runs on [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). Like other solutions, it can parse the copybook and convert data. Manage the service for data conversion by using the [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) Parse Host File Contents connector.
 
    c. Relational database data is migrated.
 
