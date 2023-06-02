@@ -72,7 +72,7 @@ The following illustration shows a MITRE Att&ck cloud scenario.
 
 :::image type="content" border="false" source="./media/mitre-attack-in-sentinel-artifacts-dev.svg" alt-text="Diagram of a MITRE Att&ck cloud scenario." lightbox="./media/mitre-attack-in-sentinel-artifacts-dev.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 ## Threat definition attack scenarios based on MITRE
 
@@ -122,7 +122,7 @@ For that reason, we recommend logically spreading the service principals into di
 
 ![Diagram of the layered architecture for a privileged access model in a pipeline.](./media/sentinel-layered-architecture.png)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.pptx) of this architecture.*
+*Download a [PowerPoint file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.pptx) of this architecture.*
 
 ##### Level 0 service principals
 
@@ -336,7 +336,7 @@ The objective of your build process is to ensure that you generate the highest q
 
 :::image type="content" source="./media/build-artifact-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel build process." lightbox="./media/build-artifact-process-lightbox.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 * You can base your artifact definition on a descriptive schema in JSON or YAML format and then validate the schema to avoid syntax errors.  
   * Validate your ARM templates by using [ARM template test toolkit](/azure/azure-resource-manager/templates/test-toolkit).
@@ -358,7 +358,7 @@ The following diagram shows an example artifact extraction process.
 
 :::image type="content" source="./media/artifact-extraction-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel artifact extraction process." lightbox="./media/artifact-extraction-process-lightbox.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 #### Deploy artifacts
 
@@ -374,7 +374,7 @@ The following diagram shows the deployment process sequence that ensures your ar
 
 :::image type="content" source="./media/artifact-deployment-process-lightbox.svg" alt-text="Diagram showing Microsoft Sentinel artifact deployment process." lightbox="./media/artifact-deployment-process-lightbox.svg":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 Managing Sentinel artifacts as code offers you flexible ways to maintain your operations and automate the deployment in a CI/CD DevOps pipeline.
 
@@ -404,7 +404,7 @@ The following diagram shows the components of simplifying Microsoft Sentinel acc
 
 ![Diagram of simplifying Microsoft Sentinel access with managed service identity.](./media/azure-sentinel-managed-service-identity.svg)
 
-*Download a [Visio file](https://arch-center.azureedge.net/US-1902821-automate-sentinel-integration-architecture.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 If you need to grant access to other resources, use managed identity, which ensures a unique identity for all critical operations.
 
