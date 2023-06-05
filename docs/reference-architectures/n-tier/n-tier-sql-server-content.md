@@ -2,7 +2,7 @@ This reference architecture shows how to deploy virtual machines (VMs) and a vir
 
 ## Architecture
 
-[![N-tier architecture using Microsoft Azure.](./images/n-tier-sql-server.svg)](./images/n-tier-sql-server.svg)
+[![Diagram that shows N-tier architecture using Microsoft Azure.](./images/n-tier-sql-server.svg)](./images/n-tier-sql-server.svg)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
