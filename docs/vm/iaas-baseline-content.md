@@ -120,7 +120,7 @@ Here are some considerations:
 
     Don't overprovision either resource because the overall cost will be impacted.
 
-- **Configuration changes**. You can change certain disk performance and capacity configurations while a VM instance is running. However, many changes might require a complete re-provisioning and rebuilding of content on the disk. Bringing a VM down to make a disk change might impact the availability of the workload. Take a “measure twice, cut once” approach to disk and virtual machine SKU selection in your architecture planning to minimize availability impact and rework.
+- **Configuration changes**. You can change certain disk performance and capacity configurations while a VM instance is running. However, many changes might require a complete re-provisioning and rebuilding of content on the disk. Bringing a VM down to make a disk change might impact the availability of the workload. Take a "measure twice, cut once" approach to disk and virtual machine SKU selection in your architecture planning to minimize availability impact and rework.
 
 //{CHAD} What's the workaround for the use case that requires re-provisioning. Include something about scaling? 
 
@@ -187,37 +187,192 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 ## Monitoring
 //{BRYAN} pulling this above the line for now so we can iterate 
 
-:::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS network data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
+:::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
 *Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
 
-### Data collection
+The monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing and understanding performance, debugging, etc.:
 
-Talk about the various ways logs/metrics/etc are collected via agents, Azure log analytics, etc.
+- metrics - numeric data that provides a snapshot in time of specific values being monitored, such as CPU percent, I/O metrics, etc. This type of data can be also useful for making auto scaling configuration decisions.
+- log files - capture data over time for the purpose of trend analysis, which can be very useful for debugging and understanding performance. For example, web servers create log files that provide the ability to analyze traffic patterns. 
 
-##### Health probes
-##### Logs
-##### Log analytic workspace
+As mentioned previously, Azure Log Analytics is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation. Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
+
+- the application level
+- the operating system where the application is running
+- the underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services
+- the Azure platform logs 
+
+### Application level monitoring
+
+##### Application Insights
+
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor and provides Application Performance Monitoring (also known as "APM") features. APM tools are useful to monitor applications from development, through test, and into production to proactively understand how an application is performing, as well as reactively review application execution data to determine the cause of an incident.
+
+Application Insights enables [distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation#enable-distributed-tracing), providing a performance profiler that works like call stacks for cloud and microservices architectures. Application Insights can monitor each component separately and detect which component is responsible for failures or performance degradation by using distributed telemetry correlation.
+
+Azure Monitor provides two experiences for consuming distributed trace data: the transaction diagnostics view for a single transaction/request and the application map view to show how systems interact.
+
+//TODO: Add app insights guidance specific to this scenario
+
+### Operating System level monitoring
+
+TBD: presumably this is guest OS level?
+
+### Infrastructure level monitoring
+
+##### Virtual Machines
+
+See [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm) for description of the monitoring data that's generated by Azure virtual machines (VMs), and a discussion of how to use the features of Azure Monitor to analyze and alert you about this data.
+
+##### VM Insights
+
+VM insights is a feature of Azure Monitor that quickly gets you started monitoring your virtual machines. You can view trends of performance data, running processes on individual machines, and dependencies between machines. VM insights installs the [Azure Monitor agent (AMA)](/azure/azure-monitor/agents/agents-overview) to collect monitoring data from the guest operating system. Azure Monitor agent supports [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent), which enables targeted and granular data collection for a machine or subset(s) of machines. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
+
+###### Data Collection Rules (DCR)
+
+The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
+
+| Data source | Destinations | Description |
+|:---|:---|:---|
+| Performance | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+| Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
+| Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
+|	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
+
+//TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions
+//    see tutorails:
+//        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)
+//        [Tutorial: Collect guest logs and metrics from Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest)
+
+##### VM Boot diagnostics
+
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is a debugging feature for Azure virtual machines (VM) that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostics data is saved to a storage account.
+
+//TODO: guidance for RI. Boot diagnostics in managed storage (and transfer later) or using a custom storage account
+
+### Azure platform level monitoring
+
+##### Platform logs
+
+Another feature of Azure Monitor, [Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. Although they're automatically generated, you need to configure certain platform logs to be forwarded to one or more destinations to be retained. You define [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal#activity-log-settings) to send Azure platform metrics and logs to the Log Analytics Workspace:
+
+- [Metrics](/azure/azure-monitor/essentials/metrics-supported). Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are automatically generated and collected in Azure Monitor Metrics.
+- [Resource logs](/azure/azure-monitor/essentials/resource-logs). Provide insight into operations that were performed within an Azure resource (the data plane). Operation examples might be getting a secret from a key vault or making a request to a database. Resource logs are generated automatically, but you must create a diagnostic setting to send them to Azure Monitor Logs.
+- [Activity log](/azure/azure-monitor/essentials/activity-log?tabs=powershell). Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane) in addition to updates on Service Health events. Use the Activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There's a single activity log for each Azure subscription.
+
+##### Platform metrics
+
+TBD
+
+### Component-specific monitoring
+
+##### Azure Load Balancer health probes
+
+// Raw notes - start
+- Specific to load balancers in App Gateway and the one in the backend API tier. 
+- The load balancer needs to know which VM instances are responsive. 
+- This is done in config – give it VM endpoint (every 200ms). 
+- Usually simple, configured as a folder/file to touch (like App Service uses an icon file). Assumes healthy if you return an HTTP 200. 
+- Could also go beyond 200, and send back detailed response- this is more advanced. .NET Core has a probe implementation that you can use to customize. 
+- It's up to caller (ie:Load Balancer) to interpret as they want. Can build a dashboard on this too. Ie: could incorporate database response as part of it. 
+- In this design, App Gateway will just be hitting an endpoint to see if healthy. 
+- The load balancer can point to separate VMs, but in our case it’s pointing to the scale set. The scale set tells it which VMs are available (ie: adding a new VM will incorporate it; scale set can also take one out and create a new one – auto healing). 
+// Raw notes - end
 
 ##### Managed disks
 
-Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. When designing your monitoring solution be aware that there is an Azure-platform perspective on managed disks and there is the Guest OS perspective on the managed disks.  The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected.  The guest-perspective represented the type of metrics that the workload operator would view, regardless of the underlying disk technology.  In Azure, workload teams have the responsibility of monitoring both as part of their solution.
+Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the Guest OS perspective on the managed disks.  The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected.  The guest-perspective represents the type of metrics that the workload operator would view, regardless of the underlying disk technology.  In Azure, workload teams have the responsibility of monitoring both as part of their solution.
 
-##### Platform perspective
+- Platform perspective
+  - The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a potential performance issue, as both the individual disks and the VM can cap total performance. 
+  - To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks.
+  - If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics. Running out of credits can be expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
 
-The data disk performance (IOPS and throughput) metrics can be looked at individually (per disk) or rolled up to all disks attached to a VM. Both perspectives can be critical in troubleshooting a potential performance issue, as both the individual disks and the VM can cap total performance. To troubleshoot suspected or alert on pending disk capping, use the *Storage IO utilization* metrics, which provide consumed percentage of the provisioned throughput for both virtual machines and disks.
+- Guest OS perspective
+  - VM Insights is how we recommend you get key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
 
-If your architecture uses bursting for cost optimization, then you’ll want to monitor your *Credits Percentage* metrics.  Running out of credits can be expected result, as consistently having left over credits is a sign that further cost optimization could occur on that disk. Meaning if you are using bursting as part of your cost optimization strategy, you should monitor how many credits you're consistently leaving unused and see if you can choose a lower performance tier.
 
-##### OS perspective
+##### Health probes
 
-VM Insights is how we recommend you get key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
+##### Logs
+
+##### Log analytic workspace
+
+
+
+
+
+<!-- Jose's original monitoring contribution 
+### Monitoring 
+
+:::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS network data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
+*Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
+
+The information that the monitoring process uses comes from several sources: at the application level, the operating system where the application is running, the underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services; as well as the Azure platform logs can all be sources of important metrics and other diagnostic data.
+
+See [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm) for description of the monitoring data that's generated by Azure virtual machines (VMs), and a discussion of how to use the features of Azure Monitor to analyze and alert you about this data.
+
+##### VM insights (will we using other insights?)
+
+VM insights is a feature of Azure Monitor that quickly gets you started monitoring your virtual machines. You can view trends of performance data, running processes on individual machines, and dependencies between machines. VM insights installs the [Azure Monitor agent (AMA)](/azure/azure-monitor/agents/agents-overview) to collect monitoring data from the guest operating system. Azure Monitor agent supports [Data Collection Rules (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent), which enables targeted and granular data collection for a machine or subset(s) of machines. DCR allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.
+
+###### Data Collection Rules (DCR)
+
+The table below lists the types of data you can currently collect with the Azure Monitor Agent and where you can send that data.
+
+| Data source | Destinations | Description |
+|:---|:---|:---|
+| Performance | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+| Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
+| Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system |
+|	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
+
+//TODO: consider adding details about the data collection rules implemented in the RI. Highlight differences between the frontend and backend DCR definitions
+//    see tutorails:
+//        [Tutorial: Enable monitoring with VM insights for Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights)
+//        [Tutorial: Collect guest logs and metrics from Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest)
+
+##### VM Boot diagnostics
+
+[Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics) is a debugging feature for Azure virtual machines (VM) that allows diagnosis of VM boot failures. Boot diagnostics enables a user to observe the state of their VM as it is booting up by collecting serial log information and screenshots. The diagnostics data is saved to a storage account.
+
+//TODO: guidance for RI. Boot diagnostics in managed storage (and transfer later) or using a custom storage account
+
+##### Platform logs
+
+[Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. Although they're automatically generated, you need to configure certain platform logs to be forwarded to one or more destinations to be retained. You define [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal#activity-log-settings) to send Azure platform metrics and logs to the Log Analitycs Workspace.
+
+- [Metrics](/azure/azure-monitor/essentials/metrics-supported). Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are automatically generated and collected in Azure Monitor Metrics.
+- [Resource logs](/azure/azure-monitor/essentials/resource-logs). Provide insight into operations that were performed within an Azure resource (the data plane). Operation examples might be getting a secret from a key vault or making a request to a database. Resource logs are generated automatically, but you must create a diagnostic setting to send them to Azure Monitor Logs.
+- [Activity log](/azure/azure-monitor/essentials/activity-log?tabs=powershell). Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane) in addition to updates on Service Health events. Use the Activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There's a single activity log for each Azure subscription.
 
 ##### Workload metrics and instrumentation
-##### VM Insights
 
-### Data analysis
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extension of Azure Monitor and provides Application Performance Monitoring (also known as "APM") features. APM tools are useful to monitor applications from development, through test, and into production to proactively understand how an application is performing, as well as reactively review application execution data to determine the cause of an incident.
 
-Talk about how we analyze the monitoring data collected from various sources
+Application Insights enables [distributed tracing](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation#enable-distributed-tracing), providing a performance profiler that works like call stacks for cloud and microservices architectures. Application Insights can monitor each component separately and detect which component is responsible for failures or performance degradation by using distributed telemetry correlation.
+
+Azure Monitor provides two experiences for consuming distributed trace data: the transaction diagnostics view for a single transaction/request and the application map view to show how systems interact.
+
+//TODO: Add app insights guidance specific to this scenario
+
+##### Health probes
+##### Platform metrics
+##### Logs
+
+##### Log analytic workspace
+
+
+// Jose's original monitoring contribution -->
+
+
+
+
+
+
+
+
+
 
 
 
