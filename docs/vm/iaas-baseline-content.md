@@ -274,7 +274,7 @@ TBD
 
 // TBD - should this be infrastructure level?
 
-// Raw notes - start
+// Raw notes - start  
 - Specific to load balancers in App Gateway and the one in the backend API tier. 
 - The load balancer needs to know which VM instances are responsive. 
 - This is done in config – give it VM endpoint (every 200ms). 
@@ -282,12 +282,12 @@ TBD
 - Could also go beyond 200, and send back detailed response- this is more advanced. .NET Core has a probe implementation that you can use to customize. 
 - It's up to caller (ie:Load Balancer) to interpret as they want. Can build a dashboard on this too. Ie: could incorporate database response as part of it. 
 - In this design, App Gateway will just be hitting an endpoint to see if healthy. 
-- The load balancer can point to separate VMs, but in our case it’s pointing to the scale set. The scale set tells it which VMs are available (ie: adding a new VM will incorporate it; scale set can also take one out and create a new one – auto healing). 
+- The load balancer can point to separate VMs, but in our case it’s pointing to the scale set. The scale set tells it which VMs are available (ie: adding a new VM will incorporate it; scale set can also take one out and create a new one – auto healing).   
 // Raw notes - end
 
 ##### Managed disks
 
-// TBD - should this be infrastructure level?
+// TBD - should this be split across OS and Platform levels?
 
 Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the Guest OS perspective on the managed disks.  The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected.  The guest-perspective represents the type of metrics that the workload operator would view, regardless of the underlying disk technology.  In Azure, workload teams have the responsibility of monitoring both as part of their solution.
 
