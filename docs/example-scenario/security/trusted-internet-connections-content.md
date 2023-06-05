@@ -1,4 +1,4 @@
-Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because users directly access Azure applications. With TIC 2.0+, users accessed Azure applications via a TIC 2.0+ Managed Trusted Internet Protocol Service (MTIPS) device, which slowed response.
+Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because users directly access Azure applications. With TIC 2.0+, users accessed Azure applications via a TIC 2.0+ Managed Trusted Internet Protocol Service (MTIPS) device, which increased response time.
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
