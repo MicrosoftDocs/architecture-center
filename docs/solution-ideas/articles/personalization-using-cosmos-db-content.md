@@ -6,9 +6,9 @@ This article presents a solution for generating personalized recommendations for
 
 ## Architecture
 
-![Architecture diagram that shows how recommendations reach a customer when data flows from an e-commerce app through an API app to a database.](../media/personalization-using-cosmos-db.png)
+![Architecture diagram that shows how recommendations reach a customer when data flows from an e-commerce app through an API app to a database.](../media/personalization-using-cosmos-db.svg)
 
-*Download an [SVG](../media/personalization-using-cosmos-db.svg) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/personalization-using-cosmos-db.vsdx) of this architecture.*
 
 ### Dataflow
 
