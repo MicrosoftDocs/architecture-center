@@ -46,7 +46,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 ### Reliability
 
-The combination of VMs and load balancing of ingress traffic provides high availability even if there's VM failure.
+The combination of Virtual Machine Scale Sets and load balancing of ingress traffic provides high availability even if there's VM failure.
 
 This scenario supports use of multiple regions, data replication and auto-scalling. These networking components distribute traffic to the VMs, and include health probes that ensure traffic is only distributed to healthy VMs. All of these networking components are fronted via a CDN. This approach makes the networking resources and application resilient to issues that would otherwise disrupt traffic and affect end-user access.
 
