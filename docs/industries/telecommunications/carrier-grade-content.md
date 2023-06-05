@@ -164,7 +164,7 @@ The workload is deployed across multiple regions, and across multiple Availabili
 
 Scale is achieved through the combination of individual stamp capacity and the total number of instances.  The overall solution is sized such that up to one entire region can fail but the remaining regions can still service the expected maximum traffic load. This means a two-region deployment needs 100% headroom (2x overprovisioned), whereas a four-region deployment needs only 33% headroom.
 
-Headroom considerations favor a larger deployment. However constant per-instance overheads and constant per-region availability rate favor a smaller deployment; availability and cost modelling are required in order to determine the best topology for a given workload. Connectivity, locality, and data residency requirements may also impact region selection.
+Headroom considerations favor a larger deployment. However constant per-instance overheads and constant per-region availability rate favor a smaller deployment; availability and cost modeling are required in order to determine the best topology for a given workload. Connectivity, locality, and data residency requirements may also impact region selection.
 
 The capacity of each individual stamp is adjusted based on load testing results that predict load variations. Autoscaling is enabled for the service and cluster by using AKS Cluster Autoscaler and Kubernetes Horizontal Pod Autoscaler. There are components that scale manually. For these components, scale limits are defined in the configuration and scaling is handled as an upgrade operation.  
 
