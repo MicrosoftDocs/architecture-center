@@ -122,8 +122,6 @@ For that reason, we recommend logically spreading the service principals into di
 
 ![Diagram of the layered architecture for a privileged access model in a pipeline.](./media/sentinel-layered-architecture.png)
 
-*Download a [PowerPoint file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.pptx) of this architecture.*
-
 ##### Level 0 service principals
 
 Level 0 service principals have the highest level of permissions. These service principals entitle someone to perform tenant-wide or root management group administration tasks as a global administrator.
@@ -492,6 +490,8 @@ For more information on how to create an ARM template, see [Create and deploy AR
 The following diagram shows the high-level architecture integration between an MSSP tenant and a customer's resource provider tenants with Azure Lighthouse and Microsoft Sentinel.
 
 :::image type="content" source="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg" alt-text="Diagram showing a Microsoft Sentinel managed service identity architecture." lightbox="./media/azure-lighthouse-for-microsoft-sentinel-architecture.svg":::
+
+*Download a [Visio file](https://arch-center.azureedge.net/automate-sentinel-integration-architecture.vsdx) of this architecture.*
 
 1. An MSP offering is integrated through an ARM template or an Azure Marketplace service offering.
 1. Azure delegated resource management checks that the request is from a partner tenant and calls a managed service resource provider.
