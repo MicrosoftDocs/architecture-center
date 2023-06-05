@@ -57,7 +57,7 @@ The code uses the retry registry to get a `Retry` object. It also uses `Try` fro
 
 ### Design architecture reliability
 
-Architecture refers to the arrangement and distribution of components supporting your web app. Architecture availability is an important metric. The availability of your web app architecture should meet or exceed the service level objective (SLO) for the web app. Use availability metrics when estimating architecture availability, not durability. Durability applies to data storage, and it ensures the integrity of your data. Durability service level agreements are higher than availability service level agreements. For more information, see [service level objective](./plan-implementation-content.md#service-level-objective).
+Architecture refers to the arrangement and distribution of components supporting your web app. Architecture availability is an important metric. The availability of your web app architecture should exceed the service level objective (SLO) for the web app. Use availability metrics when estimating architecture availability, not durability. Durability applies to data storage, and it ensures the integrity of your data. Durability service level agreements are higher than availability service level agreements. For more information, see [service level objective](./plan-implementation-content.md#service-level-objective).
 
 **Determine number of regions.** Use the web app service level objective as main factor for determining how many regions to use. If a single region doesn't offer the availability you need, you should consider adding a region to your web app.
 
@@ -65,7 +65,7 @@ Architecture refers to the arrangement and distribution of components supporting
 
 **Understand data implications.** A multi-region web app requires a different data strategy than a single region web app. A multi-region web app needs to replicate data across regions. A single-region web app doesn't.
 
-*Reference implementation.* The reference implementation uses two regions in an active-passive configuration. Proseware had a 99.9% SLO and needed to use two regions to meet or exceed the SLO. The active-passive configuration aligns with Proseware's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Proseware manually initiates its failover plan and routes all traffic to the passive region.
+*Reference implementation.* The reference implementation uses two regions in an active-passive configuration. Proseware had a 99.9% SLO and needed to use two regions to meet the SLO. The active-passive configuration aligns with Proseware's goal of minimal code changes for this phase in the cloud journey. The active-passive configuration provides a simple data strategy. It avoids needing to set up event-based data synchronization, data shards, or some other data management strategy. All inbound traffic heads to the active region. If a failure occurs in the active region, Proseware manually initiates its failover plan and routes all traffic to the passive region.
 
 ### Architect data reliability
 
@@ -73,11 +73,13 @@ Data reliability relies on replicating data across multiple locations.  In gener
 
 **Determine high need data.** Replicating data increases cost. You should only replicate data that you need during a failover.
 
-**Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're willing to lose during an outage. For example, an RPO of one hour means the web app loses one hour of the most recent data. If that web app goes down at 2PM, the disaster recovery process can only recover data before 1PM.
+**Define the recovery point objective.** A recovery point objective (RPO) is the maximum amount of data you're willing to lose during an outage. For example, an RPO of one hour means the web app loses one hour of the most recent data. If that web app goes down at 2PM, the disaster recovery process can only recover data before 1PM. You need to define an RPO for each web app.
 
-**Determine replication frequency.** Your recovery point objective (RPO) should drive your data replication frequency. The frequency of your data replication needs to be less than or equal to your RPO. An RPO of one hour requires data replication every hour.
+**Determine replication frequency.** Your recovery point objective (RPO) should drive your data replication frequency. The frequency of your data replication needs to be less than or equal to your RPO. An RPO of one hour requires all the data changes replicated to the secondary region within one hour or less.
 
-**Determine replication configurations.** You need to use your RPO and architecture to apply the right data replication configurations. For a single region web app, you need to determine how many availability zones to use. Many Azure storage services offer native data replication options. For a multi-region web app with an active-passive configuration, you need to replicate data to the passive region for diaster recovery. The replication frequency in an active-passive configuration needs to meet your RPO. For a multi-region web app in an active-active configuration, you need to configure synchronous data replication.
+**Determine replication configurations.** You need to use your RPO and architecture to apply the right data replication configurations. For a single region web app, you need to determine how many availability zones to use. Many Azure storage services offer native data replication options between availability zones. You should configure the redundancy that meets your needs. 
+
+For a multi-region web app with an active-passive configuration, you need to replicate data to the passive region for disaster recovery. The replication frequency of your data in an active-passive configuration needs to meet your RPO. For a muti-region active-active configuration, you need to replicate data across regions in near realtime. 
 
 *Reference implementation.* The reference implementation has two main data stores: Azure Files and PostgreSQL database. The reference implementation uses geo-zone-redundnant storage (GZRS) with Azure Files. GZRS asynchronously creates a copy of Azure Files data in the passive region. Check the [last sync time property](/azure/storage/common/last-sync-time-get) to get an estimated RPO. For the Azure Database for PostgreSQL, the reference implementation uses zone redundant high availability with standby servers in two availability zones. It also asynchronously replicates to the read replica in the passive region. Azure Files GZRS and Azure Database for PostgreSQL read replica are central to Proseware's failover plan.
 
@@ -85,11 +87,11 @@ Data reliability relies on replicating data across multiple locations.  In gener
 
 A failover plan details the procedure to respond to an outage. The plan should define what an outage means for your web app. For example, you can define outage in terms of downtime or loss of functionality.
 
-**Determine the recovery time objective.** The recovery time objective (RTO) is the maximum amount of downtime you're willing to accept during an outage. An RTO of four hours means your okay with the web app being offline for up to four hours.
+**Determine the recovery time objective.** The recovery time objective (RTO) is maximum, acceptable downtime for a web app or feature. For example, an RTO of four hours means the web app or feature should be operational within four hours of a disruption. You can have multiple RTO relating to different features in your web app. Each RTO should tie back to your SLO in support of making the service available to end-users.
 
 **Define failover duration.** The failover process needs to take as much or less time than your RTO. An RTO of four hours means you need to fail over within four hours.
 
-**Determine failover mechanism.** You can automate failover or do it manually. Automating failover streamlines the process, but it adds risk that someone could trigger a failover accidentally. Consider a manual failover process and run tests to ensure failover proficiency.
+**Determine failover mechanism.** You can automate failover or commit to a manual process. Automating failover makes the results more consistent adds risk that someone could initiate a failover accidentally. Consider a manual process to initiate the failover and automate aspects of the failover to help ensure consistent results.```
 
 **Outline the return process.** The failover plan needs to define the steps to return to normal operations. Most failover plans revert to the state before the failover.
 
