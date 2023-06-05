@@ -11,12 +11,12 @@ This solution is ideal for small to medium-sized WordPress installations. It pro
 
 ### Dataflow
 
-This scenario covers a scalable and secure installation of WordPress that uses managed PaaS service [WordPress on AppService](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress). 
+This scenario covers a scalable and secure installation of WordPress that uses managed PaaS service [WordPress on App Service](https://learn.microsoft.com/en-us/azure/app-service/quickstart-wordpress).
 
 1. Users access the front-end website through a CDN ([Azure Front Door](https://azure.microsoft.com/products/frontdoor) *or* [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/products/cdn).
-2. The CDN load balances requests across Azure App Service instances that WordPress is running on and pulls any data that isn't cached from the WordPress web app 
-3. The WordPress application accesses the [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via Private Endpoint and pulls any dynamic information out.
-5. All static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
+2. The CDN load balances requests across Azure App Service instances that WordPress is running on and pulls any data that isn't cached from the WordPress web app.
+3. The WordPress application accesses the [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) via Service Endpoint and pulls any dynamic information out.
+4. All static content is hosted in [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 
 ### Components
 
