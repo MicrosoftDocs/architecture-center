@@ -26,7 +26,7 @@ Multiple clients can connect to the workload using various protocols. They can b
 
 ## Architecture
 
-:::image type="content" source="./images/carrier-grade-architecture.svg" alt-text="Diagram showing the physical architecture of a carrier-grade solution." lightbox="./images/carrier-grade-architecture.png":::
+:::image type="content" source="./images/carrier-grade-architecture.png" alt-text="Diagram showing the physical architecture of a carrier-grade solution." lightbox="./images/carrier-grade-architecture.png":::
 
 The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and providing the service functionality. The components of this architecture can be broadly categorized as follows. For product documentation about Azure services, see [Related resources](#related-resources).
 
