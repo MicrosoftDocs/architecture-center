@@ -74,10 +74,10 @@ Cost optimization is about looking at ways to reduce unnecessary expenses and im
 
 There are a couple main things to consider:
 
-- How much traffic are you expecting in terms of GB/month? The amount of traffic has the biggest effect on your cost, as it determines the number of App Service instances. Additionally, it directly correlates with the amount of data that is surfaced via the CDN.
+- How much traffic are you expecting in terms of GB/month? The amount of traffic has the biggest effect on your cost, as it determines the number of App Service instances and price for outbound data transfer. Additionally, it directly correlates with the amount of data that is surfaced via the CDN, where are outbound data transfer costs cheaper.
 - What is the expected amount of hosted data? It's important to consider this since Azure Storage pricing is based on used capacity.
 - How much new data are you going to be writing to your website? New data written to your website correlates with how much data is mirrored across the regions.
-- How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much is cached in the CDN.
+- How much of your content is dynamic? How much is static? The variance around dynamic and static content influences how much data has to be retrieved from the database tier versus how much is cached in the CDN. By evaluating the usage patterns of your database, you can determine if a lower pricing tier is suitable without compromising performance. Azure offers a range of pricing tiers for databases, allowing you to scale up or down as needed.
 
 ## Contributors
 
