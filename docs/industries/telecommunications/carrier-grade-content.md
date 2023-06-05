@@ -40,7 +40,7 @@ The global load balancer that uses DNS-based routing to send traffic to the appl
 
 **Azure Cosmos DB**
 
-Stores application payload metadata and end-user provisioning data. Also used by dependent services listed above. Multi-region write is enabled so that data is replicated to each region, instantaneously. Also, zone redundancy is enabled through zone-redundant storage (ZRS).
+Stores application payload metadata and end-user provisioning data. Also used by dependent services listed above. Multi-region write is enabled so that data is replicated to each region, instantaneously. Also, zone redundancy is enabled through the zone-redundant storage (ZRS) mode.
 
 **Gateway component** 
 
@@ -107,7 +107,7 @@ The application is part of the stamp and is therefore immutable. Application sta
 
 The services are implemented as microservices, containerized in a regional AKS cluster. The microservice pattern allows for separation of processing elements and state so that failure in one component doesn't affect others. The application is stateless and long-lived state is stored in an external database. 
 
-To build redundancy, stamps are deployed in multiple Availability Zones and regions in an active-active model. 
+To build redundancy, stamps are deployed in multiple Availability Zones and regions in an active-active model. That is, there is one stamp in each Availability Zone of each region in the deployment; all stamps are active and load is balanced across all of them.
 
 The components within each stamp use a fate-sharing model, which simplifies logic flows and connection paths by removing the need for special-case code to handle partial failure conditions. 
 
@@ -136,7 +136,7 @@ Like Azure Traffic Manager, the gateway is also a single point of failure and th
 
 If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired. So, this time must be short. Clients will continue to reach the last-known address. Use Azure policies to enforce termination of long-running calls or connections that still exist.
 
-Both Traffic Manager and gateway depend on Azure DNS, as a foundational service, to reduce complexity and provide higher Service Level Agreement (SLA).  However, if that service is unavailable, expect a full outage.
+Both Traffic Manager and gateway depend on Azure DNS, as a foundational service, to reduce complexity and provide higher Service Level Agreement (SLA). In principle, an Azure DNS outage could lead to a full outage. However Azure DNS is highly redundant with a 100% availability SLA, and clients with existing connections or appropriate caching can continue to operate even if DNS is unavailable for a short period.
 
 ### Health monitoring
 
@@ -164,7 +164,7 @@ The workload is deployed across multiple regions, and across multiple Availabili
 
 Scale is achieved through the combination of individual stamp capacity and the total number of instances.  The overall solution is sized such that up to one entire region can fail but the remaining regions can still service the expected maximum traffic load. This means a two-region deployment needs 100% headroom (2x overprovisioned), whereas a four-region deployment needs only 33% headroom.
 
-Headroom considerations favor a larger deployment. However constant per-instance overheads and constant per-region availability rate favor a smaller deployment; availability and cost modelling are required in order to determine the best topology for a given workload.
+Headroom considerations favor a larger deployment. However constant per-instance overheads and constant per-region availability rate favor a smaller deployment; availability and cost modelling are required in order to determine the best topology for a given workload. Connectivity, locality, and data residency requirements may also impact region selection.
 
 The capacity of each individual stamp is adjusted based on load testing results that predict load variations. Autoscaling is enabled for the service and cluster by using AKS Cluster Autoscaler and Kubernetes Horizontal Pod Autoscaler. There are components that scale manually. For these components, scale limits are defined in the configuration and scaling is handled as an upgrade operation.  
 
@@ -184,7 +184,7 @@ The operational aspect of the architecture is key to achieving high availability
 
 Application source code and configuration are stored in a Git repository in Azure DevOps. A GitOps approach is used for continuous integration/continuous deployment (CI/CD). 
 
-Flux is the GitOps operator that responds to changes and triggers scripting tool to create Azure resources for the stamps. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the stamp configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
+Flux is the GitOps operator that responds to changes and triggers a scripting tool to create Azure resources for the stamps. These include virtual machines, AKS cluster, convergence pods, and updates DNS for service discovery of the new instance. Scaling requirements are also met by GitOps. For manual scaling, scale limits are defined in the stamp configuration. Scaling is achieved through the upgrade process that creates new instances of the required size and then replaces the current one. 
 
 Conversely, Flux also decommissions resources that aren't required. For example, if a particular instance shouldn't receive traffic, Flux reacts to the configuration change. It triggers DNS updates to stop new traffic from reaching the instance. Also, when definition files are removed, GitOps triggers scripting to gracefully delete the cluster, virtual machines, and other Azure resources. Resources are decommissioned as part of scaling in operations. 
 
