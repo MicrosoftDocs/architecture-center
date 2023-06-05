@@ -22,7 +22,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
        - Mapping the copybooks to C# objects that .NET applications use.
    - Third-party tools perform automated object conversion on non-relational databases, file systems, and other data stores.
 
-1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC encoded format in file formats like:
+1. Data is ingested and transformed. Mainframe and midrange systems store their file system data in EBCDIC-encoded format in file formats like:
    - Indexed [VSAM](https://www.ibm.com/docs/cobol-zos/6.3?topic=files-vsam) files
    - Non-indexed [GDG](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.zconcepts/zconcepts_175.htm) files
    - Flat files
@@ -33,9 +33,9 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
    
    b. Data is converted. The Azure Data Factory custom connector is a solution developed by using the Host File client component of Host Integration Server to convert mainframe datasets.
 
-      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. Host Integration Server is a Host File client component that you can use to develop custom solutions for dataset conversion.
+      [Host Integration Server](/host-integration-server/what-is-his) integrates existing IBM host systems, programs, messages, and data with Azure applications. Host Integration Server is a Host File client component that you can use to develop a custom solution for dataset conversion.
 
-      The solution is based on the open-source Spark framework, and it runs on [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). Like other solutions, it can parse the copybook and convert data. Manage the service for data conversion by using the [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) Parse Host File Contents connector.
+      The Azure Data Factory custom connector is based on the open-source Spark framework, and it runs on [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics). Like other solutions, it can parse the copybook and convert data. Manage the service for data conversion by using the [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) Parse Host File Contents connector.
 
    c. Relational database data is migrated.
 
@@ -90,7 +90,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 #### Compute
 
-- An [integration runtime](/azure/data-factory/concepts-integration-runtime) (IR) is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime) to copy data between cloud data stores and data stores in on-premises networks.
+- Data Factory integrates data across different network environments by using an [integration runtime](/azure/data-factory/concepts-integration-runtime) (IR), which is a compute infrastructure. Data Factory copies data between cloud data stores and data stores in on-premises networks by using [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
@@ -136,9 +136,7 @@ Organizations that use mainframe and midrange systems can benefit from this solu
 
 ## Considerations
 
-- These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-- When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time.
-- When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
+These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework). When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time. When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
 
 ### Security
 
@@ -160,7 +158,7 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Performance efficiency pillar overview](/azure/well-architected/scalability/overview).
 
-- The key pillars of performance efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and performance pattern.
+- The key pillars of performance efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and choosing an appropriate performance pattern.
 - You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 - Azure SQL Database offers the ability to dynamically scale your databases. In a serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
 
