@@ -1,0 +1,34 @@
+### YamlMime:Architecture
+metadata:
+  title: DataOps for Autonomous Vehicle Operations (AVOps) Reference Architecture
+  titleSuffix: Azure Architecture Center
+  description: Data Operations reference architecture that shows how one would use Azure services to build Automated driving solution
+  author: rmats808
+  ms.author: rmatsumura
+  ms.date: 3/31/2023
+  ms.topic: conceptual
+  ms.service: architecture-center
+  ms.subservice: example-workload
+azureCategories:
+  - analytics
+  - compute
+  - databases
+  - security
+  - storage
+products:
+  - azure-batch
+  - azure-data-factory
+  - azure-data-share
+  - azure-cosmos-db
+  - azure-app-service
+  - azure-data-box-family
+  - azure-expressroute
+  - azure-data-lake-gen2
+  - azure-databricks
+  - azure-data-share
+
+name: Data Operations (DataOps) for Autonomous Vehicle operations (AVOps) Reference Architecture
+summary:  Learn about a data operation architecture that you can use to build automated driving solution by using Azure services.
+thumbnailUrl: /azure/architecture/browse/thumbs/avops-architecture-thumb.png
+content: |
+  [!include[](dataops-reference-architecture-content.md)]
