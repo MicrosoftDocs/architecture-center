@@ -1,12 +1,12 @@
-Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because users directly access Azure applications. With TIC 2.0+, users accessed Azure applications via a TIC 2.0+ Managed Trusted Internet Protocol Service (MTIPS) device, which increased response time.
+Version 3.0 of the Trusted Internet Connection (TIC) takes TIC from on-premises data collection to a cloud-based approach that better supports modern applications and systems. It improves performance because you can directly access Azure applications. With TIC 2.0+, users accessed Azure applications via a TIC 2.0+ Managed Trusted Internet Protocol Service (MTIPS) device, which increased response time.
 
 You can deliver TIC 3.0 compliance for your internet-facing Azure applications and services. This article provides solutions and resources to guide government organizations to TIC 3.0 compliance. It shows how to deploy the required assets and how to incorporate the solutions into existing systems.
 
-Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in each solution. The firewall can be an Azure Firewall, Front Door with Web Application Firewall (WAF), Application Gateway with WAF, or a third-party Network Virtual Appliance (NVA). The firewall secures the cloud perimeter, saving logs of each transaction. Independent of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
+Routing application traffic through a firewall and logging that traffic is the core functionality demonstrated in each solution. The firewall can be Azure Firewall, Azure Front Door with Web Application Firewall (WAF), Azure Application Gateway with WAF, or a third-party network virtual appliance (NVA). The firewall helps to secure the cloud perimeter and saves logs of each transaction. Independently of the firewall layer, the log collection and delivery solution requires a Log Analytics workspace, a registered application, and an event hub. The Log Analytics workspace sends logs to the event hub.  
 
-The Cloud Log Aggregation Warehouse (CLAW) is a Cybersecurity and Infrastructure Security Agency (CISA) managed service. In late 2022, CISA released TALON. TALON is a CISA managed service leveraging Azure native capabilities with an instance running in each Azure region. The TALON connects to government agency managed Event hubs to pull that agency's firewall and Azure AD logs into the CISA CLAW. 
+Cloud Log Aggregation Warehouse (CLAW) is a Cybersecurity and Infrastructure Security Agency (CISA) managed service. In late 2022, CISA released TALON. TALON is a CISA managed service that uses Azure native capabilities. An instance of TALON runs in each Azure region. TALON connects to event hubs that are managed by government agencies to pull agency firewall and Azure Active Directory (Azure AD) logs into CISA CLAW.
 
-For more information on CLAW, TIC 3.0, TALON, and MTIPS, see:
+For more information on CLAW, TIC 3.0, and MTIPS, see:
 
 - [Trusted Internet Connections guidance](/azure/azure-government/compliance/compliance-tic)
 - [TIC 3.0 core guidance documents | CISA](https://www.cisa.gov/publication/tic-30-core-guidance-documents)
@@ -16,14 +16,14 @@ For more information on CLAW, TIC 3.0, TALON, and MTIPS, see:
 
 ## Potential use cases
 
-Federal organizations and government agencies are the most likely implementers of TIC 3.0 compliance solutions for their Azure-based web applications and API services.
+TIC 3.0 compliance solutions are commonly used by federal organizations and gevernment agencies for their Azure-based web applications and API services. 
 
 > [!NOTE] 
-> Microsoft provides this information to Federal Civilian Executive Branch (FCEB) departments and agencies as part of a suggested configuration to facilitate participation in CISA’s CLAW capability. The suggested configurations are maintained by Microsoft and is subject to change.
+> Microsoft provides this information to Federal Civilian Executive Branch (FCEB) departments and agencies as part of a suggested configuration to facilitate participation in CISA's CLAW capability. The suggested configurations are maintained by Microsoft and are subject to change.
 
 ## Architecture
 
-:::image type="content" source="media/trusted-internet-connections-architecture.png" alt-text="Diagram of T I C 3 point 0 compliance architecture with a firewall uploading logs to CLAW." border="false" lightbox="media/trusted-internet-connections-architecture.png":::
+:::image type="content" source="media/trusted-internet-connections-architecture.png" alt-text="Diagram that shows a TIC 3.0 compliance architecture." border="false" lightbox="media/trusted-internet-connections-architecture.png":::
 
 *Download a [Visio file](https://github.com/Azure/trusted-internet-connection/raw/main/Architecture/Visio/TIC_3.0-AzureReferenceArchitecture.vsdx) of this architecture.*
 
