@@ -18,19 +18,7 @@ This example scenario is applicable for any larger installation of WordPress wit
 - The private key (X.509 certificate) and other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
 - The WordPress application pulls any dynamic information out of the managed [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) privately via Private Endpoint.
 - All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) using the AKS CSI Astra Trident driver with the NFS protocol.
-    > [!IMPORTANT]
-    > For the best performance is essential to mount PersistentVolume via **NFS protocol version 4.1**, see option *mountOptions* in following YAML example:
 
-```yaml
-kind: PersistentVolume
-...
-    accessModes:
-    - ReadWriteMany
-    mountOptions:
-    - vers=4.1
-    nfs:
-      server: xx.xx.xx.xx
-```
 
 ### Components
 
@@ -71,6 +59,20 @@ The NetApp Files storage can be replicated between paired regions. For more info
 For high availability of Azure Database for MySQL, see [High availability concepts in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-high-availability).
 
 ### Performance efficiency
+
+> [!IMPORTANT]
+> For the best performance is essential to mount PersistentVolume via **NFS protocol version 4.1**, see option *mountOptions* in following YAML example:
+
+```yaml
+kind: PersistentVolume
+...
+    accessModes:
+    - ReadWriteMany
+    mountOptions:
+    - vers=4.1
+    nfs:
+      server: xx.xx.xx.xx
+```
 
 This scenario uses pods in AKS to host the front-end. With the autoscale feature, the number of pods that run the front-end application tier can automatically scale in response to customer demand or based on a defined schedule. For more information, see [Scaling options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-scale).
 

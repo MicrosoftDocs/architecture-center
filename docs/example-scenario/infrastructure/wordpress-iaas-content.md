@@ -18,17 +18,6 @@ This scenario covers a scalable and secure installation of WordPress that uses U
 4. Keys or other secrets are stored in [Azure Key Vault](/azure/key-vault/key-vault-overview).
 5. The WordPress application access privately via Private Endpoint of [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview) and pulls any dynamic information out.
 6. All static content is hosted in [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) and mounted to VMs via NFS protocol.
-    > [!IMPORTANT]
-    > For the best performance is essential to mount storage via  **NFS protocol version 4.1** - see option *vers* in following bash example for Ubuntu:
-
-```bash
-# install nfs driver and create directory
-$ apt-get install -y nfs-common && mkdir -p /var/www/html
-# add auto-mount on startup (replace with instructions from Azure Portal, but change vers to 4.1)
-$ echo '<netapp_private_ip>:/<volume_name> /var/www/html nfs rw,hard,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 0 0' >> /etc/fstab
-#mount now
-$ mount -a
-```
 
 ### Components
 
@@ -68,6 +57,19 @@ The NetApp Files storage can be replicated between paired regions. For more info
 For high availability of Azure Database for MySQL, see [High availability concepts in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-high-availability).
 
 ### Performance efficiency
+
+> [!IMPORTANT]
+> For the best performance is essential to mount storage via  **NFS protocol version 4.1** - see option *vers* in following bash example for Ubuntu:
+
+```bash
+# install nfs driver and create directory
+$ apt-get install -y nfs-common && mkdir -p /var/www/html
+# add auto-mount on startup (replace with instructions from Azure Portal, but change vers to 4.1)
+$ echo '<netapp_private_ip>:/<volume_name> /var/www/html nfs rw,hard,rsize=262144,wsize=262144,sec=sys,vers=4.1,tcp 0 0' >> /etc/fstab
+#mount now
+$ mount -a
+```
+
 
 This scenario uses Virtual Machine Scale Sets for the two front-end web server clusters in each region. With scale sets, the number of VM instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with Virtual Machine Scale Sets][docs-vmss-autoscale].
 
