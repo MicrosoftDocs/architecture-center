@@ -190,19 +190,23 @@ It's also a good idea to use Key Vault for storage of secrets used for database 
 :::image type="content" source="./media/iaas-baseline-monitoring.png" alt-text="IaaS monitoring data flow  diagram" lightbox="./media/iaas-baseline-monitoring.png":::
 *Download a [Visio file](https://arch-center.azureedge.net/xxx.vsdx) of this architecture.*
 
-The monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing and understanding performance, debugging, etc.:
+### Overview
+
+The monitoring processes and components are discussed here primarily from a data collection perspective. Where appropriate, the following subsections may provide links to options for data analysis by the respective log and metrics consumption tools. As mentioned previously, Azure Log Analytics is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation.
+
+Throughout each section, we assume that 2 types of data will be collected from various layers of the architecture that can be useful for diagnosing and understanding performance, doing debugging, and many other activities:
 
 - metrics - numeric data that provides a snapshot in time of specific values being monitored, such as CPU percent, I/O metrics, etc. This type of data can be also useful for making auto scaling configuration decisions.
 - log files - capture data over time for the purpose of trend analysis, which can be very useful for debugging and understanding performance. For example, web servers create log files that provide the ability to analyze traffic patterns. 
 
-As mentioned previously, Azure Log Analytics is the monitoring data sink used in this architecture to collect logs and metrics from the Azure resources and Application Insights. A Log Analytics workspace is the recommended way to capture all monitoring data in one place, for analyzing and correlation. Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
+Monitoring data is generated at multiple levels, all of which can be sources of important metrics and log files: 
 
 - the application level
 - the operating system where the application is running
 - the underlying infrastructure and components on which your system runs, like virtual machines, virtual networks, and storage services
 - the Azure platform logs 
 
-### Application level monitoring
+### Application level
 
 ##### Application Insights
 
@@ -214,11 +218,11 @@ Azure Monitor provides two experiences for consuming distributed trace data: the
 
 //TODO: Add app insights guidance specific to this scenario
 
-### Operating System level monitoring
+### Operating System level
 
 TBD: presumably this is guest OS level?
 
-### Infrastructure level monitoring
+### Infrastructure level
 
 ##### Virtual Machines
 
@@ -250,7 +254,7 @@ The table below lists the types of data you can currently collect with the Azure
 
 //TODO: guidance for RI. Boot diagnostics in managed storage (and transfer later) or using a custom storage account
 
-### Azure platform level monitoring
+### Azure platform level
 
 ##### Platform logs
 
@@ -264,9 +268,11 @@ Another feature of Azure Monitor, [Azure platform logs](/azure/azure-monitor/ess
 
 TBD
 
-### Component-specific monitoring
+### Component-specific
 
 ##### Azure Load Balancer health probes
+
+// TBD - should this be infrastructure level?
 
 // Raw notes - start
 - Specific to load balancers in App Gateway and the one in the backend API tier. 
@@ -281,6 +287,8 @@ TBD
 
 ##### Managed disks
 
+// TBD - should this be infrastructure level?
+
 Your workload will dictate your final metrics to monitor on disks, but most IaaS architectures will have some mix of the following common key metrics. Beyond these, you’ll want to bring in items that represent where your application is most sensitive. When designing your monitoring solution be aware that there is an Azure platform perspective on managed disks and there is the Guest OS perspective on the managed disks.  The Azure-platform perspective represents the type of metrics that a SAN operator would view, regardless of what workloads are connected.  The guest-perspective represents the type of metrics that the workload operator would view, regardless of the underlying disk technology.  In Azure, workload teams have the responsibility of monitoring both as part of their solution.
 
 - Platform perspective
@@ -290,15 +298,6 @@ Your workload will dictate your final metrics to monitor on disks, but most IaaS
 
 - Guest OS perspective
   - VM Insights is how we recommend you get key metrics from an operating system perspective on attached disks. This is where you'll report or alert on disk/drive metrics like *logical disk space used*, and the operating system kernel's own perspective on disk IOPS and throughput. Combining these performance metrics with the platform performance metrics can help isolate OS or even application throughput issues on your disks vs platform bottlenecks.
-
-
-##### Health probes
-
-##### Logs
-
-##### Log analytic workspace
-
-
 
 
 
