@@ -1,201 +1,191 @@
-This architecture provides guidance and recommendations for developing offline data operations and data management (DataOps) for an automated driving solution. DataOps reference architecture is built upon the framework outlined in the [AVOps Design Guide](https://learn.microsoft.com/azure/architecture/guide/machine-learning/avops-design-guide). 
- DataOps is one of the building blocks of AVOps, in addition to MLOps, ValOps, DevOps and Centralized AVOps functions. 
+This architecture provides guidance and recommendations for developing offline data operations and data management (DataOps) for an automated driving solution. This DataOps architecture is built on the framework that's outlined in [Autonomous vehicle operations (AVOps) design guide](../../guide/machine-learning/avops-design-guide.md). DataOps is one of the building blocks of AVOps. Other building blocks include machine learning operations (MLOps), validation operations (ValOps), DevOps, and centralized AVOps functions.
 
 ## Architecture
+
 :::image type="content" source="./images/dataops.png" alt-text="Diagram Dataops Architecture" border="false" lightbox="./images/dataops.png":::
+
 *Download a [Visio file](https://arch-center.azureedge.net/dataops-architecture.vsdx) that contains the architecture diagrams in this article.*
 
 ### Data Flow
 
-1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in the vehicle store measurement data on logger storage devices. The logger storage data is then uploaded to the landing data lake. A service like [Azure Data Box](/azure/databox/) or [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/), ingests data into Azure.  Measurement data in formats such as MDF4, TDMS, Rosbag land in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction) via a dedicated storage account called "Landing". The Landing storage account into which all the measurements from the vehicles are uploaded and validated. Only valid measurements are copied over the "Raw" storage account and raw data streams are created for them. Validation and data quality checks, like checksum, are performed to remove low quality data. 
-1. Once data is available at the Landing storage account, an [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered at the scheduled interval to process the data. The [Azure Data Factory](/azure/data-factory/introduction) pipeline does the following functions:
-    - Perform a data quality check such as a checksum early in the data pipeline to ensure only quality data passes through to the next stage.   Code to perform data quality checks is executed by calling a service using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview).  Data that is deemed incomplete are archived for future processing.  
-    - Lineage Tracking: Pipeline calls the Metadata API using [Azure App Services](https://learn.microsoft.com/azure/app-service/overview) to update the metadata in [Azure Cosmos DB](/azure/cosmos-db) to create a new datastream. For each measurement, there's a datastream of type “Raw”
-    - Once the Metadata API creates the datastream, the data is copied to the Raw Zone storage account in  [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). The data in the Raw folder has a hierarchical structure:
+1. Measurement data comes from data streams for sensors like cameras, radar, ultrasound, lidar, and vehicle telemetry. Data loggers in a vehicle store measurement data on logger storage devices. The logger storage data is uploaded to a landing data lake. A service like [Azure Data Box](/azure/databox/) or [Azure Stack Edge](/azure/databox-online/), or a dedicated connection like [Azure ExpressRoute](/azure/expressroute/), ingests the data into Azure. Measurement data in the following formats lands in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction): Measurement Data Format version 4 (MDF4), technical data management systems (TDMS), and ROS bag. The uploaded data enters a storage account called Landing that's dedicated for receiving and validating the data.
 
-      `region/raw/MeasurementID/DatastreamID/YYYY/MM/DD`
+1. An [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered at a scheduled interval to process the data in the Landing storage account. The pipeline handles the following steps:
+   - Performs a data quality check such as a checksum to ensure only quality data passes through to the next stage. Azure App Service is used to run the quality check code. Data that's deemed incomplete is archived for future processing.
+   - For lineage tracking, calls the Metadata API by using App Service. This step updates the metadata in [Azure Cosmos DB](/azure/cosmos-db) to create a new data stream. For each measurement, there's a data stream of type Raw.
+   - Copies the data to a storage account called Raw in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction). The data in the *raw* folder has a hierarchical structure:
 
-    - Once all the data is copied to the Raw folder, another call to Metadata API is made to mark the datastream as “Complete” so the datastream can be consumed further.  
-    - Once all measurement files are copied, the measurements are archived and removed from the Landing storage account.  
-1. The data in the Raw zone is still in a raw format such as [Rosbag](http://wiki.ros.org/rosbag) format and need to be extracted so the downstream systems can consume them.  
-    
-    [Azure Data Factory](/azure/data-factory/introduction) and [Azure Batch](/azure/batch/) process the files from the Raw zone.  Code executed in [Azure Batch](/azure/batch/) reads the data from the topics in the Raw file and outputs the data into the selected topics into the respective folders.  
+     *region/raw/<measurement-ID>/<data-stream-ID>/YYYY/MM/DD*
 
-    The files in the Raw zone can each be more than 2 GB in size. For each file, we have to run parallel processing extraction functions to extract topics such as image processing, Lidar, Radar, GPS, and metadata processing. In addition to the topic extraction, there's a need down sample the data to reduce the amount of data to label/annotate. [Azure Data Factory](/azure/data-factory/introduction) and [Azure batch](/azure/batch/) provides a way to perform parallelism in a scalable manner.
+   - Calls the Metadata API to mark the data stream as complete so that other components and services can consume the data stream.  
+   - Archives the measurements are removes them from the Landing storage account.
 
-    The structure in the Extracted Zone storage account should also utilize a hierarchical similar to the Raw Zone storage account: 
-    
-    `region/extracted/MeasurementID/DatastreamID/YYYY/MM/DD`
+1. Azure Data Factory and Azure Batch process the data in the raw zone to extract information that downstream systems can consume:
+   - Azure Batch reads the data from topics in the raw file and outputs the data into selected topics in respective folders.  
+   - Because the files in the raw zone can each be more than 2 GB in size, parallel processing extraction functions are run on each file. These functions extract image processing, lidar, radar, and GPS data. They also perform metadata processing. Data Factory and Azure Batch provide a way to perform parallelism in a scalable manner.
+   - The data is downsampled to reduce the amount of data that needs to be labeled and annotated.
 
-    Utilizing the example hierarchical structure allows organizations to utilize the hierarchical namespace capability of [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction).  The hierarchical structure allows organizations to create a scalable and cost effective object storage.  In turn, the structure also improves efficiency of the object search and retrieval. Partitioning by year and vehicle ID makes it easier to search for the relevant images from the corresponding vehicles.  A storage container for each sensor  like camera, gps, lidar, and radar are created.  
-1. If data from the vehicle logger isn't synchronized across the different sensors, then another step is required in the architecture to synchronize the data to create a valid dataset.  [Azure Data Factory](/azure/data-factory/introduction) pipeline triggers synchronization of data across sensors where the synchronization algorithm shall be run on [Azure batch](/azure/batch/). If the synchronization was already executed on the vehicle logger, then this step can be skipped.
-1. The next phase is to enrich the data with other data or telemetry that has been collected via telemetry or through the vehicle logger.  This step helps to enhance the richness of the data collected and provides more insights for the Data Scientist to utilize in their algorithm development as an example. 
- [Azure Data Factory](/azure/data-factory/introduction) pipeline is triggered for further enriching the data with Weather, maps or objects. Data generated can be kept in Parquet files to relate with the synchronized data. Metadata about the enriched data is also stored in Metadata store.  
-1. [Azure Data Factory](/azure/data-factory/introduction) pipeline for scene detection. Scene Metadata is kept in the metadata store while scenes themselves as objects can be stored in Parquet or Delta files.
-1. Third-party partners can be utilized in the next phase to perform labeling regardless of via manually or via auto labeling. The data is shared securely to Third-party partners via [Azure Data Share](/azure/data-share/) and integrated in Microsoft Purview.  [Azure Data Share](/azure/data-share/) allows organizations to securely share data without the need for extra data copying (snapshot).  Once labeling is performed, the data can again be shared back with the organization via [Azure Data Share](/azure/data-share/).  [Azure Data Share](/azure/data-share/) shares data back to the organization into a dedicated storage account named Labeled in [Azure Data Lake](/azure/storage/blobs/data-lake-storage-introduction).
-    
-     Labeled data sets are provided to further [MLOps](/azure/architecture/solution-ideas/articles/avops-architecture#mlops) processes.  [MLOps](/azure/architecture/solution-ideas/articles/avops-architecture#mlops) is used by organizations to create specialized algorithms such as perception and sensor fusion models. The algorithms can be used to detect scenes such as the ability to detect lane changes, blocked roads, pedestrian, traffic lights, and traffic signs. [COCO Datasets](https://cocodataset.org/#home) or [ASAM OpenLabel Datasets](https://www.asam.net/standards/detail/openlabel/) are recommended formats for label data exchange.
+1. If data from the vehicle logger isn't synchronized across the various sensors, a Data Factory pipeline triggers a synchronization of the data across the sensors. The synchronization algorithm runs on Azure Batch.
+1. A Data Factory pipeline is triggered that enriches the data with telemetry, vehicle logger data, or other data, such as weather, map, or object data. The generated data is kept in Parquet files to relate with the synchronized data. Metadata about the enriched data is also stored in the metadata storage.
+1. A Data Factory pipeline performs scene detection. Scene metadata is kept in the metadata store. Scene data is stored as objects in Parquet or Delta files.
+1. Third-party partners perform manual or auto labeling. The data is shared securely with the third-party partners via Azure Data Share and integrated in Microsoft Purview. Azure Data Share uses a dedicated storage account named Labeled in Azure Data Lake to return the labeled data to the organization.
 
-1. The Metadata store in [Azure Cosmos DB](/azure/cosmos-db) is used to store metadata about measurements (drive data), lineage of data as it goes through each process of extraction, down sampling, synchronization, enrichment and scene detection. Metadata about enrichment and scene's detected.
-Metadata API is used to access measurements, Lineage, scenes and find out where data is stored.
-The metadata API thus becomes the storage layer manager, which can spread data across storage accounts and helps the developer finding out data location using metadata based search. For that reason, the Metadata store is a centralized component to keep traceability and lineage across the entire AD data flow. 
+   The labeled data sets are used in MLOps processes. MLOps is used to create specialized algorithms such as perception and sensor fusion models. The algorithms can detect scenes such as lane changes, blocked roads, pedestrians, traffic lights, and traffic signs. Recommended formats for label data exchange include [COCO datasets](https://cocodataset.org/#home) and [ASAM OpenLabel Datasets](https://www.asam.net/standards/detail/openlabel/).
 
-1. [Azure Databricks](https://azure.microsoft.com/products/databricks/) / [Azure Synapse](/azure/synapase) to connect with Metadata API and access the Azure data lake storage and research on the data.
+1. A metadata store in Azure Cosmos DB stores metadata for the measurements, such as drive data, and for the enrichment data and detected scenes. This store also contains metadata for the lineage of the data as it goes through the processes of extraction, downsampling, synchronization, enrichment, and scene detection. The metadata API is used to access the measurements, the lineage, and the scene data and to look up where data is stored. As a result, the metadata API serves as a storage layer manager. It spreads data across storage accounts. It also provides developers with a way to use a metadata-based search to get data locations. For that reason, the metadata store is a centralized component that offers traceability and lineage across the entire AD data flow.
+
+1. Azure Databricks and Azure Synapse are used to connect with the Metadata API and access Azure data Lake Storage and conduct research on the data.
 
 ### Components
 
-* [Data Box](https://azure.microsoft.com/products/databox) is used to transfer collected vehicle data to Azure via a regional carrier.
-* [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends the on-premises network into the Microsoft cloud over a private connection.
-* [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) stores data based on stages, for example, raw or extracted.
-* [Azure Data Factory](https://azure.microsoft.com/products/data-factory) performs ETL via [batch compute](/azure/batch/) and creates data-driven workflows for orchestrating data movement and transforming data.
-* [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
-* [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) stores metadata results, like stored measurements.
-* [Data Share](https://azure.microsoft.com/products/data-share/) shares data with partner organizations, like labeling companies, with enhanced security.
-* [Azure Databricks](https://azure.microsoft.com/products/databricks/) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
-* [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
-* [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
-* [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) provides a serverless based web app service that hosts the Metadata API
-* [Azure Purview](https://learn.microsoft.com/purview/purview) provides data governance across organizations
-* [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) stores topic processing containers. All the container images required for processing in the execution pool are pushed to container registry(JFrog). The execution pool is provided with configurations to connect to this registry and pull the required images. While not shown in the [architecture diagram](#architecture), use of the container registry is discussed later in the [Data pipeline batch design section](#batch-design).
-* [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) that provides application performance monitoring. Application Insights can be integrated to log custom events, custom metrics and log information while processing a particular measurement for extraction. Application Insights helps in building the observability around measurement extraction. We can build queries on log analytics to get the all the details about a measurement. While not shown in the [architecture diagram](#architecture), use of Application Insights is discussed later in the [Data pipeline batch design section](#batch-design).
+- [Data Box](https://azure.microsoft.com/products/databox) provides a way to send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. In this solution, Data Box is used to transfer collected vehicle data to Azure via a regional carrier.
+- [ExpressRoute](https://azure.microsoft.com/products/expressroute) extends an on-premises network into the Microsoft cloud over a private connection.
+- [Azure Data Lake Storage](https://azure.microsoft.com/products/storage/data-lake-storage) holds a large amount of data in its native, raw format. In this solution, Data Lake Storage stores data based on stages, for example, raw or extracted.
+- [Azure Data Factory](https://azure.microsoft.com/products/data-factory) is a fully managed, serverless solution for creating and scheduling extract, transform, and load (ETL) and extract, load, and transform (ELT) workflows. Here, Data Factory performs ETL via [batch compute](/azure/batch/) and creates data-driven workflows for orchestrating data movement and transforming data.
+- [Azure Batch](https://azure.microsoft.com/products/batch) runs large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. This solution uses Azure Batch to run large-scale applications for tasks like data wrangling, filtering and preparing data, and extracting metadata.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db) is a globally distributed, multimodel database. Here, it stores metadata results, like stored measurements.
+- [Data Share](https://azure.microsoft.com/products/data-share/) shares data with partner organizations with enhanced security. In this case, it shares data with labeling companies.
+- [Azure Databricks](https://azure.microsoft.com/products/databricks/) provides a set of tools for maintaining enterprise-grade data solutions at scale. It's required for long-running operations on large amounts of vehicle data. Data engineers use Azure Databricks as an analytics workbench.
+- [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/) reduces time to insight across data warehouses and big data systems.
+- [Azure Cognitive Search](https://azure.microsoft.com/products/search) provides data catalog search services.
+- [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) provides a serverless based web app service. In this solution, App Service hosts the metadata API.
+- [Azure Purview](https://learn.microsoft.com/purview/purview) provides data governance across organizations.
+- [Azure Container Registry](https://learn.microsoft.com/azure/container-registry/) is a service that creates a managed registry of container images. This solution uses Container Registry to store containers that process topics.
+- [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net) is an extension of [Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) that provides application performance monitoring. Application Insights can be integrated to log custom events, custom metrics, and log information while processing a particular measurement for extraction. Application Insights helps in building the observability around measurement extraction. You can build queries on log analytics to get the all the details about a measurement.
 
-## Scenario Details
+## Scenario details
 
-Designing a robust DataOps framework for autonomous vehicles is crucial for efficient use, lineage, and the ability to serve data throughout the organization. Without a well-designed DataOps process, the massive amount of data generated by autonomous vehicles can quickly become overwhelming and difficult to manage.
+Designing a robust DataOps framework for autonomous vehicles is crucial for using your data, tracing its lineage, and making it available throughout your organization. Without a well-designed DataOps process, the massive amount of data that autonomous vehicles generate can quickly become overwhelming and difficult to manage.
 
-Organizations implementing an effective DataOps strategy can ensure that their data is properly stored, easily accessible, and has a clear lineage. In turn, organizations can make it easier to manage and analyze the data, leading to more informed decision-making and improved vehicle performance.
+When you implement an effective DataOps strategy, you help ensure that your data is properly stored, easily accessible, and has a clear lineage. You also make it easy to manage and analyze the data, leading to more informed decision-making and improved vehicle performance.
 
-Moreover, an efficient DataOps process allows for the easy distribution of data throughout the organization, enabling various teams to access the information they need to optimize their operations. DataOps makes it easier to collaborate and share insights, improving the overall effectiveness of the organization.
+An efficient DataOps process provides a way to easily distribute data throughout your organization. Various teams can then access the information that they need to optimize their operations. DataOps makes it easy to collaborate and share insights, which helps to improve the overall effectiveness of your organization.
 
-Overall, a well-designed DataOps framework is essential for the efficient and effective use of data generated by autonomous vehicles. It ensures that the data is properly managed, easily accessible, and can be shared throughout the organization, leading to better decision-making and improved performance. 
+Typical challenges for data operations in the context of autonomous vehicles include:
 
-Typical challenges for data operations in context of autonomous vehicles:
+- Management of the daily terabyte or petabyte data volume of measurement data from research and development vehicles.
+- Data sharing and collaboration across multiple teams and partners, for instance, for labeling, annotations, and quality checks.
+- Traceability and lineage for a safety-critical perception stack that captures versioning and the lineage of measurement data.
+- Metadata and data discovery to improve semantic segmentation, image classification, and object detection models.
 
-- Daily terabyte/petabyte data volume from R&D vehicles (measurement data)
-- Data sharing and collaboration across multiple teams and partners (labeling, annotations, quality checks)
-- Traceability and lineage for safety-critical perception stack (capturing versioning and lineage of measurement data)
-- Meta-data and data discovery to improve semantic segmentation, image classification, and object detection models.
+The AVOps DataOps reference architecture provides guidance how to address and solve these challenges. This one? Or the one that's mentioned in the intro? I think this one.
 
-The AVOps DataOps reference architecture provides guidance how to address and solve these challenges.
+### Federate data operations
 
-### Federate Data Operations
+In an organization that implements AVOps, multiple teams contribute to DataOps due to the complexity that's required for autonomous vehicle operations. For example, one team might be in charge of data collection and data ingestion. Another team might be responsible for data quality management of lidar data. For that reason, the following principles of a [data mesh architecture](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/what-is-data-mesh) are considered for DataOps:
 
-In an organization that implement AVOps, multiple teams contribute to DataOps due to complexity required for Autonomous Vehicles operations. For example, one team could be in charge of data collection / data ingestion.  Another team is responsible for data quality management of Lidar data.  For that reason principles of a Data Mesh architecture are considered for DataOps:
+- Domain-oriented decentralization of data ownership and architecture: One dedicated team is responsible for one data domain that provides data products for that domain, for example, labeled datasets.
+- Data as a product: Each data domain has various zones on data-lake implemented storage containers. There are zones for internal usage. There's also a zone that contains published data products for other data domains or external usage to avoid data duplication.
+- Self-serve data as a platform to enable autonomous, domain-oriented data teams.
+- Federated governance to enable interoperability and access between AVOps data domains that requires a centralized metadata store and data catalog. For example, a labeling data domain might needs access to a data collection domain.
 
-- Domain-Oriented decentralization of data ownership and architecture: One dedicated team is responsible for one data domain that provides data products for that domain (e. g. labeled datasets)
-- Data as a product: Each data domain has different zones (on data lake implemented storage containers), zones for internal usage and one zone that contains published data products for other data domains / external usage to avoid data duplication
-- Self-serve data as a platform to enable autonomous, domain-oriented data teams
-- Federated governance to enable interoperability and access between AVOps data domains (for example, labeling data domain needs to get access for the data collection domain) that requires a centralized Meta-Data store and Data Catalog
+For further details and guidance about data mesh implementations, see [Cloud-scale analytics](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
 
-Further details and guidance for Data Mesh implementation are described on 
-[Cloud-scale analytics](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics).
+#### AVOps data domains example structure
 
-##### AVOps Data Domains Example Structure
+The following table provides some ideas for structuring data domains for AVOps:
 
-Table gives some ideas how data domains can be structured for AVOps:
-
-| Data Domain  | Published Data Products | Reference Architecture Step |
+| Data domain | Published data products | Solution step |
 |--|--|--|
-|Data Collection | Uploaded and Validated measurement files| Landing and Raw |
-|Extracted Images| Selected and extracted images / frames, Lidar and Radar  | Extracted |
-|Extracted Radar/Lidar| Selected and extracted Lidar and Radar data  | Extracted |
-|Extracted Telemetry | Selected and extracted car telemetry data  | Extracted |
-|Labeled | Labeled Data sets | Labeled |
-|Recompute | Generated KPIs based on resimulations runs | Recompute |
+|Data collection | Uploaded and validated measurement files| Landing and raw |
+|Extracted images| Selected and extracted images or frames, lidar, and radar  | Extracted |
+|Extracted radar or lidar| Selected and extracted lidar and radar data | Extracted |
+|Extracted telemetry | Selected and extracted car telemetry data | Extracted |
+|Labeled | Labeled data sets | Labeled |
+|Recompute | Generated KPIs based on resimulation runs | Recompute |
 
-Each AVOps data domain is set up based on a blueprint structure (including [Azure Data Factory](/azure/data-factory/introduction), [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction), databases, [Azure Batch](/azure/batch/), Spark runtimes via [Azure Databricks](https://azure.microsoft.com/products/databricks/)  or [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/)).
+Each AVOps data domain is set up based on a blueprint structure that includes [Azure Data Factory](/azure/data-factory/introduction), [Azure Data Lake Gen2](/azure/storage/blobs/data-lake-storage-introduction), databases, [Azure Batch](/azure/batch/), and Spark runtimes via [Azure Databricks](https://azure.microsoft.com/products/databricks/)  or [Azure Synapse Analytics](https://azure.microsoft.com/products/synapse-analytics/).
 
-##### Meta-Data and Data Discovery 
+#### Metadata and data discovery
 
-Each data domain are decentralized and individually manages its corresponding AVOps data products. For central data discovery and to know where data products are located, two components are required:
+Each data domain is decentralized and individually manages its corresponding AVOps data products. For central data discovery and to know where data products are located, two components are required:
 
--  Meta-data store that persists meta-data about processed measurement files and data streams (e. g. video sequences) to make the data discoverable and traceable with more annotations (that need to be indexed like for searching meta-data of unlabeled files, e. g. return all frames collected by specific VINs or frames with pedestrians or other objects based on enrichments)
--  Data Catalog (as an example [Microsoft Purview](https://learn.microsoft.com/purview/purview)) that shows lineage and dependencies between AVOps data domains and which data stores are involved in the AVOps data loop
+- A metadata store that persists metadata about processed measurement files and data streams, such as video sequences. This component makes the data discoverable and traceable with annotations that need to be indexed, such as for searching the metadata of unlabeled files. For example, you might want the metadata store to return all frames that are collected by specific VINs or frames with pedestrians or other enrichment-based objects.
+- A data catalog that shows lineage, the dependencies between AVOps data domains, and which data stores are involved in the AVOps data loop. An example of a data catalog is [Microsoft Purview](https://learn.microsoft.com/purview/purview).
 
-Depending on final scenario for data discovery, Meta-Data store (based on Cosmos DB can be extended by Azure Data Explorer or Azure Cognitive Search for semantic search capabilities).
+You can use Azure Data Explorer or Azure Cognitive Search to extend a metadata store that's based on Azure Cosmos DB. Your selection depends on the final scenario that you need for data discovery. Use Cognitive Search for semantic search capabilities.
 
-The Metadata Model diagram shows a typical unified meta-data model (as guidance) used across the several AVOps data loop pillars:
-
+The following metadata model diagram shows a typical unified metadata model that's used across several AVOps data loop pillars:
 
 ![Metadata Model](.\images\metadata-model.png)
 
-##### Data Sharing
+#### Data sharing
 
-Data Sharing in an AVOps data loop is a common scenario (for data sharing between data domains and external sharing, e. g. to  integrate labeling partners). [Microsoft Purview](https://learn.microsoft.com/en-us/purview/purview) provides these capabilities to allow efficient data sharing in the data loop:
+Data sharing is a common scenario in an AVOps data loop. Uses include data sharing between data domains and external sharing, for example, to integrate labeling partners. [Microsoft Purview](/purview/purview) provides the following capabilities for efficient data sharing in a data loop:
 
+- [Self-service data discovery and access](/azure/purview/concept-self-service-data-access-policy)
+- [In-place data sharing](/azure/purview/concept-data-share)
 
-- [Self-service data discovery and access](https://learn.microsoft.com/azure/purview/concept-self-service-data-access-policy)
+### Data pipeline
 
-- [In-place data sharing](https://learn.microsoft.com/azure/purview/concept-data-share)
+In the DataOps architecture, the movement of data between different stages in the data pipeline is automated. By using this approach, the process provides efficiency, scalability, consistency, reproducibility, adaptability, and error handling benefits. It enhances the overall development process, accelerates progress, and supports the safe and effective deployment of autonomous driving technologies.  
 
-### Data Pipeline
+The following sections describe how you can implement data movement between stages and how you should structure your storage account. A well-organized folder structure is a vital component of a data pipeline in autonomous driving development. It provides a systematic and easily navigable arrangement of data files, facilitating efficient data management and retrieval.
 
-In the DataOps architecture, the movement of data between different stages in the data pipeline is automated.  By doing so, the process brings efficiency, scalability, consistency, reproducibility, adaptability, and error handling benefits.  It enhances the overall development process, accelerates progress, and supports the safe and effective deployment of autonomous driving technologies.  
+#### Landing storage account to raw storage account
 
-The following sections details how an organization can implement the data movement between stages and how an organization should structure the storage account structure. A well-organized folder structure is a vital component of a data pipeline in autonomous driving development. It provides a systematic and easily navigable arrangement of data files, facilitating efficient data management and retrieval.
-
-##### Landing Storage Account to Raw Storage Account
-The data pipeline is triggered based on a schedule. Once triggered, the data is copied from "Landing" storage account to the "Raw" storage account.
+The data pipeline is triggered based on a schedule. After the pipeline is triggered, the data is copied from the landing storage account to the raw storage account.
 
 :::image type="content" source="./images/adf-copy-landing-raw.png" alt-text="Diagram that shows ADF Copy pipeline" border="false" lightbox="./images/adf-copy-landing-raw.png":::
 
-Once the pipeline gets triggered, it fetches all the measurement folders and iterates through all of the folders. Here's the sequence of activities that happen against each measurement:
+The pipeline retrieves all the measurement folders and iterates through them. Here's the sequence of activities that happen with each measurement:
 
-**Validate Measurement**: The Validate Measurement function grabs the file manifest file from the measurement manifest.  The function checks if all the measurement files (MDF4, TDMS, or Rosbag) for the current measurement exist in the measurement folder. On successful validation, the function will proceed to the next activity and on failure skip this measurement, and proceed to the next measurement folder.
- 
-**Call Create Measurement API**: Make a web API call to the create measurement API and pass the json payload from measurement manifest json file. On successful call, parse the response to retrieve the measurement ID and on failure move to the on error activity.
+**Validate the measurement**: A function retrieves the file manifest file from the measurement manifest. The function checks whether all the MDF4, TDMS, and ROS bag measurement files for the current measurement exist in the measurement folder. If the validation succeeds, the function proceeds to the next activity. If the validation fails, the function skips the current measurement and instead moves on to the next measurement folder.
 
-> [!NOTE]
-> The DataOps architecture assumes that an organization will limit the number of requests to the app service.  If an indeterminate number of requests could be made in the architecture, consider a [rate limiting pattern](https://learn.microsoft.com/azure/architecture/patterns/rate-limiting-pattern).
-
-**Call Create Datastream API**: Make a web API call to the create datastream api by creating the required json payload. On successful call, parse the response to retrieve the datastream ID and the datastream location. On failure move to the on error activity.
-
-**Call Update Datastream State API**: Make a web API call to update the state of the stream to Start Copy, on successful call start the copy activity to copy measurement files to the datastream location. On failure move to the on error activity.
-
-**Copy Measurement Files**: [Azure Batch](/azure/batch/) is used to copy measurement files from Landing storage account to Raw storage account. [Azure Data Factory](/azure/data-factory/introduction) pipeline invokes [Azure Batch](/azure/batch/) for copying a measurement. Copy module of orchestrator app creates following Copy job with following tasks for each measurement:
-
-- Copy measurement files to Raw storage account
-- Copy measurement files to Archive storage account
-- Remove measurement files from Landing storage account
+**Call the create measurement API**: A web API call is made to the API that creates a measurement, and the JSON payload from the measurement manifest JSON file is passed to the API. If the call succeeds, the response is parsed to retrieve the measurement ID. If the call fails, the sequence moves to the error handling step.
 
 > [!NOTE]
-> [Azure Batch](/azure/batch/) makes use of orchestrator pool for copying data and AzCopy tool is used for copying and removing data based on above tasks. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in keyvault and are referenced via "landingsaskey", "archivesaskey" and "rawsaskey"
+> This DataOps solution is built on the assumption that you limit the number of requests to the app service. If your solution might make an indeterminate number of requests, consider a [rate limiting pattern](/azure/architecture/patterns/rate-limiting-pattern).
 
-**Call Update Datastream State API**: Make a web api call to update the state of the stream to Copy Complete, on successful call move to the next activity to delete measurement from the landing zone. On failure move to the on error activity.
+**Call the create datastream API**: A web API call is made to the API that creates a datastream by creating the required JSON payload. If the call succeeds, the response is parsed to retrieve the datastream ID and the datastream location. If the call fails, the sequence moves to the error handling step.
 
-**Move Measurement To Landing Archive**: This activity moves the measurement files from landing storage account to Landing Archive. This helps to rerun a particular measurement by moving it back to Landing storage account via hydrate copy pipeline. Life cycle management is enabled on this zone to automatically delete or archive measurements from this zone.
+**Call the update datastream state API**: A web API call is made to update the state of the stream to `Start Copy`. If the call succeeds, the copy activity copies measurement files to the datastream location. If the call fails, the sequence moves to the error handling step.
 
-**On-Error**: In this activity, measurements are moved to Error Zone where from it can be rerun by moving it to landing storage account.  Alternatively, it can be auto deleted/archived by life cycle management.
+**Copy the measurement files**: [Azure Batch](/azure/batch/) is used to copy the measurement files from the landing storage account to the raw storage account. An [Azure Data Factory](/azure/data-factory/introduction) pipeline invokes [Azure Batch](/azure/batch/) for copying a measurement. A copy module of an orchestrator app creates a job with the following tasks for each measurement:
 
-**Notes**:
-- These pipelines are triggered based on a schedule, as it helps in better traceability of pipeline runs and avoid unnecessary pipeline runs.
-- Pipeline is configured with concurrency set to 1 to make sure previous run is completed before the next scheduled run.
-- Pipeline is configured to copy measurements in parallel, e.g if scheduled run picked up 10 measurements to copy, then the previous sequence of steps can be run concurrently for all the measurements.
-- Pipeline is configured to emit a metric in Azure monitor if the pipeline takes more than expected time to complete. 
-- On-Error activity is implemented in later observability stories.
-- Lifecycle Management automatically deletes partial measurements.  As an example, partial measurements that have missing Rosbag files.
+- Copy the measurement files to the raw storage account.
+- Copy the measurement files to the archive storage account.
+- Remove the measurement files from the landing storage account.
 
-##### Batch Design
+> [!NOTE]
+> [Azure Batch](/azure/batch/) makes use of an orchestrator pool for copying data. The AzCopy tool is used for copying and removing data based on the previously mentioned tasks. AzCopy uses SAS tokens to perform copy or removal tasks. SAS tokens are stored in a key vault and are referenced by using `landingsaskey`, `archivesaskey`, and `rawsaskey`.
 
-All the extraction logic is packaged in different container images based on the extraction processes. [Azure Batch](/azure/batch/) runs those container workloads in parallel for the extraction of measurement files.
+**Call the update datastream state API**: A web API call is made to update the state of the stream to `Copy Complete`. If the call succeeds, the sequence proceeds to the next activity. If the call fails, the sequence moves to the error handling step.
+
+**Move the measurement to a landing archive**: The measurement files are moved from the landing storage account to a landing archive. This step helps to rerun a particular measurement by moving it back to the landing storage account via a hydrate copy pipeline. Life cycle management is turned on for this zone so that measurements in this zone are automatically deleted or archived.
+
+**Handle errors**: If an error occurred with a measurement, the measurement is moved to an error zone. From there, it can be moved to the landing storage account to be rerun. Alternatively, it can be automatically deleted or archived by life cycle management.
+
+Note the following points:
+
+- These pipelines are triggered based on a schedule. This approach helps to improve the traceability of pipeline runs and to avoid unnecessary runs.
+- Each pipeline is configured with the concurrency set to one to make sure any previous runs finish before the next scheduled run starts.
+- Each pipeline is configured to copy measurements in parallel. For instance, if a scheduled run picks up 10 measurements to copy, the previous sequence of steps can be run concurrently for all the measurements.
+- Each pipeline is configured to generate an alert in Azure Monitor if the pipeline takes longer than the expected time to finish.
+- The error handling step is implemented in later observability stories.
+- Lifecycle management automatically deletes partial measurements, for example, measurements with missing ROS bag files.
+
+#### Batch design
+
+All extraction logic is packaged in different container images, with one container for each extraction process. [Azure Batch](/azure/batch/) runs the container workloads in parallel when it extracts information from measurement files.
 
 :::image type="content" source="images/azure-batch-design.png" alt-text="Diagram that shows Batch Design" border="false" lightbox="images/azure-batch-design.png":::
-In [Azure Batch](/azure/batch/) two batch pools, an orchestrator pool(non container) and an execution pool(container based) are used for processing workloads. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads for the topic extractions. Here's the design for batch processing:
 
-- **Orchestrator Pool**: This pool has linux nodes without container runtime support.  The pool runs a python code that utilizes [Azure Batch](/azure/batch/) API to create jobs and tasks for the execution pool.  The pool also monitors those tasks. [Azure Data Factory](https://azure.microsoft.com/products/data-factory) triggers this pool with the required configurations. 
-- **Execution Pool** : This pool has linux nodes with container run time to support running container workloads. For this pool, jobs and tasks are scheduled via the orchestrator pool.
+[Azure Batch](/azure/batch/) uses an orchestrator pool and an execution pool for processing workloads:
 
-**NFS Mounts**
-Storage accounts from which data are to be read and written are mounted via NFS 3.0 on to the batch nodes and the containers running on the nodes. Doing so helps batch nodes/containers to process data quickly without downloading the data files locally on to the batch nodes.
+- An orchestrator pool has Linux nodes without container runtime support. The pool runs Python code that uses the [Azure Batch](/azure/batch/) API to create jobs and tasks for the execution pool. This pool also monitors those tasks. [Azure Data Factory](/azure/data-factory/introduction) invokes the orchestrator pool, which orchestrates the container workloads that extract data.
+- An execution pool has Linux nodes with container run times to support running container workloads. For this pool, jobs and tasks are scheduled via the orchestrator pool.
+
+Storage accounts that data is read from and written to are mounted via NFS 3.0 on to the batch nodes and the containers that run on the nodes. This approach helps batch nodes and containers process data quickly without having to download the data files locally to the batch nodes.
 
 > [!NOTE]
-> Batch and Storage account need to be in the same vnet for mounting. 
+> The batch and storage accounts need to be in the same virtual network for mounting.
 
-##### Invoking Azure Batch From ADF
+#### Invoke Azure Batch From Data Factory
 
-In the extraction pipeline, the trigger passes the path of the metadata file and the raw data stream path to the pipeline parameters. [Azure Data Factory](/azure/data-factory/introduction) uses the Lookup activity to parse the json from manifest file and raw datastream ID can be parsed from the raw data stream path by parsing the pipeline variable.
+In the extraction pipeline, the trigger passes the path of the metadata file and the raw data stream path to the pipeline parameters. [Azure Data Factory](/azure/data-factory/introduction) uses a Lookup activity to parse the JSON from the manifest file. The raw datastream ID can be parsed from the raw data stream path by parsing the pipeline variable.
 
-[Azure Data Factory](/azure/data-factory/introduction) calls web activity to create a new datastream by calling the create datastream API. The create data stream api returns the path for the extracted datastream. The extracted path will be added to the current object and [Azure Data Factory](/azure/data-factory/introduction) will invoke the Azure batch via Custom Activity by passing the current object after appending the extracted datastream path:
+[Azure Data Factory](/azure/data-factory/introduction) calls the create datastream API. The API returns the path for the extracted datastream. The extracted path is added to the current object, and [Azure Data Factory](/azure/data-factory/introduction) invokes Azure Batch via a custom activity by passing the current object, after appending the extracted datastream path:
 
 ```json
 {
@@ -244,7 +234,7 @@ These considerations implement the pillars of the Azure Well-Architected Framewo
 
 Reliability ensures your application can meet the commitments you make to your customers. For more information, see [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview).
 
-* [Azure availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones)  are unique physical locations within the same Azure region.
+- [Azure availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones)  are unique physical locations within the same Azure region.
 * Plan for disaster recovery and account [failover](https://learn.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json)
 
 ### Security
@@ -300,8 +290,8 @@ Other contributors:
 
 ## Related resources
 
-* [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
-* [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
-* [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
+- [AVOps design guide](../../guide/machine-learning/avops-design-guide.md)
+- [Data analytics for automotive test fleets](../../industries/automotive/automotive-telemetry-analytics.yml)
+- [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Building blocks for autonomous-driving simulation environments](../../industries/automotive/building-blocks-autonomous-driving-simulation-environments.yml)
 - [Process real-time vehicle data using IoT](../data/realtime-analytics-vehicle-iot.yml)
