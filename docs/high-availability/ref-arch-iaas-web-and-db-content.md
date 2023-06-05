@@ -2,9 +2,9 @@ This solution provides best practices for applying availability zones to a web a
 
 ## Architecture
 
-:::image type="content" source="images/ref-arch-iaas.svg" alt-text="Architecture diagram that shows virtual machines that host web apps and SQL Server databases and are spread over three zones." lightbox="images/ref-arch-iaas.svg":::
+:::image type="content" source="images/ref-arch-iaas.svg" alt-text="Architecture diagram that shows virtual machines that host web apps and SQL Server databases and are spread over three zones." lightbox="images/ref-arch-iaas.svg" border="false":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/ref-arch-iaas.vsdx) of all diagrams in this article.*
+*Download a [Visio file](https://arch-center.azureedge.net/reference-architecture-iaas.vsdx) of this architecture.*
 
 ### Workflow
 
