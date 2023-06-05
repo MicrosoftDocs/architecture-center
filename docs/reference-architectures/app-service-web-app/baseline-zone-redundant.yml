@@ -1,7 +1,7 @@
 ### YamlMime:Architecture
 metadata:
   title: Baseline highly available zone-redundant app services web application
-  description: A baseline reference architecture for a network secured, highly-available, and zone-redundant App Service web application.
+  description: A baseline reference architecture for a network secured, highly available, and zone-redundant App Service web application.
   author: robbagby
   ms.author: robbag
   ms.date: 5/16/2023

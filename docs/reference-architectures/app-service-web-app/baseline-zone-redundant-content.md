@@ -22,7 +22,7 @@ This article provides a baseline architecture for running web applications on Az
 - [Azure Monitor](https://azure.microsoft.com/products/monitor/) is a monitoring service that collects, analyzes, and acts on telemetry data across your deployment. 
 - [Azure virtual network](https://azure.microsoft.comproducts/virtual-network/) is a service that enables you to create isolated and secure private virtual networks in Azure. For a web application on App Service, you need a virtual network subnet to use private endpoints for network-secure communication between resources.
 - [Private Link](https://azure.microsoft.com/products/private-link/) makes it possible for clients to access Azure platform as a service (PaaS) services directly from private virtual networks without using public IP addressing.
-- [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully-qualified domain name (FQDN) to the private IP address of a private endpoint.
+- [Azure DNS](https://azure.microsoft.com/services/dns) is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure. Private DNS zones provide a way to map a service's fully qualified domain name (FQDN) to the private IP address of a private endpoint.
 - [Azure SQL Database](/azure/azure-sql/) is a managed relational database service for relational data.
 
 ## Networking
@@ -88,7 +88,7 @@ Consider the following points when implementing virtual network integration and 
 
 ### Virtual network segmentation and security
 
-The network in this architecture has separate subnets for the Application Gateway, App Service integration components, and private endpoints. Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The tables gives the rule name and function.
+The network in this architecture has separate subnets for the Application Gateway, App Service integration components, and private endpoints. Each subnet has a network security group that limits both inbound and outbound traffic for those subnets to just what is required. The following table shows a simplified view of the NSG rules the baseline adds to each subnet. The table gives the rule name and function.
 
 | Subnet   | Inbound | Outbound |
 | -------  | ---- | ---- |
@@ -191,7 +191,7 @@ In the baseline architecture, data in transit is encrypted from the user to the 
 :::image-end:::
 
 1. The user sends an HTTPS request to the web app.
-1. The HTTPS request reaches the the application gateway.
+1. The HTTPS request reaches the application gateway.
 1. The application gateway uses a certificate (X.509) in Key Vault to create a secure TLS connection with the user's web browser. The application gateway decrypts the HTTPS request so the web application firewall can inspect it.
 1. The application gateway creates a TLS connection with App Service to re-encrypt the user request. App Service provides native support for HTTPS, so you don’t need to add a certificate to App Service. The application gateway sends the encrypted traffic to App Service. App Service decrypts the traffic, and the web app processes the request.
 
@@ -321,7 +321,7 @@ App Service has built-in and integrated monitoring tools that you should enable 
 ## Database
 
 - User database Insights. For Azure SQL databases, you should configure [SQL Insights in Azure Monitor](/azure/azure-sql/database/sql-insights-overview). Database Insights uses dynamic management views to expose the data that you need to monitor health, diagnose problems, and tune performance. For more information, see [Monitoring Azure SQL Database with Azure Monitor.](/azure/azure-sql/database/monitoring-sql-database-azure-monitor?view=azuresql)
-- If your architecture includes CosmosDB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
+- If your architecture includes Cosmos DB, you don't need to enable or configure anything to use [Cosmos DB insights](/azure/cosmos-db/insights-overview).
 
 ## Governance
 
