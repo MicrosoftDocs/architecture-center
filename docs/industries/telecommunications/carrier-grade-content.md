@@ -26,7 +26,7 @@ Multiple clients can connect to the workload using various protocols. They can b
 
 ## Architecture
 
-![Diagram showing the physical architecture of a carrier-grade solution](./images/carrier-grade-architecture.png)
+:::image type="content" source="./images/carrier-grade-architecture.svg" alt-text="Diagram showing the physical architecture of a carrier-grade solution." lightbox="./images/carrier-grade-architecture.png":::
 
 The workload is hosted in Azure infrastructure and several Azure services participate in processing requests and providing the service functionality. The components of this architecture can be broadly categorized as follows. For product documentation about Azure services, see [Related resources](#related-resources).
 
@@ -118,7 +118,7 @@ This implementation has a health model in place to make sure client requests are
 
 ## Traffic management
 
-![Diagram showing the logical architecture of a carrier-grade solution](./images/carrier-grade-traffic.svg)
+:::image type="content" source="./images/carrier-grade-traffic.svg" alt-text="Diagram showing the logical architecture of a carrier-grade solution." lightbox="./images/carrier-grade-traffic.png":::
 
 The application is fronted by a traffic management layer, which provides load balancing. Incoming traffic can be categorized based on the type of protocol:
 
@@ -130,13 +130,15 @@ The internal load balancer distributes incoming requests to the stamp pods. The 
 
 ### Reliability considerations 
 
-Azure Traffic Manager is on the critical path for clients. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite SLA target for the system, the Traffic Manager SLA must be considered, and careful attention given to TTL configuration, client retry periods, and so on.
+Azure Traffic Manager is on the critical path for clients. If Traffic Manager is unavailable, the system will appear as offline to the clients. So, when calculating the composite Service Level Agreement (SLA) target for the system, the Traffic Manager SLA must be considered, and careful attention given to TTL configuration, client retry periods, and so on. 
 
 Like Azure Traffic Manager, the gateway is also a single point of failure and thus should be designed with internal redundancy. Failure will impact new client connections and existing clients after the cached DNS entry expires.
 
 If a backend service is unavailable, Traffic Manager and gateway won't update the DNS record until DNS time-to-live (TTL) has expired. So, this time must be short. Clients will continue to reach the last-known address. Use Azure policies to enforce termination of long-running calls or connections that still exist.
 
-Both Traffic Manager and gateway depend on Azure DNS, as a foundational service, to reduce complexity and provide higher Service Level Agreement (SLA). In principle, an Azure DNS outage could lead to a full outage. However Azure DNS is highly redundant with a 100% availability SLA, and clients with existing connections or appropriate caching can continue to operate even if DNS is unavailable for a short period.
+Both Traffic Manager and gateway depend on Azure DNS, as a foundational service, to reduce complexity and provide higher SLA. In principle, an Azure DNS outage could lead to a full outage. Azure DNS is highly available, and clients with existing connections or appropriate caching can continue to operate even if DNS is unavailable for a short period.
+
+For information about SLAs for Azure services, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ### Health monitoring
 
