@@ -6,7 +6,7 @@ This article describes an end-to-end modernization plan for mainframe and midran
 
 :::image source="./media/modernize-mainframe-data.png" alt-text="Architecture diagram that shows how to modernize mainframe and midrange systems by migrating data to Azure." border="false" lightbox="./media/modernize-mainframe-data.png":::
 
-*Download a [Visio file](https://arch-center.azureedge.net/modernize-mainframe-data.vsdx) of this architecture.*
+*Download a [Visio file](https://arch-center.azureedge.net/modernize-mainframe-data-azure.vsdx) of this architecture.*
 
 ### Dataflow
 
@@ -90,7 +90,7 @@ The following dataflow outlines a process for modernizing a mainframe data tier.
 
 #### Compute
 
-- An [integration runtime](/azure/data-factory/concepts-integration-runtime)(IR) is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime) to copy data between cloud data stores and data stores in on-premises networks.
+- An [integration runtime](/azure/data-factory/concepts-integration-runtime) (IR) is the compute infrastructure that Data Factory uses to integrate data across different network environments. Data Factory uses [self-hosted IRs](/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime) to copy data between cloud data stores and data stores in on-premises networks.
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) provides on-demand, scalable computing resources. An Azure virtual machine (VM) provides the flexibility of virtualization but eliminates the maintenance demands of physical hardware. Azure VMs offer a choice of operating systems, including Windows and Linux.
 
 #### Data integrators
@@ -137,17 +137,15 @@ Organizations that use mainframe and midrange systems can benefit from this solu
 ## Considerations
 
 - These considerations implement the pillars of the Azure Well-Architected Framework, a set of guiding tenets that you can use to improve the quality of a workload. For more information, see [Microsoft Azure Well-Architected Framework](/azure/architecture/framework).
-- When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce connection startup time.
+- When you use the Data Provider for Host Files client to convert data, [turn on connection pooling](/host-integration-server/core/data-for-host-files#configuringForPerformance) to reduce the connection startup time.
 - When you use Data Factory to extract data, [tune the performance of the copy activity](/azure/data-factory/copy-activity-performance#performance-tuning-steps).
 
 ### Security
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-Some other factors to consider related to the security of this architecture are:
-
 - Be aware of the differences between on-premises client identities and client identities in Azure. You need to compensate for any differences.
-- Use managed identities for component-to-component data flows.
+- Use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for component-to-component data flows.
 - When you use Data Provider for Host Files to convert data, follow the recommendations in [Data Providers for Host Files security and protection](/host-integration-server/core/data-providers-for-host-files-security-and-protection).
 
 ### Cost optimization
@@ -162,21 +160,19 @@ Cost optimization is about reducing unnecessary expenses and improving operation
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see the [Performance efficiency pillar overview](/azure/well-architected/scalability/overview).
 
-Some other factors to consider related to the performance and efficiency of this architecture are:
-
-- The key pillars of performance efficiency are performance management, capacity planning, scalability, and performance pattern.
-- You can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.
+- The key pillars of performance efficiency are performance management, capacity planning, [scalability](https://azure.microsoft.com/product-categories/databases/), and performance pattern.
+- You can [scale out the self-hosted IR](/azure/data-factory/concepts-integration-runtime#self-hosted-ir-compute-resource-and-scaling) by associating the logical instance with multiple on-premises machines in active-active mode.
 - Azure SQL Database offers the ability to dynamically scale your databases. In a serverless tier, it can automatically scale the compute resources. Elastic Pool, which allows databases to share resources in a pool, can only be scaled manually.
 
 ## Contributors
 
 *This article is maintained by Microsoft. It was originally written by the following contributors.*
 
-Principal author: 
+Principal author:
 
 - [Ashish Khandelwal]( https://www.linkedin.com/in/ashish-khandelwal-839a851a3) | Principal Engineering Architect Manager
 
-Other contributors: 
+Other contributors:
 
 - [Mick Alberts](https://www.linkedin.com/in/mick-alberts-a24a1414) | Technical Writer
 - [Nithish Aruldoss](https://www.linkedin.com/in/nithish-aruldoss-b4035b2b) | Engineering Architect 
