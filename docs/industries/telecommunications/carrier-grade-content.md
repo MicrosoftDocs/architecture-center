@@ -1,7 +1,7 @@
 This architecture provides guidance for designing a carrier-grade solution for a telecommunication use case. The design choices focus on high reliability by minimizing points of failure and ultimately overall downtime using native Azure capabilities. 
 
-> [!TIP] 
-> This architecture is based on the design principles of a carrier-grade workload. We highly recommend that you read [Well-Architected](/azure/architecture/framework/carrier-grade/carrier-grade-get-started) documentation to understand the design choices made in this architecture. 
+> [!IMPORTANT] 
+> This architecture is based on the design principles of a carrier-grade workload. We highly recommend that you read the guidance on [Well-Architected for carrier-grade workloads](/azure/architecture/framework/carrier-grade/carrier-grade-get-started) to understand the design choices made in this architecture. 
 
 ## Use case
 
