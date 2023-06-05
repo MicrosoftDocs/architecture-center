@@ -70,7 +70,7 @@ Application Gateway is a regional resource that meets the requirements of this b
 
 ### Flow from App Services to Azure services
 
-This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) for the App Service, specifically to route traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing* to force all outbound traffic through the virtual network, just traffic bound for private endpoints.
+This architecture uses [virtual network integration](/azure/app-service/overview-vnet-integration) for the App Service, specifically to route traffic to private endpoints through the virtual network. The baseline architecture doesn't enable *all traffic routing* to force all outbound traffic through the virtual network, just internal traffic such as traffic bound for private endpoints.
 
 Azure services that don't require access from the public internet should have private endpoints enabled and public endpoints disabled. Private endpoints are used throughout this architecture to improve security by allowing your App Service to connect to Private Link services directly from your private virtual network without using public IP addressing.
 
@@ -104,7 +104,7 @@ Consider the following points when implementing virtual network segmentation and
 
 ## Reliability  
 
-The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). When one zone experiences downtime, the other zones are unaffected.
+The baseline App Services architecture focuses on zonal redundancy for key regional services. Availability zones are physically separate locations within a region. They provide zonal redundancy for [supporting services](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) when two or more instances are deployed in [supporting regions](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). When one zone experiences downtime, the other zones may still be unaffected.
 
 The architecture also ensures there are enough instances of the Azure services to meet demand. The following sections provide reliability guidance for key services in the architecture. In this way, availability zones help you achieve reliability by providing high availability and fault tolerance.
 
@@ -176,7 +176,7 @@ The baseline App Service architecture focuses on essential security recommendati
 - Use the latest TLS version.
 - [Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security).
 - Use the latest versions of supported platforms, programming languages, protocols, and frameworks.
-
+- [App Service Environment](/azure/app-service/environment/overview) for higher isolation and secure network access
 ### Encryption
 
 A production web app needs to encrypt data in transit using HTTPS. HTTPS protocol relies on Transport Layer Security (TLS) and uses public and private keys for encryption. You need to store a certificate (X.509) in Key Vault and give Application Gateway permission to retrieve the private key. For data at rest, some services automatically encrypt data and others allow you to customize.
